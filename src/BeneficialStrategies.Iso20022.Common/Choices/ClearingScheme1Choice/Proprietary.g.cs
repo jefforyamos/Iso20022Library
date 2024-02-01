@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingScheme1Choice;
 /// <summary>
 /// Nature or use of the account in a proprietary form.
 /// </summary>
-public partial record Proprietary : IClearingScheme1Choice
+public partial record Proprietary : ClearingScheme1Choice_
 {
     #nullable enable
     /// <summary>

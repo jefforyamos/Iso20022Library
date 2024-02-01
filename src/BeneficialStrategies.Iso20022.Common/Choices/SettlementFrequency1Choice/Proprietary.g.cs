@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementFrequency1Choice;
 /// <summary>
 /// Settlement frequency expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISettlementFrequency1Choice
+public partial record Proprietary : SettlementFrequency1Choice_
 {
     #nullable enable
     /// <summary>

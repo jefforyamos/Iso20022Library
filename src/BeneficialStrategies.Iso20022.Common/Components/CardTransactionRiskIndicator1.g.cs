@@ -20,7 +20,7 @@ public partial record CardTransactionRiskIndicator1
     /// <summary>
     /// Reason to indicate a certain level of risk for the transaction.
     /// </summary>
-    public CardTransactionRiskReason1Code? Reason { get; init;  } // Warning: Don't know multiplicity.
+    public CardTransactionRiskReason1Code[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Level of risk, from 1 to 99.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record CardTransactionRiskIndicator1
     /// <summary>
     /// Recommended action for the issuer.
     /// </summary>
-    public ActionType4Code? RecommendedAction { get; init;  } // Warning: Don't know multiplicity.
+    public ActionType4Code[] RecommendedAction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

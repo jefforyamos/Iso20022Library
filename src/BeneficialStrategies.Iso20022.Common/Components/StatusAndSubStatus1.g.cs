@@ -20,7 +20,7 @@ public partial record StatusAndSubStatus1
     /// <summary>
     /// Status expressed as a code.
     /// </summary>
-    public required IStatus13Choice StatusCode { get; init; } 
+    public required Status13Choice_ StatusCode { get; init; } 
     /// <summary>
     /// Sub status expressed as a code.
     /// </summary>

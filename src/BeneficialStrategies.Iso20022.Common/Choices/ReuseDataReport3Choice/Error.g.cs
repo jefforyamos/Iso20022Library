@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReuseDataReport3Choice;
 /// <summary>
 /// Indicates a cancellation of a wrongly submitted entire report in case the contract never came into existence or was not subject to reporting requirements but was reported to a trade repository by mistake.
 /// </summary>
-public partial record Error : IReuseDataReport3Choice
+public partial record Error : ReuseDataReport3Choice_
 {
     #nullable enable
     /// <summary>

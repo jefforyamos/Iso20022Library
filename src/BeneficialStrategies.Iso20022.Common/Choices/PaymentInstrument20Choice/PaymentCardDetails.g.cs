@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument20Choice;
 /// <summary>
 /// Electronic money product that provides the cardholder with a portable and specialised computer device, which typically contains a microprocessor.
 /// </summary>
-public partial record PaymentCardDetails : IPaymentInstrument20Choice
+public partial record PaymentCardDetails : PaymentInstrument20Choice_
 {
     #nullable enable
     /// <summary>

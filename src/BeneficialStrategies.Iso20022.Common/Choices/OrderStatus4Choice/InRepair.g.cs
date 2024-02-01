@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderStatus4Choice;
 /// <summary>
 /// Status of the switch order is in repair.
 /// </summary>
-public partial record InRepair : IOrderStatus4Choice
+public partial record InRepair : OrderStatus4Choice_
 {
     #nullable enable
     #nullable disable

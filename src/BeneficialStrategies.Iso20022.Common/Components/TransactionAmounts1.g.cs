@@ -38,7 +38,7 @@ public partial record TransactionAmounts1
     /// <summary>
     /// Further details of some or all amounts in the transaction amount. 
     /// </summary>
-    public DetailedAmount19? DetailedAmount { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount19[] DetailedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount related to the original transaction.
     /// ISO 8583:87 bit 95

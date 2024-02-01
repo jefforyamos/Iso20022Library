@@ -20,7 +20,7 @@ public partial record CustomerAccount5
     /// <summary>
     /// Identification of the account.
     /// </summary>
-    public IAccountIdentification4Choice? Identification { get; init;  } // Warning: Don't know multiplicity.
+    public AccountIdentification4Choice_[] Identification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record CustomerAccount5
     /// <summary>
     /// Type of the account.
     /// </summary>
-    public ICashAccountType2Choice? Type { get; init; } 
+    public CashAccountType2Choice_? Type { get; init; } 
     /// <summary>
     /// Medium of exchange of value.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record CustomerAccount5
     /// <summary>
     /// Specifies how often statements (for audit purposes) will be sent, in which format, to which address.
     /// </summary>
-    public StatementFrequencyAndForm1? StatementFrequencyAndFormat { get; init;  } // Warning: Don't know multiplicity.
+    public StatementFrequencyAndForm1[] StatementFrequencyAndFormat { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date when the account will be or was closed.
     /// </summary>
@@ -76,7 +76,7 @@ public partial record CustomerAccount5
     /// <summary>
     /// Restriction on capability or operations allowed.
     /// </summary>
-    public Restriction1? Restriction { get; init;  } // Warning: Don't know multiplicity.
+    public Restriction1[] Restriction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

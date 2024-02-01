@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason14Choice;
 /// <summary>
 /// Specifies additional information on the repurchase agreement call request acknowledgement.
 /// </summary>
-public partial record RepoCallAcknowledgementReason : IReason14Choice
+public partial record RepoCallAcknowledgementReason : Reason14Choice_
 {
     #nullable enable
     #nullable disable

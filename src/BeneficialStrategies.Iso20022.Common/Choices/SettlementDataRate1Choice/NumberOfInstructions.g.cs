@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementDataRate1Choice;
 /// <summary>
 /// Specifies the rate of settlement fails, based either on the number of settlement instructions or on the value of settlement instructions, is lower than the ceiling rate as specified in the local regulation.
 /// </summary>
-public partial record NumberOfInstructions : ISettlementDataRate1Choice
+public partial record NumberOfInstructions : SettlementDataRate1Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

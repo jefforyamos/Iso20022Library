@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// <summary>
 /// (United States) Clearing House Interbank Payment System (CHIPS) Participant Identifier (ID) - identifies financial institutions participating on CHIPS. The CHIPS Participant ID is assigned by the New York Clearing House.
 /// </summary>
-public partial record CHIPSParticipantIdentification : IClearingSystemMemberIdentificationChoice
+public partial record CHIPSParticipantIdentification : ClearingSystemMemberIdentificationChoice_
 {
     public required IsoCHIPSParticipantIdentifier Value { get; init; }
 }

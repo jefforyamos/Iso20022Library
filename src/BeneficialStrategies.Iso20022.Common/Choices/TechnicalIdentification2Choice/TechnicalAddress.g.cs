@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TechnicalIdentification2Choice;
 /// <summary>
 /// Technical address of the party is defined in a free text format.
 /// </summary>
-public partial record TechnicalAddress : ITechnicalIdentification2Choice
+public partial record TechnicalAddress : TechnicalIdentification2Choice_
 {
     public required IsoMax256Text Value { get; init; }
 }

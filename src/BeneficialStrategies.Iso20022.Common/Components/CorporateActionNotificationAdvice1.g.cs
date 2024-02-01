@@ -24,7 +24,7 @@ public partial record CorporateActionNotificationAdvice1
     /// <summary>
     /// Provides information about an option of a CA event.
     /// </summary>
-    public CorporateActionOption1? CorporateActionOptionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionOption1[] CorporateActionOptionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

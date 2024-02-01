@@ -91,7 +91,7 @@ public partial record StandingSettlementInstructionDeletionV01 : IOuterRecord
     [DataMember(Name="MktId")]
     [XmlElement(ElementName="MktId")]
     [Required]
-    public required IMarketIdentificationOrCashPurpose1Choice MarketIdentification { get; init; }
+    public required MarketIdentificationOrCashPurpose1Choice_ MarketIdentification { get; init; }
     
     /// <summary>
     /// Settlement information that helps to identify the standing settlement instruction for which the deletion is sent.
@@ -101,7 +101,7 @@ public partial record StandingSettlementInstructionDeletionV01 : IOuterRecord
     [DataMember(Name="SttlmDtls")]
     [XmlElement(ElementName="SttlmDtls")]
     [Required]
-    public required IPartyOrCurrency1Choice SettlementDetails { get; init; }
+    public required PartyOrCurrency1Choice_ SettlementDetails { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

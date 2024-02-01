@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Date1Choice;
 /// <summary>
 /// Date is determined using a data source scheme and a code.
 /// </summary>
-public partial record Proprietary : IDate1Choice
+public partial record Proprietary : Date1Choice_
 {
     #nullable enable
     /// <summary>

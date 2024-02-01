@@ -132,7 +132,7 @@ public partial record LoanMatchingCriteria9
     /// <summary>
     /// Data on amount and interest rates of the transaction.
     /// </summary>
-    public CompareInterestRate1? MarginLoanAttribute { get; init;  } // Warning: Don't know multiplicity.
+    public CompareInterestRate1[] MarginLoanAttribute { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
@@ -144,7 +144,7 @@ public partial record LoanMatchingCriteria9
     /// <summary>
     /// Specifies whether the information on the asset type is matching or not.
     /// </summary>
-    public ISecurityCommodity7Choice? AssetType { get; init; } 
+    public SecurityCommodity7Choice_? AssetType { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
@@ -188,11 +188,11 @@ public partial record LoanMatchingCriteria9
     /// <summary>
     /// Specifies whether the values defined as the adjusted rate are matching or not.
     /// </summary>
-    public ComparePercentageRate3? FloatingRateAdjustment { get; init;  } // Warning: Don't know multiplicity.
+    public ComparePercentageRate3[] FloatingRateAdjustment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the values defined as the Rate Date are matching or not.
     /// </summary>
-    public CompareDate3? FloatingRateAdjustmentDate { get; init;  } // Warning: Don't know multiplicity.
+    public CompareDate3[] FloatingRateAdjustmentDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the values defined as percentage rate are matching or not.
     /// </summary>

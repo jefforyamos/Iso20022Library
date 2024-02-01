@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeConfirmation2Choice;
 /// <summary>
 /// Indicates the type of contract confirmation.
 /// </summary>
-public partial record Confirmed : ITradeConfirmation2Choice
+public partial record Confirmed : TradeConfirmation2Choice_
 {
     #nullable enable
     /// <summary>

@@ -77,7 +77,7 @@ public partial record MeetingInstructionCancellationRequestV04 : IOuterRecord
     [Description(@"Party requesting the cancellation.")]
     [DataMember(Name="RqstngPty")]
     [XmlElement(ElementName="RqstngPty")]
-    public IPartyIdentification9Choice? RequestingParty { get; init; }
+    public PartyIdentification9Choice_? RequestingParty { get; init; }
     
     /// <summary>
     /// Identifies the security for which the meeting is organised.

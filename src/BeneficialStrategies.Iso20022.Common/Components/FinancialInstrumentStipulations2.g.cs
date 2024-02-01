@@ -92,7 +92,7 @@ public partial record FinancialInstrumentStipulations2
     /// <summary>
     /// Indicates the minimum denomination of a security.
     /// </summary>
-    public IFinancialInstrumentQuantityChoice? MinimumDenomination { get; init; } 
+    public FinancialInstrumentQuantityChoice_? MinimumDenomination { get; init; } 
     /// <summary>
     /// Maximum number of time the collateral can be substitute.
     /// </summary>
@@ -100,7 +100,7 @@ public partial record FinancialInstrumentStipulations2
     /// <summary>
     /// Indicates the minimum tradable increments of a security.
     /// </summary>
-    public IFinancialInstrumentQuantityChoice? MinimumIncrement { get; init; } 
+    public FinancialInstrumentQuantityChoice_? MinimumIncrement { get; init; } 
     /// <summary>
     /// Indicates the periodic or regular cycle of interest payments.
     /// </summary>
@@ -108,7 +108,7 @@ public partial record FinancialInstrumentStipulations2
     /// <summary>
     /// Indicates the minimum tradable quantity of a security.
     /// </summary>
-    public IFinancialInstrumentQuantityChoice? MinimumQuantity { get; init; } 
+    public FinancialInstrumentQuantityChoice_? MinimumQuantity { get; init; } 
     /// <summary>
     /// Indicates a search criterion used when looking to buy a bond, particularly an MBS, issued in a particular year.
     /// </summary>

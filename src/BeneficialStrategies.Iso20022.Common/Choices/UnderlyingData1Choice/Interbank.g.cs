@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingData1Choice;
 /// <summary>
 /// Reference details on the original interbank payment transaction.
 /// </summary>
-public partial record Interbank : IUnderlyingData1Choice
+public partial record Interbank : UnderlyingData1Choice_
 {
     #nullable enable
     /// <summary>
@@ -50,6 +50,6 @@ public partial record Interbank : IUnderlyingData1Choice
     /// <summary>
     /// Agreement under which or rules under which the transaction should be processed.
     /// </summary>
-    public IServiceLevel8Choice? OriginalServiceLevel { get; init; } 
+    public ServiceLevel8Choice_? OriginalServiceLevel { get; init; } 
     #nullable disable
 }

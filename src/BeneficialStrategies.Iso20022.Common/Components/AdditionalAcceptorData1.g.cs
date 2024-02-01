@@ -36,7 +36,7 @@ public partial record AdditionalAcceptorData1
     /// <summary>
     /// Contains additional identification information. 
     /// </summary>
-    public AdditionalIdentification1? AdditionalIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalIdentification1[] AdditionalIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains various classifications of business ownership characteristics.
     /// </summary>

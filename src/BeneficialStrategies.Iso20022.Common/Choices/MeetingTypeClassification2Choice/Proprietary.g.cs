@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MeetingTypeClassification2Choice
 /// <summary>
 /// Type of meeting expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IMeetingTypeClassification2Choice
+public partial record Proprietary : MeetingTypeClassification2Choice_
 {
     #nullable enable
     /// <summary>

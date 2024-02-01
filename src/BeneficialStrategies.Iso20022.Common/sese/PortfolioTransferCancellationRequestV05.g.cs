@@ -89,7 +89,7 @@ public partial record PortfolioTransferCancellationRequestV05 : IOuterRecord
     [DataMember(Name="Cxl")]
     [XmlElement(ElementName="Cxl")]
     [Required]
-    public required ICancellation6Choice Cancellation { get; init; }
+    public required Cancellation6Choice_ Cancellation { get; init; }
     
     /// <summary>
     /// Identifies the market practice to which the message conforms.

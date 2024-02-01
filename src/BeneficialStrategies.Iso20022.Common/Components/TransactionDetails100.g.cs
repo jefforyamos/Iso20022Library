@@ -20,7 +20,7 @@ public partial record TransactionDetails100
     /// <summary>
     /// Reference assigned to the trade by the investor or the trading party. This reference will be used throughout the trade life cycle to access/update the trade details.
     /// </summary>
-    public IsoRestrictedFINXMax16Text? TradeIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax16Text[] TradeIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
@@ -72,7 +72,7 @@ public partial record TransactionDetails100
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    public required IQuantity10Choice SettlementQuantity { get; init; } 
+    public required Quantity10Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Total amount of money to be paid or received in exchange for the securities.
     /// </summary>
@@ -80,23 +80,23 @@ public partial record TransactionDetails100
     /// <summary>
     /// Date and time after the settlement date specified in the trade, used for pool trades resulting from the original To Be Assigned (TBA) securities.
     /// </summary>
-    public IDateAndDateTimeChoice? LateDeliveryDate { get; init; } 
+    public DateAndDateTimeChoice_? LateDeliveryDate { get; init; } 
     /// <summary>
     /// Date/time at which the sender expects settlement.
     /// </summary>
-    public IDateAndDateTimeChoice? ExpectedSettlementDate { get; init; } 
+    public DateAndDateTimeChoice_? ExpectedSettlementDate { get; init; } 
     /// <summary>
     /// For against payment transactions, the value date/time at which the Sender expects the settlement amount to be credited or debited.
     /// </summary>
-    public IDateAndDateTimeChoice? ExpectedValueDate { get; init; } 
+    public DateAndDateTimeChoice_? ExpectedValueDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public required ISettlementDate15Choice SettlementDate { get; init; } 
+    public required SettlementDate15Choice_ SettlementDate { get; init; } 
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    public ITradeDate6Choice? TradeDate { get; init; } 
+    public TradeDate6Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Time stamp on when the transaction is acknowledged.
     /// </summary>

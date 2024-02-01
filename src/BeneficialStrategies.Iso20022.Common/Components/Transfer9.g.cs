@@ -36,7 +36,7 @@ public partial record Transfer9
     /// <summary>
     /// Requested date at which the instructing party places the transfer instruction.
     /// </summary>
-    public required IDateFormat1Choice RequestedTransferDate { get; init; } 
+    public required DateFormat1Choice_ RequestedTransferDate { get; init; } 
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record Transfer9
     /// <summary>
     /// Information about the units to be transferred.
     /// </summary>
-    public Unit3? UnitsDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Unit3[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the rounding direction applied to nearest unit.
     /// </summary>

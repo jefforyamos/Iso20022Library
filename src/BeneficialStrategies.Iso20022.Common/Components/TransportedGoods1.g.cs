@@ -28,11 +28,11 @@ public partial record TransportedGoods1
     /// <summary>
     /// Information important for the users of the message/service, which cannot be captured in any other message component/element. For example: Warehouse number.
     /// </summary>
-    public UserDefinedInformation1? BuyerDefinedInformation { get; init;  } // Warning: Don't know multiplicity.
+    public UserDefinedInformation1[] BuyerDefinedInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information important for the users of the message/service, which cannot be captured in any other message component/element. For example: Warehouse number.
     /// </summary>
-    public UserDefinedInformation1? SellerDefinedInformation { get; init;  } // Warning: Don't know multiplicity.
+    public UserDefinedInformation1[] SellerDefinedInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

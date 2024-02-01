@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NetDividendRateFormat36Choice;
 /// <summary>
 /// Number of monetary units specified in a currency.
 /// </summary>
-public partial record Amount : INetDividendRateFormat36Choice
+public partial record Amount : NetDividendRateFormat36Choice_
 {
     public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BookingUnit1Choice;
 /// <summary>
 /// Booking unit is defined using a code.
 /// </summary>
-public partial record Code : IBookingUnit1Choice
+public partial record Code : BookingUnit1Choice_
 {
     public required BookingType1Code Value { get; init; }
 }

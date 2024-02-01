@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity7Choi
 /// <summary>
 /// Amount of money to be invested in a specific financial instrument by an investor before deduction of charges, commissions and taxes and used to determine the quantity of investment fund units to be subscribed.|[(Quantity * Price) + (Charges + Commissions +Taxes)].
 /// </summary>
-public partial record GrossAmount : IFinancialInstrumentQuantity7Choice
+public partial record GrossAmount : FinancialInstrumentQuantity7Choice_
 {
     public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
 }

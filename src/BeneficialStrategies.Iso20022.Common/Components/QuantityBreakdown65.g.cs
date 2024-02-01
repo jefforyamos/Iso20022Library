@@ -24,7 +24,7 @@ public partial record QuantityBreakdown65
     /// <summary>
     /// Quantity of financial instruments that is part of the lot described.
     /// </summary>
-    public IFinancialInstrumentQuantity36Choice? LotQuantity { get; init; } 
+    public FinancialInstrumentQuantity36Choice_? LotQuantity { get; init; } 
     /// <summary>
     /// Specifies the securities sub balance type indicator (example restriction type for a market infrastructure).
     /// </summary>

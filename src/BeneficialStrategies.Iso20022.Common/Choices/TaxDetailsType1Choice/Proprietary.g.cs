@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxDetailsType1Choice;
 /// <summary>
 /// Type of tax applied.
 /// </summary>
-public partial record Proprietary : ITaxDetailsType1Choice
+public partial record Proprietary : TaxDetailsType1Choice_
 {
     #nullable enable
     /// <summary>

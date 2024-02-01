@@ -24,7 +24,7 @@ public partial record ExternalPaymentSystemDetails1
     /// <summary>
     /// List of the clearing schemes.
     /// </summary>
-    public ClearingCircuits1? ClearingCircuits { get; init;  } // Warning: Don't know multiplicity.
+    public ClearingCircuits1[] ClearingCircuits { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

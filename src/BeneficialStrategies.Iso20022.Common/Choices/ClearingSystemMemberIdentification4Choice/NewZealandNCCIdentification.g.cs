@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// <summary>
 /// New Zealand Bank/Branch Code - identifies New Zealand institutions on the New Zealand national clearing system. The code is assigned by the New Zealand Bankers' Association (NZBA).
 /// </summary>
-public partial record NewZealandNCCIdentification : IClearingSystemMemberIdentification4Choice
+public partial record NewZealandNCCIdentification : ClearingSystemMemberIdentification4Choice_
 {
     public required IsoNewZealandNCCIdentifier Value { get; init; }
 }

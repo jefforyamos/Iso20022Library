@@ -28,7 +28,7 @@ public partial record TradeParty2
     /// <summary>
     /// Entity involved in an activity.
     /// </summary>
-    public TaxParty3? TaxParty { get; init;  } // Warning: Don't know multiplicity.
+    public TaxParty3[] TaxParty { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

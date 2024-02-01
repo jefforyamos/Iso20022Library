@@ -72,7 +72,7 @@ public partial record MarginCallDisputeNotificationV05 : IOuterRecord
     [DataMember(Name="DsptNtfctn")]
     [XmlElement(ElementName="DsptNtfctn")]
     [Required]
-    public required IDisputeNotification2Choice DisputeNotification { get; init; }
+    public required DisputeNotification2Choice_ DisputeNotification { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

@@ -20,7 +20,7 @@ public partial record GovernanceRules1
     /// <summary>
     /// Identification of the governance rules.
     /// </summary>
-    public required IGovernanceIdentification1Choice RuleIdentification { get; init; } 
+    public required GovernanceIdentification1Choice_ RuleIdentification { get; init; } 
     /// <summary>
     /// Law applicable to the undertaking.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record GovernanceRules1
     /// <summary>
     /// Place at or system under which any dispute related to the undertaking is to be resolved, such as court or arbitration. This is also known as 'forum'.
     /// </summary>
-    public Location1? Jurisdiction { get; init;  } // Warning: Don't know multiplicity.
+    public Location1[] Jurisdiction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

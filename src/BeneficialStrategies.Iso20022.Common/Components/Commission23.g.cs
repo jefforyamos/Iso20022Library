@@ -20,11 +20,11 @@ public partial record Commission23
     /// <summary>
     /// Service for which the commission is asked or paid.
     /// </summary>
-    public required ICommissionType3Choice Type { get; init; } 
+    public required CommissionType3Choice_ Type { get; init; } 
     /// <summary>
     /// Basis upon which a commission is charged, for example, flat fee.
     /// </summary>
-    public ICommissionBasis1Choice? Basis { get; init; } 
+    public CommissionBasis1Choice_? Basis { get; init; } 
     /// <summary>
     /// Commission expressed as an amount of money.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record Commission23
     /// <summary>
     /// Party entitled to the amount of money resulting from a commission.
     /// </summary>
-    public IPartyIdentification70Choice? RecipientIdentification { get; init; } 
+    public PartyIdentification70Choice_? RecipientIdentification { get; init; } 
     /// <summary>
     /// Reference to the agreement established between the fund and another party. This element, amongst others, defines the conditions of the commissions.
     /// </summary>

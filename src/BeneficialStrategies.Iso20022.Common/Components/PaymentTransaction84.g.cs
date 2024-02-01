@@ -40,7 +40,7 @@ public partial record PaymentTransaction84
     /// <summary>
     /// Provides detailed information on the cancellation status reason.
     /// </summary>
-    public CancellationStatusReason3? CancellationStatusReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public CancellationStatusReason3[] CancellationStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of money, as provided in the original transaction, to be moved between the debtor and the creditor, before deduction of charges, expressed in the currency, as ordered by the original initiating party.
     /// Usage: This amount has to be transported unchanged through the transaction chain.
@@ -49,7 +49,7 @@ public partial record PaymentTransaction84
     /// <summary>
     /// Date at which the initiating party originally requested the clearing agent to process the payment.
     /// </summary>
-    public IDateAndDateTime2Choice? OriginalRequestedExecutionDate { get; init; } 
+    public DateAndDateTime2Choice_? OriginalRequestedExecutionDate { get; init; } 
     /// <summary>
     /// Date at which the creditor originally requested the collection of the amount of money from the debtor.
     /// </summary>

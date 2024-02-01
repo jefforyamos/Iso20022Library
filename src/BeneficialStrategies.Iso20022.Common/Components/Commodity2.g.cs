@@ -24,7 +24,7 @@ public partial record Commodity2
     /// <summary>
     /// Specifies the type of commodity.
     /// </summary>
-    public required IAssetClassDetailedSubProductType1Choice CommodityType { get; init; } 
+    public required AssetClassDetailedSubProductType1Choice_ CommodityType { get; init; } 
     
     #nullable disable
 }

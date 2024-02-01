@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkCurveName4Choice;
 /// <summary>
 /// International Securities Identification Number (ISIN), when it exists for the reference rate.
 /// </summary>
-public partial record ISIN : IBenchmarkCurveName4Choice
+public partial record ISIN : BenchmarkCurveName4Choice_
 {
     public required IsoISINOct2015Identifier Value { get; init; }
 }

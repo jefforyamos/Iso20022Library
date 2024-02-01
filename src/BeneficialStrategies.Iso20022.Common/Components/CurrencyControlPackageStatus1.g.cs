@@ -28,7 +28,7 @@ public partial record CurrencyControlPackageStatus1
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    public ValidationStatusReason1? StatusReason { get; init;  } // Warning: Don't know multiplicity.
+    public ValidationStatusReason1[] StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the date and time when the status was issued.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record CurrencyControlPackageStatus1
     /// <summary>
     /// Provides the status of the individual records in the package.
     /// </summary>
-    public CurrencyControlRecordStatus1? RecordStatus { get; init;  } // Warning: Don't know multiplicity.
+    public CurrencyControlRecordStatus1[] RecordStatus { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

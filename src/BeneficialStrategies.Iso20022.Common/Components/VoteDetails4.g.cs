@@ -20,11 +20,11 @@ public partial record VoteDetails4
     /// <summary>
     /// Vote instructions for the resolutions that are announced via the meeting agenda in advance of the meeting.
     /// </summary>
-    public required IVote13Choice VoteInstructionForAgendaResolution { get; init; } 
+    public required Vote13Choice_ VoteInstructionForAgendaResolution { get; init; } 
     /// <summary>
     /// Vote instructions for the resolutions that may arise at the meeting but were not previously provided in the agenda.
     /// </summary>
-    public IVoteInstructionForMeetingResolution3Choice? VoteInstructionForMeetingResolution { get; init; } 
+    public VoteInstructionForMeetingResolution3Choice_? VoteInstructionForMeetingResolution { get; init; } 
     
     #nullable disable
 }

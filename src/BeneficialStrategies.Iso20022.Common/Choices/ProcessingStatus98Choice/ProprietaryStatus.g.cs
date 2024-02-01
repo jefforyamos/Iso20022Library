@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus98Choice;
 /// <summary>
 /// Provides a proprietary status and a proprietary reason of the processing status of the trade.
 /// </summary>
-public partial record ProprietaryStatus : IProcessingStatus98Choice
+public partial record ProprietaryStatus : ProcessingStatus98Choice_
 {
     #nullable enable
     /// <summary>

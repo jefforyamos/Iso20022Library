@@ -20,27 +20,27 @@ public partial record AcceptorConfigurationContent3
     /// <summary>
     /// Acceptor parameters dedicated to an acquirer protocol.
     /// </summary>
-    public AcquirerProtocolParameters6? AcquirerProtocolParameters { get; init;  } // Warning: Don't know multiplicity.
+    public AcquirerProtocolParameters6[] AcquirerProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to the merchant.
     /// </summary>
-    public IsoMax10000Binary? MerchantParameters { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax10000Binary[] MerchantParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Manufacturer configuration parameters of the point of interaction.
     /// </summary>
-    public PaymentTerminalParameters1? TerminalParameters { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentTerminalParameters1[] TerminalParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to a payment application of the point of interaction.
     /// </summary>
-    public ApplicationParameters3? ApplicationParameters { get; init;  } // Warning: Don't know multiplicity.
+    public ApplicationParameters3[] ApplicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to the communication with an acquirer host.
     /// </summary>
-    public HostCommunicationParameter2? HostCommunicationParameters { get; init;  } // Warning: Don't know multiplicity.
+    public HostCommunicationParameter2[] HostCommunicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Point of interaction parameters related to the security of software application and application protocol.
     /// </summary>
-    public SecurityParameters2? SecurityParameters { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityParameters2[] SecurityParameters { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

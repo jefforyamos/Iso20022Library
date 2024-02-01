@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReversalReason3Choice;
 /// <summary>
 /// Reason for the reversal in a coded form.
 /// </summary>
-public partial record Code : IReversalReason3Choice
+public partial record Code : ReversalReason3Choice_
 {
     public required TransactionReversalReason2Code Value { get; init; }
 }

@@ -32,7 +32,7 @@ public partial record TransactionVerificationResult1
     /// <summary>
     /// Product code for which the authorisation was declined.
     /// </summary>
-    public IsoMax70Text? DeclinedProductCode { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] DeclinedProductCode { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

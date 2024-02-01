@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementBasisCodeAndDSSCodeChoi
 /// <summary>
 /// Statement basis expressed as a data source scheme and a code used within the data source scheme.
 /// </summary>
-public partial record StatementBasisAsDSS : IStatementBasisCodeAndDSSCodeChoice
+public partial record StatementBasisAsDSS : StatementBasisCodeAndDSSCodeChoice_
 {
     #nullable enable
     /// <summary>

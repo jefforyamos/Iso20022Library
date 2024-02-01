@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ApplicableRules1Choice;
 /// <summary>
 /// Applicable rules expressed as a code.
 /// </summary>
-public partial record Code : IApplicableRules1Choice
+public partial record Code : ApplicableRules1Choice_
 {
     public required ApplicableRules1Code Value { get; init; }
 }

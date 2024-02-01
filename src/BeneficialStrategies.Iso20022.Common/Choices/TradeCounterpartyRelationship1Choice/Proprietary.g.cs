@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeCounterpartyRelationship1Ch
 /// <summary>
 /// Classification of the party relationship using a proprietary identification scheme.
 /// </summary>
-public partial record Proprietary : ITradeCounterpartyRelationship1Choice
+public partial record Proprietary : TradeCounterpartyRelationship1Choice_
 {
     public required IsoMax100Text Value { get; init; }
 }

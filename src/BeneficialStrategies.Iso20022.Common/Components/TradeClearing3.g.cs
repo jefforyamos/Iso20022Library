@@ -24,7 +24,7 @@ public partial record TradeClearing3
     /// <summary>
     /// Indicates whether clearing of contract has taken place.
     /// </summary>
-    public ICleared9Choice? ClearingStatus { get; init; } 
+    public Cleared9Choice_? ClearingStatus { get; init; } 
     /// <summary>
     /// Indicates whether the contract was entered into as an intragroup transaction.
     /// Usage: When absent, default value is false.

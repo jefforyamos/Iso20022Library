@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceFormat16Choice;
 /// <summary>
 /// Provide not eligible balance information in different formats.
 /// </summary>
-public partial record NotEligibleBalance : IBalanceFormat16Choice
+public partial record NotEligibleBalance : BalanceFormat16Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record NotEligibleBalance : IBalanceFormat16Choice
     /// <summary>
     /// Quantity of security.
     /// </summary>
-    public required IFinancialInstrumentQuantity36Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity36Choice_ Quantity { get; init; } 
     #nullable disable
 }

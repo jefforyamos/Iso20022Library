@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AwaitingCancellationReason2Choic
 /// <summary>
 /// Specifies the reason why the instruction has been alleged.
 /// </summary>
-public partial record Code : IAwaitingCancellationReason2Choice
+public partial record Code : AwaitingCancellationReason2Choice_
 {
     public required AwaitingCancellationReason1Code Value { get; init; }
 }

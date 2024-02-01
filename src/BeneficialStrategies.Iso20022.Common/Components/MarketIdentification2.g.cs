@@ -20,11 +20,11 @@ public partial record MarketIdentification2
     /// <summary>
     /// Specifies the type of market.
     /// </summary>
-    public required IMarketTypeFormat1Choice Type { get; init; } 
+    public required MarketTypeFormat1Choice_ Type { get; init; } 
     /// <summary>
     /// Identifies the market.
     /// </summary>
-    public IMarketIdentification1Choice? Identification { get; init; } 
+    public MarketIdentification1Choice_? Identification { get; init; } 
     
     #nullable disable
 }

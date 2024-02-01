@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType5Choice;
 /// <summary>
 /// Addition of information to the securities transaction.
 /// </summary>
-public partial record Addition : IUpdateType5Choice
+public partial record Addition : UpdateType5Choice_
 {
     #nullable enable
     /// <summary>

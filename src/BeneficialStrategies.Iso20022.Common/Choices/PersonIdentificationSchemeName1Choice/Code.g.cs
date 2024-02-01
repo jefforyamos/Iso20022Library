@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonIdentificationSchemeName1C
 /// <summary>
 /// Name of the identification scheme, in a coded form as published in an external list.
 /// </summary>
-public partial record Code : IPersonIdentificationSchemeName1Choice
+public partial record Code : PersonIdentificationSchemeName1Choice_
 {
     public required ExternalPersonIdentification1Code Value { get; init; }
 }

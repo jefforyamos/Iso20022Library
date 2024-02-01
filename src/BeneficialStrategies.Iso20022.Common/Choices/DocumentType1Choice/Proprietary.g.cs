@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DocumentType1Choice;
 /// <summary>
 /// Document type, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IDocumentType1Choice
+public partial record Proprietary : DocumentType1Choice_
 {
     #nullable enable
     /// <summary>

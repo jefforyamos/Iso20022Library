@@ -20,15 +20,15 @@ public partial record Document10
     /// <summary>
     /// Type of document.
     /// </summary>
-    public required IUndertakingDocumentType2Choice DocumentType { get; init; } 
+    public required UndertakingDocumentType2Choice_ DocumentType { get; init; } 
     /// <summary>
     /// Channel through which the document should be presented.
     /// </summary>
-    public IChannel1Choice? PresentationChannel { get; init; } 
+    public Channel1Choice_? PresentationChannel { get; init; } 
     /// <summary>
     /// Format of the document.
     /// </summary>
-    public IDocumentFormat1Choice? DocumentFormat { get; init; } 
+    public DocumentFormat1Choice_? DocumentFormat { get; init; } 
     /// <summary>
     /// Indication whether the document may be a copy of the original document.
     /// </summary>

@@ -101,7 +101,7 @@ public partial record ReturnTransactionV10 : IOuterRecord
     [DataMember(Name="RptOrErr")]
     [XmlElement(ElementName="RptOrErr")]
     [Required]
-    public required ITransactionReportOrError6Choice ReportOrError { get; init; }
+    public required TransactionReportOrError6Choice_ ReportOrError { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

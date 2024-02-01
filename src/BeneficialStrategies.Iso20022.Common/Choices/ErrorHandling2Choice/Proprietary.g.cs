@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ErrorHandling2Choice;
 /// <summary>
 /// Specification of the error, in free format.
 /// </summary>
-public partial record Proprietary : IErrorHandling2Choice
+public partial record Proprietary : ErrorHandling2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

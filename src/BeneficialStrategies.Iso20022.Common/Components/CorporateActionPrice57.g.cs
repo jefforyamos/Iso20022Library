@@ -20,11 +20,11 @@ public partial record CorporateActionPrice57
     /// <summary>
     /// Maximum or cap price at which a holder can bid, for example, on a Dutch auction offer.
     /// </summary>
-    public IPriceFormat44Choice? MaximumPrice { get; init; } 
+    public PriceFormat44Choice_? MaximumPrice { get; init; } 
     /// <summary>
     /// Minimum or floor price at which a holder can bid, for example, on a Dutch auction offer.
     /// </summary>
-    public IPriceFormat44Choice? MinimumPrice { get; init; } 
+    public PriceFormat44Choice_? MinimumPrice { get; init; } 
     
     #nullable disable
 }

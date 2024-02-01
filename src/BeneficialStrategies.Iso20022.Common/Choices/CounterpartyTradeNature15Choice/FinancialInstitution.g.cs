@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature15Choice;
 /// <summary>
 /// Indicates that counterparty is a financial institution.
 /// </summary>
-public partial record FinancialInstitution : ICounterpartyTradeNature15Choice
+public partial record FinancialInstitution : CounterpartyTradeNature15Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the nature of the counterparty business activities. 
     /// </summary>
-    public IFinancialPartyClassification2Choice? Sector { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialPartyClassification2Choice_? Sector { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Information whether the counterparty is above the clearing threshold.
     /// Usage: If the element is not present, the ClearingThreshold is False.

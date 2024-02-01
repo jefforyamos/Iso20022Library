@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ResponseStatus9Choice;
 /// <summary>
 /// Specifies the status of the response with a proprietary scheme.
 /// </summary>
-public partial record Proprietary : IResponseStatus9Choice
+public partial record Proprietary : ResponseStatus9Choice_
 {
     #nullable enable
     /// <summary>

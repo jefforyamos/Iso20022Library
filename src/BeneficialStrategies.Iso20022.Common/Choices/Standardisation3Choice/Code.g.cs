@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Standardisation3Choice;
 /// <summary>
 /// Standardisation expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IStandardisation3Choice
+public partial record Code : Standardisation3Choice_
 {
     public required Standardisation1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriorityNumeric4Choice;
 /// <summary>
 /// Specifies the execution priority of the instruction with a proprietary scheme.
 /// </summary>
-public partial record Proprietary : IPriorityNumeric4Choice
+public partial record Proprietary : PriorityNumeric4Choice_
 {
     #nullable enable
     /// <summary>

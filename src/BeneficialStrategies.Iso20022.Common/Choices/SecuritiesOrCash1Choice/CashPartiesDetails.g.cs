@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesOrCash1Choice;
 /// <summary>
 /// Cash settlement chain parties and accounts.
 /// </summary>
-public partial record CashPartiesDetails : ISecuritiesOrCash1Choice
+public partial record CashPartiesDetails : SecuritiesOrCash1Choice_
 {
     #nullable enable
     /// <summary>

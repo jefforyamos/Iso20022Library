@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountOrRate4Choice;
 /// <summary>
 /// Specifies the rate (percentage) which is used to calculate the amount.
 /// </summary>
-public partial record Rate : IAmountOrRate4Choice
+public partial record Rate : AmountOrRate4Choice_
 {
     public required IsoBaseOneRate Value { get; init; }
 }

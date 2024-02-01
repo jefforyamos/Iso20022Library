@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountSchemeName1Choice;
 /// <summary>
 /// Name of the identification scheme, in a free text form.
 /// </summary>
-public partial record Proprietary : IAccountSchemeName1Choice
+public partial record Proprietary : AccountSchemeName1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

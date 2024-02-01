@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status8Choice;
 /// <summary>
 /// Provides the status of allocation of collateral to cover the instruction.
 /// </summary>
-public partial record AllocationStatus : IStatus8Choice
+public partial record AllocationStatus : Status8Choice_
 {
     #nullable enable
     #nullable disable

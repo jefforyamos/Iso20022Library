@@ -24,7 +24,7 @@ public partial record ATMKeyDownloadRequest4
     /// <summary>
     /// Result of a maintenance command performed by the ATM.
     /// </summary>
-    public ATMCommand11? CommandResult { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCommand11[] CommandResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Security command in progress inside which the key download is requested.
     /// </summary>

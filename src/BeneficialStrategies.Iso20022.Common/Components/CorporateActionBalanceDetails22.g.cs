@@ -20,7 +20,7 @@ public partial record CorporateActionBalanceDetails22
     /// <summary>
     /// Balance to which the payment applies (less or equal to the total eligible balance).
     /// </summary>
-    public required IBalanceFormat1Choice ConfirmedBalance { get; init; } 
+    public required BalanceFormat1Choice_ ConfirmedBalance { get; init; } 
     /// <summary>
     /// Total balance of securities eligible for this corporate action event. The entitlement calculation is based on this balance.
     /// </summary>
@@ -28,63 +28,63 @@ public partial record CorporateActionBalanceDetails22
     /// <summary>
     /// Balance of financial instruments that are blocked.
     /// </summary>
-    public IBalanceFormat1Choice? BlockedBalance { get; init; } 
+    public BalanceFormat1Choice_? BlockedBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that have been borrowed from another party.
     /// </summary>
-    public IBalanceFormat1Choice? BorrowedBalance { get; init; } 
+    public BalanceFormat1Choice_? BorrowedBalance { get; init; } 
     /// <summary>
     /// Balance of securities that belong to a third party and that are held for the purpose of collateralisation.
     /// </summary>
-    public IBalanceFormat1Choice? CollateralInBalance { get; init; } 
+    public BalanceFormat1Choice_? CollateralInBalance { get; init; } 
     /// <summary>
     /// Balance of securities that belong to the safekeeping account indicated within this message, and are deposited with a third party for the purpose of collateralisation.
     /// </summary>
-    public IBalanceFormat1Choice? CollateralOutBalance { get; init; } 
+    public BalanceFormat1Choice_? CollateralOutBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that have been loaned to a third party.
     /// </summary>
-    public IBalanceFormat1Choice? OnLoanBalance { get; init; } 
+    public BalanceFormat1Choice_? OnLoanBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that are pending delivery.
     /// </summary>
-    public IBalanceFormat3Choice? PendingDeliveryBalance { get; init;  } // Warning: Don't know multiplicity.
+    public BalanceFormat3Choice_[] PendingDeliveryBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Balance of financial instruments that are pending receipt.
     /// </summary>
-    public IBalanceFormat3Choice? PendingReceiptBalance { get; init;  } // Warning: Don't know multiplicity.
+    public BalanceFormat3Choice_[] PendingReceiptBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Balance of financial instruments currently being processed by the institution responsible for registering the new beneficial owner (or nominee).
     /// </summary>
-    public IBalanceFormat1Choice? OutForRegistrationBalance { get; init; } 
+    public BalanceFormat1Choice_? OutForRegistrationBalance { get; init; } 
     /// <summary>
     /// Balance of securities representing only settled transactions; pending transactions not included.
     /// </summary>
-    public IBalanceFormat3Choice? SettlementPositionBalance { get; init;  } // Warning: Don't know multiplicity.
+    public BalanceFormat3Choice_[] SettlementPositionBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Balance of financial instruments that remain registered in the name of the prior beneficial owner.
     /// </summary>
-    public IBalanceFormat1Choice? StreetPositionBalance { get; init; } 
+    public BalanceFormat1Choice_? StreetPositionBalance { get; init; } 
     /// <summary>
     /// Balance of securities based on trade date, for example, includes all pending transactions in addition to the balance of settled transactions.
     /// </summary>
-    public IBalanceFormat1Choice? TradeDatePositionBalance { get; init; } 
+    public BalanceFormat1Choice_? TradeDatePositionBalance { get; init; } 
     /// <summary>
     /// Balance of physical securities that are in the process of being transferred from one depository/agent to another.
     /// </summary>
-    public IBalanceFormat1Choice? InTransshipmentBalance { get; init; } 
+    public BalanceFormat1Choice_? InTransshipmentBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that are registered (in the name of a nominee name or of the beneficial owner).
     /// </summary>
-    public IBalanceFormat1Choice? RegisteredBalance { get; init; } 
+    public BalanceFormat1Choice_? RegisteredBalance { get; init; } 
     /// <summary>
     /// Balance that has been affected by the process run through the event.
     /// </summary>
-    public IBalanceFormat1Choice? AffectedBalance { get; init; } 
+    public BalanceFormat1Choice_? AffectedBalance { get; init; } 
     /// <summary>
     /// Balance that has not been affected by the process run through the event.
     /// </summary>
-    public IBalanceFormat1Choice? UnaffectedBalance { get; init; } 
+    public BalanceFormat1Choice_? UnaffectedBalance { get; init; } 
     
     #nullable disable
 }

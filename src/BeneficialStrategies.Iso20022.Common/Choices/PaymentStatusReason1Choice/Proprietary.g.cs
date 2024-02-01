@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReason1Choice;
 /// <summary>
 /// Defines a free text proprietary reason.
 /// </summary>
-public partial record Proprietary : IPaymentStatusReason1Choice
+public partial record Proprietary : PaymentStatusReason1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

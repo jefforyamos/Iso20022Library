@@ -20,7 +20,7 @@ public partial record DiagnosisResponse4
     /// <summary>
     /// Sale Terminal logged to.
     /// </summary>
-    public IsoMax35Text? LoggedSaleIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] LoggedSaleIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Status of the POI.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record DiagnosisResponse4
     /// <summary>
     /// State of a Host.
     /// </summary>
-    public HostStatus1? HostStatus { get; init;  } // Warning: Don't know multiplicity.
+    public HostStatus1[] HostStatus { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -40,7 +40,7 @@ public partial record OtherCertificateDataSet1
     /// <summary>
     /// Additional and important information that could not be captured by structured fields.
     /// </summary>
-    public IsoMax350Text? CertificateInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax350Text[] CertificateInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

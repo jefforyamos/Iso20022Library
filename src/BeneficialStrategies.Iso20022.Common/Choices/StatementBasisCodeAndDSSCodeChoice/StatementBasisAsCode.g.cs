@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementBasisCodeAndDSSCodeChoi
 /// <summary>
 /// Statement basis expressed as a code.
 /// </summary>
-public partial record StatementBasisAsCode : IStatementBasisCodeAndDSSCodeChoice
+public partial record StatementBasisAsCode : StatementBasisCodeAndDSSCodeChoice_
 {
     public required StatementBasis1Code Value { get; init; }
 }

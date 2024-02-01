@@ -28,7 +28,7 @@ public partial record TradeDateTimeQueryCriteria5
     /// <summary>
     /// Indicates the date when the trade was matured.
     /// </summary>
-    public IDateOrBlankQuery2Choice? MaturityDate { get; init; } 
+    public DateOrBlankQuery2Choice_? MaturityDate { get; init; } 
     /// <summary>
     /// Indicates the date when obligations under the contract come into effect.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record TradeDateTimeQueryCriteria5
     /// <summary>
     /// Indicates the date when the trade was terminated.
     /// </summary>
-    public IDateOrBlankQuery2Choice? ExpirationDate { get; init; } 
+    public DateOrBlankQuery2Choice_? ExpirationDate { get; init; } 
     /// <summary>
     /// Indicates the effective date of the early termination of the reported derivative transaction.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record TradeDateTimeQueryCriteria5
     /// <summary>
     /// Indicates the collateral time stamp range.
     /// </summary>
-    public IDateTimeOrBlankQuery1Choice? CollateralTimeStamp { get; init; } 
+    public DateTimeOrBlankQuery1Choice_? CollateralTimeStamp { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BreakDown1Choice;
 /// <summary>
 /// The intention to pay is based on a commercial invoice.
 /// </summary>
-public partial record ByCommercialInvoice : IBreakDown1Choice
+public partial record ByCommercialInvoice : BreakDown1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity43Choice;
 /// <summary>
 /// Total quantity of securities to be settled.
 /// </summary>
-public partial record Unit : IQuantity43Choice
+public partial record Unit : Quantity43Choice_
 {
     #nullable enable
     /// <summary>

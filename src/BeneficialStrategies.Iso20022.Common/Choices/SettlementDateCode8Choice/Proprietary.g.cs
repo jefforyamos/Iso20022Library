@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementDateCode8Choice;
 /// <summary>
 /// Settlement date expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISettlementDateCode8Choice
+public partial record Proprietary : SettlementDateCode8Choice_
 {
     #nullable enable
     /// <summary>

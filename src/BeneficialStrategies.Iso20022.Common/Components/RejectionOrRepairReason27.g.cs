@@ -20,7 +20,7 @@ public partial record RejectionOrRepairReason27
     /// <summary>
     /// Specifies the reason why the instruction/request has a rejected or repair status.
     /// </summary>
-    public IRejectionAndRepairReason27Choice? Code { get; init;  } // Warning: Don't know multiplicity.
+    public RejectionAndRepairReason27Choice_[] Code { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

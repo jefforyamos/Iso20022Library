@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentAttributes3Ch
 /// <summary>
 /// Identification of a financial instrument admitted to trading.
 /// </summary>
-public partial record Identification : IFinancialInstrumentAttributes3Choice
+public partial record Identification : FinancialInstrumentAttributes3Choice_
 {
     public required IsoISINOct2015Identifier Value { get; init; }
 }

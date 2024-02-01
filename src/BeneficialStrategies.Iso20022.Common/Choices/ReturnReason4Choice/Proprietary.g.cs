@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReturnReason4Choice;
 /// <summary>
 /// Reason for the return not catered for by the available codes.
 /// </summary>
-public partial record Proprietary : IReturnReason4Choice
+public partial record Proprietary : ReturnReason4Choice_
 {
     public required IsoRestrictedRR01SL01CodeText Value { get; init; }
 }

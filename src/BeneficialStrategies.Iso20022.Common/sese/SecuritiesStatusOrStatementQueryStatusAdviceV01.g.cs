@@ -75,7 +75,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV01 : IOuterRe
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public IPartyIdentification13Choice? AccountOwner { get; init; }
+    public PartyIdentification13Choice_? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -93,7 +93,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV01 : IOuterRe
     [Description(@"Details of the request.")]
     [DataMember(Name="StsOrStmtReqd")]
     [XmlElement(ElementName="StsOrStmtReqd")]
-    public IStatusOrStatement1Choice? StatusOrStatementRequested { get; init; }
+    public StatusOrStatement1Choice_? StatusOrStatementRequested { get; init; }
     
     /// <summary>
     /// Provides details on the processing status of the request.
@@ -103,7 +103,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV01 : IOuterRe
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required IProcessingStatus4Choice ProcessingStatus { get; init; }
+    public required ProcessingStatus4Choice_ ProcessingStatus { get; init; }
     
     /// <summary>
     /// Party that originated the message, if other than the sender.
@@ -112,7 +112,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV01 : IOuterRe
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public IPartyIdentification10Choice? MessageOriginator { get; init; }
+    public PartyIdentification10Choice_? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -121,7 +121,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV01 : IOuterRe
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public IPartyIdentification10Choice? MessageRecipient { get; init; }
+    public PartyIdentification10Choice_? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

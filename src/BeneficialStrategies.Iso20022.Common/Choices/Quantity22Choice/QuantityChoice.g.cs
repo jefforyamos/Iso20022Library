@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity22Choice;
 /// <summary>
 /// Choice between different quantity of security formats.
 /// </summary>
-public partial record QuantityChoice : IQuantity22Choice
+public partial record QuantityChoice : Quantity22Choice_
 {
     #nullable enable
     #nullable disable

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneratedStatus1Choice;
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoSpecifiedReason : IGeneratedStatus1Choice
+public partial record NoSpecifiedReason : GeneratedStatus1Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceType7Choice;
 /// <summary>
 /// Account identification.
 /// </summary>
-public partial record Account : IBalanceType7Choice
+public partial record Account : BalanceType7Choice_
 {
     #nullable enable
     /// <summary>

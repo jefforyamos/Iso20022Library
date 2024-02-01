@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityAgricultural5
 /// <summary>
 /// Olive oil agricultural commodity derivative.
 /// </summary>
-public partial record OliveOil : IAssetClassCommodityAgricultural5Choice
+public partial record OliveOil : AssetClassCommodityAgricultural5Choice_
 {
     #nullable enable
     /// <summary>

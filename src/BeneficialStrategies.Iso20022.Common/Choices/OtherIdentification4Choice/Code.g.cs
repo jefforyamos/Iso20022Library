@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OtherIdentification4Choice;
 /// <summary>
 /// Type of identification expressed as a code.
 /// </summary>
-public partial record Code : IOtherIdentification4Choice
+public partial record Code : OtherIdentification4Choice_
 {
     public required PersonIdentificationType6Code Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record AdditionalStatus1
     /// <summary>
     /// Reason advising the rejection of the instruction.
     /// </summary>
-    public required IInstructionRejectionStatus1Choice Reason { get; init; } 
+    public required InstructionRejectionStatus1Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the reason.
     /// </summary>

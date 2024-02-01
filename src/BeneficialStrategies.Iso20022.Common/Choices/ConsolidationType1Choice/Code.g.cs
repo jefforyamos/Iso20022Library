@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConsolidationType1Choice;
 /// <summary>
 /// Consolidation type expressed as a code.
 /// </summary>
-public partial record Code : IConsolidationType1Choice
+public partial record Code : ConsolidationType1Choice_
 {
     public required ConsolidationType1Code Value { get; init; }
 }

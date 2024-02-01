@@ -20,7 +20,7 @@ public partial record CreditDebitAmount1
     /// <summary>
     /// Amount of money expressed in an eligible currency.
     /// </summary>
-    public required IAmount2Choice Amount { get; init; } 
+    public required Amount2Choice_ Amount { get; init; } 
     /// <summary>
     /// Specifies whether the amount of money is a debit or a credit.
     /// </summary>

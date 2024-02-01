@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneralInvestmentAccountType2Cho
 /// <summary>
 /// Type of investment account expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IGeneralInvestmentAccountType2Choice
+public partial record Proprietary : GeneralInvestmentAccountType2Choice_
 {
     #nullable enable
     /// <summary>

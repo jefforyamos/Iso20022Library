@@ -20,11 +20,11 @@ public partial record CollateralParameters11
     /// <summary>
     /// Specifies the type of collateral instruction.
     /// </summary>
-    public required ICollateralTransactionType1Choice CollateralInstructionType { get; init; } 
+    public required CollateralTransactionType1Choice_ CollateralInstructionType { get; init; } 
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the exposure.
     /// </summary>
-    public required IExposureType23Choice ExposureType { get; init; } 
+    public required ExposureType23Choice_ ExposureType { get; init; } 
     /// <summary>
     /// Specifies whether the alleged side is the collateral taker or giver. So it will be the opposite  side of the instruction.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record CollateralParameters11
     /// <summary>
     /// Percentage by which the collateral value sought is increased, in selecting securities for a collateral basket, to reflect the taker's margin requirements.
     /// </summary>
-    public IRateOrType1Choice? ValueSoughtMarginRate { get; init; } 
+    public RateOrType1Choice_? ValueSoughtMarginRate { get; init; } 
     /// <summary>
     /// Number identifying the collateral eligibility set profile of the counterparty.
     /// </summary>

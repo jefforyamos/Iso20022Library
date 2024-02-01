@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RequestType2Choice;
 /// <summary>
 /// Request type is a control command on a set of transactions.
 /// </summary>
-public partial record PaymentControl : IRequestType2Choice
+public partial record PaymentControl : RequestType2Choice_
 {
     public required RequestType1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DisputeNotification1Choice;
 /// <summary>
 /// Provides the dispute notification details for the variation margin and optionaly the segregated independent amount.
 /// </summary>
-public partial record DisputeNotificationDetails : IDisputeNotification1Choice
+public partial record DisputeNotificationDetails : DisputeNotification1Choice_
 {
     #nullable enable
     /// <summary>

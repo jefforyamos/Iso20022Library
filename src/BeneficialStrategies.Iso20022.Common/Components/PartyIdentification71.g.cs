@@ -20,11 +20,11 @@ public partial record PartyIdentification71
     /// <summary>
     /// Unique identification of the party.
     /// </summary>
-    public required IPartyIdentification40Choice Identification { get; init; } 
+    public required PartyIdentification40Choice_ Identification { get; init; } 
     /// <summary>
     /// Ancillary identification information about the party.
     /// </summary>
-    public IPartyAdditionalIdentification2Choice? AdditionalIdentificationInformation { get; init; } 
+    public PartyAdditionalIdentification2Choice_? AdditionalIdentificationInformation { get; init; } 
     
     #nullable disable
 }

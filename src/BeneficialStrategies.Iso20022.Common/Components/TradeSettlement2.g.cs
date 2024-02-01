@@ -56,11 +56,11 @@ public partial record TradeSettlement2
     /// <summary>
     /// Calculated tax subtotal.
     /// </summary>
-    public SettlementSubTotalCalculatedTax2? SubTotalCalculatedTax { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementSubTotalCalculatedTax2[] SubTotalCalculatedTax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details of each early payment discount.
     /// </summary>
-    public EarlyPayment1? EarlyPayments { get; init;  } // Warning: Don't know multiplicity.
+    public EarlyPayment1[] EarlyPayments { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

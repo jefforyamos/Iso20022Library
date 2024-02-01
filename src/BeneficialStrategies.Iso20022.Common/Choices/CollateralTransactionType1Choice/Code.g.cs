@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralTransactionType1Choice
 /// <summary>
 /// Specifies the type of collateral instruction as a code.
 /// </summary>
-public partial record Code : ICollateralTransactionType1Choice
+public partial record Code : CollateralTransactionType1Choice_
 {
     public required CollateralTransactionType1Code Value { get; init; }
 }

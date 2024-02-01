@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentOrigin1Choice;
 /// <summary>
 /// Specifies that the payment was included in a SWIFT XML message.
 /// </summary>
-public partial record XMLMessageName : IPaymentOrigin1Choice
+public partial record XMLMessageName : PaymentOrigin1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

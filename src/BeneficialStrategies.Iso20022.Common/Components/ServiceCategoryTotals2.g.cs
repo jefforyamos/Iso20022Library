@@ -20,7 +20,7 @@ public partial record ServiceCategoryTotals2
     /// <summary>
     /// Unique identification of an securities account or cash account belonging to billed customer.
     /// </summary>
-    public IAccountIdentification38Choice? AccountIdentification { get; init; } 
+    public AccountIdentification38Choice_? AccountIdentification { get; init; } 
     /// <summary>
     /// BIC of the party which is invoiced by the CSD/NCB.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record ServiceCategoryTotals2
     /// <summary>
     /// Specifies totals related to the invoice.
     /// </summary>
-    public ServiceItemTotals1? ServiceItemTotals { get; init;  } // Warning: Don't know multiplicity.
+    public ServiceItemTotals1[] ServiceItemTotals { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

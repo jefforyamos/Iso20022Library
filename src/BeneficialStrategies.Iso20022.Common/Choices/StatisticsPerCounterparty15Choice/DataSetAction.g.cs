@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty15Choic
 /// <summary>
 /// Where no reporting data are available, this field should be set so that a valid reference data file can be submitted to the competent authority as per submission requirements.
 /// </summary>
-public partial record DataSetAction : IStatisticsPerCounterparty15Choice
+public partial record DataSetAction : StatisticsPerCounterparty15Choice_
 {
     public required ReportPeriodActivity1Code Value { get; init; }
 }

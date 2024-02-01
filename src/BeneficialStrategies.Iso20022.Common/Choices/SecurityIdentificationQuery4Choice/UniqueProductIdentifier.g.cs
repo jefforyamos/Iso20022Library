@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentificationQuery4Choi
 /// <summary>
 /// Identification through a unique product identifier.
 /// </summary>
-public partial record UniqueProductIdentifier : ISecurityIdentificationQuery4Choice
+public partial record UniqueProductIdentifier : SecurityIdentificationQuery4Choice_
 {
     public required IsoMax52Text Value { get; init; }
 }

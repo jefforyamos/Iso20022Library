@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EUDividendStatusType1Choice;
 /// <summary>
 /// Specifies whether dividend is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
 /// </summary>
-public partial record EUDividendStatus : IEUDividendStatusType1Choice
+public partial record EUDividendStatus : EUDividendStatusType1Choice_
 {
     public required EUDividendStatus1Code Value { get; init; }
 }

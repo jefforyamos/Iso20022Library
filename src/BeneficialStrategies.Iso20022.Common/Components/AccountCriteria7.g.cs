@@ -24,7 +24,7 @@ public partial record AccountCriteria7
     /// <summary>
     /// Defines the criteria to be used to extract the account information.
     /// </summary>
-    public CashAccountSearchCriteria7? SearchCriteria { get; init;  } // Warning: Don't know multiplicity.
+    public CashAccountSearchCriteria7[] SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines the expected account report.
     /// </summary>

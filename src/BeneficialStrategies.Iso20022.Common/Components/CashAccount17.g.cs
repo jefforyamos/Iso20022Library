@@ -20,7 +20,7 @@ public partial record CashAccount17
     /// <summary>
     /// Identification of the cash account.
     /// </summary>
-    public required ICashAccountIdentification1Choice AccountIdentification { get; init; } 
+    public required CashAccountIdentification1Choice_ AccountIdentification { get; init; } 
     /// <summary>
     /// Currency of the payment.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record CashAccount17
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountOwnerIdentification { get; init; } 
+    public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Identification of the cash correspondent back.
     /// </summary>

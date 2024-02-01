@@ -24,19 +24,19 @@ public partial record CashOption19
     /// <summary>
     /// Choice between a cash account, a charges account or a tax account.
     /// </summary>
-    public IAccount8Choice? Account { get; init; } 
+    public Account8Choice_? Account { get; init; } 
     /// <summary>
     /// Date/Time of the posting (credit or debit) to the account.
     /// </summary>
-    public required IDateAndDateTimeChoice PostingDate { get; init; } 
+    public required DateAndDateTimeChoice_ PostingDate { get; init; } 
     /// <summary>
     /// Date/Time of the posting (credit or debit) to the account that was initially communicated in the confirmation.
     /// </summary>
-    public IDateAndDateTimeChoice? OriginalPostingDate { get; init; } 
+    public DateAndDateTimeChoice_? OriginalPostingDate { get; init; } 
     /// <summary>
     /// Date/time when calculating economic benefit for a cash amount.
     /// </summary>
-    public IDateAndDateTimeChoice? ValueDate { get; init; } 
+    public DateAndDateTimeChoice_? ValueDate { get; init; } 
     /// <summary>
     /// Amount of money that is to be/was posted to the account.
     /// </summary>

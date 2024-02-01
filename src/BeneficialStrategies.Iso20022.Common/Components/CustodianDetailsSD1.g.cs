@@ -56,7 +56,7 @@ public partial record CustodianDetailsSD1
     /// <summary>
     /// Provides selected corporate action events message details extracted from the related custodian messages received. Applicable to custodian service only.
     /// </summary>
-    public RelatedCustodianMessageDetailsSD1? RelatedCustodianMessageDetails { get; init;  } // Warning: Don't know multiplicity.
+    public RelatedCustodianMessageDetailsSD1[] RelatedCustodianMessageDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

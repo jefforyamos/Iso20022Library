@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModificationCancellationAllowed4
 /// <summary>
 /// Modification, cancellation allowed information expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IModificationCancellationAllowed4Choice
+public partial record Proprietary : ModificationCancellationAllowed4Choice_
 {
     #nullable enable
     /// <summary>

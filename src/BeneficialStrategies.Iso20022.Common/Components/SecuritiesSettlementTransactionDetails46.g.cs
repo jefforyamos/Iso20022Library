@@ -24,7 +24,7 @@ public partial record SecuritiesSettlementTransactionDetails46
     /// <summary>
     /// Link to another transaction that must be processed after, before or at the same time.
     /// </summary>
-    public Linkages40? Linkages { get; init;  } // Warning: Don't know multiplicity.
+    public Linkages40[] Linkages { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details of the trade.
     /// </summary>
@@ -76,7 +76,7 @@ public partial record SecuritiesSettlementTransactionDetails46
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

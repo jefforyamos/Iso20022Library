@@ -28,11 +28,11 @@ public partial record Frequency1
     /// <summary>
     /// Information about when the payment arrangement will end.
     /// </summary>
-    public required IEndPoint1Choice EndPointChoice { get; init; } 
+    public required EndPoint1Choice_ EndPointChoice { get; init; } 
     /// <summary>
     /// Payment schedule frequency pattern which indicates how frequently a payment is made.
     /// </summary>
-    public IFrequency37Choice? RequestedFrequencyPattern { get; init; } 
+    public Frequency37Choice_? RequestedFrequencyPattern { get; init; } 
     /// <summary>
     /// Adjustment indicator for a non-working day to enable payment to be made on the next working day.
     /// </summary>

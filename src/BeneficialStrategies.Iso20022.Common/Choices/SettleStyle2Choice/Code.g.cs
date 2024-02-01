@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettleStyle2Choice;
 /// <summary>
 /// Settle style expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ISettleStyle2Choice
+public partial record Code : SettleStyle2Choice_
 {
     public required SettleStyle1Code Value { get; init; }
 }

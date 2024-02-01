@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReturnExcessCash1Choice;
 /// <summary>
 /// Return excess cash type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IReturnExcessCash1Choice
+public partial record Proprietary : ReturnExcessCash1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExpectedCollateral1Choice;
 /// <summary>
 /// Provides the expected collateral type and direction for the segregated independent amount.
 /// </summary>
-public partial record SegregatedIndependentAmount : IExpectedCollateral1Choice
+public partial record SegregatedIndependentAmount : ExpectedCollateral1Choice_
 {
     #nullable enable
     /// <summary>

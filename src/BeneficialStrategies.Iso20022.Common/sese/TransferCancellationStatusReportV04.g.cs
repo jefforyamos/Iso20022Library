@@ -75,7 +75,7 @@ public partial record TransferCancellationStatusReportV04 : IOuterRecord
     [Description(@"Reference to the message or communication that was previously received.")]
     [DataMember(Name="Ref")]
     [XmlElement(ElementName="Ref")]
-    public IReferences40Choice? Reference { get; init; }
+    public References40Choice_? Reference { get; init; }
     
     /// <summary>
     /// Status of the transfer cancellation instruction.

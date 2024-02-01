@@ -24,11 +24,11 @@ public partial record FinancialInstrumentAggregateBalance1
     /// <summary>
     /// Balances and sub-balances attributed to the holding.
     /// </summary>
-    public required IFinancialInstrumentAggregateBalance1Choice Holdings { get; init; } 
+    public required FinancialInstrumentAggregateBalance1Choice_ Holdings { get; init; } 
     /// <summary>
     /// Details on the price value, type and source.
     /// </summary>
-    public Price6? Price { get; init;  } // Warning: Don't know multiplicity.
+    public Price6[] Price { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

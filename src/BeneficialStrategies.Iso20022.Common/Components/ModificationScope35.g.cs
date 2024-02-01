@@ -24,7 +24,7 @@ public partial record ModificationScope35
     /// <summary>
     /// Additional information such as remarks or notes that must be conveyed about the party and or limitations and restrictions.
     /// </summary>
-    public AdditiononalInformation12? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditiononalInformation12[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

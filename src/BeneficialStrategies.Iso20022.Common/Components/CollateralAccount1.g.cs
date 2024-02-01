@@ -24,7 +24,7 @@ public partial record CollateralAccount1
     /// <summary>
     /// Indicates the Type of Collateral Account.
     /// </summary>
-    public ICollateralAccountIdentificationType1Choice? Type { get; init; } 
+    public CollateralAccountIdentificationType1Choice_? Type { get; init; } 
     /// <summary>
     /// Description of the account.
     /// </summary>

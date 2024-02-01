@@ -20,7 +20,7 @@ public partial record Fee3
     /// <summary>
     /// Type of fee (charge/commission).
     /// </summary>
-    public IChargeType5Choice? Type { get; init; } 
+    public ChargeType5Choice_? Type { get; init; } 
     /// <summary>
     /// Modified value of the standard fee (charge/commission) amount applied on the order (the standard fee (charge/commission) amount in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>

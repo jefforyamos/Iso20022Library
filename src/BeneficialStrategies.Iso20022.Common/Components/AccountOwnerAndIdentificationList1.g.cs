@@ -20,7 +20,7 @@ public partial record AccountOwnerAndIdentificationList1
     /// <summary>
     /// List of the identifier pairs.
     /// </summary>
-    public AccountOwnerAndIdentification1? List { get; init;  } // Warning: Don't know multiplicity.
+    public AccountOwnerAndIdentification1[] List { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

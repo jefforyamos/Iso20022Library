@@ -24,7 +24,7 @@ public partial record ReportContent1
     /// <summary>
     /// Formatted or unformatted report content.
     /// </summary>
-    public required IReportContent1Choice FormattedContent { get; init; } 
+    public required ReportContent1Choice_ FormattedContent { get; init; } 
     
     #nullable disable
 }

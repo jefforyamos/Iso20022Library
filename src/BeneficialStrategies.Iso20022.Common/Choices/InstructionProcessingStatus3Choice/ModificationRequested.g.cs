@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus3Choi
 /// <summary>
 /// Modification request from your counterparty for this transaction is pending waiting for your cancellation request or your consent.
 /// </summary>
-public partial record ModificationRequested : IInstructionProcessingStatus3Choice
+public partial record ModificationRequested : InstructionProcessingStatus3Choice_
 {
     #nullable enable
     /// <summary>

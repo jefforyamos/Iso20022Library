@@ -48,7 +48,7 @@ public partial record Amendment3
     /// <summary>
     /// Requested new terms and conditions of the undertaking.
     /// </summary>
-    public Narrative1? NewUndertakingTermsAndConditions { get; init;  } // Warning: Don't know multiplicity.
+    public Narrative1[] NewUndertakingTermsAndConditions { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amendment details related to the counter-undertaking.
     /// </summary>
@@ -60,11 +60,11 @@ public partial record Amendment3
     /// <summary>
     /// Document or template enclosed in the request.
     /// </summary>
-    public Document9? EnclosedFile { get; init;  } // Warning: Don't know multiplicity.
+    public Document9[] EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the request.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

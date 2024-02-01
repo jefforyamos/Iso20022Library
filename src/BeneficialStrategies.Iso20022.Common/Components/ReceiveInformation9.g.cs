@@ -40,15 +40,15 @@ public partial record ReceiveInformation9
     /// <summary>
     /// Charge related to the transfer of a financial instrument.
     /// </summary>
-    public Charge20? ChargeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Charge20[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Commission related to the transfer of a financial instrument.
     /// </summary>
-    public Commission12? CommissionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Commission12[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax related to the transfer of a financial instrument.
     /// </summary>
-    public Tax15? TaxDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Tax15[] TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>

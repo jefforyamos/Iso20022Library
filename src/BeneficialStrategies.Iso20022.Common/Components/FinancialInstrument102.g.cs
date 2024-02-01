@@ -24,7 +24,7 @@ public partial record FinancialInstrument102
     /// <summary>
     /// Identification of the asset.
     /// </summary>
-    public required IFinancialInstrument63Choice Instrument { get; init; } 
+    public required FinancialInstrument63Choice_ Instrument { get; init; } 
     /// <summary>
     /// Quantity of asset to be transferred.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record FinancialInstrument102
     /// <summary>
     /// Specifies how the financial instrument is transferred.
     /// </summary>
-    public required ITransferType2Choice TransferType { get; init; } 
+    public required TransferType2Choice_ TransferType { get; init; } 
     /// <summary>
     /// Indicates the asset is a new asset, not previously identified by the transferor party (ceding party) in the account holding discovery process.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record FinancialInstrument102
     /// <summary>
     /// Breakdown of units.
     /// </summary>
-    public Unit11? UnitsDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Unit11[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
@@ -89,7 +89,7 @@ public partial record FinancialInstrument102
     /// <summary>
     /// Identification of a related party or intermediary.
     /// </summary>
-    public Intermediary43? IntermediaryInformation { get; init;  } // Warning: Don't know multiplicity.
+    public Intermediary43[] IntermediaryInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date for which the instructing party requests the transfer.
     /// </summary>
@@ -109,7 +109,7 @@ public partial record FinancialInstrument102
     /// <summary>
     /// Number of units that have been received (crystallised) or not yet received (uncrystallised) from the fund. This is typically relevant to a pension fund.
     /// </summary>
-    public Crystallisation2? CrystallisationDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Crystallisation2[] CrystallisationDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date or tax quarter used for the calculation of tax on the asset.
     /// </summary>
@@ -129,7 +129,7 @@ public partial record FinancialInstrument102
     /// <summary>
     /// Additional information about the financial instrument.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

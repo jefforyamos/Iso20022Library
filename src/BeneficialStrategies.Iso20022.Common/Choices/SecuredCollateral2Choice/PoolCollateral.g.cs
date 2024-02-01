@@ -13,7 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredCollateral2Choice;
 /// Identifies the pooling of repos in which the collateral basket is identified by an ISIN. 
 /// Usage: When the collateral basket is identified by an ISIN, the basket ISIN shall be reported.
 /// </summary>
-public partial record PoolCollateral : ISecuredCollateral2Choice
+public partial record PoolCollateral : SecuredCollateral2Choice_
 {
     #nullable enable
     /// <summary>

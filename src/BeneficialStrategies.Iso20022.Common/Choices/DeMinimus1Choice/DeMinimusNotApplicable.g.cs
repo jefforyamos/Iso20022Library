@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DeMinimus1Choice;
 /// <summary>
 /// Conditions applicable when the investor is not covered by the "de minimis" exemption.
 /// </summary>
-public partial record DeMinimusNotApplicable : IDeMinimus1Choice
+public partial record DeMinimusNotApplicable : DeMinimus1Choice_
 {
     #nullable enable
     /// <summary>

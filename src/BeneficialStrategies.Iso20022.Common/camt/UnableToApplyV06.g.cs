@@ -83,7 +83,7 @@ public partial record UnableToApplyV06 : IOuterRecord
     [DataMember(Name="Undrlyg")]
     [XmlElement(ElementName="Undrlyg")]
     [Required]
-    public required IUnderlyingTransaction4Choice Underlying { get; init; }
+    public required UnderlyingTransaction4Choice_ Underlying { get; init; }
     
     /// <summary>
     /// Explains the reason why the case creator is unable to apply the instruction.
@@ -93,7 +93,7 @@ public partial record UnableToApplyV06 : IOuterRecord
     [DataMember(Name="Justfn")]
     [XmlElement(ElementName="Justfn")]
     [Required]
-    public required IUnableToApplyJustification3Choice Justification { get; init; }
+    public required UnableToApplyJustification3Choice_ Justification { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

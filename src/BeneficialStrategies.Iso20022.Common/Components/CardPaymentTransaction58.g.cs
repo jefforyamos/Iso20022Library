@@ -24,7 +24,7 @@ public partial record CardPaymentTransaction58
     /// <summary>
     /// Set of actions to be performed by the POI (Point Of Interaction) system.
     /// </summary>
-    public Action6? Action { get; init;  } // Warning: Don't know multiplicity.
+    public Action6[] Action { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

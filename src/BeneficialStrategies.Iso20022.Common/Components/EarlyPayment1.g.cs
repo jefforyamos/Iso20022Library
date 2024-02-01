@@ -32,7 +32,7 @@ public partial record EarlyPayment1
     /// <summary>
     /// In tax specification for early payment discount one defined the applied tax rates for specific early payment. VAT stands for value added tax.
     /// </summary>
-    public EarlyPaymentsVAT1? EarlyPaymentTaxSpecification { get; init;  } // Warning: Don't know multiplicity.
+    public EarlyPaymentsVAT1[] EarlyPaymentTaxSpecification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax total in early payment, with currency.
     /// </summary>

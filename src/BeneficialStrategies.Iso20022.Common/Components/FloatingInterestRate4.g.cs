@@ -22,7 +22,7 @@ public partial record FloatingInterestRate4
     /// Usage:
     /// Where an identifier exists, the ISIN must be used; otherwise, names will be necessary (such as EURIBOR6M, LIBOR3M) as other identification.
     /// </summary>
-    public required IBenchmarkCurveName4Choice ReferenceRate { get; init; } 
+    public required BenchmarkCurveName4Choice_ ReferenceRate { get; init; } 
     /// <summary>
     /// Term of the index.
     /// </summary>

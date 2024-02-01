@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport31Choice;
 /// <summary>
 /// Indicates whether transaction is reported for the first time.
 /// </summary>
-public partial record New : ITradeReport31Choice
+public partial record New : TradeReport31Choice_
 {
     #nullable enable
     /// <summary>
@@ -30,7 +30,7 @@ public partial record New : ITradeReport31Choice
     /// <summary>
     /// Choice between a Unique Transaction Identifier (UTI) or a proprietary identifier as agreed with the counterparty. 
     /// </summary>
-    public IUniqueTransactionIdentifier2Choice? TransactionIdentification { get; init; } 
+    public UniqueTransactionIdentifier2Choice_? TransactionIdentification { get; init; } 
     /// <summary>
     /// Information related to collateral agreement existing between counterparties.
     /// </summary>

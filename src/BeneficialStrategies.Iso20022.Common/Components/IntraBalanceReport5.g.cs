@@ -20,7 +20,7 @@ public partial record IntraBalanceReport5
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
-    public INumber3Choice? ReportNumber { get; init; } 
+    public Number3Choice_? ReportNumber { get; init; } 
     /// <summary>
     /// Identification of the query message sent to request this statement.
     /// </summary>
@@ -32,11 +32,11 @@ public partial record IntraBalanceReport5
     /// <summary>
     /// Date and time when the report was created.
     /// </summary>
-    public IDateAndDateTime2Choice? ReportDateTime { get; init; } 
+    public DateAndDateTime2Choice_? ReportDateTime { get; init; } 
     /// <summary>
     /// Period for the statement.
     /// </summary>
-    public IPeriod7Choice? ReportPeriod { get; init; } 
+    public Period7Choice_? ReportPeriod { get; init; } 
     /// <summary>
     /// Defines the type of query.
     /// </summary>
@@ -44,11 +44,11 @@ public partial record IntraBalanceReport5
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
-    public IFrequency22Choice? Frequency { get; init; } 
+    public Frequency22Choice_? Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
-    public required IUpdateType15Choice UpdateType { get; init; } 
+    public required UpdateType15Choice_ UpdateType { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>

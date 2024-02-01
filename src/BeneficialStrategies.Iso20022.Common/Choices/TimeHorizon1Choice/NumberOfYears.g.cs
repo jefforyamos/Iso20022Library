@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TimeHorizon1Choice;
 /// <summary>
 /// Minimum recommended holding (RHP) period.
 /// </summary>
-public partial record NumberOfYears : ITimeHorizon1Choice
+public partial record NumberOfYears : TimeHorizon1Choice_
 {
     public required IsoDecimalNumber Value { get; init; }
 }

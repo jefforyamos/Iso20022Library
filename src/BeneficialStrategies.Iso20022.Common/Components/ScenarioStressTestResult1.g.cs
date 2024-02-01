@@ -24,7 +24,7 @@ public partial record ScenarioStressTestResult1
     /// <summary>
     /// Result from the application of a stress test scenario to the positions in a cleared portfolio.
     /// </summary>
-    public PortfolioStressTestResult1? PortfolioStressTestResult { get; init;  } // Warning: Don't know multiplicity.
+    public PortfolioStressTestResult1[] PortfolioStressTestResult { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

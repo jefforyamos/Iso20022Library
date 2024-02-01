@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GDPRDataConsent1Choice;
 /// <summary>
 /// Consent type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IGDPRDataConsent1Choice
+public partial record Proprietary : GDPRDataConsent1Choice_
 {
     #nullable enable
     /// <summary>

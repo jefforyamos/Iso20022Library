@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRateType1FormatChoi
 /// <summary>
 /// Standard code to specify the type of gross dividend rate.
 /// </summary>
-public partial record Code : IGrossDividendRateType1FormatChoice
+public partial record Code : GrossDividendRateType1FormatChoice_
 {
     public required GrossDividendRateType1Code Value { get; init; }
 }

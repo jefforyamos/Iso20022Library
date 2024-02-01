@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ParticipationMethod3Choice;
 /// <summary>
 /// Method of participation in the general meeting vote expressed as a code.
 /// </summary>
-public partial record Code : IParticipationMethod3Choice
+public partial record Code : ParticipationMethod3Choice_
 {
     public required VotingParticipationMethod3Code Value { get; init; }
 }

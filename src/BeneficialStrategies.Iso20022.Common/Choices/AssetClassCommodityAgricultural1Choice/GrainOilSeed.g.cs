@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityAgricultural1
 /// <summary>
 /// Grain oil seed agricultural commodity derivative.
 /// </summary>
-public partial record GrainOilSeed : IAssetClassCommodityAgricultural1Choice
+public partial record GrainOilSeed : AssetClassCommodityAgricultural1Choice_
 {
     #nullable enable
     /// <summary>

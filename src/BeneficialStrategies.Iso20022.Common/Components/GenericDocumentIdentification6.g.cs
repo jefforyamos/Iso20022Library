@@ -20,7 +20,7 @@ public partial record GenericDocumentIdentification6
     /// <summary>
     /// Message type number/message identifier of the message referenced in the linkage sequence.
     /// </summary>
-    public IDocumentNumber16Choice? MessageNumber { get; init; } 
+    public DocumentNumber16Choice_? MessageNumber { get; init; } 
     /// <summary>
     /// Identification of the document.
     /// </summary>

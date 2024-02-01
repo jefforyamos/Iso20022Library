@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRateFormat33Choice;
 /// <summary>
 /// Number of monetary units specified in a currency.
 /// </summary>
-public partial record Amount : IGrossDividendRateFormat33Choice
+public partial record Amount : GrossDividendRateFormat33Choice_
 {
     public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount Value { get; init; }
 }

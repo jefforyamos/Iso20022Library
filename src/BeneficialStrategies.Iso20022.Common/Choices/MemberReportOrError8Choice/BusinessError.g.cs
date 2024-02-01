@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.MemberReportOrError8Choice;
 /// <summary>
 /// Reason the requested business information is not given.
 /// </summary>
-public partial record BusinessError : IMemberReportOrError8Choice
+public partial record BusinessError : MemberReportOrError8Choice_
 {
     #nullable enable
     /// <summary>
     /// Specification of the error, in coded or proprietary form.
     /// </summary>
-    public required IErrorHandling1Choice Error { get; init; } 
+    public required ErrorHandling1Choice_ Error { get; init; } 
     /// <summary>
     /// Specification of the error, in free format.
     /// </summary>

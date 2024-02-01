@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestmentFundPlanType1Choice;
 /// <summary>
 /// Type of investment fund plan expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IInvestmentFundPlanType1Choice
+public partial record Proprietary : InvestmentFundPlanType1Choice_
 {
     #nullable enable
     /// <summary>

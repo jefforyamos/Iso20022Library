@@ -24,7 +24,7 @@ public partial record RedemptionMultipleOrder3
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
-    public IPlaceOfTradeIdentification1Choice? PlaceOfTrade { get; init; } 
+    public PlaceOfTradeIdentification1Choice_? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Date and time at which the order was placed by the investor.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record RedemptionMultipleOrder3
     /// <summary>
     /// Date on which the order expires.
     /// </summary>
-    public IDateAndDateTimeChoice? ExpiryDateTime { get; init; } 
+    public DateAndDateTimeChoice_? ExpiryDateTime { get; init; } 
     /// <summary>
     /// Future date at which the investor requests the order to be executed.|The specification of a requested future trade date is not allowed in some markets. The date must be a date in the future.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record RedemptionMultipleOrder3
     /// <summary>
     /// Instruction from an investor to sell investment fund units back to the fund.
     /// </summary>
-    public RedemptionOrder6? IndividualOrderDetails { get; init;  } // Warning: Don't know multiplicity.
+    public RedemptionOrder6[] IndividualOrderDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment processes required to transfer cash from the debtor to the creditor.
     /// </summary>

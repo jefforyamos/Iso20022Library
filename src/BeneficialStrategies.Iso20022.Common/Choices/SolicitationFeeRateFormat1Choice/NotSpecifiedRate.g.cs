@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SolicitationFeeRateFormat1Choice
 /// <summary>
 /// Value of the rate not specified.
 /// </summary>
-public partial record NotSpecifiedRate : ISolicitationFeeRateFormat1Choice
+public partial record NotSpecifiedRate : SolicitationFeeRateFormat1Choice_
 {
     public required RateValueType6Code Value { get; init; }
 }

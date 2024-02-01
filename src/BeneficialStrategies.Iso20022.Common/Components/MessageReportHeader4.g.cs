@@ -30,11 +30,11 @@ public partial record MessageReportHeader4
     /// <summary>
     /// Provides per record status on the report that has been received.
     /// </summary>
-    public StatusReportRecord3? RecordStatus { get; init;  } // Warning: Don't know multiplicity.
+    public StatusReportRecord3[] RecordStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialPartyClassification2Cho
 /// <summary>
 /// Classification of the business activities of the counterparty via a pre-determined code list.
 /// </summary>
-public partial record Code : IFinancialPartyClassification2Choice
+public partial record Code : FinancialPartyClassification2Choice_
 {
     public required FinancialPartySectorType3Code Value { get; init; }
 }

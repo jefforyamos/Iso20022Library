@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FundOrderType4Choice;
 /// <summary>
 /// Type of the investment fund order expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IFundOrderType4Choice
+public partial record Proprietary : FundOrderType4Choice_
 {
     #nullable enable
     /// <summary>

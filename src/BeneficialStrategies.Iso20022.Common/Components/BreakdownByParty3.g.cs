@@ -28,15 +28,15 @@ public partial record BreakdownByParty3
     /// <summary>
     /// Cash movement into the fund as a result of transactions in shares in an investment fund, for example, subscriptions or switch-ins.
     /// </summary>
-    public CashInForecast5? CashInForecast { get; init;  } // Warning: Don't know multiplicity.
+    public CashInForecast5[] CashInForecast { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash movement out of the fund as a result of transactions in shares in an investment fund, for example, redemptions or switch-outs.
     /// </summary>
-    public CashOutForecast5? CashOutForecast { get; init;  } // Warning: Don't know multiplicity.
+    public CashOutForecast5[] CashOutForecast { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net cash as a result of the cash-in and cash-out flows specified for the party.
     /// </summary>
-    public NetCashForecast4? NetCashForecast { get; init;  } // Warning: Don't know multiplicity.
+    public NetCashForecast4[] NetCashForecast { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

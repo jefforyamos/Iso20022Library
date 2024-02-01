@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.IncentivePremiumType2Choice;
 /// <summary>
 /// Quantity of votes per type of vote giving right to a premium.
 /// </summary>
-public partial record PerVote : IIncentivePremiumType2Choice
+public partial record PerVote : IncentivePremiumType2Choice_
 {
     #nullable enable
     /// <summary>
     /// Types of vote instruction allowed for resolutions to be voted on in general meeting.
     /// </summary>
-    public required IVoteInstructionType1Choice VoteInstructionType { get; init; } 
+    public required VoteInstructionType1Choice_ VoteInstructionType { get; init; } 
     /// <summary>
     /// Quantity of vote expressed for the specified type of vote instruction.
     /// </summary>

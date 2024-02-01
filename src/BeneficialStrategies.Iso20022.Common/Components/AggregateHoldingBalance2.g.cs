@@ -24,11 +24,11 @@ public partial record AggregateHoldingBalance2
     /// <summary>
     /// Balance breakdown on the net position of a financial instrument.
     /// </summary>
-    public FinancialInstrumentAggregateBalance1? BalanceForFinancialInstrument { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrumentAggregateBalance1[] BalanceForFinancialInstrument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

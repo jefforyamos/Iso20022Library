@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ConfirmationStatus1Choice;
 /// <summary>
 /// Status of the order confirmation amendment is rejected.
 /// </summary>
-public partial record AmendmentRejected : IConfirmationStatus1Choice
+public partial record AmendmentRejected : ConfirmationStatus1Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the rejected status.
     /// </summary>
-    public IConfirmationRejectedReason1Choice? Reason { get; init; } 
+    public ConfirmationRejectedReason1Choice_? Reason { get; init; } 
     /// <summary>
     /// Additional information about the rejected reason.
     /// </summary>

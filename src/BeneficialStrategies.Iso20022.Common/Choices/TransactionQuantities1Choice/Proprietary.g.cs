@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionQuantities1Choice;
 /// <summary>
 /// Proprietary quantities specification defined in the underlying transaction.
 /// </summary>
-public partial record Proprietary : ITransactionQuantities1Choice
+public partial record Proprietary : TransactionQuantities1Choice_
 {
     #nullable enable
     /// <summary>

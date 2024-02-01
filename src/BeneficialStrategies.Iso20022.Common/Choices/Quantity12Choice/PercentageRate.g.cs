@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity12Choice;
 /// <summary>
 /// Percentage rate of assets to be transferred.
 /// </summary>
-public partial record PercentageRate : IQuantity12Choice
+public partial record PercentageRate : Quantity12Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

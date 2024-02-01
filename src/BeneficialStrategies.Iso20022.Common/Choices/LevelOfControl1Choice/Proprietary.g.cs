@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LevelOfControl1Choice;
 /// <summary>
 /// Level of control expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ILevelOfControl1Choice
+public partial record Proprietary : LevelOfControl1Choice_
 {
     #nullable enable
     /// <summary>

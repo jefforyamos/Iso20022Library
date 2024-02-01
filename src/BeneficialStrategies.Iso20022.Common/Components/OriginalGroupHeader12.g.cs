@@ -32,7 +32,7 @@ public partial record OriginalGroupHeader12
     /// <summary>
     /// Provides detailed information on the return reason.
     /// </summary>
-    public PaymentReturnReason4? ReturnReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentReturnReason4[] ReturnReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

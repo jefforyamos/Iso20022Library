@@ -48,7 +48,7 @@ public partial record TradeData14
     /// <summary>
     /// Specifies the previous status of the trade.
     /// </summary>
-    public IStatus28Choice? PreviousStatus { get; init; } 
+    public Status28Choice_? PreviousStatus { get; init; } 
     /// <summary>
     /// Specifies whether a trade is alleged or not.
     /// </summary>

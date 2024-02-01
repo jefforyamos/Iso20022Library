@@ -36,7 +36,7 @@ public partial record ATMTransaction10
     /// <summary>
     /// Sequence of actions to be performed by the ATM to complete the transaction.
     /// </summary>
-    public Action5? Action { get; init;  } // Warning: Don't know multiplicity.
+    public Action5[] Action { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record ATMTransaction10
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    public ATMCommand1? Command { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCommand1[] Command { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

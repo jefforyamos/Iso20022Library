@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReferredDocumentAmount1Choice;
 /// <summary>
 /// Amount specified is the exact amount due and payable to the creditor.
 /// </summary>
-public partial record DuePayableAmount : IReferredDocumentAmount1Choice
+public partial record DuePayableAmount : ReferredDocumentAmount1Choice_
 {
     public required IsoCurrencyAndAmount Value { get; init; }
 }

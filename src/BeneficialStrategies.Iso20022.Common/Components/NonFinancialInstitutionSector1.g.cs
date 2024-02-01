@@ -20,7 +20,7 @@ public partial record NonFinancialInstitutionSector1
     /// <summary>
     /// Taxonomy for non-financial counterparties. The categories correspond to the main sections of NACE classification as defined in the regulation.
     /// </summary>
-    public IsoNACEDomainIdentifier? Sector { get; init;  } // Warning: Don't know multiplicity.
+    public IsoNACEDomainIdentifier[] Sector { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information whether the reporting counterparty is above the clearing threshold referred to the regulation.
     /// </summary>

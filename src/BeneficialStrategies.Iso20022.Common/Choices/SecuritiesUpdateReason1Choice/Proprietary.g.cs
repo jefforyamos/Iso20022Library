@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesUpdateReason1Choice;
 /// <summary>
 /// Update reason, in a proprietary form.
 /// </summary>
-public partial record Proprietary : ISecuritiesUpdateReason1Choice
+public partial record Proprietary : SecuritiesUpdateReason1Choice_
 {
     #nullable enable
     /// <summary>

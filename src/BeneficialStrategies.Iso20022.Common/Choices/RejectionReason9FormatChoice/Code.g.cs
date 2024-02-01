@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason9FormatChoice;
 /// <summary>
 /// Standard code to specify the reason of a rejection of an election cancellation request.
 /// </summary>
-public partial record Code : IRejectionReason9FormatChoice
+public partial record Code : RejectionReason9FormatChoice_
 {
     public required RejectionReason9Code Value { get; init; }
 }

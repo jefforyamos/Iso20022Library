@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesMovementStatus1Choice;
 /// <summary>
 /// At present the security satisfies the currency and eligibility criteria checks.
 /// </summary>
-public partial record Wait : ISecuritiesMovementStatus1Choice
+public partial record Wait : SecuritiesMovementStatus1Choice_
 {
     #nullable enable
     /// <summary>

@@ -52,11 +52,11 @@ public partial record SystemSecuritiesAccount3
     /// <summary>
     /// Additional attributes defined by a central security depositary for a party.
     /// </summary>
-    public MarketSpecificAttribute1? MarketSpecificAttribute { get; init;  } // Warning: Don't know multiplicity.
+    public MarketSpecificAttribute1[] MarketSpecificAttribute { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines the specific processing characteristics for a securities account to ensure configurability of specific requirements, as prescribed by national legal and regulatory requirements and practices.
     /// </summary>
-    public SystemRestriction1? Restriction { get; init;  } // Warning: Don't know multiplicity.
+    public SystemRestriction1[] Restriction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies information to identify securities accounts where allocation instructions are posted.
     /// </summary>

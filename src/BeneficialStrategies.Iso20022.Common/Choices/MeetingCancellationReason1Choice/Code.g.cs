@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MeetingCancellationReason1Choice
 /// <summary>
 /// Specifies the reason for cancelling a meeting in coded form.
 /// </summary>
-public partial record Code : IMeetingCancellationReason1Choice
+public partial record Code : MeetingCancellationReason1Choice_
 {
     public required MeetingCancellationReason2Code Value { get; init; }
 }

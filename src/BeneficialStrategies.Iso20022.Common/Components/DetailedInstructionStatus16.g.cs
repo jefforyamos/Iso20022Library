@@ -32,7 +32,7 @@ public partial record DetailedInstructionStatus16
     /// <summary>
     /// Status of the individual meeting instruction.
     /// </summary>
-    public required IInstructionStatus11Choice InstructionStatus { get; init; } 
+    public required InstructionStatus11Choice_ InstructionStatus { get; init; } 
     
     #nullable disable
 }

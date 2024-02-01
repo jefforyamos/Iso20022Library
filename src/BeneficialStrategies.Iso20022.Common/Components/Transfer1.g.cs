@@ -24,7 +24,7 @@ public partial record Transfer1
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public required IDateFormat1Choice RequestedTransferDate { get; init; } 
+    public required DateFormat1Choice_ RequestedTransferDate { get; init; } 
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record Transfer1
     /// <summary>
     /// Information about the units to be transferred.
     /// </summary>
-    public Unit1? UnitsDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Unit1[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the transfer results in a change of beneficial owner.
     /// </summary>

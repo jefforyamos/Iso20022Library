@@ -36,11 +36,11 @@ public partial record CardPaymentDataSet21
     /// <summary>
     /// Transaction totals of the batch.
     /// </summary>
-    public TransactionTotals7? TransactionTotals { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionTotals7[] TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Transaction in the batch, whose capture has been rejected.
     /// </summary>
-    public CardPaymentDataSet20? RejectedTransaction { get; init;  } // Warning: Don't know multiplicity.
+    public CardPaymentDataSet20[] RejectedTransaction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

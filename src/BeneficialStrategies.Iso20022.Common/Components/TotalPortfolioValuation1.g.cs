@@ -72,7 +72,7 @@ public partial record TotalPortfolioValuation1
     /// <summary>
     /// Valuation information of the investment fund or investment fund share class.
     /// </summary>
-    public InvestmentFund1? InvestmentFundDetails { get; init;  } // Warning: Don't know multiplicity.
+    public InvestmentFund1[] InvestmentFundDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

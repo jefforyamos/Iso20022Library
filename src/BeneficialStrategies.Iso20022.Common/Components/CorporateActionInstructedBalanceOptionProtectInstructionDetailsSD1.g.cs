@@ -32,7 +32,7 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionDe
     /// <summary>
     /// Option number of the protect instruction.
     /// </summary>
-    public required IOptionNumber1Choice OptionNumber { get; init; } 
+    public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Date and time of the protect instruction.
     /// </summary>
@@ -44,15 +44,15 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionDe
     /// <summary>
     /// Quantity of the protect instruction. For protects which are partially covered, the quanitity will be reduced by the amount partially covered.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice ProtectIdentificationQuantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ ProtectIdentificationQuantity { get; init; } 
     /// <summary>
     /// Quantity of the Protect instruction which has not been covered.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? ProtectIdentificationUncoveredQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? ProtectIdentificationUncoveredQuantity { get; init; } 
     /// <summary>
     /// Protect oversubscription quantity.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? ProtectIdentificationOversubscriptionQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? ProtectIdentificationOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Status of the Protect Instruction.
     /// </summary>
@@ -60,11 +60,11 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionDe
     /// <summary>
     /// Conditional Quantity for the Protect Instruction.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? ProtectConditionalQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? ProtectConditionalQuantity { get; init; } 
     /// <summary>
     /// Tender bid price of the protect instruction.
     /// </summary>
-    public IPriceFormat57Choice? ProtectTenderBidPrice { get; init; } 
+    public PriceFormat57Choice_? ProtectTenderBidPrice { get; init; } 
     /// <summary>
     /// Customer identification entered by client upon instruction submission.
     /// </summary>

@@ -24,7 +24,7 @@ public partial record TypeModification1
     /// <summary>
     /// Type of the account.
     /// </summary>
-    public required ICashAccountType2Choice Type { get; init; } 
+    public required CashAccountType2Choice_ Type { get; init; } 
     
     #nullable disable
 }

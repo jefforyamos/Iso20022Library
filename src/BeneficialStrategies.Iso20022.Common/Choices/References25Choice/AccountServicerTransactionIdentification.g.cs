@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References25Choice;
 /// <summary>
 /// Unambiguous identification of the transaction as known by the account servicer.
 /// </summary>
-public partial record AccountServicerTransactionIdentification : IReferences25Choice
+public partial record AccountServicerTransactionIdentification : References25Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

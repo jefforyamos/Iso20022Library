@@ -24,7 +24,7 @@ public partial record TotalCommissions2
     /// <summary>
     /// Information related to a specific commission.
     /// </summary>
-    public Commission6? CommissionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Commission6[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

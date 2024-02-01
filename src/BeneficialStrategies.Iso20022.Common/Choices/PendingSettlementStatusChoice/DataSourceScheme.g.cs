@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingSettlementStatusChoice;
 /// <summary>
 /// Proprietary identification for a reason of a specific status in the report.
 /// </summary>
-public partial record DataSourceScheme : IPendingSettlementStatusChoice
+public partial record DataSourceScheme : PendingSettlementStatusChoice_
 {
     #nullable enable
     /// <summary>

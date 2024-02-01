@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesOrCash1Choice;
 /// <summary>
 /// Securities settlement chain parties, accounts and other details.
 /// </summary>
-public partial record SecuritiesDetails : ISecuritiesOrCash1Choice
+public partial record SecuritiesDetails : SecuritiesOrCash1Choice_
 {
     #nullable enable
     /// <summary>
@@ -26,6 +26,6 @@ public partial record SecuritiesDetails : ISecuritiesOrCash1Choice
     /// <summary>
     /// Registration information required for settlement. For some markets, for example, Spain (Iberclear) registration details are mandatory and should be part of the SSI. In some cases, the name of the institution is different than what's provided in the BIC Directory. If this is the case, the name should be provided.
     /// </summary>
-    public IPartyIdentification99Choice? RegistrationDetails { get; init; } 
+    public PartyIdentification99Choice_? RegistrationDetails { get; init; } 
     #nullable disable
 }

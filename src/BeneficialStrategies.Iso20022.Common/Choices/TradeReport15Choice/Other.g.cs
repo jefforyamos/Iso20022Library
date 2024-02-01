@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport15Choice;
 /// <summary>
 /// Indicates any other amendment to the contract.
 /// </summary>
-public partial record Other : ITradeReport15Choice
+public partial record Other : TradeReport15Choice_
 {
     #nullable enable
     /// <summary>

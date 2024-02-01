@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification58Choice;
 /// <summary>
 /// Unique and unambiguous way to identify an organisation.
 /// </summary>
-public partial record NameAndAddress : IPartyIdentification58Choice
+public partial record NameAndAddress : PartyIdentification58Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeBasisType1Choice;
 /// <summary>
 /// Charge basis expressed as a code a proprietary code.
 /// </summary>
-public partial record Proprietary : IChargeBasisType1Choice
+public partial record Proprietary : ChargeBasisType1Choice_
 {
     #nullable enable
     /// <summary>

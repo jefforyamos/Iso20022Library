@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityIndustrialPro
 /// <summary>
 /// Manufacturing related industrial product commodity derivative.
 /// </summary>
-public partial record Manufacturing : IAssetClassCommodityIndustrialProduct1Choice
+public partial record Manufacturing : AssetClassCommodityIndustrialProduct1Choice_
 {
     #nullable enable
     /// <summary>

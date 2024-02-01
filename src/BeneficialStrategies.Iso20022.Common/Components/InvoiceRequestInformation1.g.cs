@@ -32,11 +32,11 @@ public partial record InvoiceRequestInformation1
     /// <summary>
     /// Details of a single instalment to be financed, related to an invoice settlement (amount, payment due date).
     /// </summary>
-    public Instalment1? InstalmentInformation { get; init;  } // Warning: Don't know multiplicity.
+    public Instalment1[] InstalmentInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount requested by the requestor party, related to a single invoice to be financed.
     /// </summary>
-    public IFinancingRateOrAmountChoice? RequestedAmount { get; init; } 
+    public FinancingRateOrAmountChoice_? RequestedAmount { get; init; } 
     /// <summary>
     /// Person or organization that represents the creditor for the invoice to be financed.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record InvoiceRequestInformation1
     /// <summary>
     /// Information about a document related to the invoice to be financed, in structured form.
     /// </summary>
-    public ReferredDocumentInformation2? ReferredDocument { get; init;  } // Warning: Don't know multiplicity.
+    public ReferredDocumentInformation2[] ReferredDocument { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

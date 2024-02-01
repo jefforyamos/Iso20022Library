@@ -24,7 +24,7 @@ public partial record Event2
     /// <summary>
     /// Describes the parameters of an event which occurred in a system.
     /// </summary>
-    public IsoMax35Text? EventParameter { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] EventParameter { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Free text used to describe an event which occurred in a system.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemSecuritiesAccountType1Choi
 /// <summary>
 /// System securities account type, in a coded form.
 /// </summary>
-public partial record Code : ISystemSecuritiesAccountType1Choice
+public partial record Code : SystemSecuritiesAccountType1Choice_
 {
     public required SystemSecuritiesAccountType1Code Value { get; init; }
 }

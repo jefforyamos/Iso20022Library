@@ -24,11 +24,11 @@ public partial record RequestDetails19
     /// <summary>
     /// Identificates the requestor.
     /// </summary>
-    public IPartyIdentification73Choice? RequestorIdentification { get; init; } 
+    public PartyIdentification73Choice_? RequestorIdentification { get; init; } 
     /// <summary>
     /// Additional information to support the processing request.
     /// </summary>
-    public IsoMax35Text? AdditionalRequestInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] AdditionalRequestInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

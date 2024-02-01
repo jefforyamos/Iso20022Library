@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxExemptionReason1Choice;
 /// <summary>
 /// Tax exemption reason expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITaxExemptionReason1Choice
+public partial record Proprietary : TaxExemptionReason1Choice_
 {
     #nullable enable
     /// <summary>

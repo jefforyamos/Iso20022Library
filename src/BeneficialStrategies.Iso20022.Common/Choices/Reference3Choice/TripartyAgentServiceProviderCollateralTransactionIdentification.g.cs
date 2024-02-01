@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reference3Choice;
 /// <summary>
 /// Unique reference identifying the triparty-agent/service-provider collateral management transaction from the triparty-agent's/service-provider's point of view.
 /// </summary>
-public partial record TripartyAgentServiceProviderCollateralTransactionIdentification : IReference3Choice
+public partial record TripartyAgentServiceProviderCollateralTransactionIdentification : Reference3Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

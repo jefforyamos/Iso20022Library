@@ -45,7 +45,7 @@ public partial record IsabelEnhancedHeader1
     /// <summary>
     /// Trigger used by the sender to transfer the file.
     /// </summary>
-    public required IIsabelSenderTrigger1Choice SenderTrigger { get; init; } 
+    public required IsabelSenderTrigger1Choice_ SenderTrigger { get; init; } 
     /// <summary>
     /// Time stamp on when the file is sent.
     /// </summary>
@@ -57,7 +57,7 @@ public partial record IsabelEnhancedHeader1
     /// <summary>
     /// Input source for the generation of the file.
     /// </summary>
-    public required IIsabelInputSource1Choice Source { get; init; } 
+    public required IsabelInputSource1Choice_ Source { get; init; } 
     /// <summary>
     /// Number of signatures required to validate the payments file.
     /// </summary>

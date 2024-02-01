@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IncorrectData1Choice;
 /// <summary>
 /// Incorrect data type, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IIncorrectData1Choice
+public partial record Proprietary : IncorrectData1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

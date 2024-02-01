@@ -24,11 +24,11 @@ public partial record SecurityParameters9
     /// <summary>
     /// Element containing the signature.
     /// </summary>
-    public IATMSignature2Choice? SignatureChoice { get; init; } 
+    public ATMSignature2Choice_? SignatureChoice { get; init; } 
     /// <summary>
     /// Ordered certificate chain of the asymmetric key encryption key, starting with the ATM certificate.
     /// </summary>
-    public IsoMax5000Binary? Certificate { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax5000Binary[] Certificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Random value from the ATM to avoid message replay.
     /// </summary>

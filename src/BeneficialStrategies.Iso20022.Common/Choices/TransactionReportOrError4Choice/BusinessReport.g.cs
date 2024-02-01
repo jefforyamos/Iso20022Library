@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionReportOrError4Choice;
 /// <summary>
 /// Reports on payment transactions.
 /// </summary>
-public partial record BusinessReport : ITransactionReportOrError4Choice
+public partial record BusinessReport : TransactionReportOrError4Choice_
 {
     #nullable enable
     /// <summary>

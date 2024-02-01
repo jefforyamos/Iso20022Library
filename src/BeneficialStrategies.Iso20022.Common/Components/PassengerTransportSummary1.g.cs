@@ -40,11 +40,11 @@ public partial record PassengerTransportSummary1
     /// <summary>
     /// Contains Customer Reference Values provided for this transaction and used for various reference processing at the customer site. These values represent information most prevalently provided by travel agencies for transactions booked against a lodged account or central travel account.
     /// </summary>
-    public CustomerReference1? CustomerReference { get; init;  } // Warning: Don't know multiplicity.
+    public CustomerReference1[] CustomerReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains the details of the passenger.
     /// </summary>
-    public Customer5? Passenger { get; init;  } // Warning: Don't know multiplicity.
+    public Customer5[] Passenger { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains departure location, date and time. 
     /// </summary>

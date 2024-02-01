@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeType2FormatChoice;
 /// <summary>
 /// Standard code to specify the type of charge.
 /// </summary>
-public partial record Code : IChargeType2FormatChoice
+public partial record Code : ChargeType2FormatChoice_
 {
     public required ChargeType14Code Value { get; init; }
 }

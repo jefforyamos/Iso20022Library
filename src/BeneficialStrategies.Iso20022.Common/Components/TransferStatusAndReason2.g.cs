@@ -52,7 +52,7 @@ public partial record TransferStatusAndReason2
     /// <summary>
     /// Status of the transfer is rejected.
     /// </summary>
-    public required IRejectedStatus8Choice Rejected { get; init; } 
+    public required RejectedStatus8Choice_ Rejected { get; init; } 
     /// <summary>
     /// Status of the transfer is failed settlement, ie, settlement in the International Central Securities Depository (ICSD) or Central Securities Depository (CSD) failed.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record TransferStatusAndReason2
     /// <summary>
     /// Party that initiates the status.
     /// </summary>
-    public IPartyIdentification2Choice? StatusInitiator { get; init; } 
+    public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     
     #nullable disable
 }

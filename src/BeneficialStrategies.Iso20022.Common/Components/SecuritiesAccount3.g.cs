@@ -24,7 +24,7 @@ public partial record SecuritiesAccount3
     /// <summary>
     /// Choice between a code and a data source scheme to identify the type of account.
     /// </summary>
-    public IPurposeCode5Choice? Type { get; init; } 
+    public PurposeCode5Choice_? Type { get; init; } 
     /// <summary>
     /// .
     /// </summary>

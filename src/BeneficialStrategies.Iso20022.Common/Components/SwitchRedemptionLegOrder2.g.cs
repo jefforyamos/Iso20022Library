@@ -28,7 +28,7 @@ public partial record SwitchRedemptionLegOrder2
     /// <summary>
     /// Investment fund class related to an order.
     /// </summary>
-    public IFinancialInstrumentQuantity3Choice? FinancialInstrumentQuantityChoice { get; init; } 
+    public FinancialInstrumentQuantity3Choice_? FinancialInstrumentQuantityChoice { get; init; } 
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
@@ -48,15 +48,15 @@ public partial record SwitchRedemptionLegOrder2
     /// <summary>
     /// Amount of money associated with a service.
     /// </summary>
-    public Charge8? ChargeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Charge8[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Commission linked to the execution of an investment fund order.
     /// </summary>
-    public Commission6? CommissionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Commission6[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax related to an investment fund order.
     /// </summary>
-    public Tax6? TaxDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Tax6[] TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Parameters used to execute the settlement of an investment fund order.
     /// </summary>

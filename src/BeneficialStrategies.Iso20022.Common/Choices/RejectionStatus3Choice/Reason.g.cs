@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionStatus3Choice;
 /// <summary>
 /// Specifies the reason of the RejectionStatus.
 /// </summary>
-public partial record Reason : IRejectionStatus3Choice
+public partial record Reason : RejectionStatus3Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the instruction/request has a rejected or repair status.
     /// </summary>
-    public required IRejectionReason2Choice Code { get; init; } 
+    public required RejectionReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

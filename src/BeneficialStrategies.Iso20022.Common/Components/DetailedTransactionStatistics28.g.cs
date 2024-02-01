@@ -28,7 +28,7 @@ public partial record DetailedTransactionStatistics28
     /// <summary>
     /// Details of abnormal values.
     /// </summary>
-    public AbnormalValuesData4? Warnings { get; init;  } // Warning: Don't know multiplicity.
+    public AbnormalValuesData4[] Warnings { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

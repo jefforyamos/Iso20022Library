@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OtherIdentification2Choice;
 /// <summary>
 /// Type of identification expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IOtherIdentification2Choice
+public partial record Proprietary : OtherIdentification2Choice_
 {
     #nullable enable
     /// <summary>

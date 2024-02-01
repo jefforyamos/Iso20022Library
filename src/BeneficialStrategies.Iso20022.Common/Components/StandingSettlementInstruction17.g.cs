@@ -20,11 +20,11 @@ public partial record StandingSettlementInstruction17
     /// <summary>
     /// Specifies what settlement standing instruction database is to be used to derive the settlement parties involved in the transaction.
     /// </summary>
-    public required ISettlementStandingInstructionDatabase5Choice SettlementStandingInstructionDatabase { get; init; } 
+    public required SettlementStandingInstructionDatabase5Choice_ SettlementStandingInstructionDatabase { get; init; } 
     /// <summary>
     /// Identification of the buyer or seller in a standing settlement instruction enabling to derive the Standing Settlement Instruction.
     /// </summary>
-    public required ICounterparty14Choice Counterparty { get; init; } 
+    public required Counterparty14Choice_ Counterparty { get; init; } 
     /// <summary>
     /// Vendor of the settlement standing instruction database that is to be consulted.
     /// </summary>

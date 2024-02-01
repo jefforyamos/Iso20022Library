@@ -36,7 +36,7 @@ public partial record ATMTransaction18
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    public ATMCommand7? Command { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCommand7[] Command { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

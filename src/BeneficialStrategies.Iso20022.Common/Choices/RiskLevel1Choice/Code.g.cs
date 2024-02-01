@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RiskLevel1Choice;
 /// <summary>
 /// Risk level expressed as code.
 /// </summary>
-public partial record Code : IRiskLevel1Choice
+public partial record Code : RiskLevel1Choice_
 {
     public required RiskLevel1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AffirmationStatus10Choice;
 /// <summary>
 /// Trade has been unaffirmed.
 /// </summary>
-public partial record Proprietary : IAffirmationStatus10Choice
+public partial record Proprietary : AffirmationStatus10Choice_
 {
     #nullable enable
     /// <summary>

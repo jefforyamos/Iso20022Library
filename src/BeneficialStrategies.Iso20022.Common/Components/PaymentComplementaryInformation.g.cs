@@ -20,7 +20,7 @@ public partial record PaymentComplementaryInformation
     /// <summary>
     /// Remittance information.
     /// </summary>
-    public IRemittanceInformation3Choice? RemittanceChoice { get; init; } 
+    public RemittanceInformation3Choice_? RemittanceChoice { get; init; } 
     /// <summary>
     /// Debtor or Ordering customer of the payment instruction.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record PaymentComplementaryInformation
     /// <summary>
     /// Instructed amount of the payment instruction (Field 33B).
     /// </summary>
-    public IAmountType1Choice? Amount { get; init; } 
+    public AmountType1Choice_? Amount { get; init; } 
     /// <summary>
     /// Indicates the account used to cover a payment.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record PaymentComplementaryInformation
     /// <summary>
     /// Unformatted information from the sender to the receiver.
     /// </summary>
-    public IReadOnlyCollection<IsoMax35Text> SenderToReceiverInformation { get; init; } = [];
+    public IsoMax35Text[] SenderToReceiverInformation { get; init; } = [];
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FixedAmountOrUnlimited1Choice;
 /// <summary>
 /// Unlimited amount.
 /// </summary>
-public partial record NotLimited : IFixedAmountOrUnlimited1Choice
+public partial record NotLimited : FixedAmountOrUnlimited1Choice_
 {
     public required IsoUnlimited9Text Value { get; init; }
 }

@@ -36,11 +36,11 @@ public partial record NettingCutOffReportData2
     /// <summary>
     /// Describes the participant receiving the net report.
     /// </summary>
-    public IPartyIdentification242Choice? NetServiceParticipantIdentification { get; init; } 
+    public PartyIdentification242Choice_? NetServiceParticipantIdentification { get; init; } 
     /// <summary>
     /// Describes the central system responsible for generating the net report.
     /// </summary>
-    public IPartyIdentification242Choice? ReportServicer { get; init; } 
+    public PartyIdentification242Choice_? ReportServicer { get; init; } 
     /// <summary>
     /// Describes the type of netting service supporting the net report.
     /// </summary>

@@ -28,7 +28,7 @@ public partial record DefaultAccountDetails1
     /// <summary>
     /// Information about time and event fund transfer.
     /// </summary>
-    public IDailyFundTransfer1Choice? DailyFundTransfer { get; init; } 
+    public DailyFundTransfer1Choice_? DailyFundTransfer { get; init; } 
     
     #nullable disable
 }

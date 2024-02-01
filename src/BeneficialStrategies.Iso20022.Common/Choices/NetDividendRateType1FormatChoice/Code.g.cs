@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NetDividendRateType1FormatChoice
 /// <summary>
 /// Standard code to specify the type of net dividend rate.
 /// </summary>
-public partial record Code : INetDividendRateType1FormatChoice
+public partial record Code : NetDividendRateType1FormatChoice_
 {
     public required NetDividendRateType1Code Value { get; init; }
 }

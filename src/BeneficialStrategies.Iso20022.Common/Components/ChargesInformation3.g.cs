@@ -28,7 +28,7 @@ public partial record ChargesInformation3
     /// <summary>
     /// Identifies the type of charge.
     /// </summary>
-    public IChargeTypeChoice? Type { get; init; } 
+    public ChargeTypeChoice_? Type { get; init; } 
     /// <summary>
     /// Rate used to calculate the amount of the charge or fee.
     /// </summary>

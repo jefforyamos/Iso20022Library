@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationStatus26Choice;
 /// <summary>
 /// Status advising on the processing of the instruction cancellation request.
 /// </summary>
-public partial record ProcessingStatus : ICancellationStatus26Choice
+public partial record ProcessingStatus : CancellationStatus26Choice_
 {
     #nullable enable
     /// <summary>

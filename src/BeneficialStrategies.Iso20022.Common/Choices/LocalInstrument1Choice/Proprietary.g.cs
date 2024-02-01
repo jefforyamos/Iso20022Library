@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LocalInstrument1Choice;
 /// <summary>
 /// Specifies the local instrument as a proprietary code.
 /// </summary>
-public partial record Proprietary : ILocalInstrument1Choice
+public partial record Proprietary : LocalInstrument1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TerminationReason1Choice;
 /// <summary>
 /// Termination reason expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITerminationReason1Choice
+public partial record Proprietary : TerminationReason1Choice_
 {
     #nullable enable
     /// <summary>

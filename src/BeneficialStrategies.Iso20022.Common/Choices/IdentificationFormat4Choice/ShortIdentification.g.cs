@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationFormat4Choice;
 /// <summary>
 /// Format expressed as a short identification.
 /// </summary>
-public partial record ShortIdentification : IIdentificationFormat4Choice
+public partial record ShortIdentification : IdentificationFormat4Choice_
 {
     public required IsoExact3UpperCaseAlphaNumericText Value { get; init; }
 }

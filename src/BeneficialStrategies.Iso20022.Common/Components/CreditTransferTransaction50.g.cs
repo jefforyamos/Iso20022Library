@@ -69,7 +69,7 @@ public partial record CreditTransferTransaction50
     /// <summary>
     /// Provides information on the charges to be paid by the charge bearer(s) related to the payment transaction.
     /// </summary>
-    public Charges7? ChargesInformation { get; init;  } // Warning: Don't know multiplicity.
+    public Charges7[] ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides further details of the mandate signed between the creditor and the debtor.
     /// </summary>
@@ -180,19 +180,19 @@ public partial record CreditTransferTransaction50
     /// <summary>
     /// Further information related to the processing of the payment instruction, provided by the initiating party, and intended for the creditor agent.
     /// </summary>
-    public InstructionForCreditorAgent3? InstructionForCreditorAgent { get; init;  } // Warning: Don't know multiplicity.
+    public InstructionForCreditorAgent3[] InstructionForCreditorAgent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further information related to the processing of the payment instruction that may need to be acted upon by the next agent. ||Usage: The next agent may not be the creditor agent.|The instruction can relate to a level of service, can be an instruction that has to be executed by the agent, or can be information required by the next agent.
     /// </summary>
-    public InstructionForNextAgent1? InstructionForNextAgent { get; init;  } // Warning: Don't know multiplicity.
+    public InstructionForNextAgent1[] InstructionForNextAgent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Underlying reason for the payment transaction.|Usage: Purpose is used by the end-customers, that is initiating party, (ultimate) debtor, (ultimate) creditor to provide information concerning the nature of the payment. Purpose is a content element, which is not used for processing by any of the agents involved in the payment chain.
     /// </summary>
-    public IPurpose2Choice? Purpose { get; init; } 
+    public Purpose2Choice_? Purpose { get; init; } 
     /// <summary>
     /// Information needed due to regulatory and statutory requirements.
     /// </summary>
-    public IReadOnlyCollection<RegulatoryReporting3> RegulatoryReporting { get; init; } = [];
+    public RegulatoryReporting3[] RegulatoryReporting { get; init; } = [];
     /// <summary>
     /// Provides details on the tax.
     /// </summary>
@@ -200,7 +200,7 @@ public partial record CreditTransferTransaction50
     /// <summary>
     /// Provides information related to the handling of the remittance information by any of the agents in the transaction processing chain.
     /// </summary>
-    public IReadOnlyCollection<RemittanceLocation7> RelatedRemittanceInformation { get; init; } = [];
+    public RemittanceLocation7[] RelatedRemittanceInformation { get; init; } = [];
     /// <summary>
     /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts' receivable system.
     /// </summary>
@@ -208,7 +208,7 @@ public partial record CreditTransferTransaction50
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

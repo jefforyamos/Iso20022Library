@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedReason25Choice;
 /// <summary>
 /// Proprietary identification of the reason why the instruction/cancellation request has a rejected status.
 /// </summary>
-public partial record Proprietary : IRejectedReason25Choice
+public partial record Proprietary : RejectedReason25Choice_
 {
     #nullable enable
     /// <summary>

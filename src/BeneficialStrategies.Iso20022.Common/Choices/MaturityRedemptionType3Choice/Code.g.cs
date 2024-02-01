@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MaturityRedemptionType3Choice;
 /// <summary>
 /// Maturity redemption type expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IMaturityRedemptionType3Choice
+public partial record Code : MaturityRedemptionType3Choice_
 {
     public required MaturityRedemptionType1Code Value { get; init; }
 }

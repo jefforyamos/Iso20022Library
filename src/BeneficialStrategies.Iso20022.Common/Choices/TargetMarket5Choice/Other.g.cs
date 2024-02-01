@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TargetMarket5Choice;
 /// <summary>
 /// Specifies whether the financial product is in scope of the target market parameter.
 /// </summary>
-public partial record Other : ITargetMarket5Choice
+public partial record Other : TargetMarket5Choice_
 {
     public required TargetMarket1Code Value { get; init; }
 }

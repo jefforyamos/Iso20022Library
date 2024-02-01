@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice;
 /// <summary>
 /// Indicates that the investment was made in an unsecured deposit at a commercial deposit taking institution.
 /// </summary>
-public partial record UnsecuredCashDeposit : IInvestment1Choice
+public partial record UnsecuredCashDeposit : Investment1Choice_
 {
     #nullable enable
     /// <summary>

@@ -52,11 +52,11 @@ public partial record CertificateManagementResponse3
     /// <summary>
     /// Certificate of the client certificate path, from the CA (Certificate Authority) certificate, to the root certificate, for renewal or revocation of certificate.
     /// </summary>
-    public IsoMax10KBinary? ClientCertificatePath { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax10KBinary[] ClientCertificatePath { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Certificate of the server certificate path, from the CA (Certificate Authority) certificate, to the root certificate, for renewal or revocation of certificate.
     /// </summary>
-    public IsoMax10KBinary? ServerCertificatePath { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax10KBinary[] ServerCertificatePath { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

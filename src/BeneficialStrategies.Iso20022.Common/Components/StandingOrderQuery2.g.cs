@@ -24,7 +24,7 @@ public partial record StandingOrderQuery2
     /// <summary>
     /// Definition of the standing order query criteria.
     /// </summary>
-    public IStandingOrderCriteria2Choice? StandingOrderCriteria { get; init; } 
+    public StandingOrderCriteria2Choice_? StandingOrderCriteria { get; init; } 
     
     #nullable disable
 }

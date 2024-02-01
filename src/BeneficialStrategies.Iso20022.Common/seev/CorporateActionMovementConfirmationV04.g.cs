@@ -130,7 +130,7 @@ public partial record CorporateActionMovementConfirmationV04 : IOuterRecord
     [Description(@"Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.")]
     [DataMember(Name="IssrAgt")]
     [XmlElement(ElementName="IssrAgt")]
-    public IPartyIdentification46Choice? IssuerAgent { get; init; }
+    public PartyIdentification46Choice_? IssuerAgent { get; init; }
     
     /// <summary>
     /// Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
@@ -139,7 +139,7 @@ public partial record CorporateActionMovementConfirmationV04 : IOuterRecord
     [Description(@"Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
     [DataMember(Name="PngAgt")]
     [XmlElement(ElementName="PngAgt")]
-    public IPartyIdentification46Choice? PayingAgent { get; init; }
+    public PartyIdentification46Choice_? PayingAgent { get; init; }
     
     /// <summary>
     /// Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
@@ -148,7 +148,7 @@ public partial record CorporateActionMovementConfirmationV04 : IOuterRecord
     [Description(@"Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
     [DataMember(Name="SubPngAgt")]
     [XmlElement(ElementName="SubPngAgt")]
-    public IPartyIdentification46Choice? SubPayingAgent { get; init; }
+    public PartyIdentification46Choice_? SubPayingAgent { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

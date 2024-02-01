@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionDateOrPeriod1Choice;
 /// <summary>
 /// Number of calendar days that the holder of the instrument/issuer of the instrument will give to the issuer/holder of the instrument before exercising the put/call option.
 /// </summary>
-public partial record NoticePeriod : IOptionDateOrPeriod1Choice
+public partial record NoticePeriod : OptionDateOrPeriod1Choice_
 {
     public required IsoNumber Value { get; init; }
 }

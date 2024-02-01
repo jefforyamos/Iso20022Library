@@ -20,19 +20,19 @@ public partial record CashAccountSearchCriteria7
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public IAccountIdentificationSearchCriteria2Choice? AccountIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public AccountIdentificationSearchCriteria2Choice_[] AccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the nature, or use, of the cash account.
     /// </summary>
-    public ICashAccountType2Choice? Type { get; init;  } // Warning: Don't know multiplicity.
+    public CashAccountType2Choice_[] Type { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the currency of the cash account.
     /// </summary>
-    public ActiveOrHistoricCurrencyCode? Currency { get; init;  } // Warning: Don't know multiplicity.
+    public ActiveOrHistoricCurrencyCode[] Currency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Balance of the account which is being queried.
     /// </summary>
-    public CashBalance12? Balance { get; init;  } // Warning: Don't know multiplicity.
+    public CashBalance12[] Balance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>

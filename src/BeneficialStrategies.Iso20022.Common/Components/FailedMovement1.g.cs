@@ -24,7 +24,7 @@ public partial record FailedMovement1
     /// <summary>
     /// Quantity of the financial instrument.
     /// </summary>
-    public required IUnitOrFaceAmount1Choice SecuritiesQuantity { get; init; } 
+    public required UnitOrFaceAmount1Choice_ SecuritiesQuantity { get; init; } 
     /// <summary>
     /// Identification of the financial instrument.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record FailedMovement1
     /// <summary>
     /// The reason for the settlement failure.
     /// </summary>
-    public required IFailedSettlementReason1FormatChoice Reason { get; init; } 
+    public required FailedSettlementReason1FormatChoice_ Reason { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DiscountTypeFormat1Choice;
 /// <summary>
 /// Standard code to specify the type of discount.
 /// </summary>
-public partial record Code : IDiscountTypeFormat1Choice
+public partial record Code : DiscountTypeFormat1Choice_
 {
     public required DiscountType1Code Value { get; init; }
 }

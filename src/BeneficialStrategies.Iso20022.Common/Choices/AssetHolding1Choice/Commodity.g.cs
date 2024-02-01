@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetHolding1Choice;
 /// <summary>
 /// Mark-to-market pre-haircut value of other commodity collateral.
 /// </summary>
-public partial record Commodity : IAssetHolding1Choice
+public partial record Commodity : AssetHolding1Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record Commodity : IAssetHolding1Choice
     /// <summary>
     /// Specifies the type of commodity.
     /// </summary>
-    public required IAssetClassDetailedSubProductType1Choice CommodityType { get; init; } 
+    public required AssetClassDetailedSubProductType1Choice_ CommodityType { get; init; } 
     #nullable disable
 }

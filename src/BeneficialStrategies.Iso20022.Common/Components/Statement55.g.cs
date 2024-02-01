@@ -20,7 +20,7 @@ public partial record Statement55
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
-    public INumber3Choice? ReportNumber { get; init; } 
+    public Number3Choice_? ReportNumber { get; init; } 
     /// <summary>
     /// Identification of the statement query message sent to request this statement.
     /// </summary>
@@ -32,15 +32,15 @@ public partial record Statement55
     /// <summary>
     /// Date and time of the statement.
     /// </summary>
-    public required IDateAndDateTimeChoice StatementDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
-    public IFrequency26Choice? Frequency { get; init; } 
+    public Frequency26Choice_? Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
-    public IUpdateType16Choice? UpdateType { get; init; } 
+    public UpdateType16Choice_? UpdateType { get; init; } 
     /// <summary>
     /// Specifies whether the statement is sorted by status or transaction.
     /// </summary>

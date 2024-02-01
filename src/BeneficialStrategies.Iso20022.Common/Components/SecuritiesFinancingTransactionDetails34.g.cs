@@ -28,15 +28,15 @@ public partial record SecuritiesFinancingTransactionDetails34
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
-    public ITerminationDate5Choice? TerminationDate { get; init; } 
+    public TerminationDate5Choice_? TerminationDate { get; init; } 
     /// <summary>
     /// Specifies whether the rate is fixed or variable.
     /// </summary>
-    public IRateType67Choice? RateType { get; init; } 
+    public RateType67Choice_? RateType { get; init; } 
     /// <summary>
     /// Legal framework of the transaction.
     /// </summary>
-    public ILegalFramework4Choice? LegalFramework { get; init; } 
+    public LegalFramework4Choice_? LegalFramework { get; init; } 
     /// <summary>
     /// Specifies whether the maturity date of the securities financing transaction may be modified.
     /// </summary>

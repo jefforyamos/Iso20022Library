@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification29Choice;
 /// <summary>
 /// Identifies the name and address of a non-financial institution.
 /// </summary>
-public partial record NameAndAddress : IPartyIdentification29Choice
+public partial record NameAndAddress : PartyIdentification29Choice_
 {
     #nullable enable
     /// <summary>

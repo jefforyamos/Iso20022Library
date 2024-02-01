@@ -24,7 +24,7 @@ public partial record Counterparty31
     /// <summary>
     /// Indicates if the counterparty is a legal entity or a natural person.
     /// </summary>
-    public required IPartyIdentification235Choice IdentificationType { get; init; } 
+    public required PartyIdentification235Choice_ IdentificationType { get; init; } 
     
     #nullable disable
 }

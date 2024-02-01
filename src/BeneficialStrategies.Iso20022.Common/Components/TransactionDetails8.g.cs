@@ -20,11 +20,11 @@ public partial record TransactionDetails8
     /// <summary>
     /// Specifies the type of activity to which this instruction relates.
     /// </summary>
-    public required ITransactionActivity1Choice TransactionActivity { get; init; } 
+    public required TransactionActivity1Choice_ TransactionActivity { get; init; } 
     /// <summary>
     /// Choice of type for the transaction reported.
     /// </summary>
-    public ISettlementOrCorporateActionEvent2Choice? SettlementTransactionOrCorporateActionEventType { get; init; } 
+    public SettlementOrCorporateActionEvent2Choice_? SettlementTransactionOrCorporateActionEventType { get; init; } 
     /// <summary>
     /// Specifies if the movement on a securities account results from a deliver or a receive instruction.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record TransactionDetails8
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public ISafekeepingPlaceFormat3Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record TransactionDetails8
     /// <summary>
     /// Quantity of financial instrument (to be) posted to the safekeeping account.
     /// </summary>
-    public required IQuantity6Choice PostingQuantity { get; init; } 
+    public required Quantity6Choice_ PostingQuantity { get; init; } 
     /// <summary>
     /// Amount of money that is to be/was posted to the account.
     /// </summary>
@@ -60,23 +60,23 @@ public partial record TransactionDetails8
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    public ITradeDate1Choice? TradeDate { get; init; } 
+    public TradeDate1Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public IDateAndDateTimeChoice? ExpectedSettlementDate { get; init; } 
+    public DateAndDateTimeChoice_? ExpectedSettlementDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public required ISettlementDate2Choice SettlementDate { get; init; } 
+    public required SettlementDate2Choice_ SettlementDate { get; init; } 
     /// <summary>
     /// Date and time after the settlement date specified in the trade, used for pool trades resulting from the original To Be Assigned (TBA) securities.
     /// </summary>
-    public IDateAndDateTimeChoice? LateDeliveryDate { get; init; } 
+    public DateAndDateTimeChoice_? LateDeliveryDate { get; init; } 
     /// <summary>
     /// For against payment transactions, the value date/time at which the account servicer expects the settlement amount to be credited or debited.
     /// </summary>
-    public IDateAndDateTimeChoice? ExpectedValueDate { get; init; } 
+    public DateAndDateTimeChoice_? ExpectedValueDate { get; init; } 
     /// <summary>
     /// Identifies the chain of delivering settlement parties.
     /// </summary>
@@ -92,7 +92,7 @@ public partial record TransactionDetails8
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension2? Extension { get; init;  } // Warning: Don't know multiplicity.
+    public Extension2[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

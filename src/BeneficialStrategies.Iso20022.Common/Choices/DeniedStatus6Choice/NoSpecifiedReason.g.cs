@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DeniedStatus6Choice;
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoSpecifiedReason : IDeniedStatus6Choice
+public partial record NoSpecifiedReason : DeniedStatus6Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

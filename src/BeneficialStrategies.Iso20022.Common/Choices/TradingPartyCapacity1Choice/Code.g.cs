@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingPartyCapacity1Choice;
 /// <summary>
 /// Trading capacity expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ITradingPartyCapacity1Choice
+public partial record Code : TradingPartyCapacity1Choice_
 {
     public required TradingCapacity4Code Value { get; init; }
 }

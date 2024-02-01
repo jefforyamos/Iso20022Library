@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FATCAStatus2Choice;
 /// <summary>
 /// Foreign Account Tax Compliance Act (FATCA) status expressed as a code.
 /// </summary>
-public partial record Code : IFATCAStatus2Choice
+public partial record Code : FATCAStatus2Choice_
 {
     public required FATCAStatus1Code Value { get; init; }
 }

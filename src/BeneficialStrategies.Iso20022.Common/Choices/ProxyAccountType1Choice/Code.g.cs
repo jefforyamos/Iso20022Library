@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProxyAccountType1Choice;
 /// <summary>
 /// Name of the identification scheme, in a coded form as published in an external list.
 /// </summary>
-public partial record Code : IProxyAccountType1Choice
+public partial record Code : ProxyAccountType1Choice_
 {
     public required ExternalProxyAccountType1Code Value { get; init; }
 }

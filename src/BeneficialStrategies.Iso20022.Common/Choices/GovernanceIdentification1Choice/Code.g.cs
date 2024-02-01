@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GovernanceIdentification1Choice;
 /// <summary>
 /// Governance identification information.
 /// </summary>
-public partial record Code : IGovernanceIdentification1Choice
+public partial record Code : GovernanceIdentification1Choice_
 {
     public required GovernanceIdentification1Code Value { get; init; }
 }

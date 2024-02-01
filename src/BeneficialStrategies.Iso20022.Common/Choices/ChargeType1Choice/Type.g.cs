@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeType1Choice;
 /// <summary>
 /// Type of service for which a charge is asked or paid.
 /// </summary>
-public partial record Type : IChargeType1Choice
+public partial record Type : ChargeType1Choice_
 {
     public required ChargeType13Code Value { get; init; }
 }

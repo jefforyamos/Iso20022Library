@@ -79,7 +79,7 @@ public partial record MeetingCancellationV02 : IOuterRecord
     [Description(@"Party notifying the cancellation of the meeting.")]
     [DataMember(Name="NtifngPty")]
     [XmlElement(ElementName="NtifngPty")]
-    public IPartyIdentification9Choice? NotifyingParty { get; init; }
+    public PartyIdentification9Choice_? NotifyingParty { get; init; }
     
     /// <summary>
     /// Identifies the security for which the meeting was organised.

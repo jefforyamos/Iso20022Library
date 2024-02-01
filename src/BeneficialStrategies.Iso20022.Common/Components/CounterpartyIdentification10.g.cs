@@ -20,7 +20,7 @@ public partial record CounterpartyIdentification10
     /// <summary>
     /// Identification of the counterparty in the transaction.
     /// </summary>
-    public IOrganisationIdentification15Choice? Identification { get; init; } 
+    public OrganisationIdentification15Choice_? Identification { get; init; } 
     /// <summary>
     /// Identifies whether the reporting counterparty is a collateral provider or a collateral taker.
     /// </summary>

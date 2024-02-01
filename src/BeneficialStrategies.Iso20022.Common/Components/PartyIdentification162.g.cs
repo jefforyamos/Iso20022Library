@@ -20,7 +20,7 @@ public partial record PartyIdentification162
     /// <summary>
     /// Unique and unambiguous way to identify an organisation.
     /// </summary>
-    public required IPartyIdentification145Choice Identification { get; init; } 
+    public required PartyIdentification145Choice_ Identification { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a party.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record PartyIdentification162
     /// <summary>
     /// Date/time at which the instruction was processed by the specified party.
     /// </summary>
-    public IDateAndDateTime2Choice? ProcessingDate { get; init; } 
+    public DateAndDateTime2Choice_? ProcessingDate { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction for the party identified.
     /// </summary>

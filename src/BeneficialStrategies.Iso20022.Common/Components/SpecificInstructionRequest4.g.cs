@@ -20,7 +20,7 @@ public partial record SpecificInstructionRequest4
     /// <summary>
     /// Method of voting participation to the general meeting.
     /// </summary>
-    public IParticipationMethod3Choice? ParticipationMethod { get; init; } 
+    public ParticipationMethod3Choice_? ParticipationMethod { get; init; } 
     /// <summary>
     /// Indicates a request to register the securities for the meeting.
     /// </summary>

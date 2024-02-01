@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract1Choice;
 /// <summary>
 /// Underlying registered contract is a loan.
 /// </summary>
-public partial record Loan : IUnderlyingContract1Choice
+public partial record Loan : UnderlyingContract1Choice_
 {
     #nullable enable
     /// <summary>
@@ -58,7 +58,7 @@ public partial record Loan : IUnderlyingContract1Choice
     /// <summary>
     /// Interest rate for the loan.
     /// </summary>
-    public required IInterestRate2Choice InterestRate { get; init; } 
+    public required InterestRate2Choice_ InterestRate { get; init; } 
     /// <summary>
     /// One part or division of the loan, used to define the repayment.
     /// </summary>
@@ -66,11 +66,11 @@ public partial record Loan : IUnderlyingContract1Choice
     /// <summary>
     /// Schedule of the payments defined for the loan contract.
     /// </summary>
-    public IPaymentSchedule1Choice? PaymentSchedule { get; init; } 
+    public PaymentSchedule1Choice_? PaymentSchedule { get; init; } 
     /// <summary>
     /// Schedule of the interest payments defined for the loan contract.
     /// </summary>
-    public required IInterestPaymentSchedule1Choice InterestSchedule { get; init; } 
+    public required InterestPaymentSchedule1Choice_ InterestSchedule { get; init; } 
     /// <summary>
     /// Loan is an intra company loan.
     /// </summary>

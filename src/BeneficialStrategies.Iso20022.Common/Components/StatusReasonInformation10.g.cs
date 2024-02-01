@@ -20,7 +20,7 @@ public partial record StatusReasonInformation10
     /// <summary>
     /// Specifies the reason for the status report.
     /// </summary>
-    public required IStatusReason6Choice Reason { get; init; } 
+    public required StatusReason6Choice_ Reason { get; init; } 
     /// <summary>
     /// Further details on the status reason.||Usage: Additional information can be used for several purposes such as the reporting of repaired information.
     /// </summary>

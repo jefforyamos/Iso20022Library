@@ -36,7 +36,7 @@ public partial record TransferStatusAndReason5
     /// <summary>
     /// Status of the transfer instruction.
     /// </summary>
-    public required ITransferStatus2Choice TransferStatus { get; init; } 
+    public required TransferStatus2Choice_ TransferStatus { get; init; } 
     /// <summary>
     /// Date and time at which the transfer was executed.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record TransferStatusAndReason5
     /// <summary>
     /// Breakdown of units to be transferred.
     /// </summary>
-    public Unit8? UnitsDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Unit8[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that initiates the status.
     /// </summary>

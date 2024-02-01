@@ -28,7 +28,7 @@ public partial record SwitchExecution7
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
-    public IPlaceOfTradeIdentification1Choice? PlaceOfTrade { get; init; } 
+    public PlaceOfTradeIdentification1Choice_? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Date and time at which the order was placed by the investor or its agent.
     /// </summary>
@@ -56,11 +56,11 @@ public partial record SwitchExecution7
     /// <summary>
     /// Party related to the transaction.
     /// </summary>
-    public IReadOnlyCollection<Intermediary39> RelatedPartyDetails { get; init; } = [];
+    public Intermediary39[] RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Cancellation right of the investor with respect to the investment fund order.
     /// </summary>
-    public ICancellationRight1Choice? CancellationRight { get; init; } 
+    public CancellationRight1Choice_? CancellationRight { get; init; } 
     /// <summary>
     /// Future date at which the investor requests the order to be executed.|The specification of a requested future trade date is not allowed in some markets. The date must be a date in the future.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record SwitchExecution7
     /// <summary>
     /// Choice between additional cash in or resulting cash out.
     /// </summary>
-    public IAdditionalAmount1Choice? AdditionalAmount { get; init; } 
+    public AdditionalAmount1Choice_? AdditionalAmount { get; init; } 
     /// <summary>
     /// Specifies that the execution was subject to best execution rules as defined by MiFID.
     /// </summary>
@@ -88,11 +88,11 @@ public partial record SwitchExecution7
     /// <summary>
     /// Redemption leg of a switch order execution.
     /// </summary>
-    public SwitchRedemptionLegExecution4? RedemptionLegDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SwitchRedemptionLegExecution4[] RedemptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Subscription leg of a switch order execution.
     /// </summary>
-    public SwitchSubscriptionLegExecution4? SubscriptionLegDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SwitchSubscriptionLegExecution4[] SubscriptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment process for the transfer of cash from the debtor to the creditor.
     /// </summary>
@@ -110,7 +110,7 @@ public partial record SwitchExecution7
     /// QuotedCurrency EUR
     /// ExchangeRate 0.769.
     /// </summary>
-    public ForeignExchangeTerms33? ForeignExchangeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ForeignExchangeTerms33[] ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies if advice has been received from an independent financial advisor.
     /// </summary>
@@ -126,15 +126,15 @@ public partial record SwitchExecution7
     /// <summary>
     /// Assessment of the customer’s behaviour at the time of the account opening application.
     /// </summary>
-    public ICustomerConductClassification1Choice? CustomerConductClassification { get; init; } 
+    public CustomerConductClassification1Choice_? CustomerConductClassification { get; init; } 
     /// <summary>
     /// Means by which the investor or account owner submits the open account form.
     /// </summary>
-    public ITransactionChannelType1Choice? TransactionChannelType { get; init; } 
+    public TransactionChannelType1Choice_? TransactionChannelType { get; init; } 
     /// <summary>
     /// Type of signature.
     /// </summary>
-    public ISignatureType1Choice? SignatureType { get; init; } 
+    public SignatureType1Choice_? SignatureType { get; init; } 
     /// <summary>
     /// Information about a non-standard order.
     /// </summary>

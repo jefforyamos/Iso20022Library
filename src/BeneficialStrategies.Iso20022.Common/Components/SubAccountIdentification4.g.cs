@@ -20,7 +20,7 @@ public partial record SubAccountIdentification4
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public required IAccountIdentificationFormatChoice Identification { get; init; } 
+    public required AccountIdentificationFormatChoice_ Identification { get; init; } 
     /// <summary>
     /// Indicates whether there is activity reported in the statement.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record SubAccountIdentification4
     /// <summary>
     /// Creation/cancellation of investment units on the books of the fund or its designated agent, as a result of executing an investment fund order.
     /// </summary>
-    public InvestmentFundTransactionsByFund1? TransactionOnSubAccount { get; init;  } // Warning: Don't know multiplicity.
+    public InvestmentFundTransactionsByFund1[] TransactionOnSubAccount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

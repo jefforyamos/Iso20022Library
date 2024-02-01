@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRateFormat33Choice;
 /// <summary>
 /// Value of the rate not specified.
 /// </summary>
-public partial record NotSpecifiedRate : IGrossDividendRateFormat33Choice
+public partial record NotSpecifiedRate : GrossDividendRateFormat33Choice_
 {
     public required RateType13Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentScheduleType2Choice;
 /// <summary>
 /// Payment schedule type defined in a coded form.
 /// </summary>
-public partial record Code : IPaymentScheduleType2Choice
+public partial record Code : PaymentScheduleType2Choice_
 {
     public required PaymentScheduleType2Code Value { get; init; }
 }

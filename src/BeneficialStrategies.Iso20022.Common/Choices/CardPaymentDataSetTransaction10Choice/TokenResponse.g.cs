@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CardPaymentDataSetTransaction10C
 /// <summary>
 /// Response to a token computation.
 /// </summary>
-public partial record TokenResponse : ICardPaymentDataSetTransaction10Choice
+public partial record TokenResponse : CardPaymentDataSetTransaction10Choice_
 {
     #nullable enable
     /// <summary>

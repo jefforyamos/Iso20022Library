@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Disclosure1Choice;
 /// <summary>
 /// Shareholding information is not disclosed.
 /// </summary>
-public partial record NoDisclosure : IDisclosure1Choice
+public partial record NoDisclosure : Disclosure1Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

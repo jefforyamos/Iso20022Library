@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingVenueType1Choice;
 /// <summary>
 /// Whether the Securities Financing Transaction was concluded off-venue.
 /// </summary>
-public partial record OffVenue : ITradingVenueType1Choice
+public partial record OffVenue : TradingVenueType1Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

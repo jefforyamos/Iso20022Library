@@ -28,7 +28,7 @@ public partial record PositionSearchCriteria2
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
-    public ISecuritiesAccount2Choice? SafekeepingAccount { get; init; } 
+    public SecuritiesAccount2Choice_? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-à-vis the issuer.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record PositionSearchCriteria2
     /// <summary>
     /// Defines specific restriction characteristics for a securities position.
     /// </summary>
-    public ISecuritiesBalanceType7Choice? SubBalanceType { get; init; } 
+    public SecuritiesBalanceType7Choice_? SubBalanceType { get; init; } 
     /// <summary>
     /// Option to provide output zero position in the results.
     /// </summary>

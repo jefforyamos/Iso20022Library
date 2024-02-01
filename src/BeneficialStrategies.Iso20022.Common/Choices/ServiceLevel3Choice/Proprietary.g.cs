@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ServiceLevel3Choice;
 /// <summary>
 /// Proprietary identification of a pre-agreed level of service between the parties.
 /// </summary>
-public partial record Proprietary : IServiceLevel3Choice
+public partial record Proprietary : ServiceLevel3Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

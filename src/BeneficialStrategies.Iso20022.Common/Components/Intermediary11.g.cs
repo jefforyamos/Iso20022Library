@@ -20,7 +20,7 @@ public partial record Intermediary11
     /// <summary>
     /// Unique and unambiguous identifier of the intermediary.
     /// </summary>
-    public required IPartyIdentification2Choice Identification { get; init; } 
+    public required PartyIdentification2Choice_ Identification { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>

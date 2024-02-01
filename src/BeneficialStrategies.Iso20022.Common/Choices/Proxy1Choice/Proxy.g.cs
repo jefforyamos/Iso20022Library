@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Proxy1Choice;
 /// <summary>
 /// Specifies the elements required to assign a proxy.
 /// </summary>
-public partial record Proxy : IProxy1Choice
+public partial record Proxy : Proxy1Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,15 +22,15 @@ public partial record Proxy : IProxy1Choice
     /// <summary>
     /// Date by which the information on proxy assignment must be received by the intermediary.
     /// </summary>
-    public IDateFormat2Choice? Deadline { get; init; } 
+    public DateFormat2Choice_? Deadline { get; init; } 
     /// <summary>
     /// Date by which the information on proxy assignment must be received by the intermediary (STP mode).
     /// </summary>
-    public IDateFormat2Choice? STPDeadline { get; init; } 
+    public DateFormat2Choice_? STPDeadline { get; init; } 
     /// <summary>
     /// Date by which the information on proxy assignment must be received by the issuer.
     /// </summary>
-    public IDateFormat2Choice? MarketDeadline { get; init; } 
+    public DateFormat2Choice_? MarketDeadline { get; init; } 
     /// <summary>
     /// Specifies the proxy persons which are authorised by the issuer.
     /// </summary>

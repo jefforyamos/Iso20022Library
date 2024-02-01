@@ -24,7 +24,7 @@ public partial record Account2
     /// <summary>
     /// Institution servicing an account and assigning the account identifier to the account owner.
     /// </summary>
-    public required IPartyIdentification2Choice AccountServicer { get; init; } 
+    public required PartyIdentification2Choice_ AccountServicer { get; init; } 
     
     #nullable disable
 }

@@ -20,7 +20,7 @@ public partial record PendingProcessingReason9
     /// <summary>
     /// Specifies the reason why the instruction has a pending processing status.
     /// </summary>
-    public required IPendingProcessingReason11Choice Code { get; init; } 
+    public required PendingProcessingReason11Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

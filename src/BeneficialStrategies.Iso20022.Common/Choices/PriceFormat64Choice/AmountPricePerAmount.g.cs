@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat64Choice;
 /// <summary>
 /// Price expressed as a ratio: amount price per amount.
 /// </summary>
-public partial record AmountPricePerAmount : IPriceFormat64Choice
+public partial record AmountPricePerAmount : PriceFormat64Choice_
 {
     #nullable enable
     /// <summary>

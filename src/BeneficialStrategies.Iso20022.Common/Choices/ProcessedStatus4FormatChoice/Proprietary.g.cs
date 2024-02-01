@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessedStatus4FormatChoice;
 /// <summary>
 /// Proprietary code to express the processing status of the standing instruction cancellation request.
 /// </summary>
-public partial record Proprietary : IProcessedStatus4FormatChoice
+public partial record Proprietary : ProcessedStatus4FormatChoice_
 {
     #nullable enable
     /// <summary>

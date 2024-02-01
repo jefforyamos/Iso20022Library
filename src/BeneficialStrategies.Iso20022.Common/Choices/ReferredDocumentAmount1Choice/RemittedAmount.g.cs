@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReferredDocumentAmount1Choice;
 /// <summary>
 /// Amount of money remitted for the referred document.
 /// </summary>
-public partial record RemittedAmount : IReferredDocumentAmount1Choice
+public partial record RemittedAmount : ReferredDocumentAmount1Choice_
 {
     public required IsoCurrencyAndAmount Value { get; init; }
 }

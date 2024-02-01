@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ContractRegistrationReference1Ch
 /// <summary>
 /// Unique and unambiguous identification of the registered contract.
 /// </summary>
-public partial record RegisteredContractIdentification : IContractRegistrationReference1Choice
+public partial record RegisteredContractIdentification : ContractRegistrationReference1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

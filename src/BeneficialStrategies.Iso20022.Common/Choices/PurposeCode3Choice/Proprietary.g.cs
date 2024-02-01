@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PurposeCode3Choice;
 /// <summary>
 /// Account type is defined using a data source scheme.
 /// </summary>
-public partial record Proprietary : IPurposeCode3Choice
+public partial record Proprietary : PurposeCode3Choice_
 {
     #nullable enable
     /// <summary>

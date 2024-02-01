@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RatioFormat23Choice;
 /// <summary>
 /// Value of the ratio not specified.
 /// </summary>
-public partial record NotSpecifiedRate : IRatioFormat23Choice
+public partial record NotSpecifiedRate : RatioFormat23Choice_
 {
     public required RateValueType7Code Value { get; init; }
 }

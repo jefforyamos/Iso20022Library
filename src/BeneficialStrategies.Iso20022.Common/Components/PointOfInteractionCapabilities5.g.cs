@@ -20,15 +20,15 @@ public partial record PointOfInteractionCapabilities5
     /// <summary>
     /// Card reading capabilities of the ATM performing the transaction.
     /// </summary>
-    public CardDataReading4Code? CardReadData { get; init;  } // Warning: Don't know multiplicity.
+    public CardDataReading4Code[] CardReadData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Card writing capabilities of the terminal performing the transaction.
     /// </summary>
-    public CardDataReading4Code? CardWriteData { get; init;  } // Warning: Don't know multiplicity.
+    public CardDataReading4Code[] CardWriteData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Customer and card authentication capabilities available at the ATM.
     /// </summary>
-    public CardholderVerificationCapability3Code? Authentication { get; init;  } // Warning: Don't know multiplicity.
+    public CardholderVerificationCapability3Code[] Authentication { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum number of digits the ATM is able to accept when the cardholder enters its PIN.
     /// </summary>

@@ -24,7 +24,7 @@ public partial record PendingBalance8
     /// <summary>
     /// Overall process covering the trade and settlement transactions of financial instruments.
     /// </summary>
-    public SettlementTypeAndIdentification26? PendingTransactions { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementTypeAndIdentification26[] PendingTransactions { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

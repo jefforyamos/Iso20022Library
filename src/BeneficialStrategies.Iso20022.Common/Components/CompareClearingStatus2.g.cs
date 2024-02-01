@@ -20,11 +20,11 @@ public partial record CompareClearingStatus2
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
-    public ICleared4Choice? Value1 { get; init; } 
+    public Cleared4Choice_? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
-    public ICleared4Choice? Value2 { get; init; } 
+    public Cleared4Choice_? Value2 { get; init; } 
     
     #nullable disable
 }

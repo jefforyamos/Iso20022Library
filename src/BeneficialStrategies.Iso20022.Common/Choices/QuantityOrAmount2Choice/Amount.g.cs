@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityOrAmount2Choice;
 /// <summary>
 /// Quantity is expressed as an amount.
 /// </summary>
-public partial record Amount : IQuantityOrAmount2Choice
+public partial record Amount : QuantityOrAmount2Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

@@ -52,7 +52,7 @@ public partial record Margin2
     /// <summary>
     /// Provides details on the margin result.
     /// </summary>
-    public IMarginResult1Choice? MarginResult { get; init; } 
+    public MarginResult1Choice_? MarginResult { get; init; } 
     
     #nullable disable
 }

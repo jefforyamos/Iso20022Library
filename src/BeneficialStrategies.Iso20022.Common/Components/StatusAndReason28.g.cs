@@ -20,19 +20,19 @@ public partial record StatusAndReason28
     /// <summary>
     /// Provides the status of an instruction.
     /// </summary>
-    public IProcessingStatus52Choice? ProcessingStatus { get; init; } 
+    public ProcessingStatus52Choice_? ProcessingStatus { get; init; } 
     /// <summary>
     /// Provides the matching status of an instruction as known by the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).
     /// </summary>
-    public IMatchingStatus24Choice? InferredMatchingStatus { get; init; } 
+    public MatchingStatus24Choice_? InferredMatchingStatus { get; init; } 
     /// <summary>
     /// Provides the matching status of the instruction.
     /// </summary>
-    public IMatchingStatus24Choice? MatchingStatus { get; init; } 
+    public MatchingStatus24Choice_? MatchingStatus { get; init; } 
     /// <summary>
     /// Provides the status of settlement of a transaction.
     /// </summary>
-    public ISettlementStatus17Choice? SettlementStatus { get; init; } 
+    public SettlementStatus17Choice_? SettlementStatus { get; init; } 
     
     #nullable disable
 }

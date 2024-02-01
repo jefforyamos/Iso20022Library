@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SupportLetterType1Choice;
 /// <summary>
 /// Type of supporting letter expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ISupportLetterType1Choice
+public partial record Code : SupportLetterType1Choice_
 {
     public required ExternalLetterType1Code Value { get; init; }
 }

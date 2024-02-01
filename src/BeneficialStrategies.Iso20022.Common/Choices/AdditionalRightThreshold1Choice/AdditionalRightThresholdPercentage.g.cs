@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AdditionalRightThreshold1Choice;
 /// <summary>
 /// Additional right granted to specify the minimum stake in share capital or cash value or number of security holders required to table resolutions. This minimum is expressed as a percentage.
 /// </summary>
-public partial record AdditionalRightThresholdPercentage : IAdditionalRightThreshold1Choice
+public partial record AdditionalRightThresholdPercentage : AdditionalRightThreshold1Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

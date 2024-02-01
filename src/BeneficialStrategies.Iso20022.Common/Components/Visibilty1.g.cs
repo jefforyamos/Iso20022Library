@@ -20,11 +20,11 @@ public partial record Visibilty1
     /// <summary>
     /// Start date when the information will be shown to the debtors.
     /// </summary>
-    public IDateAndDateTime2Choice? StartDate { get; init; } 
+    public DateAndDateTime2Choice_? StartDate { get; init; } 
     /// <summary>
     /// End date when the information will be shown to the debtors.
     /// </summary>
-    public IDateAndDateTime2Choice? EndDate { get; init; } 
+    public DateAndDateTime2Choice_? EndDate { get; init; } 
     /// <summary>
     /// Indicates whether the information is shown to the debtors or not.
     /// Usage: when absent, the default value is no limited visibility (false).

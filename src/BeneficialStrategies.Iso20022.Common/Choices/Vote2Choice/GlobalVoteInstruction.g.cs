@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote2Choice;
 /// <summary>
 /// Instruction specifiying a vote instruction per resolution for the entire entitlement.
 /// </summary>
-public partial record GlobalVoteInstruction : IVote2Choice
+public partial record GlobalVoteInstruction : Vote2Choice_
 {
     #nullable enable
     /// <summary>

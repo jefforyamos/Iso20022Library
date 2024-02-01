@@ -20,11 +20,11 @@ public partial record CollateralValueSearchCriteria3
     /// <summary>
     /// Unique and unambiguous identification for the cash account between the account owner and the account servicer.
     /// </summary>
-    public IAccountIdentification4Choice? CashAccountIdentification { get; init; } 
+    public AccountIdentification4Choice_? CashAccountIdentification { get; init; } 
     /// <summary>
     /// Medium of exchange of value.
     /// </summary>
-    public ActiveOrHistoricCurrencyCode? Currency { get; init;  } // Warning: Don't know multiplicity.
+    public ActiveOrHistoricCurrencyCode[] Currency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that legally owns the account being queried.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record CollateralValueSearchCriteria3
     /// <summary>
     /// ISIN identification of the related financial instrument into which this security can be converted.
     /// </summary>
-    public SecurityIdentification19? FinancialInstrumentIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityIdentification19[] FinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identification of the securities account owner.
     /// </summary>

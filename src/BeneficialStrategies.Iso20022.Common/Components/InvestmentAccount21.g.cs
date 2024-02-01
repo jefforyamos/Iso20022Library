@@ -32,11 +32,11 @@ public partial record InvestmentAccount21
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification2Choice? OwnerIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification2Choice_[] OwnerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountServicer { get; init; } 
+    public PartyIdentification2Choice_? AccountServicer { get; init; } 
     /// <summary>
     /// Counterparties eligibility as defined by article 24 of the EU MiFID Directive applicable to transactions executed by investment firms for eligible counterparties.
     /// </summary>

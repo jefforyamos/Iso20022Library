@@ -56,11 +56,11 @@ public partial record AmendmentInformationDetails12
     /// <summary>
     /// Original frequency that has been modified.
     /// </summary>
-    public IFrequency36Choice? OriginalFrequency { get; init; } 
+    public Frequency36Choice_? OriginalFrequency { get; init; } 
     /// <summary>
     /// Original reason for the mandate to allow the user to distinguish between different mandates for the same creditor.
     /// </summary>
-    public IMandateSetupReason1Choice? OriginalReason { get; init; } 
+    public MandateSetupReason1Choice_? OriginalReason { get; init; } 
     /// <summary>
     /// Original number of tracking days that has been modified.
     /// </summary>

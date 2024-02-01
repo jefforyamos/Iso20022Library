@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument8Choice;
 /// <summary>
 /// Part of the investment account to or from which cash entries are made.
 /// </summary>
-public partial record AccountDetails : IPaymentInstrument8Choice
+public partial record AccountDetails : PaymentInstrument8Choice_
 {
     #nullable enable
     /// <summary>

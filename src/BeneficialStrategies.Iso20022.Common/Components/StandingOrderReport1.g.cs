@@ -24,7 +24,7 @@ public partial record StandingOrderReport1
     /// <summary>
     /// Requested information on the standing order or business error when information has not been found.
     /// </summary>
-    public required IStandingOrderOrError6Choice StandingOrderOrError { get; init; } 
+    public required StandingOrderOrError6Choice_ StandingOrderOrError { get; init; } 
     
     #nullable disable
 }

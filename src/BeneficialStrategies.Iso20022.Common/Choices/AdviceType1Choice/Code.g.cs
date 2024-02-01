@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AdviceType1Choice;
 /// <summary>
 /// Advice type, in a coded form.
 /// </summary>
-public partial record Code : IAdviceType1Choice
+public partial record Code : AdviceType1Choice_
 {
     public required AdviceType1Code Value { get; init; }
 }

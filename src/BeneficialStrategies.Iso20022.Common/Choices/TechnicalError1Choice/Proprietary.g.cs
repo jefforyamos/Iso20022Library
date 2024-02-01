@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TechnicalError1Choice;
 /// <summary>
 /// Reason for the technical error, in a proprietary form.
 /// </summary>
-public partial record Proprietary : ITechnicalError1Choice
+public partial record Proprietary : TechnicalError1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

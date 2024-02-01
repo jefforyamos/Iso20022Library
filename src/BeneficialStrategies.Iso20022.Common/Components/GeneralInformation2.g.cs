@@ -32,7 +32,7 @@ public partial record GeneralInformation2
     /// <summary>
     /// Broker that arranged the deal between the trading side and the counterparty side or, when two money brokers are involved, between the trading side and the other money broker.
     /// </summary>
-    public IPartyIdentification19Choice? BrokerIdentification { get; init; } 
+    public PartyIdentification19Choice_? BrokerIdentification { get; init; } 
     /// <summary>
     /// Counterparty's reference for the trade.
     /// </summary>
@@ -48,11 +48,11 @@ public partial record GeneralInformation2
     /// <summary>
     /// Branch at the counterparty side with which the deal was done.
     /// </summary>
-    public IPartyIdentification19Choice? DealingBranchTradingSide { get; init; } 
+    public PartyIdentification19Choice_? DealingBranchTradingSide { get; init; } 
     /// <summary>
     /// Branch at the counterparty side with which the deal was done.
     /// </summary>
-    public IPartyIdentification19Choice? DealingBranchCounterpartySide { get; init; } 
+    public PartyIdentification19Choice_? DealingBranchCounterpartySide { get; init; } 
     /// <summary>
     /// Specifies the name and/or electronic address of the the receiver of the message who may be contacted for any queries concerning this trade.
     /// </summary>

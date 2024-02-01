@@ -28,7 +28,7 @@ public partial record ThirdPartyRights2
     /// <summary>
     /// Party that holds the third party right.
     /// </summary>
-    public IPartyIdentification125Choice? Holder { get; init; } 
+    public PartyIdentification125Choice_? Holder { get; init; } 
     /// <summary>
     /// Identification of the holder with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MeetingCancellationReason1Choice
 /// <summary>
 /// Specifies the reason for cancelling a meeting in free text form.
 /// </summary>
-public partial record Proprietary : IMeetingCancellationReason1Choice
+public partial record Proprietary : MeetingCancellationReason1Choice_
 {
     #nullable enable
     /// <summary>

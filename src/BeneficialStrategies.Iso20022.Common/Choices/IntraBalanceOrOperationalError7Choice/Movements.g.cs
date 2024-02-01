@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraBalanceOrOperationalError7C
 /// <summary>
 /// Identifies the transactions.
 /// </summary>
-public partial record Movements : IIntraBalanceOrOperationalError7Choice
+public partial record Movements : IntraBalanceOrOperationalError7Choice_
 {
     #nullable enable
     /// <summary>

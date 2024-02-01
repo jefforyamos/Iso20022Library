@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NettingEligibility5Choice;
 /// <summary>
 /// Specifies whether the settlement transaction is eligible for netting.
 /// </summary>
-public partial record Indicator : INettingEligibility5Choice
+public partial record Indicator : NettingEligibility5Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

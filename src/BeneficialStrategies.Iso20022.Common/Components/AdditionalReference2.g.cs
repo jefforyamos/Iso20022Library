@@ -24,7 +24,7 @@ public partial record AdditionalReference2
     /// <summary>
     /// Issuer of the reference.
     /// </summary>
-    public IPartyIdentification1Choice? ReferenceIssuer { get; init; } 
+    public PartyIdentification1Choice_? ReferenceIssuer { get; init; } 
     /// <summary>
     /// Name of a message.
     /// </summary>

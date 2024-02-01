@@ -20,7 +20,7 @@ public partial record Collateral14
     /// <summary>
     /// Provides the values of the security pledged as collateral.
     /// </summary>
-    public required ISecuredCollateral2Choice Valuation { get; init; } 
+    public required SecuredCollateral2Choice_ Valuation { get; init; } 
     /// <summary>
     /// Risk control measure applied to underlying collateral whereby the value of that underlying collateral is calculated as the market value of the assets reduced by a certain percentage. 
     /// For reporting purposes the collateral haircut will be calculated as 100 minus the ratio between the cash lent/borrowed and the market value including accrued interest of the collateral pledged times 100. 

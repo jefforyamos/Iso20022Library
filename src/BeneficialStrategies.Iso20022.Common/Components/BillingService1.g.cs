@@ -48,7 +48,7 @@ public partial record BillingService1
     /// <summary>
     /// Provides tax related values for tax calculation methods A, B or D.
     /// </summary>
-    public IBillingMethod1Choice? TaxCalculation { get; init; } 
+    public BillingMethod1Choice_? TaxCalculation { get; init; } 
     
     #nullable disable
 }

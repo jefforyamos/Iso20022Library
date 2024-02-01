@@ -24,15 +24,15 @@ public partial record CorporateActionUnallocatedDetailsSD1
     /// <summary>
     /// Type of Participants positions balance concerned in unallocated payment.
     /// </summary>
-    public ICorporateActionUnallocatedBalanceSD1Choice? UnallocatedBalance { get; init; } 
+    public CorporateActionUnallocatedBalanceSD1Choice_? UnallocatedBalance { get; init; } 
     /// <summary>
     /// Details of the securities transactions concerned in unallocated payment.
     /// </summary>
-    public CorporateActionUnallocatedSecuritiesTransactionDetailsSD1? UnallocatedSecuritiesTransactionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionUnallocatedSecuritiesTransactionDetailsSD1[] UnallocatedSecuritiesTransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details of the cash transactions concerned in unallocated payment.
     /// </summary>
-    public CorporateActionUnallocatedCashTransactionDetailsSD1? UnallocatedCashTransactionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionUnallocatedCashTransactionDetailsSD1[] UnallocatedCashTransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

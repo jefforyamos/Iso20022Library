@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PensionOrderType1Choice;
 /// <summary>
 /// Type of order attached to the pension policy, plan or scheme expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IPensionOrderType1Choice
+public partial record Proprietary : PensionOrderType1Choice_
 {
     #nullable enable
     /// <summary>

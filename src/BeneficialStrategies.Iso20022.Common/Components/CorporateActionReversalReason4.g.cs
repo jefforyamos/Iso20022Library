@@ -20,7 +20,7 @@ public partial record CorporateActionReversalReason4
     /// <summary>
     /// Specifies the reason for the reversal.
     /// </summary>
-    public required ICorporateActionReversalReason4Choice Reason { get; init; } 
+    public required CorporateActionReversalReason4Choice_ Reason { get; init; } 
     /// <summary>
     /// Provides additional information about the processed instruction.
     /// </summary>

@@ -28,7 +28,7 @@ public partial record SaleSummary1
     /// <summary>
     /// Contains adjustment details of the transaction (for example, percentage, adjustment amount, etc.).
     /// </summary>
-    public Adjustment9? Adjustment { get; init;  } // Warning: Don't know multiplicity.
+    public Adjustment9[] Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -20,19 +20,19 @@ public partial record TrackerInvestigationRequestStatus1
     /// <summary>
     /// Status of request.
     /// </summary>
-    public required IInvestigationRequestStatus1Choice Status { get; init; } 
+    public required InvestigationRequestStatus1Choice_ Status { get; init; } 
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    public IInvestigationRequestStatusReason1Choice? StatusReason { get; init;  } // Warning: Don't know multiplicity.
+    public InvestigationRequestStatusReason1Choice_[] StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date for the status.
     /// </summary>
-    public IDateAndDateTime2Choice? Date { get; init; } 
+    public DateAndDateTime2Choice_? Date { get; init; } 
     /// <summary>
     /// Further details on the status reason.||Usage: Additional information can be used for several purposes such as the reporting of repaired information.
     /// </summary>
-    public IsoMax105Text? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that provides information on the status and related details of the request.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record TrackerInvestigationRequestStatus1
     /// <summary>
     /// Identifies the entity to which the tracking facility has assigned the request.
     /// </summary>
-    public IParty40Choice? InvestigationResponder { get; init; } 
+    public Party40Choice_? InvestigationResponder { get; init; } 
     
     #nullable disable
 }

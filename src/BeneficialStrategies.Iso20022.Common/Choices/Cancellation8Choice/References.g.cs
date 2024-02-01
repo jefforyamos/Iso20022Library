@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation8Choice;
 /// <summary>
 /// Reference of the transfer to be cancelled.
 /// </summary>
-public partial record References : ICancellation8Choice
+public partial record References : Cancellation8Choice_
 {
     #nullable enable
     /// <summary>

@@ -40,7 +40,7 @@ public partial record CashAccountCharacteristics4
     /// <summary>
     /// Defines the account debited for charges and taxes due on the cash account, if different from the cash account.
     /// </summary>
-    public IAccountIdentification4Choice? DebitAccount { get; init; } 
+    public AccountIdentification4Choice_? DebitAccount { get; init; } 
     /// <summary>
     /// Future date on which the account will be automatically debited for charges and taxes due.
     /// </summary>

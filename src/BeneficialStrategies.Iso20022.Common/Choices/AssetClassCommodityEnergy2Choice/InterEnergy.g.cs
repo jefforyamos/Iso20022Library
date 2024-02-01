@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnergy2Choice
 /// <summary>
 /// Inter energy commodity derivative.
 /// </summary>
-public partial record InterEnergy : IAssetClassCommodityEnergy2Choice
+public partial record InterEnergy : AssetClassCommodityEnergy2Choice_
 {
     #nullable enable
     /// <summary>

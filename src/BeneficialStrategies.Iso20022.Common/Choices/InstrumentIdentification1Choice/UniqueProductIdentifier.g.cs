@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstrumentIdentification1Choice;
 /// <summary>
 /// Identification through a unique product identifier.
 /// </summary>
-public partial record UniqueProductIdentifier : IInstrumentIdentification1Choice
+public partial record UniqueProductIdentifier : InstrumentIdentification1Choice_
 {
     public required IsoMax52Text Value { get; init; }
 }

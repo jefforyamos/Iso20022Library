@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementMethod1Choice;
 /// <summary>
 /// Specifies details of the payment to be made by the new account servicer to the old account servicer in case of a negative closing balance.
 /// </summary>
-public partial record Debit : ISettlementMethod1Choice
+public partial record Debit : SettlementMethod1Choice_
 {
     #nullable enable
     /// <summary>
@@ -87,7 +87,7 @@ public partial record Debit : ISettlementMethod1Choice
     /// Underlying reason for the payment transaction.
     /// Usage: Purpose is used by the end-customers, that is initiating party, (ultimate) debtor, (ultimate) creditor to provide information concerning the nature of the payment. Purpose is a content element, which is not used for processing by any of the agents involved in the payment chain.
     /// </summary>
-    public IPurpose2Choice? Purpose { get; init; } 
+    public Purpose2Choice_? Purpose { get; init; } 
     /// <summary>
     /// Information needed due to regulatory and statutory requirements.
     /// </summary>

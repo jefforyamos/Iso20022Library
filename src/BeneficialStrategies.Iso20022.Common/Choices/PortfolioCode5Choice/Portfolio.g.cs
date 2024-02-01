@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PortfolioCode5Choice;
 /// <summary>
 /// Unique code determined by the reporting counterparty to identify the portfolio if collateral is reported on a portfolio basis.
 /// </summary>
-public partial record Portfolio : IPortfolioCode5Choice
+public partial record Portfolio : PortfolioCode5Choice_
 {
     #nullable enable
     /// <summary>

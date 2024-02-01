@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SolicitationFeeRateFormat7Choice
 /// <summary>
 /// Value is expressed as a rate.
 /// </summary>
-public partial record Rate : ISolicitationFeeRateFormat7Choice
+public partial record Rate : SolicitationFeeRateFormat7Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

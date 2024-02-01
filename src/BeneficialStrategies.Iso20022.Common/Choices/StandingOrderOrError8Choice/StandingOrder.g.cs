@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderOrError8Choice;
 /// <summary>
 /// Requested information on the account.
 /// </summary>
-public partial record StandingOrder : IStandingOrderOrError8Choice
+public partial record StandingOrder : StandingOrderOrError8Choice_
 {
     #nullable enable
     /// <summary>
     /// Amount of money and currency to be transferred when a payment instruction is created as a result of a standing order.
     /// </summary>
-    public required IAmount2Choice Amount { get; init; } 
+    public required Amount2Choice_ Amount { get; init; } 
     /// <summary>
     /// Specifies if the account is debited or credited by the standing order.
     /// </summary>
@@ -30,11 +30,11 @@ public partial record StandingOrder : IStandingOrderOrError8Choice
     /// <summary>
     /// Type of the standing order.
     /// </summary>
-    public IStandingOrderType1Choice? Type { get; init; } 
+    public StandingOrderType1Choice_? Type { get; init; } 
     /// <summary>
     /// Liquidity transfer origin or destination account within the pool of accounts under management of the requestor.
     /// </summary>
-    public IAccountIdentification4Choice? AssociatedPoolAccount { get; init; } 
+    public AccountIdentification4Choice_? AssociatedPoolAccount { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for a standing order, as assigned by the account servicer or the account owner.
     /// </summary>
@@ -70,7 +70,7 @@ public partial record StandingOrder : IStandingOrderOrError8Choice
     /// <summary>
     /// Defines whether the standing order is executed through a time-based or an event-based trigger.
     /// </summary>
-    public IExecutionType1Choice? ExecutionType { get; init; } 
+    public ExecutionType1Choice_? ExecutionType { get; init; } 
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>

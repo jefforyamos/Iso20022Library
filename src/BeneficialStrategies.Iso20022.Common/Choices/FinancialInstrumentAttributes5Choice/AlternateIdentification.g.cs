@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentAttributes5Ch
 /// <summary>
 /// Identification of a financial instrument admitted to trading for which an alternate identification is available, such as a tokenized instrument identified by both an ISIN and a digital token identifier (DTI).
 /// </summary>
-public partial record AlternateIdentification : IFinancialInstrumentAttributes5Choice
+public partial record AlternateIdentification : FinancialInstrumentAttributes5Choice_
 {
     #nullable enable
     /// <summary>

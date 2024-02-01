@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification33Choice;
 /// <summary>
 /// Unique and unambiguous identifier for an organisation that is allocated by an institution, eg, Dun & Bradstreet Identification.
 /// </summary>
-public partial record AnyBIC : IPartyIdentification33Choice
+public partial record AnyBIC : PartyIdentification33Choice_
 {
     public required IsoAnyBICIdentifier Value { get; init; }
 }

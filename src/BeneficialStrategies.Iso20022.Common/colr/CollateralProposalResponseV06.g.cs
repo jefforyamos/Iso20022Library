@@ -72,7 +72,7 @@ public partial record CollateralProposalResponseV06 : IOuterRecord
     [DataMember(Name="PrpslRspn")]
     [XmlElement(ElementName="PrpslRspn")]
     [Required]
-    public required ICollateralProposalResponse4Choice ProposalResponse { get; init; }
+    public required CollateralProposalResponse4Choice_ ProposalResponse { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

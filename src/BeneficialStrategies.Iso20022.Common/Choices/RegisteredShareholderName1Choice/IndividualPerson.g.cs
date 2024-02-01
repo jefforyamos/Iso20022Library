@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RegisteredShareholderName1Choice
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
-public partial record IndividualPerson : IRegisteredShareholderName1Choice
+public partial record IndividualPerson : RegisteredShareholderName1Choice_
 {
     #nullable enable
     /// <summary>
     /// Term used to address the person.
     /// </summary>
-    public INamePrefix1Choice? NamePrefix { get; init; } 
+    public NamePrefix1Choice_? NamePrefix { get; init; } 
     /// <summary>
     /// First name of the person.
     /// </summary>

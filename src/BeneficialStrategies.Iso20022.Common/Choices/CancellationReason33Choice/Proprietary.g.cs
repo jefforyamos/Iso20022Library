@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationReason33Choice;
 /// <summary>
 /// Reason for the cancellation request, in a proprietary form.
 /// </summary>
-public partial record Proprietary : ICancellationReason33Choice
+public partial record Proprietary : CancellationReason33Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

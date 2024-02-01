@@ -44,23 +44,23 @@ public partial record LineItemDetails7
     /// <summary>
     /// Identifies the product of the corresponding line item.
     /// </summary>
-    public IProductIdentifier2Choice? ProductIdentifier { get; init;  } // Warning: Don't know multiplicity.
+    public ProductIdentifier2Choice_[] ProductIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the characteristics of a product.
     /// </summary>
-    public IProductCharacteristics1Choice? ProductCharacteristics { get; init;  } // Warning: Don't know multiplicity.
+    public ProductCharacteristics1Choice_[] ProductCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the category of product.
     /// </summary>
-    public IProductCategory1Choice? ProductCategory { get; init;  } // Warning: Don't know multiplicity.
+    public ProductCategory1Choice_[] ProductCategory { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Country from which the product originates.
     /// </summary>
-    public CountryCode? ProductOrigin { get; init;  } // Warning: Don't know multiplicity.
+    public CountryCode[] ProductOrigin { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the shipment schedule for the goods.
     /// </summary>
-    public IShipmentSchedule1Choice? ShipmentSchedule { get; init; } 
+    public ShipmentSchedule1Choice_? ShipmentSchedule { get; init; } 
     /// <summary>
     /// Information related to the conveyance of goods.
     /// </summary>
@@ -68,11 +68,11 @@ public partial record LineItemDetails7
     /// <summary>
     /// Specifies the applicable Incoterms and associated location. Latest version of Incoterms in effect at the date of message creation.
     /// </summary>
-    public Incoterms1? Incoterms { get; init;  } // Warning: Don't know multiplicity.
+    public Incoterms1[] Incoterms { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Variance on price for the goods.
     /// </summary>
-    public Adjustment3? Adjustment { get; init;  } // Warning: Don't know multiplicity.
+    public Adjustment3[] Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum charges related to the conveyance of goods.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record LineItemDetails7
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters linked to the value of the goods in a trade transaction.
     /// </summary>
-    public Tax13? Tax { get; init;  } // Warning: Don't know multiplicity.
+    public Tax13[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total amount of the line item after adjustments have been applied.
     /// </summary>

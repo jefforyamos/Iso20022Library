@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DataFormat1Choice;
 /// <summary>
 /// Specification of data in free text form.
 /// </summary>
-public partial record Unstructured : IDataFormat1Choice
+public partial record Unstructured : DataFormat1Choice_
 {
     public required IsoMax140Text Value { get; init; }
 }

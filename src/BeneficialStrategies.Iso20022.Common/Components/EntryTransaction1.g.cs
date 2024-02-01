@@ -28,7 +28,7 @@ public partial record EntryTransaction1
     /// <summary>
     /// Set of elements used to indicate when the booked funds will become available, ie can be accessed and start generating interest. ||Usage: this type of info is eg used in US, and is linked to particular instruments, such as cheques.|Example: When a cheque is deposited, it will be booked on the deposit day, but the funds will only be accessible as of the indicated availability day (according to national banking regulations).
     /// </summary>
-    public CashBalanceAvailability1? Availability { get; init;  } // Warning: Don't know multiplicity.
+    public CashBalanceAvailability1[] Availability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of elements to fully identify the type of underlying transaction resulting in an entry.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record EntryTransaction1
     /// <summary>
     /// Provides information on the charges included in the entry amount.||Usage: This component (on transaction level) can be used in case the booking is for a single transaction, and charges are included in the entry amount. It can also be used in case individual charge amounts are applied to individual transactions in case of a batch or aggregate amount booking.
     /// </summary>
-    public ChargesInformation3? Charges { get; init;  } // Warning: Don't know multiplicity.
+    public ChargesInformation3[] Charges { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of elements providing details on the interest amount included in the entry amount.||Usage: This component (on transaction level) can be used in case the booking is for a single transaction, and interest amount is included in the entry amount. It can also be used in case individual interest amounts are applied to individual transactions in case of a batch or aggregate amount booking.
     /// </summary>
-    public TransactionInterest1? Interest { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionInterest1[] Interest { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of elements identifying the parties related to the underlying transaction.
     /// </summary>
@@ -52,11 +52,11 @@ public partial record EntryTransaction1
     /// <summary>
     /// Underlying reason for the payment transaction, eg, a charity payment, or a commercial agreement between the creditor and the debtor. ||Usage: purpose is used by the end-customers, ie originating party, initiating party, debtor, creditor, final party, to provide information concerning the nature of the payment transaction. Purpose is a content element, which is not used for processing by any of the agents involved in the payment chain.
     /// </summary>
-    public IPurpose1Choice? Purpose { get; init; } 
+    public Purpose1Choice_? Purpose { get; init; } 
     /// <summary>
     /// Information related to the handling of the remittance information by any of the agents in the transaction processing chain.
     /// </summary>
-    public IReadOnlyCollection<RemittanceLocation1> RelatedRemittanceInformation { get; init; } = [];
+    public RemittanceLocation1[] RelatedRemittanceInformation { get; init; } = [];
     /// <summary>
     /// Information that enables the matching, ie, reconciliation, of a payment with the items that the payment is intended to settle, eg, commercial invoices in an account receivable system.
     /// </summary>
@@ -68,15 +68,15 @@ public partial record EntryTransaction1
     /// <summary>
     /// Set of elements identifying the price information related to the underlying transaction.
     /// </summary>
-    public ITransactionPrice1Choice? RelatedPrice { get; init; } 
+    public TransactionPrice1Choice_? RelatedPrice { get; init; } 
     /// <summary>
     /// Identifies related quantities (eg of securities) in the underlying transaction.
     /// </summary>
-    public ITransactionQuantities1Choice? RelatedQuantities { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionQuantities1Choice_[] RelatedQuantities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of a security, as assigned under a formal or proprietary identification scheme.
     /// </summary>
-    public ISecurityIdentification4Choice? FinancialInstrumentIdentification { get; init; } 
+    public SecurityIdentification4Choice_? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
     /// </summary>

@@ -24,7 +24,7 @@ public partial record AssetHolding1
     /// <summary>
     /// Specifies financial instrument pledged as collateral.
     /// </summary>
-    public required IAssetHolding1Choice AssetType { get; init; } 
+    public required AssetHolding1Choice_ AssetType { get; init; } 
     /// <summary>
     /// Identifies whether collateral relates to default fund requirements or initial margin requirements.
     /// </summary>

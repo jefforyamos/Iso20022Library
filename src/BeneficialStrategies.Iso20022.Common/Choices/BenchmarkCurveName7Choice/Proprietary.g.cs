@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkCurveName7Choice;
 /// <summary>
 /// Benchmark curve name expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IBenchmarkCurveName7Choice
+public partial record Proprietary : BenchmarkCurveName7Choice_
 {
     #nullable enable
     /// <summary>

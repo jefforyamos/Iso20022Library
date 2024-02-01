@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reference3Choice;
 /// <summary>
 /// Unique identification (UTI) agreed upon by the two trade counterparties to identify the trade.
 /// </summary>
-public partial record CommonTransactionIdentification : IReference3Choice
+public partial record CommonTransactionIdentification : Reference3Choice_
 {
     public required IsoMax52Text Value { get; init; }
 }

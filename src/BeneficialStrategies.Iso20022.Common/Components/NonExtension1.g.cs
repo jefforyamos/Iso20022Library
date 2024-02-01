@@ -24,11 +24,11 @@ public partial record NonExtension1
     /// <summary>
     /// Method by which the notice of non-extension is intended to be delivered.
     /// </summary>
-    public ICommunicationMethod1Choice? NotificationMethod { get; init; } 
+    public CommunicationMethod1Choice_? NotificationMethod { get; init; } 
     /// <summary>
     /// Type of party to whom the notice of non-extension is intended to be delivered.
     /// </summary>
-    public IPartyType1Choice? NotificationRecipientType { get; init; } 
+    public PartyType1Choice_? NotificationRecipientType { get; init; } 
     /// <summary>
     /// Name of party to whom the notice of non-extension is intended to be delivered.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus98Choice;
 /// <summary>
 /// Trade is AcknowledgedAccepted.
 /// </summary>
-public partial record AcknowledgedAccepted : IProcessingStatus98Choice
+public partial record AcknowledgedAccepted : ProcessingStatus98Choice_
 {
     #nullable enable
     /// <summary>

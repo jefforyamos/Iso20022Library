@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Period8Choice;
 /// <summary>
 /// Date and time period is limited to a single date.
 /// </summary>
-public partial record DateTime : IPeriod8Choice
+public partial record DateTime : Period8Choice_
 {
     public required IsoISODateTime Value { get; init; }
 }

@@ -36,7 +36,7 @@ public partial record Verification2
     /// <summary>
     /// Result of verifications performed prior or after the transaction.
     /// </summary>
-    public VerificationResult1? VerificationResult { get; init;  } // Warning: Don't know multiplicity.
+    public VerificationResult1[] VerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

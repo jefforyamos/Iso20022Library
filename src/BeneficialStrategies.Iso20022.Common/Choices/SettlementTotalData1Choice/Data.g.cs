@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementTotalData1Choice;
 /// <summary>
 /// Aggregated data of settlement instructions.
 /// </summary>
-public partial record Data : ISettlementTotalData1Choice
+public partial record Data : SettlementTotalData1Choice_
 {
     #nullable enable
     /// <summary>

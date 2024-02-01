@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus5Choice;
 /// <summary>
 /// Status applying globally to the instruction received. The instruction is identified by the InstructionIdentification.
 /// </summary>
-public partial record GlobalInstructionStatus : IInstructionStatus5Choice
+public partial record GlobalInstructionStatus : InstructionStatus5Choice_
 {
     #nullable enable
     #nullable disable

@@ -24,7 +24,7 @@ public partial record TMSProtocolParameters1
     /// <summary>
     /// Maintenance services provided by the terminal manager.
     /// </summary>
-    public DataSetCategory5Code? MaintenanceService { get; init;  } // Warning: Don't know multiplicity.
+    public DataSetCategory5Code[] MaintenanceService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Version of the TMS protocol parameters.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record TMSProtocolParameters1
     /// <summary>
     /// Identification of applications which may be managed by the TM, partially or globally.
     /// </summary>
-    public IsoMax35Text? ApplicationIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] ApplicationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Addresses of the terminal manager host.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record TMSProtocolParameters1
     /// <summary>
     /// Cryptographic key used to communicate with the terminal manager host.
     /// </summary>
-    public KEKIdentifier2? HostKey { get; init;  } // Warning: Don't know multiplicity.
+    public KEKIdentifier2[] HostKey { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// New identification of the POI for the terminal manager.
     /// </summary>

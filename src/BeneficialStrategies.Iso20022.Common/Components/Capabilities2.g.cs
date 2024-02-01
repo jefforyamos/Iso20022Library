@@ -20,11 +20,11 @@ public partial record Capabilities2
     /// <summary>
     /// Card reading capability of the terminal performing the transaction.
     /// </summary>
-    public CardReadingCapabilities1? CardReadingCapability { get; init;  } // Warning: Don't know multiplicity.
+    public CardReadingCapabilities1[] CardReadingCapability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Card writing or output capabilities of the terminal performing the transaction.
     /// </summary>
-    public CardWritingCapabilities1? CardWritingCapability { get; init;  } // Warning: Don't know multiplicity.
+    public CardWritingCapabilities1[] CardWritingCapability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum number of digits that the Point of Interaction is able to accept when the cardholder enters its PIN.
     /// </summary>
@@ -58,11 +58,11 @@ public partial record Capabilities2
     /// <summary>
     /// Capability of the terminal to display or print messages to the cardholder or the merchant.
     /// </summary>
-    public DisplayCapabilities6? MessageCapability { get; init;  } // Warning: Don't know multiplicity.
+    public DisplayCapabilities6[] MessageCapability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cardholder verification capabilities performing the transaction at the point of service.
     /// </summary>
-    public CardholderVerificationCapabilities1? CardholderVerificationCapability { get; init;  } // Warning: Don't know multiplicity.
+    public CardholderVerificationCapabilities1[] CardholderVerificationCapability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Terminal is capable of temporary secure storage of the card details for reuse upon permission of the card issuer.
     /// Default meaning when not present: false.

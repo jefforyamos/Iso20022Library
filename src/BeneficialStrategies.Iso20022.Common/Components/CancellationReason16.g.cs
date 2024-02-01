@@ -20,7 +20,7 @@ public partial record CancellationReason16
     /// <summary>
     /// Specifies the reason why the instruction is cancelled.
     /// </summary>
-    public required ICancellationReason26Choice Code { get; init; } 
+    public required CancellationReason26Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

@@ -20,7 +20,7 @@ public partial record GrossDividendRate2
     /// <summary>
     /// Type of underlying securities to which the rate is related, eg, underlying security for which an interest is paid.
     /// </summary>
-    public required IGrossDividendRateType1FormatChoice RateType { get; init; } 
+    public required GrossDividendRateType1FormatChoice_ RateType { get; init; } 
     /// <summary>
     /// Value expressed as an amount.
     /// </summary>

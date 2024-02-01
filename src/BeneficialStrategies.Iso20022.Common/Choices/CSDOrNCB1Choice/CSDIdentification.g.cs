@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CSDOrNCB1Choice;
 /// <summary>
 /// Unique identification to unambiguously identify the central security depository within the system.
 /// </summary>
-public partial record CSDIdentification : ICSDOrNCB1Choice
+public partial record CSDIdentification : CSDOrNCB1Choice_
 {
     public required IsoBICFIIdentifier Value { get; init; }
 }

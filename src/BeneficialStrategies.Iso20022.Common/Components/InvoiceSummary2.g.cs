@@ -48,7 +48,7 @@ public partial record InvoiceSummary2
     /// <summary>
     /// Contains the total tax amount for the entire purchase. 
     /// </summary>
-    public Tax39? TaxTotal { get; init;  } // Warning: Don't know multiplicity.
+    public Tax39[] TaxTotal { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Code that identifies the disposition of the tax reclaim invoice.
     /// </summary>

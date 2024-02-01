@@ -32,7 +32,7 @@ public partial record TMSProtocolParameters5
     /// <summary>
     /// Maintenance services provided by the terminal manager.
     /// </summary>
-    public DataSetCategory10Code? MaintenanceService { get; init;  } // Warning: Don't know multiplicity.
+    public DataSetCategory10Code[] MaintenanceService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Version of the TMS protocol parameters.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record TMSProtocolParameters5
     /// <summary>
     /// Identification of applications which may be managed by the TM, partially or globally.
     /// </summary>
-    public IsoMax35Text? ApplicationIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] ApplicationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the terminal manager host.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record TMSProtocolParameters5
     /// <summary>
     /// Configuration of a message item.
     /// </summary>
-    public MessageItemCondition1? MessageItem { get; init;  } // Warning: Don't know multiplicity.
+    public MessageItemCondition1[] MessageItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

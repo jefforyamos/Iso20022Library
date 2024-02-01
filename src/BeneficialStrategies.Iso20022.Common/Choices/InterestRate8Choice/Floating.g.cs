@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate8Choice;
 /// <summary>
 /// Interest rate is a variable / floating rate, based on an index.
 /// </summary>
-public partial record Floating : IInterestRate8Choice
+public partial record Floating : InterestRate8Choice_
 {
     #nullable enable
     /// <summary>
@@ -20,7 +20,7 @@ public partial record Floating : IInterestRate8Choice
     /// Usage:
     /// Index or name if the reference rate is not included in the index list.
     /// </summary>
-    public required IBenchmarkCurveName5Choice ReferenceRate { get; init; } 
+    public required BenchmarkCurveName5Choice_ ReferenceRate { get; init; } 
     /// <summary>
     /// Term of the reference rate.
     /// </summary>

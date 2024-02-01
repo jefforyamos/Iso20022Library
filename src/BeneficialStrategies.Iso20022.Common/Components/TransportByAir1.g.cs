@@ -20,11 +20,11 @@ public partial record TransportByAir1
     /// <summary>
     /// Place from where the goods must leave.
     /// </summary>
-    public IAirportName1Choice? DepartureAirport { get; init;  } // Warning: Don't know multiplicity.
+    public AirportName1Choice_[] DepartureAirport { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Place where the goods must arrive.
     /// </summary>
-    public IAirportName1Choice? DestinationAirport { get; init;  } // Warning: Don't know multiplicity.
+    public AirportName1Choice_[] DestinationAirport { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat58Choice;
 /// <summary>
 /// Type of date.
 /// </summary>
-public partial record DateCode : IDateFormat58Choice
+public partial record DateCode : DateFormat58Choice_
 {
     public required DateType1Code Value { get; init; }
 }

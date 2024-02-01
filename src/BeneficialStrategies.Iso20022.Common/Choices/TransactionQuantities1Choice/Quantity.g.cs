@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionQuantities1Choice;
 /// <summary>
 /// Specifies the quantity (eg of securities) in the underlying transaction.
 /// </summary>
-public partial record Quantity : ITransactionQuantities1Choice
+public partial record Quantity : TransactionQuantities1Choice_
 {
     #nullable enable
     #nullable disable

@@ -24,11 +24,11 @@ public partial record EstimatedFundCashForecast3
     /// <summary>
     /// Date and, if required, the time, at which the price has been applied.
     /// </summary>
-    public required IDateAndDateTimeChoice TradeDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     /// <summary>
     /// Previous date and time at which a price was applied.
     /// </summary>
-    public required IDateAndDateTimeChoice PreviousTradeDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ PreviousTradeDateTime { get; init; } 
     /// <summary>
     /// Investment fund class to which the cash flow is related.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record EstimatedFundCashForecast3
     /// <summary>
     /// Currency of the investment fund class.
     /// </summary>
-    public ActiveOrHistoricCurrencyCode? InvestmentCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public ActiveOrHistoricCurrencyCode[] InvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the estimated net cash flow is exceptional.
     /// </summary>
@@ -64,15 +64,15 @@ public partial record EstimatedFundCashForecast3
     /// <summary>
     /// Estimated cash movements into the fund as a result of investment funds transactions, eg, subscriptions or switch-in.
     /// </summary>
-    public CashInForecast4? EstimatedCashInForecastDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashInForecast4[] EstimatedCashInForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Estimated cash movements out of the fund as a result of investment funds transactions, eg, redemptions or switch-out.
     /// </summary>
-    public CashOutForecast4? EstimatedCashOutForecastDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashOutForecast4[] EstimatedCashOutForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net cash movements to a fund as a result of investment funds transactions.
     /// </summary>
-    public NetCashForecast2? EstimatedNetCashForecastDetails { get; init;  } // Warning: Don't know multiplicity.
+    public NetCashForecast2[] EstimatedNetCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

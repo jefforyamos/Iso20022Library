@@ -20,19 +20,19 @@ public partial record IntraPositionMovementDetails14
     /// <summary>
     /// Identifications (account owner and/or account servicer) of the intra-position movement.
     /// </summary>
-    public IReferences51Choice? Identification { get; init; } 
+    public References51Choice_? Identification { get; init; } 
     /// <summary>
     /// Quantity of financial instrument effectively settled.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice SettledQuantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ SettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument previously settled.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? PreviouslySettledQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? PreviouslySettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument remaining to be settled.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? RemainingToBeSettledQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? RemainingToBeSettledQuantity { get; init; } 
     /// <summary>
     /// Number identifying a securities sub-balance type (example restriction identification etc…).
     /// </summary>
@@ -40,15 +40,15 @@ public partial record IntraPositionMovementDetails14
     /// <summary>
     /// Balance to which the securities were moved.
     /// </summary>
-    public required ISecuritiesBalanceType8Choice BalanceTo { get; init; } 
+    public required SecuritiesBalanceType8Choice_ BalanceTo { get; init; } 
     /// <summary>
     /// Date and time at which the securities were moved.
     /// </summary>
-    public required IDateAndDateTimeChoice SettlementDate { get; init; } 
+    public required DateAndDateTimeChoice_ SettlementDate { get; init; } 
     /// <summary>
     /// Date/time securities become available for sale (if securities become unavailable, this specifies the date/time at which they will become available again).
     /// </summary>
-    public IDateAndDateTimeChoice? AvailableDate { get; init; } 
+    public DateAndDateTimeChoice_? AvailableDate { get; init; } 
     /// <summary>
     /// Time stamp on when the transaction is acknowledged.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record IntraPositionMovementDetails14
     /// <summary>
     /// Specifies the type of corporate event.
     /// </summary>
-    public ICorporateActionEventType69Choice? CorporateActionEventType { get; init; } 
+    public CorporateActionEventType69Choice_? CorporateActionEventType { get; init; } 
     /// <summary>
     /// Value of the collateral available for the delivery settlement process at the account level.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record IntraPositionMovementDetails14
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

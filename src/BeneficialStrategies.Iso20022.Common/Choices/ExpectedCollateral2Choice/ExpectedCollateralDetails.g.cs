@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExpectedCollateral2Choice;
 /// <summary>
 /// Provides the expected collateral type and direction for the variation margin and optionaly the segregated independent amount.
 /// </summary>
-public partial record ExpectedCollateralDetails : IExpectedCollateral2Choice
+public partial record ExpectedCollateralDetails : ExpectedCollateral2Choice_
 {
     #nullable enable
     /// <summary>

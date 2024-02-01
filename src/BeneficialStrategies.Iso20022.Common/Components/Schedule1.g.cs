@@ -28,7 +28,7 @@ public partial record Schedule1
     /// <summary>
     /// Indicates the price per derivative excluding, where applicable: fees, taxes or commissions.
     /// </summary>
-    public required ISecuritiesTransactionPrice17Choice Price { get; init; } 
+    public required SecuritiesTransactionPrice17Choice_ Price { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemIdentification1Cho
 /// <summary>
 /// Infrastructure through which the payment instruction is processed.
 /// </summary>
-public partial record ClearingSystemIdentification : IClearingSystemIdentification1Choice
+public partial record ClearingSystemIdentification : ClearingSystemIdentification1Choice_
 {
     public required CashClearingSystem3Code Value { get; init; }
 }

@@ -20,27 +20,27 @@ public partial record CorporateActionQuantity14
     /// <summary>
     /// The maximum number of securities the offeror/issuer is ready to purchase or redeem. This can be a number or the term "any and all".
     /// </summary>
-    public IFinancialInstrumentQuantity44Choice? MaximumQuantity { get; init; } 
+    public FinancialInstrumentQuantity44Choice_? MaximumQuantity { get; init; } 
     /// <summary>
     /// Minimum quantity of securities the offeror/issuer is ready to purchase or redeem under the terms of the event. This can be a number or the term "any and all".
     /// </summary>
-    public IFinancialInstrumentQuantity44Choice? MinimumQuantitySought { get; init; } 
+    public FinancialInstrumentQuantity44Choice_? MinimumQuantitySought { get; init; } 
     /// <summary>
     /// Quantity of equity that makes up the new board lot.
     /// </summary>
-    public IFinancialInstrumentQuantity43Choice? NewBoardLotQuantity { get; init; } 
+    public FinancialInstrumentQuantity43Choice_? NewBoardLotQuantity { get; init; } 
     /// <summary>
     /// New denomination of the equity following, for example, an increase or decrease in nominal value.
     /// </summary>
-    public IFinancialInstrumentQuantity43Choice? NewDenominationQuantity { get; init; } 
+    public FinancialInstrumentQuantity43Choice_? NewDenominationQuantity { get; init; } 
     /// <summary>
     /// Minimum integral amount of securities that each account owner must have remaining after the called amounts are applied.
     /// </summary>
-    public IFinancialInstrumentQuantity43Choice? BaseDenomination { get; init; } 
+    public FinancialInstrumentQuantity43Choice_? BaseDenomination { get; init; } 
     /// <summary>
     /// Amount used when the called amount is not met by running the lottery with the base denomination.
     /// </summary>
-    public IFinancialInstrumentQuantity43Choice? IncrementalDenomination { get; init; } 
+    public FinancialInstrumentQuantity43Choice_? IncrementalDenomination { get; init; } 
     
     #nullable disable
 }

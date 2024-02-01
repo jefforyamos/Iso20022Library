@@ -32,7 +32,7 @@ public partial record VehicleRentalAgreement2
     /// <summary>
     /// Used when different than rental location
     /// </summary>
-    public Address2? PickupLocation { get; init;  } // Warning: Don't know multiplicity.
+    public Address2[] PickupLocation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date the vehicle was picked-up by the customer.  In the case of a no-show transaction or a prepaid transaction, this contains the scheduled pickup date.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record VehicleRentalAgreement2
     /// <summary>
     /// Vehicle rental rate.
     /// </summary>
-    public RentalRate1? RentalRate { get; init;  } // Warning: Don't know multiplicity.
+    public RentalRate1[] RentalRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Vehicle rental details.
     /// </summary>
@@ -84,19 +84,19 @@ public partial record VehicleRentalAgreement2
     /// <summary>
     /// Contains the details of additional amount for a specific vehicle rental service type. 
     /// </summary>
-    public Amount18? AdditionalAmount { get; init;  } // Warning: Don't know multiplicity.
+    public Amount18[] AdditionalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Taxes related to the products or services. 
     /// </summary>
-    public Tax39? EstimatedTax { get; init;  } // Warning: Don't know multiplicity.
+    public Tax39[] EstimatedTax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Discount applied to the vehicle rental.
     /// </summary>
-    public Discount3? DiscountProgramme { get; init;  } // Warning: Don't know multiplicity.
+    public Discount3[] DiscountProgramme { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Loyalty programme details.
     /// </summary>
-    public LoyaltyProgramme3? LoyaltyProgramme { get; init;  } // Warning: Don't know multiplicity.
+    public LoyaltyProgramme3[] LoyaltyProgramme { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

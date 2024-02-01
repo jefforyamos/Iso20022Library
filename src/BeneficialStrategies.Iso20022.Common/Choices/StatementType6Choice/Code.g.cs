@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementType6Choice;
 /// <summary>
 /// Statement type expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IStatementType6Choice
+public partial record Code : StatementType6Choice_
 {
     public required SecuritiesStatementType1Code Value { get; init; }
 }

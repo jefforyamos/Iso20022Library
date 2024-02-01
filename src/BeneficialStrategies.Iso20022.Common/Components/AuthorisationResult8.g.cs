@@ -28,7 +28,7 @@ public partial record AuthorisationResult8
     /// <summary>
     /// Set of actions to be performed by the card acceptor.
     /// </summary>
-    public Action4? Action { get; init;  } // Warning: Don't know multiplicity.
+    public Action4[] Action { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Value assigned by the authorising party.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record AuthorisationResult8
     /// <summary>
     /// Additional information relevant for the destination.
     /// </summary>
-    public ActionMessage3? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public ActionMessage3[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

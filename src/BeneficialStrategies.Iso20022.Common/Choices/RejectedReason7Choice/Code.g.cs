@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedReason7Choice;
 /// <summary>
 /// Reason for the rejected status expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IRejectedReason7Choice
+public partial record Code : RejectedReason7Choice_
 {
     public required ExternalRejectedReason1Code Value { get; init; }
 }

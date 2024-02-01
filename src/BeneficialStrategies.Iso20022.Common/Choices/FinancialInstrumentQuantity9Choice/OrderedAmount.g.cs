@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity9Choi
 /// <summary>
 /// Amount of money to be invested.
 /// </summary>
-public partial record OrderedAmount : IFinancialInstrumentQuantity9Choice
+public partial record OrderedAmount : FinancialInstrumentQuantity9Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

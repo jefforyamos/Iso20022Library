@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateAndDateTimeSearch4Choice;
 /// <summary>
 /// Patterns to search a date time.
 /// </summary>
-public partial record DateTime : IDateAndDateTimeSearch4Choice
+public partial record DateTime : DateAndDateTimeSearch4Choice_
 {
     #nullable enable
     #nullable disable

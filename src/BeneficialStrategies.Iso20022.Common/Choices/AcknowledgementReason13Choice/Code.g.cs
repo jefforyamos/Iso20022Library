@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AcknowledgementReason13Choice;
 /// <summary>
 /// Specifies additional information about the processed instruction.
 /// </summary>
-public partial record Code : IAcknowledgementReason13Choice
+public partial record Code : AcknowledgementReason13Choice_
 {
     public required RepoCallAcknowledgementReason2Code Value { get; init; }
 }

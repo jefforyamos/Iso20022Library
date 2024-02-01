@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityFreight1Choic
 /// <summary>
 /// Wet freight commodity derivative.
 /// </summary>
-public partial record Wet : IAssetClassCommodityFreight1Choice
+public partial record Wet : AssetClassCommodityFreight1Choice_
 {
     #nullable enable
     /// <summary>

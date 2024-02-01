@@ -28,7 +28,7 @@ public partial record CardAcquisitionResponse3
     /// <summary>
     /// Type of payment card.
     /// </summary>
-    public IsoMax35Text? PaymentBrand { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] PaymentBrand { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Language used to display messages to the customer.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record CardAcquisitionResponse3
     /// <summary>
     /// Loyalty account information.
     /// </summary>
-    public LoyaltyAccount3? LoyaltyAccount { get; init;  } // Warning: Don't know multiplicity.
+    public LoyaltyAccount3[] LoyaltyAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Customer order attached to a customer, recorded in the POI system.
     /// </summary>
-    public CustomerOrder1? CustomerOrder { get; init;  } // Warning: Don't know multiplicity.
+    public CustomerOrder1[] CustomerOrder { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

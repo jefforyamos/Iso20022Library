@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References14Choice;
 /// <summary>
 /// Unambiguous identification of the intra balance movement transaction as known by the account owner.
 /// </summary>
-public partial record IntraBalanceMovementIdentification : IReferences14Choice
+public partial record IntraBalanceMovementIdentification : References14Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

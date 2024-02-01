@@ -81,7 +81,7 @@ public partial record CorporateActionInstructionStatusAdviceV10 : IOuterRecord
     [DataMember(Name="InstrPrcgSts")]
     [XmlElement(ElementName="InstrPrcgSts")]
     [Required]
-    public required IInstructionProcessingStatus31Choice InstructionProcessingStatus { get; init; }
+    public required InstructionProcessingStatus31Choice_ InstructionProcessingStatus { get; init; }
     
     /// <summary>
     /// Information about the corporate action instruction.

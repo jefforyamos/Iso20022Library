@@ -24,7 +24,7 @@ public partial record CardProgrammeMode2
     /// <summary>
     /// Identification of the card programme or brand.
     /// </summary>
-    public IsoMax35Text? Identification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] Identification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

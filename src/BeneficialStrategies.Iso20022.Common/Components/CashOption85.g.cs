@@ -28,7 +28,7 @@ public partial record CashOption85
     /// <summary>
     /// Proceeds are taxable according to the information provided by the issuer / offeror.
     /// </summary>
-    public IIssuerOfferorTaxabilityIndicator1Choice? IssuerOfferorTaxabilityIndicator { get; init; } 
+    public IssuerOfferorTaxabilityIndicator1Choice_? IssuerOfferorTaxabilityIndicator { get; init; } 
     /// <summary>
     /// Specifies the type of income.|The lists of income type codes to be used, are available on the SMPG website at www.smpg.info.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record CashOption85
     /// <summary>
     /// Type of income to be used under another tax regime.
     /// </summary>
-    public GenericIdentification30? OtherIncomeType { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification30[] OtherIncomeType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the basis for the reduced rate of withholding.
     /// </summary>
-    public GenericIdentification30? ExemptionType { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification30[] ExemptionType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the country from which the income originates.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record CashOption85
     /// <summary>
     /// Choice between a cash account, a charges account or a tax account.
     /// </summary>
-    public IAccount8Choice? Account { get; init; } 
+    public Account8Choice_? Account { get; init; } 
     /// <summary>
     /// Provides information about cash parties.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record CashOption85
     /// <summary>
     /// Exchange rate between the amount and the resulting amount.
     /// </summary>
-    public ForeignExchangeTerms23? ForeignExchangeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ForeignExchangeTerms23[] ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the tax voucher related to a cash movement.
     /// </summary>

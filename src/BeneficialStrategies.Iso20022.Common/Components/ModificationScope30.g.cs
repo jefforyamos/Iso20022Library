@@ -24,7 +24,7 @@ public partial record ModificationScope30
     /// <summary>
     /// Additional information concerning limitations and restrictions on the account.
     /// </summary>
-    public AccountRestrictions1? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AccountRestrictions1[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

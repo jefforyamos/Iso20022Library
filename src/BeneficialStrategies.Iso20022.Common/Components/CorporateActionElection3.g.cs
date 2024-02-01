@@ -24,7 +24,7 @@ public partial record CorporateActionElection3
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public ICorporateActionOption1FormatChoice? OptionType { get; init; } 
+    public CorporateActionOption1FormatChoice_? OptionType { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
@@ -32,11 +32,11 @@ public partial record CorporateActionElection3
     /// <summary>
     /// Quantity of underlying securities to which this instruction applies.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? InstructedUnderlyingSecuritiesQuantity { get; init; } 
+    public UnitOrFaceAmount1Choice_? InstructedUnderlyingSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Quantity of the benefits that the account owner wants to receive, eg, as a result of dividend reinvestment.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? InstructedSecuritiesQuantityToReceive { get; init; } 
+    public UnitOrFaceAmount1Choice_? InstructedSecuritiesQuantityToReceive { get; init; } 
     /// <summary>
     /// Rate proposed in a remarketing of variable rate notes.
     /// </summary>
@@ -44,11 +44,11 @@ public partial record CorporateActionElection3
     /// <summary>
     /// Provides information about the cash movement resulting from the election instruction.
     /// </summary>
-    public CorporateActionCashMovements2? CashMovementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionCashMovements2[] CashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the securities movement resulting from the election instruction.
     /// </summary>
-    public CorporateActionSecuritiesMovement2? SecuritiesMovementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionSecuritiesMovement2[] SecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

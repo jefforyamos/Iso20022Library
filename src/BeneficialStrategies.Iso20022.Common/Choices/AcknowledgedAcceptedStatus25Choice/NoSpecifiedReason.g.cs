@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AcknowledgedAcceptedStatus25Choi
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoSpecifiedReason : IAcknowledgedAcceptedStatus25Choice
+public partial record NoSpecifiedReason : AcknowledgedAcceptedStatus25Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

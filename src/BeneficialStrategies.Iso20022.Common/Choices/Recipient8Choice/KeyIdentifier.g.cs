@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient8Choice;
 /// <summary>
 /// Identification of a protection key without a session key, shared and previously exchanged between the initiator and the recipient.
 /// </summary>
-public partial record KeyIdentifier : IRecipient8Choice
+public partial record KeyIdentifier : Recipient8Choice_
 {
     #nullable enable
     /// <summary>

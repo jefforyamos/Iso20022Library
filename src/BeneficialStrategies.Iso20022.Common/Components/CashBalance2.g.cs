@@ -20,7 +20,7 @@ public partial record CashBalance2
     /// <summary>
     /// Specifies the nature of a balance, eg, opening booked balance.
     /// </summary>
-    public required IBalanceType2Choice Type { get; init; } 
+    public required BalanceType2Choice_ Type { get; init; } 
     /// <summary>
     /// Provides further details on the credit line information.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record CashBalance2
     /// <summary>
     /// Specifies the date (and time) of the balance.
     /// </summary>
-    public required IDateAndDateTimeChoice Date { get; init; } 
+    public required DateAndDateTimeChoice_ Date { get; init; } 
     /// <summary>
     /// Set of elements used to indicate when the booked funds will become available, ie can be accessed and start generating interest. ||Usage: this type of info is eg used in US, and is linked to particular instruments, such as cheques.|Example: When a cheque is deposited, it will be booked on the deposit day, but the funds will only be accessible as of the indicated availability day (according to national banking regulations).
     /// </summary>
-    public CashBalanceAvailability1? Availability { get; init;  } // Warning: Don't know multiplicity.
+    public CashBalanceAvailability1[] Availability { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

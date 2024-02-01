@@ -40,7 +40,7 @@ public partial record PlainCardData7
     /// <summary>
     /// Track issued from the magnetic stripe card or from the ICC if the magnetic stripe was not read. The track value might be provided by a payment token.
     /// </summary>
-    public TrackData1? TrackData { get; init;  } // Warning: Don't know multiplicity.
+    public TrackData1[] TrackData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Name of the cardholder stored on the card.
     /// </summary>

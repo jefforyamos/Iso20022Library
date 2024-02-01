@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BPOApplicableRules1Choice;
 /// <summary>
 /// URBPO are rules that apply to a BPO when the Payment Obligation Segment within an Established Baseline expressly states that it is subject to these rules or when each Involved Bank agrees in a separate agreement that a BPO is subject to these rules. If an Established Baseline or separate agreement does not indicate the applicable version of URBPO, the BPO will be subject to the latest version in effect when the Baseline is established in accordance with sub-article 9 (d).
 /// </summary>
-public partial record URBPOVersion : IBPOApplicableRules1Choice
+public partial record URBPOVersion : BPOApplicableRules1Choice_
 {
     public required IsoDecimalNumber Value { get; init; }
 }

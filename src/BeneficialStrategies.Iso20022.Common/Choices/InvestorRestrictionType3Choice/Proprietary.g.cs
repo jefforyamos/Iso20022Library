@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestorRestrictionType3Choice;
 /// <summary>
 /// Investor restriction type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IInvestorRestrictionType3Choice
+public partial record Proprietary : InvestorRestrictionType3Choice_
 {
     #nullable enable
     /// <summary>

@@ -32,7 +32,7 @@ public partial record TransactionReconciliation3
     /// <summary>
     /// Transaction totals during the reconciliation period for a certain type of transaction.
     /// </summary>
-    public TransactionTotals3? TransactionTotals { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionTotals3[] TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the reconciliation transaction.
     /// </summary>

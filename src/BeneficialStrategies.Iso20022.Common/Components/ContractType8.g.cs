@@ -28,15 +28,15 @@ public partial record ContractType8
     /// <summary>
     /// Specifies the classification of the derivative product.
     /// </summary>
-    public IProductClassification1Choice? ProductClassification { get; init; } 
+    public ProductClassification1Choice_? ProductClassification { get; init; } 
     /// <summary>
     /// Specifies the identification of the derivative product.
     /// </summary>
-    public ISecurityIdentification18Choice? ProductIdentification { get; init; } 
+    public SecurityIdentification18Choice_? ProductIdentification { get; init; } 
     /// <summary>
     /// Unique identification to identify the direct underlying instrument based on its type.
     /// </summary>
-    public ISecurityIdentification34Choice? UnderlyingInstrument { get; init; } 
+    public SecurityIdentification34Choice_? UnderlyingInstrument { get; init; } 
     /// <summary>
     /// Currency of the notional amount. 
     /// Usage: In the case of an interest rate or currency derivative contract, this will be the notional currency of first leg.

@@ -20,7 +20,7 @@ public partial record PartyIdentification98
     /// <summary>
     /// Unique identification of the party.
     /// </summary>
-    public required IPartyIdentification92Choice Identification { get; init; } 
+    public required PartyIdentification92Choice_ Identification { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a party.
     /// </summary>

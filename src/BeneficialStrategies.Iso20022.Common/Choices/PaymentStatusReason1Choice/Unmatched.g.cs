@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReason1Choice;
 /// <summary>
 /// Reason why the payment status is unmatched.
 /// </summary>
-public partial record Unmatched : IPaymentStatusReason1Choice
+public partial record Unmatched : PaymentStatusReason1Choice_
 {
     public required UnmatchedStatusReason1Code Value { get; init; }
 }

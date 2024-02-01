@@ -40,7 +40,7 @@ public partial record FundCashOutBreakdown1
     /// <summary>
     /// Information related to the commission applied to an order, eg, back-end or front-end commission.
     /// </summary>
-    public Commission4? CommissionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Commission4[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

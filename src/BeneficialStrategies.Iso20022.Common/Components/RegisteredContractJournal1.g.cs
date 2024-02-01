@@ -33,7 +33,7 @@ public partial record RegisteredContractJournal1
     /// Reason of closure 
     /// TBD - codes to be defined.
     /// </summary>
-    public required IContractClosureReason1Choice ClosureReason { get; init; } 
+    public required ContractClosureReason1Choice_ ClosureReason { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TerminationReason1Choice;
 /// <summary>
 /// Termination reason.
 /// </summary>
-public partial record Code : ITerminationReason1Choice
+public partial record Code : TerminationReason1Choice_
 {
     public required TerminationReason1Code Value { get; init; }
 }

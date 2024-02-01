@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DetailedTransactionStatistics2Ch
 /// <summary>
 /// Specifies the type of report activity for a specific reporting period.
 /// </summary>
-public partial record DataSetAction : IDetailedTransactionStatistics2Choice
+public partial record DataSetAction : DetailedTransactionStatistics2Choice_
 {
     public required ReportPeriodActivity1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Direction2Choice;
 /// <summary>
 /// Identifies whether the reporting counterparty is the buyer or the seller as determined at the time of transaction.|
 /// </summary>
-public partial record CounterpartySide : IDirection2Choice
+public partial record CounterpartySide : Direction2Choice_
 {
     public required OptionParty1Code Value { get; init; }
 }

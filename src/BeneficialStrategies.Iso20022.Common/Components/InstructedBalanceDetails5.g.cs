@@ -20,11 +20,11 @@ public partial record InstructedBalanceDetails5
     /// <summary>
     /// Provides information about the total instructed balance.
     /// </summary>
-    public required IBalanceFormat5Choice TotalInstructedBalance { get; init; } 
+    public required BalanceFormat5Choice_ TotalInstructedBalance { get; init; } 
     /// <summary>
     /// Provide instructed balance breakdown information per option.
     /// </summary>
-    public InstructedCorporateActionOption6? OptionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public InstructedCorporateActionOption6[] OptionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -32,7 +32,7 @@ public partial record LoanData95
     /// <summary>
     /// Indicates whether clearing of contract has taken place.
     /// </summary>
-    public required ICleared10Choice ClearingStatus { get; init; } 
+    public required Cleared10Choice_ ClearingStatus { get; init; } 
     /// <summary>
     /// Venue of execution shall be identified by a unique code for this venue.
     /// </summary>
@@ -61,11 +61,11 @@ public partial record LoanData95
     /// <summary>
     /// Period before or at the end of which the loan should be repaid or renegotiated for another term. 
     /// </summary>
-    public IContractTerm3Choice? Term { get; init;  } // Warning: Don't know multiplicity.
+    public ContractTerm3Choice_[] Term { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Interest rate of the loan.
     /// </summary>
-    public IInterestRate20Choice? InterestRate { get; init; } 
+    public InterestRate20Choice_? InterestRate { get; init; } 
     /// <summary>
     /// Amount of money to be settled as of the start date and maturity date of the transaction.
     /// </summary>
@@ -77,7 +77,7 @@ public partial record LoanData95
     /// <summary>
     /// Price of unit of collateral component, including accrued interest for interest-bearing securities.
     /// </summary>
-    public ISecuritiesTransactionPrice11Choice? UnitPrice { get; init; } 
+    public SecuritiesTransactionPrice11Choice_? UnitPrice { get; init; } 
     
     #nullable disable
 }

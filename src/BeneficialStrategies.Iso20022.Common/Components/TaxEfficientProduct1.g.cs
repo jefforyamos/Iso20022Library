@@ -20,11 +20,11 @@ public partial record TaxEfficientProduct1
     /// <summary>
     /// Type of tax efficient product, for example, an individual savings account (ISA) in the UK.
     /// </summary>
-    public required ITaxEfficientProductType1Choice TaxEfficientProductType { get; init; } 
+    public required TaxEfficientProductType1Choice_ TaxEfficientProductType { get; init; } 
     /// <summary>
     /// Investment plans issued during previous years.
     /// </summary>
-    public IPreviousYear2Choice? PreviousYears { get; init; } 
+    public PreviousYear2Choice_? PreviousYears { get; init; } 
     /// <summary>
     /// Indicates that the product was issued during the current fiscal year.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record TaxEfficientProduct1
     /// <summary>
     /// Additional information about the tax efficient product.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

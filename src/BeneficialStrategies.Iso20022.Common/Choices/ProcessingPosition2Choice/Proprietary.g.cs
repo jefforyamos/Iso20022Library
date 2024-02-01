@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingPosition2Choice;
 /// <summary>
 /// Processing position expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IProcessingPosition2Choice
+public partial record Proprietary : ProcessingPosition2Choice_
 {
     #nullable enable
     /// <summary>

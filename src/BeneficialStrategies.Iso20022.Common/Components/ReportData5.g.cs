@@ -36,7 +36,7 @@ public partial record ReportData5
     /// <summary>
     /// Specifies the amount requested.
     /// </summary>
-    public PayInCallItem? PayInCallAmount { get; init;  } // Warning: Don't know multiplicity.
+    public PayInCallItem[] PayInCallAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// To indicate the requested CLS Settlement Session that the related trade is part of.
     /// </summary>

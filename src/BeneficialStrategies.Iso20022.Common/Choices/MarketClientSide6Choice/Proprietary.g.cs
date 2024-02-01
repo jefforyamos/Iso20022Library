@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketClientSide6Choice;
 /// <summary>
 /// Market side or a client side information expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IMarketClientSide6Choice
+public partial record Proprietary : MarketClientSide6Choice_
 {
     #nullable enable
     /// <summary>

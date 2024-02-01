@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate4Choice;
 /// <summary>
 /// Provides the original mandate data.
 /// </summary>
-public partial record OriginalMandate : IOriginalMandate4Choice
+public partial record OriginalMandate : OriginalMandate4Choice_
 {
     #nullable enable
     /// <summary>
@@ -58,7 +58,7 @@ public partial record OriginalMandate : IOriginalMandate4Choice
     /// <summary>
     /// Provides the reason for the setup of the mandate.
     /// </summary>
-    public IMandateSetupReason1Choice? Reason { get; init; } 
+    public MandateSetupReason1Choice_? Reason { get; init; } 
     /// <summary>
     /// Credit party that signs the mandate.
     /// </summary>

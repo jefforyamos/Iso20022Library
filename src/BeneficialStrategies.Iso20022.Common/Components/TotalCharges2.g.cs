@@ -24,7 +24,7 @@ public partial record TotalCharges2
     /// <summary>
     /// Information related to a specific charge.
     /// </summary>
-    public Charge10? ChargeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Charge10[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

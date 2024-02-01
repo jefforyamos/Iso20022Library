@@ -37,19 +37,19 @@ public partial record TaxReport1
     /// <summary>
     /// Reserved for parties that may be required by a specific tax authority.
     /// </summary>
-    public PartyIdentification72? OtherParty { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification72[] OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional reference like site key or identifier.
     /// </summary>
-    public AdditionalInformation1? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation1[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Structure to deliver link to external attachment or deliver base64-coded attachment inside message.
     /// </summary>
-    public DocumentGeneralInformation2? AdditionalReference { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentGeneralInformation2[] AdditionalReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

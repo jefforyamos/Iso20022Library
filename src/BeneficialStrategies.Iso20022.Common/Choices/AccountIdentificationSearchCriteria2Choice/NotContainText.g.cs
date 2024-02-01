@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentificationSearchCrite
 /// <summary>
 /// Search for one or more accounts based on a pattern that cannot be contained in the account identification.
 /// </summary>
-public partial record NotContainText : IAccountIdentificationSearchCriteria2Choice
+public partial record NotContainText : AccountIdentificationSearchCriteria2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

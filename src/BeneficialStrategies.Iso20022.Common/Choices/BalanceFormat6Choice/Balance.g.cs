@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceFormat6Choice;
 /// <summary>
 /// Provides information about balance related to a corporate action.
 /// </summary>
-public partial record Balance : IBalanceFormat6Choice
+public partial record Balance : BalanceFormat6Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record Balance : IBalanceFormat6Choice
     /// <summary>
     /// Choice between different quantity of security formats.
     /// </summary>
-    public required IQuantity19Choice QuantityChoice { get; init; } 
+    public required Quantity19Choice_ QuantityChoice { get; init; } 
     #nullable disable
 }

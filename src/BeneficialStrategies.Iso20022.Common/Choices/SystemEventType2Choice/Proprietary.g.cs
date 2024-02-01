@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemEventType2Choice;
 /// <summary>
 /// Type of system event that has occurred, expressed as free text or a bilaterally agreed code.|.
 /// </summary>
-public partial record Proprietary : ISystemEventType2Choice
+public partial record Proprietary : SystemEventType2Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Proxy2Choice;
 /// <summary>
 /// Indicates that no proxy is allowed for a meeting.
 /// </summary>
-public partial record ProxyNotAllowed : IProxy2Choice
+public partial record ProxyNotAllowed : Proxy2Choice_
 {
     public required ProxyNotAllowedCode Value { get; init; }
 }

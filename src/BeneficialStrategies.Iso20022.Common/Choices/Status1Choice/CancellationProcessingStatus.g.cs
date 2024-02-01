@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status1Choice;
 /// <summary>
 /// Provides the status of a cancellation request.
 /// </summary>
-public partial record CancellationProcessingStatus : IStatus1Choice
+public partial record CancellationProcessingStatus : Status1Choice_
 {
     #nullable enable
     #nullable disable

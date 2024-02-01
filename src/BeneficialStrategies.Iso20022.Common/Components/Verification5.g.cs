@@ -32,13 +32,13 @@ public partial record Verification5
     /// <summary>
     /// Contains verification or authentication data.
     /// </summary>
-    public VerificationInformation1? VerificationInformation { get; init;  } // Warning: Don't know multiplicity.
+    public VerificationInformation1[] VerificationInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Result of verifications performed prior or after the transaction.
     /// ISO 8583:93 bit 39
     /// ISO 8583:2003 bit 39 & 49-72
     /// </summary>
-    public VerificationResult2? VerificationResult { get; init;  } // Warning: Don't know multiplicity.
+    public VerificationResult2[] VerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

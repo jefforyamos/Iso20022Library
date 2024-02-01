@@ -28,7 +28,7 @@ public partial record CashMovement7
     /// <summary>
     /// Account in which cash is maintained.
     /// </summary>
-    public ICashAccountIdentification5Choice? CashAccount { get; init; } 
+    public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Cash movement status
     /// </summary>

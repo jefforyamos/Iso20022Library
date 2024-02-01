@@ -20,7 +20,7 @@ public partial record SafekeepingAccount2
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public required IAccountIdentificationFormatChoice Identification { get; init; } 
+    public required AccountIdentificationFormatChoice_ Identification { get; init; } 
     /// <summary>
     /// Indicates whether the securities in the account are fungible, ie, interchangeable.
     /// </summary>
@@ -36,15 +36,15 @@ public partial record SafekeepingAccount2
     /// <summary>
     /// Party that provides services relating to financial products to investors, eg, advice on products and placement of orders for the investment fund.
     /// </summary>
-    public IReadOnlyCollection<Intermediary11> IntermediaryInformation { get; init; } = [];
+    public Intermediary11[] IntermediaryInformation { get; init; } = [];
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountOwner { get; init; } 
+    public PartyIdentification2Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountServicer { get; init; } 
+    public PartyIdentification2Choice_? AccountServicer { get; init; } 
     
     #nullable disable
 }

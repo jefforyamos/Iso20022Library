@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingCancellationStatus10Choic
 /// <summary>
 /// Reason why the meeting instruction cancellation request message or the individual meeting instruction cancellation request is pending.
 /// </summary>
-public partial record Reason : IPendingCancellationStatus10Choice
+public partial record Reason : PendingCancellationStatus10Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the pending status.
     /// </summary>
-    public required IPendingCancellationReason7Choice ReasonCode { get; init; } 
+    public required PendingCancellationReason7Choice_ ReasonCode { get; init; } 
     /// <summary>
     /// Additional information about the pending status.
     /// </summary>

@@ -28,7 +28,7 @@ public partial record SettlementFailsData3
     /// <summary>
     /// Further details on the settlement fails per currency.
     /// </summary>
-    public SettlementFailsCurrency2? FailsPerCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementFailsCurrency2[] FailsPerCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further details on the settlement fails per financial instrument type.
     /// </summary>

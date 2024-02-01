@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementSource1Choice;
 /// <summary>
 /// Report source expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IStatementSource1Choice
+public partial record Proprietary : StatementSource1Choice_
 {
     #nullable enable
     /// <summary>

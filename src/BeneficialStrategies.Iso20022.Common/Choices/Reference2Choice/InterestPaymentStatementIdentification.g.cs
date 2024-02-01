@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reference2Choice;
 /// <summary>
 /// Unique identifier of the interest payment statement.
 /// </summary>
-public partial record InterestPaymentStatementIdentification : IReference2Choice
+public partial record InterestPaymentStatementIdentification : Reference2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

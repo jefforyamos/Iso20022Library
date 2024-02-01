@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OpeningBalance5Choice;
 /// <summary>
 /// Opening balance for the statement period. It always equals the closing balance of the previous statement.
 /// </summary>
-public partial record First : IOpeningBalance5Choice
+public partial record First : OpeningBalance5Choice_
 {
     #nullable enable
     #nullable disable

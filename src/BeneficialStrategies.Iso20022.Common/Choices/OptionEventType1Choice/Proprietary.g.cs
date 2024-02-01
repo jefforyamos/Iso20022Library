@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionEventType1Choice;
 /// <summary>
 /// Specifies the type of event for an option using a proprietary code.
 /// </summary>
-public partial record Proprietary : IOptionEventType1Choice
+public partial record Proprietary : OptionEventType1Choice_
 {
     #nullable enable
     /// <summary>

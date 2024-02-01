@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RecordMessage1Choice;
 /// <summary>
 /// Fee collection response message record
 /// </summary>
-public partial record FeeCollectionResponse : IRecordMessage1Choice
+public partial record FeeCollectionResponse : RecordMessage1Choice_
 {
     public required IsoMax2MBBinary Value { get; init; }
 }

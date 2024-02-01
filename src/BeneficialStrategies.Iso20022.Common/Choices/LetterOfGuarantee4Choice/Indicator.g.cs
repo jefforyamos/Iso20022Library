@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LetterOfGuarantee4Choice;
 /// <summary>
 /// Specifies whether physical settlement may be executed using a letter of guarantee or if the physical certificates should be used.
 /// </summary>
-public partial record Indicator : ILetterOfGuarantee4Choice
+public partial record Indicator : LetterOfGuarantee4Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

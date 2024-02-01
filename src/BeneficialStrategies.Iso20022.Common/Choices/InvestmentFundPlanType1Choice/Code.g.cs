@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestmentFundPlanType1Choice;
 /// <summary>
 /// Type of investment fund plan expressed as a code.
 /// </summary>
-public partial record Code : IInvestmentFundPlanType1Choice
+public partial record Code : InvestmentFundPlanType1Choice_
 {
     public required InvestmentFundPlanType1Code Value { get; init; }
 }

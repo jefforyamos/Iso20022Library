@@ -24,15 +24,15 @@ public partial record CorporateAction43
     /// <summary>
     /// Stage in the corporate action event life cycle.
     /// </summary>
-    public ICorporateActionEventStageFormat14Choice? EventStage { get; init; } 
+    public CorporateActionEventStageFormat14Choice_? EventStage { get; init; } 
     /// <summary>
     /// Specifies the type of the additional business process linked to a corporate action event such as a claim compensation or tax refund.
     /// </summary>
-    public IAdditionalBusinessProcessFormat15Choice? AdditionalBusinessProcessIndicator { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalBusinessProcessFormat15Choice_[] AdditionalBusinessProcessIndicator { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the type of lottery announced.
     /// </summary>
-    public ILotteryTypeFormat4Choice? LotteryType { get; init; } 
+    public LotteryTypeFormat4Choice_? LotteryType { get; init; } 
     
     #nullable disable
 }

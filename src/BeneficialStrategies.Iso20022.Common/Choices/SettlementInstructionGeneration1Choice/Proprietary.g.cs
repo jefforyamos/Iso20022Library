@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementInstructionGeneration1
 /// <summary>
 /// Settlement instruction generation expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISettlementInstructionGeneration1Choice
+public partial record Proprietary : SettlementInstructionGeneration1Choice_
 {
     #nullable enable
     /// <summary>

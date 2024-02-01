@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditorReferenceType1Choice;
 /// <summary>
 /// Type of creditor reference, in a coded form.
 /// </summary>
-public partial record Code : ICreditorReferenceType1Choice
+public partial record Code : CreditorReferenceType1Choice_
 {
     public required DocumentType3Code Value { get; init; }
 }

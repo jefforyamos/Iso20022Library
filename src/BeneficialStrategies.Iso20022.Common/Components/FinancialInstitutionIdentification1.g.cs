@@ -24,7 +24,7 @@ public partial record FinancialInstitutionIdentification1
     /// <summary>
     /// Unique and unambiguous identifier of a clearing system member, as assigned by the system or system administrator.
     /// </summary>
-    public IClearingSystemMemberIdentificationChoice? ClearingSystemMemberIdentification { get; init; } 
+    public ClearingSystemMemberIdentificationChoice_? ClearingSystemMemberIdentification { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>

@@ -28,7 +28,7 @@ public partial record MessageAndBusinessReference2
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
-    public IsoMax35Text? IndividualOrderReference { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] IndividualOrderReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Account information of the order message for which the status is requested.
     /// </summary>

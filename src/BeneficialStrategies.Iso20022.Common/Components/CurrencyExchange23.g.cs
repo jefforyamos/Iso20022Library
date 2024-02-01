@@ -32,7 +32,7 @@ public partial record CurrencyExchange23
     /// <summary>
     /// Indicates, for equity options, commodity options and similar products, the currency in which the strike price is denominated.  In case of foreign exchange options, indicates the currency pair and order in which the strike price is expressed as unit currency and quoted currency.
     /// </summary>
-    public IExchangeRateBasis1Choice? ExchangeRateBasis { get; init; } 
+    public ExchangeRateBasis1Choice_? ExchangeRateBasis { get; init; } 
     /// <summary>
     /// Specifies the date when a derivative will fix against an interest rate or an exchange rate that will be used to compute the cash settlement.
     /// </summary>

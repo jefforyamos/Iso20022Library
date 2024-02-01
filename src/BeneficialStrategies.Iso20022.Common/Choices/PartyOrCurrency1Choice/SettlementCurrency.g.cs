@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrCurrency1Choice;
 /// <summary>
 /// Currency for the settlement.
 /// </summary>
-public partial record SettlementCurrency : IPartyOrCurrency1Choice
+public partial record SettlementCurrency : PartyOrCurrency1Choice_
 {
     public required ActiveCurrencyCode Value { get; init; }
 }

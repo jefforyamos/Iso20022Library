@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Role8Choice;
 /// <summary>
 /// Role of the party in the activity expressed as a code.
 /// </summary>
-public partial record Code : IRole8Choice
+public partial record Code : Role8Choice_
 {
     public required InvestmentFundRole8Code Value { get; init; }
 }

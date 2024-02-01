@@ -24,11 +24,11 @@ public partial record TaxVoucher5
     /// <summary>
     /// Date on which a dividend reinvestment purchase was completed. If there is only one bargain involved, the time it was struck needs to be included.
     /// </summary>
-    public IDateAndDateTime2Choice? BargainDate { get; init; } 
+    public DateAndDateTime2Choice_? BargainDate { get; init; } 
     /// <summary>
     /// Settlement date of the dividend reinvestment purchase transaction.
     /// </summary>
-    public IDateAndDateTime2Choice? BargainSettlementDate { get; init; } 
+    public DateAndDateTime2Choice_? BargainSettlementDate { get; init; } 
     
     #nullable disable
 }

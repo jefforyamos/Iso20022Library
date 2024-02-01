@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BidRangeType1Choice;
 /// <summary>
 /// Bid range type expressed as a proprietary value.
 /// </summary>
-public partial record Proprietary : IBidRangeType1Choice
+public partial record Proprietary : BidRangeType1Choice_
 {
     #nullable enable
     /// <summary>

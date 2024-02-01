@@ -24,7 +24,7 @@ public partial record StoredValueRequest5
     /// <summary>
     /// Data related to the stored value card.
     /// </summary>
-    public StoredValueData5? Data { get; init;  } // Warning: Don't know multiplicity.
+    public StoredValueData5[] Data { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -32,11 +32,11 @@ public partial record IntraBalanceCancellation5
     /// <summary>
     /// Status and status reason of the transaction.
     /// </summary>
-    public IProcessingStatus69Choice? ProcessingStatus { get; init; } 
+    public ProcessingStatus69Choice_? ProcessingStatus { get; init; } 
     /// <summary>
     /// Further details of the individual intrabalance cancellation transaction.
     /// </summary>
-    public IntraBalanceCancellation6? Cancellation { get; init;  } // Warning: Don't know multiplicity.
+    public IntraBalanceCancellation6[] Cancellation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

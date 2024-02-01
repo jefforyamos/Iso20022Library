@@ -20,7 +20,7 @@ public partial record DefaultFund1
     /// <summary>
     /// Specifies the account identification of the clearing member at the ICSD (International Central Securities Depository) or at the central bank.
     /// </summary>
-    public required IAccountIdentification4Choice DefaultFundAccount { get; init; } 
+    public required AccountIdentification4Choice_ DefaultFundAccount { get; init; } 
     /// <summary>
     /// Total amount required by the clearing member to participate to the default fund.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record DefaultFund1
     /// <summary>
     /// Provides details about the contribution to the default fund by trading venues/products.
     /// </summary>
-    public Contribution1? Contribution { get; init;  } // Warning: Don't know multiplicity.
+    public Contribution1[] Contribution { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional amount that the clearing member will have to provide to cover a risk increase. This results from a risk management decision depending on central counterparty specific criteria.
     /// </summary>

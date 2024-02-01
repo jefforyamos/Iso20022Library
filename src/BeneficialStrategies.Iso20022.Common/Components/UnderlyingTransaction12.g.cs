@@ -24,7 +24,7 @@ public partial record UnderlyingTransaction12
     /// <summary>
     /// Provides information on the original (group of) transactions, to which the cancellation request refers.
     /// </summary>
-    public OriginalPaymentInstruction15? OriginalPaymentInformationAndCancellation { get; init;  } // Warning: Don't know multiplicity.
+    public OriginalPaymentInstruction15[] OriginalPaymentInformationAndCancellation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

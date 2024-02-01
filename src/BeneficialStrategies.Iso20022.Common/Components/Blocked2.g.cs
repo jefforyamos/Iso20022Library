@@ -20,7 +20,7 @@ public partial record Blocked2
     /// <summary>
     /// Specifies the order or transaction type for which the account is blocked.
     /// </summary>
-    public IOrderType2Choice? OrderType { get; init;  } // Warning: Don't know multiplicity.
+    public OrderType2Choice_[] OrderType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the account is blocked.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record Blocked2
     /// <summary>
     /// Specifies the reason the account is blocked.
     /// </summary>
-    public IBlockedReason1Choice? Reason { get; init; } 
+    public BlockedReason1Choice_? Reason { get; init; } 
     
     #nullable disable
 }

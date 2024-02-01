@@ -24,7 +24,7 @@ public partial record CounterpartyData86
     /// <summary>
     /// Data specific to other counterparties and related information.
     /// </summary>
-    public IOrganisationIdentification15Choice? OtherCounterparty { get; init; } 
+    public OrganisationIdentification15Choice_? OtherCounterparty { get; init; } 
     /// <summary>
     /// Specifies if a triparty agent is involved in the transaction.
     /// </summary>

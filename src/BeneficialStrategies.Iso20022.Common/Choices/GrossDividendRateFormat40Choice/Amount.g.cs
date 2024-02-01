@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRateFormat40Choice;
 /// <summary>
 /// Value expressed as an amount.
 /// </summary>
-public partial record Amount : IGrossDividendRateFormat40Choice
+public partial record Amount : GrossDividendRateFormat40Choice_
 {
     public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount Value { get; init; }
 }

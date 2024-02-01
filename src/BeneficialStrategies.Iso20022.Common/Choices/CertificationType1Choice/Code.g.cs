@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CertificationType1Choice;
 /// <summary>
 /// Certificate type expressed as a code.
 /// </summary>
-public partial record Code : ICertificationType1Choice
+public partial record Code : CertificationType1Choice_
 {
     public required CertificateType2Code Value { get; init; }
 }

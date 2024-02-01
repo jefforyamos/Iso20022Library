@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormat2Choice;
 /// <summary>
 /// Place of safekeeping expressed with a country code.
 /// </summary>
-public partial record Country : ISafekeepingPlaceFormat2Choice
+public partial record Country : SafekeepingPlaceFormat2Choice_
 {
     public required CountryCode Value { get; init; }
 }

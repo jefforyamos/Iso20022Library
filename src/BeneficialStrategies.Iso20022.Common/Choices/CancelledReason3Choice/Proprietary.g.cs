@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancelledReason3Choice;
 /// <summary>
 /// Proprietary identification specifying the reason why the instruction is cancelled.
 /// </summary>
-public partial record Proprietary : ICancelledReason3Choice
+public partial record Proprietary : CancelledReason3Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestComputationMethodFormat6
 /// <summary>
 /// Proprietary identification of the format of interest computation method.
 /// </summary>
-public partial record Proprietary : IInterestComputationMethodFormat6Choice
+public partial record Proprietary : InterestComputationMethodFormat6Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

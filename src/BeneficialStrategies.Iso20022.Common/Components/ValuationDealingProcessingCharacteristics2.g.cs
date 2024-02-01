@@ -44,7 +44,7 @@ public partial record ValuationDealingProcessingCharacteristics2
     /// <summary>
     /// Currencies in which the prices for the investment fund class are published by the fund management company.
     /// </summary>
-    public ActiveCurrencyCode? PriceCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public ActiveCurrencyCode[] PriceCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

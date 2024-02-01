@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType35Choice;
 /// <summary>
 /// Set of data requested for deletion from a security.
 /// </summary>
-public partial record Delete : IUpdateType35Choice
+public partial record Delete : UpdateType35Choice_
 {
     #nullable enable
     /// <summary>

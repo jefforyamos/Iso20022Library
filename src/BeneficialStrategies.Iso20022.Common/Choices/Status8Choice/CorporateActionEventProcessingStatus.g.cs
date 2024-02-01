@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status8Choice;
 /// <summary>
 /// Provides the status of a corporate action or the status of a payment.
 /// </summary>
-public partial record CorporateActionEventProcessingStatus : IStatus8Choice
+public partial record CorporateActionEventProcessingStatus : Status8Choice_
 {
     #nullable enable
     #nullable disable

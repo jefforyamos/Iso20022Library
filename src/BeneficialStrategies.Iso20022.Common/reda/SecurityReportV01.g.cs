@@ -77,7 +77,7 @@ public partial record SecurityReportV01 : IOuterRecord
     [DataMember(Name="SctyRptOrErr")]
     [XmlElement(ElementName="SctyRptOrErr")]
     [Required]
-    public required ISecurityOrOperationalError4Choice SecurityReportOrError { get; init; }
+    public required SecurityOrOperationalError4Choice_ SecurityReportOrError { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

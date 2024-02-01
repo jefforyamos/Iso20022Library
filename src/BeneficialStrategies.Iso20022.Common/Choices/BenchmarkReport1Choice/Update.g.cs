@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkReport1Choice;
 /// <summary>
 /// Update of a benchmark.
 /// </summary>
-public partial record Update : IBenchmarkReport1Choice
+public partial record Update : BenchmarkReport1Choice_
 {
     #nullable enable
     /// <summary>
@@ -46,7 +46,7 @@ public partial record Update : IBenchmarkReport1Choice
     /// <summary>
     /// Period of time when the associated record is technically valid.
     /// </summary>
-    public IPeriod4Choice? TechnicalValidityPeriod { get; init; } 
+    public Period4Choice_? TechnicalValidityPeriod { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>

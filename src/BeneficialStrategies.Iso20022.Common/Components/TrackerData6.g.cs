@@ -22,7 +22,7 @@ public partial record TrackerData6
     /// Usage: 
     /// This date can be the point in time when an agent provides a pending status update to the tracking system or when the creditor has been credited and can use the amount of money (as confirmed to the tracking system by the creditor agent).
     /// </summary>
-    public required IDateAndDateTime2Choice ConfirmedDate { get; init; } 
+    public required DateAndDateTime2Choice_ ConfirmedDate { get; init; } 
     /// <summary>
     /// Amount of money effectively credited to the creditor and confirmed to the tracking system by the agent.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record TrackerData6
     /// Usage: 
     /// This date provides the point in time when the last previous confirmed amount was provided to the tracker, in case of a partial confirmation.
     /// </summary>
-    public IDateAndDateTime2Choice? PreviouslyConfirmedDate { get; init; } 
+    public DateAndDateTime2Choice_? PreviouslyConfirmedDate { get; init; } 
     
     #nullable disable
 }

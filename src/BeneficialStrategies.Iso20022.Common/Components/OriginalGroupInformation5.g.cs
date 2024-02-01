@@ -32,7 +32,7 @@ public partial record OriginalGroupInformation5
     /// <summary>
     /// Detailed information on the reversal reason.
     /// </summary>
-    public ReversalReasonInformation1? ReversalReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public ReversalReasonInformation1[] ReversalReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus48Cho
 /// <summary>
 /// Instruction has not been completed.
 /// </summary>
-public partial record Pending : IInstructionProcessingStatus48Choice
+public partial record Pending : InstructionProcessingStatus48Choice_
 {
     #nullable enable
     /// <summary>

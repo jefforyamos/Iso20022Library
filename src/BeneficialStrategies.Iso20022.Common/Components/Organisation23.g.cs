@@ -28,7 +28,7 @@ public partial record Organisation23
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    public IReadOnlyCollection<PostalAddress21> PostalAddress { get; init; } = [];
+    public PostalAddress21[] PostalAddress { get; init; } = [];
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationRight1Choice;
 /// <summary>
 /// Cancellation right expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICancellationRight1Choice
+public partial record Proprietary : CancellationRight1Choice_
 {
     #nullable enable
     /// <summary>

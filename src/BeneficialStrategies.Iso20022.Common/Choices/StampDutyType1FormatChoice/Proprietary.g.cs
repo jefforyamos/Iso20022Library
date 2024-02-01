@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StampDutyType1FormatChoice;
 /// <summary>
 /// Proprietary code to express the stamp duty information.
 /// </summary>
-public partial record Proprietary : IStampDutyType1FormatChoice
+public partial record Proprietary : StampDutyType1FormatChoice_
 {
     #nullable enable
     /// <summary>

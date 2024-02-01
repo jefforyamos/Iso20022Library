@@ -36,7 +36,7 @@ public partial record CertificateManagementRequest3
     /// <summary>
     /// Identifies type of function that could be used with the Key.
     /// </summary>
-    public KeyUsage1Code? KeyFunction { get; init;  } // Warning: Don't know multiplicity.
+    public KeyUsage1Code[] KeyFunction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Challenge value sends by the POI to be received back in a message response.
     /// </summary>

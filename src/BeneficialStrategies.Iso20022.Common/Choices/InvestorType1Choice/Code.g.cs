@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestorType1Choice;
 /// <summary>
 /// Investor type expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IInvestorType1Choice
+public partial record Code : InvestorType1Choice_
 {
     public required Eligibility1Code Value { get; init; }
 }

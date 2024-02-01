@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification125Choice;
 /// <summary>
 /// Unique and unambiguous identifier, as assigned to the party using a proprietary identification scheme.
 /// </summary>
-public partial record ProprietaryIdentification : IPartyIdentification125Choice
+public partial record ProprietaryIdentification : PartyIdentification125Choice_
 {
     #nullable enable
     /// <summary>

@@ -20,11 +20,11 @@ public partial record Narrative1
     /// <summary>
     /// Type of term or condition.
     /// </summary>
-    public INarrativeType1Choice? Type { get; init; } 
+    public NarrativeType1Choice_? Type { get; init; } 
     /// <summary>
     /// Narrative text.
     /// </summary>
-    public IReadOnlyCollection<IsoMax20000Text> Text { get; init; } = [];
+    public IsoMax20000Text[] Text { get; init; } = [];
     
     #nullable disable
 }

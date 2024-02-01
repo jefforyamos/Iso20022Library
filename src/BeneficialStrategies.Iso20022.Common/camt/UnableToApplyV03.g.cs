@@ -80,7 +80,7 @@ public partial record UnableToApplyV03 : IOuterRecord
     [DataMember(Name="Undrlyg")]
     [XmlElement(ElementName="Undrlyg")]
     [Required]
-    public required IUnderlyingTransaction1Choice Underlying { get; init; }
+    public required UnderlyingTransaction1Choice_ Underlying { get; init; }
     
     /// <summary>
     /// Explains the reason why the case creator is unable to apply the instruction.
@@ -90,7 +90,7 @@ public partial record UnableToApplyV03 : IOuterRecord
     [DataMember(Name="Justfn")]
     [XmlElement(ElementName="Justfn")]
     [Required]
-    public required IUnableToApplyJustification2Choice Justification { get; init; }
+    public required UnableToApplyJustification2Choice_ Justification { get; init; }
     
     #nullable disable
     

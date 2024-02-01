@@ -20,7 +20,7 @@ public partial record Limit7
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
-    public required IAmount2Choice Amount { get; init; } 
+    public required Amount2Choice_ Amount { get; init; } 
     /// <summary>
     /// Specifies if a limit is a debit limit or a credit limit.
     /// </summary>
@@ -32,11 +32,11 @@ public partial record Limit7
     /// <summary>
     /// Date and time at which the limit becomes effective.
     /// </summary>
-    public IDateAndDateTime2Choice? StartDateTime { get; init; } 
+    public DateAndDateTime2Choice_? StartDateTime { get; init; } 
     /// <summary>
     /// Actual usage of the limit expressed as an amount.
     /// </summary>
-    public IAmount2Choice? UsedAmount { get; init; } 
+    public Amount2Choice_? UsedAmount { get; init; } 
     /// <summary>
     /// Specifies if the used amount of the limit is a debit amount or a credit amount.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record Limit7
     /// <summary>
     /// Actual usage of the limit expressed as an amount.
     /// </summary>
-    public IAmount2Choice? RemainingAmount { get; init; } 
+    public Amount2Choice_? RemainingAmount { get; init; } 
     
     #nullable disable
 }

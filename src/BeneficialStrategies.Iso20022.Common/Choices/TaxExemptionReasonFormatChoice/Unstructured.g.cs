@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxExemptionReasonFormatChoice;
 /// <summary>
 /// Free text form.
 /// </summary>
-public partial record Unstructured : ITaxExemptionReasonFormatChoice
+public partial record Unstructured : TaxExemptionReasonFormatChoice_
 {
     public required IsoMax140Text Value { get; init; }
 }

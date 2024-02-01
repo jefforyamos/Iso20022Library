@@ -24,7 +24,7 @@ public partial record Account14
     /// <summary>
     /// Institution that maintains the records where the account is held.
     /// </summary>
-    public IPartyIdentification2Choice? AccountServicer { get; init; } 
+    public PartyIdentification2Choice_? AccountServicer { get; init; } 
     
     #nullable disable
 }

@@ -20,11 +20,11 @@ public partial record Period4
     /// <summary>
     /// Date and time at which the range starts.
     /// </summary>
-    public required IDateFormat18Choice StartDate { get; init; } 
+    public required DateFormat18Choice_ StartDate { get; init; } 
     /// <summary>
     /// Date and time at which the range ends.
     /// </summary>
-    public required IDateFormat18Choice EndDate { get; init; } 
+    public required DateFormat18Choice_ EndDate { get; init; } 
     
     #nullable disable
 }

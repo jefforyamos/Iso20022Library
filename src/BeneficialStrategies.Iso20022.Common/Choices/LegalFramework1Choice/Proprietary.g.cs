@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LegalFramework1Choice;
 /// <summary>
 /// Legal framework expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ILegalFramework1Choice
+public partial record Proprietary : LegalFramework1Choice_
 {
     #nullable enable
     /// <summary>

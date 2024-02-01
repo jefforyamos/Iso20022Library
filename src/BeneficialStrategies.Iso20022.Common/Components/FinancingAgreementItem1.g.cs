@@ -44,7 +44,7 @@ public partial record FinancingAgreementItem1
     /// <summary>
     /// Issuers, amounts and periods to be guaranteed. At a given date, the sum of all issuers is guaranteed, covered as specified by rank/position and excess. For each period, the maximum value at a given date is used.
     /// </summary>
-    public GuaranteeDetails1? Guarantee { get; init;  } // Warning: Don't know multiplicity.
+    public GuaranteeDetails1[] Guarantee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Status of guarantee if applicable.
     /// </summary>
@@ -56,11 +56,11 @@ public partial record FinancingAgreementItem1
     /// <summary>
     /// Associated free form document.
     /// </summary>
-    public QualifiedDocumentInformation1? AssociatedDocument { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1[] AssociatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Free form textual information related to the agreement.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

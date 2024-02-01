@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitCriteria6Choice;
 /// <summary>
 /// Defines the criteria based on which the information is extracted.
 /// </summary>
-public partial record NewCriteria : ILimitCriteria6Choice
+public partial record NewCriteria : LimitCriteria6Choice_
 {
     #nullable enable
     /// <summary>

@@ -20,7 +20,7 @@ public partial record AcknowledgementReason3
     /// <summary>
     /// Reason provided for the status.
     /// </summary>
-    public required IAcknowledgementReason4Choice Code { get; init; } 
+    public required AcknowledgementReason4Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

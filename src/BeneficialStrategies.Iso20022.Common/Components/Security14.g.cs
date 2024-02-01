@@ -28,11 +28,11 @@ public partial record Security14
     /// <summary>
     /// Information on the securities quantity or bonds nominal amount.
     /// </summary>
-    public IQuantityNominalValue1Choice? QuantityOrNominalValue { get; init; } 
+    public QuantityNominalValue1Choice_? QuantityOrNominalValue { get; init; } 
     /// <summary>
     /// Price of unit of collateral component, including accrued interest for interest-bearing securities, used to value the security.
     /// </summary>
-    public ISecuritiesTransactionPrice2Choice? UnitPrice { get; init; } 
+    public SecuritiesTransactionPrice2Choice_? UnitPrice { get; init; } 
     /// <summary>
     /// Fair value of the individual collateral component expressed in price currency.
     /// </summary>
@@ -58,7 +58,7 @@ public partial record Security14
     /// <summary>
     /// Type of a security used as collateral.
     /// </summary>
-    public ISecuritiesLendingType3Choice? Type { get; init; } 
+    public SecuritiesLendingType3Choice_? Type { get; init; } 
     /// <summary>
     /// Indication whether the collateral taker can reuse the securities provided as a collateral.
     /// </summary>

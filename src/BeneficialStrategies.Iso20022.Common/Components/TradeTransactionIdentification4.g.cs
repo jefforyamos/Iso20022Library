@@ -20,11 +20,11 @@ public partial record TradeTransactionIdentification4
     /// <summary>
     /// Unique code identifying the reporting counterparty.
     /// </summary>
-    public required IOrganisationIdentification9Choice ReportingCounterparty { get; init; } 
+    public required OrganisationIdentification9Choice_ ReportingCounterparty { get; init; } 
     /// <summary>
     /// Unique code identifying the entity with which the reporting counterparty concluded the transaction.
     /// </summary>
-    public required IOrganisationIdentification9Choice OtherCounterparty { get; init; } 
+    public required OrganisationIdentification9Choice_ OtherCounterparty { get; init; } 
     /// <summary>
     /// Unique trade Identifier (UTI) as agreed with the counterparty.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record TradeTransactionIdentification4
     /// <summary>
     /// Identification of the agent lender involved in the securities lending transaction.
     /// </summary>
-    public IOrganisationIdentification9Choice? AgentLender { get; init; } 
+    public OrganisationIdentification9Choice_? AgentLender { get; init; } 
     /// <summary>
     /// Identification of the third party that administers the transaction.
     /// </summary>
-    public IOrganisationIdentification9Choice? TripartyAgent { get; init; } 
+    public OrganisationIdentification9Choice_? TripartyAgent { get; init; } 
     
     #nullable disable
 }

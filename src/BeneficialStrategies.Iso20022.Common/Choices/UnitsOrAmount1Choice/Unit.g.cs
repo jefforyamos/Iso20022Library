@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitsOrAmount1Choice;
 /// <summary>
 /// Number of units to be subscribed or withdrawn.
 /// </summary>
-public partial record Unit : IUnitsOrAmount1Choice
+public partial record Unit : UnitsOrAmount1Choice_
 {
     public required IsoDecimalNumber Value { get; init; }
 }

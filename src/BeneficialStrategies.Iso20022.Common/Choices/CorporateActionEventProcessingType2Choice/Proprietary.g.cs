@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventProcessingTy
 /// <summary>
 /// Proprietary identification of the processing type of a corporate action event.
 /// </summary>
-public partial record Proprietary : ICorporateActionEventProcessingType2Choice
+public partial record Proprietary : CorporateActionEventProcessingType2Choice_
 {
     #nullable enable
     /// <summary>

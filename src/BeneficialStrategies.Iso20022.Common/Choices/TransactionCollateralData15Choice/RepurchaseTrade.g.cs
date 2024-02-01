@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionCollateralData15Choic
 /// <summary>
 /// Data on collateral used for the repurchase trade transaction.
 /// </summary>
-public partial record RepurchaseTrade : ITransactionCollateralData15Choice
+public partial record RepurchaseTrade : TransactionCollateralData15Choice_
 {
     #nullable enable
     /// <summary>
@@ -30,6 +30,6 @@ public partial record RepurchaseTrade : ITransactionCollateralData15Choice
     /// <summary>
     /// Identification of the collateral basket.
     /// </summary>
-    public ISecurityIdentification26Choice? BasketIdentifier { get; init; } 
+    public SecurityIdentification26Choice_? BasketIdentifier { get; init; } 
     #nullable disable
 }

@@ -36,7 +36,7 @@ public partial record AdditionalService2
     /// <summary>
     /// Contains additional information for the execution or results of the service.
     /// </summary>
-    public AdditionalData1? ServiceDetail { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] ServiceDetail { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

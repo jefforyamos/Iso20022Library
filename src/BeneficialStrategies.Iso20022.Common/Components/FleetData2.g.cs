@@ -24,7 +24,7 @@ public partial record FleetData2
     /// <summary>
     /// Fleet Line Item component is designed to carry detail level fleet data and to enable issuers to supply more transaction information to their consumer and corporate clients pertaining to fleet transactions. 
     /// </summary>
-    public FleetLineItem1? LineItem { get; init;  } // Warning: Don't know multiplicity.
+    public FleetLineItem1[] LineItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

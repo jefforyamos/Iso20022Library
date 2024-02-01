@@ -76,7 +76,7 @@ public partial record Organisation35
     /// <summary>
     /// Person in the customer's organisation who can be contacted by the account servicer.
     /// </summary>
-    public PartyIdentification135? RepresentativeOfficer { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification135[] RepresentativeOfficer { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Person responsible of the treasury department within an organisation.
     /// </summary>
@@ -84,11 +84,11 @@ public partial record Organisation35
     /// <summary>
     /// Person who will delegate some authority to other individuals (mandate holders) to perform some specific bank operations on the account.
     /// </summary>
-    public PartyIdentification135? MainMandateHolder { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification135[] MainMandateHolder { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Sender of a message related to the life cycle of an account.
     /// </summary>
-    public PartyIdentification135? Sender { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification135[] Sender { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

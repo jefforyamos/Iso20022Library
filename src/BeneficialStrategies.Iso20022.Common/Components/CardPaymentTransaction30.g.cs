@@ -44,7 +44,7 @@ public partial record CardPaymentTransaction30
     /// <summary>
     /// List of incidents during the transaction.
     /// </summary>
-    public FailureReason3Code? FailureReason { get; init;  } // Warning: Don't know multiplicity.
+    public FailureReason3Code[] FailureReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction assigned by the recipient party for the initiating party.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record CardPaymentTransaction30
     /// <summary>
     /// Additional information related to the transaction.
     /// </summary>
-    public IsoMax70Text? AdditionalTransactionData { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] AdditionalTransactionData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

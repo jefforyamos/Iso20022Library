@@ -32,7 +32,7 @@ public partial record TransactionDetails88
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    public required IQuantity10Choice SettlementQuantity { get; init; } 
+    public required Quantity10Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Total amount of money to be paid or received in exchange for the securities.
     /// </summary>
@@ -40,11 +40,11 @@ public partial record TransactionDetails88
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    public ITradeDate6Choice? TradeDate { get; init; } 
+    public TradeDate6Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public required ISettlementDate15Choice SettlementDate { get; init; } 
+    public required SettlementDate15Choice_ SettlementDate { get; init; } 
     /// <summary>
     /// Identifies the chain of delivering settlement parties.
     /// </summary>

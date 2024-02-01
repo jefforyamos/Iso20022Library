@@ -20,11 +20,11 @@ public partial record ExpectedCollateralMovement2
     /// <summary>
     /// Type of collateral that will be delivered and date by which the collateral movement is expected.
     /// </summary>
-    public CollateralMovement9? Delivery { get; init;  } // Warning: Don't know multiplicity.
+    public CollateralMovement9[] Delivery { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of collateral that will be returned and date by which the collateral movement is expected.
     /// </summary>
-    public CollateralMovement9? Return { get; init;  } // Warning: Don't know multiplicity.
+    public CollateralMovement9[] Return { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate1Choice;
 /// <summary>
 /// Provides details about the variable rate.
 /// </summary>
-public partial record VariableInterestRate : IInterestRate1Choice
+public partial record VariableInterestRate : InterestRate1Choice_
 {
     #nullable enable
     /// <summary>

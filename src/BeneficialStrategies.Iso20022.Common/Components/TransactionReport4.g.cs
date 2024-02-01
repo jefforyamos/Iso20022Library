@@ -20,11 +20,11 @@ public partial record TransactionReport4
     /// <summary>
     /// Reference to the instruction related to the payment for which information is requested.
     /// </summary>
-    public required IPaymentIdentification5Choice PaymentIdentification { get; init; } 
+    public required PaymentIdentification5Choice_ PaymentIdentification { get; init; } 
     /// <summary>
     /// Requested information on the payment transaction when information has not been found.
     /// </summary>
-    public required ITransactionOrError3Choice TransactionOrError { get; init; } 
+    public required TransactionOrError3Choice_ TransactionOrError { get; init; } 
     
     #nullable disable
 }

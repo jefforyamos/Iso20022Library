@@ -85,7 +85,7 @@ public partial record ShareholdersIdentificationDisclosureResponseV02 : IOuterRe
     [DataMember(Name="DsclsrInf")]
     [XmlElement(ElementName="DsclsrInf")]
     [Required]
-    public required IDisclosure2Choice DisclosureInformation { get; init; }
+    public required Disclosure2Choice_ DisclosureInformation { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

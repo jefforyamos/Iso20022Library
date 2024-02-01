@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginType1Choice;
 /// <summary>
 /// Provides the margin type using a code.
 /// </summary>
-public partial record Code : IMarginType1Choice
+public partial record Code : MarginType1Choice_
 {
     public required MarginType1Code Value { get; init; }
 }

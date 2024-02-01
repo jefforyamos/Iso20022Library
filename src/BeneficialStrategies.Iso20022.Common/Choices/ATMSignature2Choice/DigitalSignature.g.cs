@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMSignature2Choice;
 /// <summary>
 /// Digital signature of implicit data depending on the security scheme download procedure.
 /// </summary>
-public partial record DigitalSignature : IATMSignature2Choice
+public partial record DigitalSignature : ATMSignature2Choice_
 {
     #nullable enable
     /// <summary>

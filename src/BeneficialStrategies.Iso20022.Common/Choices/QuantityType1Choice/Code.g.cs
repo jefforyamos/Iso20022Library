@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityType1Choice;
 /// <summary>
 /// Quantity type expressed as a code.
 /// </summary>
-public partial record Code : IQuantityType1Choice
+public partial record Code : QuantityType1Choice_
 {
     public required OrderQuantityType2Code Value { get; init; }
 }

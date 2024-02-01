@@ -90,7 +90,7 @@ public partial record AgentCANotificationStatusAdviceV01 : IOuterRecord
     [DataMember(Name="NtfctnCxlReqSts")]
     [XmlElement(ElementName="NtfctnCxlReqSts")]
     [Required]
-    public required INotificationCancellationRequestStatus1Choice NotificationCancellationRequestStatus { get; init; }
+    public required NotificationCancellationRequestStatus1Choice_ NotificationCancellationRequestStatus { get; init; }
     
     /// <summary>
     /// Status of the notification advice sent by the issuer (agent).
@@ -100,7 +100,7 @@ public partial record AgentCANotificationStatusAdviceV01 : IOuterRecord
     [DataMember(Name="NtfctnAdvcSts")]
     [XmlElement(ElementName="NtfctnAdvcSts")]
     [Required]
-    public required INotificationAdviceStatus1Choice NotificationAdviceStatus { get; init; }
+    public required NotificationAdviceStatus1Choice_ NotificationAdviceStatus { get; init; }
     
     #nullable disable
     

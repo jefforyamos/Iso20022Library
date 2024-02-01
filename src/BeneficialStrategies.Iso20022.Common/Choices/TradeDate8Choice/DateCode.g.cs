@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeDate8Choice;
 /// <summary>
 /// Date expressed as a code.
 /// </summary>
-public partial record DateCode : ITradeDate8Choice
+public partial record DateCode : TradeDate8Choice_
 {
     #nullable enable
     #nullable disable

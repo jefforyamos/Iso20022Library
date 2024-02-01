@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType10Choice;
 /// <summary>
 /// Standard code to specify the type of tax rate.
 /// </summary>
-public partial record Code : IRateType10Choice
+public partial record Code : RateType10Choice_
 {
     public required RateType3Code Value { get; init; }
 }

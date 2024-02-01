@@ -36,7 +36,7 @@ public partial record InvoiceTaxStatusReportHeader1
     /// <summary>
     /// Provides the details of the rule which could not be validated.
     /// </summary>
-    public GenericValidationRuleIdentification1? ValidationRule { get; init;  } // Warning: Don't know multiplicity.
+    public GenericValidationRuleIdentification1[] ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

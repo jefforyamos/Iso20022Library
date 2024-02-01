@@ -20,7 +20,7 @@ public partial record SystemEvent3
     /// <summary>
     /// Nature of the event that has occurred.
     /// </summary>
-    public required ISystemEventType4Choice Type { get; init; } 
+    public required SystemEventType4Choice_ Type { get; init; } 
     /// <summary>
     /// Date and time at which the event is foreseen to occur.
     /// </summary>

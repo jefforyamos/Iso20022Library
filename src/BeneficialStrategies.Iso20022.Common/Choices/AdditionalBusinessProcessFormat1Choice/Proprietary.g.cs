@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AdditionalBusinessProcessFormat1
 /// <summary>
 /// Proprietary identification of the additional business process linked to a corporate action event.
 /// </summary>
-public partial record Proprietary : IAdditionalBusinessProcessFormat1Choice
+public partial record Proprietary : AdditionalBusinessProcessFormat1Choice_
 {
     #nullable enable
     /// <summary>

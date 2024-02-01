@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate6Choice;
 /// <summary>
 /// Indicates that the rate is fixed.
 /// </summary>
-public partial record Fixed : IInterestRate6Choice
+public partial record Fixed : InterestRate6Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

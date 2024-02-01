@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification3Choice;
 /// <summary>
 /// Identifier for French securities assigned by the Societe Interprofessionnelle Pour La Compensation des Valeurs Mobilieres in France. The Sicovam is composed of 5-digits.
 /// </summary>
-public partial record Sicovam : ISecurityIdentification3Choice
+public partial record Sicovam : SecurityIdentification3Choice_
 {
     public required IsoSicovamIdentifier Value { get; init; }
 }

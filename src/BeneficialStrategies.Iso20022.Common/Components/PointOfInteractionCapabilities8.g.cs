@@ -20,11 +20,11 @@ public partial record PointOfInteractionCapabilities8
     /// <summary>
     /// Card reading capabilities of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
-    public CardDataReading6Code? CardReadingCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public CardDataReading6Code[] CardReadingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cardholder verification capabilities of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
-    public CardholderVerificationCapability4Code? CardholderVerificationCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public CardholderVerificationCapability4Code[] CardholderVerificationCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum number of digits the POI is able to accept when the cardholder enters its PIN.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record PointOfInteractionCapabilities8
     /// <summary>
     /// Capabilities of the terminal to display or print message to the cardholder and the merchant.
     /// </summary>
-    public DisplayCapabilities4? MessageCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public DisplayCapabilities4[] MessageCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

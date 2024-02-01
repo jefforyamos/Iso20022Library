@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RiskLevel1Choice;
 /// <summary>
 /// Risk level expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IRiskLevel1Choice
+public partial record Proprietary : RiskLevel1Choice_
 {
     #nullable enable
     /// <summary>

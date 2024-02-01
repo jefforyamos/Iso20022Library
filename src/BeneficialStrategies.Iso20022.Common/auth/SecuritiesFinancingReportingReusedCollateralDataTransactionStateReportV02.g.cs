@@ -46,7 +46,7 @@ public partial record SecuritiesFinancingReportingReusedCollateralDataTransactio
     [DataMember(Name="TradData")]
     [XmlElement(ElementName="TradData")]
     [Required]
-    public required ITradeData37Choice TradeData { get; init; }
+    public required TradeData37Choice_ TradeData { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

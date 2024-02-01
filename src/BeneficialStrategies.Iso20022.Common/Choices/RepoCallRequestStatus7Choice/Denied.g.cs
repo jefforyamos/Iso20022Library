@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RepoCallRequestStatus7Choice;
 /// <summary>
 /// Instruction/Request will not be executed.
 /// </summary>
-public partial record Denied : IRepoCallRequestStatus7Choice
+public partial record Denied : RepoCallRequestStatus7Choice_
 {
     #nullable enable
     #nullable disable

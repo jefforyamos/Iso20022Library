@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LiquidityPoolMembers1Choice;
 /// <summary>
 /// Information about head member of liquidity pool.
 /// </summary>
-public partial record HeadMemberDetails : ILiquidityPoolMembers1Choice
+public partial record HeadMemberDetails : LiquidityPoolMembers1Choice_
 {
     #nullable enable
     /// <summary>

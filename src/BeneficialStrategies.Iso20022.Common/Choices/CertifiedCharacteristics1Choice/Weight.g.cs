@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CertifiedCharacteristics1Choice;
 /// <summary>
 /// Weight of the goods, as proven by the certificate.
 /// </summary>
-public partial record Weight : ICertifiedCharacteristics1Choice
+public partial record Weight : CertifiedCharacteristics1Choice_
 {
     #nullable enable
     /// <summary>

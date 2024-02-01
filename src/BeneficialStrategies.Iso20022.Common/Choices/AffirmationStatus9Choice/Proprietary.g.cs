@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AffirmationStatus9Choice;
 /// <summary>
 /// Provides the status of the trade at confirmation level at the time the settlement instruction was sent.
 /// </summary>
-public partial record Proprietary : IAffirmationStatus9Choice
+public partial record Proprietary : AffirmationStatus9Choice_
 {
     #nullable enable
     /// <summary>

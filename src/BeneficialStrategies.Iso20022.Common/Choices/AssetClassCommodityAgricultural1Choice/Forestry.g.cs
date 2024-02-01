@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityAgricultural1
 /// <summary>
 /// Forestry agricultural commodity derivative.
 /// </summary>
-public partial record Forestry : IAssetClassCommodityAgricultural1Choice
+public partial record Forestry : AssetClassCommodityAgricultural1Choice_
 {
     #nullable enable
     /// <summary>

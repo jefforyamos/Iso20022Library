@@ -24,11 +24,11 @@ public partial record CorporateActionStandingInstructionGeneralInformation1
     /// <summary>
     /// Type of coporpate action event.
     /// </summary>
-    public ICorporateActionEventType2FormatChoice? EventType { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionEventType2FormatChoice_[] EventType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the instructing party, ie, the CSD client.
     /// </summary>
-    public required IPartyIdentification2Choice InstructingPartyIdentification { get; init; } 
+    public required PartyIdentification2Choice_ InstructingPartyIdentification { get; init; } 
     /// <summary>
     /// Reference of the standing instruction assigned by the client.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record CorporateActionStandingInstructionGeneralInformation1
     /// <summary>
     /// Provides information about the account to which the standing instruction can apply.
     /// </summary>
-    public IncludedAccount1? AccountDetails { get; init;  } // Warning: Don't know multiplicity.
+    public IncludedAccount1[] AccountDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the underlying financial instrument, ie, the financial instrument affected by the corporate action event.
     /// </summary>

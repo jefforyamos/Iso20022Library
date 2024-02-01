@@ -20,7 +20,7 @@ public partial record PaymentTransaction25
     /// <summary>
     /// Choice between cash-in or cash-out.
     /// </summary>
-    public ICashInOrOut5Choice? CashInOrOut { get; init; } 
+    public CashInOrOut5Choice_? CashInOrOut { get; init; } 
     
     #nullable disable
 }

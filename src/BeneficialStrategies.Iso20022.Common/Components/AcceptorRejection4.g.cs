@@ -24,7 +24,7 @@ public partial record AcceptorRejection4
     /// <summary>
     /// Detailed description of an error that caused the rejection for further analysis.
     /// </summary>
-    public ErrorReporting1? ErrorReporting { get; init;  } // Warning: Don't know multiplicity.
+    public ErrorReporting1[] ErrorReporting { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Original request that caused the party to reject it.
     /// </summary>

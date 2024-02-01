@@ -56,7 +56,7 @@ public partial record ATMTransaction13
     /// <summary>
     /// Media mix selected.
     /// </summary>
-    public ATMMediaMix1? SelectedMix { get; init;  } // Warning: Don't know multiplicity.
+    public ATMMediaMix1[] SelectedMix { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// True if a receipt has be requested by the customer.
     /// </summary>

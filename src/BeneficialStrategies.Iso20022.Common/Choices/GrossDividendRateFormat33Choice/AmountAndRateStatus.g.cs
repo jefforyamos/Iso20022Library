@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRateFormat33Choice;
 /// <summary>
 /// Specifies an amount and a rate status.
 /// </summary>
-public partial record AmountAndRateStatus : IGrossDividendRateFormat33Choice
+public partial record AmountAndRateStatus : GrossDividendRateFormat33Choice_
 {
     #nullable enable
     /// <summary>

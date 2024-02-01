@@ -78,7 +78,7 @@ public partial record InvestmentFundReportRequestV03 : IOuterRecord
     [DataMember(Name="RptReq")]
     [XmlElement(ElementName="RptReq")]
     [Required]
-    public required IFundParameters4Choice ReportRequest { get; init; }
+    public required FundParameters4Choice_ ReportRequest { get; init; }
     
     #nullable disable
     

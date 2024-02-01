@@ -20,7 +20,7 @@ public partial record Statement82
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
-    public INumber3Choice? ReportNumber { get; init; } 
+    public Number3Choice_? ReportNumber { get; init; } 
     /// <summary>
     /// Identification of the SecuritiesStatementQuery message sent to request this statement.
     /// </summary>
@@ -32,19 +32,19 @@ public partial record Statement82
     /// <summary>
     /// Period for the statement.
     /// </summary>
-    public required IPeriod7Choice StatementPeriod { get; init; } 
+    public required Period7Choice_ StatementPeriod { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
-    public IFrequency26Choice? Frequency { get; init; } 
+    public Frequency26Choice_? Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
-    public IUpdateType16Choice? UpdateType { get; init; } 
+    public UpdateType16Choice_? UpdateType { get; init; } 
     /// <summary>
     /// Type of balance on which the statement is prepared.
     /// </summary>
-    public required IStatementBasis12Choice StatementBasis { get; init; } 
+    public required StatementBasis12Choice_ StatementBasis { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>

@@ -36,7 +36,7 @@ public partial record UndertakingAdvice1
     /// <summary>
     /// Digital signature of the party providing additional undertaking advice details.
     /// </summary>
-    public IReadOnlyCollection<PartyAndSignature2> DigitalSignature { get; init; } = [];
+    public PartyAndSignature2[] DigitalSignature { get; init; } = [];
     
     #nullable disable
 }

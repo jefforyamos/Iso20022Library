@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification3Choice;
 /// <summary>
 /// Identification of the payment instruction by its position in a queue managed by the clearing agent.
 /// </summary>
-public partial record QueueIdentification : IPaymentIdentification3Choice
+public partial record QueueIdentification : PaymentIdentification3Choice_
 {
     #nullable enable
     /// <summary>

@@ -32,19 +32,19 @@ public partial record SecuritiesAccountSearchCriteria2
     /// <summary>
     /// Specifies the type of the party for which securities account data have been queried.
     /// </summary>
-    public ISystemPartyType1Choice? PartyType { get; init; } 
+    public SystemPartyType1Choice_? PartyType { get; init; } 
     /// <summary>
     /// Legal opening date for the securities account.
     /// </summary>
-    public IDatePeriodSearch1Choice? OpeningDate { get; init; } 
+    public DatePeriodSearch1Choice_? OpeningDate { get; init; } 
     /// <summary>
     /// Legal closing date for the securities account.
     /// </summary>
-    public IDatePeriodSearch1Choice? ClosingDate { get; init; } 
+    public DatePeriodSearch1Choice_? ClosingDate { get; init; } 
     /// <summary>
     /// Specifies the type of securities account.
     /// </summary>
-    public ISystemSecuritiesAccountType1Choice? AccountType { get; init; } 
+    public SystemSecuritiesAccountType1Choice_? AccountType { get; init; } 
     /// <summary>
     /// Specifies information to identify securities accounts where allocation instructions are posted.
     /// </summary>

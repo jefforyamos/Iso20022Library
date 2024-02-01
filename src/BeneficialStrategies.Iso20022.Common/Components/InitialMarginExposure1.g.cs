@@ -24,7 +24,7 @@ public partial record InitialMarginExposure1
     /// <summary>
     /// Classification of component used in the calculation of the total initial margin requirement.
     /// </summary>
-    public required IMarginType2Choice Type { get; init; } 
+    public required MarginType2Choice_ Type { get; init; } 
     /// <summary>
     /// Indicates whether the component is considered a core part of the margin model. Usage: In the context of European central counterparties, if the component is included in backtesting procedures in order to assess the performance of the initial margin model as required by EMIR RTS Article (49)(1).
     /// </summary>

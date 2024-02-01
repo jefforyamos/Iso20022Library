@@ -81,7 +81,7 @@ public partial record IntraBalanceMovementCancellationRequestStatusAdviceV01 : I
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required IProcessingStatus69Choice ProcessingStatus { get; init; }
+    public required ProcessingStatus69Choice_ ProcessingStatus { get; init; }
     
     /// <summary>
     /// Account to or from which an entry is made.

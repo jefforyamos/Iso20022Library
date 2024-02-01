@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceSourceFormatChoice;
 /// <summary>
 /// Source of a price quotation when it is not the local market.
 /// </summary>
-public partial record NonLocalMarketPlace : IPriceSourceFormatChoice
+public partial record NonLocalMarketPlace : PriceSourceFormatChoice_
 {
     #nullable enable
     /// <summary>

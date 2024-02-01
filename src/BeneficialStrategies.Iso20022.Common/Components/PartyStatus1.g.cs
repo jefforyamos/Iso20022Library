@@ -24,7 +24,7 @@ public partial record PartyStatus1
     /// <summary>
     /// Specifies the underlying reason for the status of an object.
     /// </summary>
-    public StatusReasonInformation10? StatusReason { get; init;  } // Warning: Don't know multiplicity.
+    public StatusReasonInformation10[] StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifications of a party defined within a system.
     /// </summary>

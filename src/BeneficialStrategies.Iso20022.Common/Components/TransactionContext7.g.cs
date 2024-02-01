@@ -125,7 +125,7 @@ public partial record TransactionContext7
     /// <summary>
     /// Further detailed information on the exchange rates that have been used in or are related to the transaction.
     /// </summary>
-    public ExchangeRateInformation2? ExchangeRateInformation { get; init;  } // Warning: Don't know multiplicity.
+    public ExchangeRateInformation2[] ExchangeRateInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date the transaction was completed and captured.
     /// ISO 8583 bit 17
@@ -138,7 +138,7 @@ public partial record TransactionContext7
     /// <summary>
     /// Additional transaction context data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

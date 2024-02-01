@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport32Choice;
 /// <summary>
 /// Indicates a derivative contract that is to be reported as a new trade and also included in a separate position report on the same day.
 /// </summary>
-public partial record PositionComponent : ITradeReport32Choice
+public partial record PositionComponent : TradeReport32Choice_
 {
     #nullable enable
     /// <summary>

@@ -25,7 +25,7 @@ public partial record Clearing4
     /// Clearing organisation that will clear the trade.
     /// Note: This field allows clearing member firm to segregate flows coming from clearing counterparty's clearing system. Indeed, clearing member firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.
     /// </summary>
-    public IPartyIdentification35Choice? ClearingSegment { get; init; } 
+    public PartyIdentification35Choice_? ClearingSegment { get; init; } 
     /// <summary>
     /// Indicates if the position is guaranteed or non-guaranteed by the central counterparty, that is whether the CCP has done the novation and then guarantees the trade, or not.
     /// </summary>

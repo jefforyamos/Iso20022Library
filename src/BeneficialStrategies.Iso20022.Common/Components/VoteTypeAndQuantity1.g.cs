@@ -20,7 +20,7 @@ public partial record VoteTypeAndQuantity1
     /// <summary>
     /// Types of vote instruction allowed for resolutions to be voted on in general meeting.
     /// </summary>
-    public required IVoteInstructionType1Choice VoteInstructionType { get; init; } 
+    public required VoteInstructionType1Choice_ VoteInstructionType { get; init; } 
     /// <summary>
     /// Quantity of vote expressed for the specified type of vote instruction.
     /// </summary>

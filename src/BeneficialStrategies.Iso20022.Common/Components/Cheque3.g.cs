@@ -24,15 +24,15 @@ public partial record Cheque3
     /// <summary>
     /// Party to which a cheque is made payable.
     /// </summary>
-    public required IPartyIdentification2Choice PayeeIdentification { get; init; } 
+    public required PartyIdentification2Choice_ PayeeIdentification { get; init; } 
     /// <summary>
     /// Financial institution on which a cheque is drawn, ie, the financial institution that services the account of the entity that issued the cheque.
     /// </summary>
-    public IFinancialInstitutionIdentification3Choice? DraweeIdentification { get; init; } 
+    public FinancialInstitutionIdentification3Choice_? DraweeIdentification { get; init; } 
     /// <summary>
     /// Account owner that issues a cheque ordering the drawee bank to pay a specific amount, upon demand, to the payee.
     /// </summary>
-    public IPartyIdentification2Choice? DrawerIdentification { get; init; } 
+    public PartyIdentification2Choice_? DrawerIdentification { get; init; } 
     
     #nullable disable
 }

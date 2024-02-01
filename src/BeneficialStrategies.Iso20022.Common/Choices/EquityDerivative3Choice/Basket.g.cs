@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EquityDerivative3Choice;
 /// <summary>
 /// Populated when sub asset class is either swaps or portfolio swaps and the underlying type is a basket.
 /// </summary>
-public partial record Basket : IEquityDerivative3Choice
+public partial record Basket : EquityDerivative3Choice_
 {
     public required UnderlyingEquityType3Code Value { get; init; }
 }

@@ -24,11 +24,11 @@ public partial record MandateCancellationReason1
     /// <summary>
     /// Specifies the reason for the cancellation request.
     /// </summary>
-    public required IMandateReason1Choice Reason { get; init; } 
+    public required MandateReason1Choice_ Reason { get; init; } 
     /// <summary>
     /// Further details on the cancellation request reason.
     /// </summary>
-    public IsoMax105Text? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

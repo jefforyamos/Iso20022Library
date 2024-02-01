@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InRepairStatusReason5Choice;
 /// <summary>
 /// In repair reason expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IInRepairStatusReason5Choice
+public partial record Proprietary : InRepairStatusReason5Choice_
 {
     #nullable enable
     /// <summary>

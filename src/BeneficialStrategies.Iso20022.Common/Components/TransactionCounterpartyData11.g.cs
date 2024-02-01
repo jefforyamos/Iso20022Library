@@ -20,27 +20,27 @@ public partial record TransactionCounterpartyData11
     /// <summary>
     /// Identification of the beneficiary who is subject to the rights and obligations arising from the contract.
     /// </summary>
-    public IPartyIdentification236Choice? Beneficiary { get; init; } 
+    public PartyIdentification236Choice_? Beneficiary { get; init; } 
     /// <summary>
     /// Identification of the third party that administers the transaction.
     /// </summary>
-    public IOrganisationIdentification15Choice? TripartyAgent { get; init; } 
+    public OrganisationIdentification15Choice_? TripartyAgent { get; init; } 
     /// <summary>
     /// Identification of the broker involved in the securities lending transaction.
     /// </summary>
-    public IOrganisationIdentification15Choice? Broker { get; init; } 
+    public OrganisationIdentification15Choice_? Broker { get; init; } 
     /// <summary>
     /// Identification of the clearing member in the case where the trade is cleared.
     /// </summary>
-    public IOrganisationIdentification15Choice? ClearingMember { get; init; } 
+    public OrganisationIdentification15Choice_? ClearingMember { get; init; } 
     /// <summary>
     /// Identification of the parties settling the contract on behalf of the deliverer or receiver.
     /// </summary>
-    public ISettlementParties34Choice? SettlementParties { get; init; } 
+    public SettlementParties34Choice_? SettlementParties { get; init; } 
     /// <summary>
     /// Identification of the agent lender involved in the securities lending transaction.
     /// </summary>
-    public IOrganisationIdentification15Choice? AgentLender { get; init; } 
+    public OrganisationIdentification15Choice_? AgentLender { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat56Choice;
 /// <summary>
 /// Proprietary scheme to specify a date.
 /// </summary>
-public partial record Proprietary : IDateFormat56Choice
+public partial record Proprietary : DateFormat56Choice_
 {
     #nullable enable
     /// <summary>

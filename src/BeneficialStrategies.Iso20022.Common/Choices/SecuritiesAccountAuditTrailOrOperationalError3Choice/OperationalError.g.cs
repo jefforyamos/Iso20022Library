@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountAuditTrailOrOpe
 /// <summary>
 /// Provides details about an operational error.
 /// </summary>
-public partial record OperationalError : ISecuritiesAccountAuditTrailOrOperationalError3Choice
+public partial record OperationalError : SecuritiesAccountAuditTrailOrOperationalError3Choice_
 {
     #nullable enable
     /// <summary>
     /// Specification of the error, in coded or proprietary form.
     /// </summary>
-    public required IErrorHandling3Choice Error { get; init; } 
+    public required ErrorHandling3Choice_ Error { get; init; } 
     /// <summary>
     /// Specification of the error, in free format.
     /// </summary>

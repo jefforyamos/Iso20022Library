@@ -24,7 +24,7 @@ public partial record ContractCollateral1
     /// <summary>
     /// Detailed description of the collateral.
     /// </summary>
-    public CashCollateral5? CollateralDescription { get; init;  } // Warning: Don't know multiplicity.
+    public CashCollateral5[] CollateralDescription { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further information on the contract collateral.
     /// </summary>

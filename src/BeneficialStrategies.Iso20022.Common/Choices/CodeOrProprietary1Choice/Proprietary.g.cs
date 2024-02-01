@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CodeOrProprietary1Choice;
 /// <summary>
 /// Element expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICodeOrProprietary1Choice
+public partial record Proprietary : CodeOrProprietary1Choice_
 {
     #nullable enable
     /// <summary>

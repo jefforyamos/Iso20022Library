@@ -24,7 +24,7 @@ public partial record MeetingContactPerson2
     /// <summary>
     /// Identifies the organisation which is represented by the person or for which the person works.
     /// </summary>
-    public IPartyIdentification40Choice? EmployingParty { get; init; } 
+    public PartyIdentification40Choice_? EmployingParty { get; init; } 
     /// <summary>
     /// Identification of the financial market, as stipulated in the norm ISO 10383 'Codes for exchanges and market identifications'.
     /// </summary>

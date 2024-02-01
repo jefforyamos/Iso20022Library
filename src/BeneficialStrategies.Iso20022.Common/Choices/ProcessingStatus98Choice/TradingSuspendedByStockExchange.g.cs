@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus98Choice;
 /// <summary>
 /// Trading is suspended by the stock exchange.
 /// </summary>
-public partial record TradingSuspendedByStockExchange : IProcessingStatus98Choice
+public partial record TradingSuspendedByStockExchange : ProcessingStatus98Choice_
 {
     #nullable enable
     /// <summary>

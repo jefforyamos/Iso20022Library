@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InRepairStatus4Choice;
 /// <summary>
 /// Reason for the in-repair status.
 /// </summary>
-public partial record Reason : IInRepairStatus4Choice
+public partial record Reason : InRepairStatus4Choice_
 {
     public required IsoMax350Text Value { get; init; }
 }

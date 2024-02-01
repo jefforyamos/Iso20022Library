@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationReason39Choice;
 /// <summary>
 /// Specifies the reason of the CancellationPending Status.
 /// </summary>
-public partial record Reason : ICancellationReason39Choice
+public partial record Reason : CancellationReason39Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the trade is wainting the cancellation.
     /// </summary>
-    public required IAwaitingCancellationReason2Choice Code { get; init; } 
+    public required AwaitingCancellationReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional information about the reason in narrative form.
     /// </summary>

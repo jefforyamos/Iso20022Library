@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FractionDispositionType32Choice;
 /// <summary>
 /// Proprietary identification of the type of fraction disposition.
 /// </summary>
-public partial record Proprietary : IFractionDispositionType32Choice
+public partial record Proprietary : FractionDispositionType32Choice_
 {
     #nullable enable
     /// <summary>

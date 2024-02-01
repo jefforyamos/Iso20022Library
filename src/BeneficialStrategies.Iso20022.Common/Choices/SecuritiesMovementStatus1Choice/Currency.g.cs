@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesMovementStatus1Choice;
 /// <summary>
 /// At least one security in the message does not have the same currency as the transaction and this is a requirement in the triparty agreement or in the eligibility sets of this transaction.
 /// </summary>
-public partial record Currency : ISecuritiesMovementStatus1Choice
+public partial record Currency : SecuritiesMovementStatus1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument18Choice;
 /// <summary>
 /// Indicates whether the payment is done via draft.
 /// </summary>
-public partial record BankersDraft : IPaymentInstrument18Choice
+public partial record BankersDraft : PaymentInstrument18Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record RepairReason5
     /// <summary>
     /// Specifies the reason why the instruction is in repair.
     /// </summary>
-    public required IRepairReason9Choice Code { get; init; } 
+    public required RepairReason9Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional information about the reason in narrative form.
     /// </summary>

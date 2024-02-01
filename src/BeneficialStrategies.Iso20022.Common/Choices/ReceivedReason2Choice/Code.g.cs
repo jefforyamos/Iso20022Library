@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReceivedReason2Choice;
 /// <summary>
 /// Reason for the received status expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IReceivedReason2Choice
+public partial record Code : ReceivedReason2Choice_
 {
     public required ExternalReceivedReason1Code Value { get; init; }
 }

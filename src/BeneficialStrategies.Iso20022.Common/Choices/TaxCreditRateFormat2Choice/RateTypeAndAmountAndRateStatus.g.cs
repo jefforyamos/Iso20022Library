@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxCreditRateFormat2Choice;
 /// <summary>
 /// Specifies different formats for the tax credit rate.
 /// </summary>
-public partial record RateTypeAndAmountAndRateStatus : ITaxCreditRateFormat2Choice
+public partial record RateTypeAndAmountAndRateStatus : TaxCreditRateFormat2Choice_
 {
     #nullable enable
     /// <summary>
     /// Value expressed as a rate type.
     /// </summary>
-    public required IRateType10Choice RateType { get; init; } 
+    public required RateType10Choice_ RateType { get; init; } 
     /// <summary>
     /// Value expressed as an amount.
     /// </summary>
@@ -26,6 +26,6 @@ public partial record RateTypeAndAmountAndRateStatus : ITaxCreditRateFormat2Choi
     /// <summary>
     /// Value expressed as a rate status.
     /// </summary>
-    public IRateStatus1Choice? RateStatus { get; init; } 
+    public RateStatus1Choice_? RateStatus { get; init; } 
     #nullable disable
 }

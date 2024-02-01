@@ -24,7 +24,7 @@ public partial record GenericIdentification164
     /// <summary>
     /// Specifies the nature of the identifier.
     /// </summary>
-    public required IOtherIdentification3Choice IdentificationType { get; init; } 
+    public required OtherIdentification3Choice_ IdentificationType { get; init; } 
     /// <summary>
     /// Entity that assigns the identifier.
     /// </summary>

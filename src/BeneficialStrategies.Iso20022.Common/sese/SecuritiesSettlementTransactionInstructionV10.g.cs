@@ -80,7 +80,7 @@ public partial record SecuritiesSettlementTransactionInstructionV10 : IOuterReco
     [Description(@"Count of the number of transactions linked.")]
     [DataMember(Name="NbCounts")]
     [XmlElement(ElementName="NbCounts")]
-    public INumberCount1Choice? NumberCounts { get; init; }
+    public NumberCount1Choice_? NumberCounts { get; init; }
     
     /// <summary>
     /// Link to another transaction that must be processed after, before or at the same time.

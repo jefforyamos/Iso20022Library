@@ -20,7 +20,7 @@ public partial record Meeting4
     /// <summary>
     /// Date and time at which the meeting will take place.
     /// </summary>
-    public required IDateFormat29Choice DateAndTime { get; init; } 
+    public required DateFormat29Choice_ DateAndTime { get; init; } 
     /// <summary>
     /// Indicates the status of the meeting date.
     /// </summary>
@@ -32,11 +32,11 @@ public partial record Meeting4
     /// <summary>
     /// Specifies the location where meeting will take place.
     /// </summary>
-    public IReadOnlyCollection<ILocationFormat1Choice> Location { get; init; } = [];
+    public LocationFormat1Choice_[] Location { get; init; } = [];
     /// <summary>
     /// Minimum quantity of securities required to hold a meeting.
     /// </summary>
-    public IQuorumQuantity1Choice? QuorumQuantity { get; init; } 
+    public QuorumQuantity1Choice_? QuorumQuantity { get; init; } 
     
     #nullable disable
 }

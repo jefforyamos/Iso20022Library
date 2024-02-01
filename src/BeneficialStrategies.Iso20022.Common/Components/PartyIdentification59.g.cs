@@ -36,7 +36,7 @@ public partial record PartyIdentification59
     /// <summary>
     /// Choice of a clearing system identifier.
     /// </summary>
-    public IClearingSystemIdentification2Choice? ClearingSystemIdentification { get; init; } 
+    public ClearingSystemIdentification2Choice_? ClearingSystemIdentification { get; init; } 
     /// <summary>
     /// Identification of the Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>

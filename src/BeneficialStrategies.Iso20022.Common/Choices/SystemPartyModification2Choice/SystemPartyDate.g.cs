@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification2Choice;
 /// <summary>
 /// Specifies the opening and closing dates, as assigned by the system.
 /// </summary>
-public partial record SystemPartyDate : ISystemPartyModification2Choice
+public partial record SystemPartyDate : SystemPartyModification2Choice_
 {
     #nullable enable
     /// <summary>

@@ -72,7 +72,7 @@ public partial record CorporateActionOptionSD14
     /// <summary>
     /// Identification of the tax category as issuers, their agents, or tax authorities may require a breakdown of holders at a category level that have requested to receive a distribution at a favourable rate of tax.
     /// </summary>
-    public IReadOnlyCollection<TaxCategory1> TaxCategory { get; init; } = [];
+    public TaxCategory1[] TaxCategory { get; init; } = [];
     /// <summary>
     /// Indicates how fractional positions will be handled for events with prorated options.
     /// </summary>
@@ -84,7 +84,7 @@ public partial record CorporateActionOptionSD14
     /// <summary>
     /// Participation in the event requires that certain conditions be met by the holder for certain voluntary options.
     /// </summary>
-    public IReadOnlyCollection<OptionConditions1> OptionConditions { get; init; } = [];
+    public OptionConditions1[] OptionConditions { get; init; } = [];
     
     #nullable disable
 }

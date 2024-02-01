@@ -24,7 +24,7 @@ public partial record ProprietaryStatusAndReason5
     /// <summary>
     /// Proprietary identification of the reason for the status.
     /// </summary>
-    public required IProprietaryReason1Choice Reason { get; init; } 
+    public required ProprietaryReason1Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the processed instruction.
     /// </summary>

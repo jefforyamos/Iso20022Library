@@ -36,7 +36,7 @@ public partial record SubAccountIdentification64
     /// <summary>
     /// Reporting per financial instrument.
     /// </summary>
-    public FinancialInstrumentDetails41? FinancialInstrumentDetails { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrumentDetails41[] FinancialInstrumentDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

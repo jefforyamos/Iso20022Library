@@ -20,7 +20,7 @@ public partial record DistributionProcessingStatus1
     /// <summary>
     /// The processing status.
     /// </summary>
-    public required IProcessedStatus3FormatChoice Status { get; init; } 
+    public required ProcessedStatus3FormatChoice_ Status { get; init; } 
     /// <summary>
     /// Additional information about the status.
     /// </summary>

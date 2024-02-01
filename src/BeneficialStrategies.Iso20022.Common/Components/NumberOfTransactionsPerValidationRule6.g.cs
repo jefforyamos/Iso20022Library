@@ -24,7 +24,7 @@ public partial record NumberOfTransactionsPerValidationRule6
     /// <summary>
     /// Common validation rule for all individual reports received.
     /// </summary>
-    public RejectionReason70? ReportStatus { get; init;  } // Warning: Don't know multiplicity.
+    public RejectionReason70[] ReportStatus { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

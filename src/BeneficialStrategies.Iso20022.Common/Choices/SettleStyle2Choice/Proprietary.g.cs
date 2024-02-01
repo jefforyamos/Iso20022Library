@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettleStyle2Choice;
 /// <summary>
 /// Settle style expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISettleStyle2Choice
+public partial record Proprietary : SettleStyle2Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AcknowledgementReason14Choice;
 /// <summary>
 /// Specifies additional information about the processed instruction.
 /// </summary>
-public partial record Proprietary : IAcknowledgementReason14Choice
+public partial record Proprietary : AcknowledgementReason14Choice_
 {
     #nullable enable
     /// <summary>

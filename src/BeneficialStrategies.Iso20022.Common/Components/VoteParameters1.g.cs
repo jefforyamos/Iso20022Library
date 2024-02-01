@@ -32,15 +32,15 @@ public partial record VoteParameters1
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the intermediary.
     /// </summary>
-    public IDateFormat2Choice? VoteDeadline { get; init; } 
+    public DateFormat2Choice_? VoteDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the intermediary (STP mode).
     /// </summary>
-    public IDateFormat2Choice? VoteSTPDeadline { get; init; } 
+    public DateFormat2Choice_? VoteSTPDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the issuer.
     /// </summary>
-    public IDateFormat2Choice? VoteMarketDeadline { get; init; } 
+    public DateFormat2Choice_? VoteMarketDeadline { get; init; } 
     /// <summary>
     /// Indicates the different methods that can be used to vote.
     /// </summary>
@@ -56,15 +56,15 @@ public partial record VoteParameters1
     /// <summary>
     /// Date till which the instructing party can revoke, change or withdraw its voting instruction. This deadline is specified by an intermediary.
     /// </summary>
-    public IDateFormat2Choice? RevocabilityDeadline { get; init; } 
+    public DateFormat2Choice_? RevocabilityDeadline { get; init; } 
     /// <summary>
     /// Date till which the instructing party can revoke, change or withdraw its voting instruction. This deadline is specified by an intermediary (STP mode).
     /// </summary>
-    public IDateFormat2Choice? RevocabilitySTPDeadline { get; init; } 
+    public DateFormat2Choice_? RevocabilitySTPDeadline { get; init; } 
     /// <summary>
     /// Date till which the instructing party can revoke, change or withdraw its voting instruction. This deadline is set by the issuer.
     /// </summary>
-    public IDateFormat2Choice? RevocabilityMarketDeadline { get; init; } 
+    public DateFormat2Choice_? RevocabilityMarketDeadline { get; init; } 
     /// <summary>
     /// Indicates whether beneficiary details (eg name and address) must be supplied in order to take part to a meeting.
     /// </summary>
@@ -72,7 +72,7 @@ public partial record VoteParameters1
     /// <summary>
     /// Identifies the possible types of voting instructions. When used at the resolution level, it supersedes the value specified in the meeting notice.
     /// </summary>
-    public IReadOnlyCollection<VoteInstruction2Code> VoteInstructionType { get; init; } = [];
+    public VoteInstruction2Code[] VoteInstructionType { get; init; } = [];
     /// <summary>
     /// Cash premium paid to the security holder when voting.
     /// </summary>
@@ -80,15 +80,15 @@ public partial record VoteParameters1
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the intermediary to take advantage of the premium.
     /// </summary>
-    public IDateFormat2Choice? VoteWithPremiumDeadline { get; init; } 
+    public DateFormat2Choice_? VoteWithPremiumDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the intermediary to take advantage of the premium (STP mode).
     /// </summary>
-    public IDateFormat2Choice? VoteWithPremiumSTPDeadline { get; init; } 
+    public DateFormat2Choice_? VoteWithPremiumSTPDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the issuer to take advantage of the premium.
     /// </summary>
-    public IDateFormat2Choice? VoteWithPremiumMarketDeadline { get; init; } 
+    public DateFormat2Choice_? VoteWithPremiumMarketDeadline { get; init; } 
     /// <summary>
     /// Additional information on specific requirements for allowing a person to vote.
     /// </summary>

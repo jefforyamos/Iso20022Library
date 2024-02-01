@@ -66,7 +66,7 @@ public partial record PayInEventAcknowledgementV02 : IOuterRecord
     [DataMember(Name="AckDtls")]
     [XmlElement(ElementName="AckDtls")]
     [Required]
-    public required IAcknowledgementDetails1Choice AcknowledgementDetails { get; init; }
+    public required AcknowledgementDetails1Choice_ AcknowledgementDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

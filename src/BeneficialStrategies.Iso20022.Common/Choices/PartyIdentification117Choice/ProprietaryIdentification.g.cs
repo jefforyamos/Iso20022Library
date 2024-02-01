@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification117Choice;
 /// <summary>
 /// Unique and unambiguous identifier, as assigned to a financial institution using a proprietary identification scheme.
 /// </summary>
-public partial record ProprietaryIdentification : IPartyIdentification117Choice
+public partial record ProprietaryIdentification : PartyIdentification117Choice_
 {
     #nullable enable
     /// <summary>

@@ -56,7 +56,7 @@ public partial record TransactionTotalsSet1
     /// <summary>
     /// Merchant using the payment services of a payment facilitator, acting as a card acceptor.
     /// </summary>
-    public Organisation26? SponsoredMerchant { get; init;  } // Warning: Don't know multiplicity.
+    public Organisation26[] SponsoredMerchant { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment Transaction totals during the reconciliation period, for a certain type of transaction.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record TransactionTotalsSet1
     /// <summary>
     /// Loyalty Transaction totals during the reconciliation period, for a certain type of transaction.
     /// </summary>
-    public LoyaltyTransactionTotals1? LoyaltyTransactionTotal { get; init;  } // Warning: Don't know multiplicity.
+    public LoyaltyTransactionTotals1[] LoyaltyTransactionTotal { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

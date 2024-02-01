@@ -40,7 +40,7 @@ public partial record RedemptionBulkOrder2
     /// <summary>
     /// Instruction from an investor to sell investment fund units back to the fund.
     /// </summary>
-    public RedemptionOrder3? IndividualOrderDetails { get; init;  } // Warning: Don't know multiplicity.
+    public RedemptionOrder3[] IndividualOrderDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency requested for settlement of cash proceeds.
     /// </summary>

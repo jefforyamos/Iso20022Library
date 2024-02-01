@@ -40,7 +40,7 @@ public partial record CollateralValueReport3
     /// <summary>
     /// Provides information specific to the report on collateral value positions.
     /// </summary>
-    public ICollateralValueReportOrError6Choice? CollateralValueReport { get; init;  } // Warning: Don't know multiplicity.
+    public CollateralValueReportOrError6Choice_[] CollateralValueReport { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

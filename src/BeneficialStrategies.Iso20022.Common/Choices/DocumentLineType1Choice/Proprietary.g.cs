@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DocumentLineType1Choice;
 /// <summary>
 /// Proprietary identification of the type of the remittance document.
 /// </summary>
-public partial record Proprietary : IDocumentLineType1Choice
+public partial record Proprietary : DocumentLineType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

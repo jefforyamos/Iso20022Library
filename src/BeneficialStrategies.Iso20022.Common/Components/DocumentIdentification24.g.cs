@@ -20,7 +20,7 @@ public partial record DocumentIdentification24
     /// <summary>
     /// Message type number/message identifier of the message referenced in the linkage sequence.
     /// </summary>
-    public IDocumentNumber1Choice? MessageNumber { get; init; } 
+    public DocumentNumber1Choice_? MessageNumber { get; init; } 
     /// <summary>
     /// Reference to the query identification.
     /// </summary>

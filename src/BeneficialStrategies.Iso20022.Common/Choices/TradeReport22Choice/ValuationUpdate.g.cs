@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport22Choice;
 /// <summary>
 /// Indicates an update to the valuations of a previously reported position, but not a correction.
 /// </summary>
-public partial record ValuationUpdate : ITradeReport22Choice
+public partial record ValuationUpdate : TradeReport22Choice_
 {
     #nullable enable
     /// <summary>

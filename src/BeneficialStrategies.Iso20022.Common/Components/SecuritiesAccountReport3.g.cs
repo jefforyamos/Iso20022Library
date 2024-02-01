@@ -24,7 +24,7 @@ public partial record SecuritiesAccountReport3
     /// <summary>
     /// Specifies the returned securities account reference data or error information.
     /// </summary>
-    public required ISecuritiesAccountOrBusinessError3Choice SecuritiesAccountOrError { get; init; } 
+    public required SecuritiesAccountOrBusinessError3Choice_ SecuritiesAccountOrError { get; init; } 
     
     #nullable disable
 }

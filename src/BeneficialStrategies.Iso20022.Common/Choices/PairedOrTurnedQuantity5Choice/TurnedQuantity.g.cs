@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PairedOrTurnedQuantity5Choice;
 /// <summary>
 /// Quantity of financial instruments of the linked transaction to be turned.
 /// </summary>
-public partial record TurnedQuantity : IPairedOrTurnedQuantity5Choice
+public partial record TurnedQuantity : PairedOrTurnedQuantity5Choice_
 {
     #nullable enable
     #nullable disable

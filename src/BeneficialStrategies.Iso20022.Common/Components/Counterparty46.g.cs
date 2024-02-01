@@ -20,11 +20,11 @@ public partial record Counterparty46
     /// <summary>
     /// Indicates if the counterparty is a legal entity or a natural person.
     /// </summary>
-    public IPartyIdentification248Choice? IdentificationType { get; init; } 
+    public PartyIdentification248Choice_? IdentificationType { get; init; } 
     /// <summary>
     /// Indicates if the counterparty is a central counterparty, a financial, non-financial counterparty or other type of counterparty in accordance with regulation.
     /// </summary>
-    public ICounterpartyTradeNature15Choice? Nature { get; init; } 
+    public CounterpartyTradeNature15Choice_? Nature { get; init; } 
     /// <summary>
     /// Indicator of whether the counterparty 2 has the reporting obligation (irrespective of who is responsible and legally liable for its reporting).
     /// Usage: If the element is not present, the ReportingObligation is False.

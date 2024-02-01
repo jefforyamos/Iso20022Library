@@ -29,7 +29,7 @@ public partial record IdentificationAssignment2
     /// <summary>
     /// Party that created the identification assignment.
     /// </summary>
-    public IParty12Choice? Creator { get; init; } 
+    public Party12Choice_? Creator { get; init; } 
     /// <summary>
     /// Identifies the first agent in the identification chain, following the payment initiating party.
     /// </summary>
@@ -37,11 +37,11 @@ public partial record IdentificationAssignment2
     /// <summary>
     /// Party that assigns the identification assignment to another party. This is also the sender of the message.
     /// </summary>
-    public required IParty12Choice Assigner { get; init; } 
+    public required Party12Choice_ Assigner { get; init; } 
     /// <summary>
     /// Party that the identification assignment is assigned to. This is also the receiver of the message.
     /// </summary>
-    public required IParty12Choice Assignee { get; init; } 
+    public required Party12Choice_ Assignee { get; init; } 
     
     #nullable disable
 }

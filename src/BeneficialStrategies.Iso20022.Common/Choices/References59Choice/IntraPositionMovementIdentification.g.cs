@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References59Choice;
 /// <summary>
 /// Reference to the intra-position movement transaction requested to be cancelled as known by the account owner (or instructing party acting on its behalf).
 /// </summary>
-public partial record IntraPositionMovementIdentification : IReferences59Choice
+public partial record IntraPositionMovementIdentification : References59Choice_
 {
     public required IsoRestrictedFINXMax16Text Value { get; init; }
 }

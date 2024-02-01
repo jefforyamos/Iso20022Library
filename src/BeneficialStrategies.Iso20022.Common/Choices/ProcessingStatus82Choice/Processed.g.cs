@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus82Choice;
 /// <summary>
 /// Transaction or instruction has been processed.
 /// </summary>
-public partial record Processed : IProcessingStatus82Choice
+public partial record Processed : ProcessingStatus82Choice_
 {
     #nullable enable
     /// <summary>

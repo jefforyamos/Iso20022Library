@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferCancellationRejectedStat
 /// <summary>
 /// Reason of the rejected status.
 /// </summary>
-public partial record Reason : ITransferCancellationRejectedStatus1Choice
+public partial record Reason : TransferCancellationRejectedStatus1Choice_
 {
     #nullable enable
     /// <summary>

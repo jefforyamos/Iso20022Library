@@ -34,7 +34,7 @@ public partial record SecuritiesReferenceDataReport7
     /// <summary>
     /// Traded venue related attributes.
     /// </summary>
-    public TradingVenueAttributes2? TradingVenueRelatedAttributes { get; init;  } // Warning: Don't know multiplicity.
+    public TradingVenueAttributes2[] TradingVenueRelatedAttributes { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Attributes specific to debt instruments.
     /// </summary>

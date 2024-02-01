@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesBalanceType2Choice;
 /// <summary>
 /// Sub-balance expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISecuritiesBalanceType2Choice
+public partial record Proprietary : SecuritiesBalanceType2Choice_
 {
     #nullable enable
     /// <summary>

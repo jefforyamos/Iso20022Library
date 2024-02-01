@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneralInvestmentAccountType2Cho
 /// <summary>
 /// Type of investment account expressed as a code.
 /// </summary>
-public partial record Code : IGeneralInvestmentAccountType2Choice
+public partial record Code : GeneralInvestmentAccountType2Choice_
 {
     public required GeneralInvestmentAccountType2Code Value { get; init; }
 }

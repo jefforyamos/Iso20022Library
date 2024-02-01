@@ -20,23 +20,23 @@ public partial record Statement84
     /// <summary>
     /// Date or period of the statement.
     /// </summary>
-    public IDateAndPeriod3Choice? StatementDateOrPeriod { get; init; } 
+    public DateAndPeriod3Choice_? StatementDateOrPeriod { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
-    public IFrequency26Choice? Frequency { get; init; } 
+    public Frequency26Choice_? Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
-    public IUpdateType16Choice? UpdateType { get; init; } 
+    public UpdateType16Choice_? UpdateType { get; init; } 
     /// <summary>
     /// Type of balance on which the statement is prepared.
     /// </summary>
-    public IStatementBasis9Choice? StatementBasis { get; init; } 
+    public StatementBasis9Choice_? StatementBasis { get; init; } 
     /// <summary>
     /// Type of balance on which the statement is prepared.
     /// </summary>
-    public IStatementType6Choice? StatementType { get; init; } 
+    public StatementType6Choice_? StatementType { get; init; } 
     
     #nullable disable
 }

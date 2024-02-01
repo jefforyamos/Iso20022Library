@@ -20,7 +20,7 @@ public partial record BranchAndFinancialInstitutionIdentification3
     /// <summary>
     /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
     /// </summary>
-    public required IFinancialInstitutionIdentification5Choice FinancialInstitutionIdentification { get; init; } 
+    public required FinancialInstitutionIdentification5Choice_ FinancialInstitutionIdentification { get; init; } 
     /// <summary>
     /// Information identifying a specific branch of a financial institution.||Usage: this component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
     /// </summary>

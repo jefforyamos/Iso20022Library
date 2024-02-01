@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CommissionType6Choice;
 /// <summary>
 /// Commission type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICommissionType6Choice
+public partial record Proprietary : CommissionType6Choice_
 {
     #nullable enable
     /// <summary>

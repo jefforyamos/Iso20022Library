@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationReference11Choice;
 /// <summary>
 /// Unambiguous identification of the cancellation request as known by the instructing party.
 /// </summary>
-public partial record CancellationRequestIdentification : IIdentificationReference11Choice
+public partial record CancellationRequestIdentification : IdentificationReference11Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

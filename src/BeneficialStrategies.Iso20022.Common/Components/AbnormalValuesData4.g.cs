@@ -32,7 +32,7 @@ public partial record AbnormalValuesData4
     /// <summary>
     /// Details on abnormal values per transaction.
     /// </summary>
-    public AbnormalValuesTransactionData2? TransactionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public AbnormalValuesTransactionData2[] TransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

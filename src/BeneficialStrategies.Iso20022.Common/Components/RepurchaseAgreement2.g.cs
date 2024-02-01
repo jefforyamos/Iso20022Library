@@ -36,7 +36,7 @@ public partial record RepurchaseAgreement2
     /// <summary>
     /// Specifies the type of repurchase agreement.
     /// </summary>
-    public required IRepurchaseAgreementType3Choice RepurchaseAgreementType { get; init; } 
+    public required RepurchaseAgreementType3Choice_ RepurchaseAgreementType { get; init; } 
     /// <summary>
     /// Identifies the triparty repurchase agent.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TimeUnit3Choice;
 /// <summary>
 /// Time unit expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITimeUnit3Choice
+public partial record Proprietary : TimeUnit3Choice_
 {
     #nullable enable
     /// <summary>

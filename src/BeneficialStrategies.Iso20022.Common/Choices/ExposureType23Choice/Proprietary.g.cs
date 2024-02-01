@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExposureType23Choice;
 /// <summary>
 /// Proprietary identification of additional information about the processed instruction.
 /// </summary>
-public partial record Proprietary : IExposureType23Choice
+public partial record Proprietary : ExposureType23Choice_
 {
     #nullable enable
     /// <summary>

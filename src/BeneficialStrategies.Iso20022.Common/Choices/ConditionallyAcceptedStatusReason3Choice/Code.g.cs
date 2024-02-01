@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConditionallyAcceptedStatusReaso
 /// <summary>
 /// Conditionally accepted reason expressed as a code.
 /// </summary>
-public partial record Code : IConditionallyAcceptedStatusReason3Choice
+public partial record Code : ConditionallyAcceptedStatusReason3Choice_
 {
     public required ConditionallyAcceptedStatusReason2Code Value { get; init; }
 }

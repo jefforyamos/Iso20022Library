@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MissingData1Choice;
 /// <summary>
 /// Missing data type, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IMissingData1Choice
+public partial record Proprietary : MissingData1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

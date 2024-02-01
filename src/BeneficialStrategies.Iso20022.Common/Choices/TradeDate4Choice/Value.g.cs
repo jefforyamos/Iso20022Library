@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeDate4Choice;
 /// <summary>
 /// Date and time at which the securities are to be traded expressed as a ISO20022 code.
 /// </summary>
-public partial record Value : ITradeDate4Choice
+public partial record Value : TradeDate4Choice_
 {
     #nullable enable
     #nullable disable

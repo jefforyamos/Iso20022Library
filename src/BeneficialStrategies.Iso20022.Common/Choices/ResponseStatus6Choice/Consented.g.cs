@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ResponseStatus6Choice;
 /// <summary>
 /// Reason provided for the status.
 /// </summary>
-public partial record Consented : IResponseStatus6Choice
+public partial record Consented : ResponseStatus6Choice_
 {
     #nullable enable
     #nullable disable

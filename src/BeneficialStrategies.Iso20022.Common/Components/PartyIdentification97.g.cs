@@ -20,7 +20,7 @@ public partial record PartyIdentification97
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public required IPartyIdentification70Choice PartyIdentification { get; init; } 
+    public required PartyIdentification70Choice_ PartyIdentification { get; init; } 
     /// <summary>
     /// Specifies the reference of the transaction at the party identified in the sequence.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record PartyIdentification97
     /// <summary>
     /// Date and optionally the time, at which this transaction was processed by the party identified in this sequence.
     /// </summary>
-    public IDateAndDateTimeChoice? ProcessingDate { get; init; } 
+    public DateAndDateTimeChoice_? ProcessingDate { get; init; } 
     /// <summary>
     /// Contact person and contact information.
     /// </summary>

@@ -24,11 +24,11 @@ public partial record SecurityAttributes10
     /// <summary>
     /// Provides additional details about the financial instrument.
     /// </summary>
-    public FinancialInstrument97? FinancialInstrumentType { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrument97[] FinancialInstrumentType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
-    public CommonFinancialInstrumentAttributes10? FinancialInstrumentAttributes { get; init;  } // Warning: Don't know multiplicity.
+    public CommonFinancialInstrumentAttributes10[] FinancialInstrumentAttributes { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

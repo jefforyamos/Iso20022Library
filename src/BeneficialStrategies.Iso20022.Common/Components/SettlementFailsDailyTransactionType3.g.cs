@@ -20,23 +20,23 @@ public partial record SettlementFailsDailyTransactionType3
     /// <summary>
     /// Purchase or sale of securities.
     /// </summary>
-    public required ISettlementFailsDailyCSD1Choice SecuritiesBuyOrSell { get; init; } 
+    public required SettlementFailsDailyCSD1Choice_ SecuritiesBuyOrSell { get; init; } 
     /// <summary>
     /// Relates to securities transfers aiming to provide or to return collateral.
     /// </summary>
-    public required ISettlementFailsDailyCSD1Choice CollateralManagementOperation { get; init; } 
+    public required SettlementFailsDailyCSD1Choice_ CollateralManagementOperation { get; init; } 
     /// <summary>
     /// Relates to a securities lending or borrowing operation.
     /// </summary>
-    public required ISettlementFailsDailyCSD1Choice SecuritiesLendingOrBorrowing { get; init; } 
+    public required SettlementFailsDailyCSD1Choice_ SecuritiesLendingOrBorrowing { get; init; } 
     /// <summary>
     /// Repurchase transactions.
     /// </summary>
-    public required ISettlementFailsDailyCSD1Choice RepurchaseAgreement { get; init; } 
+    public required SettlementFailsDailyCSD1Choice_ RepurchaseAgreement { get; init; } 
     /// <summary>
     /// Covers any securities transactions type not covered as a dedicated type.
     /// </summary>
-    public required ISettlementFailsDailyCSD1Choice Other { get; init; } 
+    public required SettlementFailsDailyCSD1Choice_ Other { get; init; } 
     
     #nullable disable
 }

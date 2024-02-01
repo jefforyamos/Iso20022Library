@@ -26,7 +26,7 @@ public partial record CardTransaction5
     /// Service in addition to the main service. 
     /// It correspond partially to the ISO 8583: 2003 field number 22-3.
     /// </summary>
-    public CardPaymentServiceType8Code? AdditionalService { get; init;  } // Warning: Don't know multiplicity.
+    public CardPaymentServiceType8Code[] AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional attribute of the service type. 
     /// It correspond partially to the ISO 8583: 2003 field number 22-3.

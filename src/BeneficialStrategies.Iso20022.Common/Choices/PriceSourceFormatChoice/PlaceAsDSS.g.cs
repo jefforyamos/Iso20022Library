@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceSourceFormatChoice;
 /// <summary>
 /// Source of a price quotation expressed with a propriety identification scheme.
 /// </summary>
-public partial record PlaceAsDSS : IPriceSourceFormatChoice
+public partial record PlaceAsDSS : PriceSourceFormatChoice_
 {
     #nullable enable
     /// <summary>

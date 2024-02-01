@@ -20,11 +20,11 @@ public partial record StatusAndReason46
     /// <summary>
     /// Status of affirmation of a trade.
     /// </summary>
-    public required IAffirmationStatus10Choice AffirmationStatus { get; init; } 
+    public required AffirmationStatus10Choice_ AffirmationStatus { get; init; } 
     /// <summary>
     /// Specifies the reason why the instruction has an unaffirmed status.
     /// </summary>
-    public IUnaffirmedReason3Choice? UnaffirmedReason { get; init; } 
+    public UnaffirmedReason3Choice_? UnaffirmedReason { get; init; } 
     /// <summary>
     /// Provides additional information about the reason in narrative form.
     /// </summary>

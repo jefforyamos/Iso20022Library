@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Purpose1Choice;
 /// <summary>
 /// User community specific purpose.||Usage: When available, codes provided by local communities should be used.
 /// </summary>
-public partial record Proprietary : IPurpose1Choice
+public partial record Proprietary : Purpose1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

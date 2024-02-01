@@ -24,7 +24,7 @@ public partial record CollateralStatusReason1
     /// <summary>
     /// Reason for the status of a collateral data maintenance instruction.
     /// </summary>
-    public StatusReasonInformation10? Reason { get; init;  } // Warning: Don't know multiplicity.
+    public StatusReasonInformation10[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

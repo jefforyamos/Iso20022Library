@@ -20,7 +20,7 @@ public partial record CashAccount27
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public required IAccountIdentification4Choice Identification { get; init; } 
+    public required AccountIdentification4Choice_ Identification { get; init; } 
     /// <summary>
     /// Specifies the nature, or use of the account.
     /// </summary>

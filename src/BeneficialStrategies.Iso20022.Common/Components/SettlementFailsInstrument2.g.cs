@@ -20,39 +20,39 @@ public partial record SettlementFailsInstrument2
     /// <summary>
     /// Shares in companies and other securities equivalent to shares in companies, partnerships or other entities, and depositary receipts in respect of share.
     /// </summary>
-    public required ISettlementTotalData1Choice Equity { get; init; } 
+    public required SettlementTotalData1Choice_ Equity { get; init; } 
     /// <summary>
     /// Debt instrument issued by a sovereign issuer.
     /// </summary>
-    public required ISettlementTotalData1Choice SovereignDebt { get; init; } 
+    public required SettlementTotalData1Choice_ SovereignDebt { get; init; } 
     /// <summary>
     /// Bonds other than sovereign debt.
     /// </summary>
-    public required ISettlementTotalData1Choice Bond { get; init; } 
+    public required SettlementTotalData1Choice_ Bond { get; init; } 
     /// <summary>
     /// Securities meeting the criteria laid down in the relevant legislation.
     /// </summary>
-    public required ISettlementTotalData1Choice OtherTransferableSecurities { get; init; } 
+    public required SettlementTotalData1Choice_ OtherTransferableSecurities { get; init; } 
     /// <summary>
     /// Relates to a fund of which at least one unit or share class is traded throughout the day on at least one trading venue and with at least one market maker which takes action to ensure that the price of its units or shares on the trading venue does not vary significantly from its net asset value and, where applicable, from its indicative net asset value, as referred to in the relevant legislation.
     /// </summary>
-    public required ISettlementTotalData1Choice ExchangeTradedFunds { get; init; } 
+    public required SettlementTotalData1Choice_ ExchangeTradedFunds { get; init; } 
     /// <summary>
     /// Units in collective investment undertakings, other than ETFs.
     /// </summary>
-    public required ISettlementTotalData1Choice CollectiveInvestmentUndertakings { get; init; } 
+    public required SettlementTotalData1Choice_ CollectiveInvestmentUndertakings { get; init; } 
     /// <summary>
     /// Money market instruments other than sovereign debts.
     /// </summary>
-    public required ISettlementTotalData1Choice MoneyMarketInstrument { get; init; } 
+    public required SettlementTotalData1Choice_ MoneyMarketInstrument { get; init; } 
     /// <summary>
     /// Relates to emission allowances which are tradable according to the relevant legislation.
     /// </summary>
-    public required ISettlementTotalData1Choice EmissionAllowance { get; init; } 
+    public required SettlementTotalData1Choice_ EmissionAllowance { get; init; } 
     /// <summary>
     /// Covers any financial instruments not covered as a dedicated category.
     /// </summary>
-    public required ISettlementTotalData1Choice Other { get; init; } 
+    public required SettlementTotalData1Choice_ Other { get; init; } 
     
     #nullable disable
 }

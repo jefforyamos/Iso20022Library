@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ModificationStatus2Choice;
 /// <summary>
 /// Specifies the reason of the modification status.
 /// </summary>
-public partial record Reason : IModificationStatus2Choice
+public partial record Reason : ModificationStatus2Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the transaction is modified.
     /// </summary>
-    public required IModificationReason2Choice Code { get; init; } 
+    public required ModificationReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityFreight3Choic
 /// <summary>
 /// Container ship freight commodity derivative.
 /// </summary>
-public partial record ContainerShip : IAssetClassCommodityFreight3Choice
+public partial record ContainerShip : AssetClassCommodityFreight3Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesQuantityOrAmount6Choic
 /// <summary>
 /// Cash amount to be instructed.
 /// </summary>
-public partial record InstructedAmount : ISecuritiesQuantityOrAmount6Choice
+public partial record InstructedAmount : SecuritiesQuantityOrAmount6Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

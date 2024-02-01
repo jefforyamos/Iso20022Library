@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BorrowingReason1Choice;
 /// <summary>
 /// Borrowing reason expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IBorrowingReason1Choice
+public partial record Proprietary : BorrowingReason1Choice_
 {
     #nullable enable
     /// <summary>

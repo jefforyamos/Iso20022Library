@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification237Choice;
 /// <summary>
 /// Legal entity.
 /// </summary>
-public partial record LegalPerson : IPartyIdentification237Choice
+public partial record LegalPerson : PartyIdentification237Choice_
 {
     #nullable enable
     /// <summary>
@@ -26,7 +26,7 @@ public partial record LegalPerson : IPartyIdentification237Choice
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    public IPartyIdentification198Choice? Identification { get; init; } 
+    public PartyIdentification198Choice_? Identification { get; init; } 
     /// <summary>
     /// Identification of the shareholder in the company share register.
     /// </summary>

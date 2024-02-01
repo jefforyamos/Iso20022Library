@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus17Choice;
 /// <summary>
 /// Trade is future.
 /// </summary>
-public partial record Future : IProcessingStatus17Choice
+public partial record Future : ProcessingStatus17Choice_
 {
     #nullable enable
     /// <summary>

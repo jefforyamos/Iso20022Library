@@ -24,7 +24,7 @@ public partial record Resolution6
     /// <summary>
     /// Language, title and textual description of an agenda resolution. 
     /// </summary>
-    public ItemDescription1? Description { get; init;  } // Warning: Don't know multiplicity.
+    public ItemDescription1[] Description { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies under the same label a group of agenda resolutions for which a vote in favour can be assigned to only one resolution of that group.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record Resolution6
     /// <summary>
     /// Vote options allowed at the resolution level. When specified, it supersedes the vote options given for the meeting.
     /// </summary>
-    public VoteInstructionType1? VoteInstructionType { get; init;  } // Warning: Don't know multiplicity.
+    public VoteInstructionType1[] VoteInstructionType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies how the management of the issuing company wishes the security holders to vote.
     /// </summary>
@@ -68,11 +68,11 @@ public partial record Resolution6
     /// <summary>
     /// Number of votes assigned per resolution to one security.
     /// </summary>
-    public IEntitlement1Choice? Entitlement { get; init; } 
+    public Entitlement1Choice_? Entitlement { get; init; } 
     /// <summary>
     /// Voting rights threshold and threshold basis to have a meeting resolution approved.
     /// </summary>
-    public VotingRightsThreshold1? VotingRightsThresholdForApproval { get; init;  } // Warning: Don't know multiplicity.
+    public VotingRightsThreshold1[] VotingRightsThresholdForApproval { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Address to use over the www (HTTP) service where specific additional information on meeting resolutions may be found.
     /// </summary>

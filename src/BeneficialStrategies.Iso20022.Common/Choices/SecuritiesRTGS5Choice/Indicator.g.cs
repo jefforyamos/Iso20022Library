@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesRTGS5Choice;
 /// <summary>
 /// Specifies whether the settlement transaction is to be settled through an RTGS or a non RTGS system.
 /// </summary>
-public partial record Indicator : ISecuritiesRTGS5Choice
+public partial record Indicator : SecuritiesRTGS5Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

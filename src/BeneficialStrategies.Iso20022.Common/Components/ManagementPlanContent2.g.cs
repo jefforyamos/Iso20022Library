@@ -20,7 +20,7 @@ public partial record ManagementPlanContent2
     /// <summary>
     /// Terminal management action to be performed by the point of interaction (POI).
     /// </summary>
-    public TMSAction2? Action { get; init;  } // Warning: Don't know multiplicity.
+    public TMSAction2[] Action { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

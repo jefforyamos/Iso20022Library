@@ -20,7 +20,7 @@ public partial record StructuredRemittanceInformation14
     /// <summary>
     /// Set of elements used to identify the documents referred to in the remittance information.
     /// </summary>
-    public ReferredDocumentInformation3? ReferredDocumentInformation { get; init;  } // Warning: Don't know multiplicity.
+    public ReferredDocumentInformation3[] ReferredDocumentInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides details on the amounts of the referred document.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record StructuredRemittanceInformation14
     /// <summary>
     /// Additional information, in free text form, to complement the structured remittance information.
     /// </summary>
-    public IReadOnlyCollection<IsoMax140Text> AdditionalRemittanceInformation { get; init; } = [];
+    public IsoMax140Text[] AdditionalRemittanceInformation { get; init; } = [];
     
     #nullable disable
 }

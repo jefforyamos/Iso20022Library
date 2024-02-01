@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DatePeriod3Choice;
 /// <summary>
 /// Single date entry
 /// </summary>
-public partial record Date : IDatePeriod3Choice
+public partial record Date : DatePeriod3Choice_
 {
     public required IsoISODate Value { get; init; }
 }

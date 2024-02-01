@@ -75,7 +75,7 @@ public partial record ReversalOfTransferInConfirmationV04 : IOuterRecord
     [DataMember(Name="Rvsl")]
     [XmlElement(ElementName="Rvsl")]
     [Required]
-    public required IReversal2Choice Reversal { get; init; }
+    public required Reversal2Choice_ Reversal { get; init; }
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.

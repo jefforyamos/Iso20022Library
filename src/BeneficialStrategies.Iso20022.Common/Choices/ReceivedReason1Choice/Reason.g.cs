@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReceivedReason1Choice;
 /// <summary>
 /// Reason for the received status.
 /// </summary>
-public partial record Reason : IReceivedReason1Choice
+public partial record Reason : ReceivedReason1Choice_
 {
     #nullable enable
     #nullable disable

@@ -20,7 +20,7 @@ public partial record MeetingEventReference1
     /// <summary>
     /// Identification of the linked meeting event.
     /// </summary>
-    public required IMeetingEventReference1Choice EventIdentification { get; init; } 
+    public required MeetingEventReference1Choice_ EventIdentification { get; init; } 
     /// <summary>
     /// Specifies when the event is to be processed relative to the linked event.
     /// </summary>

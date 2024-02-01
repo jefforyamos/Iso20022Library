@@ -20,7 +20,7 @@ public partial record RequiredSubmission6
     /// <summary>
     /// Specifies with party(ies) is authorised to submit the data set as part of the transaction.
     /// </summary>
-    public BICIdentification1? Submitter { get; init;  } // Warning: Don't know multiplicity.
+    public BICIdentification1[] Submitter { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the type of the certificate, in 4 letters, for example BENE for beneficiary certificate, SHIP for shipping line certifcate.
     /// </summary>

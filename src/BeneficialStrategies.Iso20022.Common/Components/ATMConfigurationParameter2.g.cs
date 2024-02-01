@@ -28,11 +28,11 @@ public partial record ATMConfigurationParameter2
     /// <summary>
     /// Ordered certificate chain of the asymmetric key encryption key, starting with the host certificate.
     /// </summary>
-    public IsoMax5000Binary? Certificate { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax5000Binary[] Certificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cryptographic key involved in the security command.
     /// </summary>
-    public KEKIdentifier4? KeyProperties { get; init;  } // Warning: Don't know multiplicity.
+    public KEKIdentifier4[] KeyProperties { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

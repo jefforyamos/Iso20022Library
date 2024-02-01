@@ -26,11 +26,11 @@ public partial record SystemParty4
     /// <summary>
     /// Information that locates and identifies a specific address.
     /// </summary>
-    public PostalAddress25? Address { get; init;  } // Warning: Don't know multiplicity.
+    public PostalAddress25[] Address { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the options on how to contact the party.
     /// </summary>
-    public Contact5? ContactDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Contact5[] ContactDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the opening date of the party.
     /// </summary>
@@ -42,15 +42,15 @@ public partial record SystemParty4
     /// <summary>
     /// Specifies the type classification of the party.
     /// </summary>
-    public required ISystemPartyType1Choice Type { get; init; } 
+    public required SystemPartyType1Choice_ Type { get; init; } 
     /// <summary>
     /// Unique technical address to unambiguously identify a party for receiving messages from the executing system.
     /// </summary>
-    public ITechnicalIdentification2Choice? TechnicalAddress { get; init;  } // Warning: Don't know multiplicity.
+    public TechnicalIdentification2Choice_[] TechnicalAddress { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional attributes defined by a central security depositary for a party.
     /// </summary>
-    public MarketSpecificAttribute1? MarketSpecificAttribute { get; init;  } // Warning: Don't know multiplicity.
+    public MarketSpecificAttribute1[] MarketSpecificAttribute { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
@@ -66,7 +66,7 @@ public partial record SystemParty4
     /// <summary>
     /// Defines the specific processing characteristics for a party to ensure configurability of specific requirements, as prescribed by national legal and regulatory requirements and practices.
     /// </summary>
-    public SystemRestriction1? Restriction { get; init;  } // Warning: Don't know multiplicity.
+    public SystemRestriction1[] Restriction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

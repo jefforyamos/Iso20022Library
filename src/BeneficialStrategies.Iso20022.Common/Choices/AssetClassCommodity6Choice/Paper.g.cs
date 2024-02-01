@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity6Choice;
 /// <summary>
 /// Paper commodities.
 /// </summary>
-public partial record Paper : IAssetClassCommodity6Choice
+public partial record Paper : AssetClassCommodity6Choice_
 {
     #nullable enable
     #nullable disable

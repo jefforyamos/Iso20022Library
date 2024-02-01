@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NCBOrPaymentBank1Choice;
 /// <summary>
 /// Unique business identifier code used to identify the national central bank providing the information.
 /// </summary>
-public partial record NCBIdentification : INCBOrPaymentBank1Choice
+public partial record NCBIdentification : NCBOrPaymentBank1Choice_
 {
     public required IsoBICFIIdentifier Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PurposeChoice;
 /// <summary>
 /// Specifies the type of transaction that resulted in the payment initiation in coded form.
 /// </summary>
-public partial record Code : IPurposeChoice
+public partial record Code : PurposeChoice_
 {
     public required PaymentPurpose1Code Value { get; init; }
 }

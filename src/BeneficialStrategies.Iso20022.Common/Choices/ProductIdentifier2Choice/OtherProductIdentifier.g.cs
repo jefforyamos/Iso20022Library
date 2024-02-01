@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProductIdentifier2Choice;
 /// <summary>
 /// Specifies the type of product identifier not present in the code list.
 /// </summary>
-public partial record OtherProductIdentifier : IProductIdentifier2Choice
+public partial record OtherProductIdentifier : ProductIdentifier2Choice_
 {
     #nullable enable
     /// <summary>

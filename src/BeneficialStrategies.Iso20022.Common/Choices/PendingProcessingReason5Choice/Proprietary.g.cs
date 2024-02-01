@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingProcessingReason5Choice;
 /// <summary>
 /// Specifies the reason why the instruction has a pending processing status.
 /// </summary>
-public partial record Proprietary : IPendingProcessingReason5Choice
+public partial record Proprietary : PendingProcessingReason5Choice_
 {
     #nullable enable
     /// <summary>

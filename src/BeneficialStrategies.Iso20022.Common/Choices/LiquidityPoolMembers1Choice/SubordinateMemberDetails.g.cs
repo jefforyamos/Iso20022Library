@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LiquidityPoolMembers1Choice;
 /// <summary>
 /// List of subordinate liquidity pool member.
 /// </summary>
-public partial record SubordinateMemberDetails : ILiquidityPoolMembers1Choice
+public partial record SubordinateMemberDetails : LiquidityPoolMembers1Choice_
 {
     #nullable enable
     /// <summary>

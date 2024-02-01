@@ -20,11 +20,11 @@ public partial record Debtor4
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor. In the context of the payment model, the debtor is also the debit account owner.
     /// </summary>
-    public IPartyIdentification178Choice? Debtor { get; init; } 
+    public PartyIdentification178Choice_? Debtor { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public ICashAccountIdentification7Choice? AccountIdentification { get; init; } 
+    public CashAccountIdentification7Choice_? AccountIdentification { get; init; } 
     
     #nullable disable
 }

@@ -20,7 +20,7 @@ public partial record InRepairStatusReason4
     /// <summary>
     /// Reason for the in repair status expressed as a code.
     /// </summary>
-    public required IInRepairStatusReason5Choice Reason { get; init; } 
+    public required InRepairStatusReason5Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the in repair reason.
     /// </summary>

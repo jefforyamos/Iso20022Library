@@ -24,11 +24,11 @@ public partial record DebtorActivationStatusReason2
     /// <summary>
     /// Specifies the status reason for the debtor activation request.
     /// </summary>
-    public required IDebtorActivationStatusReason1Choice Reason { get; init; } 
+    public required DebtorActivationStatusReason1Choice_ Reason { get; init; } 
     /// <summary>
     /// Further details on the cancellation request reason.
     /// </summary>
-    public IsoMax105Text? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

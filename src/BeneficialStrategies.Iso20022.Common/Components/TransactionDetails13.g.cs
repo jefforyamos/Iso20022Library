@@ -28,7 +28,7 @@ public partial record TransactionDetails13
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification13Choice? AccountOwner { get; init; } 
+    public PartyIdentification13Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Incoterms4Choice;
 /// <summary>
 /// Specifies the applicable Incoterm by means of a proprietary scheme.
 /// </summary>
-public partial record Proprietary : IIncoterms4Choice
+public partial record Proprietary : Incoterms4Choice_
 {
     #nullable enable
     /// <summary>

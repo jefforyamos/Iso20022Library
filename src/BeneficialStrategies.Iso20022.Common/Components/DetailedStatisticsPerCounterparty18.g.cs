@@ -52,7 +52,7 @@ public partial record DetailedStatisticsPerCounterparty18
     /// <summary>
     /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass validations.
     /// </summary>
-    public RejectionStatistics8? RejectionStatistics { get; init;  } // Warning: Don't know multiplicity.
+    public RejectionStatistics8[] RejectionStatistics { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

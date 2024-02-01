@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferStatus1Choice;
 /// <summary>
 /// Status of the transfer is pending settlement.
 /// </summary>
-public partial record PendingSettlement : ITransferStatus1Choice
+public partial record PendingSettlement : TransferStatus1Choice_
 {
     #nullable enable
     /// <summary>

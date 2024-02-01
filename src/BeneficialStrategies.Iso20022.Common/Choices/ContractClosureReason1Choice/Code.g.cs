@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ContractClosureReason1Choice;
 /// <summary>
 /// Reason in a coded form.
 /// </summary>
-public partial record Code : IContractClosureReason1Choice
+public partial record Code : ContractClosureReason1Choice_
 {
     public required ExternalContractClosureReason1Code Value { get; init; }
 }

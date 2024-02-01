@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportParameter2Choice;
 /// <summary>
 /// Country for which the estimated cash flow is being reported.
 /// </summary>
-public partial record Country : IReportParameter2Choice
+public partial record Country : ReportParameter2Choice_
 {
     public required CountryCode Value { get; init; }
 }

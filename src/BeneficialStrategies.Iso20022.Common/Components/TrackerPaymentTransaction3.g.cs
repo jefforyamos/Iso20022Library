@@ -52,7 +52,7 @@ public partial record TrackerPaymentTransaction3
     /// <summary>
     /// Provides information on the charges to be paid by the charge bearer(s) related to the payment transaction.
     /// </summary>
-    public TrackerCharges1? ChargesInformation { get; init;  } // Warning: Don't know multiplicity.
+    public TrackerCharges1[] ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information on the tracking of the interbank transaction related to the payment.
     /// </summary>

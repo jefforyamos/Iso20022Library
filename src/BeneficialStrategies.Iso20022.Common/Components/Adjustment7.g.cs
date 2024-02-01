@@ -20,11 +20,11 @@ public partial record Adjustment7
     /// <summary>
     /// Specifies the type of adjustment.
     /// </summary>
-    public required IAdjustmentType1Choice Type { get; init; } 
+    public required AdjustmentType1Choice_ Type { get; init; } 
     /// <summary>
     /// Specifies the monetary amount or rate of the adjustment.
     /// </summary>
-    public required IAmountOrPercentage2Choice AmountOrPercentage { get; init; } 
+    public required AmountOrPercentage2Choice_ AmountOrPercentage { get; init; } 
     /// <summary>
     /// Specifies whether the adjustment must be subtracted or added to the total amount.
     /// </summary>

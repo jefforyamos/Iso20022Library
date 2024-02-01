@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationProcessingStatus6Cho
 /// <summary>
 /// Cancellation is completed.
 /// </summary>
-public partial record CancellationCompleted : ICancellationProcessingStatus6Choice
+public partial record CancellationCompleted : CancellationProcessingStatus6Choice_
 {
     #nullable enable
     /// <summary>

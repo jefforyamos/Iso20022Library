@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssignmentMethod2Choice;
 /// <summary>
 /// Assignment method expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IAssignmentMethod2Choice
+public partial record Code : AssignmentMethod2Choice_
 {
     public required AssignmentMethod1Code Value { get; init; }
 }

@@ -20,15 +20,15 @@ public partial record FinancialInstrumentAggregateBalance2
     /// <summary>
     /// Balance of settled transactions.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? SettledBalance { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? SettledBalance { get; init; } 
     /// <summary>
     /// Balance of settled transactions and transactions pending settlement.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? TradedBalance { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? TradedBalance { get; init; } 
     /// <summary>
     /// Breakdown of the balances of holdings into sub-balances.
     /// </summary>
-    public SubBalanceBreakdown1? BalanceBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public SubBalanceBreakdown1[] BalanceBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation1Choice;
 /// <summary>
 /// Details of the transfer out request to cancel.
 /// </summary>
-public partial record TransferOutDetails : ICancellation1Choice
+public partial record TransferOutDetails : Cancellation1Choice_
 {
     #nullable enable
     /// <summary>
     /// Requested date at which the instructing party places the transfer instruction.
     /// </summary>
-    public IDateFormat1Choice? RequestedTransferDate { get; init; } 
+    public DateFormat1Choice_? RequestedTransferDate { get; init; } 
     /// <summary>
     /// General information related to the transfer of a financial instrument.
     /// </summary>

@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.MemberIdentification3Choice;
 /// <summary>
 /// Information used to identify a member within a clearing system.
 /// </summary>
-public partial record ClearingSystemMemberIdentification : IMemberIdentification3Choice
+public partial record ClearingSystemMemberIdentification : MemberIdentification3Choice_
 {
     #nullable enable
     /// <summary>
     /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
     /// </summary>
-    public IClearingSystemIdentification2Choice? ClearingSystemIdentification { get; init; } 
+    public ClearingSystemIdentification2Choice_? ClearingSystemIdentification { get; init; } 
     /// <summary>
     /// Identification of a member of a clearing system.
     /// </summary>

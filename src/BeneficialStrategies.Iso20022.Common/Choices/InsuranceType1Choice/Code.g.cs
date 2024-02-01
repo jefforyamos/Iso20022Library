@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InsuranceType1Choice;
 /// <summary>
 /// Type of insurance contract expressed as a code.
 /// </summary>
-public partial record Code : IInsuranceType1Choice
+public partial record Code : InsuranceType1Choice_
 {
     public required Insurance1Code Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record ConfirmationParties4
     /// <summary>
     /// Party that identifies the underlying investor.
     /// </summary>
-    public PartyIdentificationAndAccount79? Investor { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentificationAndAccount79[] Investor { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>

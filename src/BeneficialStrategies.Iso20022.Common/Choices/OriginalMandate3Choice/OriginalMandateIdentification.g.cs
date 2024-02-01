@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate3Choice;
 /// <summary>
 /// Unique identification, as assigned by the creditor, to unambiguously identify the original mandate.
 /// </summary>
-public partial record OriginalMandateIdentification : IOriginalMandate3Choice
+public partial record OriginalMandateIdentification : OriginalMandate3Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

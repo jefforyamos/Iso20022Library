@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPaymentType1Choice;
 /// <summary>
 /// Type of payment instrument expressed as a code.
 /// </summary>
-public partial record Code : IFundPaymentType1Choice
+public partial record Code : FundPaymentType1Choice_
 {
     public required FundPaymentType1Code Value { get; init; }
 }

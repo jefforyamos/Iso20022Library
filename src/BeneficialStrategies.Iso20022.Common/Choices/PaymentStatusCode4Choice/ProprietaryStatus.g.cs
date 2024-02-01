@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusCode4Choice;
 /// <summary>
 /// Qualifies further the proprietary status.
 /// </summary>
-public partial record ProprietaryStatus : IPaymentStatusCode4Choice
+public partial record ProprietaryStatus : PaymentStatusCode4Choice_
 {
     public required IsoMax4AlphaNumericText Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity5Choice;
 /// <summary>
 /// Industrial Product commodities.
 /// </summary>
-public partial record IndustrialProduct : IAssetClassCommodity5Choice
+public partial record IndustrialProduct : AssetClassCommodity5Choice_
 {
     #nullable enable
     #nullable disable

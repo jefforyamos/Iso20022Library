@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TypeOfRequest1Choice;
 /// <summary>
 /// Type of request expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITypeOfRequest1Choice
+public partial record Proprietary : TypeOfRequest1Choice_
 {
     #nullable enable
     /// <summary>

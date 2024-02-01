@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SearchCriteria1Choice;
 /// <summary>
 /// Identifies a payment instrument as the search criteria for the financial institution to do the investigation.
 /// </summary>
-public partial record PaymentInstrument : ISearchCriteria1Choice
+public partial record PaymentInstrument : SearchCriteria1Choice_
 {
     #nullable enable
     /// <summary>

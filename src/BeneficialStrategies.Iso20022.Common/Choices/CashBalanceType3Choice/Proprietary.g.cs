@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CashBalanceType3Choice;
 /// <summary>
 /// Cash balance expressed in a proprietary form.
 /// </summary>
-public partial record Proprietary : ICashBalanceType3Choice
+public partial record Proprietary : CashBalanceType3Choice_
 {
     #nullable enable
     /// <summary>

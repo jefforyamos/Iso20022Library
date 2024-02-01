@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Party15Choice;
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
-public partial record IndividualPerson : IParty15Choice
+public partial record IndividualPerson : Party15Choice_
 {
     #nullable enable
     /// <summary>
     /// Term used to address a person.
     /// </summary>
-    public INamePrefix1Choice? NamePrefix { get; init; } 
+    public NamePrefix1Choice_? NamePrefix { get; init; } 
     /// <summary>
     /// First name of a person.
     /// </summary>
@@ -106,6 +106,6 @@ public partial record IndividualPerson : IParty15Choice
     /// <summary>
     /// Specifies if due diligence checks on the political exposure of the investor have been carried out and whether these checks are national or foreign. (A politically exposed person is someone who has been entrusted with a prominent public function, or an individual who is closely related to such a person.).
     /// </summary>
-    public IPoliticalExposureType1Choice? PoliticallyExposedPersonType { get; init; } 
+    public PoliticalExposureType1Choice_? PoliticallyExposedPersonType { get; init; } 
     #nullable disable
 }

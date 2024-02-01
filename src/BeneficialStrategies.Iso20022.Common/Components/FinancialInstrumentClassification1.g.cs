@@ -20,7 +20,7 @@ public partial record FinancialInstrumentClassification1
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, eg, common share with voting rights, fully paid, or registered.
     /// </summary>
-    public required ISecurityClassificationType1Choice ClassificationType { get; init; } 
+    public required SecurityClassificationType1Choice_ ClassificationType { get; init; } 
     
     #nullable disable
 }

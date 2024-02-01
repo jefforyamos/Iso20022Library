@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType12FormatChoice;
 /// <summary>
 /// Proprietary code to express the type of rate.
 /// </summary>
-public partial record Proprietary : IRateType12FormatChoice
+public partial record Proprietary : RateType12FormatChoice_
 {
     #nullable enable
     /// <summary>

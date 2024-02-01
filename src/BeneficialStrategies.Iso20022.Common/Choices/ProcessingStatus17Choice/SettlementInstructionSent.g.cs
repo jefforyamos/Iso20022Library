@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus17Choice;
 /// <summary>
 /// Settlement Instruction for the trade is sent.
 /// </summary>
-public partial record SettlementInstructionSent : IProcessingStatus17Choice
+public partial record SettlementInstructionSent : ProcessingStatus17Choice_
 {
     #nullable enable
     /// <summary>

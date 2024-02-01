@@ -28,11 +28,11 @@ public partial record FinancialInstrumentAttributes110
     /// <summary>
     /// Specifies whether terms of the event allow resale of the rights.
     /// </summary>
-    public IRenounceableEntitlementStatusTypeFormat3Choice? RenounceableEntitlementStatusType { get; init; } 
+    public RenounceableEntitlementStatusTypeFormat3Choice_? RenounceableEntitlementStatusType { get; init; } 
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
-    public IFractionDispositionType25Choice? FractionDisposition { get; init; } 
+    public FractionDispositionType25Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Quantity of intermediate securities awarded for a given quantity of underlying security.
     /// </summary>
@@ -44,11 +44,11 @@ public partial record FinancialInstrumentAttributes110
     /// <summary>
     /// Date on which an order expires or at which a privilege or offer terminates.
     /// </summary>
-    public required IDateFormat30Choice ExpiryDate { get; init; } 
+    public required DateFormat30Choice_ ExpiryDate { get; init; } 
     /// <summary>
     /// Date of the posting (credit or debit) to the account.
     /// </summary>
-    public required IDateFormat30Choice PostingDate { get; init; } 
+    public required DateFormat30Choice_ PostingDate { get; init; } 
     /// <summary>
     /// Period during which intermediate or outturn securities are tradable in a secondary market.
     /// </summary>
@@ -56,11 +56,11 @@ public partial record FinancialInstrumentAttributes110
     /// <summary>
     /// Balance of uninstructed position.
     /// </summary>
-    public IBalanceFormat11Choice? UninstructedBalance { get; init; } 
+    public BalanceFormat11Choice_? UninstructedBalance { get; init; } 
     /// <summary>
     /// Balance of instructed position.
     /// </summary>
-    public IBalanceFormat11Choice? InstructedBalance { get; init; } 
+    public BalanceFormat11Choice_? InstructedBalance { get; init; } 
     
     #nullable disable
 }

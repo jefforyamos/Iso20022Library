@@ -20,11 +20,11 @@ public partial record CompareSecurityIdentification2
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
-    public ISecurityIdentification26Choice? Value1 { get; init; } 
+    public SecurityIdentification26Choice_? Value1 { get; init; } 
     /// <summary>
     /// Information for the second of the transaction.
     /// </summary>
-    public ISecurityIdentification26Choice? Value2 { get; init; } 
+    public SecurityIdentification26Choice_? Value2 { get; init; } 
     
     #nullable disable
 }

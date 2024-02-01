@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitCriteria5Choice;
 /// <summary>
 /// Recalls the criteria (search and return criteria) defined in a preceding query.
 /// </summary>
-public partial record QueryName : ILimitCriteria5Choice
+public partial record QueryName : LimitCriteria5Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

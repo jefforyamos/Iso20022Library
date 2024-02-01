@@ -28,7 +28,7 @@ public partial record UndertakingAmount1
     /// <summary>
     /// Additional information concerning the undertaking amount.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

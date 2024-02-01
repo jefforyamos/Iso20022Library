@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionActivity4Choice;
 /// <summary>
 /// Transaction type expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ITransactionActivity4Choice
+public partial record Code : TransactionActivity4Choice_
 {
     public required TransactionActivity1Code Value { get; init; }
 }

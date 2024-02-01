@@ -28,11 +28,11 @@ public partial record PaymentReturnReason2
     /// <summary>
     /// Specifies the reason for the return.
     /// </summary>
-    public IReturnReason5Choice? Reason { get; init; } 
+    public ReturnReason5Choice_? Reason { get; init; } 
     /// <summary>
     /// Further details on the return reason.
     /// </summary>
-    public IsoMax105Text? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

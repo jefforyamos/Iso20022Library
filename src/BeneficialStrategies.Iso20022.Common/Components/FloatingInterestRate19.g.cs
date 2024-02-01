@@ -20,7 +20,7 @@ public partial record FloatingInterestRate19
     /// <summary>
     /// Identifies the reference index for the debt instrument.
     /// </summary>
-    public IBenchmarkCurveName10Choice? ReferenceRate { get; init; } 
+    public BenchmarkCurveName10Choice_? ReferenceRate { get; init; } 
     /// <summary>
     /// Term of the reference rate of the floating rate bond. The term shall be expressed in days, weeks, months or years.
     /// </summary>
@@ -40,11 +40,11 @@ public partial record FloatingInterestRate19
     /// <summary>
     /// Specifies the rate adjustments as determined by the rate schedule.
     /// </summary>
-    public RateAdjustment1? RateAdjustment { get; init;  } // Warning: Don't know multiplicity.
+    public RateAdjustment1[] RateAdjustment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Method for calculating the accrued interest on the principal amount for a fixed rate.
     /// </summary>
-    public IInterestComputationMethodFormat6Choice? DayCountBasis { get; init; } 
+    public InterestComputationMethodFormat6Choice_? DayCountBasis { get; init; } 
     
     #nullable disable
 }

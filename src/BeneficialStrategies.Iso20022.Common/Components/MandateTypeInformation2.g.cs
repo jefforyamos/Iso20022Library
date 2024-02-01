@@ -20,19 +20,19 @@ public partial record MandateTypeInformation2
     /// <summary>
     /// Agreement under which or rules under which the mandate resides.
     /// </summary>
-    public IServiceLevel8Choice? ServiceLevel { get; init; } 
+    public ServiceLevel8Choice_? ServiceLevel { get; init; } 
     /// <summary>
     /// User community specific instrument.|Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.
     /// </summary>
-    public ILocalInstrument2Choice? LocalInstrument { get; init; } 
+    public LocalInstrument2Choice_? LocalInstrument { get; init; } 
     /// <summary>
     /// Specifies the high level purpose of the mandate based on a set of pre-defined categories.
     /// </summary>
-    public ICategoryPurpose1Choice? CategoryPurpose { get; init; } 
+    public CategoryPurpose1Choice_? CategoryPurpose { get; init; } 
     /// <summary>
     /// Type of direct debit instruction.
     /// </summary>
-    public IMandateClassification1Choice? Classification { get; init; } 
+    public MandateClassification1Choice_? Classification { get; init; } 
     
     #nullable disable
 }

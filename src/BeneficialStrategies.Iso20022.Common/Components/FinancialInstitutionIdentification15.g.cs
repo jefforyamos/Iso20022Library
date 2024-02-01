@@ -20,7 +20,7 @@ public partial record FinancialInstitutionIdentification15
     /// <summary>
     /// Unique identification of the party.
     /// </summary>
-    public required IFinancialInstitutionIdentification9Choice Party { get; init; } 
+    public required FinancialInstitutionIdentification9Choice_ Party { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for the party.
     /// </summary>

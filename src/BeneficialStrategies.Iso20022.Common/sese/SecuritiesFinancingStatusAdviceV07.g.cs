@@ -68,7 +68,7 @@ public partial record SecuritiesFinancingStatusAdviceV07 : IOuterRecord
     [Description(@"Processing status of the transaction.")]
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
-    public IProcessingStatus51Choice? ProcessingStatus { get; init; }
+    public ProcessingStatus51Choice_? ProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides the matching status of the instruction.
@@ -77,7 +77,7 @@ public partial record SecuritiesFinancingStatusAdviceV07 : IOuterRecord
     [Description(@"Provides the matching status of the instruction.")]
     [DataMember(Name="MtchgSts")]
     [XmlElement(ElementName="MtchgSts")]
-    public IMatchingStatus26Choice? MatchingStatus { get; init; }
+    public MatchingStatus26Choice_? MatchingStatus { get; init; }
     
     /// <summary>
     /// Provides the matching status of an instruction as per the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).
@@ -86,7 +86,7 @@ public partial record SecuritiesFinancingStatusAdviceV07 : IOuterRecord
     [Description(@"Provides the matching status of an instruction as per the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).")]
     [DataMember(Name="IfrrdMtchgSts")]
     [XmlElement(ElementName="IfrrdMtchgSts")]
-    public IMatchingStatus26Choice? InferredMatchingStatus { get; init; }
+    public MatchingStatus26Choice_? InferredMatchingStatus { get; init; }
     
     /// <summary>
     /// Provides the status of settlement of a transaction.
@@ -95,7 +95,7 @@ public partial record SecuritiesFinancingStatusAdviceV07 : IOuterRecord
     [Description(@"Provides the status of settlement of a transaction.")]
     [DataMember(Name="SttlmSts")]
     [XmlElement(ElementName="SttlmSts")]
-    public ISettlementStatus18Choice? SettlementStatus { get; init; }
+    public SettlementStatus18Choice_? SettlementStatus { get; init; }
     
     /// <summary>
     /// Provides the status of the repurchase agreement call request.
@@ -104,7 +104,7 @@ public partial record SecuritiesFinancingStatusAdviceV07 : IOuterRecord
     [Description(@"Provides the status of the repurchase agreement call request.")]
     [DataMember(Name="RepoCallReqSts")]
     [XmlElement(ElementName="RepoCallReqSts")]
-    public IRepoCallRequestStatus7Choice? RepoCallRequestStatus { get; init; }
+    public RepoCallRequestStatus7Choice_? RepoCallRequestStatus { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.

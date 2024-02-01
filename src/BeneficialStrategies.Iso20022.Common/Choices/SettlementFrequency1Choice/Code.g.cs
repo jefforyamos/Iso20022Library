@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementFrequency1Choice;
 /// <summary>
 /// Settlement frequency expressed as a code.
 /// </summary>
-public partial record Code : ISettlementFrequency1Choice
+public partial record Code : SettlementFrequency1Choice_
 {
     public required EventFrequency10Code Value { get; init; }
 }

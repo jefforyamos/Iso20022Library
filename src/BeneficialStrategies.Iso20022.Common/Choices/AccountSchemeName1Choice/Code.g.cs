@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountSchemeName1Choice;
 /// <summary>
 /// Name of the identification scheme, in a coded form as published in an external list.
 /// </summary>
-public partial record Code : IAccountSchemeName1Choice
+public partial record Code : AccountSchemeName1Choice_
 {
     public required ExternalAccountIdentification1Code Value { get; init; }
 }

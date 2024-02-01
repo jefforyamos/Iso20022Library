@@ -24,15 +24,15 @@ public partial record FinancialInstrumentAttributes69
     /// <summary>
     /// Place where the referenced financial instrument is listed.
     /// </summary>
-    public IMarketIdentification4Choice? PlaceOfListing { get; init; } 
+    public MarketIdentification4Choice_? PlaceOfListing { get; init; } 
     /// <summary>
     /// Specifies the computation method of (accrued) interest of the financial instrument.
     /// </summary>
-    public IInterestComputationMethodFormat5Choice? DayCountBasis { get; init; } 
+    public InterestComputationMethodFormat5Choice_? DayCountBasis { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI).
     /// </summary>
-    public IClassificationType33Choice? ClassificationType { get; init; } 
+    public ClassificationType33Choice_? ClassificationType { get; init; } 
     /// <summary>
     /// Currency in which a financial instrument is currently denominated.
     /// </summary>
@@ -92,11 +92,11 @@ public partial record FinancialInstrumentAttributes69
     /// <summary>
     /// Minimum nominal quantity of financial instrument.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? MinimumNominalQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? MinimumNominalQuantity { get; init; } 
     /// <summary>
     /// Ratio or multiplying factor used to convert one contract into a financial instrument quantity.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? ContractSize { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? ContractSize { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesReferenceDeltaStatusRe
 /// <summary>
 /// Specifies data that has been cancelled since the previous report.
 /// </summary>
-public partial record CancelledRecord : ISecuritiesReferenceDeltaStatusReport5Choice
+public partial record CancelledRecord : SecuritiesReferenceDeltaStatusReport5Choice_
 {
     #nullable enable
     /// <summary>

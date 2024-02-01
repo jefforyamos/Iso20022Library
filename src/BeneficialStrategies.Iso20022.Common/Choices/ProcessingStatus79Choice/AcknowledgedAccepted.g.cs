@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus79Choice;
 /// <summary>
 /// Buy-in advice is acknowledged by the account servicer.
 /// </summary>
-public partial record AcknowledgedAccepted : IProcessingStatus79Choice
+public partial record AcknowledgedAccepted : ProcessingStatus79Choice_
 {
     #nullable enable
     #nullable disable

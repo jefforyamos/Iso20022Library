@@ -28,27 +28,27 @@ public partial record SecuritiesFinancingTransactionDetails3
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
-    public ITerminationDate2Choice? TerminationDate { get; init; } 
+    public TerminationDate2Choice_? TerminationDate { get; init; } 
     /// <summary>
     /// Date/Time at which rate change has taken place.
     /// </summary>
-    public IDateAndDateTimeChoice? RateChangeDate { get; init; } 
+    public DateAndDateTimeChoice_? RateChangeDate { get; init; } 
     /// <summary>
     /// Specifies whether the rate is fixed or variable.
     /// </summary>
-    public IRateType5Choice? RateType { get; init; } 
+    public RateType5Choice_? RateType { get; init; } 
     /// <summary>
     /// Specifies whether the collateral position should be subject to automatic revaluation by the account servicer.
     /// </summary>
-    public IRevaluationIndicator1Choice? Revaluation { get; init; } 
+    public RevaluationIndicator1Choice_? Revaluation { get; init; } 
     /// <summary>
     /// Legal framework of the transaction.
     /// </summary>
-    public ILegalFramework1Choice? LegalFramework { get; init; } 
+    public LegalFramework1Choice_? LegalFramework { get; init; } 
     /// <summary>
     /// Identifies the computation method of accrued interest of the related financial instrument.
     /// </summary>
-    public IInterestComputationMethodFormat1Choice? InterestComputationMethod { get; init; } 
+    public InterestComputationMethodFormat1Choice_? InterestComputationMethod { get; init; } 
     /// <summary>
     /// Specifies whether the interest is to be paid to the collateral taker. If set to no, the interest is paid to the collateral giver.
     /// </summary>
@@ -72,7 +72,7 @@ public partial record SecuritiesFinancingTransactionDetails3
     /// <summary>
     /// Interest rate to be paid on the transaction amount, as agreed between the counterparties.
     /// </summary>
-    public IRateOrName1Choice? PricingRate { get; init; } 
+    public RateOrName1Choice_? PricingRate { get; init; } 
     /// <summary>
     /// Repurchase spread expressed as a rate; margin over or under an index that determines the repurchase rate.
     /// </summary>

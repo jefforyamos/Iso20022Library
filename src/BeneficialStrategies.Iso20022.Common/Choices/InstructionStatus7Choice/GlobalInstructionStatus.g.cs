@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus7Choice;
 /// <summary>
 /// Status applicable globally to the meeting instruction message.
 /// </summary>
-public partial record GlobalInstructionStatus : IInstructionStatus7Choice
+public partial record GlobalInstructionStatus : InstructionStatus7Choice_
 {
     #nullable enable
     #nullable disable

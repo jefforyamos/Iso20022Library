@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosingDate1Choice;
 /// <summary>
 /// Closing date is defined as a choice between a date or a date and time format.
 /// </summary>
-public partial record Date : IClosingDate1Choice
+public partial record Date : ClosingDate1Choice_
 {
     #nullable enable
     #nullable disable

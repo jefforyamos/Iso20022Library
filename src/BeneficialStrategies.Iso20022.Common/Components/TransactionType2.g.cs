@@ -20,7 +20,7 @@ public partial record TransactionType2
     /// <summary>
     /// Specifies the status on the books of the account servicer of the transactions to be reported.
     /// </summary>
-    public required IEntryStatus1Choice Status { get; init; } 
+    public required EntryStatus1Choice_ Status { get; init; } 
     /// <summary>
     /// Indicates whether the reporting request refers to credit or debit entries.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record TransactionType2
     /// <summary>
     /// Specifies the minimum value of entries to be reported in the requested message.
     /// </summary>
-    public Limit2? FloorLimit { get; init;  } // Warning: Don't know multiplicity.
+    public Limit2[] FloorLimit { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

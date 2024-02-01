@@ -24,7 +24,7 @@ public partial record Receipt1
     /// <summary>
     /// Gives the status of the request.
     /// </summary>
-    public RequestHandling? RequestHandling { get; init;  } // Warning: Don't know multiplicity.
+    public RequestHandling[] RequestHandling { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

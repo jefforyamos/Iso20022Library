@@ -20,7 +20,7 @@ public partial record ScheduleChangeEntry1
     /// <summary>
     /// Type of the scheduled event.
     /// </summary>
-    public required ISystemEventType2Choice ScheduleEventType { get; init; } 
+    public required SystemEventType2Choice_ ScheduleEventType { get; init; } 
     /// <summary>
     /// Identificaiton of the scheduled event.
     /// </summary>

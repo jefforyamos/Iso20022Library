@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice;
 /// <summary>
 /// Indicates that the investment is not covered by other available investment options.
 /// </summary>
-public partial record OtherInvestments : IInvestment1Choice
+public partial record OtherInvestments : Investment1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateTimeOrBlankQuery1Choice;
 /// <summary>
 /// Indicates the date time range.
 /// </summary>
-public partial record Range : IDateTimeOrBlankQuery1Choice
+public partial record Range : DateTimeOrBlankQuery1Choice_
 {
     #nullable enable
     /// <summary>

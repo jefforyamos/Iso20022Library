@@ -32,7 +32,7 @@ public partial record Amount10
     /// <summary>
     /// Tax applicable to the billing amount.
     /// </summary>
-    public Tax33? Tax { get; init;  } // Warning: Don't know multiplicity.
+    public Tax33[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

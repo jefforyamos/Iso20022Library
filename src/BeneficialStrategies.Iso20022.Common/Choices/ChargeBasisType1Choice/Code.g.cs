@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeBasisType1Choice;
 /// <summary>
 /// Charge basis expressed as a code.
 /// </summary>
-public partial record Code : IChargeBasisType1Choice
+public partial record Code : ChargeBasisType1Choice_
 {
     public required TaxationBasis2Code Value { get; init; }
 }

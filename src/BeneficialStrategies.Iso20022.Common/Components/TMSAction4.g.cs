@@ -44,7 +44,7 @@ public partial record TMSAction4
     /// <summary>
     /// Type of POI components to send in a status report.
     /// </summary>
-    public DataSetCategory4Code? ComponentType { get; init;  } // Warning: Don't know multiplicity.
+    public DataSetCategory4Code[] ComponentType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the parameters subset assigned by the MTM.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record TMSAction4
     /// <summary>
     /// Additional process to perform before starting or after completing the action by the point of interaction (POI).
     /// </summary>
-    public TerminalManagementAdditionalProcess1Code? AdditionalProcess { get; init;  } // Warning: Don't know multiplicity.
+    public TerminalManagementAdditionalProcess1Code[] AdditionalProcess { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Definition of retry process if activation of the action fails.
     /// </summary>
@@ -84,15 +84,15 @@ public partial record TMSAction4
     /// <summary>
     /// Certificate chain for the encryption of temporary transport key of the key to inject.
     /// </summary>
-    public IsoMax10KBinary? KeyEnciphermentCertificate { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax10KBinary[] KeyEnciphermentCertificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Action to perform in case of error on the related action in progress.
     /// </summary>
-    public ErrorAction2? ErrorAction { get; init;  } // Warning: Don't know multiplicity.
+    public ErrorAction2[] ErrorAction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the maintenance action.
     /// </summary>
-    public IsoMax3000Binary? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax3000Binary[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

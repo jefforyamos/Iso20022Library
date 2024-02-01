@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReplacementProcessingStatus8Choi
 /// <summary>
 /// Provides the processing status of the replacement request.
 /// </summary>
-public partial record Proprietary : IReplacementProcessingStatus8Choice
+public partial record Proprietary : ReplacementProcessingStatus8Choice_
 {
     #nullable enable
     /// <summary>

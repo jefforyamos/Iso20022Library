@@ -24,7 +24,7 @@ public partial record AcquirerProtocolParameters14
     /// <summary>
     /// Identification of the acquirer using this protocol.
     /// </summary>
-    public GenericIdentification176? AcquirerIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification176[] AcquirerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Version of the acquirer protocol parameters.
     /// </summary>
@@ -32,11 +32,11 @@ public partial record AcquirerProtocolParameters14
     /// <summary>
     /// Identification of the payment application, user of the acquirer protocol.
     /// </summary>
-    public IsoMax35Text? ApplicationIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] ApplicationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acquirer host configuration.
     /// </summary>
-    public AcquirerHostConfiguration8? Host { get; init;  } // Warning: Don't know multiplicity.
+    public AcquirerHostConfiguration8[] Host { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acquirer protocol parameters of transactions performing an online authorisation.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record AcquirerProtocolParameters14
     /// <summary>
     /// List of criterion to use when totals in reconciliation or batch must be split.
     /// </summary>
-    public ReconciliationCriteria1Code? SplitTotalCriteria { get; init;  } // Warning: Don't know multiplicity.
+    public ReconciliationCriteria1Code[] SplitTotalCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// To notify that the acquirer expect to receive a completion advice after each update of reservation.
     /// </summary>
@@ -72,7 +72,7 @@ public partial record AcquirerProtocolParameters14
     /// <summary>
     /// Identification of available amount qualifier for a reservation. 
     /// </summary>
-    public TypeOfAmount8Code? AmountQualifierForReservation { get; init;  } // Warning: Don't know multiplicity.
+    public TypeOfAmount8Code[] AmountQualifierForReservation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// After an error in a totals of the Reconciliation, the POI sends transactions in error in the BatchTransfer messages.
     /// </summary>
@@ -88,7 +88,7 @@ public partial record AcquirerProtocolParameters14
     /// <summary>
     /// Types of transaction to include in the batch.
     /// </summary>
-    public BatchTransactionType1Code? BatchTransferContent { get; init;  } // Warning: Don't know multiplicity.
+    public BatchTransactionType1Code[] BatchTransferContent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// BatchTransfer are exchanged per file transfer protocol rather than per message.
     /// </summary>
@@ -100,7 +100,7 @@ public partial record AcquirerProtocolParameters14
     /// <summary>
     /// Configuration of a message item.
     /// </summary>
-    public MessageItemCondition1? MessageItem { get; init;  } // Warning: Don't know multiplicity.
+    public MessageItemCondition1[] MessageItem { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicator to require protection of sensitive card data in messages.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification9Choice;
 /// <summary>
 /// Name by which a party is known and which is usually used to identify that party.
 /// </summary>
-public partial record NameAndAddress : IPartyIdentification9Choice
+public partial record NameAndAddress : PartyIdentification9Choice_
 {
     #nullable enable
     /// <summary>

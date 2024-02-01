@@ -20,11 +20,11 @@ public partial record PointOfInteractionCapabilities2
     /// <summary>
     /// Card reading capabilities of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
-    public CardDataReading1Code? CardReadingCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public CardDataReading1Code[] CardReadingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cardholder verification capabilities of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
-    public CardholderVerificationCapability1Code? CardholderVerificationCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public CardholderVerificationCapability1Code[] CardholderVerificationCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// On-line and off-line capabilities of the POI (Point Of Interaction).
     /// </summary>
@@ -32,7 +32,7 @@ public partial record PointOfInteractionCapabilities2
     /// <summary>
     /// Capabilities of the display components performing the transaction.
     /// </summary>
-    public DisplayCapabilities2? DisplayCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public DisplayCapabilities2[] DisplayCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number of columns of the printer component.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record PointOfInteractionCapabilities2
     /// <summary>
     /// Available language in the display and printer interface.
     /// </summary>
-    public ISO2ALanguageCode? AvailableLanguage { get; init;  } // Warning: Don't know multiplicity.
+    public ISO2ALanguageCode[] AvailableLanguage { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

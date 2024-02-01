@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementStatus9Choice;
 /// <summary>
 /// Instruction is pending. Settlement at the instructed settlement date is still possible.
 /// </summary>
-public partial record Pending : ISettlementStatus9Choice
+public partial record Pending : SettlementStatus9Choice_
 {
     #nullable enable
     #nullable disable

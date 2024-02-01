@@ -24,7 +24,7 @@ public partial record AccountBalanceExtensionSD2
     /// <summary>
     /// Position that is concerned in transaction.
     /// </summary>
-    public IAdjustedBalanceTypeSD2Choice? TransactionPosition { get; init; } 
+    public AdjustedBalanceTypeSD2Choice_? TransactionPosition { get; init; } 
     /// <summary>
     /// Effective date of the transaction.
     /// </summary>

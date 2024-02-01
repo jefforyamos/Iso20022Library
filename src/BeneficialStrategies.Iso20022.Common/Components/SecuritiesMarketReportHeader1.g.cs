@@ -20,11 +20,11 @@ public partial record SecuritiesMarketReportHeader1
     /// <summary>
     /// Identification of the venue which generates the report.
     /// </summary>
-    public required ITradingVenueIdentification1Choice ReportingEntity { get; init; } 
+    public required TradingVenueIdentification1Choice_ ReportingEntity { get; init; } 
     /// <summary>
     /// Date or date range the report relates to.
     /// </summary>
-    public required IPeriod4Choice ReportingPeriod { get; init; } 
+    public required Period4Choice_ ReportingPeriod { get; init; } 
     /// <summary>
     /// Date and time of the report originally submitted by the reporting entity when the file is generated for submission to their reporting authority.
     /// </summary>

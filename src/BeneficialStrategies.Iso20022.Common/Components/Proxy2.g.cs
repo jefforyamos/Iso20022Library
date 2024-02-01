@@ -28,7 +28,7 @@ public partial record Proxy2
     /// <summary>
     /// Indicates the vote instruction for the resolutions which are announced via the meeting agenda in advance of the meeting.
     /// </summary>
-    public IVote1Choice? VoteInstructionForAgendaResolution { get; init; } 
+    public Vote1Choice_? VoteInstructionForAgendaResolution { get; init; } 
     
     #nullable disable
 }

@@ -24,7 +24,7 @@ public partial record CollateralCancellationReason1
     /// <summary>
     /// Allows to provide a cancellation reason using a code or proprietary reason.
     /// </summary>
-    public required ICollateralCancellationType1Choice CancellationReasonCode { get; init; } 
+    public required CollateralCancellationType1Choice_ CancellationReasonCode { get; init; } 
     
     #nullable disable
 }

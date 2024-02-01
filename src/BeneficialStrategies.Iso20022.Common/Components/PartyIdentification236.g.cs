@@ -20,7 +20,7 @@ public partial record PartyIdentification236
     /// <summary>
     /// Party that is the beneficial owner of the specified quantity of securities.
     /// </summary>
-    public required IPartyIdentification229Choice OwnerIdentification { get; init; } 
+    public required PartyIdentification229Choice_ OwnerIdentification { get; init; } 
     /// <summary>
     /// Legal entity identification of the party.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record PartyIdentification236
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
-    public AlternatePartyIdentification7? AlternateIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public AlternatePartyIdentification7[] AlternateIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Country in which a person is permanently domiciled (the place of a person's permanent home).
     /// </summary>
@@ -36,23 +36,23 @@ public partial record PartyIdentification236
     /// <summary>
     /// Holder of the security certifies, in line with the terms of the corporate action, that it is not domiciled in the country indicated.
     /// </summary>
-    public CountryCode? NonDomicileCountry { get; init;  } // Warning: Don't know multiplicity.
+    public CountryCode[] NonDomicileCountry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity of securities belonging to the beneficial owner specified.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice OwnedSecuritiesQuantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ OwnedSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Type of certification which is required.
     /// </summary>
-    public IBeneficiaryCertificationType10Choice? CertificationType { get; init;  } // Warning: Don't know multiplicity.
+    public BeneficiaryCertificationType10Choice_[] CertificationType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Requested percentage of a cash distribution that will be withheld by the tax authorities of the jurisdiction of the issuer, for which a relief at source and/or reclaim may be possible.
     /// </summary>
-    public IRateAndAmountFormat37Choice? WithholdingTaxRate { get; init; } 
+    public RateAndAmountFormat37Choice_? WithholdingTaxRate { get; init; } 
     /// <summary>
     /// Provides additional information about the type of certification/breakdown required.
     /// </summary>
-    public IsoMax350Text? CertificationBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax350Text[] CertificationBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -20,7 +20,7 @@ public partial record PremiumAmount2
     /// <summary>
     /// Specifies the calculation method of the premium amount.
     /// </summary>
-    public IPremiumQuote1Choice? PremiumQuote { get; init; } 
+    public PremiumQuote1Choice_? PremiumQuote { get; init; } 
     /// <summary>
     /// Result of the calculation of the premium amount on the basis of the premium quote and one of the amounts of the underlying foreign exchange trade.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record PremiumAmount2
     /// <summary>
     /// Party that settles the premium amount on behalf of the paying party. It may contain the BIC of a central settlement system, eg. CLSBUS33.
     /// </summary>
-    public IPartyIdentification8Choice? SettlementParty { get; init; } 
+    public PartyIdentification8Choice_? SettlementParty { get; init; } 
     
     #nullable disable
 }

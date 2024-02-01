@@ -32,15 +32,15 @@ public partial record VoteParameters4
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the intermediary.
     /// </summary>
-    public IDateFormat29Choice? VoteDeadline { get; init; } 
+    public DateFormat29Choice_? VoteDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the intermediary (STP mode).
     /// </summary>
-    public IDateFormat29Choice? VoteSTPDeadline { get; init; } 
+    public DateFormat29Choice_? VoteSTPDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the issuer.
     /// </summary>
-    public IDateFormat29Choice? VoteMarketDeadline { get; init; } 
+    public DateFormat29Choice_? VoteMarketDeadline { get; init; } 
     /// <summary>
     /// Indicates the different methods that can be used to vote.
     /// </summary>
@@ -56,15 +56,15 @@ public partial record VoteParameters4
     /// <summary>
     /// Date till which the instructing party can revoke, change or withdraw its voting instruction. This deadline is specified by an intermediary.
     /// </summary>
-    public IDateFormat29Choice? RevocabilityDeadline { get; init; } 
+    public DateFormat29Choice_? RevocabilityDeadline { get; init; } 
     /// <summary>
     /// Date till which the instructing party can revoke, change or withdraw its voting instruction. This deadline is specified by an intermediary (STP mode).
     /// </summary>
-    public IDateFormat29Choice? RevocabilitySTPDeadline { get; init; } 
+    public DateFormat29Choice_? RevocabilitySTPDeadline { get; init; } 
     /// <summary>
     /// Date till which the instructing party can revoke, change or withdraw its voting instruction. This deadline is set by the issuer.
     /// </summary>
-    public IDateFormat29Choice? RevocabilityMarketDeadline { get; init; } 
+    public DateFormat29Choice_? RevocabilityMarketDeadline { get; init; } 
     /// <summary>
     /// Indicates whether beneficiary details, for example, name and address, must be supplied in order to take part in a meeting.
     /// </summary>
@@ -72,7 +72,7 @@ public partial record VoteParameters4
     /// <summary>
     /// Identifies the possible types of voting instructions. When used at the resolution level, it supersedes the value specified in the meeting notice.
     /// </summary>
-    public IReadOnlyCollection<VoteInstruction2Code> VoteInstructionType { get; init; } = [];
+    public VoteInstruction2Code[] VoteInstructionType { get; init; } = [];
     /// <summary>
     /// Cash premium paid to the security holder when voting earlier (before the early vote with premium deadline).
     /// </summary>
@@ -84,19 +84,19 @@ public partial record VoteParameters4
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the intermediary to take advantage of the early incentive premium.
     /// </summary>
-    public IDateFormat29Choice? EarlyVoteWithPremiumDeadline { get; init; } 
+    public DateFormat29Choice_? EarlyVoteWithPremiumDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the intermediary to take advantage of the premium.
     /// </summary>
-    public IDateFormat29Choice? VoteWithPremiumDeadline { get; init; } 
+    public DateFormat29Choice_? VoteWithPremiumDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the intermediary to take advantage of the premium (STP mode).
     /// </summary>
-    public IDateFormat29Choice? VoteWithPremiumSTPDeadline { get; init; } 
+    public DateFormat29Choice_? VoteWithPremiumSTPDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the issuer to take advantage of the premium.
     /// </summary>
-    public IDateFormat29Choice? VoteWithPremiumMarketDeadline { get; init; } 
+    public DateFormat29Choice_? VoteWithPremiumMarketDeadline { get; init; } 
     /// <summary>
     /// Additional information on specific requirements for allowing a person to vote.
     /// </summary>

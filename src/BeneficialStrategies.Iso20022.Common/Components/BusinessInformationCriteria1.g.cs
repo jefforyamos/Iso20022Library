@@ -24,7 +24,7 @@ public partial record BusinessInformationCriteria1
     /// <summary>
     /// Defines the criteria based on which the information is extracted.
     /// </summary>
-    public GeneralBusinessInformationSearchCriteria1? SearchCriteria { get; init;  } // Warning: Don't know multiplicity.
+    public GeneralBusinessInformationSearchCriteria1[] SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines the expected report.
     /// </summary>

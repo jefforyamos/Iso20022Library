@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TargetMarket1Choice;
 /// <summary>
 /// Specifies whether the product is aimed at the target expressed as a code.
 /// </summary>
-public partial record Code : ITargetMarket1Choice
+public partial record Code : TargetMarket1Choice_
 {
     public required TargetMarket1Code Value { get; init; }
 }

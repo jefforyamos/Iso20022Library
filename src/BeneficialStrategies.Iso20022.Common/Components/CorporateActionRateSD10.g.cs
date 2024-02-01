@@ -24,7 +24,7 @@ public partial record CorporateActionRateSD10
     /// <summary>
     /// Corresponding rate of the security being disbursed as a result of the corporate action as declared by the issuer or offeror on the market.
     /// </summary>
-    public ICorporateActionRateSD7Choice? DeclaredSecurityRate { get; init; } 
+    public CorporateActionRateSD7Choice_? DeclaredSecurityRate { get; init; } 
     /// <summary>
     /// Denotes whether the rate is approximate.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record CorporateActionRateSD10
     /// <summary>
     /// Rate at which the fee will be charged to a DTC participant.
     /// </summary>
-    public IPriceFormatSD3Choice? DeclaredFeeRate { get; init; } 
+    public PriceFormatSD3Choice_? DeclaredFeeRate { get; init; } 
     
     #nullable disable
 }

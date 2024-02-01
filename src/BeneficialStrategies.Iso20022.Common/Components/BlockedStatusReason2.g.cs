@@ -20,7 +20,7 @@ public partial record BlockedStatusReason2
     /// <summary>
     /// Type of transaction for which the account has a blocked status.
     /// </summary>
-    public required ITransactionType5Choice TransactionType { get; init; } 
+    public required TransactionType5Choice_ TransactionType { get; init; } 
     /// <summary>
     /// Indicates whether the account is blocked.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record BlockedStatusReason2
     /// <summary>
     /// Reason for the blocked status.
     /// </summary>
-    public IBlockedReason2Choice? Reason { get; init;  } // Warning: Don't know multiplicity.
+    public BlockedReason2Choice_[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the blocked account status.
     /// </summary>

@@ -20,15 +20,15 @@ public partial record TradePartyIdentification6
     /// <summary>
     /// Party that submits the foreign exchange trade to the matching system or to the settlement system or to the counterparty.
     /// </summary>
-    public required IPartyIdentification73Choice SubmittingParty { get; init; } 
+    public required PartyIdentification73Choice_ SubmittingParty { get; init; } 
     /// <summary>
     /// Party that originated the foreign exchange trade. This party may be the same as the submitting party.
     /// </summary>
-    public IPartyIdentification73Choice? TradeParty { get; init; } 
+    public PartyIdentification73Choice_? TradeParty { get; init; } 
     /// <summary>
     /// Identifies the fund that is one of the parties in the foreign exchange trade.
     /// </summary>
-    public FundIdentification4? FundIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public FundIdentification4[] FundIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

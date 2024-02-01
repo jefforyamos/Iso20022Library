@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReturnReason5Choice;
 /// <summary>
 /// Reason for the return, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IReturnReason5Choice
+public partial record Proprietary : ReturnReason5Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

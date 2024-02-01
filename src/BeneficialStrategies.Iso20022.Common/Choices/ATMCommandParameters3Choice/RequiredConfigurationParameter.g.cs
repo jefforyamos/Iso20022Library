@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters3Choice;
 /// <summary>
 /// Parameters to be used by the configuration update command.
 /// </summary>
-public partial record RequiredConfigurationParameter : IATMCommandParameters3Choice
+public partial record RequiredConfigurationParameter : ATMCommandParameters3Choice_
 {
     #nullable enable
     /// <summary>

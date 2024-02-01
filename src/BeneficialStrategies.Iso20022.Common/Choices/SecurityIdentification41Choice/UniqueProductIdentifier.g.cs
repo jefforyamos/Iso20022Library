@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification41Choice;
 /// <summary>
 /// Identification through a unique product identifier.
 /// </summary>
-public partial record UniqueProductIdentifier : ISecurityIdentification41Choice
+public partial record UniqueProductIdentifier : SecurityIdentification41Choice_
 {
     #nullable enable
     #nullable disable

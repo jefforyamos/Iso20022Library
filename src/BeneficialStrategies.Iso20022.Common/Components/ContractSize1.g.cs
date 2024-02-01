@@ -24,7 +24,7 @@ public partial record ContractSize1
     /// <summary>
     /// Specifies the unit of underlying.
     /// </summary>
-    public IUnitOfMeasure5Choice? Unit { get; init; } 
+    public UnitOfMeasure5Choice_? Unit { get; init; } 
     
     #nullable disable
 }

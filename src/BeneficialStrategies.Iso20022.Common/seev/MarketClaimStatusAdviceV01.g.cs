@@ -86,7 +86,7 @@ public partial record MarketClaimStatusAdviceV01 : IOuterRecord
     [DataMember(Name="MktClmPrcgSts")]
     [XmlElement(ElementName="MktClmPrcgSts")]
     [Required]
-    public required IMarketClaimProcessingStatus1Choice MarketClaimProcessingStatus { get; init; }
+    public required MarketClaimProcessingStatus1Choice_ MarketClaimProcessingStatus { get; init; }
     
     /// <summary>
     /// Details of the market claim transaction for which a status is provided.

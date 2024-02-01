@@ -44,7 +44,7 @@ public partial record IndividualOrderStatusAndReason4
     /// <summary>
     /// Party that initiates the status of the individual order cancellation.
     /// </summary>
-    public IPartyIdentification2Choice? StatusInitiator { get; init; } 
+    public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     /// <summary>
     /// Account information of the individual order cancellation for which the status is given.
     /// </summary>

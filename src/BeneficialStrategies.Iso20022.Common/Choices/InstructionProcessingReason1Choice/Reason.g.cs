@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingReason1Choi
 /// <summary>
 /// Specifies the reason of the RejectedStatus.
 /// </summary>
-public partial record Reason : IInstructionProcessingReason1Choice
+public partial record Reason : InstructionProcessingReason1Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the instruction/request has a rejected status.
     /// </summary>
-    public required IRejectionReason9Choice Code { get; init; } 
+    public required RejectionReason9Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional information about the reason in narrative form.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References71Choice;
 /// <summary>
 /// Identification of the intra-position movement posting report to be cancelled.
 /// </summary>
-public partial record IntraPositionMovementPostingReportIdentification : IReferences71Choice
+public partial record IntraPositionMovementPostingReportIdentification : References71Choice_
 {
     public required IsoRestrictedFINXMax16Text Value { get; init; }
 }

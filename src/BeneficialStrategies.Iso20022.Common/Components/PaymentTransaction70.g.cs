@@ -20,7 +20,7 @@ public partial record PaymentTransaction70
     /// <summary>
     /// Choice between types of payment instrument, for example, cheque, credit transfer, direct debit, investment account or payment card.
     /// </summary>
-    public required IPaymentInstrument20Choice PaymentInstrument { get; init; } 
+    public required PaymentInstrument20Choice_ PaymentInstrument { get; init; } 
     
     #nullable disable
 }

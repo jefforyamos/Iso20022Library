@@ -69,7 +69,7 @@ public partial record RegulatoryTransactionReportV02 : IOuterRecord
     [DataMember(Name="RptgInstn")]
     [XmlElement(ElementName="RptgInstn")]
     [Required]
-    public required IPartyIdentification23Choice ReportingInstitution { get; init; }
+    public required PartyIdentification23Choice_ ReportingInstitution { get; init; }
     
     /// <summary>
     /// Identifies the intermediary which is reporting on behalf on the ReportingInstitution. If there is a reporting chain, then the last party should override the previous one.
@@ -78,7 +78,7 @@ public partial record RegulatoryTransactionReportV02 : IOuterRecord
     [Description(@"Identifies the intermediary which is reporting on behalf on the ReportingInstitution. If there is a reporting chain, then the last party should override the previous one.")]
     [DataMember(Name="RptgAgt")]
     [XmlElement(ElementName="RptgAgt")]
-    public IPartyIdentification24Choice? ReportingAgent { get; init; }
+    public PartyIdentification24Choice_? ReportingAgent { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

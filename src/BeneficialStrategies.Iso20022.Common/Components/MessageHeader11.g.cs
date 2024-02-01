@@ -28,7 +28,7 @@ public partial record MessageHeader11
     /// <summary>
     /// Specific actions to be executed through the request.
     /// </summary>
-    public IRequestType4Choice? RequestType { get; init; } 
+    public RequestType4Choice_? RequestType { get; init; } 
     /// <summary>
     /// Unique identification of the original query message.
     /// </summary>

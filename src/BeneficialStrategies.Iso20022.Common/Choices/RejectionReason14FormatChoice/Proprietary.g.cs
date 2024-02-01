@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason14FormatChoice;
 /// <summary>
 /// Proprietary code to express the reason of a rejection of a movement cancellation request.
 /// </summary>
-public partial record Proprietary : IRejectionReason14FormatChoice
+public partial record Proprietary : RejectionReason14FormatChoice_
 {
     #nullable enable
     /// <summary>

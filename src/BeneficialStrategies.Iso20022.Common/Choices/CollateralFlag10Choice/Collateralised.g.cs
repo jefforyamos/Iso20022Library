@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralFlag10Choice;
 /// <summary>
 /// Data on collateralised securities.
 /// </summary>
-public partial record Collateralised : ICollateralFlag10Choice
+public partial record Collateralised : CollateralFlag10Choice_
 {
     #nullable enable
     /// <summary>
@@ -30,6 +30,6 @@ public partial record Collateralised : ICollateralFlag10Choice
     /// <summary>
     /// Identification of the collateral basket.
     /// </summary>
-    public ISecurityIdentification26Choice? BasketIdentifier { get; init; } 
+    public SecurityIdentification26Choice_? BasketIdentifier { get; init; } 
     #nullable disable
 }

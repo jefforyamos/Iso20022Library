@@ -28,7 +28,7 @@ public partial record RegulatoryReporting3
     /// <summary>
     /// Set of elements used to provide details on the regulatory reporting information.
     /// </summary>
-    public StructuredRegulatoryReporting3? Details { get; init;  } // Warning: Don't know multiplicity.
+    public StructuredRegulatoryReporting3[] Details { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

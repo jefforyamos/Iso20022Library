@@ -20,15 +20,15 @@ public partial record MemberSearchCriteria2
     /// <summary>
     /// Unique and unambiguous identification of a member within a system, assigned using the member identification scheme of the system.
     /// </summary>
-    public IMemberIdentification2Choice? Identification { get; init;  } // Warning: Don't know multiplicity.
+    public MemberIdentification2Choice_[] Identification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Nature of the relationship a member has with a system.
     /// </summary>
-    public MemberType1Code? Type { get; init;  } // Warning: Don't know multiplicity.
+    public MemberType1Code[] Type { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Status of a member in a system, such as enabled or deleted.
     /// </summary>
-    public MemberStatus1Code? Status { get; init;  } // Warning: Don't know multiplicity.
+    public MemberStatus1Code[] Status { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -20,11 +20,11 @@ public partial record RepairedConditions2
     /// <summary>
     /// Charge from the original individual order details that has been repaired so that the order can be accepted.
     /// </summary>
-    public IReadOnlyCollection<Charge11> RepairedCharge { get; init; } = [];
+    public Charge11[] RepairedCharge { get; init; } = [];
     /// <summary>
     /// Commission from the original individual order details that has been repaired so that the order can be accepted.
     /// </summary>
-    public IReadOnlyCollection<Commission7> RepairedCommission { get; init; } = [];
+    public Commission7[] RepairedCommission { get; init; } = [];
     
     #nullable disable
 }

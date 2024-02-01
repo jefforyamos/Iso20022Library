@@ -70,7 +70,7 @@ public partial record ReturnLimitV08 : IOuterRecord
     [DataMember(Name="RptOrErr")]
     [XmlElement(ElementName="RptOrErr")]
     [Required]
-    public required ILimitReportOrError4Choice ReportOrError { get; init; }
+    public required LimitReportOrError4Choice_ ReportOrError { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

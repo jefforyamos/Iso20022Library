@@ -32,7 +32,7 @@ public partial record PartyIdentificationAndAccount157
     /// <summary>
     /// Date and optionally the time, at which this transaction was processed by the party identified in this sequence.
     /// </summary>
-    public IDateAndDateTime2Choice? ProcessingDate { get; init; } 
+    public DateAndDateTime2Choice_? ProcessingDate { get; init; } 
     
     #nullable disable
 }

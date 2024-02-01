@@ -36,7 +36,7 @@ public partial record EventDescription1
     /// <summary>
     /// Parties involved in the event.
     /// </summary>
-    public QualifiedPartyIdentification1? OtherParty { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedPartyIdentification1[] OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifier for a language used for the description.
     /// </summary>
@@ -48,23 +48,23 @@ public partial record EventDescription1
     /// <summary>
     /// Reference to related document.
     /// </summary>
-    public QualifiedDocumentInformation1? RelatedDocument { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1[] RelatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifier of related letter.
     /// </summary>
-    public QualifiedDocumentInformation1? RelatedLetter { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1[] RelatedLetter { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifier of related message.
     /// </summary>
-    public QualifiedDocumentInformation1? RelatedMessage { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1[] RelatedMessage { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Associated free form document.
     /// </summary>
-    public QualifiedDocumentInformation1? AssociatedDocument { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1[] AssociatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Reference to the contractual context.
     /// </summary>
-    public QualifiedDocumentInformation1? GoverningContract { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1[] GoverningContract { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rules and laws governing the event.
     /// </summary>

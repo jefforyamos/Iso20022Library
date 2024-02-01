@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform2Choice;
 /// <summary>
 /// Content of the Loyalty Request message.
 /// </summary>
-public partial record LoyaltyRequest : ITransactionToPerform2Choice
+public partial record LoyaltyRequest : TransactionToPerform2Choice_
 {
     #nullable enable
     /// <summary>

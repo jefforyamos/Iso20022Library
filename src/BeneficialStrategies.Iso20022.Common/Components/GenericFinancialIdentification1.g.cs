@@ -24,7 +24,7 @@ public partial record GenericFinancialIdentification1
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
-    public IFinancialIdentificationSchemeName1Choice? SchemeName { get; init; } 
+    public FinancialIdentificationSchemeName1Choice_? SchemeName { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>

@@ -20,11 +20,11 @@ public partial record FundParameters4
     /// <summary>
     /// Financial instrument for which the fund processing passport report report is requested.
     /// </summary>
-    public FinancialInstrument17? FinancialInstrumentDetails { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrument17[] FinancialInstrumentDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fund management company for which the report is requested.
     /// </summary>
-    public IPartyIdentification2Choice? FundManagementCompany { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification2Choice_[] FundManagementCompany { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the date on or after which the information required will have been last updated. Only the most recent versions of the data is required.
     /// </summary>

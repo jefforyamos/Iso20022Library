@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TimeFrame6Choice;
 /// <summary>
 /// Time frame expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITimeFrame6Choice
+public partial record Proprietary : TimeFrame6Choice_
 {
     #nullable enable
     /// <summary>

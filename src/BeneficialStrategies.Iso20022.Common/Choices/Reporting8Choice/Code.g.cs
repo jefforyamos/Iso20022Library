@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reporting8Choice;
 /// <summary>
 /// Third party reporting information expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IReporting8Choice
+public partial record Code : Reporting8Choice_
 {
     public required Reporting1Code Value { get; init; }
 }

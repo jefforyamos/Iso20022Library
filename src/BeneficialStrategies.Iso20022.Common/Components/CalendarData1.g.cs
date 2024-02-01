@@ -24,7 +24,7 @@ public partial record CalendarData1
     /// <summary>
     /// Status of the system.
     /// </summary>
-    public required ISystemStatus3Choice SystemStatus { get; init; } 
+    public required SystemStatus3Choice_ SystemStatus { get; init; } 
     
     #nullable disable
 }

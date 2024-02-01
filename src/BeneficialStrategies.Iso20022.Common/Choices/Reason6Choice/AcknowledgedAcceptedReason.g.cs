@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason6Choice;
 /// <summary>
 /// Specifies additional information about the processed instruction.
 /// </summary>
-public partial record AcknowledgedAcceptedReason : IReason6Choice
+public partial record AcknowledgedAcceptedReason : Reason6Choice_
 {
     #nullable enable
     #nullable disable

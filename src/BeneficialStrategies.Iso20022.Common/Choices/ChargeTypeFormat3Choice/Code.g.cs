@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeTypeFormat3Choice;
 /// <summary>
 /// Standard code to specify the type of charge.
 /// </summary>
-public partial record Code : IChargeTypeFormat3Choice
+public partial record Code : ChargeTypeFormat3Choice_
 {
     public required ChargeType17Code Value { get; init; }
 }

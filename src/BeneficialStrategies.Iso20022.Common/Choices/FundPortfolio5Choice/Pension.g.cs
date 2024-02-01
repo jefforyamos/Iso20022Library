@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio5Choice;
 /// <summary>
 /// Portfolio is a pension policy, plan or scheme.
 /// </summary>
-public partial record Pension : IFundPortfolio5Choice
+public partial record Pension : FundPortfolio5Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,11 +22,11 @@ public partial record Pension : IFundPortfolio5Choice
     /// <summary>
     /// Type of pension policy, plan or scheme.
     /// </summary>
-    public required IPensionSchemeType2Choice Type { get; init; } 
+    public required PensionSchemeType2Choice_ Type { get; init; } 
     /// <summary>
     /// Scope of the pension policy, plan or scheme transfer.
     /// </summary>
-    public IPensionTransferScope1Choice? TransferScope { get; init; } 
+    public PensionTransferScope1Choice_? TransferScope { get; init; } 
     /// <summary>
     /// Tax reference issued to the pension policy, plan or scheme by a central organisation.
     /// </summary>
@@ -38,11 +38,11 @@ public partial record Pension : IFundPortfolio5Choice
     /// <summary>
     /// Drawdown status of the pension.
     /// </summary>
-    public IDrawdownStatus1Choice? DrawdownStatus { get; init; } 
+    public DrawdownStatus1Choice_? DrawdownStatus { get; init; } 
     /// <summary>
     /// Type of drawdown tranche.
     /// </summary>
-    public IDrawdownType2Choice? DrawdownType { get; init; } 
+    public DrawdownType2Choice_? DrawdownType { get; init; } 
     /// <summary>
     /// Estimated value of the pension policy, plan or scheme.
     /// </summary>
@@ -82,7 +82,7 @@ public partial record Pension : IFundPortfolio5Choice
     /// <summary>
     /// Type of lump sum paid to a member of the pension policy, plan or scheme.
     /// </summary>
-    public ILumpSumType1Choice? LumpSumType { get; init;  } // Warning: Don't know multiplicity.
+    public LumpSumType1Choice_? LumpSumType { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Order attached to the pension policy, plan or scheme.
     /// </summary>

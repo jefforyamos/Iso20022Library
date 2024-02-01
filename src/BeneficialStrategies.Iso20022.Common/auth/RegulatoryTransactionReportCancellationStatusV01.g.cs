@@ -63,7 +63,7 @@ public partial record RegulatoryTransactionReportCancellationStatusV01 : IOuterR
     [DataMember(Name="RptgInstn")]
     [XmlElement(ElementName="RptgInstn")]
     [Required]
-    public required IPartyIdentification23Choice ReportingInstitution { get; init; }
+    public required PartyIdentification23Choice_ ReportingInstitution { get; init; }
     
     /// <summary>
     /// Provides the status of the entire RegulatoryTransactionReportCancellationRequest document that was previously sent by a reporting institution.||.

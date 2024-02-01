@@ -24,7 +24,7 @@ public partial record CorporateActionCashMovements2
     /// <summary>
     /// Posting date of the cash movement.
     /// </summary>
-    public IDateAndDateTimeChoice? PostingDateTime { get; init; } 
+    public DateAndDateTimeChoice_? PostingDateTime { get; init; } 
     /// <summary>
     /// Amount posted as a result of the cash movement.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record CorporateActionCashMovements2
     /// <summary>
     /// Provides information about the account which is debited/credited as a result of the movement.
     /// </summary>
-    public IReadOnlyCollection<CashAccount19> AccountDetails { get; init; } = [];
+    public CashAccount19[] AccountDetails { get; init; } = [];
     
     #nullable disable
 }

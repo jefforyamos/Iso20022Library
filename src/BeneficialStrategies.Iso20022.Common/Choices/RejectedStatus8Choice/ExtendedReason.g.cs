@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedStatus8Choice;
 /// <summary>
 /// Reason for the rejected status.
 /// </summary>
-public partial record ExtendedReason : IRejectedStatus8Choice
+public partial record ExtendedReason : RejectedStatus8Choice_
 {
     public required IsoExtended350Code Value { get; init; }
 }

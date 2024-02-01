@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PutType3Choice;
 /// <summary>
 /// Put type expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IPutType3Choice
+public partial record Code : PutType3Choice_
 {
     public required PutType1Code Value { get; init; }
 }

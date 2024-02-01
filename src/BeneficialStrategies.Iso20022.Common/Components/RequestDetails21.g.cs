@@ -24,11 +24,11 @@ public partial record RequestDetails21
     /// <summary>
     /// Restriction references applied on the transaction for which the securities settlement condition modification is requested.
     /// </summary>
-    public RestrictionIdentification2? RestrictionReference { get; init;  } // Warning: Don't know multiplicity.
+    public RestrictionIdentification2[] RestrictionReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Condition for automatic borrowing.
     /// </summary>
-    public IAutomaticBorrowing11Choice? AutomaticBorrowing { get; init; } 
+    public AutomaticBorrowing11Choice_? AutomaticBorrowing { get; init; } 
     /// <summary>
     /// Indicates whether the instruction due to expire is confirmed for settlement.
     /// </summary>
@@ -36,15 +36,15 @@ public partial record RequestDetails21
     /// <summary>
     /// Specifies the type of linkage requested.
     /// </summary>
-    public ILinkageType4Choice? Linkage { get; init; } 
+    public LinkageType4Choice_? Linkage { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
-    public IPriorityNumeric5Choice? Priority { get; init; } 
+    public PriorityNumeric5Choice_? Priority { get; init; } 
     /// <summary>
     /// Specifies another type of processing change request.
     /// </summary>
-    public GenericIdentification47? OtherProcessing { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification47[] OtherProcessing { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether partial settlement is allowed.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record RequestDetails21
     /// <summary>
     /// Specifies whether the settlement transaction is to be settled through an RTGS or a non RTGS system.
     /// </summary>
-    public ISecuritiesRTGS5Choice? SecuritiesRTGS { get; init; } 
+    public SecuritiesRTGS5Choice_? SecuritiesRTGS { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is on hold/blocked/frozen.
     /// </summary>
@@ -60,15 +60,15 @@ public partial record RequestDetails21
     /// <summary>
     /// Specifies the matching processing change requested.
     /// </summary>
-    public IMatchingDenied4Choice? MatchingDenial { get; init; } 
+    public MatchingDenied4Choice_? MatchingDenial { get; init; } 
     /// <summary>
     /// Specifies that the transaction is requested to be unilaterally split.
     /// </summary>
-    public IUnilateralSplit4Choice? UnilateralSplit { get; init; } 
+    public UnilateralSplit4Choice_? UnilateralSplit { get; init; } 
     /// <summary>
     /// Information regarding the linkage requested.
     /// </summary>
-    public Linkages56? Linkages { get; init;  } // Warning: Don't know multiplicity.
+    public Linkages56[] Linkages { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

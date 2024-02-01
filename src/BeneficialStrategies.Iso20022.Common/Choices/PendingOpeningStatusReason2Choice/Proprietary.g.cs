@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingOpeningStatusReason2Choic
 /// <summary>
 /// Reason for the pending account opening status expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IPendingOpeningStatusReason2Choice
+public partial record Proprietary : PendingOpeningStatusReason2Choice_
 {
     #nullable enable
     /// <summary>

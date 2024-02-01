@@ -28,7 +28,7 @@ public partial record NewIssueAllocation2
     /// <summary>
     /// Conditions applicable when the investor is covered by the "de minimis" exemption.
     /// </summary>
-    public IDeMinimus1Choice? DeMinimus { get; init; } 
+    public DeMinimus1Choice_? DeMinimus { get; init; } 
     
     #nullable disable
 }

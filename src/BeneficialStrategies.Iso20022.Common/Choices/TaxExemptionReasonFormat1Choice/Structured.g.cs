@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxExemptionReasonFormat1Choice;
 /// <summary>
 /// Structured format.
 /// </summary>
-public partial record Structured : ITaxExemptionReasonFormat1Choice
+public partial record Structured : TaxExemptionReasonFormat1Choice_
 {
     public required TaxExemptReason1Code Value { get; init; }
 }

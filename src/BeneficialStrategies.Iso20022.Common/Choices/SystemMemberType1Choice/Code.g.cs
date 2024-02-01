@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemMemberType1Choice;
 /// <summary>
 /// System member type, in a coded form.
 /// </summary>
-public partial record Code : ISystemMemberType1Choice
+public partial record Code : SystemMemberType1Choice_
 {
     public required ExternalSystemMemberType1Code Value { get; init; }
 }

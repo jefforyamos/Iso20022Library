@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReferenceType1Choice;
 /// <summary>
 /// Proprietary identification of the type of reference.
 /// </summary>
-public partial record Proprietary : IReferenceType1Choice
+public partial record Proprietary : ReferenceType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

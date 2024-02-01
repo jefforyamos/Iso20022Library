@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LinkedMessage3Choice;
 /// <summary>
 /// Reference to a linked message that was previously sent.
 /// </summary>
-public partial record PreviousReference : ILinkedMessage3Choice
+public partial record PreviousReference : LinkedMessage3Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record PreviousReference : ILinkedMessage3Choice
     /// <summary>
     /// Issuer of the reference.
     /// </summary>
-    public IPartyIdentification90Choice? ReferenceIssuer { get; init; } 
+    public PartyIdentification90Choice_? ReferenceIssuer { get; init; } 
     /// <summary>
     /// Name of the message.
     /// </summary>

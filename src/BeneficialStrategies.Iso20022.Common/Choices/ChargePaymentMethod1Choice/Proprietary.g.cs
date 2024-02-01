@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargePaymentMethod1Choice;
 /// <summary>
 /// Charge payment method expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IChargePaymentMethod1Choice
+public partial record Proprietary : ChargePaymentMethod1Choice_
 {
     #nullable enable
     /// <summary>

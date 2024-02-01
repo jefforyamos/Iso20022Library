@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AcknowledgementReason24Choice;
 /// <summary>
 /// Specifies additional information about the processed instruction expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IAcknowledgementReason24Choice
+public partial record Proprietary : AcknowledgementReason24Choice_
 {
     #nullable enable
     /// <summary>

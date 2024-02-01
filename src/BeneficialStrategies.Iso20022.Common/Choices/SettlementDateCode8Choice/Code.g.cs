@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementDateCode8Choice;
 /// <summary>
 /// Settlement date expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ISettlementDateCode8Choice
+public partial record Code : SettlementDateCode8Choice_
 {
     public required DateType4Code Value { get; init; }
 }

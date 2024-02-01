@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityPolypropylene
 /// <summary>
 /// Plastic commodity derivative.
 /// </summary>
-public partial record Plastic : IAssetClassCommodityPolypropylene3Choice
+public partial record Plastic : AssetClassCommodityPolypropylene3Choice_
 {
     #nullable enable
     /// <summary>

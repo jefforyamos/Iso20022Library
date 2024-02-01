@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConditionallyAcceptedStatusReaso
 /// <summary>
 /// Conditionally accepted reason expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IConditionallyAcceptedStatusReason3Choice
+public partial record Proprietary : ConditionallyAcceptedStatusReason3Choice_
 {
     #nullable enable
     /// <summary>

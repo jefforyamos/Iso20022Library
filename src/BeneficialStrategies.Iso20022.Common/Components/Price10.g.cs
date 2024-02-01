@@ -20,11 +20,11 @@ public partial record Price10
     /// <summary>
     /// Specification of the price type.
     /// </summary>
-    public required IYieldedOrValueType2Choice Type { get; init; } 
+    public required YieldedOrValueType2Choice_ Type { get; init; } 
     /// <summary>
     /// Value of the price, for example, as a currency and value.
     /// </summary>
-    public required IPriceRateOrAmount3Choice Value { get; init; } 
+    public required PriceRateOrAmount3Choice_ Value { get; init; } 
     
     #nullable disable
 }

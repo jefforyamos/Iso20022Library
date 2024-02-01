@@ -28,7 +28,7 @@ public partial record SubscriptionOrder14
     /// <summary>
     /// Category of the investment fund order.
     /// </summary>
-    public IReadOnlyCollection<IFundOrderType4Choice> OrderType { get; init; } = [];
+    public FundOrderType4Choice_[] OrderType { get; init; } = [];
     /// <summary>
     /// Investment fund class related to the order.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record SubscriptionOrder14
     /// <summary>
     /// Amount of money or the number of units for the subscription order.
     /// </summary>
-    public required IFinancialInstrumentQuantity27Choice AmountOrUnits { get; init; } 
+    public required FinancialInstrumentQuantity27Choice_ AmountOrUnits { get; init; } 
     /// <summary>
     /// Indicates the rounding direction applied to nearest unit.
     /// </summary>
@@ -117,7 +117,7 @@ public partial record SubscriptionOrder14
     /// <summary>
     /// Breakdown of the net amount per type of order.
     /// </summary>
-    public IReadOnlyCollection<InvestmentFundsOrderBreakdown2> StaffClientBreakdown { get; init; } = [];
+    public InvestmentFundsOrderBreakdown2[] StaffClientBreakdown { get; init; } = [];
     /// <summary>
     /// Specifies if advice has been received from an independent financial advisor.
     /// </summary>
@@ -129,7 +129,7 @@ public partial record SubscriptionOrder14
     /// <summary>
     /// Party related to the transaction.
     /// </summary>
-    public IReadOnlyCollection<Intermediary40> RelatedPartyDetails { get; init; } = [];
+    public Intermediary40[] RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Part of an investor's subscription amount that is held by the fund in order to pay incentive/performance fees at the end of the fiscal year.
     /// </summary>
@@ -137,19 +137,19 @@ public partial record SubscriptionOrder14
     /// <summary>
     /// Source of cash used for the settlement of the subscription.
     /// </summary>
-    public ISourceOfCash1Choice? SourceOfCash { get; init;  } // Warning: Don't know multiplicity.
+    public SourceOfCash1Choice_[] SourceOfCash { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Assessment of the customer’s behaviour at the time of the account opening application.
     /// </summary>
-    public ICustomerConductClassification1Choice? CustomerConductClassification { get; init; } 
+    public CustomerConductClassification1Choice_? CustomerConductClassification { get; init; } 
     /// <summary>
     /// Means by which the investor or account owner submits the open account form.
     /// </summary>
-    public ITransactionChannelType1Choice? TransactionChannelType { get; init; } 
+    public TransactionChannelType1Choice_? TransactionChannelType { get; init; } 
     /// <summary>
     /// Type of signature.
     /// </summary>
-    public ISignatureType1Choice? SignatureType { get; init; } 
+    public SignatureType1Choice_? SignatureType { get; init; } 
     /// <summary>
     /// Information about a non-standard order.
     /// </summary>

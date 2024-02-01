@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentRole1Choice;
 /// <summary>
 /// Payment party role, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IPaymentRole1Choice
+public partial record Proprietary : PaymentRole1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

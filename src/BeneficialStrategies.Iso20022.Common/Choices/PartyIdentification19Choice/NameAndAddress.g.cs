@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification19Choice;
 /// <summary>
 /// Identification of the party expressed as name and address and an alternative identifier.
 /// </summary>
-public partial record NameAndAddress : IPartyIdentification19Choice
+public partial record NameAndAddress : PartyIdentification19Choice_
 {
     #nullable enable
     /// <summary>

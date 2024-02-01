@@ -52,7 +52,7 @@ public partial record NetPosition3
     /// <summary>
     /// Identifies the quantity of the trade leg.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice NetQuantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ NetQuantity { get; init; } 
     /// <summary>
     /// Indicates the securities movement direction, that is, whether this is a delivery or return.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record NetPosition3
     /// <summary>
     /// Place at which a trade settles.
     /// </summary>
-    public required IPartyIdentification34Choice Depository { get; init; } 
+    public required PartyIdentification34Choice_ Depository { get; init; } 
     /// <summary>
     /// Identifies the trading capacity of the seller.
     /// </summary>
@@ -76,11 +76,11 @@ public partial record NetPosition3
     /// <summary>
     /// Provides the contractual settlement date.
     /// </summary>
-    public IDateFormat15Choice? SettlementDate { get; init; } 
+    public DateFormat15Choice_? SettlementDate { get; init; } 
     /// <summary>
     /// Provides the trade leg details such as trade leg identification and trade type.
     /// </summary>
-    public TradeLeg10? TradeLegDetails { get; init;  } // Warning: Don't know multiplicity.
+    public TradeLeg10[] TradeLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -20,7 +20,7 @@ public partial record ClearingSystemMemberIdentification2
     /// <summary>
     /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
     /// </summary>
-    public IClearingSystemIdentification2Choice? ClearingSystemIdentification { get; init; } 
+    public ClearingSystemIdentification2Choice_? ClearingSystemIdentification { get; init; } 
     /// <summary>
     /// Identification of a member of a clearing system.
     /// </summary>

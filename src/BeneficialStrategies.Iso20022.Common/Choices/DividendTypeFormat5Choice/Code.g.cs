@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DividendTypeFormat5Choice;
 /// <summary>
 /// Standard code to specify the frequency of the corporate action event.
 /// </summary>
-public partial record Code : IDividendTypeFormat5Choice
+public partial record Code : DividendTypeFormat5Choice_
 {
     public required CorporateActionFrequencyType3Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DisputeResolutionType1Choice;
 /// <summary>
 /// Code to specify the type of dispute that is to be resolved regarding the disputed collateral amount.
 /// </summary>
-public partial record Code : IDisputeResolutionType1Choice
+public partial record Code : DisputeResolutionType1Choice_
 {
     public required DisputeResolutionType1Code Value { get; init; }
 }

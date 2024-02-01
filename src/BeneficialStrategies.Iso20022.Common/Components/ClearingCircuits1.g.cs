@@ -20,7 +20,7 @@ public partial record ClearingCircuits1
     /// <summary>
     /// Clearing scheme used.
     /// </summary>
-    public required IClearingScheme1Choice ClearingCircuit { get; init; } 
+    public required ClearingScheme1Choice_ ClearingCircuit { get; init; } 
     /// <summary>
     /// Indicates whether the limits can be set for the external payment system.
     /// </summary>

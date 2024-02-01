@@ -36,7 +36,7 @@ public partial record SettlementObligation7
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public ISafekeepingPlaceFormat7Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat7Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Clearing member account at the central securities depository.
     /// </summary>
@@ -45,7 +45,7 @@ public partial record SettlementObligation7
     /// Clearing organisation that will clear the trade.
     /// Note: This field allows clearing member firm to segregate flows coming from clearing counterparty's clearing system. Indeed, clearing member firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.
     /// </summary>
-    public IPartyIdentification35Choice? ClearingSegment { get; init; } 
+    public PartyIdentification35Choice_? ClearingSegment { get; init; } 
     /// <summary>
     /// Provides the identification for the non-clearing member and account.
     /// </summary>
@@ -69,15 +69,15 @@ public partial record SettlementObligation7
     /// <summary>
     /// Provides the quantity of the trade.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Place where settlement of the securities takes place.
     /// </summary>
-    public IPartyIdentification34Choice? Depository { get; init; } 
+    public PartyIdentification34Choice_? Depository { get; init; } 
     /// <summary>
     /// Provides the remaining quantity to be settled.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? RemainingQuantityToBeSettled { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? RemainingQuantityToBeSettled { get; init; } 
     /// <summary>
     /// Provides the amount to be settled.
     /// </summary>

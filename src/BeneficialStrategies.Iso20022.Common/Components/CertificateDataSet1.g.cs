@@ -28,11 +28,11 @@ public partial record CertificateDataSet1
     /// <summary>
     /// Specifies if the certificate data set is required in relation to specific line items, and which line items.
     /// </summary>
-    public LineItemAndPOIdentification1? LineItem { get; init;  } // Warning: Don't know multiplicity.
+    public LineItemAndPOIdentification1[] LineItem { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Characteristics of the goods that are certified, in the context of a commercial trade transaction.
     /// </summary>
-    public required ICertifiedCharacteristics1Choice CertifiedCharacteristics { get; init; } 
+    public required CertifiedCharacteristics1Choice_ CertifiedCharacteristics { get; init; } 
     /// <summary>
     /// Issue date of the document.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record CertificateDataSet1
     /// <summary>
     /// Additional and important information that could not be captured by structured fields.
     /// </summary>
-    public IsoMax350Text? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax350Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

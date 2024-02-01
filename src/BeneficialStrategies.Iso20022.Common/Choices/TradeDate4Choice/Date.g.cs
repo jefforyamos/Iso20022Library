@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeDate4Choice;
 /// <summary>
 /// Date and time at which the securities are to be traded.
 /// </summary>
-public partial record Date : ITradeDate4Choice
+public partial record Date : TradeDate4Choice_
 {
     #nullable enable
     #nullable disable

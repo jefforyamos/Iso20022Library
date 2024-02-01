@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DeliveryInterconnectionPoint1Cho
 /// <summary>
 /// Identification of delivery/interconnection point or zone in a proprietary format.
 /// </summary>
-public partial record Proprietary : IDeliveryInterconnectionPoint1Choice
+public partial record Proprietary : DeliveryInterconnectionPoint1Choice_
 {
     public required IsoMax52Text Value { get; init; }
 }

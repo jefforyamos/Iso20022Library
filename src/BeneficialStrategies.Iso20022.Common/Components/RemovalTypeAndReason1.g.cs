@@ -20,7 +20,7 @@ public partial record RemovalTypeAndReason1
     /// <summary>
     /// Specifies the removal processing change requested.
     /// </summary>
-    public required IRemoval1Choice RemovalType { get; init; } 
+    public required Removal1Choice_ RemovalType { get; init; } 
     /// <summary>
     /// Identifies the reason for the removal, the extension of the removal or the termination of the removal.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record RemovalTypeAndReason1
     /// <summary>
     /// Identifies the period, the start date or the end date of the exclusion period.
     /// </summary>
-    public IDateOrDateTimePeriod3Choice? ExclusionPeriod { get; init; } 
+    public DateOrDateTimePeriod3Choice_? ExclusionPeriod { get; init; } 
     
     #nullable disable
 }

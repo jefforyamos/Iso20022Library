@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus98Choice;
 /// <summary>
 /// Trade is in OpenOrder.
 /// </summary>
-public partial record OpenOrder : IProcessingStatus98Choice
+public partial record OpenOrder : ProcessingStatus98Choice_
 {
     #nullable enable
     /// <summary>

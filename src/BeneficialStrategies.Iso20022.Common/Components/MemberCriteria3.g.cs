@@ -24,7 +24,7 @@ public partial record MemberCriteria3
     /// <summary>
     /// Defines the criteria based on which the information is extracted.
     /// </summary>
-    public MemberSearchCriteria2? SearchCriteria { get; init;  } // Warning: Don't know multiplicity.
+    public MemberSearchCriteria2[] SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines the expected report.
     /// </summary>

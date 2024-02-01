@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralStatus2Choice;
 /// <summary>
 /// Provides the status after comparing the total collateral required and the total collateral value of all transactions covered in the message as a code.
 /// </summary>
-public partial record Code : ICollateralStatus2Choice
+public partial record Code : CollateralStatus2Choice_
 {
     public required ExecutionStatus1Code Value { get; init; }
 }

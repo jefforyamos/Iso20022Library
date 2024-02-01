@@ -24,11 +24,11 @@ public partial record TradeSecurityIdentificationQueryCriteria2
     /// <summary>
     /// Identification of the product through ISIN or AII.
     /// </summary>
-    public SecurityIdentificationQueryCriteria1? Identification { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityIdentificationQueryCriteria1[] Identification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique identification to identify the direct underlying instrument based on its type. 
     /// </summary>
-    public ISecurityIdentificationQuery3Choice? UnderlyingInstrumentIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityIdentificationQuery3Choice_[] UnderlyingInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

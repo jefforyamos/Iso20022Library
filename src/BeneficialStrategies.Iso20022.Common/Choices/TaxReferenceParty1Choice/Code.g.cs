@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxReferenceParty1Choice;
 /// <summary>
 /// Type of party expressed as a code.
 /// </summary>
-public partial record Code : ITaxReferenceParty1Choice
+public partial record Code : TaxReferenceParty1Choice_
 {
     public required HolderType1Code Value { get; init; }
 }

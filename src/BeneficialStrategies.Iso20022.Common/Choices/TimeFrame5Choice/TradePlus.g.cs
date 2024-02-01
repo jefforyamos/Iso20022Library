@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TimeFrame5Choice;
 /// <summary>
 /// An agreed number of days after the Trade date (T) used to define standard timeframes e.g T+3 settlement period. ||Where = T is the date that the price is applied to a transaction.
 /// </summary>
-public partial record TradePlus : ITimeFrame5Choice
+public partial record TradePlus : TimeFrame5Choice_
 {
     public required IsoNumber Value { get; init; }
 }

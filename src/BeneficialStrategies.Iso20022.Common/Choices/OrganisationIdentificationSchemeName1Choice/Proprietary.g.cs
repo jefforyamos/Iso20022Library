@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrganisationIdentificationScheme
 /// <summary>
 /// Name of the identification scheme, in a free text form.
 /// </summary>
-public partial record Proprietary : IOrganisationIdentificationSchemeName1Choice
+public partial record Proprietary : OrganisationIdentificationSchemeName1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

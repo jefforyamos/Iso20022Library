@@ -60,7 +60,7 @@ public partial record FinancialInstrument21
     /// <summary>
     /// Countries where the fund is registered for distribution.
     /// </summary>
-    public CountryCode? RegisteredDistributionCountry { get; init;  } // Warning: Don't know multiplicity.
+    public CountryCode[] RegisteredDistributionCountry { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -24,7 +24,7 @@ public partial record CashOption10
     /// <summary>
     /// Specifies information regarding outturn resources that cannot be processed by the Central Securities Depository (CSD). Special delivery instruction is required from the account owner for the corporate action outcome to be credited.
     /// </summary>
-    public INonEligibleProceedsIndicator1Choice? NonEligibleProceedsIndicator { get; init; } 
+    public NonEligibleProceedsIndicator1Choice_? NonEligibleProceedsIndicator { get; init; } 
     /// <summary>
     /// Specifies the type of income.|The lists of income type codes to be used, are available on the SMPG website at www.smpg.info.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record CashOption10
     /// <summary>
     /// Identification of the account in which cash is maintained.
     /// </summary>
-    public ICashAccountIdentification5Choice? CashAccountIdentification { get; init; } 
+    public CashAccountIdentification5Choice_? CashAccountIdentification { get; init; } 
     /// <summary>
     /// Provides information about the amounts related to a cash movement.
     /// </summary>

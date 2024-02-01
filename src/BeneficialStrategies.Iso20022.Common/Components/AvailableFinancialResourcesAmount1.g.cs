@@ -28,7 +28,7 @@ public partial record AvailableFinancialResourcesAmount1
     /// <summary>
     /// Value of the CCP’s own contribution to the default waterfall junior to the pre-funded default fund contributions of the non-defaulting clearing members.
     /// </summary>
-    public ReportingAssetBreakdown1? CCPSkinInTheGame { get; init;  } // Warning: Don't know multiplicity.
+    public ReportingAssetBreakdown1[] CCPSkinInTheGame { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total value of other contributions to the pre-funded default fund, not received from clearing members, including any contribution from the CCP that is pari-passu with the default fund contributions of the non-defaulting clearing members.
     /// </summary>

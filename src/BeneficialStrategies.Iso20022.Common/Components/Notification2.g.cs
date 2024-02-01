@@ -28,7 +28,7 @@ public partial record Notification2
     /// <summary>
     /// Specifies how the notification is sent.
     /// </summary>
-    public IInformationDistribution1Choice? DistributionType { get; init; } 
+    public InformationDistribution1Choice_? DistributionType { get; init; } 
     
     #nullable disable
 }

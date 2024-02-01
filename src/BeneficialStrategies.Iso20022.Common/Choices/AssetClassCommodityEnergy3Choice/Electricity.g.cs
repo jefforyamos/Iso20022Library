@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnergy3Choice
 /// <summary>
 /// Definition of Electricity energy commodity derivative.
 /// </summary>
-public partial record Electricity : IAssetClassCommodityEnergy3Choice
+public partial record Electricity : AssetClassCommodityEnergy3Choice_
 {
     #nullable enable
     /// <summary>

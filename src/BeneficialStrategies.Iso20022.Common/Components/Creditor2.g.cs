@@ -20,7 +20,7 @@ public partial record Creditor2
     /// <summary>
     /// Party that receives an amount of money from the debtor. In the context of the payment model, the creditor is also the credit account owner.
     /// </summary>
-    public IPartyIdentification2Choice? Creditor { get; init; } 
+    public PartyIdentification2Choice_? Creditor { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record Creditor2
     /// <summary>
     /// Party that is the ultimate beneficiary of the credit transfer. The final party is mentioned when different from the creditor, whose account will be credited by the final agent.
     /// </summary>
-    public required IFinancialInstitutionIdentification3Choice FinalAgent { get; init; } 
+    public required FinancialInstitutionIdentification3Choice_ FinalAgent { get; init; } 
     
     #nullable disable
 }

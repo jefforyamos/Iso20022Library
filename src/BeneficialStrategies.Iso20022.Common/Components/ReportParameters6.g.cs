@@ -24,7 +24,7 @@ public partial record ReportParameters6
     /// <summary>
     /// Date (and time) at which the report was created.
     /// </summary>
-    public required IDateAndDateTime2Choice ReportDateAndTime { get; init; } 
+    public required DateAndDateTime2Choice_ ReportDateAndTime { get; init; } 
     /// <summary>
     /// Frequency of the report.
     /// </summary>

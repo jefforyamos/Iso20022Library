@@ -25,7 +25,7 @@ public partial record OtherPayment3
     /// <summary>
     /// Indicates the type of other payment.
     /// </summary>
-    public IPaymentType5Choice? PaymentType { get; init; } 
+    public PaymentType5Choice_? PaymentType { get; init; } 
     /// <summary>
     /// Indicates the unadjusted date on which the other payment is paid.
     /// </summary>
@@ -33,11 +33,11 @@ public partial record OtherPayment3
     /// <summary>
     /// Identifies the payer of the other payment amount.
     /// </summary>
-    public IPartyIdentification235Choice? PaymentPayer { get; init; } 
+    public PartyIdentification235Choice_? PaymentPayer { get; init; } 
     /// <summary>
     /// Identifies the receiver of the other payment amount.
     /// </summary>
-    public IPartyIdentification235Choice? PaymentReceiver { get; init; } 
+    public PartyIdentification235Choice_? PaymentReceiver { get; init; } 
     
     #nullable disable
 }

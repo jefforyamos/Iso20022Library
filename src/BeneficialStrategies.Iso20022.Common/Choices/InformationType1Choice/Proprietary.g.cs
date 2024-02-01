@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InformationType1Choice;
 /// <summary>
 /// Type of additional information not catered for by the available codes.
 /// </summary>
-public partial record Proprietary : IInformationType1Choice
+public partial record Proprietary : InformationType1Choice_
 {
     public required IsoMax140Text Value { get; init; }
 }

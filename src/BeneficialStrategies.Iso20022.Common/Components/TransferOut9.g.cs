@@ -20,11 +20,11 @@ public partial record TransferOut9
     /// <summary>
     /// Requested date at which the instructing party places the transfer instruction.
     /// </summary>
-    public IDateFormat1Choice? RequestedTransferDate { get; init; } 
+    public DateFormat1Choice_? RequestedTransferDate { get; init; } 
     /// <summary>
     /// General information related to the transfer of a financial instrument.
     /// </summary>
-    public Transfer20? TransferDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Transfer20[] TransferDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to the account from which the financial instrument is to be withdrawn.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record TransferOut9
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1? Extension { get; init;  } // Warning: Don't know multiplicity.
+    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

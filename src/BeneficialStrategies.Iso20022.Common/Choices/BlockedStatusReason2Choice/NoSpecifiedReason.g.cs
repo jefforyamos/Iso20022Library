@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BlockedStatusReason2Choice;
 /// <summary>
 /// There is no reason available or to report for the closed account status.
 /// </summary>
-public partial record NoSpecifiedReason : IBlockedStatusReason2Choice
+public partial record NoSpecifiedReason : BlockedStatusReason2Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

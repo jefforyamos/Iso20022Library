@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty16Choic
 /// <summary>
 /// Specifies the type of report activity for a specific reporting period.
 /// </summary>
-public partial record DataSetAction : IStatisticsPerCounterparty16Choice
+public partial record DataSetAction : StatisticsPerCounterparty16Choice_
 {
     public required ReportPeriodActivity1Code Value { get; init; }
 }

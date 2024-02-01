@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References68Choice;
 /// <summary>
 /// Reference to a linked message sent in a proprietary way or the reference of a system.
 /// </summary>
-public partial record OtherReference : IReferences68Choice
+public partial record OtherReference : References68Choice_
 {
     #nullable enable
     /// <summary>

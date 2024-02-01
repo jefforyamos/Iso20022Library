@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentCodeOrOther2Choice;
 /// <summary>
 /// Specifies the payment date as a fixed date.
 /// </summary>
-public partial record PaymentDueDate : IPaymentCodeOrOther2Choice
+public partial record PaymentDueDate : PaymentCodeOrOther2Choice_
 {
     public required IsoISODate Value { get; init; }
 }

@@ -28,11 +28,11 @@ public partial record ATMTransaction27
     /// <summary>
     /// Exception occurring outside the service.
     /// </summary>
-    public FailureReason8Code? Exception { get; init;  } // Warning: Don't know multiplicity.
+    public FailureReason8Code[] Exception { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Explanation of the exception.
     /// </summary>
-    public IsoMax70Text? ExceptionDetail { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] ExceptionDetail { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Balance of the captured card or epurse if available.
     /// </summary>

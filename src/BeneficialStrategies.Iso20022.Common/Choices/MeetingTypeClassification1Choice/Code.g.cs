@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MeetingTypeClassification1Choice
 /// <summary>
 /// Classifies the type of meeting.
 /// </summary>
-public partial record Code : IMeetingTypeClassification1Choice
+public partial record Code : MeetingTypeClassification1Choice_
 {
     public required MeetingTypeClassification1Code Value { get; init; }
 }

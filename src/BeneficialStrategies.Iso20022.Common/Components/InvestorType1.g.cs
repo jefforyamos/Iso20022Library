@@ -24,7 +24,7 @@ public partial record InvestorType1
     /// <summary>
     /// Specifies how the product is aimed at the professional investor. If neutral, the manufacturer estimates that there is neither a negative nor a positive target market. Professional per se or elective professional should only be used if the distinction is done in the prospectus. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 01020.
     /// </summary>
-    public ITargetMarket4Choice? InvestorTypeProfessional { get; init; } 
+    public TargetMarket4Choice_? InvestorTypeProfessional { get; init; } 
     /// <summary>
     /// Specifies whether the product is aimed at the eligible counterparty. If neutral, the manufacturer estimates that there is neither a negative nor a positive target market. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 01030.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record InvestorType1
     /// <summary>
     /// Specifies another investor type.
     /// </summary>
-    public OtherTargetMarketInvestor1? Other { get; init;  } // Warning: Don't know multiplicity.
+    public OtherTargetMarketInvestor1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

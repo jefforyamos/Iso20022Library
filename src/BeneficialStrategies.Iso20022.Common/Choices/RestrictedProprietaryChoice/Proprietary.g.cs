@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RestrictedProprietaryChoice;
 /// <summary>
 /// Proprietary identification of a pre-agreed level of service between the parties.
 /// </summary>
-public partial record Proprietary : IRestrictedProprietaryChoice
+public partial record Proprietary : RestrictedProprietaryChoice_
 {
     public required IsoMax35Text Value { get; init; }
 }

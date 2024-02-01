@@ -44,7 +44,7 @@ public partial record BeneficialOwner2
     /// <summary>
     /// Type of beneficial owner certification that is required.
     /// </summary>
-    public IBeneficiaryCertificationType9Choice? CertificationType { get; init; } 
+    public BeneficiaryCertificationType9Choice_? CertificationType { get; init; } 
     /// <summary>
     /// Declaration details related to the financial instrument, for example, beneficial ownership.
     /// </summary>

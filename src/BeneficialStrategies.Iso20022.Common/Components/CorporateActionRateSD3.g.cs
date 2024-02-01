@@ -24,7 +24,7 @@ public partial record CorporateActionRateSD3
     /// <summary>
     /// Corresponding rate of the security being disbursed as a result of the corporate action as declared by the issuer or offeror on the market.
     /// </summary>
-    public IRatioFormat13Choice? DeclaredSecurityRate { get; init; } 
+    public RatioFormat13Choice_? DeclaredSecurityRate { get; init; } 
     
     #nullable disable
 }

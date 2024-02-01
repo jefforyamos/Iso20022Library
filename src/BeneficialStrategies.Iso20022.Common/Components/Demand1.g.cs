@@ -48,7 +48,7 @@ public partial record Demand1
     /// <summary>
     /// Details related to the settlement account.
     /// </summary>
-    public CashAccount27? SettlementAccount { get; init;  } // Warning: Don't know multiplicity.
+    public CashAccount27[] SettlementAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details of the beneficiary's presentation of documents.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record Demand1
     /// <summary>
     /// Additional information related to the demand.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.DeniedStatus2Choice;
 /// <summary>
 /// Specifies the reason of the DeniedStatus.
 /// </summary>
-public partial record Reason : IDeniedStatus2Choice
+public partial record Reason : DeniedStatus2Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the request has a denied status.
     /// </summary>
-    public required IDeniedReason2Choice Code { get; init; } 
+    public required DeniedReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

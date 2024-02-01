@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason3Choice;
 /// <summary>
 /// Rejection reason is defined using a data source scheme.
 /// </summary>
-public partial record Proprietary : IRejectionReason3Choice
+public partial record Proprietary : RejectionReason3Choice_
 {
     #nullable enable
     /// <summary>

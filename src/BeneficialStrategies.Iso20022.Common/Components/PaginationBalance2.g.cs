@@ -20,11 +20,11 @@ public partial record PaginationBalance2
     /// <summary>
     /// Opening balance of the financial instrument in the statement or of the intermediary opening balance of the page of the statement.
     /// </summary>
-    public IOpeningBalance3Choice? OpeningBalance { get; init; } 
+    public OpeningBalance3Choice_? OpeningBalance { get; init; } 
     /// <summary>
     /// Closing balance of the financial instrument in the statement or of the intermediary closing balance of the page of the statement.
     /// </summary>
-    public IClosingBalance3Choice? ClosingBalance { get; init; } 
+    public ClosingBalance3Choice_? ClosingBalance { get; init; } 
     
     #nullable disable
 }

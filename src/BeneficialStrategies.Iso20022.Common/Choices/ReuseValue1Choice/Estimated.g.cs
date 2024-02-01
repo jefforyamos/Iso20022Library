@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReuseValue1Choice;
 /// <summary>
 /// In the case when the actual value of reused collateral is unknown or cannot be calculated, an estimate value of reuse at individual financial instrument level calculated.
 /// </summary>
-public partial record Estimated : IReuseValue1Choice
+public partial record Estimated : ReuseValue1Choice_
 {
     public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
 }

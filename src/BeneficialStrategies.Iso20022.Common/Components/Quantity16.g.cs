@@ -20,7 +20,7 @@ public partial record Quantity16
     /// <summary>
     /// Specifies a unit of measure with a code or free text.
     /// </summary>
-    public required IUnitOfMeasure6Choice UnitOfMeasure { get; init; } 
+    public required UnitOfMeasure6Choice_ UnitOfMeasure { get; init; } 
     /// <summary>
     /// Quantity of a product on a line specified by a number. For example, 100 (kgs), 50 (pieces).
     /// </summary>

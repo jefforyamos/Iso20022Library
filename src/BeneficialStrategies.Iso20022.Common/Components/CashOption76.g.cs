@@ -24,7 +24,7 @@ public partial record CashOption76
     /// <summary>
     /// Identification of the account in which cash is maintained.
     /// </summary>
-    public ICashAccountIdentification5Choice? CashAccountIdentification { get; init; } 
+    public CashAccountIdentification5Choice_? CashAccountIdentification { get; init; } 
     /// <summary>
     /// Amount of money before any deductions and allowances have been made.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record CashOption76
     /// <summary>
     /// Percentage of a cash distribution that will be withheld by the tax authorities of the jurisdiction of the issuer, for which a relief at source and/or reclaim may be possible.
     /// </summary>
-    public IRateAndAmountFormat40Choice? WithholdingTaxRate { get; init;  } // Warning: Don't know multiplicity.
+    public RateAndAmountFormat40Choice_[] WithholdingTaxRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of a cash distribution that will be withheld by the tax authorities of the jurisdiction of the issuer, for which a relief at source and/or reclaim may be possible.
     /// </summary>
@@ -48,11 +48,11 @@ public partial record CashOption76
     /// <summary>
     /// Date/time on which a payment can be made, for example, if the payment date is a non-business day or to indicate the first payment date of an offer.
     /// </summary>
-    public IDateAndDateTime2Choice? EarliestPaymentDate { get; init; } 
+    public DateAndDateTime2Choice_? EarliestPaymentDate { get; init; } 
     /// <summary>
     /// Date/time on which the movement is due to take place (cash and/or securities).
     /// </summary>
-    public required IDateFormat43Choice PaymentDate { get; init; } 
+    public required DateFormat43Choice_ PaymentDate { get; init; } 
     
     #nullable disable
 }

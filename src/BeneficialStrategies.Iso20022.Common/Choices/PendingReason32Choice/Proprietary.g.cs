@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingReason32Choice;
 /// <summary>
 /// Proprietary identification of the reason why the instruction/event has a pending status.
 /// </summary>
-public partial record Proprietary : IPendingReason32Choice
+public partial record Proprietary : PendingReason32Choice_
 {
     #nullable enable
     /// <summary>

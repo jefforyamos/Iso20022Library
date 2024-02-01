@@ -86,7 +86,7 @@ public partial record ResolutionOfInvestigationV06 : IOuterRecord
     [DataMember(Name="Sts")]
     [XmlElement(ElementName="Sts")]
     [Required]
-    public required IInvestigationStatus3Choice Status { get; init; }
+    public required InvestigationStatus3Choice_ Status { get; init; }
     
     /// <summary>
     /// Specifies the details of the underlying transactions being cancelled.
@@ -113,7 +113,7 @@ public partial record ResolutionOfInvestigationV06 : IOuterRecord
     [Description(@"References a transaction initiated to fix the case under investigation.")]
     [DataMember(Name="CrrctnTx")]
     [XmlElement(ElementName="CrrctnTx")]
-    public ICorrectiveTransaction1Choice? CorrectionTransaction { get; init; }
+    public CorrectiveTransaction1Choice_? CorrectionTransaction { get; init; }
     
     /// <summary>
     /// Reference of a return or a reversal initiated to fix the case under investigation as part of the resolution.

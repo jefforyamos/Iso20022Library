@@ -24,7 +24,7 @@ public partial record PlainCardData21
     /// <summary>
     /// Additional card specific data.
     /// </summary>
-    public AdditionalData1? AdditionalCardData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalCardData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

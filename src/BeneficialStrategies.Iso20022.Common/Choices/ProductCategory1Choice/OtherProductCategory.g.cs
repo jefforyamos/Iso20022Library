@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProductCategory1Choice;
 /// <summary>
 /// Specifies the type of product category not present in the code list.
 /// </summary>
-public partial record OtherProductCategory : IProductCategory1Choice
+public partial record OtherProductCategory : ProductCategory1Choice_
 {
     #nullable enable
     /// <summary>

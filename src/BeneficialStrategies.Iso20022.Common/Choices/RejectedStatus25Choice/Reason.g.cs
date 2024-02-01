@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedStatus25Choice;
 /// <summary>
 /// Reason for the rejected status.
 /// </summary>
-public partial record Reason : IRejectedStatus25Choice
+public partial record Reason : RejectedStatus25Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the instruction or instruction cancellation has been rejected.
     /// </summary>
-    public required IRejectedReason24Choice ReasonCode { get; init; } 
+    public required RejectedReason24Choice_ ReasonCode { get; init; } 
     /// <summary>
     /// Provides additional information about the processed instruction.
     /// </summary>

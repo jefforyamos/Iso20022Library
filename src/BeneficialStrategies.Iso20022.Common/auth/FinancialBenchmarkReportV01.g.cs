@@ -46,7 +46,7 @@ public partial record FinancialBenchmarkReportV01 : IOuterRecord
     [DataMember(Name="BchmkData")]
     [XmlElement(ElementName="BchmkData")]
     [Required]
-    public required IBenchmarkReport1Choice BenchmarkData { get; init; }
+    public required BenchmarkReport1Choice_ BenchmarkData { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AcceptedReason7Choice;
 /// <summary>
 /// Reason for the accepted status expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IAcceptedReason7Choice
+public partial record Code : AcceptedReason7Choice_
 {
     public required ExternalAcceptedReason1Code Value { get; init; }
 }

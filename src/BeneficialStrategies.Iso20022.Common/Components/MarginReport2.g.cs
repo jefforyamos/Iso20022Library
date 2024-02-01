@@ -20,7 +20,7 @@ public partial record MarginReport2
     /// <summary>
     /// Specifies if the margin is related to equities or fixed income.
     /// </summary>
-    public IMarginProductType1Choice? MarginProduct { get; init;  } // Warning: Don't know multiplicity.
+    public MarginProductType1Choice_[] MarginProduct { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the clearing member's account.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record MarginReport2
     /// <summary>
     /// Provides details about the non clearing member identification and account.
     /// </summary>
-    public PartyIdentificationAndAccount31? NonClearingMember { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentificationAndAccount31[] NonClearingMember { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the margin calculation summary per margin account.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record MarginReport2
     /// <summary>
     /// Provides the margin details such as the exposure amount and the initial margin.
     /// </summary>
-    public MarginCalculation2? MarginCalculation { get; init;  } // Warning: Don't know multiplicity.
+    public MarginCalculation2[] MarginCalculation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

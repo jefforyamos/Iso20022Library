@@ -28,7 +28,7 @@ public partial record Statement8
     /// <summary>
     /// Creation date of the statement.
     /// </summary>
-    public IDateAndDateTimeChoice? CreationDateTime { get; init; } 
+    public DateAndDateTimeChoice_? CreationDateTime { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>

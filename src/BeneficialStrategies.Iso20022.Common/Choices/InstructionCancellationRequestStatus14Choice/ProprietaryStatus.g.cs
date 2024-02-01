@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionCancellationRequestSt
 /// <summary>
 /// Proprietary status related to an instruction cancellation request.
 /// </summary>
-public partial record ProprietaryStatus : IInstructionCancellationRequestStatus14Choice
+public partial record ProprietaryStatus : InstructionCancellationRequestStatus14Choice_
 {
     #nullable enable
     /// <summary>

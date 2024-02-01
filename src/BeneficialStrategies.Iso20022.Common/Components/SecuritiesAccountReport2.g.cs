@@ -24,7 +24,7 @@ public partial record SecuritiesAccountReport2
     /// <summary>
     /// Identifies the returned securities account reference data or error information.
     /// </summary>
-    public required ISecuritiesAccountOrBusinessError2Choice SecuritiesAccountOrError { get; init; } 
+    public required SecuritiesAccountOrBusinessError2Choice_ SecuritiesAccountOrError { get; init; } 
     
     #nullable disable
 }

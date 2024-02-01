@@ -28,19 +28,19 @@ public partial record CorporateAction61
     /// <summary>
     /// Stage in the corporate action event life cycle.
     /// </summary>
-    public ICorporateActionEventStageFormat14Choice? EventStage { get; init; } 
+    public CorporateActionEventStageFormat14Choice_? EventStage { get; init; } 
     /// <summary>
     /// Indicates whether the message is related to a claim on the associated corporate action event.
     /// </summary>
-    public IAdditionalBusinessProcessFormat18Choice? AdditionalBusinessProcessIndicator { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalBusinessProcessFormat18Choice_[] AdditionalBusinessProcessIndicator { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the type of intermediates securities distribution.
     /// </summary>
-    public IIntermediateSecuritiesDistributionTypeFormat15Choice? IntermediateSecuritiesDistributionType { get; init; } 
+    public IntermediateSecuritiesDistributionTypeFormat15Choice_? IntermediateSecuritiesDistributionType { get; init; } 
     /// <summary>
     /// Specifies the type of lottery announced.
     /// </summary>
-    public ILotteryTypeFormat4Choice? LotteryType { get; init; } 
+    public LotteryTypeFormat4Choice_? LotteryType { get; init; } 
     
     #nullable disable
 }

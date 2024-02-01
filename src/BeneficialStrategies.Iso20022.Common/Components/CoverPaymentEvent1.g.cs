@@ -28,7 +28,7 @@ public partial record CoverPaymentEvent1
     /// <summary>
     /// Identifies the agent(s) currently participating in a transaction.
     /// </summary>
-    public PaymentEvent2? Agent { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentEvent2[] Agent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the party to which an amount of money is due.
     /// </summary>

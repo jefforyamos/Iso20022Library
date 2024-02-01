@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationPendingStatus7Choice
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoSpecifiedReason : ICancellationPendingStatus7Choice
+public partial record NoSpecifiedReason : CancellationPendingStatus7Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

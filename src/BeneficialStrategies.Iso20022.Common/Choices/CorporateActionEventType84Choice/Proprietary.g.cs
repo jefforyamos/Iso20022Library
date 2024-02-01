@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventType84Choice
 /// <summary>
 /// Event type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICorporateActionEventType84Choice
+public partial record Proprietary : CorporateActionEventType84Choice_
 {
     #nullable enable
     /// <summary>

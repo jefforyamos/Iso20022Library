@@ -20,11 +20,11 @@ public partial record PointOfInteractionComponentCharacteristics3
     /// <summary>
     /// Memory characteristics of the component.
     /// </summary>
-    public MemoryCharacteristics1? Memory { get; init;  } // Warning: Don't know multiplicity.
+    public MemoryCharacteristics1[] Memory { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Low level communication of the hardware or software component toward another component or an external entity.
     /// </summary>
-    public CommunicationCharacteristics3? Communication { get; init;  } // Warning: Don't know multiplicity.
+    public CommunicationCharacteristics3[] Communication { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number of security access modules (SAM).
     /// </summary>

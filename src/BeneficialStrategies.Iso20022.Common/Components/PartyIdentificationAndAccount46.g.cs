@@ -20,7 +20,7 @@ public partial record PartyIdentificationAndAccount46
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    public IPartyIdentification45Choice? Identification { get; init; } 
+    public PartyIdentification45Choice_? Identification { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TrancheIndicator3Choice;
 /// <summary>
 /// Indication that derivative contract is tranched.
 /// </summary>
-public partial record Tranched : ITrancheIndicator3Choice
+public partial record Tranched : TrancheIndicator3Choice_
 {
     #nullable enable
     /// <summary>

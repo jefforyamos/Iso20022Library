@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ResidenceLocation1Choice;
 /// <summary>
 /// Specifies the account owner's resident geographical region or area.
 /// </summary>
-public partial record Area : IResidenceLocation1Choice
+public partial record Area : ResidenceLocation1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

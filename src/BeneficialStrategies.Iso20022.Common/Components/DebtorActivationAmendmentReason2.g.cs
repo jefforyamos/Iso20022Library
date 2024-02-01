@@ -24,11 +24,11 @@ public partial record DebtorActivationAmendmentReason2
     /// <summary>
     /// Specifies the reason for the amendment request.
     /// </summary>
-    public required IDebtorActivationAmendmentReason1Choice Reason { get; init; } 
+    public required DebtorActivationAmendmentReason1Choice_ Reason { get; init; } 
     /// <summary>
     /// Further details on the amendment request reason.
     /// </summary>
-    public IsoMax105Text? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

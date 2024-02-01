@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesLendingType3Choice;
 /// <summary>
 /// Name of the identification scheme, in a free text form.
 /// </summary>
-public partial record Proprietary : ISecuritiesLendingType3Choice
+public partial record Proprietary : SecuritiesLendingType3Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -28,15 +28,15 @@ public partial record LineItemDetails8
     /// <summary>
     /// Identifies the product of the corresponding line item.
     /// </summary>
-    public IProductIdentifier2Choice? ProductIdentifier { get; init;  } // Warning: Don't know multiplicity.
+    public ProductIdentifier2Choice_[] ProductIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the characteristic of a product.
     /// </summary>
-    public IProductCharacteristics1Choice? ProductCharacteristics { get; init;  } // Warning: Don't know multiplicity.
+    public ProductCharacteristics1Choice_[] ProductCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the category of product.
     /// </summary>
-    public IProductCategory1Choice? ProductCategory { get; init;  } // Warning: Don't know multiplicity.
+    public ProductCategory1Choice_[] ProductCategory { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity ordered for a line as indicated in the baseline.
     /// </summary>

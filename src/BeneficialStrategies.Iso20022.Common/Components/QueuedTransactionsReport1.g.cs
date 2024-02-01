@@ -32,7 +32,7 @@ public partial record QueuedTransactionsReport1
     /// <summary>
     /// Transaction details sorted by counterparty account.
     /// </summary>
-    public QueueTransaction1? BreakdownByCounterparty { get; init;  } // Warning: Don't know multiplicity.
+    public QueueTransaction1[] BreakdownByCounterparty { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

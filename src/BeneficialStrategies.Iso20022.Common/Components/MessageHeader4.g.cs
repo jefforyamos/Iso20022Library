@@ -28,7 +28,7 @@ public partial record MessageHeader4
     /// <summary>
     /// Specific actions to be executed through the request.
     /// </summary>
-    public IRequestType3Choice? RequestType { get; init; } 
+    public RequestType3Choice_? RequestType { get; init; } 
     
     #nullable disable
 }

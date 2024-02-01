@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RepoCallRequestStatus1Choice;
 /// <summary>
 /// Provides the status of the repurchase agreement call request.
 /// </summary>
-public partial record Code : IRepoCallRequestStatus1Choice
+public partial record Code : RepoCallRequestStatus1Choice_
 {
     public required RepoCallRequestStatus1Code Value { get; init; }
 }

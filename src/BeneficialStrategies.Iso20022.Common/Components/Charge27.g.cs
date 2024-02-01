@@ -20,7 +20,7 @@ public partial record Charge27
     /// <summary>
     /// Type of charge.
     /// </summary>
-    public required IChargeType4Choice Type { get; init; } 
+    public required ChargeType4Choice_ Type { get; init; } 
     /// <summary>
     /// Amount of money asked or paid for the charge.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record Charge27
     /// <summary>
     /// Method used to calculate the charge.
     /// </summary>
-    public IChargeBasisType1Choice? ChargeBasis { get; init; } 
+    public ChargeBasisType1Choice_? ChargeBasis { get; init; } 
     /// <summary>
     /// Specifies the party that will bear the charges associated with a transfer.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record Charge27
     /// <summary>
     /// Party entitled to the amount of money resulting from a charge.
     /// </summary>
-    public IPartyIdentification2Choice? RecipientIdentification { get; init; } 
+    public PartyIdentification2Choice_? RecipientIdentification { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingCancellationStatus1Choice
 /// <summary>
 /// Reason not specified.
 /// </summary>
-public partial record NotSpecifiedReason : IPendingCancellationStatus1Choice
+public partial record NotSpecifiedReason : PendingCancellationStatus1Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

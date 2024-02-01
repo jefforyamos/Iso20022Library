@@ -24,7 +24,7 @@ public partial record DeliverInformation14
     /// <summary>
     /// Date and time at which the securities were exchanged at the International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
-    public IDateAndDateTimeChoice? EffectiveSettlementDate { get; init; } 
+    public DateAndDateTimeChoice_? EffectiveSettlementDate { get; init; } 
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
@@ -40,19 +40,19 @@ public partial record DeliverInformation14
     /// <summary>
     /// Charge related to the transfer of a financial instrument.
     /// </summary>
-    public Charge27? ChargeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Charge27[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Commission related to the transfer of a financial instrument.
     /// </summary>
-    public Commission22? CommissionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Commission22[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax related to the transfer of a financial instrument.
     /// </summary>
-    public Tax25? TaxDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Tax25[] TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies foreign exchange details applied to the payment of charges, taxes and commissions as a result of the transfer.
     /// </summary>
-    public ForeignExchangeTerms7? ForeignExchangeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ForeignExchangeTerms7[] ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction.
     /// </summary>

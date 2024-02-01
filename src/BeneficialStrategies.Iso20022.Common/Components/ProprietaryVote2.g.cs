@@ -24,7 +24,7 @@ public partial record ProprietaryVote2
     /// <summary>
     /// Quantity of securities voted.
     /// </summary>
-    public required IFinancialInstrumentQuantity18Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity18Choice_ Quantity { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification22Choice;
 /// <summary>
 /// Proprietary identification of a security assigned by an institution or organisation.
 /// </summary>
-public partial record AlternateIdentification : ISecurityIdentification22Choice
+public partial record AlternateIdentification : SecurityIdentification22Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record AlternateIdentification : ISecurityIdentification22Choice
     /// <summary>
     /// Source of the security identification.
     /// </summary>
-    public required IIdentificationSource1Choice IdentificationSource { get; init; } 
+    public required IdentificationSource1Choice_ IdentificationSource { get; init; } 
     #nullable disable
 }

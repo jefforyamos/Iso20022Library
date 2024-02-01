@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionOption21Choice;
 /// <summary>
 /// Specifies the corporate action options available to the account owner.
 /// </summary>
-public partial record Code : ICorporateActionOption21Choice
+public partial record Code : CorporateActionOption21Choice_
 {
     public required CorporateActionOption10Code Value { get; init; }
 }

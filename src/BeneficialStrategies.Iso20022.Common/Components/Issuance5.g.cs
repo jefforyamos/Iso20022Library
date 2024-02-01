@@ -44,7 +44,7 @@ public partial record Issuance5
     /// <summary>
     /// Total original amount or quantity published.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? IssueNominalAmount { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? IssueNominalAmount { get; init; } 
     /// <summary>
     /// Figure used as a control to verify whether the information provided is correct. It represents the issue size multiplied by the issue price.
     /// </summary>
@@ -60,11 +60,11 @@ public partial record Issuance5
     /// <summary>
     /// Way in which the issue will be marketed to the primary market, via individual dealers (so called non syndicated distribution) or via a syndicate of managers, underwriters and selling group members (so called syndicated distribution).
     /// </summary>
-    public ISecuritiesTransactionType31Choice? IssuanceDistribution { get; init; } 
+    public SecuritiesTransactionType31Choice_? IssuanceDistribution { get; init; } 
     /// <summary>
     /// Jurisdiction (country, county, state, province, city) of the issue.
     /// </summary>
-    public Jurisdiction1? GoverningLaw { get; init;  } // Warning: Don't know multiplicity.
+    public Jurisdiction1[] GoverningLaw { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

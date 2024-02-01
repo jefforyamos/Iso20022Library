@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData9Choice;
 /// <summary>
 /// Details of the repurchase trade transaction.
 /// </summary>
-public partial record RepurchaseTrade : ITransactionLoanData9Choice
+public partial record RepurchaseTrade : TransactionLoanData9Choice_
 {
     #nullable enable
     /// <summary>

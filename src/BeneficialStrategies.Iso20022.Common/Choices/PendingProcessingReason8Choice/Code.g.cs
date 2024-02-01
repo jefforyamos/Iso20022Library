@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingProcessingReason8Choice;
 /// <summary>
 /// Reason for the pending status expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IPendingProcessingReason8Choice
+public partial record Code : PendingProcessingReason8Choice_
 {
     public required ExternalPendingProcessingReason1Code Value { get; init; }
 }

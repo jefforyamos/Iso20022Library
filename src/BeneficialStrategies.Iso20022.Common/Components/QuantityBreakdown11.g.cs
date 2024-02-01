@@ -24,11 +24,11 @@ public partial record QuantityBreakdown11
     /// <summary>
     /// Quantity of financial instruments that is part of the lot described.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? LotQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? LotQuantity { get; init; } 
     /// <summary>
     /// Date/time at which the lot was purchased.
     /// </summary>
-    public IDateAndDateTime1Choice? LotDateTime { get; init; } 
+    public DateAndDateTime1Choice_? LotDateTime { get; init; } 
     /// <summary>
     /// Price at which the lot was purchased.
     /// </summary>

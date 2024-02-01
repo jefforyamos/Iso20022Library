@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateAndDateTimeChoice;
 /// <summary>
 /// Specified date.
 /// </summary>
-public partial record Date : IDateAndDateTimeChoice
+public partial record Date : DateAndDateTimeChoice_
 {
     public required IsoISODate Value { get; init; }
 }

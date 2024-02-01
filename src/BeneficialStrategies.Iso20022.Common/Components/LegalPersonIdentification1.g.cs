@@ -20,7 +20,7 @@ public partial record LegalPersonIdentification1
     /// <summary>
     /// Unique and unambiguous identification of the legal person.
     /// </summary>
-    public required IOrganisationIdentification15Choice Identification { get; init; } 
+    public required OrganisationIdentification15Choice_ Identification { get; init; } 
     /// <summary>
     /// Code of country where the registered office of the organisation is located.
     /// </summary>

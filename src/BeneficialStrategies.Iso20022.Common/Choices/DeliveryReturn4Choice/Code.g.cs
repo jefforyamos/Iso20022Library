@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DeliveryReturn4Choice;
 /// <summary>
 /// Delivery return expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IDeliveryReturn4Choice
+public partial record Code : DeliveryReturn4Choice_
 {
     public required DeliveryReturn1Code Value { get; init; }
 }

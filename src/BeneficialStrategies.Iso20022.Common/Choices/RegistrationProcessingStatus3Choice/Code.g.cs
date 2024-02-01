@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RegistrationProcessingStatus3Cho
 /// <summary>
 /// Provides the status of the registration processing.
 /// </summary>
-public partial record Code : IRegistrationProcessingStatus3Choice
+public partial record Code : RegistrationProcessingStatus3Choice_
 {
     public required RegistrationProcessingStatus1Code Value { get; init; }
 }

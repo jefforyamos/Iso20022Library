@@ -36,15 +36,15 @@ public partial record Statement65
     /// <summary>
     /// Date of the statement.
     /// </summary>
-    public required IDateAndDateTime2Choice StatementDateTime { get; init; } 
+    public required DateAndDateTime2Choice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
-    public required IFrequency25Choice Frequency { get; init; } 
+    public required Frequency25Choice_ Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the report is complete or contains changes only.
     /// </summary>
-    public required IUpdateType15Choice UpdateType { get; init; } 
+    public required UpdateType15Choice_ UpdateType { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record Statement65
     /// <summary>
     /// Period during which identification deadline has been set.
     /// </summary>
-    public IDateOrDateTimePeriod2Choice? NotificationDeadlinePeriod { get; init; } 
+    public DateOrDateTimePeriod2Choice_? NotificationDeadlinePeriod { get; init; } 
     
     #nullable disable
 }

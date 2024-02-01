@@ -20,7 +20,7 @@ public partial record TaxEfficientProduct3
     /// <summary>
     /// Type of tax efficient product, for example, an individual savings account (ISA) in the UK.
     /// </summary>
-    public required ITaxEfficientProductType1Choice TaxEfficientProductType { get; init; } 
+    public required TaxEfficientProductType1Choice_ TaxEfficientProductType { get; init; } 
     /// <summary>
     /// Indicates whether the product contains a cash asset for transfer.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record TaxEfficientProduct3
     /// <summary>
     /// Additional information about the tax efficient product.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

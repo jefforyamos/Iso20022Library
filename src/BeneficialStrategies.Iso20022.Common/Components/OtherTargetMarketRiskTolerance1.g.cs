@@ -24,7 +24,7 @@ public partial record OtherTargetMarketRiskTolerance1
     /// <summary>
     /// Choice of formats for the specification of whether the product is aimed at the type of risk tolerance.
     /// </summary>
-    public ITargetMarket1Choice? Target { get; init; } 
+    public TargetMarket1Choice_? Target { get; init; } 
     /// <summary>
     /// Additional information about the target market and the investor's risk tolerance.
     /// </summary>

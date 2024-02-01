@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UndertakingDocumentType2Choice;
 /// <summary>
 /// Document type.
 /// </summary>
-public partial record Code : IUndertakingDocumentType2Choice
+public partial record Code : UndertakingDocumentType2Choice_
 {
     public required ExternalUndertakingDocumentType2Code Value { get; init; }
 }

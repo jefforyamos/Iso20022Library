@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionTypeStatus3Choice;
 /// <summary>
 /// Status of the meeting instruction message or of the individual meeting instruction(s). The message is identified in InstructionType/InstructionIdentification.
 /// </summary>
-public partial record InstructionStatus : IInstructionTypeStatus3Choice
+public partial record InstructionStatus : InstructionTypeStatus3Choice_
 {
     #nullable enable
     #nullable disable

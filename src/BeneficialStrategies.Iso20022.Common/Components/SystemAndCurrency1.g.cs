@@ -20,7 +20,7 @@ public partial record SystemAndCurrency1
     /// <summary>
     /// Unique and unambiguous identification of the system, as assigned by the system administrator.
     /// </summary>
-    public required ISystemIdentification2Choice SystemIdentification { get; init; } 
+    public required SystemIdentification2Choice_ SystemIdentification { get; init; } 
     /// <summary>
     /// Currency which may be processed by the system. A system may process transactions in a single currency or in multiple currencies.
     /// </summary>

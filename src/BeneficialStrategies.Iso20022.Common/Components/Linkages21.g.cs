@@ -20,7 +20,7 @@ public partial record Linkages21
     /// <summary>
     /// Reference to the linked transaction.
     /// </summary>
-    public required IReferences1Choice Reference { get; init; } 
+    public required References1Choice_ Reference { get; init; } 
     
     #nullable disable
 }

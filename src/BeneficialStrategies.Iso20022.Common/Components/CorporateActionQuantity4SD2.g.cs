@@ -26,12 +26,12 @@ public partial record CorporateActionQuantity4SD2
     /// Planned number of shares to be purchased.
     ///  買付予定株式数.
     /// </summary>
-    public IPlannedQuantity1Choice? PlannedQuantity { get; init; } 
+    public PlannedQuantity1Choice_? PlannedQuantity { get; init; } 
     /// <summary>
     /// Planned excess quantity of share purchase.
     /// 買付超過予定数
     /// </summary>
-    public IPlannedQuantity1Choice? PlannedExcessPurchaseQuantity { get; init; } 
+    public PlannedQuantity1Choice_? PlannedExcessPurchaseQuantity { get; init; } 
     /// <summary>
     /// TSE/JASDEC code for the minimum number of shares to be purchased when the corporate action event type code is TEND or BIDS.
     /// 買付株数に係る下限設定が「下限設定あり」「未定」.
@@ -45,11 +45,11 @@ public partial record CorporateActionQuantity4SD2
     /// <summary>
     /// Old share unit quantity.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? OldShareUnitQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? OldShareUnitQuantity { get; init; } 
     /// <summary>
     /// New share unit quantity.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? NewShareUnitQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? NewShareUnitQuantity { get; init; } 
     
     #nullable disable
 }

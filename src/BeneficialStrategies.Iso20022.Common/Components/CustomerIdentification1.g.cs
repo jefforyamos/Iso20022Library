@@ -24,7 +24,7 @@ public partial record CustomerIdentification1
     /// <summary>
     /// Specifies the authority request related to the identified investigation party.
     /// </summary>
-    public AuthorityInvestigation2? AuthorityRequest { get; init;  } // Warning: Don't know multiplicity.
+    public AuthorityInvestigation2[] AuthorityRequest { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

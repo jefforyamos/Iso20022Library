@@ -40,7 +40,7 @@ public partial record SecuritiesSettlementSystemIdentification2
     /// <summary>
     /// Party (such as a person or a team) responsible for the report sent by the CSD.
     /// </summary>
-    public Contact9? ResponsibleParty { get; init;  } // Warning: Don't know multiplicity.
+    public Contact9[] ResponsibleParty { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

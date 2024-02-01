@@ -20,39 +20,39 @@ public partial record CorporateActionRate15
     /// <summary>
     /// Rate used for additional tax that cannot be categorised.
     /// </summary>
-    public IRateAndAmountFormat14Choice? AdditionalTax { get; init; } 
+    public RateAndAmountFormat14Choice_? AdditionalTax { get; init; } 
     /// <summary>
     /// Cash dividend amount per equity before deductions or allowances have been made.
     /// </summary>
-    public IGrossDividendRateFormat5Choice? GrossDividendRate { get; init;  } // Warning: Don't know multiplicity.
+    public GrossDividendRateFormat5Choice_[] GrossDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Public index rate applied to the amount paid to adjust it to inflation.
     /// </summary>
-    public IRateAndAmountFormat14Choice? IndexFactor { get; init; } 
+    public RateAndAmountFormat14Choice_? IndexFactor { get; init; } 
     /// <summary>
     /// The actual interest rate used for the payment of the interest for the specified interest period. |Usage guideline: It is used to provide the applicable rate for the current payment, after all calculations have been performed, that is, application of period and method of interest computation.
     /// </summary>
-    public IInterestRateUsedForPaymentFormat5Choice? InterestRateUsedForPayment { get; init;  } // Warning: Don't know multiplicity.
+    public InterestRateUsedForPaymentFormat5Choice_[] InterestRateUsedForPayment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum percentage of shares available through the over subscription privilege, usually a percentage of the basic subscription shares, for example, an account owner subscribing to 100 shares may over subscribe to a maximum of 50 additional shares when the over subscription maximum is 50 percent.
     /// </summary>
-    public IRateFormat6Choice? MaximumAllowedOversubscriptionRate { get; init; } 
+    public RateFormat6Choice_? MaximumAllowedOversubscriptionRate { get; init; } 
     /// <summary>
     /// Proportionate allocation used for the offer.
     /// </summary>
-    public IRateFormat6Choice? ProrationRate { get; init; } 
+    public RateFormat6Choice_? ProrationRate { get; init; } 
     /// <summary>
     /// Percentage of a cash distribution that will be withheld by a tax authority.
     /// </summary>
-    public IRateFormat6Choice? WithholdingTaxRate { get; init; } 
+    public RateFormat6Choice_? WithholdingTaxRate { get; init; } 
     /// <summary>
     /// Percentage of the gross dividend rate on which tax must be paid.
     /// </summary>
-    public RateTypeAndAmountAndStatus6? TaxRelatedRate { get; init;  } // Warning: Don't know multiplicity.
+    public RateTypeAndAmountAndStatus6[] TaxRelatedRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount included in the dividend/NAV that is identified as gains directly or indirectly derived from interest payments within the scope of the EU Savings directive.
     /// </summary>
-    public RateTypeAndAmountAndStatus11? TaxableIncomePerDividendShare { get; init;  } // Warning: Don't know multiplicity.
+    public RateTypeAndAmountAndStatus11[] TaxableIncomePerDividendShare { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

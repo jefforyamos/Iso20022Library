@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeMarket1Choice;
 /// <summary>
 /// Trade market expressed as proprietary identification.
 /// </summary>
-public partial record Proprietary : ITradeMarket1Choice
+public partial record Proprietary : TradeMarket1Choice_
 {
     #nullable enable
     /// <summary>

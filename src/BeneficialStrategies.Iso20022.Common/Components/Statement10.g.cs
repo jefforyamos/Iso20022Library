@@ -24,15 +24,15 @@ public partial record Statement10
     /// <summary>
     /// Date of the statement.
     /// </summary>
-    public required IDateAndDateTimeChoice StatementDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
-    public required IFrequencyCodeAndDSSCode1Choice Frequency { get; init; } 
+    public required FrequencyCodeAndDSSCode1Choice_ Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the report is complete or contains changes only.
     /// </summary>
-    public required IStatementUpdateTypeCodeAndDSSCodeChoice UpdateType { get; init; } 
+    public required StatementUpdateTypeCodeAndDSSCodeChoice_ UpdateType { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record Statement10
     /// <summary>
     /// Type of balance on which the statement is prepared.
     /// </summary>
-    public required IStatementBasisCodeAndDSSCodeChoice StatementBasis { get; init; } 
+    public required StatementBasisCodeAndDSSCodeChoice_ StatementBasis { get; init; } 
     /// <summary>
     /// Sequential number of the statement.
     /// </summary>

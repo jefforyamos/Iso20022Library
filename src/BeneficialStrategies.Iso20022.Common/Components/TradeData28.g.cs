@@ -20,15 +20,15 @@ public partial record TradeData28
     /// <summary>
     /// Status of the required transactions reconciliation or pairing.
     /// </summary>
-    public NumberOfReportsPerStatus4? PairingReconciliationStatus { get; init;  } // Warning: Don't know multiplicity.
+    public NumberOfReportsPerStatus4[] PairingReconciliationStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data on transaction requiring reconciliation or pairing. 
     /// </summary>
-    public ReconciliationReport8? ReconciliationReport { get; init;  } // Warning: Don't know multiplicity.
+    public ReconciliationReport8[] ReconciliationReport { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

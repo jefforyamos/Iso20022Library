@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData38Choice;
 /// <summary>
 /// Information concerning the reporting at transaction level.
 /// </summary>
-public partial record State : ITradeData38Choice
+public partial record State : TradeData38Choice_
 {
     #nullable enable
     /// <summary>

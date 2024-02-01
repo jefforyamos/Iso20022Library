@@ -24,7 +24,7 @@ public partial record ATMService7
     /// <summary>
     /// Limits of amounts.
     /// </summary>
-    public ATMTransactionAmounts3? Limits { get; init;  } // Warning: Don't know multiplicity.
+    public ATMTransactionAmounts3[] Limits { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Preferred withdrawal transaction chosen by the customer.
     /// </summary>

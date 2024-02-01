@@ -32,11 +32,11 @@ public partial record RequestData1
     /// <summary>
     /// Describes the central system servicing the request.
     /// </summary>
-    public IPartyIdentification73Choice? RequestServicer { get; init; } 
+    public PartyIdentification73Choice_? RequestServicer { get; init; } 
     /// <summary>
     /// Describes the participant issuing the request.
     /// </summary>
-    public required IPartyIdentification73Choice NetServiceParticipantIdentification { get; init; } 
+    public required PartyIdentification73Choice_ NetServiceParticipantIdentification { get; init; } 
     /// <summary>
     /// Describes the type of netting service supporting the net report.
     /// </summary>

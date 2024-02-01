@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative3Choice;
 /// <summary>
 /// Details specific for a credit derivative.
 /// </summary>
-public partial record Credit : IDerivative3Choice
+public partial record Credit : Derivative3Choice_
 {
     #nullable enable
     #nullable disable

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceQuantity1Choice;
 /// <summary>
 /// Total quantity of financial instruments of the balance.
 /// </summary>
-public partial record QuantityAsDSS : IBalanceQuantity1Choice
+public partial record QuantityAsDSS : BalanceQuantity1Choice_
 {
     #nullable enable
     /// <summary>

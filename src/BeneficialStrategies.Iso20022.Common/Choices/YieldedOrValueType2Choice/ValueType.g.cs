@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.YieldedOrValueType2Choice;
 /// <summary>
 /// Type of value in which the price is expressed.
 /// </summary>
-public partial record ValueType : IYieldedOrValueType2Choice
+public partial record ValueType : YieldedOrValueType2Choice_
 {
     public required PriceValueType12Code Value { get; init; }
 }

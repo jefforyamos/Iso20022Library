@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesUpdateReason1Choice;
 /// <summary>
 /// Update reason, as published in an external code set.
 /// </summary>
-public partial record Code : ISecuritiesUpdateReason1Choice
+public partial record Code : SecuritiesUpdateReason1Choice_
 {
     public required ExternalSecuritiesUpdateReason1Code Value { get; init; }
 }

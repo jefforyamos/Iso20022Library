@@ -20,11 +20,11 @@ public partial record CollateralAccount5
     /// <summary>
     /// Unique identifer for the collateral account.
     /// </summary>
-    public required IPartyIdentification118Choice Identification { get; init; } 
+    public required PartyIdentification118Choice_ Identification { get; init; } 
     /// <summary>
     /// Operational construct used to record the set of positions whose margin requirements is calculated on a gross basis.
     /// </summary>
-    public MarginAccount1? RelatedMarginAccount { get; init;  } // Warning: Don't know multiplicity.
+    public MarginAccount1[] RelatedMarginAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the account can be used for clients of UK FCA authorised firms subject to Title Transfer Collateral Arrangements (TTCA).
     /// </summary>

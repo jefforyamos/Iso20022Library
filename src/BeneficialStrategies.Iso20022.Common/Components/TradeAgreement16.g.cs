@@ -40,7 +40,7 @@ public partial record TradeAgreement16
     /// <summary>
     /// Additional document referenced from this trade agreement.
     /// </summary>
-    public DocumentGeneralInformation2? AdditionalReferenceDocument { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentGeneralInformation2[] AdditionalReferenceDocument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the applicable Incoterm and associated location.
     /// </summary>

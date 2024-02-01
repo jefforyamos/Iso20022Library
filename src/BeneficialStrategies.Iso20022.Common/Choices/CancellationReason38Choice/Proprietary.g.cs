@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationReason38Choice;
 /// <summary>
 /// Specifies the reason why the related instruction is cancelled, or the related cancellation request is executed.
 /// </summary>
-public partial record Proprietary : ICancellationReason38Choice
+public partial record Proprietary : CancellationReason38Choice_
 {
     #nullable enable
     /// <summary>

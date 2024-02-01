@@ -24,7 +24,7 @@ public partial record ServiceProviderParameters3
     /// <summary>
     /// Identification of the service provider.
     /// </summary>
-    public GenericIdentification176? ServiceProviderIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification176[] ServiceProviderIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Version of the service provider parameters.
     /// </summary>
@@ -32,15 +32,15 @@ public partial record ServiceProviderParameters3
     /// <summary>
     /// Identification of payment application relevant for this service provider.
     /// </summary>
-    public IsoMax35Text? ApplicationIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] ApplicationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Service provider host configuration.
     /// </summary>
-    public AcquirerHostConfiguration9? Host { get; init;  } // Warning: Don't know multiplicity.
+    public AcquirerHostConfiguration9[] Host { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of non financial action supported by the Service Provider.
     /// </summary>
-    public NonFinancialRequestType2Code? NonFinancialActionSupported { get; init;  } // Warning: Don't know multiplicity.
+    public NonFinancialRequestType2Code[] NonFinancialActionSupported { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

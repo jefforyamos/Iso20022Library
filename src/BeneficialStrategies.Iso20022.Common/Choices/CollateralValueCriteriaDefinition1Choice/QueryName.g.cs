@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueCriteriaDefinitio
 /// <summary>
 /// Recalls the criteria (search and return criteria) defined in a preceding query.
 /// </summary>
-public partial record QueryName : ICollateralValueCriteriaDefinition1Choice
+public partial record QueryName : CollateralValueCriteriaDefinition1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

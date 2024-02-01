@@ -75,7 +75,7 @@ public partial record CardData7
     /// <summary>
     /// Additional card issuer specific data.
     /// </summary>
-    public AdditionalData1? AdditionalCardData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalCardData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

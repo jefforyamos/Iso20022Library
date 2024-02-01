@@ -28,11 +28,11 @@ public partial record UndertakingConfirmation1
     /// <summary>
     /// Date and time when the undertaking or amendment of the undertaking was confirmed.
     /// </summary>
-    public required IDateAndDateTimeChoice Date { get; init; } 
+    public required DateAndDateTimeChoice_ Date { get; init; } 
     /// <summary>
     /// Confirmation of the undertaking or amendment of the confirmed undertaking.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> Confirmation { get; init; } = [];
+    public IsoMax2000Text[] Confirmation { get; init; } = [];
     
     #nullable disable
 }

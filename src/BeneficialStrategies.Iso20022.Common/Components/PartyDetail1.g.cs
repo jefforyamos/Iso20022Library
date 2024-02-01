@@ -32,7 +32,7 @@ public partial record PartyDetail1
     /// <summary>
     /// Information detail about the institution supervising the party under the local regulation.
     /// </summary>
-    public required ISupervisingAuthorityIdentification1Choice SupervisingAuthority { get; init; } 
+    public required SupervisingAuthorityIdentification1Choice_ SupervisingAuthority { get; init; } 
     /// <summary>
     /// Address used to communicate with the party as recorded in the registration in its legal jurisdiction.
     /// </summary>

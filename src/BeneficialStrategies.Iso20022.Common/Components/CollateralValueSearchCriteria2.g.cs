@@ -20,31 +20,31 @@ public partial record CollateralValueSearchCriteria2
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public IAccountIdentification4Choice? AccountIdentification { get; init; } 
+    public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     /// <summary>
     /// Medium of exchange of value.
     /// </summary>
-    public ActiveOrHistoricCurrencyCode? Currency { get; init;  } // Warning: Don't know multiplicity.
+    public ActiveOrHistoricCurrencyCode[] Currency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that legally owns the account being queried.
     /// </summary>
-    public IPartyIdentification71Choice? AccountOwner { get; init; } 
+    public PartyIdentification71Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, which is being queried.
     /// </summary>
-    public IPartyIdentification71Choice? AccountServicer { get; init; } 
+    public PartyIdentification71Choice_? AccountServicer { get; init; } 
     /// <summary>
     /// ISIN identification of the related financial instrument into which this security can be converted.
     /// </summary>
-    public SecurityIdentification19? FinancialInstrumentIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityIdentification19[] FinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identification of the securities account owner.
     /// </summary>
-    public IPartyIdentification71Choice? SecuritiesAccountOwner { get; init; } 
+    public PartyIdentification71Choice_? SecuritiesAccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the securities account on behalf of the account owner.
     /// </summary>
-    public IPartyIdentification71Choice? SecuritiesAccountServicer { get; init; } 
+    public PartyIdentification71Choice_? SecuritiesAccountServicer { get; init; } 
     
     #nullable disable
 }

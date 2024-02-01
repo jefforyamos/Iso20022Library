@@ -24,7 +24,7 @@ public partial record StatementFrequencyAndForm1
     /// <summary>
     /// Specifies the communication method for statements.
     /// </summary>
-    public required ICommunicationMethod2Choice CommunicationMethod { get; init; } 
+    public required CommunicationMethod2Choice_ CommunicationMethod { get; init; } 
     /// <summary>
     /// Specifies the delivery address for statements.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record StatementFrequencyAndForm1
     /// <summary>
     /// Specifies the format for statements.
     /// </summary>
-    public required ICommunicationFormat1Choice Format { get; init; } 
+    public required CommunicationFormat1Choice_ Format { get; init; } 
     
     #nullable disable
 }

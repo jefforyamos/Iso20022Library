@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessedStatus3FormatChoice;
 /// <summary>
 /// Proprietary code to express the processing status of an advice, a request or a movement.
 /// </summary>
-public partial record Proprietary : IProcessedStatus3FormatChoice
+public partial record Proprietary : ProcessedStatus3FormatChoice_
 {
     #nullable enable
     /// <summary>

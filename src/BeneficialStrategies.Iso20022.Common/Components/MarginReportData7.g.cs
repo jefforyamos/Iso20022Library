@@ -32,7 +32,7 @@ public partial record MarginReportData7
     /// <summary>
     /// Choice between a Unique Transaction Identifier (UTI) or a proprietary identifier as agreed with the counterparty. 
     /// </summary>
-    public IUniqueTransactionIdentifier2Choice? TransactionIdentification { get; init; } 
+    public UniqueTransactionIdentifier2Choice_? TransactionIdentification { get; init; } 
     /// <summary>
     /// Information related to collateral agreement existing between counterparties.
     /// </summary>
@@ -62,7 +62,7 @@ public partial record MarginReportData7
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -88,11 +88,11 @@ public partial record IndividualPerson11
     /// <summary>
     /// Address information to be either inserted, updated or deleted.
     /// </summary>
-    public IReadOnlyCollection<ModificationScope1> ModifiedPostalAddress { get; init; } = [];
+    public ModificationScope1[] ModifiedPostalAddress { get; init; } = [];
     /// <summary>
     /// Citizenship information to be inserted or deleted.
     /// </summary>
-    public IReadOnlyCollection<ModificationScope3> ModifiedCitizenship { get; init; } = [];
+    public ModificationScope3[] ModifiedCitizenship { get; init; } = [];
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
@@ -104,7 +104,7 @@ public partial record IndividualPerson11
     /// <summary>
     /// Identification information to be either inserted or deleted.
     /// </summary>
-    public IReadOnlyCollection<ModificationScope2> ModifiedOtherIdentification { get; init; } = [];
+    public ModificationScope2[] ModifiedOtherIdentification { get; init; } = [];
     
     #nullable disable
 }

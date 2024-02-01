@@ -28,7 +28,7 @@ public partial record Debt5
     /// <summary>
     /// Specifies the frequency of an interest payment.
     /// </summary>
-    public IFrequency35Choice? PaymentFrequency { get; init; } 
+    public Frequency35Choice_? PaymentFrequency { get; init; } 
     /// <summary>
     /// Date/time at which the rate determination is made, also called determination date.
     /// </summary>
@@ -132,7 +132,7 @@ public partial record Debt5
     /// <summary>
     /// Period during which a date might be extended.
     /// </summary>
-    public IDateTimePeriod1Choice? ExtendiblePeriod { get; init; } 
+    public DateTimePeriod1Choice_? ExtendiblePeriod { get; init; } 
     /// <summary>
     /// Indicates whether the interest rate of an interest bearing instrument is reset periodically.
     /// </summary>
@@ -156,11 +156,11 @@ public partial record Debt5
     /// <summary>
     /// Specifies whether the interest amount is capitalised until maturity date or paid out at each interest payment date.
     /// </summary>
-    public IDistributionPolicy2Choice? CapitalisedInterest { get; init; } 
+    public DistributionPolicy2Choice_? CapitalisedInterest { get; init; } 
     /// <summary>
     /// Nominal value per security unit.
     /// </summary>
-    public IsoActiveCurrencyAndAmount? ActualDenominationAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IsoActiveCurrencyAndAmount[] ActualDenominationAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the current factor expressed as a decimal between 0 and 1 defining the outstanding principal of the bond (for factored securities).
     /// </summary>
@@ -232,7 +232,7 @@ public partial record Debt5
     /// <summary>
     /// Rate of return on an investment, based on the price.
     /// </summary>
-    public YieldCalculation6? YieldCalculation { get; init;  } // Warning: Don't know multiplicity.
+    public YieldCalculation6[] YieldCalculation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether interest rate is fixed, variable or other.
     /// </summary>
@@ -240,13 +240,13 @@ public partial record Debt5
     /// <summary>
     /// Indicates the type of deal for structured finance.
     /// </summary>
-    public IInstrumentSubStructureType2Choice? InstrumentStructureType { get; init; } 
+    public InstrumentSubStructureType2Choice_? InstrumentStructureType { get; init; } 
     /// <summary>
     /// Identifies if the security will be issued in New Global Note (NGN) or Classical Global Note (CGN).
     /// New Global Note (NGN): Form of global certificate which refers to the books and records of the ICSDs to determine the issue outstanding amount (IOA). 
     /// Classical Global Note (CGN): Form of global certificate which requires physical annotation on the attached schedule to reflect changes in the issue outstanding amount (IOA).
     /// </summary>
-    public IGlobalNote2Choice? GlobalType { get; init; } 
+    public GlobalNote2Choice_? GlobalType { get; init; } 
     /// <summary>
     /// Flag to indicate the security is intended to be held in a manner that could allow the Eurosystem eligibility.
     /// </summary>
@@ -282,7 +282,7 @@ public partial record Debt5
     /// <summary>
     /// Indicates the conditions under which the order/trade is to be/was executed.
     /// </summary>
-    public ITradeTransactionCondition7Choice? TransactionConditions { get; init; } 
+    public TradeTransactionCondition7Choice_? TransactionConditions { get; init; } 
     /// <summary>
     /// Indicates an instruction or attribute giving the number of days to be included in the look-back period for the investment. For example some options allow exercise based on the underlying asset's optimal value over the look-back period.
     /// </summary>
@@ -294,11 +294,11 @@ public partial record Debt5
     /// <summary>
     /// Indicates the minimum tradable increments of a security.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? MinimumIncrement { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? MinimumIncrement { get; init; } 
     /// <summary>
     /// Indicates the minimum tradable quantity of a security.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? MinimumQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? MinimumQuantity { get; init; } 
     /// <summary>
     /// Indicates a search criterion used when looking to buy a bond, particularly an mortgage back security (MBS), issued in a particular year.
     /// </summary>
@@ -310,7 +310,7 @@ public partial record Debt5
     /// <summary>
     /// Indicates the frequency at which the bond is re-rated and therefore re-priced (bond attribute, particularly of floating rate and index linked instruments).
     /// </summary>
-    public IFrequency35Choice? PriceFrequency { get; init; } 
+    public Frequency35Choice_? PriceFrequency { get; init; } 
     /// <summary>
     /// Indicates the market sector the security is classified as for example pharmaceuticals, automobile, housing, etc.
     /// </summary>
@@ -318,7 +318,7 @@ public partial record Debt5
     /// <summary>
     /// Indicates the maximum number of times collateral can be substituted.
     /// </summary>
-    public IFrequency35Choice? SubstitutionFrequency { get; init; } 
+    public Frequency35Choice_? SubstitutionFrequency { get; init; } 
     /// <summary>
     /// Number of remaining times the collateral can be substitute.
     /// </summary>

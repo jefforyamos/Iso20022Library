@@ -24,7 +24,7 @@ public partial record Instalment3
     /// <summary>
     /// Attributes of the instalment plan.
     /// </summary>
-    public Plan1? Plan { get; init;  } // Warning: Don't know multiplicity.
+    public Plan1[] Plan { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InformationTypeFormat1Choice;
 /// <summary>
 /// Standard code to specify the information type required.
 /// </summary>
-public partial record Code : IInformationTypeFormat1Choice
+public partial record Code : InformationTypeFormat1Choice_
 {
     public required CorporateActionInformationType1Code Value { get; init; }
 }

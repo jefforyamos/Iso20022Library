@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceType6Choice;
 /// <summary>
 /// Balance type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IBalanceType6Choice
+public partial record Proprietary : BalanceType6Choice_
 {
     #nullable enable
     /// <summary>

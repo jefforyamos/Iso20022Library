@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartiallySettled21Choice;
 /// <summary>
 /// Partially settled reason expressed as a code.
 /// </summary>
-public partial record Code : IPartiallySettled21Choice
+public partial record Code : PartiallySettled21Choice_
 {
     public required SettledStatusReason2Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountUsageType2Choice;
 /// <summary>
 /// Type of account usage expressed as a code.
 /// </summary>
-public partial record Code : IAccountUsageType2Choice
+public partial record Code : AccountUsageType2Choice_
 {
     public required AccountUsageType2Code Value { get; init; }
 }

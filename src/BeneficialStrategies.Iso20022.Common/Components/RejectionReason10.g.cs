@@ -20,7 +20,7 @@ public partial record RejectionReason10
     /// <summary>
     /// Specifies the reason why the instruction/request has a rejected or repair status.
     /// </summary>
-    public required IRejectionReason10Choice Code { get; init; } 
+    public required RejectionReason10Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

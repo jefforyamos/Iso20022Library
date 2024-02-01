@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingStatus58Choice;
 /// <summary>
 /// Reason not specified.
 /// </summary>
-public partial record NoSpecifiedReason : IPendingStatus58Choice
+public partial record NoSpecifiedReason : PendingStatus58Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

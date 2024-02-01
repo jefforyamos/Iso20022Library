@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LegalStructure1Choice;
 /// <summary>
 /// Legal structure of the financial instrument expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ILegalStructure1Choice
+public partial record Proprietary : LegalStructure1Choice_
 {
     #nullable enable
     /// <summary>

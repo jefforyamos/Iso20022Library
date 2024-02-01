@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationRequestStatusReason
 /// <summary>
 /// Reason for the investigation request status, in a coded form.
 /// </summary>
-public partial record Code : IInvestigationRequestStatusReason1Choice
+public partial record Code : InvestigationRequestStatusReason1Choice_
 {
     public required ExternalTrackerInvestigationStatusReason1Code Value { get; init; }
 }

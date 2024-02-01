@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus52Choice;
 /// <summary>
 /// A cancellation request from yourself for this instruction is pending waiting for further processing (only as a response to a SecuritiesTransactionStatusQuery). The pending status on the processing of a cancellation request must be provided using a SecuritiesTransactionCancellationRequestStatusAdvice.
 /// </summary>
-public partial record PendingCancellation : IProcessingStatus52Choice
+public partial record PendingCancellation : ProcessingStatus52Choice_
 {
     #nullable enable
     #nullable disable

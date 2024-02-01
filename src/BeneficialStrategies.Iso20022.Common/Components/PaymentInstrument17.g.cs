@@ -28,23 +28,23 @@ public partial record PaymentInstrument17
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a subscription payment.
     /// </summary>
-    public IPaymentInstrument24Choice? SubscriptionPaymentInstrument { get; init; } 
+    public PaymentInstrument24Choice_? SubscriptionPaymentInstrument { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a redemption payment.
     /// </summary>
-    public IPaymentInstrument19Choice? RedemptionPaymentInstrument { get; init; } 
+    public PaymentInstrument19Choice_? RedemptionPaymentInstrument { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a dividend payment.
     /// </summary>
-    public IPaymentInstrument19Choice? DividendPaymentInstrument { get; init; } 
+    public PaymentInstrument19Choice_? DividendPaymentInstrument { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a savings plan payment.
     /// </summary>
-    public IPaymentInstrument24Choice? SavingsPlanPaymentInstrument { get; init; } 
+    public PaymentInstrument24Choice_? SavingsPlanPaymentInstrument { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for an interest payment.
     /// </summary>
-    public IPaymentInstrument19Choice? InterestPaymentInstrument { get; init; } 
+    public PaymentInstrument19Choice_? InterestPaymentInstrument { get; init; } 
     
     #nullable disable
 }

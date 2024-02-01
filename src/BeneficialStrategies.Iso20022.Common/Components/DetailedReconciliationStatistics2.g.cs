@@ -52,7 +52,7 @@ public partial record DetailedReconciliationStatistics2
     /// <summary>
     /// Identification of the most common data field considered as reason for paired non-matched derivatives.
     /// </summary>
-    public IsoMax35Text? TopReasonsForPairedNonMatched { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] TopReasonsForPairedNonMatched { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

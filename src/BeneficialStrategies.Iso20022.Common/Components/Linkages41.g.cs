@@ -20,7 +20,7 @@ public partial record Linkages41
     /// <summary>
     /// When the transaction is to be executed relative to a linked transaction - for information only.
     /// </summary>
-    public IProcessingPosition9Choice? ProcessingPosition { get; init; } 
+    public ProcessingPosition9Choice_? ProcessingPosition { get; init; } 
     /// <summary>
     /// Unambiguous identification of a securities settlement transaction as known by the account owner (or instructing party acting on its behalf).
     /// </summary>

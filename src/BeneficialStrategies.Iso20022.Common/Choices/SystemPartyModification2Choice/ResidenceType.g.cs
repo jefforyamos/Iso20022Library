@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification2Choice;
 /// <summary>
 /// Specifies the type of residence where the party has its permanent home or principal establishment.
 /// </summary>
-public partial record ResidenceType : ISystemPartyModification2Choice
+public partial record ResidenceType : SystemPartyModification2Choice_
 {
     public required ResidenceType1Code Value { get; init; }
 }

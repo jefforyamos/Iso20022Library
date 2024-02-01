@@ -24,7 +24,7 @@ public partial record Value
     /// <summary>
     /// Specifies the amount in another currency.
     /// </summary>
-    public IsoActiveOrHistoricCurrencyAndAmount? AlternateCurrencyItem { get; init;  } // Warning: Don't know multiplicity.
+    public IsoActiveOrHistoricCurrencyAndAmount[] AlternateCurrencyItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -20,7 +20,7 @@ public partial record RejectedStatusReason32
     /// <summary>
     /// Specifies the reason why the instruction or instruction cancellation has been rejected.
     /// </summary>
-    public required IRejectedReason34Choice ReasonCode { get; init; } 
+    public required RejectedReason34Choice_ ReasonCode { get; init; } 
     /// <summary>
     /// Provides additional information about the processed instruction.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CommunicationMethod2Choice;
 /// <summary>
 /// Unique and unambiguous identification of communication method using a code list.
 /// </summary>
-public partial record Code : ICommunicationMethod2Choice
+public partial record Code : CommunicationMethod2Choice_
 {
     public required CommunicationMethod2Code Value { get; init; }
 }

@@ -28,11 +28,11 @@ public partial record ATMCustomer1
     /// <summary>
     /// Method and data intended to be used for this transaction to authenticate the customer and its card.
     /// </summary>
-    public CardholderAuthentication8? Authentication { get; init;  } // Warning: Don't know multiplicity.
+    public CardholderAuthentication8[] Authentication { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Result of the customer authentication for this transaction.
     /// </summary>
-    public TransactionVerificationResult5? AuthenticationResult { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionVerificationResult5[] AuthenticationResult { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

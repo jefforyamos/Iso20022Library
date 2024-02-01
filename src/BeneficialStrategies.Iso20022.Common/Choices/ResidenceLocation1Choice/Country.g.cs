@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ResidenceLocation1Choice;
 /// <summary>
 /// Specifies the account owner's resident country.
 /// </summary>
-public partial record Country : IResidenceLocation1Choice
+public partial record Country : ResidenceLocation1Choice_
 {
     public required CountryCode Value { get; init; }
 }

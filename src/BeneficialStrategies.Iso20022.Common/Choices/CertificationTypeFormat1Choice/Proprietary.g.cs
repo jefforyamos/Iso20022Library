@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CertificationTypeFormat1Choice;
 /// <summary>
 /// Proprietary identification of the certification format.
 /// </summary>
-public partial record Proprietary : ICertificationTypeFormat1Choice
+public partial record Proprietary : CertificationTypeFormat1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AgreementType2Choice;
 /// <summary>
 /// Name of the identification scheme, in a coded form as published in an external list.
 /// </summary>
-public partial record Type : IAgreementType2Choice
+public partial record Type : AgreementType2Choice_
 {
     public required ExternalAgreementType1Code Value { get; init; }
 }

@@ -20,11 +20,11 @@ public partial record PendingStatusAndReason2
     /// <summary>
     /// Provides details on the processing status of the transaction.
     /// </summary>
-    public IProcessingStatus66Choice? ProcessingStatus { get; init;  } // Warning: Don't know multiplicity.
+    public ProcessingStatus66Choice_[] ProcessingStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the settlement status of a transaction.
     /// </summary>
-    public ISettlementStatus16Choice? SettlementStatus { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementStatus16Choice_[] SettlementStatus { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

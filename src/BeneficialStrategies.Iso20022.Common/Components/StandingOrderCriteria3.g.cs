@@ -24,7 +24,7 @@ public partial record StandingOrderCriteria3
     /// <summary>
     /// Defines the criteria to be used to extract the standing order information.
     /// </summary>
-    public StandingOrderSearchCriteria3? SearchCriteria { get; init;  } // Warning: Don't know multiplicity.
+    public StandingOrderSearchCriteria3[] SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines the expected standing order report.
     /// </summary>

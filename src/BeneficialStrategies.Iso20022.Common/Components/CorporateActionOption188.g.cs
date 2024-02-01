@@ -20,23 +20,23 @@ public partial record CorporateActionOption188
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    public required IOptionNumber1Choice OptionNumber { get; init; } 
+    public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public required ICorporateActionOption43Choice OptionType { get; init; } 
+    public required CorporateActionOption43Choice_ OptionType { get; init; } 
     /// <summary>
     /// Specifies the features that may apply to a corporate action option.
     /// </summary>
-    public IOptionFeaturesFormat27Choice? OptionFeatures { get; init; } 
+    public OptionFeaturesFormat27Choice_? OptionFeatures { get; init; } 
     /// <summary>
     /// Specifies how fractional amount/quantities are treated.
     /// </summary>
-    public IFractionDispositionType29Choice? FractionDisposition { get; init; } 
+    public FractionDispositionType29Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Type of changes affecting the security form.
     /// </summary>
-    public ICorporateActionChangeTypeFormat7Choice? ChangeType { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionChangeTypeFormat7Choice_[] ChangeType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates that the corporate action instruction is to be processed using the Available-for-Collateral pool.
     /// </summary>
@@ -64,11 +64,11 @@ public partial record CorporateActionOption188
     /// <summary>
     /// Provides information about securities quantity linked to a corporate action option.
     /// </summary>
-    public required ISecuritiesQuantityOrAmount5Choice SecuritiesQuantityOrInstructedAmount { get; init; } 
+    public required SecuritiesQuantityOrAmount5Choice_ SecuritiesQuantityOrInstructedAmount { get; init; } 
     /// <summary>
     /// Date/time at which the instructing party requests the instruction to be executed.
     /// </summary>
-    public IDateAndDateTime2Choice? ExecutionRequestedDateTime { get; init; } 
+    public DateAndDateTime2Choice_? ExecutionRequestedDateTime { get; init; } 
     /// <summary>
     /// Provides information about rates and amounts related to a corporate action option.
     /// </summary>

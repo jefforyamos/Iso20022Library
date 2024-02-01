@@ -20,7 +20,7 @@ public partial record ATMSecurityConfiguration5
     /// <summary>
     /// PIN block format the security module is able to manage for online verification of the PIN.
     /// </summary>
-    public PINFormat4Code? PINFormat { get; init;  } // Warning: Don't know multiplicity.
+    public PINFormat4Code[] PINFormat { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum number of digits the security module is able to accept when the cardholder enters its PIN.
     /// </summary>

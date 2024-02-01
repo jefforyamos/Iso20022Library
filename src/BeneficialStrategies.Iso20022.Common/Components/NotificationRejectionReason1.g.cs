@@ -20,7 +20,7 @@ public partial record NotificationRejectionReason1
     /// <summary>
     /// The rejection reason.
     /// </summary>
-    public IRejectionReason6FormatChoice? Reason { get; init;  } // Warning: Don't know multiplicity.
+    public RejectionReason6FormatChoice_[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the status.
     /// </summary>

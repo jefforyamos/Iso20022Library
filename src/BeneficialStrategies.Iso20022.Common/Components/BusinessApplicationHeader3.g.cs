@@ -21,12 +21,12 @@ public partial record BusinessApplicationHeader3
     /// The sending MessagingEndpoint that has created this Business Message for the receiving MessagingEndpoint that will process this Business Message.
     /// Note	the sending MessagingEndpoint might be different from the sending address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
-    public required IParty29Choice From { get; init; } 
+    public required Party29Choice_ From { get; init; } 
     /// <summary>
     /// The MessagingEndpoint designated by the sending MessagingEndpoint to be the recipient who will ultimately process this Business Message.
     /// Note the receiving MessagingEndpoint might be different from the receiving address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
-    public required IParty29Choice To { get; init; } 
+    public required Party29Choice_ To { get; init; } 
     /// <summary>
     /// Unambiguously identifies the Business Message to the MessagingEndpoint that has created the Business Message.
     /// </summary>

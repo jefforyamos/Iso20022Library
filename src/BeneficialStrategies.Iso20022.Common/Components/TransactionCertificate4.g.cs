@@ -40,11 +40,11 @@ public partial record TransactionCertificate4
     /// <summary>
     /// Record of the transaction certificate.
     /// </summary>
-    public TransactionCertificateRecord2? CertificateRecord { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionCertificateRecord2[] CertificateRecord { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

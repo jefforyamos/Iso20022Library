@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralPurpose1Choice;
 /// <summary>
 /// Provides the collateral purpose using an ISO 20022 code.
 /// </summary>
-public partial record Code : ICollateralPurpose1Choice
+public partial record Code : CollateralPurpose1Choice_
 {
     public required CollateralPurpose1Code Value { get; init; }
 }

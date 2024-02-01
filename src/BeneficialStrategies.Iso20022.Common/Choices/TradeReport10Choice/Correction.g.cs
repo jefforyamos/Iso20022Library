@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport10Choice;
 /// <summary>
 /// Indicates a modification to the terms or details of a previously reported position or correction the erroneous data fields of a previously submitted position.
 /// </summary>
-public partial record Correction : ITradeReport10Choice
+public partial record Correction : TradeReport10Choice_
 {
     #nullable enable
     /// <summary>
@@ -26,11 +26,11 @@ public partial record Correction : ITradeReport10Choice
     /// <summary>
     /// Details of the loan used for financing the transaction.
     /// </summary>
-    public ITransactionLoanData20Choice? LoanData { get; init; } 
+    public TransactionLoanData20Choice_? LoanData { get; init; } 
     /// <summary>
     /// Information on collateral used in the transaction.
     /// </summary>
-    public ITransactionCollateralData14Choice? CollateralData { get; init; } 
+    public TransactionCollateralData14Choice_? CollateralData { get; init; } 
     /// <summary>
     /// Information concerning the reported transaction level type.
     /// </summary>

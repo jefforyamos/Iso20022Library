@@ -20,7 +20,7 @@ public partial record CommunicationAddress8
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    public required ILongPostalAddress1Choice PostalAddress { get; init; } 
+    public required LongPostalAddress1Choice_ PostalAddress { get; init; } 
     /// <summary>
     /// Collection of information that identifies a phone number, as defined by telecom services.
     /// </summary>

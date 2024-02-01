@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateTypeChoice;
 /// <summary>
 /// Rate is expressed as a text.
 /// </summary>
-public partial record TextualRate : IRateTypeChoice
+public partial record TextualRate : RateTypeChoice_
 {
     public required IsoMax35Text Value { get; init; }
 }

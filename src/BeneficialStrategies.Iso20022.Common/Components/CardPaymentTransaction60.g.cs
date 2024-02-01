@@ -24,7 +24,7 @@ public partial record CardPaymentTransaction60
     /// <summary>
     /// Service in addition to the main service.
     /// </summary>
-    public CardPaymentServiceType9Code? AdditionalService { get; init;  } // Warning: Don't know multiplicity.
+    public CardPaymentServiceType9Code[] AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional attribute of the service type.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record CardPaymentTransaction60
     /// <summary>
     /// List of incidents during the transaction.
     /// </summary>
-    public FailureReason3Code? FailureReason { get; init;  } // Warning: Don't know multiplicity.
+    public FailureReason3Code[] FailureReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction assigned by the initiating party for the recipient party.
     /// </summary>
@@ -88,11 +88,11 @@ public partial record CardPaymentTransaction60
     /// <summary>
     /// Result of performed verifications for the transaction.
     /// </summary>
-    public TransactionVerificationResult4? TransactionVerificationResult { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionVerificationResult4[] TransactionVerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the transaction.
     /// </summary>
-    public IsoMax70Text? AdditionalTransactionData { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] AdditionalTransactionData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

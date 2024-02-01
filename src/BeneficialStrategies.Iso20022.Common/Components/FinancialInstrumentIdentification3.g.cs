@@ -20,7 +20,7 @@ public partial record FinancialInstrumentIdentification3
     /// <summary>
     /// Unique and unambiguous identifier of a security, assigned under a formal or proprietary identification scheme.
     /// </summary>
-    public required ISecurityIdentification25Choice Identification { get; init; } 
+    public required SecurityIdentification25Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record FinancialInstrumentIdentification3
     /// <summary>
     /// Type of security.
     /// </summary>
-    public IClassificationType32Choice? ClassificationType { get; init; } 
+    public ClassificationType32Choice_? ClassificationType { get; init; } 
     /// <summary>
     /// Indicates whether the security is a restricted security.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record FinancialInstrumentIdentification3
     /// <summary>
     /// Alternative security offered in place of a restricted security.
     /// </summary>
-    public FinancialInstrumentIdentification4? AlternateSecurity { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrumentIdentification4[] AlternateSecurity { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

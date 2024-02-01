@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UndertakingType1Choice;
 /// <summary>
 /// Type of undertaking.
 /// </summary>
-public partial record Code : IUndertakingType1Choice
+public partial record Code : UndertakingType1Choice_
 {
     public required ExternalUndertakingType1Code Value { get; init; }
 }

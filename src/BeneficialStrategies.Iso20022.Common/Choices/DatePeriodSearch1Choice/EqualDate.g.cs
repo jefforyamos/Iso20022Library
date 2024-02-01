@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DatePeriodSearch1Choice;
 /// <summary>
 /// Specified date to match.
 /// </summary>
-public partial record EqualDate : IDatePeriodSearch1Choice
+public partial record EqualDate : DatePeriodSearch1Choice_
 {
     public required IsoISODate Value { get; init; }
 }

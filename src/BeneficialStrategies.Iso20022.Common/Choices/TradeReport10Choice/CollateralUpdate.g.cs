@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport10Choice;
 /// <summary>
 /// Details of the loan used for financing the transaction.
 /// </summary>
-public partial record CollateralUpdate : ITradeReport10Choice
+public partial record CollateralUpdate : TradeReport10Choice_
 {
     #nullable enable
     /// <summary>
@@ -26,11 +26,11 @@ public partial record CollateralUpdate : ITradeReport10Choice
     /// <summary>
     /// Data specifically related to transaction.
     /// </summary>
-    public required ITransactionLoanData9Choice LoanData { get; init; } 
+    public required TransactionLoanData9Choice_ LoanData { get; init; } 
     /// <summary>
     /// Information on collateral used in the transaction.
     /// </summary>
-    public required ITransactionCollateralData14Choice CollateralData { get; init; } 
+    public required TransactionCollateralData14Choice_ CollateralData { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>

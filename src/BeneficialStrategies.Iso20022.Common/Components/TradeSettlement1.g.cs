@@ -20,15 +20,15 @@ public partial record TradeSettlement1
     /// <summary>
     /// Monetary value that is an exact amount due and payable, such as the amount due to the creditor.
     /// </summary>
-    public IsoCurrencyAndAmount? DuePayableAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount[] DuePayableAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous reference assigned by the creditor.
     /// </summary>
-    public CreditorReferenceInformation2? CreditorReference { get; init;  } // Warning: Don't know multiplicity.
+    public CreditorReferenceInformation2[] CreditorReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identifier for a payment transaction, as assigned by the originator. The payment transaction reference is used for reconciliation or to link tasks relating to the payment transaction.
     /// </summary>
-    public IsoMax35Text? PaymentReference { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] PaymentReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Code specifying the currency of the invoice.
     /// </summary>
@@ -64,11 +64,11 @@ public partial record TradeSettlement1
     /// <summary>
     /// Means of payment (for example, credit transfer, cheque, money order, or credit card) specified to initiate payment of the invoice.
     /// </summary>
-    public PaymentMeans1? PaymentMeans { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentMeans1[] PaymentMeans { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
     /// </summary>
-    public SettlementTax1? Tax { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementTax1[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the applicable billing period.
     /// </summary>
@@ -76,19 +76,19 @@ public partial record TradeSettlement1
     /// <summary>
     /// Allowance or charge specified.
     /// </summary>
-    public SettlementAllowanceCharge1? AllowanceCharge { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementAllowanceCharge1[] AllowanceCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax subtotal calculated.
     /// </summary>
-    public SettlementSubTotalCalculatedTax1? SubTotalCalculatedTax { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementSubTotalCalculatedTax1[] SubTotalCalculatedTax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Logistics service charge specified.
     /// </summary>
-    public ChargesDetails2? LogisticsCharge { get; init;  } // Warning: Don't know multiplicity.
+    public ChargesDetails2[] LogisticsCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment terms.
     /// </summary>
-    public PaymentTerms3? PaymentTerms { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentTerms3[] PaymentTerms { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary totals specified for the invoice.
     /// </summary>
@@ -96,7 +96,7 @@ public partial record TradeSettlement1
     /// <summary>
     /// Financial adjustment specified.
     /// </summary>
-    public DocumentAdjustment2? AdjustmentAmountAndReason { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentAdjustment2[] AdjustmentAmountAndReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Invoice document referenced.
     /// </summary>
@@ -112,19 +112,19 @@ public partial record TradeSettlement1
     /// <summary>
     /// Financial card specified. The card is used to represent a financial account for the purpose of payment settlement.
     /// </summary>
-    public FinancialCard1? FinancialCard { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialCard1[] FinancialCard { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specific purchase account for recording debits and credits for accounting purposes.
     /// </summary>
-    public AccountingAccount1? PurchaseAccountingAccount { get; init;  } // Warning: Don't know multiplicity.
+    public AccountingAccount1[] PurchaseAccountingAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Factoring list document referenced.
     /// </summary>
-    public IsoMax35Text? IssuerFactoringListIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] IssuerFactoringListIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Factoring agreement document referenced.
     /// </summary>
-    public IsoMax35Text? IssuerFactoringAgreementIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] IssuerFactoringAgreementIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Purpose1Choice;
 /// <summary>
 /// Specifies the underlying reason for the payment transaction, as published in an external purpose code list.
 /// </summary>
-public partial record Code : IPurpose1Choice
+public partial record Code : Purpose1Choice_
 {
     public required ExternalPurposeCode_Obsolete Value { get; init; }
 }

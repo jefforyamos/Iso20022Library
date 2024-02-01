@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument18Choice;
 /// <summary>
 /// Settlement instructions for a payment by card.
 /// </summary>
-public partial record PaymentCardDetails : IPaymentInstrument18Choice
+public partial record PaymentCardDetails : PaymentInstrument18Choice_
 {
     #nullable enable
     /// <summary>
@@ -42,7 +42,7 @@ public partial record PaymentCardDetails : IPaymentInstrument18Choice
     /// <summary>
     /// Party that issues a payment card, as expressed by a numeric identification of the card issuer according to ISO/IEC 7812-1.
     /// </summary>
-    public IPartyIdentification70Choice? CardIssuerIdentification { get; init; } 
+    public PartyIdentification70Choice_? CardIssuerIdentification { get; init; } 
     /// <summary>
     /// Security code written on, or in, the card.
     /// </summary>

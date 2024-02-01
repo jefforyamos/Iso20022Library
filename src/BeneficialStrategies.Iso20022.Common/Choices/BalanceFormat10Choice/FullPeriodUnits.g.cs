@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceFormat10Choice;
 /// <summary>
 /// Number of units of a fund that were purchased in a previous distribution period and/or held at the beginning of a distribution period, for example Group I Units in the UK.
 /// </summary>
-public partial record FullPeriodUnits : IBalanceFormat10Choice
+public partial record FullPeriodUnits : BalanceFormat10Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record FullPeriodUnits : IBalanceFormat10Choice
     /// <summary>
     /// Quantity of security.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
     #nullable disable
 }

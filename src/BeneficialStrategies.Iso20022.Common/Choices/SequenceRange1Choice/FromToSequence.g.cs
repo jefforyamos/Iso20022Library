@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SequenceRange1Choice;
 /// <summary>
 /// Particular sequence range specified between a start sequence and an end sequence.
 /// </summary>
-public partial record FromToSequence : ISequenceRange1Choice
+public partial record FromToSequence : SequenceRange1Choice_
 {
     #nullable enable
     /// <summary>

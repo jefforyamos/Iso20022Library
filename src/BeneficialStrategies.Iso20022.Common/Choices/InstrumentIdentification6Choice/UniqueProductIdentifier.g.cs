@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstrumentIdentification6Choice;
 /// <summary>
 /// Identification through a unique product identifier.
 /// </summary>
-public partial record UniqueProductIdentifier : IInstrumentIdentification6Choice
+public partial record UniqueProductIdentifier : InstrumentIdentification6Choice_
 {
     #nullable enable
     #nullable disable

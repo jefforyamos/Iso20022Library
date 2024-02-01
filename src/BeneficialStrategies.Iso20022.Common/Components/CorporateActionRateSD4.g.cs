@@ -24,7 +24,7 @@ public partial record CorporateActionRateSD4
     /// <summary>
     /// Corresponding rate of the security disbursed by CSD (for an example in US, DTC The Depository Trust Corporation).
     /// </summary>
-    public IRatioFormat13Choice? CSDSecurityRate { get; init; } 
+    public RatioFormat13Choice_? CSDSecurityRate { get; init; } 
     
     #nullable disable
 }

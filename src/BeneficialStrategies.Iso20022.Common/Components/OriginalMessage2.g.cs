@@ -20,7 +20,7 @@ public partial record OriginalMessage2
     /// <summary>
     /// Original message sender used to identify the message.
     /// </summary>
-    public IParty28Choice? OriginalSender { get; init; } 
+    public Party28Choice_? OriginalSender { get; init; } 
     /// <summary>
     /// Point to point reference assigned by the original instructing party to unambiguously identify the original group of individual transactions.
     /// </summary>

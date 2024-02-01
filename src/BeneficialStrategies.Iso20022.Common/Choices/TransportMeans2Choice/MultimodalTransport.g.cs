@@ -12,17 +12,17 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans2Choice;
 /// <summary>
 /// Specifies the different movements and places and their role in a multimodal conveyance of goods.
 /// </summary>
-public partial record MultimodalTransport : ITransportMeans2Choice
+public partial record MultimodalTransport : TransportMeans2Choice_
 {
     #nullable enable
     /// <summary>
     /// Place from where the goods must leave.
     /// </summary>
-    public IAirportName1Choice? DepartureAirport { get; init;  } // Warning: Don't know multiplicity.
+    public AirportName1Choice_? DepartureAirport { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Place where the goods must arrive.
     /// </summary>
-    public IAirportName1Choice? DestinationAirport { get; init;  } // Warning: Don't know multiplicity.
+    public AirportName1Choice_? DestinationAirport { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>

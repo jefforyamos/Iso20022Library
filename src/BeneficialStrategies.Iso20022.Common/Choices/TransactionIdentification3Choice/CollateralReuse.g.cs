@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionIdentification3Choice
 /// <summary>
 /// Identifies the collateral reuse.
 /// </summary>
-public partial record CollateralReuse : ITransactionIdentification3Choice
+public partial record CollateralReuse : TransactionIdentification3Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,14 +22,14 @@ public partial record CollateralReuse : ITransactionIdentification3Choice
     /// <summary>
     /// Unique code identifying the reporting counterparty.
     /// </summary>
-    public required IOrganisationIdentification15Choice ReportingCounterparty { get; init; } 
+    public required OrganisationIdentification15Choice_ ReportingCounterparty { get; init; } 
     /// <summary>
     /// Unique code identifying the entity which submits the report. In the case where submission of the report has been delegated to a third party or to the other counterparty, a unique code identifying that entity.
     /// </summary>
-    public required IOrganisationIdentification15Choice ReportSubmittingEntity { get; init; } 
+    public required OrganisationIdentification15Choice_ ReportSubmittingEntity { get; init; } 
     /// <summary>
     /// Unique code identifying that the Financial counterparty responsible for reporting on behalf of the other counterparty.
     /// </summary>
-    public IOrganisationIdentification15Choice? EntityResponsibleForReport { get; init; } 
+    public OrganisationIdentification15Choice_? EntityResponsibleForReport { get; init; } 
     #nullable disable
 }

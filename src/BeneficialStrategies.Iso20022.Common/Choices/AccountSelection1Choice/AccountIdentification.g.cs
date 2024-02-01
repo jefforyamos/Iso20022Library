@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountSelection1Choice;
 /// <summary>
 /// Unique and unambiguous identification for the account between the account owner and the account servicer.
 /// </summary>
-public partial record AccountIdentification : IAccountSelection1Choice
+public partial record AccountIdentification : AccountSelection1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

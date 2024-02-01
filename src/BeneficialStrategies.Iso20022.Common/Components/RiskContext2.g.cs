@@ -20,11 +20,11 @@ public partial record RiskContext2
     /// <summary>
     /// Input data to be considered in a risk assessment.
     /// </summary>
-    public RiskInputData1? RiskInputData { get; init;  } // Warning: Don't know multiplicity.
+    public RiskInputData1[] RiskInputData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates to the card issuer the level of risk associated with the transaction.
     /// </summary>
-    public RiskAssessment2? RiskAssessment { get; init;  } // Warning: Don't know multiplicity.
+    public RiskAssessment2[] RiskAssessment { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

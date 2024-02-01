@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationStatus2Choice;
 /// <summary>
 /// Status advising on the rejection of the cancellation request.
 /// </summary>
-public partial record RejectionStatus : ICancellationStatus2Choice
+public partial record RejectionStatus : CancellationStatus2Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason advising the rejection of the instruction cancellation request.
     /// </summary>
-    public required ICancellationRejectionStatus1Choice Reason { get; init; } 
+    public required CancellationRejectionStatus1Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the reason.
     /// </summary>

@@ -24,7 +24,7 @@ public partial record EntryDetails8
     /// <summary>
     /// Provides information on the underlying transaction(s).
     /// </summary>
-    public EntryTransaction9? TransactionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public EntryTransaction9[] TransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

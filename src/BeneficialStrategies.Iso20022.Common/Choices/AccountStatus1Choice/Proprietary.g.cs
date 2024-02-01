@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountStatus1Choice;
 /// <summary>
 /// Status of the account expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IAccountStatus1Choice
+public partial record Proprietary : AccountStatus1Choice_
 {
     #nullable enable
     /// <summary>

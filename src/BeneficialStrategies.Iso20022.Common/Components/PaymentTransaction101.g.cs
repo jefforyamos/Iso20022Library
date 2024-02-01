@@ -46,7 +46,7 @@ public partial record PaymentTransaction101
     /// <summary>
     /// Groups the information of an event, namely of a payment message or status confirmation update. It is repeated as many times as there are events to be returned.
     /// </summary>
-    public PaymentEvent7? PaymentEvent { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentEvent7[] PaymentEvent { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

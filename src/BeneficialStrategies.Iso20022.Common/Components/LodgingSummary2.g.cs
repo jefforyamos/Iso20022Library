@@ -36,7 +36,7 @@ public partial record LodgingSummary2
     /// <summary>
     /// Contains the room details. 
     /// </summary>
-    public LodgingRoom1? Room { get; init;  } // Warning: Don't know multiplicity.
+    public LodgingRoom1[] Room { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Duration of stay in days.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record LodgingSummary2
     /// <summary>
     /// Taxes related to the products or services. 
     /// </summary>
-    public Tax39? TotalTax { get; init;  } // Warning: Don't know multiplicity.
+    public Tax39[] TotalTax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains the total amount of lodging expenses.
     /// </summary>
@@ -72,7 +72,7 @@ public partial record LodgingSummary2
     /// <summary>
     /// Contains Authorised amount details.
     /// </summary>
-    public AuthorisedAmount1? AuthorisedAmount { get; init;  } // Warning: Don't know multiplicity.
+    public AuthorisedAmount1[] AuthorisedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record LodgingSummary2
     /// <summary>
     /// Loyalty programme details. 
     /// </summary>
-    public LoyaltyProgramme2? LoyaltyProgramme { get; init;  } // Warning: Don't know multiplicity.
+    public LoyaltyProgramme2[] LoyaltyProgramme { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional user-defined data pertaining to the lodging. 
     /// </summary>

@@ -69,7 +69,7 @@ public partial record ReturnBusinessDayInformationV07 : IOuterRecord
     [DataMember(Name="RptOrErr")]
     [XmlElement(ElementName="RptOrErr")]
     [Required]
-    public required IBusinessDayReportOrError9Choice ReportOrError { get; init; }
+    public required BusinessDayReportOrError9Choice_ ReportOrError { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

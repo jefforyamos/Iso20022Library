@@ -56,7 +56,7 @@ public partial record QualifiedDocumentInformation1
     /// <summary>
     /// Cryptographic hash of the document.
     /// </summary>
-    public IReadOnlyCollection<AlgorithmAndDigest1> Digest { get; init; } = [];
+    public AlgorithmAndDigest1[] Digest { get; init; } = [];
     /// <summary>
     /// Specifies the type of the document, for example commercial invoice.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record QualifiedDocumentInformation1
     /// <summary>
     /// Attached file for this document. The file must be in a self-describing format.
     /// </summary>
-    public BinaryFile1? AttachedFile { get; init;  } // Warning: Don't know multiplicity.
+    public BinaryFile1[] AttachedFile { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

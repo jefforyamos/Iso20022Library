@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat20Choice;
 /// <summary>
 /// Date expressed as a calendar date.
 /// </summary>
-public partial record Date : IDateFormat20Choice
+public partial record Date : DateFormat20Choice_
 {
     #nullable enable
     #nullable disable

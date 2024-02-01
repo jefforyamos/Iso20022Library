@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DerivativePartyIdentification1Ch
 /// <summary>
 /// Identification of the reference party through Legal entity identifier.
 /// </summary>
-public partial record LEI : IDerivativePartyIdentification1Choice
+public partial record LEI : DerivativePartyIdentification1Choice_
 {
     public required IsoLEIIdentifier Value { get; init; }
 }

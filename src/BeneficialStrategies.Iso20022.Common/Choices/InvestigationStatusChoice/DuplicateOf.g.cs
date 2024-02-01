@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatusChoice;
 /// <summary>
 /// Identifies a duplicated case. When present, the case identified in the message must be closed. The case identified as duplicated (in this component) will be pursued.
 /// </summary>
-public partial record DuplicateOf : IInvestigationStatusChoice
+public partial record DuplicateOf : InvestigationStatusChoice_
 {
     #nullable enable
     /// <summary>

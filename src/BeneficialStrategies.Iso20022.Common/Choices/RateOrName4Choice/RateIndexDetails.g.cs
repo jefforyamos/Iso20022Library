@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RateOrName4Choice;
 /// <summary>
 /// Pricing expressed as a rate index type or a rate name. Lookback and crystallization days.
 /// </summary>
-public partial record RateIndexDetails : IRateOrName4Choice
+public partial record RateIndexDetails : RateOrName4Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the rate type as an index type or by its name.
     /// </summary>
-    public required IBenchmarkCurveName13Choice Type { get; init; } 
+    public required BenchmarkCurveName13Choice_ Type { get; init; } 
     /// <summary>
     /// Number of days prior to the current day to source the rate.
     /// </summary>

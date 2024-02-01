@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData35Choice;
 /// <summary>
 /// Information concerning the reporting at transaction level.
 /// </summary>
-public partial record Report : ITradeData35Choice
+public partial record Report : TradeData35Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record Report : ITradeData35Choice
     /// <summary>
     /// Information about accepted and rejected transactions and the reasons of rejection.
     /// </summary>
-    public IDetailedTransactionStatistics2Choice? TransactionStatistics { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedTransactionStatistics2Choice_? TransactionStatistics { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>

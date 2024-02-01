@@ -77,7 +77,7 @@ public partial record ShareholderIdentificationDisclosureResponseStatusAdviceV01
     [DataMember(Name="RspnRcptnSts")]
     [XmlElement(ElementName="RspnRcptnSts")]
     [Required]
-    public required IResponseProcessingStatus1Choice ResponseReceptionStatus { get; init; }
+    public required ResponseProcessingStatus1Choice_ ResponseReceptionStatus { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

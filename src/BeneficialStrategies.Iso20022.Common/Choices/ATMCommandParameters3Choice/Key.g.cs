@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters3Choice;
 /// <summary>
 /// Parameters to be used by the various cryptographic key commands.
 /// </summary>
-public partial record Key : IATMCommandParameters3Choice
+public partial record Key : ATMCommandParameters3Choice_
 {
     #nullable enable
     /// <summary>

@@ -24,11 +24,11 @@ public partial record FundCashForecast7
     /// <summary>
     /// Date and, if required, the time, at which the price has been applied.
     /// </summary>
-    public required IDateAndDateTimeChoice TradeDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     /// <summary>
     /// Previous date and time at which the price was applied.
     /// </summary>
-    public IDateAndDateTimeChoice? PreviousTradeDateTime { get; init; } 
+    public DateAndDateTimeChoice_? PreviousTradeDateTime { get; init; } 
     /// <summary>
     /// Investment fund class to which a cash flow is related.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record FundCashForecast7
     /// <summary>
     /// Total value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
     /// </summary>
-    public IsoActiveOrHistoricCurrencyAndAmount? TotalNAV { get; init;  } // Warning: Don't know multiplicity.
+    public IsoActiveOrHistoricCurrencyAndAmount[] TotalNAV { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Previous value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
     /// </summary>
-    public IsoActiveOrHistoricCurrencyAndAmount? PreviousTotalNAV { get; init;  } // Warning: Don't know multiplicity.
+    public IsoActiveOrHistoricCurrencyAndAmount[] PreviousTotalNAV { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total number of investment fund class units that have been issued.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record FundCashForecast7
     /// <summary>
     /// Currency of the investment fund class.
     /// </summary>
-    public ActiveOrHistoricCurrencyCode? InvestmentCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public ActiveOrHistoricCurrencyCode[] InvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information about the designation of the share class currency, that is, whether it is for onshore or offshore purposes and other information that may be required. This is typically only required for CNY funds.
     /// </summary>
@@ -80,15 +80,15 @@ public partial record FundCashForecast7
     /// <summary>
     /// Cash movements into the fund as a result of transactions in shares in an investment fund, for example, subscriptions or switch-ins.
     /// </summary>
-    public CashInForecast6? CashInForecastDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashInForecast6[] CashInForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash movements out of the fund as a result of transactions in shares in an investment fund, for example, redemptions or switch-outs.
     /// </summary>
-    public CashOutForecast6? CashOutForecastDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashOutForecast6[] CashOutForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net cash as a result of the cash-in and cash-out flows.
     /// </summary>
-    public NetCashForecast4? NetCashForecastDetails { get; init;  } // Warning: Don't know multiplicity.
+    public NetCashForecast4[] NetCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

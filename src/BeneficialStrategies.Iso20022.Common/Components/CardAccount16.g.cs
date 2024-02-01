@@ -41,11 +41,11 @@ public partial record CardAccount16
     /// <summary>
     /// Unique identifier of the account, as assigned by the account servicer.
     /// </summary>
-    public IAccountIdentification54Choice? AccountIdentifier { get; init; } 
+    public AccountIdentification54Choice_? AccountIdentifier { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    public IPartyIdentification177Choice? Servicer { get; init; } 
+    public PartyIdentification177Choice_? Servicer { get; init; } 
     
     #nullable disable
 }

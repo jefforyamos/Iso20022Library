@@ -20,7 +20,7 @@ public partial record StatisticsByUserDefinedTimePeriod2
     /// <summary>
     /// Reference period for the valuation.
     /// </summary>
-    public required IDateOrDateTimePeriodChoice Period { get; init; } 
+    public required DateOrDateTimePeriodChoice_ Period { get; init; } 
     /// <summary>
     /// Highest price for the referenced period.
     /// </summary>

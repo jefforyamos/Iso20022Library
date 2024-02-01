@@ -24,11 +24,11 @@ public partial record AccountAndParties1
     /// <summary>
     /// Specifies the investigated parties related to the account such as the owner, beneficiary, signatory or any party playing a role in that account for which the investigation needs to be done.
     /// </summary>
-    public required IInvestigatedParties1Choice InvestigatedParties { get; init; } 
+    public required InvestigatedParties1Choice_ InvestigatedParties { get; init; } 
     /// <summary>
     /// Identifies the authority request type as a code.
     /// </summary>
-    public AuthorityRequestType1? AuthorityRequestType { get; init;  } // Warning: Don't know multiplicity.
+    public AuthorityRequestType1[] AuthorityRequestType { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

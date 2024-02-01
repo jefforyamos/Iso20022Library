@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PreferenceToIncome2Choice;
 /// <summary>
 /// Preference to income expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IPreferenceToIncome2Choice
+public partial record Code : PreferenceToIncome2Choice_
 {
     public required PreferenceToIncome1Code Value { get; init; }
 }

@@ -24,11 +24,11 @@ public partial record ReturnReasonInformation1
     /// <summary>
     /// Specifies the reason for the return.
     /// </summary>
-    public IReturnReason1Choice? ReturnReason { get; init; } 
+    public ReturnReason1Choice_? ReturnReason { get; init; } 
     /// <summary>
     /// Further details on the return reason.
     /// </summary>
-    public IsoMax105Text? AdditionalReturnReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax105Text[] AdditionalReturnReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProprietaryReason1Choice;
 /// <summary>
 /// Proprietary identification of the reason for the status.
 /// </summary>
-public partial record Reason : IProprietaryReason1Choice
+public partial record Reason : ProprietaryReason1Choice_
 {
     #nullable enable
     /// <summary>

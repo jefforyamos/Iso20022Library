@@ -28,7 +28,7 @@ public partial record FinancialInstrumentName2
     /// <summary>
     /// Defines the date since when the name of the security is valid.
     /// </summary>
-    public IDateAndDateTime2Choice? ValidFrom { get; init; } 
+    public DateAndDateTime2Choice_? ValidFrom { get; init; } 
     
     #nullable disable
 }

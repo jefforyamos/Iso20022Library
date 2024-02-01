@@ -45,7 +45,7 @@ public partial record InvestorKnowledge1
     /// <summary>
     /// Type of investor knowledge and experience for which the financial instrument is targeted.
     /// </summary>
-    public OtherTargetMarketInvestorKnowledge1? Other { get; init;  } // Warning: Don't know multiplicity.
+    public OtherTargetMarketInvestorKnowledge1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

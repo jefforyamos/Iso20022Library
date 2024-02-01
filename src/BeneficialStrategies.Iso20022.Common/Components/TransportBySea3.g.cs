@@ -20,11 +20,11 @@ public partial record TransportBySea3
     /// <summary>
     /// Identifies the port where the goods are loaded on board the ship.
     /// </summary>
-    public IsoMax35Text? PortOfLoading { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] PortOfLoading { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the port where the goods are discharged.
     /// </summary>
-    public IsoMax35Text? PortOfDischarge { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] PortOfDischarge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>

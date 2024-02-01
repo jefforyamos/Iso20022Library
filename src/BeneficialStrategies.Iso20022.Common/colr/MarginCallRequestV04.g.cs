@@ -113,7 +113,7 @@ public partial record MarginCallRequestV04 : IOuterRecord
     [Description(@"Amount of expected margin that will be either delivered to party A by party B or recalled to party A from party B.")]
     [DataMember(Name="RqrmntDtlsDueToA")]
     [XmlElement(ElementName="RqrmntDtlsDueToA")]
-    public IMarginRequirement1Choice? RequirementDetailsDueToA { get; init; }
+    public MarginRequirement1Choice_? RequirementDetailsDueToA { get; init; }
     
     /// <summary>
     /// Amount of expected margin that will be either delivered to party B by party A or recalled to party B from party A.
@@ -122,7 +122,7 @@ public partial record MarginCallRequestV04 : IOuterRecord
     [Description(@"Amount of expected margin that will be either delivered to party B by party A or recalled to party B from party A.")]
     [DataMember(Name="RqrmntDtlsDueToB")]
     [XmlElement(ElementName="RqrmntDtlsDueToB")]
-    public IMarginRequirement1Choice? RequirementDetailsDueToB { get; init; }
+    public MarginRequirement1Choice_? RequirementDetailsDueToB { get; init; }
     
     /// <summary>
     /// Provides details about the type of collateral that will be either delivered to party A by party B or recalled to party A from party B.
@@ -131,7 +131,7 @@ public partial record MarginCallRequestV04 : IOuterRecord
     [Description(@"Provides details about the type of collateral that will be either delivered to party A by party B or recalled to party A from party B.")]
     [DataMember(Name="XpctdCollDueToA")]
     [XmlElement(ElementName="XpctdCollDueToA")]
-    public IExpectedCollateral2Choice? ExpectedCollateralDueToA { get; init; }
+    public ExpectedCollateral2Choice_? ExpectedCollateralDueToA { get; init; }
     
     /// <summary>
     /// Provides details about the type of collateral that will be either delivered to party B by party A or recalled to party B from party A.
@@ -140,7 +140,7 @@ public partial record MarginCallRequestV04 : IOuterRecord
     [Description(@"Provides details about the type of collateral that will be either delivered to party B by party A or recalled to party B from party A.")]
     [DataMember(Name="XpctdCollDueToB")]
     [XmlElement(ElementName="XpctdCollDueToB")]
-    public IExpectedCollateral2Choice? ExpectedCollateralDueToB { get; init; }
+    public ExpectedCollateral2Choice_? ExpectedCollateralDueToB { get; init; }
     
     /// <summary>
     /// Allows the reporting of the margin requirements for multiple accounts and report a single margin call amount made up of the aggregate of all the individual requirement amounts.

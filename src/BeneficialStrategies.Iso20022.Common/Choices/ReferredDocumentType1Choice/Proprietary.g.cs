@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReferredDocumentType1Choice;
 /// <summary>
 /// Proprietary identification of the type of the remittance document.
 /// </summary>
-public partial record Proprietary : IReferredDocumentType1Choice
+public partial record Proprietary : ReferredDocumentType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

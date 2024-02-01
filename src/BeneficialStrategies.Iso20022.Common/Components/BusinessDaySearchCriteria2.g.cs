@@ -24,19 +24,19 @@ public partial record BusinessDaySearchCriteria2
     /// <summary>
     /// Unique and unambiguous identification of the system, as assigned by the system administrator.
     /// </summary>
-    public ISystemIdentification2Choice? SystemIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public SystemIdentification2Choice_[] SystemIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency which may be processed by the system. A system may process transactions in a single currency or in multiple currencies.
     /// </summary>
-    public ActiveCurrencyCode? SystemCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public ActiveCurrencyCode[] SystemCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Nature of the event that has occurred.
     /// </summary>
-    public ISystemEventType2Choice? EventType { get; init; } 
+    public SystemEventType2Choice_? EventType { get; init; } 
     /// <summary>
     /// Period of time when the system is closed/not operating.
     /// </summary>
-    public IDateTimePeriod1Choice? ClosurePeriod { get; init; } 
+    public DateTimePeriod1Choice_? ClosurePeriod { get; init; } 
     
     #nullable disable
 }

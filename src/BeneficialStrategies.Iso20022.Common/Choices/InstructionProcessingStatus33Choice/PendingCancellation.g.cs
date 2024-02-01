@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus33Cho
 /// <summary>
 /// Cancellation request from yourself for this instruction is pending waiting for further processing.
 /// </summary>
-public partial record PendingCancellation : IInstructionProcessingStatus33Choice
+public partial record PendingCancellation : InstructionProcessingStatus33Choice_
 {
     #nullable enable
     #nullable disable

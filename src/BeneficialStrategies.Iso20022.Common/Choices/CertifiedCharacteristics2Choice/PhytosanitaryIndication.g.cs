@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CertifiedCharacteristics2Choice;
 /// <summary>
 /// Indicates if the goods have passed the phytosanitary check.
 /// </summary>
-public partial record PhytosanitaryIndication : ICertifiedCharacteristics2Choice
+public partial record PhytosanitaryIndication : CertifiedCharacteristics2Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

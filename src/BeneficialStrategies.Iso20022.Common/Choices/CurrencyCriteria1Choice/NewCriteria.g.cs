@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CurrencyCriteria1Choice;
 /// <summary>
 /// Defines the criteria based on which the information is extracted.
 /// </summary>
-public partial record NewCriteria : ICurrencyCriteria1Choice
+public partial record NewCriteria : CurrencyCriteria1Choice_
 {
     #nullable enable
     /// <summary>

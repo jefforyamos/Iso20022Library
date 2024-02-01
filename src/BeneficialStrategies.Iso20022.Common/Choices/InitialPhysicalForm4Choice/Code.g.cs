@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InitialPhysicalForm4Choice;
 /// <summary>
 /// Initial physical form expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IInitialPhysicalForm4Choice
+public partial record Code : InitialPhysicalForm4Choice_
 {
     public required InitialPhysicalForm1Code Value { get; init; }
 }

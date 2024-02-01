@@ -26,7 +26,7 @@ public partial record SettlementFailureReason3
     /// <summary>
     /// Detailed description of the failure reasons.
     /// </summary>
-    public SettlementFailureReason2? Description { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementFailureReason2[] Description { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

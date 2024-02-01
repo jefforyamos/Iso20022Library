@@ -36,19 +36,19 @@ public partial record PortfolioTransfer10
     /// <summary>
     /// Choice of tax efficient product, general investment or pension.
     /// </summary>
-    public IFundPortfolio7Choice? Portfolio { get; init; } 
+    public FundPortfolio7Choice_? Portfolio { get; init; } 
     /// <summary>
     /// Specifies whether all remaining assets in the portfolio not listed for transfer should be liquidated and transferred as cash.
     /// </summary>
-    public AllOtherCash1? AllOtherCash { get; init;  } // Warning: Don't know multiplicity.
+    public AllOtherCash1[] AllOtherCash { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether all assets in the portfolio should be liquidated and transferred as cash.
     /// </summary>
-    public CashAll1? CashAll { get; init;  } // Warning: Don't know multiplicity.
+    public CashAll1[] CashAll { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies how the cash in the account that is awaiting investment is to be dealt with
     /// </summary>
-    public ResidualCash2? ResidualCash { get; init;  } // Warning: Don't know multiplicity.
+    public ResidualCash2[] ResidualCash { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax date applicable to all the assets.
     /// </summary>
@@ -60,11 +60,11 @@ public partial record PortfolioTransfer10
     /// <summary>
     /// Asset to be transferred.
     /// </summary>
-    public FinancialInstrument100? FinancialInstrumentAssetForTransfer { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrument100[] FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the product transfer.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

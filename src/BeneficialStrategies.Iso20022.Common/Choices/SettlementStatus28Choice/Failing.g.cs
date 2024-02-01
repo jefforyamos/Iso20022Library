@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementStatus28Choice;
 /// <summary>
 /// Instruction is failing. Settlement at the instructed settlement date is no longer possible.
 /// </summary>
-public partial record Failing : ISettlementStatus28Choice
+public partial record Failing : SettlementStatus28Choice_
 {
     #nullable enable
     #nullable disable

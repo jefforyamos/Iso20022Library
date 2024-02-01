@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType6Choice;
 /// <summary>
 /// Proprietary identification of the type of rate.
 /// </summary>
-public partial record Proprietary : IRateType6Choice
+public partial record Proprietary : RateType6Choice_
 {
     #nullable enable
     /// <summary>

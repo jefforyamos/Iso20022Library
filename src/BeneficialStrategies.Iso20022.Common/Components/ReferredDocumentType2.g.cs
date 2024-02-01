@@ -20,7 +20,7 @@ public partial record ReferredDocumentType2
     /// <summary>
     /// Provides the type details of the referred document.
     /// </summary>
-    public required IReferredDocumentType1Choice CodeOrProprietary { get; init; } 
+    public required ReferredDocumentType1Choice_ CodeOrProprietary { get; init; } 
     /// <summary>
     /// Identification of the issuer of the reference document type.
     /// </summary>

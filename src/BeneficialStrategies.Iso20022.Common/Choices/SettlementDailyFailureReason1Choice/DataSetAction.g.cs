@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementDailyFailureReason1Cho
 /// <summary>
 /// Where no transaction was concluded, this field should be set so that a valid transaction data file can be submitted to the regulator as per submission requirements.
 /// </summary>
-public partial record DataSetAction : ISettlementDailyFailureReason1Choice
+public partial record DataSetAction : SettlementDailyFailureReason1Choice_
 {
     public required ReportPeriodActivity1Code Value { get; init; }
 }

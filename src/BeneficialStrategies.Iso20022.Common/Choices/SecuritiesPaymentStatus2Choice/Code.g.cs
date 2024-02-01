@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesPaymentStatus2Choice;
 /// <summary>
 /// Securities payment status expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ISecuritiesPaymentStatus2Choice
+public partial record Code : SecuritiesPaymentStatus2Choice_
 {
     public required SecuritiesPaymentStatus1Code Value { get; init; }
 }

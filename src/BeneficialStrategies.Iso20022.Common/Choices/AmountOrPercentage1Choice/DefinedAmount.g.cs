@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountOrPercentage1Choice;
 /// <summary>
 /// Details related to a defined monetary amount.
 /// </summary>
-public partial record DefinedAmount : IAmountOrPercentage1Choice
+public partial record DefinedAmount : AmountOrPercentage1Choice_
 {
     #nullable enable
     /// <summary>

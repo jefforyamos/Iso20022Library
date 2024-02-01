@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References24Choice;
 /// <summary>
 /// Identification of a transaction that cannot be identified using a standard reference element present in the message.
 /// </summary>
-public partial record OtherTransactionIdentification : IReferences24Choice
+public partial record OtherTransactionIdentification : References24Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

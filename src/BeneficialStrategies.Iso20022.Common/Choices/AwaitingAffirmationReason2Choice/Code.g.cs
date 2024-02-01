@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AwaitingAffirmationReason2Choice
 /// <summary>
 /// Specifies the reason why the instruction has been alleged.
 /// </summary>
-public partial record Code : IAwaitingAffirmationReason2Choice
+public partial record Code : AwaitingAffirmationReason2Choice_
 {
     public required AwaitingAffirmationReason1Code Value { get; init; }
 }

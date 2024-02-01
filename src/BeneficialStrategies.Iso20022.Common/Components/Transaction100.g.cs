@@ -30,7 +30,7 @@ public partial record Transaction100
     /// ISO 8583:1993/2003 bit 25.
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    public IsoExact4NumericText? MessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoExact4NumericText[] MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Alternate reason to send a message.
     /// </summary>
@@ -55,11 +55,11 @@ public partial record Transaction100
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    public AdditionalFee1? AdditionalFees { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFee1[] AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

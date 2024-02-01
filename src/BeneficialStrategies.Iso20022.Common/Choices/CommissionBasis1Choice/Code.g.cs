@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CommissionBasis1Choice;
 /// <summary>
 /// Commission basis expressed as a code.
 /// </summary>
-public partial record Code : ICommissionBasis1Choice
+public partial record Code : CommissionBasis1Choice_
 {
     public required TaxationBasis4Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RemovalProcessing2Choice;
 /// <summary>
 /// Identification of the security index to be excluded.
 /// </summary>
-public partial record IndexIdentification : IRemovalProcessing2Choice
+public partial record IndexIdentification : RemovalProcessing2Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetHolding1Choice;
 /// <summary>
 /// Identification and value of the outright investment.
 /// </summary>
-public partial record Security : IAssetHolding1Choice
+public partial record Security : AssetHolding1Choice_
 {
     #nullable enable
     /// <summary>

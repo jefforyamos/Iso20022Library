@@ -24,7 +24,7 @@ public partial record FundingService2
     /// <summary>
     /// Source of funding.
     /// </summary>
-    public FundingSource2? FundingSource { get; init;  } // Warning: Don't know multiplicity.
+    public FundingSource2[] FundingSource { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information for claiming funds.
     /// </summary>

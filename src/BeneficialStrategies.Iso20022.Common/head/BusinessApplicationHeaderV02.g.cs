@@ -62,7 +62,7 @@ public partial record BusinessApplicationHeaderV02 : IOuterRecord
     [DataMember(Name="Fr")]
     [XmlElement(ElementName="Fr")]
     [Required]
-    public required IParty44Choice From { get; init; }
+    public required Party44Choice_ From { get; init; }
     
     /// <summary>
     /// The MessagingEndpoint designated by the sending MessagingEndpoint to be the recipient who will ultimately process this Business Message.
@@ -73,7 +73,7 @@ public partial record BusinessApplicationHeaderV02 : IOuterRecord
     [DataMember(Name="To")]
     [XmlElement(ElementName="To")]
     [Required]
-    public required IParty44Choice To { get; init; }
+    public required Party44Choice_ To { get; init; }
     
     /// <summary>
     /// Unambiguously identifies the Business Message to the MessagingEndpoint that has created the Business Message.

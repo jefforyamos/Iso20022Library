@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeTypeFormat2Choice;
 /// <summary>
 /// Specifies the type of charge in a structured form.
 /// </summary>
-public partial record Structured : IChargeTypeFormat2Choice
+public partial record Structured : ChargeTypeFormat2Choice_
 {
     public required ChargeType4Code Value { get; init; }
 }

@@ -20,11 +20,11 @@ public partial record IndividualPerson43
     /// <summary>
     /// Unique and unambiguous identification of the proxy.
     /// </summary>
-    public IPartyIdentification232Choice? PreassignedProxy { get; init; } 
+    public PartyIdentification232Choice_? PreassignedProxy { get; init; } 
     /// <summary>
     /// Organisation represented by the person, or for which the person works.
     /// </summary>
-    public IPartyIdentification129Choice? EmployingParty { get; init; } 
+    public PartyIdentification129Choice_? EmployingParty { get; init; } 
     
     #nullable disable
 }

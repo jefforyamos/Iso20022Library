@@ -55,7 +55,7 @@ public partial record SecuritiesSettlementTransactionModificationRequestStatusAd
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public IPartyIdentification36Choice? AccountOwner { get; init; }
+    public PartyIdentification36Choice_? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -84,7 +84,7 @@ public partial record SecuritiesSettlementTransactionModificationRequestStatusAd
     [DataMember(Name="ModPrcgSts")]
     [XmlElement(ElementName="ModPrcgSts")]
     [Required]
-    public required IModificationProcessingStatus4Choice ModificationProcessingStatus { get; init; }
+    public required ModificationProcessingStatus4Choice_ ModificationProcessingStatus { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References79Choice;
 /// <summary>
 /// Unambiguous identification of the confirmation to be cancelled.
 /// </summary>
-public partial record SecuritiesFinancingConfirmationIdentification : IReferences79Choice
+public partial record SecuritiesFinancingConfirmationIdentification : References79Choice_
 {
     #nullable enable
     /// <summary>

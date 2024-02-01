@@ -36,15 +36,15 @@ public partial record MeetingReference8
     /// <summary>
     /// Classification type of the meeting.
     /// </summary>
-    public IMeetingTypeClassification2Choice? Classification { get; init; } 
+    public MeetingTypeClassification2Choice_? Classification { get; init; } 
     /// <summary>
     /// Place of the company meeting for the scheduled meeting date.
     /// </summary>
-    public IReadOnlyCollection<PostalAddress1> Location { get; init; } = [];
+    public PostalAddress1[] Location { get; init; } = [];
     /// <summary>
     /// Specifies the institution that is the issuer of the security to which the meeting applies.
     /// </summary>
-    public IPartyIdentification129Choice? Issuer { get; init; } 
+    public PartyIdentification129Choice_? Issuer { get; init; } 
     
     #nullable disable
 }

@@ -72,7 +72,7 @@ public partial record NetPositionV03 : IOuterRecord
     [DataMember(Name="ClrMmb")]
     [XmlElement(ElementName="ClrMmb")]
     [Required]
-    public required IPartyIdentification35Choice ClearingMember { get; init; }
+    public required PartyIdentification35Choice_ ClearingMember { get; init; }
     
     /// <summary>
     /// Clearing organisation that will clear the trade.
@@ -82,7 +82,7 @@ public partial record NetPositionV03 : IOuterRecord
     [Description(@"Clearing organisation that will clear the trade.||Note: This field allows Clearing Member Firm to segregate flows coming from clearing counterparty's clearing system. Indeed, Clearing Member Firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.")]
     [DataMember(Name="ClrSgmt")]
     [XmlElement(ElementName="ClrSgmt")]
-    public IPartyIdentification35Choice? ClearingSegment { get; init; }
+    public PartyIdentification35Choice_? ClearingSegment { get; init; }
     
     /// <summary>
     /// Provides the net position details such as the average deal price and net quantity.

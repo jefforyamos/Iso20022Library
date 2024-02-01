@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingReason2Choi
 /// <summary>
 /// Specifies the reason of the InRepairStatus.
 /// </summary>
-public partial record Reason : IInstructionProcessingReason2Choice
+public partial record Reason : InstructionProcessingReason2Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the instruction is in repair.
     /// </summary>
-    public required IRepairReason9Choice Code { get; init; } 
+    public required RepairReason9Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional information about the reason in narrative form.
     /// </summary>

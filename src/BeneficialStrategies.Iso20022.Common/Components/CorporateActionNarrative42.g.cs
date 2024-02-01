@@ -60,7 +60,7 @@ public partial record CorporateActionNarrative42
     /// <summary>
     /// Provides the web address published for the event, that is, the address for the Universal Resource Locator (URL), for example, used over the www (HTTP) service.
     /// </summary>
-    public IsoMax2048Text? URLAddress { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax2048Text[] URLAddress { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

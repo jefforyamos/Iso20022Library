@@ -56,7 +56,7 @@ public partial record ModifyReservationV05 : IOuterRecord
     [DataMember(Name="RsvatnId")]
     [XmlElement(ElementName="RsvatnId")]
     [Required]
-    public required ICurrentOrDefaultReservation2Choice ReservationIdentification { get; init; }
+    public required CurrentOrDefaultReservation2Choice_ ReservationIdentification { get; init; }
     
     /// <summary>
     /// New reservation values.

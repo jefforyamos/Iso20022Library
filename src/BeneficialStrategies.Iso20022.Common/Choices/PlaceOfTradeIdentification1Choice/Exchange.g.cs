@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PlaceOfTradeIdentification1Choic
 /// <summary>
 /// Exchange at which the transaction is executed.
 /// </summary>
-public partial record Exchange : IPlaceOfTradeIdentification1Choice
+public partial record Exchange : PlaceOfTradeIdentification1Choice_
 {
     public required IsoMICIdentifier Value { get; init; }
 }

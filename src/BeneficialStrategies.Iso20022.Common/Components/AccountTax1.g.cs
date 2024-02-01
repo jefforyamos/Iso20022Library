@@ -28,7 +28,7 @@ public partial record AccountTax1
     /// <summary>
     /// Specifies the country of residence, when the account owner does not reside in the account's tax region.||Usage: If present, the account owner does not reside in the account's tax region.
     /// </summary>
-    public IResidenceLocation1Choice? NonResidenceCountry { get; init; } 
+    public ResidenceLocation1Choice_? NonResidenceCountry { get; init; } 
     
     #nullable disable
 }

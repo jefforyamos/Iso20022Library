@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ContractRegistrationReference1Ch
 /// <summary>
 /// Identification of the contract.
 /// </summary>
-public partial record Contract : IContractRegistrationReference1Choice
+public partial record Contract : ContractRegistrationReference1Choice_
 {
     #nullable enable
     /// <summary>

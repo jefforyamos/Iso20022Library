@@ -20,7 +20,7 @@ public partial record BenefitCrystallisationEvent1
     /// <summary>
     /// Type of crystallisation event.
     /// </summary>
-    public IDrawdownEventType1Choice? EventType { get; init; } 
+    public DrawdownEventType1Choice_? EventType { get; init; } 
     /// <summary>
     /// Number of the crystallisation event.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record BenefitCrystallisationEvent1
     /// <summary>
     /// Additional information about the benefit crystallisation event.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

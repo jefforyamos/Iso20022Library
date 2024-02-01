@@ -119,7 +119,7 @@ public partial record AgentCAMovementStatusAdviceV01 : IOuterRecord
     [DataMember(Name="MvmntStsDtls")]
     [XmlElement(ElementName="MvmntStsDtls")]
     [Required]
-    public required ICorporateActionMovementStatus1Choice MovementStatusDetails { get; init; }
+    public required CorporateActionMovementStatus1Choice_ MovementStatusDetails { get; init; }
     
     /// <summary>
     /// Status of the movement cancellation request.

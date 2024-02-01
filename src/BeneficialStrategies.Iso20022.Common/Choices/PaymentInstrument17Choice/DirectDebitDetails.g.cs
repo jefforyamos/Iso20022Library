@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument17Choice;
 /// <summary>
 /// Settlement instructions for a payment by direct debit.
 /// </summary>
-public partial record DirectDebitDetails : IPaymentInstrument17Choice
+public partial record DirectDebitDetails : PaymentInstrument17Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record DirectDebitDetails : IPaymentInstrument17Choice
     /// <summary>
     /// Party that owes the cash to the creditor/final party. The debtor is also the debit account owner.
     /// </summary>
-    public IPartyIdentification2Choice? Debtor { get; init; } 
+    public PartyIdentification2Choice_? Debtor { get; init; } 
     /// <summary>
     /// Number assigned by a tax authority to an entity.
     /// </summary>
@@ -34,11 +34,11 @@ public partial record DirectDebitDetails : IPaymentInstrument17Choice
     /// <summary>
     /// Party that receives an amount of money from the debtor. In the context of the payment model, the creditor is also the credit account owner.
     /// </summary>
-    public IPartyIdentification2Choice? Creditor { get; init; } 
+    public PartyIdentification2Choice_? Creditor { get; init; } 
     /// <summary>
     /// Financial institution that receives the direct debit instruction from the creditor or other authorised party.
     /// </summary>
-    public required IFinancialInstitutionIdentification3Choice DebtorAgent { get; init; } 
+    public required FinancialInstitutionIdentification3Choice_ DebtorAgent { get; init; } 
     /// <summary>
     /// Information identifying a specific branch of a financial institution.||Usage: this component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
     /// </summary>
@@ -46,7 +46,7 @@ public partial record DirectDebitDetails : IPaymentInstrument17Choice
     /// <summary>
     /// Financial institution that receives the payment transaction on behalf of the creditor, or other nominated party, and credits the account.
     /// </summary>
-    public IFinancialInstitutionIdentification3Choice? CreditorAgent { get; init; } 
+    public FinancialInstitutionIdentification3Choice_? CreditorAgent { get; init; } 
     /// <summary>
     /// Information identifying a specific branch of a financial institution.||Usage: this component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesMovementStatus1Choice;
 /// <summary>
 /// Security satisfies all validation checks and can therefore be accepted for the related transaction.
 /// </summary>
-public partial record Future : ISecuritiesMovementStatus1Choice
+public partial record Future : SecuritiesMovementStatus1Choice_
 {
     #nullable enable
     /// <summary>

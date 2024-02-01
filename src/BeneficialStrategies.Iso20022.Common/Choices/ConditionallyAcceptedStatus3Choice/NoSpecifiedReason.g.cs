@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConditionallyAcceptedStatus3Choi
 /// <summary>
 /// No reason available or to report for the conditionally accepted status.
 /// </summary>
-public partial record NoSpecifiedReason : IConditionallyAcceptedStatus3Choice
+public partial record NoSpecifiedReason : ConditionallyAcceptedStatus3Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

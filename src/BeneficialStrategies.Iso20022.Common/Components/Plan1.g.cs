@@ -44,7 +44,7 @@ public partial record Plan1
     /// <summary>
     /// Details of the interest rate.
     /// </summary>
-    public InterestRateDetails1? InterestRate { get; init;  } // Warning: Don't know multiplicity.
+    public InterestRateDetails1[] InterestRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date of the first payment.
     /// </summary>
@@ -73,7 +73,7 @@ public partial record Plan1
     /// <summary>
     /// Contains the amount details of an instalment plan.
     /// </summary>
-    public InstalmentAmountDetails1? AmountDetails { get; init;  } // Warning: Don't know multiplicity.
+    public InstalmentAmountDetails1[] AmountDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total amount of the instalment including charges, insurance and taxes in addition to the funded amount.
     /// </summary>

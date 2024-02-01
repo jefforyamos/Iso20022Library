@@ -20,11 +20,11 @@ public partial record SystemSearch3
     /// <summary>
     /// Identification of a particular cash clearing system.
     /// </summary>
-    public IClearingSystemIdentification3Choice? SystemIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public ClearingSystemIdentification3Choice_[] SystemIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identification of a member within a system, assigned using the member identification scheme of the system.
     /// </summary>
-    public BranchAndFinancialInstitutionIdentification5? MemberIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public BranchAndFinancialInstitutionIdentification5[] MemberIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Country in which the system is located.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record SystemSearch3
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public IAccountIdentification4Choice? AccountIdentification { get; init; } 
+    public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     
     #nullable disable
 }

@@ -36,7 +36,7 @@ public partial record ChargeOrCommissionDiscount1
     /// <summary>
     /// Form of the discount or rebate, for example, cash.
     /// </summary>
-    public IWaivingInstruction2Choice? Basis { get; init; } 
+    public WaivingInstruction2Choice_? Basis { get; init; } 
     
     #nullable disable
 }

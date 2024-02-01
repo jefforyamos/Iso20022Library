@@ -32,7 +32,7 @@ public partial record CollateralAmount17
     /// <summary>
     /// Breakdown of transaction amount (required value for the exposure)  into market value lots based on  the term for the underlying trades.
     /// </summary>
-    public CollateralTransactionAmountBreakdown2? TransactionAmountBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public CollateralTransactionAmountBreakdown2[] TransactionAmountBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// The difference between the total collateral value and the total collateral required.
     /// </summary>

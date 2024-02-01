@@ -36,7 +36,7 @@ public partial record CashOutForecast5
     /// <summary>
     /// Breakdown of cash out amounts by transaction and order type.
     /// </summary>
-    public FundCashOutBreakdown3? CashOutBreakdownDetails { get; init;  } // Warning: Don't know multiplicity.
+    public FundCashOutBreakdown3[] CashOutBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional balances for cash amounts and number of units. 
     /// In an estimated report, the total cash derived from orders placed as a number of units is an estimated cash amount and the total number of units derived from orders placed as a cash amount is an estimated number of units.

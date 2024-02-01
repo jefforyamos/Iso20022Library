@@ -48,7 +48,7 @@ public partial record Header22
     /// <summary>
     /// Identification of partners involved in exchange from the merchant to the issuer, with the relative timestamp of their exchanges.
     /// </summary>
-    public Traceability4? Traceability { get; init;  } // Warning: Don't know multiplicity.
+    public Traceability4[] Traceability { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

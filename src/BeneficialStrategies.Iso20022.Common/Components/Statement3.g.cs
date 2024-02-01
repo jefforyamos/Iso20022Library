@@ -24,19 +24,19 @@ public partial record Statement3
     /// <summary>
     /// Date of the statement.
     /// </summary>
-    public required IDateAndDateTimeChoice StatementDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Preparation date of the statement.
     /// </summary>
-    public IDateAndDateTimeChoice? CreationDateTime { get; init; } 
+    public DateAndDateTimeChoice_? CreationDateTime { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
-    public IFrequencyCodeAndDSSCodeChoice? Frequency { get; init; } 
+    public FrequencyCodeAndDSSCodeChoice_? Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the report is complete or contains changes only.
     /// </summary>
-    public IStatementUpdateTypeCodeAndDSSCodeChoice? UpdateType { get; init; } 
+    public StatementUpdateTypeCodeAndDSSCodeChoice_? UpdateType { get; init; } 
     /// <summary>
     /// Indicates whether there is activity reported in the statement.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record Statement3
     /// <summary>
     /// Type of balance on which the statement is prepared.
     /// </summary>
-    public IStatementBasisCodeAndDSSCodeChoice? StatementBasis { get; init; } 
+    public StatementBasisCodeAndDSSCodeChoice_? StatementBasis { get; init; } 
     /// <summary>
     /// Sequential number of the statement.
     /// </summary>

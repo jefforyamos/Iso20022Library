@@ -20,11 +20,11 @@ public partial record CompareLegDirection2
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
-    public IDirection4Choice? Value1 { get; init; } 
+    public Direction4Choice_? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
-    public IDirection4Choice? Value2 { get; init; } 
+    public Direction4Choice_? Value2 { get; init; } 
     
     #nullable disable
 }

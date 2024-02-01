@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeTypeFormat2Choice;
 /// <summary>
 /// Specifies the type of charge in free text form.
 /// </summary>
-public partial record Unstructured : IChargeTypeFormat2Choice
+public partial record Unstructured : ChargeTypeFormat2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

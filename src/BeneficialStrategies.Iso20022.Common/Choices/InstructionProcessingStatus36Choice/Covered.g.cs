@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus36Cho
 /// <summary>
 /// Protect Instruction has been full covered.
 /// </summary>
-public partial record Covered : IInstructionProcessingStatus36Choice
+public partial record Covered : InstructionProcessingStatus36Choice_
 {
     #nullable enable
     /// <summary>

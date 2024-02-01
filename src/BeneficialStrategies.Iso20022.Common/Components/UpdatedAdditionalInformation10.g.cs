@@ -28,7 +28,7 @@ public partial record UpdatedAdditionalInformation10
     /// <summary>
     /// Provides additional textual information.
     /// </summary>
-    public IsoRestrictedFINZMax8000Text? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoRestrictedFINZMax8000Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingReason51Choice;
 /// <summary>
 /// Pending reason specified as a proprietary code.
 /// </summary>
-public partial record Proprietary : IPendingReason51Choice
+public partial record Proprietary : PendingReason51Choice_
 {
     #nullable enable
     /// <summary>

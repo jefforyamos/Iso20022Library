@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlingCapacity7Choice;
 /// <summary>
 /// Settlement capacity expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ISettlingCapacity7Choice
+public partial record Code : SettlingCapacity7Choice_
 {
     public required SettlingCapacity2Code Value { get; init; }
 }

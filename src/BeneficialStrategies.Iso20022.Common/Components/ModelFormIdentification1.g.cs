@@ -20,7 +20,7 @@ public partial record ModelFormIdentification1
     /// <summary>
     /// Identification of the model form.
     /// </summary>
-    public required IModelFormIdentification1Choice Identification { get; init; } 
+    public required ModelFormIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Version of the model form.
     /// </summary>

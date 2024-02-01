@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CommunicationMethod1Choice;
 /// <summary>
 /// Communication channel method.
 /// </summary>
-public partial record Code : ICommunicationMethod1Choice
+public partial record Code : CommunicationMethod1Choice_
 {
     public required ExternalChannel1Code Value { get; init; }
 }

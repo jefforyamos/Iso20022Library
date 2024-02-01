@@ -24,7 +24,7 @@ public partial record VolumeCapResult1
     /// <summary>
     /// Date or date range the report relates to.
     /// </summary>
-    public required IPeriod4Choice ReportingPeriod { get; init; } 
+    public required Period4Choice_ ReportingPeriod { get; init; } 
     /// <summary>
     /// Last date for which the data was updated for this instrument and reporting period.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record VolumeCapResult1
     /// <summary>
     /// Percentage of trading under waiver of the instrument in this specific reporting period broken down by trading venue.
     /// </summary>
-    public TradingUnderWaiversPercentage1? TradingUnderWaiverBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public TradingUnderWaiversPercentage1[] TradingUnderWaiverBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information for interpreting the result.
     /// </summary>

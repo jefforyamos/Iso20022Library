@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceRateOrAmountOrUnknown3Choic
 /// <summary>
 /// Price expressed as a currency and value.
 /// </summary>
-public partial record Amount : IPriceRateOrAmountOrUnknown3Choice
+public partial record Amount : PriceRateOrAmountOrUnknown3Choice_
 {
     public required IsoRestrictedFINActiveOrHistoricCurrencyAnd13DecimalAmount Value { get; init; }
 }

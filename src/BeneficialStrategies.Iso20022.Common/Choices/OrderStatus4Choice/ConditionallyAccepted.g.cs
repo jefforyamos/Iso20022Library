@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderStatus4Choice;
 /// <summary>
 /// Status of the switch order is conditionally accepted.
 /// </summary>
-public partial record ConditionallyAccepted : IOrderStatus4Choice
+public partial record ConditionallyAccepted : OrderStatus4Choice_
 {
     #nullable enable
     #nullable disable

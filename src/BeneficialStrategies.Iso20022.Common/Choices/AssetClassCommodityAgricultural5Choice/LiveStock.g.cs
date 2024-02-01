@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityAgricultural5
 /// <summary>
 /// Livestock agricultural commodity derivative.
 /// </summary>
-public partial record LiveStock : IAssetClassCommodityAgricultural5Choice
+public partial record LiveStock : AssetClassCommodityAgricultural5Choice_
 {
     #nullable enable
     /// <summary>

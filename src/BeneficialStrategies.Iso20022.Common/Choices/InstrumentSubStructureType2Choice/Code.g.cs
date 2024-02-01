@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstrumentSubStructureType2Choic
 /// <summary>
 /// Instrument sub-structure type expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IInstrumentSubStructureType2Choice
+public partial record Code : InstrumentSubStructureType2Choice_
 {
     public required InstrumentSubStructureType1Code Value { get; init; }
 }

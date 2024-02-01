@@ -12,17 +12,17 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties6Choice;
 /// <summary>
 /// Single owner of the investment account or, when the ownership is split among several owners, the primary owner is the one giving its address and account details for the registration.
 /// </summary>
-public partial record PrimaryOwner : IAccountParties6Choice
+public partial record PrimaryOwner : AccountParties6Choice_
 {
     #nullable enable
     /// <summary>
     /// Information about the organisation or individual person.
     /// </summary>
-    public required IParty24Choice Party { get; init; } 
+    public required Party24Choice_ Party { get; init; } 
     /// <summary>
     /// Status of an identity check to prevent money laundering. This includes the counter-terrorism check.
     /// </summary>
-    public IMoneyLaunderingCheck1Choice? MoneyLaunderingCheck { get; init; } 
+    public MoneyLaunderingCheck1Choice_? MoneyLaunderingCheck { get; init; } 
     /// <summary>
     /// Percentage of ownership or beneficiary ownership of the shares/units in the account. All subsequent subscriptions and or redemptions will be allocated using the same percentage.
     /// </summary>
@@ -54,7 +54,7 @@ public partial record PrimaryOwner : IAccountParties6Choice
     /// <summary>
     /// Type of Foreign Account Tax Compliance Act (FATCA) form submitted by the investor.
     /// </summary>
-    public IFATCAForm1Choice? FATCAFormType { get; init;  } // Warning: Don't know multiplicity.
+    public FATCAForm1Choice_? FATCAFormType { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Foreign Account Tax Compliance Act (FATCA) status of the investor.
     /// </summary>

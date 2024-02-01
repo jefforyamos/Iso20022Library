@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity4Choi
 /// <summary>
 /// Amount of money used to determine the quantity of investment fund units to be subscribed.
 /// </summary>
-public partial record NetAmount : IFinancialInstrumentQuantity4Choice
+public partial record NetAmount : FinancialInstrumentQuantity4Choice_
 {
     public required IsoCurrencyAndAmount Value { get; init; }
 }

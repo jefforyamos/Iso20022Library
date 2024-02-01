@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeDateCode4Choice;
 /// <summary>
 /// Trade date expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITradeDateCode4Choice
+public partial record Proprietary : TradeDateCode4Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstitutionIdentificati
 /// <summary>
 /// Unique and unambiguous identifier, as assigned to a financial institution using a proprietary identification scheme.
 /// </summary>
-public partial record ProprietaryIdentification : IFinancialInstitutionIdentification7Choice
+public partial record ProprietaryIdentification : FinancialInstitutionIdentification7Choice_
 {
     #nullable enable
     /// <summary>

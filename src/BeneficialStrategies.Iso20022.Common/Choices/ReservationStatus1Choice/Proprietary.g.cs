@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReservationStatus1Choice;
 /// <summary>
 /// Liquidity transfer request type, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IReservationStatus1Choice
+public partial record Proprietary : ReservationStatus1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

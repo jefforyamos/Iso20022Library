@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormatChoice;
 /// <summary>
 /// Place of safekeeping expressed as a code and BIC.
 /// </summary>
-public partial record Identification : ISafekeepingPlaceFormatChoice
+public partial record Identification : SafekeepingPlaceFormatChoice_
 {
     #nullable enable
     /// <summary>

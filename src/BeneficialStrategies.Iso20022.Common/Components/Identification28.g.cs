@@ -44,7 +44,7 @@ public partial record Identification28
     /// <summary>
     /// Reference assigned to the trade by the investor or the trading party. This reference will be used throughout the trade life cycle to access/update the trade details.
     /// </summary>
-    public IsoMax52Text? TradeIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax52Text[] TradeIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>

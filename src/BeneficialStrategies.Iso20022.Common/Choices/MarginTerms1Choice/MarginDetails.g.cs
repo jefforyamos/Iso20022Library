@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginTerms1Choice;
 /// <summary>
 /// Elements used to calculate the collateral margin call for the variation margin and optionally the segregated independent amount.
 /// </summary>
-public partial record MarginDetails : IMarginTerms1Choice
+public partial record MarginDetails : MarginTerms1Choice_
 {
     #nullable enable
     /// <summary>

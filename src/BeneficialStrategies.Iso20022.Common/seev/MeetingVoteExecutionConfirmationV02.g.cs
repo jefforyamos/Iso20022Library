@@ -80,7 +80,7 @@ public partial record MeetingVoteExecutionConfirmationV02 : IOuterRecord
     [DataMember(Name="RptgPty")]
     [XmlElement(ElementName="RptgPty")]
     [Required]
-    public required IPartyIdentification9Choice ReportingParty { get; init; }
+    public required PartyIdentification9Choice_ ReportingParty { get; init; }
     
     /// <summary>
     /// Identifies the securities for which the meeting is organised.

@@ -20,15 +20,15 @@ public partial record FundSettlementParameters13
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository or an International Central Securities Depository.
     /// </summary>
-    public ISafekeepingPlaceFormat28Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat28Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Condition under which the order/trade is to be/was executed. This may be required for settlement through T2S.
     /// </summary>
-    public ITradeTransactionCondition8Choice? TradeTransactionCondition { get; init;  } // Warning: Don't know multiplicity.
+    public TradeTransactionCondition8Choice_[] TradeTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Condition under which the order/trade is to be settled. This may be required for settlement through T2S.
     /// </summary>
-    public ISettlementTransactionCondition30Choice? SettlementTransactionCondition { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementTransactionCondition30Choice_[] SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of a specific system or set of rules and/or processes to be applied at the settlement place.
     /// </summary>

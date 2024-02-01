@@ -20,19 +20,19 @@ public partial record CorporateActionNotification1
     /// <summary>
     /// Date/time at which the issuer announced that a corporate action event will occur.
     /// </summary>
-    public IDateFormat4Choice? AnnouncementDate { get; init; } 
+    public DateFormat4Choice_? AnnouncementDate { get; init; } 
     /// <summary>
     /// Date/time at which additional information on the event will be announced, eg, exchange ratio announcement date.
     /// </summary>
-    public IDateFormat4Choice? FurtherDetailedAnnouncementDate { get; init; } 
+    public DateFormat4Choice_? FurtherDetailedAnnouncementDate { get; init; } 
     /// <summary>
     /// Date/time at which the corporate action is legally announced by an official body, eg, publication by a governmental administration.
     /// </summary>
-    public IDateFormat4Choice? OfficialAnnouncementPublicationDate { get; init; } 
+    public DateFormat4Choice_? OfficialAnnouncementPublicationDate { get; init; } 
     /// <summary>
     /// Specifies the status of the details of the event.
     /// </summary>
-    public required IProcessingStatus1FormatChoice ProcessingStatus { get; init; } 
+    public required ProcessingStatus1FormatChoice_ ProcessingStatus { get; init; } 
     
     #nullable disable
 }

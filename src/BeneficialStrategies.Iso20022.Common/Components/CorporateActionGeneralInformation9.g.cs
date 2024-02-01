@@ -32,7 +32,7 @@ public partial record CorporateActionGeneralInformation9
     /// <summary>
     /// Type of corporate action event.
     /// </summary>
-    public required ICorporateActionEventType3Choice EventType { get; init; } 
+    public required CorporateActionEventType3Choice_ EventType { get; init; } 
     
     #nullable disable
 }

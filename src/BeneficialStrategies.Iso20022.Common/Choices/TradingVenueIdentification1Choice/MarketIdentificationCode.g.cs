@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingVenueIdentification1Choic
 /// <summary>
 /// Identification used where reporting entity uses a market identification code (MIC).
 /// </summary>
-public partial record MarketIdentificationCode : ITradingVenueIdentification1Choice
+public partial record MarketIdentificationCode : TradingVenueIdentification1Choice_
 {
     public required IsoMICIdentifier Value { get; init; }
 }

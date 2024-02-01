@@ -24,7 +24,7 @@ public partial record CashOption89
     /// <summary>
     /// Choice between a cash account, a charges account or a tax account.
     /// </summary>
-    public IAccount9Choice? Account { get; init; } 
+    public Account9Choice_? Account { get; init; } 
     /// <summary>
     /// Date/Time of the posting (credit or debit) to the account.
     /// </summary>

@@ -12,17 +12,17 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties3Choice;
 /// <summary>
 /// Entity that holds shares/units on behalf of a legal minor. Although the account is registered under the name of the minor, the custodian retains control of the account.
 /// </summary>
-public partial record CustodianForMinor : IAccountParties3Choice
+public partial record CustodianForMinor : AccountParties3Choice_
 {
     #nullable enable
     /// <summary>
     /// Information about the organisation or individual person.
     /// </summary>
-    public required IParty15Choice Party { get; init; } 
+    public required Party15Choice_ Party { get; init; } 
     /// <summary>
     /// Status of an identity check to prevent money laundering. This includes the counter-terrorism check.
     /// </summary>
-    public IMoneyLaunderingCheck1Choice? MoneyLaunderingCheck { get; init; } 
+    public MoneyLaunderingCheck1Choice_? MoneyLaunderingCheck { get; init; } 
     /// <summary>
     /// Percentage of ownership or beneficiary ownership of the shares/units in the account. All subsequent subscriptions and or redemptions will be allocated using the same percentage.
     /// </summary>

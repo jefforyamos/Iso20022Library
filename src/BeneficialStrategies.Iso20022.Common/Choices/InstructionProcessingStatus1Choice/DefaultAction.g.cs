@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus1Choi
 /// <summary>
 /// Default action is taken.
 /// </summary>
-public partial record DefaultAction : IInstructionProcessingStatus1Choice
+public partial record DefaultAction : InstructionProcessingStatus1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstitutionIdentificati
 /// <summary>
 /// Identification of the financial institution expressed as a BIC.
 /// </summary>
-public partial record BICFI : IFinancialInstitutionIdentification9Choice
+public partial record BICFI : FinancialInstitutionIdentification9Choice_
 {
     public required IsoBICFIIdentifier Value { get; init; }
 }

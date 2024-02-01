@@ -32,15 +32,15 @@ public partial record RegisteredContract3
     /// <summary>
     /// Amendment details of the registered contract for the registered contract.
     /// </summary>
-    public required IUnderlyingContract1Choice Contract { get; init; } 
+    public required UnderlyingContract1Choice_ Contract { get; init; } 
     /// <summary>
     /// Contract balance on date of contract registration.
     /// </summary>
-    public ContractBalance1? ContractBalance { get; init;  } // Warning: Don't know multiplicity.
+    public ContractBalance1[] ContractBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of the payment schedule provided in the contract.
     /// </summary>
-    public IPaymentScheduleType1Choice? PaymentScheduleType { get; init; } 
+    public PaymentScheduleType1Choice_? PaymentScheduleType { get; init; } 
     /// <summary>
     /// Further additional information on the amendment.
     /// </summary>
@@ -48,11 +48,11 @@ public partial record RegisteredContract3
     /// <summary>
     /// Documents provided as attachments to the contract registration amendment request.
     /// </summary>
-    public DocumentGeneralInformation3? Attachment { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentGeneralInformation3[] Attachment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

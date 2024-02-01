@@ -28,7 +28,7 @@ public partial record NetObligation2
     /// <summary>
     /// Describes the party or netting group (of the participant receiving the report) involved in the calculation of the obligation.
     /// </summary>
-    public required INettingIdentification2Choice ParticipantNettingIdentification { get; init; } 
+    public required NettingIdentification2Choice_ ParticipantNettingIdentification { get; init; } 
     /// <summary>
     /// Specifies the direction of the obligation.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record NetObligation2
     /// <summary>
     /// Describes the party or netting group (of the counterparty in the obligation) involved in the calculation of the obligation.
     /// </summary>
-    public required INettingIdentification2Choice CounterpartyNettingIdentification { get; init; } 
+    public required NettingIdentification2Choice_ CounterpartyNettingIdentification { get; init; } 
     /// <summary>
     /// Describes the counterparty participant involved in the obligation.
     /// </summary>
-    public IPartyIdentification242Choice? NetServiceCounterpartyIdentification { get; init; } 
+    public PartyIdentification242Choice_? NetServiceCounterpartyIdentification { get; init; } 
     /// <summary>
     /// Specifies the standard settlement instructions used to issue a payment to the counterparty in order to settle the obligation.
     /// </summary>

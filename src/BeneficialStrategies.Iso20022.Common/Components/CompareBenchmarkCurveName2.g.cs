@@ -20,11 +20,11 @@ public partial record CompareBenchmarkCurveName2
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
-    public IBenchmarkCurveName10Choice? Value1 { get; init; } 
+    public BenchmarkCurveName10Choice_? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
-    public IBenchmarkCurveName10Choice? Value2 { get; init; } 
+    public BenchmarkCurveName10Choice_? Value2 { get; init; } 
     
     #nullable disable
 }

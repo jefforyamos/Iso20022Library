@@ -28,7 +28,7 @@ public partial record CashBalance11
     /// <summary>
     /// Specifies the nature of a balance.
     /// </summary>
-    public IBalanceType9Choice? Type { get; init; } 
+    public BalanceType9Choice_? Type { get; init; } 
     /// <summary>
     /// Current status of a cash balance.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record CashBalance11
     /// <summary>
     /// Date and time at which the balance is or will be available.
     /// </summary>
-    public IDateAndDateTime2Choice? ValueDate { get; init; } 
+    public DateAndDateTime2Choice_? ValueDate { get; init; } 
     /// <summary>
     /// Number of payments taken into account for the calculation of the cash balance value.
     /// </summary>

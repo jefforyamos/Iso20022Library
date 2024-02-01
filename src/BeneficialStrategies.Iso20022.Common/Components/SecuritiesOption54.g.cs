@@ -20,11 +20,11 @@ public partial record SecuritiesOption54
     /// <summary>
     /// Minimum quantity of securities to be accepted (used in the framework of conditional privilege on election). In case of proration, if this minimum quantity is not reached then the instruction is void.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? ConditionalQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? ConditionalQuantity { get; init; } 
     /// <summary>
     /// Quantity of securities to which this instruction applies.
     /// </summary>
-    public required IQuantity40Choice InstructedQuantity { get; init; } 
+    public required Quantity40Choice_ InstructedQuantity { get; init; } 
     
     #nullable disable
 }

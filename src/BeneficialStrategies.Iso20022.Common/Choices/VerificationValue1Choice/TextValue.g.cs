@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.VerificationValue1Choice;
 /// <summary>
 /// Value of the data expressed in text form.
 /// </summary>
-public partial record TextValue : IVerificationValue1Choice
+public partial record TextValue : VerificationValue1Choice_
 {
     public required IsoMax2048Text Value { get; init; }
 }

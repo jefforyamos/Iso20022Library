@@ -32,7 +32,7 @@ public partial record Collateral53
     /// <summary>
     /// Additional information about the collateral valuation that has been posted.
     /// </summary>
-    public CollateralValuation13? CollateralValuation { get; init;  } // Warning: Don't know multiplicity.
+    public CollateralValuation13[] CollateralValuation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

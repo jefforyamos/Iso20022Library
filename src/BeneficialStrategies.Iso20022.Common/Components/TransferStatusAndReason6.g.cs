@@ -36,11 +36,11 @@ public partial record TransferStatusAndReason6
     /// <summary>
     /// Type of event for which the message is sent.
     /// </summary>
-    public ITransferStatusType1Choice? TransferEventType { get; init;  } // Warning: Don't know multiplicity.
+    public TransferStatusType1Choice_[] TransferEventType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Status of the transfer instruction.
     /// </summary>
-    public required ITransferStatus3Choice TransferStatus { get; init; } 
+    public required TransferStatus3Choice_ TransferStatus { get; init; } 
     /// <summary>
     /// Date on which the transfer was executed.
     /// In some scenarios, this is the date and time to be used as the trade date when securities are settled through an International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
@@ -65,7 +65,7 @@ public partial record TransferStatusAndReason6
     /// <summary>
     /// Breakdown of units to be transferred.
     /// </summary>
-    public Unit11? UnitsDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Unit11[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total transfer value.
     /// </summary>
@@ -73,15 +73,15 @@ public partial record TransferStatusAndReason6
     /// <summary>
     /// Details of a payment that will result from or resulting from the liquation of an asset and transfer of cash or for the transfer of cash that was not invested.
     /// </summary>
-    public PaymentInstrument15? PaymentDetails { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentInstrument15[] PaymentDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information about the realisation of benefits taken from a pension.
     /// </summary>
-    public BenefitCrystallisationEvent1? BenefitCrystallisationEvent { get; init;  } // Warning: Don't know multiplicity.
+    public BenefitCrystallisationEvent1[] BenefitCrystallisationEvent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details of a drawdown tranche.
     /// </summary>
-    public Drawdown1? DrawdownTranche { get; init;  } // Warning: Don't know multiplicity.
+    public Drawdown1[] DrawdownTranche { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that initiates the status.
     /// </summary>

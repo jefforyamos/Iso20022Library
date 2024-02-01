@@ -28,7 +28,7 @@ public partial record SidePocketInformation1
     /// <summary>
     /// Quantity of the side pocket.
     /// </summary>
-    public ISidePocketUnitsOrAmountOrRate1Choice? SidePocketQuantity { get; init; } 
+    public SidePocketUnitsOrAmountOrRate1Choice_? SidePocketQuantity { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingRateIdentification1Choice
 /// <summary>
 /// Specifies the billing rate identification code, as defined in an external code list.
 /// </summary>
-public partial record Code : IBillingRateIdentification1Choice
+public partial record Code : BillingRateIdentification1Choice_
 {
     public required ExternalBillingRateIdentification1Code Value { get; init; }
 }

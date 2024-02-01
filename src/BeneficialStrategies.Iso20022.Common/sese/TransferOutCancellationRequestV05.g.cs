@@ -71,7 +71,7 @@ public partial record TransferOutCancellationRequestV05 : IOuterRecord
     [DataMember(Name="Cxl")]
     [XmlElement(ElementName="Cxl")]
     [Required]
-    public required ICancellation4Choice Cancellation { get; init; }
+    public required Cancellation4Choice_ Cancellation { get; init; }
     
     /// <summary>
     /// Identifies the market practice to which the message conforms.

@@ -40,7 +40,7 @@ public partial record PaymentTransaction54
     /// <summary>
     /// Provides detailed information on the cancellation status reason.
     /// </summary>
-    public CancellationStatusReason2? CancellationStatusReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public CancellationStatusReason2[] CancellationStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of money, as provided in the original transaction, to be moved between the debtor and the creditor, before deduction of charges, expressed in the currency, as ordered by the original initiating party.
     /// Usage: This amount has to be transported unchanged through the transaction chain.

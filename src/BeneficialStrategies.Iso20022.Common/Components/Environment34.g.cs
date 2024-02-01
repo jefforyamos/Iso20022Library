@@ -83,7 +83,7 @@ public partial record Environment34
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData2? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData2[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

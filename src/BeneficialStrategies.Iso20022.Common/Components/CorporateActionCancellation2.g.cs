@@ -28,7 +28,7 @@ public partial record CorporateActionCancellation2
     /// <summary>
     /// Specifies the status of the details of the event.
     /// </summary>
-    public required ICorporateActionProcessingStatus1Choice ProcessingStatus { get; init; } 
+    public required CorporateActionProcessingStatus1Choice_ ProcessingStatus { get; init; } 
     
     #nullable disable
 }

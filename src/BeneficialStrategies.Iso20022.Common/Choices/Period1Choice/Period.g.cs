@@ -12,16 +12,16 @@ namespace BeneficialStrategies.Iso20022.Choices.Period1Choice;
 /// <summary>
 /// Time span defined by a start date and time, and an end date and time.
 /// </summary>
-public partial record Period : IPeriod1Choice
+public partial record Period : Period1Choice_
 {
     #nullable enable
     /// <summary>
     /// Date and time at which the range starts.
     /// </summary>
-    public required IDateFormat12Choice StartDate { get; init; } 
+    public required DateFormat12Choice_ StartDate { get; init; } 
     /// <summary>
     /// Date and time at which the range ends.
     /// </summary>
-    public required IDateFormat12Choice EndDate { get; init; } 
+    public required DateFormat12Choice_ EndDate { get; init; } 
     #nullable disable
 }

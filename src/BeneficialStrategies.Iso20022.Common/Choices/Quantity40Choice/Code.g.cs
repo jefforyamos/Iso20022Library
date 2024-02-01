@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity40Choice;
 /// <summary>
 /// Standard code to specify quantity of a financial instrument.
 /// </summary>
-public partial record Code : IQuantity40Choice
+public partial record Code : Quantity40Choice_
 {
     public required Quantity1Code Value { get; init; }
 }

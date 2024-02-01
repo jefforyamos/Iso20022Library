@@ -28,7 +28,7 @@ public partial record PartyIdentification224
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    public IPartyIdentification198Choice? Identification { get; init; } 
+    public PartyIdentification198Choice_? Identification { get; init; } 
     
     #nullable disable
 }

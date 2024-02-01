@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TrackerAlertStatusReason1Choice;
 /// <summary>
 /// Reason for the status, in a proprietary form.
 /// </summary>
-public partial record Proprietary : ITrackerAlertStatusReason1Choice
+public partial record Proprietary : TrackerAlertStatusReason1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

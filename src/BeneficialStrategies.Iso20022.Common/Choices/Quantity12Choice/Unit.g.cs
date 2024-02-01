@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity12Choice;
 /// <summary>
 /// Quantity of assets to be transferred.
 /// </summary>
-public partial record Unit : IQuantity12Choice
+public partial record Unit : Quantity12Choice_
 {
     public required IsoDecimalNumber Value { get; init; }
 }

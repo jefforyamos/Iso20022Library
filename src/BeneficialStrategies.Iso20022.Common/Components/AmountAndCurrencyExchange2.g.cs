@@ -36,7 +36,7 @@ public partial record AmountAndCurrencyExchange2
     /// <summary>
     /// Provides proprietary amount information.
     /// </summary>
-    public AmountAndCurrencyExchangeDetails2? ProprietaryAmount { get; init;  } // Warning: Don't know multiplicity.
+    public AmountAndCurrencyExchangeDetails2[] ProprietaryAmount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -40,7 +40,7 @@ public partial record PartyIdentification217
     /// <summary>
     /// Type of investor.
     /// </summary>
-    public IInvestorType1Choice? InvestorType { get; init; } 
+    public InvestorType1Choice_? InvestorType { get; init; } 
     /// <summary>
     /// Provides information about the ownership on an asset.
     /// </summary>

@@ -24,7 +24,7 @@ public partial record AcquirerProtocolParameters12
     /// <summary>
     /// Identification of the acquirer using this protocol.
     /// </summary>
-    public GenericIdentification53? AcquirerIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification53[] AcquirerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Version of the acquirer protocol parameters.
     /// </summary>
@@ -32,11 +32,11 @@ public partial record AcquirerProtocolParameters12
     /// <summary>
     /// Identification of the payment application, user of the acquirer protocol.
     /// </summary>
-    public IsoMax35Text? ApplicationIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] ApplicationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acquirer host configuration.
     /// </summary>
-    public AcquirerHostConfiguration6? Host { get; init;  } // Warning: Don't know multiplicity.
+    public AcquirerHostConfiguration6[] Host { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acquirer protocol parameters of transactions performing an online authorisation.
     /// </summary>
@@ -76,7 +76,7 @@ public partial record AcquirerProtocolParameters12
     /// <summary>
     /// Types of transaction to include in the batch.
     /// </summary>
-    public BatchTransactionType1Code? BatchTransferContent { get; init;  } // Warning: Don't know multiplicity.
+    public BatchTransactionType1Code[] BatchTransferContent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// BatchTransfer are exchanged per file transfer protocol rather than per message.
     /// </summary>
@@ -88,7 +88,7 @@ public partial record AcquirerProtocolParameters12
     /// <summary>
     /// Configuration of a message item.
     /// </summary>
-    public MessageItemCondition1? MessageItem { get; init;  } // Warning: Don't know multiplicity.
+    public MessageItemCondition1[] MessageItem { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicator to require protection of sensitive card data in messages.
     /// </summary>

@@ -20,7 +20,7 @@ public partial record UPIQueryCriteria1
     /// <summary>
     /// Identification through a unique product identifier.
     /// </summary>
-    public IsoMax52Text? Identifier { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax52Text[] Identifier { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Field can be queried for not reported value.
     /// </summary>

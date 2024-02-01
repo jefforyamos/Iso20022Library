@@ -20,15 +20,15 @@ public partial record AdditionalQueryParameters12
     /// <summary>
     /// Request to obtain a Securities Transaction Pending Report for transactions with the specified status.
     /// </summary>
-    public IStatus22Choice? Status { get; init; } 
+    public Status22Choice_? Status { get; init; } 
     /// <summary>
     /// Request to obtain a Securities Transaction Pending Report for transactions with the specified status reason.
     /// </summary>
-    public IReason17Choice? Reason { get; init;  } // Warning: Don't know multiplicity.
+    public Reason17Choice_[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
-    public SecurityIdentification20? FinancialInstrumentIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityIdentification20[] FinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -24,7 +24,7 @@ public partial record OtherTargetMarketInvestor1
     /// <summary>
     /// Choice of formats for the specification of whether the product is aimed at the type of investor.
     /// </summary>
-    public ITargetMarket3Choice? Target { get; init; } 
+    public TargetMarket3Choice_? Target { get; init; } 
     /// <summary>
     /// Additional information about the target market and the investor type.
     /// </summary>

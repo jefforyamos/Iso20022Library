@@ -28,7 +28,7 @@ public partial record SwitchSubscriptionLegOrder3
     /// <summary>
     /// Investment fund class related to an order.
     /// </summary>
-    public IFinancialInstrumentQuantity6Choice? FinancialInstrumentQuantityChoice { get; init; } 
+    public FinancialInstrumentQuantity6Choice_? FinancialInstrumentQuantityChoice { get; init; } 
     /// <summary>
     /// Account between an investor(s) and a fund manager or a fund. The account can contain holdings in any investment fund or investment fund class managed (or distributed) by the fund manager, within the same fund family.
     /// </summary>
@@ -48,11 +48,11 @@ public partial record SwitchSubscriptionLegOrder3
     /// <summary>
     /// Amount of money associated with a service.
     /// </summary>
-    public Charge17? ChargeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Charge17[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Commission linked to the execution of an investment fund order.
     /// </summary>
-    public Commission10? CommissionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Commission10[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Parameters used to execute the settlement of an investment fund order.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record SwitchSubscriptionLegOrder3
     /// <summary>
     /// Tax applicable to an investment fund order.
     /// </summary>
-    public Tax16? TaxDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Tax16[] TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional specific settlement information for non-regulated traded funds.
     /// </summary>

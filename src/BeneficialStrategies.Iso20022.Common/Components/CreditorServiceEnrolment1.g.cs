@@ -20,11 +20,11 @@ public partial record CreditorServiceEnrolment1
     /// <summary>
     /// Start date when the creditor enrolment becomes effective.
     /// </summary>
-    public IDateAndDateTime2Choice? EnrolmentStartDate { get; init; } 
+    public DateAndDateTime2Choice_? EnrolmentStartDate { get; init; } 
     /// <summary>
     /// End date when the creditor enrolment becomes effective.
     /// </summary>
-    public IDateAndDateTime2Choice? EnrolmentEndDate { get; init; } 
+    public DateAndDateTime2Choice_? EnrolmentEndDate { get; init; } 
     /// <summary>
     /// Provides the details of the visibility of the creditor enrolment as shown to the debtors.
     /// </summary>

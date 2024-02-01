@@ -49,11 +49,11 @@ public partial record Cardholder13
     /// <summary>
     /// Method and data intended to be used for this transaction to authenticate the cardholder and its card.
     /// </summary>
-    public CardholderAuthentication11? Authentication { get; init;  } // Warning: Don't know multiplicity.
+    public CardholderAuthentication11[] Authentication { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Result of performed verifications for the transaction.
     /// </summary>
-    public TransactionVerificationResult4? TransactionVerificationResult { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionVerificationResult4[] TransactionVerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies personal data related to the cardholder.
     /// </summary>

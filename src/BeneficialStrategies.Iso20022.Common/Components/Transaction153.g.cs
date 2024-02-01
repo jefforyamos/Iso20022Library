@@ -29,7 +29,7 @@ public partial record Transaction153
     /// <summary>
     /// Additional functions or services to be performed in conjunction with the transaction.
     /// </summary>
-    public AdditionalService2? AdditionalService { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalService2[] AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
@@ -42,15 +42,15 @@ public partial record Transaction153
     /// <summary>
     /// Amounts that are not part of the transaction amount and not included in reconciliation.
     /// </summary>
-    public AdditionalAmounts3? AdditionalAmount { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalAmounts3[] AdditionalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fees not included in the transaction amount.
     /// </summary>
-    public AdditionalFee2? AdditionalFee { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFee2[] AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

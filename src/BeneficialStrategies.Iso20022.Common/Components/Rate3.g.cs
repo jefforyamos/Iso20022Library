@@ -20,7 +20,7 @@ public partial record Rate3
     /// <summary>
     /// Specifies the type of interest rate.
     /// </summary>
-    public required IRateType4Choice Type { get; init; } 
+    public required RateType4Choice_ Type { get; init; } 
     /// <summary>
     /// An amount range where the interest rate is applicable.
     /// </summary>

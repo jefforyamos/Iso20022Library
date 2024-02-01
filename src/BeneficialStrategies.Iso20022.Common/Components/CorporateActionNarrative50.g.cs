@@ -20,7 +20,7 @@ public partial record CorporateActionNarrative50
     /// <summary>
     /// Provides the entity making the offer and is different from the issuing company.
     /// </summary>
-    public UpdatedAdditionalInformation3? Offeror { get; init;  } // Warning: Don't know multiplicity.
+    public UpdatedAdditionalInformation3[] Offeror { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the new name of a company following a name change.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record CorporateActionNarrative50
     /// <summary>
     /// Provides the web address published for the event, that is, the address for the Universal Resource Locator (URL), for example, used over the www (HTTP) service.
     /// </summary>
-    public UpdatedURLlnformation4? URLAddress { get; init;  } // Warning: Don't know multiplicity.
+    public UpdatedURLlnformation4[] URLAddress { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides web address of an account servicer (or of a service provider) that contains information solely intended for the immediate account holder to enable or facilitate event processing between parties.
     /// </summary>

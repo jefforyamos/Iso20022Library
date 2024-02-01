@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingBalanceType1Choice;
 /// <summary>
 /// Defines the type of billing balance, in a proprietary format.
 /// </summary>
-public partial record Proprietary : IBillingBalanceType1Choice
+public partial record Proprietary : BillingBalanceType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

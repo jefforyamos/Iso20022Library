@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestComputationMethod2Choice
 /// <summary>
 /// Code is used to determine the interest computation method.
 /// </summary>
-public partial record Code : IInterestComputationMethod2Choice
+public partial record Code : InterestComputationMethod2Choice_
 {
     public required InterestComputationMethod1Code Value { get; init; }
 }

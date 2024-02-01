@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InRepairStatusReason5Choice;
 /// <summary>
 /// In repair reason expressed as a code.
 /// </summary>
-public partial record Code : IInRepairStatusReason5Choice
+public partial record Code : InRepairStatusReason5Choice_
 {
     public required InRepairStatusReason1Code Value { get; init; }
 }

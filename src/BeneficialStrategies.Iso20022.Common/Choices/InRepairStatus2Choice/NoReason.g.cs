@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InRepairStatus2Choice;
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoReason : IInRepairStatus2Choice
+public partial record NoReason : InRepairStatus2Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

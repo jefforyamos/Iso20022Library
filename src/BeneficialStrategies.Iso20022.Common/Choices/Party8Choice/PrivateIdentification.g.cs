@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Party8Choice;
 /// <summary>
 /// Unique and unambiguous identification of a person, eg, passport.
 /// </summary>
-public partial record PrivateIdentification : IParty8Choice
+public partial record PrivateIdentification : Party8Choice_
 {
     #nullable enable
     /// <summary>

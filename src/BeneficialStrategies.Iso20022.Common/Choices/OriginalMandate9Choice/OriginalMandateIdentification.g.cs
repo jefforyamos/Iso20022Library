@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate9Choice;
 /// <summary>
 /// Unique identification, as assigned by the responsible party (such as the creditor) or agent (such as the debtor agent), to unambiguously identify the original mandate.
 /// </summary>
-public partial record OriginalMandateIdentification : IOriginalMandate9Choice
+public partial record OriginalMandateIdentification : OriginalMandate9Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

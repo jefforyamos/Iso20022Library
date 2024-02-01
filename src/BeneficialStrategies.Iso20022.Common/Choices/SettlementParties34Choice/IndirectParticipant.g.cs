@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementParties34Choice;
 /// <summary>
 /// Identification of the indirect participant of the reporting counterparty involved in the transaction.
 /// </summary>
-public partial record IndirectParticipant : ISettlementParties34Choice
+public partial record IndirectParticipant : SettlementParties34Choice_
 {
     #nullable enable
     #nullable disable

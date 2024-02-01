@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CashSettlementSystem5Choice;
 /// <summary>
 /// Cash settlement system expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ICashSettlementSystem5Choice
+public partial record Code : CashSettlementSystem5Choice_
 {
     public required CashSettlementSystem2Code Value { get; init; }
 }

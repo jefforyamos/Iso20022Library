@@ -20,7 +20,7 @@ public partial record RejectionReason47
     /// <summary>
     /// Identification of a transaction.
     /// </summary>
-    public required ITransactionIdentification1Choice TransactionIdentification { get; init; } 
+    public required TransactionIdentification1Choice_ TransactionIdentification { get; init; } 
     /// <summary>
     /// Information on status of submitted transactions.
     /// </summary>

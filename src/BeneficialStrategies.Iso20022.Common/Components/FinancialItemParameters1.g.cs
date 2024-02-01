@@ -28,7 +28,7 @@ public partial record FinancialItemParameters1
     /// <summary>
     /// Identifier of related items, for example an assignment or an advice.
     /// </summary>
-    public QualifiedDocumentInformation1? RelatedItem { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1[] RelatedItem { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the function of the document related to the item.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record FinancialItemParameters1
     /// <summary>
     /// Reference to contract that governs the exchange of the message.
     /// </summary>
-    public QualifiedDocumentInformation1? GoverningContract { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1[] GoverningContract { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rules and laws governing the item.
     /// </summary>
@@ -76,15 +76,15 @@ public partial record FinancialItemParameters1
     /// <summary>
     /// Defines the account debited for charges (or credited for reimbursement).
     /// </summary>
-    public IAccountIdentification4Choice? DebitAccount { get; init; } 
+    public AccountIdentification4Choice_? DebitAccount { get; init; } 
     /// <summary>
     /// Defines the account credited for charges (or debited for reimbursement).
     /// </summary>
-    public IAccountIdentification4Choice? CreditAccount { get; init; } 
+    public AccountIdentification4Choice_? CreditAccount { get; init; } 
     /// <summary>
     /// Identification of the geographical environment of the trade market.
     /// </summary>
-    public ITradeMarket1Choice? TradeMarket { get; init; } 
+    public TradeMarket1Choice_? TradeMarket { get; init; } 
     
     #nullable disable
 }

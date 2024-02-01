@@ -55,7 +55,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV06 : IOuterRec
     [Description(@"Provides details on the processing status of the transaction.")]
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
-    public IProcessingStatus37Choice? ProcessingStatus { get; init; }
+    public ProcessingStatus37Choice_? ProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides the matching status of an instruction as per the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).
@@ -64,7 +64,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV06 : IOuterRec
     [Description(@"Provides the matching status of an instruction as per the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).")]
     [DataMember(Name="IfrrdMtchgSts")]
     [XmlElement(ElementName="IfrrdMtchgSts")]
-    public IMatchingStatus19Choice? InferredMatchingStatus { get; init; }
+    public MatchingStatus19Choice_? InferredMatchingStatus { get; init; }
     
     /// <summary>
     /// Provides the matching status of the instruction.
@@ -73,7 +73,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV06 : IOuterRec
     [Description(@"Provides the matching status of the instruction.")]
     [DataMember(Name="MtchgSts")]
     [XmlElement(ElementName="MtchgSts")]
-    public IMatchingStatus19Choice? MatchingStatus { get; init; }
+    public MatchingStatus19Choice_? MatchingStatus { get; init; }
     
     /// <summary>
     /// Provides the status of settlement of a transaction.
@@ -82,7 +82,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV06 : IOuterRec
     [Description(@"Provides the status of settlement of a transaction.")]
     [DataMember(Name="SttlmSts")]
     [XmlElement(ElementName="SttlmSts")]
-    public ISettlementStatus7Choice? SettlementStatus { get; init; }
+    public SettlementStatus7Choice_? SettlementStatus { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.

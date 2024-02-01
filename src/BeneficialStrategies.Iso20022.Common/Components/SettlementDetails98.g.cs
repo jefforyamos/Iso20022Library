@@ -24,11 +24,11 @@ public partial record SettlementDetails98
     /// <summary>
     /// Conditions under which the order/trade is to be settled.
     /// </summary>
-    public ISettlementTransactionCondition18Choice? SettlementTransactionCondition { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementTransactionCondition18Choice_[] SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Role of a party in the settlement of the transaction.
     /// </summary>
-    public ISettlingCapacity7Choice? SettlingCapacity { get; init; } 
+    public SettlingCapacity7Choice_? SettlingCapacity { get; init; } 
     /// <summary>
     /// Specifies the stamp duty type or exemption reason applicable to the settlement transaction.
     /// </summary>
@@ -36,43 +36,43 @@ public partial record SettlementDetails98
     /// <summary>
     /// Specifies whether the settlement transaction is to be settled through an RTGS or a non RTGS system.
     /// </summary>
-    public ISecuritiesRTGS4Choice? SecuritiesRTGS { get; init; } 
+    public SecuritiesRTGS4Choice_? SecuritiesRTGS { get; init; } 
     /// <summary>
     /// Specifies whether there is change of beneficial ownership.
     /// </summary>
-    public IBeneficialOwnership4Choice? BeneficialOwnership { get; init; } 
+    public BeneficialOwnership4Choice_? BeneficialOwnership { get; init; } 
     /// <summary>
     /// Specifies the category of cash clearing system, for example, cheque clearing.
     /// </summary>
-    public ICashSettlementSystem4Choice? CashClearingSystem { get; init; } 
+    public CashSettlementSystem4Choice_? CashClearingSystem { get; init; } 
     /// <summary>
     /// Tax role capacity of the instructing party.
     /// </summary>
-    public ITaxCapacityParty4Choice? TaxCapacity { get; init; } 
+    public TaxCapacityParty4Choice_? TaxCapacity { get; init; } 
     /// <summary>
     /// Specifies if an instruction is for a market side or a client side transaction.
     /// </summary>
-    public IMarketClientSide4Choice? MarketClientSide { get; init; } 
+    public MarketClientSide4Choice_? MarketClientSide { get; init; } 
     /// <summary>
     /// Specifies whether the settlement instruction is a block parent or child.
     /// </summary>
-    public IBlockTrade4Choice? BlockTrade { get; init; } 
+    public BlockTrade4Choice_? BlockTrade { get; init; } 
     /// <summary>
     /// Regulatory restrictions applicable to a security.
     /// </summary>
-    public IRestriction5Choice? LegalRestrictions { get; init; } 
+    public Restriction5Choice_? LegalRestrictions { get; init; } 
     /// <summary>
     /// Specifies whether the settlement instruction is to be settled through the default or the alternate settlement system.
     /// </summary>
-    public ISettlementSystemMethod4Choice? SettlementSystemMethod { get; init; } 
+    public SettlementSystemMethod4Choice_? SettlementSystemMethod { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction is eligible for netting.
     /// </summary>
-    public INettingEligibility4Choice? NettingEligibility { get; init; } 
+    public NettingEligibility4Choice_? NettingEligibility { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction is CCP (Central Counterparty) eligible.
     /// </summary>
-    public ICentralCounterPartyEligibility4Choice? CCPEligibility { get; init; } 
+    public CentralCounterPartyEligibility4Choice_? CCPEligibility { get; init; } 
     /// <summary>
     /// Specifies whether partial settlement is allowed.
     /// </summary>

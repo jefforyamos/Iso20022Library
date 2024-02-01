@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingReason51Choice;
 /// <summary>
 /// Pending reason specified as a code.
 /// </summary>
-public partial record Code : IPendingReason51Choice
+public partial record Code : PendingReason51Choice_
 {
     public required PendingReason16Code Value { get; init; }
 }

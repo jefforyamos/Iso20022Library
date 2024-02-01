@@ -24,7 +24,7 @@ public partial record EnvelopedData6
     /// <summary>
     /// Session key or identification of the protection key used by the recipient.
     /// </summary>
-    public IRecipient7Choice? Recipient { get; init;  } // Warning: Don't know multiplicity.
+    public Recipient7Choice_[] Recipient { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Encrypted data with an encryption key.
     /// </summary>

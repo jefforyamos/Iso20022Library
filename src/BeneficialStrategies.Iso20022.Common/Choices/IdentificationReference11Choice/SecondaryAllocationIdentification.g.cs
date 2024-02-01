@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationReference11Choice;
 /// <summary>
 /// Reference that can be shared across a number of allocation instruction or allocation report messages, thereby making it possible to pass an identifier for an original allocation message on multiple messages (for example from one party to a second to a third, across cancel and replace messages etc).
 /// </summary>
-public partial record SecondaryAllocationIdentification : IIdentificationReference11Choice
+public partial record SecondaryAllocationIdentification : IdentificationReference11Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

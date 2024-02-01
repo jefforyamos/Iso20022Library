@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote13Choice;
 /// <summary>
 /// Vote instruction is provided individually for each agenda resolution.
 /// </summary>
-public partial record VotePerAgendaResolution : IVote13Choice
+public partial record VotePerAgendaResolution : Vote13Choice_
 {
     #nullable enable
     #nullable disable

@@ -20,11 +20,11 @@ public partial record BorrowerLendingDeadline3
     /// <summary>
     /// Date/time set as the deadline to respond, with instructions, to an outstanding event for which the underlying security is out on loan.
     /// </summary>
-    public required IDateFormat43Choice StockLendingDeadline { get; init; } 
+    public required DateFormat43Choice_ StockLendingDeadline { get; init; } 
     /// <summary>
     /// Party who has borrowed stocks on loan.
     /// </summary>
-    public required IPartyIdentification92Choice Borrower { get; init; } 
+    public required PartyIdentification92Choice_ Borrower { get; init; } 
     
     #nullable disable
 }

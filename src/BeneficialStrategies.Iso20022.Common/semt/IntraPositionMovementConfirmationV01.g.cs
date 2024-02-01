@@ -74,7 +74,7 @@ public partial record IntraPositionMovementConfirmationV01 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public IPartyIdentification13Choice? AccountOwner { get; init; }
+    public PartyIdentification13Choice_? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -93,7 +93,7 @@ public partial record IntraPositionMovementConfirmationV01 : IOuterRecord
     [Description(@"Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).")]
     [DataMember(Name="SfkpgPlc")]
     [XmlElement(ElementName="SfkpgPlc")]
-    public ISafekeepingPlaceFormat3Choice? SafekeepingPlace { get; init; }
+    public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; init; }
     
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
@@ -131,7 +131,7 @@ public partial record IntraPositionMovementConfirmationV01 : IOuterRecord
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public IPartyIdentification10Choice? MessageOriginator { get; init; }
+    public PartyIdentification10Choice_? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -140,7 +140,7 @@ public partial record IntraPositionMovementConfirmationV01 : IOuterRecord
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public IPartyIdentification10Choice? MessageRecipient { get; init; }
+    public PartyIdentification10Choice_? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

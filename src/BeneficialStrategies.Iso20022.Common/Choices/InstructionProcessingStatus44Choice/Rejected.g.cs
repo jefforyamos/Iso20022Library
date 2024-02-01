@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus44Cho
 /// <summary>
 /// Provides status information related to an instruction request rejected for further processing due to system reasons.
 /// </summary>
-public partial record Rejected : IInstructionProcessingStatus44Choice
+public partial record Rejected : InstructionProcessingStatus44Choice_
 {
     #nullable enable
     #nullable disable

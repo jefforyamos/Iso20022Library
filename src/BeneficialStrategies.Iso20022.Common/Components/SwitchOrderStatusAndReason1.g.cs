@@ -52,7 +52,7 @@ public partial record SwitchOrderStatusAndReason1
     /// <summary>
     /// Status of the switch order is rejected.
     /// </summary>
-    public IReadOnlyCollection<RejectedStatus6> Rejected { get; init; } = [];
+    public RejectedStatus6[] Rejected { get; init; } = [];
     /// <summary>
     /// Status of the switch order is suspended.
     /// </summary>
@@ -68,11 +68,11 @@ public partial record SwitchOrderStatusAndReason1
     /// <summary>
     /// Information about a switch leg that is rejected or repaired.
     /// </summary>
-    public SwitchLegReferences1? LegInformation { get; init;  } // Warning: Don't know multiplicity.
+    public SwitchLegReferences1[] LegInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>
-    public IPartyIdentification2Choice? StatusInitiator { get; init; } 
+    public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     /// <summary>
     /// Order data.
     /// </summary>

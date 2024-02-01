@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportItemRejectionReason1Choice
 /// <summary>
 /// Status reason expressed as a code.
 /// </summary>
-public partial record Code : IReportItemRejectionReason1Choice
+public partial record Code : ReportItemRejectionReason1Choice_
 {
     public required HoldingRejectionReason41Code Value { get; init; }
 }

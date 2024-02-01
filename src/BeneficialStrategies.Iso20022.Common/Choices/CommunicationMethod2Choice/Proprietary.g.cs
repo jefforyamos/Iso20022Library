@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CommunicationMethod2Choice;
 /// <summary>
 /// Unique and unambiguous identification of communication method using a bilaterally or multilaterally agreed description.
 /// </summary>
-public partial record Proprietary : ICommunicationMethod2Choice
+public partial record Proprietary : CommunicationMethod2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

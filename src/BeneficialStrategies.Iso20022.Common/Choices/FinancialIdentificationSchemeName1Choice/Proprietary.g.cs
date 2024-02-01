@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialIdentificationSchemeNam
 /// <summary>
 /// Name of the identification scheme, in a free text form.
 /// </summary>
-public partial record Proprietary : IFinancialIdentificationSchemeName1Choice
+public partial record Proprietary : FinancialIdentificationSchemeName1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

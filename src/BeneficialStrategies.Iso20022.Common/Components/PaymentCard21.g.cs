@@ -56,7 +56,7 @@ public partial record PaymentCard21
     /// <summary>
     /// Product that can be purchased with the card.
     /// </summary>
-    public IsoMax70Text? AllowedProduct { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] AllowedProduct { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Options to the service provided by the card.
     /// </summary>

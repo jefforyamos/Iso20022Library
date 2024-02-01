@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Purpose3Choice;
 /// <summary>
 /// Underlying reason for the SSI instruction, expressed as a code.
 /// </summary>
-public partial record SecuritiesPurposeCode : IPurpose3Choice
+public partial record SecuritiesPurposeCode : Purpose3Choice_
 {
     public required ExternalSecuritiesPurpose1Code Value { get; init; }
 }

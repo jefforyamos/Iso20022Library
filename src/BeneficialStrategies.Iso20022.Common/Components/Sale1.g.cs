@@ -24,7 +24,7 @@ public partial record Sale1
     /// <summary>
     /// Sale line item information.
     /// </summary>
-    public SaleItem2? LineItem { get; init;  } // Warning: Don't know multiplicity.
+    public SaleItem2[] LineItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

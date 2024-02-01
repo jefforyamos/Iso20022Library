@@ -24,11 +24,11 @@ public partial record SecuritiesProceeds1
     /// <summary>
     /// The quantity of financial instruments that is posted.
     /// </summary>
-    public required IUnitOrFaceAmount1Choice PostingQuantity { get; init; } 
+    public required UnitOrFaceAmount1Choice_ PostingQuantity { get; init; } 
     /// <summary>
     /// Provides information about the account that is debited/credited.
     /// </summary>
-    public IReadOnlyCollection<SecuritiesAccount10> AccountDetails { get; init; } = [];
+    public SecuritiesAccount10[] AccountDetails { get; init; } = [];
     /// <summary>
     /// Provides reconciliation information.
     /// </summary>

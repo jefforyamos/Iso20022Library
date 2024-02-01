@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExecutionType1Choice;
 /// <summary>
 /// Execution type is executed based on a time trigger.
 /// </summary>
-public partial record Time : IExecutionType1Choice
+public partial record Time : ExecutionType1Choice_
 {
     public required IsoISOTime Value { get; init; }
 }

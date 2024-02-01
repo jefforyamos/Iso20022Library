@@ -24,11 +24,11 @@ public partial record AmountAndTrigger1
     /// <summary>
     /// Choice between an amount and a percentage.
     /// </summary>
-    public required IAmountOrPercentage1Choice AmountDetailsChoice { get; init; } 
+    public required AmountOrPercentage1Choice_ AmountDetailsChoice { get; init; } 
     /// <summary>
     /// Trigger that causes the variation to come into effect.
     /// </summary>
-    public Trigger1? Trigger { get; init;  } // Warning: Don't know multiplicity.
+    public Trigger1[] Trigger { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

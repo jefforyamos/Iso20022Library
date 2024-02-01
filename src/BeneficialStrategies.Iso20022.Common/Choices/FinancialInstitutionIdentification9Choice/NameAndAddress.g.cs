@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstitutionIdentificati
 /// <summary>
 /// Identifies the name and (long) postal address of a financial institution.
 /// </summary>
-public partial record NameAndAddress : IFinancialInstitutionIdentification9Choice
+public partial record NameAndAddress : FinancialInstitutionIdentification9Choice_
 {
     #nullable enable
     /// <summary>

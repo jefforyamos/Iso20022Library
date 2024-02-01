@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormat3Choice;
 /// <summary>
 /// Place of safekeeping expressed with a type and identification.
 /// </summary>
-public partial record TypeAndIdentification : ISafekeepingPlaceFormat3Choice
+public partial record TypeAndIdentification : SafekeepingPlaceFormat3Choice_
 {
     #nullable enable
     /// <summary>

@@ -32,7 +32,7 @@ public partial record Customer3
     /// <summary>
     /// Credentials of the financial customer.
     /// </summary>
-    public Credentials1? Credentials { get; init;  } // Warning: Don't know multiplicity.
+    public Credentials1[] Credentials { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the customer.
     /// </summary>

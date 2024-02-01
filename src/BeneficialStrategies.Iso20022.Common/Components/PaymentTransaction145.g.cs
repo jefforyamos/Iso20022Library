@@ -40,7 +40,7 @@ public partial record PaymentTransaction145
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    public StatusReasonInformation12? StatusReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public StatusReasonInformation12[] StatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Status related to the requested conditions for the execution of the payment.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record PaymentTransaction145
     /// <summary>
     /// Provides information on the charges related to the processing of the rejection of the instruction.|Usage: This is passed on for information purposes only. Settlement of the charges will be done separately.
     /// </summary>
-    public Charges12? ChargesInformation { get; init;  } // Warning: Don't know multiplicity.
+    public Charges12[] ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date and time on when the debtor has accepted or rejected the request.
     /// </summary>
@@ -73,11 +73,11 @@ public partial record PaymentTransaction145
     /// Document or template enclosed in the notification.
     /// Usage: The use of the EnclosedFile element must be bilaterally agreed.
     /// </summary>
-    public Document12? EnclosedFile { get; init;  } // Warning: Don't know multiplicity.
+    public Document12[] EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

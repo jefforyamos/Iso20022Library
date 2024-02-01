@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosingBalance3Choice;
 /// <summary>
 /// Closing balance of the financial instrument in the statement.
 /// </summary>
-public partial record FinalClosingBalance : IClosingBalance3Choice
+public partial record FinalClosingBalance : ClosingBalance3Choice_
 {
     #nullable enable
     /// <summary>

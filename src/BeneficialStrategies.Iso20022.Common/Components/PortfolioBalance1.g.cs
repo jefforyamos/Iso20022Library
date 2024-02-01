@@ -20,11 +20,11 @@ public partial record PortfolioBalance1
     /// <summary>
     /// Summary balance information.
     /// </summary>
-    public BalanceDetails5? SummaryBalance { get; init;  } // Warning: Don't know multiplicity.
+    public BalanceDetails5[] SummaryBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Detailed balance information.
     /// </summary>
-    public BalanceDetails6? DetailedBalance { get; init;  } // Warning: Don't know multiplicity.
+    public BalanceDetails6[] DetailedBalance { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

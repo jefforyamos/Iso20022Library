@@ -40,7 +40,7 @@ public partial record OrderStatusAndReason3
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>
-    public IPartyIdentification2Choice? StatusInitiator { get; init; } 
+    public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     /// <summary>
     /// Unique and unambiguous technical identification of an instance of a leg within a switch.
     /// </summary>

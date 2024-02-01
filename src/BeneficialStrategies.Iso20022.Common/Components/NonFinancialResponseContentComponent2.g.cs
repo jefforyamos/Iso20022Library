@@ -32,7 +32,7 @@ public partial record NonFinancialResponseContentComponent2
     /// <summary>
     /// Set of actions to be performed by the POI (Point Of Interaction) system.
     /// </summary>
-    public Action12? Action { get; init;  } // Warning: Don't know multiplicity.
+    public Action12[] Action { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Result of the processing of the request.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TypeOfPrice27Choice;
 /// <summary>
 /// Type of price expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ITypeOfPrice27Choice
+public partial record Code : TypeOfPrice27Choice_
 {
     public required TypeOfPrice30Code Value { get; init; }
 }

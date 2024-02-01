@@ -28,11 +28,11 @@ public partial record DetailedAmount17
     /// <summary>
     /// Transfer fees, accepted by the customer.
     /// </summary>
-    public DetailedAmount18? Fees { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount18[] Fees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of the donation.
     /// </summary>
-    public DetailedAmount18? Donation { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount18[] Donation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification3Choice;
 /// <summary>
 /// Identifier for Belgian securities.
 /// </summary>
-public partial record Belgian : ISecurityIdentification3Choice
+public partial record Belgian : SecurityIdentification3Choice_
 {
     public required IsoBelgianIdentifier Value { get; init; }
 }

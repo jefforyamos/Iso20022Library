@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstitutionIdentificati
 /// <summary>
 /// Unique and unambiguous identifier of a clearing system member, as assigned by the system or system administrator.
 /// </summary>
-public partial record ClearingSystemMemberIdentification : IFinancialInstitutionIdentification5Choice
+public partial record ClearingSystemMemberIdentification : FinancialInstitutionIdentification5Choice_
 {
     #nullable enable
     #nullable disable

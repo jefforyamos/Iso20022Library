@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnableToApplyJustification4Choic
 /// <summary>
 /// Indicates whether or not the referred item is a possible duplicate of a previous instruction or entry.
 /// </summary>
-public partial record PossibleDuplicateInstruction : IUnableToApplyJustification4Choice
+public partial record PossibleDuplicateInstruction : UnableToApplyJustification4Choice_
 {
     public required IsoTrueFalseIndicator Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationReference11Choice;
 /// <summary>
 /// Reference of the linked message at the trade/block level which identifies a centrally matched transaction.
 /// </summary>
-public partial record BlockIdentification : IIdentificationReference11Choice
+public partial record BlockIdentification : IdentificationReference11Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

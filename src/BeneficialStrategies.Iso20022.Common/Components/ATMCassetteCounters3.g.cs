@@ -40,7 +40,7 @@ public partial record ATMCassetteCounters3
     /// <summary>
     /// Counters of media inside the cassette.
     /// </summary>
-    public ATMCassetteCounters4? FlowTotals { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCassetteCounters4[] FlowTotals { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

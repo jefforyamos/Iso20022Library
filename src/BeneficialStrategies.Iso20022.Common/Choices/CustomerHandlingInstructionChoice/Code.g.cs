@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CustomerHandlingInstructionChoic
 /// <summary>
 /// Customer handling instruction is defined using a code.
 /// </summary>
-public partial record Code : ICustomerHandlingInstructionChoice
+public partial record Code : CustomerHandlingInstructionChoice_
 {
     public required CustomerHandlingInstructions1Code Value { get; init; }
 }

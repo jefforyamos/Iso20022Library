@@ -32,7 +32,7 @@ public partial record Unit12
     /// <summary>
     /// Certificate representing the security that is delivered.
     /// </summary>
-    public IsoMax35Text? CertificateNumber { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] CertificateNumber { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax group to which the purchased investment fund units belong. The investor indicates to the intermediary operating pooled nominees, which type of unit is to be sold.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record Unit12
     /// <summary>
     /// Amounts not covered in price, fee or tax.
     /// </summary>
-    public OtherAmount1? OtherAmount { get; init;  } // Warning: Don't know multiplicity.
+    public OtherAmount1[] OtherAmount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -28,11 +28,11 @@ public partial record Conversion2
     /// <summary>
     /// Breakdown of units of the source security.
     /// </summary>
-    public Unit13? UnitsDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Unit13[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the conversion.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

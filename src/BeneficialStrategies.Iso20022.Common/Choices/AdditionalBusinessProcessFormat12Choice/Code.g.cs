@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AdditionalBusinessProcessFormat1
 /// <summary>
 /// Standard code to specify the additional business process linked to a corporate action event.
 /// </summary>
-public partial record Code : IAdditionalBusinessProcessFormat12Choice
+public partial record Code : AdditionalBusinessProcessFormat12Choice_
 {
     public required AdditionalBusinessProcess5Code Value { get; init; }
 }

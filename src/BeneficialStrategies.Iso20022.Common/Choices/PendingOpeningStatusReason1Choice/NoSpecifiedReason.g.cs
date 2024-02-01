@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingOpeningStatusReason1Choic
 /// <summary>
 /// There is no reason available or to report for the pending account opening status.
 /// </summary>
-public partial record NoSpecifiedReason : IPendingOpeningStatusReason1Choice
+public partial record NoSpecifiedReason : PendingOpeningStatusReason1Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

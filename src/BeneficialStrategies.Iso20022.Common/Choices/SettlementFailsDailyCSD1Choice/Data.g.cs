@@ -12,16 +12,16 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementFailsDailyCSD1Choice;
 /// <summary>
 /// Aggregated data of settlement instructions.
 /// </summary>
-public partial record Data : ISettlementFailsDailyCSD1Choice
+public partial record Data : SettlementFailsDailyCSD1Choice_
 {
     #nullable enable
     /// <summary>
     /// Intra-CSD settlement instructions data.
     /// </summary>
-    public required ISettlementFailsDailyInstructionType1Choice IntraCSD { get; init; } 
+    public required SettlementFailsDailyInstructionType1Choice_ IntraCSD { get; init; } 
     /// <summary>
     /// Cross-CSD settlement instructions data.
     /// </summary>
-    public required ISettlementFailsDailyInstructionType1Choice CrossCSD { get; init; } 
+    public required SettlementFailsDailyInstructionType1Choice_ CrossCSD { get; init; } 
     #nullable disable
 }

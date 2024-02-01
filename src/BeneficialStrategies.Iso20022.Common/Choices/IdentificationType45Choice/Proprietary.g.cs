@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationType45Choice;
 /// <summary>
 /// Type of identification expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IIdentificationType45Choice
+public partial record Proprietary : IdentificationType45Choice_
 {
     #nullable enable
     /// <summary>

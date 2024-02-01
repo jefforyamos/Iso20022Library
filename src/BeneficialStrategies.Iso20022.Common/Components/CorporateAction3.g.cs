@@ -44,7 +44,7 @@ public partial record CorporateAction3
     /// <summary>
     /// Number of the coupon attached/associated with a security.
     /// </summary>
-    public IIdentificationFormat1Choice? CouponNumber { get; init;  } // Warning: Don't know multiplicity.
+    public IdentificationFormat1Choice_[] CouponNumber { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether certification is required from the account owner. |Yes = certification required.|No = no certification required.
     /// </summary>
@@ -64,59 +64,59 @@ public partial record CorporateAction3
     /// <summary>
     /// Specifies the conditions in which a dividend is paid.
     /// </summary>
-    public IDividendTypeFormat1Choice? DividendType { get; init; } 
+    public DividendTypeFormat1Choice_? DividendType { get; init; } 
     /// <summary>
     /// Specifies the conversion type of an instrument.
     /// </summary>
-    public IConversionTypeFormat1Choice? ConversionType { get; init; } 
+    public ConversionTypeFormat1Choice_? ConversionType { get; init; } 
     /// <summary>
     /// Specifies whether the proceeds of the event will be distributed on a rolling basis rather than on a specific date.
     /// </summary>
-    public IDistributionTypeFormat1Choice? DistributionType { get; init; } 
+    public DistributionTypeFormat1Choice_? DistributionType { get; init; } 
     /// <summary>
     /// Specifies the conditions that apply to the offer.
     /// </summary>
-    public IOfferTypeFormat1Choice? OfferType { get; init;  } // Warning: Don't know multiplicity.
+    public OfferTypeFormat1Choice_[] OfferType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether terms of the event allow resale of the rights.
     /// </summary>
-    public IRenounceableEntitlementStatusTypeFormat1Choice? RenounceableEntitlementStatusType { get; init; } 
+    public RenounceableEntitlementStatusTypeFormat1Choice_? RenounceableEntitlementStatusType { get; init; } 
     /// <summary>
     /// Stage in the corporate action event life cycle.
     /// </summary>
-    public ICorporateActionEventStageFormat1Choice? EventStage { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionEventStageFormat1Choice_[] EventStage { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the type of the additional business process linked to a corporate action event such as a claim compensation or tax refund.
     /// </summary>
-    public IAdditionalBusinessProcessFormat1Choice? AdditionalBusinessProcessIndicator { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalBusinessProcessFormat1Choice_[] AdditionalBusinessProcessIndicator { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the type of change announced.
     /// </summary>
-    public ICorporateActionChangeTypeFormat1Choice? ChangeType { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionChangeTypeFormat1Choice_[] ChangeType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of intermediates securities distribution.
     /// </summary>
-    public IIntermediateSecuritiesDistributionTypeFormat1Choice? IntermediateSecuritiesDistributionType { get; init; } 
+    public IntermediateSecuritiesDistributionTypeFormat1Choice_? IntermediateSecuritiesDistributionType { get; init; } 
     /// <summary>
     /// Specifies whether the capital gain is in the scope of the EU Savings directive for the income realised upon the sale, refund or redemption of shares and units (.) (Article 6(1d)).
     /// </summary>
-    public ICapitalGainFormat1Choice? CapitalGainInOutIndicator { get; init; } 
+    public CapitalGainFormat1Choice_? CapitalGainInOutIndicator { get; init; } 
     /// <summary>
     /// Specifies whether the financial instrument calculates the taxable income per dividend/taxable income per share.
     /// </summary>
-    public ITaxableIncomePerShareCalculatedFormat1Choice? TaxableIncomePerShareCalculated { get; init; } 
+    public TaxableIncomePerShareCalculatedFormat1Choice_? TaxableIncomePerShareCalculated { get; init; } 
     /// <summary>
     /// Specifies the effect on the holdings of electing a corporate action option.
     /// </summary>
-    public IElectionTypeFormat1Choice? ElectionType { get; init; } 
+    public ElectionTypeFormat1Choice_? ElectionType { get; init; } 
     /// <summary>
     /// Specifies the type of lottery announced.
     /// </summary>
-    public ILotteryTypeFormat1Choice? LotteryType { get; init; } 
+    public LotteryTypeFormat1Choice_? LotteryType { get; init; } 
     /// <summary>
     /// Specifies the certification format required, ie, physical or electronic format.
     /// </summary>
-    public ICertificationTypeFormat1Choice? CertificationType { get; init; } 
+    public CertificationTypeFormat1Choice_? CertificationType { get; init; } 
     /// <summary>
     /// New company's place of incorporation.
     /// </summary>

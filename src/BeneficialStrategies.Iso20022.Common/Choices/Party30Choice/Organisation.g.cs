@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Party30Choice;
 /// <summary>
 /// Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.
 /// </summary>
-public partial record Organisation : IParty30Choice
+public partial record Organisation : Party30Choice_
 {
     #nullable enable
     /// <summary>
@@ -26,7 +26,7 @@ public partial record Organisation : IParty30Choice
     /// <summary>
     /// Unique and unambiguous identifier for the organisation.
     /// </summary>
-    public IPartyIdentification72Choice? Identification { get; init; } 
+    public PartyIdentification72Choice_? Identification { get; init; } 
     /// <summary>
     /// Identification of the organisation with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>
@@ -50,6 +50,6 @@ public partial record Organisation : IParty30Choice
     /// <summary>
     /// Type of organisation.
     /// </summary>
-    public IOrganisationType1Choice? TypeOfOrganisation { get; init; } 
+    public OrganisationType1Choice_? TypeOfOrganisation { get; init; } 
     #nullable disable
 }

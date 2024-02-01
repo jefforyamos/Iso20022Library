@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Frequency36Choice;
 /// <summary>
 /// Specifies a frequency in terms of an exact point in time or moment within a specified period type.
 /// </summary>
-public partial record PointInTime : IFrequency36Choice
+public partial record PointInTime : Frequency36Choice_
 {
     #nullable enable
     /// <summary>

@@ -41,11 +41,11 @@ public partial record CardPaymentEnvironment73
     /// <summary>
     /// Store value account payment instrument.
     /// </summary>
-    public StoredValueAccount1? StoredValueAccount { get; init;  } // Warning: Don't know multiplicity.
+    public StoredValueAccount1[] StoredValueAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Store value account associated to the payment.
     /// </summary>
-    public LoyaltyAccount1? LoyaltyAccount { get; init;  } // Warning: Don't know multiplicity.
+    public LoyaltyAccount1[] LoyaltyAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Device used by the customer to perform the payment transaction.
     /// </summary>

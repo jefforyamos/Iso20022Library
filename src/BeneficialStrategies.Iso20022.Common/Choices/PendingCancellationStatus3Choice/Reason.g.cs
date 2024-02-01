@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingCancellationStatus3Choice
 /// <summary>
 /// Reason for the pending cancellation status.
 /// </summary>
-public partial record Reason : IPendingCancellationStatus3Choice
+public partial record Reason : PendingCancellationStatus3Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the cancellation request is pending.
     /// </summary>
-    public required IPendingCancellationReason1Choice ReasonCode { get; init; } 
+    public required PendingCancellationReason1Choice_ ReasonCode { get; init; } 
     /// <summary>
     /// Provides additional information about the processed instruction.
     /// </summary>

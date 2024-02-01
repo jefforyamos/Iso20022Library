@@ -24,7 +24,7 @@ public partial record Charge24
     /// <summary>
     /// Amount of money associated with a service.
     /// </summary>
-    public ChargesDetails3? Charges { get; init;  } // Warning: Don't know multiplicity.
+    public ChargesDetails3[] Charges { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

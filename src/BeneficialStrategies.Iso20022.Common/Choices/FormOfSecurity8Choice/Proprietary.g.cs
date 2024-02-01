@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FormOfSecurity8Choice;
 /// <summary>
 /// Form of security expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IFormOfSecurity8Choice
+public partial record Proprietary : FormOfSecurity8Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionProcessingStatus4
 /// <summary>
 /// Information related to an identification, for example, party identification or account identification.
 /// </summary>
-public partial record Proprietary : ICorporateActionProcessingStatus4Choice
+public partial record Proprietary : CorporateActionProcessingStatus4Choice_
 {
     #nullable enable
     /// <summary>

@@ -20,7 +20,7 @@ public partial record Intermediary46
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution.
     /// </summary>
-    public required IPartyIdentification177Choice Identification { get; init; } 
+    public required PartyIdentification177Choice_ Identification { get; init; } 
     /// <summary>
     /// Identification of the organisation with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>
@@ -36,15 +36,15 @@ public partial record Intermediary46
     /// <summary>
     /// Role or function performed by the intermediary.
     /// </summary>
-    public IPartyRole2Choice? Role { get; init; } 
+    public PartyRole2Choice_? Role { get; init; } 
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
-    public CommunicationAddress6? PrimaryCommunicationAddress { get; init;  } // Warning: Don't know multiplicity.
+    public CommunicationAddress6[] PrimaryCommunicationAddress { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
-    public CommunicationAddress6? SecondaryCommunicationAddress { get; init;  } // Warning: Don't know multiplicity.
+    public CommunicationAddress6[] SecondaryCommunicationAddress { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>

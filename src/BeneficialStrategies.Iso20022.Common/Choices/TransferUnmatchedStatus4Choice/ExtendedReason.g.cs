@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferUnmatchedStatus4Choice;
 /// <summary>
 /// Reason for the unmatched status.
 /// </summary>
-public partial record ExtendedReason : ITransferUnmatchedStatus4Choice
+public partial record ExtendedReason : TransferUnmatchedStatus4Choice_
 {
     public required IsoExtended350Code Value { get; init; }
 }

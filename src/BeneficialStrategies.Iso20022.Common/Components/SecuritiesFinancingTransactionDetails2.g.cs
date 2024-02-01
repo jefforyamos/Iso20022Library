@@ -44,7 +44,7 @@ public partial record SecuritiesFinancingTransactionDetails2
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification13Choice? AccountOwner { get; init; } 
+    public PartyIdentification13Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record SecuritiesFinancingTransactionDetails2
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public ISafekeepingPlaceFormat3Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Context, or geographic environment, in which trading parties may meet in order to negotiate and execute trades among themselves.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record SecuritiesFinancingTransactionDetails2
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    public required IQuantity6Choice SettlementQuantity { get; init; } 
+    public required Quantity6Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Total amount of money to be paid or received in exchange for the securities at the opening of a securities financing transaction.
     /// </summary>
@@ -76,31 +76,31 @@ public partial record SecuritiesFinancingTransactionDetails2
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public required ISettlementDate2Choice OpeningSettlementDate { get; init; } 
+    public required SettlementDate2Choice_ OpeningSettlementDate { get; init; } 
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
-    public ITerminationDate2Choice? TerminationDate { get; init; } 
+    public TerminationDate2Choice_? TerminationDate { get; init; } 
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    public ITradeDate1Choice? TradeDate { get; init; } 
+    public TradeDate1Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public IDateAndDateTimeChoice? ExpectedSettlementDate { get; init; } 
+    public DateAndDateTimeChoice_? ExpectedSettlementDate { get; init; } 
     /// <summary>
     /// For against payment transactions, the value date/time at which the account servicer expects the settlement amount to be credited or debited.
     /// </summary>
-    public IDateAndDateTimeChoice? ExpectedValueDate { get; init; } 
+    public DateAndDateTimeChoice_? ExpectedValueDate { get; init; } 
     /// <summary>
     /// Date and time after the settlement date specified in the trade, used for pool trades resulting from the original To Be Assigned (TBA) securities.
     /// </summary>
-    public IDateAndDateTimeChoice? LateDeliveryDate { get; init; } 
+    public DateAndDateTimeChoice_? LateDeliveryDate { get; init; } 
     /// <summary>
     /// Date/Time at which rate change has taken place.
     /// </summary>
-    public IDateAndDateTimeChoice? RateChangeDate { get; init; } 
+    public DateAndDateTimeChoice_? RateChangeDate { get; init; } 
     /// <summary>
     /// Specifies the type of securities financing transaction, that is, repurchase agreement, reverse repurchase agreement, securities lending or securities borrowing.
     /// </summary>
@@ -120,7 +120,7 @@ public partial record SecuritiesFinancingTransactionDetails2
     /// <summary>
     /// Specifies whether the rate is fixed or variable.
     /// </summary>
-    public IRateType5Choice? RateType { get; init; } 
+    public RateType5Choice_? RateType { get; init; } 
     /// <summary>
     /// Index or support rate used together with the spread to calculate the|repurchase rate.
     /// </summary>
@@ -140,7 +140,7 @@ public partial record SecuritiesFinancingTransactionDetails2
     /// <summary>
     /// Interest rate to be paid on the transaction amount, as agreed between the counterparties.
     /// </summary>
-    public IRateOrName1Choice? PricingRate { get; init; } 
+    public RateOrName1Choice_? PricingRate { get; init; } 
     /// <summary>
     /// Repurchase spread expressed as a rate; margin over or under an index that determines the repurchase rate.
     /// </summary>
@@ -156,7 +156,7 @@ public partial record SecuritiesFinancingTransactionDetails2
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
     /// </summary>
-    public IPartyIdentification14Choice? Investor { get; init; } 
+    public PartyIdentification14Choice_? Investor { get; init; } 
     /// <summary>
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>

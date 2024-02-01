@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason15FormatChoice;
 /// <summary>
 /// Standard code to specify the reason of a rejection of an information advice.
 /// </summary>
-public partial record Code : IRejectionReason15FormatChoice
+public partial record Code : RejectionReason15FormatChoice_
 {
     public required RejectionReason15Code Value { get; init; }
 }

@@ -24,7 +24,7 @@ public partial record CardPaymentBatchTransferResponse1
     /// <summary>
     /// Information related to the previously sent set of transaction.
     /// </summary>
-    public CardPaymentDataSet5? DataSet { get; init;  } // Warning: Don't know multiplicity.
+    public CardPaymentDataSet5[] DataSet { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

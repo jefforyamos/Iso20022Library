@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModificationProcessingStatus4Cho
 /// <summary>
 /// Modification request has been rejected for further processing.
 /// </summary>
-public partial record Rejected : IModificationProcessingStatus4Choice
+public partial record Rejected : ModificationProcessingStatus4Choice_
 {
     #nullable enable
     #nullable disable

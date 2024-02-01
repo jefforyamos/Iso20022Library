@@ -72,7 +72,7 @@ public partial record SaleContext8
     /// <summary>
     /// Type of receipt requested or communication channel used.
     /// </summary>
-    public ReceiptType1Code? ReceiptType { get; init;  } // Warning: Don't know multiplicity.
+    public ReceiptType1Code[] ReceiptType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Destination of the receipt (for example, e-mail address, SMS number, etc.).
     /// </summary>
@@ -80,7 +80,7 @@ public partial record SaleContext8
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

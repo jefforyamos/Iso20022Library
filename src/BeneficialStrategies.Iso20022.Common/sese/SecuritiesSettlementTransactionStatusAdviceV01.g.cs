@@ -76,7 +76,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV01 : IOuterRec
     [Description(@"Provides details on the processing status of the transaction.")]
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
-    public IProcessingStatus1Choice? ProcessingStatus { get; init; }
+    public ProcessingStatus1Choice_? ProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides the matching status of an instruction as per the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).
@@ -85,7 +85,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV01 : IOuterRec
     [Description(@"Provides the matching status of an instruction as per the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).")]
     [DataMember(Name="IfrrdMtchgSts")]
     [XmlElement(ElementName="IfrrdMtchgSts")]
-    public IMatchingStatus2Choice? InferredMatchingStatus { get; init; }
+    public MatchingStatus2Choice_? InferredMatchingStatus { get; init; }
     
     /// <summary>
     /// Provides the matching status of the instruction.
@@ -94,7 +94,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV01 : IOuterRec
     [Description(@"Provides the matching status of the instruction.")]
     [DataMember(Name="MtchgSts")]
     [XmlElement(ElementName="MtchgSts")]
-    public IMatchingStatus2Choice? MatchingStatus { get; init; }
+    public MatchingStatus2Choice_? MatchingStatus { get; init; }
     
     /// <summary>
     /// Provides the status of settlement of a transaction.
@@ -103,7 +103,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV01 : IOuterRec
     [Description(@"Provides the status of settlement of a transaction.")]
     [DataMember(Name="SttlmSts")]
     [XmlElement(ElementName="SttlmSts")]
-    public ISettlementStatus2Choice? SettlementStatus { get; init; }
+    public SettlementStatus2Choice_? SettlementStatus { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.
@@ -121,7 +121,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV01 : IOuterRec
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public IPartyIdentification10Choice? MessageOriginator { get; init; }
+    public PartyIdentification10Choice_? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -130,7 +130,7 @@ public partial record SecuritiesSettlementTransactionStatusAdviceV01 : IOuterRec
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public IPartyIdentification10Choice? MessageRecipient { get; init; }
+    public PartyIdentification10Choice_? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

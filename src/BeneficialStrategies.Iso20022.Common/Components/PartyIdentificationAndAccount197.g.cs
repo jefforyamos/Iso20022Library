@@ -20,7 +20,7 @@ public partial record PartyIdentificationAndAccount197
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    public IPartyIdentification120Choice? Identification { get; init; } 
+    public PartyIdentification120Choice_? Identification { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a party.
     /// </summary>

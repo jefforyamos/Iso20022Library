@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneralBusinessInformationCriter
 /// <summary>
 /// Defines the criteria based on which the information is extracted.
 /// </summary>
-public partial record NewCriteria : IGeneralBusinessInformationCriteriaDefinition1Choice
+public partial record NewCriteria : GeneralBusinessInformationCriteriaDefinition1Choice_
 {
     #nullable enable
     /// <summary>

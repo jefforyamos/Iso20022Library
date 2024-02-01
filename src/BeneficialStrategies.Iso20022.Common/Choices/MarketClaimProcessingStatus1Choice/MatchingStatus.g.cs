@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketClaimProcessingStatus1Choi
 /// <summary>
 /// Provides the matching status of the instruction.
 /// </summary>
-public partial record MatchingStatus : IMarketClaimProcessingStatus1Choice
+public partial record MatchingStatus : MarketClaimProcessingStatus1Choice_
 {
     #nullable enable
     #nullable disable

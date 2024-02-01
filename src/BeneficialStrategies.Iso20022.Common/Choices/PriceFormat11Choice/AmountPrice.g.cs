@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat11Choice;
 /// <summary>
 /// Price expressed as a currency and amount.
 /// </summary>
-public partial record AmountPrice : IPriceFormat11Choice
+public partial record AmountPrice : PriceFormat11Choice_
 {
     #nullable enable
     /// <summary>

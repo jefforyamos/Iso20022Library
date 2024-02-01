@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraPositionProcessingStatus3Ch
 /// <summary>
 /// Instruction/Request is accepted but in repair.
 /// </summary>
-public partial record Repair : IIntraPositionProcessingStatus3Choice
+public partial record Repair : IntraPositionProcessingStatus3Choice_
 {
     #nullable enable
     #nullable disable

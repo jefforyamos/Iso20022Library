@@ -36,7 +36,7 @@ public partial record Transaction113
     /// <summary>
     /// Reference assigned to the trade by the investor or the trading party. This reference will be used throughout the trade life cycle to access/update the trade details.
     /// </summary>
-    public IsoRestrictedFINXMax52Text? TradeIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax52Text[] TradeIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
@@ -88,7 +88,7 @@ public partial record Transaction113
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

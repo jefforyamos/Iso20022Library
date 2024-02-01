@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DetailedMissingMarginInformation
 /// <summary>
 /// Detailed information on statistics per combination of counterparties.
 /// </summary>
-public partial record Report : IDetailedMissingMarginInformationStatistics4Choice
+public partial record Report : DetailedMissingMarginInformationStatistics4Choice_
 {
     #nullable enable
     /// <summary>

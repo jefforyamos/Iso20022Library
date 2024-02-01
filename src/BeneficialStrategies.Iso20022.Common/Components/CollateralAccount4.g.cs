@@ -24,7 +24,7 @@ public partial record CollateralAccount4
     /// <summary>
     /// Specifies the financial instruments placed as collateral.
     /// </summary>
-    public AssetHolding1? AssetHolding { get; init;  } // Warning: Don't know multiplicity.
+    public AssetHolding1[] AssetHolding { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

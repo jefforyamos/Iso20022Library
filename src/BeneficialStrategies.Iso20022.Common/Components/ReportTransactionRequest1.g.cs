@@ -20,7 +20,7 @@ public partial record ReportTransactionRequest1
     /// <summary>
     /// Eligibility parameters for a transaction to be part of transaction report.
     /// </summary>
-    public SearchCriteria1? SearchCriteria { get; init;  } // Warning: Don't know multiplicity.
+    public SearchCriteria1[] SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the ordering in which the resulting transaction reports should be returned.
     /// </summary>

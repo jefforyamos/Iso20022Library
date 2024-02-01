@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesLendingType1Choice;
 /// <summary>
 /// Securities lending type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISecuritiesLendingType1Choice
+public partial record Proprietary : SecuritiesLendingType1Choice_
 {
     #nullable enable
     /// <summary>

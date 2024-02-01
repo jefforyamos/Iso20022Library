@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceValueType5FormatChoice;
 /// <summary>
 /// Proprietary code to express the value of a price.
 /// </summary>
-public partial record Proprietary : IPriceValueType5FormatChoice
+public partial record Proprietary : PriceValueType5FormatChoice_
 {
     #nullable enable
     /// <summary>

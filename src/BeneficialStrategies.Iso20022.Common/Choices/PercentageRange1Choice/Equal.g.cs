@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PercentageRange1Choice;
 /// <summary>
 /// Exact percentage rate must match to be considered valid.
 /// </summary>
-public partial record Equal : IPercentageRange1Choice
+public partial record Equal : PercentageRange1Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

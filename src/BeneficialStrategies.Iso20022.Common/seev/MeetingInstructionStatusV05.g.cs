@@ -56,7 +56,7 @@ public partial record MeetingInstructionStatusV05 : IOuterRecord
     [DataMember(Name="InstrTp")]
     [XmlElement(ElementName="InstrTp")]
     [Required]
-    public required IInstructionType1Choice InstructionType { get; init; }
+    public required InstructionType1Choice_ InstructionType { get; init; }
     
     /// <summary>
     /// Series of elements which allow to identify a meeting.
@@ -86,7 +86,7 @@ public partial record MeetingInstructionStatusV05 : IOuterRecord
     [DataMember(Name="InstrTpSts")]
     [XmlElement(ElementName="InstrTpSts")]
     [Required]
-    public required IInstructionTypeStatus2Choice InstructionTypeStatus { get; init; }
+    public required InstructionTypeStatus2Choice_ InstructionTypeStatus { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

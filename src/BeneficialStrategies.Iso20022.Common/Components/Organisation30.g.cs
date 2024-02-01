@@ -28,7 +28,7 @@ public partial record Organisation30
     /// <summary>
     /// Unique and unambiguous identifier for the organisation.
     /// </summary>
-    public IPartyIdentification72Choice? Identification { get; init; } 
+    public PartyIdentification72Choice_? Identification { get; init; } 
     /// <summary>
     /// Identification of the organisation with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>
@@ -48,15 +48,15 @@ public partial record Organisation30
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    public IReadOnlyCollection<PostalAddress21> PostalAddress { get; init; } = [];
+    public PostalAddress21[] PostalAddress { get; init; } = [];
     /// <summary>
     /// Type of organisation.
     /// </summary>
-    public IOrganisationType1Choice? TypeOfOrganisation { get; init; } 
+    public OrganisationType1Choice_? TypeOfOrganisation { get; init; } 
     /// <summary>
     /// Place of listing for shares in the organisation.
     /// </summary>
-    public IsoMICIdentifier? PlaceOfListing { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMICIdentifier[] PlaceOfListing { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TrackerAlertStatus1Choice;
 /// <summary>
 /// Status of the tracker alert, as published in an external code set.
 /// </summary>
-public partial record Code : ITrackerAlertStatus1Choice
+public partial record Code : TrackerAlertStatus1Choice_
 {
     public required ExternalTrackertAlertStatus1Code Value { get; init; }
 }

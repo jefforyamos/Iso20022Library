@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConsentOrRejectionReason5Choice;
 /// <summary>
 /// Specifies the reason why the counterparty response has a rejection status.
 /// </summary>
-public partial record Code : IConsentOrRejectionReason5Choice
+public partial record Code : ConsentOrRejectionReason5Choice_
 {
     public required CounterpartyResponseStatusReason1Code Value { get; init; }
 }

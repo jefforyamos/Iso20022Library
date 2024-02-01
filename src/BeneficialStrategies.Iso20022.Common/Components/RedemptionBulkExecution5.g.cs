@@ -28,7 +28,7 @@ public partial record RedemptionBulkExecution5
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
-    public IPlaceOfTradeIdentification1Choice? PlaceOfTrade { get; init; } 
+    public PlaceOfTradeIdentification1Choice_? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Date and time at which the order was placed by the investor or its agent.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record RedemptionBulkExecution5
     /// <summary>
     /// Cancellation right of the investor with respect to the investment fund order.
     /// </summary>
-    public ICancellationRight1Choice? CancellationRight { get; init; } 
+    public CancellationRight1Choice_? CancellationRight { get; init; } 
     /// <summary>
     /// Investment fund class to which the investment fund order execution is related.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record RedemptionBulkExecution5
     /// <summary>
     /// Execution of a redemption order.
     /// </summary>
-    public RedemptionExecution16? IndividualExecutionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public RedemptionExecution16[] IndividualExecutionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency requested for settlement of cash proceeds.
     /// </summary>

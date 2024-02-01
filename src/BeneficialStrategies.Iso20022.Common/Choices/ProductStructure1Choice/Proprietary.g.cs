@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProductStructure1Choice;
 /// <summary>
 /// Product structure expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IProductStructure1Choice
+public partial record Proprietary : ProductStructure1Choice_
 {
     #nullable enable
     /// <summary>

@@ -53,15 +53,15 @@ public partial record SecuritiesTransactionReport7
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
-    public required IFinancialInstrumentAttributes5Choice FinancialInstrument { get; init; } 
+    public required FinancialInstrumentAttributes5Choice_ FinancialInstrument { get; init; } 
     /// <summary>
     /// Identifies the person or algorithm which is responsible within the reporting party for the investment decision.
     /// </summary>
-    public IInvestmentParty1Choice? InvestmentDecisionPerson { get; init; } 
+    public InvestmentParty1Choice_? InvestmentDecisionPerson { get; init; } 
     /// <summary>
     /// Person or algorithm responsible for the execution of the transaction.
     /// </summary>
-    public required IExecutingParty1Choice ExecutingPerson { get; init; } 
+    public required ExecutingParty1Choice_ ExecutingPerson { get; init; } 
     /// <summary>
     /// Provides additional indicators on the reported transaction.
     /// </summary>
@@ -73,7 +73,7 @@ public partial record SecuritiesTransactionReport7
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

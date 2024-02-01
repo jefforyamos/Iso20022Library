@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderStatus5Choice;
 /// <summary>
 /// Status of the individual order is in repair.
 /// </summary>
-public partial record InRepair : IOrderStatus5Choice
+public partial record InRepair : OrderStatus5Choice_
 {
     #nullable enable
     #nullable disable

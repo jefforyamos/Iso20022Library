@@ -20,11 +20,11 @@ public partial record PartyIdentificationAndAccount18
     /// <summary>
     /// Identification of a party.
     /// </summary>
-    public required IPartyIdentification30Choice Identification { get; init; } 
+    public required PartyIdentification30Choice_ Identification { get; init; } 
     /// <summary>
     /// Account in which cash is maintained.
     /// </summary>
-    public ICashAccountIdentification5Choice? CashAccount { get; init; } 
+    public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Reference meaningful to the party identified.
     /// </summary>

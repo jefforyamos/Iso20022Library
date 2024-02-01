@@ -55,7 +55,7 @@ public partial record FinancialInstrumentReportingReferenceDataDeltaReportV03 : 
     [Description(@"Provides the details of the reference data that have been updated (since the last report).")]
     [DataMember(Name="FinInstrm")]
     [XmlElement(ElementName="FinInstrm")]
-    public ISecuritiesReferenceDeltaStatusReport5Choice? FinancialInstrument { get; init; }
+    public SecuritiesReferenceDeltaStatusReport5Choice_? FinancialInstrument { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

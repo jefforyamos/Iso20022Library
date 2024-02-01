@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AuditTrailOrBusinessError6Choice
 /// <summary>
 /// Business error resulting from a rejection.
 /// </summary>
-public partial record BusinessError : IAuditTrailOrBusinessError6Choice
+public partial record BusinessError : AuditTrailOrBusinessError6Choice_
 {
     #nullable enable
     /// <summary>
     /// Specification of the error, in coded or proprietary form.
     /// </summary>
-    public required IErrorHandling3Choice Error { get; init; } 
+    public required ErrorHandling3Choice_ Error { get; init; } 
     /// <summary>
     /// Specification of the error, in free format.
     /// </summary>

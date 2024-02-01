@@ -25,7 +25,7 @@ public partial record Transaction155
     /// Contains error details.
     ///  ISO 8583:2003, bit 18
     /// </summary>
-    public ErrorDetails2? ErrorDetail { get; init;  } // Warning: Don't know multiplicity.
+    public ErrorDetails2[] ErrorDetail { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Original request that caused the party to reject it.
     /// </summary>
@@ -33,11 +33,11 @@ public partial record Transaction155
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    public AdditionalFee2? AdditionalFee { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFee2[] AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

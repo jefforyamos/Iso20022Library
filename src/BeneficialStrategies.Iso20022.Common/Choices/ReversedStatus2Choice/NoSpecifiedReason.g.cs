@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReversedStatus2Choice;
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoSpecifiedReason : IReversedStatus2Choice
+public partial record NoSpecifiedReason : ReversedStatus2Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

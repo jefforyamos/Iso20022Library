@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SubBalanceType1Choice;
 /// <summary>
 /// Reason for the sub-balance.
 /// </summary>
-public partial record SubBalanceType : ISubBalanceType1Choice
+public partial record SubBalanceType : SubBalanceType1Choice_
 {
     public required SecuritiesBalanceType4Code Value { get; init; }
 }

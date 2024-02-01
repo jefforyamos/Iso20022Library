@@ -86,7 +86,7 @@ public partial record BackupPaymentV07 : IOuterRecord
     [DataMember(Name="TrfdAmt")]
     [XmlElement(ElementName="TrfdAmt")]
     [Required]
-    public required IAmount2Choice TransferredAmount { get; init; }
+    public required Amount2Choice_ TransferredAmount { get; init; }
     
     /// <summary>
     /// Party that receives an amount of money from the debtor.

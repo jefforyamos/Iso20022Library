@@ -20,7 +20,7 @@ public partial record Document9
     /// <summary>
     /// Type of document or template.
     /// </summary>
-    public required IUndertakingDocumentType1Choice Type { get; init; } 
+    public required UndertakingDocumentType1Choice_ Type { get; init; } 
     /// <summary>
     /// Identification of the document or template.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record Document9
     /// <summary>
     /// Format of the document or template, such as PDF, XML, XSLT.
     /// </summary>
-    public IDocumentFormat1Choice? Format { get; init; } 
+    public DocumentFormat1Choice_? Format { get; init; } 
     /// <summary>
     /// Binary file representing the enclosed document or template, such as a PDF file, image file, XML file, MT message.
     /// </summary>

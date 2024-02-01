@@ -20,7 +20,7 @@ public partial record SupervisingAuthorityIdentification1
     /// <summary>
     /// Unique identification of the institution.
     /// </summary>
-    public ISupervisingAuthorityIdentification1Choice? Identification { get; init; } 
+    public SupervisingAuthorityIdentification1Choice_? Identification { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for an institution.
     /// </summary>

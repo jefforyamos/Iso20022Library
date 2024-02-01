@@ -24,11 +24,11 @@ public partial record TransactionDetails3
     /// <summary>
     /// Reference that links to other trades that are/will be sent, eg for straddles where put and call legs need to be reported together.
     /// </summary>
-    public IsoMax70Text? AssociatedTradeReference { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] AssociatedTradeReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the execution venue. In the case of an exchange or a Multilateral Trading Facility (MTF), this should be identified using a MIC code. In the case of a systematic internaliser, place of trade should be identified using a BIC code.
     /// </summary>
-    public required IPlaceOfTradeIdentification2Choice PlaceOfTrade { get; init; } 
+    public required PlaceOfTradeIdentification2Choice_ PlaceOfTrade { get; init; } 
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
@@ -44,11 +44,11 @@ public partial record TransactionDetails3
     /// <summary>
     /// Identifies the regulator(s) to whom the transaction report must be sent.
     /// </summary>
-    public IReadOnlyCollection<IPartyIdentification24Choice> TransactionReportMarker { get; init; } = [];
+    public PartyIdentification24Choice_[] TransactionReportMarker { get; init; } = [];
     /// <summary>
     /// Provides details of the counterparty.
     /// </summary>
-    public required IPartyIdentification11Choice Counterparty { get; init; } 
+    public required PartyIdentification11Choice_ Counterparty { get; init; } 
     /// <summary>
     /// Provides details of the client.
     /// </summary>
@@ -60,11 +60,11 @@ public partial record TransactionDetails3
     /// <summary>
     /// Specifies the currency and price at which the trade has been executed, excluding commission or accrued interest.
     /// </summary>
-    public required IPriceRateOrAmountChoice ExecutedTradePrice { get; init; } 
+    public required PriceRateOrAmountChoice_ ExecutedTradePrice { get; init; } 
     /// <summary>
     /// Quantity of financial instrument executed by the trading party.
     /// </summary>
-    public required IUnitOrFaceAmountChoice ExecutedTradeQuantity { get; init; } 
+    public required UnitOrFaceAmountChoice_ ExecutedTradeQuantity { get; init; } 
     /// <summary>
     /// The total consideration or value.
     /// </summary>
@@ -76,7 +76,7 @@ public partial record TransactionDetails3
     /// <summary>
     /// Provides details of the person/organisation that has the power of attorney.
     /// </summary>
-    public IPartyIdentification2Choice? ProxyHolder { get; init; } 
+    public PartyIdentification2Choice_? ProxyHolder { get; init; } 
     /// <summary>
     /// Additional domestic regulatory transaction information.
     /// </summary>

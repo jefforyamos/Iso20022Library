@@ -28,7 +28,7 @@ public partial record TaxCategory2
     /// <summary>
     /// Quantity to be withheld at the tax category level.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? Quantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? Quantity { get; init; } 
     /// <summary>
     /// Identification of the country in which the tax is withheld.
     /// </summary>

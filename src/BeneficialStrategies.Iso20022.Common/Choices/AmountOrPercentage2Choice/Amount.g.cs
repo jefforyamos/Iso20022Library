@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountOrPercentage2Choice;
 /// <summary>
 /// Specifies that the payment is for a fixed amount.
 /// </summary>
-public partial record Amount : IAmountOrPercentage2Choice
+public partial record Amount : AmountOrPercentage2Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

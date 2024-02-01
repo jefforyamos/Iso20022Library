@@ -22,7 +22,7 @@ public partial record Counterparty28
     /// Usage:
     /// This field shall be filled from the perspective of the reporting counterparty. In case of a private individual a client code shall be used in a consistent manner.
     /// </summary>
-    public required IOrganisationIdentification9Choice Identification { get; init; } 
+    public required OrganisationIdentification9Choice_ Identification { get; init; } 
     /// <summary>
     /// The code of country where the registered office of the other counterparty is located or country of residence in case that the other counterparty is a natural person.
     /// </summary>

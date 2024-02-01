@@ -20,7 +20,7 @@ public partial record BusinessDay9
     /// <summary>
     /// Date for which the availability information is provided.
     /// </summary>
-    public IDateAndDateTime2Choice? SystemDate { get; init; } 
+    public DateAndDateTime2Choice_? SystemDate { get; init; } 
     /// <summary>
     /// Status of a system and the period of time during which the status is valid.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record BusinessDay9
     /// <summary>
     /// Information relating to system operations and foreseen events relating to the operation of the system.
     /// </summary>
-    public SystemAvailabilityAndEvents3? SystemInformationPerCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public SystemAvailabilityAndEvents3[] SystemInformationPerCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

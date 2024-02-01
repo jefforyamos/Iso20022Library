@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DebtorActivationAmendmentReason1
 /// <summary>
 /// Reason, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IDebtorActivationAmendmentReason1Choice
+public partial record Proprietary : DebtorActivationAmendmentReason1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

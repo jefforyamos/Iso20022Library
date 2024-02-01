@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IndividualPersonIdentification2C
 /// <summary>
 /// Identification of a party, such as a tax or social security identifier.
 /// </summary>
-public partial record IdentificationNumber : IIndividualPersonIdentification2Choice
+public partial record IdentificationNumber : IndividualPersonIdentification2Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record IdentificationNumber : IIndividualPersonIdentification2Cho
     /// <summary>
     /// Type of identification.
     /// </summary>
-    public required IOtherIdentification3Choice IdentificationType { get; init; } 
+    public required OtherIdentification3Choice_ IdentificationType { get; init; } 
     #nullable disable
 }

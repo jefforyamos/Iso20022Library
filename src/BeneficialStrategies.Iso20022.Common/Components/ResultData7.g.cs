@@ -41,7 +41,7 @@ public partial record ResultData7
     /// <summary>
     /// Additional result information to be conveyed.
     /// </summary>
-    public AdditionalData1? AdditionalResultInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalResultInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

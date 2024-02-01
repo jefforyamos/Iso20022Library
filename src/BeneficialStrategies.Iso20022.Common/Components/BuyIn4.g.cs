@@ -24,7 +24,7 @@ public partial record BuyIn4
     /// <summary>
     /// Provides the date at which the buy-in will occur.
     /// </summary>
-    public required IDateFormat15Choice ExpectedBuyInDate { get; init; } 
+    public required DateFormat15Choice_ ExpectedBuyInDate { get; init; } 
     /// <summary>
     /// Identifies the latest date by which the buy-in operation can be cancelled.
     /// </summary>

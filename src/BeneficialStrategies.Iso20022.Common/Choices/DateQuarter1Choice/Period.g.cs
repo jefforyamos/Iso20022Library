@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateQuarter1Choice;
 /// <summary>
 /// Proprietary description of the timeframe.
 /// </summary>
-public partial record Period : IDateQuarter1Choice
+public partial record Period : DateQuarter1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

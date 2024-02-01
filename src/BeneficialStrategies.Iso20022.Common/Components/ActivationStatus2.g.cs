@@ -24,7 +24,7 @@ public partial record ActivationStatus2
     /// <summary>
     /// Provides detailed information on the status of the request.
     /// </summary>
-    public required IServiceStatus1Choice Status { get; init; } 
+    public required ServiceStatus1Choice_ Status { get; init; } 
     /// <summary>
     /// Specifies the reason for the status of the debtor activation request.
     /// </summary>
@@ -32,15 +32,15 @@ public partial record ActivationStatus2
     /// <summary>
     /// Provides the reference of the original activation request.
     /// </summary>
-    public IOriginalActivation2Choice? OriginalActivationReference { get; init; } 
+    public OriginalActivation2Choice_? OriginalActivationReference { get; init; } 
     /// <summary>
     /// Effective date when the debtor has been activated.
     /// </summary>
-    public IDateAndDateTime2Choice? EffectiveActivationDate { get; init; } 
+    public DateAndDateTime2Choice_? EffectiveActivationDate { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

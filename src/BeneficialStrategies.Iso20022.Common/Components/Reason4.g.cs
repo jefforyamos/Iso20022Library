@@ -20,7 +20,7 @@ public partial record Reason4
     /// <summary>
     /// Specifies the reason of the Status.
     /// </summary>
-    public ProprietaryReason4? Reason { get; init;  } // Warning: Don't know multiplicity.
+    public ProprietaryReason4[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

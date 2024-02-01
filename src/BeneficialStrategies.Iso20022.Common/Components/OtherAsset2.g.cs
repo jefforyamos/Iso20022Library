@@ -20,7 +20,7 @@ public partial record OtherAsset2
     /// <summary>
     /// Type of asset.
     /// </summary>
-    public required IOtherAsset2Choice OtherAssetType { get; init; } 
+    public required OtherAsset2Choice_ OtherAssetType { get; init; } 
     /// <summary>
     /// Technical identification of the asset.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record OtherAsset2
     /// <summary>
     /// Additional identification of the asset.
     /// </summary>
-    public IReadOnlyCollection<IsoMax35Text> OtherIdentification { get; init; } = [];
+    public IsoMax35Text[] OtherIdentification { get; init; } = [];
     /// <summary>
     /// Additional information about the other asset.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

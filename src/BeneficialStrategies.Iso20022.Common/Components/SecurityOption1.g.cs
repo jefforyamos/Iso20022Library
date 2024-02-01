@@ -28,27 +28,27 @@ public partial record SecurityOption1
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? SecuritiesQuantity { get; init; } 
+    public UnitOrFaceAmount1Choice_? SecuritiesQuantity { get; init; } 
     /// <summary>
     /// Minimum quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? MinimumExercisableSecuritiesQuantity { get; init; } 
+    public UnitOrFaceAmount1Choice_? MinimumExercisableSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Minimum multiple quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? MinimumExercisableMultipleSecuritiesQuantity { get; init; } 
+    public UnitOrFaceAmount1Choice_? MinimumExercisableMultipleSecuritiesQuantity { get; init; } 
     /// <summary>
     /// New denomination of the financial instrument following, eg, an increase or decrease in nominal value.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? NewDenominationSecuritiesQuantity { get; init; } 
+    public UnitOrFaceAmount1Choice_? NewDenominationSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Quantity of equity that makes up the new board lot.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? NewBoardLotSecuritiesQuantity { get; init; } 
+    public UnitOrFaceAmount1Choice_? NewBoardLotSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Specifies whether the shares are ranking for dividend or pari passu.
     /// </summary>
-    public IShareRanking1FormatChoice? ShareRanking { get; init; } 
+    public ShareRanking1FormatChoice_? ShareRanking { get; init; } 
     /// <summary>
     /// Quantity of additional intermediate securities/new equities awarded for a given quantity of securities derived from subscription.
     /// </summary>
@@ -76,7 +76,7 @@ public partial record SecurityOption1
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
-    public IFractionDispositionType1FormatChoice? FractionDisposition { get; init; } 
+    public FractionDispositionType1FormatChoice_? FractionDisposition { get; init; } 
     
     #nullable disable
 }

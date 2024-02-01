@@ -24,7 +24,7 @@ public partial record AcquirerHostConfiguration8
     /// <summary>
     /// Types of message to sent to this host.
     /// </summary>
-    public MessageFunction43Code? MessageToSend { get; init;  } // Warning: Don't know multiplicity.
+    public MessageFunction43Code[] MessageToSend { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Protocol version to use when using these parameters.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason11FormatChoice;
 /// <summary>
 /// Proprietary code to express the reason of a rejection of the notification cancellation request.
 /// </summary>
-public partial record Proprietary : IRejectionReason11FormatChoice
+public partial record Proprietary : RejectionReason11FormatChoice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionCriteria6Choice;
 /// <summary>
 /// Explicitly defines the query criteria.
 /// </summary>
-public partial record NewCriteria : ITransactionCriteria6Choice
+public partial record NewCriteria : TransactionCriteria6Choice_
 {
     #nullable enable
     /// <summary>

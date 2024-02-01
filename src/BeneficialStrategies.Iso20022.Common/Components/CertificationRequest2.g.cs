@@ -32,7 +32,7 @@ public partial record CertificationRequest2
     /// <summary>
     /// Attribute of the certificate service to be put in the certificate extensions, or to be used for the request.
     /// </summary>
-    public RelativeDistinguishedName2? Attribute { get; init;  } // Warning: Don't know multiplicity.
+    public RelativeDistinguishedName2[] Attribute { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

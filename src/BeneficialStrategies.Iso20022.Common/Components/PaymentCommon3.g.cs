@@ -28,15 +28,15 @@ public partial record PaymentCommon3
     /// <summary>
     /// Status of a transfer.|.
     /// </summary>
-    public PaymentStatus3? CommonStatus { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentStatus3[] CommonStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date and time at which the cash is at the disposal of the credit account owner, or ceases to be at the disposal of the debit account owner.
     /// </summary>
-    public IDateAndDateTime2Choice? RequestedExecutionDate { get; init; } 
+    public DateAndDateTime2Choice_? RequestedExecutionDate { get; init; } 
     /// <summary>
     /// Date and time at which an entry is posted to an account on the account servicer's books.
     /// </summary>
-    public IDateAndDateTime2Choice? EntryDate { get; init; } 
+    public DateAndDateTime2Choice_? EntryDate { get; init; } 
     /// <summary>
     /// Indicates whether the payment instruction is a debit or a credit.|.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record PaymentCommon3
     /// <summary>
     /// Indicates the message or event from which an instruction has been initiated.
     /// </summary>
-    public IPaymentOrigin1Choice? PaymentMethod { get; init; } 
+    public PaymentOrigin1Choice_? PaymentMethod { get; init; } 
     
     #nullable disable
 }

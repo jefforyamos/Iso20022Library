@@ -65,7 +65,7 @@ public partial record MeetingInstructionStatusV03 : IOuterRecord
     [DataMember(Name="InstrTp")]
     [XmlElement(ElementName="InstrTp")]
     [Required]
-    public required IInstructionType1Choice InstructionType { get; init; }
+    public required InstructionType1Choice_ InstructionType { get; init; }
     
     /// <summary>
     /// Series of elements which allow to identify a meeting.
@@ -85,7 +85,7 @@ public partial record MeetingInstructionStatusV03 : IOuterRecord
     [DataMember(Name="RptgPty")]
     [XmlElement(ElementName="RptgPty")]
     [Required]
-    public required IPartyIdentification9Choice ReportingParty { get; init; }
+    public required PartyIdentification9Choice_ ReportingParty { get; init; }
     
     /// <summary>
     /// Identifies the securities for which the meeting is organised.
@@ -105,7 +105,7 @@ public partial record MeetingInstructionStatusV03 : IOuterRecord
     [DataMember(Name="InstrTpSts")]
     [XmlElement(ElementName="InstrTpSts")]
     [Required]
-    public required IInstructionTypeStatus1Choice InstructionTypeStatus { get; init; }
+    public required InstructionTypeStatus1Choice_ InstructionTypeStatus { get; init; }
     
     #nullable disable
     

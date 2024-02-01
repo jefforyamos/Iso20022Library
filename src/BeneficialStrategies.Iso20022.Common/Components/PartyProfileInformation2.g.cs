@@ -36,7 +36,7 @@ public partial record PartyProfileInformation2
     /// <summary>
     /// Type of certificate.
     /// </summary>
-    public required ICertificationType1Choice CertificateType { get; init; } 
+    public required CertificationType1Choice_ CertificateType { get; init; } 
     /// <summary>
     /// Date at which the certification check has been performed.
     /// </summary>
@@ -60,11 +60,11 @@ public partial record PartyProfileInformation2
     /// <summary>
     /// Specifies an assessment of the customer’s behaviour at the time of the account opening application.
     /// </summary>
-    public ICustomerConductClassification1Choice? CustomerConductClassification { get; init; } 
+    public CustomerConductClassification1Choice_? CustomerConductClassification { get; init; } 
     /// <summary>
     /// Specifies the customer’s money laundering risk.
     /// </summary>
-    public IRiskLevel1Choice? RiskLevel { get; init; } 
+    public RiskLevel1Choice_? RiskLevel { get; init; } 
     
     #nullable disable
 }

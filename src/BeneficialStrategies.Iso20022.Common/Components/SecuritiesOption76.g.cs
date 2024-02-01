@@ -28,11 +28,11 @@ public partial record SecuritiesOption76
     /// <summary>
     /// Quantity of securities based on the terms of the corporate action event and balance of underlying securities entitled to the account owner. (This quantity can be positive or negative).
     /// </summary>
-    public required IQuantity6Choice EntitledQuantity { get; init; } 
+    public required Quantity6Choice_ EntitledQuantity { get; init; } 
     /// <summary>
     /// Date/time at which the movement is due to take place (cash and/or securities).
     /// </summary>
-    public required IDateFormat58Choice PaymentDate { get; init; } 
+    public required DateFormat58Choice_ PaymentDate { get; init; } 
     
     #nullable disable
 }

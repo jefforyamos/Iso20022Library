@@ -46,7 +46,7 @@ public partial record TransparencyDataReport15
     /// <summary>
     /// Aggregated quantitative data on the non-equity instrument being reported. Details aggregated against the specific range that is defined. Transactions that have been cancelled should be excluded from the reported figure.
     /// </summary>
-    public TransactionsBin2? AggregatedQuantitativeData { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionsBin2[] AggregatedQuantitativeData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

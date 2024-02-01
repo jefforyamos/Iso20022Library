@@ -24,7 +24,7 @@ public partial record OptionalDividendAccountQuantitySD2
     /// <summary>
     /// Beneficial owner quantity to be paid.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice BeneficialOwnerQuantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ BeneficialOwnerQuantity { get; init; } 
     /// <summary>
     /// Number of accounts for which the beneficial quantity is elected.
     /// </summary>

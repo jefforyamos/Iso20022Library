@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountStatusUpdateInstruction1C
 /// <summary>
 /// Type of change to the account status expressed as a code.
 /// </summary>
-public partial record Code : IAccountStatusUpdateInstruction1Choice
+public partial record Code : AccountStatusUpdateInstruction1Choice_
 {
     public required AccountStatusUpdateInstruction1Code Value { get; init; }
 }

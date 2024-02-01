@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketInfrastructureIdentificati
 /// <summary>
 /// Clearing system identification in a proprietary form.|.
 /// </summary>
-public partial record Proprietary : IMarketInfrastructureIdentification1Choice
+public partial record Proprietary : MarketInfrastructureIdentification1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

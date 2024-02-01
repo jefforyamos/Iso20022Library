@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CertifiedCharacteristics2Choice;
 /// <summary>
 /// Quantity of the goods, as proven by the certificate.
 /// </summary>
-public partial record Quantity : ICertifiedCharacteristics2Choice
+public partial record Quantity : CertifiedCharacteristics2Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies a unit of measure with a code or free text.
     /// </summary>
-    public required IUnitOfMeasure3Choice UnitOfMeasure { get; init; } 
+    public required UnitOfMeasure3Choice_ UnitOfMeasure { get; init; } 
     /// <summary>
     /// Quantity of a product on a line specified by a number. For example, 100 (kgs), 50 (pieces).
     /// </summary>

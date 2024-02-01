@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus17Choice;
 /// <summary>
 /// Trade is Done.
 /// </summary>
-public partial record Done : IProcessingStatus17Choice
+public partial record Done : ProcessingStatus17Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketIdentification2Choice;
 /// <summary>
 /// ISO 10383 Market Identification Code.
 /// </summary>
-public partial record MarketIdentifierCode : IMarketIdentification2Choice
+public partial record MarketIdentifierCode : MarketIdentification2Choice_
 {
     public required IsoMICIdentifier Value { get; init; }
 }

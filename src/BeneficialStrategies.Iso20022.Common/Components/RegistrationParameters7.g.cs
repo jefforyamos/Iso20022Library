@@ -24,7 +24,7 @@ public partial record RegistrationParameters7
     /// <summary>
     /// Date/time at which the certificates in the deposit were validated by the agent.
     /// </summary>
-    public IDateAndDateTime2Choice? CertificationDateTime { get; init; } 
+    public DateAndDateTime2Choice_? CertificationDateTime { get; init; } 
     /// <summary>
     /// Account at the registrar where financial instruments are registered.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record RegistrationParameters7
     /// <summary>
     /// Unique and unambiguous identifier of a certificate assigned by the issuer.
     /// </summary>
-    public SecuritiesCertificate5? CertificateNumber { get; init;  } // Warning: Don't know multiplicity.
+    public SecuritiesCertificate5[] CertificateNumber { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -73,7 +73,7 @@ public partial record TransactionContext8
     /// <summary>
     /// Additional transaction context data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

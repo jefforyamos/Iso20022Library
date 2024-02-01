@@ -24,11 +24,11 @@ public partial record MarketIdentification87
     /// <summary>
     /// Type of instrument covered by the SSI instruction.
     /// </summary>
-    public required IClassificationType1Choice ClassificationType { get; init; } 
+    public required ClassificationType1Choice_ ClassificationType { get; init; } 
     /// <summary>
     /// Purpose of the instruction, for example, whether for regular payments, margin payments related to a collateral movement, securities settlements, securities lending.
     /// </summary>
-    public IPurpose3Choice? SettlementPurpose { get; init; } 
+    public Purpose3Choice_? SettlementPurpose { get; init; } 
     
     #nullable disable
 }

@@ -20,7 +20,7 @@ public partial record FinancialPartyClassification1
     /// <summary>
     /// Classification of the business activities of the reporting counterparty.
     /// </summary>
-    public FinancialPartySectorType2Code? Classification { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialPartySectorType2Code[] Classification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Nature business activities of the reporting counterparty as an investment fund.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementStatus31Choice;
 /// <summary>
 /// Proprietary status.
 /// </summary>
-public partial record Proprietary : ISettlementStatus31Choice
+public partial record Proprietary : SettlementStatus31Choice_
 {
     #nullable enable
     /// <summary>

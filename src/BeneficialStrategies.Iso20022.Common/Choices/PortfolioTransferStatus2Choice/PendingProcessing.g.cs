@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PortfolioTransferStatus2Choice;
 /// <summary>
 /// Processing of the instruction/request is pending.
 /// </summary>
-public partial record PendingProcessing : IPortfolioTransferStatus2Choice
+public partial record PendingProcessing : PortfolioTransferStatus2Choice_
 {
     #nullable enable
     #nullable disable

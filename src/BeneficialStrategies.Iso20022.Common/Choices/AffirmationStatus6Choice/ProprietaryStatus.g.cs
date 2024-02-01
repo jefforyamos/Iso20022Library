@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AffirmationStatus6Choice;
 /// <summary>
 /// Provides a proprietary status and a proprietary reason of the affirmation of the trade.
 /// </summary>
-public partial record ProprietaryStatus : IAffirmationStatus6Choice
+public partial record ProprietaryStatus : AffirmationStatus6Choice_
 {
     #nullable enable
     /// <summary>

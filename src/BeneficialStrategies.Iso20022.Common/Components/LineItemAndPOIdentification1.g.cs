@@ -20,7 +20,7 @@ public partial record LineItemAndPOIdentification1
     /// <summary>
     /// Identification assigned to a line item.
     /// </summary>
-    public IsoMax70Text? LineItemIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] LineItemIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Reference to the purchase order containing the line item.
     /// </summary>

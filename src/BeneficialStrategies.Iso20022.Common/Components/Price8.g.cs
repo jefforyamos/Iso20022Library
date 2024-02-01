@@ -24,7 +24,7 @@ public partial record Price8
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    public required IPriceRateOrAmount3Choice Value { get; init; } 
+    public required PriceRateOrAmount3Choice_ Value { get; init; } 
     /// <summary>
     /// Type and information about a price.
     /// </summary>

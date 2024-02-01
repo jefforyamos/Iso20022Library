@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LinkageType3Choice;
 /// <summary>
 /// Linkage type expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ILinkageType3Choice
+public partial record Code : LinkageType3Choice_
 {
     public required LinkageType1Code Value { get; init; }
 }

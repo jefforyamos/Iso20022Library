@@ -20,11 +20,11 @@ public partial record PartyIdentification243
     /// <summary>
     /// Legal entity.
     /// </summary>
-    public PartyIdentification237? LegalPerson { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification237[] LegalPerson { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Private person.
     /// </summary>
-    public PartyIdentification217? NaturalPerson { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification217[] NaturalPerson { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

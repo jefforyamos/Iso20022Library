@@ -20,19 +20,19 @@ public partial record SingleTransport4
     /// <summary>
     /// Moving of goods or people from one place to another by vehicle.
     /// </summary>
-    public TransportByAir3? TransportByAir { get; init;  } // Warning: Don't know multiplicity.
+    public TransportByAir3[] TransportByAir { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related for the transportation of goods by sea.
     /// </summary>
-    public TransportBySea3? TransportBySea { get; init;  } // Warning: Don't know multiplicity.
+    public TransportBySea3[] TransportBySea { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to the transportation of goods by road.
     /// </summary>
-    public TransportByRoad3? TransportByRoad { get; init;  } // Warning: Don't know multiplicity.
+    public TransportByRoad3[] TransportByRoad { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to the transportation of goods by rail.
     /// </summary>
-    public TransportByRail3? TransportByRail { get; init;  } // Warning: Don't know multiplicity.
+    public TransportByRail3[] TransportByRail { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification37Choice;
 /// <summary>
 /// Proprietary identification of the index on which the financial instrument is based.
 /// </summary>
-public partial record Name : ISecurityIdentification37Choice
+public partial record Name : SecurityIdentification37Choice_
 {
     public required IsoMax350Text Value { get; init; }
 }

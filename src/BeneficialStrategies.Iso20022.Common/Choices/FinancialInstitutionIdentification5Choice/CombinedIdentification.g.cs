@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstitutionIdentificati
 /// <summary>
 /// Unique and unambiguous identification of a financial institution, through a combimation of globally recognised or proprietary identification scheme.
 /// </summary>
-public partial record CombinedIdentification : IFinancialInstitutionIdentification5Choice
+public partial record CombinedIdentification : FinancialInstitutionIdentification5Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record CombinedIdentification : IFinancialInstitutionIdentificati
     /// <summary>
     /// Unique and unambiguous identifier of a clearing system member, as assigned by the system or system administrator.
     /// </summary>
-    public IClearingSystemMemberIdentification3Choice? ClearingSystemMemberIdentification { get; init; } 
+    public ClearingSystemMemberIdentification3Choice_? ClearingSystemMemberIdentification { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>

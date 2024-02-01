@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnmatchedStatus6Choice;
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoSpecifiedReason : IUnmatchedStatus6Choice
+public partial record NoSpecifiedReason : UnmatchedStatus6Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

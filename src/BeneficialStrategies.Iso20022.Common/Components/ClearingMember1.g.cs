@@ -20,7 +20,7 @@ public partial record ClearingMember1
     /// <summary>
     /// Identification of the clearing member.
     /// </summary>
-    public required IPartyIdentification118Choice Identification { get; init; } 
+    public required PartyIdentification118Choice_ Identification { get; init; } 
     /// <summary>
     /// Credit quality for the clearing member.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record ClearingMember1
     /// <summary>
     /// Identification of the ultimate parent of a clearing member if it is not the parent company itself.
     /// </summary>
-    public IPartyIdentification118Choice? UltimateParentIdentification { get; init; } 
+    public PartyIdentification118Choice_? UltimateParentIdentification { get; init; } 
     /// <summary>
     /// Identifies whether the clearing member is registered under the Commodity Exchange Act.
     /// </summary>
@@ -44,11 +44,11 @@ public partial record ClearingMember1
     /// <summary>
     /// Identification of another clearing member or institution that acts as sponsor to the clearing member, undertaking certain of its obligations at the central counterparty on its behalf. These obligations typically include, but are not limited to, making default fund contributions and participating in default auctions.
     /// </summary>
-    public IPartyIdentification118Choice? SponsoringClearingMemberIdentification { get; init; } 
+    public PartyIdentification118Choice_? SponsoringClearingMemberIdentification { get; init; } 
     /// <summary>
     /// Operational construct of a central counterparty that defines the relationship between collateral, margin and position accounts and upon default of a clearing member defines the segregation of losses on positions and assets held in that account.
     /// </summary>
-    public ClearingAccount1? ClearingAccountOwner { get; init;  } // Warning: Don't know multiplicity.
+    public ClearingAccount1[] ClearingAccountOwner { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

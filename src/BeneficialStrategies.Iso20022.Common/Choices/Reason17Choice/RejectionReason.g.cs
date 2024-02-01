@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason17Choice;
 /// <summary>
 /// Specifies the reason why the instruction/request has a rejected status.
 /// </summary>
-public partial record RejectionReason : IReason17Choice
+public partial record RejectionReason : Reason17Choice_
 {
     #nullable enable
     #nullable disable

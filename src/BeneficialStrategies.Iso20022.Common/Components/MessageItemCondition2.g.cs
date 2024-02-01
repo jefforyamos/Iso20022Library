@@ -28,7 +28,7 @@ public partial record MessageItemCondition2
     /// <summary>
     /// Value to be used for the message item.
     /// </summary>
-    public IsoMax140Text? Value { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax140Text[] Value { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

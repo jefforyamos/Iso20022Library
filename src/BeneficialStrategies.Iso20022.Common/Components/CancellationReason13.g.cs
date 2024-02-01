@@ -20,7 +20,7 @@ public partial record CancellationReason13
     /// <summary>
     /// Specifies the reason why the instruction is cancelled.
     /// </summary>
-    public required ICancellationReason19Choice Code { get; init; } 
+    public required CancellationReason19Choice_ Code { get; init; } 
     /// <summary>
     /// Provides the corporate action event identification of the event that triggered the cancellation.
     /// </summary>

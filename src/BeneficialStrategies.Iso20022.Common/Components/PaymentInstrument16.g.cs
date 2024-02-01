@@ -20,15 +20,15 @@ public partial record PaymentInstrument16
     /// <summary>
     /// Type of order to which the payment instrument applies.
     /// </summary>
-    public required IFundOrderType5Choice OrderType { get; init; } 
+    public required FundOrderType5Choice_ OrderType { get; init; } 
     /// <summary>
     /// Payment instrument for the order type.
     /// </summary>
-    public required IFundPaymentType1Choice InstrumentType { get; init; } 
+    public required FundPaymentType1Choice_ InstrumentType { get; init; } 
     /// <summary>
     /// Additional information about the payment.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

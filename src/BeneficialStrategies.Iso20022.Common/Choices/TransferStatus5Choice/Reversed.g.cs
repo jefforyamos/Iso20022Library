@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferStatus5Choice;
 /// <summary>
 /// Status of the transfer is reversed.
 /// </summary>
-public partial record Reversed : ITransferStatus5Choice
+public partial record Reversed : TransferStatus5Choice_
 {
     #nullable enable
     #nullable disable

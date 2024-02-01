@@ -28,11 +28,11 @@ public partial record PaymentObligation2
     /// <summary>
     /// Payment obligation amount specified as an amount or percentage.
     /// </summary>
-    public required IAmountOrPercentage2Choice PaymentObligationAmount { get; init; } 
+    public required AmountOrPercentage2Choice_ PaymentObligationAmount { get; init; } 
     /// <summary>
     /// Charges related to the payment obligation.
     /// </summary>
-    public Charges5? Charges { get; init;  } // Warning: Don't know multiplicity.
+    public Charges5[] Charges { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date at which the obligation will expire.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record PaymentObligation2
     /// <summary>
     /// Rules which apply to the BPO (Bank Payment Obligation).
     /// </summary>
-    public IBPOApplicableRules1Choice? ApplicableRules { get; init; } 
+    public BPOApplicableRules1Choice_? ApplicableRules { get; init; } 
     /// <summary>
     /// Country of which the law governs the bank payment obligation.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record PaymentObligation2
     /// <summary>
     /// Payment processes required to transfer cash from the debtor to the creditor.
     /// </summary>
-    public PaymentTerms4? PaymentTerms { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentTerms4[] PaymentTerms { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Instruction between two clearing agents stipulating the cash transfer characteristics between the two parties.
     /// </summary>

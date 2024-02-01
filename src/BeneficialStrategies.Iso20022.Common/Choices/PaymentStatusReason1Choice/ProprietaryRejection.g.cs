@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReason1Choice;
 /// <summary>
 /// Defines the reason that has been used by the system to reject the transaction.
 /// </summary>
-public partial record ProprietaryRejection : IPaymentStatusReason1Choice
+public partial record ProprietaryRejection : PaymentStatusReason1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType4Choice;
 /// <summary>
 /// Update type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IUpdateType4Choice
+public partial record Proprietary : UpdateType4Choice_
 {
     #nullable enable
     /// <summary>

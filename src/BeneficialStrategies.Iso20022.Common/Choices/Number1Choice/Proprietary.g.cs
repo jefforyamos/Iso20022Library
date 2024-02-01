@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Number1Choice;
 /// <summary>
 /// Proprietary number format.
 /// </summary>
-public partial record Proprietary : INumber1Choice
+public partial record Proprietary : Number1Choice_
 {
     #nullable enable
     /// <summary>

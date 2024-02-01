@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionType2Choice;
 /// <summary>
 /// Identification of the original meeting instruction message for which the global status or the status(es) of one or more individual instructions are provided.
 /// </summary>
-public partial record InstructionIdentification : IInstructionType2Choice
+public partial record InstructionIdentification : InstructionType2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

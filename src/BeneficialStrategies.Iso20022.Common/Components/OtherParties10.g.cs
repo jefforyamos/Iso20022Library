@@ -20,15 +20,15 @@ public partial record OtherParties10
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
     /// </summary>
-    public IPartyIdentification37Choice? Investor { get; init; } 
+    public PartyIdentification37Choice_? Investor { get; init; } 
     /// <summary>
     /// Identification of the stock exchange to which transaction reporting will be done.
     /// </summary>
-    public IPartyIdentification49Choice? StockExchange { get; init; } 
+    public PartyIdentification49Choice_? StockExchange { get; init; } 
     /// <summary>
     /// Institution to which a trade must be reported.
     /// </summary>
-    public IPartyIdentification49Choice? TradeRegulator { get; init; } 
+    public PartyIdentification49Choice_? TradeRegulator { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosedStatusReason1Choice;
 /// <summary>
 /// There is no reason available or to report for the closed account status.
 /// </summary>
-public partial record NoSpecifiedReason : IClosedStatusReason1Choice
+public partial record NoSpecifiedReason : ClosedStatusReason1Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

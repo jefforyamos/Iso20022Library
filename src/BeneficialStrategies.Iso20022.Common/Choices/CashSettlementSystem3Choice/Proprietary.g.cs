@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CashSettlementSystem3Choice;
 /// <summary>
 /// Cash settlement system expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICashSettlementSystem3Choice
+public partial record Proprietary : CashSettlementSystem3Choice_
 {
     #nullable enable
     /// <summary>

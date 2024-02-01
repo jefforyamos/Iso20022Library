@@ -24,7 +24,7 @@ public partial record SafekeepingAccount10
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification231Choice? AccountOwner { get; init; } 
+    public PartyIdentification231Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Identification of a subaccount within the safekeeping account.
     /// </summary>
@@ -32,11 +32,11 @@ public partial record SafekeepingAccount10
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public IReadOnlyCollection<HoldingBalance10> InstructedBalance { get; init; } = [];
+    public HoldingBalance10[] InstructedBalance { get; init; } = [];
     /// <summary>
     /// Owner of the voting rights.
     /// </summary>
-    public IReadOnlyCollection<IPartyIdentification233Choice> RightsHolder { get; init; } = [];
+    public PartyIdentification233Choice_[] RightsHolder { get; init; } = [];
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status12Choice;
 /// <summary>
 /// Status of the order is rejected.
 /// </summary>
-public partial record Rejected : IStatus12Choice
+public partial record Rejected : Status12Choice_
 {
     #nullable enable
     #nullable disable

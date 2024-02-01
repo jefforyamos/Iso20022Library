@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References58Choice;
 /// <summary>
 /// Unambiguous identification of a securities settlement transaction as known by the account owner (or instructing party acting on its behalf).
 /// </summary>
-public partial record SecuritiesSettlementTransactionIdentification : IReferences58Choice
+public partial record SecuritiesSettlementTransactionIdentification : References58Choice_
 {
     public required IsoRestrictedFINXMax16Text Value { get; init; }
 }

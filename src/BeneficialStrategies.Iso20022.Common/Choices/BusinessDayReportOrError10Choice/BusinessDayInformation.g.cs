@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.BusinessDayReportOrError10Choice
 /// <summary>
 /// Requested system details for a specific business day.
 /// </summary>
-public partial record BusinessDayInformation : IBusinessDayReportOrError10Choice
+public partial record BusinessDayInformation : BusinessDayReportOrError10Choice_
 {
     #nullable enable
     /// <summary>
     /// Date for which the availability information is provided.
     /// </summary>
-    public IDateAndDateTime2Choice? SystemDate { get; init; } 
+    public DateAndDateTime2Choice_? SystemDate { get; init; } 
     /// <summary>
     /// Status of a system and the period of time during which the status is valid.
     /// </summary>

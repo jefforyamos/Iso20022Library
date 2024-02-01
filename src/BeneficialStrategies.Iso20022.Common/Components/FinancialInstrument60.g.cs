@@ -20,7 +20,7 @@ public partial record FinancialInstrument60
     /// <summary>
     /// Unique and unambiguous identifier of a security, assigned under a formal or proprietary identification scheme.
     /// </summary>
-    public required ISecurityIdentification25Choice Identification { get; init; } 
+    public required SecurityIdentification25Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record FinancialInstrument60
     /// <summary>
     /// Specifies the quantity of assets to be transferred in units or in a percentage rate.
     /// </summary>
-    public IQuantity12Choice? Quantity { get; init; } 
+    public Quantity12Choice_? Quantity { get; init; } 
     /// <summary>
     /// Average cost per share of the security, including all fees.
     /// </summary>

@@ -24,7 +24,7 @@ public partial record QuantityBreakdown64
     /// <summary>
     /// Quantity of financial instruments that is part of the lot described.
     /// </summary>
-    public IFinancialInstrumentQuantity36Choice? LotQuantity { get; init; } 
+    public FinancialInstrumentQuantity36Choice_? LotQuantity { get; init; } 
     
     #nullable disable
 }

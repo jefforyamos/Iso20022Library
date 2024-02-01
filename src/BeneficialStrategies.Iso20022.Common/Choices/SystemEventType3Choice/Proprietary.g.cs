@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemEventType3Choice;
 /// <summary>
 /// Type of system event, in a proprietary form.
 /// </summary>
-public partial record Proprietary : ISystemEventType3Choice
+public partial record Proprietary : SystemEventType3Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

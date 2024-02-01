@@ -20,11 +20,11 @@ public partial record IntraPositionStatusType2
     /// <summary>
     /// Provides details on the processing status of the transaction.
     /// </summary>
-    public IProcessingStatus68Choice? ProcessingStatus { get; init;  } // Warning: Don't know multiplicity.
+    public ProcessingStatus68Choice_[] ProcessingStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the settlement status of a transaction.
     /// </summary>
-    public ISettlementStatus26Choice? SettlementStatus { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementStatus26Choice_[] SettlementStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the state or the condition.
     /// </summary>

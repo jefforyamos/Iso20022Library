@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PlanStatus1Choice;
 /// <summary>
 /// Status of the plan expressed as a code.
 /// </summary>
-public partial record Code : IPlanStatus1Choice
+public partial record Code : PlanStatus1Choice_
 {
     public required PlanStatus1Code Value { get; init; }
 }

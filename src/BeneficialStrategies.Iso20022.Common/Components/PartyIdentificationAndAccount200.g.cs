@@ -20,7 +20,7 @@ public partial record PartyIdentificationAndAccount200
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public required IPartyIdentification178Choice PartyIdentification { get; init; } 
+    public required PartyIdentification178Choice_ PartyIdentification { get; init; } 
     /// <summary>
     /// Identification of the account owned by the party.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record PartyIdentificationAndAccount200
     /// <summary>
     /// Date and optionally the time, at which this transaction was processed by the party identified in this sequence.
     /// </summary>
-    public IDateAndDateTime2Choice? ProcessingDate { get; init; } 
+    public DateAndDateTime2Choice_? ProcessingDate { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>

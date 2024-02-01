@@ -24,7 +24,7 @@ public partial record PayInFactors1
     /// <summary>
     /// Currency specific pay-in factors.
     /// </summary>
-    public CurrencyFactors1? CurrencyFactors { get; init;  } // Warning: Don't know multiplicity.
+    public CurrencyFactors1[] CurrencyFactors { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TimeFrame8Choice;
 /// <summary>
 /// Number of days after the renunciation of title documents are received used to define the standard settlement timeframe.
 /// </summary>
-public partial record RenunciationPlus : ITimeFrame8Choice
+public partial record RenunciationPlus : TimeFrame8Choice_
 {
     public required IsoNumber Value { get; init; }
 }

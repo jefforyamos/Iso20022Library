@@ -20,7 +20,7 @@ public partial record TaxAmountAndType1
     /// <summary>
     /// Specifies the type of the amount.
     /// </summary>
-    public ITaxAmountType1Choice? Type { get; init; } 
+    public TaxAmountType1Choice_? Type { get; init; } 
     /// <summary>
     /// Amount of money, which has been typed.
     /// </summary>

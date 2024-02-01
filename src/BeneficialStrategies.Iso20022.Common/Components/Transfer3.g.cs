@@ -24,7 +24,7 @@ public partial record Transfer3
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public IDateFormat1Choice? TransferDate { get; init; } 
+    public DateFormat1Choice_? TransferDate { get; init; } 
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>

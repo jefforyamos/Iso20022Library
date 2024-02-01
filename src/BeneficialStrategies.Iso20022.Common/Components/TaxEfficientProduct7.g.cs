@@ -20,7 +20,7 @@ public partial record TaxEfficientProduct7
     /// <summary>
     /// Type of tax efficient product, for example, an individual savings account (ISA) in the UK.
     /// </summary>
-    public required ITaxEfficientProductType2Choice TaxEfficientProductType { get; init; } 
+    public required TaxEfficientProductType2Choice_ TaxEfficientProductType { get; init; } 
     /// <summary>
     /// Indicates that all the current fiscal year’s products are included.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record TaxEfficientProduct7
     /// <summary>
     /// Bonus paid out or withdrawn.
     /// </summary>
-    public BonusWithdrawal2? BonusOrWithdrawal { get; init;  } // Warning: Don't know multiplicity.
+    public BonusWithdrawal2[] BonusOrWithdrawal { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates if there is a related property purchase in progress at the point of transfer. May be applicable to products such as Lifetime Individual Savings Account (LISA) products.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record TaxEfficientProduct7
     /// <summary>
     /// Another amount such as the total qualifying additions in the year of transfer, interest capitalised in the current year, total outstanding dividend and so on.
     /// </summary>
-    public OtherAmount3? OtherAmount { get; init;  } // Warning: Don't know multiplicity.
+    public OtherAmount3[] OtherAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date the first qualifying additional amount was made to the product.  Qualifying additional amounts may be made to a Lifetime Individual Savings Account (LISA) product.
     /// </summary>
@@ -80,11 +80,11 @@ public partial record TaxEfficientProduct7
     /// <summary>
     /// Value of the investments to follow.
     /// </summary>
-    public DateAndAmount2? InvestmentsToFollowValue { get; init;  } // Warning: Don't know multiplicity.
+    public DateAndAmount2[] InvestmentsToFollowValue { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information about an innovative finance product.
     /// </summary>
-    public InnovativeFinance1? InnovativeFinance { get; init;  } // Warning: Don't know multiplicity.
+    public InnovativeFinance1[] InnovativeFinance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Lowest investment amount in the current year, used to calculate a tax deduction amount.
     /// </summary>
@@ -108,7 +108,7 @@ public partial record TaxEfficientProduct7
     /// <summary>
     /// Additional information about the tax efficient product.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

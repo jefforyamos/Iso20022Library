@@ -44,11 +44,11 @@ public partial record OriginalPaymentInstruction37
     /// <summary>
     /// Provides detailed information on the reversal reason.
     /// </summary>
-    public PaymentReversalReason9? ReversalReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentReversalReason9[] ReversalReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information on the original transactions to which the reversal message refers.
     /// </summary>
-    public PaymentTransaction125? TransactionInformation { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentTransaction125[] TransactionInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

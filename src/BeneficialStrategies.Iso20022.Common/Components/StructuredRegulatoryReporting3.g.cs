@@ -40,7 +40,7 @@ public partial record StructuredRegulatoryReporting3
     /// <summary>
     /// Additional details that cater for specific domestic regulatory requirements.
     /// </summary>
-    public IsoMax35Text? Information { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] Information { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

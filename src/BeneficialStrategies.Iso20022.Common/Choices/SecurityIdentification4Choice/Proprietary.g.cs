@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification4Choice;
 /// <summary>
 /// Proprietary identification of an underlying financial instrument.
 /// </summary>
-public partial record Proprietary : ISecurityIdentification4Choice
+public partial record Proprietary : SecurityIdentification4Choice_
 {
     #nullable enable
     /// <summary>

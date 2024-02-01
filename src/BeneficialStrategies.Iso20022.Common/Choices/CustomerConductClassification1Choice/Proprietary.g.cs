@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CustomerConductClassification1Ch
 /// <summary>
 /// Conduct type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICustomerConductClassification1Choice
+public partial record Proprietary : CustomerConductClassification1Choice_
 {
     #nullable enable
     /// <summary>

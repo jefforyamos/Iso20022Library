@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 /// <summary>
 /// Specifies the type of residence where the party has its permanent home or principal establishment.
 /// </summary>
-public partial record ResidenceType : IUpdateLogPartyRecord1Choice
+public partial record ResidenceType : UpdateLogPartyRecord1Choice_
 {
     #nullable enable
     /// <summary>

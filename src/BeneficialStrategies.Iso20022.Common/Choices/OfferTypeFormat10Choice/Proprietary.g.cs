@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OfferTypeFormat10Choice;
 /// <summary>
 /// Proprietary identification of the conditions that apply to the offer.
 /// </summary>
-public partial record Proprietary : IOfferTypeFormat10Choice
+public partial record Proprietary : OfferTypeFormat10Choice_
 {
     #nullable enable
     /// <summary>

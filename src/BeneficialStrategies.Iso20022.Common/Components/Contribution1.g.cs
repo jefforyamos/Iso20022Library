@@ -20,7 +20,7 @@ public partial record Contribution1
     /// <summary>
     /// Segregation done by the central counterparty based on trading venues/products or other attributes.
     /// </summary>
-    public IAccountIdentification4Choice? Account { get; init; } 
+    public AccountIdentification4Choice_? Account { get; init; } 
     /// <summary>
     /// Total contribution required by the clearing member to participate to the default fund.
     /// </summary>

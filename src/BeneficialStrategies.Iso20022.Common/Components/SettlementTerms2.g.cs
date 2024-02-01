@@ -20,7 +20,7 @@ public partial record SettlementTerms2
     /// <summary>
     /// Financial institution that receives the payment transaction on behalf of an account owner, and posts the transaction into the account.
     /// </summary>
-    public IFinancialInstitutionIdentification4Choice? CreditorAgent { get; init; } 
+    public FinancialInstitutionIdentification4Choice_? CreditorAgent { get; init; } 
     /// <summary>
     /// Account to be credited as a result of an instruction.
     /// </summary>

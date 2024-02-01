@@ -36,15 +36,15 @@ public partial record CollateralSubstitution2
     /// <summary>
     /// Collateral type is securities.
     /// </summary>
-    public SecuritiesCollateral4? SecuritiesCollateral { get; init;  } // Warning: Don't know multiplicity.
+    public SecuritiesCollateral4[] SecuritiesCollateral { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Collateral type is cash.
     /// </summary>
-    public CashCollateral5? CashCollateral { get; init;  } // Warning: Don't know multiplicity.
+    public CashCollateral5[] CashCollateral { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Collateral type is other than securities or cash for example letter of credit.
     /// </summary>
-    public OtherCollateral4? OtherCollateral { get; init;  } // Warning: Don't know multiplicity.
+    public OtherCollateral4[] OtherCollateral { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides details on the identification of previously sent and/or received message(s), in case of updated substitution request.
     /// </summary>

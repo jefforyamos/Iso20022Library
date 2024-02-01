@@ -24,7 +24,7 @@ public partial record RetailerPaymentResult1
     /// <summary>
     /// Service provided by the card payment transaction, in addition to the main service.
     /// </summary>
-    public CardPaymentServiceType9Code? AdditionalService { get; init;  } // Warning: Don't know multiplicity.
+    public CardPaymentServiceType9Code[] AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional attribute of the service type.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record RetailerPaymentResult1
     /// <summary>
     /// Customer order attached to a customer, recorded in the POI system.
     /// </summary>
-    public CustomerOrder1? CustomerOrder { get; init;  } // Warning: Don't know multiplicity.
+    public CustomerOrder1[] CustomerOrder { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Numeric value of a handwritten signature.
     /// </summary>

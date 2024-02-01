@@ -32,7 +32,7 @@ public partial record TransactionReportItems3
     /// <summary>
     /// Reference to the transaction for each financial institution which is a party to the transaction.
     /// </summary>
-    public IReadOnlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } = [];
+    public DocumentIdentification5[] UserTransactionReference { get; init; } = [];
     /// <summary>
     /// Reference to the purchase order of the underlying transaction.
     /// </summary>
@@ -64,11 +64,11 @@ public partial record TransactionReportItems3
     /// <summary>
     /// Financial institution that is an obligor bank to the transaction.
     /// </summary>
-    public BICIdentification1? ObligorBank { get; init;  } // Warning: Don't know multiplicity.
+    public BICIdentification1[] ObligorBank { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Financial institution that is a data set submitting bank to the transaction.
     /// </summary>
-    public BICIdentification1? SubmittingBank { get; init;  } // Warning: Don't know multiplicity.
+    public BICIdentification1[] SubmittingBank { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of baseline not yet utilised.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record TransactionReportItems3
     /// <summary>
     /// Next processing step required.
     /// </summary>
-    public PendingActivity2? PendingRequestForAction { get; init;  } // Warning: Don't know multiplicity.
+    public PendingActivity2[] PendingRequestForAction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

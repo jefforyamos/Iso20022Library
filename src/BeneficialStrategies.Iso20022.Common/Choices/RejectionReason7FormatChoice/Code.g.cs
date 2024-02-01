@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason7FormatChoice;
 /// <summary>
 /// Standard code to specify the reason of a rejection cancellation request.
 /// </summary>
-public partial record Code : IRejectionReason7FormatChoice
+public partial record Code : RejectionReason7FormatChoice_
 {
     public required RejectionReason7Code Value { get; init; }
 }

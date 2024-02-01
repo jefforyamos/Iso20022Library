@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// <summary>
 /// Polish National Clearing Code - identifies Polish financial institutions on the Polish national clearing system.
 /// </summary>
-public partial record PolishNationalClearingCode : IClearingSystemMemberIdentification2Choice
+public partial record PolishNationalClearingCode : ClearingSystemMemberIdentification2Choice_
 {
     public required IsoPolishNationalClearingCodeIdentifier Value { get; init; }
 }

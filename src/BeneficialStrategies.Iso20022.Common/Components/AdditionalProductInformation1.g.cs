@@ -32,7 +32,7 @@ public partial record AdditionalProductInformation1
     /// <summary>
     /// ESG label or standard of a product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 09020.
     /// </summary>
-    public ESGLabelOrStandard1Code? ESGLabelOrStandard { get; init;  } // Warning: Don't know multiplicity.
+    public ESGLabelOrStandard1Code[] ESGLabelOrStandard { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

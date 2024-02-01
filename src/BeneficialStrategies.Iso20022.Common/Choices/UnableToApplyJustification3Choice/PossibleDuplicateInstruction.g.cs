@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnableToApplyJustification3Choic
 /// <summary>
 /// Indicates whether or not the referred item is a possible duplicate of a previous instruction or entry.
 /// </summary>
-public partial record PossibleDuplicateInstruction : IUnableToApplyJustification3Choice
+public partial record PossibleDuplicateInstruction : UnableToApplyJustification3Choice_
 {
     public required IsoTrueFalseIndicator Value { get; init; }
 }

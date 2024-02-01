@@ -20,7 +20,7 @@ public partial record ClosurePendingStatusReason1
     /// <summary>
     /// Reason for the closure pending status.
     /// </summary>
-    public required IClosurePendingStatusReason2Choice Code { get; init; } 
+    public required ClosurePendingStatusReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the closure pending status.
     /// </summary>

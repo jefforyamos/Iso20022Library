@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport21Choice;
 /// <summary>
 /// Indicates whether transaction is reported for the first time.
 /// </summary>
-public partial record New : ITradeReport21Choice
+public partial record New : TradeReport21Choice_
 {
     #nullable enable
     /// <summary>

@@ -24,15 +24,15 @@ public partial record TrackerStatus4
     /// <summary>
     /// Date for the status.
     /// </summary>
-    public IDateAndDateTime2Choice? Date { get; init; } 
+    public DateAndDateTime2Choice_? Date { get; init; } 
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    public PaymentStatusReason1? StatusReason { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentStatusReason1[] StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides detailed information on the return reason.
     /// </summary>
-    public PaymentRejectReturnReason1? RejectReturnReason { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentRejectReturnReason1[] RejectReturnReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the amount information matches the tracker record reference data or not.
     /// </summary>

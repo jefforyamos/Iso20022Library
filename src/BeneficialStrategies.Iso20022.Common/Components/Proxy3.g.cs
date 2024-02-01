@@ -20,7 +20,7 @@ public partial record Proxy3
     /// <summary>
     /// Specifies the type of proxy.
     /// </summary>
-    public IReadOnlyCollection<ProxyType2Code> ProxyType { get; init; } = [];
+    public ProxyType2Code[] ProxyType { get; init; } = [];
     /// <summary>
     /// Identifies an authorized proxy which has been assigned by the issuer of the meeting.
     /// </summary>

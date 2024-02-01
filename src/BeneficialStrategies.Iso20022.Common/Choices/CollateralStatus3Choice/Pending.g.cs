@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralStatus3Choice;
 /// <summary>
 /// Instruction is pending.
 /// </summary>
-public partial record Pending : ICollateralStatus3Choice
+public partial record Pending : CollateralStatus3Choice_
 {
     #nullable enable
     /// <summary>

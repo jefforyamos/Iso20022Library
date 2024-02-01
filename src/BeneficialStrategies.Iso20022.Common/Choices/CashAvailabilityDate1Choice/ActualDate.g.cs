@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CashAvailabilityDate1Choice;
 /// <summary>
 /// Identifies the actual availability date.
 /// </summary>
-public partial record ActualDate : ICashAvailabilityDate1Choice
+public partial record ActualDate : CashAvailabilityDate1Choice_
 {
     public required IsoISODate Value { get; init; }
 }

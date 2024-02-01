@@ -24,7 +24,7 @@ public partial record Option12
     /// <summary>
     /// Provides the exercise date or notice period for a call/put option.
     /// </summary>
-    public required IOptionDateOrPeriod1Choice DateOrPeriod { get; init; } 
+    public required OptionDateOrPeriod1Choice_ DateOrPeriod { get; init; } 
     
     #nullable disable
 }

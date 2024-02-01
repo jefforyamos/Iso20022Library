@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrganisationIdentificationScheme
 /// <summary>
 /// Name of the identification scheme, in a coded form as published in an external list.
 /// </summary>
-public partial record Code : IOrganisationIdentificationSchemeName1Choice
+public partial record Code : OrganisationIdentificationSchemeName1Choice_
 {
     public required ExternalOrganisationIdentification1Code Value { get; init; }
 }

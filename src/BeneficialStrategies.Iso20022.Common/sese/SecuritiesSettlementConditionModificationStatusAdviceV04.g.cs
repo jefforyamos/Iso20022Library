@@ -55,7 +55,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV04 :
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public IPartyIdentification36Choice? AccountOwner { get; init; }
+    public PartyIdentification36Choice_? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -83,7 +83,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdviceV04 :
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required IProcessingStatus18Choice ProcessingStatus { get; init; }
+    public required ProcessingStatus18Choice_ ProcessingStatus { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

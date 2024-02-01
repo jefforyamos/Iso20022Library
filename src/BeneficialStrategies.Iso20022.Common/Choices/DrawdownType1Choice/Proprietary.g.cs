@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DrawdownType1Choice;
 /// <summary>
 /// Type of drawdown expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IDrawdownType1Choice
+public partial record Proprietary : DrawdownType1Choice_
 {
     #nullable enable
     /// <summary>

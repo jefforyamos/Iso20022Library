@@ -80,7 +80,7 @@ public partial record MeetingEntitlementNotificationV04 : IOuterRecord
     [DataMember(Name="NtifngPty")]
     [XmlElement(ElementName="NtifngPty")]
     [Required]
-    public required IPartyIdentification9Choice NotifyingParty { get; init; }
+    public required PartyIdentification9Choice_ NotifyingParty { get; init; }
     
     /// <summary>
     /// Identifies the security for which the meeting is organised, the account and the positions of the security holder.

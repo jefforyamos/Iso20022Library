@@ -12,17 +12,17 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyAuditTrailOrError1Choice;
 /// <summary>
 /// Report information about party reference data.
 /// </summary>
-public partial record PartyAuditTrailReport : IPartyAuditTrailOrError1Choice
+public partial record PartyAuditTrailReport : PartyAuditTrailOrError1Choice_
 {
     #nullable enable
     /// <summary>
     /// Identifies the returned party reference data or error information.
     /// </summary>
-    public required IPartyAuditTrailOrError2Choice PartyAuditTrailOrError { get; init; } 
+    public required PartyAuditTrailOrError2Choice_ PartyAuditTrailOrError { get; init; } 
     /// <summary>
     /// Period in dates for which the audit trail is provided.
     /// </summary>
-    public IDatePeriod3Choice? DatePeriod { get; init; } 
+    public DatePeriod3Choice_? DatePeriod { get; init; } 
     /// <summary>
     /// Identifies the party for which the audit trail is provided.
     /// </summary>

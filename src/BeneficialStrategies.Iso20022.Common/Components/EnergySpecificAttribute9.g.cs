@@ -20,11 +20,11 @@ public partial record EnergySpecificAttribute9
     /// <summary>
     /// Indicates the delivery point(s) of market area(s) for energy derivative contracts.
     /// </summary>
-    public IDeliveryInterconnectionPoint1Choice? DeliveryPointOrZone { get; init;  } // Warning: Don't know multiplicity.
+    public DeliveryInterconnectionPoint1Choice_[] DeliveryPointOrZone { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the border(s) or border point(s) of a transportation contract.
     /// </summary>
-    public IDeliveryInterconnectionPoint1Choice? InterConnectionPoint { get; init; } 
+    public DeliveryInterconnectionPoint1Choice_? InterConnectionPoint { get; init; } 
     /// <summary>
     /// Identification of the delivery profile.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record EnergySpecificAttribute9
     /// <summary>
     /// Attributes related to delivery of derivative contracts.
     /// </summary>
-    public EnergyDeliveryAttribute10? DeliveryAttribute { get; init;  } // Warning: Don't know multiplicity.
+    public EnergyDeliveryAttribute10[] DeliveryAttribute { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionReversalReason6Ch
 /// <summary>
 /// Standard code to specify the reason for the reversal.
 /// </summary>
-public partial record Code : ICorporateActionReversalReason6Choice
+public partial record Code : CorporateActionReversalReason6Choice_
 {
     public required CorporateActionReversalReason2Code Value { get; init; }
 }

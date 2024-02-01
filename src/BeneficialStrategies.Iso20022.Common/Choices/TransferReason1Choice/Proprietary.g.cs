@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferReason1Choice;
 /// <summary>
 /// Transfer reason expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITransferReason1Choice
+public partial record Proprietary : TransferReason1Choice_
 {
     #nullable enable
     /// <summary>

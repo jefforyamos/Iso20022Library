@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentificationQuery3Choi
 /// <summary>
 /// Field can be queried for not reported value.
 /// </summary>
-public partial record NotReported : ISecurityIdentificationQuery3Choice
+public partial record NotReported : SecurityIdentificationQuery3Choice_
 {
     public required NotReported1Code Value { get; init; }
 }

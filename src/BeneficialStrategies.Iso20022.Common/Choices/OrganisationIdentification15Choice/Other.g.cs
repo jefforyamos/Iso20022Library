@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrganisationIdentification15Choi
 /// <summary>
 /// Unique identification of an organisation, using a client code or a business identification code.
 /// </summary>
-public partial record Other : IOrganisationIdentification15Choice
+public partial record Other : OrganisationIdentification15Choice_
 {
     #nullable enable
     /// <summary>

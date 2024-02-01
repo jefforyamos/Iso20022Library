@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionOption1FormatChoi
 /// <summary>
 /// Option type expressed as a prorprietary code.
 /// </summary>
-public partial record Proprietary : ICorporateActionOption1FormatChoice
+public partial record Proprietary : CorporateActionOption1FormatChoice_
 {
     #nullable enable
     /// <summary>

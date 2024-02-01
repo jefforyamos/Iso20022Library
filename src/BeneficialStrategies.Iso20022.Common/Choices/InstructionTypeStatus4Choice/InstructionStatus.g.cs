@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionTypeStatus4Choice;
 /// <summary>
 /// Status of each individual meeting instruction(s) included in the instruction message identified in InstructionType/InstructionIdentification.
 /// </summary>
-public partial record InstructionStatus : IInstructionTypeStatus4Choice
+public partial record InstructionStatus : InstructionTypeStatus4Choice_
 {
     #nullable enable
     /// <summary>
@@ -30,6 +30,6 @@ public partial record InstructionStatus : IInstructionTypeStatus4Choice
     /// <summary>
     /// Status of the individual meeting instruction.
     /// </summary>
-    public required IInstructionStatus10Choice InstructionStatusValue { get; init; } 
+    public required InstructionStatus10Choice_ InstructionStatusValue { get; init; } 
     #nullable disable
 }

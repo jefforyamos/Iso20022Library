@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestorType1Choice;
 /// <summary>
 /// Investor type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IInvestorType1Choice
+public partial record Proprietary : InvestorType1Choice_
 {
     #nullable enable
     /// <summary>

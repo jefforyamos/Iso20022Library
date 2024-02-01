@@ -32,7 +32,7 @@ public partial record SubAccountIdentification45
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities subaccount.
     /// </summary>
-    public AggregateBalanceInformation32? BalanceForSubAccount { get; init;  } // Warning: Don't know multiplicity.
+    public AggregateBalanceInformation32[] BalanceForSubAccount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BeneficiaryType1Choice;
 /// <summary>
 /// Type of beneficiary expressed as a code.
 /// </summary>
-public partial record Code : IBeneficiaryType1Choice
+public partial record Code : BeneficiaryType1Choice_
 {
     public required BeneficiaryType1Code Value { get; init; }
 }

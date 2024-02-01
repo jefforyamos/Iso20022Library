@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationType2Choice;
 /// <summary>
 /// Investigation type, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IInvestigationType2Choice
+public partial record Proprietary : InvestigationType2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

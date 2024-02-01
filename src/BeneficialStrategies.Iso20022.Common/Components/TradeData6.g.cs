@@ -36,7 +36,7 @@ public partial record TradeData6
     /// <summary>
     /// Specifies the new status of a trade.
     /// </summary>
-    public required IStatus6Choice CurrentStatus { get; init; } 
+    public required Status6Choice_ CurrentStatus { get; init; } 
     /// <summary>
     /// Additional information on the current status of a trade in a central system.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record TradeData6
     /// <summary>
     /// Specifies the previous status of a trade.
     /// </summary>
-    public IStatus6Choice? PreviousStatus { get; init; } 
+    public Status6Choice_? PreviousStatus { get; init; } 
     /// <summary>
     /// Additional information on the previous status of a trade in a central system.
     /// </summary>

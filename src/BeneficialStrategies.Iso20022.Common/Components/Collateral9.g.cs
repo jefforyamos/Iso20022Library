@@ -28,7 +28,7 @@ public partial record Collateral9
     /// <summary>
     /// Provides additionnal information about the collateral valuation that has been posted.
     /// </summary>
-    public CollateralValuation2? CollateralValuation { get; init;  } // Warning: Don't know multiplicity.
+    public CollateralValuation2[] CollateralValuation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

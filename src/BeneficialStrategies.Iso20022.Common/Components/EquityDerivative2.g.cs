@@ -20,7 +20,7 @@ public partial record EquityDerivative2
     /// <summary>
     /// Underlying type of the equity derivative.
     /// </summary>
-    public required IEquityDerivative3Choice UnderlyingType { get; init; } 
+    public required EquityDerivative3Choice_ UnderlyingType { get; init; } 
     /// <summary>
     /// Return parameter for the equity derivative.
     /// </summary>

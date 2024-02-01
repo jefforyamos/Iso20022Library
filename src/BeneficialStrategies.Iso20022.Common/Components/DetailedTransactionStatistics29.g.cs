@@ -36,7 +36,7 @@ public partial record DetailedTransactionStatistics29
     /// <summary>
     /// Details on transactions rejected per error code.
     /// </summary>
-    public RejectionReason71? TransactionsRejectionsReason { get; init;  } // Warning: Don't know multiplicity.
+    public RejectionReason71[] TransactionsRejectionsReason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

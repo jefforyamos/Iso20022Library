@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.BlockedStatusReason2Choice;
 /// <summary>
 /// Transaction type for which the account is blocked and the underlying reason.
 /// </summary>
-public partial record Reason : IBlockedStatusReason2Choice
+public partial record Reason : BlockedStatusReason2Choice_
 {
     #nullable enable
     /// <summary>
     /// Type of transaction for which the account has a blocked status.
     /// </summary>
-    public required ITransactionType5Choice TransactionType { get; init; } 
+    public required TransactionType5Choice_ TransactionType { get; init; } 
     /// <summary>
     /// Indicates whether the account is blocked.
     /// </summary>
@@ -26,7 +26,7 @@ public partial record Reason : IBlockedStatusReason2Choice
     /// <summary>
     /// Reason for the blocked status.
     /// </summary>
-    public IBlockedReason2Choice? ReasonValue { get; init;  } // Warning: Don't know multiplicity.
+    public BlockedReason2Choice_? ReasonValue { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the blocked account status.
     /// </summary>

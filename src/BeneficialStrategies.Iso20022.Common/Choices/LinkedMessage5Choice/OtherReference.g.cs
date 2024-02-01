@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LinkedMessage5Choice;
 /// <summary>
 /// Reference to a linked message sent in a proprietary way or reference of a system.
 /// </summary>
-public partial record OtherReference : ILinkedMessage5Choice
+public partial record OtherReference : LinkedMessage5Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record OtherReference : ILinkedMessage5Choice
     /// <summary>
     /// Issuer of the reference.
     /// </summary>
-    public IPartyIdentification125Choice? ReferenceIssuer { get; init; } 
+    public PartyIdentification125Choice_? ReferenceIssuer { get; init; } 
     /// <summary>
     /// Name of the message.
     /// </summary>

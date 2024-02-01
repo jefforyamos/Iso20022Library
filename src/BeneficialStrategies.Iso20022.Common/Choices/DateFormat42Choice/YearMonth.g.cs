@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat42Choice;
 /// <summary>
 /// Year and month.
 /// </summary>
-public partial record YearMonth : IDateFormat42Choice
+public partial record YearMonth : DateFormat42Choice_
 {
     public required IsoISOYearMonth Value { get; init; }
 }

@@ -28,11 +28,11 @@ public partial record TradePartyIdentification4
     /// <summary>
     /// Specifies the party which submits a treasury trade to a matching system or to a settlement system or to a counterparty.
     /// </summary>
-    public required IPartyIdentification8Choice SubmittingParty { get; init; } 
+    public required PartyIdentification8Choice_ SubmittingParty { get; init; } 
     /// <summary>
     /// Specifies the party which originated a treasury trade. This party may be the same as the submitting party.
     /// </summary>
-    public required IPartyIdentification8Choice TradeParty { get; init; } 
+    public required PartyIdentification8Choice_ TradeParty { get; init; } 
     
     #nullable disable
 }

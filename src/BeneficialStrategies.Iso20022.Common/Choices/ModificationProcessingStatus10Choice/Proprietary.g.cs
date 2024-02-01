@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModificationProcessingStatus10Ch
 /// <summary>
 /// Proprietary status.
 /// </summary>
-public partial record Proprietary : IModificationProcessingStatus10Choice
+public partial record Proprietary : ModificationProcessingStatus10Choice_
 {
     #nullable enable
     /// <summary>

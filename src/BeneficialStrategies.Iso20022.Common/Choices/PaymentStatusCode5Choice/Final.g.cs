@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusCode5Choice;
 /// <summary>
 /// Qualifies further the final status.
 /// </summary>
-public partial record Final : IPaymentStatusCode5Choice
+public partial record Final : PaymentStatusCode5Choice_
 {
     public required FinalStatus1Code Value { get; init; }
 }

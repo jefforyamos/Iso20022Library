@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UndertakingDocumentType1Choice;
 /// <summary>
 /// Document type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IUndertakingDocumentType1Choice
+public partial record Proprietary : UndertakingDocumentType1Choice_
 {
     #nullable enable
     /// <summary>

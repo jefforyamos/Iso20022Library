@@ -24,15 +24,15 @@ public partial record FinancialInstrumentAttributes32
     /// <summary>
     /// Place where the referenced financial instrument is listed.
     /// </summary>
-    public IMarketIdentification3Choice? PlaceOfListing { get; init; } 
+    public MarketIdentification3Choice_? PlaceOfListing { get; init; } 
     /// <summary>
     /// Specifies the computation method of (accrued) interest of the financial instrument.
     /// </summary>
-    public IInterestComputationMethodFormat1Choice? DayCountBasis { get; init; } 
+    public InterestComputationMethodFormat1Choice_? DayCountBasis { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI).
     /// </summary>
-    public IClassificationType2Choice? ClassificationType { get; init; } 
+    public ClassificationType2Choice_? ClassificationType { get; init; } 
     /// <summary>
     /// Currency in which a financial instrument is currently denominated.
     /// </summary>
@@ -92,19 +92,19 @@ public partial record FinancialInstrumentAttributes32
     /// <summary>
     /// Also known as Minimum Nominal Value. Minimum nominal quantity of financial instrument that must be purchased/sold.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? MinimumNominalQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? MinimumNominalQuantity { get; init; } 
     /// <summary>
     /// Minimum quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? MinimumExercisableQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; init; } 
     /// <summary>
     /// Minimum multiple quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? MinimumExercisableMultipleQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableMultipleQuantity { get; init; } 
     /// <summary>
     /// Ratio or multiplying factor used to convert one contract into a financial instrument quantity.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? ContractSize { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? ContractSize { get; init; } 
     
     #nullable disable
 }

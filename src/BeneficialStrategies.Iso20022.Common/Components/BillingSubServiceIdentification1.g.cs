@@ -20,7 +20,7 @@ public partial record BillingSubServiceIdentification1
     /// <summary>
     /// Specifies the qualifier of the sub service.
     /// </summary>
-    public required IBillingSubServiceQualifier1Choice Issuer { get; init; } 
+    public required BillingSubServiceQualifier1Choice_ Issuer { get; init; } 
     /// <summary>
     /// Further defines a financial institution service, through the provision of the value required by the sub service qualifier, such as the actual lockbox number or store number.
     /// </summary>

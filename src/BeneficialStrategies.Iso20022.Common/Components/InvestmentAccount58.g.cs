@@ -32,7 +32,7 @@ public partial record InvestmentAccount58
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public PartyIdentification113? OwnerIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification113[] OwnerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>

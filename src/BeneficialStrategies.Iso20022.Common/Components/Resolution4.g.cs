@@ -52,7 +52,7 @@ public partial record Resolution4
     /// <summary>
     /// Vote options allowed at the resolution level. When specified, it supersedes the vote options given for the meeting.
     /// </summary>
-    public VoteInstructionType1? VoteInstructionType { get; init;  } // Warning: Don't know multiplicity.
+    public VoteInstructionType1[] VoteInstructionType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies how the management of the issuing company wishes the security holders to vote.
     /// </summary>
@@ -64,11 +64,11 @@ public partial record Resolution4
     /// <summary>
     /// Number of votes assigned per resolution to one security.
     /// </summary>
-    public IEntitlement1Choice? Entitlement { get; init; } 
+    public Entitlement1Choice_? Entitlement { get; init; } 
     /// <summary>
     /// Voting rights threshold required in percentage or in quantity to have the resolution approved.
     /// </summary>
-    public INumberOrPercentage1Choice? VotingRightsThresholdForApproval { get; init; } 
+    public NumberOrPercentage1Choice_? VotingRightsThresholdForApproval { get; init; } 
     /// <summary>
     /// Address to use over the www (HTTP) service where specific additional information on meeting resolutions may be found.
     /// </summary>

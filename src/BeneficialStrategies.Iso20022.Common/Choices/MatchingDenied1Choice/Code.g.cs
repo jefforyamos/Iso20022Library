@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingDenied1Choice;
 /// <summary>
 /// Specifies the execution of a matching denial process.
 /// </summary>
-public partial record Code : IMatchingDenied1Choice
+public partial record Code : MatchingDenied1Choice_
 {
     public required MatchingProcess1Code Value { get; init; }
 }

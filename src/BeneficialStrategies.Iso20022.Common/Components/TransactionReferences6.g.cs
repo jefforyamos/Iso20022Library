@@ -76,7 +76,7 @@ public partial record TransactionReferences6
     /// <summary>
     /// Proprietary reference related to the underlying transaction.
     /// </summary>
-    public ProprietaryReference1? Proprietary { get; init;  } // Warning: Don't know multiplicity.
+    public ProprietaryReference1[] Proprietary { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

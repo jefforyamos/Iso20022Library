@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RatioFormat5Choice;
 /// <summary>
 /// Ratio expressed as a quotient of amounts.
 /// </summary>
-public partial record AmountToAmount : IRatioFormat5Choice
+public partial record AmountToAmount : RatioFormat5Choice_
 {
     #nullable enable
     /// <summary>

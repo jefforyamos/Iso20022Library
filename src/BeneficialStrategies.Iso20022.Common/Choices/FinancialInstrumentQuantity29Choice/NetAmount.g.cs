@@ -13,7 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity29Cho
 /// Amount of money to be received following redemption of fund units. 
 /// Net Amount = (Quantity * Price) - (Fees + Taxes).
 /// </summary>
-public partial record NetAmount : IFinancialInstrumentQuantity29Choice
+public partial record NetAmount : FinancialInstrumentQuantity29Choice_
 {
     public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
 }

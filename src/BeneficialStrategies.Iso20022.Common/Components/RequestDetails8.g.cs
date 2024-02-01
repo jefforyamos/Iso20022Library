@@ -24,7 +24,7 @@ public partial record RequestDetails8
     /// <summary>
     /// Condition for automatic borrowing.
     /// </summary>
-    public IAutomaticBorrowing2Choice? AutomaticBorrowing { get; init; } 
+    public AutomaticBorrowing2Choice_? AutomaticBorrowing { get; init; } 
     /// <summary>
     /// Specifies whether the instruction due to expire is confirmed for settlement.
     /// </summary>
@@ -32,15 +32,15 @@ public partial record RequestDetails8
     /// <summary>
     /// Specifies the type of linkage requested.
     /// </summary>
-    public ILinkageType1Choice? Linkage { get; init; } 
+    public LinkageType1Choice_? Linkage { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
-    public IPriorityNumeric1Choice? Priority { get; init; } 
+    public PriorityNumeric1Choice_? Priority { get; init; } 
     /// <summary>
     /// Specifies another type of processing change request.
     /// </summary>
-    public GenericIdentification20? OtherProcessing { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification20[] OtherProcessing { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether partial settlement is allowed.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record RequestDetails8
     /// <summary>
     /// Specifies whether the settlement transaction is to be settled through an RTGS or a non RTGS system.
     /// </summary>
-    public ISecuritiesRTGS1Choice? SecuritiesRTGS { get; init; } 
+    public SecuritiesRTGS1Choice_? SecuritiesRTGS { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is on hold/blocked/frozen.
     /// </summary>
@@ -56,15 +56,15 @@ public partial record RequestDetails8
     /// <summary>
     /// Specifies the matching processing change requested.
     /// </summary>
-    public IMatchingDenied1Choice? MatchingDenial { get; init; } 
+    public MatchingDenied1Choice_? MatchingDenial { get; init; } 
     /// <summary>
     /// Specifies that the transaction is requested to be unilaterally split.
     /// </summary>
-    public IUnilateralSplit1Choice? UnilateralSplit { get; init; } 
+    public UnilateralSplit1Choice_? UnilateralSplit { get; init; } 
     /// <summary>
     /// Information regarding the linkage requested.
     /// </summary>
-    public Linkages16? Linkages { get; init;  } // Warning: Don't know multiplicity.
+    public Linkages16[] Linkages { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

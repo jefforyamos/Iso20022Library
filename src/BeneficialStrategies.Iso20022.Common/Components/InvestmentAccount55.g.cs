@@ -20,7 +20,7 @@ public partial record InvestmentAccount55
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification70Choice? OwnerIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification70Choice_[] OwnerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record InvestmentAccount55
     /// <summary>
     /// Institution that maintains the records where the account is held.
     /// </summary>
-    public IPartyIdentification70Choice? AccountServicer { get; init; } 
+    public PartyIdentification70Choice_? AccountServicer { get; init; } 
     /// <summary>
     /// Sub-accounts that are grouped in a master or omnibus account.
     /// </summary>

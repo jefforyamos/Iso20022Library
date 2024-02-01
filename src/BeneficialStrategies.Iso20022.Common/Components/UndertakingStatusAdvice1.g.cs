@@ -48,11 +48,11 @@ public partial record UndertakingStatusAdvice1
     /// <summary>
     /// Set of elements used to provide detailed information on the status reason.
     /// </summary>
-    public StatusReasonInformation8? StatusReason { get; init;  } // Warning: Don't know multiplicity.
+    public StatusReasonInformation8[] StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount reported.
     /// </summary>
-    public ReportedAmount1? ReportedAmount { get; init;  } // Warning: Don't know multiplicity.
+    public ReportedAmount1[] ReportedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information concerning the original message to which the status report may be sent in response.
     /// </summary>
@@ -60,11 +60,11 @@ public partial record UndertakingStatusAdvice1
     /// <summary>
     /// Document or template enclosed in the report.
     /// </summary>
-    public Document9? EnclosedFile { get; init;  } // Warning: Don't know multiplicity.
+    public Document9[] EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the report.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

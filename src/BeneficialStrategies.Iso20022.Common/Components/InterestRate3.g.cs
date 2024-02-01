@@ -24,7 +24,7 @@ public partial record InterestRate3
     /// <summary>
     /// Information on interest rates related to the transaction.
     /// </summary>
-    public required IInterestRate20Choice InterestRate { get; init; } 
+    public required InterestRate20Choice_ InterestRate { get; init; } 
     
     #nullable disable
 }

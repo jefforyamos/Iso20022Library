@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingStatus40Choice;
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoSpecifiedReason : IPendingStatus40Choice
+public partial record NoSpecifiedReason : PendingStatus40Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

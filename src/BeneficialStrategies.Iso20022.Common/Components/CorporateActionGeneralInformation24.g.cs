@@ -32,7 +32,7 @@ public partial record CorporateActionGeneralInformation24
     /// <summary>
     /// Type of corporate action event.
     /// </summary>
-    public required ICorporateActionEventType5Choice EventType { get; init; } 
+    public required CorporateActionEventType5Choice_ EventType { get; init; } 
     /// <summary>
     /// Identification of the security concerned by the corporate action.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record CorporateActionGeneralInformation24
     /// <summary>
     /// Indicates that the additional business process relates to a claim on the associated corporate action event.
     /// </summary>
-    public IAdditionalBusinessProcessFormat3Choice? AdditionalBusinessProcessIndicator { get; init; } 
+    public AdditionalBusinessProcessFormat3Choice_? AdditionalBusinessProcessIndicator { get; init; } 
     
     #nullable disable
 }

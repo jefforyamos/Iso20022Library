@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PresentationDocumentFormat1Choic
 /// <summary>
 /// Presentation document.
 /// </summary>
-public partial record Code : IPresentationDocumentFormat1Choice
+public partial record Code : PresentationDocumentFormat1Choice_
 {
     public required ExternalUndertakingDocumentType1Code Value { get; init; }
 }

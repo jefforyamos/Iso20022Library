@@ -28,7 +28,7 @@ public partial record PartyIdentification237
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    public required IPartyIdentification198Choice Identification { get; init; } 
+    public required PartyIdentification198Choice_ Identification { get; init; } 
     /// <summary>
     /// Country in which the company is incorporated or legally registered. 
     /// </summary>
@@ -44,7 +44,7 @@ public partial record PartyIdentification237
     /// <summary>
     /// Type of investor.
     /// </summary>
-    public IInvestorType1Choice? InvestorType { get; init; } 
+    public InvestorType1Choice_? InvestorType { get; init; } 
     /// <summary>
     /// Information about the ownership on an asset.
     /// </summary>

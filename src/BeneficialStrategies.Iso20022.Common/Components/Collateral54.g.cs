@@ -36,15 +36,15 @@ public partial record Collateral54
     /// <summary>
     /// Collateral type is securities.
     /// </summary>
-    public SecuritiesCollateral10? SecuritiesCollateral { get; init;  } // Warning: Don't know multiplicity.
+    public SecuritiesCollateral10[] SecuritiesCollateral { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Collateral type is cash.
     /// </summary>
-    public CashCollateral2? CashCollateral { get; init;  } // Warning: Don't know multiplicity.
+    public CashCollateral2[] CashCollateral { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Collateral type is other than securities or cash for example letter of credit.
     /// </summary>
-    public OtherCollateral9? OtherCollateral { get; init;  } // Warning: Don't know multiplicity.
+    public OtherCollateral9[] OtherCollateral { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

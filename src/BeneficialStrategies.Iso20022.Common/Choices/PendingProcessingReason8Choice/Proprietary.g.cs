@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingProcessingReason8Choice;
 /// <summary>
 /// Reason for the pending status expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IPendingProcessingReason8Choice
+public partial record Proprietary : PendingProcessingReason8Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CodeOrProprietary1Choice;
 /// <summary>
 /// Element expressed as an ISO 20022 code from an external list.
 /// </summary>
-public partial record Code : ICodeOrProprietary1Choice
+public partial record Code : CodeOrProprietary1Choice_
 {
     public required IsoMax4Text Value { get; init; }
 }

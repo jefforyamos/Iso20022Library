@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateOrPercentage1Choice;
 /// <summary>
 /// Rate is expressed an currency exchange rate.
 /// </summary>
-public partial record Rate : IExchangeRateOrPercentage1Choice
+public partial record Rate : ExchangeRateOrPercentage1Choice_
 {
     public required IsoBaseOneRate Value { get; init; }
 }

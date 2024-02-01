@@ -20,7 +20,7 @@ public partial record IntraBalanceQueryCriteria9
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
-    public IReferences36Choice? References { get; init;  } // Warning: Don't know multiplicity.
+    public References36Choice_[] References { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the status of settlement of a transaction.
     /// </summary>
@@ -28,11 +28,11 @@ public partial record IntraBalanceQueryCriteria9
     /// <summary>
     /// Account in which cash is maintained.
     /// </summary>
-    public IAccountIdentificationSearchCriteria2Choice? CashAccount { get; init;  } // Warning: Don't know multiplicity.
+    public AccountIdentificationSearchCriteria2Choice_[] CashAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that owns the account.
     /// </summary>
-    public SystemPartyIdentification8? CashAccountOwner { get; init;  } // Warning: Don't know multiplicity.
+    public SystemPartyIdentification8[] CashAccountOwner { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
@@ -40,43 +40,43 @@ public partial record IntraBalanceQueryCriteria9
     /// <summary>
     /// Balance to which the amount of money is moved.
     /// </summary>
-    public IntraBalanceType3? BalanceType { get; init;  } // Warning: Don't know multiplicity.
+    public IntraBalanceType3[] BalanceType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number identifying a lot constituting the sub-balance.
     /// </summary>
-    public GenericIdentification37? CashSubBalanceIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification37[] CashSubBalanceIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total amount of money to be settled.
     /// </summary>
-    public IImpliedCurrencyAmountRange1Choice? SettlementAmount { get; init; } 
+    public ImpliedCurrencyAmountRange1Choice_? SettlementAmount { get; init; } 
     /// <summary>
     /// Amount of money effectively settled and which will be credited to/debited from the account owner's cash account. It may differ from the instructed settlement amount based on market tolerance level.
     /// </summary>
-    public IImpliedCurrencyAmountRange1Choice? SettledAmount { get; init; } 
+    public ImpliedCurrencyAmountRange1Choice_? SettledAmount { get; init; } 
     /// <summary>
     /// Currency in which the instructed amount is expressed.
     /// </summary>
-    public ActiveOrHistoricCurrencyCode? SettlementCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public ActiveOrHistoricCurrencyCode[] SettlementCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date and time at which the amount of money is intended to be moved.
     /// </summary>
-    public IDateAndDateTimeSearch5Choice? IntendedSettlementDate { get; init; } 
+    public DateAndDateTimeSearch5Choice_? IntendedSettlementDate { get; init; } 
     /// <summary>
     /// Date and time at which the amount of money is moved.
     /// </summary>
-    public IDateAndDateTimeSearch5Choice? EffectiveSettlementDate { get; init; } 
+    public DateAndDateTimeSearch5Choice_? EffectiveSettlementDate { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
-    public IPriorityNumeric4Choice? Priority { get; init;  } // Warning: Don't know multiplicity.
+    public PriorityNumeric4Choice_[] Priority { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that originated the message, if other than the sender.
     /// </summary>
-    public SystemPartyIdentification8? MessageOriginator { get; init;  } // Warning: Don't know multiplicity.
+    public SystemPartyIdentification8[] MessageOriginator { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the creation date/time of the intra-balance movement.
     /// </summary>
-    public IDateAndDateTimeSearch5Choice? CreationDateTime { get; init; } 
+    public DateAndDateTimeSearch5Choice_? CreationDateTime { get; init; } 
     
     #nullable disable
 }

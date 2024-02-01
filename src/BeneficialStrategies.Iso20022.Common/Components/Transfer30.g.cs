@@ -48,7 +48,7 @@ public partial record Transfer30
     /// <summary>
     /// Identifies whether or not saving plan or withdrawal or switch plan are included in the holdings.
     /// </summary>
-    public IReadOnlyCollection<HoldingsPlanType1Code> HoldingsPlanType { get; init; } = [];
+    public HoldingsPlanType1Code[] HoldingsPlanType { get; init; } = [];
     /// <summary>
     /// Information related to the financial instrument to be withdrawn.
     /// </summary>
@@ -56,11 +56,11 @@ public partial record Transfer30
     /// <summary>
     /// Total quantity of securities to be transferred, expressed in a number of units or a percentage rate.
     /// </summary>
-    public required IQuantity13Choice Quantity { get; init; } 
+    public required Quantity13Choice_ Quantity { get; init; } 
     /// <summary>
     /// Information about the units to be transferred.
     /// </summary>
-    public Unit6? UnitsDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Unit6[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the rounding direction applied to nearest unit.
     /// </summary>
@@ -92,7 +92,7 @@ public partial record Transfer30
     /// <summary>
     /// Specifies how the payment of charges, taxes and commissions as a result of the transfer is covered, that is, whether by cash or the redemption of units.
     /// </summary>
-    public IChargePaymentMethod1Choice? TransferExpensesPaymentType { get; init; } 
+    public ChargePaymentMethod1Choice_? TransferExpensesPaymentType { get; init; } 
     
     #nullable disable
 }

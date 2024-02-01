@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityCommodity7Choice;
 /// <summary>
 /// Data specific to securities being subject to the transaction.
 /// </summary>
-public partial record Security : ISecurityCommodity7Choice
+public partial record Security : SecurityCommodity7Choice_
 {
     #nullable enable
     /// <summary>

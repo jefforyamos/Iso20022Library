@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CountrySubdivision1Choice;
 /// <summary>
 /// Jurisdiction expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICountrySubdivision1Choice
+public partial record Proprietary : CountrySubdivision1Choice_
 {
     #nullable enable
     /// <summary>

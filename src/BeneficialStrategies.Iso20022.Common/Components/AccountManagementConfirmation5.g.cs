@@ -20,7 +20,7 @@ public partial record AccountManagementConfirmation5
     /// <summary>
     /// Specifies the confirmation type.
     /// </summary>
-    public required IConfirmationType1Choice ConfirmationType { get; init; } 
+    public required ConfirmationType1Choice_ ConfirmationType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the account opening or modification instruction at application level.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record AccountManagementConfirmation5
     /// <summary>
     /// Account to which the account opening is related.
     /// </summary>
-    public Account23? ExistingAccountIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public Account23[] ExistingAccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

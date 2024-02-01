@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentificationQuery3Choi
 /// <summary>
 /// Proprietary identification of a security assigned by an institution or organisation.
 /// </summary>
-public partial record AlternativeInstrumentIdentification : ISecurityIdentificationQuery3Choice
+public partial record AlternativeInstrumentIdentification : SecurityIdentificationQuery3Choice_
 {
     public required IsoMax52Text Value { get; init; }
 }

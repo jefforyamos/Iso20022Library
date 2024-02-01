@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InitialAmount1Choice;
 /// <summary>
 /// Amount to be paid or redeemed at the time the investment plan is created.
 /// </summary>
-public partial record Amount : IInitialAmount1Choice
+public partial record Amount : InitialAmount1Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

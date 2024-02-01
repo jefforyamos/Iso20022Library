@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportItemStatus1Choice;
 /// <summary>
 /// Statement is accepted.
 /// </summary>
-public partial record Accepted : IReportItemStatus1Choice
+public partial record Accepted : ReportItemStatus1Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

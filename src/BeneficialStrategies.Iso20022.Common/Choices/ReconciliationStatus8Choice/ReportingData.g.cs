@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReconciliationStatus8Choice;
 /// <summary>
 /// Data to be reconciled.
 /// </summary>
-public partial record ReportingData : IReconciliationStatus8Choice
+public partial record ReportingData : ReconciliationStatus8Choice_
 {
     #nullable enable
     #nullable disable

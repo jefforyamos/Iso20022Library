@@ -32,7 +32,7 @@ public partial record LoanData141
     /// <summary>
     /// Indicates whether clearing of contract has taken place.
     /// </summary>
-    public ICleared16Choice? ClearingStatus { get; init; } 
+    public Cleared16Choice_? ClearingStatus { get; init; } 
     /// <summary>
     /// Identification of the trading venue where the transaction was executed.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record LoanData141
     /// <summary>
     /// Indication whether the transaction is open term or, i.e. has no fixed maturity date, or fixed term with a contractually agreed maturity date.
     /// </summary>
-    public IContractTerm7Choice? Term { get; init;  } // Warning: Don't know multiplicity.
+    public ContractTerm7Choice_[] Term { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indication of the type of assets subject of the transaction.
     /// </summary>
@@ -72,7 +72,7 @@ public partial record LoanData141
     /// <summary>
     /// Rate agreed to be paid by the lender for the reinvestment of the cash collateral minus lending fee.
     /// </summary>
-    public IInterestRate27Choice? RebateRate { get; init; } 
+    public InterestRate27Choice_? RebateRate { get; init; } 
     /// <summary>
     /// Fee that the borrower of the security or commodity pays to the lender.
     /// </summary>

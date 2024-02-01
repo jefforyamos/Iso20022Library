@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification25Choice;
 /// <summary>
 /// Identifier of a security assigned by the Bloomberg organisation.
 /// </summary>
-public partial record Bloomberg : ISecurityIdentification25Choice
+public partial record Bloomberg : SecurityIdentification25Choice_
 {
     public required IsoBloomberg2Identifier Value { get; init; }
 }

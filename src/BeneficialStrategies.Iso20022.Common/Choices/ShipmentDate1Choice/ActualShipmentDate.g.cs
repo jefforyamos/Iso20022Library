@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ShipmentDate1Choice;
 /// <summary>
 /// Actual date whereby the goods were shipped.
 /// </summary>
-public partial record ActualShipmentDate : IShipmentDate1Choice
+public partial record ActualShipmentDate : ShipmentDate1Choice_
 {
     public required IsoISODate Value { get; init; }
 }

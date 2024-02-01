@@ -20,7 +20,7 @@ public partial record TradeStateReport22
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
-    public IReadOnlyCollection<CounterpartySpecificData36> CounterpartySpecificData { get; init; } = [];
+    public CounterpartySpecificData36[] CounterpartySpecificData { get; init; } = [];
     /// <summary>
     /// Data specifically related to transaction.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record TradeStateReport22
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

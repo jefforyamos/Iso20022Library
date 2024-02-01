@@ -36,11 +36,11 @@ public partial record UndertakingAdvice2
     /// <summary>
     /// Document or template enclosed in the notification.
     /// </summary>
-    public Document9? EnclosedFile { get; init;  } // Warning: Don't know multiplicity.
+    public Document9[] EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the undertaking notification.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FailingStatus12Choice;
 /// <summary>
 /// Specifies the reason of the failing status.
 /// </summary>
-public partial record Reason : IFailingStatus12Choice
+public partial record Reason : FailingStatus12Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the instruction has a failing status.
     /// </summary>
-    public required IFailingReason11Choice Code { get; init; } 
+    public required FailingReason11Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

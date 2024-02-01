@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References43Choice;
 /// <summary>
 /// Unique identification of the report.
 /// </summary>
-public partial record TotalPortfolioValuationReportIdentification : IReferences43Choice
+public partial record TotalPortfolioValuationReportIdentification : References43Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

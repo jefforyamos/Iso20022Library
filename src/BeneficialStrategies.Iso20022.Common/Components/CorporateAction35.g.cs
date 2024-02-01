@@ -24,11 +24,11 @@ public partial record CorporateAction35
     /// <summary>
     /// Stage in the corporate action event life cycle.
     /// </summary>
-    public ICorporateActionEventStageFormat15Choice? EventStage { get; init; } 
+    public CorporateActionEventStageFormat15Choice_? EventStage { get; init; } 
     /// <summary>
     /// Specifies the type of lottery announced.
     /// </summary>
-    public ILotteryTypeFormat5Choice? LotteryType { get; init; } 
+    public LotteryTypeFormat5Choice_? LotteryType { get; init; } 
     
     #nullable disable
 }

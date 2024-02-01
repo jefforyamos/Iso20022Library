@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification4Choice;
 /// <summary>
 /// Unique reference of the underlying payment instruction assigned by Target2 SSP.
 /// </summary>
-public partial record ProprietaryIdentification : IPaymentIdentification4Choice
+public partial record ProprietaryIdentification : PaymentIdentification4Choice_
 {
     public required IsoMax70Text Value { get; init; }
 }

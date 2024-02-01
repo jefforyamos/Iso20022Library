@@ -12,17 +12,17 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties4Choice;
 /// <summary>
 /// Single owner of the investment account or, when the ownership is split among several owners, the primary owner is the one giving its address and account details for the registration.
 /// </summary>
-public partial record PrimaryOwner : IAccountParties4Choice
+public partial record PrimaryOwner : AccountParties4Choice_
 {
     #nullable enable
     /// <summary>
     /// Information about the organisation or individual person.
     /// </summary>
-    public required IParty16Choice Party { get; init; } 
+    public required Party16Choice_ Party { get; init; } 
     /// <summary>
     /// Status of an identity check to prevent money laundering. This includes the counter-terrorism check.
     /// </summary>
-    public IMoneyLaunderingCheck1Choice? MoneyLaunderingCheck { get; init; } 
+    public MoneyLaunderingCheck1Choice_? MoneyLaunderingCheck { get; init; } 
     /// <summary>
     /// Information to support Know Your Customer processes.
     /// </summary>

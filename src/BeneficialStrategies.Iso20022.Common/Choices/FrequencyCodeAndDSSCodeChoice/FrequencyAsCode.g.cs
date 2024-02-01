@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FrequencyCodeAndDSSCodeChoice;
 /// <summary>
 /// Frequency expressed as a code.
 /// </summary>
-public partial record FrequencyAsCode : IFrequencyCodeAndDSSCodeChoice
+public partial record FrequencyAsCode : FrequencyCodeAndDSSCodeChoice_
 {
     public required Frequency1Code Value { get; init; }
 }

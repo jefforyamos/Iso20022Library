@@ -41,7 +41,7 @@ public partial record PointOfInteractionComponent2
     /// Unique approval number for a component, delivered by a certification body.
     /// Usage: More than one approval number could be present, when assigned by different bodies. The certification body identification must be provided within the approval number (for example at the beginning of the value).
     /// </summary>
-    public IsoMax70Text? ApprovalNumber { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] ApprovalNumber { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

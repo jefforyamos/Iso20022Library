@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChequeDeliveryMethod1Choice;
 /// <summary>
 /// Specifies a proprietary delivery method of the cheque by the debtor's agent.
 /// </summary>
-public partial record Proprietary : IChequeDeliveryMethod1Choice
+public partial record Proprietary : ChequeDeliveryMethod1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

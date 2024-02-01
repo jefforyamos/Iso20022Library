@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DataFormat2Choice;
 /// <summary>
 /// Specification of data for which there isn't a structured form.
 /// </summary>
-public partial record Unstructured : IDataFormat2Choice
+public partial record Unstructured : DataFormat2Choice_
 {
     public required IsoMax140Text Value { get; init; }
 }

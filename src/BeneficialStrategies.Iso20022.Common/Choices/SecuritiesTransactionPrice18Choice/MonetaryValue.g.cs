@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice18Choi
 /// <summary>
 /// Indicates that price is expressed as a monetary value.
 /// </summary>
-public partial record MonetaryValue : ISecuritiesTransactionPrice18Choice
+public partial record MonetaryValue : SecuritiesTransactionPrice18Choice_
 {
     #nullable enable
     /// <summary>

@@ -90,7 +90,7 @@ public partial record SecuritiesBalanceTransparencyReportStatusAdviceV01 : IOute
     [DataMember(Name="Sts")]
     [XmlElement(ElementName="Sts")]
     [Required]
-    public required IReportItemStatus1Choice Status { get; init; }
+    public required ReportItemStatus1Choice_ Status { get; init; }
     
     /// <summary>
     /// Number of items for each identical transaction status.

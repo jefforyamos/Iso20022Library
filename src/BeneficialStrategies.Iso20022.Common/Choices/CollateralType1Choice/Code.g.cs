@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralType1Choice;
 /// <summary>
 /// Type of collateral expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ICollateralType1Choice
+public partial record Code : CollateralType1Choice_
 {
     public required CollateralType3Code Value { get; init; }
 }

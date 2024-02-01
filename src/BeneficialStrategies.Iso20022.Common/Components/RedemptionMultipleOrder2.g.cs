@@ -44,7 +44,7 @@ public partial record RedemptionMultipleOrder2
     /// <summary>
     /// Instruction from an investor to sell investment fund units back to the fund.
     /// </summary>
-    public RedemptionOrder4? IndividualOrderDetails { get; init;  } // Warning: Don't know multiplicity.
+    public RedemptionOrder4[] IndividualOrderDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment transaction resulting from the investment fund order execution.
     /// </summary>

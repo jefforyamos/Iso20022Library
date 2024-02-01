@@ -20,7 +20,7 @@ public partial record IndividualPerson28
     /// <summary>
     /// Term used to address the person.
     /// </summary>
-    public INamePrefix1Choice? NamePrefix { get; init; } 
+    public NamePrefix1Choice_? NamePrefix { get; init; } 
     /// <summary>
     /// First name of the person.
     /// </summary>
@@ -64,11 +64,11 @@ public partial record IndividualPerson28
     /// <summary>
     /// Information related to an address to be inserted, updated or deleted.
     /// </summary>
-    public IReadOnlyCollection<ModificationScope34> ModifiedPostalAddress { get; init; } = [];
+    public ModificationScope34[] ModifiedPostalAddress { get; init; } = [];
     /// <summary>
     /// Citizenship information to be inserted or deleted.
     /// </summary>
-    public IReadOnlyCollection<ModificationScope3> ModifiedCitizenship { get; init; } = [];
+    public ModificationScope3[] ModifiedCitizenship { get; init; } = [];
     /// <summary>
     /// Organisation represented by a person, or for which a person works.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record IndividualPerson28
     /// <summary>
     /// Specifies if due diligence checks on the political exposure of the investor or account servicer have been carried out and whether these checks are national or foreign. (A politically exposed person is someone who has been entrusted with a prominent public function, or an individual who is closely related to such a person.).
     /// </summary>
-    public IPoliticalExposureType1Choice? PoliticallyExposedPersonType { get; init; } 
+    public PoliticalExposureType1Choice_? PoliticallyExposedPersonType { get; init; } 
     /// <summary>
     /// Date of death.
     /// </summary>
@@ -88,7 +88,7 @@ public partial record IndividualPerson28
     /// <summary>
     /// Civil status of the individual person.
     /// </summary>
-    public ICivilStatus1Choice? CivilStatus { get; init; } 
+    public CivilStatus1Choice_? CivilStatus { get; init; } 
     /// <summary>
     /// Highest level of education reached by the individual person.
     /// </summary>

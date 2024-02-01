@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InformationTypeFormat4Choice;
 /// <summary>
 /// Proprietary identification of the information type.
 /// </summary>
-public partial record Proprietary : IInformationTypeFormat4Choice
+public partial record Proprietary : InformationTypeFormat4Choice_
 {
     #nullable enable
     /// <summary>

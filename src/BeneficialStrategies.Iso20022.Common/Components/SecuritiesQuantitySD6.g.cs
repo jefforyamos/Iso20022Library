@@ -20,11 +20,11 @@ public partial record SecuritiesQuantitySD6
     /// <summary>
     /// Quantity not fully covered.
     /// </summary>
-    public IFinancialInstrumentQuantity31Choice? OpenUncoveredQuantity { get; init; } 
+    public FinancialInstrumentQuantity31Choice_? OpenUncoveredQuantity { get; init; } 
     /// <summary>
     /// Quantity covered but transactions not in "MADE" status.
     /// </summary>
-    public IFinancialInstrumentQuantity31Choice? InterimCoveredQuantity { get; init; } 
+    public FinancialInstrumentQuantity31Choice_? InterimCoveredQuantity { get; init; } 
     
     #nullable disable
 }

@@ -22,7 +22,7 @@ public partial record FloatingInterestRate8
     /// Usage:
     /// Index or name if the reference rate is not included in the index list.
     /// </summary>
-    public required IBenchmarkCurveName5Choice ReferenceRate { get; init; } 
+    public required BenchmarkCurveName5Choice_ ReferenceRate { get; init; } 
     /// <summary>
     /// Term of the reference rate.
     /// </summary>

@@ -20,7 +20,7 @@ public partial record BackTestingMethodology1
     /// <summary>
     /// Specifies the core model type, excluding any modifications for pro-cyclicality.
     /// </summary>
-    public required IModelType1Choice RiskModelType { get; init; } 
+    public required ModelType1Choice_ RiskModelType { get; init; } 
     /// <summary>
     /// Specifies the confidence interval used on a daily basis to assess the performance of the model.
     /// </summary>

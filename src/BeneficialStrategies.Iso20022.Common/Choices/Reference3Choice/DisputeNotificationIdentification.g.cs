@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reference3Choice;
 /// <summary>
 /// Unique identifier of the dispute notification.
 /// </summary>
-public partial record DisputeNotificationIdentification : IReference3Choice
+public partial record DisputeNotificationIdentification : Reference3Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

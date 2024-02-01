@@ -33,12 +33,12 @@ public partial record CurrencyExchange20
     /// Lowest limit defined for the exchange rate.
     /// Usage: The currency authority publishes the exchange rate based on the price formed in the foreign exchange market, allowing it to float up and down within the prescribed fluctuation range. It is the lowest exchange rate supported in foreign exchange market transactions.
     /// </summary>
-    public IExchangeRateOrPercentage1Choice? LowLimit { get; init; } 
+    public ExchangeRateOrPercentage1Choice_? LowLimit { get; init; } 
     /// <summary>
     /// Highest limit defined for the exchange rate.
     /// Usage: The currency authority publishes the exchange rate based on the price formed in the foreign exchange market, allowing it to float up and down within the prescribed fluctuation range. It is the highest exchange rate supported in foreign exchange market transactions.
     /// </summary>
-    public IExchangeRateOrPercentage1Choice? HighLimit { get; init; } 
+    public ExchangeRateOrPercentage1Choice_? HighLimit { get; init; } 
     
     #nullable disable
 }

@@ -16,7 +16,7 @@ namespace BeneficialStrategies.Iso20022.Choices.VerificationValue1Choice;
 /// ISO 8583:93 bit 52 & bit 53 or bit 111
 /// ISO 8583:2003 bit 52 & bit 53 or bit 50
 /// </summary>
-public partial record PINData : IVerificationValue1Choice
+public partial record PINData : VerificationValue1Choice_
 {
     #nullable enable
     /// <summary>

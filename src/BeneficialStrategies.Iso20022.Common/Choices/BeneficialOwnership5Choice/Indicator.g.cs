@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BeneficialOwnership5Choice;
 /// <summary>
 /// Specifies whether there is change of beneficial ownership.
 /// </summary>
-public partial record Indicator : IBeneficialOwnership5Choice
+public partial record Indicator : BeneficialOwnership5Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

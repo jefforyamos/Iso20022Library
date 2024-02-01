@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Purpose2Choice;
 /// <summary>
 /// Purpose, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IPurpose2Choice
+public partial record Proprietary : Purpose2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PoliticalExposureType1Choice;
 /// <summary>
 /// Type of political exposure expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IPoliticalExposureType1Choice
+public partial record Proprietary : PoliticalExposureType1Choice_
 {
     #nullable enable
     /// <summary>

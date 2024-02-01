@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason17Choice;
 /// <summary>
 /// Specifies the reason why the instruction is in repair.
 /// </summary>
-public partial record RepairReason : IReason17Choice
+public partial record RepairReason : Reason17Choice_
 {
     #nullable enable
     #nullable disable

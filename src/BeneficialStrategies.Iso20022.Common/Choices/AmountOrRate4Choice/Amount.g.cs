@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountOrRate4Choice;
 /// <summary>
 /// Specifies the actual amount.
 /// </summary>
-public partial record Amount : IAmountOrRate4Choice
+public partial record Amount : AmountOrRate4Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

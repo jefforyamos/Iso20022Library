@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeType5Choice;
 /// <summary>
 /// Fee (charge/commission) expressed as a code.
 /// </summary>
-public partial record Code : IChargeType5Choice
+public partial record Code : ChargeType5Choice_
 {
     public required InvestmentFundFee1Code Value { get; init; }
 }

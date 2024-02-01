@@ -32,7 +32,7 @@ public partial record CashOption2
     /// <summary>
     /// Choice between a cash account, a charges account or a tax account.
     /// </summary>
-    public IAccount8Choice? Account { get; init; } 
+    public Account8Choice_? Account { get; init; } 
     /// <summary>
     /// Provides information about cash parties.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record CashOption2
     /// <summary>
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, for example, redemption price.
     /// </summary>
-    public IPriceFormat7Choice? GenericCashPriceReceivedPerProduct { get; init; } 
+    public PriceFormat7Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
     /// <summary>
     /// Provides information about the tax voucher related to a cash movement.
     /// </summary>

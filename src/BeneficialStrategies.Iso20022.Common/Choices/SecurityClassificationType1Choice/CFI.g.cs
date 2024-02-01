@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityClassificationType1Choic
 /// <summary>
 /// Classification type of the financial instrument, as per the ISO 10962 Classification of Financial Instrument (CFI) codification.
 /// </summary>
-public partial record CFI : ISecurityClassificationType1Choice
+public partial record CFI : SecurityClassificationType1Choice_
 {
     public required IsoCFIIdentifier Value { get; init; }
 }

@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrBusinessError4Choice;
 /// <summary>
 /// Reason the requested business information is not given.
 /// </summary>
-public partial record BusinessError : IAccountOrBusinessError4Choice
+public partial record BusinessError : AccountOrBusinessError4Choice_
 {
     #nullable enable
     /// <summary>
     /// Specification of the error, in coded or proprietary form.
     /// </summary>
-    public required IErrorHandling3Choice Error { get; init; } 
+    public required ErrorHandling3Choice_ Error { get; init; } 
     /// <summary>
     /// Specification of the error, in free format.
     /// </summary>

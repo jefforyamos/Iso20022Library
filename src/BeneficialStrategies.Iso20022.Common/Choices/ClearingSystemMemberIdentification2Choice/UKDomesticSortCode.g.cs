@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// <summary>
 /// United Kingdom (UK) Sort Code - identifies British financial institutions on the British national clearing systems. The sort code is assigned by the Association for Payments and Clearing Services (APACS).
 /// </summary>
-public partial record UKDomesticSortCode : IClearingSystemMemberIdentification2Choice
+public partial record UKDomesticSortCode : ClearingSystemMemberIdentification2Choice_
 {
     public required IsoUKDomesticSortCodeIdentifier Value { get; init; }
 }

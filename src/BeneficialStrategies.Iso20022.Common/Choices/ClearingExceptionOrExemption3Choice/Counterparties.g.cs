@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingExceptionOrExemption3Cho
 /// <summary>
 /// Set of information specific to counterparties.
 /// </summary>
-public partial record Counterparties : IClearingExceptionOrExemption3Choice
+public partial record Counterparties : ClearingExceptionOrExemption3Choice_
 {
     #nullable enable
     /// <summary>

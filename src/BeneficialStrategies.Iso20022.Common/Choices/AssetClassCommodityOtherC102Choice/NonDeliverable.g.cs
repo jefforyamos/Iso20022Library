@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityOtherC102Choi
 /// <summary>
 /// Other C10 non-deliverable commodity derivative.
 /// </summary>
-public partial record NonDeliverable : IAssetClassCommodityOtherC102Choice
+public partial record NonDeliverable : AssetClassCommodityOtherC102Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,16 +12,16 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementDailyFailureReason1Cho
 /// <summary>
 /// Aggregated data of settlement instructions.
 /// </summary>
-public partial record Data : ISettlementDailyFailureReason1Choice
+public partial record Data : SettlementDailyFailureReason1Choice_
 {
     #nullable enable
     /// <summary>
     /// Fails due to lack of securities.
     /// </summary>
-    public required ISettlementTotalData1Choice FailedSecurities { get; init; } 
+    public required SettlementTotalData1Choice_ FailedSecurities { get; init; } 
     /// <summary>
     /// Fails due to lack of cash.
     /// </summary>
-    public required ISettlementTotalData1Choice FailedCash { get; init; } 
+    public required SettlementTotalData1Choice_ FailedCash { get; init; } 
     #nullable disable
 }

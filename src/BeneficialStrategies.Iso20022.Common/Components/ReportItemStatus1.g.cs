@@ -20,7 +20,7 @@ public partial record ReportItemStatus1
     /// <summary>
     /// Reason for the exception status.
     /// </summary>
-    public required IReportItemRejectionReason1Choice Exception { get; init; } 
+    public required ReportItemRejectionReason1Choice_ Exception { get; init; } 
     /// <summary>
     /// Additional information about the reason for the status that cannot be provided in a structured field.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record ReportItemStatus1
     /// <summary>
     /// Details of the report item.
     /// </summary>
-    public ReportItem1? ReportItem { get; init;  } // Warning: Don't know multiplicity.
+    public ReportItem1[] ReportItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeDate3Choice;
 /// <summary>
 /// Date expressed as a code.
 /// </summary>
-public partial record DateCode : ITradeDate3Choice
+public partial record DateCode : TradeDate3Choice_
 {
     public required DateType1Code Value { get; init; }
 }

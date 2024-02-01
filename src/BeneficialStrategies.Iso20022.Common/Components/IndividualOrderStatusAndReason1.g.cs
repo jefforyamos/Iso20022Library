@@ -52,11 +52,11 @@ public partial record IndividualOrderStatusAndReason1
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>
-    public IPartyIdentification2Choice? StatusInitiator { get; init; } 
+    public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     /// <summary>
     /// Choice between the investment account and the financial instrument.
     /// </summary>
-    public IInvestmentAccountOrFinancialInstrument1Choice? InvestmentAccountOrFinancialInstrument { get; init; } 
+    public InvestmentAccountOrFinancialInstrument1Choice_? InvestmentAccountOrFinancialInstrument { get; init; } 
     /// <summary>
     /// Information that has been added to the original order.
     /// </summary>

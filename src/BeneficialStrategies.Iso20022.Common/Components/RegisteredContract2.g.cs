@@ -40,11 +40,11 @@ public partial record RegisteredContract2
     /// <summary>
     /// Reason of the closure.
     /// </summary>
-    public required IContractClosureReason1Choice ClosureReason { get; init; } 
+    public required ContractClosureReason1Choice_ ClosureReason { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

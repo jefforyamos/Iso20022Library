@@ -20,7 +20,7 @@ public partial record DateFormat1
     /// <summary>
     /// Date at which the event occurs.
     /// </summary>
-    public required IDateFormat3Choice Date { get; init; } 
+    public required DateFormat3Choice_ Date { get; init; } 
     /// <summary>
     /// Specifies whether an event for which a date is provided occurs typically at the "beginning of day" or at the "end of day".
     /// </summary>

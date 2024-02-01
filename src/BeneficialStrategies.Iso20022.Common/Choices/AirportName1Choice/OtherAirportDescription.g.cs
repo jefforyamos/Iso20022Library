@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AirportName1Choice;
 /// <summary>
 /// Identifies an airport by its location and by its name.
 /// </summary>
-public partial record OtherAirportDescription : IAirportName1Choice
+public partial record OtherAirportDescription : AirportName1Choice_
 {
     #nullable enable
     /// <summary>

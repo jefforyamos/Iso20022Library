@@ -44,11 +44,11 @@ public partial record OriginalGroupHeader7
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    public StatusReasonInformation9? StatusReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public StatusReasonInformation9[] StatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Detailed information on the number of transactions for each identical transaction status.
     /// </summary>
-    public NumberOfTransactionsPerStatus5? NumberOfTransactionsPerStatus { get; init;  } // Warning: Don't know multiplicity.
+    public NumberOfTransactionsPerStatus5[] NumberOfTransactionsPerStatus { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

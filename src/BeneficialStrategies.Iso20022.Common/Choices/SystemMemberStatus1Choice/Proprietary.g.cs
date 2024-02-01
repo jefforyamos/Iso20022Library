@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemMemberStatus1Choice;
 /// <summary>
 /// System member status, in a proprietary form.
 /// </summary>
-public partial record Proprietary : ISystemMemberStatus1Choice
+public partial record Proprietary : SystemMemberStatus1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

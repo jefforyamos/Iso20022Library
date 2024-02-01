@@ -32,7 +32,7 @@ public partial record IndividualPerson2
     /// <summary>
     /// Alternative identification, for example, national registration identification number, passport number, or an account number used to further identify the beneficial owner, for example, a Central Provident Fund (CFP) account as required for Singapore.
     /// </summary>
-    public GenericIdentification8? OtherIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification8[] OtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

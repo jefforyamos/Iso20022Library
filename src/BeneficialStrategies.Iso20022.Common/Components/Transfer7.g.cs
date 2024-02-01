@@ -36,11 +36,11 @@ public partial record Transfer7
     /// <summary>
     /// Date and time at which the transfer was executed.
     /// </summary>
-    public required IDateAndDateTimeChoice EffectiveTransferDate { get; init; } 
+    public required DateAndDateTimeChoice_ EffectiveTransferDate { get; init; } 
     /// <summary>
     /// Date and time at which a transaction is completed and cleared, ie, securities are delivered.
     /// </summary>
-    public required IDateAndDateTimeChoice TradeDate { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDate { get; init; } 
     /// <summary>
     /// Total quantity of securities settled.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record Transfer7
     /// <summary>
     /// Information about the units to be transferred.
     /// </summary>
-    public Unit3? UnitsDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Unit3[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the transfer results in a change of beneficial owner.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.WarrantStyle3Choice;
 /// <summary>
 /// Warrant style expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IWarrantStyle3Choice
+public partial record Code : WarrantStyle3Choice_
 {
     public required WarrantStyle1Code Value { get; init; }
 }

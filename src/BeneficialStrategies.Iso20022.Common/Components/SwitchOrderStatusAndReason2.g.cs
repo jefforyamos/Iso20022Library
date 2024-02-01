@@ -40,11 +40,11 @@ public partial record SwitchOrderStatusAndReason2
     /// <summary>
     /// Status of the switch order.
     /// </summary>
-    public required IOrderStatus4Choice OrderStatus { get; init; } 
+    public required OrderStatus4Choice_ OrderStatus { get; init; } 
     /// <summary>
     /// Information about a switch leg that is rejected or repaired.
     /// </summary>
-    public SwitchLegReferences2? LegInformation { get; init;  } // Warning: Don't know multiplicity.
+    public SwitchLegReferences2[] LegInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>

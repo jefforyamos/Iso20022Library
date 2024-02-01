@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason16Choice;
 /// <summary>
 /// Specifies the reason why the instruction has an unmatched status.
 /// </summary>
-public partial record UnmatchedReason : IReason16Choice
+public partial record UnmatchedReason : Reason16Choice_
 {
     #nullable enable
     #nullable disable

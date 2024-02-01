@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification75Choice;
 /// <summary>
 /// Identification of the party expressed as a BIC.
 /// </summary>
-public partial record AnyBIC : IPartyIdentification75Choice
+public partial record AnyBIC : PartyIdentification75Choice_
 {
     public required IsoAnyBICIdentifier Value { get; init; }
 }

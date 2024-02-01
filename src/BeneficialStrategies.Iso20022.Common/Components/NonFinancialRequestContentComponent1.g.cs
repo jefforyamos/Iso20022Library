@@ -20,7 +20,7 @@ public partial record NonFinancialRequestContentComponent1
     /// <summary>
     /// Type of non financial request that the Acceptor wants to be processed.
     /// </summary>
-    public NonFinancialRequestType1Code? NonFinancialRequestType { get; init;  } // Warning: Don't know multiplicity.
+    public NonFinancialRequestType1Code[] NonFinancialRequestType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Card payment transaction between an acceptor and an acquirer.
     /// </summary>

@@ -20,7 +20,7 @@ public partial record PostalAddress21
     /// <summary>
     /// Type of address.
     /// </summary>
-    public IAddressType2Choice? AddressType { get; init; } 
+    public AddressType2Choice_? AddressType { get; init; } 
     /// <summary>
     /// Indicates whether mail should be sent to the address.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record PostalAddress21
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, that is presented in free format text.
     /// </summary>
-    public IReadOnlyCollection<IsoMax70Text> AddressLine { get; init; } = [];
+    public IsoMax70Text[] AddressLine { get; init; } = [];
     /// <summary>
     /// Name of the street or thoroughfare.
     /// </summary>

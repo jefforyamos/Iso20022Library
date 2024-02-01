@@ -28,7 +28,7 @@ public partial record ReconciliationResponseData1
     /// <summary>
     /// Result of the Sale to POI Reconciliation processing.
     /// </summary>
-    public TransactionTotalsSet1? TransactionTotals { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionTotalsSet1[] TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -55,7 +55,7 @@ public partial record IntraPositionMovementStatusAdviceV03 : IOuterRecord
     [Description(@"Provides details on the processing status of the transaction.")]
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
-    public IIntraPositionProcessingStatus3Choice? ProcessingStatus { get; init; }
+    public IntraPositionProcessingStatus3Choice_? ProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides the status of settlement of a transaction.
@@ -64,7 +64,7 @@ public partial record IntraPositionMovementStatusAdviceV03 : IOuterRecord
     [Description(@"Provides the status of settlement of a transaction.")]
     [DataMember(Name="SttlmSts")]
     [XmlElement(ElementName="SttlmSts")]
-    public ISettlementStatus9Choice? SettlementStatus { get; init; }
+    public SettlementStatus9Choice_? SettlementStatus { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RemovalProcessing2Choice;
 /// <summary>
 /// Country of the issuer  (this can the either the country of residence or the nationality).
 /// </summary>
-public partial record IssuerCountry : IRemovalProcessing2Choice
+public partial record IssuerCountry : RemovalProcessing2Choice_
 {
     public required CountryCode Value { get; init; }
 }

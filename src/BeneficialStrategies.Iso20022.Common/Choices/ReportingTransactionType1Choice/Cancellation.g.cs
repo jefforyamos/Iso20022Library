@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportingTransactionType1Choice;
 /// <summary>
 /// Transaction is a cancellation transaction.
 /// </summary>
-public partial record Cancellation : IReportingTransactionType1Choice
+public partial record Cancellation : ReportingTransactionType1Choice_
 {
     #nullable enable
     /// <summary>

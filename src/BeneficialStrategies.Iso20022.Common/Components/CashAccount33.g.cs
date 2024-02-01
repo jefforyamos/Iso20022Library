@@ -28,11 +28,11 @@ public partial record CashAccount33
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification70Choice? AccountOwner { get; init; } 
+    public PartyIdentification70Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    public IFinancialInstitutionIdentification7Choice? AccountServicer { get; init; } 
+    public FinancialInstitutionIdentification7Choice_? AccountServicer { get; init; } 
     /// <summary>
     /// Information identifying a specific branch of a financial institution.||Usage: this component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
     /// </summary>
@@ -40,11 +40,11 @@ public partial record CashAccount33
     /// <summary>
     /// Alternative identification, for example, national registration identification number, passport number, tax identification number. This may be an account number used to further identify the beneficial owner, for example, a Central Provident Fund (CFP) account as required for Singapore.
     /// </summary>
-    public GenericIdentification82? AccountOwnerOtherIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification82[] AccountOwnerOtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of account.
     /// </summary>
-    public IAccountType2Choice? InvestmentAccountType { get; init; } 
+    public AccountType2Choice_? InvestmentAccountType { get; init; } 
     /// <summary>
     /// Specifies if the account is for credits or debits.
     /// </summary>
@@ -52,15 +52,15 @@ public partial record CashAccount33
     /// <summary>
     /// Type of transaction for which the cash account is specified.
     /// </summary>
-    public ISettlementInstructionReason1Choice? SettlementInstructionReason { get; init; } 
+    public SettlementInstructionReason1Choice_? SettlementInstructionReason { get; init; } 
     /// <summary>
     /// Purpose of the cash account.
     /// </summary>
-    public ICashAccountType3Choice? CashAccountPurpose { get; init; } 
+    public CashAccountType3Choice_? CashAccountPurpose { get; init; } 
     /// <summary>
     /// Specifies whether the account is the primary or secondary account if there are two accounts for the same purpose.
     /// </summary>
-    public IAccountDesignation1Choice? CashAccountDesignation { get; init; } 
+    public AccountDesignation1Choice_? CashAccountDesignation { get; init; } 
     /// <summary>
     /// Percentage of the dividend payment not to be reinvested, that is, to be paid in cash.
     /// </summary>

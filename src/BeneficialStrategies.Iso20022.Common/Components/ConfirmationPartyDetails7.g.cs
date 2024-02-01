@@ -20,7 +20,7 @@ public partial record ConfirmationPartyDetails7
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution, eg, Dun & Bradstreet Identification.
     /// </summary>
-    public required IPartyIdentification117Choice Identification { get; init; } 
+    public required PartyIdentification117Choice_ Identification { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record ConfirmationPartyDetails7
     /// <summary>
     /// Capacity of customer placing the order. Primarily used by futures exchanges to indicate the CTI code (customer type indicator) as required by the US CFTC (Commodity Futures Trading Commission).
     /// </summary>
-    public IInvestorCapacity4Choice? InvestorCapacity { get; init; } 
+    public InvestorCapacity4Choice_? InvestorCapacity { get; init; } 
     /// <summary>
     /// Capacity of customer placing the order. Primarily used by futures exchanges to indicate the CTI code (customer type indicator) as required by the US CFTC (Commodity Futures Trading Commission).
     /// </summary>
-    public ITradingPartyCapacity4Choice? TradingPartyCapacity { get; init; } 
+    public TradingPartyCapacity4Choice_? TradingPartyCapacity { get; init; } 
     
     #nullable disable
 }

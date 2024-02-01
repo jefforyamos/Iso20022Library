@@ -48,7 +48,7 @@ public partial record ATMTransaction23
     /// <summary>
     /// Information about the destination account of the transfer.
     /// </summary>
-    public CardAccount7? AccountTo { get; init;  } // Warning: Don't know multiplicity.
+    public CardAccount7[] AccountTo { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Encryption of the destination account information.
     /// </summary>

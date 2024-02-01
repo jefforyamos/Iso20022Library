@@ -20,7 +20,7 @@ public partial record ProxyAccountIdentification1
     /// <summary>
     /// Type of the proxy identification.
     /// </summary>
-    public IProxyAccountType1Choice? Type { get; init; } 
+    public ProxyAccountType1Choice_? Type { get; init; } 
     /// <summary>
     /// Identification used to indicate the account identification under another specified name.
     /// </summary>

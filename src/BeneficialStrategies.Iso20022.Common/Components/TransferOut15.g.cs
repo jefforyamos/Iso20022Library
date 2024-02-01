@@ -20,7 +20,7 @@ public partial record TransferOut15
     /// <summary>
     /// Requested date at which the instructing party places the transfer instruction.
     /// </summary>
-    public IDateFormat1Choice? RequestedTransferDate { get; init; } 
+    public DateFormat1Choice_? RequestedTransferDate { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record TransferOut15
     /// <summary>
     /// Details of the transfer and cancellation.
     /// </summary>
-    public TransferOut13? TransferAndReferences { get; init;  } // Warning: Don't know multiplicity.
+    public TransferOut13[] TransferAndReferences { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to the account from which the financial instrument is to be withdrawn.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record TransferOut15
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1? Extension { get; init;  } // Warning: Don't know multiplicity.
+    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

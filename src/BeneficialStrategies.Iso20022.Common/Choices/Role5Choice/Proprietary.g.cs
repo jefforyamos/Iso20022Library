@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Role5Choice;
 /// <summary>
 /// Role expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IRole5Choice
+public partial record Proprietary : Role5Choice_
 {
     #nullable enable
     /// <summary>

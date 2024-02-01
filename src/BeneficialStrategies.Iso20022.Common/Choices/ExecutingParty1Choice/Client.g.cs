@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExecutingParty1Choice;
 /// <summary>
 /// Indication that the transaction was executed directly by the client.
 /// </summary>
-public partial record Client : IExecutingParty1Choice
+public partial record Client : ExecutingParty1Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

@@ -40,7 +40,7 @@ public partial record TaxVoucher1
     /// <summary>
     /// Securities holding on record date.
     /// </summary>
-    public required IUnitOrFaceAmount1Choice RecordDateHolding { get; init; } 
+    public required UnitOrFaceAmount1Choice_ RecordDateHolding { get; init; } 
     /// <summary>
     /// Applicable tax rate on the tax credit amount.
     /// </summary>

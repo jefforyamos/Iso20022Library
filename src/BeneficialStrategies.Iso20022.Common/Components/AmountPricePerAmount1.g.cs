@@ -20,7 +20,7 @@ public partial record AmountPricePerAmount1
     /// <summary>
     /// Type of amount price.
     /// </summary>
-    public required IAmountPriceType1FormatChoice AmountPriceType { get; init; } 
+    public required AmountPriceType1FormatChoice_ AmountPriceType { get; init; } 
     /// <summary>
     /// Value of the price.
     /// </summary>

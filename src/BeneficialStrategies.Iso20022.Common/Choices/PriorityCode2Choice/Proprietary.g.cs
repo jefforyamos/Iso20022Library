@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriorityCode2Choice;
 /// <summary>
 /// Priority code bilaterally agreed between parties.
 /// </summary>
-public partial record Proprietary : IPriorityCode2Choice
+public partial record Proprietary : PriorityCode2Choice_
 {
     public required IsoMax4AlphaNumericText Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record PartyIdentification129
     /// <summary>
     /// Unique identification, as assigned by an organisation, to unambiguously identify a party.
     /// </summary>
-    public IParty36Choice? Identification { get; init; } 
+    public Party36Choice_? Identification { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record PartyIdentification129
     /// <summary>
     /// Contact defined for this party.
     /// </summary>
-    public Contacts3? ContactDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Contacts3[] ContactDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

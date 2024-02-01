@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CurrencyOrDigitalTokenAmount1Cho
 /// <summary>
 /// Amount specified as a non-ISO currency (ISO 4217).
 /// </summary>
-public partial record DigitalTokenAmount : ICurrencyOrDigitalTokenAmount1Choice
+public partial record DigitalTokenAmount : CurrencyOrDigitalTokenAmount1Choice_
 {
     #nullable enable
     /// <summary>

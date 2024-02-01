@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative3Choice;
 /// <summary>
 /// Details specific for Equity derivatives.
 /// </summary>
-public partial record Equity : IDerivative3Choice
+public partial record Equity : Derivative3Choice_
 {
     #nullable enable
     /// <summary>
     /// Underlying type of the equity derivative.
     /// </summary>
-    public required IEquityDerivative3Choice UnderlyingType { get; init; } 
+    public required EquityDerivative3Choice_ UnderlyingType { get; init; } 
     /// <summary>
     /// Return parameter for the equity derivative.
     /// </summary>

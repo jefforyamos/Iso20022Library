@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status28Choice;
 /// <summary>
 /// Status expressed as a code.
 /// </summary>
-public partial record Code : IStatus28Choice
+public partial record Code : Status28Choice_
 {
     public required TradeStatus7Code Value { get; init; }
 }

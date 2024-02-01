@@ -20,7 +20,7 @@ public partial record RequiredSubmission4
     /// <summary>
     /// Specifies with party(ies) is authorised to submit the data set as part of the transaction.
     /// </summary>
-    public BICIdentification1? Submitter { get; init;  } // Warning: Don't know multiplicity.
+    public BICIdentification1[] Submitter { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the type of the certificate.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record RequiredSubmission4
     /// <summary>
     /// Specifies if the certificate data set is required in relation to specific line items, and which line items.
     /// </summary>
-    public IsoMax70Text? LineItemIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] LineItemIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

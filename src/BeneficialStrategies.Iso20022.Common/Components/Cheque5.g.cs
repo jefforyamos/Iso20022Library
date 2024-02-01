@@ -32,7 +32,7 @@ public partial record Cheque5
     /// <summary>
     /// Specifies the delivery method of the cheque by the debtor's agent.
     /// </summary>
-    public IChequeDeliveryMethod1Choice? DeliveryMethod { get; init; } 
+    public ChequeDeliveryMethod1Choice_? DeliveryMethod { get; init; } 
     /// <summary>
     /// Identifies the party to whom the debtor's agent should send the cheque.
     /// </summary>

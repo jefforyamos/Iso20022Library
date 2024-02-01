@@ -20,7 +20,7 @@ public partial record FinancialInstrument4
     /// <summary>
     /// Identification of a security, as assigned under a formal or proprietary identification scheme.
     /// </summary>
-    public required ISecurityIdentification1Choice Identification { get; init; } 
+    public required SecurityIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>

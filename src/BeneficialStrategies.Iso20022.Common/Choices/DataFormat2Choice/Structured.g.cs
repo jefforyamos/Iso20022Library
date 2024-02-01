@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DataFormat2Choice;
 /// <summary>
 /// Specification of data in a structured form.
 /// </summary>
-public partial record Structured : IDataFormat2Choice
+public partial record Structured : DataFormat2Choice_
 {
     #nullable enable
     /// <summary>

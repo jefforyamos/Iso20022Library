@@ -28,11 +28,11 @@ public partial record ReorganisationInstructionSD13
     /// <summary>
     /// Enable input of multiple voluntary instructions for rights or voluntary puts events via a single instruction message through using Transaction Sequence Number.
     /// </summary>
-    public IReadOnlyCollection<InstructionsTransactionsSequence2> TransactionSequence { get; init; } = [];
+    public InstructionsTransactionsSequence2[] TransactionSequence { get; init; } = [];
     /// <summary>
     /// Total oversubscription quantity of all transaction sequence instructions.
     /// </summary>
-    public IFinancialInstrumentQuantity31Choice? TotalOversubscriptionQuantity { get; init; } 
+    public FinancialInstrumentQuantity31Choice_? TotalOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Acknowledgement information relative to corporate action reorganisation instructions.
     /// </summary>

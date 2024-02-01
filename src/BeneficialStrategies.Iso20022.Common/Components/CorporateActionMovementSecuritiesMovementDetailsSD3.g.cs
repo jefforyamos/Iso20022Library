@@ -32,7 +32,7 @@ public partial record CorporateActionMovementSecuritiesMovementDetailsSD3
     /// <summary>
     /// Resulting quantity of securities concerned in this transaction.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? TransactionQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? TransactionQuantity { get; init; } 
     /// <summary>
     /// Transaction reason.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record CorporateActionMovementSecuritiesMovementDetailsSD3
     /// <summary>
     /// Date/Time on which the posting / draft of the securities is scheduled to take place for a transaction.
     /// </summary>
-    public IDateFormat28Choice? EarliestPaymentDate { get; init; } 
+    public DateFormat28Choice_? EarliestPaymentDate { get; init; } 
     /// <summary>
     /// Indicates whether the securities are newly issued.
     /// </summary>

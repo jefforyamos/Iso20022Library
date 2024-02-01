@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason1Choice;
 /// <summary>
 /// Rejection reason that applies to the whole report.
 /// </summary>
-public partial record GlobalRejectionReason : IRejectionReason1Choice
+public partial record GlobalRejectionReason : RejectionReason1Choice_
 {
     #nullable enable
     /// <summary>

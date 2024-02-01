@@ -28,7 +28,7 @@ public partial record TransactionAndDocumentIdentification1
     /// <summary>
     /// Date and time at which the transaction was created by the instructing party in its business application.
     /// </summary>
-    public IDateAndDateTimeChoice? CreationDateTime { get; init; } 
+    public DateAndDateTimeChoice_? CreationDateTime { get; init; } 
     /// <summary>
     /// Specifies if this document is a copy, a duplicate, or a duplicate of a copy.
     /// </summary>

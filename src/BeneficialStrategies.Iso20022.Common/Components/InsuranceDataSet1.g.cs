@@ -56,15 +56,15 @@ public partial record InsuranceDataSet1
     /// <summary>
     /// Description of the conditions and exclusion clauses under which insurance is granted.
     /// </summary>
-    public IsoMax350Text? InsuranceConditions { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax350Text[] InsuranceConditions { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Standard insurance clauses defined by the Institute of London Underwriters (or the American Institute of marine Underwriters).
     /// </summary>
-    public InsuranceClauses1Code? InsuranceClauses { get; init;  } // Warning: Don't know multiplicity.
+    public InsuranceClauses1Code[] InsuranceClauses { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that is covered under the assurance policy.
     /// </summary>
-    public required IPartyIdentification29Choice Assured { get; init; } 
+    public required PartyIdentification29Choice_ Assured { get; init; } 
     /// <summary>
     /// Place where claims under the insurance policy will be paid.
     /// </summary>

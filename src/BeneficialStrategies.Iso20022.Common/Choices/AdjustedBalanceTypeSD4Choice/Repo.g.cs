@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AdjustedBalanceTypeSD4Choice;
 /// <summary>
 /// Repurchase agreement (REPO) between a seller and a buyer whereby the seller agrees to repurchase the securities at an agreed upon price, and usually at a stated time.
 /// </summary>
-public partial record Repo : IAdjustedBalanceTypeSD4Choice
+public partial record Repo : AdjustedBalanceTypeSD4Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record Repo : IAdjustedBalanceTypeSD4Choice
     /// <summary>
     /// Quantity of security.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
     #nullable disable
 }

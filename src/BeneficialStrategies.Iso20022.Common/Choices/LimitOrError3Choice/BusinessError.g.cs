@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitOrError3Choice;
 /// <summary>
 /// Reason the requested business information is not given.
 /// </summary>
-public partial record BusinessError : ILimitOrError3Choice
+public partial record BusinessError : LimitOrError3Choice_
 {
     #nullable enable
     /// <summary>
     /// Specification of the error, in coded or proprietary form.
     /// </summary>
-    public required IErrorHandling2Choice Error { get; init; } 
+    public required ErrorHandling2Choice_ Error { get; init; } 
     /// <summary>
     /// Specification of the error, in free format.
     /// </summary>

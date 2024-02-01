@@ -28,11 +28,11 @@ public partial record PaymentTransactionParty3
     /// <summary>
     /// Ultimate party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
-    public IParty40Choice? UltimateDebtor { get; init; } 
+    public Party40Choice_? UltimateDebtor { get; init; } 
     /// <summary>
     /// Party that owes assets to the creditor, such as a result of receipt of goods or services, gifts, or charity payments. The debtor may also be the debit account owner.
     /// </summary>
-    public IParty40Choice? Debtor { get; init; } 
+    public Party40Choice_? Debtor { get; init; } 
     /// <summary>
     /// Financial institution that receives the payment transaction from the account owner, or other authorised party, and processes the instruction.
     /// </summary>
@@ -64,11 +64,11 @@ public partial record PaymentTransactionParty3
     /// <summary>
     /// Party that receives an amount of money from the debtor. In the context of the payment model, the creditor is also the credit account owner.
     /// </summary>
-    public IParty40Choice? Creditor { get; init; } 
+    public Party40Choice_? Creditor { get; init; } 
     /// <summary>
     /// Ultimate party to which an amount of money is due.
     /// </summary>
-    public IParty40Choice? UltimateCreditor { get; init; } 
+    public Party40Choice_? UltimateCreditor { get; init; } 
     
     #nullable disable
 }

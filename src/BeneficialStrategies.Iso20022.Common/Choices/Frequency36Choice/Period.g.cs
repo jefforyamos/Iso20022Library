@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Frequency36Choice;
 /// <summary>
 /// Specifies a frequency in terms of a count per period within a specified period type.
 /// </summary>
-public partial record Period : IFrequency36Choice
+public partial record Period : Frequency36Choice_
 {
     #nullable enable
     /// <summary>

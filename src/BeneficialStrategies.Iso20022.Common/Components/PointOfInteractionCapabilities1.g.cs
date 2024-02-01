@@ -20,11 +20,11 @@ public partial record PointOfInteractionCapabilities1
     /// <summary>
     /// Card reading capabilities of the POI performing the transaction.
     /// </summary>
-    public CardDataReading1Code? CardReadingCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public CardDataReading1Code[] CardReadingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cardholder verification capabilities of the POI performing the transaction.
     /// </summary>
-    public CardholderVerificationCapability1Code? CardholderVerificationCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public CardholderVerificationCapability1Code[] CardholderVerificationCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// On-line and off-line capabilities of the POI.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record PointOfInteractionCapabilities1
     /// <summary>
     /// Capabilities of the display components performing the transaction.
     /// </summary>
-    public DisplayCapabilities1? DisplayCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public DisplayCapabilities1[] DisplayCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number of columns of the printer component.
     /// </summary>

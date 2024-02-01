@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationStatus16Choice;
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoSpecifiedReason : ICancellationStatus16Choice
+public partial record NoSpecifiedReason : CancellationStatus16Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

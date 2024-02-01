@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementDate1Choice;
 /// <summary>
 /// Date in ISO format.
 /// </summary>
-public partial record Date : ISettlementDate1Choice
+public partial record Date : SettlementDate1Choice_
 {
     #nullable enable
     #nullable disable

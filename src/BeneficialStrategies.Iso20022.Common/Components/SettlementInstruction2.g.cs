@@ -28,7 +28,7 @@ public partial record SettlementInstruction2
     /// <summary>
     /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
     /// </summary>
-    public IClearingSystemIdentification3Choice? ClearingSystem { get; init; } 
+    public ClearingSystemIdentification3Choice_? ClearingSystem { get; init; } 
     
     #nullable disable
 }

@@ -20,23 +20,23 @@ public partial record IntraPositionDetails1
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
-    public IPriorityNumeric1Choice? Priority { get; init; } 
+    public PriorityNumeric1Choice_? Priority { get; init; } 
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice SettlementQuantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be moved.
     /// </summary>
-    public required IDateAndDateTimeChoice SettlementDate { get; init; } 
+    public required DateAndDateTimeChoice_ SettlementDate { get; init; } 
     /// <summary>
     /// Balance from which the securities are moving.
     /// </summary>
-    public required ISecuritiesBalanceType2Choice BalanceFrom { get; init; } 
+    public required SecuritiesBalanceType2Choice_ BalanceFrom { get; init; } 
     /// <summary>
     /// Balance to which the securities are moving.
     /// </summary>
-    public required ISecuritiesBalanceType2Choice BalanceTo { get; init; } 
+    public required SecuritiesBalanceType2Choice_ BalanceTo { get; init; } 
     /// <summary>
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>

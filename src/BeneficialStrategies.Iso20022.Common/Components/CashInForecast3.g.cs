@@ -36,7 +36,7 @@ public partial record CashInForecast3
     /// <summary>
     /// Breakdown of cash in amounts, eg, by transaction and order type.
     /// </summary>
-    public FundCashInBreakdown2? CashInBreakdownDetails { get; init;  } // Warning: Don't know multiplicity.
+    public FundCashInBreakdown2[] CashInBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

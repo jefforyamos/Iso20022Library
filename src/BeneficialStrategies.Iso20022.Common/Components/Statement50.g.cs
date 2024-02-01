@@ -24,7 +24,7 @@ public partial record Statement50
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
-    public INumber3Choice? ReportNumber { get; init; } 
+    public Number3Choice_? ReportNumber { get; init; } 
     /// <summary>
     /// Reference common to all pages of a statement.
     /// </summary>
@@ -32,11 +32,11 @@ public partial record Statement50
     /// <summary>
     /// Date and time of the statement.
     /// </summary>
-    public required IDateAndDateTimeChoice StatementDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
-    public IUpdateType16Choice? UpdateType { get; init; } 
+    public UpdateType16Choice_? UpdateType { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>

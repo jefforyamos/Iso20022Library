@@ -32,7 +32,7 @@ public partial record SecuritiesAccount4
     /// <summary>
     /// Identification of a security, as assigned under a formal or proprietary identification scheme.
     /// </summary>
-    public ISecurityIdentification3Choice? FinancialInstrumentIdentification { get; init; } 
+    public SecurityIdentification3Choice_? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>

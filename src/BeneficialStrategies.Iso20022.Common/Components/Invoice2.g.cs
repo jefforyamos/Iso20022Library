@@ -24,7 +24,7 @@ public partial record Invoice2
     /// <summary>
     /// Line item information.
     /// </summary>
-    public InvoiceLineItem2? LineItem { get; init;  } // Warning: Don't know multiplicity.
+    public InvoiceLineItem2[] LineItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

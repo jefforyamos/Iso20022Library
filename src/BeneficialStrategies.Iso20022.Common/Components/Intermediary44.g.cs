@@ -24,7 +24,7 @@ public partial record Intermediary44
     /// <summary>
     /// Function performed by the intermediary (investment funds).
     /// </summary>
-    public IRole6Choice? Role { get; init; } 
+    public Role6Choice_? Role { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>

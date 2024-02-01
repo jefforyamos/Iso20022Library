@@ -24,7 +24,7 @@ public partial record StrongCustomerAuthentication1
     /// <summary>
     /// Strong customer authentication exemption detail.
     /// </summary>
-    public Exemption1? Exemption { get; init;  } // Warning: Don't know multiplicity.
+    public Exemption1[] Exemption { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Authentication performed by a delegated authority (for example by a wallet solution).
     /// </summary>

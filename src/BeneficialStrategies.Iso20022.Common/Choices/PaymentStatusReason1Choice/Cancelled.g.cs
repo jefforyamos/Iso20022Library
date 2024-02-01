@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReason1Choice;
 /// <summary>
 /// Reason why the payment status is cancelled.
 /// </summary>
-public partial record Cancelled : IPaymentStatusReason1Choice
+public partial record Cancelled : PaymentStatusReason1Choice_
 {
     public required CancelledStatusReason1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionUnallocatedBalanc
 /// <summary>
 /// Quantity of securities in the sub-balance.
 /// </summary>
-public partial record PendingDeliveryBalance : ICorporateActionUnallocatedBalanceSD2Choice
+public partial record PendingDeliveryBalance : CorporateActionUnallocatedBalanceSD2Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record PendingDeliveryBalance : ICorporateActionUnallocatedBalanc
     /// <summary>
     /// Quantity of security.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
     #nullable disable
 }

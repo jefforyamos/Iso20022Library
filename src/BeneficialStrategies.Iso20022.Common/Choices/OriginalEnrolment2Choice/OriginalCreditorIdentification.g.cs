@@ -14,7 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalEnrolment2Choice;
 /// Usage:
 /// This element must be identical to the creditor identification in the original creditor enrolment.
 /// </summary>
-public partial record OriginalCreditorIdentification : IOriginalEnrolment2Choice
+public partial record OriginalCreditorIdentification : OriginalEnrolment2Choice_
 {
     #nullable enable
     #nullable disable

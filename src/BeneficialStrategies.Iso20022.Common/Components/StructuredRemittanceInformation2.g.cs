@@ -28,7 +28,7 @@ public partial record StructuredRemittanceInformation2
     /// <summary>
     /// Amount of money and currency of a document referred to in the remittance section. The amount is typically either the original amount due and payable, or the amount actually remitted for the referred document.
     /// </summary>
-    public IReferredDocumentAmount1Choice? ReferredDocumentAmount { get; init;  } // Warning: Don't know multiplicity.
+    public ReferredDocumentAmount1Choice_[] ReferredDocumentAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identification of a document that distinguishes that document from another document referred to in the remittance information, usually assigned by the originator of the referred document/transaction.
     /// </summary>

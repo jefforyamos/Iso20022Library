@@ -20,7 +20,7 @@ public partial record IndividualPerson29
     /// <summary>
     /// Term used to address the person.
     /// </summary>
-    public INamePrefix1Choice? NamePrefix { get; init; } 
+    public NamePrefix1Choice_? NamePrefix { get; init; } 
     /// <summary>
     /// First name of the person.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record IndividualPerson29
     /// <summary>
     /// Address of the person.
     /// </summary>
-    public IReadOnlyCollection<PostalAddress21> PostalAddress { get; init; } = [];
+    public PostalAddress21[] PostalAddress { get; init; } = [];
     
     #nullable disable
 }

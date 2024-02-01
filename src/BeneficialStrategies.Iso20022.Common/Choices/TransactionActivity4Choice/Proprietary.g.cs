@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionActivity4Choice;
 /// <summary>
 /// Transaction type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITransactionActivity4Choice
+public partial record Proprietary : TransactionActivity4Choice_
 {
     #nullable enable
     /// <summary>

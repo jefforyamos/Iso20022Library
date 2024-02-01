@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.VoteInstructionForMeetingResolut
 /// <summary>
 /// Specifies the vote recommendation for resolutions added during the meeting.
 /// </summary>
-public partial record VoteIndication : IVoteInstructionForMeetingResolution1Choice
+public partial record VoteIndication : VoteInstructionForMeetingResolution1Choice_
 {
     public required VoteInstructionAtMeeting1Code Value { get; init; }
 }

@@ -28,7 +28,7 @@ public partial record AccountNotification6
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IParty12Choice? AccountOwner { get; init; } 
+    public Party12Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record AccountNotification6
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
-    public IParty12Choice? Debtor { get; init; } 
+    public Party12Choice_? Debtor { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record AccountNotification6
     /// <summary>
     /// Provides details of the expected amount on the account serviced by the account servicer.
     /// </summary>
-    public NotificationItem4? Item { get; init;  } // Warning: Don't know multiplicity.
+    public NotificationItem4[] Item { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

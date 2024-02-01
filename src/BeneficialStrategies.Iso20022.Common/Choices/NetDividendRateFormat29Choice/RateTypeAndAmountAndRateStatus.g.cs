@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.NetDividendRateFormat29Choice;
 /// <summary>
 /// Specifies different formats for the net dividend rate.
 /// </summary>
-public partial record RateTypeAndAmountAndRateStatus : INetDividendRateFormat29Choice
+public partial record RateTypeAndAmountAndRateStatus : NetDividendRateFormat29Choice_
 {
     #nullable enable
     /// <summary>
     /// Value expressed as a rate type.
     /// </summary>
-    public required IRateType69Choice RateType { get; init; } 
+    public required RateType69Choice_ RateType { get; init; } 
     /// <summary>
     /// Value expressed as an amount.
     /// </summary>
@@ -26,6 +26,6 @@ public partial record RateTypeAndAmountAndRateStatus : INetDividendRateFormat29C
     /// <summary>
     /// Value expressed as a rate status.
     /// </summary>
-    public IRateStatus3Choice? RateStatus { get; init; } 
+    public RateStatus3Choice_? RateStatus { get; init; } 
     #nullable disable
 }

@@ -20,7 +20,7 @@ public partial record BillingCompensation1
     /// <summary>
     /// Defines the type of billing compensation.
     /// </summary>
-    public required IBillingCompensationType1Choice Type { get; init; } 
+    public required BillingCompensationType1Choice_ Type { get; init; } 
     /// <summary>
     /// Defines the value of compensation.
     /// </summary>

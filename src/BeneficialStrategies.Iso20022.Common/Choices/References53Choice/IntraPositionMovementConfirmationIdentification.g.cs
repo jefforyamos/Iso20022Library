@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References53Choice;
 /// <summary>
 /// Unambiguous account servicer identification of the intra-position movement confirmation to be cancelled.
 /// </summary>
-public partial record IntraPositionMovementConfirmationIdentification : IReferences53Choice
+public partial record IntraPositionMovementConfirmationIdentification : References53Choice_
 {
     public required IsoRestrictedFINXMax16Text Value { get; init; }
 }

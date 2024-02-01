@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InitialPhysicalForm4Choice;
 /// <summary>
 /// Initial physical form expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IInitialPhysicalForm4Choice
+public partial record Proprietary : InitialPhysicalForm4Choice_
 {
     #nullable enable
     /// <summary>

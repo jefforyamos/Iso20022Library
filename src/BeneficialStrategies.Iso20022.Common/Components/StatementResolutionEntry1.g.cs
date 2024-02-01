@@ -36,11 +36,11 @@ public partial record StatementResolutionEntry1
     /// <summary>
     /// Provides information on the charges included in the original entry amount.
     /// </summary>
-    public ChargesInformation6? Charges { get; init;  } // Warning: Don't know multiplicity.
+    public ChargesInformation6[] Charges { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Underlying reason for the payment transaction.|Usage: Purpose is used by the end-customers, that is initiating party, (ultimate) debtor, (ultimate) creditor to provide information concerning the nature of the payment. Purpose is a content element, which is not used for processing by any of the agents involved in the payment chain.
     /// </summary>
-    public IPurpose2Choice? Purpose { get; init; } 
+    public Purpose2Choice_? Purpose { get; init; } 
     
     #nullable disable
 }

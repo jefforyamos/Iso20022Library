@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason12FormatChoice;
 /// <summary>
 /// Proprietary code to express the reason of a rejection of a deactivation instruction.
 /// </summary>
-public partial record Proprietary : IRejectionReason12FormatChoice
+public partial record Proprietary : RejectionReason12FormatChoice_
 {
     #nullable enable
     /// <summary>

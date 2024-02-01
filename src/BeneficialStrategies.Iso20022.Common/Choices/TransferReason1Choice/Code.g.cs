@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferReason1Choice;
 /// <summary>
 /// Transfer reason expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ITransferReason1Choice
+public partial record Code : TransferReason1Choice_
 {
     public required TransferReason1Code Value { get; init; }
 }

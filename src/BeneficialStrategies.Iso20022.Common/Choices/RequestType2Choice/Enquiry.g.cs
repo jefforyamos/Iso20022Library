@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RequestType2Choice;
 /// <summary>
 /// Request type is an enquiry on a position or a transaction.
 /// </summary>
-public partial record Enquiry : IRequestType2Choice
+public partial record Enquiry : RequestType2Choice_
 {
     public required RequestType2Code Value { get; init; }
 }

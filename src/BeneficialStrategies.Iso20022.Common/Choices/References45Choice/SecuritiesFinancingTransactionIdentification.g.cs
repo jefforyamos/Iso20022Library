@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References45Choice;
 /// <summary>
 /// Unambiguous identification of the underlying securities financing transaction (not the underlying securities financing trade) as assigned by the instructing party.
 /// </summary>
-public partial record SecuritiesFinancingTransactionIdentification : IReferences45Choice
+public partial record SecuritiesFinancingTransactionIdentification : References45Choice_
 {
     #nullable enable
     /// <summary>

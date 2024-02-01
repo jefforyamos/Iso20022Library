@@ -24,7 +24,7 @@ public partial record NonEquitySubClass1
     /// <summary>
     /// Criteria used to segment classes of derivative instruments into sub classes as per local regulation.
     /// </summary>
-    public NonEquitySubClassSegmentationCriterion1? SegmentationCriteria { get; init;  } // Warning: Don't know multiplicity.
+    public NonEquitySubClassSegmentationCriterion1[] SegmentationCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

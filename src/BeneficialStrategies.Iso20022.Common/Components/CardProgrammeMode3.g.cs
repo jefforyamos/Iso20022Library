@@ -28,7 +28,7 @@ public partial record CardProgrammeMode3
     /// <summary>
     /// Additional identification of the party.
     /// </summary>
-    public AdditionalData1? AdditionalIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

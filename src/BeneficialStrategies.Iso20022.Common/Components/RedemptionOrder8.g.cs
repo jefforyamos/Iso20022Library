@@ -28,7 +28,7 @@ public partial record RedemptionOrder8
     /// <summary>
     /// Specifies the category of the investment fund order.
     /// </summary>
-    public IReadOnlyCollection<FundOrderType2> OrderType { get; init; } = [];
+    public FundOrderType2[] OrderType { get; init; } = [];
     /// <summary>
     /// Investment fund class related to an order.
     /// </summary>
@@ -84,15 +84,15 @@ public partial record RedemptionOrder8
     /// <summary>
     /// Charge for the placement of an order.
     /// </summary>
-    public Charge17? ChargeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Charge17[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of money due to a party as compensation for a service.
     /// </summary>
-    public Commission10? CommissionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Commission10[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax applicable to an investment fund order.
     /// </summary>
-    public Tax16? TaxDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Tax16[] TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Parameters used to execute the settlement of an investment fund order.
     /// </summary>
@@ -124,7 +124,7 @@ public partial record RedemptionOrder8
     /// <summary>
     /// Breakdown of the net amount per type of order.
     /// </summary>
-    public IReadOnlyCollection<InvestmentFundsOrderBreakdown1> StaffClientBreakdown { get; init; } = [];
+    public InvestmentFundsOrderBreakdown1[] StaffClientBreakdown { get; init; } = [];
     /// <summary>
     /// Specifies if advice has been received from an independent financial advisor.
     /// </summary>
@@ -136,7 +136,7 @@ public partial record RedemptionOrder8
     /// <summary>
     /// Information about parties related to the transaction.
     /// </summary>
-    public IReadOnlyCollection<Intermediary8> RelatedPartyDetails { get; init; } = [];
+    public Intermediary8[] RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Part of an investor's subscription amount that is held by the fund in order to pay incentive / performance fees at the end of the fiscal year.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeQueryExecutionFrequency1Cho
 /// <summary>
 /// Query is executed on a weekly basis. The day of the week for the query execution should be specified.
 /// </summary>
-public partial record Weekly : ITradeQueryExecutionFrequency1Choice
+public partial record Weekly : TradeQueryExecutionFrequency1Choice_
 {
     public required WeekDay2Code Value { get; init; }
 }

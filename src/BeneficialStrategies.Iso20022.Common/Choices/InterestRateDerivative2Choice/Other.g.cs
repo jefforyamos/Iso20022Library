@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRateDerivative2Choice;
 /// <summary>
 /// Where contract type is different from swaps, swaptions, futures on swaps and forwards on a swap, this field is used.
 /// </summary>
-public partial record Other : IInterestRateDerivative2Choice
+public partial record Other : InterestRateDerivative2Choice_
 {
     public required UnderlyingInterestRateType3Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Registration12Choice;
 /// <summary>
 /// Registration information expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IRegistration12Choice
+public partial record Proprietary : Registration12Choice_
 {
     #nullable enable
     /// <summary>

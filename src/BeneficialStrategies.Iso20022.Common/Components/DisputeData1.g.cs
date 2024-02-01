@@ -36,7 +36,7 @@ public partial record DisputeData1
     /// <summary>
     /// Reference for the dispute.
     /// </summary>
-    public DisputeReference1? DisputeReference { get; init;  } // Warning: Don't know multiplicity.
+    public DisputeReference1[] DisputeReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Status of the dispute documentation.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record DisputeData1
     /// <summary>
     /// Reason for rejecting a dispute.
     /// </summary>
-    public IsoMax35Text? DisputeRejectReason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] DisputeRejectReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides transaction chargeback eligibility conditions.
     /// </summary>

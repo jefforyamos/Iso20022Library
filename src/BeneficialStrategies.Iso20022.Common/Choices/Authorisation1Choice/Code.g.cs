@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Authorisation1Choice;
 /// <summary>
 /// Specifies the authorisation, in a coded form.
 /// </summary>
-public partial record Code : IAuthorisation1Choice
+public partial record Code : Authorisation1Choice_
 {
     public required Authorisation1Code Value { get; init; }
 }

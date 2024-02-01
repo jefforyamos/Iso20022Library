@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References40Choice;
 /// <summary>
 /// Reference to a linked proprietary message or reference of a system that was previously received.
 /// </summary>
-public partial record OtherReference : IReferences40Choice
+public partial record OtherReference : References40Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record OtherReference : IReferences40Choice
     /// <summary>
     /// Issuer of the reference.
     /// </summary>
-    public IPartyIdentification2Choice? ReferenceIssuer { get; init; } 
+    public PartyIdentification2Choice_? ReferenceIssuer { get; init; } 
     /// <summary>
     /// Name of a message.
     /// </summary>

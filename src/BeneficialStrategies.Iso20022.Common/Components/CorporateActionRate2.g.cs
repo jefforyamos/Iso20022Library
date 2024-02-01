@@ -20,67 +20,67 @@ public partial record CorporateActionRate2
     /// <summary>
     /// Percentage of a cash distribution that will be withheld by a tax authority.
     /// </summary>
-    public IRateFormat1Choice? WithholdingTax { get; init; } 
+    public RateFormat1Choice_? WithholdingTax { get; init; } 
     /// <summary>
     /// Rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.
     /// </summary>
-    public IRateAndAmountFormat1Choice? WithholdingOfForeignTax { get; init; } 
+    public RateAndAmountFormat1Choice_? WithholdingOfForeignTax { get; init; } 
     /// <summary>
     /// Rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.
     /// </summary>
-    public IRateAndAmountFormat1Choice? WithholdingOfLocalTax { get; init; } 
+    public RateAndAmountFormat1Choice_? WithholdingOfLocalTax { get; init; } 
     /// <summary>
     /// Local tax (ZAS Anrechnungsbetrag) subject to interest down payment tax (proportion of interest liable for interest down payment tax/interim profit that is not covered by the tax exempt amount).
     /// </summary>
-    public IRateAndAmountFormat1Choice? GermanLocalTax1 { get; init; } 
+    public RateAndAmountFormat1Choice_? GermanLocalTax1 { get; init; } 
     /// <summary>
     /// Local tax (ZAS Pflichtige Zinsen) interest liable for interest down payment tax (proportion of gross interest per unit/interim profits that is not covered by the credit in the interest pool).
     /// </summary>
-    public IRateAndAmountFormat1Choice? GermanLocalTax2 { get; init; } 
+    public RateAndAmountFormat1Choice_? GermanLocalTax2 { get; init; } 
     /// <summary>
     /// Local tax (Zinstopf) offset interest per unit against tax exempt amount (variation to offset interest per unit in relation to tax exempt amount).
     /// </summary>
-    public IRateAndAmountFormat1Choice? GermanLocalTax3 { get; init; } 
+    public RateAndAmountFormat1Choice_? GermanLocalTax3 { get; init; } 
     /// <summary>
     /// Local tax (Ertrag Besitzanteilig) yield liable for interest down payment tax.
     /// </summary>
-    public IRateAndAmountFormat1Choice? GermanLocalTax4 { get; init; } 
+    public RateAndAmountFormat1Choice_? GermanLocalTax4 { get; init; } 
     /// <summary>
     /// Taxation applied on an amount clearly identified as an income.
     /// </summary>
-    public IRateFormat1Choice? TaxOnIncome { get; init; } 
+    public RateFormat1Choice_? TaxOnIncome { get; init; } 
     /// <summary>
     /// Taxation applied on an amount clearly identified as capital profits, capital gains.
     /// </summary>
-    public IRateFormat1Choice? TaxOnProfit { get; init; } 
+    public RateFormat1Choice_? TaxOnProfit { get; init; } 
     /// <summary>
     /// Percentage of cash that was paid in excess of actual tax obligation and was reclaimed.
     /// </summary>
-    public IRateFormat1Choice? TaxReclaim { get; init; } 
+    public RateFormat1Choice_? TaxReclaim { get; init; } 
     /// <summary>
     /// Percentage of fiscal tax to apply.
     /// </summary>
-    public IRateFormat1Choice? FiscalStamp { get; init; } 
+    public RateFormat1Choice_? FiscalStamp { get; init; } 
     /// <summary>
     /// Proportionate allocation used for the offer.
     /// </summary>
-    public IRateFormat1Choice? Proration { get; init; } 
+    public RateFormat1Choice_? Proration { get; init; } 
     /// <summary>
     /// Quantity of new securities for a given quantity of underlying securities, where the underlying securities will be exchanged or debited, eg, 2 for 1: 2 new equities credited for every 1 underlying equity debited = 2 resulting equities.
     /// </summary>
-    public IRatioFormat2Choice? NewToOld { get; init; } 
+    public RatioFormat2Choice_? NewToOld { get; init; } 
     /// <summary>
     /// Quantity of new equities that will be derived by the exercise of a given quantity of intermediate securities.
     /// </summary>
-    public IRatioFormat2Choice? NewSecuritiesToUnderlyingSecurities { get; init; } 
+    public RatioFormat2Choice_? NewSecuritiesToUnderlyingSecurities { get; init; } 
     /// <summary>
     /// Quantity of additional securities for a given quantity of underlying securities where underlying securities are not exchanged or debited, eg, 1 for 1: 1 new|equity credited for every 1 underlying equity = 2 resulting equities.
     /// </summary>
-    public IRatioFormat1Choice? AdditionalQuantityForExistingSecurities { get; init; } 
+    public RatioFormat1Choice_? AdditionalQuantityForExistingSecurities { get; init; } 
     /// <summary>
     /// Quantity of additional intermediate securities/new equities awarded for a given quantity of securities derived from subscription.
     /// </summary>
-    public IRatioFormat1Choice? AdditionalQuantityForSubscribedResultantSecurities { get; init; } 
+    public RatioFormat1Choice_? AdditionalQuantityForSubscribedResultantSecurities { get; init; } 
     /// <summary>
     /// Percentage of the gross dividend rate on which tax must be paid.
     /// </summary>
@@ -88,55 +88,55 @@ public partial record CorporateActionRate2
     /// <summary>
     /// Rate per share to which a non-resident is entitled.
     /// </summary>
-    public IRateAndAmountFormat1Choice? NonResidentRate { get; init; } 
+    public RateAndAmountFormat1Choice_? NonResidentRate { get; init; } 
     /// <summary>
     /// Rate used to calculate the amount of the charges/fees that cannot be categorised.
     /// </summary>
-    public IRateAndAmountFormat1Choice? Charges { get; init; } 
+    public RateAndAmountFormat1Choice_? Charges { get; init; } 
     /// <summary>
     /// The actual interest rate used for the payment of the interest for the specified interest period.
     /// </summary>
-    public IRateAndAmountFormat1Choice? InterestForUsedPayment { get; init; } 
+    public RateAndAmountFormat1Choice_? InterestForUsedPayment { get; init; } 
     /// <summary>
     /// Public index rate applied to the amount paid to adjust it to inflation.
     /// </summary>
-    public IRateAndAmountFormat1Choice? IndexFactor { get; init; } 
+    public RateAndAmountFormat1Choice_? IndexFactor { get; init; } 
     /// <summary>
     /// Rate resulting from a fully franked dividend paid by a company; rate includes tax credit for companies that have made sufficient tax payments during fiscal period.
     /// </summary>
-    public IRateAndAmountFormat1Choice? FullyFranked { get; init; } 
+    public RateAndAmountFormat1Choice_? FullyFranked { get; init; } 
     /// <summary>
     /// Cash dividend amount per equity before deductions or allowances have been made.
     /// </summary>
-    public IGrossDividendRate1Choice? GrossDividend { get; init; } 
+    public GrossDividendRate1Choice_? GrossDividend { get; init; } 
     /// <summary>
     /// Cash dividend amount per equity after deductions or allowances have been made.
     /// </summary>
-    public INetDividendRate1Choice? NetDividend { get; init; } 
+    public NetDividendRate1Choice_? NetDividend { get; init; } 
     /// <summary>
     /// Dividend is final.
     /// </summary>
-    public IAmountAndRateFormat2Choice? FinalDividend { get; init; } 
+    public AmountAndRateFormat2Choice_? FinalDividend { get; init; } 
     /// <summary>
     /// Dividend is provisional.
     /// </summary>
-    public IAmountAndRateFormat2Choice? ProvisionalDividend { get; init; } 
+    public AmountAndRateFormat2Choice_? ProvisionalDividend { get; init; } 
     /// <summary>
     /// Rate of the cash premium made available if the securities holder consents or participates to an event, e.g. consent fees.
     /// </summary>
-    public IRateFormat1Choice? CashIncentive { get; init; } 
+    public RateFormat1Choice_? CashIncentive { get; init; } 
     /// <summary>
     /// Cash rate made available in an offer in order to encourage participation in the offer.
     /// </summary>
-    public IRateFormat1Choice? SolicitationFee { get; init; } 
+    public RateFormat1Choice_? SolicitationFee { get; init; } 
     /// <summary>
     /// A maximum percentage of shares available through the over subscription privilege, usually a percentage of the basic subscription shares, eg, an account owner subscribing to 100 shares may over subscribe to a maximum of 50 additional shares when the over subscription maximum is 50%.
     /// </summary>
-    public IRateFormat1Choice? MaximumAllowedOversubscription { get; init; } 
+    public RateFormat1Choice_? MaximumAllowedOversubscription { get; init; } 
     /// <summary>
     /// Rate used for additional tax that cannot be categorised.
     /// </summary>
-    public IRateAndAmountFormat1Choice? AdditionalTax { get; init; } 
+    public RateAndAmountFormat1Choice_? AdditionalTax { get; init; } 
     /// <summary>
     /// Amount in its original currency when conversion from/into another currency has occurred.
     /// </summary>
@@ -148,7 +148,7 @@ public partial record CorporateActionRate2
     /// <summary>
     /// Rate applicable to the event announced, eg, redemption rate for a redemption event.
     /// </summary>
-    public IRateFormat1Choice? ApplicableRate { get; init; } 
+    public RateFormat1Choice_? ApplicableRate { get; init; } 
     
     #nullable disable
 }

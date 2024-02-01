@@ -24,15 +24,15 @@ public partial record FinancingResult1
     /// <summary>
     /// Indicates the reasons that have determined the result of the single request.
     /// </summary>
-    public IStatusReason4Choice? StatusReason { get; init; } 
+    public StatusReason4Choice_? StatusReason { get; init; } 
     /// <summary>
     /// Further details on the status reason.
     /// </summary>
-    public IsoMax105Text? AdditionalStatusReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax105Text[] AdditionalStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates amount financed related to the request.
     /// </summary>
-    public IFinancingRateOrAmountChoice? FinancedAmount { get; init; } 
+    public FinancingRateOrAmountChoice_? FinancedAmount { get; init; } 
     
     #nullable disable
 }

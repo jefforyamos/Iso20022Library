@@ -52,7 +52,7 @@ public partial record OriginalGroupHeader4
     /// <summary>
     /// Provides detailed information on the cancellation reason.
     /// </summary>
-    public PaymentCancellationReason2? CancellationReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentCancellationReason2[] CancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

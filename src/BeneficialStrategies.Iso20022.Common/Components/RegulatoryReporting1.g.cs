@@ -24,7 +24,7 @@ public partial record RegulatoryReporting1
     /// <summary>
     /// Identifies the party that is responsible for reporting the trade to the trade repository.
     /// </summary>
-    public IPartyIdentification73Choice? ReportingParty { get; init; } 
+    public PartyIdentification73Choice_? ReportingParty { get; init; } 
     /// <summary>
     /// Specifies the unique transaction identifier (UTI) to be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction over its life. This identifier can also be known as the Unique Swap Identifier (USI).This is the UTI from the Trading Side party.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record RegulatoryReporting1
     /// <summary>
     /// Identifies the party that is exempt from a clearing obligation.
     /// </summary>
-    public IPartyIdentification73Choice? ClearingExceptionParty { get; init; } 
+    public PartyIdentification73Choice_? ClearingExceptionParty { get; init; } 
     /// <summary>
     /// Specifies the reference number assigned by the clearing broker. A distinction can be made between the reference for the Central Counterparty (CCP) leg and the reference for the client leg of the transaction.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record RegulatoryReporting1
     /// <summary>
     /// Specifies the date and time of the execution of the transaction in Coordinated Universal Time (UTC).
     /// </summary>
-    public IDateAndDateTimeChoice? ExecutionTimestamp { get; init; } 
+    public DateAndDateTimeChoice_? ExecutionTimestamp { get; init; } 
     /// <summary>
     /// Specifies whether the reportable transaction has one or more additional terms or provisions, other than those listed in the required real-time data fields, that materially affects the price of the reportable transaction.
     /// </summary>

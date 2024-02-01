@@ -20,7 +20,7 @@ public partial record NonFinancialInstitutionSector10
     /// <summary>
     /// Taxonomy for non-financial counterparties. The categories correspond to the main sections of NACE classification as defined in the regulation.
     /// </summary>
-    public GenericIdentification175? Sector { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification175[] Sector { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information whether the counterparty is above the clearing threshold.
     /// Usage: If the element is not present, the ClearingThreshold is False.

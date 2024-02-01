@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract1Choice;
 /// <summary>
 /// Underlying registered contract is a commercial trade.
 /// </summary>
-public partial record Trade : IUnderlyingContract1Choice
+public partial record Trade : UnderlyingContract1Choice_
 {
     #nullable enable
     /// <summary>
@@ -58,7 +58,7 @@ public partial record Trade : IUnderlyingContract1Choice
     /// <summary>
     /// Schedule of the shipment.
     /// </summary>
-    public IShipmentSchedule2Choice? ShipmentSchedule { get; init; } 
+    public ShipmentSchedule2Choice_? ShipmentSchedule { get; init; } 
     /// <summary>
     /// Documents provided as attachments to the trade contract.
     /// </summary>

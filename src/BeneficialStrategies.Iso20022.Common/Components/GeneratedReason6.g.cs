@@ -20,7 +20,7 @@ public partial record GeneratedReason6
     /// <summary>
     /// Specifies the reason why the transaction was generated.
     /// </summary>
-    public required IGeneratedReasons6Choice Code { get; init; } 
+    public required GeneratedReasons6Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

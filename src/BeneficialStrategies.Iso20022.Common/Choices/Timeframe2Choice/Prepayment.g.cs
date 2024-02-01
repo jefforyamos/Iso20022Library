@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Timeframe2Choice;
 /// <summary>
 /// Indicates whether pre-payment is necessary.
 /// </summary>
-public partial record Prepayment : ITimeframe2Choice
+public partial record Prepayment : Timeframe2Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

@@ -28,7 +28,7 @@ public partial record CounterpartyData89
     /// <summary>
     /// In the case where a financial counterparty is responsible for reporting on behalf of the other counterparty, the unique code identifying that counterparty. In the case where a management company is responsible for reporting on behalf of an Undertaking for Collective Investment in Transferable Securities (UCITS), the unique code identifying that management company. In the case where an Alternative Investment Fund Manager (AIFM) is responsible for reporting on behalf of an Alternative Investment Fund (AIF), the unique code identifying that AIFM.
     /// </summary>
-    public IOrganisationIdentification15Choice? EntityResponsibleForReport { get; init; } 
+    public OrganisationIdentification15Choice_? EntityResponsibleForReport { get; init; } 
     /// <summary>
     /// Information on the other parties.
     /// </summary>

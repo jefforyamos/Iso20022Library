@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction2Choice;
 /// <summary>
 /// Set of elements used to reference the details of the original payment initiation.
 /// </summary>
-public partial record Initiation : IUnderlyingTransaction2Choice
+public partial record Initiation : UnderlyingTransaction2Choice_
 {
     #nullable enable
     /// <summary>

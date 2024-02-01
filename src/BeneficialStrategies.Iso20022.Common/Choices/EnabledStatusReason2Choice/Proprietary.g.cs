@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EnabledStatusReason2Choice;
 /// <summary>
 /// Reason for the enabled account status expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IEnabledStatusReason2Choice
+public partial record Proprietary : EnabledStatusReason2Choice_
 {
     #nullable enable
     /// <summary>

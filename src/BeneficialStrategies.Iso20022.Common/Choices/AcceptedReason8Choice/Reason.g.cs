@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AcceptedReason8Choice;
 /// <summary>
 /// Reason for the accepted status.
 /// </summary>
-public partial record Reason : IAcceptedReason8Choice
+public partial record Reason : AcceptedReason8Choice_
 {
     #nullable enable
     #nullable disable

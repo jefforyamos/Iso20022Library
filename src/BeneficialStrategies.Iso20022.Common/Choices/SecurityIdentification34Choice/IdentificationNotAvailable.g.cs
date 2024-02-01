@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification34Choice;
 /// <summary>
 /// Indicates that underlying identification is not available.
 /// </summary>
-public partial record IdentificationNotAvailable : ISecurityIdentification34Choice
+public partial record IdentificationNotAvailable : SecurityIdentification34Choice_
 {
     public required UnderlyingIdentification1Code Value { get; init; }
 }

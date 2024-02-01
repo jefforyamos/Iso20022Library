@@ -24,11 +24,11 @@ public partial record CardAcquisitionRequest3
     /// <summary>
     /// Card payment brands allowed by the Sale System for the payment transaction.
     /// </summary>
-    public IsoMax35Text? AllowedPaymentBrand { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] AllowedPaymentBrand { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Loyalty brands or programs allowed by the Sale System for the loyalty transaction.
     /// </summary>
-    public IsoMax35Text? AllowedLoyaltyBrand { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] AllowedLoyaltyBrand { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates if the Customer realises the selection of the card application.
     /// </summary>

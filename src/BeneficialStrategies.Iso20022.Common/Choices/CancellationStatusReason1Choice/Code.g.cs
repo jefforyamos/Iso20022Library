@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationStatusReason1Choice;
 /// <summary>
 /// Reason for the cancellation status, in a coded form.
 /// </summary>
-public partial record Code : ICancellationStatusReason1Choice
+public partial record Code : CancellationStatusReason1Choice_
 {
     public required PaymentCancellationRejection1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason12FormatChoice;
 /// <summary>
 /// Standard code to specify the reason of a rejection of a deactivation instruction.
 /// </summary>
-public partial record Code : IRejectionReason12FormatChoice
+public partial record Code : RejectionReason12FormatChoice_
 {
     public required RejectionReason12Code Value { get; init; }
 }

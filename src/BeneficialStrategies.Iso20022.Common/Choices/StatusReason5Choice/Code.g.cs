@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatusReason5Choice;
 /// <summary>
 /// Reason for the status in a coded form.
 /// </summary>
-public partial record Code : IStatusReason5Choice
+public partial record Code : StatusReason5Choice_
 {
     public required TransactionRejectReason7Code Value { get; init; }
 }

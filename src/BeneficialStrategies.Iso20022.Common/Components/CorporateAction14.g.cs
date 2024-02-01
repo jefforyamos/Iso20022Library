@@ -24,7 +24,7 @@ public partial record CorporateAction14
     /// <summary>
     /// Specifies the type of lottery announced.
     /// </summary>
-    public ILotteryTypeFormat1Choice? LotteryType { get; init; } 
+    public LotteryTypeFormat1Choice_? LotteryType { get; init; } 
     
     #nullable disable
 }

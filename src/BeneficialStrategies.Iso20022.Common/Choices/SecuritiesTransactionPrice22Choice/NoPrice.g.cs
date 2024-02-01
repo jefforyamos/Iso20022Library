@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice22Choi
 /// <summary>
 /// Captures where no price is yet known.
 /// </summary>
-public partial record NoPrice : ISecuritiesTransactionPrice22Choice
+public partial record NoPrice : SecuritiesTransactionPrice22Choice_
 {
     #nullable enable
     /// <summary>

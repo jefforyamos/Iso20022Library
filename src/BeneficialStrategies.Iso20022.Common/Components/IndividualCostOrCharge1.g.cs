@@ -20,7 +20,7 @@ public partial record IndividualCostOrCharge1
     /// <summary>
     /// Type of cost or charge.
     /// </summary>
-    public required IChargeType7Choice CostType { get; init; } 
+    public required ChargeType7Choice_ CostType { get; init; } 
     /// <summary>
     /// Specifies if the cost or charge is ex ante (intended) or post ante (actual).
     /// </summary>

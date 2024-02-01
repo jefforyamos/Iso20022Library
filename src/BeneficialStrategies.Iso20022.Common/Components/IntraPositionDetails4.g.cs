@@ -24,7 +24,7 @@ public partial record IntraPositionDetails4
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification13Choice? AccountOwner { get; init; } 
+    public PartyIdentification13Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
@@ -36,19 +36,19 @@ public partial record IntraPositionDetails4
     /// <summary>
     /// Quantity of financial instrument effectively settled.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice SettledQuantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ SettledQuantity { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be moved.
     /// </summary>
-    public required IDateAndDateTimeChoice SettlementDate { get; init; } 
+    public required DateAndDateTimeChoice_ SettlementDate { get; init; } 
     /// <summary>
     /// Balance from which the securities are moving.
     /// </summary>
-    public ISecuritiesBalanceType2Choice? BalanceFrom { get; init; } 
+    public SecuritiesBalanceType2Choice_? BalanceFrom { get; init; } 
     /// <summary>
     /// Balance to which the securities are moving.
     /// </summary>
-    public ISecuritiesBalanceType2Choice? BalanceTo { get; init; } 
+    public SecuritiesBalanceType2Choice_? BalanceTo { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityAgricultural6
 /// <summary>
 /// Soft agricultural commodity derivative.
 /// </summary>
-public partial record Soft : IAssetClassCommodityAgricultural6Choice
+public partial record Soft : AssetClassCommodityAgricultural6Choice_
 {
     #nullable enable
     /// <summary>

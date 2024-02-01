@@ -20,7 +20,7 @@ public partial record FloatingRate7
     /// <summary>
     /// Indication of the floating rate used.
     /// </summary>
-    public IFloatingRateIdentification4Choice? Rate { get; init; } 
+    public FloatingRateIdentification4Choice_? Rate { get; init; } 
     /// <summary>
     /// Information related to reference period.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record FloatingRate7
     /// <summary>
     /// Indicates a margin, over or under an index, which determines a price or a rate for each leg of a derivative transaction with periodic payments; or a difference between two floating leg indexes.
     /// </summary>
-    public ISecuritiesTransactionPrice13Choice? Spread { get; init; } 
+    public SecuritiesTransactionPrice13Choice_? Spread { get; init; } 
     /// <summary>
     /// Identifies the computation method that determines how interest payments are calculated. It is used to compute the year fraction of the calculation period, and indicates the number of days in the calculation period divided by the number of days in the year.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record FloatingRate7
     /// <summary>
     /// Specifies the time unit associated with the frequency of payments.
     /// </summary>
-    public IInterestRateFrequency3Choice? PaymentFrequency { get; init; } 
+    public InterestRateFrequency3Choice_? PaymentFrequency { get; init; } 
     /// <summary>
     /// Information related to reset of payment frequency.
     /// </summary>
-    public IInterestRateFrequency3Choice? ResetFrequency { get; init; } 
+    public InterestRateFrequency3Choice_? ResetFrequency { get; init; } 
     
     #nullable disable
 }

@@ -20,7 +20,7 @@ public partial record CorporateActionOption2
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public required ICorporateActionOption1FormatChoice OptionType { get; init; } 
+    public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>

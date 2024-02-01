@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DeniedReason18Choice;
 /// <summary>
 /// Specifies additional information about the processed instruction.
 /// </summary>
-public partial record Code : IDeniedReason18Choice
+public partial record Code : DeniedReason18Choice_
 {
     public required DeniedReason3Code Value { get; init; }
 }

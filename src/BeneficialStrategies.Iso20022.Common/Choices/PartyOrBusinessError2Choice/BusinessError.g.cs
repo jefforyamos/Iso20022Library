@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrBusinessError2Choice;
 /// <summary>
 /// Business error resulting from a rejection.
 /// </summary>
-public partial record BusinessError : IPartyOrBusinessError2Choice
+public partial record BusinessError : PartyOrBusinessError2Choice_
 {
     #nullable enable
     /// <summary>
     /// Specification of the error, in coded or proprietary form.
     /// </summary>
-    public required IErrorHandling2Choice Error { get; init; } 
+    public required ErrorHandling2Choice_ Error { get; init; } 
     /// <summary>
     /// Specification of the error, in free format.
     /// </summary>

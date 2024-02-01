@@ -20,11 +20,11 @@ public partial record StatusAndReason1
     /// <summary>
     /// Status and reason for the transaction.
     /// </summary>
-    public required IStatus2Choice StatusAndReason { get; init; } 
+    public required Status2Choice_ StatusAndReason { get; init; } 
     /// <summary>
     /// Details of the transactions reported.
     /// </summary>
-    public Transaction7? Transaction { get; init;  } // Warning: Don't know multiplicity.
+    public Transaction7[] Transaction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

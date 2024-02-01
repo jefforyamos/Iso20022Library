@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountSelection1Choice;
 /// <summary>
 /// Various investment account information used to select a specific account.
 /// </summary>
-public partial record OtherAccountSelectionData : IAccountSelection1Choice
+public partial record OtherAccountSelectionData : AccountSelection1Choice_
 {
     #nullable enable
     /// <summary>
@@ -38,7 +38,7 @@ public partial record OtherAccountSelectionData : IAccountSelection1Choice
     /// <summary>
     /// Owner of the account.
     /// </summary>
-    public IAccountOwner1Choice? AccountOwner { get; init; } 
+    public AccountOwner1Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Intermediary or other party related to the management of the account. In some markets, when this intermediary is a party acting on behalf of the investor for which it has opened an account at, for example, a central securities depository or international central securities depository, this party is known by the investor as the 'account controller'.
     /// </summary>
@@ -46,6 +46,6 @@ public partial record OtherAccountSelectionData : IAccountSelection1Choice
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    public IPartyIdentification70Choice? AccountServicer { get; init; } 
+    public PartyIdentification70Choice_? AccountServicer { get; init; } 
     #nullable disable
 }

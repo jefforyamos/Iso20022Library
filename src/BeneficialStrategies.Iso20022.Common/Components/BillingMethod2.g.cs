@@ -29,7 +29,7 @@ public partial record BillingMethod2
     /// Provides for the specific tax identification within the same tax region. 
     /// Usage: This element allows for a maximum of three regional taxes on the same service.
     /// </summary>
-    public IReadOnlyCollection<BillingServicesTax1> TaxIdentification { get; init; } = [];
+    public BillingServicesTax1[] TaxIdentification { get; init; } = [];
     
     #nullable disable
 }

@@ -74,7 +74,7 @@ public partial record IntraPositionMovementPostingReportV09 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public IPartyIdentification127Choice? AccountOwner { get; init; }
+    public PartyIdentification127Choice_? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.

@@ -20,7 +20,7 @@ public partial record PendingReason24
     /// <summary>
     /// Specifies the reason why the instruction has a pending status.
     /// </summary>
-    public required IPendingReason41Choice Code { get; init; } 
+    public required PendingReason41Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

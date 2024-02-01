@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References66Choice;
 /// <summary>
 /// Reference assigned to the trade by the investor or the trading party. This reference will be used throughout the trade life cycle to access/update the trade details.
 /// </summary>
-public partial record TradeIdentification : IReferences66Choice
+public partial record TradeIdentification : References66Choice_
 {
     public required IsoRestrictedFINXMax52Text Value { get; init; }
 }

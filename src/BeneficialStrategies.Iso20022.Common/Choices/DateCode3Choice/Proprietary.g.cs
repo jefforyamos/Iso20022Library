@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateCode3Choice;
 /// <summary>
 /// Proprietary identification of the type of date.
 /// </summary>
-public partial record Proprietary : IDateCode3Choice
+public partial record Proprietary : DateCode3Choice_
 {
     #nullable enable
     /// <summary>

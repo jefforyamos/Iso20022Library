@@ -24,7 +24,7 @@ public partial record Drawdown3
     /// <summary>
     /// Additional information about the drawdown.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

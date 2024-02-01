@@ -36,7 +36,7 @@ public partial record RedemptionBulkExecution2
     /// <summary>
     /// Execution of a redemption order.
     /// </summary>
-    public RedemptionExecution3? IndividualExecutionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public RedemptionExecution3[] IndividualExecutionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency requested for settlement of cash proceeds.
     /// </summary>

@@ -20,11 +20,11 @@ public partial record Counterparty34
     /// <summary>
     /// Unique code identifying the reporting counterparty of the contract.
     /// </summary>
-    public required IOrganisationIdentification10Choice Identification { get; init; } 
+    public required OrganisationIdentification10Choice_ Identification { get; init; } 
     /// <summary>
     /// Indicates if the reporting counterparty is a central counterparty, a financial, non-financial counterparty or other type of counterparty in accordance with regulation.
     /// </summary>
-    public ICounterpartyTradeNature9Choice? Nature { get; init; } 
+    public CounterpartyTradeNature9Choice_? Nature { get; init; } 
     /// <summary>
     /// Identifies the trading capacity of the seller.
     /// </summary>
@@ -35,7 +35,7 @@ public partial record Counterparty34
     /// DirectionOfTheFirstLeg should be used for most swaps and swap-like contracts including interest rate swaps, credit total return swaps, and equity swaps (except for credit default swaps, variance, volatility, and correlation swaps) as well as for the foreign exchange swaps, forwards and non-deliverable forwards.
     /// CounterpartySide should be used for the instruments such as most forwards and forward-like contracts (except for foreign exchange forwards and foreign exchange non-deliverable forwards); most options and option-like contracts including swaptions, caps and floors; credit default swaps; variance, volatility and correlation swaps; contracts for difference and spreadbets.
     /// </summary>
-    public IDirection2Choice? Direction { get; init; } 
+    public Direction2Choice_? Direction { get; init; } 
     
     #nullable disable
 }

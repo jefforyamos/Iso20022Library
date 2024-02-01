@@ -28,11 +28,11 @@ public partial record Security55
     /// <summary>
     /// Quantity or nominal amount of the security or commodity subject of the transaction.
     /// </summary>
-    public IQuantityNominalValue2Choice? QuantityOrNominalValue { get; init; } 
+    public QuantityNominalValue2Choice_? QuantityOrNominalValue { get; init; } 
     /// <summary>
     /// Price of unit of collateral component, including accrued interest for interest-bearing securities, used to value the security.
     /// </summary>
-    public ISecuritiesTransactionPrice19Choice? UnitPrice { get; init; } 
+    public SecuritiesTransactionPrice19Choice_? UnitPrice { get; init; } 
     /// <summary>
     /// Market value of asset or collateral component.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record Security55
     /// <summary>
     /// Classification of the type of the security.
     /// </summary>
-    public ISecuritiesLendingType3Choice? Type { get; init;  } // Warning: Don't know multiplicity.
+    public SecuritiesLendingType3Choice_[] Type { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indication whether the borrower has exclusive access to borrow from the lender's securities portfolio.
     /// </summary>

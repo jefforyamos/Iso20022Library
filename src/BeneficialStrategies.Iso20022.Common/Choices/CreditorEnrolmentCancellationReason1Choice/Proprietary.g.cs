@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditorEnrolmentCancellationRea
 /// <summary>
 /// Reason, in a proprietary form.
 /// </summary>
-public partial record Proprietary : ICreditorEnrolmentCancellationReason1Choice
+public partial record Proprietary : CreditorEnrolmentCancellationReason1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record Limit5
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
-    public required IAmount2Choice Amount { get; init; } 
+    public required Amount2Choice_ Amount { get; init; } 
     /// <summary>
     /// Specifies if a limit is a debit limit or a credit limit.
     /// </summary>

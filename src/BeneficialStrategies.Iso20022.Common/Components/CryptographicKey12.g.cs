@@ -48,7 +48,7 @@ public partial record CryptographicKey12
     /// <summary>
     /// Allowed usage of the key.
     /// </summary>
-    public KeyUsage1Code? Function { get; init;  } // Warning: Don't know multiplicity.
+    public KeyUsage1Code[] Function { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date and time on which the key must be activated.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record CryptographicKey12
     /// <summary>
     /// Element containing the key information.
     /// </summary>
-    public IKeyChoiceValue2? KeyChoiceValue { get; init; } 
+    public KeyChoiceValue2_? KeyChoiceValue { get; init; } 
     
     #nullable disable
 }

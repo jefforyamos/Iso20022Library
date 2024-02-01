@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionNumber1Choice;
 /// <summary>
 /// Number identifying the available corporate action options.
 /// </summary>
-public partial record Number : IOptionNumber1Choice
+public partial record Number : OptionNumber1Choice_
 {
     public required IsoExact3NumericText Value { get; init; }
 }

@@ -24,7 +24,7 @@ public partial record SecuritiesEntitlement1
     /// <summary>
     /// Quantity of securities based on the terms of the corporate action event and balance of underlying securities entitled to the account owner. (This quantity can be positive or negative).
     /// </summary>
-    public required IUnitOrFaceAmount1Choice EntitledSecuritiesQuantity { get; init; } 
+    public required UnitOrFaceAmount1Choice_ EntitledSecuritiesQuantity { get; init; } 
     
     #nullable disable
 }

@@ -24,7 +24,7 @@ public partial record IntraBalanceQueryStatus3
     /// <summary>
     /// Specified date period of the status.
     /// </summary>
-    public IDateAndDateTimeSearch5Choice? DatePeriod { get; init; } 
+    public DateAndDateTimeSearch5Choice_? DatePeriod { get; init; } 
     
     #nullable disable
 }

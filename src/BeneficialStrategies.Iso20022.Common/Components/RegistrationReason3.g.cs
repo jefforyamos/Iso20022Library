@@ -20,7 +20,7 @@ public partial record RegistrationReason3
     /// <summary>
     /// Specifies the reaoson of the holding status.
     /// </summary>
-    public required IRegistration7Choice Code { get; init; } 
+    public required Registration7Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType49Choice;
 /// <summary>
 /// Proprietary identification of the type of gross dividend rate.
 /// </summary>
-public partial record Proprietary : IRateType49Choice
+public partial record Proprietary : RateType49Choice_
 {
     #nullable enable
     /// <summary>

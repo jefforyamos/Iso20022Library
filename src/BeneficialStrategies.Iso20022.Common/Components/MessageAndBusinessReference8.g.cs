@@ -20,7 +20,7 @@ public partial record MessageAndBusinessReference8
     /// <summary>
     /// Reference to the message or communication that was previously sent.
     /// </summary>
-    public IReferences48Choice? Reference { get; init; } 
+    public References48Choice_? Reference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>

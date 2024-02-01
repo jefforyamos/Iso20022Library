@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonIdentificationType1Choice;
 /// <summary>
 /// Number assigned by a national authority to an identity card.
 /// </summary>
-public partial record IdentityCardNumber : IPersonIdentificationType1Choice
+public partial record IdentityCardNumber : PersonIdentificationType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FundOrderType5Choice;
 /// <summary>
 /// Type of the investment fund order expressed as a code.
 /// </summary>
-public partial record Code : IFundOrderType5Choice
+public partial record Code : FundOrderType5Choice_
 {
     public required FundOrderType10Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LegalRestrictions5Choice;
 /// <summary>
 /// Legal restrictions expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ILegalRestrictions5Choice
+public partial record Code : LegalRestrictions5Choice_
 {
     public required LegalRestrictions2Code Value { get; init; }
 }

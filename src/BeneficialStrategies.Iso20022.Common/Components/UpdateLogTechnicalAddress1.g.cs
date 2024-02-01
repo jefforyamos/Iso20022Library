@@ -20,11 +20,11 @@ public partial record UpdateLogTechnicalAddress1
     /// <summary>
     /// Old value before the update.
     /// </summary>
-    public required ITechnicalIdentification2Choice Old { get; init; } 
+    public required TechnicalIdentification2Choice_ Old { get; init; } 
     /// <summary>
     /// New value after the update.
     /// </summary>
-    public required ITechnicalIdentification2Choice New { get; init; } 
+    public required TechnicalIdentification2Choice_ New { get; init; } 
     
     #nullable disable
 }

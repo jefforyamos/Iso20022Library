@@ -20,7 +20,7 @@ public partial record PledgeInformation1
     /// <summary>
     /// Entity that provide assets to a counterparty as a guarantee.
     /// </summary>
-    public required IPartyIdentification232Choice Pledger { get; init; } 
+    public required PartyIdentification232Choice_ Pledger { get; init; } 
     /// <summary>
     /// Third party, usually a bank, involved in the pledge.
     /// </summary>

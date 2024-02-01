@@ -28,11 +28,11 @@ public partial record TradeStateReport16
     /// <summary>
     /// Details of the loan used for financing the transaction.
     /// </summary>
-    public ITransactionLoanData31Choice? LoanData { get; init; } 
+    public TransactionLoanData31Choice_? LoanData { get; init; } 
     /// <summary>
     /// Set of information on collateral used in the transaction.
     /// </summary>
-    public ITransactionCollateralData18Choice? CollateralData { get; init; } 
+    public TransactionCollateralData18Choice_? CollateralData { get; init; } 
     /// <summary>
     /// List of possible values for TRs reconciliation purposes.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record TradeStateReport16
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

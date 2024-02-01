@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonIdentificationType1Choice;
 /// <summary>
 /// Number assigned by a social security agency.
 /// </summary>
-public partial record SocialSecurityNumber : IPersonIdentificationType1Choice
+public partial record SocialSecurityNumber : PersonIdentificationType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

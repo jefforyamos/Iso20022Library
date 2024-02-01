@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceRateType3FormatChoice;
 /// <summary>
 /// Proprietary code to express the type of price rate.
 /// </summary>
-public partial record Proprietary : IPriceRateType3FormatChoice
+public partial record Proprietary : PriceRateType3FormatChoice_
 {
     #nullable enable
     /// <summary>

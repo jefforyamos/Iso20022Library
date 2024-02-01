@@ -29,7 +29,7 @@ public partial record TradeCounterpartyRelationshipRecord1
     /// Type of relationship between two parties.
     /// Usage: RelationshipType is always in the direction of the StartRelationshipParty to EndRelationshipParty.
     /// </summary>
-    public required ITradeCounterpartyRelationship1Choice RelationshipType { get; init; } 
+    public required TradeCounterpartyRelationship1Choice_ RelationshipType { get; init; } 
     /// <summary>
     /// Provides description of other type of relationship between two parties.
     /// Usage: Description is to be used only when RelationshipType is not precisely indicating the type of relationship between parties to the transaction.

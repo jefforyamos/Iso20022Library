@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason19FormatChoice;
 /// <summary>
 /// Proprietary code to express the reason of a rejection of a global movement authorisation request.
 /// </summary>
-public partial record Proprietary : IRejectionReason19FormatChoice
+public partial record Proprietary : RejectionReason19FormatChoice_
 {
     #nullable enable
     /// <summary>

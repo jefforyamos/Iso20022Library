@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Vote16Choice;
 /// <summary>
 /// Instruction specifying a vote instruction per resolution for the entire entitlement.
 /// </summary>
-public partial record GlobalVoteInstruction : IVote16Choice
+public partial record GlobalVoteInstruction : Vote16Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record GlobalVoteInstruction : IVote16Choice
     /// <summary>
     /// Vote instructed.
     /// </summary>
-    public required IVoteInstructionType2Choice VoteOption { get; init; } 
+    public required VoteInstructionType2Choice_ VoteOption { get; init; } 
     #nullable disable
 }

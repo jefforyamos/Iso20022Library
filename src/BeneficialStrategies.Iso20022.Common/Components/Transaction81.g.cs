@@ -39,15 +39,15 @@ public partial record Transaction81
     /// Amounts that are not part of the transaction amount and not included in reconciliation.
     /// ISO 8583 bit 54
     /// </summary>
-    public AdditionalAmounts2? AdditionalAmounts { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalAmounts2[] AdditionalAmounts { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fees not included in the transaction amount.
     /// </summary>
-    public AdditionalFee1? AdditionalFees { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFee1[] AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

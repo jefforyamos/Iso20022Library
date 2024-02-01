@@ -20,15 +20,15 @@ public partial record QuantityBreakdown4
     /// <summary>
     /// Identification, for tax purposes, of a lot of identical securities that are bought at a certain date and at a certain price.
     /// </summary>
-    public INumber2Choice? LotNumber { get; init; } 
+    public Number2Choice_? LotNumber { get; init; } 
     /// <summary>
     /// Quantity of financial instruments that is part of the lot described.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? LotQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? LotQuantity { get; init; } 
     /// <summary>
     /// Date/time at which the lot was purchased.
     /// </summary>
-    public IDateAndDateTimeChoice? LotDateTime { get; init; } 
+    public DateAndDateTimeChoice_? LotDateTime { get; init; } 
     /// <summary>
     /// Price at which the lot was purchased.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record QuantityBreakdown4
     /// <summary>
     /// Specifies the type of price and information about the price.
     /// </summary>
-    public ITypeOfPrice3Choice? TypeOfPrice { get; init; } 
+    public TypeOfPrice3Choice_? TypeOfPrice { get; init; } 
     /// <summary>
     /// Valuation amounts for the lot provided in the base currency of the account.
     /// </summary>

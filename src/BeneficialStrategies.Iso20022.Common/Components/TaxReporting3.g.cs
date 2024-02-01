@@ -28,11 +28,11 @@ public partial record TaxReporting3
     /// <summary>
     /// Party that pays the tax.
     /// </summary>
-    public IPartyIdentification125Choice? TaxPayer { get; init; } 
+    public PartyIdentification125Choice_? TaxPayer { get; init; } 
     /// <summary>
     /// Party that receives the tax.
     /// </summary>
-    public IPartyIdentification125Choice? TaxRecipient { get; init; } 
+    public PartyIdentification125Choice_? TaxRecipient { get; init; } 
     /// <summary>
     /// Cash account information for the payment of tax.
     /// </summary>

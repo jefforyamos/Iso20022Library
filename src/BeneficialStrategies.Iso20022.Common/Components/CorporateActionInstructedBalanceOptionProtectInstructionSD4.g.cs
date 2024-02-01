@@ -24,7 +24,7 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionSD
     /// <summary>
     /// Option number of the protect instruction.
     /// </summary>
-    public required IOptionNumber1Choice OptionNumber { get; init; } 
+    public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Instruction reference number assigned by DTC to the uncovered protect instruction.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionSD
     /// <summary>
     /// Quantity of the protect instruction which has not been covered.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? ProtectIdentificationUncoveredQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? ProtectIdentificationUncoveredQuantity { get; init; } 
     /// <summary>
     /// Protect oversubscription quantity.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? ProtectIdentificationOversubscriptionQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? ProtectIdentificationOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Status of the protect instruction.
     /// </summary>

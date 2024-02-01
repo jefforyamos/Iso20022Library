@@ -36,7 +36,7 @@ public partial record PartyProfileInformation4
     /// <summary>
     /// Type of certificate.
     /// </summary>
-    public ICertificationType1Choice? CertificateType { get; init; } 
+    public CertificationType1Choice_? CertificateType { get; init; } 
     /// <summary>
     /// Date at which the certification check has been performed.
     /// </summary>
@@ -60,15 +60,15 @@ public partial record PartyProfileInformation4
     /// <summary>
     /// Specifies an assessment of the customer’s behaviour at the time of the account opening application.
     /// </summary>
-    public ICustomerConductClassification1Choice? CustomerConductClassification { get; init; } 
+    public CustomerConductClassification1Choice_? CustomerConductClassification { get; init; } 
     /// <summary>
     /// Specifies the customer’s money laundering risk.
     /// </summary>
-    public IRiskLevel1Choice? RiskLevel { get; init; } 
+    public RiskLevel1Choice_? RiskLevel { get; init; } 
     /// <summary>
     /// Specifies the type of due diligence checks carried out on the investor. For definitions of ordinary, simple and enhanced know your customer checks, local market regulations should be consulted.
     /// </summary>
-    public IKYCCheckType1Choice? KnowYourCustomerCheckType { get; init; } 
+    public KYCCheckType1Choice_? KnowYourCustomerCheckType { get; init; } 
     /// <summary>
     /// Specifies whether a customer has been checked in a Know Your Customer (KYC) database.
     /// </summary>

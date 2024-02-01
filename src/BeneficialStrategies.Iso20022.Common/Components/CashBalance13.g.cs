@@ -28,7 +28,7 @@ public partial record CashBalance13
     /// <summary>
     /// Specifies the nature of a balance.
     /// </summary>
-    public IBalanceType11Choice? Type { get; init; } 
+    public BalanceType11Choice_? Type { get; init; } 
     /// <summary>
     /// Current status of a cash balance.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record CashBalance13
     /// <summary>
     /// Date and time at which the balance is or will be available.
     /// </summary>
-    public IDateAndDateTime2Choice? ValueDate { get; init; } 
+    public DateAndDateTime2Choice_? ValueDate { get; init; } 
     /// <summary>
     /// Date or date time when the balance was last updated following an entry posted to the account, in the books of the account servicing institution.
     /// </summary>
-    public IDateAndDateTime2Choice? ProcessingDate { get; init; } 
+    public DateAndDateTime2Choice_? ProcessingDate { get; init; } 
     /// <summary>
     /// Number of payments taken into account for the calculation of the cash balance value.
     /// </summary>

@@ -28,11 +28,11 @@ public partial record PaymentTypeInformation23
     /// <summary>
     /// Agreement under which or rules under which the transaction should be processed.
     /// </summary>
-    public IServiceLevel8Choice? ServiceLevel { get; init; } 
+    public ServiceLevel8Choice_? ServiceLevel { get; init; } 
     /// <summary>
     /// User community specific instrument.|Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.
     /// </summary>
-    public ILocalInstrument2Choice? LocalInstrument { get; init; } 
+    public LocalInstrument2Choice_? LocalInstrument { get; init; } 
     
     #nullable disable
 }

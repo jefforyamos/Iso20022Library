@@ -20,11 +20,11 @@ public partial record SystemClosure2
     /// <summary>
     /// Period of time when the system is closed/not operating.
     /// </summary>
-    public IDateTimePeriod1Choice? Period { get; init; } 
+    public DateTimePeriod1Choice_? Period { get; init; } 
     /// <summary>
     /// Reason the system is closed/not operating.
     /// </summary>
-    public required IClosureReason2Choice Reason { get; init; } 
+    public required ClosureReason2Choice_ Reason { get; init; } 
     
     #nullable disable
 }

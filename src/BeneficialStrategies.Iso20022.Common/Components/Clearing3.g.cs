@@ -20,12 +20,12 @@ public partial record Clearing3
     /// <summary>
     /// Provides details about the clearing member identification and account.
     /// </summary>
-    public PartyIdentificationAndAccount78? ClearingMember { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentificationAndAccount78[] ClearingMember { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Clearing organisation that will clear the trade.
     /// Note: This field allows Clearing Member Firm to segregate flows coming from clearing counterparty's clearing system. Indeed, Clearing Member Firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.
     /// </summary>
-    public IPartyIdentification35Choice? ClearingSegment { get; init; } 
+    public PartyIdentification35Choice_? ClearingSegment { get; init; } 
     
     #nullable disable
 }

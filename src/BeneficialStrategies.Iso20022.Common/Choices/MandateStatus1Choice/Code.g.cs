@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateStatus1Choice;
 /// <summary>
 /// Status of the mandate, in a coded form as published in an external list.
 /// </summary>
-public partial record Code : IMandateStatus1Choice
+public partial record Code : MandateStatus1Choice_
 {
     public required ExternalMandateStatus1Code Value { get; init; }
 }

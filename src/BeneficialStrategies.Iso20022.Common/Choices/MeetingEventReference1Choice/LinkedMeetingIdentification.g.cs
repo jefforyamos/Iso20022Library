@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MeetingEventReference1Choice;
 /// <summary>
 /// Reference assigned by the account servicer to unambiguously identify a related meeting event.
 /// </summary>
-public partial record LinkedMeetingIdentification : IMeetingEventReference1Choice
+public partial record LinkedMeetingIdentification : MeetingEventReference1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

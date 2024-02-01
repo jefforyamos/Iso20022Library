@@ -20,15 +20,15 @@ public partial record AggregateBalanceInformation4
     /// <summary>
     /// Total quantity of financial instrument for the referenced holding.
     /// </summary>
-    public required IBalanceQuantity1Choice AggregateQuantity { get; init; } 
+    public required BalanceQuantity1Choice_ AggregateQuantity { get; init; } 
     /// <summary>
     /// Total quantity of financial instrument for the referenced holding that is available.
     /// </summary>
-    public IBalanceQuantity1Choice? AvailableQuantity { get; init; } 
+    public BalanceQuantity1Choice_? AvailableQuantity { get; init; } 
     /// <summary>
     /// Total quantity of financial instrument for the referenced holding that is not available.
     /// </summary>
-    public IBalanceQuantity1Choice? NotAvailableQuantity { get; init; } 
+    public BalanceQuantity1Choice_? NotAvailableQuantity { get; init; } 
     /// <summary>
     /// Specifies the number of days used for calculating the accrued interest amount.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record AggregateBalanceInformation4
     /// <summary>
     /// Total value of a balance of the securities account for a specific financial instrument, expressed in one or more currencies.
     /// </summary>
-    public IsoActiveOrHistoricCurrencyAndAmount? HoldingValue { get; init;  } // Warning: Don't know multiplicity.
+    public IsoActiveOrHistoricCurrencyAndAmount[] HoldingValue { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Previous total value of a balance of the securities account for a specific financial instrument, expressed in one or more currencies.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record AggregateBalanceInformation4
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public ISafekeepingPlaceFormatChoice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormatChoice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Security held on the account for which the balance is calculated.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record AggregateBalanceInformation4
     /// <summary>
     /// Price of the financial instrument in one or more currencies.
     /// </summary>
-    public PriceInformation2? PriceDetails { get; init;  } // Warning: Don't know multiplicity.
+    public PriceInformation2[] PriceDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency exchange related to a securities order.
     /// </summary>
@@ -72,15 +72,15 @@ public partial record AggregateBalanceInformation4
     /// <summary>
     /// Net position of a segregated holding of a single security within the overall position held in a securities account, eg, sub-balance per status.
     /// </summary>
-    public SubBalanceInformation2? BalanceBreakdownDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SubBalanceInformation2[] BalanceBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net position of a segregated holding of a single security within the overall position held in a securities account, eg, sub-balance per status.
     /// </summary>
-    public AdditionalBalanceInformation2? AdditionalBalanceBreakdownDetails { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalBalanceInformation2[] AdditionalBalanceBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account at a specified place of safekeeping.
     /// </summary>
-    public AggregateBalancePerSafekeepingPlace3? BalanceAtSafekeepingPlace { get; init;  } // Warning: Don't know multiplicity.
+    public AggregateBalancePerSafekeepingPlace3[] BalanceAtSafekeepingPlace { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

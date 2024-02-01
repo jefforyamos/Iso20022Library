@@ -40,15 +40,15 @@ public partial record EmploymentDetails1
     /// <summary>
     /// Start date of the employment period.
     /// </summary>
-    public IDateFormat42Choice? StartDate { get; init; } 
+    public DateFormat42Choice_? StartDate { get; init; } 
     /// <summary>
     /// End date of the employment period.
     /// </summary>
-    public IDateFormat42Choice? EndDate { get; init; } 
+    public DateFormat42Choice_? EndDate { get; init; } 
     /// <summary>
     /// Additional information about the employment.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

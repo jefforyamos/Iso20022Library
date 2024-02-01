@@ -26,7 +26,7 @@ public partial record TransparencyDataReport20
     /// <summary>
     /// Identifies the financial instrument or the class of financial instruments to which the result relates.
     /// </summary>
-    public required IInstrumentOrSubClassIdentification2Choice Identification { get; init; } 
+    public required InstrumentOrSubClassIdentification2Choice_ Identification { get; init; } 
     /// <summary>
     /// Full name of the reporting entity.
     /// </summary>
@@ -38,7 +38,7 @@ public partial record TransparencyDataReport20
     /// <summary>
     /// Period to which the quantitative data fields relate.
     /// </summary>
-    public IPeriod4Choice? ReportingPeriod { get; init; } 
+    public Period4Choice_? ReportingPeriod { get; init; } 
     /// <summary>
     /// Flag to say if this ISIN is liquid or not post calculations.
     /// Usage:
@@ -48,19 +48,19 @@ public partial record TransparencyDataReport20
     /// <summary>
     /// The pre-trade Large in Scale threshold.
     /// </summary>
-    public ITonsOrCurrency2Choice? PreTradeLargeInScaleThreshold { get; init; } 
+    public TonsOrCurrency2Choice_? PreTradeLargeInScaleThreshold { get; init; } 
     /// <summary>
     /// The post-trade Large in Scale threshold.
     /// </summary>
-    public ITonsOrCurrency2Choice? PostTradeLargeInScaleThreshold { get; init; } 
+    public TonsOrCurrency2Choice_? PostTradeLargeInScaleThreshold { get; init; } 
     /// <summary>
     /// The pre-trade Size Specific to an Instrument threshold.
     /// </summary>
-    public ITonsOrCurrency2Choice? PreTradeInstrumentSizeSpecificThreshold { get; init; } 
+    public TonsOrCurrency2Choice_? PreTradeInstrumentSizeSpecificThreshold { get; init; } 
     /// <summary>
     /// The post-trade Size Specific to an Instrument threshold.
     /// </summary>
-    public ITonsOrCurrency2Choice? PostTradeInstrumentSizeSpecificThreshold { get; init; } 
+    public TonsOrCurrency2Choice_? PostTradeInstrumentSizeSpecificThreshold { get; init; } 
     /// <summary>
     /// Statistics for a financial instrument generated as part of transparency calculations.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionCollateralData14Choic
 /// <summary>
 /// Data on collateral used for the buy sell back transaction.
 /// </summary>
-public partial record BuySellBack : ITransactionCollateralData14Choice
+public partial record BuySellBack : TransactionCollateralData14Choice_
 {
     #nullable enable
     /// <summary>
@@ -30,6 +30,6 @@ public partial record BuySellBack : ITransactionCollateralData14Choice
     /// <summary>
     /// Identification of the collateral basket.
     /// </summary>
-    public ISecurityIdentification26Choice? BasketIdentifier { get; init; } 
+    public SecurityIdentification26Choice_? BasketIdentifier { get; init; } 
     #nullable disable
 }

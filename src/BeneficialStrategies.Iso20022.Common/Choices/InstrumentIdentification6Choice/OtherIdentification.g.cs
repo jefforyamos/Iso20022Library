@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstrumentIdentification6Choice;
 /// <summary>
 /// Other identification of a security assigned by an institution or organisation.
 /// </summary>
-public partial record OtherIdentification : IInstrumentIdentification6Choice
+public partial record OtherIdentification : InstrumentIdentification6Choice_
 {
     #nullable enable
     /// <summary>

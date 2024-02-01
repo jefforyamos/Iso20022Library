@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementStandingInstructionDat
 /// <summary>
 /// Settlement standing instruction database expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ISettlementStandingInstructionDatabase1Choice
+public partial record Code : SettlementStandingInstructionDatabase1Choice_
 {
     public required SettlementStandingInstructionDatabase1Code Value { get; init; }
 }

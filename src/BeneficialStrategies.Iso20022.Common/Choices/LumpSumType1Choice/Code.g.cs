@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LumpSumType1Choice;
 /// <summary>
 /// Type of lump sum expressed as a code.
 /// </summary>
-public partial record Code : ILumpSumType1Choice
+public partial record Code : LumpSumType1Choice_
 {
     public required LumpSumType1Code Value { get; init; }
 }

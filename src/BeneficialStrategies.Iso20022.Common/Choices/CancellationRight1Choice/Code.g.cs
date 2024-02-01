@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationRight1Choice;
 /// <summary>
 /// Cancellation right expressed as a code.
 /// </summary>
-public partial record Code : ICancellationRight1Choice
+public partial record Code : CancellationRight1Choice_
 {
     public required CancellationRight1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument19Choice;
 /// <summary>
 /// Settlement instructions for a payment by draft.
 /// </summary>
-public partial record BankersDraftDetails : IPaymentInstrument19Choice
+public partial record BankersDraftDetails : PaymentInstrument19Choice_
 {
     #nullable enable
     /// <summary>

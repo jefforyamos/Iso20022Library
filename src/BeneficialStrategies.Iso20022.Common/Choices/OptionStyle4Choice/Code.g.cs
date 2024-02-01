@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionStyle4Choice;
 /// <summary>
 /// Option style expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IOptionStyle4Choice
+public partial record Code : OptionStyle4Choice_
 {
     public required OptionStyle2Code Value { get; init; }
 }

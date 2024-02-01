@@ -20,15 +20,15 @@ public partial record ReservationSearchCriteria3
     /// <summary>
     /// Identification of a particular cash clearing system.
     /// </summary>
-    public ISystemIdentification2Choice? SystemIdentification { get; init; } 
+    public SystemIdentification2Choice_? SystemIdentification { get; init; } 
     /// <summary>
     /// Type of reservation as set by default in the system. The default reservation is applicable by the system unless otherwise instructed.
     /// </summary>
-    public ReservationType1Code? DefaultReservationType { get; init;  } // Warning: Don't know multiplicity.
+    public ReservationType1Code[] DefaultReservationType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of reservation applied by the system at the present time.
     /// </summary>
-    public ReservationType1Code? CurrentReservationType { get; init;  } // Warning: Don't know multiplicity.
+    public ReservationType1Code[] CurrentReservationType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record ReservationSearchCriteria3
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public IAccountIdentification4Choice? AccountIdentification { get; init; } 
+    public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Party44Choice;
 /// <summary>
 /// Identification of a person or an organisation.
 /// </summary>
-public partial record OrganisationIdentification : IParty44Choice
+public partial record OrganisationIdentification : Party44Choice_
 {
     #nullable enable
     /// <summary>
@@ -26,7 +26,7 @@ public partial record OrganisationIdentification : IParty44Choice
     /// <summary>
     /// Unique and unambiguous identification of a party.
     /// </summary>
-    public IParty38Choice? Identification { get; init; } 
+    public Party38Choice_? Identification { get; init; } 
     /// <summary>
     /// Country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
     /// </summary>

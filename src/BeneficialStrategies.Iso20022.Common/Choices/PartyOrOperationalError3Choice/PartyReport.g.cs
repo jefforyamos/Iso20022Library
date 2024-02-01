@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrOperationalError3Choice;
 /// <summary>
 /// Report information about party reference data.
 /// </summary>
-public partial record PartyReport : IPartyOrOperationalError3Choice
+public partial record PartyReport : PartyOrOperationalError3Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record PartyReport : IPartyOrOperationalError3Choice
     /// <summary>
     /// Identifies the returned party reference data or error information.
     /// </summary>
-    public required IPartyOrBusinessError3Choice PartyOrError { get; init; } 
+    public required PartyOrBusinessError3Choice_ PartyOrError { get; init; } 
     #nullable disable
 }

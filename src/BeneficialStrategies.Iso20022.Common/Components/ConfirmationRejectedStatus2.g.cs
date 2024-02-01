@@ -20,7 +20,7 @@ public partial record ConfirmationRejectedStatus2
     /// <summary>
     /// Reason for the rejected status.
     /// </summary>
-    public IConfirmationRejectedReason1Choice? Reason { get; init; } 
+    public ConfirmationRejectedReason1Choice_? Reason { get; init; } 
     /// <summary>
     /// Additional information about the rejected reason.
     /// </summary>

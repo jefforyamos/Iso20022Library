@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateBasis1Choice;
 /// <summary>
 /// Exchange rate basis expressed as a currency pair.
 /// </summary>
-public partial record CurrencyPair : IExchangeRateBasis1Choice
+public partial record CurrencyPair : ExchangeRateBasis1Choice_
 {
     #nullable enable
     /// <summary>

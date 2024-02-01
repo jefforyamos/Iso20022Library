@@ -24,7 +24,7 @@ public partial record Booking1
     /// <summary>
     /// Indicates what constitutes a bookable unit, ie, a partial execution, or an aggregated execution.
     /// </summary>
-    public IBookingUnit1Choice? BookingUnit { get; init; } 
+    public BookingUnit1Choice_? BookingUnit { get; init; } 
     /// <summary>
     /// Indicates the method of preallocation.
     /// </summary>

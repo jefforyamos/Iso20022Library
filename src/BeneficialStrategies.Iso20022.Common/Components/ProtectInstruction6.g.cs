@@ -40,7 +40,7 @@ public partial record ProtectInstruction6
     /// <summary>
     /// Remaining quantity of protect instruction which has not been covered.
     /// </summary>
-    public IFinancialInstrumentQuantity31Choice? UncoveredProtectQuantity { get; init; } 
+    public FinancialInstrumentQuantity31Choice_? UncoveredProtectQuantity { get; init; } 
     
     #nullable disable
 }

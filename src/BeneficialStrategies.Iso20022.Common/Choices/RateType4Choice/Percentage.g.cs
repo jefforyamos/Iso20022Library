@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType4Choice;
 /// <summary>
 /// Ratio of the amount of interest paid during a certain period of time compared to the principal amount of the interest bearing financial instrument.
 /// </summary>
-public partial record Percentage : IRateType4Choice
+public partial record Percentage : RateType4Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

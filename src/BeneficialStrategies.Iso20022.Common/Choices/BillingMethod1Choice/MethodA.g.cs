@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingMethod1Choice;
 /// <summary>
 /// Tax values are based on tax calculation method A.
 /// </summary>
-public partial record MethodA : IBillingMethod1Choice
+public partial record MethodA : BillingMethod1Choice_
 {
     #nullable enable
     /// <summary>

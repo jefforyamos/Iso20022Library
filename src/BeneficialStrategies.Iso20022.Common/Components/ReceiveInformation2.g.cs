@@ -20,11 +20,11 @@ public partial record ReceiveInformation2
     /// <summary>
     /// Charge related to the transfer of a financial instrument.
     /// </summary>
-    public Charge4? ChargeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Charge4[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax related to the transfer of a financial instrument.
     /// </summary>
-    public Tax3? TaxDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Tax3[] TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction.
     /// </summary>

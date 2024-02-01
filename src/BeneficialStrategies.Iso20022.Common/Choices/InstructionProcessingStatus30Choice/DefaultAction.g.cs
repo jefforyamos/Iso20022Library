@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus30Cho
 /// <summary>
 /// Default action is taken.
 /// </summary>
-public partial record DefaultAction : IInstructionProcessingStatus30Choice
+public partial record DefaultAction : InstructionProcessingStatus30Choice_
 {
     #nullable enable
     /// <summary>

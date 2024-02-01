@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemIdentification3Cho
 /// <summary>
 /// Clearing system identification in a proprietary form.
 /// </summary>
-public partial record Proprietary : IClearingSystemIdentification3Choice
+public partial record Proprietary : ClearingSystemIdentification3Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

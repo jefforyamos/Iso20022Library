@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationSource5Choice;
 /// <summary>
 /// Country of the proprietary identification scheme.
 /// </summary>
-public partial record DomesticIdentificationSource : IIdentificationSource5Choice
+public partial record DomesticIdentificationSource : IdentificationSource5Choice_
 {
     public required CountryCode Value { get; init; }
 }

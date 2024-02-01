@@ -28,7 +28,7 @@ public partial record LoyaltyRebates1
     /// <summary>
     /// Amount of the payment transaction related to the Loyalty.
     /// </summary>
-    public SaleItemRebate1? SaleItemRebate { get; init;  } // Warning: Don't know multiplicity.
+    public SaleItemRebate1[] SaleItemRebate { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

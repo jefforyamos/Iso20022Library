@@ -20,7 +20,7 @@ public partial record ClearingPartyAndTime9
     /// <summary>
     /// In the case of a contract that has been cleared, the unique code for the clearing counterparty that has cleared the contract.
     /// </summary>
-    public IOrganisationIdentification9Choice? CCP { get; init; } 
+    public OrganisationIdentification9Choice_? CCP { get; init; } 
     /// <summary>
     /// Time and date when clearing took place.
     /// </summary>

@@ -28,7 +28,7 @@ public partial record CardTransaction1
     /// <summary>
     /// Card transaction details, which can be either globalised by the acquirer or individual transaction.
     /// </summary>
-    public ICardTransaction1Choice? Transaction { get; init; } 
+    public CardTransaction1Choice_? Transaction { get; init; } 
     
     #nullable disable
 }

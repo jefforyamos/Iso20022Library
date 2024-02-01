@@ -20,7 +20,7 @@ public partial record BillingRate1
     /// <summary>
     /// Defines the type of rate or factor.
     /// </summary>
-    public required IBillingRateIdentification1Choice Identification { get; init; } 
+    public required BillingRateIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Value of the rate or factor identified in the rate identification.
     /// </summary>

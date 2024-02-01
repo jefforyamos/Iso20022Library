@@ -24,15 +24,15 @@ public partial record MovementInstruction1
     /// <summary>
     /// Provides information about the underlying securities movement.
     /// </summary>
-    public UnderlyingSecurityMovement1? UnderlyingSecuritiesMovementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public UnderlyingSecurityMovement1[] UnderlyingSecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the underlying cash movement.
     /// </summary>
-    public CashMovement2? UnderlyingCashMovementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashMovement2[] UnderlyingCashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the proceeds, ie, outturned resources.
     /// </summary>
-    public ProceedsMovement1? ProceedsMovementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ProceedsMovement1[] ProceedsMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

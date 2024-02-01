@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DeadlineCode3Choice;
 /// <summary>
 /// Standard code to specify the reference date of a corporate action.
 /// </summary>
-public partial record Code : IDeadlineCode3Choice
+public partial record Code : DeadlineCode3Choice_
 {
     public required CorporateActionDeadline1Code Value { get; init; }
 }

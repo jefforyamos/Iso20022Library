@@ -28,11 +28,11 @@ public partial record Reference22
     /// <summary>
     /// Value of the reference.
     /// </summary>
-    public required IReferenceValue1Choice Value { get; init; } 
+    public required ReferenceValue1Choice_ Value { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

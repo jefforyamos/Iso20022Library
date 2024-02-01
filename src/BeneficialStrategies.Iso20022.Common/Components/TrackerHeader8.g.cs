@@ -40,7 +40,7 @@ public partial record TrackerHeader8
     /// <summary>
     /// Agreement under which or rules under which the request should be processed.
     /// </summary>
-    public IServiceLevel8Choice? ServiceLevel { get; init; } 
+    public ServiceLevel8Choice_? ServiceLevel { get; init; } 
     
     #nullable disable
 }

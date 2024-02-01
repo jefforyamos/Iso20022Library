@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionFeaturesFormat25Choice;
 /// <summary>
 /// Standard code to specify the features that may apply to a corporate action option.
 /// </summary>
-public partial record Code : IOptionFeaturesFormat25Choice
+public partial record Code : OptionFeaturesFormat25Choice_
 {
     public required OptionFeatures12Code Value { get; init; }
 }

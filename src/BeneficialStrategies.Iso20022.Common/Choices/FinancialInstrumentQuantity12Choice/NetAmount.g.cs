@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity12Cho
 /// <summary>
 /// Amount of money used to derive the quantity of investment fund units to be sold.
 /// </summary>
-public partial record NetAmount : IFinancialInstrumentQuantity12Choice
+public partial record NetAmount : FinancialInstrumentQuantity12Choice_
 {
     public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
 }

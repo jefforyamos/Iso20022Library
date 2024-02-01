@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason8FormatChoice;
 /// <summary>
 /// Proprietary code to express the reason of a rejection of an election amendment request.
 /// </summary>
-public partial record Proprietary : IRejectionReason8FormatChoice
+public partial record Proprietary : RejectionReason8FormatChoice_
 {
     #nullable enable
     /// <summary>

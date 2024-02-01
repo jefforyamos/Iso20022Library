@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AllocationSatus1Choice;
 /// <summary>
 /// Provides the status of allocation of collateral to cover the instruction.
 /// </summary>
-public partial record Code : IAllocationSatus1Choice
+public partial record Code : AllocationSatus1Choice_
 {
     public required AllocationStatus1Code Value { get; init; }
 }

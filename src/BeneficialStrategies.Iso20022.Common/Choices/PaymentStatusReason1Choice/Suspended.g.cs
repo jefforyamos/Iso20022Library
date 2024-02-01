@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReason1Choice;
 /// <summary>
 /// Reason why the payment status is suspended.
 /// </summary>
-public partial record Suspended : IPaymentStatusReason1Choice
+public partial record Suspended : PaymentStatusReason1Choice_
 {
     public required SuspendedStatusReason1Code Value { get; init; }
 }

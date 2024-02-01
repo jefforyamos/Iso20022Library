@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus66Choice;
 /// <summary>
 /// Instruction has been cancelled. The status on the processing of a cancellation request must be provided using a cancellation request report message.
 /// </summary>
-public partial record Cancelled : IProcessingStatus66Choice
+public partial record Cancelled : ProcessingStatus66Choice_
 {
     #nullable enable
     #nullable disable

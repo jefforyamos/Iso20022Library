@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntermediateSecuritiesDistributi
 /// <summary>
 /// Proprietary identification of the type of intermediate security distribution.
 /// </summary>
-public partial record Proprietary : IIntermediateSecuritiesDistributionTypeFormat9Choice
+public partial record Proprietary : IntermediateSecuritiesDistributionTypeFormat9Choice_
 {
     #nullable enable
     /// <summary>

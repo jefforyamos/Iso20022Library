@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneratedStatus7Choice;
 /// <summary>
 /// Specifies the reason of the generated status.
 /// </summary>
-public partial record Reason : IGeneratedStatus7Choice
+public partial record Reason : GeneratedStatus7Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the transaction was generated.
     /// </summary>
-    public required IGeneratedReasons5Choice Code { get; init; } 
+    public required GeneratedReasons5Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

@@ -44,7 +44,7 @@ public partial record CardPaymentTransaction7
     /// <summary>
     /// List of incidents during the transaction.
     /// </summary>
-    public FailureReason1Code? FailureReason { get; init;  } // Warning: Don't know multiplicity.
+    public FailureReason1Code[] FailureReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction assigned by the recipient party for the initiating party.
     /// </summary>

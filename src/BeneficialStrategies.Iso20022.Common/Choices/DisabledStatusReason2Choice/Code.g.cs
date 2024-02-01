@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DisabledStatusReason2Choice;
 /// <summary>
 /// Reason for the disabled account status expressed as a code.
 /// </summary>
-public partial record Code : IDisabledStatusReason2Choice
+public partial record Code : DisabledStatusReason2Choice_
 {
     public required DisabledReason2Code Value { get; init; }
 }

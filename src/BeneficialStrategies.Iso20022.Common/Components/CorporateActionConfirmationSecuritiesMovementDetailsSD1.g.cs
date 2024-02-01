@@ -28,7 +28,7 @@ public partial record CorporateActionConfirmationSecuritiesMovementDetailsSD1
     /// <summary>
     /// Resulting quantity of securities concerned in this transaction.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? TransactionQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? TransactionQuantity { get; init; } 
     /// <summary>
     /// Transaction reason.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record CorporateActionConfirmationSecuritiesMovementDetailsSD1
     /// <summary>
     /// Date/Time on which the posting /draft of the securities took place.
     /// </summary>
-    public IDateFormat22Choice? PostingDate { get; init; } 
+    public DateFormat22Choice_? PostingDate { get; init; } 
     
     #nullable disable
 }

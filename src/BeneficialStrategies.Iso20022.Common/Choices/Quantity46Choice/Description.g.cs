@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity46Choice;
 /// <summary>
 /// Textual description of the delivery quantity.
 /// </summary>
-public partial record Description : IQuantity46Choice
+public partial record Description : Quantity46Choice_
 {
     public required IsoMax52Text Value { get; init; }
 }

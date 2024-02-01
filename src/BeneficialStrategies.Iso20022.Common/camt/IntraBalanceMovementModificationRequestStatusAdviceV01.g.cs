@@ -102,7 +102,7 @@ public partial record IntraBalanceMovementModificationRequestStatusAdviceV01 : I
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required IProcessingStatus71Choice ProcessingStatus { get; init; }
+    public required ProcessingStatus71Choice_ ProcessingStatus { get; init; }
     
     /// <summary>
     /// Intra-balance movement transaction details.

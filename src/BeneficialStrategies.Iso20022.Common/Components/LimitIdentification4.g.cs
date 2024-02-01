@@ -20,7 +20,7 @@ public partial record LimitIdentification4
     /// <summary>
     /// Unique identification as assigned by the account servicer to unambiguously identify the account.
     /// </summary>
-    public required IAccountIdentification4Choice AccountIdentification { get; init; } 
+    public required AccountIdentification4Choice_ AccountIdentification { get; init; } 
     /// <summary>
     /// Nature of the risk management limit.
     /// </summary>

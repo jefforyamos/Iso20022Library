@@ -24,7 +24,7 @@ public partial record SettlementAgent1
     /// <summary>
     /// CCP’s account at the settlement agent.
     /// </summary>
-    public PaymentAccount1? Account { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentAccount1[] Account { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

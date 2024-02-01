@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Role6Choice;
 /// <summary>
 /// Role of the party in the activity.
 /// </summary>
-public partial record Text : IRole6Choice
+public partial record Text : Role6Choice_
 {
     public required IsoMax350Text Value { get; init; }
 }

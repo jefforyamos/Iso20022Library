@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NetDividendRateFormat10Choice;
 /// <summary>
 /// Value expressed as an amount.
 /// </summary>
-public partial record Amount : INetDividendRateFormat10Choice
+public partial record Amount : NetDividendRateFormat10Choice_
 {
     public required IsoActiveCurrencyAnd13DecimalAmount Value { get; init; }
 }

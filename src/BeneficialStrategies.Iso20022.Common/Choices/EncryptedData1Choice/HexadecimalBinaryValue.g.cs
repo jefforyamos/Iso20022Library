@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EncryptedData1Choice;
 /// <summary>
 /// Hexadecimal binary encoded encrypted data.
 /// </summary>
-public partial record HexadecimalBinaryValue : IEncryptedData1Choice
+public partial record HexadecimalBinaryValue : EncryptedData1Choice_
 {
     public required IsoMax9999HexBinaryText Value { get; init; }
 }

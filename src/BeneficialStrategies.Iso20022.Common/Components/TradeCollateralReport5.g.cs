@@ -22,7 +22,7 @@ public partial record TradeCollateralReport5
     /// Usage:
     /// NoCode is reported if the collateralisation was performed on a transaction level basis, or if there is no collateral agreement or if no collateral is posted or received.
     /// </summary>
-    public required IPortfolioCode1Choice PortfolioCode { get; init; } 
+    public required PortfolioCode1Choice_ PortfolioCode { get; init; } 
     /// <summary>
     /// Indicates the type of collateral agreement existing between the counterparties.
     /// </summary>

@@ -31,7 +31,7 @@ public partial record Transaction76
     /// ISO 8583:93/2003 bit 25
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    public IsoExact4NumericText? MessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoExact4NumericText[] MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Supports message reason codes that are not defined in external code list. 
     /// </summary>
@@ -53,7 +53,7 @@ public partial record Transaction76
     /// Further details of some or all amounts in the transaction amount.   
     /// The detailed amount is used to calculate the reconciliation amount for messages in which the transaction amount is absent.
     /// </summary>
-    public DetailedAmount20? DetailedAmount { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount20[] DetailedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount used for reconciliation. 
     /// Calculated based on the transaction amount, except when the transaction amount is absent. When transaction amount is absent, the reconciliation amount is calculated on the detailed amount field 
@@ -63,11 +63,11 @@ public partial record Transaction76
     /// Amounts that are not part of the transaction amount and not included in reconciliation.
     /// ISO 8583 bit 54
     /// </summary>
-    public AdditionalAmounts2? AdditionalAmounts { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalAmounts2[] AdditionalAmounts { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    public AdditionalFee1? AdditionalFees { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFee1[] AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies a customer account or a relationship to its account affected for debit, inquiries and the source of funding for transfers.
     /// </summary>
@@ -79,7 +79,7 @@ public partial record Transaction76
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

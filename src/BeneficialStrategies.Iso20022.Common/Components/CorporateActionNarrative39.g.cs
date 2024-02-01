@@ -20,7 +20,7 @@ public partial record CorporateActionNarrative39
     /// <summary>
     /// Provides the entity making the offer and is different from the issuing company.
     /// </summary>
-    public UpdatedAdditionalInformation6? Offeror { get; init;  } // Warning: Don't know multiplicity.
+    public UpdatedAdditionalInformation6[] Offeror { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the new name of a company following a name change.
     /// </summary>

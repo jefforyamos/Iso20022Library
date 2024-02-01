@@ -24,7 +24,7 @@ public partial record RepurchaseAgreement3
     /// <summary>
     /// Indicates whether the repo is a general collateral repo or specific repo.
     /// </summary>
-    public required IRepurchaseAgreementType1Choice RepurchaseAgreementType { get; init; } 
+    public required RepurchaseAgreementType1Choice_ RepurchaseAgreementType { get; init; } 
     /// <summary>
     /// Identifier for triparty agent if applicable.
     /// </summary>

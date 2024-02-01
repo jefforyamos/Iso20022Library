@@ -24,7 +24,7 @@ public partial record RequestType1
     /// <summary>
     /// Identifies the type of information request related to an original transaction number as a code.
     /// </summary>
-    public TransactionRequestType1Code? Type { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionRequestType1Code[] Type { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information, in free text form, to complement the requested information.
     /// </summary>

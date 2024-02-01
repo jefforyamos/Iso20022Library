@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Rates1Choice;
 /// <summary>
 /// Details about the variable rate.
 /// </summary>
-public partial record Floating : IRates1Choice
+public partial record Floating : Rates1Choice_
 {
     public required ExternalRatesAndTenors1Code Value { get; init; }
 }

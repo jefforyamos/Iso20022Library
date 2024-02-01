@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradePositionReport7Choice;
 /// <summary>
 /// Indicates any other amendment to the terms or details of a previously reported position.
 /// </summary>
-public partial record Other : ITradePositionReport7Choice
+public partial record Other : TradePositionReport7Choice_
 {
     #nullable enable
     /// <summary>

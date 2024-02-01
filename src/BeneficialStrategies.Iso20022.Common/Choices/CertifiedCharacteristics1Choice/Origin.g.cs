@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CertifiedCharacteristics1Choice;
 /// <summary>
 /// Country of origin of the goods, as proven by the certificate.
 /// </summary>
-public partial record Origin : ICertifiedCharacteristics1Choice
+public partial record Origin : CertifiedCharacteristics1Choice_
 {
     public required CountryCode Value { get; init; }
 }

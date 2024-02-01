@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ResponseProcessingStatus1Choice;
 /// <summary>
 /// The received message or the multipart received report (sent with pagination in multiple messages) is rejected.
 /// </summary>
-public partial record Rejected : IResponseProcessingStatus1Choice
+public partial record Rejected : ResponseProcessingStatus1Choice_
 {
     #nullable enable
     #nullable disable

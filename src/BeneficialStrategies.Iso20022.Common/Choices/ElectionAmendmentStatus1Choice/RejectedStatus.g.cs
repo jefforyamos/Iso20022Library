@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ElectionAmendmentStatus1Choice;
 /// <summary>
 /// Provides information about the rejection status.
 /// </summary>
-public partial record RejectedStatus : IElectionAmendmentStatus1Choice
+public partial record RejectedStatus : ElectionAmendmentStatus1Choice_
 {
     #nullable enable
     /// <summary>
     /// The rejection reason.
     /// </summary>
-    public IRejectionReason8FormatChoice? Reason { get; init;  } // Warning: Don't know multiplicity.
+    public RejectionReason8FormatChoice_? Reason { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the status.
     /// </summary>

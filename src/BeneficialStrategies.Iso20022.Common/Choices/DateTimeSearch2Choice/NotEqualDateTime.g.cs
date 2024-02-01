@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateTimeSearch2Choice;
 /// <summary>
 /// Specified date to be excluded from the search.
 /// </summary>
-public partial record NotEqualDateTime : IDateTimeSearch2Choice
+public partial record NotEqualDateTime : DateTimeSearch2Choice_
 {
     public required IsoISODateTime Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxCapacityParty1Choice;
 /// <summary>
 /// Party tax capacity expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITaxCapacityParty1Choice
+public partial record Proprietary : TaxCapacityParty1Choice_
 {
     #nullable enable
     /// <summary>

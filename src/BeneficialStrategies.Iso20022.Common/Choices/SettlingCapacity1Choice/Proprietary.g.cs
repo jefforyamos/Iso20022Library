@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlingCapacity1Choice;
 /// <summary>
 /// Settlement capacity expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISettlingCapacity1Choice
+public partial record Proprietary : SettlingCapacity1Choice_
 {
     #nullable enable
     /// <summary>

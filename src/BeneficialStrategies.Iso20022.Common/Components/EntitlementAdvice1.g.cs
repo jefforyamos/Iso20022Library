@@ -20,7 +20,7 @@ public partial record EntitlementAdvice1
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public required ICorporateActionOption1FormatChoice OptionType { get; init; } 
+    public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
@@ -28,15 +28,15 @@ public partial record EntitlementAdvice1
     /// <summary>
     /// Date on which the holders of securities are/will be recorded for the income being paid or for entitlement to the rights or offer/privilege.
     /// </summary>
-    public IDateFormat4Choice? RecordDate { get; init; } 
+    public DateFormat4Choice_? RecordDate { get; init; } 
     /// <summary>
     /// Date on which securities/cash will be paid.
     /// </summary>
-    public IDateFormat4Choice? PaymentDate { get; init; } 
+    public DateFormat4Choice_? PaymentDate { get; init; } 
     /// <summary>
     /// Provides information about the entitlement and the entitled account.
     /// </summary>
-    public Entitlement1? AccountAndDistributionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Entitlement1[] AccountAndDistributionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

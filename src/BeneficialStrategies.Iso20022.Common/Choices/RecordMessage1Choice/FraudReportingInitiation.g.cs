@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RecordMessage1Choice;
 /// <summary>
 /// Fraud reporting initiation message record.
 /// </summary>
-public partial record FraudReportingInitiation : IRecordMessage1Choice
+public partial record FraudReportingInitiation : RecordMessage1Choice_
 {
     public required IsoMax2MBBinary Value { get; init; }
 }

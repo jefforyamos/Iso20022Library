@@ -24,7 +24,7 @@ public partial record ProprietaryParty5
     /// <summary>
     /// Proprietary party.
     /// </summary>
-    public required IParty40Choice Party { get; init; } 
+    public required Party40Choice_ Party { get; init; } 
     
     #nullable disable
 }

@@ -20,11 +20,11 @@ public partial record Counterparty27
     /// <summary>
     /// Unique code identifying the reporting counterparty of the contract.
     /// </summary>
-    public required IOrganisationIdentification7Choice Identification { get; init; } 
+    public required OrganisationIdentification7Choice_ Identification { get; init; } 
     /// <summary>
     /// Indicates if the reporting counterparty is a central counterparty, a financial, non-financial counterparty or other type of counterparty in accordance with regulation.
     /// </summary>
-    public required ICounterpartyTradeNature4Choice Nature { get; init; } 
+    public required CounterpartyTradeNature4Choice_ Nature { get; init; } 
     /// <summary>
     /// Identifies the trading capacity of the seller.
     /// </summary>

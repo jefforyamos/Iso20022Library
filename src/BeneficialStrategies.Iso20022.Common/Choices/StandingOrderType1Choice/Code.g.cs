@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderType1Choice;
 /// <summary>
 /// Liquidity transfer standing order type, in a coded form.
 /// </summary>
-public partial record Code : IStandingOrderType1Choice
+public partial record Code : StandingOrderType1Choice_
 {
     public required StandingOrderType1Code Value { get; init; }
 }

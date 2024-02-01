@@ -20,7 +20,7 @@ public partial record CashBalance12
     /// <summary>
     /// Specifies the nature of a balance.
     /// </summary>
-    public IBalanceType11Choice? Type { get; init;  } // Warning: Don't know multiplicity.
+    public BalanceType11Choice_[] Type { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the type of counterparty for which the balance is calculated.
     /// </summary>
@@ -28,15 +28,15 @@ public partial record CashBalance12
     /// <summary>
     /// Specifies the counterparty for which the balance is calculated.
     /// </summary>
-    public BranchAndFinancialInstitutionIdentification6? CounterpartyIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public BranchAndFinancialInstitutionIdentification6[] CounterpartyIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date and time at which the balance is or will be available.
     /// </summary>
-    public IDateAndDateTimeSearch4Choice? ValueDate { get; init;  } // Warning: Don't know multiplicity.
+    public DateAndDateTimeSearch4Choice_[] ValueDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date or date time when the balance was last updated following an entry posted to the account, in the books of the account servicing institution.
     /// </summary>
-    public IDateAndDateTimeSearch4Choice? ProcessingDate { get; init; } 
+    public DateAndDateTimeSearch4Choice_? ProcessingDate { get; init; } 
     
     #nullable disable
 }

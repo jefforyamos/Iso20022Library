@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ValidationRuleSchemeName1Choice;
 /// <summary>
 /// Name of the identification scheme, in a coded form as published in an external list.
 /// </summary>
-public partial record Code : IValidationRuleSchemeName1Choice
+public partial record Code : ValidationRuleSchemeName1Choice_
 {
     public required ExternalValidationRuleIdentification1Code Value { get; init; }
 }

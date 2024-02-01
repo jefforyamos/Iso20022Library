@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ShipmentDate1Choice;
 /// <summary>
 /// Proposed date on which the goods should be shipped.
 /// </summary>
-public partial record ProposedShipmentDate : IShipmentDate1Choice
+public partial record ProposedShipmentDate : ShipmentDate1Choice_
 {
     public required IsoISODate Value { get; init; }
 }

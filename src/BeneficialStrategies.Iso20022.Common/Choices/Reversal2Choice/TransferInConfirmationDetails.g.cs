@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reversal2Choice;
 /// <summary>
 /// Details of the transfer in confirmation to be reversed.
 /// </summary>
-public partial record TransferInConfirmationDetails : IReversal2Choice
+public partial record TransferInConfirmationDetails : Reversal2Choice_
 {
     #nullable enable
     /// <summary>

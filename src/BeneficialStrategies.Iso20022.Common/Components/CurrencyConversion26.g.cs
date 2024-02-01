@@ -56,7 +56,7 @@ public partial record CurrencyConversion26
     /// <summary>
     /// Range of Bin for which the conversion is possible.
     /// </summary>
-    public BinRange1? ApplicableBinRange { get; init;  } // Warning: Don't know multiplicity.
+    public BinRange1[] ApplicableBinRange { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Original amount in the source currency.
     /// </summary>
@@ -64,15 +64,15 @@ public partial record CurrencyConversion26
     /// <summary>
     /// Commission or additional charges made as part of a currency conversion.
     /// </summary>
-    public Commission19? CommissionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Commission19[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Markup made as part of a currency conversion.
     /// </summary>
-    public Commission18? MarkUpDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Commission18[] MarkUpDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Card scheme declaration (disclaimer) to present to the cardholder.
     /// </summary>
-    public ActionMessage10? DeclarationDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ActionMessage10[] DeclarationDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

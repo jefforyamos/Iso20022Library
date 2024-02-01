@@ -20,7 +20,7 @@ public partial record SearchOutputOrder1
     /// <summary>
     /// Ordering criteria for the transaction report.
     /// </summary>
-    public CriteriaOrder1? CriteriaOrder { get; init;  } // Warning: Don't know multiplicity.
+    public CriteriaOrder1[] CriteriaOrder { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

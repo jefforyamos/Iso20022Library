@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PercentageRange1Choice;
 /// <summary>
 /// Lower boundary of a range of percentage rates.
 /// </summary>
-public partial record From : IPercentageRange1Choice
+public partial record From : PercentageRange1Choice_
 {
     #nullable enable
     /// <summary>

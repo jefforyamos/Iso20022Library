@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationType40Choice;
 /// <summary>
 /// Type of identification is defined using a code.
 /// </summary>
-public partial record Code : IIdentificationType40Choice
+public partial record Code : IdentificationType40Choice_
 {
     public required TypeOfIdentification2Code Value { get; init; }
 }

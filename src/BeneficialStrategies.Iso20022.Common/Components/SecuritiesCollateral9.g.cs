@@ -28,7 +28,7 @@ public partial record SecuritiesCollateral9
     /// <summary>
     /// Planned final repayment date at the time of issuance.
     /// </summary>
-    public IDateAndDateTime2Choice? MaturityDate { get; init; } 
+    public DateAndDateTime2Choice_? MaturityDate { get; init; } 
     /// <summary>
     /// Indicates whether the collateral is proprietarily owned or client owned.
     /// </summary>
@@ -40,11 +40,11 @@ public partial record SecuritiesCollateral9
     /// <summary>
     /// Quantity of securities collateral.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Quantity blocked by the central counterparty for any reasonable reason ( for example for judicial reasons). In this case the investor can not withdraw or distribute this collateral.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? BlockedQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? BlockedQuantity { get; init; } 
     /// <summary>
     /// Price of the security.
     /// </summary>
@@ -72,7 +72,7 @@ public partial record SecuritiesCollateral9
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public required ISafekeepingPlaceFormat29Choice SafekeepingPlace { get; init; } 
+    public required SafekeepingPlaceFormat29Choice_ SafekeepingPlace { get; init; } 
     
     #nullable disable
 }

@@ -36,7 +36,7 @@ public partial record MissingMarginData2
     /// <summary>
     /// Details of missing margins per transaction.
     /// </summary>
-    public MissingMarginTransactionData2? TransactionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public MissingMarginTransactionData2[] TransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

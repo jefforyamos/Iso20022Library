@@ -20,15 +20,15 @@ public partial record SecuritiesOption79
     /// <summary>
     /// Minimum quantity of securities to be accepted (used in the framework of conditional privilege on election). In case of proration, if this minimum quantity is not reached then the instruction is void.
     /// </summary>
-    public IFinancialInstrumentQuantity33Choice? ConditionalQuantity { get; init; } 
+    public FinancialInstrumentQuantity33Choice_? ConditionalQuantity { get; init; } 
     /// <summary>
     /// Quantity of securities to which this instruction applies.
     /// </summary>
-    public required IQuantity52Choice InstructedQuantity { get; init; } 
+    public required Quantity52Choice_ InstructedQuantity { get; init; } 
     /// <summary>
     /// Quantity of additional shares requested due to the difference of “round-up against payment” practice between the account servicer and the account holder (for instance for French dividend option).
     /// </summary>
-    public IFinancialInstrumentQuantity33Choice? AdditionalRoundUpQuantity { get; init; } 
+    public FinancialInstrumentQuantity33Choice_? AdditionalRoundUpQuantity { get; init; } 
     
     #nullable disable
 }

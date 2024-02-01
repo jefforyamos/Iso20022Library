@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NumberOrPercentage1Choice;
 /// <summary>
 /// Threshold provided as a decimal number.
 /// </summary>
-public partial record ThresholdNumber : INumberOrPercentage1Choice
+public partial record ThresholdNumber : NumberOrPercentage1Choice_
 {
     public required IsoNumber Value { get; init; }
 }

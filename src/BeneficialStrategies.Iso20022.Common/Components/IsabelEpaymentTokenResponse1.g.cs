@@ -24,7 +24,7 @@ public partial record IsabelEpaymentTokenResponse1
     /// <summary>
     /// Individual record holding all data related to a payment file that is being used during the signature process.
     /// </summary>
-    public IReadOnlyCollection<IsabelLRCIPaymentInformation1> PaymentInformation { get; init; } = [];
+    public IsabelLRCIPaymentInformation1[] PaymentInformation { get; init; } = [];
     /// <summary>
     /// Mathematical scheme for demonstrating the authenticity of the original server challenge exchanged by the LRCI protocol during the signature process.
     /// </summary>

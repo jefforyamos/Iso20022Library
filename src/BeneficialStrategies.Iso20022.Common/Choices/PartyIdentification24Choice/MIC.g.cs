@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification24Choice;
 /// <summary>
 /// Market Identifier Code. Identification of a financial market, as stipulated in the norm ISO 10383 "Codes for exchanges and market identifications".
 /// </summary>
-public partial record MIC : IPartyIdentification24Choice
+public partial record MIC : PartyIdentification24Choice_
 {
     public required IsoMICIdentifier Value { get; init; }
 }

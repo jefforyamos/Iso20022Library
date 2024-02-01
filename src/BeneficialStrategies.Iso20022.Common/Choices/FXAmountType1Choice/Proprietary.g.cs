@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FXAmountType1Choice;
 /// <summary>
 /// Specifies a commission or fee types, as a proprietary code.
 /// </summary>
-public partial record Proprietary : IFXAmountType1Choice
+public partial record Proprietary : FXAmountType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

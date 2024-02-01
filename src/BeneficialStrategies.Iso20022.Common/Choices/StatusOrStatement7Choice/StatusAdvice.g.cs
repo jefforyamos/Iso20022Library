@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.StatusOrStatement7Choice;
 /// <summary>
 /// Identify the status advice and the transaction for which the status advice was requested.
 /// </summary>
-public partial record StatusAdvice : IStatusOrStatement7Choice
+public partial record StatusAdvice : StatusOrStatement7Choice_
 {
     #nullable enable
     /// <summary>
     /// Number used to identify a message or document.
     /// </summary>
-    public required IDocumentNumber5Choice Number { get; init; } 
+    public required DocumentNumber5Choice_ Number { get; init; } 
     /// <summary>
     /// References of transaction for which the status is requested.
     /// </summary>

@@ -20,7 +20,7 @@ public partial record PendingCancellationStatusReason10
     /// <summary>
     /// Reason for the pending status.
     /// </summary>
-    public required IPendingCancellationReason7Choice ReasonCode { get; init; } 
+    public required PendingCancellationReason7Choice_ ReasonCode { get; init; } 
     /// <summary>
     /// Additional information about the pending status.
     /// </summary>

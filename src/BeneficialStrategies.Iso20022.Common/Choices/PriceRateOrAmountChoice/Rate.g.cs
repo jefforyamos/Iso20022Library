@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceRateOrAmountChoice;
 /// <summary>
 /// Price expressed as a rate, that is percentage.
 /// </summary>
-public partial record Rate : IPriceRateOrAmountChoice
+public partial record Rate : PriceRateOrAmountChoice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

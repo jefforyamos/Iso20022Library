@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargePaymentMethod1Choice;
 /// <summary>
 /// Charge payment method expressed as a code.
 /// </summary>
-public partial record Code : IChargePaymentMethod1Choice
+public partial record Code : ChargePaymentMethod1Choice_
 {
     public required ChargePaymentMethod1Code Value { get; init; }
 }

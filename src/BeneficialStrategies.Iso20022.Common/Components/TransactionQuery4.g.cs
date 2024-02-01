@@ -24,7 +24,7 @@ public partial record TransactionQuery4
     /// <summary>
     /// Defines the payment transaction query criteria.
     /// </summary>
-    public ITransactionCriteria4Choice? TransactionCriteria { get; init; } 
+    public TransactionCriteria4Choice_? TransactionCriteria { get; init; } 
     
     #nullable disable
 }

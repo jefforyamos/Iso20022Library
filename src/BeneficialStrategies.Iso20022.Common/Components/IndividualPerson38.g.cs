@@ -20,7 +20,7 @@ public partial record IndividualPerson38
     /// <summary>
     /// Term used to address the person.
     /// </summary>
-    public INamePrefix1Choice? NamePrefix { get; init; } 
+    public NamePrefix1Choice_? NamePrefix { get; init; } 
     /// <summary>
     /// First name of the person.
     /// </summary>
@@ -64,11 +64,11 @@ public partial record IndividualPerson38
     /// <summary>
     /// Information related to an address to be inserted, updated or deleted.
     /// </summary>
-    public ModificationScope34? ModifiedPostalAddress { get; init;  } // Warning: Don't know multiplicity.
+    public ModificationScope34[] ModifiedPostalAddress { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Citizenship information to be inserted or deleted.
     /// </summary>
-    public IReadOnlyCollection<ModificationScope39> ModifiedCitizenship { get; init; } = [];
+    public ModificationScope39[] ModifiedCitizenship { get; init; } = [];
     /// <summary>
     /// Organisation represented by a person, or for which a person works.
     /// </summary>
@@ -88,7 +88,7 @@ public partial record IndividualPerson38
     /// <summary>
     /// Civil status of the individual person.
     /// </summary>
-    public ICivilStatus1Choice? CivilStatus { get; init; } 
+    public CivilStatus1Choice_? CivilStatus { get; init; } 
     /// <summary>
     /// Highest level of education reached by the individual person.
     /// </summary>
@@ -100,7 +100,7 @@ public partial record IndividualPerson38
     /// <summary>
     /// Information about the individual's consent to use personal data under the General Protection Regulation (GDPR) 2016/679 regulation.
     /// </summary>
-    public GDPRData1? GDPRData { get; init;  } // Warning: Don't know multiplicity.
+    public GDPRData1[] GDPRData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

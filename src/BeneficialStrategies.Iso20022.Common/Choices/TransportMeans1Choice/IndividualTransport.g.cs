@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransportMeans1Choice;
 /// <summary>
 /// Moving of goods or people from one place to another by vehicle.
 /// </summary>
-public partial record IndividualTransport : ITransportMeans1Choice
+public partial record IndividualTransport : TransportMeans1Choice_
 {
     #nullable enable
     /// <summary>

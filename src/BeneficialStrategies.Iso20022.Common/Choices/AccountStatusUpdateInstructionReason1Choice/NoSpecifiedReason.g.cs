@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountStatusUpdateInstructionRe
 /// <summary>
 /// There is no reason available or to report for the instruction to change the account status.
 /// </summary>
-public partial record NoSpecifiedReason : IAccountStatusUpdateInstructionReason1Choice
+public partial record NoSpecifiedReason : AccountStatusUpdateInstructionReason1Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

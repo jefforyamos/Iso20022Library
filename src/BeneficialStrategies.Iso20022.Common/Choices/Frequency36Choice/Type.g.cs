@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Frequency36Choice;
 /// <summary>
 /// Specifies a frequency in terms of a specified period type.
 /// </summary>
-public partial record Type : IFrequency36Choice
+public partial record Type : Frequency36Choice_
 {
     public required Frequency6Code Value { get; init; }
 }

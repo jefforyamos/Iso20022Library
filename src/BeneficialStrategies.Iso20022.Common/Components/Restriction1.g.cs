@@ -20,7 +20,7 @@ public partial record Restriction1
     /// <summary>
     /// Type of the restriction.
     /// </summary>
-    public required ICodeOrProprietary1Choice RestrictionType { get; init; } 
+    public required CodeOrProprietary1Choice_ RestrictionType { get; init; } 
     /// <summary>
     /// Date from when the restriction is valid.
     /// </summary>

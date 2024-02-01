@@ -24,7 +24,7 @@ public partial record AcquirerHostConfiguration9
     /// <summary>
     /// Types of message to sent to this host.
     /// </summary>
-    public MessageFunction43Code? MessageToSend { get; init;  } // Warning: Don't know multiplicity.
+    public MessageFunction43Code[] MessageToSend { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Protocol version to use when using these parameters.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record AcquirerHostConfiguration9
     /// <summary>
     /// List of types that the receiver supports and that the sender could use as type of an ExternallyDefinedData message component.
     /// </summary>
-    public IsoMax1025Text? ExternallyTypeSupported { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax1025Text[] ExternallyTypeSupported { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

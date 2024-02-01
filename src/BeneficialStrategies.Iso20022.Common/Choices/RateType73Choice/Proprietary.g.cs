@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType73Choice;
 /// <summary>
 /// Proprietary identification of the type of net dividend rate.
 /// </summary>
-public partial record Proprietary : IRateType73Choice
+public partial record Proprietary : RateType73Choice_
 {
     #nullable enable
     /// <summary>

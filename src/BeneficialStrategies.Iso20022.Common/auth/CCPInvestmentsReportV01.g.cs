@@ -46,7 +46,7 @@ public partial record CCPInvestmentsReportV01 : IOuterRecord
     [DataMember(Name="Invstmt")]
     [XmlElement(ElementName="Invstmt")]
     [Required]
-    public required IInvestment1Choice Investment { get; init; }
+    public required Investment1Choice_ Investment { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

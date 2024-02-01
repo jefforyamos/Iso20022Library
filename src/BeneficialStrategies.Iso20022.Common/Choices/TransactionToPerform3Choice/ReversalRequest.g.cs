@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform3Choice;
 /// <summary>
 /// Content of the Reversal Request message.
 /// </summary>
-public partial record ReversalRequest : ITransactionToPerform3Choice
+public partial record ReversalRequest : TransactionToPerform3Choice_
 {
     #nullable enable
     /// <summary>

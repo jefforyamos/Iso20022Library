@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstitutionIdentificati
 /// <summary>
 /// Name and address of the party.
 /// </summary>
-public partial record NameAndAddress : IFinancialInstitutionIdentification10Choice
+public partial record NameAndAddress : FinancialInstitutionIdentification10Choice_
 {
     #nullable enable
     /// <summary>

@@ -20,7 +20,7 @@ public partial record PreviousYear4
     /// <summary>
     /// Investment plans issued during previous years.
     /// </summary>
-    public required IPreviousYear1Choice PreviousYears { get; init; } 
+    public required PreviousYear1Choice_ PreviousYears { get; init; } 
     /// <summary>
     /// Indicates whether the product contains a cash asset for transfer from previous years.
     /// </summary>

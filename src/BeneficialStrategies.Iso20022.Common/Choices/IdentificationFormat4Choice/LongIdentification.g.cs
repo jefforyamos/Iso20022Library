@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationFormat4Choice;
 /// <summary>
 /// Format expressed as a long identification.
 /// </summary>
-public partial record LongIdentification : IIdentificationFormat4Choice
+public partial record LongIdentification : IdentificationFormat4Choice_
 {
     public required IsoRestrictedFINXMax30Text Value { get; init; }
 }

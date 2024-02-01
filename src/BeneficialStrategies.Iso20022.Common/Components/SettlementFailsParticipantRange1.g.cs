@@ -20,11 +20,11 @@ public partial record SettlementFailsParticipantRange1
     /// <summary>
     /// Participant with the highest volume of settlement fails.
     /// </summary>
-    public SettlementFailsParticipant1? HighestInVolume { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementFailsParticipant1[] HighestInVolume { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Participant with the highest value of settlement fails.
     /// </summary>
-    public SettlementFailsParticipant1? HighestInValue { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementFailsParticipant1[] HighestInValue { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

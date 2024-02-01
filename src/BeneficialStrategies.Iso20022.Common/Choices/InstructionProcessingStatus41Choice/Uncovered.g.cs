@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus41Cho
 /// <summary>
 /// Cover protect instruction accepted but it has not fully covered the protect instruction.
 /// </summary>
-public partial record Uncovered : IInstructionProcessingStatus41Choice
+public partial record Uncovered : InstructionProcessingStatus41Choice_
 {
     #nullable enable
     /// <summary>

@@ -60,7 +60,7 @@ public partial record ReportData6
     /// <summary>
     /// Additional report attributes or information.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Report format.
     /// </summary>
@@ -72,7 +72,7 @@ public partial record ReportData6
     /// <summary>
     /// Contains the content of a report.
     /// </summary>
-    public ReportContent1? Content { get; init;  } // Warning: Don't know multiplicity.
+    public ReportContent1[] Content { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

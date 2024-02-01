@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RenounceableStatus1FormatChoice;
 /// <summary>
 /// Standard code to specify the renounceable status.
 /// </summary>
-public partial record Code : IRenounceableStatus1FormatChoice
+public partial record Code : RenounceableStatus1FormatChoice_
 {
     public required RenounceableStatus1Code Value { get; init; }
 }

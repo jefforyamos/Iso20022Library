@@ -28,7 +28,7 @@ public partial record PartyLockStatus1
     /// <summary>
     /// Specifies the underlying reason for the locking of the party.
     /// </summary>
-    public IsoMax35Text? LockReason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] LockReason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

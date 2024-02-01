@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity22Cho
 /// <summary>
 /// Quantity expressed as an amount representing the current amortised face amount of a bond, for example, a periodic reduction/increase of a bond's principal amount.
 /// </summary>
-public partial record AmortisedValue : IFinancialInstrumentQuantity22Choice
+public partial record AmortisedValue : FinancialInstrumentQuantity22Choice_
 {
     public required IsoRestrictedFINImpliedCurrencyAndAmount Value { get; init; }
 }

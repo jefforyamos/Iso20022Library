@@ -48,19 +48,19 @@ public partial record IntraBalancePosting6
     /// <summary>
     /// Amount of money effectively settled and which will be credited to/debited from the account owner's cash account. It may differ from the instructed settlement amount based on market tolerance level.
     /// </summary>
-    public required IAmount2Choice SettledAmount { get; init; } 
+    public required Amount2Choice_ SettledAmount { get; init; } 
     /// <summary>
     /// Amount of money previously settled.
     /// </summary>
-    public IAmount2Choice? PreviouslySettledAmount { get; init; } 
+    public Amount2Choice_? PreviouslySettledAmount { get; init; } 
     /// <summary>
     /// Amount of money remaining to be settled.
     /// </summary>
-    public IAmount2Choice? RemainingSettlementAmount { get; init; } 
+    public Amount2Choice_? RemainingSettlementAmount { get; init; } 
     /// <summary>
     /// Date and time at which the amount of money is moved.
     /// </summary>
-    public required IDateAndDateTime2Choice EffectiveSettlementDate { get; init; } 
+    public required DateAndDateTime2Choice_ EffectiveSettlementDate { get; init; } 
     /// <summary>
     /// Date and time at which the status was assigned.
     /// </summary>
@@ -72,11 +72,11 @@ public partial record IntraBalancePosting6
     /// <summary>
     /// Link to another transaction that must be processed after, before or at the same time.
     /// </summary>
-    public Linkages57? Linkages { get; init;  } // Warning: Don't know multiplicity.
+    public Linkages57[] Linkages { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
-    public IPriorityNumeric4Choice? Priority { get; init; } 
+    public PriorityNumeric4Choice_? Priority { get; init; } 
     /// <summary>
     /// Party that originated the message, if other than the sender.
     /// </summary>
@@ -92,7 +92,7 @@ public partial record IntraBalancePosting6
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

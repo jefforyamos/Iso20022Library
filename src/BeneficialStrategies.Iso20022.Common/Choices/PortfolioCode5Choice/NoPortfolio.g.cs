@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PortfolioCode5Choice;
 /// <summary>
 /// Collateralisation was performed on a transaction level basis or if the collateral portfolio code is not known at the time of reporting.
 /// </summary>
-public partial record NoPortfolio : IPortfolioCode5Choice
+public partial record NoPortfolio : PortfolioCode5Choice_
 {
     public required NotApplicable1Code Value { get; init; }
 }

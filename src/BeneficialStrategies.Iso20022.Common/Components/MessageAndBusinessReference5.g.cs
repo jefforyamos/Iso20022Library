@@ -32,7 +32,7 @@ public partial record MessageAndBusinessReference5
     /// <summary>
     /// Unique and unambiguous identifiers of one or more individual order instructions.
     /// </summary>
-    public InvestmentFundOrder3? OrderReference { get; init;  } // Warning: Don't know multiplicity.
+    public InvestmentFundOrder3[] OrderReference { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

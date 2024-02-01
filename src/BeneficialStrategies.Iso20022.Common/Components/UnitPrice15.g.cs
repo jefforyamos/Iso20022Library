@@ -32,11 +32,11 @@ public partial record UnitPrice15
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    public PriceValue1? ValueInInvestmentCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public PriceValue1[] ValueInInvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    public PriceValue1? ValueInAlternativeCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public PriceValue1[] ValueInAlternativeCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the price information can be used for the execution of a transaction.
     /// </summary>
@@ -84,15 +84,15 @@ public partial record UnitPrice15
     /// <summary>
     /// Amount of money associated with a service.
     /// </summary>
-    public Charge15? ChargeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Charge15[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to taxes that are due.
     /// </summary>
-    public Tax17? TaxLiabilityDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Tax17[] TaxLiabilityDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to taxes that are paid back.
     /// </summary>
-    public Tax17? TaxRefundDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Tax17[] TaxRefundDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

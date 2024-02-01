@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CashBalanceType3Choice;
 /// <summary>
 /// Cash balance expressed in a coded form.
 /// </summary>
-public partial record Code : ICashBalanceType3Choice
+public partial record Code : CashBalanceType3Choice_
 {
     public required ExternalBalanceType1Code Value { get; init; }
 }

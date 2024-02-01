@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification2Choice;
 /// <summary>
 /// Identification of a cash account.
 /// </summary>
-public partial record CashAccountIdentification : IAccountIdentification2Choice
+public partial record CashAccountIdentification : AccountIdentification2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

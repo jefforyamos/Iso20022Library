@@ -32,15 +32,15 @@ public partial record ATMTransaction25
     /// <summary>
     /// Current totals of the ATM.
     /// </summary>
-    public ATMTotals1? ATMTotals { get; init;  } // Warning: Don't know multiplicity.
+    public ATMTotals1[] ATMTotals { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information on the cassette of the ATM.
     /// </summary>
-    public ATMCassette2? Cassette { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCassette2[] Cassette { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Transaction counters that are set to zero after a reconciliation with counter reinitialisation command.
     /// </summary>
-    public ATMTotals3? TransactionTotals { get; init;  } // Warning: Don't know multiplicity.
+    public ATMTotals3[] TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total number of retained cards.
     /// </summary>

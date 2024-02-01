@@ -24,7 +24,7 @@ public partial record DerivativeInterest3
     /// <summary>
     /// Interest rate of the notional currency.
     /// </summary>
-    public IInterestRate8Choice? FirstLegInterestRate { get; init; } 
+    public InterestRate8Choice_? FirstLegInterestRate { get; init; } 
     /// <summary>
     /// Notional currency in which leg 2 of the contract is denominated, in case of multi-currency or cross-currency swaps.
     /// Notional currency in which leg 2 of the swap is denominated, in case of swaptions where the underlying swap is multi-currency.
@@ -33,7 +33,7 @@ public partial record DerivativeInterest3
     /// <summary>
     /// Indication of the interest rate used for leg 2, if applicable.
     /// </summary>
-    public IInterestRate8Choice? OtherLegInterestRate { get; init; } 
+    public InterestRate8Choice_? OtherLegInterestRate { get; init; } 
     
     #nullable disable
 }

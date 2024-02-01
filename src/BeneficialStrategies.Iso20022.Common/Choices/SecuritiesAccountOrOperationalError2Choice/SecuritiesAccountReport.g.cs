@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountOrOperationalEr
 /// <summary>
 /// Report information about securities account reference data.
 /// </summary>
-public partial record SecuritiesAccountReport : ISecuritiesAccountOrOperationalError2Choice
+public partial record SecuritiesAccountReport : SecuritiesAccountOrOperationalError2Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record SecuritiesAccountReport : ISecuritiesAccountOrOperationalE
     /// <summary>
     /// Identifies the returned securities account reference data or error information.
     /// </summary>
-    public required ISecuritiesAccountOrBusinessError2Choice SecuritiesAccountOrError { get; init; } 
+    public required SecuritiesAccountOrBusinessError2Choice_ SecuritiesAccountOrError { get; init; } 
     #nullable disable
 }

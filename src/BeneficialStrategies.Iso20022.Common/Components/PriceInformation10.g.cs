@@ -24,7 +24,7 @@ public partial record PriceInformation10
     /// <summary>
     /// Specifies the type of price and information about the price.
     /// </summary>
-    public required ITypeOfPrice27Choice Type { get; init; } 
+    public required TypeOfPrice27Choice_ Type { get; init; } 
     /// <summary>
     /// Previous value of the price, eg, as a currency and value.
     /// </summary>

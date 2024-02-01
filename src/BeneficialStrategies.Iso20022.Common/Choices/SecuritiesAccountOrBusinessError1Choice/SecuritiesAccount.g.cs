@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountOrBusinessError
 /// <summary>
 /// Choice between data concerning securities account retrieved or business error.
 /// </summary>
-public partial record SecuritiesAccount : ISecuritiesAccountOrBusinessError1Choice
+public partial record SecuritiesAccount : SecuritiesAccountOrBusinessError1Choice_
 {
     #nullable enable
     /// <summary>

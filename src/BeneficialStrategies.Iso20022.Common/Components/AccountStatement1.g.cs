@@ -52,11 +52,11 @@ public partial record AccountStatement1
     /// <summary>
     /// Provides general interest information that applies to the account at a particular moment in time.
     /// </summary>
-    public AccountInterest1? Interest { get; init;  } // Warning: Don't know multiplicity.
+    public AccountInterest1[] Interest { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of elements defining the balance(s).
     /// </summary>
-    public CashBalance2? Balance { get; init;  } // Warning: Don't know multiplicity.
+    public CashBalance2[] Balance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of element providing summary information on entries.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record AccountStatement1
     /// <summary>
     /// Specifies the elements of an entry in the statement.||Usage: At least one reference must be provided to identify the entry and its underlying transaction(s).
     /// </summary>
-    public StatementEntry1? Entry { get; init;  } // Warning: Don't know multiplicity.
+    public StatementEntry1[] Entry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further details on the account statement.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonIdentificationType1Choice;
 /// <summary>
 /// Number assigned by a license authority to a driver's license.
 /// </summary>
-public partial record DriversLicenseNumber : IPersonIdentificationType1Choice
+public partial record DriversLicenseNumber : PersonIdentificationType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

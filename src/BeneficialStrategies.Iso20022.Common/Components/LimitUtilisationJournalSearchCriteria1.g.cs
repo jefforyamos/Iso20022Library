@@ -20,7 +20,7 @@ public partial record LimitUtilisationJournalSearchCriteria1
     /// <summary>
     /// Type of limit applied by the system at the present time.
     /// </summary>
-    public LimitType4Code? LimitType { get; init;  } // Warning: Don't know multiplicity.
+    public LimitType4Code[] LimitType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date upon which journal activity takes place.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record LimitUtilisationJournalSearchCriteria1
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public IAccountIdentification4Choice? AccountIdentification { get; init; } 
+    public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     /// <summary>
     /// Currency unit used to specify the limit amount.
     /// </summary>

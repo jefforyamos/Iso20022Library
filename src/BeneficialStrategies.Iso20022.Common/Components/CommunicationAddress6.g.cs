@@ -20,7 +20,7 @@ public partial record CommunicationAddress6
     /// <summary>
     /// Type of communication address.
     /// </summary>
-    public IAddressType1Choice? AddressType { get; init; } 
+    public AddressType1Choice_? AddressType { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>

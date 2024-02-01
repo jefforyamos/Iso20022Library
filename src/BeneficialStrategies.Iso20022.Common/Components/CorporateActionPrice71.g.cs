@@ -20,31 +20,31 @@ public partial record CorporateActionPrice71
     /// <summary>
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
-    public IPriceFormat57Choice? CashInLieuOfSharePrice { get; init; } 
+    public PriceFormat57Choice_? CashInLieuOfSharePrice { get; init; } 
     /// <summary>
     /// Amount of money required per over-subscribed equity as defined by the issuer.
     /// </summary>
-    public IPriceFormat57Choice? OverSubscriptionDepositPrice { get; init; } 
+    public PriceFormat57Choice_? OverSubscriptionDepositPrice { get; init; } 
     /// <summary>
     /// Maximum cash amount that may be instructed.
     /// </summary>
-    public IPriceFormat62Choice? MaximumCashToInstruct { get; init; } 
+    public PriceFormat62Choice_? MaximumCashToInstruct { get; init; } 
     /// <summary>
     /// Minimum cash amount that may be instructed.
     /// </summary>
-    public IPriceFormat62Choice? MinimumCashToInstruct { get; init; } 
+    public PriceFormat62Choice_? MinimumCashToInstruct { get; init; } 
     /// <summary>
     /// Minimum multiple of a cash amount that may be instructed.
     /// </summary>
-    public IPriceFormat62Choice? MinimumMultipleCashToInstruct { get; init; } 
+    public PriceFormat62Choice_? MinimumMultipleCashToInstruct { get; init; } 
     /// <summary>
     /// Maximum or cap price at which a holder can bid, for example, on a Dutch auction offer.
     /// </summary>
-    public IPriceFormat44Choice? MaximumPrice { get; init; } 
+    public PriceFormat44Choice_? MaximumPrice { get; init; } 
     /// <summary>
     /// Minimum or floor price at which a holder can bid, for example, on a Dutch auction offer.
     /// </summary>
-    public IPriceFormat44Choice? MinimumPrice { get; init; } 
+    public PriceFormat44Choice_? MinimumPrice { get; init; } 
     
     #nullable disable
 }

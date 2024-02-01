@@ -86,7 +86,7 @@ public partial record OrderInstructionStatusReportV04 : IOuterRecord
     [Description(@"Reference to the message or communication that was previously received.")]
     [DataMember(Name="Ref")]
     [XmlElement(ElementName="Ref")]
-    public IReferences61Choice? Reference { get; init; }
+    public References61Choice_? Reference { get; init; }
     
     /// <summary>
     /// Status of the order.
@@ -96,7 +96,7 @@ public partial record OrderInstructionStatusReportV04 : IOuterRecord
     [DataMember(Name="StsRpt")]
     [XmlElement(ElementName="StsRpt")]
     [Required]
-    public required IStatus24Choice StatusReport { get; init; }
+    public required Status24Choice_ StatusReport { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

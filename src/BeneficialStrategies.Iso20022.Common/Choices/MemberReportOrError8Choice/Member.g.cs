@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MemberReportOrError8Choice;
 /// <summary>
 /// Requested member data when found in the system.
 /// </summary>
-public partial record Member : IMemberReportOrError8Choice
+public partial record Member : MemberReportOrError8Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record Member : IMemberReportOrError8Choice
     /// <summary>
     /// Physical/logical address belonging to a member, segregated from its main address that is used for normal operations. The fund return address is used to route messages that require specific attention/exception handling, for example returns or rejects.
     /// </summary>
-    public IMemberIdentification3Choice? ReturnAddress { get; init;  } // Warning: Don't know multiplicity.
+    public MemberIdentification3Choice_? ReturnAddress { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
@@ -30,11 +30,11 @@ public partial record Member : IMemberReportOrError8Choice
     /// <summary>
     /// Nature of the relationship a member has with a system.
     /// </summary>
-    public ISystemMemberType1Choice? Type { get; init; } 
+    public SystemMemberType1Choice_? Type { get; init; } 
     /// <summary>
     /// Status of a member in a system, for example enabled or deleted.
     /// </summary>
-    public ISystemMemberStatus1Choice? Status { get; init; } 
+    public SystemMemberStatus1Choice_? Status { get; init; } 
     /// <summary>
     /// Person to be contacted in a given organisation.
     /// </summary>

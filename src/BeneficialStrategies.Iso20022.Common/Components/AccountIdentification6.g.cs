@@ -24,15 +24,15 @@ public partial record AccountIdentification6
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification13Choice? AccountOwner { get; init; } 
+    public PartyIdentification13Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
-    public ISafekeepingPlaceFormat2Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat2Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Detailed account holdings information report for a corporate action event.
     /// </summary>
-    public CorporateActionEventAndBalance1? CorporateActionEventAndBalance { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionEventAndBalance1[] CorporateActionEventAndBalance { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

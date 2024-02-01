@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateClassification1Choice;
 /// <summary>
 /// Category purpose, as published in an external category purpose code list.
 /// </summary>
-public partial record Code : IMandateClassification1Choice
+public partial record Code : MandateClassification1Choice_
 {
     public required MandateClassification1Code Value { get; init; }
 }

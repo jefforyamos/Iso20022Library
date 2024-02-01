@@ -33,7 +33,7 @@ public partial record CardTransactionAmount4
     /// <summary>
     /// Details of the TransactionAmount, for informational purposes only, except for cash back which is mandatory for a payment transaction with cashback. The transaction amount is not necessarly the sum of all the detailed amount values.
     /// </summary>
-    public DetailedAmount9? DetailedAmount { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount9[] DetailedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

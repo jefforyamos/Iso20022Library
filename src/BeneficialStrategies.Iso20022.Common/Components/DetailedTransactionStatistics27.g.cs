@@ -32,7 +32,7 @@ public partial record DetailedTransactionStatistics27
     /// <summary>
     /// Details of outstanding derivatives for which the valuation was not reported or the valuation reported is more than fourteen calendar days earlier than the date for which the report was generated shall be included in the report of missing valuations at the end of the day.
     /// </summary>
-    public MissingValuationsData2? Warnings { get; init;  } // Warning: Don't know multiplicity.
+    public MissingValuationsData2[] Warnings { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

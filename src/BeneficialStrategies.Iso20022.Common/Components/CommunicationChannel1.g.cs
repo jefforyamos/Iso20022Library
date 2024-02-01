@@ -24,7 +24,7 @@ public partial record CommunicationChannel1
     /// <summary>
     /// Type of party to whom the original undertaking or proposed amendment is intended to be delivered.
     /// </summary>
-    public required IPartyType1Choice DeliverToPartyType { get; init; } 
+    public required PartyType1Choice_ DeliverToPartyType { get; init; } 
     /// <summary>
     /// Name of party to whom the original undertaking or proposed amendment is intended to be delivered.
     /// </summary>

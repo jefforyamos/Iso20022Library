@@ -25,7 +25,7 @@ public partial record MergerDetailsType1
     /// <summary>
     /// Information about the counterparty in case of [sankaku] gappei: the scenario where a third party is involved as one of the counterparties in the merger but there is no security movement from the third party.
     /// </summary>
-    public CounterpartyDetailsType1? CounterpartyDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CounterpartyDetailsType1[] CounterpartyDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Classification of the simplified merger regulatory condition of the parent company.
     /// 簡易区分.

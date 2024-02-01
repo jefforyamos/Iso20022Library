@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionDeactivationCance
 /// <summary>
 /// Provides information about the processing status of the cancellation request.
 /// </summary>
-public partial record ProcessedStatus : ICorporateActionDeactivationCancellationStatus1Choice
+public partial record ProcessedStatus : CorporateActionDeactivationCancellationStatus1Choice_
 {
     #nullable enable
     /// <summary>
     /// The processing status.
     /// </summary>
-    public required IProcessedStatus2FormatChoice Status { get; init; } 
+    public required ProcessedStatus2FormatChoice_ Status { get; init; } 
     /// <summary>
     /// Additional information about the status.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SubBalanceType9Choice;
 /// <summary>
 /// Reason a financial instrument is not available or additional information about the financial instrument for which the balance is given, for example, unregistered, registered in nominee name.
 /// </summary>
-public partial record Proprietary : ISubBalanceType9Choice
+public partial record Proprietary : SubBalanceType9Choice_
 {
     #nullable enable
     /// <summary>

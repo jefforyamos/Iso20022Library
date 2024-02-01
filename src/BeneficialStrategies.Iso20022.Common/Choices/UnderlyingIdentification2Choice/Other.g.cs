@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingIdentification2Choice;
 /// <summary>
 /// Underlying of any other type of transaction.
 /// </summary>
-public partial record Other : IUnderlyingIdentification2Choice
+public partial record Other : UnderlyingIdentification2Choice_
 {
     #nullable enable
     #nullable disable

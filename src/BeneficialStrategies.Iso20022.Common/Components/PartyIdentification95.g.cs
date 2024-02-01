@@ -20,7 +20,7 @@ public partial record PartyIdentification95
     /// <summary>
     /// Identifier for an organisation that is allocated by an institution.
     /// </summary>
-    public IPartyIdentification70Choice? Identification { get; init; } 
+    public PartyIdentification70Choice_? Identification { get; init; } 
     /// <summary>
     /// Identification of the organisation with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>

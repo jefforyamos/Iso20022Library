@@ -28,11 +28,11 @@ public partial record AccountIdentification62
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification136Choice? AccountOwner { get; init; } 
+    public PartyIdentification136Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
-    public ISafekeepingPlaceFormat34Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat34Choice_? SafekeepingPlace { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralProposalResponse3Choic
 /// <summary>
 /// Provides the collateral proposal response for the segregated independent amount only.
 /// </summary>
-public partial record SegregatedIndependentAmount : ICollateralProposalResponse3Choice
+public partial record SegregatedIndependentAmount : CollateralProposalResponse3Choice_
 {
     #nullable enable
     /// <summary>

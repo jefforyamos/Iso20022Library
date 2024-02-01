@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PledgeeFormat6Choice;
 /// <summary>
 /// Identification of the entity to which the financial instruments are pledged expressed as a proprietary type and narrative description.
 /// </summary>
-public partial record Proprietary : IPledgeeFormat6Choice
+public partial record Proprietary : PledgeeFormat6Choice_
 {
     #nullable enable
     /// <summary>

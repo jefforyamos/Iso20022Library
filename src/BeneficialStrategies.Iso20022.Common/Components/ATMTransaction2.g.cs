@@ -56,7 +56,7 @@ public partial record ATMTransaction2
     /// <summary>
     /// Additional charge (for instance tax or fee).
     /// </summary>
-    public DetailedAmount13? AdditionalCharge { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount13[] AdditionalCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Limit of amounts for the customer.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record ATMTransaction2
     /// <summary>
     /// Media mix selected requested by the ATM Host.
     /// </summary>
-    public ATMMediaMix1? Mix { get; init;  } // Warning: Don't know multiplicity.
+    public ATMMediaMix1[] Mix { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Outcome of the withdrawal authorisation.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record ATMTransaction2
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    public ATMCommand1? Command { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCommand1[] Command { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

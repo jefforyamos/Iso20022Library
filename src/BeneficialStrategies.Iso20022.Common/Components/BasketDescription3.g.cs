@@ -20,11 +20,11 @@ public partial record BasketDescription3
     /// <summary>
     /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation's International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
     /// </summary>
-    public IsoISINOct2015Identifier? ISIN { get; init;  } // Warning: Don't know multiplicity.
+    public IsoISINOct2015Identifier[] ISIN { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Index on which the financial instrument is based.
     /// </summary>
-    public FinancialInstrument58? Index { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrument58[] Index { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

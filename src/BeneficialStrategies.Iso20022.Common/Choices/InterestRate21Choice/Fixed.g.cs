@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate21Choice;
 /// <summary>
 /// Attributes related specifically to fixed rate of an interest rate contract.
 /// </summary>
-public partial record Fixed : IInterestRate21Choice
+public partial record Fixed : InterestRate21Choice_
 {
     #nullable enable
     /// <summary>
@@ -26,6 +26,6 @@ public partial record Fixed : IInterestRate21Choice
     /// <summary>
     /// Information related to payment frequency.
     /// </summary>
-    public IInterestRateFrequency2Choice? PaymentFrequency { get; init; } 
+    public InterestRateFrequency2Choice_? PaymentFrequency { get; init; } 
     #nullable disable
 }

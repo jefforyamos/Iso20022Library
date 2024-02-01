@@ -24,7 +24,7 @@ public partial record TradeClearing5
     /// <summary>
     /// Indicator of whether the transaction has been cleared, or is intended to be cleared, by a central counterparty.
     /// </summary>
-    public ICleared12Choice? ClearingStatus { get; init; } 
+    public Cleared12Choice_? ClearingStatus { get; init; } 
     /// <summary>
     /// Indicates whether the contract was entered into as an intragroup transaction.
     /// Usage: When absent, default value is false.

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConfirmationType1Choice;
 /// <summary>
 /// Confirmation type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IConfirmationType1Choice
+public partial record Proprietary : ConfirmationType1Choice_
 {
     #nullable enable
     /// <summary>

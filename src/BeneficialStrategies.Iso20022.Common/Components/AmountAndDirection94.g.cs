@@ -52,7 +52,7 @@ public partial record AmountAndDirection94
     /// <summary>
     /// Date and time at which the cash is at the disposal of the credit account owner, or ceases to be at the disposal of the debit account owner.
     /// </summary>
-    public IDateAndDateTime2Choice? ValueDate { get; init; } 
+    public DateAndDateTime2Choice_? ValueDate { get; init; } 
     
     #nullable disable
 }

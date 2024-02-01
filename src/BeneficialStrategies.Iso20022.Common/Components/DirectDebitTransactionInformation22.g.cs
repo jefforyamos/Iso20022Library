@@ -69,11 +69,11 @@ public partial record DirectDebitTransactionInformation22
     /// <summary>
     /// Underlying reason for the payment transaction.|Usage: Purpose is used by the end-customers, that is initiating party, (ultimate) debtor, (ultimate) creditor to provide information concerning the nature of the payment. Purpose is a content element, which is not used for processing by any of the agents involved in the payment chain.
     /// </summary>
-    public IPurpose2Choice? Purpose { get; init; } 
+    public Purpose2Choice_? Purpose { get; init; } 
     /// <summary>
     /// Information needed due to regulatory and statutory requirements.
     /// </summary>
-    public IReadOnlyCollection<RegulatoryReporting3> RegulatoryReporting { get; init; } = [];
+    public RegulatoryReporting3[] RegulatoryReporting { get; init; } = [];
     /// <summary>
     /// Provides details on the tax.
     /// </summary>
@@ -81,7 +81,7 @@ public partial record DirectDebitTransactionInformation22
     /// <summary>
     /// Provides information related to the handling of the remittance information by any of the agents in the transaction processing chain.
     /// </summary>
-    public IReadOnlyCollection<RemittanceLocation4> RelatedRemittanceInformation { get; init; } = [];
+    public RemittanceLocation4[] RelatedRemittanceInformation { get; init; } = [];
     /// <summary>
     /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts' receivable system.
     /// </summary>
@@ -89,7 +89,7 @@ public partial record DirectDebitTransactionInformation22
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

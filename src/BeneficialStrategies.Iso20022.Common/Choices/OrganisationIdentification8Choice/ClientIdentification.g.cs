@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrganisationIdentification8Choic
 /// <summary>
 /// Client code used to identify the organisation.
 /// </summary>
-public partial record ClientIdentification : IOrganisationIdentification8Choice
+public partial record ClientIdentification : OrganisationIdentification8Choice_
 {
     public required IsoMax50Text Value { get; init; }
 }

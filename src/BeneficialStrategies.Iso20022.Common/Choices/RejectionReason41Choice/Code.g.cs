@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason41Choice;
 /// <summary>
 /// Specifies the reason why the instruction/request has a repair or rejection status.
 /// </summary>
-public partial record Code : IRejectionReason41Choice
+public partial record Code : RejectionReason41Choice_
 {
     public required RejectionReason70Code Value { get; init; }
 }

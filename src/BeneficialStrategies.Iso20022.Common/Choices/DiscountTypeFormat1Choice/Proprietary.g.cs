@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DiscountTypeFormat1Choice;
 /// <summary>
 /// Proprietary code for specifying the type of discount.
 /// </summary>
-public partial record Proprietary : IDiscountTypeFormat1Choice
+public partial record Proprietary : DiscountTypeFormat1Choice_
 {
     #nullable enable
     /// <summary>

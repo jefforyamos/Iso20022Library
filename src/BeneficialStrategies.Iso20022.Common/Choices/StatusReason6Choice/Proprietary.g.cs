@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatusReason6Choice;
 /// <summary>
 /// Reason for the status, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IStatusReason6Choice
+public partial record Proprietary : StatusReason6Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -24,7 +24,7 @@ public partial record BilateralLimit3
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
-    public required IAmount2Choice LimitAmount { get; init; } 
+    public required Amount2Choice_ LimitAmount { get; init; } 
     /// <summary>
     /// Specifies if a limit is a debit limit or a credit limit.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record BilateralLimit3
     /// <summary>
     /// Balance calculated with regard to one member in the system.
     /// </summary>
-    public CashBalance11? BilateralBalance { get; init;  } // Warning: Don't know multiplicity.
+    public CashBalance11[] BilateralBalance { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -79,7 +79,7 @@ public partial record SecuritiesFinancingInstruction002V11 : IOuterRecord
     [Description(@"Count of the number of transactions linked.")]
     [DataMember(Name="NbCounts")]
     [XmlElement(ElementName="NbCounts")]
-    public INumberCount2Choice? NumberCounts { get; init; }
+    public NumberCount2Choice_? NumberCounts { get; init; }
     
     /// <summary>
     /// Link to another transaction that must be processed after, before or at the same time.

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferStatusType3Choice;
 /// <summary>
 /// Type of event expressed as a code.
 /// </summary>
-public partial record Code : ITransferStatusType3Choice
+public partial record Code : TransferStatusType3Choice_
 {
     public required TransferStatusType2Code Value { get; init; }
 }

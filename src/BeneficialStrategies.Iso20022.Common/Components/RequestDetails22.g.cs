@@ -24,15 +24,15 @@ public partial record RequestDetails22
     /// <summary>
     /// Specifies the type of linkage requested.
     /// </summary>
-    public ILinkageType3Choice? Linkage { get; init; } 
+    public LinkageType3Choice_? Linkage { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
-    public IPriorityNumeric4Choice? Priority { get; init; } 
+    public PriorityNumeric4Choice_? Priority { get; init; } 
     /// <summary>
     /// Specifies another type of processing change request.
     /// </summary>
-    public GenericIdentification30? OtherProcessing { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification30[] OtherProcessing { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether partial settlement is allowed.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record RequestDetails22
     /// <summary>
     /// Information regarding the linkage requested.
     /// </summary>
-    public Linkages57? Linkages { get; init;  } // Warning: Don't know multiplicity.
+    public Linkages57[] Linkages { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

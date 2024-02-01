@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GeographicLocation1Choice;
 /// <summary>
 /// Location on the earth specified by the Universal Transverse Mercator coordinate system, using the WGS84 geodesic system.
 /// </summary>
-public partial record UTMCoordinates : IGeographicLocation1Choice
+public partial record UTMCoordinates : GeographicLocation1Choice_
 {
     #nullable enable
     /// <summary>

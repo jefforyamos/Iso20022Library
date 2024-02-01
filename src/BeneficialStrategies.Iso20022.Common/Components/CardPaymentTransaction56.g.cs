@@ -56,7 +56,7 @@ public partial record CardPaymentTransaction56
     /// <summary>
     /// Additional information related to the transaction.
     /// </summary>
-    public IsoMax70Text? AdditionalTransactionData { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] AdditionalTransactionData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

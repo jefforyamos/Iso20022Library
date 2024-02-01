@@ -44,11 +44,11 @@ public partial record OtherCollateral6
     /// <summary>
     /// Date on which the other collateral was issued.
     /// </summary>
-    public IDateFormat14Choice? IssueDate { get; init; } 
+    public DateFormat14Choice_? IssueDate { get; init; } 
     /// <summary>
     /// Date on which the other collateral expires.
     /// </summary>
-    public IDateFormat14Choice? ExpiryDate { get; init; } 
+    public DateFormat14Choice_? ExpiryDate { get; init; } 
     /// <summary>
     /// Indicates that the collateral posted in the clearing house covers the margin until a specific timeframe.
     /// </summary>
@@ -56,11 +56,11 @@ public partial record OtherCollateral6
     /// <summary>
     /// Party that issues the bank guarantee or letter of / documentary credit.
     /// </summary>
-    public IPartyIdentification100Choice? Issuer { get; init; } 
+    public PartyIdentification100Choice_? Issuer { get; init; } 
     /// <summary>
     /// Quantity blocked by the central counterparty for any reasonable reason ( for example for judicial reasons). In this case the investor can not withdraw or distribute this collateral.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? BlockedQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? BlockedQuantity { get; init; } 
     /// <summary>
     /// Valuation date of the other collateral when it was taken as collateral.
     /// </summary>
@@ -84,7 +84,7 @@ public partial record OtherCollateral6
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public ISafekeepingPlaceFormat10Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat10Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>

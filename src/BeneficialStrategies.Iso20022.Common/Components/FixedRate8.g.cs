@@ -24,7 +24,7 @@ public partial record FixedRate8
     /// <summary>
     /// Method for calculating the accrued interest on the principal amount for a fixed rate.
     /// </summary>
-    public IInterestComputationMethodFormat6Choice? DayCountBasis { get; init; } 
+    public InterestComputationMethodFormat6Choice_? DayCountBasis { get; init; } 
     
     #nullable disable
 }

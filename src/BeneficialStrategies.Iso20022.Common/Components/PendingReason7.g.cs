@@ -20,7 +20,7 @@ public partial record PendingReason7
     /// <summary>
     /// Specifies the reason why a cancellation request sent for the related instruction is pending.
     /// </summary>
-    public required IPendingReason15Choice Code { get; init; } 
+    public required PendingReason15Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

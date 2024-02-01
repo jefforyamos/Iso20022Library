@@ -44,11 +44,11 @@ public partial record FleetSummary1
     /// <summary>
     /// Indicates the amenities available at the location where the merchant actually performed the transaction.
     /// </summary>
-    public LocalAmenity1? LocalAmenity { get; init;  } // Warning: Don't know multiplicity.
+    public LocalAmenity1[] LocalAmenity { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains information related specifically to the transaction.
     /// </summary>
-    public PaymentTransaction117? TransactionRelatedData { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentTransaction117[] TransactionRelatedData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional fleet summary data.
     /// </summary>

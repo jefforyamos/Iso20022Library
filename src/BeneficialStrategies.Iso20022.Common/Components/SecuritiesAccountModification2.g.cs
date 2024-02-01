@@ -24,7 +24,7 @@ public partial record SecuritiesAccountModification2
     /// <summary>
     /// Specifies which elements to be modified for the securities account reference data.
     /// </summary>
-    public required ISecuritiesAccountModification2Choice RequestedModification { get; init; } 
+    public required SecuritiesAccountModification2Choice_ RequestedModification { get; init; } 
     
     #nullable disable
 }

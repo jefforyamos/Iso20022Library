@@ -60,7 +60,7 @@ public partial record TaxInformation4
     /// <summary>
     /// Record of tax details.
     /// </summary>
-    public TaxRecord1? Record { get; init;  } // Warning: Don't know multiplicity.
+    public TaxRecord1[] Record { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

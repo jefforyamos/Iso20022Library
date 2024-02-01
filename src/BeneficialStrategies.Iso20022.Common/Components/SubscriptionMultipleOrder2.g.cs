@@ -44,7 +44,7 @@ public partial record SubscriptionMultipleOrder2
     /// <summary>
     /// Order to invest the investor's principal in an investment fund.
     /// </summary>
-    public SubscriptionOrder4? IndividualOrderDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SubscriptionOrder4[] IndividualOrderDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment transaction resulting from the investment fund order execution.
     /// </summary>

@@ -40,7 +40,7 @@ public partial record PlainCardData2
     /// <summary>
     /// Magnetic track or equivalent payment card data.
     /// </summary>
-    public TrackData1? TrackData { get; init;  } // Warning: Don't know multiplicity.
+    public TrackData1[] TrackData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

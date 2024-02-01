@@ -28,7 +28,7 @@ public partial record ServiceTaxDesignation1
     /// <summary>
     /// Provides free form explanations of the various tax codes used within the statement.
     /// </summary>
-    public TaxReason1? TaxReason { get; init;  } // Warning: Don't know multiplicity.
+    public TaxReason1[] TaxReason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

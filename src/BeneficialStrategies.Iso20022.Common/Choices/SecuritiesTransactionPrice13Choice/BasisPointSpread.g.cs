@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice13Choi
 /// <summary>
 /// Used to express differences in interest rates, for example, a difference of 0.10% is equivalent to a change of 10 basis points.
 /// </summary>
-public partial record BasisPointSpread : ISecuritiesTransactionPrice13Choice
+public partial record BasisPointSpread : SecuritiesTransactionPrice13Choice_
 {
     public required IsoNumber Value { get; init; }
 }

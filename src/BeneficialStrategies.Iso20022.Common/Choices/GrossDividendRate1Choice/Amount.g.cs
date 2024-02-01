@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRate1Choice;
 /// <summary>
 /// Value expressed as an amount.
 /// </summary>
-public partial record Amount : IGrossDividendRate1Choice
+public partial record Amount : GrossDividendRate1Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

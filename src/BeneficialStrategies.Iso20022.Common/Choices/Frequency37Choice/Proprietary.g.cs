@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Frequency37Choice;
 /// <summary>
 /// Frequency expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IFrequency37Choice
+public partial record Proprietary : Frequency37Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

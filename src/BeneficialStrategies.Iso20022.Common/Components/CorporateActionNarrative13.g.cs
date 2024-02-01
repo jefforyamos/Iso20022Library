@@ -20,23 +20,23 @@ public partial record CorporateActionNarrative13
     /// <summary>
     /// Provides information conditions to the account owner that are to be complied with, for example, not open to US/Canadian residents, Qualified Institutional Buyers (QIB) or Sophisticated Investor Letter (SIL) to be provided.
     /// </summary>
-    public IsoRestrictedFINXMax350Text? InformationToComplyWith { get; init;  } // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text[] InformationToComplyWith { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional information on the delivery details of the outturned (derived) securities. This narrative is only to be used in case the securities are not eligible at the agent/custodian, and may not be used for settlement instructions.
     /// </summary>
-    public IsoRestrictedFINXMax350Text? DeliveryDetails { get; init;  } // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text[] DeliveryDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional details pertaining to foreign exchange instructions.
     /// </summary>
-    public IsoRestrictedFINXMax350Text? ForeignExchangeInstructionsAdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text[] ForeignExchangeInstructionsAdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Disclaimer relative to the information provided in the message. It may be ignored for automated processing. No information about the instruction itself is allowed here.
     /// </summary>
-    public IsoRestrictedFINXMax350Text? Disclaimer { get; init;  } // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text[] Disclaimer { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional details pertaining to the corporate action instruction.
     /// </summary>
-    public IsoRestrictedFINXMax350Text? InstructionAdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoRestrictedFINXMax350Text[] InstructionAdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

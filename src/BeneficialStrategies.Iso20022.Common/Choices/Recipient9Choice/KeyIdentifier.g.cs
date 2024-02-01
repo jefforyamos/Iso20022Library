@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient9Choice;
 /// <summary>
 /// Identifier of a cryptographic asymmetric key, previously exchanged between initiator and recipient.
 /// </summary>
-public partial record KeyIdentifier : IRecipient9Choice
+public partial record KeyIdentifier : Recipient9Choice_
 {
     #nullable enable
     /// <summary>

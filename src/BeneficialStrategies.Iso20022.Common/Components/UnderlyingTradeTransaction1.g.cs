@@ -20,7 +20,7 @@ public partial record UnderlyingTradeTransaction1
     /// <summary>
     /// Type of underlying transaction such as a tender, order, contract.
     /// </summary>
-    public required IUnderlyingTradeTransactionType1Choice Type { get; init; } 
+    public required UnderlyingTradeTransactionType1Choice_ Type { get; init; } 
     /// <summary>
     /// Identification of the underlying transaction.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record UnderlyingTradeTransaction1
     /// <summary>
     /// Additional information related to the underlying transaction.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PortfolioTransferStatus2Choice;
 /// <summary>
 /// Instruction has been acknowledged by the account servicer.
 /// </summary>
-public partial record AcknowledgedAccepted : IPortfolioTransferStatus2Choice
+public partial record AcknowledgedAccepted : PortfolioTransferStatus2Choice_
 {
     #nullable enable
     #nullable disable

@@ -20,7 +20,7 @@ public partial record TradeProduct2
     /// <summary>
     /// Identification of the product.
     /// </summary>
-    public IProductIdentifier2Choice? Identification { get; init;  } // Warning: Don't know multiplicity.
+    public ProductIdentifier2Choice_[] Identification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Name of a product.
     /// </summary>
@@ -32,19 +32,19 @@ public partial record TradeProduct2
     /// <summary>
     /// Country of origin of the product.
     /// </summary>
-    public CountryCodeAndName1? CountryOfOrigin { get; init;  } // Warning: Don't know multiplicity.
+    public CountryCodeAndName1[] CountryOfOrigin { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the characteristic of a product.
     /// </summary>
-    public ProductCharacteristics3? ProductCharacteristics { get; init;  } // Warning: Don't know multiplicity.
+    public ProductCharacteristics3[] ProductCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Category of the product.
     /// </summary>
-    public IProductCategory1Choice? ProductCategory { get; init;  } // Warning: Don't know multiplicity.
+    public ProductCategory1Choice_[] ProductCategory { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique global serial identifier for this product instance.
     /// </summary>
-    public IsoMax35Text? GlobalSerialIdentifier { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] GlobalSerialIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

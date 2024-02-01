@@ -20,7 +20,7 @@ public partial record InvestmentPlan6
     /// <summary>
     /// Frequency of the investment or divestment.
     /// </summary>
-    public required IFrequency19Choice Frequency { get; init; } 
+    public required Frequency19Choice_ Frequency { get; init; } 
     /// <summary>
     /// Date the investment plan starts.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record InvestmentPlan6
     /// <summary>
     /// Amount of the periodical payments.
     /// </summary>
-    public required IUnitsOrAmount1Choice Quantity { get; init; } 
+    public required UnitsOrAmount1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Indicates whether an ordered amount is a gross amount (including all charges, commissions, tax). If it is not a gross amount, the ordered amount is a net amount (amount to be invested or redeemed from the fund to which other elements will be added).
     /// </summary>
@@ -56,11 +56,11 @@ public partial record InvestmentPlan6
     /// <summary>
     /// Security that an investment plan invests in, or from which the investment plan divests.
     /// </summary>
-    public IReadOnlyCollection<Repartition2> SecurityDetails { get; init; } = [];
+    public Repartition2[] SecurityDetails { get; init; } = [];
     /// <summary>
     /// Cash settlement standing instruction associated to the investment plan.
     /// </summary>
-    public IReadOnlyCollection<InvestmentFundCashSettlementInformation5> CashSettlement { get; init; } = [];
+    public InvestmentFundCashSettlementInformation5[] CashSettlement { get; init; } = [];
     /// <summary>
     /// Reference of the underlying investment contract. In some markets, such as Italy, this might be required to segregate holdings between the same investment account.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record InvestmentPlan6
     /// <summary>
     /// Specifies the type of insurance contract to which the savings investment plan is linked.
     /// </summary>
-    public IInsuranceType1Choice? InsuranceCover { get; init; } 
+    public InsuranceType1Choice_? InsuranceCover { get; init; } 
     
     #nullable disable
 }

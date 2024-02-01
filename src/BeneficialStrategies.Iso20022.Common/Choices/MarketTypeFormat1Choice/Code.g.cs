@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketTypeFormat1Choice;
 /// <summary>
 /// Standard code to specify the type of market in which transactions take place, for example, primary or secondary.
 /// </summary>
-public partial record Code : IMarketTypeFormat1Choice
+public partial record Code : MarketTypeFormat1Choice_
 {
     public required MarketType3Code Value { get; init; }
 }

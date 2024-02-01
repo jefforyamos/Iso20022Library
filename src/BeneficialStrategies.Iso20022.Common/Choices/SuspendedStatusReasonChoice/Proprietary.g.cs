@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SuspendedStatusReasonChoice;
 /// <summary>
 /// Reason for the suspended status.
 /// </summary>
-public partial record Proprietary : ISuspendedStatusReasonChoice
+public partial record Proprietary : SuspendedStatusReasonChoice_
 {
     #nullable enable
     /// <summary>

@@ -32,7 +32,7 @@ public partial record RegulatoryReportingNotification1
     /// <summary>
     /// Certificate against which all currency control transactions are registered.
     /// </summary>
-    public TransactionCertificate1? TransactionCertificate { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionCertificate1[] TransactionCertificate { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

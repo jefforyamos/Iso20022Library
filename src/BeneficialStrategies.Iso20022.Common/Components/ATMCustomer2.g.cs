@@ -24,7 +24,7 @@ public partial record ATMCustomer2
     /// <summary>
     /// Result of the customer authentication for this transaction.
     /// </summary>
-    public TransactionVerificationResult5? AuthenticationResult { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionVerificationResult5[] AuthenticationResult { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

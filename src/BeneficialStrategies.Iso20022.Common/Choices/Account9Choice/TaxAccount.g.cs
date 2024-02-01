@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Account9Choice;
 /// <summary>
 /// Account to be used for taxes if different from the account for payment.
 /// </summary>
-public partial record TaxAccount : IAccount9Choice
+public partial record TaxAccount : Account9Choice_
 {
     #nullable enable
     #nullable disable

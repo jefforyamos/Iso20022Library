@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType67Choice;
 /// <summary>
 /// Rate expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IRateType67Choice
+public partial record Code : RateType67Choice_
 {
     public required RateType1Code Value { get; init; }
 }

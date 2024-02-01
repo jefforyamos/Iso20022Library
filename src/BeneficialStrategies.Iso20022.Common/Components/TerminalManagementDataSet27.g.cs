@@ -28,7 +28,7 @@ public partial record TerminalManagementDataSet27
     /// <summary>
     /// Identification of the point of interactions involved by the configuration data set.
     /// </summary>
-    public GenericIdentification71? POIIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification71[] POIIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Scope of the configuration contained in the data set.
     /// </summary>

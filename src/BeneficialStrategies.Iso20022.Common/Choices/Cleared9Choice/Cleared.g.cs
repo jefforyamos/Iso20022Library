@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Cleared9Choice;
 /// <summary>
 /// Indicates that the contract has been cleared.
 /// </summary>
-public partial record Cleared : ICleared9Choice
+public partial record Cleared : Cleared9Choice_
 {
     #nullable enable
     /// <summary>
     /// In the case of a contract that has been cleared, the unique code for the CCP that has cleared the contract.
     /// </summary>
-    public IOrganisationIdentification9Choice? CCP { get; init; } 
+    public OrganisationIdentification9Choice_? CCP { get; init; } 
     /// <summary>
     /// Time and date when clearing took place.
     /// </summary>

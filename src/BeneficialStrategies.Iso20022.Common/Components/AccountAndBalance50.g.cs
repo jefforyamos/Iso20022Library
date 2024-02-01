@@ -28,7 +28,7 @@ public partial record AccountAndBalance50
     /// <summary>
     /// Balance to which the payment applies (less or equal to the total eligible balance).
     /// </summary>
-    public required IBalanceFormat11Choice ConfirmedBalance { get; init; } 
+    public required BalanceFormat11Choice_ ConfirmedBalance { get; init; } 
     
     #nullable disable
 }

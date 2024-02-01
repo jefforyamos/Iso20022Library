@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConsentTypeFormat1Choice;
 /// <summary>
 /// Proprietary identification of the consent type.
 /// </summary>
-public partial record Proprietary : IConsentTypeFormat1Choice
+public partial record Proprietary : ConsentTypeFormat1Choice_
 {
     #nullable enable
     /// <summary>

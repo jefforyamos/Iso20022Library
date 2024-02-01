@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnergy3Choice
 /// <summary>
 /// Definition of Natural Gas energy commodity derivative.
 /// </summary>
-public partial record NaturalGas : IAssetClassCommodityEnergy3Choice
+public partial record NaturalGas : AssetClassCommodityEnergy3Choice_
 {
     #nullable enable
     /// <summary>

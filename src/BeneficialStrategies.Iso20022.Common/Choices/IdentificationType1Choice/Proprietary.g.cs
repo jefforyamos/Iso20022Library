@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationType1Choice;
 /// <summary>
 /// Specifies a type of individual identification.
 /// </summary>
-public partial record Proprietary : IIdentificationType1Choice
+public partial record Proprietary : IdentificationType1Choice_
 {
     #nullable enable
     /// <summary>

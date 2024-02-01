@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References76Choice;
 /// <summary>
 /// Unique reference agreed upon by the two trade counterparties to identify the trade.
 /// </summary>
-public partial record CommonIdentification : IReferences76Choice
+public partial record CommonIdentification : References76Choice_
 {
     public required IsoRestrictedFINXMax16Text Value { get; init; }
 }

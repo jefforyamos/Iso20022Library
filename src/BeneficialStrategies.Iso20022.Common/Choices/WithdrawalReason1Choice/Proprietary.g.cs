@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.WithdrawalReason1Choice;
 /// <summary>
 /// Withdrawal reason expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IWithdrawalReason1Choice
+public partial record Proprietary : WithdrawalReason1Choice_
 {
     #nullable enable
     /// <summary>

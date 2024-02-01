@@ -28,7 +28,7 @@ public partial record MandateAuthentication1
     /// <summary>
     /// Channel used to transmit the authentication information.
     /// </summary>
-    public IAuthenticationChannel1Choice? Channel { get; init; } 
+    public AuthenticationChannel1Choice_? Channel { get; init; } 
     
     #nullable disable
 }

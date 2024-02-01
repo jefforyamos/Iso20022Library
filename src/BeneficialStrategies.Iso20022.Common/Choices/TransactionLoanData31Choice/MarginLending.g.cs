@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData31Choice;
 /// <summary>
 /// Details of the margin lending transaction.
 /// </summary>
-public partial record MarginLending : ITransactionLoanData31Choice
+public partial record MarginLending : TransactionLoanData31Choice_
 {
     #nullable enable
     /// <summary>

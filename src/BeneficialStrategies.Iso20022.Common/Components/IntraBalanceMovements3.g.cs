@@ -36,7 +36,7 @@ public partial record IntraBalanceMovements3
     /// <summary>
     /// Further details on the individual intrabalance movement transaction.
     /// </summary>
-    public IntraBalanceMovement5? Movement { get; init;  } // Warning: Don't know multiplicity.
+    public IntraBalanceMovement5[] Movement { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

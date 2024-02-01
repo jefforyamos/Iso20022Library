@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesPaymentStatus2Choice;
 /// <summary>
 /// Securities payment status expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISecuritiesPaymentStatus2Choice
+public partial record Proprietary : SecuritiesPaymentStatus2Choice_
 {
     #nullable enable
     /// <summary>

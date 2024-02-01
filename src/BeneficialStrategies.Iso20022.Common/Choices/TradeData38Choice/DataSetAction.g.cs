@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData38Choice;
 /// <summary>
 /// Where no transaction was concluded, this field should be set so that a valid transaction data file can be submitted to ESMA as per daily submission requirements.
 /// </summary>
-public partial record DataSetAction : ITradeData38Choice
+public partial record DataSetAction : TradeData38Choice_
 {
     public required ReportPeriodActivity1Code Value { get; init; }
 }

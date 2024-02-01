@@ -28,11 +28,11 @@ public partial record SystemAvailabilityAndEvents3
     /// <summary>
     /// Detailed information about an event occurring on a system, whether planned, such as the cut-off time for a specific type of eligible transfer, or unplanned (an unsolicited failure), as stipulated in the specifications of the system.
     /// </summary>
-    public SystemEvent3? Event { get; init;  } // Warning: Don't know multiplicity.
+    public SystemEvent3[] Event { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information regarding the closure time of a system.
     /// </summary>
-    public SystemClosure2? ClosureInformation { get; init;  } // Warning: Don't know multiplicity.
+    public SystemClosure2[] ClosureInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

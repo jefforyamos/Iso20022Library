@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueCriteriaDefinitio
 /// <summary>
 /// Explicitly defines the query criteria.
 /// </summary>
-public partial record NewCriteria : ICollateralValueCriteriaDefinition2Choice
+public partial record NewCriteria : CollateralValueCriteriaDefinition2Choice_
 {
     #nullable enable
     /// <summary>

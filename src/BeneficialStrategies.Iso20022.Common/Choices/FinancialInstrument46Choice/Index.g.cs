@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument46Choice;
 /// <summary>
 /// Name of the index on which the financial instrument is based.
 /// </summary>
-public partial record Index : IFinancialInstrument46Choice
+public partial record Index : FinancialInstrument46Choice_
 {
     public required BenchmarkCurveName2Code Value { get; init; }
 }

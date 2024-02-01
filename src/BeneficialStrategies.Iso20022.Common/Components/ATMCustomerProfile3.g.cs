@@ -32,7 +32,7 @@ public partial record ATMCustomerProfile3
     /// <summary>
     /// Services allowed for the customer's profile.
     /// </summary>
-    public ATMService7? AllowedServices { get; init;  } // Warning: Don't know multiplicity.
+    public ATMService7[] AllowedServices { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

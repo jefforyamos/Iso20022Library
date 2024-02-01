@@ -24,11 +24,11 @@ public partial record Transaction129
     /// <summary>
     /// Fees not included in the transaction amount.
     /// </summary>
-    public AdditionalFee2? AdditionalFee { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFee2[] AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

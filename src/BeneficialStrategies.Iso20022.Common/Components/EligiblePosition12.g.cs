@@ -24,15 +24,15 @@ public partial record EligiblePosition12
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification231Choice? AccountOwner { get; init; } 
+    public PartyIdentification231Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Net position of a segregated holding of a single security within the overall position held in a securities account, for example, sub-balance per status.
     /// </summary>
-    public IReadOnlyCollection<HoldingBalance9> HoldingBalance { get; init; } = [];
+    public HoldingBalance9[] HoldingBalance { get; init; } = [];
     /// <summary>
     /// Owner of the voting rights.
     /// </summary>
-    public IReadOnlyCollection<IPartyIdentification237Choice> RightsHolder { get; init; } = [];
+    public PartyIdentification237Choice_[] RightsHolder { get; init; } = [];
     
     #nullable disable
 }

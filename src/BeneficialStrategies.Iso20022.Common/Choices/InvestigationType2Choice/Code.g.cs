@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationType2Choice;
 /// <summary>
 /// Investigation type, as published in an external investigation type code set.
 /// </summary>
-public partial record Code : IInvestigationType2Choice
+public partial record Code : InvestigationType2Choice_
 {
     public required ExternalTrackerInvestigationType1Code Value { get; init; }
 }

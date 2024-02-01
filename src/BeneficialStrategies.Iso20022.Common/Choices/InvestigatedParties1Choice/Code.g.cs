@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigatedParties1Choice;
 /// <summary>
 /// Specifies the investigated parties as a code.
 /// </summary>
-public partial record Code : IInvestigatedParties1Choice
+public partial record Code : InvestigatedParties1Choice_
 {
     public required InvestigatedParties1Code Value { get; init; }
 }

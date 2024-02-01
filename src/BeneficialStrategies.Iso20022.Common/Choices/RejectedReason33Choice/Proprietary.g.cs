@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedReason33Choice;
 /// <summary>
 /// Rejected reason expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IRejectedReason33Choice
+public partial record Proprietary : RejectedReason33Choice_
 {
     #nullable enable
     /// <summary>

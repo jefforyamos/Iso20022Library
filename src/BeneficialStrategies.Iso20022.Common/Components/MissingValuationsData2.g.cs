@@ -36,7 +36,7 @@ public partial record MissingValuationsData2
     /// <summary>
     /// Details of missing valuations per transaction.
     /// </summary>
-    public MissingValuationsTransactionData2? TransactionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public MissingValuationsTransactionData2[] TransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

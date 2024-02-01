@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralProposal6Choice;
 /// <summary>
 /// Provides details about the proposal for the segregated independent amount.
 /// </summary>
-public partial record SegregatedIndependentAmount : ICollateralProposal6Choice
+public partial record SegregatedIndependentAmount : CollateralProposal6Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record SegregatedIndependentAmount : ICollateralProposal6Choice
     /// <summary>
     /// Provides the collateral movement direction that is a delivery and optionally a return, or a return only.
     /// </summary>
-    public ICollateralMovement6Choice? MovementDirection { get; init;  } // Warning: Don't know multiplicity.
+    public CollateralMovement6Choice_? MovementDirection { get; init;  } // Warning: Don't know multiplicity.
     #nullable disable
 }

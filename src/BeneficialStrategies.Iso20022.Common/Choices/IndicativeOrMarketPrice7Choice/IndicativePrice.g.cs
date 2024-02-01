@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IndicativeOrMarketPrice7Choice;
 /// <summary>
 /// Estimated price, for example, for valuation purposes.
 /// </summary>
-public partial record IndicativePrice : IIndicativeOrMarketPrice7Choice
+public partial record IndicativePrice : IndicativeOrMarketPrice7Choice_
 {
     #nullable enable
     #nullable disable

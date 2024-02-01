@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRate1Choice;
 /// <summary>
 /// Value is expressed as an amount related to an underlying securities, eg, underlying security for which an interest is paid.
 /// </summary>
-public partial record RateTypeAmount : IGrossDividendRate1Choice
+public partial record RateTypeAmount : GrossDividendRate1Choice_
 {
     #nullable enable
     /// <summary>
     /// Type of underlying securities to which the rate is related, eg, underlying security for which an interest is paid.
     /// </summary>
-    public required IGrossDividendRateType1FormatChoice RateType { get; init; } 
+    public required GrossDividendRateType1FormatChoice_ RateType { get; init; } 
     /// <summary>
     /// Value expressed as an amount.
     /// </summary>

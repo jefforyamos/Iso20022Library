@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnableToApplyJustification2Choic
 /// <summary>
 /// Set of elements used to indicate which information is missing or incorrect.
 /// </summary>
-public partial record MissingOrIncorrectInformation : IUnableToApplyJustification2Choice
+public partial record MissingOrIncorrectInformation : UnableToApplyJustification2Choice_
 {
     #nullable enable
     /// <summary>

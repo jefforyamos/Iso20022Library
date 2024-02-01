@@ -20,11 +20,11 @@ public partial record PriceDetails14
     /// <summary>
     /// Generic cash price paid per product by the underlying security holder either as a percentage or an amount or a number of points above an index, for example, reinvestment price, strike price and exercise price.
     /// </summary>
-    public IPriceFormat6Choice? GenericCashPricePaidPerProduct { get; init; } 
+    public PriceFormat6Choice_? GenericCashPricePaidPerProduct { get; init; } 
     /// <summary>
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, for example, redemption price.
     /// </summary>
-    public IPriceFormat34Choice? GenericCashPriceReceivedPerProduct { get; init; } 
+    public PriceFormat34Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
     
     #nullable disable
 }

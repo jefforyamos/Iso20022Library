@@ -24,7 +24,7 @@ public partial record OtherParties38
     /// <summary>
     /// Instructing party, either an individual or organisation, whose assets are being invested.
     /// </summary>
-    public PartyIdentification149? Investor { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification149[] Investor { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

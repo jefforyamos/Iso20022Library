@@ -24,11 +24,11 @@ public partial record UnderlyingTransaction14
     /// <summary>
     /// Provides information on the original (group of) transactions, to which the cancellation status refers.
     /// </summary>
-    public OriginalPaymentInstruction17? OriginalPaymentInformationAndStatus { get; init;  } // Warning: Don't know multiplicity.
+    public OriginalPaymentInstruction17[] OriginalPaymentInformationAndStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides details on the original transactions to which the cancellation request message refers.
     /// </summary>
-    public PaymentTransaction67? TransactionInformationAndStatus { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentTransaction67[] TransactionInformationAndStatus { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

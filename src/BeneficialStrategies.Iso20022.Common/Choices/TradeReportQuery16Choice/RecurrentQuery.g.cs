@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReportQuery16Choice;
 /// <summary>
 /// Query criteria specifically applied to recurrent queries.
 /// </summary>
-public partial record RecurrentQuery : ITradeReportQuery16Choice
+public partial record RecurrentQuery : TradeReportQuery16Choice_
 {
     #nullable enable
     /// <summary>

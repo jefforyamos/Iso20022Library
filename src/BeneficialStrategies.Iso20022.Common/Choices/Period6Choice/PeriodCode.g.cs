@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Period6Choice;
 /// <summary>
 /// Standard code to specify the type of period.
 /// </summary>
-public partial record PeriodCode : IPeriod6Choice
+public partial record PeriodCode : Period6Choice_
 {
     public required DateType8Code Value { get; init; }
 }

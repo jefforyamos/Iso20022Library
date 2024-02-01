@@ -28,7 +28,7 @@ public partial record PTRREvent3
     /// <summary>
     /// Identification of the post trade risk reduction service provider.
     /// </summary>
-    public IOrganisationIdentification15Choice? ServiceProvider { get; init; } 
+    public OrganisationIdentification15Choice_? ServiceProvider { get; init; } 
     
     #nullable disable
 }

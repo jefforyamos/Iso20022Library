@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExposureType3Choice;
 /// <summary>
 /// Collateral movement exposure type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IExposureType3Choice
+public partial record Proprietary : ExposureType3Choice_
 {
     #nullable enable
     /// <summary>

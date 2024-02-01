@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CommunicationMethod1Choice;
 /// <summary>
 /// Communication channel method expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICommunicationMethod1Choice
+public partial record Proprietary : CommunicationMethod1Choice_
 {
     #nullable enable
     /// <summary>

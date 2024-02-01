@@ -60,11 +60,11 @@ public partial record AddendumData1
     /// <summary>
     /// Component provides detailed vehicle rental information. One occurrence of this component provides rental agreement data reporting for a single vehicle rental transaction.
     /// </summary>
-    public VehicleRentalService1? VehicleRental { get; init;  } // Warning: Don't know multiplicity.
+    public VehicleRentalService1[] VehicleRental { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Component provides detailed information about lodging accommodations and related expenses for the cardholder. Acquirers can submit multiple occurrences of this component for each lodging transaction, to provide details of one or more folios.
     /// </summary>
-    public Lodging2? Lodging { get; init;  } // Warning: Don't know multiplicity.
+    public Lodging2[] Lodging { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Shipping or Courier Service detail component provides detailed information regarding delivery or courier services. 
     /// </summary>
@@ -76,7 +76,7 @@ public partial record AddendumData1
     /// <summary>
     /// Temporary Services component provides detailed information regarding the billing for services rendered on a temporary or contract basis. The component provides information such as the employee job performed, timekeeping, and billing rates.
     /// </summary>
-    public TemporaryServices1? TemporaryServices { get; init;  } // Warning: Don't know multiplicity.
+    public TemporaryServices1[] TemporaryServices { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data exclusively related to a card issuer financial loan of the payment transaction, or instalment.
     /// </summary>
@@ -84,7 +84,7 @@ public partial record AddendumData1
     /// <summary>
     /// Contains additional data for the addendum.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

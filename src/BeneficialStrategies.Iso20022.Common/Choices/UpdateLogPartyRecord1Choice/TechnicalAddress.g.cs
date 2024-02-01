@@ -12,16 +12,16 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 /// <summary>
 /// Unique technical address to unambiguously identify a party for receiving messages from the executing system.
 /// </summary>
-public partial record TechnicalAddress : IUpdateLogPartyRecord1Choice
+public partial record TechnicalAddress : UpdateLogPartyRecord1Choice_
 {
     #nullable enable
     /// <summary>
     /// Old value before the update.
     /// </summary>
-    public required ITechnicalIdentification2Choice Old { get; init; } 
+    public required TechnicalIdentification2Choice_ Old { get; init; } 
     /// <summary>
     /// New value after the update.
     /// </summary>
-    public required ITechnicalIdentification2Choice New { get; init; } 
+    public required TechnicalIdentification2Choice_ New { get; init; } 
     #nullable disable
 }

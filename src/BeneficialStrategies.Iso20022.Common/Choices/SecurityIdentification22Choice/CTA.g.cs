@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification22Choice;
 /// <summary>
 /// Identifier of a security assigned by the Consolidated Tape Association.
 /// </summary>
-public partial record CTA : ISecurityIdentification22Choice
+public partial record CTA : SecurityIdentification22Choice_
 {
     public required IsoConsolidatedTapeAssociationIdentifier Value { get; init; }
 }

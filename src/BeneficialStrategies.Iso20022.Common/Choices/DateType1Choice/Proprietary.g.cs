@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateType1Choice;
 /// <summary>
 /// Date identified using a data source scheme.
 /// </summary>
-public partial record Proprietary : IDateType1Choice
+public partial record Proprietary : DateType1Choice_
 {
     #nullable enable
     /// <summary>

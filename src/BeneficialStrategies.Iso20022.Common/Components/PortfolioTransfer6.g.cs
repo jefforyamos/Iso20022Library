@@ -28,15 +28,15 @@ public partial record PortfolioTransfer6
     /// <summary>
     /// Choice of tax efficient product, general investment or pension.
     /// </summary>
-    public IFundPortfolio4Choice? Portfolio { get; init; } 
+    public FundPortfolio4Choice_? Portfolio { get; init; } 
     /// <summary>
     /// Asset to be transferred.
     /// </summary>
-    public FinancialInstrument84? FinancialInstrumentAssetForTransfer { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrument84[] FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the product transfer.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

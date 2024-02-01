@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus94Choice;
 /// <summary>
 /// Instruction/request has been rejected for further processing.
 /// </summary>
-public partial record Rejected : IProcessingStatus94Choice
+public partial record Rejected : ProcessingStatus94Choice_
 {
     #nullable enable
     #nullable disable

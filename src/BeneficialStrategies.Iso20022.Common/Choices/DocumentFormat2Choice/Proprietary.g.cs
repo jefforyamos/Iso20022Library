@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DocumentFormat2Choice;
 /// <summary>
 /// Document format, in a free text form.
 /// </summary>
-public partial record Proprietary : IDocumentFormat2Choice
+public partial record Proprietary : DocumentFormat2Choice_
 {
     #nullable enable
     /// <summary>

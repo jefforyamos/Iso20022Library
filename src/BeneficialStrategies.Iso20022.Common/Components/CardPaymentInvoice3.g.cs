@@ -32,7 +32,7 @@ public partial record CardPaymentInvoice3
     /// <summary>
     /// Unit of information showing the related provision of products and/or services and monetary summations reported as a discrete line items.
     /// </summary>
-    public LineItem17? LineItem { get; init;  } // Warning: Don't know multiplicity.
+    public LineItem17[] LineItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

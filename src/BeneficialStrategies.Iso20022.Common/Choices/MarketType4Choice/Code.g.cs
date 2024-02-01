@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketType4Choice;
 /// <summary>
 /// Market type expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IMarketType4Choice
+public partial record Code : MarketType4Choice_
 {
     public required MarketType4Code Value { get; init; }
 }

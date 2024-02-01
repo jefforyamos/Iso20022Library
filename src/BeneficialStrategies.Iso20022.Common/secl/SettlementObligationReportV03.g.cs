@@ -72,7 +72,7 @@ public partial record SettlementObligationReportV03 : IOuterRecord
     [Description(@"Provides the identification of the clearing member (individual clearing member or general clearing member).")]
     [DataMember(Name="ClrMmb")]
     [XmlElement(ElementName="ClrMmb")]
-    public IPartyIdentification35Choice? ClearingMember { get; init; }
+    public PartyIdentification35Choice_? ClearingMember { get; init; }
     
     /// <summary>
     /// Clearing organisation that will clear the trade.
@@ -82,7 +82,7 @@ public partial record SettlementObligationReportV03 : IOuterRecord
     [Description(@"Clearing organisation that will clear the trade.|Note: This field allows Clearing Member Firm to segregate flows coming from clearing counterparty's clearing system. Indeed, Clearing Member Firms receive messages from the same system (same sender) and this field allows them to know if the message is related to equities or derivatives.")]
     [DataMember(Name="ClrSgmt")]
     [XmlElement(ElementName="ClrSgmt")]
-    public IPartyIdentification35Choice? ClearingSegment { get; init; }
+    public PartyIdentification35Choice_? ClearingSegment { get; init; }
     
     /// <summary>
     /// Provides the identification of the account used for netting. This is an account opened by the central counterparty in the name of the clearing member or its settlement agent within the account structure, for settlement purposes (gives information about the clearing member/its settlement agent account at the central securities depository).
@@ -110,7 +110,7 @@ public partial record SettlementObligationReportV03 : IOuterRecord
     [Description(@"Provides details about the receiving parties involved in the settlement chain.")]
     [DataMember(Name="SttlmPties")]
     [XmlElement(ElementName="SttlmPties")]
-    public ISettlementParties2Choice? SettlementParties { get; init; }
+    public SettlementParties2Choice_? SettlementParties { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

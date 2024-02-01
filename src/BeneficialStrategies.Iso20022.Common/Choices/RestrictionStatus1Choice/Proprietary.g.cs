@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RestrictionStatus1Choice;
 /// <summary>
 /// Status of the restriction expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IRestrictionStatus1Choice
+public partial record Proprietary : RestrictionStatus1Choice_
 {
     #nullable enable
     /// <summary>

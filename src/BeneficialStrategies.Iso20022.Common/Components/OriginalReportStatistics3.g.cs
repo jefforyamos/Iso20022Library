@@ -24,7 +24,7 @@ public partial record OriginalReportStatistics3
     /// <summary>
     /// Detailed information on the number of records for each records status.
     /// </summary>
-    public NumberOfRecordsPerStatus1? NumberOfRecordsPerStatus { get; init;  } // Warning: Don't know multiplicity.
+    public NumberOfRecordsPerStatus1[] NumberOfRecordsPerStatus { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

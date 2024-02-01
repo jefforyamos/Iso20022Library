@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationRejectionStatus1Choi
 /// <summary>
 /// This code can be used in case another reason is required.
 /// </summary>
-public partial record Proprietary : ICancellationRejectionStatus1Choice
+public partial record Proprietary : CancellationRejectionStatus1Choice_
 {
     #nullable enable
     /// <summary>

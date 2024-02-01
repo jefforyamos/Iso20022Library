@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status24Choice;
 /// <summary>
 /// Status report details of a switch order.
 /// </summary>
-public partial record SwitchOrderDetailsReport : IStatus24Choice
+public partial record SwitchOrderDetailsReport : Status24Choice_
 {
     #nullable enable
     /// <summary>
@@ -38,7 +38,7 @@ public partial record SwitchOrderDetailsReport : IStatus24Choice
     /// <summary>
     /// Status of the switch order.
     /// </summary>
-    public required IOrderStatus4Choice OrderStatus { get; init; } 
+    public required OrderStatus4Choice_ OrderStatus { get; init; } 
     /// <summary>
     /// Information about a switch leg that is rejected or repaired.
     /// </summary>

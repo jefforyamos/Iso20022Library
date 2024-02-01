@@ -40,7 +40,7 @@ public partial record NumberAndSumOfTransactionsPerBankTransactionCode1
     /// <summary>
     /// Set of elements used to indicate when the booked amount of money will become available, ie can be accessed and start generating interest.
     /// </summary>
-    public CashBalanceAvailability1? Availability { get; init;  } // Warning: Don't know multiplicity.
+    public CashBalanceAvailability1[] Availability { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

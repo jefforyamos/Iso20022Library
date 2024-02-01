@@ -50,7 +50,7 @@ public partial record AccountSwitchDetails1
     /// <summary>
     /// Response code and additional information.
     /// </summary>
-    public ResponseDetails1? Response { get; init;  } // Warning: Don't know multiplicity.
+    public ResponseDetails1[] Response { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

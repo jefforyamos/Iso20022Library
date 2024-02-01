@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AuthenticationChannel1Choice;
 /// <summary>
 /// Authentication channel expressed as an external ISO 20022 code.
 /// </summary>
-public partial record Code : IAuthenticationChannel1Choice
+public partial record Code : AuthenticationChannel1Choice_
 {
     public required ExternalAuthenticationChannel1Code Value { get; init; }
 }

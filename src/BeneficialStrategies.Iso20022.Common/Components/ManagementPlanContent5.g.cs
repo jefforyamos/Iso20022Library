@@ -24,11 +24,11 @@ public partial record ManagementPlanContent5
     /// <summary>
     /// Certificate chain of an asymmetric encryption keys for the encryption of temporary transport key of the key to inject.
     /// </summary>
-    public IsoMax10KBinary? KeyEnciphermentCertificate { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax10KBinary[] KeyEnciphermentCertificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Terminal management action to be performed by the point of interaction (POI).
     /// </summary>
-    public TMSAction5? Action { get; init;  } // Warning: Don't know multiplicity.
+    public TMSAction5[] Action { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

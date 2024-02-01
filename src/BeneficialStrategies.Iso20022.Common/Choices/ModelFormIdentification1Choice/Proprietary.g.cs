@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModelFormIdentification1Choice;
 /// <summary>
 /// Model form identification expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IModelFormIdentification1Choice
+public partial record Proprietary : ModelFormIdentification1Choice_
 {
     #nullable enable
     /// <summary>

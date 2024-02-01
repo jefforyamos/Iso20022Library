@@ -20,7 +20,7 @@ public partial record CreditorReferenceType2
     /// <summary>
     /// Coded or proprietary format creditor reference type.
     /// </summary>
-    public required ICreditorReferenceType1Choice CodeOrProprietary { get; init; } 
+    public required CreditorReferenceType1Choice_ CodeOrProprietary { get; init; } 
     /// <summary>
     /// Entity that assigns the credit reference type.
     /// </summary>

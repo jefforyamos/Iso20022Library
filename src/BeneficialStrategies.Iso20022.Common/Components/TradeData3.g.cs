@@ -32,7 +32,7 @@ public partial record TradeData3
     /// <summary>
     /// Specifies the new status of the trade.
     /// </summary>
-    public required IStatus5Choice CurrentStatus { get; init; } 
+    public required Status5Choice_ CurrentStatus { get; init; } 
     /// <summary>
     /// Additional information about the current status of the trade.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record TradeData3
     /// <summary>
     /// Specifies the previous status of the trade.
     /// </summary>
-    public IStatus5Choice? PreviousStatus { get; init; } 
+    public Status5Choice_? PreviousStatus { get; init; } 
     /// <summary>
     /// Specifies whether a trade is alleged or not.
     /// </summary>

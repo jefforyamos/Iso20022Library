@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reference1Choice;
 /// <summary>
 /// Unique identifier of the margin call request.
 /// </summary>
-public partial record MarginCallRequestIdentification : IReference1Choice
+public partial record MarginCallRequestIdentification : Reference1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

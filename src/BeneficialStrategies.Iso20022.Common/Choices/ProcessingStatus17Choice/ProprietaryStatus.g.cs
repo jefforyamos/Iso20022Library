@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus17Choice;
 /// <summary>
 /// Provides a proprietary status and a proprietary reason of the processing status of the trade.
 /// </summary>
-public partial record ProprietaryStatus : IProcessingStatus17Choice
+public partial record ProprietaryStatus : ProcessingStatus17Choice_
 {
     #nullable enable
     /// <summary>

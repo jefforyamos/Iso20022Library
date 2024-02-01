@@ -41,7 +41,7 @@ public partial record CardAccount4
     /// <summary>
     /// Unique identifier of the account, as assigned by the account servicer.
     /// </summary>
-    public IAccountIdentification31Choice? AccountIdentifier { get; init; } 
+    public AccountIdentification31Choice_? AccountIdentifier { get; init; } 
     /// <summary>
     /// Internal account reference in case of credit account.
     /// </summary>
@@ -49,7 +49,7 @@ public partial record CardAccount4
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    public IPartyIdentification72Choice? Servicer { get; init; } 
+    public PartyIdentification72Choice_? Servicer { get; init; } 
     /// <summary>
     /// Balance of the account.
     /// </summary>

@@ -20,11 +20,11 @@ public partial record CompareOrganisationIdentification6
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
-    public IOrganisationIdentification15Choice? Value1 { get; init; } 
+    public OrganisationIdentification15Choice_? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
-    public IOrganisationIdentification15Choice? Value2 { get; init; } 
+    public OrganisationIdentification15Choice_? Value2 { get; init; } 
     
     #nullable disable
 }

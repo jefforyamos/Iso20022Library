@@ -20,7 +20,7 @@ public partial record CardPaymentToken1
     /// <summary>
     /// Additional token payment information.
     /// </summary>
-    public IsoMax35Text? TokenCharacteristic { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] TokenCharacteristic { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifier of a token provider requestor.
     /// </summary>

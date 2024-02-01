@@ -20,7 +20,7 @@ public partial record OtherParties45
     /// <summary>
     /// Party that identifies the underlying investor.
     /// </summary>
-    public PartyIdentificationAndAccount220? Investor { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentificationAndAccount220[] Investor { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that identifies the stock exchange.
     /// </summary>

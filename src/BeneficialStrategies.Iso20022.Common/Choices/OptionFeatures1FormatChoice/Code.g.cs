@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionFeatures1FormatChoice;
 /// <summary>
 /// Standard code to specify the feature of an option.
 /// </summary>
-public partial record Code : IOptionFeatures1FormatChoice
+public partial record Code : OptionFeatures1FormatChoice_
 {
     public required OptionFeatures1Code Value { get; init; }
 }

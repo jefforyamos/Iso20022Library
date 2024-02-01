@@ -32,7 +32,7 @@ public partial record PostalAddress22
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, presented in free format text.
     /// </summary>
-    public IReadOnlyCollection<IsoMax70Text> AddressLine { get; init; } = [];
+    public IsoMax70Text[] AddressLine { get; init; } = [];
     /// <summary>
     /// Name of a street or thoroughfare.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record PostalAddress22
     /// <summary>
     /// Identifies a subdivision of a country such as state, region, county.
     /// </summary>
-    public IReadOnlyCollection<IsoMax35Text> CountrySubDivision { get; init; } = [];
+    public IsoMax35Text[] CountrySubDivision { get; init; } = [];
     /// <summary>
     /// Nation with its own government.
     /// </summary>

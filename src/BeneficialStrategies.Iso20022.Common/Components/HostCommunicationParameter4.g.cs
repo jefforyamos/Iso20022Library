@@ -32,7 +32,7 @@ public partial record HostCommunicationParameter4
     /// <summary>
     /// Cryptographic key used to communicate with the host.
     /// </summary>
-    public KEKIdentifier5? Key { get; init;  } // Warning: Don't know multiplicity.
+    public KEKIdentifier5[] Key { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Access information to reach an intermediate network service provider.
     /// </summary>

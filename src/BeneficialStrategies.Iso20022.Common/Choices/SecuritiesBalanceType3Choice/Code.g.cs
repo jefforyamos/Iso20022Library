@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesBalanceType3Choice;
 /// <summary>
 /// Sub-balance expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ISecuritiesBalanceType3Choice
+public partial record Code : SecuritiesBalanceType3Choice_
 {
     public required SecuritiesBalanceType11Code Value { get; init; }
 }

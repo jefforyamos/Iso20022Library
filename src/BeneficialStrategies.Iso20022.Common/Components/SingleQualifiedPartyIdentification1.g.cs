@@ -27,7 +27,7 @@ public partial record SingleQualifiedPartyIdentification1
     /// <summary>
     /// Identifies a party, each identifier is recursively defined relative to the party identified by the base party and the preceding part of the list.
     /// </summary>
-    public IReadOnlyCollection<IsoMax35Text> RelativeIdentifier { get; init; } = [];
+    public IsoMax35Text[] RelativeIdentifier { get; init; } = [];
     
     #nullable disable
 }

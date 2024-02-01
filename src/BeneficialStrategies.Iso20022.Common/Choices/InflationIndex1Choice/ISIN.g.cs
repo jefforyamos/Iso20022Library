@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InflationIndex1Choice;
 /// <summary>
 /// International Securities Identification Number (ISIN) of the inflation index.
 /// </summary>
-public partial record ISIN : IInflationIndex1Choice
+public partial record ISIN : InflationIndex1Choice_
 {
     public required IsoISINOct2015Identifier Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record Response1
     /// <summary>
     /// Provides details about the response type.
     /// </summary>
-    public IResponseType1Choice? ResponseTypeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ResponseType1Choice_[] ResponseTypeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional details related to the margin call response.
     /// </summary>

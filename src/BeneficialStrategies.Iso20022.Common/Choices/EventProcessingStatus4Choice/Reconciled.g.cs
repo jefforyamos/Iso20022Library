@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EventProcessingStatus4Choice;
 /// <summary>
 /// Corporate action event processing specifying that the funds paid have been reconciled with the funds received from the agent (meaning that there is no more risk of payment to be reversed).
 /// </summary>
-public partial record Reconciled : IEventProcessingStatus4Choice
+public partial record Reconciled : EventProcessingStatus4Choice_
 {
     #nullable enable
     /// <summary>

@@ -20,11 +20,11 @@ public partial record TransactionDetails103
     /// <summary>
     /// Specifies the type of activity to which this instruction relates.
     /// </summary>
-    public required ITransactionActivity3Choice TransactionActivity { get; init; } 
+    public required TransactionActivity3Choice_ TransactionActivity { get; init; } 
     /// <summary>
     /// Choice of type for the transaction reported.
     /// </summary>
-    public ISettlementOrCorporateActionEvent22Choice? SettlementTransactionOrCorporateActionEventType { get; init; } 
+    public SettlementOrCorporateActionEvent22Choice_? SettlementTransactionOrCorporateActionEventType { get; init; } 
     /// <summary>
     /// Specifies if the movement on a securities account results from a deliver or a receive instruction.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record TransactionDetails103
     /// <summary>
     /// Quantity of financial instrument (to be) posted to the safekeeping account.
     /// </summary>
-    public required IQuantity6Choice PostingQuantity { get; init; } 
+    public required Quantity6Choice_ PostingQuantity { get; init; } 
     /// <summary>
     /// Number of days on which the interest rate accrues (daily accrual note).
     /// </summary>
@@ -68,19 +68,19 @@ public partial record TransactionDetails103
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    public ITradeDate8Choice? TradeDate { get; init; } 
+    public TradeDate8Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date and time at which a transaction is completed and cleared, that is, payment is effected and securities are delivered.
     /// </summary>
-    public required IDateAndDateTime2Choice EffectiveSettlementDate { get; init; } 
+    public required DateAndDateTime2Choice_ EffectiveSettlementDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public ISettlementDate17Choice? SettlementDate { get; init; } 
+    public SettlementDate17Choice_? SettlementDate { get; init; } 
     /// <summary>
     /// Date and time assets become available to the account owner (in a credit entry), or cease to be available to the account owner (in a debit entry).
     /// </summary>
-    public IDateAndDateTime2Choice? ValueDate { get; init; } 
+    public DateAndDateTime2Choice_? ValueDate { get; init; } 
     /// <summary>
     /// Time stamp on when the transaction is acknowledged.
     /// </summary>

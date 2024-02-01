@@ -20,7 +20,7 @@ public partial record AllegementMatchingReason1
     /// <summary>
     /// Specifies the reason why the instruction has been alleged.
     /// </summary>
-    public required IAllegementReason1Choice Code { get; init; } 
+    public required AllegementReason1Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional information about the reason in narrative form.
     /// </summary>

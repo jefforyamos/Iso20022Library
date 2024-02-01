@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status25Choice;
 /// <summary>
 /// Status code.
 /// </summary>
-public partial record Status : IStatus25Choice
+public partial record Status : Status25Choice_
 {
     public required AccountManagementStatus1Code Value { get; init; }
 }

@@ -24,11 +24,11 @@ public partial record StatusReasonInformation1
     /// <summary>
     /// Specifies the reason for the status report.
     /// </summary>
-    public IStatusReason1Choice? StatusReason { get; init; } 
+    public StatusReason1Choice_? StatusReason { get; init; } 
     /// <summary>
     /// Further details on the status reason.||Usage: Additional information can be used for several purposes, e.g. to report repaired information, or to further detail the status reason.
     /// </summary>
-    public IsoMax105Text? AdditionalStatusReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax105Text[] AdditionalStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

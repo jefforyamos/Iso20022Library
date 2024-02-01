@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingProcessingReason9Choice;
 /// <summary>
 /// Reason for the pending status.
 /// </summary>
-public partial record Reason : IPendingProcessingReason9Choice
+public partial record Reason : PendingProcessingReason9Choice_
 {
     #nullable enable
     #nullable disable

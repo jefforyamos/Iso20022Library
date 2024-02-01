@@ -28,11 +28,11 @@ public partial record LoanContract3
     /// <summary>
     /// Party that is specified as the buyer for this loan agreement.
     /// </summary>
-    public TradeParty5? Buyer { get; init;  } // Warning: Don't know multiplicity.
+    public TradeParty5[] Buyer { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that is specified as the seller for this loan agreement.
     /// </summary>
-    public TradeParty5? Seller { get; init;  } // Warning: Don't know multiplicity.
+    public TradeParty5[] Seller { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Loan amount as defined in the contract.
     /// </summary>
@@ -65,19 +65,19 @@ public partial record LoanContract3
     /// <summary>
     /// Interest rate for the loan.
     /// </summary>
-    public IInterestRate2Choice? InterestRate { get; init; } 
+    public InterestRate2Choice_? InterestRate { get; init; } 
     /// <summary>
     /// One part or division of the loan, used to define the repayment.
     /// </summary>
-    public LoanContractTranche1? Tranche { get; init;  } // Warning: Don't know multiplicity.
+    public LoanContractTranche1[] Tranche { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Schedule of the payments defined for the loan contract.
     /// </summary>
-    public PaymentSchedule1? PaymentSchedule { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentSchedule1[] PaymentSchedule { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Schedule of the interest payments defined for the loan contract.
     /// </summary>
-    public InterestPaymentSchedule1? InterestSchedule { get; init;  } // Warning: Don't know multiplicity.
+    public InterestPaymentSchedule1[] InterestSchedule { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Loan is an intra company loan.
     /// </summary>
@@ -89,11 +89,11 @@ public partial record LoanContract3
     /// <summary>
     /// Loan offered by a group of lenders (called a syndicate) who work together to provide funds for a single borrower.
     /// </summary>
-    public SyndicatedLoan2? SyndicatedLoan { get; init;  } // Warning: Don't know multiplicity.
+    public SyndicatedLoan2[] SyndicatedLoan { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Documents provided as attachments to the loan contract.
     /// </summary>
-    public DocumentGeneralInformation5? Attachment { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentGeneralInformation5[] Attachment { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

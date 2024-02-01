@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CommodityDerivate2Choice;
 /// <summary>
 /// Details specific to energy derivatives.
 /// </summary>
-public partial record Energy : ICommodityDerivate2Choice
+public partial record Energy : CommodityDerivate2Choice_
 {
     #nullable enable
     /// <summary>

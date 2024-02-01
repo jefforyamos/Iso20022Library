@@ -32,7 +32,7 @@ public partial record RedemptionExecution15
     /// <summary>
     /// Category of the investment fund order.
     /// </summary>
-    public IReadOnlyCollection<IFundOrderType4Choice> OrderType { get; init; } = [];
+    public FundOrderType4Choice_[] OrderType { get; init; } = [];
     /// <summary>
     /// Investment fund class to which the investment fund order execution is related.
     /// </summary>
@@ -66,7 +66,7 @@ public partial record RedemptionExecution15
     /// <summary>
     /// Date and time at which a price is applied, according to the terms stated in the prospectus.
     /// </summary>
-    public required IDateAndDateTimeChoice TradeDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     /// <summary>
     /// Price at which the order was executed.
     /// </summary>
@@ -74,7 +74,7 @@ public partial record RedemptionExecution15
     /// <summary>
     /// Other quoted price than the one at which the order was executed.
     /// </summary>
-    public IReadOnlyCollection<UnitPrice22> InformativePriceDetails { get; init; } = [];
+    public UnitPrice22[] InformativePriceDetails { get; init; } = [];
     /// <summary>
     /// Total amount of money paid/to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
@@ -102,7 +102,7 @@ public partial record RedemptionExecution15
     /// <summary>
     /// Part of the price deemed as accrued income or profit rather than capital. The interim profit amount is used for tax purposes.
     /// </summary>
-    public IProfitAndLoss2Choice? InterimProfitAmount { get; init; } 
+    public ProfitAndLoss2Choice_? InterimProfitAmount { get; init; } 
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// How the exchange rate is expressed determines which currency is the Unit Currency and Quoted Currency. If the amounts concerned are EUR 1000 and USD 1300, the exchange rate may be expressed as per either of the following examples:
@@ -115,7 +115,7 @@ public partial record RedemptionExecution15
     /// QuotedCurrency EUR
     /// ExchangeRate 0.769.
     /// </summary>
-    public ForeignExchangeTerms33? ForeignExchangeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ForeignExchangeTerms33[] ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
@@ -171,7 +171,7 @@ public partial record RedemptionExecution15
     /// <summary>
     /// Breakdown of the net amount per type of order.
     /// </summary>
-    public IReadOnlyCollection<InvestmentFundsOrderBreakdown2> StaffClientBreakdown { get; init; } = [];
+    public InvestmentFundsOrderBreakdown2[] StaffClientBreakdown { get; init; } = [];
     /// <summary>
     /// Amount retained by the fund and paid out later at a time decided by the fund.
     /// </summary>
@@ -191,7 +191,7 @@ public partial record RedemptionExecution15
     /// <summary>
     /// Party related to the transaction.
     /// </summary>
-    public IReadOnlyCollection<Intermediary39> RelatedPartyDetails { get; init; } = [];
+    public Intermediary39[] RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Part of an investor's subscription amount that was held by the fund in order to pay incentive/performance fees at the end of the fiscal year, and is returned due to the redemption.
     /// </summary>
@@ -199,15 +199,15 @@ public partial record RedemptionExecution15
     /// <summary>
     /// Assessment of the customer’s behaviour at the time of the account opening application.
     /// </summary>
-    public ICustomerConductClassification1Choice? CustomerConductClassification { get; init; } 
+    public CustomerConductClassification1Choice_? CustomerConductClassification { get; init; } 
     /// <summary>
     /// Means by which the investor or account owner submits the open account form.
     /// </summary>
-    public ITransactionChannelType1Choice? TransactionChannelType { get; init; } 
+    public TransactionChannelType1Choice_? TransactionChannelType { get; init; } 
     /// <summary>
     /// Type of signature.
     /// </summary>
-    public ISignatureType1Choice? SignatureType { get; init; } 
+    public SignatureType1Choice_? SignatureType { get; init; } 
     /// <summary>
     /// Information about a non-standard order.
     /// </summary>

@@ -40,15 +40,15 @@ public partial record AggregateBalanceInformation9
     /// <summary>
     /// Total quantity of financial instruments of the balance that is available.
     /// </summary>
-    public IBalanceQuantity5Choice? AvailableBalance { get; init; } 
+    public BalanceQuantity5Choice_? AvailableBalance { get; init; } 
     /// <summary>
     /// Total quantity of financial instruments of the balance that is not available.
     /// </summary>
-    public IBalanceQuantity5Choice? NotAvailableBalance { get; init; } 
+    public BalanceQuantity5Choice_? NotAvailableBalance { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public ISafekeepingPlaceFormat3Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
@@ -56,11 +56,11 @@ public partial record AggregateBalanceInformation9
     /// <summary>
     /// Price of the financial instrument in one or more currencies.
     /// </summary>
-    public PriceInformation5? PriceDetails { get; init;  } // Warning: Don't know multiplicity.
+    public PriceInformation5[] PriceDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// </summary>
-    public ForeignExchangeTerms1? ForeignExchangeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ForeignExchangeTerms1[] ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the number of days used for calculating the accrued interest amount.
     /// </summary>
@@ -76,19 +76,19 @@ public partial record AggregateBalanceInformation9
     /// <summary>
     /// Breakdown of the aggregate quantity reported into significant lots, for example, tax lots.
     /// </summary>
-    public QuantityBreakdown3? QuantityBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public QuantityBreakdown3[] QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Breakdown of the aggregate balance per meaningful sub-balances and availability.
     /// </summary>
-    public SubBalanceInformation5? BalanceBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public SubBalanceInformation5[] BalanceBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional instrument sub-balance information on all or parts of the reported financial instrument (unregistered, tax exempt, etc.).
     /// </summary>
-    public AdditionalBalanceInformation5? AdditionalBalanceBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalBalanceInformation5[] AdditionalBalanceBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Breakdown of positions per place of safekeeping (and optionally per place of listing).
     /// </summary>
-    public AggregateBalancePerSafekeepingPlace8? BalanceAtSafekeepingPlace { get; init;  } // Warning: Don't know multiplicity.
+    public AggregateBalancePerSafekeepingPlace8[] BalanceAtSafekeepingPlace { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional information on the holding.
     /// </summary>
@@ -96,7 +96,7 @@ public partial record AggregateBalanceInformation9
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension2? Extension { get; init;  } // Warning: Don't know multiplicity.
+    public Extension2[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

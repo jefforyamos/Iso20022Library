@@ -24,23 +24,23 @@ public partial record NamedPosition3
     /// <summary>
     /// Report containing aggregation of loan and collateral exposures between counterparties by Securities Financing Transaction type, for a limited number of fields.
     /// </summary>
-    public PositionSet16? GeneralInformation { get; init;  } // Warning: Don't know multiplicity.
+    public PositionSet16[] GeneralInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Aggregation of data for all transactions pertaining to the loan side, by Securities Financing Transaction type.
     /// </summary>
-    public PositionSet17? Loan { get; init;  } // Warning: Don't know multiplicity.
+    public PositionSet17[] Loan { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Aggregation of data for all submissions pertaining to the collateral side, by Securities Financing Transaction type.
     /// </summary>
-    public PositionSet18? Collateral { get; init;  } // Warning: Don't know multiplicity.
+    public PositionSet18[] Collateral { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Aggregation of data related to margin reported for cleared Securities Financing Transactions at the level of each pair of entities and portfolio code.
     /// </summary>
-    public PositionSet20? Margin { get; init;  } // Warning: Don't know multiplicity.
+    public PositionSet20[] Margin { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Aggregation of data on collateral reuse transactions, at entity level.
     /// </summary>
-    public PositionSet19? Reuse { get; init;  } // Warning: Don't know multiplicity.
+    public PositionSet19[] Reuse { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

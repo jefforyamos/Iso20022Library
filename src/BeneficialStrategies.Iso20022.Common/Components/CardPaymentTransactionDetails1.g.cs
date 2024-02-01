@@ -32,7 +32,7 @@ public partial record CardPaymentTransactionDetails1
     /// <summary>
     /// Detailed amounts associated with the total amount of transaction.
     /// </summary>
-    public DetailedAmount1? DetailedAmount { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount1[] DetailedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Transaction authorisation deadline to complete the related payment.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record CardPaymentTransactionDetails1
     /// <summary>
     /// Product purchased with the transaction.
     /// </summary>
-    public Product1? Product { get; init;  } // Warning: Don't know multiplicity.
+    public Product1[] Product { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data related to an integrated circuit card application.
     /// </summary>

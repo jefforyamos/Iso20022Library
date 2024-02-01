@@ -48,7 +48,7 @@ public partial record ResolutionData4
     /// <summary>
     /// Provides information on the charges to be paid by the charge bearer(s) related to the payment transaction.
     /// </summary>
-    public Charges13? ChargesInformation { get; init;  } // Warning: Don't know multiplicity.
+    public Charges13[] ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

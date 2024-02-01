@@ -20,11 +20,11 @@ public partial record TransportByAir2
     /// <summary>
     /// Place from where the goods must leave.
     /// </summary>
-    public required IAirportName1Choice DepartureAirport { get; init; } 
+    public required AirportName1Choice_ DepartureAirport { get; init; } 
     /// <summary>
     /// Place where the goods must arrive.
     /// </summary>
-    public required IAirportName1Choice DestinationAirport { get; init; } 
+    public required AirportName1Choice_ DestinationAirport { get; init; } 
     /// <summary>
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>

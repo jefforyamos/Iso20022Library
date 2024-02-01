@@ -20,7 +20,7 @@ public partial record TaxCalculationInformation10
     /// <summary>
     /// Form of the rebate, for example, cash.
     /// </summary>
-    public ITaxBasis1Choice? Basis { get; init; } 
+    public TaxBasis1Choice_? Basis { get; init; } 
     /// <summary>
     /// Amount of money on which the tax is charged.
     /// </summary>

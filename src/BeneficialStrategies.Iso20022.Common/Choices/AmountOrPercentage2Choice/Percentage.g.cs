@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountOrPercentage2Choice;
 /// <summary>
 /// Specifies that the payment conditions apply to a percentage of the amount due.
 /// </summary>
-public partial record Percentage : IAmountOrPercentage2Choice
+public partial record Percentage : AmountOrPercentage2Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

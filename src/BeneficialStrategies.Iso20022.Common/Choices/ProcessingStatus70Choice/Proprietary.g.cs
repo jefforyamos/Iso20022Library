@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus70Choice;
 /// <summary>
 /// Specifies the processing status of the instruction in a proprietary format.
 /// </summary>
-public partial record Proprietary : IProcessingStatus70Choice
+public partial record Proprietary : ProcessingStatus70Choice_
 {
     #nullable enable
     /// <summary>

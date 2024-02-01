@@ -28,7 +28,7 @@ public partial record FinancingNotificationParties1
     /// <summary>
     /// Party to whom a notification acknowledgement has to be sent by the notification receiver.
     /// </summary>
-    public QualifiedPartyIdentification1? AcknowledgementReceiver { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedPartyIdentification1[] AcknowledgementReceiver { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

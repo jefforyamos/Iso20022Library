@@ -36,7 +36,7 @@ public partial record SecurityParameters12
     /// <summary>
     /// Key to inject in the point of interaction, protected by the temporary key previously sent.
     /// </summary>
-    public CryptographicKey14? SecurityElement { get; init;  } // Warning: Don't know multiplicity.
+    public CryptographicKey14[] SecurityElement { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -74,7 +74,7 @@ public partial record ReversalOfTransferInConfirmationV06 : IOuterRecord
     [DataMember(Name="Rvsl")]
     [XmlElement(ElementName="Rvsl")]
     [Required]
-    public required IReversal6Choice Reversal { get; init; }
+    public required Reversal6Choice_ Reversal { get; init; }
     
     /// <summary>
     /// Identifies the market practice to which the message conforms.

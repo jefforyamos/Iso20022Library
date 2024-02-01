@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat38Choice;
 /// <summary>
 /// Specifies a date code and a time.
 /// </summary>
-public partial record DateCodeAndTime : IDateFormat38Choice
+public partial record DateCodeAndTime : DateFormat38Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the type of date.
     /// </summary>
-    public required IDateCode26Choice DateCode { get; init; } 
+    public required DateCode26Choice_ DateCode { get; init; } 
     /// <summary>
     /// Specifies the time.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification2Choice;
 /// <summary>
 /// Specifies whether the party is locked or not, and the reason for this status, when required.
 /// </summary>
-public partial record LockStatus : ISystemPartyModification2Choice
+public partial record LockStatus : SystemPartyModification2Choice_
 {
     #nullable enable
     /// <summary>

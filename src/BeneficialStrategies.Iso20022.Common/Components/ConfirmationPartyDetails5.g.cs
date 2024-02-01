@@ -20,7 +20,7 @@ public partial record ConfirmationPartyDetails5
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution, eg, Dun & Bradstreet Identification.
     /// </summary>
-    public required IPartyIdentification32Choice Identification { get; init; } 
+    public required PartyIdentification32Choice_ Identification { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>

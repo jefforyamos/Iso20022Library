@@ -20,7 +20,7 @@ public partial record SecurityWithHoldingTax1
     /// <summary>
     /// Value of the withholding tax as rate, amount or not specified.
     /// </summary>
-    public required IRateAndAmountFormat1Choice WithholdingTaxValue { get; init; } 
+    public required RateAndAmountFormat1Choice_ WithholdingTaxValue { get; init; } 
     /// <summary>
     /// Represents the tax authority.
     /// </summary>

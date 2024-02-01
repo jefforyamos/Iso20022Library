@@ -24,7 +24,7 @@ public partial record CashMovement2
     /// <summary>
     /// Provides information about the account which is debited/credited.
     /// </summary>
-    public IReadOnlyCollection<CashAccount19> AccountDetails { get; init; } = [];
+    public CashAccount19[] AccountDetails { get; init; } = [];
     
     #nullable disable
 }

@@ -24,19 +24,19 @@ public partial record FinancialInstrumentAttributes85
     /// <summary>
     /// Place where the referenced financial instrument is listed.
     /// </summary>
-    public IMarketIdentification4Choice? PlaceOfListing { get; init; } 
+    public MarketIdentification4Choice_? PlaceOfListing { get; init; } 
     /// <summary>
     /// Specifies the computation method of (accrued) interest of the financial instrument.
     /// </summary>
-    public IInterestComputationMethodFormat5Choice? DayCountBasis { get; init; } 
+    public InterestComputationMethodFormat5Choice_? DayCountBasis { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI).
     /// </summary>
-    public IClassificationType33Choice? ClassificationType { get; init; } 
+    public ClassificationType33Choice_? ClassificationType { get; init; } 
     /// <summary>
     /// Specifies how an option can be exercised.
     /// </summary>
-    public IOptionStyle9Choice? OptionStyle { get; init; } 
+    public OptionStyle9Choice_? OptionStyle { get; init; } 
     /// <summary>
     /// Currency in which a financial instrument is currently denominated.
     /// </summary>
@@ -80,23 +80,23 @@ public partial record FinancialInstrumentAttributes85
     /// <summary>
     /// Annualised interest rate of a financial instrument used to calculate the actual interest rate of the coupon or the accrued interest.
     /// </summary>
-    public IRateFormat3Choice? InterestRate { get; init; } 
+    public RateFormat3Choice_? InterestRate { get; init; } 
     /// <summary>
     /// Interest rate applicable to the next interest payment period in relation to variable rate instruments.
     /// </summary>
-    public IRateFormat3Choice? NextInterestRate { get; init; } 
+    public RateFormat3Choice_? NextInterestRate { get; init; } 
     /// <summary>
     /// Percentage of the underlying assets of a fund that represents a debt, for example, in the context of the EU Savings directive.
     /// </summary>
-    public IRateFormat3Choice? PercentageOfDebtClaim { get; init; } 
+    public RateFormat3Choice_? PercentageOfDebtClaim { get; init; } 
     /// <summary>
     /// Factor used to calculate the value of the outstanding principal of the financial instrument (for factored securities) until the next redemption (factor) date.
     /// </summary>
-    public IRateFormat12Choice? PreviousFactor { get; init; } 
+    public RateFormat12Choice_? PreviousFactor { get; init; } 
     /// <summary>
     /// Factor used to calculate the value of the outstanding principal of the financial instrument (for factored securities) that will applicable after the redemption (factor) date.
     /// </summary>
-    public IRateFormat12Choice? NextFactor { get; init; } 
+    public RateFormat12Choice_? NextFactor { get; init; } 
     /// <summary>
     /// Provides the ratio between the quantity of warrants and the quantity of underlying securities.
     /// </summary>
@@ -104,11 +104,11 @@ public partial record FinancialInstrumentAttributes85
     /// <summary>
     /// Minimum nominal quantity of financial instrument.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? MinimumNominalQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? MinimumNominalQuantity { get; init; } 
     /// <summary>
     /// Ratio or multiplying factor used to convert one contract into a financial instrument quantity.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? ContractSize { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? ContractSize { get; init; } 
     
     #nullable disable
 }

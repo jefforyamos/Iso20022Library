@@ -24,7 +24,7 @@ public partial record EnvelopedData1
     /// <summary>
     /// Transport key or key encryption key (KEK) identification for the recipient.
     /// </summary>
-    public IRecipient1Choice? Recipient { get; init;  } // Warning: Don't know multiplicity.
+    public Recipient1Choice_[] Recipient { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Encrypted data with an encryption key.
     /// </summary>

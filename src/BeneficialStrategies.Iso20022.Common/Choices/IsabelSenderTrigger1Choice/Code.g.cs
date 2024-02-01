@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IsabelSenderTrigger1Choice;
 /// <summary>
 /// Trigger used by the sender to generate the file, in a coded form.
 /// </summary>
-public partial record Code : IIsabelSenderTrigger1Choice
+public partial record Code : IsabelSenderTrigger1Choice_
 {
     public required SenderTrigger1Code Value { get; init; }
 }

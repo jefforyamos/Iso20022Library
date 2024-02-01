@@ -104,19 +104,19 @@ public partial record InvestmentAccount27
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountServicer { get; init; } 
+    public PartyIdentification2Choice_? AccountServicer { get; init; } 
     /// <summary>
     /// Detailed information about the investment fund associated to the account.
     /// </summary>
-    public FinancialInstrument10? FundsDetails { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrument10[] FundsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Part of the investment account to or from which cash entries are made.
     /// </summary>
-    public IReadOnlyCollection<CashAccount12> CashAccount { get; init; } = [];
+    public CashAccount12[] CashAccount { get; init; } = [];
     /// <summary>
     /// Part of the investment account to or from which securities entries are made.
     /// </summary>
-    public IReadOnlyCollection<SecuritiesAccount4> SecuritiesAccount { get; init; } = [];
+    public SecuritiesAccount4[] SecuritiesAccount { get; init; } = [];
     
     #nullable disable
 }

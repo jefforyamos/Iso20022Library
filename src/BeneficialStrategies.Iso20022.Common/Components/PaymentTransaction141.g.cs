@@ -32,7 +32,7 @@ public partial record PaymentTransaction141
     /// <summary>
     /// Total taxes related to the products or services. 
     /// </summary>
-    public Tax39? TaxTotal { get; init;  } // Warning: Don't know multiplicity.
+    public Tax39[] TaxTotal { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total amount of the transaction, inclusive of all applicable taxes and fees. 
     /// </summary>

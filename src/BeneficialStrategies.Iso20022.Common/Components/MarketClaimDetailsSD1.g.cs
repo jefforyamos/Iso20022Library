@@ -36,11 +36,11 @@ public partial record MarketClaimDetailsSD1
     /// <summary>
     /// Quantity of securities that do not impact the taxable record date entitlement.
     /// </summary>
-    public IFinancialInstrumentQuantity18Choice? CashCompensation { get; init; } 
+    public FinancialInstrumentQuantity18Choice_? CashCompensation { get; init; } 
     /// <summary>
     /// Quantity of securities that impact the taxable record date entitlement.
     /// </summary>
-    public IFinancialInstrumentQuantity18Choice? DividendCorrection { get; init; } 
+    public FinancialInstrumentQuantity18Choice_? DividendCorrection { get; init; } 
     
     #nullable disable
 }

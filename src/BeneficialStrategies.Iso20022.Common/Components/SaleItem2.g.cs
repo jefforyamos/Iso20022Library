@@ -68,7 +68,7 @@ public partial record SaleItem2
     /// <summary>
     /// Adjustment made to the original price.
     /// </summary>
-    public Adjustment10? Adjustment { get; init;  } // Warning: Don't know multiplicity.
+    public Adjustment10[] Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total cost of the line item amount, inclusive adjustments and exclusive of taxes.
     /// </summary>
@@ -84,7 +84,7 @@ public partial record SaleItem2
     /// <summary>
     /// Taxes applying to the good or item.
     /// </summary>
-    public Tax33? Tax { get; init;  } // Warning: Don't know multiplicity.
+    public Tax33[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total cost of the line item, inclusive of all applicable adjustments and taxes.
     /// </summary>

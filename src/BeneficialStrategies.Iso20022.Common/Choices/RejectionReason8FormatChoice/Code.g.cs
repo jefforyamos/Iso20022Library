@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason8FormatChoice;
 /// <summary>
 /// Standard code to specify the reason of a rejection of an election amendment request.
 /// </summary>
-public partial record Code : IRejectionReason8FormatChoice
+public partial record Code : RejectionReason8FormatChoice_
 {
     public required RejectionReason8Code Value { get; init; }
 }

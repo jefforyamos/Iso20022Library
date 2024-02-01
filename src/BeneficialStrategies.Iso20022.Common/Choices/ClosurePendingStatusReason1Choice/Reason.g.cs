@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosurePendingStatusReason1Choic
 /// <summary>
 /// Reason for the closure pending status.
 /// </summary>
-public partial record Reason : IClosurePendingStatusReason1Choice
+public partial record Reason : ClosurePendingStatusReason1Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the closure pending status.
     /// </summary>
-    public required IClosurePendingStatusReason2Choice Code { get; init; } 
+    public required ClosurePendingStatusReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the closure pending status.
     /// </summary>

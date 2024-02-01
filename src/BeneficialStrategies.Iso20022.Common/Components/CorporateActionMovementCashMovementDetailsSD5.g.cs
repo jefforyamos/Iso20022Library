@@ -48,7 +48,7 @@ public partial record CorporateActionMovementCashMovementDetailsSD5
     /// <summary>
     /// Date/Time on which the posting / draft of cash is scheduled to take place for a transaction.
     /// </summary>
-    public IDateFormat48Choice? EarliestPaymentDate { get; init; } 
+    public DateFormat48Choice_? EarliestPaymentDate { get; init; } 
     /// <summary>
     /// Unique DTCC legacy reference used for matching and reconciling legacy CCF records. The element will be populated to all levels of the message (event details, options, movements) where applicable to indicate how values are sourced from CCF legacy files. For example: event has 2 related activity types 74, and 54. If event details and cash option are sourced from the activity type 74, then activity type 74 will be in RDP reference number in event details, and also on the cash option. The activity type 54 will be "on" the security option. Also, usage rules will specify the different layouts of the RDP reference number based on DTCC event group (reorganization, distribution, or redemption).
     /// </summary>
@@ -60,7 +60,7 @@ public partial record CorporateActionMovementCashMovementDetailsSD5
     /// <summary>
     /// Quantity used on adjustment transactions which when summed across all extension movements equals the relevant balance in the core message. For example, a summation of loan and borrow movements when summed which is negative will show the net total in the borrow balance in the core message. While a summation of loan and borrow movements which is positive will show in the loan balance.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? TransactionQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? TransactionQuantity { get; init; } 
     
     #nullable disable
 }

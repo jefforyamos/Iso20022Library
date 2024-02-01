@@ -28,7 +28,7 @@ public partial record IsabelSEPAFile1
     /// <summary>
     /// Local market practices applicable to the SEPA file.
     /// </summary>
-    public IReadOnlyCollection<IsoMax35Text> MarketPractices { get; init; } = [];
+    public IsoMax35Text[] MarketPractices { get; init; } = [];
     
     #nullable disable
 }

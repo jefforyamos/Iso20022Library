@@ -37,7 +37,7 @@ public partial record AdditionalAmounts3
     /// <summary>
     /// Additional data for the additional amount.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

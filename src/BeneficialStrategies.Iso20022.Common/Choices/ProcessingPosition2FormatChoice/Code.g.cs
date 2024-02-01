@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingPosition2FormatChoice;
 /// <summary>
 /// Standard code to specify the processing position.
 /// </summary>
-public partial record Code : IProcessingPosition2FormatChoice
+public partial record Code : ProcessingPosition2FormatChoice_
 {
     public required ProcessingPosition2Code Value { get; init; }
 }

@@ -11,7 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice20Choi
 
 /// <summary>
 /// </summary>
-public partial record Decimal : ISecuritiesTransactionPrice20Choice
+public partial record Decimal : SecuritiesTransactionPrice20Choice_
 {
     public required IsoBaseOneRate Value { get; init; }
 }

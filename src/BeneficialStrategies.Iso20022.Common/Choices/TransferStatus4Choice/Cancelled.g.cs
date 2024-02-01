@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferStatus4Choice;
 /// <summary>
 /// Status of the transfer is cancelled.
 /// </summary>
-public partial record Cancelled : ITransferStatus4Choice
+public partial record Cancelled : TransferStatus4Choice_
 {
     #nullable enable
     #nullable disable

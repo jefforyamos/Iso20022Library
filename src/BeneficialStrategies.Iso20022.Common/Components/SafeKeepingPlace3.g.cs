@@ -20,7 +20,7 @@ public partial record SafeKeepingPlace3
     /// <summary>
     /// Unique identification of the party.
     /// </summary>
-    public ISafekeepingPlaceFormat29Choice? SafekeepingPlaceFormat { get; init; } 
+    public SafekeepingPlaceFormat29Choice_? SafekeepingPlaceFormat { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a place of safekeeping.
     /// </summary>

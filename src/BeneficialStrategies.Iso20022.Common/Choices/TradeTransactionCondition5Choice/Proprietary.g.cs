@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeTransactionCondition5Choice
 /// <summary>
 /// Trade conditions expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITradeTransactionCondition5Choice
+public partial record Proprietary : TradeTransactionCondition5Choice_
 {
     #nullable enable
     /// <summary>

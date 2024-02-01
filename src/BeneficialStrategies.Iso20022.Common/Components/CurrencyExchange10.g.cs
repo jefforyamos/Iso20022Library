@@ -32,7 +32,7 @@ public partial record CurrencyExchange10
     /// <summary>
     /// Indicates the quote base for the exchange rate.
     /// </summary>
-    public IExchangeRateBasis1Choice? ExchangeRateBasis { get; init; } 
+    public ExchangeRateBasis1Choice_? ExchangeRateBasis { get; init; } 
     
     #nullable disable
 }

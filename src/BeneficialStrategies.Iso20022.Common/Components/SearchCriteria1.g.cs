@@ -20,7 +20,7 @@ public partial record SearchCriteria1
     /// <summary>
     /// List of criteria following the OR logic.
     /// </summary>
-    public SearchOr1? SearchOr { get; init;  } // Warning: Don't know multiplicity.
+    public SearchOr1[] SearchOr { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

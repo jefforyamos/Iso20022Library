@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RecordMessage1Choice;
 /// <summary>
 /// Reversal response message record.
 /// </summary>
-public partial record ReversalResponse : IRecordMessage1Choice
+public partial record ReversalResponse : RecordMessage1Choice_
 {
     public required IsoMax2MBBinary Value { get; init; }
 }

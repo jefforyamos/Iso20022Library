@@ -24,7 +24,7 @@ public partial record ReconciliationList1
     /// <summary>
     /// Reference to related documents for example to original assignment in a status response or retry.
     /// </summary>
-    public QualifiedDocumentInformation1? RelatedDocument { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1[] RelatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party to be advised.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record ReconciliationList1
     /// <summary>
     /// Financial item impacted by the payment.
     /// </summary>
-    public FinancialItem1? Item { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialItem1[] Item { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number of individual items contained in the list.
     /// </summary>
@@ -72,7 +72,7 @@ public partial record ReconciliationList1
     /// <summary>
     /// Associated free form document.
     /// </summary>
-    public QualifiedDocumentInformation1? AssociatedDocument { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1[] AssociatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional proprietary formal information concerning the list.
     /// </summary>

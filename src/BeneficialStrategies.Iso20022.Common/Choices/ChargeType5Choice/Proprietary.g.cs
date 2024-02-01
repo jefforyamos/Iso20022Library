@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeType5Choice;
 /// <summary>
 /// Fee (charge/commission) expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IChargeType5Choice
+public partial record Proprietary : ChargeType5Choice_
 {
     #nullable enable
     /// <summary>

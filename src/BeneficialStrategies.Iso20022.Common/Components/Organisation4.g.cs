@@ -24,7 +24,7 @@ public partial record Organisation4
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution, eg, Dun & Bradstreet Identification.
     /// </summary>
-    public IPartyIdentification4Choice? Identification { get; init; } 
+    public PartyIdentification4Choice_? Identification { get; init; } 
     /// <summary>
     /// Purpose of the organisation, eg, charity.
     /// </summary>

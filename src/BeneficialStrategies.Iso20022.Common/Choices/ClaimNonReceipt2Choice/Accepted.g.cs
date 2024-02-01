@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClaimNonReceipt2Choice;
 /// <summary>
 /// Claim non-receipt is accepted and processed by the agent.
 /// </summary>
-public partial record Accepted : IClaimNonReceipt2Choice
+public partial record Accepted : ClaimNonReceipt2Choice_
 {
     #nullable enable
     /// <summary>

@@ -20,7 +20,7 @@ public partial record AlternatePartyIdentification8
     /// <summary>
     /// Specifies the type of alternate identification of the party identified.
     /// </summary>
-    public required IIdentificationType43Choice IdentificationType { get; init; } 
+    public required IdentificationType43Choice_ IdentificationType { get; init; } 
     /// <summary>
     /// Nation with its own government, occupying a particular territory.
     /// </summary>

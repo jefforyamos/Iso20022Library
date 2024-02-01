@@ -20,7 +20,7 @@ public partial record InvestmentAccount24
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification2Choice? OwnerIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification2Choice_[] OwnerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record InvestmentAccount24
     /// <summary>
     /// Party that provides services relating to financial products to investors, eg, advice on products and placement of orders for the investment fund.
     /// </summary>
-    public Intermediary10? IntermediaryInformation { get; init;  } // Warning: Don't know multiplicity.
+    public Intermediary10[] IntermediaryInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Form, ie, ownership, of the security, eg, registered or bearer.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record InvestmentAccount24
     /// <summary>
     /// Party related to an account that is not the legal account owner, eg, the power of attorney.
     /// </summary>
-    public IPartyIdentification2Choice? AccountServicer { get; init; } 
+    public PartyIdentification2Choice_? AccountServicer { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>

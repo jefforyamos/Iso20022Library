@@ -28,55 +28,55 @@ public partial record Vote14
     /// <summary>
     /// Number of votes in favour of one resolution.
     /// </summary>
-    public IQuantityOrCode1Choice? For { get; init; } 
+    public QuantityOrCode1Choice_? For { get; init; } 
     /// <summary>
     /// Number of votes against one resolution.
     /// </summary>
-    public IQuantityOrCode1Choice? Against { get; init; } 
+    public QuantityOrCode1Choice_? Against { get; init; } 
     /// <summary>
     /// Number of abstention votes for one resolution.
     /// </summary>
-    public IQuantityOrCode1Choice? Abstain { get; init; } 
+    public QuantityOrCode1Choice_? Abstain { get; init; } 
     /// <summary>
     /// Number of votes withheld for one resolution.
     /// </summary>
-    public IQuantityOrCode1Choice? Withhold { get; init; } 
+    public QuantityOrCode1Choice_? Withhold { get; init; } 
     /// <summary>
     /// Number of votes in line with the votes of the management.
     /// </summary>
-    public IQuantityOrCode1Choice? WithManagement { get; init; } 
+    public QuantityOrCode1Choice_? WithManagement { get; init; } 
     /// <summary>
     /// Number of votes against the voting recommendation of the management.
     /// </summary>
-    public IQuantityOrCode1Choice? AgainstManagement { get; init; } 
+    public QuantityOrCode1Choice_? AgainstManagement { get; init; } 
     /// <summary>
     /// Number of votes for which decision is left to the party that will exercise the voting right.
     /// </summary>
-    public IQuantityOrCode1Choice? Discretionary { get; init; } 
+    public QuantityOrCode1Choice_? Discretionary { get; init; } 
     /// <summary>
     /// Number of votes in favour for one year for "say on pay" type of resolution.
     /// </summary>
-    public IQuantityOrCode1Choice? OneYear { get; init; } 
+    public QuantityOrCode1Choice_? OneYear { get; init; } 
     /// <summary>
     /// Number of votes in favour of two years for "say on pay" type of resolution.
     /// </summary>
-    public IQuantityOrCode1Choice? TwoYears { get; init; } 
+    public QuantityOrCode1Choice_? TwoYears { get; init; } 
     /// <summary>
     /// Number of votes in favour of three years for "say on pay" type of resolution.
     /// </summary>
-    public IQuantityOrCode1Choice? ThreeYears { get; init; } 
+    public QuantityOrCode1Choice_? ThreeYears { get; init; } 
     /// <summary>
     /// Do not vote.
     /// </summary>
-    public IQuantityOrCode1Choice? NoAction { get; init; } 
+    public QuantityOrCode1Choice_? NoAction { get; init; } 
     /// <summary>
     /// Vote is cast as empty but the vote is counted.
     /// </summary>
-    public IQuantityOrCode1Choice? Blank { get; init; } 
+    public QuantityOrCode1Choice_? Blank { get; init; } 
     /// <summary>
     /// Other type of vote expressed as a proprietary code.
     /// </summary>
-    public IReadOnlyCollection<ProprietaryVote1> Proprietary { get; init; } = [];
+    public ProprietaryVote1[] Proprietary { get; init; } = [];
     
     #nullable disable
 }

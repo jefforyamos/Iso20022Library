@@ -24,11 +24,11 @@ public partial record Location1
     /// <summary>
     /// Codified representation of the jurisdiction as published in ISO 3166-2.
     /// </summary>
-    public ICountrySubdivision1Choice? CountrySubDivision { get; init; } 
+    public CountrySubdivision1Choice_? CountrySubDivision { get; init; } 
     /// <summary>
     /// Name of jurisdiction, for example, Frankfurt.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> Text { get; init; } = [];
+    public IsoMax2000Text[] Text { get; init; } = [];
     
     #nullable disable
 }

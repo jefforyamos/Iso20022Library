@@ -24,7 +24,7 @@ public partial record SignedData2
     /// <summary>
     /// Identification of a digest algorithm to apply before signature.
     /// </summary>
-    public AlgorithmIdentification5? DigestAlgorithm { get; init;  } // Warning: Don't know multiplicity.
+    public AlgorithmIdentification5[] DigestAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data to sign.
     /// </summary>
@@ -32,11 +32,11 @@ public partial record SignedData2
     /// <summary>
     /// Chain of X.509 certificates.
     /// </summary>
-    public IsoMax3000Binary? Certificate { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax3000Binary[] Certificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Entity who has signed the data.
     /// </summary>
-    public Signer2? Signer { get; init;  } // Warning: Don't know multiplicity.
+    public Signer2[] Signer { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

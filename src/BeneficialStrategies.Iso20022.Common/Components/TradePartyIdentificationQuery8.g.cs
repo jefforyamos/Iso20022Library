@@ -20,15 +20,15 @@ public partial record TradePartyIdentificationQuery8
     /// <summary>
     /// Legal entity identifier code used to recognise the counterparty of the reporting agent for the reported transaction.
     /// </summary>
-    public IsoLEIIdentifier? LEI { get; init;  } // Warning: Don't know multiplicity.
+    public IsoLEIIdentifier[] LEI { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Business identifier code used to identify the trade party.
     /// </summary>
-    public IsoAnyBICDec2014Identifier? AnyBIC { get; init;  } // Warning: Don't know multiplicity.
+    public IsoAnyBICDec2014Identifier[] AnyBIC { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identification of the client counterparty.
     /// </summary>
-    public IsoMax50Text? ClientIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax50Text[] ClientIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Field can be queried for not reported value.
     /// </summary>

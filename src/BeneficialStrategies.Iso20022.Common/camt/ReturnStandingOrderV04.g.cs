@@ -56,7 +56,7 @@ public partial record ReturnStandingOrderV04 : IOuterRecord
     [DataMember(Name="RptOrErr")]
     [XmlElement(ElementName="RptOrErr")]
     [Required]
-    public required IStandingOrderOrError5Choice ReportOrError { get; init; }
+    public required StandingOrderOrError5Choice_ ReportOrError { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DetailedTransactionStatistics6Ch
 /// <summary>
 /// Information about number of transactions accepted and rejected and the reasons of the rejections.
 /// </summary>
-public partial record DetailedStatistics : IDetailedTransactionStatistics6Choice
+public partial record DetailedStatistics : DetailedTransactionStatistics6Choice_
 {
     #nullable enable
     /// <summary>

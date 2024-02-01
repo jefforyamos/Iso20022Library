@@ -24,7 +24,7 @@ public partial record GenericIdentification46
     /// <summary>
     /// Specifies the nature of the identifier.
     /// </summary>
-    public required IOtherIdentification1Choice Type { get; init; } 
+    public required OtherIdentification1Choice_ Type { get; init; } 
     
     #nullable disable
 }

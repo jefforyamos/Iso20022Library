@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionProcessingStatus6
 /// <summary>
 /// Specifies the status of the details of the corporate action event.
 /// </summary>
-public partial record Code : ICorporateActionProcessingStatus6Choice
+public partial record Code : CorporateActionProcessingStatus6Choice_
 {
     #nullable enable
     /// <summary>

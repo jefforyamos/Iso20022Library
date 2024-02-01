@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OwnerIdentification1Choice;
 /// <summary>
 /// Identification of an individual person.
 /// </summary>
-public partial record IndividualOwnerIdentification : IOwnerIdentification1Choice
+public partial record IndividualOwnerIdentification : OwnerIdentification1Choice_
 {
     #nullable enable
     #nullable disable

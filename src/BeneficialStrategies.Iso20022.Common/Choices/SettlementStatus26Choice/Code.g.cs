@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementStatus26Choice;
 /// <summary>
 /// Provides the status of settlement of an instruction/financial instrument movement.
 /// </summary>
-public partial record Code : ISettlementStatus26Choice
+public partial record Code : SettlementStatus26Choice_
 {
     public required SecuritiesSettlementStatus1Code Value { get; init; }
 }

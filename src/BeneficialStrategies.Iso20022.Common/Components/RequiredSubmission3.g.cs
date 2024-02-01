@@ -20,7 +20,7 @@ public partial record RequiredSubmission3
     /// <summary>
     /// Specifies with party(ies) is authorised to submit the data set as part of the transaction.
     /// </summary>
-    public BICIdentification1? Submitter { get; init;  } // Warning: Don't know multiplicity.
+    public BICIdentification1[] Submitter { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies if the issuer must be matched as part of the validation of the data set.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record RequiredSubmission3
     /// <summary>
     /// Specifies which clauses are required in the insurance data set.
     /// </summary>
-    public InsuranceClauses1Code? ClausesRequired { get; init;  } // Warning: Don't know multiplicity.
+    public InsuranceClauses1Code[] ClausesRequired { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies if the assured (insured) party must be matched as part of the validation of the data set.
     /// </summary>

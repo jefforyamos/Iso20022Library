@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NettingEligibility4Choice;
 /// <summary>
 /// Netting eligibility expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : INettingEligibility4Choice
+public partial record Proprietary : NettingEligibility4Choice_
 {
     #nullable enable
     /// <summary>

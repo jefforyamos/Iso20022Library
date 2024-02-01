@@ -64,7 +64,7 @@ public partial record PostalAddress19
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, presented in free format text.
     /// </summary>
-    public IReadOnlyCollection<IsoMax70Text> AddressLine { get; init; } = [];
+    public IsoMax70Text[] AddressLine { get; init; } = [];
     
     #nullable disable
 }

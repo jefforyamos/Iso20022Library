@@ -55,11 +55,11 @@ public partial record Header48
     /// Information sent in the request message to be returned in the response one, for instance to help in the retrieval of the context of the exchange.
     /// ISO 8583:93/2003 bit 59
     /// </summary>
-    public AdditionalData1? TraceData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] TraceData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of partners involved in exchange from the merchant to the issuer, with the relative timestamp of their exchanges.
     /// </summary>
-    public Traceability7? Traceability { get; init;  } // Warning: Don't know multiplicity.
+    public Traceability7[] Traceability { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

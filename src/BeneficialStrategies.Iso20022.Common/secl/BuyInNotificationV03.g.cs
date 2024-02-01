@@ -61,7 +61,7 @@ public partial record BuyInNotificationV03 : IOuterRecord
     [DataMember(Name="ClrMmb")]
     [XmlElement(ElementName="ClrMmb")]
     [Required]
-    public required IPartyIdentification35Choice ClearingMember { get; init; }
+    public required PartyIdentification35Choice_ ClearingMember { get; init; }
     
     /// <summary>
     /// Indicates if the message is a notification or a warning and gives the option to specify the buy in date.

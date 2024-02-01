@@ -28,11 +28,11 @@ public partial record CashOption77
     /// <summary>
     /// Specifies information regarding outturn resources that cannot be processed by the Central Securities Depository (CSD). Special delivery instruction is required from the account owner for the corporate action outcome to be credited.
     /// </summary>
-    public INonEligibleProceedsIndicator3Choice? NonEligibleProceedsIndicator { get; init; } 
+    public NonEligibleProceedsIndicator3Choice_? NonEligibleProceedsIndicator { get; init; } 
     /// <summary>
     /// Proceeds are taxable according to the information provided by the issuer / offeror.
     /// </summary>
-    public IIssuerOfferorTaxabilityIndicator1Choice? IssuerOfferorTaxabilityIndicator { get; init; } 
+    public IssuerOfferorTaxabilityIndicator1Choice_? IssuerOfferorTaxabilityIndicator { get; init; } 
     /// <summary>
     /// Specifies the type of income.
     /// </summary>
@@ -40,11 +40,11 @@ public partial record CashOption77
     /// <summary>
     /// Type of income to be used under another tax regime.
     /// </summary>
-    public GenericIdentification30? OtherIncomeType { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification30[] OtherIncomeType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the basis for the reduced rate of withholding.
     /// </summary>
-    public GenericIdentification30? ExemptionType { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification30[] ExemptionType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the country from which the income originates.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record CashOption77
     /// <summary>
     /// Identification of the account in which cash is maintained.
     /// </summary>
-    public ICashAccountIdentification5Choice? CashAccountIdentification { get; init; } 
+    public CashAccountIdentification5Choice_? CashAccountIdentification { get; init; } 
     /// <summary>
     /// Provides information about the amounts related to a cash movement.
     /// </summary>

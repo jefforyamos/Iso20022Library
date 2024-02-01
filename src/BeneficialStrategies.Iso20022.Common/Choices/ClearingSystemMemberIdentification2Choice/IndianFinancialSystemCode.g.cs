@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// <summary>
 /// Indian Financial System Code - identifies Indian financial institutions on the Indian local clearing system.
 /// </summary>
-public partial record IndianFinancialSystemCode : IClearingSystemMemberIdentification2Choice
+public partial record IndianFinancialSystemCode : ClearingSystemMemberIdentification2Choice_
 {
     public required IsoIndianFinancialSystemCodeIdentifier Value { get; init; }
 }

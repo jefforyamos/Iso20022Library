@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus26Cho
 /// <summary>
 /// Provides the status of an instruction.
 /// </summary>
-public partial record Code : IInstructionProcessingStatus26Choice
+public partial record Code : InstructionProcessingStatus26Choice_
 {
     public required InstructionProcessingStatus1Code Value { get; init; }
 }

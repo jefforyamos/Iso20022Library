@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat70Choice;
 /// <summary>
 /// Value of the price not specified.
 /// </summary>
-public partial record NotSpecifiedPrice : IPriceFormat70Choice
+public partial record NotSpecifiedPrice : PriceFormat70Choice_
 {
     public required PriceValueType8Code Value { get; init; }
 }

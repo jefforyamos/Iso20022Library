@@ -36,7 +36,7 @@ public partial record CardAggregated1
     /// <summary>
     /// Date range on which the globalisation applies.
     /// </summary>
-    public IDateOrDateTimePeriodChoice? TransactionDateRange { get; init; } 
+    public DateOrDateTimePeriodChoice_? TransactionDateRange { get; init; } 
     
     #nullable disable
 }

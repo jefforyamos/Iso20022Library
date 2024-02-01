@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationProcessingStatus6Cho
 /// <summary>
 /// Provides a proprietary status and a proprietary reason of the processing status of the trade.
 /// </summary>
-public partial record ProprietaryStatus : ICancellationProcessingStatus6Choice
+public partial record ProprietaryStatus : CancellationProcessingStatus6Choice_
 {
     #nullable enable
     /// <summary>

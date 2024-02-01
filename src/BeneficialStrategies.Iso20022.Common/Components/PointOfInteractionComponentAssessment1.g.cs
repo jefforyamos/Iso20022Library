@@ -24,7 +24,7 @@ public partial record PointOfInteractionComponentAssessment1
     /// <summary>
     /// Body which has delivered the assessment.
     /// </summary>
-    public IsoMax35Text? Assigner { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] Assigner { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date when the assessment has been delivered.
     /// </summary>

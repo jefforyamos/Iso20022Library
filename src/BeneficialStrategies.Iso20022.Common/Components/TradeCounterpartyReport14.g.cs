@@ -28,20 +28,20 @@ public partial record TradeCounterpartyReport14
     /// <summary>
     /// Identification of the broker as an intermediary for the reporting counterparty.
     /// </summary>
-    public IOrganisationIdentification10Choice? Broker { get; init; } 
+    public OrganisationIdentification10Choice_? Broker { get; init; } 
     /// <summary>
     /// Identification of the party that ultimately submits the report to the trade repository.
     /// </summary>
-    public IOrganisationIdentification10Choice? SubmittingAgent { get; init; } 
+    public OrganisationIdentification10Choice_? SubmittingAgent { get; init; } 
     /// <summary>
     /// Identifies the clearing member through which a derivative transaction is cleared at a central counterparty (CCP).  The element applies to transactions under the agency clearing model and the principal clearing model.
     /// </summary>
-    public IOrganisationIdentification10Choice? ClearingMember { get; init; } 
+    public OrganisationIdentification10Choice_? ClearingMember { get; init; } 
     /// <summary>
     /// Identification of the beneficiary of a derivative transaction, ie a party that is subject to the rights and obligations arising from the contract.
     /// ||Usage: The first iteration must always be the beneficiary 1 of the counterparty 1 and the second iteration is the beneficiary 2 of the counterparty 2.
     /// </summary>
-    public IReadOnlyCollection<IPartyIdentification235Choice> Beneficiary { get; init; } = [];
+    public PartyIdentification235Choice_[] Beneficiary { get; init; } = [];
     
     #nullable disable
 }

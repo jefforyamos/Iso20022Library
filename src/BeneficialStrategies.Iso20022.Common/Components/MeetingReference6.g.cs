@@ -36,11 +36,11 @@ public partial record MeetingReference6
     /// <summary>
     /// Classifies the type of meeting.
     /// </summary>
-    public IMeetingTypeClassification1Choice? Classification { get; init; } 
+    public MeetingTypeClassification1Choice_? Classification { get; init; } 
     /// <summary>
     /// Place of the company meeting for the scheduled meeting date.
     /// </summary>
-    public IReadOnlyCollection<PostalAddress1> Location { get; init; } = [];
+    public PostalAddress1[] Location { get; init; } = [];
     
     #nullable disable
 }

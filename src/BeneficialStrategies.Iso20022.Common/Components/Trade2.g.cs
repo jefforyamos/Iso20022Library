@@ -64,15 +64,15 @@ public partial record Trade2
     /// <summary>
     /// Provides details about each leg of the multileg instrument (foreign exchange swap).
     /// </summary>
-    public InstrumentLeg6? SwapLeg { get; init;  } // Warning: Don't know multiplicity.
+    public InstrumentLeg6[] SwapLeg { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the treasury trade product, as assigned under a formal or proprietary identification scheme.
     /// </summary>
-    public ISecurityIdentification22Choice? ProductIdentification { get; init; } 
+    public SecurityIdentification22Choice_? ProductIdentification { get; init; } 
     /// <summary>
     /// Some associated trade reference needs to be specified.
     /// </summary>
-    public IsoMax70Text? AssociatedTradeReference { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] AssociatedTradeReference { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

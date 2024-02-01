@@ -20,7 +20,7 @@ public partial record InstructedBalance16
     /// <summary>
     /// Provides information about the total instructed balance.
     /// </summary>
-    public required IBalanceFormat11Choice TotalInstructedBalance { get; init; } 
+    public required BalanceFormat11Choice_ TotalInstructedBalance { get; init; } 
     /// <summary>
     /// Daily total of all accepted instructions for given day.  Cover protect instructions will be included in this total balance.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record InstructedBalance16
     /// <summary>
     /// Provide instructed balance breakdown information per option.
     /// </summary>
-    public InstructedCorporateActionOption17? OptionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public InstructedCorporateActionOption17[] OptionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

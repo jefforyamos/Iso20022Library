@@ -40,7 +40,7 @@ public partial record ReuseDataReportCorrection9
     /// <summary>
     /// Information on funding sources used to finance margin loans.
     /// </summary>
-    public FundingSource1? FundingSource { get; init;  } // Warning: Don't know multiplicity.
+    public FundingSource1[] FundingSource { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// List of possible values for TRs reconciliation purposes.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record ReuseDataReportCorrection9
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

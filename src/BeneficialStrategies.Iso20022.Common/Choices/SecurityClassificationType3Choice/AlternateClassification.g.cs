@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityClassificationType3Choic
 /// <summary>
 /// Other type of classification of the financial instrument.
 /// </summary>
-public partial record AlternateClassification : ISecurityClassificationType3Choice
+public partial record AlternateClassification : SecurityClassificationType3Choice_
 {
     #nullable enable
     /// <summary>

@@ -69,7 +69,7 @@ public partial record TransferInstructionStatusReportV09 : IOuterRecord
     [Description(@"Reference to the message or communication that was previously received.")]
     [DataMember(Name="Ref")]
     [XmlElement(ElementName="Ref")]
-    public IReferences64Choice? Reference { get; init; }
+    public References64Choice_? Reference { get; init; }
     
     /// <summary>
     /// Status of the transfer instruction.

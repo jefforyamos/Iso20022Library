@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementBasis9Choice;
 /// <summary>
 /// Statement basis expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IStatementBasis9Choice
+public partial record Code : StatementBasis9Choice_
 {
     public required StatementBasis1Code Value { get; init; }
 }

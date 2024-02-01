@@ -20,7 +20,7 @@ public partial record PendingOpeningStatusReason1
     /// <summary>
     /// Reason for the pending account opening status.
     /// </summary>
-    public required IPendingOpeningStatusReason2Choice Code { get; init; } 
+    public required PendingOpeningStatusReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the pending account opening status.
     /// </summary>

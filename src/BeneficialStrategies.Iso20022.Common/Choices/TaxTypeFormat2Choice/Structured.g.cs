@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxTypeFormat2Choice;
 /// <summary>
 /// Specifies the type of tax in structured form.
 /// </summary>
-public partial record Structured : ITaxTypeFormat2Choice
+public partial record Structured : TaxTypeFormat2Choice_
 {
     public required TaxType2Code Value { get; init; }
 }

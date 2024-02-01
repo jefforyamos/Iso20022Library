@@ -28,7 +28,7 @@ public partial record CostsAndCharges1
     /// <summary>
     /// Individual cost or charge associated with the distribution of selling of the financial instrument. This may be one-off or recurring. This may be ex ante (intended) or post ante (actual).
     /// </summary>
-    public IndividualCostOrCharge1? IndividualCostOrCharge { get; init;  } // Warning: Don't know multiplicity.
+    public IndividualCostOrCharge1[] IndividualCostOrCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about costs and charges.
     /// </summary>

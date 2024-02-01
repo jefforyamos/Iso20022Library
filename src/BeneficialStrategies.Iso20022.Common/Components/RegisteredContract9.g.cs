@@ -32,11 +32,11 @@ public partial record RegisteredContract9
     /// <summary>
     /// Amendment details applied on one or several registered contracts.
     /// </summary>
-    public RegisteredContract10? RegisteredContractAmendment { get; init;  } // Warning: Don't know multiplicity.
+    public RegisteredContract10[] RegisteredContractAmendment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

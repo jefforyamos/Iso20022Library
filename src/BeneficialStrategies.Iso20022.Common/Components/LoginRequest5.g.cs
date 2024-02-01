@@ -24,7 +24,7 @@ public partial record LoginRequest5
     /// <summary>
     /// Information related to the software of the Sale System which manages the Sale to POI protocol.
     /// </summary>
-    public PointOfInteractionComponent14? SaleSoftware { get; init;  } // Warning: Don't know multiplicity.
+    public PointOfInteractionComponent14[] SaleSoftware { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to the software and hardware feature of the Sale Terminal.
     /// </summary>

@@ -40,35 +40,35 @@ public partial record BillingStatement1
     /// <summary>
     /// Identifies the non tax per annum rate and factor values used within the statement along with any time dependent charge basis.
     /// </summary>
-    public BillingRate1? RateData { get; init;  } // Warning: Don't know multiplicity.
+    public BillingRate1[] RateData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies details related to currency exchange data.
     /// </summary>
-    public CurrencyExchange6? CurrencyExchange { get; init;  } // Warning: Don't know multiplicity.
+    public CurrencyExchange6[] CurrencyExchange { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the average value of balances held within the statement period.
     /// </summary>
-    public BillingBalance1? Balance { get; init;  } // Warning: Don't know multiplicity.
+    public BillingBalance1[] Balance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the set of values and totals that are used to provide compensation information, service and tax totals.
     /// </summary>
-    public BillingCompensation1? Compensation { get; init;  } // Warning: Don't know multiplicity.
+    public BillingCompensation1[] Compensation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the values used for every line item service in the statement.
     /// </summary>
-    public BillingService1? Service { get; init;  } // Warning: Don't know multiplicity.
+    public BillingService1[] Service { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax region(s) that levy a tax on the services within this statement.
     /// </summary>
-    public BillingTaxRegion1? TaxRegion { get; init;  } // Warning: Don't know multiplicity.
+    public BillingTaxRegion1[] TaxRegion { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// One or more sections that identify balance or float adjustments to the account. They can reflect either adjustments to the current statement or adjustments to statements from prior reporting periods.
     /// </summary>
-    public BalanceAdjustment1? BalanceAdjustment { get; init;  } // Warning: Don't know multiplicity.
+    public BalanceAdjustment1[] BalanceAdjustment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// One or more sections that identify line item service adjustments to the account. They reflect adjustments to statements from prior reporting periods.
     /// </summary>
-    public BillingServiceAdjustment1? ServiceAdjustment { get; init;  } // Warning: Don't know multiplicity.
+    public BillingServiceAdjustment1[] ServiceAdjustment { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

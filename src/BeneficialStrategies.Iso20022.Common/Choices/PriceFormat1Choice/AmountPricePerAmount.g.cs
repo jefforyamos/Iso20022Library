@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat1Choice;
 /// <summary>
 /// Price expressed as an amount per another amount.
 /// </summary>
-public partial record AmountPricePerAmount : IPriceFormat1Choice
+public partial record AmountPricePerAmount : PriceFormat1Choice_
 {
     #nullable enable
     /// <summary>
     /// Type of amount price.
     /// </summary>
-    public required IAmountPriceType1FormatChoice AmountPriceType { get; init; } 
+    public required AmountPriceType1FormatChoice_ AmountPriceType { get; init; } 
     /// <summary>
     /// Value of the price.
     /// </summary>

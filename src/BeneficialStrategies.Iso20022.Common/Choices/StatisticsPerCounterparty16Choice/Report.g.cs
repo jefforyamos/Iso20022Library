@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty16Choic
 /// <summary>
 /// Detailed information on statistics per combination of counterparties.
 /// </summary>
-public partial record Report : IStatisticsPerCounterparty16Choice
+public partial record Report : StatisticsPerCounterparty16Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,14 +22,14 @@ public partial record Report : IStatisticsPerCounterparty16Choice
     /// <summary>
     /// Detailed information of outstanding derivatives for which the valuation was not reported or the valuation reported is more than fourteen calendar days earlier than the date for which the report was generated shall be included in the report of missing valuations at the end of the day.
     /// </summary>
-    public required IDetailedMissingValuationsStatistics4Choice MissingValuation { get; init; } 
+    public required DetailedMissingValuationsStatistics4Choice_ MissingValuation { get; init; } 
     /// <summary>
     /// Detailed information of the outstanding derivatives for which no margin information has been reported, or the margin information that was reported is dated more than fourteen calendar days earlier than the day.
     /// </summary>
-    public required IDetailedMissingMarginInformationStatistics4Choice MissingMarginInformation { get; init; } 
+    public required DetailedMissingMarginInformationStatistics4Choice_ MissingMarginInformation { get; init; } 
     /// <summary>
     /// Detailed information of the derivatives that were received on the day of generation of the report with action type ‘New’, ‘Position component’, ‘Modification’ or ‘Correction’ whose notional amount is greater than a threshold for that class of derivatives.
     /// </summary>
-    public required IDetailedAbnormalValuesStatistics4Choice AbnormalValues { get; init; } 
+    public required DetailedAbnormalValuesStatistics4Choice_ AbnormalValues { get; init; } 
     #nullable disable
 }

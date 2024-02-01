@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReservationOrError6Choice;
 /// <summary>
 /// Reports on reservations.
 /// </summary>
-public partial record BusinessReport : IReservationOrError6Choice
+public partial record BusinessReport : ReservationOrError6Choice_
 {
     #nullable enable
     /// <summary>

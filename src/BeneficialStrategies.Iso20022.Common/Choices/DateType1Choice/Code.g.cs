@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateType1Choice;
 /// <summary>
 /// Date identified using a code.
 /// </summary>
-public partial record Code : IDateType1Choice
+public partial record Code : DateType1Choice_
 {
     public required SettlementDate2Code Value { get; init; }
 }

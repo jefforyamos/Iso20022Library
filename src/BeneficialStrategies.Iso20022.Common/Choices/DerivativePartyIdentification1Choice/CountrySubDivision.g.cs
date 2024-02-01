@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DerivativePartyIdentification1Ch
 /// <summary>
 /// Country and country sub-division of the reference entity.
 /// </summary>
-public partial record CountrySubDivision : IDerivativePartyIdentification1Choice
+public partial record CountrySubDivision : DerivativePartyIdentification1Choice_
 {
     public required CountrySubDivisionCode Value { get; init; }
 }

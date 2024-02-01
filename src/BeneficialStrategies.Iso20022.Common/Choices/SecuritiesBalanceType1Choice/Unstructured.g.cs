@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesBalanceType1Choice;
 /// <summary>
 /// Balance reason in free text form.
 /// </summary>
-public partial record Unstructured : ISecuritiesBalanceType1Choice
+public partial record Unstructured : SecuritiesBalanceType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

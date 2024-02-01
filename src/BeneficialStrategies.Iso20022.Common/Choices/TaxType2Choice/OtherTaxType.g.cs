@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxType2Choice;
 /// <summary>
 /// Specifies types of tax not present in a code list.
 /// </summary>
-public partial record OtherTaxType : ITaxType2Choice
+public partial record OtherTaxType : TaxType2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

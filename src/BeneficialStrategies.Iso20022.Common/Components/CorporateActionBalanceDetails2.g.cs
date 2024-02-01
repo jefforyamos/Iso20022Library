@@ -20,71 +20,71 @@ public partial record CorporateActionBalanceDetails2
     /// <summary>
     /// Balance to which the payment applies (less or equal to the total eligible balance).
     /// </summary>
-    public required IBalanceFormat1Choice ConfirmedBalance { get; init; } 
+    public required BalanceFormat1Choice_ ConfirmedBalance { get; init; } 
     /// <summary>
     /// Total quantity of financial instruments of the balance.
     /// </summary>
-    public IQuantity3Choice? TotalEligibleBalance { get; init; } 
+    public Quantity3Choice_? TotalEligibleBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that are blocked.
     /// </summary>
-    public IBalanceFormat1Choice? BlockedBalance { get; init; } 
+    public BalanceFormat1Choice_? BlockedBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public IBalanceFormat1Choice? BorrowedBalance { get; init; } 
+    public BalanceFormat1Choice_? BorrowedBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public IBalanceFormat1Choice? CollateralInBalance { get; init; } 
+    public BalanceFormat1Choice_? CollateralInBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public IBalanceFormat1Choice? CollateralOutBalance { get; init; } 
+    public BalanceFormat1Choice_? CollateralOutBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public IBalanceFormat1Choice? OnLoanBalance { get; init; } 
+    public BalanceFormat1Choice_? OnLoanBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public IBalanceFormat1Choice? PendingDeliveryBalance { get; init;  } // Warning: Don't know multiplicity.
+    public BalanceFormat1Choice_[] PendingDeliveryBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public IBalanceFormat1Choice? PendingReceiptBalance { get; init;  } // Warning: Don't know multiplicity.
+    public BalanceFormat1Choice_[] PendingReceiptBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public IBalanceFormat1Choice? OutForRegistrationBalance { get; init; } 
+    public BalanceFormat1Choice_? OutForRegistrationBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public IBalanceFormat1Choice? SettlementPositionBalance { get; init; } 
+    public BalanceFormat1Choice_? SettlementPositionBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public IBalanceFormat1Choice? StreetPositionBalance { get; init; } 
+    public BalanceFormat1Choice_? StreetPositionBalance { get; init; } 
     /// <summary>
     /// Balance of securities based on trade date, for example, includes all pending transactions in addition to the balance of settled transactions.
     /// </summary>
-    public IBalanceFormat1Choice? TradeDatePositionBalance { get; init; } 
+    public BalanceFormat1Choice_? TradeDatePositionBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public IBalanceFormat1Choice? InTransshipmentBalance { get; init; } 
+    public BalanceFormat1Choice_? InTransshipmentBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public IBalanceFormat1Choice? RegisteredBalance { get; init; } 
+    public BalanceFormat1Choice_? RegisteredBalance { get; init; } 
     /// <summary>
     /// Balance that has been affected by the process run through the event.
     /// </summary>
-    public IBalanceFormat1Choice? AffectedBalance { get; init; } 
+    public BalanceFormat1Choice_? AffectedBalance { get; init; } 
     /// <summary>
     /// Balance that has not been affected by the process run through the event.
     /// </summary>
-    public IBalanceFormat1Choice? UnaffectedBalance { get; init; } 
+    public BalanceFormat1Choice_? UnaffectedBalance { get; init; } 
     
     #nullable disable
 }

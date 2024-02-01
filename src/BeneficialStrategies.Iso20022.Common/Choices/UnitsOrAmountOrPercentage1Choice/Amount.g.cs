@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitsOrAmountOrPercentage1Choice
 /// <summary>
 /// Cash amount.
 /// </summary>
-public partial record Amount : IUnitsOrAmountOrPercentage1Choice
+public partial record Amount : UnitsOrAmountOrPercentage1Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

@@ -46,7 +46,7 @@ public partial record CardNotReceivedDetails1
     /// <summary>
     /// Identifies the security capabilities of the card.
     /// </summary>
-    public CardSecurityCapability1? CardSecurityCapability { get; init;  } // Warning: Don't know multiplicity.
+    public CardSecurityCapability1[] CardSecurityCapability { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

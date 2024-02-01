@@ -20,11 +20,11 @@ public partial record TransportByAir4
     /// <summary>
     /// Place from where the goods must leave.
     /// </summary>
-    public required IAirportName1Choice DepartureAirport { get; init; } 
+    public required AirportName1Choice_ DepartureAirport { get; init; } 
     /// <summary>
     /// Place where the goods must arrive.
     /// </summary>
-    public required IAirportName1Choice DestinationAirport { get; init; } 
+    public required AirportName1Choice_ DestinationAirport { get; init; } 
     /// <summary>
     /// Flight number allocated by the airline that is carrying the goods from an airport of departure to an airport of destination;.
     /// </summary>

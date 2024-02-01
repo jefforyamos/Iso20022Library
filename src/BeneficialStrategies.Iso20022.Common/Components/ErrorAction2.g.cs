@@ -20,7 +20,7 @@ public partial record ErrorAction2
     /// <summary>
     /// List of error action result codes.
     /// </summary>
-    public TerminalManagementActionResult1Code? ActionResult { get; init;  } // Warning: Don't know multiplicity.
+    public TerminalManagementActionResult1Code[] ActionResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Action to be processed for the related errors.
     /// </summary>

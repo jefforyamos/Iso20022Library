@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferCancellationRejectedStat
 /// <summary>
 /// Proprietary identification for a reason of a rejected status in the report.
 /// </summary>
-public partial record DataSourceScheme : ITransferCancellationRejectedStatus1Choice
+public partial record DataSourceScheme : TransferCancellationRejectedStatus1Choice_
 {
     #nullable enable
     /// <summary>

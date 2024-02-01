@@ -32,7 +32,7 @@ public partial record CorporateActionMovement1
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public ICorporateActionOption1FormatChoice? OptionType { get; init; } 
+    public CorporateActionOption1FormatChoice_? OptionType { get; init; } 
     /// <summary>
     /// Date at which the distribution movement must be executed.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record CorporateActionMovement1
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountOwnerIdentification { get; init; } 
+    public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Identification of the account.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record CorporateActionMovement1
     /// <summary>
     /// Quantity of securities in the confirmed balance, ie, the balance to which the credit of the outturned resources applies.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? ConfirmedBalanceSecuritiesQuantity { get; init; } 
+    public UnitOrFaceAmount1Choice_? ConfirmedBalanceSecuritiesQuantity { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EntryStatus1Choice;
 /// <summary>
 /// Entry status, in a coded form.
 /// </summary>
-public partial record Code : IEntryStatus1Choice
+public partial record Code : EntryStatus1Choice_
 {
     public required ExternalEntryStatus1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CompanyLink1Choice;
 /// <summary>
 /// Company link expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICompanyLink1Choice
+public partial record Proprietary : CompanyLink1Choice_
 {
     #nullable enable
     /// <summary>

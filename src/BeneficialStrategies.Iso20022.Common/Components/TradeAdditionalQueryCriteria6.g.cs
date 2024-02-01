@@ -20,19 +20,19 @@ public partial record TradeAdditionalQueryCriteria6
     /// <summary>
     /// Code list of the action types allowed as query criteria.
     /// </summary>
-    public TransactionOperationType6Code? ActionType { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionOperationType6Code[] ActionType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the execution venue of the reported transaction.
     /// </summary>
-    public ISecuritiesTradeVenueCriteria1Choice? ExecutionVenue { get; init; } 
+    public SecuritiesTradeVenueCriteria1Choice_? ExecutionVenue { get; init; } 
     /// <summary>
     /// Indicates the nature of the reporting counterparty (if it is a central counterparty (CCP), a financial counterparty, a non-financial counterparty or another type of counterparty).
     /// </summary>
-    public PartyNatureType1Code? NatureOfCounterparty { get; init;  } // Warning: Don't know multiplicity.
+    public PartyNatureType1Code[] NatureOfCounterparty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the corporate sector of the reporting counterparty.
     /// </summary>
-    public CorporateSectorCriteria4? CorporateSector { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateSectorCriteria4[] CorporateSector { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

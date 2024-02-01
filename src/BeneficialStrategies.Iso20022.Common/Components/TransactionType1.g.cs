@@ -28,7 +28,7 @@ public partial record TransactionType1
     /// <summary>
     /// Specifies the minimum value of entries to be reported in the requested message.
     /// </summary>
-    public Limit2? FloorLimit { get; init;  } // Warning: Don't know multiplicity.
+    public Limit2[] FloorLimit { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

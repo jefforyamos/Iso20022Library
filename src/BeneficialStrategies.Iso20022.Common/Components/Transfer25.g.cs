@@ -20,7 +20,7 @@ public partial record Transfer25
     /// <summary>
     /// Date and time at which the transfer was executed.
     /// </summary>
-    public required IDateAndDateTimeChoice EffectiveTransferDate { get; init; } 
+    public required DateAndDateTimeChoice_ EffectiveTransferDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be exchanged at the International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
@@ -28,15 +28,15 @@ public partial record Transfer25
     /// <summary>
     /// Date and time at which the securities were exchanged at the International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
-    public IDateAndDateTimeChoice? EffectiveSettlementDate { get; init; } 
+    public DateAndDateTimeChoice_? EffectiveSettlementDate { get; init; } 
     /// <summary>
     /// Date and time at which a transaction is completed and cleared, ie, securities are delivered.
     /// </summary>
-    public IDateAndDateTimeChoice? TradeDate { get; init; } 
+    public DateAndDateTimeChoice_? TradeDate { get; init; } 
     /// <summary>
     /// Identifies whether or not saving plan or withdrawal or switch plan are included in the holdings.
     /// </summary>
-    public IReadOnlyCollection<HoldingsPlanType1Code> HoldingsPlanType { get; init; } = [];
+    public HoldingsPlanType1Code[] HoldingsPlanType { get; init; } = [];
     /// <summary>
     /// Information related to the financial instrument received.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record Transfer25
     /// <summary>
     /// Information about the units to be transferred.
     /// </summary>
-    public Unit3? UnitsDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Unit3[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Value of a security, as booked in an account. Book value is often different from the current market value of the security.
     /// </summary>

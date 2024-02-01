@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginCallResult2Choice;
 /// <summary>
 /// Provides the summation of the call amounts for the variation margin and optionaly the segregated independent amount.
 /// </summary>
-public partial record MarginCallResultDetails : IMarginCallResult2Choice
+public partial record MarginCallResultDetails : MarginCallResult2Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestComputationMethodFormat6
 /// <summary>
 /// Standard code to specify the method used to compute accruing interest of a financial instrument.
 /// </summary>
-public partial record Code : IInterestComputationMethodFormat6Choice
+public partial record Code : InterestComputationMethodFormat6Choice_
 {
     public required InterestComputationMethod1Code Value { get; init; }
 }

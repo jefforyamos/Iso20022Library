@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateRelatedData1Choice;
 /// <summary>
 /// Specific credit transfer mandate data.
 /// </summary>
-public partial record CreditTransferMandate : IMandateRelatedData1Choice
+public partial record CreditTransferMandate : MandateRelatedData1Choice_
 {
     #nullable enable
     /// <summary>
@@ -46,12 +46,12 @@ public partial record CreditTransferMandate : IMandateRelatedData1Choice
     /// <summary>
     /// Regularity with which credit transfer instructions are to be created and processed.
     /// </summary>
-    public IFrequency36Choice? Frequency { get; init; } 
+    public Frequency36Choice_? Frequency { get; init; } 
     /// <summary>
     /// Reason for the setup of the credit transfer mandate.
     /// Usage: 
     /// The reason will allow the user to distinguish between different mandates for the same creditor.
     /// </summary>
-    public IMandateSetupReason1Choice? Reason { get; init; } 
+    public MandateSetupReason1Choice_? Reason { get; init; } 
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReplacementProcessingStatus7Choi
 /// <summary>
 /// Provides a proprietary status and a proprietary reason of the processing status of the trade.
 /// </summary>
-public partial record ProprietaryStatus : IReplacementProcessingStatus7Choice
+public partial record ProprietaryStatus : ReplacementProcessingStatus7Choice_
 {
     #nullable enable
     /// <summary>

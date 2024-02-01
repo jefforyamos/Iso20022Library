@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingSettlementStatusChoice;
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoReason : IPendingSettlementStatusChoice
+public partial record NoReason : PendingSettlementStatusChoice_
 {
     public required NoReasonCode Value { get; init; }
 }

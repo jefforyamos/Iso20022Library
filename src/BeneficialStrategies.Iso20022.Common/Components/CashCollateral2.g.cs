@@ -24,7 +24,7 @@ public partial record CashCollateral2
     /// <summary>
     /// Provides the identification of the clearing member 's cash account.
     /// </summary>
-    public IAccountIdentification4Choice? CashAccountIdentification { get; init; } 
+    public AccountIdentification4Choice_? CashAccountIdentification { get; init; } 
     /// <summary>
     /// Indicates whether excess of cash should be returned or not.
     /// </summary>

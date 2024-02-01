@@ -44,7 +44,7 @@ public partial record AggregateBalanceInformation35
     /// <summary>
     /// Total quantity of financial instruments of the balance that is not available.
     /// </summary>
-    public IBalanceQuantity8Choice? NotAvailableBalance { get; init; } 
+    public BalanceQuantity8Choice_? NotAvailableBalance { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
@@ -56,11 +56,11 @@ public partial record AggregateBalanceInformation35
     /// <summary>
     /// Price of the financial instrument in one or more currencies.
     /// </summary>
-    public PriceInformation20? PriceDetails { get; init;  } // Warning: Don't know multiplicity.
+    public PriceInformation20[] PriceDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// </summary>
-    public ForeignExchangeTerms34? ForeignExchangeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ForeignExchangeTerms34[] ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the number of days used for calculating the accrued interest amount.
     /// </summary>
@@ -76,19 +76,19 @@ public partial record AggregateBalanceInformation35
     /// <summary>
     /// Breakdown of the aggregate quantity reported into significant lots, for example, tax lots.
     /// </summary>
-    public QuantityBreakdown54? QuantityBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public QuantityBreakdown54[] QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Breakdown of the aggregate balance per meaningful sub-balances and availability.
     /// </summary>
-    public SubBalanceInformation18? BalanceBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public SubBalanceInformation18[] BalanceBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional instrument sub-balance information on all or parts of the reported financial instrument (unregistered, tax exempt, etc.).
     /// </summary>
-    public AdditionalBalanceInformation18? AdditionalBalanceBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalBalanceInformation18[] AdditionalBalanceBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Breakdown of positions per place of safekeeping (and optionally per place of listing).
     /// </summary>
-    public AggregateBalancePerSafekeepingPlace32? BalanceAtSafekeepingPlace { get; init;  } // Warning: Don't know multiplicity.
+    public AggregateBalancePerSafekeepingPlace32[] BalanceAtSafekeepingPlace { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional information on the holding.
     /// </summary>
@@ -96,7 +96,7 @@ public partial record AggregateBalanceInformation35
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

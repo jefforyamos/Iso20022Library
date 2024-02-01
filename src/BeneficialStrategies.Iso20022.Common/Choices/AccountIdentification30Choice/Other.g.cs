@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification30Choice;
 /// <summary>
 /// Other identifier.
 /// </summary>
-public partial record Other : IAccountIdentification30Choice
+public partial record Other : AccountIdentification30Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

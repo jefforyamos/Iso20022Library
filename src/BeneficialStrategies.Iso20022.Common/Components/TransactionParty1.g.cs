@@ -52,7 +52,7 @@ public partial record TransactionParty1
     /// <summary>
     /// Provides proprietary party information.
     /// </summary>
-    public ProprietaryParty1? Proprietary { get; init;  } // Warning: Don't know multiplicity.
+    public ProprietaryParty1[] Proprietary { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

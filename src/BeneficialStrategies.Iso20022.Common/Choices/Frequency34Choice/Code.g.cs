@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Frequency34Choice;
 /// <summary>
 /// Frequency expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IFrequency34Choice
+public partial record Code : Frequency34Choice_
 {
     public required EventFrequency7Code Value { get; init; }
 }

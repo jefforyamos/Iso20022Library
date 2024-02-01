@@ -28,7 +28,7 @@ public partial record SwitchRedemptionLegOrder6
     /// <summary>
     /// Amount of money, number of units or percentage for the subscription leg of the switch order.
     /// </summary>
-    public IFinancialInstrumentQuantity29Choice? FinancialInstrumentQuantityChoice { get; init; } 
+    public FinancialInstrumentQuantity29Choice_? FinancialInstrumentQuantityChoice { get; init; } 
     /// <summary>
     /// Account impacted by the investment fund order.
     /// </summary>

@@ -20,11 +20,11 @@ public partial record PartyAuditTrailReport3
     /// <summary>
     /// Identifies the returned party reference data or error information.
     /// </summary>
-    public required IPartyAuditTrailOrError2Choice PartyAuditTrailOrError { get; init; } 
+    public required PartyAuditTrailOrError2Choice_ PartyAuditTrailOrError { get; init; } 
     /// <summary>
     /// Period in dates for which the audit trail is provided.
     /// </summary>
-    public IDatePeriod3Choice? DatePeriod { get; init; } 
+    public DatePeriod3Choice_? DatePeriod { get; init; } 
     /// <summary>
     /// Identifies the party for which the audit trail is provided.
     /// </summary>

@@ -28,7 +28,7 @@ public partial record Consignment4
     /// <summary>
     /// Particular aircraft, vehicle, vessel or other device used for the transport of a consignment.
     /// </summary>
-    public TransportMeans3? TransportMeans { get; init;  } // Warning: Don't know multiplicity.
+    public TransportMeans3[] TransportMeans { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

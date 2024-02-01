@@ -72,15 +72,15 @@ public partial record FutureOrOptionDetails3
     /// <summary>
     /// Date on which new securities begin trading.
     /// </summary>
-    public IDateAndDateTime1Choice? FirstDealingDate { get; init; } 
+    public DateAndDateTime1Choice_? FirstDealingDate { get; init; } 
     /// <summary>
     /// Ratio applied to convert the related security.
     /// </summary>
-    public UnderlyingRatio2? Ratio { get; init;  } // Warning: Don't know multiplicity.
+    public UnderlyingRatio2[] Ratio { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rating(s) of the security.
     /// </summary>
-    public Rating1? Rating { get; init;  } // Warning: Don't know multiplicity.
+    public Rating1[] Rating { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Initial issue price of a financial instrument.
     /// </summary>
@@ -88,7 +88,7 @@ public partial record FutureOrOptionDetails3
     /// <summary>
     /// Rights to exercise the privilege to purchase or to sell the assets specified at a predetermined price or formula at or within a time in the future.
     /// </summary>
-    public IOptionRight2Choice? OptionRights { get; init; } 
+    public OptionRight2Choice_? OptionRights { get; init; } 
     /// <summary>
     /// Indicates whether or not this is the last transaction.
     /// </summary>

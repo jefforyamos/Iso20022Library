@@ -30,7 +30,7 @@ public partial record Schedule4
     /// Usage: For foreign exchange options, specifies the exchange rate at which the option can be exercised as the rate of exchange from converting the unit currency into the quoted currency.
     /// For volatility and variance swaps, specify the volatility strike price.
     /// </summary>
-    public required ISecuritiesTransactionPrice17Choice Price { get; init; } 
+    public required SecuritiesTransactionPrice17Choice_ Price { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateBasis1Choice;
 /// <summary>
 /// Exchange rate basis expressed in a proprietary notation.
 /// </summary>
-public partial record Proprietary : IExchangeRateBasis1Choice
+public partial record Proprietary : ExchangeRateBasis1Choice_
 {
     public required IsoMax52Text Value { get; init; }
 }

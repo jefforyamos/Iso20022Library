@@ -28,7 +28,7 @@ public partial record References4
     /// <summary>
     /// File name of a document logically related to the request.
     /// </summary>
-    public IsoMax70Text? AttachedDocumentName { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] AttachedDocumentName { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

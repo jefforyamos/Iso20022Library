@@ -20,11 +20,11 @@ public partial record QuantityBreakdown5
     /// <summary>
     /// Identification, for tax purposes, of a lot of identical securities that are bought at a certain date and at a certain price.
     /// </summary>
-    public required INumber2Choice LotNumber { get; init; } 
+    public required Number2Choice_ LotNumber { get; init; } 
     /// <summary>
     /// Quantity of financial instruments that is part of the lot described.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? LotQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? LotQuantity { get; init; } 
     
     #nullable disable
 }

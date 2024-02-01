@@ -28,7 +28,7 @@ public partial record SettlementInformation3
     /// <summary>
     /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
     /// </summary>
-    public IClearingSystemIdentification1Choice? ClearingSystem { get; init; } 
+    public ClearingSystemIdentification1Choice_? ClearingSystem { get; init; } 
     /// <summary>
     /// Specifies the agent through which the instructing agent will reimburse the instructed agent.||Usage: If the instructing and instructed agents have the same reimbursement agent, then only InstructingReimbursementAgent must be used.
     /// </summary>

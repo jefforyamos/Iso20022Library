@@ -28,7 +28,7 @@ public partial record SecuritiesOption55
     /// <summary>
     /// Specifies that the security identified is a temporary security identification used for processing reasons, for example, contra security used in the US.
     /// </summary>
-    public ITemporaryFinancialInstrumentIndicator4Choice? TemporaryFinancialInstrumentIndicator { get; init; } 
+    public TemporaryFinancialInstrumentIndicator4Choice_? TemporaryFinancialInstrumentIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the securities are newly issued or not.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record SecuritiesOption55
     /// <summary>
     /// Specifies the basis for the reduced rate of withholding.
     /// </summary>
-    public GenericIdentification47? ExemptionType { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification47[] ExemptionType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the country from which the income originates.
     /// </summary>
@@ -52,15 +52,15 @@ public partial record SecuritiesOption55
     /// <summary>
     /// Quantity of securities that have been posted (credit or debit) to the safekeeping account.
     /// </summary>
-    public required IQuantity10Choice PostingQuantity { get; init; } 
+    public required Quantity10Choice_ PostingQuantity { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
-    public ISafekeepingPlaceFormat17Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat17Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
-    public IFractionDispositionType30Choice? FractionDisposition { get; init; } 
+    public FractionDispositionType30Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Currency in which the cash disbursed from an interest or dividend payment is offered.
     /// </summary>

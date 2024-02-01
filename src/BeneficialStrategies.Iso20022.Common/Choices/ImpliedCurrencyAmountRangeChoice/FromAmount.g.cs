@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ImpliedCurrencyAmountRangeChoice
 /// <summary>
 /// Lower boundary of a range of amount values.
 /// </summary>
-public partial record FromAmount : IImpliedCurrencyAmountRangeChoice
+public partial record FromAmount : ImpliedCurrencyAmountRangeChoice_
 {
     #nullable enable
     /// <summary>

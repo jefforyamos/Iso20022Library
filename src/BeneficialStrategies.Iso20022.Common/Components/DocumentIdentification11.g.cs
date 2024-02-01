@@ -24,7 +24,7 @@ public partial record DocumentIdentification11
     /// <summary>
     /// Date and time at which the document (message) was created by the sender.
     /// </summary>
-    public IDateAndDateTimeChoice? CreationDateTime { get; init; } 
+    public DateAndDateTimeChoice_? CreationDateTime { get; init; } 
     /// <summary>
     /// Specifies if this document is a copy, a duplicate, or a duplicate of a copy.
     /// </summary>

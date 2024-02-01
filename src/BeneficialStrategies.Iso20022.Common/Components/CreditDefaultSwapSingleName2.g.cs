@@ -24,7 +24,7 @@ public partial record CreditDefaultSwapSingleName2
     /// <summary>
     /// Reference entity of a single name credit default swap (CDS) or a derivative on single name credit default swap (CDS).
     /// </summary>
-    public IDerivativePartyIdentification1Choice? ReferenceParty { get; init; } 
+    public DerivativePartyIdentification1Choice_? ReferenceParty { get; init; } 
     /// <summary>
     /// Currency in which the notional is denominated.
     /// </summary>

@@ -20,11 +20,11 @@ public partial record ParticipationMethod2
     /// <summary>
     /// Method of voting participation to the general meeting.
     /// </summary>
-    public required IParticipationMethod3Choice ParticipationMethod { get; init; } 
+    public required ParticipationMethod3Choice_ ParticipationMethod { get; init; } 
     /// <summary>
     /// Deadline for voting on agenda resolutions at the general meeting.
     /// </summary>
-    public required IDateFormat58Choice IssuerDeadlineForVoting { get; init; } 
+    public required DateFormat58Choice_ IssuerDeadlineForVoting { get; init; } 
     /// <summary>
     /// Indicates whether the specific participation method proposed by the issuer is supported by the account servicer.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record ParticipationMethod2
     /// <summary>
     /// Account servicer deadline for voting on agenda resolutions at the general meeting.
     /// </summary>
-    public IDateFormat58Choice? ResponseDeadlineForVoting { get; init; } 
+    public DateFormat58Choice_? ResponseDeadlineForVoting { get; init; } 
     
     #nullable disable
 }

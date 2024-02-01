@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnilateralSplit1Choice;
 /// <summary>
 /// Unilateral split expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IUnilateralSplit1Choice
+public partial record Proprietary : UnilateralSplit1Choice_
 {
     #nullable enable
     /// <summary>

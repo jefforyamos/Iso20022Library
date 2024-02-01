@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References6Choice;
 /// <summary>
 /// Collective reference identifying a set of messages.
 /// </summary>
-public partial record PoolIdentification : IReferences6Choice
+public partial record PoolIdentification : References6Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

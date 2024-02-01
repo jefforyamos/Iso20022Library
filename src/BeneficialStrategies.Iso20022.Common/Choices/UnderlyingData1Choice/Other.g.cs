@@ -13,7 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingData1Choice;
 /// Reference details on any other original proprietary reference.
 /// Usage: this element can be used for an investigation on any other data, such as a cheque.
 /// </summary>
-public partial record Other : IUnderlyingData1Choice
+public partial record Other : UnderlyingData1Choice_
 {
     #nullable enable
     /// <summary>

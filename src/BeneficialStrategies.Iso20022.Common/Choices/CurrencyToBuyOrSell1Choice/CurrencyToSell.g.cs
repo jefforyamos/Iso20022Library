@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CurrencyToBuyOrSell1Choice;
 /// <summary>
 /// Account servicer is instructed to sell the indicated currency in order to obtain the necessary currency to fund the transaction.
 /// </summary>
-public partial record CurrencyToSell : ICurrencyToBuyOrSell1Choice
+public partial record CurrencyToSell : CurrencyToBuyOrSell1Choice_
 {
     public required ActiveCurrencyCode Value { get; init; }
 }

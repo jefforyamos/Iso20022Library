@@ -32,11 +32,11 @@ public partial record MeetingNotice8
     /// <summary>
     /// Classification of the meeting.
     /// </summary>
-    public IMeetingTypeClassification2Choice? Classification { get; init; } 
+    public MeetingTypeClassification2Choice_? Classification { get; init; } 
     /// <summary>
     /// Official meeting announcement date.
     /// </summary>
-    public IDateAndDateTime2Choice? AnnouncementDate { get; init; } 
+    public DateAndDateTime2Choice_? AnnouncementDate { get; init; } 
     /// <summary>
     /// Indicates whether the meeting vote is held under the "one-man-one-vote" principle, also known as "per capita vote" whereby the shareholder attending the meeting has one vote only, regardless of the holding positions.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record MeetingNotice8
     /// <summary>
     /// Method of voting participation to the general meeting and related voting deadline per method of participation.
     /// </summary>
-    public ParticipationMethod2? Participation { get; init;  } // Warning: Don't know multiplicity.
+    public ParticipationMethod2[] Participation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information and conditions for physical attendance at the general meeting.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record MeetingNotice8
     /// <summary>
     /// Address to use over the www (HTTP) service where additional information on the meeting may be found.
     /// </summary>
-    public IsoMax2048Text? AdditionalDocumentationURLAddress { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax2048Text[] AdditionalDocumentationURLAddress { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides web address of an account servicer (or of a service provider) that contains information solely intended for the immediate account holder to enable or facilitate event processing between parties.
     /// </summary>
@@ -60,11 +60,11 @@ public partial record MeetingNotice8
     /// <summary>
     /// Additional procedural information about the general meeting, specifying the participation requirements and the voting procedures. Alternatively, this may indicate where such information may be obtained.
     /// </summary>
-    public IReadOnlyCollection<AdditionalRights3> AdditionalProcedureDetails { get; init; } = [];
+    public AdditionalRights3[] AdditionalProcedureDetails { get; init; } = [];
     /// <summary>
     /// Number of securities admitted to the vote, expressed as an amount and a currency.
     /// </summary>
-    public IFinancialInstrumentQuantity18Choice? TotalNumberOfSecuritiesOutstanding { get; init; } 
+    public FinancialInstrumentQuantity18Choice_? TotalNumberOfSecuritiesOutstanding { get; init; } 
     /// <summary>
     /// Number of rights admitted to the vote.
     /// </summary>
@@ -76,19 +76,19 @@ public partial record MeetingNotice8
     /// <summary>
     /// Specifies the proxy or whether a proxy is not allowed.
     /// </summary>
-    public IProxy5Choice? ProxyChoice { get; init; } 
+    public Proxy5Choice_? ProxyChoice { get; init; } 
     /// <summary>
     /// Contact person at the party organising the meeting, at the issuer or at an intermediary.
     /// </summary>
-    public IReadOnlyCollection<MeetingContactPerson3> ContactPersonDetails { get; init; } = [];
+    public MeetingContactPerson3[] ContactPersonDetails { get; init; } = [];
     /// <summary>
     /// Date on which the company publishes the results of its meeting.
     /// </summary>
-    public IDateFormat3Choice? ResultPublicationDate { get; init; } 
+    public DateFormat3Choice_? ResultPublicationDate { get; init; } 
     /// <summary>
     /// Date by which the blocking period for the securities should end.
     /// </summary>
-    public IDateFormat60Choice? SecuritiesBlockingPeriodEndDate { get; init; } 
+    public DateFormat60Choice_? SecuritiesBlockingPeriodEndDate { get; init; } 
     /// <summary>
     /// Date at which the positions are struck to record which parties will receive the entitlement, for example, record date, book close date.
     /// </summary>
@@ -96,11 +96,11 @@ public partial record MeetingNotice8
     /// <summary>
     /// Date by which the securities have to be registered. This deadline is specified by an intermediary.
     /// </summary>
-    public IDateFormat58Choice? RegistrationSecuritiesDeadline { get; init; } 
+    public DateFormat58Choice_? RegistrationSecuritiesDeadline { get; init; } 
     /// <summary>
     /// Date by which the securities have to be registered. This deadline is set by the issuer.
     /// </summary>
-    public IDateFormat58Choice? RegistrationSecuritiesMarketDeadline { get; init; } 
+    public DateFormat58Choice_? RegistrationSecuritiesMarketDeadline { get; init; } 
     
     #nullable disable
 }

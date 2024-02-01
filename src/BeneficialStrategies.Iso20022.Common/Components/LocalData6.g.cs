@@ -40,11 +40,11 @@ public partial record LocalData6
     /// <summary>
     /// Additional information relevant for the settlement report.
     /// </summary>
-    public AdditionalInformation22? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation22[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional local language data
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

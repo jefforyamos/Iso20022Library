@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReferredDocumentAmount1Choice;
 /// <summary>
 /// Amount specified for the referred document is the amount of a credit note.
 /// </summary>
-public partial record CreditNoteAmount : IReferredDocumentAmount1Choice
+public partial record CreditNoteAmount : ReferredDocumentAmount1Choice_
 {
     public required IsoCurrencyAndAmount Value { get; init; }
 }

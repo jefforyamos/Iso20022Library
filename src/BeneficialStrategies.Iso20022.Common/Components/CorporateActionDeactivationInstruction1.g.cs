@@ -24,7 +24,7 @@ public partial record CorporateActionDeactivationInstruction1
     /// <summary>
     /// Provides information about the option, when the deactivation instruction applies at the level of a corporate action option.
     /// </summary>
-    public CorporateActionOption2? OptionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionOption2[] OptionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

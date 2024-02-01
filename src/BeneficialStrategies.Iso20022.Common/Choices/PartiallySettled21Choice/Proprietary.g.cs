@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartiallySettled21Choice;
 /// <summary>
 /// Partially settled reason expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IPartiallySettled21Choice
+public partial record Proprietary : PartiallySettled21Choice_
 {
     #nullable enable
     /// <summary>

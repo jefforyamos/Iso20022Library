@@ -32,7 +32,7 @@ public partial record SecuritiesCollateral4
     /// <summary>
     /// Planned final repayment date at the time of issuance.
     /// </summary>
-    public IDateAndDateTimeChoice? MaturityDate { get; init; } 
+    public DateAndDateTimeChoice_? MaturityDate { get; init; } 
     /// <summary>
     /// Indicates that the collateral posted in the clearing house covers the margin until a specific timeframe.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record SecuritiesCollateral4
     /// <summary>
     /// Quantity of securities collateral.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Indicates the price of the security.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record SecuritiesCollateral4
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public required ISafekeepingPlaceFormat7Choice SafekeepingPlace { get; init; } 
+    public required SafekeepingPlaceFormat7Choice_ SafekeepingPlace { get; init; } 
     /// <summary>
     /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
     /// </summary>

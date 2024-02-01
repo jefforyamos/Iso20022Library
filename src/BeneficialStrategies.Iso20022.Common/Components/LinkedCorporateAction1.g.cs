@@ -28,7 +28,7 @@ public partial record LinkedCorporateAction1
     /// <summary>
     /// Specifies when the instruction is to be executed relative to a linked instruction.
     /// </summary>
-    public IProcessingPosition2FormatChoice? LinkageType { get; init; } 
+    public ProcessingPosition2FormatChoice_? LinkageType { get; init; } 
     /// <summary>
     /// Reference given to the linked event by the CA event issuer (agent).
     /// </summary>

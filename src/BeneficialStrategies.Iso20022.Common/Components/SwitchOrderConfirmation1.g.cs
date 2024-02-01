@@ -24,11 +24,11 @@ public partial record SwitchOrderConfirmation1
     /// <summary>
     /// Information related to a switch execution.
     /// </summary>
-    public SwitchExecution4? SwitchExecutionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SwitchExecution4[] SwitchExecutionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1? Extension { get; init;  } // Warning: Don't know multiplicity.
+    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

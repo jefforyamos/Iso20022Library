@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 /// <summary>
 /// Specifies the contact details of the party.
 /// </summary>
-public partial record ContactDetails : IUpdateLogPartyRecord1Choice
+public partial record ContactDetails : UpdateLogPartyRecord1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction7Choice;
 /// <summary>
 /// Reference details on the underlying statement cash entry.
 /// </summary>
-public partial record StatementEntry : IUnderlyingTransaction7Choice
+public partial record StatementEntry : UnderlyingTransaction7Choice_
 {
     #nullable enable
     /// <summary>

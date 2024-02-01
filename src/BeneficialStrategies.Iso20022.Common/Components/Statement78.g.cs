@@ -24,7 +24,7 @@ public partial record Statement78
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
-    public INumber3Choice? ReportNumber { get; init; } 
+    public Number3Choice_? ReportNumber { get; init; } 
     /// <summary>
     /// Identification of the SecuritiesStatementQuery message sent to request this statement.
     /// </summary>
@@ -32,15 +32,15 @@ public partial record Statement78
     /// <summary>
     /// Date and time of the statement.
     /// </summary>
-    public required IDateAndDateTime2Choice StatementDateTime { get; init; } 
+    public required DateAndDateTime2Choice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
-    public required IFrequency22Choice Frequency { get; init; } 
+    public required Frequency22Choice_ Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
-    public required IUpdateType15Choice UpdateType { get; init; } 
+    public required UpdateType15Choice_ UpdateType { get; init; } 
     /// <summary>
     /// Specifies whether the client is the collateral taker or giver.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record Statement78
     /// <summary>
     /// Specifies the basis on which the statement is prepared.
     /// </summary>
-    public required IStatementBasis14Choice StatementBasis { get; init; } 
+    public required StatementBasis14Choice_ StatementBasis { get; init; } 
     /// <summary>
     /// Specifies whether the transactions reported are pending or confirmed.
     /// </summary>

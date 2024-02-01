@@ -40,19 +40,19 @@ public partial record CollateralData33
     /// <summary>
     /// Maturity of the security.
     /// </summary>
-    public IContractTerm6Choice? Maturity { get; init; } 
+    public ContractTerm6Choice_? Maturity { get; init; } 
     /// <summary>
     /// Jurisdiction of the issuer of the security used as collateral. 
     /// </summary>
-    public IIssuerJurisdiction1Choice? IssuerJurisdiction { get; init; } 
+    public IssuerJurisdiction1Choice_? IssuerJurisdiction { get; init; } 
     /// <summary>
     /// Classification of the type of the security.
     /// </summary>
-    public ISecuritiesLendingType3Choice? Type { get; init; } 
+    public SecuritiesLendingType3Choice_? Type { get; init; } 
     /// <summary>
     /// Trade Repository to which the other counterparty reported.
     /// </summary>
-    public IOrganisationIdentification15Choice? TradeRepository { get; init; } 
+    public OrganisationIdentification15Choice_? TradeRepository { get; init; } 
     /// <summary>
     /// List of possible values for TRs reconciliation purposes.
     /// </summary>

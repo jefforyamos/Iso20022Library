@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Standardisation3Choice;
 /// <summary>
 /// Standardisation expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IStandardisation3Choice
+public partial record Proprietary : Standardisation3Choice_
 {
     #nullable enable
     /// <summary>

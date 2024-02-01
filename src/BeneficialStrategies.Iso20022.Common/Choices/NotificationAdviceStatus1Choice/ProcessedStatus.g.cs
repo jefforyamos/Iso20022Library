@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.NotificationAdviceStatus1Choice;
 /// <summary>
 /// Provides information about the processing status of advice.
 /// </summary>
-public partial record ProcessedStatus : INotificationAdviceStatus1Choice
+public partial record ProcessedStatus : NotificationAdviceStatus1Choice_
 {
     #nullable enable
     /// <summary>
     /// The processing status.
     /// </summary>
-    public required IProcessedStatus1FormatChoice Status { get; init; } 
+    public required ProcessedStatus1FormatChoice_ Status { get; init; } 
     /// <summary>
     /// Additional information about the status.
     /// </summary>

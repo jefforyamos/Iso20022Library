@@ -28,7 +28,7 @@ public partial record SecuritiesMovement9
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
-    public required IFinancialInstrumentQuantity33Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity33Choice_ Quantity { get; init; } 
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>

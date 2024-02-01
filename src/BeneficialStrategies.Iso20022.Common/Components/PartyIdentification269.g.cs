@@ -28,7 +28,7 @@ public partial record PartyIdentification269
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    public IPartyIdentification198Choice? Identification { get; init; } 
+    public PartyIdentification198Choice_? Identification { get; init; } 
     /// <summary>
     /// Identification of the shareholder in the company share register.
     /// </summary>

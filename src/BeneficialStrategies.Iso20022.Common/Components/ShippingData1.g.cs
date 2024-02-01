@@ -52,7 +52,7 @@ public partial record ShippingData1
     /// <summary>
     /// Contains the total tax amount for the entire purchase. 
     /// </summary>
-    public Tax33? Tax { get; init;  } // Warning: Don't know multiplicity.
+    public Tax33[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record ShippingData1
     /// <summary>
     /// Contains the details of the package being shipped. 
     /// </summary>
-    public ShippingPackage1? Package { get; init;  } // Warning: Don't know multiplicity.
+    public ShippingPackage1[] Package { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional shipping data.
     /// </summary>

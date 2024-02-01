@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClassificationType4Choice;
 /// <summary>
 /// ISO 10962 Classification of Financial Instrument (CFI).
 /// </summary>
-public partial record ClassificationFinancialInstrument : IClassificationType4Choice
+public partial record ClassificationFinancialInstrument : ClassificationType4Choice_
 {
     public required IsoCFIIdentifier Value { get; init; }
 }

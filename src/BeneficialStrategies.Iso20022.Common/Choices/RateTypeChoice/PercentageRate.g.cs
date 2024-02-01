@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateTypeChoice;
 /// <summary>
 /// Percentage charged for the use of an amount of money, usually expressed at an annual rate. The interest rate is the ratio of the amount of interest paid during a certain period of time compared to the principal amount of the interest bearing financial instrument.
 /// </summary>
-public partial record PercentageRate : IRateTypeChoice
+public partial record PercentageRate : RateTypeChoice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

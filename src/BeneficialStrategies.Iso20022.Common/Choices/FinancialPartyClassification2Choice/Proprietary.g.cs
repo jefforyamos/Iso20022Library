@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialPartyClassification2Cho
 /// <summary>
 /// Classification of the business activities of the counterparty using a proprietary identification scheme.
 /// </summary>
-public partial record Proprietary : IFinancialPartyClassification2Choice
+public partial record Proprietary : FinancialPartyClassification2Choice_
 {
     #nullable enable
     /// <summary>

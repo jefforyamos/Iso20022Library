@@ -20,23 +20,23 @@ public partial record CorporateActionPrice66
     /// <summary>
     /// Indicates whether the price is an indicative price or a market price.
     /// </summary>
-    public IIndicativeOrMarketPrice11Choice? IndicativeOrMarketPrice { get; init; } 
+    public IndicativeOrMarketPrice11Choice_? IndicativeOrMarketPrice { get; init; } 
     /// <summary>
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
-    public IPriceFormat57Choice? CashInLieuOfSharePrice { get; init; } 
+    public PriceFormat57Choice_? CashInLieuOfSharePrice { get; init; } 
     /// <summary>
     /// Cash value of resulting securities proceeds for tax calculation and/or reporting.
     /// </summary>
-    public IPriceFormat58Choice? CashValueForTax { get; init; } 
+    public PriceFormat58Choice_? CashValueForTax { get; init; } 
     /// <summary>
     /// Generic cash price paid per product by the underlying security holder either as a percentage or an amount or a number of points above an index, for example, reinvestment price, strike price and exercise price.
     /// </summary>
-    public IPriceFormat59Choice? GenericCashPricePaidPerProduct { get; init; } 
+    public PriceFormat59Choice_? GenericCashPricePaidPerProduct { get; init; } 
     /// <summary>
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, for example, redemption price.
     /// </summary>
-    public IPriceFormat60Choice? GenericCashPriceReceivedPerProduct { get; init; } 
+    public PriceFormat60Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
     
     #nullable disable
 }

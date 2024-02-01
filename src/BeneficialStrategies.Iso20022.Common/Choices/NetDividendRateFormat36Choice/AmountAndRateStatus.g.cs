@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NetDividendRateFormat36Choice;
 /// <summary>
 /// Specifies an amount and a rate status.
 /// </summary>
-public partial record AmountAndRateStatus : INetDividendRateFormat36Choice
+public partial record AmountAndRateStatus : NetDividendRateFormat36Choice_
 {
     #nullable enable
     /// <summary>

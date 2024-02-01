@@ -28,7 +28,7 @@ public partial record Authorisation1
     /// <summary>
     /// Maximum amount allowed over a specific period of time.
     /// </summary>
-    public MaximumAmountByPeriod1? MaximumAmountByPeriod { get; init;  } // Warning: Don't know multiplicity.
+    public MaximumAmountByPeriod1[] MaximumAmountByPeriod { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

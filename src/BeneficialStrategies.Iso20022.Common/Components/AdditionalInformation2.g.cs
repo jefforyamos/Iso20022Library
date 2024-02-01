@@ -20,7 +20,7 @@ public partial record AdditionalInformation2
     /// <summary>
     /// Reason for the waiver.
     /// </summary>
-    public IOrderWaiverReason1Choice? OrderWaiverReason { get; init;  } // Warning: Don't know multiplicity.
+    public OrderWaiverReason1Choice_[] OrderWaiverReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contents of the additional information.
     /// </summary>

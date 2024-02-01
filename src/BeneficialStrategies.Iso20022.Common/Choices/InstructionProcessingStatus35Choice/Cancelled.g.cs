@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus35Cho
 /// <summary>
 /// Instruction has been cancelled.
 /// </summary>
-public partial record Cancelled : IInstructionProcessingStatus35Choice
+public partial record Cancelled : InstructionProcessingStatus35Choice_
 {
     #nullable enable
     #nullable disable

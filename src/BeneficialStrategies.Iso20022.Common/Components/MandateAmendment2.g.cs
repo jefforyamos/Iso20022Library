@@ -32,7 +32,7 @@ public partial record MandateAmendment2
     /// <summary>
     /// Provides the original mandate data.
     /// </summary>
-    public required IOriginalMandate2Choice OriginalMandate { get; init; } 
+    public required OriginalMandate2Choice_ OriginalMandate { get; init; } 
     
     #nullable disable
 }

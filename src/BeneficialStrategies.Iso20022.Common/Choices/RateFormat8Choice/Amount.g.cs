@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateFormat8Choice;
 /// <summary>
 /// Cash amount.
 /// </summary>
-public partial record Amount : IRateFormat8Choice
+public partial record Amount : RateFormat8Choice_
 {
     public required IsoActiveCurrencyAnd13DecimalAmount Value { get; init; }
 }

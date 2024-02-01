@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountOrRate1Choice;
 /// <summary>
 /// Amount expressed as a rate.
 /// </summary>
-public partial record Rate : IAmountOrRate1Choice
+public partial record Rate : AmountOrRate1Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

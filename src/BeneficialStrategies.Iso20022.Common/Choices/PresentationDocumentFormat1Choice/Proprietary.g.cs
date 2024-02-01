@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PresentationDocumentFormat1Choic
 /// <summary>
 /// Document format expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IPresentationDocumentFormat1Choice
+public partial record Proprietary : PresentationDocumentFormat1Choice_
 {
     #nullable enable
     /// <summary>

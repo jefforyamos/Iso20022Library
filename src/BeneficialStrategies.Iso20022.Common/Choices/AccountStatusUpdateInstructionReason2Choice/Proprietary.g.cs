@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountStatusUpdateInstructionRe
 /// <summary>
 /// Reason for the instruction to change the account status expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IAccountStatusUpdateInstructionReason2Choice
+public partial record Proprietary : AccountStatusUpdateInstructionReason2Choice_
 {
     #nullable enable
     /// <summary>

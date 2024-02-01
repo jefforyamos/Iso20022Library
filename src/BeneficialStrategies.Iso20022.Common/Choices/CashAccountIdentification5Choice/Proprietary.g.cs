@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CashAccountIdentification5Choice
 /// <summary>
 /// Unique identifier for an account. It is assigned by the account servicer using a proprietary identification scheme.
 /// </summary>
-public partial record Proprietary : ICashAccountIdentification5Choice
+public partial record Proprietary : CashAccountIdentification5Choice_
 {
     public required IsoMax34Text Value { get; init; }
 }

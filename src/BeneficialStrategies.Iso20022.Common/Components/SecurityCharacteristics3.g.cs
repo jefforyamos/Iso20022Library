@@ -20,11 +20,11 @@ public partial record SecurityCharacteristics3
     /// <summary>
     /// Unique identification, as known by the account owner, to unambiguously identify the security.
     /// </summary>
-    public SecurityIdentification19? Identification { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityIdentification19[] Identification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the position for the security.
     /// </summary>
-    public SecuritiesPosition1? Position { get; init;  } // Warning: Don't know multiplicity.
+    public SecuritiesPosition1[] Position { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the price of the security for valuation purposes.
     /// </summary>

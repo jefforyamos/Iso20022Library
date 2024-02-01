@@ -44,7 +44,7 @@ public partial record SaleToPOIProtocolParameter2
     /// <summary>
     /// List of types that the receiver supports and that the sender could use as type of an ExternallyDefinedData message component.
     /// </summary>
-    public IsoMax1025Text? ExternallyTypeSupported { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax1025Text[] ExternallyTypeSupported { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

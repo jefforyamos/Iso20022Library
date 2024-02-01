@@ -24,7 +24,7 @@ public partial record CorporateActionSecuritiesMovement2
     /// <summary>
     /// Date and time of the posting of the movement.
     /// </summary>
-    public IDateAndDateTimeChoice? PostingDateTime { get; init; } 
+    public DateAndDateTimeChoice_? PostingDateTime { get; init; } 
     /// <summary>
     /// Posting identification of the securities movement.
     /// </summary>
@@ -32,11 +32,11 @@ public partial record CorporateActionSecuritiesMovement2
     /// <summary>
     /// Securities quantity posted as a result of the securities movement.
     /// </summary>
-    public required IUnitOrFaceAmount1Choice PostingQuantity { get; init; } 
+    public required UnitOrFaceAmount1Choice_ PostingQuantity { get; init; } 
     /// <summary>
     /// Provides information about the account which is debited/credited as a result of the movement.
     /// </summary>
-    public IReadOnlyCollection<SecuritiesAccount9> AccountDetails { get; init; } = [];
+    public SecuritiesAccount9[] AccountDetails { get; init; } = [];
     
     #nullable disable
 }

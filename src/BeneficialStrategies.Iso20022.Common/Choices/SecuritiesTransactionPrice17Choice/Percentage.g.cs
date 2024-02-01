@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice17Choi
 /// <summary>
 /// Indicates that price is expressed as a rate, that is a percentage.
 /// </summary>
-public partial record Percentage : ISecuritiesTransactionPrice17Choice
+public partial record Percentage : SecuritiesTransactionPrice17Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

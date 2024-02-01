@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.QuotationType1Choice;
 /// <summary>
 /// Type of quotation expressed as a code.
 /// </summary>
-public partial record Code : IQuotationType1Choice
+public partial record Code : QuotationType1Choice_
 {
     public required QuotationType1Code Value { get; init; }
 }

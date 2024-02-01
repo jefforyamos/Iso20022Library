@@ -44,7 +44,7 @@ public partial record ReorganisationInstructionDetailsSD4
     /// <summary>
     /// Reason for which an inbound instruction message or a cancellation instruction message is rejected.
     /// </summary>
-    public IReadOnlyCollection<InstructionRejectionReason1Code> RejectionReason { get; init; } = [];
+    public InstructionRejectionReason1Code[] RejectionReason { get; init; } = [];
     /// <summary>
     /// Identifies the protect itself or of that is being covered. It is required for the function types cover protect (COVR), cover protect directly to agent (COVA) and cover on behalf of another participant (COVP).
     /// </summary>

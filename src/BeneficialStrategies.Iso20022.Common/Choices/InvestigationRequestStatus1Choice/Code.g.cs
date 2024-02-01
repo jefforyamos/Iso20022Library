@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationRequestStatus1Choic
 /// <summary>
 /// Investigation status, as published in an external code set.
 /// </summary>
-public partial record Code : IInvestigationRequestStatus1Choice
+public partial record Code : InvestigationRequestStatus1Choice_
 {
     public required ExternalTrackerInvestigationStatus1Code Value { get; init; }
 }

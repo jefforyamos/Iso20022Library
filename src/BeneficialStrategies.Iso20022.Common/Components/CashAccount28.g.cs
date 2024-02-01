@@ -20,7 +20,7 @@ public partial record CashAccount28
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public required IAccountIdentification4Choice Identification { get; init; } 
+    public required AccountIdentification4Choice_ Identification { get; init; } 
     /// <summary>
     /// Identification of the currency in which the account is held. ||Usage: Currency should only be used in case one and the same account number covers several currencies|and the initiating party needs to identify which currency needs to be used for settlement on the account.
     /// </summary>

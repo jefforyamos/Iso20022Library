@@ -20,19 +20,19 @@ public partial record CorporateActionDate5
     /// <summary>
     /// Date/time at which a foreign exchange rate will be determined.
     /// </summary>
-    public IDateFormat4Choice? ForeignExchangeRateFixingDate { get; init; } 
+    public DateFormat4Choice_? ForeignExchangeRateFixingDate { get; init; } 
     /// <summary>
     /// Date/time at which assets become available to the account owner (in a credit entry), or cease to be available to the account owner (in a debit entry).
     /// </summary>
-    public IDateFormat4Choice? ValueDate { get; init; } 
+    public DateFormat4Choice_? ValueDate { get; init; } 
     /// <summary>
     /// Date/time at which the distribution is due to take place (cash and/or securities).
     /// </summary>
-    public IDateFormat4Choice? PaymentDate { get; init; } 
+    public DateFormat4Choice_? PaymentDate { get; init; } 
     /// <summary>
     /// Date/time at which a payment can be made, eg, if payment date is a non-business day or to indicate the first payment date of an offer.
     /// </summary>
-    public IDateFormat4Choice? EarliestPaymentDate { get; init; } 
+    public DateFormat4Choice_? EarliestPaymentDate { get; init; } 
     
     #nullable disable
 }

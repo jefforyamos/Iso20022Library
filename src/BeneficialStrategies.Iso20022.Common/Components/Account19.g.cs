@@ -28,7 +28,7 @@ public partial record Account19
     /// <summary>
     /// Institution that maintains the records where the account is held.
     /// </summary>
-    public IPartyIdentification70Choice? Servicer { get; init; } 
+    public PartyIdentification70Choice_? Servicer { get; init; } 
     
     #nullable disable
 }

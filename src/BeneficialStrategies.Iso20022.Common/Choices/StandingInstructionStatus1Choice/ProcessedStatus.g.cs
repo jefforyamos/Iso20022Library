@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingInstructionStatus1Choice
 /// <summary>
 /// Provides information about the processing status of the request.
 /// </summary>
-public partial record ProcessedStatus : IStandingInstructionStatus1Choice
+public partial record ProcessedStatus : StandingInstructionStatus1Choice_
 {
     #nullable enable
     /// <summary>
     /// The processing status.
     /// </summary>
-    public required IProcessedStatus3FormatChoice Status { get; init; } 
+    public required ProcessedStatus3FormatChoice_ Status { get; init; } 
     /// <summary>
     /// Additional information about the status.
     /// </summary>

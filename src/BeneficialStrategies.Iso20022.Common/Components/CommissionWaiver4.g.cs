@@ -20,7 +20,7 @@ public partial record CommissionWaiver4
     /// <summary>
     /// Form of the rebate, for example, cash.
     /// </summary>
-    public required IWaivingInstruction1Choice InstructionBasis { get; init; } 
+    public required WaivingInstruction1Choice_ InstructionBasis { get; init; } 
     /// <summary>
     /// Proportion of the commission that is waived, for example, if the commission is 5% and half is waived, 2.5% should be stated in this field.
     /// </summary>

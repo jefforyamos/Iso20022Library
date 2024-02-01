@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateCode27Choice;
 /// <summary>
 /// Standard code to indicate the date is unknown.
 /// </summary>
-public partial record Code : IDateCode27Choice
+public partial record Code : DateCode27Choice_
 {
     public required DateType1Code Value { get; init; }
 }

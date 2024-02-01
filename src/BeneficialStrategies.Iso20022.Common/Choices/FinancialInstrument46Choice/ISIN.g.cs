@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument46Choice;
 /// <summary>
 /// Identifies the financial instrument using an International Securities Identification Number (ISIN).
 /// </summary>
-public partial record ISIN : IFinancialInstrument46Choice
+public partial record ISIN : FinancialInstrument46Choice_
 {
     public required IsoISINOct2015Identifier Value { get; init; }
 }

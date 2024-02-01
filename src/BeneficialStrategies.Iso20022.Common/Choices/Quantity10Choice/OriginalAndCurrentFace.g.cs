@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity10Choice;
 /// <summary>
 /// Original and current value of an asset-back instrument.
 /// </summary>
-public partial record OriginalAndCurrentFace : IQuantity10Choice
+public partial record OriginalAndCurrentFace : Quantity10Choice_
 {
     #nullable enable
     /// <summary>

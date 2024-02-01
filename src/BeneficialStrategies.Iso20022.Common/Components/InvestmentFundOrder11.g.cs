@@ -36,7 +36,7 @@ public partial record InvestmentFundOrder11
     /// <summary>
     /// Reason for the cancellation of the confirmation.
     /// </summary>
-    public ICancellationReason31Choice? CancellationReason { get; init; } 
+    public CancellationReason31Choice_? CancellationReason { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatusReason1Choice;
 /// <summary>
 /// Reason for the status not catered for by the available codes.
 /// </summary>
-public partial record Proprietary : IStatusReason1Choice
+public partial record Proprietary : StatusReason1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

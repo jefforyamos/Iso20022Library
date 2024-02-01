@@ -32,23 +32,23 @@ public partial record GuaranteeDetails1
     /// <summary>
     /// Amount by time periods, maximum value applies at any given date.
     /// </summary>
-    public AmountAndPeriod1? GuaranteedAmount { get; init;  } // Warning: Don't know multiplicity.
+    public AmountAndPeriod1[] GuaranteedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount not covered by the guarantee. Maximum value applies at any given date.
     /// </summary>
-    public AmountAndPeriod1? Excess { get; init;  } // Warning: Don't know multiplicity.
+    public AmountAndPeriod1[] Excess { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Covered percentage, the maximum value applies at any given date.
     /// </summary>
-    public PercentageAndPeriod1? CoveredPercentage { get; init;  } // Warning: Don't know multiplicity.
+    public PercentageAndPeriod1[] CoveredPercentage { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Associated free form document.
     /// </summary>
-    public QualifiedDocumentInformation1? AssociatedDocument { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1[] AssociatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the demand.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

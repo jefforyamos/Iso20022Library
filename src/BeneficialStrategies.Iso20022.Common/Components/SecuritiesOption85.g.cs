@@ -28,15 +28,15 @@ public partial record SecuritiesOption85
     /// <summary>
     /// Specifies that the security identified is a temporary security identification used for processing reasons, for example, contra security used in the US.
     /// </summary>
-    public ITemporaryFinancialInstrumentIndicator4Choice? TemporaryFinancialInstrumentIndicator { get; init; } 
+    public TemporaryFinancialInstrumentIndicator4Choice_? TemporaryFinancialInstrumentIndicator { get; init; } 
     /// <summary>
     /// Specifies information regarding outturn resources that cannot be processed by the Central Securities Depository (CSD). Special delivery instruction is required from the account owner for the corporate action outcome to be credited.
     /// </summary>
-    public INonEligibleProceedsIndicator4Choice? NonEligibleProceedsIndicator { get; init; } 
+    public NonEligibleProceedsIndicator4Choice_? NonEligibleProceedsIndicator { get; init; } 
     /// <summary>
     /// Proceeds are taxable according to the information provided by the issuer / offeror.
     /// </summary>
-    public IIssuerOfferorTaxabilityIndicator1Choice? IssuerOfferorTaxabilityIndicator { get; init; } 
+    public IssuerOfferorTaxabilityIndicator1Choice_? IssuerOfferorTaxabilityIndicator { get; init; } 
     /// <summary>
     /// Specifies the nature of the securities issue.
     /// </summary>
@@ -48,19 +48,19 @@ public partial record SecuritiesOption85
     /// <summary>
     /// Type of income to be used under another tax regime.
     /// </summary>
-    public GenericIdentification47? OtherIncomeType { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification47[] OtherIncomeType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the basis for the reduced rate of withholding.
     /// </summary>
-    public GenericIdentification47? ExemptionType { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification47[] ExemptionType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity of securities based on the terms of the corporate action event and balance of underlying securities entitled to the account owner. (This quantity can be positive or negative).
     /// </summary>
-    public IQuantity54Choice? EntitledQuantity { get; init; } 
+    public Quantity54Choice_? EntitledQuantity { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
-    public ISafekeepingPlaceFormat39Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat39Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Indicates the country from which the income originates.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record SecuritiesOption85
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
-    public IFractionDispositionType31Choice? FractionDisposition { get; init; } 
+    public FractionDispositionType31Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Currency in which the cash disbursed from an interest or dividend payment is offered.
     /// </summary>
@@ -76,7 +76,7 @@ public partial record SecuritiesOption85
     /// <summary>
     /// Period during which intermediate or outturn securities are tradable in a secondary market.
     /// </summary>
-    public IPeriod6Choice? TradingPeriod { get; init; } 
+    public Period6Choice_? TradingPeriod { get; init; } 
     /// <summary>
     /// Provides information about the dates related to securities movement.
     /// </summary>

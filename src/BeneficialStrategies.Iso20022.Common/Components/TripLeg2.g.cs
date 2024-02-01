@@ -28,7 +28,7 @@ public partial record TripLeg2
     /// <summary>
     /// Provides the document type and reference information.
     /// </summary>
-    public DocumentReference1? Document { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentReference1[] Document { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains identification of the rail server procedure or the order in which service was booked or cancellation was done.
     /// </summary>
@@ -88,7 +88,7 @@ public partial record TripLeg2
     /// <summary>
     /// Contains trip leg amount information. 
     /// </summary>
-    public AmountDetails2? TripLegAmount { get; init;  } // Warning: Don't know multiplicity.
+    public AmountDetails2[] TripLegAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates reason for the credit to the cardholder.  Includes: ancillary purchase cancelled, passenger transport ticket and related ancillary purchase cancelled, etc.
     /// </summary>

@@ -36,7 +36,7 @@ public partial record BenchmarkCurve6
     /// <summary>
     /// Identifies the name of the benchmark curve.
     /// </summary>
-    public IBenchmarkCurveName7Choice? BenchmarkCurveName { get; init; } 
+    public BenchmarkCurveName7Choice_? BenchmarkCurveName { get; init; } 
     /// <summary>
     /// Identifies a point on a benchmark curve. The point can be stated via a combination of maturity month/year and coupon.
     /// </summary>

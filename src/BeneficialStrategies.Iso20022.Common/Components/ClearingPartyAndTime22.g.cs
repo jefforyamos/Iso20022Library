@@ -20,7 +20,7 @@ public partial record ClearingPartyAndTime22
     /// <summary>
     /// Identifies the central counterparty (CCP) that cleared the transaction.
     /// </summary>
-    public IOrganisationIdentification15Choice? CCP { get; init; } 
+    public OrganisationIdentification15Choice_? CCP { get; init; } 
     /// <summary>
     /// Time and date when the original derivative was received by the central counterparty for clearing.
     /// </summary>
@@ -32,15 +32,15 @@ public partial record ClearingPartyAndTime22
     /// <summary>
     /// Unique identifier of each clearing derivative that replaces the original derivative that was submitted for clearing to the central counterparty, other than the identifier for the transaction being reported.
     /// </summary>
-    public IUniqueTransactionIdentifier2Choice? ClearingIdentifier { get; init; } 
+    public UniqueTransactionIdentifier2Choice_? ClearingIdentifier { get; init; } 
     /// <summary>
     /// Unique identifier of the original derivative submitted for clearing to the central counterparty that is replaced by the clearing derivative.
     /// </summary>
-    public IUniqueTransactionIdentifier2Choice? OriginalIdentifier { get; init; } 
+    public UniqueTransactionIdentifier2Choice_? OriginalIdentifier { get; init; } 
     /// <summary>
     /// Identifies the trade repository to which the original derivative was reported.
     /// </summary>
-    public IOrganisationIdentification15Choice? OriginalTradeRepositoryIdentifier { get; init; } 
+    public OrganisationIdentification15Choice_? OriginalTradeRepositoryIdentifier { get; init; } 
     /// <summary>
     /// Indicator of whether the clearing member acted as principal for a house trade or an agent for a customer trade.
     /// </summary>

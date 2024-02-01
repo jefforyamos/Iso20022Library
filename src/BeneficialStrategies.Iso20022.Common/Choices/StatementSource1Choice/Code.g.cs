@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementSource1Choice;
 /// <summary>
 /// Report source expressed in coded form.
 /// </summary>
-public partial record Code : IStatementSource1Choice
+public partial record Code : StatementSource1Choice_
 {
     public required StatementSource1Code Value { get; init; }
 }

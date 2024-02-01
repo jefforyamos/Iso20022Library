@@ -36,7 +36,7 @@ public partial record Transfer23
     /// <summary>
     /// Date and time at which the transfer was executed.
     /// </summary>
-    public required IDateAndDateTimeChoice EffectiveTransferDate { get; init; } 
+    public required DateAndDateTimeChoice_ EffectiveTransferDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be exchanged at the International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
@@ -44,11 +44,11 @@ public partial record Transfer23
     /// <summary>
     /// Date and time at which the securities were exchanged at the International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
-    public IDateAndDateTimeChoice? EffectiveSettlementDate { get; init; } 
+    public DateAndDateTimeChoice_? EffectiveSettlementDate { get; init; } 
     /// <summary>
     /// Date and time at which a transaction is completed and cleared, ie, securities are delivered.
     /// </summary>
-    public IDateAndDateTimeChoice? TradeDate { get; init; } 
+    public DateAndDateTimeChoice_? TradeDate { get; init; } 
     /// <summary>
     /// Identifies in which date the investor signed the transfer order form.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record Transfer23
     /// <summary>
     /// Identifies whether or not saving plan or withdrawal or switch plan are included in the holdings.
     /// </summary>
-    public IReadOnlyCollection<HoldingsPlanType1Code> HoldingsPlanType { get; init; } = [];
+    public HoldingsPlanType1Code[] HoldingsPlanType { get; init; } = [];
     /// <summary>
     /// Information related to the financial instrument withdrawn.
     /// </summary>
@@ -72,7 +72,7 @@ public partial record Transfer23
     /// <summary>
     /// Information about the units to be transferred.
     /// </summary>
-    public Unit3? UnitsDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Unit3[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total quantity of securities settled.
     /// </summary>

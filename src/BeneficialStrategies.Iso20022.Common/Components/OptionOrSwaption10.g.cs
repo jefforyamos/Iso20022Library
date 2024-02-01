@@ -28,21 +28,21 @@ public partial record OptionOrSwaption10
     /// <summary>
     /// Indication as to whether the option may be exercised only at a fixed date (European, and Asian style), a series of pre-specified dates (Bermudan) or at any time during the life of the contract (American style). This field does not have to be populated for ISIN instruments.
     /// </summary>
-    public OptionStyle6Code? ExerciseStyle { get; init;  } // Warning: Don't know multiplicity.
+    public OptionStyle6Code[] ExerciseStyle { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the earliest unadjusted date during the exercise period on which an option can be exercised.
     /// </summary>
-    public IExerciseDate1Choice? ExerciseDate { get; init; } 
+    public ExerciseDate1Choice_? ExerciseDate { get; init; } 
     /// <summary>
     /// Specifies the predetermined price at which the owner of the option can buy or sell the underlying instrument.
     /// Usage: For foreign exchange options, specifies the exchange rate at which the option can be exercised as the rate of exchange from converting the unit currency into the quoted currency.
     /// For volatility and variance swaps, specify the volatility strike price.
     /// </summary>
-    public ISecuritiesTransactionPrice17Choice? StrikePrice { get; init; } 
+    public SecuritiesTransactionPrice17Choice_? StrikePrice { get; init; } 
     /// <summary>
     /// Specifies the effective date and end date of the schedule for derivative transactions with strike prices varying throughout the life of the transaction.
     /// </summary>
-    public Schedule4? StrikePriceSchedule { get; init;  } // Warning: Don't know multiplicity.
+    public Schedule4[] StrikePriceSchedule { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the amount and currency of a foreign exchange option that the option holder has the right to buy.
     /// </summary>

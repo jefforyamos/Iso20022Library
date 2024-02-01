@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionCalculationMethod
 /// <summary>
 /// Standard code to specify the calculation method for drawings.
 /// </summary>
-public partial record Code : ICorporateActionCalculationMethod1FormatChoice
+public partial record Code : CorporateActionCalculationMethod1FormatChoice_
 {
     public required CorporateActionCalculationMethod1Code Value { get; init; }
 }

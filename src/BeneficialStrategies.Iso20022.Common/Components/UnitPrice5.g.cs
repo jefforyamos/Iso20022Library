@@ -36,7 +36,7 @@ public partial record UnitPrice5
     /// <summary>
     /// Amount included in the NAV that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
-    public IAmountPrice1Choice? TaxableIncomePerShare { get; init; } 
+    public AmountPrice1Choice_? TaxableIncomePerShare { get; init; } 
     /// <summary>
     /// Specifies whether the fund calculates a taxable interest per share (TIS).
     /// </summary>

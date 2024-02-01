@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReferredDocumentType3Choice;
 /// <summary>
 /// Document type in a coded form.
 /// </summary>
-public partial record Code : IReferredDocumentType3Choice
+public partial record Code : ReferredDocumentType3Choice_
 {
     public required DocumentType6Code Value { get; init; }
 }

@@ -25,7 +25,7 @@ public partial record ProcessingResult21
     /// Additional information relevant for the destination.
     /// ISO 8583 bit 44
     /// </summary>
-    public AdditionalInformation29? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation29[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

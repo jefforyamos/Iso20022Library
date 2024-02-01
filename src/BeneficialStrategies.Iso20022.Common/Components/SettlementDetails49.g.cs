@@ -24,11 +24,11 @@ public partial record SettlementDetails49
     /// <summary>
     /// Identifies the type of securities transaction.
     /// </summary>
-    public required ISecuritiesTransactionType12Choice SecuritiesTransactionType { get; init; } 
+    public required SecuritiesTransactionType12Choice_ SecuritiesTransactionType { get; init; } 
     /// <summary>
     /// Conditions under which the order/trade is to be settled.
     /// </summary>
-    public ISettlementTransactionCondition5Choice? SettlementTransactionCondition { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementTransactionCondition5Choice_[] SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether partial settlement is allowed.
     /// </summary>
@@ -36,27 +36,27 @@ public partial record SettlementDetails49
     /// <summary>
     /// Specifies whether there is change of beneficial ownership.
     /// </summary>
-    public IBeneficialOwnership1Choice? BeneficialOwnership { get; init; } 
+    public BeneficialOwnership1Choice_? BeneficialOwnership { get; init; } 
     /// <summary>
     /// Specifies the category of cash clearing system, for example, cheque clearing.
     /// </summary>
-    public ICashSettlementSystem1Choice? CashClearingSystem { get; init; } 
+    public CashSettlementSystem1Choice_? CashClearingSystem { get; init; } 
     /// <summary>
     /// Specifies if an instruction is for a market side or a client side transaction.
     /// </summary>
-    public IMarketClientSide1Choice? MarketClientSide { get; init; } 
+    public MarketClientSide1Choice_? MarketClientSide { get; init; } 
     /// <summary>
     /// Specifies whether registration should occur upon receipt.
     /// </summary>
-    public IRegistration1Choice? Registration { get; init; } 
+    public Registration1Choice_? Registration { get; init; } 
     /// <summary>
     /// Specifies whether the rate is fixed, variable or a forfeit.
     /// </summary>
-    public IRepurchaseType8Choice? RepurchaseType { get; init; } 
+    public RepurchaseType8Choice_? RepurchaseType { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction is to be settled through an RTGS or a non RTGS system.
     /// </summary>
-    public ISecuritiesRTGS1Choice? SecuritiesRTGS { get; init; } 
+    public SecuritiesRTGS1Choice_? SecuritiesRTGS { get; init; } 
     /// <summary>
     /// Specifies the stamp duty type or exemption reason applicable to the settlement transaction.
     /// </summary>

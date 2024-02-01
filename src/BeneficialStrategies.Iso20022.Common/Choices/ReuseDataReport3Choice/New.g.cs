@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReuseDataReport3Choice;
 /// <summary>
 /// Indicates whether transaction is reported for the first time.
 /// </summary>
-public partial record New : IReuseDataReport3Choice
+public partial record New : ReuseDataReport3Choice_
 {
     #nullable enable
     /// <summary>

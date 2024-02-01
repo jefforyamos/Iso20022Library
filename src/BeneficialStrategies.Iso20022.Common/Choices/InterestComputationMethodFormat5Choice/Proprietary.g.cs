@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestComputationMethodFormat5
 /// <summary>
 /// Proprietary identification of the format of interest computation method.
 /// </summary>
-public partial record Proprietary : IInterestComputationMethodFormat5Choice
+public partial record Proprietary : InterestComputationMethodFormat5Choice_
 {
     #nullable enable
     /// <summary>

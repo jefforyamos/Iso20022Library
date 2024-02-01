@@ -24,7 +24,7 @@ public partial record YieldCalculation6
     /// <summary>
     /// Specifies the type of calculation.
     /// </summary>
-    public ICalculationType3Choice? CalculationType { get; init; } 
+    public CalculationType3Choice_? CalculationType { get; init; } 
     /// <summary>
     /// Price to which the yield has been calculated.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record YieldCalculation6
     /// <summary>
     /// Period on which the calculation is based.
     /// </summary>
-    public required IDateTimePeriod1Choice ValuePeriod { get; init; } 
+    public required DateTimePeriod1Choice_ ValuePeriod { get; init; } 
     /// <summary>
     /// Clarifies yield irregularities associated with date, for example when it falls on a non-business day.
     /// </summary>

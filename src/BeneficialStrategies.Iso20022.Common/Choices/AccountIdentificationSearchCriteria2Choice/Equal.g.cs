@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentificationSearchCrite
 /// <summary>
 /// Search for one or more accounts based on exact identification of the account(s).
 /// </summary>
-public partial record Equal : IAccountIdentificationSearchCriteria2Choice
+public partial record Equal : AccountIdentificationSearchCriteria2Choice_
 {
     #nullable enable
     #nullable disable

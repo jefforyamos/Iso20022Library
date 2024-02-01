@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationStatus4Choice;
 /// <summary>
 /// Specifies the reason of the CancellationStatus.
 /// </summary>
-public partial record Reason : ICancellationStatus4Choice
+public partial record Reason : CancellationStatus4Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the instruction is cancelled.
     /// </summary>
-    public required ICancellationReason5Choice Code { get; init; } 
+    public required CancellationReason5Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

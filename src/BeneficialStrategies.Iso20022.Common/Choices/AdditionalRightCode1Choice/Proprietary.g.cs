@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AdditionalRightCode1Choice;
 /// <summary>
 /// This code can be used in case another reason is required.
 /// </summary>
-public partial record Proprietary : IAdditionalRightCode1Choice
+public partial record Proprietary : AdditionalRightCode1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BasisPriceType1Choice;
 /// <summary>
 /// Basis price type is defined using a code.
 /// </summary>
-public partial record Code : IBasisPriceType1Choice
+public partial record Code : BasisPriceType1Choice_
 {
     public required BasisPriceType1Code Value { get; init; }
 }

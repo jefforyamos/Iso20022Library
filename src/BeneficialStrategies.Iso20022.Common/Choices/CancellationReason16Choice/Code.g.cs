@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationReason16Choice;
 /// <summary>
 /// Reason for the cancellation request, in a coded form.
 /// </summary>
-public partial record Code : ICancellationReason16Choice
+public partial record Code : CancellationReason16Choice_
 {
     public required IsoMax4AlphaNumericText Value { get; init; }
 }

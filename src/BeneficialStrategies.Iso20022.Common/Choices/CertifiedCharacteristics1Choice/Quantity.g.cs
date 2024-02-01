@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CertifiedCharacteristics1Choice;
 /// <summary>
 /// Quantity of the goods, as proven by the certificate.
 /// </summary>
-public partial record Quantity : ICertifiedCharacteristics1Choice
+public partial record Quantity : CertifiedCharacteristics1Choice_
 {
     #nullable enable
     /// <summary>

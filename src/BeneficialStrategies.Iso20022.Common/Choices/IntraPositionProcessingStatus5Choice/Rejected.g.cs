@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraPositionProcessingStatus5Ch
 /// <summary>
 /// Instruction/Request has been rejected for further processing.
 /// </summary>
-public partial record Rejected : IIntraPositionProcessingStatus5Choice
+public partial record Rejected : IntraPositionProcessingStatus5Choice_
 {
     #nullable enable
     #nullable disable

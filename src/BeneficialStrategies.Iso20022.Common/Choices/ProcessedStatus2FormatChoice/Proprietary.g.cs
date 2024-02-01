@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessedStatus2FormatChoice;
 /// <summary>
 /// Proprietary code to express the processing status of a cancellation request.
 /// </summary>
-public partial record Proprietary : IProcessedStatus2FormatChoice
+public partial record Proprietary : ProcessedStatus2FormatChoice_
 {
     #nullable enable
     /// <summary>

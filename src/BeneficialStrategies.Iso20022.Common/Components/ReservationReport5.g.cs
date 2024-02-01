@@ -24,7 +24,7 @@ public partial record ReservationReport5
     /// <summary>
     /// Requested information on the limit.
     /// </summary>
-    public required IReservationOrError7Choice ReservationOrError { get; init; } 
+    public required ReservationOrError7Choice_ ReservationOrError { get; init; } 
     
     #nullable disable
 }

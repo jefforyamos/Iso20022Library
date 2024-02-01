@@ -34,7 +34,7 @@ public partial record Compensation1
     /// <summary>
     /// Reason for the payment compensation.
     /// </summary>
-    public required ICompensationReason1Choice Reason { get; init; } 
+    public required CompensationReason1Choice_ Reason { get; init; } 
     
     #nullable disable
 }

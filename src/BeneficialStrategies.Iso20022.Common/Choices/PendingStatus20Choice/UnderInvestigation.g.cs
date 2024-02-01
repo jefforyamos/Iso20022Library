@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingStatus20Choice;
 /// <summary>
 /// Allegement is under investigation.
 /// </summary>
-public partial record UnderInvestigation : IPendingStatus20Choice
+public partial record UnderInvestigation : PendingStatus20Choice_
 {
     #nullable enable
     /// <summary>

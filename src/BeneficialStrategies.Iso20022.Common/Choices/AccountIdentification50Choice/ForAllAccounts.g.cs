@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification50Choice;
 /// <summary>
 /// All safekeeping accounts that own underlying financial instrument.
 /// </summary>
-public partial record ForAllAccounts : IAccountIdentification50Choice
+public partial record ForAllAccounts : AccountIdentification50Choice_
 {
     #nullable enable
     /// <summary>

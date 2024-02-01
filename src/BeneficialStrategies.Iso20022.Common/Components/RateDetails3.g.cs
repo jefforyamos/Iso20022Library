@@ -20,91 +20,91 @@ public partial record RateDetails3
     /// <summary>
     /// Rate used for additional tax that cannot be categorised.
     /// </summary>
-    public IRateAndAmountFormat14Choice? AdditionalTax { get; init; } 
+    public RateAndAmountFormat14Choice_? AdditionalTax { get; init; } 
     /// <summary>
     /// Cash dividend amount per equity before deductions or allowances have been made.
     /// </summary>
-    public IGrossDividendRateFormat5Choice? GrossDividendRate { get; init;  } // Warning: Don't know multiplicity.
+    public GrossDividendRateFormat5Choice_[] GrossDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// The actual interest rate used for the payment of the interest for the specified interest period. |Usage guideline: It is used to provide the applicable rate for the current payment, after all calculations have been performed, that is, application of period and method of interest computation.
     /// </summary>
-    public IInterestRateUsedForPaymentFormat5Choice? InterestRateUsedForPayment { get; init;  } // Warning: Don't know multiplicity.
+    public InterestRateUsedForPaymentFormat5Choice_[] InterestRateUsedForPayment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Percentage of the gross dividend rate on which tax must be paid.
     /// </summary>
-    public RateTypeAndAmountAndStatus6? TaxRelatedRate { get; init;  } // Warning: Don't know multiplicity.
+    public RateTypeAndAmountAndStatus6[] TaxRelatedRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Percentage of a cash distribution that will be withheld by a tax authority.
     /// </summary>
-    public IRateFormat6Choice? WithholdingTaxRate { get; init; } 
+    public RateFormat6Choice_? WithholdingTaxRate { get; init; } 
     /// <summary>
     /// Rate used to calculate the amount of the charges/fees that cannot be categorised.
     /// </summary>
-    public IRateAndAmountFormat14Choice? ChargesFees { get; init; } 
+    public RateAndAmountFormat14Choice_? ChargesFees { get; init; } 
     /// <summary>
     /// Cash rate made available, as an incentive, in addition to the solicitation fee, in order to encourage early participation in an offer.
     /// </summary>
-    public ISolicitationFeeRateFormat3Choice? EarlySolicitationFeeRate { get; init; } 
+    public SolicitationFeeRateFormat3Choice_? EarlySolicitationFeeRate { get; init; } 
     /// <summary>
     /// Dividend is final.
     /// </summary>
-    public IRateAndAmountFormat15Choice? FinalDividendRate { get; init; } 
+    public RateAndAmountFormat15Choice_? FinalDividendRate { get; init; } 
     /// <summary>
     /// Percentage of fiscal tax to apply.
     /// </summary>
-    public IRateFormat6Choice? FiscalStamp { get; init; } 
+    public RateFormat6Choice_? FiscalStamp { get; init; } 
     /// <summary>
     /// Rate resulting from a fully franked dividend paid by a company; rate includes tax credit for companies that have made sufficient tax payments during fiscal period.
     /// </summary>
-    public IRateAndAmountFormat14Choice? FullyFrankedRate { get; init; } 
+    public RateAndAmountFormat14Choice_? FullyFrankedRate { get; init; } 
     /// <summary>
     /// Rate of the cash premium made available if the securities holder consents or participates to an event, for example, consent fees.
     /// </summary>
-    public IRateFormat6Choice? CashIncentiveRate { get; init; } 
+    public RateFormat6Choice_? CashIncentiveRate { get; init; } 
     /// <summary>
     /// Cash dividend amount per equity after deductions or allowances have been made.
     /// </summary>
-    public INetDividendRateFormat5Choice? NetDividendRate { get; init;  } // Warning: Don't know multiplicity.
+    public NetDividendRateFormat5Choice_[] NetDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rate per share to which a non-resident is entitled.
     /// </summary>
-    public IRateAndAmountFormat14Choice? NonResidentRate { get; init; } 
+    public RateAndAmountFormat14Choice_? NonResidentRate { get; init; } 
     /// <summary>
     /// Dividend is provisional.
     /// </summary>
-    public IRateAndAmountFormat15Choice? ProvisionalDividendRate { get; init; } 
+    public RateAndAmountFormat15Choice_? ProvisionalDividendRate { get; init; } 
     /// <summary>
     /// Rate applicable to the event announced, for example, redemption rate for a redemption event.
     /// </summary>
-    public IRateFormat6Choice? ApplicableRate { get; init; } 
+    public RateFormat6Choice_? ApplicableRate { get; init; } 
     /// <summary>
     /// Cash rate made available in an offer in order to encourage participation in the offer.
     /// </summary>
-    public ISolicitationFeeRateFormat3Choice? SolicitationFeeRate { get; init; } 
+    public SolicitationFeeRateFormat3Choice_? SolicitationFeeRate { get; init; } 
     /// <summary>
     /// Amount of money per equity allocated as the result of a tax credit.
     /// </summary>
-    public ITaxCreditRateFormat5Choice? TaxCreditRate { get; init;  } // Warning: Don't know multiplicity.
+    public TaxCreditRateFormat5Choice_[] TaxCreditRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Taxation applied on an amount clearly identified as an income.
     /// </summary>
-    public IRateFormat6Choice? TaxOnIncome { get; init; } 
+    public RateFormat6Choice_? TaxOnIncome { get; init; } 
     /// <summary>
     /// Taxation applied on an amount clearly identified as capital profits, capital gains.
     /// </summary>
-    public IRateFormat6Choice? TaxOnProfits { get; init; } 
+    public RateFormat6Choice_? TaxOnProfits { get; init; } 
     /// <summary>
     /// Percentage of cash that was paid in excess of actual tax obligation and was reclaimed.
     /// </summary>
-    public IRateFormat6Choice? TaxReclaimRate { get; init; } 
+    public RateFormat6Choice_? TaxReclaimRate { get; init; } 
     /// <summary>
     /// Rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.
     /// </summary>
-    public IRateAndAmountFormat14Choice? WithholdingOfForeignTax { get; init; } 
+    public RateAndAmountFormat14Choice_? WithholdingOfForeignTax { get; init; } 
     /// <summary>
     /// Rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.
     /// </summary>
-    public IRateAndAmountFormat14Choice? WithholdingOfLocalTax { get; init; } 
+    public RateAndAmountFormat14Choice_? WithholdingOfLocalTax { get; init; } 
     
     #nullable disable
 }

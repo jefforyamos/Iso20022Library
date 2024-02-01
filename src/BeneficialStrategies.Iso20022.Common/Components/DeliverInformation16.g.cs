@@ -20,7 +20,7 @@ public partial record DeliverInformation16
     /// <summary>
     /// Party that delivers (transferor) securities to the receiving agent (transferee).
     /// </summary>
-    public IPartyIdentification70Choice? Transferor { get; init; } 
+    public PartyIdentification70Choice_? Transferor { get; init; } 
     /// <summary>
     /// Account from which the securities are to be delivered.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record DeliverInformation16
     /// <summary>
     /// Identification of a related party or intermediary.
     /// </summary>
-    public Intermediary34? IntermediaryInformation { get; init;  } // Warning: Don't know multiplicity.
+    public Intermediary34[] IntermediaryInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date and time at which the securities are to be exchanged at the International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
@@ -52,19 +52,19 @@ public partial record DeliverInformation16
     /// <summary>
     /// Charge related to the transfer of a financial instrument.
     /// </summary>
-    public Charge29? ChargeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Charge29[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Commission related to the transfer of a financial instrument.
     /// </summary>
-    public Commission23? CommissionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Commission23[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax related to the transfer of a financial instrument.
     /// </summary>
-    public Tax28? TaxDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Tax28[] TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies foreign exchange details applied to the payment of charges, taxes and commissions as a result of the transfer.
     /// </summary>
-    public ForeignExchangeTerms26? ForeignExchangeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ForeignExchangeTerms26[] ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>

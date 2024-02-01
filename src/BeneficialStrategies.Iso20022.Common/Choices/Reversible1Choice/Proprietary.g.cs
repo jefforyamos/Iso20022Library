@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reversible1Choice;
 /// <summary>
 /// Closing of the securities lending contract expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IReversible1Choice
+public partial record Proprietary : Reversible1Choice_
 {
     #nullable enable
     /// <summary>

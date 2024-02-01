@@ -28,7 +28,7 @@ public partial record QuantityBreakdown39
     /// <summary>
     /// Date/time at which the lot was purchased.
     /// </summary>
-    public IDateAndDateTimeChoice? LotDateTime { get; init; } 
+    public DateAndDateTimeChoice_? LotDateTime { get; init; } 
     /// <summary>
     /// Price at which the lot was purchased.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record QuantityBreakdown39
     /// <summary>
     /// Specifies the type of price and information about the price.
     /// </summary>
-    public ITypeOfPrice32Choice? TypeOfPrice { get; init; } 
+    public TypeOfPrice32Choice_? TypeOfPrice { get; init; } 
     /// <summary>
     /// Valuation amounts for the lot provided in the base currency of the account.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative2Choice;
 /// <summary>
 /// Details specific for Contract for difference (CFDs).
 /// </summary>
-public partial record ContractForDifference : IDerivative2Choice
+public partial record ContractForDifference : Derivative2Choice_
 {
     #nullable enable
     /// <summary>

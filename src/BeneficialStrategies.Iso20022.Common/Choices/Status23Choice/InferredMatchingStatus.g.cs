@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status23Choice;
 /// <summary>
 /// Provides the matching status of an instruction as known by the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).
 /// </summary>
-public partial record InferredMatchingStatus : IStatus23Choice
+public partial record InferredMatchingStatus : Status23Choice_
 {
     #nullable enable
     #nullable disable

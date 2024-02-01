@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Appearance3Choice;
 /// <summary>
 /// Appearance expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IAppearance3Choice
+public partial record Code : Appearance3Choice_
 {
     public required Appearance1Code Value { get; init; }
 }

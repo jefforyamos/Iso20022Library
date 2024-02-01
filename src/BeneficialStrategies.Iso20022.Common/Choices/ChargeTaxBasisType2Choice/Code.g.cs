@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeTaxBasisType2Choice;
 /// <summary>
 /// Securities transaction type expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IChargeTaxBasisType2Choice
+public partial record Code : ChargeTaxBasisType2Choice_
 {
     public required ChargeTaxBasis1Code Value { get; init; }
 }

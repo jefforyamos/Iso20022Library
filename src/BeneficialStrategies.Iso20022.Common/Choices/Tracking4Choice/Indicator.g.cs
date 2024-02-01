@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Tracking4Choice;
 /// <summary>
 /// Specifies whether the loan and/or collateral is tracked.
 /// </summary>
-public partial record Indicator : ITracking4Choice
+public partial record Indicator : Tracking4Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

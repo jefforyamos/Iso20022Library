@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CRSSource1Choice;
 /// <summary>
 /// Source of Common Reporting Standard (CRS) status expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICRSSource1Choice
+public partial record Proprietary : CRSSource1Choice_
 {
     #nullable enable
     /// <summary>

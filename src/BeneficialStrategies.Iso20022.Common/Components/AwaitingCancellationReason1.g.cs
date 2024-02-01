@@ -20,7 +20,7 @@ public partial record AwaitingCancellationReason1
     /// <summary>
     /// Specifies the reason why the trade is wainting the cancellation.
     /// </summary>
-    public required IAwaitingCancellationReason1Choice Code { get; init; } 
+    public required AwaitingCancellationReason1Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional information about the reason in narrative form.
     /// </summary>

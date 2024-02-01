@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestmentAccountOrFinancialInst
 /// <summary>
 /// Account between an investor(s) and a fund manager or a fund. The account can contain holdings in any investment fund or investment fund class managed (or distributed) by the fund manager, within the same fund family.
 /// </summary>
-public partial record InvestmentAccount : IInvestmentAccountOrFinancialInstrument1Choice
+public partial record InvestmentAccount : InvestmentAccountOrFinancialInstrument1Choice_
 {
     #nullable enable
     /// <summary>
@@ -30,10 +30,10 @@ public partial record InvestmentAccount : IInvestmentAccountOrFinancialInstrumen
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification2Choice? OwnerIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification2Choice_? OwnerIdentification { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountServicer { get; init; } 
+    public PartyIdentification2Choice_? AccountServicer { get; init; } 
     #nullable disable
 }

@@ -24,7 +24,7 @@ public partial record MarginCallResult1
     /// <summary>
     /// Provides the summation of the call amounts for the variation margin and the segregated independent amount, or the segregated independent amount only.
     /// </summary>
-    public required IMarginCallResult1Choice MarginCallResult { get; init; } 
+    public required MarginCallResult1Choice_ MarginCallResult { get; init; } 
     
     #nullable disable
 }

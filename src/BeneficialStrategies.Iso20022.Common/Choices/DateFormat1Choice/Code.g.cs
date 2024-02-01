@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat1Choice;
 /// <summary>
 /// Date expressed as a code.
 /// </summary>
-public partial record Code : IDateFormat1Choice
+public partial record Code : DateFormat1Choice_
 {
     public required SettlementDate1Code Value { get; init; }
 }

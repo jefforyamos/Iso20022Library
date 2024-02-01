@@ -24,7 +24,7 @@ public partial record CorporateActionUnallocatedSecuritiesTransactionDetailsSD1
     /// <summary>
     /// Resulting quantity of securities concerned in this transaction.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? TransactionQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? TransactionQuantity { get; init; } 
     /// <summary>
     /// Reason for the unallocation.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record CorporateActionUnallocatedSecuritiesTransactionDetailsSD1
     /// <summary>
     /// Date/time at which the movement was due to take place (cash and/or securities).
     /// </summary>
-    public IDateFormat22Choice? EarliestPaymentDate { get; init; } 
+    public DateFormat22Choice_? EarliestPaymentDate { get; init; } 
     /// <summary>
     /// Transaction reason.
     /// </summary>

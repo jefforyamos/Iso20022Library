@@ -80,11 +80,11 @@ public partial record IndividualPerson10
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    public IReadOnlyCollection<PostalAddress3> PostalAddress { get; init; } = [];
+    public PostalAddress3[] PostalAddress { get; init; } = [];
     /// <summary>
     /// Nationality and legal status (minor or major) or rights that an individual may possess.
     /// </summary>
-    public IReadOnlyCollection<CitizenshipInformation> Citizenship { get; init; } = [];
+    public CitizenshipInformation[] Citizenship { get; init; } = [];
     /// <summary>
     /// Organisation represented by a person, or for which a person works.
     /// </summary>
@@ -104,7 +104,7 @@ public partial record IndividualPerson10
     /// <summary>
     /// Alternative identification, for example, national registration identification number, passport number, or an account number used to further identify the beneficial owner, for example, a Central Provident Fund (CFP) account as required for Singapore.
     /// </summary>
-    public IReadOnlyCollection<GenericIdentification9> OtherIdentification { get; init; } = [];
+    public GenericIdentification9[] OtherIdentification { get; init; } = [];
     
     #nullable disable
 }

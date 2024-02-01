@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssignmentMethod2Choice;
 /// <summary>
 /// Assignment method expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IAssignmentMethod2Choice
+public partial record Proprietary : AssignmentMethod2Choice_
 {
     #nullable enable
     /// <summary>

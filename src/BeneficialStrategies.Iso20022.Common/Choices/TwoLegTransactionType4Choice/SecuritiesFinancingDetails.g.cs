@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TwoLegTransactionType4Choice;
 /// <summary>
 /// Provides details about the two leg transaction.
 /// </summary>
-public partial record SecuritiesFinancingDetails : ITwoLegTransactionType4Choice
+public partial record SecuritiesFinancingDetails : TwoLegTransactionType4Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,11 +22,11 @@ public partial record SecuritiesFinancingDetails : ITwoLegTransactionType4Choice
     /// <summary>
     /// Specifies whether the rate is fixed or variable.
     /// </summary>
-    public IRateType35Choice? RateType { get; init; } 
+    public RateType35Choice_? RateType { get; init; } 
     /// <summary>
     /// Specifies whether the collateral position should be subject to automatic revaluation by the account servicer.
     /// </summary>
-    public IRevaluation3Choice? Revaluation { get; init; } 
+    public Revaluation3Choice_? Revaluation { get; init; } 
     /// <summary>
     /// Legal framework of the transaction.
     /// </summary>
@@ -34,7 +34,7 @@ public partial record SecuritiesFinancingDetails : ITwoLegTransactionType4Choice
     /// <summary>
     /// Identifies the computation method of accrued interest of the related financial instrument.
     /// </summary>
-    public IInterestComputationMethod3Choice? InterestComputationMethod { get; init; } 
+    public InterestComputationMethod3Choice_? InterestComputationMethod { get; init; } 
     /// <summary>
     /// Index or support rate used together with the spread to calculate the repurchase rate.
     /// </summary>
@@ -54,7 +54,7 @@ public partial record SecuritiesFinancingDetails : ITwoLegTransactionType4Choice
     /// <summary>
     /// Interest rate to be paid on the transaction amount, as agreed between the counterparties.
     /// </summary>
-    public IRateOrName1Choice? PricingRate { get; init; } 
+    public RateOrName1Choice_? PricingRate { get; init; } 
     /// <summary>
     /// Margin over or under an index that determines the repurchase rate, expressed as a rate or an amount.
     /// </summary>
@@ -98,7 +98,7 @@ public partial record SecuritiesFinancingDetails : ITwoLegTransactionType4Choice
     /// <summary>
     /// Method applied to a lending transaction.
     /// </summary>
-    public ILendingTransactionMethod2Choice? LendingTransactionMethod { get; init; } 
+    public LendingTransactionMethod2Choice_? LendingTransactionMethod { get; init; } 
     /// <summary>
     /// Indicates if the contract is with or without an exchange of collateral.
     /// </summary>
@@ -106,11 +106,11 @@ public partial record SecuritiesFinancingDetails : ITwoLegTransactionType4Choice
     /// <summary>
     /// Identifies the underlying reason for the borrowing, for instance, sale on my behalf or on behalf of a third party.
     /// </summary>
-    public IBorrowingReason2Choice? BorrowingReason { get; init; } 
+    public BorrowingReason2Choice_? BorrowingReason { get; init; } 
     /// <summary>
     /// Indicates the type of collateral, for insatnce, security, bond, etc.
     /// </summary>
-    public ICollateralType4Choice? CollateralType { get; init; } 
+    public CollateralType4Choice_? CollateralType { get; init; } 
     /// <summary>
     /// Indicates whether or not the contract terms changed.
     /// </summary>
@@ -134,7 +134,7 @@ public partial record SecuritiesFinancingDetails : ITwoLegTransactionType4Choice
     /// <summary>
     /// Number of days the securities are lent or borrowed where the contract has an agreed closing date.
     /// </summary>
-    public INumber24Choice? NumberOfDaysLendingBorrowing { get; init; } 
+    public Number24Choice_? NumberOfDaysLendingBorrowing { get; init; } 
     /// <summary>
     /// Specifies the standard collateral amount.
     /// </summary>
@@ -154,11 +154,11 @@ public partial record SecuritiesFinancingDetails : ITwoLegTransactionType4Choice
     /// <summary>
     /// Type of securities lending.
     /// </summary>
-    public ISecuritiesLendingType2Choice? SecuritiesLendingType { get; init; } 
+    public SecuritiesLendingType2Choice_? SecuritiesLendingType { get; init; } 
     /// <summary>
     /// Indicates the possibility to terminate the securitiesc lending contract either by the borrower or lender before the expiration date.
     /// </summary>
-    public IReversible2Choice? Reversible { get; init; } 
+    public Reversible2Choice_? Reversible { get; init; } 
     /// <summary>
     /// This is the minimum date at which the Borrower is allowed to give back the securities.
     /// </summary>

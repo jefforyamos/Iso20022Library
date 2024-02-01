@@ -20,11 +20,11 @@ public partial record TransportDetails2
     /// <summary>
     /// Reference to the identification of the underlying transport document.
     /// </summary>
-    public DocumentIdentification7? TransportDocumentReference { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentIdentification7[] TransportDocumentReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Goods that are transported.
     /// </summary>
-    public TransportedGoods1? TransportedGoods { get; init;  } // Warning: Don't know multiplicity.
+    public TransportedGoods1[] TransportedGoods { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Physical packaging of goods for transport.
     /// </summary>

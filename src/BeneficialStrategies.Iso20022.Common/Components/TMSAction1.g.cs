@@ -44,7 +44,7 @@ public partial record TMSAction1
     /// <summary>
     /// Action to perform in case of error on the related action in progress.
     /// </summary>
-    public ErrorAction1? ErrorAction { get; init;  } // Warning: Don't know multiplicity.
+    public ErrorAction1[] ErrorAction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

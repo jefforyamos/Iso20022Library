@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionChannelType1Choice;
 /// <summary>
 /// Type of transaction channel expressed as a code.
 /// </summary>
-public partial record Code : ITransactionChannelType1Choice
+public partial record Code : TransactionChannelType1Choice_
 {
     public required TransactionChannel2Code Value { get; init; }
 }

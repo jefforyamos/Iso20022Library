@@ -20,11 +20,11 @@ public partial record SecurityCommodity8
     /// <summary>
     /// Data specific to securities being subject to the transaction.
     /// </summary>
-    public Security15? Security { get; init;  } // Warning: Don't know multiplicity.
+    public Security15[] Security { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data specific to commodities being subject to the transaction.
     /// </summary>
-    public Commodity20? Commodity { get; init;  } // Warning: Don't know multiplicity.
+    public Commodity20[] Commodity { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

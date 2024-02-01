@@ -24,7 +24,7 @@ public partial record SecurityIdentification46
     /// <summary>
     /// Identification through a unique product identifier.
     /// </summary>
-    public IUniqueProductIdentifier2Choice? UniqueProductIdentifier { get; init; } 
+    public UniqueProductIdentifier2Choice_? UniqueProductIdentifier { get; init; } 
     /// <summary>
     /// Proprietary identification of a security assigned by an institution or organisation.
     /// </summary>

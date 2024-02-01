@@ -94,7 +94,7 @@ public partial record RequestToModifyPaymentV07 : IOuterRecord
     [DataMember(Name="Undrlyg")]
     [XmlElement(ElementName="Undrlyg")]
     [Required]
-    public required IUnderlyingTransaction6Choice Underlying { get; init; }
+    public required UnderlyingTransaction6Choice_ Underlying { get; init; }
     
     /// <summary>
     /// Identifies the list of modifications requested.

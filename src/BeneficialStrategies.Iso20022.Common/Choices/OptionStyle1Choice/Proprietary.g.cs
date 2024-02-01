@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionStyle1Choice;
 /// <summary>
 /// Option style is defined using a data source scheme.
 /// </summary>
-public partial record Proprietary : IOptionStyle1Choice
+public partial record Proprietary : OptionStyle1Choice_
 {
     #nullable enable
     /// <summary>

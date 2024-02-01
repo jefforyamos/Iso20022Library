@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionRight1Choice;
 /// <summary>
 /// Option rights expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IOptionRight1Choice
+public partial record Proprietary : OptionRight1Choice_
 {
     #nullable enable
     /// <summary>

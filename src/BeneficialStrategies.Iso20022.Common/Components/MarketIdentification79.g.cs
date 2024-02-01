@@ -20,11 +20,11 @@ public partial record MarketIdentification79
     /// <summary>
     /// Code allocated to places of trade, ie, stock exchanges, regulated markets, eg, Electronic Trading Platforms (ECN), and unregulated markets, eg, Automated Trading Systems (ATS), as sources of prices and related information, in order to facilitate automated processing.
     /// </summary>
-    public IMarketIdentification3Choice? Identification { get; init; } 
+    public MarketIdentification3Choice_? Identification { get; init; } 
     /// <summary>
     /// Nature of a market in which transactions take place.
     /// </summary>
-    public IMarketType11Choice? Type { get; init; } 
+    public MarketType11Choice_? Type { get; init; } 
     
     #nullable disable
 }

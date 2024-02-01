@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ResponseType1Choice;
 /// <summary>
 /// Provides a margin call response type using an ISO 20022 code.
 /// </summary>
-public partial record Code : IResponseType1Choice
+public partial record Code : ResponseType1Choice_
 {
     public required MarginCallResponse1Code Value { get; init; }
 }

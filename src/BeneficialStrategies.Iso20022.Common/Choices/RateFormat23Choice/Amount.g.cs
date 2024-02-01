@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateFormat23Choice;
 /// <summary>
 /// Cash amount.
 /// </summary>
-public partial record Amount : IRateFormat23Choice
+public partial record Amount : RateFormat23Choice_
 {
     public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount Value { get; init; }
 }

@@ -24,7 +24,7 @@ public partial record LoginResponse5
     /// <summary>
     /// Information related to the software of the POI System which manages the Sale to POI protocol.
     /// </summary>
-    public PointOfInteractionComponent14? POISoftware { get; init;  } // Warning: Don't know multiplicity.
+    public PointOfInteractionComponent14[] POISoftware { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Capabilities of the POI (Point Of Interaction) performing the transaction.
     /// </summary>

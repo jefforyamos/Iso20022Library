@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventStage1Format
 /// <summary>
 /// Proprietary code to express the stage of the CA event.
 /// </summary>
-public partial record Proprietary : ICorporateActionEventStage1FormatChoice
+public partial record Proprietary : CorporateActionEventStage1FormatChoice_
 {
     #nullable enable
     /// <summary>

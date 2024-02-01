@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason1Choice;
 /// <summary>
 /// Specifies a rejection reason for each individual element of a report.
 /// </summary>
-public partial record RejectedElement : IRejectionReason1Choice
+public partial record RejectedElement : RejectionReason1Choice_
 {
     #nullable enable
     /// <summary>

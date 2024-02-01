@@ -24,7 +24,7 @@ public partial record Signer5
     /// <summary>
     /// Identification of the entity who has signed the data.
     /// </summary>
-    public IRecipient9Choice? SignerIdentification { get; init; } 
+    public Recipient9Choice_? SignerIdentification { get; init; } 
     /// <summary>
     /// Identification of a digest algorithm to apply before signature.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record Signer5
     /// <summary>
     /// Collection of attributes that are signed.
     /// </summary>
-    public GenericInformation1? SignedAttributes { get; init;  } // Warning: Don't know multiplicity.
+    public GenericInformation1[] SignedAttributes { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cryptographic digital signature algorithm.
     /// </summary>

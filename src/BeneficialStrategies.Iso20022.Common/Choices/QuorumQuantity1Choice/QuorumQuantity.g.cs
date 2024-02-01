@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.QuorumQuantity1Choice;
 /// <summary>
 /// Minimum quantity of securities required to hold a meeting.
 /// </summary>
-public partial record QuorumQuantity : IQuorumQuantity1Choice
+public partial record QuorumQuantity : QuorumQuantity1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

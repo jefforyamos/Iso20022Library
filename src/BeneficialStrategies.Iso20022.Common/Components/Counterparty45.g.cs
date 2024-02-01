@@ -20,11 +20,11 @@ public partial record Counterparty45
     /// <summary>
     /// Unique code identifying the reporting counterparty of the contract.
     /// </summary>
-    public required IPartyIdentification248Choice Identification { get; init; } 
+    public required PartyIdentification248Choice_ Identification { get; init; } 
     /// <summary>
     /// Indicates if the reporting counterparty is a central counterparty, a financial, non-financial counterparty or other type of counterparty in accordance with regulation.
     /// </summary>
-    public ICounterpartyTradeNature15Choice? Nature { get; init; } 
+    public CounterpartyTradeNature15Choice_? Nature { get; init; } 
     /// <summary>
     /// Identifies the trading capacity of the seller.
     /// </summary>
@@ -34,7 +34,7 @@ public partial record Counterparty45
     /// Usage:
     /// CounterpartySide should be used for the instruments such as most forwards and forward-like contracts (except for foreign exchange forwards and foreign exchange non-deliverable forwards); most options and option-like contracts including swaptions, caps and floors; credit default swaps; variance, volatility and correlation swaps; contracts for difference and spreadbets.
     /// </summary>
-    public IDirection4Choice? DirectionOrSide { get; init; } 
+    public Direction4Choice_? DirectionOrSide { get; init; } 
     /// <summary>
     /// Location of the trading desk or trader responsible for the decision of entering into or execution of the transaction.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferCancellationCompleteStat
 /// <summary>
 /// Proprietary identification for a reason of a complete status in the report.
 /// </summary>
-public partial record DataSourceScheme : ITransferCancellationCompleteStatusChoice
+public partial record DataSourceScheme : TransferCancellationCompleteStatusChoice_
 {
     #nullable enable
     /// <summary>

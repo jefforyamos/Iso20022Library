@@ -20,7 +20,7 @@ public partial record InvestmentPlan17
     /// <summary>
     /// Frequency of the investment or divestment.
     /// </summary>
-    public required IFrequency20Choice Frequency { get; init; } 
+    public required Frequency20Choice_ Frequency { get; init; } 
     /// <summary>
     /// Date the investment plan starts.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record InvestmentPlan17
     /// <summary>
     /// Amount of the periodical payments.
     /// </summary>
-    public required IUnitsOrAmount1Choice Quantity { get; init; } 
+    public required UnitsOrAmount1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Indicates whether an ordered amount is a gross amount (including transaction overhead). If it is not a gross amount, the ordered amount is a net amount (amount to be invested or redeemed from the fund to which other elements will be added).
     /// </summary>
@@ -44,7 +44,7 @@ public partial record InvestmentPlan17
     /// <summary>
     /// Initial amount or number of initial instalments.
     /// </summary>
-    public IInitialAmount1Choice? InitialAmount { get; init; } 
+    public InitialAmount1Choice_? InitialAmount { get; init; } 
     /// <summary>
     /// Total number of times the amount must be invested at the predefined frequency as of the start date of the investment plan.
     /// </summary>
@@ -56,11 +56,11 @@ public partial record InvestmentPlan17
     /// <summary>
     /// Security that an investment plan invests in, or from which the investment plan divests.
     /// </summary>
-    public IReadOnlyCollection<Repartition6> SecurityDetails { get; init; } = [];
+    public Repartition6[] SecurityDetails { get; init; } = [];
     /// <summary>
     /// Cash settlement standing instruction associated to the investment plan.
     /// </summary>
-    public IReadOnlyCollection<CashSettlement3> CashSettlement { get; init; } = [];
+    public CashSettlement3[] CashSettlement { get; init; } = [];
     /// <summary>
     /// Reference of the underlying investment contract. In some markets, such as Italy, this might be required to segregate holdings between the same investment account.
     /// </summary>
@@ -80,15 +80,15 @@ public partial record InvestmentPlan17
     /// <summary>
     /// Specifies the type of insurance contract to which the savings investment plan is linked.
     /// </summary>
-    public IInsuranceType2Choice? InsuranceCover { get; init; } 
+    public InsuranceType2Choice_? InsuranceCover { get; init; } 
     /// <summary>
     /// Status of the savings or withdrawal investment plan.
     /// </summary>
-    public IPlanStatus2Choice? PlanStatus { get; init; } 
+    public PlanStatus2Choice_? PlanStatus { get; init; } 
     /// <summary>
     /// Role or function of the instalment manager.
     /// </summary>
-    public IPartyRole4Choice? InstalmentManagerRole { get; init; } 
+    public PartyRole4Choice_? InstalmentManagerRole { get; init; } 
     
     #nullable disable
 }

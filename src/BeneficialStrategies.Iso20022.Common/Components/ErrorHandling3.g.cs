@@ -20,7 +20,7 @@ public partial record ErrorHandling3
     /// <summary>
     /// Specification of the error, in coded or proprietary form.
     /// </summary>
-    public required IErrorHandling1Choice Error { get; init; } 
+    public required ErrorHandling1Choice_ Error { get; init; } 
     /// <summary>
     /// Specification of the error, in free format.
     /// </summary>

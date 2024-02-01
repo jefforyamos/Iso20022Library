@@ -68,7 +68,7 @@ public partial record Vehicle1
     /// <summary>
     /// Additional information related to the vehicle.
     /// </summary>
-    public Vehicle2? AdditionalVehicleData { get; init;  } // Warning: Don't know multiplicity.
+    public Vehicle2[] AdditionalVehicleData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RevaluationIndicator3Choice;
 /// <summary>
 /// Specifies whether the collateral position should be subject to automatic revaluation by the account servicer.
 /// </summary>
-public partial record Indicator : IRevaluationIndicator3Choice
+public partial record Indicator : RevaluationIndicator3Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

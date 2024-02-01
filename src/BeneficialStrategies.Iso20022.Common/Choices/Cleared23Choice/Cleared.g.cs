@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Cleared23Choice;
 /// <summary>
 /// Indicates that the contract has been cleared.
 /// </summary>
-public partial record Cleared : ICleared23Choice
+public partial record Cleared : Cleared23Choice_
 {
     #nullable enable
     #nullable disable

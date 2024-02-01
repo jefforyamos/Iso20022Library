@@ -28,7 +28,7 @@ public partial record AuthorisationResult9
     /// <summary>
     /// Trace of response by the entities in the path from the issuer to the ATM.
     /// </summary>
-    public ResponseType4? ResponseTrace { get; init;  } // Warning: Don't know multiplicity.
+    public ResponseType4[] ResponseTrace { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Value assigned by the authorising party.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record AuthorisationResult9
     /// <summary>
     /// Sequence of actions to be performed by the ATM to complete the transaction.
     /// </summary>
-    public Action5? Action { get; init;  } // Warning: Don't know multiplicity.
+    public Action5[] Action { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

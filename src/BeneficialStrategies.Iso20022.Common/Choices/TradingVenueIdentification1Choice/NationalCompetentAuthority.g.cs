@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingVenueIdentification1Choic
 /// <summary>
 /// Identification used where reporting entity is a national competent authority.
 /// </summary>
-public partial record NationalCompetentAuthority : ITradingVenueIdentification1Choice
+public partial record NationalCompetentAuthority : TradingVenueIdentification1Choice_
 {
     public required CountryCode Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitOfMeasure5Choice;
 /// <summary>
 /// Proprietary or institution's own code that specifies the unit of quantity of a commodity or financial instrument.
 /// </summary>
-public partial record Proprietary : IUnitOfMeasure5Choice
+public partial record Proprietary : UnitOfMeasure5Choice_
 {
     #nullable enable
     /// <summary>

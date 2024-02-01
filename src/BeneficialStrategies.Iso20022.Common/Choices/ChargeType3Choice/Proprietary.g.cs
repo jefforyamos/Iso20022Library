@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeType3Choice;
 /// <summary>
 /// Type of charge in a proprietary form, as defined by the issuer.
 /// </summary>
-public partial record Proprietary : IChargeType3Choice
+public partial record Proprietary : ChargeType3Choice_
 {
     #nullable enable
     /// <summary>

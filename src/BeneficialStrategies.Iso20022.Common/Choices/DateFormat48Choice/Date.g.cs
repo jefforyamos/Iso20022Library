@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat48Choice;
 /// <summary>
 /// Date expressed as a calendar date.
 /// </summary>
-public partial record Date : IDateFormat48Choice
+public partial record Date : DateFormat48Choice_
 {
     #nullable enable
     #nullable disable

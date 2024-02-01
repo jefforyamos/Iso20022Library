@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification25Choice;
 /// <summary>
 /// Identifier of securities issued in Luxembourg. The common code is a 9-digit code that replaces the CEDEL (Clearstream) and Euroclear codes.
 /// </summary>
-public partial record Common : ISecurityIdentification25Choice
+public partial record Common : SecurityIdentification25Choice_
 {
     public required IsoEuroclearClearstreamIdentifier Value { get; init; }
 }

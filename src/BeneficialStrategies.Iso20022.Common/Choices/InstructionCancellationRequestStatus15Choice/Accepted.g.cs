@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionCancellationRequestSt
 /// <summary>
 /// Provides status information related to a cancellation request accepted for further processing.
 /// </summary>
-public partial record Accepted : IInstructionCancellationRequestStatus15Choice
+public partial record Accepted : InstructionCancellationRequestStatus15Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity9Choi
 /// <summary>
 /// Total quantity of units to be subscribed.
 /// </summary>
-public partial record UnitsNumber : IFinancialInstrumentQuantity9Choice
+public partial record UnitsNumber : FinancialInstrumentQuantity9Choice_
 {
     #nullable enable
     /// <summary>

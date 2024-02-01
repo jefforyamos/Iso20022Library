@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus10Cho
 /// <summary>
 /// Instruction/Request is accepted but in repair.
 /// </summary>
-public partial record Repair : IInstructionProcessingStatus10Choice
+public partial record Repair : InstructionProcessingStatus10Choice_
 {
     #nullable enable
     #nullable disable

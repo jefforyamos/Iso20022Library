@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FXAmountType1Choice;
 /// <summary>
 /// Specifies a commission or fee type.
 /// </summary>
-public partial record Code : IFXAmountType1Choice
+public partial record Code : FXAmountType1Choice_
 {
     public required FXAmountType1Code Value { get; init; }
 }

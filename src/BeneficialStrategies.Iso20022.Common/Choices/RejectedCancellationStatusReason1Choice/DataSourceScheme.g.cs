@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedCancellationStatusReason
 /// <summary>
 /// Proprietary identification of the reason for the rejected status.
 /// </summary>
-public partial record DataSourceScheme : IRejectedCancellationStatusReason1Choice
+public partial record DataSourceScheme : RejectedCancellationStatusReason1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationType6Choice;
 /// <summary>
 /// Type of identification is defined using a proprietary code.
 /// </summary>
-public partial record Proprietary : IIdentificationType6Choice
+public partial record Proprietary : IdentificationType6Choice_
 {
     #nullable enable
     /// <summary>

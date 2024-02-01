@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TimeFrame3Choice;
 /// <summary>
 /// An agreed number of days before the Trade date (T) used to define standard timeframes e.g. T-1 Dealing cut off or T-2 prepayment condition||Where = T is the date that the price is applied to a transaction.
 /// </summary>
-public partial record TradeMinus : ITimeFrame3Choice
+public partial record TradeMinus : TimeFrame3Choice_
 {
     public required IsoNumber Value { get; init; }
 }

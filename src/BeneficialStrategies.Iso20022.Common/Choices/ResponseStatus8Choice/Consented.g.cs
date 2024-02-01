@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ResponseStatus8Choice;
 /// <summary>
 /// Reason provided for the status.
 /// </summary>
-public partial record Consented : IResponseStatus8Choice
+public partial record Consented : ResponseStatus8Choice_
 {
     #nullable enable
     #nullable disable

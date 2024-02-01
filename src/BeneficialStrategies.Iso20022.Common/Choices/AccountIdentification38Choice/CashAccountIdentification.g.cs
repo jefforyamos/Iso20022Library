@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification38Choice;
 /// <summary>
 /// Unique identification of the cash account, as assigned by the account servicer.
 /// </summary>
-public partial record CashAccountIdentification : IAccountIdentification38Choice
+public partial record CashAccountIdentification : AccountIdentification38Choice_
 {
     #nullable enable
     #nullable disable

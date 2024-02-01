@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DistributionStrategy1Choice;
 /// <summary>
 /// Distribution strategy expressed as a code.
 /// </summary>
-public partial record Code : IDistributionStrategy1Choice
+public partial record Code : DistributionStrategy1Choice_
 {
     public required InvestorType3Code Value { get; init; }
 }

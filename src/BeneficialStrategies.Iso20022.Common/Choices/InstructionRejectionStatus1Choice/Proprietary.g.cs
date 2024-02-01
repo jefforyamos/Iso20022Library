@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionRejectionStatus1Choic
 /// <summary>
 /// This code can be used in case another reason is required.
 /// </summary>
-public partial record Proprietary : IInstructionRejectionStatus1Choice
+public partial record Proprietary : InstructionRejectionStatus1Choice_
 {
     #nullable enable
     /// <summary>

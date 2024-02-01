@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyIdentification1Choic
 /// <summary>
 /// Legal entity identifier code used to recognise the counterparty of the reporting agent for the reported transaction.
 /// </summary>
-public partial record LEI : ICounterpartyIdentification1Choice
+public partial record LEI : CounterpartyIdentification1Choice_
 {
     public required IsoLEIIdentifier Value { get; init; }
 }

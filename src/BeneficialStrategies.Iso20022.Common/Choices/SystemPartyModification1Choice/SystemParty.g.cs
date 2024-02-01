@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification1Choice;
 /// <summary>
 /// Specifies the party reference data, as assigned by the system.
 /// </summary>
-public partial record SystemParty : ISystemPartyModification1Choice
+public partial record SystemParty : SystemPartyModification1Choice_
 {
     #nullable enable
     /// <summary>

@@ -24,7 +24,7 @@ public partial record PaymentTypeInformation5
     /// <summary>
     /// Agreement under which or rules under which the transaction should be processed.
     /// </summary>
-    public IRestrictedProprietaryChoice? ServiceLevel { get; init; } 
+    public RestrictedProprietaryChoice_? ServiceLevel { get; init; } 
     /// <summary>
     /// Specifies the clearing channel to be used for the instruction.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record PaymentTypeInformation5
     /// <summary>
     /// User community specific instrument required for use within that user community.||Usage: When available, codes provided by local authorities should be used.
     /// </summary>
-    public IRestrictedProprietaryChoice? LocalInstrument { get; init; } 
+    public RestrictedProprietaryChoice_? LocalInstrument { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CentralCounterPartyEligibility3C
 /// <summary>
 /// Specifies whether the settlement transaction is CCP (Central Counterparty) eligible.
 /// </summary>
-public partial record Indicator : ICentralCounterPartyEligibility3Choice
+public partial record Indicator : CentralCounterPartyEligibility3Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

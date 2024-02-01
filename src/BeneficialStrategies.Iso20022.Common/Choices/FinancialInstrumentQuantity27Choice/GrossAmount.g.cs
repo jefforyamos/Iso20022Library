@@ -13,7 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity27Cho
 /// Amount of money to be paid by the investor when subscribing to fund units. 
 /// Gross amount = (Quantity * Price) + (Fees + Taxes).
 /// </summary>
-public partial record GrossAmount : IFinancialInstrumentQuantity27Choice
+public partial record GrossAmount : FinancialInstrumentQuantity27Choice_
 {
     public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
 }

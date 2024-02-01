@@ -20,7 +20,7 @@ public partial record RequiredSubmission2
     /// <summary>
     /// Specifies with party(ies) is authorised to submit the data set as part of the transaction.
     /// </summary>
-    public BICIdentification1? Submitter { get; init;  } // Warning: Don't know multiplicity.
+    public BICIdentification1[] Submitter { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

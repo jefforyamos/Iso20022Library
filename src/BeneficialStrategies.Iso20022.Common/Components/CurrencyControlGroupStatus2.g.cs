@@ -33,7 +33,7 @@ public partial record CurrencyControlGroupStatus2
     /// For daily reporting this is the day to which the transaction data in the status message refers to.
     /// For periodic reporting this is the first and the last day to which the transaction data in the status message refers.
     /// </summary>
-    public IPeriod4Choice? ReportingPeriod { get; init; } 
+    public Period4Choice_? ReportingPeriod { get; init; } 
     /// <summary>
     /// Provides the status for the full report.
     /// </summary>
@@ -41,7 +41,7 @@ public partial record CurrencyControlGroupStatus2
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    public ValidationStatusReason2? StatusReason { get; init;  } // Warning: Don't know multiplicity.
+    public ValidationStatusReason2[] StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the date and time when the status was issued.
     /// </summary>

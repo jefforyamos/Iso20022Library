@@ -20,23 +20,23 @@ public partial record CorporateActionPrice6
     /// <summary>
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
-    public IPriceFormat11Choice? CashInLieuOfSharePrice { get; init; } 
+    public PriceFormat11Choice_? CashInLieuOfSharePrice { get; init; } 
     /// <summary>
     /// 1. Price at which security will be purchased/sold if warrant is exercised, either as an actual amount or a percentage.|2. Price at which a bond is converted to underlying security either as an actual amount or a percentage.|3. Strike price of an option, represented either as an actual amount, a percentage or a number of points above an index.
     /// </summary>
-    public IPriceFormat8Choice? ExercisePrice { get; init; } 
+    public PriceFormat8Choice_? ExercisePrice { get; init; } 
     /// <summary>
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, for example, redemption price.
     /// </summary>
-    public IPriceFormat9Choice? GenericCashPriceReceivedPerProduct { get; init;  } // Warning: Don't know multiplicity.
+    public PriceFormat9Choice_[] GenericCashPriceReceivedPerProduct { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of money required per over-subscribed equity as defined by the issuer.
     /// </summary>
-    public IPriceFormat11Choice? OverSubscriptionDepositPrice { get; init; } 
+    public PriceFormat11Choice_? OverSubscriptionDepositPrice { get; init; } 
     /// <summary>
     /// Generic cash price paid per product by the underlying security holder either as a percentage or an amount, for example, reinvestment price.
     /// </summary>
-    public IPriceFormat11Choice? GenericCashPricePaidPerProduct { get; init; } 
+    public PriceFormat11Choice_? GenericCashPricePaidPerProduct { get; init; } 
     /// <summary>
     /// Amount included in the dividend/NAV that is identified as gains directly or indirectly derived from interest payments within the scope of the EU Savings directive.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract3Choice;
 /// <summary>
 /// Underlying registered contract is a loan.
 /// </summary>
-public partial record Loan : IUnderlyingContract3Choice
+public partial record Loan : UnderlyingContract3Choice_
 {
     #nullable enable
     /// <summary>
@@ -63,7 +63,7 @@ public partial record Loan : IUnderlyingContract3Choice
     /// <summary>
     /// Interest rate for the loan.
     /// </summary>
-    public IInterestRate2Choice? InterestRate { get; init; } 
+    public InterestRate2Choice_? InterestRate { get; init; } 
     /// <summary>
     /// One part or division of the loan, used to define the repayment.
     /// </summary>

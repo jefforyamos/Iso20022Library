@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TimeHorizon2Choice;
 /// <summary>
 /// Time frame as a qualitative value.
 /// </summary>
-public partial record TimeFrame : ITimeHorizon2Choice
+public partial record TimeFrame : TimeHorizon2Choice_
 {
     #nullable enable
     #nullable disable

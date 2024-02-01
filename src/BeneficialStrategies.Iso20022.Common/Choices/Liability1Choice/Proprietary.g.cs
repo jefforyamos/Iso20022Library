@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Liability1Choice;
 /// <summary>
 /// Liability expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ILiability1Choice
+public partial record Proprietary : Liability1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingStatus26Choice;
 /// <summary>
 /// Proprietary status.
 /// </summary>
-public partial record Proprietary : IMatchingStatus26Choice
+public partial record Proprietary : MatchingStatus26Choice_
 {
     #nullable enable
     /// <summary>

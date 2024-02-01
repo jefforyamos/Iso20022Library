@@ -16,7 +16,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GarnishmentType1Choice;
 /// GNDP    Garnishment from a Direct Payer for Child Support
 /// GTPP     Garnishment from a third party payer to taxing agency.
 /// </summary>
-public partial record Code : IGarnishmentType1Choice
+public partial record Code : GarnishmentType1Choice_
 {
     public required ExternalGarnishmentType1Code Value { get; init; }
 }

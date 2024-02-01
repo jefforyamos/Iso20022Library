@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PlannedQuantity1Choice;
 /// <summary>
 /// Planned quantity of financial instrument or lot of rights/warrants to be purchased.
 /// </summary>
-public partial record Quantity : IPlannedQuantity1Choice
+public partial record Quantity : PlannedQuantity1Choice_
 {
     #nullable enable
     #nullable disable

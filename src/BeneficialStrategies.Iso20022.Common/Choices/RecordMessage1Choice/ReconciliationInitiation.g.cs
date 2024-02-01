@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RecordMessage1Choice;
 /// <summary>
 /// Reconciliation initiation message record.
 /// </summary>
-public partial record ReconciliationInitiation : IRecordMessage1Choice
+public partial record ReconciliationInitiation : RecordMessage1Choice_
 {
     public required IsoMax2MBBinary Value { get; init; }
 }

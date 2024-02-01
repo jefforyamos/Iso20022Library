@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxCreditRateFormat2Choice;
 /// <summary>
 /// Value expressed as an amount.
 /// </summary>
-public partial record Amount : ITaxCreditRateFormat2Choice
+public partial record Amount : TaxCreditRateFormat2Choice_
 {
     public required IsoActiveCurrencyAnd13DecimalAmount Value { get; init; }
 }

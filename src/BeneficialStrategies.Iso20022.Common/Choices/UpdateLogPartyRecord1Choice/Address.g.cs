@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 /// <summary>
 /// Information that locates and identifies a specific address.
 /// </summary>
-public partial record Address : IUpdateLogPartyRecord1Choice
+public partial record Address : UpdateLogPartyRecord1Choice_
 {
     #nullable enable
     /// <summary>

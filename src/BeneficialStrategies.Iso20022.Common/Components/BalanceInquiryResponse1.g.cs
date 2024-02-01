@@ -28,11 +28,11 @@ public partial record BalanceInquiryResponse1
     /// <summary>
     /// Stored value account information.
     /// </summary>
-    public StoredValueAccount1? StoredValueAccount { get; init;  } // Warning: Don't know multiplicity.
+    public StoredValueAccount1[] StoredValueAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Receipt to print after a balance inquiry.
     /// </summary>
-    public PaymentReceipt1? Receipt { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentReceipt1[] Receipt { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

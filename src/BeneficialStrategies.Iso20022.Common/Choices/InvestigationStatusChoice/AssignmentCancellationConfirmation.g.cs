@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatusChoice;
 /// <summary>
 /// If yes, it means the cancellation of the assignment is confirmed.|If no, it means the cancellation of the assignment is rejected and the investigation process will continue.
 /// </summary>
-public partial record AssignmentCancellationConfirmation : IInvestigationStatusChoice
+public partial record AssignmentCancellationConfirmation : InvestigationStatusChoice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

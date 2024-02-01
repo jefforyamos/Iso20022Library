@@ -20,15 +20,15 @@ public partial record StandingSettlementInstruction3
     /// <summary>
     /// Specifies what settlement standing instruction database is to be used to derive the settlement parties involved in the transaction.
     /// </summary>
-    public required ISettlementStandingInstructionDatabase1Choice SettlementStandingInstructionDatabase { get; init; } 
+    public required SettlementStandingInstructionDatabase1Choice_ SettlementStandingInstructionDatabase { get; init; } 
     /// <summary>
     /// Identification of the buyer or seller in a standing settlement instruction enabling to derive the Standing Settlement Instruction.
     /// </summary>
-    public required ICounterparty3Choice Counterparty { get; init; } 
+    public required Counterparty3Choice_ Counterparty { get; init; } 
     /// <summary>
     /// Vendor of the Settlement Standing Instruction database requested to be consulted.
     /// </summary>
-    public IPartyIdentification49Choice? Vendor { get; init; } 
+    public PartyIdentification49Choice_? Vendor { get; init; } 
     /// <summary>
     /// Delivering parties, other than the seller, needed for deriving the standing settlement instruction (for example, depository) or provided for information purposes (for example, instructing party settlement chain).
     /// </summary>

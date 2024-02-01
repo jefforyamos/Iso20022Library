@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PlannedQuantity1Choice;
 /// <summary>
 /// Code for the planned quantity of financial instrument or lot of rights/warrants to be purchased.
 /// </summary>
-public partial record Code : IPlannedQuantity1Choice
+public partial record Code : PlannedQuantity1Choice_
 {
     public required SecuritiesQuantity2Code Value { get; init; }
 }

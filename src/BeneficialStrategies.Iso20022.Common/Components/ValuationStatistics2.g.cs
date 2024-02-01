@@ -40,7 +40,7 @@ public partial record ValuationStatistics2
     /// <summary>
     /// Information related to price variations, expressed using user-defined periods.
     /// </summary>
-    public StatisticsByUserDefinedTimePeriod1? ByUserDefinedTimePeriod { get; init;  } // Warning: Don't know multiplicity.
+    public StatisticsByUserDefinedTimePeriod1[] ByUserDefinedTimePeriod { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -40,7 +40,7 @@ public partial record TrackerHeader6
     /// <summary>
     /// Agreement under which or rules under which the tracker update should be processed.
     /// </summary>
-    public IServiceLevel8Choice? ServiceLevel { get; init; } 
+    public ServiceLevel8Choice_? ServiceLevel { get; init; } 
     
     #nullable disable
 }

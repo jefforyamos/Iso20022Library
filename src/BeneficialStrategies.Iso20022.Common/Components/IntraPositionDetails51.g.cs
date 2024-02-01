@@ -20,15 +20,15 @@ public partial record IntraPositionDetails51
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public ISafekeepingPlaceFormat29Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat29Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Balance from which the securities were moved.
     /// </summary>
-    public required ISecuritiesBalanceType6Choice BalanceFrom { get; init; } 
+    public required SecuritiesBalanceType6Choice_ BalanceFrom { get; init; } 
     /// <summary>
     /// Intra-position movement(s) having been performed.
     /// </summary>
-    public IntraPositionMovementDetails17? IntraPositionMovement { get; init;  } // Warning: Don't know multiplicity.
+    public IntraPositionMovementDetails17[] IntraPositionMovement { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

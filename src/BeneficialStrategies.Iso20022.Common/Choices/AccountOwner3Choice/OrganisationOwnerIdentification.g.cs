@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOwner3Choice;
 /// <summary>
 /// Identification of the organisation that legally owns the account.
 /// </summary>
-public partial record OrganisationOwnerIdentification : IAccountOwner3Choice
+public partial record OrganisationOwnerIdentification : AccountOwner3Choice_
 {
     #nullable enable
     /// <summary>
     /// Identification of the organisation.
     /// </summary>
-    public IPartyIdentification182Choice? Identification { get; init; } 
+    public PartyIdentification182Choice_? Identification { get; init; } 
     /// <summary>
     /// Identification of the organisation with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>

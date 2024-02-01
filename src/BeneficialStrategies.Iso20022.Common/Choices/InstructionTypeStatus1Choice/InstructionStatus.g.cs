@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionTypeStatus1Choice;
 /// <summary>
 /// Status applying to the instruction request received. The instruction is identified by the InstructionIdentification.
 /// </summary>
-public partial record InstructionStatus : IInstructionTypeStatus1Choice
+public partial record InstructionStatus : InstructionTypeStatus1Choice_
 {
     #nullable enable
     #nullable disable

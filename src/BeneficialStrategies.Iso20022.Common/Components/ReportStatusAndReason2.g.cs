@@ -28,7 +28,7 @@ public partial record ReportStatusAndReason2
     /// <summary>
     /// Indicates that the cancellation is rejected and provides a reason why.
     /// </summary>
-    public IReadOnlyCollection<IRejectedCancellationStatusReason1Choice> Rejected { get; init; } = [];
+    public RejectedCancellationStatusReason1Choice_[] Rejected { get; init; } = [];
     
     #nullable disable
 }

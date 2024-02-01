@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RecordMessage1Choice;
 /// <summary>
 /// Chargeback initiation message record.
 /// </summary>
-public partial record ChargeBackInitiation : IRecordMessage1Choice
+public partial record ChargeBackInitiation : RecordMessage1Choice_
 {
     public required IsoMax2MBBinary Value { get; init; }
 }

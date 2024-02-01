@@ -44,23 +44,23 @@ public partial record LineItemDetails13
     /// <summary>
     /// Identifies the product of the corresponding line item.
     /// </summary>
-    public IProductIdentifier2Choice? ProductIdentifier { get; init;  } // Warning: Don't know multiplicity.
+    public ProductIdentifier2Choice_[] ProductIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the characteristics of a product.
     /// </summary>
-    public IProductCharacteristics1Choice? ProductCharacteristics { get; init;  } // Warning: Don't know multiplicity.
+    public ProductCharacteristics1Choice_[] ProductCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the category of product.
     /// </summary>
-    public IProductCategory1Choice? ProductCategory { get; init;  } // Warning: Don't know multiplicity.
+    public ProductCategory1Choice_[] ProductCategory { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Country from which the product originates.
     /// </summary>
-    public CountryCode? ProductOrigin { get; init;  } // Warning: Don't know multiplicity.
+    public CountryCode[] ProductOrigin { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the shipment schedule for the goods.
     /// </summary>
-    public IShipmentSchedule2Choice? ShipmentSchedule { get; init; } 
+    public ShipmentSchedule2Choice_? ShipmentSchedule { get; init; } 
     /// <summary>
     /// Information related to the conveyance of goods.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record LineItemDetails13
     /// <summary>
     /// Variance on price for the goods.
     /// </summary>
-    public Adjustment7? Adjustment { get; init;  } // Warning: Don't know multiplicity.
+    public Adjustment7[] Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum charges related to the conveyance of goods.
     /// </summary>
@@ -76,7 +76,7 @@ public partial record LineItemDetails13
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters linked to the value of the goods in a trade transaction.
     /// </summary>
-    public Tax23? Tax { get; init;  } // Warning: Don't know multiplicity.
+    public Tax23[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total amount of the line item after adjustments have been applied.
     /// </summary>

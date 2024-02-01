@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DatePeriod1Choice;
 /// <summary>
 /// Time span defined by a specific date.
 /// </summary>
-public partial record Date : IDatePeriod1Choice
+public partial record Date : DatePeriod1Choice_
 {
     public required IsoISODate Value { get; init; }
 }

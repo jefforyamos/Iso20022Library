@@ -12,12 +12,12 @@ namespace BeneficialStrategies.Iso20022.Choices.StatusOrStatement10Choice;
 /// <summary>
 /// Identifies the statement/report that was requested.
 /// </summary>
-public partial record Statement : IStatusOrStatement10Choice
+public partial record Statement : StatusOrStatement10Choice_
 {
     #nullable enable
     /// <summary>
     /// Number used to identify a message or document.
     /// </summary>
-    public required IDocumentNumber6Choice Number { get; init; } 
+    public required DocumentNumber6Choice_ Number { get; init; } 
     #nullable disable
 }

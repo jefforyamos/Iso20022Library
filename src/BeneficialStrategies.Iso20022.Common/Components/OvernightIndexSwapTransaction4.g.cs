@@ -50,14 +50,14 @@ public partial record OvernightIndexSwapTransaction4
     /// <summary>
     /// Identification of the counterparty of the reporting agent for the reported transaction.
     /// </summary>
-    public required ICounterpartyIdentification3Choice CounterpartyIdentification { get; init; } 
+    public required CounterpartyIdentification3Choice_ CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Date and time on which the parties entered into the reported transaction.
     /// Usage: when time is available, it must be reported.
     /// It is to be reported with only the date when the time of the transaction is not available. 
     /// The reported time is the execution time when available or otherwise the time at which the transaction entered the trading system of the reporting agent.
     /// </summary>
-    public required IDateAndDateTimeChoice TradeDate { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDate { get; init; } 
     /// <summary>
     /// Represents the date as of which the overnight rate of the floating leg is computed.
     /// </summary>
@@ -81,7 +81,7 @@ public partial record OvernightIndexSwapTransaction4
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

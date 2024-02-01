@@ -24,7 +24,7 @@ public partial record PersonIdentification5
     /// <summary>
     /// Unique identification of a person, as assigned by an institution, using an identification scheme.
     /// </summary>
-    public GenericPersonIdentification1? Other { get; init;  } // Warning: Don't know multiplicity.
+    public GenericPersonIdentification1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

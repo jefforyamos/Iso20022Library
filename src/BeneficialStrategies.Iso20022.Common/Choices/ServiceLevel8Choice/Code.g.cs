@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ServiceLevel8Choice;
 /// <summary>
 /// Specifies a pre-agreed service or level of service between the parties, as published in an external service level code list.
 /// </summary>
-public partial record Code : IServiceLevel8Choice
+public partial record Code : ServiceLevel8Choice_
 {
     public required ExternalServiceLevel1Code Value { get; init; }
 }

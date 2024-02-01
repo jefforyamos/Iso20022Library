@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestType1Choice;
 /// <summary>
 /// Specifies the type of interest.
 /// </summary>
-public partial record Code : IInterestType1Choice
+public partial record Code : InterestType1Choice_
 {
     public required InterestType1Code Value { get; init; }
 }

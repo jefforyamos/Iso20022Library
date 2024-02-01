@@ -77,7 +77,7 @@ public partial record SecurityCreationStatusAdviceV01 : IOuterRecord
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required IProcessingStatus72Choice ProcessingStatus { get; init; }
+    public required ProcessingStatus72Choice_ ProcessingStatus { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

@@ -24,15 +24,15 @@ public partial record TrackerStatus2
     /// <summary>
     /// Date for the status.
     /// </summary>
-    public IDateAndDateTime2Choice? Date { get; init; } 
+    public DateAndDateTime2Choice_? Date { get; init; } 
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    public ITrackerAlertStatusReason1Choice? Reason { get; init;  } // Warning: Don't know multiplicity.
+    public TrackerAlertStatusReason1Choice_[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further details on the status reason.||Usage: Additional information can be used for several purposes such as the reporting of repaired information.
     /// </summary>
-    public IsoMax105Text? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

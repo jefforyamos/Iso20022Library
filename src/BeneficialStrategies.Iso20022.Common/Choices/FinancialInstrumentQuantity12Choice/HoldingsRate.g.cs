@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity12Cho
 /// <summary>
 /// Percentage of the financial quantity to be invested or redeemed.
 /// </summary>
-public partial record HoldingsRate : IFinancialInstrumentQuantity12Choice
+public partial record HoldingsRate : FinancialInstrumentQuantity12Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

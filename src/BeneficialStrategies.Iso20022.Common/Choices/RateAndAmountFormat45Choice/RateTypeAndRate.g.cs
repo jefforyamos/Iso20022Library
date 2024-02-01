@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RateAndAmountFormat45Choice;
 /// <summary>
 /// Value is expressed as a rate type and a percentage rate.
 /// </summary>
-public partial record RateTypeAndRate : IRateAndAmountFormat45Choice
+public partial record RateTypeAndRate : RateAndAmountFormat45Choice_
 {
     #nullable enable
     /// <summary>
     /// Value expressed as a rate type.
     /// </summary>
-    public required IRateType46Choice RateType { get; init; } 
+    public required RateType46Choice_ RateType { get; init; } 
     /// <summary>
     /// Value expressed as a rate.
     /// </summary>

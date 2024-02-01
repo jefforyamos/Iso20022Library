@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NonEligibleProceedsIndicator4Cho
 /// <summary>
 /// Standard code to specify information regarding the non eligibility of the outturn resources.
 /// </summary>
-public partial record Code : INonEligibleProceedsIndicator4Choice
+public partial record Code : NonEligibleProceedsIndicator4Choice_
 {
     public required NonEligibleProceedsIndicator1Code Value { get; init; }
 }

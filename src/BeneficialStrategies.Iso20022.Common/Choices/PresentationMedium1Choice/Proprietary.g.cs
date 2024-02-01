@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PresentationMedium1Choice;
 /// <summary>
 /// Presentation medium expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IPresentationMedium1Choice
+public partial record Proprietary : PresentationMedium1Choice_
 {
     #nullable enable
     /// <summary>

@@ -20,7 +20,7 @@ public partial record MasterAgreement8
     /// <summary>
     /// Reference to any master agreement, if existent (such as ISDA Master Agreement; Master Power Purchase and Sale Agreement; International ForEx Master Agreement; European Master Agreement or any local Master Agreements).
     /// </summary>
-    public IAgreementType2Choice? Type { get; init; } 
+    public AgreementType2Choice_? Type { get; init; } 
     /// <summary>
     /// Reference to the year of the master agreement version used for the reported trade, if applicable (such as 1992, 2002, etc).
     /// </summary>

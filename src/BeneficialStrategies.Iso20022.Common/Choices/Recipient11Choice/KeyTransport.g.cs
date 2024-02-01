@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient11Choice;
 /// <summary>
 /// Encryption key using previously distributed asymmetric public key.
 /// </summary>
-public partial record KeyTransport : IRecipient11Choice
+public partial record KeyTransport : Recipient11Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record KeyTransport : IRecipient11Choice
     /// <summary>
     /// Identification of a cryptographic asymmetric key for the recipient.
     /// </summary>
-    public required IRecipient12Choice RecipientIdentification { get; init; } 
+    public required Recipient12Choice_ RecipientIdentification { get; init; } 
     /// <summary>
     /// Algorithm to encrypt the key encryption key (KEK).
     /// </summary>

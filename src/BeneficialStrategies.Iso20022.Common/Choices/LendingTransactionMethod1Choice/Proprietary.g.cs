@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LendingTransactionMethod1Choice;
 /// <summary>
 /// Lending transaction method expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ILendingTransactionMethod1Choice
+public partial record Proprietary : LendingTransactionMethod1Choice_
 {
     #nullable enable
     /// <summary>

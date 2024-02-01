@@ -79,7 +79,7 @@ public partial record AgentCAInformationStatusAdviceV01 : IOuterRecord
     [DataMember(Name="InfStsDtls")]
     [XmlElement(ElementName="InfStsDtls")]
     [Required]
-    public required ICorporateActionInformationStatus1Choice InformationStatusDetails { get; init; }
+    public required CorporateActionInformationStatus1Choice_ InformationStatusDetails { get; init; }
     
     #nullable disable
     

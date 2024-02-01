@@ -20,7 +20,7 @@ public partial record RejectionReason35
     /// <summary>
     /// Specifies the reason why the instruction/request has a rejected status.
     /// </summary>
-    public required IRejectionReason29Choice Code { get; init; } 
+    public required RejectionReason29Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

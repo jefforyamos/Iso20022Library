@@ -20,7 +20,7 @@ public partial record ProcessingCharacteristics3
     /// <summary>
     /// Currency in which a subscription or redemption is accepted.
     /// </summary>
-    public ActiveCurrencyCode? DealingCurrencyAccepted { get; init;  } // Warning: Don't know multiplicity.
+    public ActiveCurrencyCode[] DealingCurrencyAccepted { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Authorization to claim redemption proceeds.
     /// </summary>
@@ -63,7 +63,7 @@ public partial record ProcessingCharacteristics3
     /// renunciation, indicate the last business day following receipt of the relevant renunciation documentation by the main Fund
     /// Order Desk (R) by which the proceeds will be sent.&nbsp; Examples of the above would be T+3, R+4 etc.
     /// </summary>
-    public required ITimeFrame4Choice SettlementCycle { get; init; } 
+    public required TimeFrame4Choice_ SettlementCycle { get; init; } 
     
     #nullable disable
 }

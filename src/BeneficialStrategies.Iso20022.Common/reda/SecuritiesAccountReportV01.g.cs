@@ -65,7 +65,7 @@ public partial record SecuritiesAccountReportV01 : IOuterRecord
     [DataMember(Name="RptOrErr")]
     [XmlElement(ElementName="RptOrErr")]
     [Required]
-    public required ISecuritiesAccountOrOperationalError3Choice ReportOrError { get; init; }
+    public required SecuritiesAccountOrOperationalError3Choice_ ReportOrError { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

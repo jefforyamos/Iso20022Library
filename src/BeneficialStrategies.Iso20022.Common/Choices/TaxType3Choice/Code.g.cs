@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxType3Choice;
 /// <summary>
 /// Type of tax expressed as a code.
 /// </summary>
-public partial record Code : ITaxType3Choice
+public partial record Code : TaxType3Choice_
 {
     public required TaxType17Code Value { get; init; }
 }

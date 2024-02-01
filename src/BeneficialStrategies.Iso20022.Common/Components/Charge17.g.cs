@@ -44,7 +44,7 @@ public partial record Charge17
     /// <summary>
     /// Party entitled to the amount of money resulting from a charge.
     /// </summary>
-    public IPartyIdentification2Choice? RecipientIdentification { get; init; } 
+    public PartyIdentification2Choice_? RecipientIdentification { get; init; } 
     
     #nullable disable
 }

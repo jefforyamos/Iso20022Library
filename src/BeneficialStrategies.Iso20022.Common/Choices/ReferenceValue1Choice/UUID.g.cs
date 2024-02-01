@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReferenceValue1Choice;
 /// <summary>
 /// Universally Unique IDentifier (UUID) version 4.
 /// </summary>
-public partial record UUID : IReferenceValue1Choice
+public partial record UUID : ReferenceValue1Choice_
 {
     public required IsoUUIDv4Identifier Value { get; init; }
 }

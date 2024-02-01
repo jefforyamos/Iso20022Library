@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnergy2Choice
 /// <summary>
 /// Definition of Oil energy commodity derivative.
 /// </summary>
-public partial record Oil : IAssetClassCommodityEnergy2Choice
+public partial record Oil : AssetClassCommodityEnergy2Choice_
 {
     #nullable enable
     /// <summary>

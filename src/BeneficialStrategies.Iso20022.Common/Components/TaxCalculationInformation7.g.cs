@@ -20,7 +20,7 @@ public partial record TaxCalculationInformation7
     /// <summary>
     /// Calculation basis.
     /// </summary>
-    public ITaxCalculationBasisType1Choice? TaxCalculationBasis { get; init; } 
+    public TaxCalculationBasisType1Choice_? TaxCalculationBasis { get; init; } 
     /// <summary>
     /// Amount of money that it is to be taxed.
     /// </summary>

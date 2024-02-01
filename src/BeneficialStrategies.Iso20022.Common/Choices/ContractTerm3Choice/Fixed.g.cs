@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ContractTerm3Choice;
 /// <summary>
 /// Transaction is  fixed term with a contractually agreed maturity date.
 /// </summary>
-public partial record Fixed : IContractTerm3Choice
+public partial record Fixed : ContractTerm3Choice_
 {
     #nullable enable
     /// <summary>

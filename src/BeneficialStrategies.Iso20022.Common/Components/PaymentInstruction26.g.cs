@@ -24,19 +24,19 @@ public partial record PaymentInstruction26
     /// <summary>
     /// Date and time at which the cash is at the disposal of the credit account owner, or ceases to be at the disposal of the debit account owner.
     /// </summary>
-    public IDateAndDateTime2Choice? RequestedExecutionDate { get; init; } 
+    public DateAndDateTime2Choice_? RequestedExecutionDate { get; init; } 
     /// <summary>
     /// Detailed information about the status of a transfer.||.
     /// </summary>
-    public PaymentStatus3? Status { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentStatus3[] Status { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
-    public IAmount3Choice? InstructedAmount { get; init; } 
+    public Amount3Choice_? InstructedAmount { get; init; } 
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent.
     /// </summary>
-    public IAmount2Choice? InterbankSettlementAmount { get; init; } 
+    public Amount2Choice_? InterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Underlying reason for the payment transaction.
     /// </summary>
@@ -44,15 +44,15 @@ public partial record PaymentInstruction26
     /// <summary>
     /// Indicates the message or event from which an instruction has been initiated.
     /// </summary>
-    public IPaymentOrigin1Choice? PaymentMethod { get; init; } 
+    public PaymentOrigin1Choice_? PaymentMethod { get; init; } 
     /// <summary>
     /// Urgency or order of importance that the originator would like the recipient of the payment instruction to apply to the processing of the payment instruction.|.
     /// </summary>
-    public IPriorityCode3Choice? Priority { get; init; } 
+    public PriorityCode3Choice_? Priority { get; init; } 
     /// <summary>
     /// Date and time range within which the payment instruction must be processed.|.
     /// </summary>
-    public IDateTimePeriod1Choice? ProcessingValidityTime { get; init; } 
+    public DateTimePeriod1Choice_? ProcessingValidityTime { get; init; } 
     /// <summary>
     /// Copy of the original instruction, in free form text.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record PaymentInstruction26
     /// <summary>
     /// Type, or nature, of the payment, such as express payment.|.
     /// </summary>
-    public IPaymentType4Choice? Type { get; init; } 
+    public PaymentType4Choice_? Type { get; init; } 
     /// <summary>
     /// Payment is a liquidity transfer order that has been executed automatically following a predefined or standing order.
     /// </summary>

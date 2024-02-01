@@ -24,15 +24,15 @@ public partial record SettlementDetails1
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
-    public IPriorityNumeric1Choice? Priority { get; init; } 
+    public PriorityNumeric1Choice_? Priority { get; init; } 
     /// <summary>
     /// Identifies the type of securities transaction.
     /// </summary>
-    public required ISecuritiesTransactionType1Choice SecuritiesTransactionType { get; init; } 
+    public required SecuritiesTransactionType1Choice_ SecuritiesTransactionType { get; init; } 
     /// <summary>
     /// Conditions under which the order/trade is to be settled.
     /// </summary>
-    public ISettlementTransactionCondition1Choice? SettlementTransactionCondition { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementTransactionCondition1Choice_[] SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether partial settlement is allowed.
     /// </summary>
@@ -40,67 +40,67 @@ public partial record SettlementDetails1
     /// <summary>
     /// Specifies whether there is change of beneficial ownership.
     /// </summary>
-    public IBeneficialOwnership1Choice? BeneficialOwnership { get; init; } 
+    public BeneficialOwnership1Choice_? BeneficialOwnership { get; init; } 
     /// <summary>
     /// Specifies whether the settlement instruction is a block parent or child.
     /// </summary>
-    public IBlockTrade1Choice? BlockTrade { get; init; } 
+    public BlockTrade1Choice_? BlockTrade { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction is CCP (Central Counterparty) eligible.
     /// </summary>
-    public ICentralCounterPartyEligibility1Choice? CCPEligibility { get; init; } 
+    public CentralCounterPartyEligibility1Choice_? CCPEligibility { get; init; } 
     /// <summary>
     /// Specifies the reason of a delivery return.
     /// </summary>
-    public IDeliveryReturn1Choice? DeliveryReturnReason { get; init; } 
+    public DeliveryReturn1Choice_? DeliveryReturnReason { get; init; } 
     /// <summary>
     /// Specifies the category of cash clearing system, eg, cheque clearing.
     /// </summary>
-    public ICashSettlementSystem1Choice? CashClearingSystem { get; init; } 
+    public CashSettlementSystem1Choice_? CashClearingSystem { get; init; } 
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the collateral movement.
     /// </summary>
-    public IExposureType1Choice? ExposureType { get; init; } 
+    public ExposureType1Choice_? ExposureType { get; init; } 
     /// <summary>
     /// Specifies whether the forex standing instruction in place should apply.
     /// </summary>
-    public IFXStandingInstruction1Choice? FXStandingInstruction { get; init; } 
+    public FXStandingInstruction1Choice_? FXStandingInstruction { get; init; } 
     /// <summary>
     /// Specifies if an instruction is for a market side or a client side transaction.
     /// </summary>
-    public IMarketClientSide1Choice? MarketClientSide { get; init; } 
+    public MarketClientSide1Choice_? MarketClientSide { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction is eligible for netting.
     /// </summary>
-    public INettingEligibility1Choice? NettingEligibility { get; init; } 
+    public NettingEligibility1Choice_? NettingEligibility { get; init; } 
     /// <summary>
     /// Specifies whether registration should occur upon receipt.
     /// </summary>
-    public IRegistration1Choice? Registration { get; init; } 
+    public Registration1Choice_? Registration { get; init; } 
     /// <summary>
     /// Specifies whether the rate is fixed, variable or a forfeit.
     /// </summary>
-    public IRepurchaseType1Choice? RepurchaseType { get; init; } 
+    public RepurchaseType1Choice_? RepurchaseType { get; init; } 
     /// <summary>
     /// Regulatory restrictions applicable to a security.
     /// </summary>
-    public IRestriction1Choice? LegalRestrictions { get; init; } 
+    public Restriction1Choice_? LegalRestrictions { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction is to be settled through an RTGS or a non RTGS system.
     /// </summary>
-    public ISecuritiesRTGS1Choice? SecuritiesRTGS { get; init; } 
+    public SecuritiesRTGS1Choice_? SecuritiesRTGS { get; init; } 
     /// <summary>
     /// Role of a party in the settlement of the transaction.
     /// </summary>
-    public ISettlingCapacity1Choice? SettlingCapacity { get; init; } 
+    public SettlingCapacity1Choice_? SettlingCapacity { get; init; } 
     /// <summary>
     /// Specifies whether the settlement instruction is to be settled through the default or the alternate settlement system.
     /// </summary>
-    public ISettlementSystemMethod1Choice? SettlementSystemMethod { get; init; } 
+    public SettlementSystemMethod1Choice_? SettlementSystemMethod { get; init; } 
     /// <summary>
     /// Tax role capacity of the instructing party.
     /// </summary>
-    public ITaxCapacityParty1Choice? TaxCapacity { get; init; } 
+    public TaxCapacityParty1Choice_? TaxCapacity { get; init; } 
     /// <summary>
     /// Specifies the stamp duty type or exemption reason applicable to the settlement transaction.
     /// </summary>
@@ -108,15 +108,15 @@ public partial record SettlementDetails1
     /// <summary>
     /// Specifies whether the loan and/or collateral is tracked.
     /// </summary>
-    public ITracking1Choice? Tracking { get; init; } 
+    public Tracking1Choice_? Tracking { get; init; } 
     /// <summary>
     /// Condition for automatic borrowing.
     /// </summary>
-    public IAutomaticBorrowing1Choice? AutomaticBorrowing { get; init; } 
+    public AutomaticBorrowing1Choice_? AutomaticBorrowing { get; init; } 
     /// <summary>
     /// Specifies whether physical settlement may be executed using a letter of guarantee or if the physical certificates should be used.
     /// </summary>
-    public ILetterOfGuarantee1Choice? LetterOfGuarantee { get; init; } 
+    public LetterOfGuarantee1Choice_? LetterOfGuarantee { get; init; } 
     /// <summary>
     /// Specifies whether, for a securities lending/borrowing settlement transaction, the lender will instruct the return leg as agreed with the borrower.
     /// </summary>
@@ -124,7 +124,7 @@ public partial record SettlementDetails1
     /// <summary>
     /// Specifies whether a third party is allowed to modify or cancel the transaction.
     /// </summary>
-    public IModificationCancellationAllowed1Choice? ModificationCancellationAllowed { get; init; } 
+    public ModificationCancellationAllowed1Choice_? ModificationCancellationAllowed { get; init; } 
     /// <summary>
     /// Specifies whether securities should be included in the pool of securities eligible for collateral purposes.
     /// </summary>

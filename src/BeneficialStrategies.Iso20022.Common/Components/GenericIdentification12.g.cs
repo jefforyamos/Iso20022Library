@@ -28,7 +28,7 @@ public partial record GenericIdentification12
     /// <summary>
     /// Type of other identification.
     /// </summary>
-    public IIdentificationType1Choice? OtherIdentificationType { get; init; } 
+    public IdentificationType1Choice_? OtherIdentificationType { get; init; } 
     
     #nullable disable
 }

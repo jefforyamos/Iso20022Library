@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestmentParty1Choice;
 /// <summary>
 /// Identification of an algorithm.
 /// </summary>
-public partial record Algorithm : IInvestmentParty1Choice
+public partial record Algorithm : InvestmentParty1Choice_
 {
     public required IsoMax50Text Value { get; init; }
 }

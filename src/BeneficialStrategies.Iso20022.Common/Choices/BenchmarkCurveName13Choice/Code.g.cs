@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkCurveName13Choice;
 /// <summary>
 /// Specifies the reference rate or basis rate on which a variable rate is base as a code.
 /// </summary>
-public partial record Code : IBenchmarkCurveName13Choice
+public partial record Code : BenchmarkCurveName13Choice_
 {
     public required BenchmarkCurveName7Code Value { get; init; }
 }

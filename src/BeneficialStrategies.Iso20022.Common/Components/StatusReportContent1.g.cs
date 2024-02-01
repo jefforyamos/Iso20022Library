@@ -24,7 +24,7 @@ public partial record StatusReportContent1
     /// <summary>
     /// Data related to a component of the POI performing the status report.
     /// </summary>
-    public PointOfInteractionComponent2? POIComponent { get; init;  } // Warning: Don't know multiplicity.
+    public PointOfInteractionComponent2[] POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Human attendance at the POI location during transactions.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record StatusReportContent1
     /// <summary>
     /// Result of an individual terminal management action by the point of interaction.
     /// </summary>
-    public TMSEvent1? Event { get; init;  } // Warning: Don't know multiplicity.
+    public TMSEvent1[] Event { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Error log of the point of interaction since the last status report.
     /// </summary>

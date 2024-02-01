@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus45Choice;
 /// <summary>
 /// Instruction has been acknowledged by the account servicer.
 /// </summary>
-public partial record AcknowledgedAccepted : IProcessingStatus45Choice
+public partial record AcknowledgedAccepted : ProcessingStatus45Choice_
 {
     #nullable enable
     #nullable disable

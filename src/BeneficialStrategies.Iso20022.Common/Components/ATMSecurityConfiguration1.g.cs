@@ -28,11 +28,11 @@ public partial record ATMSecurityConfiguration1
     /// <summary>
     /// MAC (Message Authentication Code) algorithm the security module is able to manage.
     /// </summary>
-    public Algorithm12Code? MACAlgorithm { get; init;  } // Warning: Don't know multiplicity.
+    public Algorithm12Code[] MACAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Digest algorithm the security module is able to manage.
     /// </summary>
-    public Algorithm11Code? DigestAlgorithm { get; init;  } // Warning: Don't know multiplicity.
+    public Algorithm11Code[] DigestAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Configuration of the digital signatures if the security module is able to perform digital signatures with an asymmetric key.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record ATMSecurityConfiguration1
     /// <summary>
     /// Mechanism used to protect the message of the ATM protocol.
     /// </summary>
-    public MessageProtection1Code? MessageProtection { get; init;  } // Warning: Don't know multiplicity.
+    public MessageProtection1Code[] MessageProtection { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

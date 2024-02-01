@@ -20,7 +20,7 @@ public partial record TransactionDetails4
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification13Choice? AccountOwner { get; init; } 
+    public PartyIdentification13Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record TransactionDetails4
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    public required IQuantity6Choice SettlementQuantity { get; init; } 
+    public required Quantity6Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Total amount of money to be paid or received in exchange for the securities.
     /// </summary>
@@ -40,11 +40,11 @@ public partial record TransactionDetails4
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    public ITradeDate1Choice? TradeDate { get; init; } 
+    public TradeDate1Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public required ISettlementDate2Choice SettlementDate { get; init; } 
+    public required SettlementDate2Choice_ SettlementDate { get; init; } 
     /// <summary>
     /// Identifies the chain of delivering settlement parties.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record TransactionDetails4
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
     /// </summary>
-    public IPartyIdentification14Choice? Investor { get; init; } 
+    public PartyIdentification14Choice_? Investor { get; init; } 
     
     #nullable disable
 }

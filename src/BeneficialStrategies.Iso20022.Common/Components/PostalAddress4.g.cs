@@ -20,7 +20,7 @@ public partial record PostalAddress4
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, that is presented in free format text.
     /// </summary>
-    public IReadOnlyCollection<IsoMax70Text> AddressLine { get; init; } = [];
+    public IsoMax70Text[] AddressLine { get; init; } = [];
     /// <summary>
     /// Nation with its own government.
     /// </summary>

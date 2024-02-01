@@ -20,7 +20,7 @@ public partial record CompareEnergyDeliveryAttribute1
     /// <summary>
     /// Specifies whether the information on the delivery intervals are matching or not.
     /// </summary>
-    public CompareTimePeriod2? EnergyDeliveryInterval { get; init;  } // Warning: Don't know multiplicity.
+    public CompareTimePeriod2[] EnergyDeliveryInterval { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the delivery start date and end date are matching or not.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record CompareEnergyDeliveryAttribute1
     /// <summary>
     /// Specifies whether the information on the week days are matching or not.
     /// </summary>
-    public CompareWeekDay1? EnergyWeekDay { get; init;  } // Warning: Don't know multiplicity.
+    public CompareWeekDay1[] EnergyWeekDay { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the delivery capacity are matching or not.
     /// </summary>

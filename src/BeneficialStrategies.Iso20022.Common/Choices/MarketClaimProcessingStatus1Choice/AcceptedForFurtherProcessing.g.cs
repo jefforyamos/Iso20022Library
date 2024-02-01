@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketClaimProcessingStatus1Choi
 /// <summary>
 /// Provides status information related to an instruction request that is accepted. This means that the instruction has been received, is processable and has been validated for further processing.
 /// </summary>
-public partial record AcceptedForFurtherProcessing : IMarketClaimProcessingStatus1Choice
+public partial record AcceptedForFurtherProcessing : MarketClaimProcessingStatus1Choice_
 {
     #nullable enable
     #nullable disable

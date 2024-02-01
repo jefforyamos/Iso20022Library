@@ -20,11 +20,11 @@ public partial record PartyIdentification218
     /// <summary>
     /// Role played by the third party.
     /// </summary>
-    public required IPartyRole6Choice Role { get; init; } 
+    public required PartyRole6Choice_ Role { get; init; } 
     /// <summary>
     /// Identification of the third party.
     /// </summary>
-    public required IPartyIdentification205Choice Identification { get; init; } 
+    public required PartyIdentification205Choice_ Identification { get; init; } 
     
     #nullable disable
 }

@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Counterparty1Choice;
 /// <summary>
 /// Party that buys goods or services, or a financial instrument.
 /// </summary>
-public partial record Buyer : ICounterparty1Choice
+public partial record Buyer : Counterparty1Choice_
 {
     #nullable enable
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    public required IPartyIdentification10Choice Identification { get; init; } 
+    public required PartyIdentification10Choice_ Identification { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
@@ -30,7 +30,7 @@ public partial record Buyer : ICounterparty1Choice
     /// <summary>
     /// Date/time at which the instruction was processed by the specified party.
     /// </summary>
-    public IDateAndDateTimeChoice? ProcessingDate { get; init; } 
+    public DateAndDateTimeChoice_? ProcessingDate { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction for the party identified.
     /// </summary>

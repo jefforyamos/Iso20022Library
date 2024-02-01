@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DefaultProcessingOrStandingInstr
 /// <summary>
 /// Indicates whether an account owner has placed a standing order to select this corporate action option.
 /// </summary>
-public partial record StandingInstructionIndicator : IDefaultProcessingOrStandingInstruction1Choice
+public partial record StandingInstructionIndicator : DefaultProcessingOrStandingInstruction1Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

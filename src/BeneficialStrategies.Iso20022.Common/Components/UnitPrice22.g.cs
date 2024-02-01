@@ -20,7 +20,7 @@ public partial record UnitPrice22
     /// <summary>
     /// Type and information about a price.
     /// </summary>
-    public required ITypeOfPrice46Choice Type { get; init; } 
+    public required TypeOfPrice46Choice_ Type { get; init; } 
     /// <summary>
     /// Value of the price, for example, as a currency and value.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record UnitPrice22
     /// <summary>
     /// Specifies whether the fund calculates a taxable interest per share (TIS).
     /// </summary>
-    public ITaxableIncomePerShareCalculated2Choice? TaxableIncomePerShareCalculated { get; init; } 
+    public TaxableIncomePerShareCalculated2Choice_? TaxableIncomePerShareCalculated { get; init; } 
     /// <summary>
     /// Reason why the price is different from the current market price.
     /// </summary>

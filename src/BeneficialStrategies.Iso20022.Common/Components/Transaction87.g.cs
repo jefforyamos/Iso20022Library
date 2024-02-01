@@ -29,7 +29,7 @@ public partial record Transaction87
     /// <summary>
     /// Data to qualify for incentive or other related programmes.
     /// </summary>
-    public SpecialProgrammeQualification1? SpecialProgrammeQualification { get; init;  } // Warning: Don't know multiplicity.
+    public SpecialProgrammeQualification1[] SpecialProgrammeQualification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
@@ -43,19 +43,19 @@ public partial record Transaction87
     /// Amounts that are not part of the transaction amount and not included in reconciliation.
     /// ISO 8583 bit 54
     /// </summary>
-    public AdditionalAmounts2? AdditionalAmounts { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalAmounts2[] AdditionalAmounts { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    public AdditionalFee1? AdditionalFees { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFee1[] AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Balance of an account.
     /// </summary>
-    public AccountBalance1? AccountBalance { get; init;  } // Warning: Don't know multiplicity.
+    public AccountBalance1[] AccountBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Account information of a statement of account.
     /// </summary>
-    public AccountStatementData1? AccountStatementData { get; init;  } // Warning: Don't know multiplicity.
+    public AccountStatementData1[] AccountStatementData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies a customer account or a relationship to its account affected for debit, inquiries and the source of funding for transfers.
     /// </summary>
@@ -67,7 +67,7 @@ public partial record Transaction87
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

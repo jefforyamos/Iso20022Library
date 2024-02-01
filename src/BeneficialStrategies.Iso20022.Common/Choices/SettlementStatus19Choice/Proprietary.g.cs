@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementStatus19Choice;
 /// <summary>
 /// Provides the status of settlement of an instruction/financial instrument movement.
 /// </summary>
-public partial record Proprietary : ISettlementStatus19Choice
+public partial record Proprietary : SettlementStatus19Choice_
 {
     #nullable enable
     /// <summary>

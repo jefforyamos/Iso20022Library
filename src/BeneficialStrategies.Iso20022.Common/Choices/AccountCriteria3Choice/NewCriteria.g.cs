@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountCriteria3Choice;
 /// <summary>
 /// Explicitly defines the query criteria.
 /// </summary>
-public partial record NewCriteria : IAccountCriteria3Choice
+public partial record NewCriteria : AccountCriteria3Choice_
 {
     #nullable enable
     /// <summary>

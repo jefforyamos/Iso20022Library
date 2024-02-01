@@ -36,7 +36,7 @@ public partial record SaleContext4
     /// <summary>
     /// Languages used by the cashier.
     /// </summary>
-    public LanguageCode? CashierLanguage { get; init;  } // Warning: Don't know multiplicity.
+    public LanguageCode[] CashierLanguage { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the shift of the cashier.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record SaleContext4
     /// <summary>
     /// Merchant using the payment services of a payment facilitator, acting as a card acceptor.
     /// </summary>
-    public Organisation26? SponsoredMerchant { get; init;  } // Warning: Don't know multiplicity.
+    public Organisation26[] SponsoredMerchant { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// True if the payment transaction is a partial payment of the sale transaction.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record SaleContext4
     /// <summary>
     /// Type of card data reading.
     /// </summary>
-    public CardDataReading8Code? AllowedEntryMode { get; init;  } // Warning: Don't know multiplicity.
+    public CardDataReading8Code[] AllowedEntryMode { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Scope of the token that identifies the payment mean of the customer.
     /// </summary>

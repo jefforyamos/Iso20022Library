@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AcceptedReason10Choice;
 /// <summary>
 /// Proprietary identification of additional information about the processed instruction.
 /// </summary>
-public partial record Proprietary : IAcceptedReason10Choice
+public partial record Proprietary : AcceptedReason10Choice_
 {
     #nullable enable
     /// <summary>

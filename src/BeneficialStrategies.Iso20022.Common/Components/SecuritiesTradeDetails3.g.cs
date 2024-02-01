@@ -28,11 +28,11 @@ public partial record SecuritiesTradeDetails3
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    public ITradeDate1Choice? TradeDate { get; init; } 
+    public TradeDate1Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public required IDateAndDateTimeChoice OpeningSettlementDate { get; init; } 
+    public required DateAndDateTimeChoice_ OpeningSettlementDate { get; init; } 
     /// <summary>
     /// Specifies the price of the traded financial instrument.|This is the deal price of the individual trade transaction. |If there is only one trade transaction for the execution of the trade, then the deal price could equal the executed trade price (unless, for example, the price includes commissions or rounding, or some other factor has been applied to the deal price or the executed trade price, or both).
     /// </summary>
@@ -44,31 +44,31 @@ public partial record SecuritiesTradeDetails3
     /// <summary>
     /// Specifies that a trade is to be reported to a third party.
     /// </summary>
-    public IReporting2Choice? Reporting { get; init;  } // Warning: Don't know multiplicity.
+    public Reporting2Choice_[] Reporting { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the conditions under which the order/trade is to be/was executed.
     /// </summary>
-    public ITradeTransactionCondition1Choice? TradeTransactionCondition { get; init;  } // Warning: Don't know multiplicity.
+    public TradeTransactionCondition1Choice_[] TradeTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the role of the investor in the transaction.
     /// </summary>
-    public IInvestorCapacity1Choice? InvestorCapacity { get; init; } 
+    public InvestorCapacity1Choice_? InvestorCapacity { get; init; } 
     /// <summary>
     /// Specifies the role of the trading party in the transaction.
     /// </summary>
-    public ITradeOriginator1Choice? TradeOriginatorRole { get; init; } 
+    public TradeOriginator1Choice_? TradeOriginatorRole { get; init; } 
     /// <summary>
     /// Account servicer is instructed to buy the indicated currency after the receipt of cash proceeds or to sell the indicated currency in order to obtain the necessary currency to fund the transaction.
     /// </summary>
-    public ICurrencyToBuyOrSell1Choice? CurrencyToBuyOrSell { get; init; } 
+    public CurrencyToBuyOrSell1Choice_? CurrencyToBuyOrSell { get; init; } 
     /// <summary>
     /// Status of affirmation of a trade.
     /// </summary>
-    public IAffirmationStatus1Choice? AffirmationStatus { get; init; } 
+    public AffirmationStatus1Choice_? AffirmationStatus { get; init; } 
     /// <summary>
     /// Provides the matching status of the instruction.
     /// </summary>
-    public IMatchingStatus1Choice? MatchingStatus { get; init; } 
+    public MatchingStatus1Choice_? MatchingStatus { get; init; } 
     /// <summary>
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatus4Choice;
 /// <summary>
 /// Specifies the status of the investigation, in a coded form.
 /// </summary>
-public partial record Confirmation : IInvestigationStatus4Choice
+public partial record Confirmation : InvestigationStatus4Choice_
 {
     public required ExternalInvestigationExecutionConfirmation1Code Value { get; init; }
 }

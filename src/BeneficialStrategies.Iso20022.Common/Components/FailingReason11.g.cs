@@ -20,7 +20,7 @@ public partial record FailingReason11
     /// <summary>
     /// Specifies the reason why the instruction has a failing status.
     /// </summary>
-    public required IFailingReason16Choice Code { get; init; } 
+    public required FailingReason16Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

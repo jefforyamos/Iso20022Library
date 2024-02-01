@@ -24,7 +24,7 @@ public partial record SecuritiesQuantityDetailsSD1
     /// <summary>
     /// For rights subscription events with an oversubscription feature, the quantity of the oversubscription for the given instruction.
     /// </summary>
-    public IQuantity40Choice? OversubscriptionQuantity { get; init; } 
+    public Quantity40Choice_? OversubscriptionQuantity { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FundParameters3Choice;
 /// <summary>
 /// Report parameters.
 /// </summary>
-public partial record Parameters : IFundParameters3Choice
+public partial record Parameters : FundParameters3Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record Parameters : IFundParameters3Choice
     /// <summary>
     /// Fund management company for which the report is requested.
     /// </summary>
-    public IPartyIdentification2Choice? FundManagementCompany { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification2Choice_? FundManagementCompany { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the date on or after which the information required will have been last updated. Only the most recent versions of the data is required.
     /// </summary>

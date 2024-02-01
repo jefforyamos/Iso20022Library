@@ -24,7 +24,7 @@ public partial record MandateOccurrences3
     /// <summary>
     /// Regularity with which instructions are to be created and processed.
     /// </summary>
-    public IFrequency21Choice? Frequency { get; init; } 
+    public Frequency21Choice_? Frequency { get; init; } 
     /// <summary>
     /// Length of time for which the mandate remains valid.
     /// </summary>

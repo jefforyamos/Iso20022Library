@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountModification2Ch
 /// <summary>
 /// Defines the specific processing characteristics for a party to ensure configurability of specific requirements, as prescribed by national legal and regulatory requirements and practices.
 /// </summary>
-public partial record SystemRestriction : ISecuritiesAccountModification2Choice
+public partial record SystemRestriction : SecuritiesAccountModification2Choice_
 {
     #nullable enable
     /// <summary>

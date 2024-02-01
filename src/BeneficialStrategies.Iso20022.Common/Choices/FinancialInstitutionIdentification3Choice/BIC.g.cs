@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstitutionIdentificati
 /// <summary>
 /// Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
 /// </summary>
-public partial record BIC : IFinancialInstitutionIdentification3Choice
+public partial record BIC : FinancialInstitutionIdentification3Choice_
 {
     public required IsoBICIdentifier Value { get; init; }
 }

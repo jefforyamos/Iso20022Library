@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SubBalanceQuantity7Choice;
 /// <summary>
 /// Quantity of securities in the sub-balance and whether the balance is available.
 /// </summary>
-public partial record QuantityAndAvailability : ISubBalanceQuantity7Choice
+public partial record QuantityAndAvailability : SubBalanceQuantity7Choice_
 {
     #nullable enable
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
     /// <summary>
     /// Indicates whether the quantity of securities on the sub-balance is available.
     /// </summary>

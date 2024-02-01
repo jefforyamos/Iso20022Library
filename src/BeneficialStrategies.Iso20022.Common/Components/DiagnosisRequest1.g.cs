@@ -24,7 +24,7 @@ public partial record DiagnosisRequest1
     /// <summary>
     /// Identification of the Acquirers.
     /// </summary>
-    public IsoMax35Text? AcquirerIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] AcquirerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

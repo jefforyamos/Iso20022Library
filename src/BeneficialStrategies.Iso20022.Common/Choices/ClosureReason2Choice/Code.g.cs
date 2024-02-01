@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosureReason2Choice;
 /// <summary>
 /// Reason the system is closed/not operating, in a coded form.
 /// </summary>
-public partial record Code : IClosureReason2Choice
+public partial record Code : ClosureReason2Choice_
 {
     public required SystemClosureReason1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DeliveryInterconnectionPoint1Cho
 /// <summary>
 /// Identification of delivery/interconnection point or zone as a code.
 /// </summary>
-public partial record Code : IDeliveryInterconnectionPoint1Choice
+public partial record Code : DeliveryInterconnectionPoint1Choice_
 {
     public required IsoEICIdentifier Value { get; init; }
 }

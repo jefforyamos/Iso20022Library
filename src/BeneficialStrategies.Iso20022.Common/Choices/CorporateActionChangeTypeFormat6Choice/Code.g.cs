@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionChangeTypeFormat6
 /// <summary>
 /// Standard code to specify the type of changes.
 /// </summary>
-public partial record Code : ICorporateActionChangeTypeFormat6Choice
+public partial record Code : CorporateActionChangeTypeFormat6Choice_
 {
     public required CorporateActionChangeType2Code Value { get; init; }
 }

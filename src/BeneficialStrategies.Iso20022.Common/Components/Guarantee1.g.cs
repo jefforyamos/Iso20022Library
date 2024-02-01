@@ -20,7 +20,7 @@ public partial record Guarantee1
     /// <summary>
     /// Identification of guarantee provider.
     /// </summary>
-    public required IPartyIdentification118Choice Provider { get; init; } 
+    public required PartyIdentification118Choice_ Provider { get; init; } 
     /// <summary>
     /// Value of the collateral guarantee.
     /// </summary>

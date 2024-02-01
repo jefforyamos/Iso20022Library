@@ -28,7 +28,7 @@ public partial record CashMovement8
     /// <summary>
     /// Account in which cash is maintained.
     /// </summary>
-    public ICashAccountIdentification5Choice? CashAccount { get; init; } 
+    public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Specifies whether the amount is delivered/received as part of collateral or not.
     /// </summary>

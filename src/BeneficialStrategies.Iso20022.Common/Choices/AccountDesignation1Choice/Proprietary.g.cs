@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountDesignation1Choice;
 /// <summary>
 /// Account designation expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IAccountDesignation1Choice
+public partial record Proprietary : AccountDesignation1Choice_
 {
     #nullable enable
     /// <summary>

@@ -20,7 +20,7 @@ public partial record GeneralInvestment2
     /// <summary>
     /// Type of investment.
     /// </summary>
-    public IGeneralInvestmentAccountType2Choice? Type { get; init; } 
+    public GeneralInvestmentAccountType2Choice_? Type { get; init; } 
     /// <summary>
     /// Specifies whether the account is, for example, in a nominee name or own name.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record GeneralInvestment2
     /// <summary>
     /// Additional information about the portfolio.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

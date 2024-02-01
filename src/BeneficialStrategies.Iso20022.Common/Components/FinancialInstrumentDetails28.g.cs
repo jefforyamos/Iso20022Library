@@ -40,7 +40,7 @@ public partial record FinancialInstrumentDetails28
     /// <summary>
     /// Transaction details.
     /// </summary>
-    public Transaction62? Transaction { get; init;  } // Warning: Don't know multiplicity.
+    public Transaction62[] Transaction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

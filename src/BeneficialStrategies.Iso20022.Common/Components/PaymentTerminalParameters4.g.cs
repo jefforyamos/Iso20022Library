@@ -36,11 +36,11 @@ public partial record PaymentTerminalParameters4
     /// <summary>
     /// Time zone line to update in the time zone data base subset stored in the POI (Point Of Interaction). The format of the line is conform to the IANA (Internet Assigned Number Authority) time zone data base.
     /// </summary>
-    public IsoMax70Text? TimeZoneLine { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] TimeZoneLine { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Local time offset to UTC (Coordinated Universal Time).
     /// </summary>
-    public LocalDateTime1? LocalDateTime { get; init;  } // Warning: Don't know multiplicity.
+    public LocalDateTime1[] LocalDateTime { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Others manufacturer configuration parameters of the point of interaction.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TimeUnit3Choice;
 /// <summary>
 /// Time unit expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ITimeUnit3Choice
+public partial record Code : TimeUnit3Choice_
 {
     public required TimeUnit1Code Value { get; init; }
 }

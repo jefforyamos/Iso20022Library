@@ -99,7 +99,7 @@ public partial record MeetingNotificationV04 : IOuterRecord
     [DataMember(Name="NtifngPty")]
     [XmlElement(ElementName="NtifngPty")]
     [Required]
-    public required IPartyIdentification9Choice NotifyingParty { get; init; }
+    public required PartyIdentification9Choice_ NotifyingParty { get; init; }
     
     /// <summary>
     /// Specifies the institution that is the issuer of the security to which the meeting applies.

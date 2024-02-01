@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationReference8Choice;
 /// <summary>
 /// Identification used to represent this transaction for compliance purposes.
 /// </summary>
-public partial record ComplianceIdentification : IIdentificationReference8Choice
+public partial record ComplianceIdentification : IdentificationReference8Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

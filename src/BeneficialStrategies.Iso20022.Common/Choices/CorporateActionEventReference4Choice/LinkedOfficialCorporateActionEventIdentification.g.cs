@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventReference4Ch
 /// <summary>
 /// Official and unique reference assigned by the official central body/ entity within each market at the beginning of a corporate action event.
 /// </summary>
-public partial record LinkedOfficialCorporateActionEventIdentification : ICorporateActionEventReference4Choice
+public partial record LinkedOfficialCorporateActionEventIdentification : CorporateActionEventReference4Choice_
 {
     public required IsoRestrictedFINXMax16Text Value { get; init; }
 }

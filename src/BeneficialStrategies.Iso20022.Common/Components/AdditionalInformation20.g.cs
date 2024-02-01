@@ -28,7 +28,7 @@ public partial record AdditionalInformation20
     /// <summary>
     /// Target of the additional information to print, display, send or store.
     /// </summary>
-    public UserInterface6Code? Target { get; init;  } // Warning: Don't know multiplicity.
+    public UserInterface6Code[] Target { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Other type of target for action data.
     /// </summary>

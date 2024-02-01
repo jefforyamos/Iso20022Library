@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TrackerAlertStatusReason1Choice;
 /// <summary>
 /// Reason for the tracker alert status, as published in an external reason code list.
 /// </summary>
-public partial record Code : ITrackerAlertStatusReason1Choice
+public partial record Code : TrackerAlertStatusReason1Choice_
 {
     public required ExternalTrackerAlertStatusReason1Code Value { get; init; }
 }

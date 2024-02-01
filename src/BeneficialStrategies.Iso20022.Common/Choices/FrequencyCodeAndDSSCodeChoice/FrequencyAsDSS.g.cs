@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FrequencyCodeAndDSSCodeChoice;
 /// <summary>
 /// Frequency expressed as a data source scheme and a code used within the data source scheme.
 /// </summary>
-public partial record FrequencyAsDSS : IFrequencyCodeAndDSSCodeChoice
+public partial record FrequencyAsDSS : FrequencyCodeAndDSSCodeChoice_
 {
     #nullable enable
     /// <summary>

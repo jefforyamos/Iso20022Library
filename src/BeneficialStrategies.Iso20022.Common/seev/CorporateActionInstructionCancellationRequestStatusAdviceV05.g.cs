@@ -75,7 +75,7 @@ public partial record CorporateActionInstructionCancellationRequestStatusAdviceV
     [DataMember(Name="InstrCxlReqSts")]
     [XmlElement(ElementName="InstrCxlReqSts")]
     [Required]
-    public required IInstructionCancellationRequestStatus7Choice InstructionCancellationRequestStatus { get; init; }
+    public required InstructionCancellationRequestStatus7Choice_ InstructionCancellationRequestStatus { get; init; }
     
     /// <summary>
     /// Information about the corporate action option.

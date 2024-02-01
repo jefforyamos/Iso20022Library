@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModalityOfCounting1Choice;
 /// <summary>
 /// Modality of counting expressed as a code.
 /// </summary>
-public partial record Code : IModalityOfCounting1Choice
+public partial record Code : ModalityOfCounting1Choice_
 {
     public required ModalityOfCounting1Code Value { get; init; }
 }

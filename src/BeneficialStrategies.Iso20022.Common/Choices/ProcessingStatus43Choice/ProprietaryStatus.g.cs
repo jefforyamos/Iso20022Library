@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus43Choice;
 /// <summary>
 /// Status of the standing settlement instruction, cancellation or deletion is expressed in a bilaterally agreed manner.
 /// </summary>
-public partial record ProprietaryStatus : IProcessingStatus43Choice
+public partial record ProprietaryStatus : ProcessingStatus43Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record ProprietaryStatus : IProcessingStatus43Choice
     /// <summary>
     /// Proprietary identification of the reason for the status.
     /// </summary>
-    public required IProprietaryReason1Choice Reason { get; init; } 
+    public required ProprietaryReason1Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the processed instruction.
     /// </summary>

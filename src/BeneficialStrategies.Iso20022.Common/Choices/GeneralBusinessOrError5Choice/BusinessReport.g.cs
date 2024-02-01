@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneralBusinessOrError5Choice;
 /// <summary>
 /// Reports either on the business information or on a business error.
 /// </summary>
-public partial record BusinessReport : IGeneralBusinessOrError5Choice
+public partial record BusinessReport : GeneralBusinessOrError5Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record BusinessReport : IGeneralBusinessOrError5Choice
     /// <summary>
     /// Requested business information.
     /// </summary>
-    public required IGeneralBusinessOrError6Choice GeneralBusinessOrError { get; init; } 
+    public required GeneralBusinessOrError6Choice_ GeneralBusinessOrError { get; init; } 
     #nullable disable
 }

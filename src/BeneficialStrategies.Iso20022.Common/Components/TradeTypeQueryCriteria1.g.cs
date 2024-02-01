@@ -24,11 +24,11 @@ public partial record TradeTypeQueryCriteria1
     /// <summary>
     /// Query criteria related to the type of the securities financing transaction.
     /// </summary>
-    public ExposureType6Code? SecuritiesFinancingTransactionType { get; init;  } // Warning: Don't know multiplicity.
+    public ExposureType6Code[] SecuritiesFinancingTransactionType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Query criteria related to the type of the collateral component.
     /// </summary>
-    public CollateralType6Code? CollateralComponentType { get; init;  } // Warning: Don't know multiplicity.
+    public CollateralType6Code[] CollateralComponentType { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

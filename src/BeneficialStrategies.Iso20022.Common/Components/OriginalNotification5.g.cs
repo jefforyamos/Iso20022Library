@@ -40,7 +40,7 @@ public partial record OriginalNotification5
     /// <summary>
     /// Identifies the original notification item and provides the status.
     /// </summary>
-    public OriginalNotificationReference3? OriginalNotificationReference { get; init;  } // Warning: Don't know multiplicity.
+    public OriginalNotificationReference3[] OriginalNotificationReference { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

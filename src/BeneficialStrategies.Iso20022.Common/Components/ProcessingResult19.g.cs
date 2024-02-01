@@ -28,7 +28,7 @@ public partial record ProcessingResult19
     /// <summary>
     /// Error detail information
     /// </summary>
-    public ErrorDetails2? ErrorDetail { get; init;  } // Warning: Don't know multiplicity.
+    public ErrorDetails2[] ErrorDetail { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Outcome of a previous processing, for example, in response to a duplicate request.
     /// </summary>
@@ -37,7 +37,7 @@ public partial record ProcessingResult19
     /// Additional information relevant for the destination.
     /// ISO 8583 bit 44
     /// </summary>
-    public AdditionalInformation30? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation30[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

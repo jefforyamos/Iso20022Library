@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DatePeriod1Choice;
 /// <summary>
 /// Time span defined by a month and a year.
 /// </summary>
-public partial record DateMonth : IDatePeriod1Choice
+public partial record DateMonth : DatePeriod1Choice_
 {
     public required IsoISOYearMonth Value { get; init; }
 }

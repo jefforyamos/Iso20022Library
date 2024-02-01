@@ -20,7 +20,7 @@ public partial record AccountManagementStatusAndReason2
     /// <summary>
     /// Status of the account opening instruction or account modification instruction.
     /// </summary>
-    public required IStatus12Choice Status { get; init; } 
+    public required Status12Choice_ Status { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the account opening or modification instruction at application level.
     /// </summary>

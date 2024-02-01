@@ -72,7 +72,7 @@ public partial record PaymentInstructionInformation1
     /// <summary>
     /// Set of elements providing information specific to the individual transaction(s) included in the message.
     /// </summary>
-    public CreditTransferTransactionInformation1? CreditTransferTransactionInformation { get; init;  } // Warning: Don't know multiplicity.
+    public CreditTransferTransactionInformation1[] CreditTransferTransactionInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

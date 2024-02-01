@@ -36,11 +36,11 @@ public partial record PaymentTransactionInformation34
     /// <summary>
     /// Set of elements used to provide detailed information on the status reason.
     /// </summary>
-    public StatusReasonInformation9? StatusReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public StatusReasonInformation9[] StatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information on the charges related to the processing of the rejection of the instruction.|Usage: This is passed on for information purposes only. Settlement of the charges will be done separately.
     /// </summary>
-    public ChargesInformation7? ChargesInformation { get; init;  } // Warning: Don't know multiplicity.
+    public ChargesInformation7[] ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Point in time when the payment order from the initiating party meets the processing conditions of the account servicing agent. This means that the account servicing agent has received the payment order and has applied checks such as authorisation, availability of funds.
     /// </summary>

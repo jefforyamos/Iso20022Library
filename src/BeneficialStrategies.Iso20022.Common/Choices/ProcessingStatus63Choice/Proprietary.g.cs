@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus63Choice;
 /// <summary>
 /// Status that cannot be reported using one of the available standard status.
 /// </summary>
-public partial record Proprietary : IProcessingStatus63Choice
+public partial record Proprietary : ProcessingStatus63Choice_
 {
     #nullable enable
     /// <summary>

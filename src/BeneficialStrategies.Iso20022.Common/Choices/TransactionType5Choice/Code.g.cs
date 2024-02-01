@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionType5Choice;
 /// <summary>
 /// Transaction type expressed as a code.
 /// </summary>
-public partial record Code : ITransactionType5Choice
+public partial record Code : TransactionType5Choice_
 {
     public required InvestmentFundTransactionType1Code Value { get; init; }
 }

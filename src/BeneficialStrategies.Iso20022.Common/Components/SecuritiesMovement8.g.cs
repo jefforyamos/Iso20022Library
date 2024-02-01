@@ -28,11 +28,11 @@ public partial record SecuritiesMovement8
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
-    public required IQuantity51Choice SecuritiesQuantity { get; init; } 
+    public required Quantity51Choice_ SecuritiesQuantity { get; init; } 
     /// <summary>
     /// Securities movement status.
     /// </summary>
-    public ISecuritiesMovementStatus1Choice? MovementStatus { get; init; } 
+    public SecuritiesMovementStatus1Choice_? MovementStatus { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is delivered/received as collateral.
     /// </summary>

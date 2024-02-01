@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentSchedule1Choice;
 /// <summary>
 /// Specifies a payment sub-schedule, that is the amount of money that must be paid no sooner than the expected date and no later than the latest shipment date.
 /// </summary>
-public partial record SubSchedule : IPaymentSchedule1Choice
+public partial record SubSchedule : PaymentSchedule1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PurposeChoice;
 /// <summary>
 /// Payment transaction purpose that is specific to a user community and is required for use within that user community.
 /// </summary>
-public partial record Proprietary : IPurposeChoice
+public partial record Proprietary : PurposeChoice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TypeOfAmount1Choice;
 /// <summary>
 /// Type of amount expressed as a code.
 /// </summary>
-public partial record Code : ITypeOfAmount1Choice
+public partial record Code : TypeOfAmount1Choice_
 {
     public required TaxWrapperAmountType1Code Value { get; init; }
 }

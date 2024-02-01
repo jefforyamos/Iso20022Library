@@ -24,11 +24,11 @@ public partial record RedemptionMultipleOrderInstruction2
     /// <summary>
     /// Information about parties related to the transaction.
     /// </summary>
-    public IReadOnlyCollection<Intermediary8> RelatedPartyDetails { get; init; } = [];
+    public Intermediary8[] RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1? Extension { get; init;  } // Warning: Don't know multiplicity.
+    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -32,7 +32,7 @@ public partial record PartyIdentification58
     /// <summary>
     /// Unique and unambiguous way to identify the party.
     /// </summary>
-    public required IParty13Choice Identification { get; init; } 
+    public required Party13Choice_ Identification { get; init; } 
     /// <summary>
     /// Country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
     /// </summary>

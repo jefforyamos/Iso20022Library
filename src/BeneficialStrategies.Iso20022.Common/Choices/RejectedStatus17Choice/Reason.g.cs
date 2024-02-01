@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedStatus17Choice;
 /// <summary>
 /// Reason for the rejected status.
 /// </summary>
-public partial record Reason : IRejectedStatus17Choice
+public partial record Reason : RejectedStatus17Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the instruction/request has a rejected status.
     /// </summary>
-    public required IRejectionReason25Choice Code { get; init; } 
+    public required RejectionReason25Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat4Choice;
 /// <summary>
 /// The date is not specified, eg, the date is unknown.
 /// </summary>
-public partial record NotSpecifiedDate : IDateFormat4Choice
+public partial record NotSpecifiedDate : DateFormat4Choice_
 {
     public required DateType6Code Value { get; init; }
 }

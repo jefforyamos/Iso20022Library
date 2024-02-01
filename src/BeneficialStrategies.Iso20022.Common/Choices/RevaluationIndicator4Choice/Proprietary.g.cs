@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RevaluationIndicator4Choice;
 /// <summary>
 /// Revaluation information provided as a proprietary code.
 /// </summary>
-public partial record Proprietary : IRevaluationIndicator4Choice
+public partial record Proprietary : RevaluationIndicator4Choice_
 {
     #nullable enable
     /// <summary>

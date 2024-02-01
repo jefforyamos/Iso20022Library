@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusReason1Choice;
 /// <summary>
 /// Reason why the payment status is pending (failing settlement).
 /// </summary>
-public partial record PendingFailingSettlement : IPaymentStatusReason1Choice
+public partial record PendingFailingSettlement : PaymentStatusReason1Choice_
 {
     public required PendingFailingSettlement1Code Value { get; init; }
 }

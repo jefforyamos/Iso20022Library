@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FundOrderType1Choice;
 /// <summary>
 /// Order type expressed as a code.
 /// </summary>
-public partial record Type : IFundOrderType1Choice
+public partial record Type : FundOrderType1Choice_
 {
     public required FundOrderType6Code Value { get; init; }
 }

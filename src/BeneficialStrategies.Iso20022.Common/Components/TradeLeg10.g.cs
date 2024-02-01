@@ -48,7 +48,7 @@ public partial record TradeLeg10
     /// <summary>
     /// Provides the contractual settlement date.
     /// </summary>
-    public required IDateFormat15Choice SettlementDate { get; init; } 
+    public required DateFormat15Choice_ SettlementDate { get; init; } 
     /// <summary>
     /// Specifies the ISO code of the trade currency.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record TradeLeg10
     /// <summary>
     /// Identifies the quantity of the trade leg.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice TradeQuantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ TradeQuantity { get; init; } 
     /// <summary>
     /// Specifies the price of the traded financial instrument.
     /// </summary>
@@ -92,7 +92,7 @@ public partial record TradeLeg10
     /// <summary>
     /// Provides the identification of the trading party.
     /// </summary>
-    public required IPartyIdentification35Choice TradingParty { get; init; } 
+    public required PartyIdentification35Choice_ TradingParty { get; init; } 
     /// <summary>
     /// Indicates in which session the transaction/operation was executed by the final investor or an intermediary.
     /// </summary>
@@ -112,7 +112,7 @@ public partial record TradeLeg10
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public ISafekeepingPlaceFormat7Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat7Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>

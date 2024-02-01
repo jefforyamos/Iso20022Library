@@ -20,7 +20,7 @@ public partial record Tax22
     /// <summary>
     /// Specifies the type of tax.
     /// </summary>
-    public required ITaxType2Choice Type { get; init; } 
+    public required TaxType2Choice_ Type { get; init; } 
     /// <summary>
     /// Specifies the tax as an amount.
     /// </summary>

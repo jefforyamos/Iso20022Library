@@ -159,7 +159,7 @@ public partial record PEPOrISAOrPortfolioInformationV01 : IOuterRecord
     [DataMember(Name="NewPlanMgr")]
     [XmlElement(ElementName="NewPlanMgr")]
     [Required]
-    public required IPartyIdentification2Choice NewPlanManager { get; init; }
+    public required PartyIdentification2Choice_ NewPlanManager { get; init; }
     
     /// <summary>
     /// Provides information related to the asset(s) transferred.

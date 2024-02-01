@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitsOrAmount1Choice;
 /// <summary>
 /// Currency and amount of the periodical payments.
 /// </summary>
-public partial record Amount : IUnitsOrAmount1Choice
+public partial record Amount : UnitsOrAmount1Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

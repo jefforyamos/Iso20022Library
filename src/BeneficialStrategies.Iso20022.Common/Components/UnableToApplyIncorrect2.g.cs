@@ -20,7 +20,7 @@ public partial record UnableToApplyIncorrect2
     /// <summary>
     /// Specifies which data type is incorrect in the transaction.
     /// </summary>
-    public required IIncorrectData1Choice Type { get; init; } 
+    public required IncorrectData1Choice_ Type { get; init; } 
     /// <summary>
     /// Further details about the incorrect information.
     /// </summary>

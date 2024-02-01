@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnmatchedReason27Choice;
 /// <summary>
 /// Specifies the reason why the instruction has an unmatched status.
 /// </summary>
-public partial record Code : IUnmatchedReason27Choice
+public partial record Code : UnmatchedReason27Choice_
 {
     public required UnmatchedReason11Code Value { get; init; }
 }

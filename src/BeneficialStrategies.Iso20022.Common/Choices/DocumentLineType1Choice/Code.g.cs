@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DocumentLineType1Choice;
 /// <summary>
 /// Line identification type in a coded form.
 /// </summary>
-public partial record Code : IDocumentLineType1Choice
+public partial record Code : DocumentLineType1Choice_
 {
     public required ExternalDocumentLineType1Code Value { get; init; }
 }

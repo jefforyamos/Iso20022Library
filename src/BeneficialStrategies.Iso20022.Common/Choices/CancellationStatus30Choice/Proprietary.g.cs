@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationStatus30Choice;
 /// <summary>
 /// Instruction is unsettled.
 /// </summary>
-public partial record Proprietary : ICancellationStatus30Choice
+public partial record Proprietary : CancellationStatus30Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity5Choice;
 /// <summary>
 /// Official Economic Statistics commodities.
 /// </summary>
-public partial record OfficialEconomicStatistics : IAssetClassCommodity5Choice
+public partial record OfficialEconomicStatistics : AssetClassCommodity5Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TerminationDate6Choice;
 /// <summary>
 /// Closing date/time or maturity date/time of the transaction expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ITerminationDate6Choice
+public partial record Code : TerminationDate6Choice_
 {
     #nullable enable
     #nullable disable

@@ -28,7 +28,7 @@ public partial record CollateralData27
     /// <summary>
     /// Identification of the collateral basket.
     /// </summary>
-    public ISecurityIdentification26Choice? BasketIdentifier { get; init; } 
+    public SecurityIdentification26Choice_? BasketIdentifier { get; init; } 
     
     #nullable disable
 }

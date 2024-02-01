@@ -24,7 +24,7 @@ public partial record RequestDetails4
     /// <summary>
     /// Data being returned.
     /// </summary>
-    public ReportParameter1? ReportData { get; init;  } // Warning: Don't know multiplicity.
+    public ReportParameter1[] ReportData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

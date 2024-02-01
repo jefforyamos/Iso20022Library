@@ -24,7 +24,7 @@ public partial record CardPaymentDataSet1
     /// <summary>
     /// Identification of partners involved in the data set building.
     /// </summary>
-    public Traceability1? Traceability { get; init;  } // Warning: Don't know multiplicity.
+    public Traceability1[] Traceability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Initiator of the data set.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record CardPaymentDataSet1
     /// <summary>
     /// Transaction totals of the data set.
     /// </summary>
-    public TransactionTotals1? TransactionTotals { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionTotals1[] TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data common to all transactions of the data set.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record CardPaymentDataSet1
     /// <summary>
     /// Set of transaction to capture.
     /// </summary>
-    public CardPaymentDataSetTransaction1? TransactionToCapture { get; init;  } // Warning: Don't know multiplicity.
+    public CardPaymentDataSetTransaction1[] TransactionToCapture { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

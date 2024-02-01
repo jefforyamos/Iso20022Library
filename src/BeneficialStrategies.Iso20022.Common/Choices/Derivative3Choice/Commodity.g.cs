@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative3Choice;
 /// <summary>
 /// Details specific for commodity derivatives.
 /// </summary>
-public partial record Commodity : IDerivative3Choice
+public partial record Commodity : Derivative3Choice_
 {
     #nullable enable
     /// <summary>
     /// Provides specific information related to commodity derivatives.
     /// </summary>
-    public ICommodityDerivative2Choice? ClassSpecific { get; init; } 
+    public CommodityDerivative2Choice_? ClassSpecific { get; init; } 
     /// <summary>
     /// Currency in which the notional is denominated.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RatioFormat1Choice;
 /// <summary>
 /// The value of the ratio is not specified.
 /// </summary>
-public partial record NotSpecifiedRate : IRatioFormat1Choice
+public partial record NotSpecifiedRate : RatioFormat1Choice_
 {
     #nullable enable
     #nullable disable

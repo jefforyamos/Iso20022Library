@@ -20,7 +20,7 @@ public partial record CashMovement3
     /// <summary>
     /// Date and time of the posting.
     /// </summary>
-    public IDateAndDateTimeChoice? PostingDateTime { get; init; } 
+    public DateAndDateTimeChoice_? PostingDateTime { get; init; } 
     /// <summary>
     /// Value date.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record CashMovement3
     /// <summary>
     /// Provides information about the account which is debited/credited.
     /// </summary>
-    public IReadOnlyCollection<CashAccount18> AccountDetails { get; init; } = [];
+    public CashAccount18[] AccountDetails { get; init; } = [];
     
     #nullable disable
 }

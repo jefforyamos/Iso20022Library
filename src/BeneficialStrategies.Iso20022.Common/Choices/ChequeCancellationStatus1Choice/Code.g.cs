@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChequeCancellationStatus1Choice;
 /// <summary>
 /// Status, in a coded form, as published in an external code set.
 /// </summary>
-public partial record Code : IChequeCancellationStatus1Choice
+public partial record Code : ChequeCancellationStatus1Choice_
 {
     public required ExternalChequeCancellationStatus1Code Value { get; init; }
 }

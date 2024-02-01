@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason20Choice;
 /// <summary>
 /// Specifies the reason why the instruction has a pending processing status.
 /// </summary>
-public partial record PendingProcessingReason : IReason20Choice
+public partial record PendingProcessingReason : Reason20Choice_
 {
     #nullable enable
     #nullable disable

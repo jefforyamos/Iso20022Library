@@ -36,7 +36,7 @@ public partial record Agreement2
     /// <summary>
     /// Specifies the underlying master agreement.
     /// </summary>
-    public IAgreementFramework1Choice? AgreementFramework { get; init; } 
+    public AgreementFramework1Choice_? AgreementFramework { get; init; } 
     
     #nullable disable
 }

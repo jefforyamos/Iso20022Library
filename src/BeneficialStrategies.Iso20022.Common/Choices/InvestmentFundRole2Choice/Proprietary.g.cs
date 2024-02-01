@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestmentFundRole2Choice;
 /// <summary>
 /// Role expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IInvestmentFundRole2Choice
+public partial record Proprietary : InvestmentFundRole2Choice_
 {
     #nullable enable
     /// <summary>

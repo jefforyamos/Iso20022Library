@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StressSize1Choice;
 /// <summary>
 /// Percentage shift if the shift is defined as a relative move.
 /// </summary>
-public partial record Relative : IStressSize1Choice
+public partial record Relative : StressSize1Choice_
 {
     public required IsoBaseOneRate Value { get; init; }
 }

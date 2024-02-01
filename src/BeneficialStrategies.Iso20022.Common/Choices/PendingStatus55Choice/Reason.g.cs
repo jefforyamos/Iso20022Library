@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingStatus55Choice;
 /// <summary>
 /// Reason why the meeting instruction message or the individual meeting instruction is pending.
 /// </summary>
-public partial record Reason : IPendingStatus55Choice
+public partial record Reason : PendingStatus55Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the pending status.
     /// </summary>
-    public required IPendingReason51Choice ReasonCode { get; init; } 
+    public required PendingReason51Choice_ ReasonCode { get; init; } 
     /// <summary>
     /// Additional information about the pending status.
     /// </summary>

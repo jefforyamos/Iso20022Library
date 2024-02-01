@@ -20,7 +20,7 @@ public partial record PendingProcessingStatusReason1
     /// <summary>
     /// Reason for the pending status.
     /// </summary>
-    public required IPendingProcessingReason9Choice Reason { get; init; } 
+    public required PendingProcessingReason9Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the processed instruction.
     /// </summary>

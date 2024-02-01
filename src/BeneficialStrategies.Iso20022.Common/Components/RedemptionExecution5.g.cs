@@ -32,7 +32,7 @@ public partial record RedemptionExecution5
     /// <summary>
     /// Specifies the category of the investment fund order.
     /// </summary>
-    public IReadOnlyCollection<FundOrderType3> OrderType { get; init; } = [];
+    public FundOrderType3[] OrderType { get; init; } = [];
     /// <summary>
     /// Additional information about the investor.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record RedemptionExecution5
     /// <summary>
     /// Date and time at which a price is applied, according to the terms stated in the prospectus.
     /// </summary>
-    public required IDateAndDateTimeChoice TradeDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
@@ -84,7 +84,7 @@ public partial record RedemptionExecution5
     /// <summary>
     /// Other quoted price than the one at which the order was executed.
     /// </summary>
-    public IReadOnlyCollection<UnitPrice10> InformativePriceDetails { get; init; } = [];
+    public UnitPrice10[] InformativePriceDetails { get; init; } = [];
     /// <summary>
     /// Indicates whether the order has been partially executed, ie, the confirmed quantity does not match the ordered quantity for a given financial instrument.
     /// </summary>
@@ -100,11 +100,11 @@ public partial record RedemptionExecution5
     /// <summary>
     /// Part of the price deemed as accrued income or profit rather than capital. The interim profit amount is used for tax purposes.
     /// </summary>
-    public IProfitAndLoss1Choice? InterimProfitAmount { get; init; } 
+    public ProfitAndLoss1Choice_? InterimProfitAmount { get; init; } 
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// </summary>
-    public ForeignExchangeTerms7? ForeignExchangeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ForeignExchangeTerms7[] ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
@@ -124,7 +124,7 @@ public partial record RedemptionExecution5
     /// <summary>
     /// Breakdown of the net amount per type of order.
     /// </summary>
-    public IReadOnlyCollection<InvestmentFundsOrderBreakdown1> StaffClientBreakdown { get; init; } = [];
+    public InvestmentFundsOrderBreakdown1[] StaffClientBreakdown { get; init; } = [];
     /// <summary>
     /// Tax related to an investment fund order.
     /// </summary>
@@ -176,7 +176,7 @@ public partial record RedemptionExecution5
     /// <summary>
     /// Information about parties related to the transaction.
     /// </summary>
-    public IReadOnlyCollection<Intermediary9> RelatedPartyDetails { get; init; } = [];
+    public Intermediary9[] RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Part of an investor's subscription amount that is held by the fund in order to pay incentive / performance fees at the end of the fiscal year.
     /// </summary>

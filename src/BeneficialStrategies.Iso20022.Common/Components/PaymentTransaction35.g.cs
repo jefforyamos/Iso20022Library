@@ -44,7 +44,7 @@ public partial record PaymentTransaction35
     /// <summary>
     /// Provides detailed information on the reversal reason.
     /// </summary>
-    public PaymentReversalReason7? ReversalReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentReversalReason7[] ReversalReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Key elements used to identify the original transaction that is being referred to.
     /// </summary>

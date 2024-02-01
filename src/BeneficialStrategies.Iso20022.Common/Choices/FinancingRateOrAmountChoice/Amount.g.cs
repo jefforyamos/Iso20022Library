@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancingRateOrAmountChoice;
 /// <summary>
 /// Amount expressed as an absolute value.
 /// </summary>
-public partial record Amount : IFinancingRateOrAmountChoice
+public partial record Amount : FinancingRateOrAmountChoice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

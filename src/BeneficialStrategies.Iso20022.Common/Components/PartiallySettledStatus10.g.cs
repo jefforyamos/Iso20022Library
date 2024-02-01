@@ -20,7 +20,7 @@ public partial record PartiallySettledStatus10
     /// <summary>
     /// Reason for the partially settled status.
     /// </summary>
-    public required IPartiallySettled21Choice Reason { get; init; } 
+    public required PartiallySettled21Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the partially settled reason.
     /// </summary>

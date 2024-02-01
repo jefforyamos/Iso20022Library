@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionMandatoryVoluntar
 /// <summary>
 /// Proprietary identification of an event.
 /// </summary>
-public partial record Proprietary : ICorporateActionMandatoryVoluntary1Choice
+public partial record Proprietary : CorporateActionMandatoryVoluntary1Choice_
 {
     #nullable enable
     /// <summary>

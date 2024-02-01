@@ -24,7 +24,7 @@ public partial record ReservationQuery5
     /// <summary>
     /// Defines the reservation query criteria.
     /// </summary>
-    public IReservationCriteria5Choice? ReservationCriteria { get; init; } 
+    public ReservationCriteria5Choice_? ReservationCriteria { get; init; } 
     
     #nullable disable
 }

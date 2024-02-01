@@ -24,7 +24,7 @@ public partial record TransactionCriteria7
     /// <summary>
     /// Defines the criteria on which the information is extracted.
     /// </summary>
-    public TransactionSearchCriteria7? SearchCriteria { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionSearchCriteria7[] SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the format of the requested report.
     /// </summary>

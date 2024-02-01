@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FailedSettlementReason1FormatCho
 /// <summary>
 /// Proprietary code for specifying the reason of a settlement failure.
 /// </summary>
-public partial record Proprietary : IFailedSettlementReason1FormatChoice
+public partial record Proprietary : FailedSettlementReason1FormatChoice_
 {
     #nullable enable
     /// <summary>

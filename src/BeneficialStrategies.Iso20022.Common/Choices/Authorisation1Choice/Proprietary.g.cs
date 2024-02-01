@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Authorisation1Choice;
 /// <summary>
 /// Specifies the authorisation, in a free text form.
 /// </summary>
-public partial record Proprietary : IAuthorisation1Choice
+public partial record Proprietary : Authorisation1Choice_
 {
     public required IsoMax128Text Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingPartyCapacity2Choice;
 /// <summary>
 /// Trading capacity expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITradingPartyCapacity2Choice
+public partial record Proprietary : TradingPartyCapacity2Choice_
 {
     #nullable enable
     /// <summary>

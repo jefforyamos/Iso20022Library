@@ -32,11 +32,11 @@ public partial record InvestmentAccount25
     /// <summary>
     /// Party that provides services relating to financial products to investors, eg, advice on products and placement of orders for the investment fund.
     /// </summary>
-    public IReadOnlyCollection<Intermediary11> IntermediaryInformation { get; init; } = [];
+    public Intermediary11[] IntermediaryInformation { get; init; } = [];
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountServicer { get; init; } 
+    public PartyIdentification2Choice_? AccountServicer { get; init; } 
     
     #nullable disable
 }

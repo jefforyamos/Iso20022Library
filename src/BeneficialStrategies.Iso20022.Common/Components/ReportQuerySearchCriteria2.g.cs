@@ -20,11 +20,11 @@ public partial record ReportQuerySearchCriteria2
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public IAccountIdentificationSearchCriteria2Choice? AccountIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public AccountIdentificationSearchCriteria2Choice_[] AccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Numerical representation of the net increases and decreases in an account at a specific point in time. A cash balance is calculated from a sum of cash credits minus a sum of cash debits.
     /// </summary>
-    public CashBalance12? Balance { get; init;  } // Warning: Don't know multiplicity.
+    public CashBalance12[] Balance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Values of possible reports.
     /// </summary>
@@ -44,15 +44,15 @@ public partial record ReportQuerySearchCriteria2
     /// <summary>
     /// Date and time when the report was created.
     /// </summary>
-    public IDatePeriodSearch1Choice? DateSearch { get; init; } 
+    public DatePeriodSearch1Choice_? DateSearch { get; init; } 
     /// <summary>
     /// Time when the (business) event, which triggered the report, was scheduled.
     /// </summary>
-    public IDateTimePeriod1Choice? ScheduledTime { get; init; } 
+    public DateTimePeriod1Choice_? ScheduledTime { get; init; } 
     /// <summary>
     /// Execution type is executed based on an event driven trigger.
     /// </summary>
-    public IEventType1Choice? Event { get; init; } 
+    public EventType1Choice_? Event { get; init; } 
     
     #nullable disable
 }

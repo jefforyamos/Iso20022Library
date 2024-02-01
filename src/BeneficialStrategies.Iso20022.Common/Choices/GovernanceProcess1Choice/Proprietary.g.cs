@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GovernanceProcess1Choice;
 /// <summary>
 /// Type of governance process expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IGovernanceProcess1Choice
+public partial record Proprietary : GovernanceProcess1Choice_
 {
     #nullable enable
     /// <summary>

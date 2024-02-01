@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingRateIdentification1Choice
 /// <summary>
 /// Specifies the billing rate identification code, as defined in a proprietary format.
 /// </summary>
-public partial record Proprietary : IBillingRateIdentification1Choice
+public partial record Proprietary : BillingRateIdentification1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

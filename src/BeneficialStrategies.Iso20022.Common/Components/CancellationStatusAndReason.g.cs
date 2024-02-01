@@ -24,15 +24,15 @@ public partial record CancellationStatusAndReason
     /// <summary>
     /// Status of transfer cancellation is rejected.
     /// </summary>
-    public required ITransferCancellationRejectedStatus1Choice Rejected { get; init; } 
+    public required TransferCancellationRejectedStatus1Choice_ Rejected { get; init; } 
     /// <summary>
     /// Status of the transfer cancellation is complete. The cancellation instruction has been accepted and processed, the cancellation is complete.
     /// </summary>
-    public required ITransferCancellationCompleteStatusChoice Complete { get; init; } 
+    public required TransferCancellationCompleteStatusChoice_ Complete { get; init; } 
     /// <summary>
     /// Party that initiates the status.
     /// </summary>
-    public IPartyIdentification1Choice? StatusInitiator { get; init; } 
+    public PartyIdentification1Choice_? StatusInitiator { get; init; } 
     
     #nullable disable
 }

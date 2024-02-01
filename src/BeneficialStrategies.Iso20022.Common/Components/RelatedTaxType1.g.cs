@@ -20,7 +20,7 @@ public partial record RelatedTaxType1
     /// <summary>
     /// Specifies the type of tax.
     /// </summary>
-    public required ITaxType3FormatChoice TaxType { get; init; } 
+    public required TaxType3FormatChoice_ TaxType { get; init; } 
     /// <summary>
     /// The value of the related tax expressed as an amount.
     /// </summary>

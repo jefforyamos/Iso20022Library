@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PreferenceToIncome5Choice;
 /// <summary>
 /// Preference to income expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IPreferenceToIncome5Choice
+public partial record Proprietary : PreferenceToIncome5Choice_
 {
     #nullable enable
     /// <summary>

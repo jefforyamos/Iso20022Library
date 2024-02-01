@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeTransactionCondition7Choice
 /// <summary>
 /// Trade transaction condition expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ITradeTransactionCondition7Choice
+public partial record Code : TradeTransactionCondition7Choice_
 {
     public required TradeTransactionCondition2Code Value { get; init; }
 }

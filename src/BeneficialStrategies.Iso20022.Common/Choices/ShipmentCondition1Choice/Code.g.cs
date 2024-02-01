@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ShipmentCondition1Choice;
 /// <summary>
 /// Shipment conditions expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IShipmentCondition1Choice
+public partial record Code : ShipmentCondition1Choice_
 {
     public required ExternalShipmentCondition1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AdditionalAmount1Choice;
 /// <summary>
 /// Amount of money that results from a switch-out, that is not reinvested in another investment fund, and is repaid to the investor.
 /// </summary>
-public partial record ResultingCashOut : IAdditionalAmount1Choice
+public partial record ResultingCashOut : AdditionalAmount1Choice_
 {
     public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
 }

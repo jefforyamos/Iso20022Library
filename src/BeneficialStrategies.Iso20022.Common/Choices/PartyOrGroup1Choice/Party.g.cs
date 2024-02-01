@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrGroup1Choice;
 /// <summary>
 /// Specifies a party.
 /// </summary>
-public partial record Party : IPartyOrGroup1Choice
+public partial record Party : PartyOrGroup1Choice_
 {
     #nullable enable
     /// <summary>

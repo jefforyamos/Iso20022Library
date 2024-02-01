@@ -56,7 +56,7 @@ public partial record AccountNotification1
     /// <summary>
     /// Specifies the elements of an entry in the report.||Usage: At least one reference must be provided to identify the entry and its underlying transaction(s).
     /// </summary>
-    public NotificationEntry1? Entry { get; init;  } // Warning: Don't know multiplicity.
+    public NotificationEntry1[] Entry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further details on the account notification.
     /// </summary>

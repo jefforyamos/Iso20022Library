@@ -25,15 +25,15 @@ public partial record DividendSD1
     /// <summary>
     /// Provides the total annual dividend rate as announced by the Issuer.
     /// </summary>
-    public IRateAndAmountFormat16Choice? TotalAnnualDividendRate { get; init; } 
+    public RateAndAmountFormat16Choice_? TotalAnnualDividendRate { get; init; } 
     /// <summary>
     /// Provides the maximum annual total dividend rate as announced by the Issuer.
     /// </summary>
-    public IRateAndAmountFormat16Choice? MaximumAnnualTotalDividendRate { get; init; } 
+    public RateAndAmountFormat16Choice_? MaximumAnnualTotalDividendRate { get; init; } 
     /// <summary>
     /// Provides the minimum annual total dividend rate as announced by the Issuer.
     /// </summary>
-    public IRateAndAmountFormat16Choice? MinimumAnnualTotalDividendRate { get; init; } 
+    public RateAndAmountFormat16Choice_? MinimumAnnualTotalDividendRate { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PlaceOrUnderConfirmationChoice1;
 /// <summary>
 /// Party to which the presentation is to be made.
 /// </summary>
-public partial record PlaceOfPresentation : IPlaceOrUnderConfirmationChoice1
+public partial record PlaceOfPresentation : PlaceOrUnderConfirmationChoice1_
 {
     #nullable enable
     /// <summary>

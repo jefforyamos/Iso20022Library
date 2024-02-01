@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedReason5Choice;
 /// <summary>
 /// Standard code to specify the reason why the instruction/cancellation request has a rejected status.
 /// </summary>
-public partial record Code : IRejectedReason5Choice
+public partial record Code : RejectedReason5Choice_
 {
     public required RejectionReason42Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationPendingStatus7Choice
 /// <summary>
 /// Reason for the cancellation pending status.
 /// </summary>
-public partial record Reason : ICancellationPendingStatus7Choice
+public partial record Reason : CancellationPendingStatus7Choice_
 {
     public required IsoMax350Text Value { get; init; }
 }

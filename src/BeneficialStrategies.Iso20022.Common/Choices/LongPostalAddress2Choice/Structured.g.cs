@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LongPostalAddress2Choice;
 /// <summary>
 /// Information that locates and identifies a specific address, as defined by postal services, that is presented in a formal structure.
 /// </summary>
-public partial record Structured : ILongPostalAddress2Choice
+public partial record Structured : LongPostalAddress2Choice_
 {
     #nullable enable
     /// <summary>

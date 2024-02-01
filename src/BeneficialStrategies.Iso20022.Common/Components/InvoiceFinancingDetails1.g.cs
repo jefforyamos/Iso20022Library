@@ -32,7 +32,7 @@ public partial record InvoiceFinancingDetails1
     /// <summary>
     /// Includes details about a single instalment within an invoice, such as identification and amount.
     /// </summary>
-    public InstalmentFinancingInformation1? InstalmentFinancingInformation { get; init;  } // Warning: Don't know multiplicity.
+    public InstalmentFinancingInformation1[] InstalmentFinancingInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

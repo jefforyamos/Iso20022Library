@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitReportOrError4Choice;
 /// <summary>
 /// Reports on limits.
 /// </summary>
-public partial record BusinessReport : ILimitReportOrError4Choice
+public partial record BusinessReport : LimitReportOrError4Choice_
 {
     #nullable enable
     /// <summary>

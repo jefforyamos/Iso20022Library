@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitsOrAmountOrPercentage1Choice
 /// <summary>
 /// Number of units.
 /// </summary>
-public partial record Unit : IUnitsOrAmountOrPercentage1Choice
+public partial record Unit : UnitsOrAmountOrPercentage1Choice_
 {
     public required IsoDecimalNumber Value { get; init; }
 }

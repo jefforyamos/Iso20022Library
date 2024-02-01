@@ -49,7 +49,7 @@ public partial record MultilateralSettlementRequest2
     /// Credit or debit transaction contained in an individual settlement request.
     /// Usage: Number of occurrences of MovementRecord shall always be even.
     /// </summary>
-    public MovementRecord1? MovementRecord { get; init;  } // Warning: Don't know multiplicity.
+    public MovementRecord1[] MovementRecord { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

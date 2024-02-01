@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ForeignExchangeSwap3Choice;
 /// <summary>
 /// Provides the details of the foreign exchange transaction as reported by the reporting agent.
 /// </summary>
-public partial record Transaction : IForeignExchangeSwap3Choice
+public partial record Transaction : ForeignExchangeSwap3Choice_
 {
     #nullable enable
     /// <summary>
@@ -48,14 +48,14 @@ public partial record Transaction : IForeignExchangeSwap3Choice
     /// <summary>
     /// Identification of the counterparty of the reporting agent for the reported transaction.
     /// </summary>
-    public required ICounterpartyIdentification3Choice CounterpartyIdentification { get; init; } 
+    public required CounterpartyIdentification3Choice_ CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Date and time on which the parties entered into the reported transaction.
     /// Usage: when time is available, it must be reported.
     /// It is to be reported with only the date when the time of the transaction is not available. 
     /// The reported time is the execution time when available or otherwise the time at which the transaction entered the trading system of the reporting agent.
     /// </summary>
-    public required IDateAndDateTimeChoice TradeDate { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDate { get; init; } 
     /// <summary>
     /// Date on which one party sells to the other a specified amount of a specified currency against payment of an agreed amount of a specified different currency based on an agreed foreign exchange rate known as foreign exchange spot rate.
     /// </summary>

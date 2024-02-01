@@ -24,7 +24,7 @@ public partial record CardPaymentDataSetTransaction11
     /// <summary>
     /// Identification of partners involved in the exchange from the merchant to the issuer, with the corresponding timestamp of their exchanges.
     /// </summary>
-    public Traceability2? Traceability { get; init;  } // Warning: Don't know multiplicity.
+    public Traceability2[] Traceability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data related to the environment of the cancelled transaction captured in batch.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentAggregateBala
 /// <summary>
 /// Indicates whether holdings are present.
 /// </summary>
-public partial record HoldingsIndicator : IFinancialInstrumentAggregateBalance1Choice
+public partial record HoldingsIndicator : FinancialInstrumentAggregateBalance1Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

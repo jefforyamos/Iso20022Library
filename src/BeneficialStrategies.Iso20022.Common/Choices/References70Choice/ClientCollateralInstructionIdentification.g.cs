@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References70Choice;
 /// <summary>
 /// Unique reference identifying the collateral management transaction from the client's point of view.
 /// </summary>
-public partial record ClientCollateralInstructionIdentification : IReferences70Choice
+public partial record ClientCollateralInstructionIdentification : References70Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

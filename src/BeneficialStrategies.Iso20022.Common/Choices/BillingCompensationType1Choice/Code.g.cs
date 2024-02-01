@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingCompensationType1Choice;
 /// <summary>
 /// Defines the type of billing compensation, as published in an external billing compensation type code list.
 /// </summary>
-public partial record Code : IBillingCompensationType1Choice
+public partial record Code : BillingCompensationType1Choice_
 {
     public required ExternalBillingCompensationType1Code Value { get; init; }
 }

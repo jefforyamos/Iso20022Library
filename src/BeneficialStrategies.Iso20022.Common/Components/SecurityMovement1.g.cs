@@ -28,11 +28,11 @@ public partial record SecurityMovement1
     /// <summary>
     /// Quantitty of financial instrument.
     /// </summary>
-    public required IUnitOrFaceAmount1Choice SecuritiesQuantity { get; init; } 
+    public required UnitOrFaceAmount1Choice_ SecuritiesQuantity { get; init; } 
     /// <summary>
     /// Provides information about the account which is debited/credited.
     /// </summary>
-    public IReadOnlyCollection<SecuritiesAccount12> AccountDetails { get; init; } = [];
+    public SecuritiesAccount12[] AccountDetails { get; init; } = [];
     
     #nullable disable
 }

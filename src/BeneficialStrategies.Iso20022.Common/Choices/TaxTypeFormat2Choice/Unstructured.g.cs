@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxTypeFormat2Choice;
 /// <summary>
 /// Specifies the type of tax in free text form.
 /// </summary>
-public partial record Unstructured : ITaxTypeFormat2Choice
+public partial record Unstructured : TaxTypeFormat2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

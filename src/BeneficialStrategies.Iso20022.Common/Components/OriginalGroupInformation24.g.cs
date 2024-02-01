@@ -52,11 +52,11 @@ public partial record OriginalGroupInformation24
     /// <summary>
     /// Set of elements used to provide detailed information on the cancellation status reason.
     /// </summary>
-    public CancellationStatusReasonInformation1? CancellationStatusReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public CancellationStatusReasonInformation1[] CancellationStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Detailed information on the number of transactions for each identical cancellation status.
     /// </summary>
-    public NumberOfTransactionsPerStatus1? NumberOfTransactionsPerCancellationStatus { get; init;  } // Warning: Don't know multiplicity.
+    public NumberOfTransactionsPerStatus1[] NumberOfTransactionsPerCancellationStatus { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

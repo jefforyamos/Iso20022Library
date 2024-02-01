@@ -24,7 +24,7 @@ public partial record SystemPartyIdentification4
     /// <summary>
     /// Unique identification of the party responsible (national central bank or central securities depositary) for the party reference data.
     /// </summary>
-    public ICSDOrNCB1Choice? ResponsiblePartyIdentification { get; init; } 
+    public CSDOrNCB1Choice_? ResponsiblePartyIdentification { get; init; } 
     
     #nullable disable
 }

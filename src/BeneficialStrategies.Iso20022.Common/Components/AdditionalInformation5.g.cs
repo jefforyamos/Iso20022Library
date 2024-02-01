@@ -20,7 +20,7 @@ public partial record AdditionalInformation5
     /// <summary>
     /// Contains additional information related to the message.
     /// </summary>
-    public IsoMax256Text? Information { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax256Text[] Information { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

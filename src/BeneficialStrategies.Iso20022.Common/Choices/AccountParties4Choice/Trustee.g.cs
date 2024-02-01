@@ -12,17 +12,17 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties4Choice;
 /// <summary>
 /// Legal owners of the property. However, the beneficiary has the equitable or beneficial ownership.
 /// </summary>
-public partial record Trustee : IAccountParties4Choice
+public partial record Trustee : AccountParties4Choice_
 {
     #nullable enable
     /// <summary>
     /// Information about the organisation or individual person.
     /// </summary>
-    public required IParty16Choice Party { get; init; } 
+    public required Party16Choice_ Party { get; init; } 
     /// <summary>
     /// Status of an identity check to prevent money laundering. This includes the counter-terrorism check.
     /// </summary>
-    public IMoneyLaunderingCheck1Choice? MoneyLaunderingCheck { get; init; } 
+    public MoneyLaunderingCheck1Choice_? MoneyLaunderingCheck { get; init; } 
     /// <summary>
     /// Information to support Know Your Customer processes.
     /// </summary>

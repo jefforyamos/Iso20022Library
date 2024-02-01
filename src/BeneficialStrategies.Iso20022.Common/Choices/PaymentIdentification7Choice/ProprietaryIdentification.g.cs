@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification7Choice;
 /// <summary>
 /// Unique proprietary reference of the underlying payment instruction assigned by the system.
 /// </summary>
-public partial record ProprietaryIdentification : IPaymentIdentification7Choice
+public partial record ProprietaryIdentification : PaymentIdentification7Choice_
 {
     public required IsoMax70Text Value { get; init; }
 }

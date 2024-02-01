@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature9Choice;
 /// <summary>
 /// Indicates that reporting party is other type of counterparty.
 /// </summary>
-public partial record Other : ICounterpartyTradeNature9Choice
+public partial record Other : CounterpartyTradeNature9Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

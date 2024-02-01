@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityOrCode1Choice;
 /// <summary>
 /// Quantity expressed as a number.
 /// </summary>
-public partial record Quantity : IQuantityOrCode1Choice
+public partial record Quantity : QuantityOrCode1Choice_
 {
     #nullable enable
     #nullable disable

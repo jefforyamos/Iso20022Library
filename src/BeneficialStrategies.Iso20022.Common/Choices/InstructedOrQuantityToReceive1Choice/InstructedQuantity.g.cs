@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructedOrQuantityToReceive1Ch
 /// <summary>
 /// Quantity of underlying securities to which this instruction applies.
 /// </summary>
-public partial record InstructedQuantity : IInstructedOrQuantityToReceive1Choice
+public partial record InstructedQuantity : InstructedOrQuantityToReceive1Choice_
 {
     #nullable enable
     #nullable disable

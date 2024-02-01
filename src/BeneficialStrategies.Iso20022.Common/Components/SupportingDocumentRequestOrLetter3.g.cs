@@ -28,15 +28,15 @@ public partial record SupportingDocumentRequestOrLetter3
     /// <summary>
     /// Sender of the request or letter.
     /// </summary>
-    public IParty40Choice? Sender { get; init; } 
+    public Party40Choice_? Sender { get; init; } 
     /// <summary>
     /// Receiver of the request or letter.
     /// </summary>
-    public IParty40Choice? Receiver { get; init; } 
+    public Party40Choice_? Receiver { get; init; } 
     /// <summary>
     /// Provides the references of the original underlying message(s) for which supporting documents are requested or for which the letter is sent.
     /// </summary>
-    public OriginalMessage4? OriginalReferences { get; init;  } // Warning: Don't know multiplicity.
+    public OriginalMessage4[] OriginalReferences { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Subject of the letter or supporting document.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record SupportingDocumentRequestOrLetter3
     /// <summary>
     /// Provides the type of supporting document requested.
     /// </summary>
-    public required ISupportLetterType1Choice Type { get; init; } 
+    public required SupportLetterType1Choice_ Type { get; init; } 
     /// <summary>
     /// Further free format description of the request.
     /// </summary>
@@ -61,11 +61,11 @@ public partial record SupportingDocumentRequestOrLetter3
     /// <summary>
     /// Documents provided as attachments to the supporting document request or letter.
     /// </summary>
-    public DocumentGeneralInformation5? Attachment { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentGeneralInformation5[] Attachment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

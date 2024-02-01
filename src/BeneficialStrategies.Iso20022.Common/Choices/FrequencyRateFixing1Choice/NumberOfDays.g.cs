@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FrequencyRateFixing1Choice;
 /// <summary>
 /// Specific number of days assigned for the frequency fixing of the rate.
 /// </summary>
-public partial record NumberOfDays : IFrequencyRateFixing1Choice
+public partial record NumberOfDays : FrequencyRateFixing1Choice_
 {
     public required IsoMax3NumericText Value { get; init; }
 }

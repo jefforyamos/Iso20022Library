@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TEFRARules3Choice;
 /// <summary>
 /// TEFRA rules expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITEFRARules3Choice
+public partial record Proprietary : TEFRARules3Choice_
 {
     #nullable enable
     /// <summary>

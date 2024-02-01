@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraPositionProcessingStatus9Ch
 /// <summary>
 /// Instruction has been acknowledged by the account servicer.
 /// </summary>
-public partial record AcknowledgedAccepted : IIntraPositionProcessingStatus9Choice
+public partial record AcknowledgedAccepted : IntraPositionProcessingStatus9Choice_
 {
     #nullable enable
     #nullable disable

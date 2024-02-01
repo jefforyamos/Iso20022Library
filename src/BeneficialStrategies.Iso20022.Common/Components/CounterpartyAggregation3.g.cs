@@ -20,7 +20,7 @@ public partial record CounterpartyAggregation3
     /// <summary>
     /// Specifies whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).
     /// </summary>
-    public IOptionType6Choice? OptionType { get; init; } 
+    public OptionType6Choice_? OptionType { get; init; } 
     /// <summary>
     /// Indication whether the counterparties to the transaction have agreed to an evergreen or extendable repo.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record CounterpartyAggregation3
     /// <summary>
     /// Provides details on the collateral valuation.
     /// </summary>
-    public CollateralAmount16? ValuationAmounts { get; init;  } // Warning: Don't know multiplicity.
+    public CollateralAmount16[] ValuationAmounts { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// The collateral excess/shortage expressed in the percentage of the collateral required.
     /// </summary>

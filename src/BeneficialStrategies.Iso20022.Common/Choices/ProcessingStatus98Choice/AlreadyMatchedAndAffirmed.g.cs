@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus98Choice;
 /// <summary>
 /// Trade is AlreadyMatchedAndAffirmed.
 /// </summary>
-public partial record AlreadyMatchedAndAffirmed : IProcessingStatus98Choice
+public partial record AlreadyMatchedAndAffirmed : ProcessingStatus98Choice_
 {
     #nullable enable
     /// <summary>

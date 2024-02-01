@@ -20,7 +20,7 @@ public partial record OtherAmount1
     /// <summary>
     /// Type of amount.
     /// </summary>
-    public required IOtherAmountType1Choice Type { get; init; } 
+    public required OtherAmountType1Choice_ Type { get; init; } 
     /// <summary>
     /// Currency and amount.
     /// </summary>

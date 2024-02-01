@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TechnicalInputChannel1Choice;
 /// <summary>
 /// Technical input channel, as published in an external technical input channel code list.
 /// </summary>
-public partial record Code : ITechnicalInputChannel1Choice
+public partial record Code : TechnicalInputChannel1Choice_
 {
     public required ExternalTechnicalInputChannel1Code Value { get; init; }
 }

@@ -20,19 +20,19 @@ public partial record SettlementTransactionStatusType2
     /// <summary>
     /// Provides details on the processing status of the transaction.
     /// </summary>
-    public IProcessingStatus70Choice? ProcessingStatus { get; init;  } // Warning: Don't know multiplicity.
+    public ProcessingStatus70Choice_[] ProcessingStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the matching status of an instruction as known by the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).
     /// </summary>
-    public IMatchingStatus27Choice? InferredMatchingStatus { get; init;  } // Warning: Don't know multiplicity.
+    public MatchingStatus27Choice_[] InferredMatchingStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the matching status of the instruction.
     /// </summary>
-    public IMatchingStatus27Choice? MatchingStatus { get; init;  } // Warning: Don't know multiplicity.
+    public MatchingStatus27Choice_[] MatchingStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the settlement status of a transaction.
     /// </summary>
-    public ISettlementStatus26Choice? SettlementStatus { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementStatus26Choice_[] SettlementStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines that the transaction has been settled.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason18FormatChoice;
 /// <summary>
 /// Proprietary code to express the reason of a rejection of an election advice.
 /// </summary>
-public partial record Proprietary : IRejectionReason18FormatChoice
+public partial record Proprietary : RejectionReason18FormatChoice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification1Choice;
 /// <summary>
 /// Unique technical address to unambiguously identify a party for receiving messages from the executing system.
 /// </summary>
-public partial record TechnicalAddress : ISystemPartyModification1Choice
+public partial record TechnicalAddress : SystemPartyModification1Choice_
 {
     #nullable enable
     #nullable disable

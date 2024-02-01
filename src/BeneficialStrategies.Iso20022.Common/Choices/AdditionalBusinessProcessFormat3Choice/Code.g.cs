@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AdditionalBusinessProcessFormat3
 /// <summary>
 /// Standard code to specify the additional business process "tax refund" linked to a corporate action event.
 /// </summary>
-public partial record Code : IAdditionalBusinessProcessFormat3Choice
+public partial record Code : AdditionalBusinessProcessFormat3Choice_
 {
     public required AdditionalBusinessProcess3Code Value { get; init; }
 }

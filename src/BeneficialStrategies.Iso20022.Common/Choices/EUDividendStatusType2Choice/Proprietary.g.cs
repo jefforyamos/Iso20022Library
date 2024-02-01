@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EUDividendStatusType2Choice;
 /// <summary>
 /// EU dividend status expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IEUDividendStatusType2Choice
+public partial record Proprietary : EUDividendStatusType2Choice_
 {
     #nullable enable
     /// <summary>

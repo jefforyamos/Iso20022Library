@@ -28,7 +28,7 @@ public partial record DerivativeInstrument5
     /// <summary>
     /// Choice to specify the type(s) of underlying instrument(s) that make up the financial instrument.
     /// </summary>
-    public IFinancialInstrumentIdentification5Choice? UnderlyingInstrument { get; init; } 
+    public FinancialInstrumentIdentification5Choice_? UnderlyingInstrument { get; init; } 
     /// <summary>
     /// Specifies whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// Usage:
@@ -40,7 +40,7 @@ public partial record DerivativeInstrument5
     /// Usage:
     /// Within the scope of MiFIR RTS 23, these are the fields 31 and 32. This field only applies to options, warrants, spread bet on an option on an equity or contract for difference on an option on an equity. Where price is currently not available but pending, the value shall be ’PNDG’. Where strike price is not applicable it shall not be populated.
     /// </summary>
-    public ISecuritiesTransactionPrice4Choice? StrikePrice { get; init; } 
+    public SecuritiesTransactionPrice4Choice_? StrikePrice { get; init; } 
     /// <summary>
     /// Indication as to whether the option may be exercised only at a fixed date (European, and Asian style), a series of pre-specified dates (Bermudan) or at any time during the life of the contract (American style).
     /// Usage:

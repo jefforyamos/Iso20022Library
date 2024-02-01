@@ -36,23 +36,23 @@ public partial record CardPaymentDataSet27
     /// <summary>
     /// Transaction totals of the batch.
     /// </summary>
-    public TransactionTotals12? TransactionTotals { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionTotals12[] TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Transaction in the batch, whose capture has been rejected.
     /// </summary>
-    public CardPaymentDataSet28? RejectedTransaction { get; init;  } // Warning: Don't know multiplicity.
+    public CardPaymentDataSet28[] RejectedTransaction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Transaction in the batch, whose capture has been suspended.
     /// </summary>
-    public CardPaymentDataSet28? SuspendedTransaction { get; init;  } // Warning: Don't know multiplicity.
+    public CardPaymentDataSet28[] SuspendedTransaction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Transaction in the batch, whose capture has been approved after suspension.
     /// </summary>
-    public CardPaymentDataSet28? ResumedApproval { get; init;  } // Warning: Don't know multiplicity.
+    public CardPaymentDataSet28[] ResumedApproval { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Transaction in the batch, whose capture has been rejected after suspension.
     /// </summary>
-    public CardPaymentDataSet28? ResumedRejection { get; init;  } // Warning: Don't know multiplicity.
+    public CardPaymentDataSet28[] ResumedRejection { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

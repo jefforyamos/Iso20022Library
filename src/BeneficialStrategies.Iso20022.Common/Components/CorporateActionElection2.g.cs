@@ -20,7 +20,7 @@ public partial record CorporateActionElection2
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public required ICorporateActionOption1FormatChoice OptionType { get; init; } 
+    public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record CorporateActionElection2
     /// <summary>
     /// New instructed securities quantity after the amendment.
     /// </summary>
-    public required IUnitOrFaceAmount1Choice NewInstructedQuantity { get; init; } 
+    public required UnitOrFaceAmount1Choice_ NewInstructedQuantity { get; init; } 
     /// <summary>
     /// The reason for the amendment request.
     /// </summary>

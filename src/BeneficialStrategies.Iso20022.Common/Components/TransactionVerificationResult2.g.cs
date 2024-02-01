@@ -28,11 +28,11 @@ public partial record TransactionVerificationResult2
     /// <summary>
     /// Result of the cardholder verification address checks on the street number and the postal code.
     /// </summary>
-    public CardholderAddressVerificationResult1Code? CardholderAddressVerificationResult { get; init;  } // Warning: Don't know multiplicity.
+    public CardholderAddressVerificationResult1Code[] CardholderAddressVerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Product code for which the authorisation was declined.
     /// </summary>
-    public IsoMax70Text? DeclinedProductCode { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] DeclinedProductCode { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

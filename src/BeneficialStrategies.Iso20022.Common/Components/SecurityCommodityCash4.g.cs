@@ -20,15 +20,15 @@ public partial record SecurityCommodityCash4
     /// <summary>
     /// Data specific to securities being subject to the transaction.
     /// </summary>
-    public Security48? Security { get; init;  } // Warning: Don't know multiplicity.
+    public Security48[] Security { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data specific to commodities being subject to the transaction.
     /// </summary>
-    public Commodity42? Commodity { get; init;  } // Warning: Don't know multiplicity.
+    public Commodity42[] Commodity { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
-    public CashCompare3? Cash { get; init;  } // Warning: Don't know multiplicity.
+    public CashCompare3[] Cash { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

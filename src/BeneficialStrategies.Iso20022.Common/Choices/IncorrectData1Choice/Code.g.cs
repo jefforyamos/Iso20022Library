@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IncorrectData1Choice;
 /// <summary>
 /// Incorrect data type, in a coded form.
 /// </summary>
-public partial record Code : IIncorrectData1Choice
+public partial record Code : IncorrectData1Choice_
 {
     public required ExternalUnableToApplyIncorrectData1Code Value { get; init; }
 }

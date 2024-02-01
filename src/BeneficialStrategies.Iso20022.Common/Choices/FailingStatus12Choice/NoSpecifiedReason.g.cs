@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FailingStatus12Choice;
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoSpecifiedReason : IFailingStatus12Choice
+public partial record NoSpecifiedReason : FailingStatus12Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

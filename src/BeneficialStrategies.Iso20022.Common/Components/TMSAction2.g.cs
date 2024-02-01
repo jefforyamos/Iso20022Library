@@ -48,11 +48,11 @@ public partial record TMSAction2
     /// <summary>
     /// Certificate chain for the encryption of temporary transport key of the key to inject.
     /// </summary>
-    public IsoMax5000Binary? KeyEnciphermentCertificate { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax5000Binary[] KeyEnciphermentCertificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Action to perform in case of error on the related action in progress.
     /// </summary>
-    public ErrorAction2? ErrorAction { get; init;  } // Warning: Don't know multiplicity.
+    public ErrorAction2[] ErrorAction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

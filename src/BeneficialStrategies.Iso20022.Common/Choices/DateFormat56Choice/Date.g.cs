@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat56Choice;
 /// <summary>
 /// Date expressed as an ISO Date.
 /// </summary>
-public partial record Date : IDateFormat56Choice
+public partial record Date : DateFormat56Choice_
 {
     #nullable enable
     #nullable disable

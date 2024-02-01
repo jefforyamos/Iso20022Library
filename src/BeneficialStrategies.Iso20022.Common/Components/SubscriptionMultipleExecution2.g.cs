@@ -40,7 +40,7 @@ public partial record SubscriptionMultipleExecution2
     /// <summary>
     /// Execution of a subscription order.
     /// </summary>
-    public SubscriptionExecution4? IndividualExecutionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SubscriptionExecution4[] IndividualExecutionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment transaction resulting from the investment fund order execution.
     /// </summary>

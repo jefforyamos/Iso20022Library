@@ -20,19 +20,19 @@ public partial record Linkages36
     /// <summary>
     /// When the transaction is to be executed relative to a linked transaction.
     /// </summary>
-    public IProcessingPosition7Choice? ProcessingPosition { get; init; } 
+    public ProcessingPosition7Choice_? ProcessingPosition { get; init; } 
     /// <summary>
     /// Message type number/message identifier of the message referenced in the linkage sequence.
     /// </summary>
-    public IDocumentNumber5Choice? MessageNumber { get; init; } 
+    public DocumentNumber5Choice_? MessageNumber { get; init; } 
     /// <summary>
     /// Reference to the linked transaction.
     /// </summary>
-    public required IReferences41Choice Reference { get; init; } 
+    public required References41Choice_ Reference { get; init; } 
     /// <summary>
     /// Party that generates the reference.
     /// </summary>
-    public IPartyIdentification92Choice? ReferenceOwner { get; init; } 
+    public PartyIdentification92Choice_? ReferenceOwner { get; init; } 
     
     #nullable disable
 }

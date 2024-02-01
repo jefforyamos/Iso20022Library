@@ -36,7 +36,7 @@ public partial record EntryTransaction13
     /// <summary>
     /// Indicates when the booked amount of money will become available, that is can be accessed and starts generating interest. ||Usage: This type of information is used in the US and is linked to particular instruments such as cheques.|Example: When a cheque is deposited, it will be booked on the deposit day, but the amount of money will only be accessible as of the indicated availability day (according to national banking regulations).
     /// </summary>
-    public CashAvailability1? Availability { get; init;  } // Warning: Don't know multiplicity.
+    public CashAvailability1[] Availability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of elements used to fully identify the type of underlying transaction resulting in an entry.
     /// </summary>
@@ -61,7 +61,7 @@ public partial record EntryTransaction13
     /// <summary>
     /// User community specific instrument.|Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.
     /// </summary>
-    public ILocalInstrument2Choice? LocalInstrument { get; init; } 
+    public LocalInstrument2Choice_? LocalInstrument { get; init; } 
     /// <summary>
     /// Set of elements used to further specify the type of transaction.
     /// </summary>
@@ -69,11 +69,11 @@ public partial record EntryTransaction13
     /// <summary>
     /// Underlying reason for the payment transaction.|Usage: Purpose is used by the end-customers, that is initiating party, (ultimate) debtor, (ultimate) creditor to provide information concerning the nature of the payment. Purpose is a content element, which is not used for processing by any of the agents involved in the payment chain.
     /// </summary>
-    public IPurpose2Choice? Purpose { get; init; } 
+    public Purpose2Choice_? Purpose { get; init; } 
     /// <summary>
     /// Provides information related to the handling of the remittance information by any of the agents in the transaction processing chain.
     /// </summary>
-    public IReadOnlyCollection<RemittanceLocation7> RelatedRemittanceInformation { get; init; } = [];
+    public RemittanceLocation7[] RelatedRemittanceInformation { get; init; } = [];
     /// <summary>
     /// Structured information that enables the matching, that is reconciliation, of a payment with the items that the payment is intended to settle, such as commercial invoices in an account receivable system.
     /// </summary>
@@ -85,11 +85,11 @@ public partial record EntryTransaction13
     /// <summary>
     /// Set of elements used to identify the price information related to the underlying transaction.
     /// </summary>
-    public ITransactionPrice4Choice? RelatedPrice { get; init; } 
+    public TransactionPrice4Choice_? RelatedPrice { get; init; } 
     /// <summary>
     /// Set of elements used to identify the related quantities, such as securities, in the underlying transaction.
     /// </summary>
-    public ITransactionQuantities3Choice? RelatedQuantities { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionQuantities3Choice_[] RelatedQuantities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of a security, as assigned under a formal or proprietary identification scheme.
     /// </summary>
@@ -113,7 +113,7 @@ public partial record EntryTransaction13
     /// <summary>
     /// Provides the details of a cash deposit for an amount of money in cash notes and/or coins.
     /// </summary>
-    public CashDeposit1? CashDeposit { get; init;  } // Warning: Don't know multiplicity.
+    public CashDeposit1[] CashDeposit { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the data related to the card (number, scheme), terminal (number, identification) and transactional data used to uniquely identify a card transaction.
     /// </summary>
@@ -125,7 +125,7 @@ public partial record EntryTransaction13
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

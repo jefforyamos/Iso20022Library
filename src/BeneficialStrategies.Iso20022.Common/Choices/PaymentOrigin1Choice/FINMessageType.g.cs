@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentOrigin1Choice;
 /// <summary>
 /// Specifies that the payment was included in a SWIFT FIN format message, for example, MT 103.
 /// </summary>
-public partial record FINMessageType : IPaymentOrigin1Choice
+public partial record FINMessageType : PaymentOrigin1Choice_
 {
     public required IsoMax3NumericText Value { get; init; }
 }

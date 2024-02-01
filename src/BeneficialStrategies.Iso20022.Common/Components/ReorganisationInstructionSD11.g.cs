@@ -28,7 +28,7 @@ public partial record ReorganisationInstructionSD11
     /// <summary>
     /// Enable input of multiple voluntary instructions for rights or voluntary puts events via a single instruction message through using transaction sequence number.
     /// </summary>
-    public IReadOnlyCollection<InstructionsTransactionsSequence1> TransactionSequence { get; init; } = [];
+    public InstructionsTransactionsSequence1[] TransactionSequence { get; init; } = [];
     /// <summary>
     /// Status of the instruction.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record ReorganisationInstructionSD11
     /// <summary>
     /// Reason for which an inbound instruction message or a cancellation instruction message is pending or rejected.
     /// </summary>
-    public IReadOnlyCollection<InstructionReason3Code> Reason { get; init; } = [];
+    public InstructionReason3Code[] Reason { get; init; } = [];
     /// <summary>
     /// Provides further information about securities quantity linked to a corporate action option.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record ReorganisationInstructionSD11
     /// <summary>
     /// Bid price of the instruction.
     /// </summary>
-    public IPriceFormat63Choice? BidPrice { get; init; } 
+    public PriceFormat63Choice_? BidPrice { get; init; } 
     /// <summary>
     /// Reference number assigned to identify an investor or a shareholder with the issuer or the registration provider (for instance allocation code).
     /// </summary>

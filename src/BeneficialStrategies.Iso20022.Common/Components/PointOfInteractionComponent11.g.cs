@@ -36,7 +36,7 @@ public partial record PointOfInteractionComponent11
     /// <summary>
     /// Identification of the standard for which the component complies with.
     /// </summary>
-    public GenericIdentification48? StandardCompliance { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification48[] StandardCompliance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Characteristics of a POI (Point Of Interaction) component.
     /// </summary>
@@ -44,11 +44,11 @@ public partial record PointOfInteractionComponent11
     /// <summary>
     /// Assessments for the component of the point of interaction.
     /// </summary>
-    public PointOfInteractionComponentAssessment1? Assessment { get; init;  } // Warning: Don't know multiplicity.
+    public PointOfInteractionComponentAssessment1[] Assessment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Chunk of a software package.
     /// </summary>
-    public PackageType2? Package { get; init;  } // Warning: Don't know multiplicity.
+    public PackageType2[] Package { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FXCancellation1Choice;
 /// <summary>
 /// FX Cancellation information expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IFXCancellation1Choice
+public partial record Proprietary : FXCancellation1Choice_
 {
     #nullable enable
     /// <summary>

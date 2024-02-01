@@ -20,11 +20,11 @@ public partial record Intermediary17
     /// <summary>
     /// Unique and unambiguous identifier of the intermediary.
     /// </summary>
-    public required IPartyIdentification2Choice Identification { get; init; } 
+    public required PartyIdentification2Choice_ Identification { get; init; } 
     /// <summary>
     /// Organised structure that is set up for a particular purpose, eg, a business, government body, department, charity, or financial institution.
     /// </summary>
-    public IIntermediaryRoleChoice1? RoleType { get; init; } 
+    public IntermediaryRoleChoice1_? RoleType { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>

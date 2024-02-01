@@ -20,11 +20,11 @@ public partial record TransportBySea1
     /// <summary>
     /// Identifies the port where the goods are loaded on board the ship.
     /// </summary>
-    public IsoMax35Text? PortOfLoading { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] PortOfLoading { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the port where the goods are discharged.
     /// </summary>
-    public IsoMax35Text? PortOfDischarge { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] PortOfDischarge { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

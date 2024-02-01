@@ -124,11 +124,11 @@ public partial record CreditTransferTransactionInformation3
     /// <summary>
     /// Further information related to the processing of the payment instruction that may need to be acted upon by the creditor agent. ||Usage: The instruction can relate to a level of service, can be an instruction to be executed by the creditor's agent, or can be information required by the creditor's agent to process the instruction.
     /// </summary>
-    public InstructionForCreditorAgent2? InstructionForCreditorAgent { get; init;  } // Warning: Don't know multiplicity.
+    public InstructionForCreditorAgent2[] InstructionForCreditorAgent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further information related to the processing of the payment instruction that may need to be acted upon by the next agent. ||Usage: The next agent may not be the creditor agent.|The instruction can relate to a level of service, can be an instruction that has to be executed by the agent, or can be information required by the next agent.
     /// </summary>
-    public InstructionForNextAgent1? InstructionForNextAgent { get; init;  } // Warning: Don't know multiplicity.
+    public InstructionForNextAgent1[] InstructionForNextAgent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle.
     /// </summary>

@@ -20,7 +20,7 @@ public partial record OtherParties33
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
     /// </summary>
-    public PartyIdentificationAndAccount167? Investor { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentificationAndAccount167[] Investor { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Foreign financial institution which has been authorised by local authorities to act as account management institution in the country.
     /// </summary>

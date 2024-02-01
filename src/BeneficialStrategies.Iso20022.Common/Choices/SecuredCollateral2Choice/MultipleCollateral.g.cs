@@ -14,7 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredCollateral2Choice;
 /// Usage:
 /// In case of multi-collateral repo, the nominal amount of each collateralised security must be provided.
 /// </summary>
-public partial record MultipleCollateral : ISecuredCollateral2Choice
+public partial record MultipleCollateral : SecuredCollateral2Choice_
 {
     #nullable enable
     /// <summary>

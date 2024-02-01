@@ -20,35 +20,35 @@ public partial record AccountStatus2
     /// <summary>
     /// Account can be used for its intended purpose.
     /// </summary>
-    public IEnabledStatusReason1Choice? Enabled { get; init; } 
+    public EnabledStatusReason1Choice_? Enabled { get; init; } 
     /// <summary>
     /// Account cannot temporarily be used for its intended purpose.
     /// </summary>
-    public IDisabledStatusReason1Choice? Disabled { get; init; } 
+    public DisabledStatusReason1Choice_? Disabled { get; init; } 
     /// <summary>
     /// Account change is pending approval.
     /// </summary>
-    public IPendingStatusReason1Choice? Pending { get; init; } 
+    public PendingStatusReason1Choice_? Pending { get; init; } 
     /// <summary>
     /// Account opening is pending.
     /// </summary>
-    public IPendingOpeningStatusReason1Choice? PendingOpening { get; init; } 
+    public PendingOpeningStatusReason1Choice_? PendingOpening { get; init; } 
     /// <summary>
     /// Account is temporary and can be partially used for its intended purpose. The account will be fully available for use when the account servicer has received all relevant documents.
     /// </summary>
-    public IProformaStatusReason1Choice? Proforma { get; init; } 
+    public ProformaStatusReason1Choice_? Proforma { get; init; } 
     /// <summary>
     /// Account is closed.
     /// </summary>
-    public IClosedStatusReason1Choice? Closed { get; init; } 
+    public ClosedStatusReason1Choice_? Closed { get; init; } 
     /// <summary>
     /// Account closure is pending.
     /// </summary>
-    public IClosurePendingStatusReason1Choice? ClosurePending { get; init; } 
+    public ClosurePendingStatusReason1Choice_? ClosurePending { get; init; } 
     /// <summary>
     /// Status is a bilaterally agreed status.
     /// </summary>
-    public OtherAccountStatus1? Other { get; init;  } // Warning: Don't know multiplicity.
+    public OtherAccountStatus1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

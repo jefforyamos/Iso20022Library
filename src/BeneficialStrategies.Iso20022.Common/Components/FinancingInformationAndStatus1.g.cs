@@ -24,7 +24,7 @@ public partial record FinancingInformationAndStatus1
     /// <summary>
     /// Specifies detailed information about single invoice/instalment financing result, such as result of request (financed or not financed), amount, percentage applied.
     /// </summary>
-    public InvoiceFinancingDetails1? InvoiceFinancingDetails { get; init;  } // Warning: Don't know multiplicity.
+    public InvoiceFinancingDetails1[] InvoiceFinancingDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

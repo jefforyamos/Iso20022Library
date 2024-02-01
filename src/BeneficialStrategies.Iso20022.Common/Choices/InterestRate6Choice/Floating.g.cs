@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate6Choice;
 /// <summary>
 /// Provides details about the variable rate.
 /// </summary>
-public partial record Floating : IInterestRate6Choice
+public partial record Floating : InterestRate6Choice_
 {
     #nullable enable
     /// <summary>
     /// Identifies the reference index for the debt instrument.
     /// </summary>
-    public required IBenchmarkCurveName6Choice ReferenceRate { get; init; } 
+    public required BenchmarkCurveName6Choice_ ReferenceRate { get; init; } 
     /// <summary>
     /// Term of the index/benchmark of a floating rate bond. The term shall be expressed in days, weeks, months or years.
     /// </summary>

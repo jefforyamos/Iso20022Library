@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate20Choice;
 /// <summary>
 /// Details about the variable rate.
 /// </summary>
-public partial record Floating : IInterestRate20Choice
+public partial record Floating : InterestRate20Choice_
 {
     #nullable enable
     /// <summary>
     /// Identifies the reference index for the debt instrument.
     /// </summary>
-    public IBenchmarkCurveName10Choice? ReferenceRate { get; init; } 
+    public BenchmarkCurveName10Choice_? ReferenceRate { get; init; } 
     /// <summary>
     /// Term of the reference rate of the floating rate bond. The term shall be expressed in days, weeks, months or years.
     /// </summary>
@@ -42,6 +42,6 @@ public partial record Floating : IInterestRate20Choice
     /// <summary>
     /// Method for calculating the accrued interest on the principal amount for a fixed rate.
     /// </summary>
-    public IInterestComputationMethodFormat6Choice? DayCountBasis { get; init; } 
+    public InterestComputationMethodFormat6Choice_? DayCountBasis { get; init; } 
     #nullable disable
 }

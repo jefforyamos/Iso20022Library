@@ -32,27 +32,27 @@ public partial record AccountSubLevel8
     /// <summary>
     /// Individual or entity that is ultimately entitled to the benefit of income and rights in a financial instrument, as opposed to a nominal or legal owner.
     /// </summary>
-    public BeneficialOwner2? BeneficialOwner { get; init;  } // Warning: Don't know multiplicity.
+    public BeneficialOwner2[] BeneficialOwner { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Report on the net position of a financial instrument on the sub-account, for a certain date.
     /// </summary>
-    public AggregateHoldingBalance1? BalanceForAccount { get; init;  } // Warning: Don't know multiplicity.
+    public AggregateHoldingBalance1[] BalanceForAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Holdings of level 9.
     /// </summary>
-    public AccountSubLevel9? AccountSubLevel9 { get; init;  } // Warning: Don't know multiplicity.
+    public AccountSubLevel9[] AccountSubLevel9 { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Difference in holdings between the sub-account at level 8 and the sub-accounts of level 9.
     /// </summary>
-    public AggregateHoldingBalance2? AccountSubLevel9Difference { get; init;  } // Warning: Don't know multiplicity.
+    public AggregateHoldingBalance2[] AccountSubLevel9Difference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of a related party acting as an intermediary.
     /// </summary>
-    public Intermediary29? Agent { get; init;  } // Warning: Don't know multiplicity.
+    public Intermediary29[] Agent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

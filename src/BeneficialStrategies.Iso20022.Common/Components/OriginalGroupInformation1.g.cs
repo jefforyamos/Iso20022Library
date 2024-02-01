@@ -52,11 +52,11 @@ public partial record OriginalGroupInformation1
     /// <summary>
     /// Detailed information on the status reason.
     /// </summary>
-    public StatusReasonInformation1? StatusReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public StatusReasonInformation1[] StatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Detailed information on the number of transactions for each identical individual transaction status.
     /// </summary>
-    public NumberOfTransactionsPerStatus1? NumberOfTransactionsPerStatus { get; init;  } // Warning: Don't know multiplicity.
+    public NumberOfTransactionsPerStatus1[] NumberOfTransactionsPerStatus { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

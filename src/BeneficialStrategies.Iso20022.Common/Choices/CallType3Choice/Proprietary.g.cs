@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CallType3Choice;
 /// <summary>
 /// Call type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICallType3Choice
+public partial record Proprietary : CallType3Choice_
 {
     #nullable enable
     /// <summary>

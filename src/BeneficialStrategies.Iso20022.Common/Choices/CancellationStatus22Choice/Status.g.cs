@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationStatus22Choice;
 /// <summary>
 /// Status of the order cancellation request is cancelled.
 /// </summary>
-public partial record Status : ICancellationStatus22Choice
+public partial record Status : CancellationStatus22Choice_
 {
     public required OrderCancellationStatus2Code Value { get; init; }
 }

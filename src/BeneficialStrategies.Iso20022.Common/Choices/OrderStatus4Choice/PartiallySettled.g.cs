@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderStatus4Choice;
 /// <summary>
 /// Status of the switch order is partially settled.
 /// </summary>
-public partial record PartiallySettled : IOrderStatus4Choice
+public partial record PartiallySettled : OrderStatus4Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the partially settled status.
     /// </summary>
-    public required IPartiallySettled21Choice Reason { get; init; } 
+    public required PartiallySettled21Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the partially settled reason.
     /// </summary>

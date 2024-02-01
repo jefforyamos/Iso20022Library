@@ -60,7 +60,7 @@ public partial record Mandate11
     /// <summary>
     /// Provides the reason for the setup of the mandate.
     /// </summary>
-    public IMandateSetupReason1Choice? Reason { get; init; } 
+    public MandateSetupReason1Choice_? Reason { get; init; } 
     /// <summary>
     /// Credit party that signs the mandate.
     /// </summary>
@@ -104,7 +104,7 @@ public partial record Mandate11
     /// <summary>
     /// Provides information to identify the underlying documents associated with the mandate.
     /// </summary>
-    public ReferredMandateDocument1? ReferredDocument { get; init;  } // Warning: Don't know multiplicity.
+    public ReferredMandateDocument1[] ReferredDocument { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -45,7 +45,7 @@ public partial record PaymentTransaction140
     /// <summary>
     /// Date at which the initiating party originally requested the clearing agent to process the payment.
     /// </summary>
-    public IDateAndDateTime2Choice? OriginalRequestedExecutionDate { get; init; } 
+    public DateAndDateTime2Choice_? OriginalRequestedExecutionDate { get; init; } 
     /// <summary>
     /// Date at which the creditor originally requested the collection of the amount of money from the debtor.
     /// </summary>
@@ -53,7 +53,7 @@ public partial record PaymentTransaction140
     /// <summary>
     /// Provides detailed information on the cancellation reason.
     /// </summary>
-    public PaymentCancellationReason5? CancellationReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentCancellationReason5[] CancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Key elements used to identify the original transaction that is being referred to.
     /// </summary>
@@ -61,7 +61,7 @@ public partial record PaymentTransaction140
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

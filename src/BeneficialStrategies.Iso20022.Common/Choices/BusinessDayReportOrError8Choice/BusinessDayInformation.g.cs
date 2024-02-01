@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BusinessDayReportOrError8Choice;
 /// <summary>
 /// Requested system details for a specific business day.
 /// </summary>
-public partial record BusinessDayInformation : IBusinessDayReportOrError8Choice
+public partial record BusinessDayInformation : BusinessDayReportOrError8Choice_
 {
     #nullable enable
     /// <summary>

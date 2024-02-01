@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferStatus1Choice;
 /// <summary>
 /// Status of the transfer is unmatched.
 /// </summary>
-public partial record Unmatched : ITransferStatus1Choice
+public partial record Unmatched : TransferStatus1Choice_
 {
     #nullable enable
     /// <summary>

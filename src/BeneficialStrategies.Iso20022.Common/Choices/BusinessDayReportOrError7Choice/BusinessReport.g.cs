@@ -12,16 +12,16 @@ namespace BeneficialStrategies.Iso20022.Choices.BusinessDayReportOrError7Choice;
 /// <summary>
 /// Reports either business day information or a business error.
 /// </summary>
-public partial record BusinessReport : IBusinessDayReportOrError7Choice
+public partial record BusinessReport : BusinessDayReportOrError7Choice_
 {
     #nullable enable
     /// <summary>
     /// Identification of a particular market infrastructure.
     /// </summary>
-    public ISystemIdentification2Choice? SystemIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public SystemIdentification2Choice_? SystemIdentification { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Requested information on the system availability for a specific business day or business error when information has not been found.
     /// </summary>
-    public required IBusinessDayReportOrError8Choice BusinessDayOrError { get; init; } 
+    public required BusinessDayReportOrError8Choice_ BusinessDayOrError { get; init; } 
     #nullable disable
 }

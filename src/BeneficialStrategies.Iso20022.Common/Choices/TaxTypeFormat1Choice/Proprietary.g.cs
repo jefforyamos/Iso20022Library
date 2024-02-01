@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxTypeFormat1Choice;
 /// <summary>
 /// Proprietary code to express the type of taxes.
 /// </summary>
-public partial record Proprietary : ITaxTypeFormat1Choice
+public partial record Proprietary : TaxTypeFormat1Choice_
 {
     #nullable enable
     /// <summary>

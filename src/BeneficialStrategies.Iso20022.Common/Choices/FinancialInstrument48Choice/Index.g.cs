@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument48Choice;
 /// <summary>
 /// Index on which the financial instrument is based.
 /// </summary>
-public partial record Index : IFinancialInstrument48Choice
+public partial record Index : FinancialInstrument48Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity8Choi
 /// <summary>
 /// Amount of money remaining after deduction of charges, commissions and taxes and used to determine the quantity of investment fund units to be subscribed.|[Quantity * Price].
 /// </summary>
-public partial record NetAmount : IFinancialInstrumentQuantity8Choice
+public partial record NetAmount : FinancialInstrumentQuantity8Choice_
 {
     public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
 }

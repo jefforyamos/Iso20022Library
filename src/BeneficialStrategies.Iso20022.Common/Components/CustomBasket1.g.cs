@@ -28,7 +28,7 @@ public partial record CustomBasket1
     /// <summary>
     /// Identifier of the underliers that represent the constituents of a custom basket.
     /// </summary>
-    public BasketConstituents1? Constituents { get; init;  } // Warning: Don't know multiplicity.
+    public BasketConstituents1[] Constituents { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

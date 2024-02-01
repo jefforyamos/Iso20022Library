@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConsolidationType1Choice;
 /// <summary>
 /// Consolidation type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IConsolidationType1Choice
+public partial record Proprietary : ConsolidationType1Choice_
 {
     #nullable enable
     /// <summary>

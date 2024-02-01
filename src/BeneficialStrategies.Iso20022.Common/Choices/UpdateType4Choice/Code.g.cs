@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType4Choice;
 /// <summary>
 /// Update type expressed in coded form.
 /// </summary>
-public partial record Code : IUpdateType4Choice
+public partial record Code : UpdateType4Choice_
 {
     public required StatementUpdateType1Code Value { get; init; }
 }

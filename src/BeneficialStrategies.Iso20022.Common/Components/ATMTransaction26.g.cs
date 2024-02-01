@@ -36,15 +36,15 @@ public partial record ATMTransaction26
     /// <summary>
     /// Current totals of the ATM.
     /// </summary>
-    public ATMTotals1? ATMTotals { get; init;  } // Warning: Don't know multiplicity.
+    public ATMTotals1[] ATMTotals { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information on the cassettes of the ATM.
     /// </summary>
-    public ATMCassette2? Cassette { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCassette2[] Cassette { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    public ATMCommand7? Command { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCommand7[] Command { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -40,7 +40,7 @@ public partial record CorporateActionConfirmationCashMovementDetailsSD1
     /// <summary>
     /// Date/Time on which the posting /draft of the securities took place.
     /// </summary>
-    public IDateFormat22Choice? PostingDate { get; init; } 
+    public DateFormat22Choice_? PostingDate { get; init; } 
     
     #nullable disable
 }

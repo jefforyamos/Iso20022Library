@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement6Choice;
 /// <summary>
 /// Provides the collateral movement direction that is a delivery and optionally a return.
 /// </summary>
-public partial record CollateralMovementDirection : ICollateralMovement6Choice
+public partial record CollateralMovementDirection : CollateralMovement6Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionOption37Choice;
 /// <summary>
 /// Standard code to specify the type of corporate action options.
 /// </summary>
-public partial record Code : ICorporateActionOption37Choice
+public partial record Code : CorporateActionOption37Choice_
 {
     public required CorporateActionOption15Code Value { get; init; }
 }

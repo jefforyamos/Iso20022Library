@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeTransactionCondition9Choice
 /// <summary>
 /// Trade conditions expressed in a coded form as published in an external list.
 /// </summary>
-public partial record Code : ITradeTransactionCondition9Choice
+public partial record Code : TradeTransactionCondition9Choice_
 {
     public required ExternalTradeTransactionCondition1Code Value { get; init; }
 }

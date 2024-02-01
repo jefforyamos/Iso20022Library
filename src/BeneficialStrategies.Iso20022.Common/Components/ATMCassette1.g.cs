@@ -32,7 +32,7 @@ public partial record ATMCassette1
     /// <summary>
     /// Type of items the cash-in takes.
     /// </summary>
-    public ATMNoteType1Code? SubType { get; init;  } // Warning: Don't know multiplicity.
+    public ATMNoteType1Code[] SubType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of media inside the cassette.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record ATMCassette1
     /// <summary>
     /// Counter per unit value or globally.
     /// </summary>
-    public ATMCassetteCounters1? MediaCounters { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCassetteCounters1[] MediaCounters { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

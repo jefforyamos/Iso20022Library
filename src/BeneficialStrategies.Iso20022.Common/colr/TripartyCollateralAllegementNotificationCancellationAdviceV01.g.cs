@@ -61,7 +61,7 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     [DataMember(Name="CollTxTp")]
     [XmlElement(ElementName="CollTxTp")]
     [Required]
-    public required ICollateralTransactionType1Choice CollateralTransactionType { get; init; }
+    public required CollateralTransactionType1Choice_ CollateralTransactionType { get; init; }
     
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the exposure.
@@ -71,7 +71,7 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     [DataMember(Name="XpsrTp")]
     [XmlElement(ElementName="XpsrTp")]
     [Required]
-    public required IExposureType23Choice ExposureType { get; init; }
+    public required ExposureType23Choice_ ExposureType { get; init; }
     
     /// <summary>
     /// Specifies whether the alleging side is the collateral taker or giver.
@@ -118,7 +118,7 @@ public partial record TripartyCollateralAllegementNotificationCancellationAdvice
     [Description(@"Date/time at which the instructing party requests the instruction to be executed. ")]
     [DataMember(Name="ReqdExctnDt")]
     [XmlElement(ElementName="ReqdExctnDt")]
-    public IDateAndDateTime2Choice? RequestedExecutionDate { get; init; }
+    public DateAndDateTime2Choice_? RequestedExecutionDate { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

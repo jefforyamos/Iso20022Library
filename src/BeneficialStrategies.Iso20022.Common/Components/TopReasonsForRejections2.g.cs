@@ -20,15 +20,15 @@ public partial record TopReasonsForRejections2
     /// <summary>
     /// Identification of the most common data field that has not passed the validation rule for all derivatives.
     /// </summary>
-    public IsoMax35Text? All { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] All { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the most common data field that has not passed the validation rule for derivatives which have been reported as new.
     /// </summary>
-    public IsoMax35Text? New { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] New { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the most common data field that has not passed the validation rule for derivatives which have been reported as modification.
     /// </summary>
-    public IsoMax35Text? Modification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] Modification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

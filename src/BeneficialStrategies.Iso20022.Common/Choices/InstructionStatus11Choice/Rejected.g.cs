@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus11Choice;
 /// <summary>
 /// Status advising on the rejection of the instruction and on the reason for the rejection.
 /// </summary>
-public partial record Rejected : IInstructionStatus11Choice
+public partial record Rejected : InstructionStatus11Choice_
 {
     #nullable enable
     #nullable disable

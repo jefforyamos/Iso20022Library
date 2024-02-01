@@ -20,11 +20,11 @@ public partial record SecurityCSDLink7
     /// <summary>
     /// Defines the date since when the CSD is linked to the security.
     /// </summary>
-    public required IDateAndDateTime2Choice ValidFrom { get; init; } 
+    public required DateAndDateTime2Choice_ ValidFrom { get; init; } 
     /// <summary>
     /// Defines the date until when the CSD is linked to the security.
     /// </summary>
-    public IDateAndDateTime2Choice? ValidTo { get; init; } 
+    public DateAndDateTime2Choice_? ValidTo { get; init; } 
     /// <summary>
     /// Specify if the involved CSD (issuer/technical issuer/investor) is also the maintainer of related reference data.
     /// </summary>
@@ -32,19 +32,19 @@ public partial record SecurityCSDLink7
     /// <summary>
     /// CSD Issuer of a security.
     /// </summary>
-    public ISystemPartyIdentification2Choice? IssuerCSD { get; init; } 
+    public SystemPartyIdentification2Choice_? IssuerCSD { get; init; } 
     /// <summary>
     /// CSD Investor of a security.
     /// </summary>
-    public ISystemPartyIdentification2Choice? InvestorCSD { get; init; } 
+    public SystemPartyIdentification2Choice_? InvestorCSD { get; init; } 
     /// <summary>
     /// Technical issuer of a security.
     /// </summary>
-    public ISystemPartyIdentification2Choice? TechnicalIssuerCSD { get; init; } 
+    public SystemPartyIdentification2Choice_? TechnicalIssuerCSD { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
-    public IssuanceAccount2? IssuanceAccount { get; init;  } // Warning: Don't know multiplicity.
+    public IssuanceAccount2[] IssuanceAccount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

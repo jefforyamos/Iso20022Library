@@ -24,7 +24,7 @@ public partial record MarginCalculation1
     /// <summary>
     /// Provides details on the valuation of the collateral on deposit.
     /// </summary>
-    public Collateral6? CollateralOnDeposit { get; init;  } // Warning: Don't know multiplicity.
+    public Collateral6[] CollateralOnDeposit { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Minimum requirement (expressed in the reporting currency) for a participant if their requirement falls below a specific amount set by the central counterparty.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record MarginCalculation1
     /// <summary>
     /// Provide details on the margin result taking into consideration the total margin amount and the minimum requirements deposit.
     /// </summary>
-    public IMarginResult1Choice? MarginResult { get; init; } 
+    public MarginResult1Choice_? MarginResult { get; init; } 
     
     #nullable disable
 }

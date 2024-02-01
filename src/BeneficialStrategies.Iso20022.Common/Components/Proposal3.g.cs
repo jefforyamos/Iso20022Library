@@ -24,7 +24,7 @@ public partial record Proposal3
     /// <summary>
     /// Provides details about the proposal for the variation margin and the segregated independent amount, or the segregated independent amount only.
     /// </summary>
-    public required ICollateralProposal3Choice CollateralProposal { get; init; } 
+    public required CollateralProposal3Choice_ CollateralProposal { get; init; } 
     
     #nullable disable
 }

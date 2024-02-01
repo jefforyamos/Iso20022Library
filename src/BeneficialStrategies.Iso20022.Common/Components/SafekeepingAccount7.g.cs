@@ -32,19 +32,19 @@ public partial record SafekeepingAccount7
     /// <summary>
     /// Individual or entity that is ultimately entitled to the benefit of income and rights in a financial instrument, as opposed to a nominal or legal owner.
     /// </summary>
-    public BeneficialOwner2? BeneficialOwner { get; init;  } // Warning: Don't know multiplicity.
+    public BeneficialOwner2[] BeneficialOwner { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Report on the net position of a financial instrument on the account, for a certain date. The agent, for example, a trade intermediary, may also be specified.
     /// </summary>
-    public AggregateHoldingBalance3? BalanceDetails { get; init;  } // Warning: Don't know multiplicity.
+    public AggregateHoldingBalance3[] BalanceDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Holdings of level 1.
     /// </summary>
-    public AccountSubLevel11? AccountSubLevel1 { get; init;  } // Warning: Don't know multiplicity.
+    public AccountSubLevel11[] AccountSubLevel1 { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Difference in holdings between the safekeeping account and the sub-accounts of level 1.
     /// </summary>
-    public AggregateHoldingBalance2? AccountSubLevel1Difference { get; init;  } // Warning: Don't know multiplicity.
+    public AggregateHoldingBalance2[] AccountSubLevel1Difference { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

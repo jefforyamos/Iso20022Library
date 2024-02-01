@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancelledStatus11Choice;
 /// <summary>
 /// Reason not specified.
 /// </summary>
-public partial record NoSpecifiedReason : ICancelledStatus11Choice
+public partial record NoSpecifiedReason : CancelledStatus11Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

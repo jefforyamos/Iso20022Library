@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DrawdownType1Choice;
 /// <summary>
 /// Type of drawdown expressed as a code.
 /// </summary>
-public partial record Code : IDrawdownType1Choice
+public partial record Code : DrawdownType1Choice_
 {
     public required DrawdownType1Code Value { get; init; }
 }

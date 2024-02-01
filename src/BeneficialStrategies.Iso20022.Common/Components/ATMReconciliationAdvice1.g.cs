@@ -24,7 +24,7 @@ public partial record ATMReconciliationAdvice1
     /// <summary>
     /// Command result for reinitialisation of the transaction counters.
     /// </summary>
-    public ATMCommand5? CommandResult { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCommand5[] CommandResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party which has requested the reconciliation.
     /// </summary>

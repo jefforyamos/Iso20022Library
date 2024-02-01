@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument20Choice;
 /// <summary>
 /// Part of the investment account to or from which cash entries are made.
 /// </summary>
-public partial record CashAccountDetails : IPaymentInstrument20Choice
+public partial record CashAccountDetails : PaymentInstrument20Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record CashAccountDetails : IPaymentInstrument20Choice
     /// <summary>
     /// Account type.
     /// </summary>
-    public IInvestmentAccountType1Choice? Type { get; init; } 
+    public InvestmentAccountType1Choice_? Type { get; init; } 
     #nullable disable
 }

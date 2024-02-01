@@ -20,7 +20,7 @@ public partial record Series1
     /// <summary>
     /// Issue date of the fund series. It is typically applicable to a redemption order, subscription order confirmation or redemption order confirmation, but may be specified in the subscription order, if known.
     /// </summary>
-    public IDateFormat42Choice? SeriesDate { get; init; } 
+    public DateFormat42Choice_? SeriesDate { get; init; } 
     /// <summary>
     /// Name of the fund series. It is typically applicable to a redemption order, subscription order confirmation or redemption order confirmation, but may be specified in the subscription, if known.
     /// </summary>

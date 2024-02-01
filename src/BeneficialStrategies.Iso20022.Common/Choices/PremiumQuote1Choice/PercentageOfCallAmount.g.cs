@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PremiumQuote1Choice;
 /// <summary>
 /// Premium calculation is based on a percentage of the call amount.
 /// </summary>
-public partial record PercentageOfCallAmount : IPremiumQuote1Choice
+public partial record PercentageOfCallAmount : PremiumQuote1Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

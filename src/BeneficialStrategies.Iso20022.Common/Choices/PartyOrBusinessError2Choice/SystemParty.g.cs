@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrBusinessError2Choice;
 /// <summary>
 /// Specifications of a party defined within a system.
 /// </summary>
-public partial record SystemParty : IPartyOrBusinessError2Choice
+public partial record SystemParty : PartyOrBusinessError2Choice_
 {
     #nullable enable
     /// <summary>
@@ -30,7 +30,7 @@ public partial record SystemParty : IPartyOrBusinessError2Choice
     /// <summary>
     /// Unique technical address to unambiguously identify a party for receiving messages from the executing system.
     /// </summary>
-    public ITechnicalIdentification1Choice? TechnicalAddress { get; init;  } // Warning: Don't know multiplicity.
+    public TechnicalIdentification1Choice_? TechnicalAddress { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional attributes defined by a central security depositary for a party.
     /// </summary>

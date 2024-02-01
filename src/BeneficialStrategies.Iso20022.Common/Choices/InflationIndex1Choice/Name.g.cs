@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InflationIndex1Choice;
 /// <summary>
 /// Standardised name of the index.
 /// </summary>
-public partial record Name : IInflationIndex1Choice
+public partial record Name : InflationIndex1Choice_
 {
     public required IsoMax25Text Value { get; init; }
 }

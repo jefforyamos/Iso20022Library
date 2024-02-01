@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LongPostalAddress2Choice;
 /// <summary>
 /// Information that locates and identifies a specific address, as defined by postal services, that is presented in free format text.
 /// </summary>
-public partial record Unstructured : ILongPostalAddress2Choice
+public partial record Unstructured : LongPostalAddress2Choice_
 {
     public required IsoMax350Text Value { get; init; }
 }

@@ -48,11 +48,11 @@ public partial record FundCashOutBreakdown2
     /// <summary>
     /// Charge for the placement of an order.
     /// </summary>
-    public Charge16? ChargeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Charge16[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to the commission applied to an order, eg, back-end or front-end commission.
     /// </summary>
-    public Commission9? CommissionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Commission9[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

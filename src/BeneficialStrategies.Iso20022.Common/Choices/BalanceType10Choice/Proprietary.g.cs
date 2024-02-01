@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceType10Choice;
 /// <summary>
 /// Balance type, in a proprietary format.
 /// </summary>
-public partial record Proprietary : IBalanceType10Choice
+public partial record Proprietary : BalanceType10Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -104,7 +104,7 @@ public partial record CorporateActionSD21
     /// <summary>
     /// Provides details of certificates that have been called for redemption.
     /// </summary>
-    public CorporateActionSD15? CertificateDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionSD15[] CertificateDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Country of issue used to determine whether the electable option requires tax Exempt or wire information when sending EDS elections via the CAIN message type.
     /// </summary>

@@ -24,7 +24,7 @@ public partial record AdvisingPartyAdditionalInformation1
     /// <summary>
     /// Additional information specific to the bank-to-beneficiary communication.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> BankToBeneficiaryInformation { get; init; } = [];
+    public IsoMax2000Text[] BankToBeneficiaryInformation { get; init; } = [];
     
     #nullable disable
 }

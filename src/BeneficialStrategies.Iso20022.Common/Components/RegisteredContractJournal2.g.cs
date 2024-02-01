@@ -32,7 +32,7 @@ public partial record RegisteredContractJournal2
     /// <summary>
     /// Reason of closure.
     /// </summary>
-    public required IContractClosureReason1Choice ClosureReason { get; init; } 
+    public required ContractClosureReason1Choice_ ClosureReason { get; init; } 
     
     #nullable disable
 }

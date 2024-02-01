@@ -36,11 +36,11 @@ public partial record Transaction124
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the exposure.
     /// </summary>
-    public required IExposureType23Choice ExposureType { get; init; } 
+    public required ExposureType23Choice_ ExposureType { get; init; } 
     /// <summary>
     /// Specifies whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).
     /// </summary>
-    public IOptionType6Choice? OptionType { get; init; } 
+    public OptionType6Choice_? OptionType { get; init; } 
     /// <summary>
     /// Indication whether the counterparties to the transaction have agreed to an evergreen or extendable repo.
     /// </summary>
@@ -56,11 +56,11 @@ public partial record Transaction124
     /// <summary>
     /// Date/time at which the party requested the initiation instruction to be executed.
     /// </summary>
-    public required IClosingDate4Choice ExecutionRequestedDate { get; init; } 
+    public required ClosingDate4Choice_ ExecutionRequestedDate { get; init; } 
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
-    public required IClosingDate4Choice ClosingDate { get; init; } 
+    public required ClosingDate4Choice_ ClosingDate { get; init; } 
     /// <summary>
     /// Provides details on the collateral valuation.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record Transaction124
     /// <summary>
     /// Interest rate to be paid on the transaction amount, as agreed between the counterparties.
     /// </summary>
-    public IRateOrName4Choice? PricingRate { get; init; } 
+    public RateOrName4Choice_? PricingRate { get; init; } 
     /// <summary>
     /// The collateral excess/shortage expressed in the percentage of the collateral required.
     /// </summary>
@@ -81,7 +81,7 @@ public partial record Transaction124
     /// <summary>
     /// Specifies the computation method of (accrued) interest of the financial instrument.
     /// </summary>
-    public IInterestComputationMethodFormat4Choice? DayCountBasis { get; init; } 
+    public InterestComputationMethodFormat4Choice_? DayCountBasis { get; init; } 
     /// <summary>
     /// Specifies whether the allocation of the collateral is manual or automatic.
     /// </summary>
@@ -89,15 +89,15 @@ public partial record Transaction124
     /// <summary>
     /// Provides the status of a  transaction.
     /// </summary>
-    public IReadOnlyCollection<TransactionStatus6> TransactionStatus { get; init; } = [];
+    public TransactionStatus6[] TransactionStatus { get; init; } = [];
     /// <summary>
     /// Quantity of securities assigned as collateral position.
     /// </summary>
-    public SecuritiesBalance3? SecuritiesBalance { get; init;  } // Warning: Don't know multiplicity.
+    public SecuritiesBalance3[] SecuritiesBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of cash assigned as collateral position.
     /// </summary>
-    public CashBalance15? CashBalance { get; init;  } // Warning: Don't know multiplicity.
+    public CashBalance15[] CashBalance { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

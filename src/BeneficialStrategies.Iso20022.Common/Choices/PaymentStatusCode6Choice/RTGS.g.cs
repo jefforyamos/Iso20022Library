@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusCode6Choice;
 /// <summary>
 /// Qualifies further the RTGS status.
 /// </summary>
-public partial record RTGS : IPaymentStatusCode6Choice
+public partial record RTGS : PaymentStatusCode6Choice_
 {
     public required IsoMax4AlphaNumericText Value { get; init; }
 }

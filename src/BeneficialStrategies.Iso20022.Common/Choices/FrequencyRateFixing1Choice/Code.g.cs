@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FrequencyRateFixing1Choice;
 /// <summary>
 /// Frequency rate fixing expressed as a code.
 /// </summary>
-public partial record Code : IFrequencyRateFixing1Choice
+public partial record Code : FrequencyRateFixing1Choice_
 {
     public required FrequencyRateFixing1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementTransactionCondition22
 /// <summary>
 /// Settlement conditions expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ISettlementTransactionCondition22Choice
+public partial record Code : SettlementTransactionCondition22Choice_
 {
     public required SettlementTransactionCondition6Code Value { get; init; }
 }

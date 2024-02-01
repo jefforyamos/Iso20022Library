@@ -20,15 +20,15 @@ public partial record InvestmentAccountOwnershipInformation9
     /// <summary>
     /// Information about the organisation or individual person.
     /// </summary>
-    public required IParty16Choice Party { get; init; } 
+    public required Party16Choice_ Party { get; init; } 
     /// <summary>
     /// Status of an identity check to prevent money laundering. This includes the counter-terrorism check.
     /// </summary>
-    public IMoneyLaunderingCheck1Choice? MoneyLaunderingCheck { get; init; } 
+    public MoneyLaunderingCheck1Choice_? MoneyLaunderingCheck { get; init; } 
     /// <summary>
     /// Information to support Know Your Customer processes.
     /// </summary>
-    public PartyProfileInformation3? InvestorProfileValidation { get; init;  } // Warning: Don't know multiplicity.
+    public PartyProfileInformation3[] InvestorProfileValidation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Percentage of ownership or of beneficial ownership of the shares/units in the account. All subsequent subscriptions and or redemptions will be allocated using the same percentage.
     /// </summary>

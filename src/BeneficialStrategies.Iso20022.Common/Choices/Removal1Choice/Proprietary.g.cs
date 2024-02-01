@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Removal1Choice;
 /// <summary>
 /// Specifies the removal processing change requested expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IRemoval1Choice
+public partial record Proprietary : Removal1Choice_
 {
     #nullable enable
     /// <summary>

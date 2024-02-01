@@ -64,7 +64,7 @@ public partial record TransactionAgents5
     /// <summary>
     /// Proprietary agent related to the underlying transaction.
     /// </summary>
-    public ProprietaryAgent4? Proprietary { get; init;  } // Warning: Don't know multiplicity.
+    public ProprietaryAgent4[] Proprietary { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

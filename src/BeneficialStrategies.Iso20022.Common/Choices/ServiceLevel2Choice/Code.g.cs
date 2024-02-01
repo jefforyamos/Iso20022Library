@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ServiceLevel2Choice;
 /// <summary>
 /// Identification of a pre-agreed level of service between the parties in a coded form.
 /// </summary>
-public partial record Code : IServiceLevel2Choice
+public partial record Code : ServiceLevel2Choice_
 {
     public required ServiceLevel1Code Value { get; init; }
 }

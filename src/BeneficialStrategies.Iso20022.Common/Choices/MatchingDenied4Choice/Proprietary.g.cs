@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingDenied4Choice;
 /// <summary>
 /// Specifies the execution of a matching denial process.
 /// </summary>
-public partial record Proprietary : IMatchingDenied4Choice
+public partial record Proprietary : MatchingDenied4Choice_
 {
     #nullable enable
     /// <summary>

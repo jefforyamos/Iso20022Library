@@ -24,15 +24,15 @@ public partial record AccountIdentification32
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification92Choice? AccountOwner { get; init; } 
+    public PartyIdentification92Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
-    public ISafekeepingPlaceFormat8Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat8Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Balance to which the payment applies (less or equal to the total eligible balance).
     /// </summary>
-    public required IBalanceFormat5Choice ConfirmedBalance { get; init; } 
+    public required BalanceFormat5Choice_ ConfirmedBalance { get; init; } 
     
     #nullable disable
 }

@@ -32,7 +32,7 @@ public partial record AuthorisationResult7
     /// <summary>
     /// Additional information relevant for the destination.
     /// </summary>
-    public ActionMessage3? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public ActionMessage3[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

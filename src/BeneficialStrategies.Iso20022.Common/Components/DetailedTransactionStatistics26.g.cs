@@ -32,7 +32,7 @@ public partial record DetailedTransactionStatistics26
     /// <summary>
     /// Details of the outstanding derivatives for which no margin information has been reported, or the margin information that was reported is dated more than fourteen calendar days earlier than the day.
     /// </summary>
-    public MissingMarginData2? Warnings { get; init;  } // Warning: Don't know multiplicity.
+    public MissingMarginData2[] Warnings { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

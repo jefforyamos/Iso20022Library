@@ -29,7 +29,7 @@ public partial record EncryptedDataElement1
     /// <summary>
     /// Encrypted data element.
     /// </summary>
-    public required IEncryptedData1Choice EncryptedData { get; init; } 
+    public required EncryptedData1Choice_ EncryptedData { get; init; } 
     /// <summary>
     /// Format of the raw data prior to encryption.
     /// </summary>

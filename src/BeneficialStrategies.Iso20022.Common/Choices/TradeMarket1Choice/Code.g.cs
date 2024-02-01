@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeMarket1Choice;
 /// <summary>
 /// Standard trade market code.
 /// </summary>
-public partial record Code : ITradeMarket1Choice
+public partial record Code : TradeMarket1Choice_
 {
     public required ExternalTradeMarket1Code Value { get; init; }
 }

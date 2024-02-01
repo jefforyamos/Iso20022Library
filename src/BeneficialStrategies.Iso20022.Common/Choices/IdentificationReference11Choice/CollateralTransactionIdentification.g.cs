@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationReference11Choice;
 /// <summary>
 /// Unambiguous identification of a collateral transaction as assigned by the instructing party.
 /// </summary>
-public partial record CollateralTransactionIdentification : IIdentificationReference11Choice
+public partial record CollateralTransactionIdentification : IdentificationReference11Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionTypeStatus3Choice;
 /// <summary>
 /// Status of the meeting instruction cancellation request message or of the individual meeting instruction cancellation request(s). The message is identified in InstructionType/InstructionCancellationIdentification.
 /// </summary>
-public partial record CancellationStatus : IInstructionTypeStatus3Choice
+public partial record CancellationStatus : InstructionTypeStatus3Choice_
 {
     #nullable enable
     #nullable disable

@@ -32,27 +32,27 @@ public partial record Report4
     /// <summary>
     /// Date and time of the report.
     /// </summary>
-    public required IDateAndDateTimeChoice ReportDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ ReportDateTime { get; init; } 
     /// <summary>
     /// Preparation date and time of the report.
     /// </summary>
-    public IDateAndDateTimeChoice? CreationDateTime { get; init; } 
+    public DateAndDateTimeChoice_? CreationDateTime { get; init; } 
     /// <summary>
     /// Previous report date and time.
     /// </summary>
-    public IDateAndDateTimeChoice? PreviousReportDateTime { get; init; } 
+    public DateAndDateTimeChoice_? PreviousReportDateTime { get; init; } 
     /// <summary>
     /// Specifies the frequency of the report.
     /// </summary>
-    public required IFrequency8Choice Frequency { get; init; } 
+    public required Frequency8Choice_ Frequency { get; init; } 
     /// <summary>
     /// Specifies whether the report is complete or contains changes only.
     /// </summary>
-    public required IUpdateType4Choice UpdateType { get; init; } 
+    public required UpdateType4Choice_ UpdateType { get; init; } 
     /// <summary>
     /// Specifies the type of balance on which the report is prepared.
     /// </summary>
-    public required IStatementBasis6Choice ReportBasis { get; init; } 
+    public required StatementBasis6Choice_ ReportBasis { get; init; } 
     /// <summary>
     /// Period for which the report is given.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record Report4
     /// <summary>
     /// Specifies the source of the report.
     /// </summary>
-    public IStatementSource1Choice? ReportSource { get; init; } 
+    public StatementSource1Choice_? ReportSource { get; init; } 
     /// <summary>
     /// Indicates whether the report is audited or not.
     /// </summary>

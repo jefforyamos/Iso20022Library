@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification198Choice;
 /// <summary>
 /// Number assigned by a national registration authority to an entity.
 /// </summary>
-public partial record NationalRegistrationNumber : IPartyIdentification198Choice
+public partial record NationalRegistrationNumber : PartyIdentification198Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record Adjustment6
     /// <summary>
     /// Specifies the type of adjustment.
     /// </summary>
-    public required IAdjustmentType1Choice Type { get; init; } 
+    public required AdjustmentType1Choice_ Type { get; init; } 
     /// <summary>
     /// Specifies whether the adjustment must be subtracted or added to the total amount.
     /// </summary>

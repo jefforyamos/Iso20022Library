@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat4Choice;
 /// <summary>
 /// Proprietary scheme to specify a date.
 /// </summary>
-public partial record Proprietary : IDateFormat4Choice
+public partial record Proprietary : DateFormat4Choice_
 {
     #nullable enable
     /// <summary>

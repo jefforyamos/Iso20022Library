@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification147Choice;
 /// <summary>
 /// Code allocated to a financial institution by the ISO 9362 Registration Authority, as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
 /// </summary>
-public partial record BICFI : IPartyIdentification147Choice
+public partial record BICFI : PartyIdentification147Choice_
 {
     public required IsoBICFIDec2014Identifier Value { get; init; }
 }

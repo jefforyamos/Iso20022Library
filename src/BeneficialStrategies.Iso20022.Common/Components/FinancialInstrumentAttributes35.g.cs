@@ -20,39 +20,39 @@ public partial record FinancialInstrumentAttributes35
     /// <summary>
     /// Market(s) on which the security is listed.
     /// </summary>
-    public IMarketIdentification3Choice? PlaceOfListing { get; init; } 
+    public MarketIdentification3Choice_? PlaceOfListing { get; init; } 
     /// <summary>
     /// Specifies the computation method of (accrued) interest of the security.
     /// </summary>
-    public IInterestComputationMethodFormat1Choice? DayCountBasis { get; init; } 
+    public InterestComputationMethodFormat1Choice_? DayCountBasis { get; init; } 
     /// <summary>
     /// Specifies the form, this is, ownership, of the security.
     /// </summary>
-    public IFormOfSecurity2Choice? RegistrationForm { get; init; } 
+    public FormOfSecurity2Choice_? RegistrationForm { get; init; } 
     /// <summary>
     /// Specifies the frequency of an interest payment.
     /// </summary>
-    public IFrequency3Choice? PaymentFrequency { get; init; } 
+    public Frequency3Choice_? PaymentFrequency { get; init; } 
     /// <summary>
     /// Status of payment of a security at a particular time.
     /// </summary>
-    public ISecuritiesPaymentStatus2Choice? PaymentStatus { get; init; } 
+    public SecuritiesPaymentStatus2Choice_? PaymentStatus { get; init; } 
     /// <summary>
     /// Specifies the frequency of change to the variable rate of an interest bearing instrument.
     /// </summary>
-    public IFrequency3Choice? VariableRateChangeFrequency { get; init; } 
+    public Frequency3Choice_? VariableRateChangeFrequency { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, for example, common share with voting rights, fully paid, or registered.
     /// </summary>
-    public IClassificationType2Choice? ClassificationType { get; init; } 
+    public ClassificationType2Choice_? ClassificationType { get; init; } 
     /// <summary>
     /// Specifies how an option can be exercised (American, European, Bermudan).
     /// </summary>
-    public IOptionStyle4Choice? OptionStyle { get; init; } 
+    public OptionStyle4Choice_? OptionStyle { get; init; } 
     /// <summary>
     /// Specifies whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).
     /// </summary>
-    public IOptionType2Choice? OptionType { get; init; } 
+    public OptionType2Choice_? OptionType { get; init; } 
     /// <summary>
     /// Currency in which a security is issued or redenominated.
     /// </summary>
@@ -124,7 +124,7 @@ public partial record FinancialInstrumentAttributes35
     /// <summary>
     /// Number of the coupon attached to the physical security.
     /// </summary>
-    public INumber2Choice? CouponAttachedNumber { get; init; } 
+    public Number2Choice_? CouponAttachedNumber { get; init; } 
     /// <summary>
     /// Number identifying a group of underlying assets assigned by the issuer of a factored security.
     /// </summary>
@@ -144,7 +144,7 @@ public partial record FinancialInstrumentAttributes35
     /// <summary>
     /// Value of the price, for example, as a currency and value per unit or as a percentage.
     /// </summary>
-    public IPriceType1Choice? MarketOrIndicativePrice { get; init; } 
+    public PriceType1Choice_? MarketOrIndicativePrice { get; init; } 
     /// <summary>
     /// Predetermined price at which the holder of a derivative will buy or sell the underlying instrument.
     /// </summary>
@@ -164,15 +164,15 @@ public partial record FinancialInstrumentAttributes35
     /// <summary>
     /// Indicates the minimum tradable quantity of a security.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? MinimumNominalQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? MinimumNominalQuantity { get; init; } 
     /// <summary>
     /// Ratio or multiplying factor used to convert one contract into a quantity.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? ContractSize { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? ContractSize { get; init; } 
     /// <summary>
     /// Identification of the underlying security by an ISIN.
     /// </summary>
-    public SecurityIdentification14? UnderlyingFinancialInstrumentIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityIdentification14[] UnderlyingFinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional information about the financial instrument in narrative form.
     /// </summary>

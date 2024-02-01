@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice4Choic
 /// <summary>
 /// Predetermined price at which the holder will have to buy or sell the underlying instrument.
 /// </summary>
-public partial record Price : ISecuritiesTransactionPrice4Choice
+public partial record Price : SecuritiesTransactionPrice4Choice_
 {
     #nullable enable
     #nullable disable

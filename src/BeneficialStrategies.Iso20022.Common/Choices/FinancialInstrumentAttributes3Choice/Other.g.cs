@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentAttributes3Ch
 /// <summary>
 /// Description of the financial instrument, such as a a derivative, when the instrument is not admitted to trading on a trading venue.
 /// </summary>
-public partial record Other : IFinancialInstrumentAttributes3Choice
+public partial record Other : FinancialInstrumentAttributes3Choice_
 {
     #nullable enable
     /// <summary>

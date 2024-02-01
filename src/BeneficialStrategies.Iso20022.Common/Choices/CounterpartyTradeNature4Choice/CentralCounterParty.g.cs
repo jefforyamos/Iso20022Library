@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature4Choice;
 /// <summary>
 /// Indicates that reporting party is a central counterparty.
 /// </summary>
-public partial record CentralCounterParty : ICounterpartyTradeNature4Choice
+public partial record CentralCounterParty : CounterpartyTradeNature4Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

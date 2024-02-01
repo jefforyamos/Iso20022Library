@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NDFOpeningFixing1Choice;
 /// <summary>
 /// Used to provide the opening information associated with an NDF trade.
 /// </summary>
-public partial record OpeningConditions : INDFOpeningFixing1Choice
+public partial record OpeningConditions : NDFOpeningFixing1Choice_
 {
     #nullable enable
     /// <summary>

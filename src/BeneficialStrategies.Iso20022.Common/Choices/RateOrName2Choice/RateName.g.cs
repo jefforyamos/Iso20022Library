@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateOrName2Choice;
 /// <summary>
 /// Pricing expressed as a rate name.
 /// </summary>
-public partial record RateName : IRateOrName2Choice
+public partial record RateName : RateOrName2Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LumpSumType1Choice;
 /// <summary>
 /// Type of lump sum expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ILumpSumType1Choice
+public partial record Proprietary : LumpSumType1Choice_
 {
     #nullable enable
     /// <summary>

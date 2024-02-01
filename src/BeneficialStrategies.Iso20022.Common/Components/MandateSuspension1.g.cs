@@ -32,11 +32,11 @@ public partial record MandateSuspension1
     /// <summary>
     /// Provides the original mandate data.
     /// </summary>
-    public required IOriginalMandate4Choice OriginalMandate { get; init; } 
+    public required OriginalMandate4Choice_ OriginalMandate { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

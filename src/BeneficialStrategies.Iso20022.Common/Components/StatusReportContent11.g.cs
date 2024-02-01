@@ -24,11 +24,11 @@ public partial record StatusReportContent11
     /// <summary>
     /// Data related to a component of the POI (Point Of Interaction) performing the status report.
     /// </summary>
-    public PointOfInteractionComponent12? POIComponent { get; init;  } // Warning: Don't know multiplicity.
+    public PointOfInteractionComponent12[] POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifier assigned to a set of POI terminals performing some categories of transactions.
     /// </summary>
-    public IsoMax35Text? POIGroupIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] POIGroupIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Human attendance at the POI (Point Of Interaction) location during transactions.
     /// </summary>
@@ -40,15 +40,15 @@ public partial record StatusReportContent11
     /// <summary>
     /// Request the terminal management system to answer with the identified data set.
     /// </summary>
-    public DataSetRequest3? DataSetRequired { get; init;  } // Warning: Don't know multiplicity.
+    public DataSetRequest3[] DataSetRequired { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Result of an individual terminal management action by the point of interaction.
     /// </summary>
-    public TMSEvent9? Event { get; init;  } // Warning: Don't know multiplicity.
+    public TMSEvent9[] Event { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Error log of the point of interaction since the last status report.
     /// </summary>
-    public IsoMax140Text? Errors { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax140Text[] Errors { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

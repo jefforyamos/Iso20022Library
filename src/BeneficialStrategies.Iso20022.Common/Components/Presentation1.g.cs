@@ -20,19 +20,19 @@ public partial record Presentation1
     /// <summary>
     /// Medium through which the presentation can be submitted such as paper, electronic or both.
     /// </summary>
-    public IPresentationMedium1Choice? Medium { get; init; } 
+    public PresentationMedium1Choice_? Medium { get; init; } 
     /// <summary>
     /// Choice of representation for the place of presentation.
     /// </summary>
-    public IPlaceOrUnderConfirmationChoice1? PlaceOfPresentationOrUnderConfirmationChoice { get; init; } 
+    public PlaceOrUnderConfirmationChoice1_? PlaceOfPresentationOrUnderConfirmationChoice { get; init; } 
     /// <summary>
     /// Document required to be presented.
     /// </summary>
-    public Document8? Document { get; init;  } // Warning: Don't know multiplicity.
+    public Document8[] Document { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the presentation.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

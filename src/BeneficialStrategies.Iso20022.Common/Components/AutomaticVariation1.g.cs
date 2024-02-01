@@ -28,11 +28,11 @@ public partial record AutomaticVariation1
     /// <summary>
     /// Details related to the variation amount and its trigger.
     /// </summary>
-    public AmountAndTrigger1? AmountAndTrigger { get; init;  } // Warning: Don't know multiplicity.
+    public AmountAndTrigger1[] AmountAndTrigger { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the variation.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

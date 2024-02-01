@@ -90,7 +90,7 @@ public partial record AgentCAStandingInstructionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="StgInstrReqSts")]
     [XmlElement(ElementName="StgInstrReqSts")]
     [Required]
-    public required IStandingInstructionStatus1Choice StandingInstructionRequestStatus { get; init; }
+    public required StandingInstructionStatus1Choice_ StandingInstructionRequestStatus { get; init; }
     
     /// <summary>
     /// Provides information about the status of a standing instruction cancellation request.
@@ -100,7 +100,7 @@ public partial record AgentCAStandingInstructionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="StgInstrCxlReqSts")]
     [XmlElement(ElementName="StgInstrCxlReqSts")]
     [Required]
-    public required IStandingInstructionCancellationStatus1Choice StandingInstructionCancellationRequestStatus { get; init; }
+    public required StandingInstructionCancellationStatus1Choice_ StandingInstructionCancellationRequestStatus { get; init; }
     
     #nullable disable
     

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TemporaryFinancialInstrumentIndi
 /// <summary>
 /// Proprietary code to specify whether the security is a temporary security.
 /// </summary>
-public partial record Proprietary : ITemporaryFinancialInstrumentIndicator1Choice
+public partial record Proprietary : TemporaryFinancialInstrumentIndicator1Choice_
 {
     #nullable enable
     /// <summary>

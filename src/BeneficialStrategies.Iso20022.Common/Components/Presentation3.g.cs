@@ -20,11 +20,11 @@ public partial record Presentation3
     /// <summary>
     /// Format for presentation documents that are submitted electronically.
     /// </summary>
-    public IDocumentFormat1Choice? Format { get; init; } 
+    public DocumentFormat1Choice_? Format { get; init; } 
     /// <summary>
     /// Channel through which presentation documents are submitted electronically, such as SWIFT, Web upload, or secure email.
     /// </summary>
-    public IChannel1Choice? Channel { get; init; } 
+    public Channel1Choice_? Channel { get; init; } 
     /// <summary>
     /// Uniform Resource Identifier (URI), such as a web or an email address, specifying where the presentation can be addressed.
     /// </summary>

@@ -28,7 +28,7 @@ public partial record CreditTransferTransactionInformation1
     /// <summary>
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
-    public required IAmountType2Choice Amount { get; init; } 
+    public required AmountType2Choice_ Amount { get; init; } 
     /// <summary>
     /// Further detailed information on the exchange rate specified in the payment transaction.
     /// </summary>
@@ -92,7 +92,7 @@ public partial record CreditTransferTransactionInformation1
     /// <summary>
     /// Further information related to the processing of the payment instruction, provided by the initiating party, and intended for the creditor agent.
     /// </summary>
-    public InstructionForCreditorAgent1? InstructionForCreditorAgent { get; init;  } // Warning: Don't know multiplicity.
+    public InstructionForCreditorAgent1[] InstructionForCreditorAgent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further information related to the processing of the payment instruction that may need to be acted upon by the debtor agent, depending on agreement between debtor and the debtor agent. ||Usage: The instruction can relate to a level of service, can be an instruction to be executed by the debtor's agent, or can be information required by the debtor's agent to process the instruction.
     /// </summary>
@@ -100,11 +100,11 @@ public partial record CreditTransferTransactionInformation1
     /// <summary>
     /// Underlying reason for the payment transaction, eg, a charity payment, or a commercial agreement between the creditor and the debtor. ||Usage: purpose is used by the end-customers, ie originating party, initiating party, debtor, creditor, final party, to provide information concerning the nature of the payment transaction. Purpose is a content element, which is not used for processing by any of the agents involved in the payment chain.
     /// </summary>
-    public IPurpose1Choice? Purpose { get; init; } 
+    public Purpose1Choice_? Purpose { get; init; } 
     /// <summary>
     /// Information needed due to regulatory and statutory requirements.
     /// </summary>
-    public IReadOnlyCollection<RegulatoryReporting2> RegulatoryReporting { get; init; } = [];
+    public RegulatoryReporting2[] RegulatoryReporting { get; init; } = [];
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
     /// </summary>
@@ -112,7 +112,7 @@ public partial record CreditTransferTransactionInformation1
     /// <summary>
     /// Information related to the handling of the remittance information by any of the agents in the transaction processing chain.
     /// </summary>
-    public IReadOnlyCollection<RemittanceLocation1> RelatedRemittanceInformation { get; init; } = [];
+    public RemittanceLocation1[] RelatedRemittanceInformation { get; init; } = [];
     /// <summary>
     /// Information that enables the matching, ie, reconciliation, of a payment with the items that the payment is intended to settle, eg, commercial invoices in an account receivable system.
     /// </summary>

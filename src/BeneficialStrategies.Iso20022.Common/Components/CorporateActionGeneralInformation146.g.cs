@@ -28,7 +28,7 @@ public partial record CorporateActionGeneralInformation146
     /// <summary>
     /// Type of corporate action event.
     /// </summary>
-    public required ICorporateActionEventType90Choice EventType { get; init; } 
+    public required CorporateActionEventType90Choice_ EventType { get; init; } 
     /// <summary>
     /// Identification of the security concerned by the corporate action.
     /// </summary>

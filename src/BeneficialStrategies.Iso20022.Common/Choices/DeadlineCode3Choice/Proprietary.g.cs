@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DeadlineCode3Choice;
 /// <summary>
 /// Proprietary identification of the reference date of a corporate action.
 /// </summary>
-public partial record Proprietary : IDeadlineCode3Choice
+public partial record Proprietary : DeadlineCode3Choice_
 {
     #nullable enable
     /// <summary>

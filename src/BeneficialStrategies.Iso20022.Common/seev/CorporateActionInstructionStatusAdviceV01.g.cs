@@ -91,7 +91,7 @@ public partial record CorporateActionInstructionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="InstrPrcgSts")]
     [XmlElement(ElementName="InstrPrcgSts")]
     [Required]
-    public required IInstructionProcessingStatus1Choice InstructionProcessingStatus { get; init; }
+    public required InstructionProcessingStatus1Choice_ InstructionProcessingStatus { get; init; }
     
     /// <summary>
     /// Information about the corporate action instruction.
@@ -118,7 +118,7 @@ public partial record CorporateActionInstructionStatusAdviceV01 : IOuterRecord
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public IPartyIdentification10Choice? MessageOriginator { get; init; }
+    public PartyIdentification10Choice_? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -127,7 +127,7 @@ public partial record CorporateActionInstructionStatusAdviceV01 : IOuterRecord
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public IPartyIdentification10Choice? MessageRecipient { get; init; }
+    public PartyIdentification10Choice_? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

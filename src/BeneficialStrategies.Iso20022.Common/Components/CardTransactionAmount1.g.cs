@@ -34,7 +34,7 @@ public partial record CardTransactionAmount1
     /// Details of the transaction amount, for informational purpose, for instance to be included within cardholder statement.
     /// It corresponds partially to ISO 8583 field number 54.
     /// </summary>
-    public DetailedAmount9? DetailedAmount { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount9[] DetailedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

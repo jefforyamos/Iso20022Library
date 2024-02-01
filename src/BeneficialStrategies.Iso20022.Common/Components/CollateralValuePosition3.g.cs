@@ -32,7 +32,7 @@ public partial record CollateralValuePosition3
     /// <summary>
     /// Unique identification, as known by the account owner, to unambiguously identify the securities on which the collateral value position is requested.
     /// </summary>
-    public SecurityCharacteristics3? Securities { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityCharacteristics3[] Securities { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

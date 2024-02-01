@@ -28,7 +28,7 @@ public partial record LineItem9
     /// <summary>
     /// Goods which are the subject of the invoice.
     /// </summary>
-    public LineItemDetails9? CommercialLineItems { get; init;  } // Warning: Don't know multiplicity.
+    public LineItemDetails9[] CommercialLineItems { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the total amount of all line items (incl. their adjustments).
     /// </summary>
@@ -40,7 +40,7 @@ public partial record LineItem9
     /// <summary>
     /// Variance on price for the goods.
     /// </summary>
-    public Adjustment4? Adjustment { get; init;  } // Warning: Don't know multiplicity.
+    public Adjustment4[] Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Charges related to the conveyance of goods.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record LineItem9
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters linked to the value of the goods in a trade transaction.
     /// </summary>
-    public Tax12? Tax { get; init;  } // Warning: Don't know multiplicity.
+    public Tax12[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total net amount of a trade transaction. Total amount resulting from the gross amount plus freight charges, tax and plus/minus Adjustments.
     /// </summary>
@@ -56,11 +56,11 @@ public partial record LineItem9
     /// <summary>
     /// Information important for the users of the message/service, which cannot be captured in any other message component/element. For example: Warehouse number.
     /// </summary>
-    public UserDefinedInformation1? BuyerDefinedInformation { get; init;  } // Warning: Don't know multiplicity.
+    public UserDefinedInformation1[] BuyerDefinedInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information important for the users of the message/service, which cannot be captured in any other message component/element. For example: Warehouse number.
     /// </summary>
-    public UserDefinedInformation1? SellerDefinedInformation { get; init;  } // Warning: Don't know multiplicity.
+    public UserDefinedInformation1[] SellerDefinedInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

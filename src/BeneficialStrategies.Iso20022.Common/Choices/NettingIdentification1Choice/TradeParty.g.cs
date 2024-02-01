@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NettingIdentification1Choice;
 /// <summary>
 /// Describes the individual trading party.
 /// </summary>
-public partial record TradeParty : INettingIdentification1Choice
+public partial record TradeParty : NettingIdentification1Choice_
 {
     #nullable enable
     #nullable disable

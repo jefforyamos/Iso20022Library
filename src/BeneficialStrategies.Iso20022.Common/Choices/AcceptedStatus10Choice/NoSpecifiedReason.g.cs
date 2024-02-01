@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AcceptedStatus10Choice;
 /// <summary>
 /// Reason not specified.
 /// </summary>
-public partial record NoSpecifiedReason : IAcceptedStatus10Choice
+public partial record NoSpecifiedReason : AcceptedStatus10Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record Debtor2
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor. In the context of the payment model, the debtor is also the debit account owner.
     /// </summary>
-    public IPartyIdentification2Choice? Debtor { get; init; } 
+    public PartyIdentification2Choice_? Debtor { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record Debtor2
     /// <summary>
     /// Financial institution that receives the payment transaction from the account owner, or other authorised party, and processes the instruction.
     /// </summary>
-    public required IFinancialInstitutionIdentification3Choice FirstAgent { get; init; } 
+    public required FinancialInstitutionIdentification3Choice_ FirstAgent { get; init; } 
     
     #nullable disable
 }

@@ -22,7 +22,7 @@ public partial record TrackerData1
     /// Usage: 
     /// This date can be the point in time when an agent provides a pending status update to the tracking system or when the creditor has been credited and can use the amount of money (as confirmed to the tracking system by the creditor agent).
     /// </summary>
-    public required IDateAndDateTime2Choice ConfirmedDate { get; init; } 
+    public required DateAndDateTime2Choice_ ConfirmedDate { get; init; } 
     /// <summary>
     /// Amount of money confirmed to the tracking system by the agent.
     /// </summary>
@@ -30,7 +30,7 @@ public partial record TrackerData1
     /// <summary>
     /// Provides tracker transaction information for a specific agent involved in the transaction chain. 
     /// </summary>
-    public TrackerRecord1? TrackerRecord { get; init;  } // Warning: Don't know multiplicity.
+    public TrackerRecord1[] TrackerRecord { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

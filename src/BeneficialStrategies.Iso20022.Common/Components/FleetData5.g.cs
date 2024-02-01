@@ -20,7 +20,7 @@ public partial record FleetData5
     /// <summary>
     /// It is designed to carry detail level fleet data and to enable issuers to supply more transaction information to their consumer and corporate clients pertaining to fleet transactions. 
     /// </summary>
-    public FleetLineItem3? LineItem { get; init;  } // Warning: Don't know multiplicity.
+    public FleetLineItem3[] LineItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

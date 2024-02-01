@@ -20,7 +20,7 @@ public partial record TransactionModification5
     /// <summary>
     /// Reference to the instruction related to the payment for which a modification is requested.
     /// </summary>
-    public required IPaymentIdentification6Choice PaymentIdentification { get; init; } 
+    public required PaymentIdentification6Choice_ PaymentIdentification { get; init; } 
     /// <summary>
     /// New payment values.
     /// </summary>

@@ -24,11 +24,11 @@ public partial record SettlementAllowanceCharge1
     /// <summary>
     /// Actual monetary amount specified for the allowance or charge.
     /// </summary>
-    public IsoCurrencyAndAmount? ActualAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount[] ActualAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Reason, expressed as text, for this allowance or charge.
     /// </summary>
-    public IDiscountOrChargeType1Choice? Reason { get; init; } 
+    public DiscountOrChargeType1Choice_? Reason { get; init; } 
     
     #nullable disable
 }

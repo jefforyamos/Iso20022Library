@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderCriteria4Choice;
 /// <summary>
 /// Recalls the criteria (search and return criteria) defined in a preceding query.
 /// </summary>
-public partial record QueryName : IStandingOrderCriteria4Choice
+public partial record QueryName : StandingOrderCriteria4Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

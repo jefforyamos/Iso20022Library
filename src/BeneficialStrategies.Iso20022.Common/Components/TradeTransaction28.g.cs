@@ -42,7 +42,7 @@ public partial record TradeTransaction28
     /// <summary>
     /// Indicates the price per derivative excluding, where applicable, commission and accrued interest.
     /// </summary>
-    public required ISecuritiesTransactionPrice10Choice Price { get; init; } 
+    public required SecuritiesTransactionPrice10Choice_ Price { get; init; } 
     /// <summary>
     /// Reference amount from which contractual payments are determined.
     /// Usage: In case of partial terminations, and amortisations and in case of contracts where the notional, due to the characteristics of the contract, varies over time, it shall reflect the remaining notional after the change took place.
@@ -55,7 +55,7 @@ public partial record TradeTransaction28
     /// <summary>
     /// Number of units of the financial instrument, that is, the nominal value.
     /// </summary>
-    public required IFinancialInstrumentQuantity30Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity30Choice_ Quantity { get; init; } 
     /// <summary>
     /// Amount of money of any up-front payment the reporting counterparty made or received.
     /// Usage: The negative symbol to be used to indicate that the payment was made, not received.
@@ -86,7 +86,7 @@ public partial record TradeTransaction28
     /// <summary>
     /// Indicates the date of settlement of the underlying.
     /// </summary>
-    public IsoISODate? SettlementDate { get; init;  } // Warning: Don't know multiplicity.
+    public IsoISODate[] SettlementDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details related to the master agreement.
     /// </summary>
@@ -94,7 +94,7 @@ public partial record TradeTransaction28
     /// <summary>
     /// Provides information on whether the contract was electronically confirmed, non-electronically confirmed or remains unconfirmed.
     /// </summary>
-    public required ITradeConfirmation1Choice TradeConfirmation { get; init; } 
+    public required TradeConfirmation1Choice_ TradeConfirmation { get; init; } 
     /// <summary>
     /// Information related to clearing of the reported contract.
     /// </summary>
@@ -110,7 +110,7 @@ public partial record TradeTransaction28
     /// <summary>
     /// Information related to commodity asset class type.
     /// </summary>
-    public IAssetClassCommodity2Choice? Commodity { get; init; } 
+    public AssetClassCommodity2Choice_? Commodity { get; init; } 
     /// <summary>
     /// Attributes specific for derivative contracts related to natural gas and electricity delivered in the European Union.
     /// </summary>

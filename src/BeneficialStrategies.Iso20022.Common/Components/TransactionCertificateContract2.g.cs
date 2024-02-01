@@ -20,7 +20,7 @@ public partial record TransactionCertificateContract2
     /// <summary>
     /// Reference of the contract provided as through the date and identification of the contract or through the registered contract identification.
     /// </summary>
-    public IContractRegistrationReference2Choice? ContractReference { get; init; } 
+    public ContractRegistrationReference2Choice_? ContractReference { get; init; } 
     /// <summary>
     /// Provides the amount of the transaction in the currency of the registered contract.
     /// </summary>

@@ -28,7 +28,7 @@ public partial record CardPaymentTransaction85
     /// <summary>
     /// Service in addition to the main service.
     /// </summary>
-    public CardPaymentServiceType9Code? AdditionalService { get; init;  } // Warning: Don't know multiplicity.
+    public CardPaymentServiceType9Code[] AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional attribute of the service type.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record CardPaymentTransaction85
     /// <summary>
     /// Additional information related to the transaction.
     /// </summary>
-    public IsoMax70Text? AdditionalTransactionData { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] AdditionalTransactionData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

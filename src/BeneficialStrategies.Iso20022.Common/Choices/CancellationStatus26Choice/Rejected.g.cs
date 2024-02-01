@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationStatus26Choice;
 /// <summary>
 /// Status advising on the rejection of the instruction cancellation request and on the reason for the rejection.
 /// </summary>
-public partial record Rejected : ICancellationStatus26Choice
+public partial record Rejected : CancellationStatus26Choice_
 {
     #nullable enable
     #nullable disable

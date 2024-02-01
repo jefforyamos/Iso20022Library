@@ -32,11 +32,11 @@ public partial record AccountReport28
     /// <summary>
     /// Information specifying the account mandate.
     /// </summary>
-    public OperationMandate4? Mandate { get; init;  } // Warning: Don't know multiplicity.
+    public OperationMandate4[] Mandate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Definition of a group of parties.
     /// </summary>
-    public Group4? Group { get; init;  } // Warning: Don't know multiplicity.
+    public Group4[] Group { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identification of the account used as a reference for the opening of another account.
     /// </summary>

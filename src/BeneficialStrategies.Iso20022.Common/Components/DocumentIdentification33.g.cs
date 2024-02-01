@@ -20,11 +20,11 @@ public partial record DocumentIdentification33
     /// <summary>
     /// Unique identifier of the document (message) assigned either by the account servicer or the account owner.
     /// </summary>
-    public required IDocumentIdentification3Choice Identification { get; init; } 
+    public required DocumentIdentification3Choice_ Identification { get; init; } 
     /// <summary>
     /// Identification of the type of document.
     /// </summary>
-    public IDocumentNumber5Choice? DocumentNumber { get; init; } 
+    public DocumentNumber5Choice_? DocumentNumber { get; init; } 
     
     #nullable disable
 }

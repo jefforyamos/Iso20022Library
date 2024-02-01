@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PledgeeFormat3Choice;
 /// <summary>
 /// Identification of the entity to which the financial instruments are pledged expressed as a code and a narrative description.
 /// </summary>
-public partial record Identification : IPledgeeFormat3Choice
+public partial record Identification : PledgeeFormat3Choice_
 {
     #nullable enable
     /// <summary>

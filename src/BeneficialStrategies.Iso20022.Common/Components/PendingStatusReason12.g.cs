@@ -20,7 +20,7 @@ public partial record PendingStatusReason12
     /// <summary>
     /// Specifies the reason why the instruction's processing is pending.
     /// </summary>
-    public required IPendingReason35Choice ReasonCode { get; init; } 
+    public required PendingReason35Choice_ ReasonCode { get; init; } 
     /// <summary>
     /// Provides additional information about the processed instruction.
     /// </summary>

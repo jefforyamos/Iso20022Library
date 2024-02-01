@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionFrequencyType1For
 /// <summary>
 /// Proprietary code to express the frequency of a CA event.
 /// </summary>
-public partial record Proprietary : ICorporateActionFrequencyType1FormatChoice
+public partial record Proprietary : CorporateActionFrequencyType1FormatChoice_
 {
     #nullable enable
     /// <summary>

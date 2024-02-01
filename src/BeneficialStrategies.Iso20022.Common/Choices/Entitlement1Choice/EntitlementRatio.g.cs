@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Entitlement1Choice;
 /// <summary>
 /// Number of votes assigned to one security.
 /// </summary>
-public partial record EntitlementRatio : IEntitlement1Choice
+public partial record EntitlementRatio : Entitlement1Choice_
 {
     public required IsoDecimalNumber Value { get; init; }
 }

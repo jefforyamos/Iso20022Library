@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonIdentificationType3Choice;
 /// <summary>
 /// Person identification expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IPersonIdentificationType3Choice
+public partial record Proprietary : PersonIdentificationType3Choice_
 {
     #nullable enable
     /// <summary>

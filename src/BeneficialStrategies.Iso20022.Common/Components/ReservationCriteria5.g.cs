@@ -24,7 +24,7 @@ public partial record ReservationCriteria5
     /// <summary>
     /// Defines the criteria to extract the reservation information.
     /// </summary>
-    public ReservationSearchCriteria4? SearchCriteria { get; init;  } // Warning: Don't know multiplicity.
+    public ReservationSearchCriteria4[] SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines the expected reservation report.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SubBalanceQuantity5Choice;
 /// <summary>
 /// Quantity of financial instrument in the sub-balance expressed in a proprietary format.
 /// </summary>
-public partial record Proprietary : ISubBalanceQuantity5Choice
+public partial record Proprietary : SubBalanceQuantity5Choice_
 {
     #nullable enable
     /// <summary>

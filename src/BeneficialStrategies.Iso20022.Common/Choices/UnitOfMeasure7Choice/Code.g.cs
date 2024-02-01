@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitOfMeasure7Choice;
 /// <summary>
 /// Unit of measure expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IUnitOfMeasure7Choice
+public partial record Code : UnitOfMeasure7Choice_
 {
     public required UnitOfMeasure9Code Value { get; init; }
 }

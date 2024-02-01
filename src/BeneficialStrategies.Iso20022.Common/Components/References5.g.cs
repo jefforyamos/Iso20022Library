@@ -32,7 +32,7 @@ public partial record References5
     /// <summary>
     /// Reference to the message that is acknowledged.
     /// </summary>
-    public MessageIdentification1? AcknowledgedMessageIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public MessageIdentification1[] AcknowledgedMessageIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Status of the request.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record References5
     /// <summary>
     /// File name of a document logically related to the request.
     /// </summary>
-    public IsoMax70Text? AttachedDocumentName { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] AttachedDocumentName { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

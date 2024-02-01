@@ -48,11 +48,11 @@ public partial record Baseline5
     /// <summary>
     /// Financial institution on the buyer's side, uniquely identified by its BIC. As part of the transaction, it may submit data sets.
     /// </summary>
-    public BICIdentification1? BuyerSideSubmittingBank { get; init;  } // Warning: Don't know multiplicity.
+    public BICIdentification1[] BuyerSideSubmittingBank { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Financial institution on the seller's side, uniquely identified by its BIC. As part of the transaction, it may submit data sets.
     /// </summary>
-    public BICIdentification1? SellerSideSubmittingBank { get; init;  } // Warning: Don't know multiplicity.
+    public BICIdentification1[] SellerSideSubmittingBank { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party to be invoiced for the purchase.
     /// </summary>
@@ -72,7 +72,7 @@ public partial record Baseline5
     /// <summary>
     /// Specifies the payment terms by means of a code and a limit in time.
     /// </summary>
-    public PaymentTerms5? PaymentTerms { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentTerms5[] PaymentTerms { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies how the underlying transaction should be settled.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record Baseline5
     /// <summary>
     /// Specifies the details of the payment obligation between financial institutions in this transaction.
     /// </summary>
-    public PaymentObligation2? PaymentObligation { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentObligation2[] PaymentObligation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the latest date on which a data set must be matched with a baseline.
     /// </summary>
@@ -100,11 +100,11 @@ public partial record Baseline5
     /// <summary>
     /// Specifies that a certificate data set is required for each shipment part of the transaction.
     /// </summary>
-    public RequiredSubmission4? CertificateDataSetRequired { get; init;  } // Warning: Don't know multiplicity.
+    public RequiredSubmission4[] CertificateDataSetRequired { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies that another type of certificate data set is required for each shipment part of the transaction.
     /// </summary>
-    public RequiredSubmission6? OtherCertificateDataSetRequired { get; init;  } // Warning: Don't know multiplicity.
+    public RequiredSubmission6[] OtherCertificateDataSetRequired { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies that IntentToPayNotice message(s) are expected as part of this transaction.
     /// </summary>

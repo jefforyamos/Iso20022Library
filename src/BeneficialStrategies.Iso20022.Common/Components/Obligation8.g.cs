@@ -20,19 +20,19 @@ public partial record Obligation8
     /// <summary>
     /// One of the entities associated with the collateral agreement
     /// </summary>
-    public required IPartyIdentification178Choice PartyA { get; init; } 
+    public required PartyIdentification178Choice_ PartyA { get; init; } 
     /// <summary>
     /// Party that is acting on behalf of party A and that offers collateral management services.
     /// </summary>
-    public IPartyIdentification178Choice? ServicingPartyA { get; init; } 
+    public PartyIdentification178Choice_? ServicingPartyA { get; init; } 
     /// <summary>
     /// Other entity associated with the collateral agreement
     /// </summary>
-    public required IPartyIdentification178Choice PartyB { get; init; } 
+    public required PartyIdentification178Choice_ PartyB { get; init; } 
     /// <summary>
     /// Party that is acting on behalf of party B and that offers collateral management services.
     /// </summary>
-    public IPartyIdentification178Choice? ServicingPartyB { get; init; } 
+    public PartyIdentification178Choice_? ServicingPartyB { get; init; } 
     /// <summary>
     /// Provides additional information on the collateral account of the party delivering/receiving the collateral.
     /// </summary>
@@ -44,11 +44,11 @@ public partial record Obligation8
     /// <summary>
     /// Underlying business area or type of trade causing the collateral movement.
     /// </summary>
-    public IExposureType21Choice? ExposureType { get; init; } 
+    public ExposureType21Choice_? ExposureType { get; init; } 
     /// <summary>
     /// Type of collateral instruction.
     /// </summary>
-    public ICollateralTransactionType1Choice? CollateralTransactionType { get; init; } 
+    public CollateralTransactionType1Choice_? CollateralTransactionType { get; init; } 
     /// <summary>
     /// Specifies whether the client is the collateral taker or giver.
     /// </summary>
@@ -60,15 +60,15 @@ public partial record Obligation8
     /// <summary>
     /// Close of business date on which the initiating party is valuing the margin call.
     /// </summary>
-    public IDateAndDateTime2Choice? ValuationDate { get; init; } 
+    public DateAndDateTime2Choice_? ValuationDate { get; init; } 
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
-    public IClosingDate4Choice? ClosingDate { get; init; } 
+    public ClosingDate4Choice_? ClosingDate { get; init; } 
     /// <summary>
     /// Date/time at which the instructing party requests the instruction to be executed. 
     /// </summary>
-    public IDateAndDateTime2Choice? RequestedExecutionDate { get; init; } 
+    public DateAndDateTime2Choice_? RequestedExecutionDate { get; init; } 
     /// <summary>
     /// Specifies the settlement process in which the collateral will be settled.
     /// </summary>

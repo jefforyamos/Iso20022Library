@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProxyAccountType1Choice;
 /// <summary>
 /// Name of the identification scheme, in a free text form.
 /// </summary>
-public partial record Proprietary : IProxyAccountType1Choice
+public partial record Proprietary : ProxyAccountType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

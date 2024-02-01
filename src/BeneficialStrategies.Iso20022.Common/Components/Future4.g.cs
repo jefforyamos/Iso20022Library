@@ -36,15 +36,15 @@ public partial record Future4
     /// <summary>
     /// Used to indicate the measurement unit of the underlying commodity on which the contract is based (for example, 2500 lbs of lean cattle, 1000 barrels of crude oil, 1000 bushels of corn, etc.).
     /// </summary>
-    public IUnitOfMeasure7Choice? UnitOfMeasure { get; init; } 
+    public UnitOfMeasure7Choice_? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Used to indicate a time unit for the contract (for example days, weeks, months, etc.).
     /// </summary>
-    public ITimeUnit3Choice? TimeUnit { get; init; } 
+    public TimeUnit3Choice_? TimeUnit { get; init; } 
     /// <summary>
     /// Provides more information about the underlying instrument.
     /// </summary>
-    public UnderlyingAttributes4? AdditionalUnderlyingAttributes { get; init;  } // Warning: Don't know multiplicity.
+    public UnderlyingAttributes4[] AdditionalUnderlyingAttributes { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

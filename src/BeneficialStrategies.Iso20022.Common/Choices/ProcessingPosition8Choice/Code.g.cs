@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingPosition8Choice;
 /// <summary>
 /// Processing position expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IProcessingPosition8Choice
+public partial record Code : ProcessingPosition8Choice_
 {
     public required ProcessingPosition4Code Value { get; init; }
 }

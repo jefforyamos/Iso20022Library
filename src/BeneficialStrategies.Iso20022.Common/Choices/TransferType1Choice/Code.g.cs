@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferType1Choice;
 /// <summary>
 /// Transfer type expressed as a code.
 /// </summary>
-public partial record Code : ITransferType1Choice
+public partial record Code : TransferType1Choice_
 {
     public required TransferType3Code Value { get; init; }
 }

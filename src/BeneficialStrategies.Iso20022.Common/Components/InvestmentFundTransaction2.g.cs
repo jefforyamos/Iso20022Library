@@ -20,11 +20,11 @@ public partial record InvestmentFundTransaction2
     /// <summary>
     /// Type of investment fund transaction.
     /// </summary>
-    public required ITransactionType1CodeChoice TransactionType { get; init; } 
+    public required TransactionType1CodeChoice_ TransactionType { get; init; } 
     /// <summary>
     /// Type of corporate action event.
     /// </summary>
-    public required ICorporateActionEventType1CodeChoice CorporateActionEventType { get; init; } 
+    public required CorporateActionEventType1CodeChoice_ CorporateActionEventType { get; init; } 
     /// <summary>
     /// Status of an investment fund transaction.
     /// </summary>
@@ -84,7 +84,7 @@ public partial record InvestmentFundTransaction2
     /// <summary>
     /// Date and time at which a price is applied, according to the terms stated in the prospectus.
     /// </summary>
-    public required IDateAndDateTimeChoice TradeDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     /// <summary>
     /// Indicates whether the dividend is included, ie, cum-dividend, in the executed price. When the dividend is not included, the price will be ex-dividend.
     /// </summary>

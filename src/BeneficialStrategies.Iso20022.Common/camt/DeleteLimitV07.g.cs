@@ -67,7 +67,7 @@ public partial record DeleteLimitV07 : IOuterRecord
     [DataMember(Name="LmtDtls")]
     [XmlElement(ElementName="LmtDtls")]
     [Required]
-    public required ILimitStructure2Choice LimitDetails { get; init; }
+    public required LimitStructure2Choice_ LimitDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

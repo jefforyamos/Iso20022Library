@@ -24,7 +24,7 @@ public partial record PreviousYear1
     /// <summary>
     /// Selection of investment plans issued during previous years.
     /// </summary>
-    public IsoISOYear? SpecificPreviousYears { get; init;  } // Warning: Don't know multiplicity.
+    public IsoISOYear[] SpecificPreviousYears { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the ISA contains a cash component asset for transfer.
     /// </summary>

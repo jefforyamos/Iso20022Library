@@ -44,7 +44,7 @@ public partial record ReportedFraud1
     /// <summary>
     /// Identifies the type of cardholder credential that was compromised.
     /// </summary>
-    public AuthenticationMethod11Code? CompromisedCredential { get; init;  } // Warning: Don't know multiplicity.
+    public AuthenticationMethod11Code[] CompromisedCredential { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date of fraud as reported by the cardholder
     /// </summary>

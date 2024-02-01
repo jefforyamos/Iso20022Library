@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingReason28Choice;
 /// <summary>
 /// Specifies the reason code why the instruction or request is pending, using a proprietary format.
 /// </summary>
-public partial record Proprietary : IPendingReason28Choice
+public partial record Proprietary : PendingReason28Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RecordMessage1Choice;
 /// <summary>
 /// Network management initiation message record.
 /// </summary>
-public partial record NetworkManagementInitiation : IRecordMessage1Choice
+public partial record NetworkManagementInitiation : RecordMessage1Choice_
 {
     public required IsoMax2MBBinary Value { get; init; }
 }

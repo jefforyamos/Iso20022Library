@@ -24,23 +24,23 @@ public partial record Member5
     /// <summary>
     /// Physical/logical address belonging to a member, segregated from its main address that is used for normal operations. The fund return address is used to route messages that require specific attention/exception handling, for example returns or rejects.
     /// </summary>
-    public IMemberIdentification3Choice? ReturnAddress { get; init;  } // Warning: Don't know multiplicity.
+    public MemberIdentification3Choice_[] ReturnAddress { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    public CashAccount38? Account { get; init;  } // Warning: Don't know multiplicity.
+    public CashAccount38[] Account { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Nature of the relationship a member has with a system.
     /// </summary>
-    public ISystemMemberType1Choice? Type { get; init; } 
+    public SystemMemberType1Choice_? Type { get; init; } 
     /// <summary>
     /// Status of a member in a system, for example enabled or deleted.
     /// </summary>
-    public ISystemMemberStatus1Choice? Status { get; init; } 
+    public SystemMemberStatus1Choice_? Status { get; init; } 
     /// <summary>
     /// Person to be contacted in a given organisation.
     /// </summary>
-    public ContactIdentificationAndAddress2? ContactReference { get; init;  } // Warning: Don't know multiplicity.
+    public ContactIdentificationAndAddress2[] ContactReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number, or virtual address, used for communication.
     /// </summary>

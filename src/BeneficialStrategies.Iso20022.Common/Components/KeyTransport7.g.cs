@@ -24,7 +24,7 @@ public partial record KeyTransport7
     /// <summary>
     /// Identification of a cryptographic asymmetric key for the recipient.
     /// </summary>
-    public required IRecipient9Choice RecipientIdentification { get; init; } 
+    public required Recipient9Choice_ RecipientIdentification { get; init; } 
     /// <summary>
     /// Algorithm to encrypt the key encryption key (KEK).
     /// </summary>

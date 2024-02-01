@@ -52,7 +52,7 @@ public partial record Security48
     /// <summary>
     /// Specifies whether the values defined as securities lending type are matching or not.
     /// </summary>
-    public CompareSecuritiesLendingType3? Type { get; init;  } // Warning: Don't know multiplicity.
+    public CompareSecuritiesLendingType3[] Type { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the the unit prices are matching or not.
     /// </summary>

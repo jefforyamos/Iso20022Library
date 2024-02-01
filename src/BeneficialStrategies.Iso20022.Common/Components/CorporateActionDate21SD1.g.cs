@@ -26,61 +26,61 @@ public partial record CorporateActionDate21SD1
     /// Date and time of notification via web service as reference information.
     /// 通知日時 Notification date and time.
     /// </summary>
-    public IDateFormat22Choice? WebServiceNotificationDate { get; init; } 
+    public DateFormat22Choice_? WebServiceNotificationDate { get; init; } 
     /// <summary>
     /// Date and time of previous notification via web service as a reference information (in case of replacement). 
     /// 訂正（削除）前通知日時.
     /// </summary>
-    public IDateFormat22Choice? PreviousWebServiceNotificationDate { get; init; } 
+    public DateFormat22Choice_? PreviousWebServiceNotificationDate { get; init; } 
     /// <summary>
     /// Actual record date - the previous business day of the record date if the record date falls to Saturday, Sunday or national holiday.
     /// 権利確定日.
     /// </summary>
-    public IDateFormat22Choice? ActualRecordDate { get; init; } 
+    public DateFormat22Choice_? ActualRecordDate { get; init; } 
     /// <summary>
     /// Date of the board meeting.
     /// 取締役会決議日.
     /// </summary>
-    public IDateFormat22Choice? BoardMeetingDate { get; init; } 
+    public DateFormat22Choice_? BoardMeetingDate { get; init; } 
     /// <summary>
     /// Date on which the new company will be registered.
     /// 新設会社登記日.
     /// </summary>
-    public IDateFormat22Choice? CorporateRegistrationDate { get; init; } 
+    public DateFormat22Choice_? CorporateRegistrationDate { get; init; } 
     /// <summary>
     /// Earliest planned date on which the issue price will be set.
     /// 発行価格決定予定日（最短）.
     /// </summary>
-    public IDateFormat22Choice? EarliestPlannedDateOfIssuePrice { get; init; } 
+    public DateFormat22Choice_? EarliestPlannedDateOfIssuePrice { get; init; } 
     /// <summary>
     /// Latest planned date on which the issue price will be set.
     /// 発行価格決定予定日（最長）.
     /// </summary>
-    public IDateFormat22Choice? LatestPlannedDateOfIssuePrice { get; init; } 
+    public DateFormat22Choice_? LatestPlannedDateOfIssuePrice { get; init; } 
     /// <summary>
     /// Date on which the issue price will be set.
     /// 発行価格決定日.
     /// </summary>
-    public IDateFormat22Choice? DateOfIssuePrice { get; init; } 
+    public DateFormat22Choice_? DateOfIssuePrice { get; init; } 
     /// <summary>
     /// Earliest planned date on which the cash payment (for the subscription cost) will be made.
     /// 払込期日予定日（最短）.
     /// </summary>
-    public IDateFormat22Choice? EarliestPlannedSubscriptionCostPaymentDate { get; init; } 
+    public DateFormat22Choice_? EarliestPlannedSubscriptionCostPaymentDate { get; init; } 
     /// <summary>
     /// Latest planned date on which the cash payment (for the subscription cost) will be made.
     /// 払込期日予定日（最長）.
     /// </summary>
-    public IDateFormat22Choice? LatestPlannedSubscriptionCostPaymentDate { get; init; } 
+    public DateFormat22Choice_? LatestPlannedSubscriptionCostPaymentDate { get; init; } 
     /// <summary>
     /// Listing date of the new shares announced by Stock Exchange.
     /// 変更上場日.
     /// </summary>
-    public IDateFormat22Choice? SubsequentListingDate { get; init; } 
+    public DateFormat22Choice_? SubsequentListingDate { get; init; } 
     /// <summary>
     /// Date at which the new share unit quantity becomes effective.
     /// </summary>
-    public IDateFormat22Choice? NewShareUnitQuantityEffectiveDate { get; init; } 
+    public DateFormat22Choice_? NewShareUnitQuantityEffectiveDate { get; init; } 
     
     #nullable disable
 }

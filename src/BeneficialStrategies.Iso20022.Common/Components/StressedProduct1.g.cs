@@ -24,11 +24,11 @@ public partial record StressedProduct1
     /// <summary>
     /// Maximum move across the curve for the stressed product.
     /// </summary>
-    public required IStressSize1Choice MaximumStressSize { get; init; } 
+    public required StressSize1Choice_ MaximumStressSize { get; init; } 
     /// <summary>
     /// Minimum move across the curve for the stressed product.
     /// </summary>
-    public required IStressSize1Choice MinimumStressSize { get; init; } 
+    public required StressSize1Choice_ MinimumStressSize { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionType2Choice;
 /// <summary>
 /// Option type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IOptionType2Choice
+public partial record Proprietary : OptionType2Choice_
 {
     #nullable enable
     /// <summary>

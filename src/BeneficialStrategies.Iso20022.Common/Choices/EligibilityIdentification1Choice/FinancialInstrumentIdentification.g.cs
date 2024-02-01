@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EligibilityIdentification1Choice
 /// <summary>
 /// ISIN used to identify the security to be defined as eligible.
 /// </summary>
-public partial record FinancialInstrumentIdentification : IEligibilityIdentification1Choice
+public partial record FinancialInstrumentIdentification : EligibilityIdentification1Choice_
 {
     public required IsoISINIdentifier Value { get; init; }
 }

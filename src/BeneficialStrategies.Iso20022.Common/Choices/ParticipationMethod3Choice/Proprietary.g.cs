@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ParticipationMethod3Choice;
 /// <summary>
 /// Method of participation in the general meeting vote expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IParticipationMethod3Choice
+public partial record Proprietary : ParticipationMethod3Choice_
 {
     #nullable enable
     /// <summary>

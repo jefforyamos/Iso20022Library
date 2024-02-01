@@ -32,7 +32,7 @@ public partial record Intermediary40
     /// <summary>
     /// Function performed by the intermediary.
     /// </summary>
-    public IInvestmentFundRole2Choice? Role { get; init; } 
+    public InvestmentFundRole2Choice_? Role { get; init; } 
     
     #nullable disable
 }

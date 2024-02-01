@@ -24,7 +24,7 @@ public partial record PartyAndAuthorisation5
     /// <summary>
     /// Specifies a party or a group of parties.
     /// </summary>
-    public required IPartyOrGroup2Choice PartyOrGroup { get; init; } 
+    public required PartyOrGroup2Choice_ PartyOrGroup { get; init; } 
     /// <summary>
     /// Order in which the mandate holder has to sign.
     /// </summary>

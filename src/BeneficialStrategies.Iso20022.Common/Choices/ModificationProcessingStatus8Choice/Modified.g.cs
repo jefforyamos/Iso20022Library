@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModificationProcessingStatus8Cho
 /// <summary>
 /// Instruction has been modified.
 /// </summary>
-public partial record Modified : IModificationProcessingStatus8Choice
+public partial record Modified : ModificationProcessingStatus8Choice_
 {
     #nullable enable
     #nullable disable

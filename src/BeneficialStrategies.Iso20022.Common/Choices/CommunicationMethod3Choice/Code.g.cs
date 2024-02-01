@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CommunicationMethod3Choice;
 /// <summary>
 /// Method of transmission expressed as a code.
 /// </summary>
-public partial record Code : ICommunicationMethod3Choice
+public partial record Code : CommunicationMethod3Choice_
 {
     public required CommunicationMethod1Code Value { get; init; }
 }

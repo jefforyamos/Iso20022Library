@@ -52,11 +52,11 @@ public partial record CashOptionSD3
     /// <summary>
     /// Corresponding cash rate paid by CSD.
     /// </summary>
-    public IRateAndAmountFormat17Choice? CSDCashRate { get; init; } 
+    public RateAndAmountFormat17Choice_? CSDCashRate { get; init; } 
     /// <summary>
     /// Rate at which a fee will be charged to a DTC (The Depository Trust Corporation) participant.
     /// </summary>
-    public IRateAndAmountFormat17Choice? DTCFeeRate { get; init; } 
+    public RateAndAmountFormat17Choice_? DTCFeeRate { get; init; } 
     /// <summary>
     /// Indicates the period during which the instructions for DTC (The Depository Trust Corporation) US Tax service will be accepted.
     /// </summary>

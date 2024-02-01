@@ -78,7 +78,7 @@ public partial record MarketClaimCancellationRequestStatusAdviceV01 : IOuterReco
     [DataMember(Name="MktClmCxlReqSts")]
     [XmlElement(ElementName="MktClmCxlReqSts")]
     [Required]
-    public required IMarketClaimCancellationRequestStatus1Choice MarketClaimCancellationRequestStatus { get; init; }
+    public required MarketClaimCancellationRequestStatus1Choice_ MarketClaimCancellationRequestStatus { get; init; }
     
     /// <summary>
     /// Detailed information about the related corporate action option and related movements to which the market claim is linked.

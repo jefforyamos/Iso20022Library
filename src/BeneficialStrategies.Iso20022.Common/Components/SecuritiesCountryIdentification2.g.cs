@@ -32,7 +32,7 @@ public partial record SecuritiesCountryIdentification2
     /// <summary>
     /// Details the validity of the specific record.
     /// </summary>
-    public required IPeriod4Choice ValidityPeriod { get; init; } 
+    public required Period4Choice_ ValidityPeriod { get; init; } 
     /// <summary>
     /// Date when this record was last modified.
     /// </summary>

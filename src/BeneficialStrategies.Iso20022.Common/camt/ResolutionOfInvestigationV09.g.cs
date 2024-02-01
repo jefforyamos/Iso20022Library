@@ -87,7 +87,7 @@ public partial record ResolutionOfInvestigationV09 : IOuterRecord
     [DataMember(Name="Sts")]
     [XmlElement(ElementName="Sts")]
     [Required]
-    public required IInvestigationStatus5Choice Status { get; init; }
+    public required InvestigationStatus5Choice_ Status { get; init; }
     
     /// <summary>
     /// Specifies the details of the underlying transactions being cancelled.
@@ -114,7 +114,7 @@ public partial record ResolutionOfInvestigationV09 : IOuterRecord
     [Description(@"Specifies the details of the underlying transaction for which a claim non receipt has been initiated.")]
     [DataMember(Name="ClmNonRctDtls")]
     [XmlElement(ElementName="ClmNonRctDtls")]
-    public IClaimNonReceipt2Choice? ClaimNonReceiptDetails { get; init; }
+    public ClaimNonReceipt2Choice_? ClaimNonReceiptDetails { get; init; }
     
     /// <summary>
     /// Details on the underlying statement entry.
@@ -132,7 +132,7 @@ public partial record ResolutionOfInvestigationV09 : IOuterRecord
     [Description(@"References a transaction initiated to fix the case under investigation.")]
     [DataMember(Name="CrrctnTx")]
     [XmlElement(ElementName="CrrctnTx")]
-    public ICorrectiveTransaction4Choice? CorrectionTransaction { get; init; }
+    public CorrectiveTransaction4Choice_? CorrectionTransaction { get; init; }
     
     /// <summary>
     /// Reference to fix the case under investigation as part of the resolution.

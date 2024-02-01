@@ -20,11 +20,11 @@ public partial record CorporateActionDate49
     /// <summary>
     /// Date/time at which positions are struck at the end of the day to note which parties will receive the relevant amount of entitlement, due to be distributed on payment date.
     /// </summary>
-    public IDateFormat31Choice? RecordDate { get; init; } 
+    public DateFormat31Choice_? RecordDate { get; init; } 
     /// <summary>
     /// Date/time as from which trading (including exchange and OTC trading) occurs on the underlying security without the benefit.
     /// </summary>
-    public IDateFormat31Choice? ExDividendDate { get; init; } 
+    public DateFormat31Choice_? ExDividendDate { get; init; } 
     
     #nullable disable
 }

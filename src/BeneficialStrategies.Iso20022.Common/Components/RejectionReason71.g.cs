@@ -28,7 +28,7 @@ public partial record RejectionReason71
     /// <summary>
     /// Acceptance criteria of the transaction.
     /// </summary>
-    public GenericValidationRuleIdentification1? DetailedValidationRule { get; init;  } // Warning: Don't know multiplicity.
+    public GenericValidationRuleIdentification1[] DetailedValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

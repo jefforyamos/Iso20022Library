@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModificationStatusReason1Choice;
 /// <summary>
 /// Reason for the status, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IModificationStatusReason1Choice
+public partial record Proprietary : ModificationStatusReason1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -161,7 +161,7 @@ public partial record PortfolioTransferInstructionV03 : IOuterRecord
     [DataMember(Name="Trfee")]
     [XmlElement(ElementName="Trfee")]
     [Required]
-    public required IPartyIdentification2Choice Transferee { get; init; }
+    public required PartyIdentification2Choice_ Transferee { get; init; }
     
     /// <summary>
     /// Identification of an account owned by the investor to which a cash entry is made based on the transfer of asset(s).

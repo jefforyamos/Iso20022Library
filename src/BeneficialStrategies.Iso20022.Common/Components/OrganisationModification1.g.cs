@@ -56,7 +56,7 @@ public partial record OrganisationModification1
     /// <summary>
     /// Person in the customer's organisation who can be contacted by the account servicer in relation to the account(s) identified in this instruction.
     /// </summary>
-    public PartyModification1? RepresentativeOfficer { get; init;  } // Warning: Don't know multiplicity.
+    public PartyModification1[] RepresentativeOfficer { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Person responsible of the treasury department within the customer’s organisation.
     /// </summary>
@@ -64,15 +64,15 @@ public partial record OrganisationModification1
     /// <summary>
     /// Person that has the mandate to delegate authority, to assign mandates to other individuals (mandate holders) to perform specific bank operations on the account.
     /// </summary>
-    public PartyModification1? MainMandateHolder { get; init;  } // Warning: Don't know multiplicity.
+    public PartyModification1[] MainMandateHolder { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Person that may be the potential sender of a message related to the life cycle of the account.
     /// </summary>
-    public PartyModification1? Sender { get; init;  } // Warning: Don't know multiplicity.
+    public PartyModification1[] Sender { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Person that is officially and legally mandated to represent the organisation. Depending on legislation, the legal representative(s) might for instance be assigned by the Board, identified in the by-laws of the organisation, be publicly announced in the official journal of a country, etc.
     /// </summary>
-    public PartyModification1? LegalRepresentative { get; init;  } // Warning: Don't know multiplicity.
+    public PartyModification1[] LegalRepresentative { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -24,7 +24,7 @@ public partial record CorporateActionQuantitySD1
     /// <summary>
     /// Represents "subscription base" (Quantity2) and "subscription disbursed" (Quantity1) quantity elements. "Subscription base quantity" is the quantity of the rights security that forms the basis for calculating the payout. It is located on the distribution announcement, with the rights subscription announcement following later. "Subscription disbursed quantity" is the quantity of securities received in the security payout. It is located on the distribution announcement, with the rights subscription announcement following later.
     /// </summary>
-    public IRatioFormat13Choice? SubscriptionQuantity { get; init; } 
+    public RatioFormat13Choice_? SubscriptionQuantity { get; init; } 
     
     #nullable disable
 }

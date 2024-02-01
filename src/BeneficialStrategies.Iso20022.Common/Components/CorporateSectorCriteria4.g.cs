@@ -20,11 +20,11 @@ public partial record CorporateSectorCriteria4
     /// <summary>
     /// Indicates that reporting counterparty is a financial institution.
     /// </summary>
-    public FinancialPartySectorType2Code? FinancialInstitutionSector { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialPartySectorType2Code[] FinancialInstitutionSector { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates that reporting counterparty is a non financial institution.
     /// </summary>
-    public IsoNACEDomainIdentifier? NonFinancialInstitutionSector { get; init;  } // Warning: Don't know multiplicity.
+    public IsoNACEDomainIdentifier[] NonFinancialInstitutionSector { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates that reporting counterparty is a financial institution.
     /// </summary>

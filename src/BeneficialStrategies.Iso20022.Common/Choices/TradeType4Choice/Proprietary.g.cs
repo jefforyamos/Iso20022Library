@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeType4Choice;
 /// <summary>
 /// Third party reporting information expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITradeType4Choice
+public partial record Proprietary : TradeType4Choice_
 {
     #nullable enable
     /// <summary>

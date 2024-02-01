@@ -24,11 +24,11 @@ public partial record ReversalReasonInformation1
     /// <summary>
     /// Specifies the reason for the reversal.
     /// </summary>
-    public IReversalReason1Choice? ReversalReason { get; init; } 
+    public ReversalReason1Choice_? ReversalReason { get; init; } 
     /// <summary>
     /// Further details on the reversal reason.
     /// </summary>
-    public IsoMax105Text? AdditionalReversalReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax105Text[] AdditionalReversalReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

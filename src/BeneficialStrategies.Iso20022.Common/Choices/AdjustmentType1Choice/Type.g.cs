@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AdjustmentType1Choice;
 /// <summary>
 /// Specifies the type of adjustment applied to the amount of goods/services by means of a code.
 /// </summary>
-public partial record Type : IAdjustmentType1Choice
+public partial record Type : AdjustmentType1Choice_
 {
     public required AdjustmentType2Code Value { get; init; }
 }

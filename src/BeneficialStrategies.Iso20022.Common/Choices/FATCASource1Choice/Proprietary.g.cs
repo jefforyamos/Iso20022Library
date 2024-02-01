@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FATCASource1Choice;
 /// <summary>
 /// Source of Foreign Account Tax Compliance Act (FATCA) status expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IFATCASource1Choice
+public partial record Proprietary : FATCASource1Choice_
 {
     #nullable enable
     /// <summary>

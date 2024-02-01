@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status39Choice;
 /// <summary>
 /// Provides the status of an instruction.
 /// </summary>
-public partial record InstructionProcessingStatus : IStatus39Choice
+public partial record InstructionProcessingStatus : Status39Choice_
 {
     #nullable enable
     #nullable disable

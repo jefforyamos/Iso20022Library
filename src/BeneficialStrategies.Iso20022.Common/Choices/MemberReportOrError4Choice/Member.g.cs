@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MemberReportOrError4Choice;
 /// <summary>
 /// Requested member data when found in the system.
 /// </summary>
-public partial record Member : IMemberReportOrError4Choice
+public partial record Member : MemberReportOrError4Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record Member : IMemberReportOrError4Choice
     /// <summary>
     /// Physical/logical address belonging to a member, segregated from its main address that is used for normal operations. The fund return address is used to route messages that require specific attention/exception handling, for example returns or rejects.
     /// </summary>
-    public IMemberIdentification2Choice? ReturnAddress { get; init;  } // Warning: Don't know multiplicity.
+    public MemberIdentification2Choice_? ReturnAddress { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>

@@ -24,11 +24,11 @@ public partial record AccountAndParties2
     /// <summary>
     /// Specifies the role related to the account.
     /// </summary>
-    public AccountRole1? Role { get; init;  } // Warning: Don't know multiplicity.
+    public AccountRole1[] Role { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information.
     /// </summary>
-    public IsoMax256Text? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax256Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

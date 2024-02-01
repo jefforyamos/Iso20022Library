@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementOrCorporateActionEvent
 /// <summary>
 /// Specifies the type of corporate event.
 /// </summary>
-public partial record CorporateActionEventType : ISettlementOrCorporateActionEvent32Choice
+public partial record CorporateActionEventType : SettlementOrCorporateActionEvent32Choice_
 {
     #nullable enable
     #nullable disable

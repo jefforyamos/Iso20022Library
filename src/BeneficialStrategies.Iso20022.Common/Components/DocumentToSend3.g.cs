@@ -24,11 +24,11 @@ public partial record DocumentToSend3
     /// <summary>
     /// Party that should receive the document.
     /// </summary>
-    public required IPartyIdentification70Choice Recipient { get; init; } 
+    public required PartyIdentification70Choice_ Recipient { get; init; } 
     /// <summary>
     /// Communication method to be used.
     /// </summary>
-    public required ICommunicationMethod3Choice MethodOfTransmission { get; init; } 
+    public required CommunicationMethod3Choice_ MethodOfTransmission { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification7Choice;
 /// <summary>
 /// Business identification of the payment instruction given by the clearing agent.
 /// </summary>
-public partial record LongBusinessIdentification : IPaymentIdentification7Choice
+public partial record LongBusinessIdentification : PaymentIdentification7Choice_
 {
     #nullable enable
     /// <summary>
@@ -34,7 +34,7 @@ public partial record LongBusinessIdentification : IPaymentIdentification7Choice
     /// <summary>
     /// Message type with which the instruction has been initiated.
     /// </summary>
-    public IPaymentOrigin1Choice? PaymentMethod { get; init; } 
+    public PaymentOrigin1Choice_? PaymentMethod { get; init; } 
     /// <summary>
     /// Agent that instructs the next party in the chain to carry out the (set of) instruction(s).
     /// </summary>

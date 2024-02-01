@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason18Choice;
 /// <summary>
 /// Specifies the reason of the Status.
 /// </summary>
-public partial record Reason : IReason18Choice
+public partial record Reason : Reason18Choice_
 {
     #nullable enable
     /// <summary>

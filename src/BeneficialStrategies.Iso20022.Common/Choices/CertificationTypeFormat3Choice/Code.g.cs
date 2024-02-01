@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CertificationTypeFormat3Choice;
 /// <summary>
 /// Standard code to specify the certification format required, that is, physical or electronic format.
 /// </summary>
-public partial record Code : ICertificationTypeFormat3Choice
+public partial record Code : CertificationTypeFormat3Choice_
 {
     public required CertificationFormatType1Code Value { get; init; }
 }

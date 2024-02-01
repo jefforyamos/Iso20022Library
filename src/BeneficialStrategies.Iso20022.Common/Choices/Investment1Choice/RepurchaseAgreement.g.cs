@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice;
 /// <summary>
 /// Indicates that the investment was made in a repurchase agreement.
 /// </summary>
-public partial record RepurchaseAgreement : IInvestment1Choice
+public partial record RepurchaseAgreement : Investment1Choice_
 {
     #nullable enable
     /// <summary>
@@ -34,7 +34,7 @@ public partial record RepurchaseAgreement : IInvestment1Choice
     /// <summary>
     /// Specifies the type of repurchase agreement.
     /// </summary>
-    public required IRepurchaseAgreementType3Choice RepurchaseAgreementType { get; init; } 
+    public required RepurchaseAgreementType3Choice_ RepurchaseAgreementType { get; init; } 
     /// <summary>
     /// Identifies the triparty repurchase agent.
     /// </summary>

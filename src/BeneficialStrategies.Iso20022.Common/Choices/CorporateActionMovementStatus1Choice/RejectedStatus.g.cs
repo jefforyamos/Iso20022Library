@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionMovementStatus1Ch
 /// <summary>
 /// Provides information about the rejection status.
 /// </summary>
-public partial record RejectedStatus : ICorporateActionMovementStatus1Choice
+public partial record RejectedStatus : CorporateActionMovementStatus1Choice_
 {
     #nullable enable
     /// <summary>
     /// The rejection reason.
     /// </summary>
-    public IRejectionReason13FormatChoice? Reason { get; init;  } // Warning: Don't know multiplicity.
+    public RejectionReason13FormatChoice_? Reason { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the status.
     /// </summary>

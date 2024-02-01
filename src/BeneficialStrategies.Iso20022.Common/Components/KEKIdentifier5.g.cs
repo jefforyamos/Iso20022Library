@@ -40,7 +40,7 @@ public partial record KEKIdentifier5
     /// <summary>
     /// Allowed usage of the key.
     /// </summary>
-    public KeyUsage1Code? Function { get; init;  } // Warning: Don't know multiplicity.
+    public KeyUsage1Code[] Function { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralStatus3Choice;
 /// <summary>
 /// Proprietary status.
 /// </summary>
-public partial record Proprietary : ICollateralStatus3Choice
+public partial record Proprietary : CollateralStatus3Choice_
 {
     #nullable enable
     /// <summary>

@@ -20,7 +20,7 @@ public partial record BeneficialOwner1
     /// <summary>
     /// Identification of the party that is the beneficial owner of the specified securities.
     /// </summary>
-    public required IPartyIdentification2Choice BeneficialOwnerIdentification { get; init; } 
+    public required PartyIdentification2Choice_ BeneficialOwnerIdentification { get; init; } 
     /// <summary>
     /// Additional identification of the party that is the beneficial owner of the specified securities.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record BeneficialOwner1
     /// <summary>
     /// Type of certification which is required.
     /// </summary>
-    public IBeneficiaryCertificationType1FormatChoice? CertificationType { get; init; } 
+    public BeneficiaryCertificationType1FormatChoice_? CertificationType { get; init; } 
     /// <summary>
     /// Provides declaration details narrative relative to the financial instrument, eg, beneficial ownership.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record BeneficialOwner1
     /// <summary>
     /// Quantity of securities elected by to the beneficial owner.
     /// </summary>
-    public required IUnitOrFaceAmount1Choice ElectedSecuritiesQuantity { get; init; } 
+    public required UnitOrFaceAmount1Choice_ ElectedSecuritiesQuantity { get; init; } 
     
     #nullable disable
 }

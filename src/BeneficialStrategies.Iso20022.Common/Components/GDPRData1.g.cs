@@ -20,7 +20,7 @@ public partial record GDPRData1
     /// <summary>
     /// Type of consent.
     /// </summary>
-    public required IGDPRDataConsent1Choice ConsentType { get; init; } 
+    public required GDPRDataConsent1Choice_ ConsentType { get; init; } 
     /// <summary>
     /// Indicates whether consent has been given.
     /// </summary>

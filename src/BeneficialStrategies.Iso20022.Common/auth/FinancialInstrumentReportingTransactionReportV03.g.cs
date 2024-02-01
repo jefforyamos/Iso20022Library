@@ -46,7 +46,7 @@ public partial record FinancialInstrumentReportingTransactionReportV03 : IOuterR
     [DataMember(Name="Tx")]
     [XmlElement(ElementName="Tx")]
     [Required]
-    public required IReportingTransactionType3Choice Transaction { get; init; }
+    public required ReportingTransactionType3Choice_ Transaction { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

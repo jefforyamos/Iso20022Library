@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateTimeSearch2Choice;
 /// <summary>
 /// End date of the range.
 /// </summary>
-public partial record ToDateTime : IDateTimeSearch2Choice
+public partial record ToDateTime : DateTimeSearch2Choice_
 {
     public required IsoISODateTime Value { get; init; }
 }

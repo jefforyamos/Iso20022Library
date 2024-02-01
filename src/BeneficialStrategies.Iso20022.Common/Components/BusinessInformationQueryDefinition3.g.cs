@@ -24,7 +24,7 @@ public partial record BusinessInformationQueryDefinition3
     /// <summary>
     /// Defines the general business information query criteria.
     /// </summary>
-    public IGeneralBusinessInformationCriteriaDefinition1Choice? GeneralBusinessInformationCriteria { get; init; } 
+    public GeneralBusinessInformationCriteriaDefinition1Choice_? GeneralBusinessInformationCriteria { get; init; } 
     
     #nullable disable
 }

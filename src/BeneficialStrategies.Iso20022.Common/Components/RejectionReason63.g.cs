@@ -20,7 +20,7 @@ public partial record RejectionReason63
     /// <summary>
     /// Reason provided for the status.
     /// </summary>
-    public required IRejectionReason48Choice Code { get; init; } 
+    public required RejectionReason48Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

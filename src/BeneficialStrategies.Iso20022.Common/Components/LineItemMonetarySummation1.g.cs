@@ -20,27 +20,27 @@ public partial record LineItemMonetarySummation1
     /// <summary>
     /// Monetary value of the line amount total being reported in this trade settlement monetary summation.
     /// </summary>
-    public IsoCurrencyAndAmount? LineTotalAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount[] LineTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary value of the total of all allowance amounts being reported in this line item monetary summation.
     /// </summary>
-    public IsoCurrencyAndAmount? AllowanceTotalAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount[] AllowanceTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary value of the total of all charge amounts being reported in this line item monetary summation.
     /// </summary>
-    public IsoCurrencyAndAmount? ChargeTotalAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount[] ChargeTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary value of the total of all tax amounts being reported in this line item monetary summation.
     /// </summary>
-    public IsoCurrencyAndAmount? TaxTotalAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount[] TaxTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary value of the total of all tax basis amounts being reported in this line item monetary summation.
     /// </summary>
-    public IsoCurrencyAndAmount? TaxBasisTotalAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount[] TaxBasisTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary value of an amount being reported for information in this line item monetary summation.
     /// </summary>
-    public IsoCurrencyAndAmount? InformationAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount[] InformationAmount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

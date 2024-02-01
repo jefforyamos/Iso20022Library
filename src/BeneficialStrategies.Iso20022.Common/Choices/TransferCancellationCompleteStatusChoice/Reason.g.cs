@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferCancellationCompleteStat
 /// <summary>
 /// Reason of the complete status.
 /// </summary>
-public partial record Reason : ITransferCancellationCompleteStatusChoice
+public partial record Reason : TransferCancellationCompleteStatusChoice_
 {
     #nullable enable
     /// <summary>

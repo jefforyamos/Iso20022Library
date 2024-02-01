@@ -68,7 +68,7 @@ public partial record SecurityMaintenanceRequestV01 : IOuterRecord
     [DataMember(Name="UpdTp")]
     [XmlElement(ElementName="UpdTp")]
     [Required]
-    public required IUpdateType36Choice UpdateType { get; init; }
+    public required UpdateType36Choice_ UpdateType { get; init; }
     
     /// <summary>
     /// Reason for the update of a security.
@@ -77,7 +77,7 @@ public partial record SecurityMaintenanceRequestV01 : IOuterRecord
     [Description(@"Reason for the update of a security.")]
     [DataMember(Name="UpdRsn")]
     [XmlElement(ElementName="UpdRsn")]
-    public ISecuritiesUpdateReason1Choice? UpdateReason { get; init; }
+    public SecuritiesUpdateReason1Choice_? UpdateReason { get; init; }
     
     /// <summary>
     /// Identification of the financial instrument.

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification2Choice;
 /// <summary>
 /// Unique identification to unambiguously identify the party within the system.
 /// </summary>
-public partial record PartyIdentification : ISystemPartyModification2Choice
+public partial record PartyIdentification : SystemPartyModification2Choice_
 {
     #nullable enable
     /// <summary>

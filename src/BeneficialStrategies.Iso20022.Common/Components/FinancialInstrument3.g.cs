@@ -20,7 +20,7 @@ public partial record FinancialInstrument3
     /// <summary>
     /// Identification of a security by an ISIN.
     /// </summary>
-    public required ISecurityIdentification1Choice Identification { get; init; } 
+    public required SecurityIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>

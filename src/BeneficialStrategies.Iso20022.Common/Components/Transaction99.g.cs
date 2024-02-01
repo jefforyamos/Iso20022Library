@@ -32,11 +32,11 @@ public partial record Transaction99
     /// ISO 8583:93/2003 bit 25
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    public IsoExact4NumericText? MessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoExact4NumericText[] MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Supports message reason codes that are not defined in external code list. 
     /// </summary>
-    public IsoMax35Text? AlternateMessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record Transaction99
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    public AdditionalFee1? AdditionalFees { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFee1[] AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information pertaining to the network management type or function being performed.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record Transaction99
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

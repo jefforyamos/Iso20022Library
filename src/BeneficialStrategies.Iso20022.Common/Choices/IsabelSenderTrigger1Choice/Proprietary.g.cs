@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IsabelSenderTrigger1Choice;
 /// <summary>
 /// Trigger used by the sender to generate the file, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IIsabelSenderTrigger1Choice
+public partial record Proprietary : IsabelSenderTrigger1Choice_
 {
     public required IsoMax4AlphaNumericText Value { get; init; }
 }

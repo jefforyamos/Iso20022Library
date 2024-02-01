@@ -20,11 +20,11 @@ public partial record EstimatedFundCashForecast2
     /// <summary>
     /// Date and, if required, the time, at which the price has been applied.
     /// </summary>
-    public required IDateAndDateTimeChoice TradeDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     /// <summary>
     /// Previous date and time at which a price was applied.
     /// </summary>
-    public required IDateAndDateTimeChoice PreviousTradeDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ PreviousTradeDateTime { get; init; } 
     /// <summary>
     /// Investment fund class to which a cash flow is related.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record EstimatedFundCashForecast2
     /// <summary>
     /// Currency of the investment fund class.
     /// </summary>
-    public ActiveOrHistoricCurrencyCode? InvestmentCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public ActiveOrHistoricCurrencyCode[] InvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the estimated net cash flow is exceptional.
     /// </summary>
@@ -60,11 +60,11 @@ public partial record EstimatedFundCashForecast2
     /// <summary>
     /// Information related to the estimated cash movements reported by pre-defined or user defined criteria.
     /// </summary>
-    public CashSortingCriterion1? SortingCriteriaDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashSortingCriterion1[] SortingCriteriaDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net cash movements per financial instrument.
     /// </summary>
-    public NetCashForecast1? EstimatedNetCashForecastDetails { get; init;  } // Warning: Don't know multiplicity.
+    public NetCashForecast1[] EstimatedNetCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

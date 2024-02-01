@@ -20,11 +20,11 @@ public partial record UndertakingAmount2
     /// <summary>
     /// Choice of amounts.
     /// </summary>
-    public required IAmount1Choice AmountChoice { get; init; } 
+    public required Amount1Choice_ AmountChoice { get; init; } 
     /// <summary>
     /// Additional information concerning the amended amount.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

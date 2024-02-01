@@ -24,7 +24,7 @@ public partial record AccountLinkStatus1
     /// <summary>
     /// Underlying reason related to the creation of a transaction.
     /// </summary>
-    public StatusReasonInformation10? StatusReason { get; init;  } // Warning: Don't know multiplicity.
+    public StatusReasonInformation10[] StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

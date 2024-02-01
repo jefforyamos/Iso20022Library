@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DocumentNumber1Choice;
 /// <summary>
 /// MX Message identifier of the referenced document.
 /// </summary>
-public partial record LongNumber : IDocumentNumber1Choice
+public partial record LongNumber : DocumentNumber1Choice_
 {
     public required IsoISO20022MessageIdentificationText Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification34Choice;
 /// <summary>
 /// Indicates the index upon which the financial instrument is based.
 /// </summary>
-public partial record Index : ISecurityIdentification34Choice
+public partial record Index : SecurityIdentification34Choice_
 {
     #nullable enable
     #nullable disable

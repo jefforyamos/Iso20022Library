@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Cleared12Choice;
 /// <summary>
 /// Indicates that the contract has been cleared.
 /// </summary>
-public partial record Cleared : ICleared12Choice
+public partial record Cleared : Cleared12Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record Cleared : ICleared12Choice
     /// <summary>
     /// Identifies the central counterparty (CCP) that cleared the transaction.
     /// </summary>
-    public IOrganisationIdentification10Choice? CCP { get; init; } 
+    public OrganisationIdentification10Choice_? CCP { get; init; } 
     /// <summary>
     /// Time and date when clearing took place.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReversalReason1Choice;
 /// <summary>
 /// Reason for the reversal not catered for by the available codes.
 /// </summary>
-public partial record Proprietary : IReversalReason1Choice
+public partial record Proprietary : ReversalReason1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

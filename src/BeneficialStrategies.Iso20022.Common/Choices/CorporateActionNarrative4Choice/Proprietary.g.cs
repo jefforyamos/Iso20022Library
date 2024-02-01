@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionNarrative4Choice;
 /// <summary>
 /// Proprietary identification of the narrative type of the message.
 /// </summary>
-public partial record Proprietary : ICorporateActionNarrative4Choice
+public partial record Proprietary : CorporateActionNarrative4Choice_
 {
     #nullable enable
     /// <summary>

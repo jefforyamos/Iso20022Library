@@ -20,11 +20,11 @@ public partial record PriceDetails7
     /// <summary>
     /// Generic cash price paid per product by the underlying security holder either as a percentage or an amount, for example, reinvestment price.
     /// </summary>
-    public IPriceFormat6Choice? GenericCashPricePaidPerProduct { get; init; } 
+    public PriceFormat6Choice_? GenericCashPricePaidPerProduct { get; init; } 
     /// <summary>
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, for example, redemption price.
     /// </summary>
-    public IPriceFormat7Choice? GenericCashPriceReceivedPerProduct { get; init; } 
+    public PriceFormat7Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
     
     #nullable disable
 }

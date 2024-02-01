@@ -20,15 +20,15 @@ public partial record CorporateActionOption42
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    public required IOptionNumber1Choice OptionNumber { get; init; } 
+    public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public required ICorporateActionOption12Choice OptionType { get; init; } 
+    public required CorporateActionOption12Choice_ OptionType { get; init; } 
     /// <summary>
     /// Specifies whether the quantity of financial instrument is a quantity of securities instructed or a quantity to receive.
     /// </summary>
-    public required IInstructedOrQuantityToReceive1Choice InstructedOrQuantityToReceive { get; init; } 
+    public required InstructedOrQuantityToReceive1Choice_ InstructedOrQuantityToReceive { get; init; } 
     
     #nullable disable
 }

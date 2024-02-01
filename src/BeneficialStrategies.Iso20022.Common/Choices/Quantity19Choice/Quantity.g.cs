@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity19Choice;
 /// <summary>
 /// Quantity of security.
 /// </summary>
-public partial record Quantity : IQuantity19Choice
+public partial record Quantity : Quantity19Choice_
 {
     #nullable enable
     #nullable disable

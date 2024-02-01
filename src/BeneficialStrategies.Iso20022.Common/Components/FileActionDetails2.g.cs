@@ -30,7 +30,7 @@ public partial record FileActionDetails2
     /// Content of record to be added, updated, deleted or replaced.
     /// ISO 8583:93/2003 bit 72
     /// </summary>
-    public required IDataRecord1Choice DataRecord { get; init; } 
+    public required DataRecord1Choice_ DataRecord { get; init; } 
     /// <summary>
     /// Date when the file action should be performed.
     /// ISO 8583 bit 73.

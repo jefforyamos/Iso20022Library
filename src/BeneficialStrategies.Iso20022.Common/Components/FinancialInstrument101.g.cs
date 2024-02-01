@@ -24,7 +24,7 @@ public partial record FinancialInstrument101
     /// <summary>
     /// Identification of the asset.
     /// </summary>
-    public required IFinancialInstrument61Choice Instrument { get; init; } 
+    public required FinancialInstrument61Choice_ Instrument { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
@@ -57,7 +57,7 @@ public partial record FinancialInstrument101
     /// <summary>
     /// Additional information about the financial instrument.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

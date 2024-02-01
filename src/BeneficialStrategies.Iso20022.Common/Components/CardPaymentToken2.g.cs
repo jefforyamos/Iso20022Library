@@ -20,7 +20,7 @@ public partial record CardPaymentToken2
     /// <summary>
     /// Additional token payment information.
     /// </summary>
-    public IsoMax35Text? TokenCharacteristic { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] TokenCharacteristic { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Level of confidence resulting of the identification and authentication of the cardholder performed and the entity that performed it.
     /// </summary>

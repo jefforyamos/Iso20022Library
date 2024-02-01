@@ -20,31 +20,31 @@ public partial record SecuritiesOption81
     /// <summary>
     /// Maximum quantity of financial instrument that may be instructed.
     /// </summary>
-    public IFinancialInstrumentQuantity34Choice? MaximumQuantityToInstruct { get; init; } 
+    public FinancialInstrumentQuantity34Choice_? MaximumQuantityToInstruct { get; init; } 
     /// <summary>
     /// Minimum quantity of financial instrument that may be instructed.
     /// </summary>
-    public IFinancialInstrumentQuantity34Choice? MinimumQuantityToInstruct { get; init; } 
+    public FinancialInstrumentQuantity34Choice_? MinimumQuantityToInstruct { get; init; } 
     /// <summary>
     /// Minimum multiple quantity of financial instrument that may be instructed.
     /// </summary>
-    public IFinancialInstrumentQuantity35Choice? MinimumMultipleQuantityToInstruct { get; init; } 
+    public FinancialInstrumentQuantity35Choice_? MinimumMultipleQuantityToInstruct { get; init; } 
     /// <summary>
     /// Quantity of equity that makes up the new board lot.
     /// </summary>
-    public IFinancialInstrumentQuantity35Choice? NewBoardLotQuantity { get; init; } 
+    public FinancialInstrumentQuantity35Choice_? NewBoardLotQuantity { get; init; } 
     /// <summary>
     /// New denomination of the equity following, for example, an increase or decrease in nominal value.
     /// </summary>
-    public IFinancialInstrumentQuantity35Choice? NewDenominationQuantity { get; init; } 
+    public FinancialInstrumentQuantity35Choice_? NewDenominationQuantity { get; init; } 
     /// <summary>
     /// Specifies that if an order is prorated holders of odd lots who tender their full position will not have tendered position prorated but rather accepted in full.
     /// </summary>
-    public IFinancialInstrumentQuantity35Choice? FrontEndOddLotQuantity { get; init; } 
+    public FinancialInstrumentQuantity35Choice_? FrontEndOddLotQuantity { get; init; } 
     /// <summary>
     /// Represents the presence of a back end odd lot provision and the quantity of equity required after proration to be eligible for this privilege.
     /// </summary>
-    public IFinancialInstrumentQuantity35Choice? BackEndOddLotQuantity { get; init; } 
+    public FinancialInstrumentQuantity35Choice_? BackEndOddLotQuantity { get; init; } 
     
     #nullable disable
 }

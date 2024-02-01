@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AgreementType1Choice;
 /// <summary>
 /// Name of the identification scheme, in a free text form.
 /// </summary>
-public partial record Proprietary : IAgreementType1Choice
+public partial record Proprietary : AgreementType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record LimitIdentification1
     /// <summary>
     /// Identification of a particular cash clearing system.
     /// </summary>
-    public ISystemIdentification2Choice? SystemIdentification { get; init; } 
+    public SystemIdentification2Choice_? SystemIdentification { get; init; } 
     /// <summary>
     /// Identification of the system member for which the limit is established.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record LimitIdentification1
     /// <summary>
     /// Nature of the risk management limit.
     /// </summary>
-    public required ILimitType1Choice Type { get; init; } 
+    public required LimitType1Choice_ Type { get; init; } 
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record LimitIdentification1
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public IAccountIdentification4Choice? AccountIdentification { get; init; } 
+    public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     
     #nullable disable
 }

@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification248Choice;
 /// <summary>
 /// Party is a legal person.
 /// </summary>
-public partial record Legal : IPartyIdentification248Choice
+public partial record Legal : PartyIdentification248Choice_
 {
     #nullable enable
     /// <summary>
     /// Unique and unambiguous identification of the legal person.
     /// </summary>
-    public required IOrganisationIdentification15Choice Identification { get; init; } 
+    public required OrganisationIdentification15Choice_ Identification { get; init; } 
     /// <summary>
     /// Code of country where the registered office of the organisation is located.
     /// </summary>

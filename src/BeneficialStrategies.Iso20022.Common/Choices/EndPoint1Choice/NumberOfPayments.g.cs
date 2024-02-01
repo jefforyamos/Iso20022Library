@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EndPoint1Choice;
 /// <summary>
 /// Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date.
 /// </summary>
-public partial record NumberOfPayments : IEndPoint1Choice
+public partial record NumberOfPayments : EndPoint1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

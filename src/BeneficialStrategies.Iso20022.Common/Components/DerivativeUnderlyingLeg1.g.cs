@@ -24,7 +24,7 @@ public partial record DerivativeUnderlyingLeg1
     /// <summary>
     /// Attributes of a derivative that are specific to whether the derivative is a value defined derivative or quantity defined derivative.
     /// </summary>
-    public IDefinedAttributes1Choice? DefinedAttributes { get; init; } 
+    public DefinedAttributes1Choice_? DefinedAttributes { get; init; } 
     
     #nullable disable
 }

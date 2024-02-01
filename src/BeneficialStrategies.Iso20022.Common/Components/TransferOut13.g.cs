@@ -24,7 +24,7 @@ public partial record TransferOut13
     /// <summary>
     /// General information related to the transfer of a financial instrument.
     /// </summary>
-    public Transfer27? TransferDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Transfer27[] TransferDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

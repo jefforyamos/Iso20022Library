@@ -20,15 +20,15 @@ public partial record Authorisation2
     /// <summary>
     /// Maximum amount allowed by the mandate for each transaction.
     /// </summary>
-    public IFixedAmountOrUnlimited1Choice? MaximumAmountByTransaction { get; init; } 
+    public FixedAmountOrUnlimited1Choice_? MaximumAmountByTransaction { get; init; } 
     /// <summary>
     /// Maximum amount allowed over a specific period of time.
     /// </summary>
-    public MaximumAmountByPeriod1? MaximumAmountByPeriod { get; init;  } // Warning: Don't know multiplicity.
+    public MaximumAmountByPeriod1[] MaximumAmountByPeriod { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the maximum amount for each bulk submission.
     /// </summary>
-    public IFixedAmountOrUnlimited1Choice? MaximumAmountByBulkSubmission { get; init; } 
+    public FixedAmountOrUnlimited1Choice_? MaximumAmountByBulkSubmission { get; init; } 
     
     #nullable disable
 }

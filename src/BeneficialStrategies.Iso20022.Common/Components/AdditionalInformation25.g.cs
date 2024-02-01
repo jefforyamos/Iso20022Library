@@ -32,7 +32,7 @@ public partial record AdditionalInformation25
     /// <summary>
     /// Reason the instruction was rejected.
     /// </summary>
-    public IRejectedReason33Choice? RejectionReason { get; init; } 
+    public RejectedReason33Choice_? RejectionReason { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status24Choice;
 /// <summary>
 /// Status report details of an individual order.
 /// </summary>
-public partial record IndividualOrderDetailsReport : IStatus24Choice
+public partial record IndividualOrderDetailsReport : Status24Choice_
 {
     #nullable enable
     /// <summary>
@@ -38,7 +38,7 @@ public partial record IndividualOrderDetailsReport : IStatus24Choice
     /// <summary>
     /// Status of the individual order.
     /// </summary>
-    public required IOrderStatus5Choice OrderStatus { get; init; } 
+    public required OrderStatus5Choice_ OrderStatus { get; init; } 
     /// <summary>
     /// Elements from the original individual order that have been repaired so that the order can be accepted.
     /// </summary>

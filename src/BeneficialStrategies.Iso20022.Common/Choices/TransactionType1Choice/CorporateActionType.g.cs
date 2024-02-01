@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionType1Choice;
 /// <summary>
 /// Type of corporate action event.
 /// </summary>
-public partial record CorporateActionType : ITransactionType1Choice
+public partial record CorporateActionType : TransactionType1Choice_
 {
     #nullable enable
     #nullable disable

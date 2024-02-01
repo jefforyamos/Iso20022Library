@@ -20,7 +20,7 @@ public partial record InvestmentAccount66
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public PartyIdentification113? OwnerIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification113[] OwnerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record InvestmentAccount66
     /// <summary>
     /// Identification of a related party or intermediary.
     /// </summary>
-    public Intermediary41? IntermediaryInformation { get; init;  } // Warning: Don't know multiplicity.
+    public Intermediary41[] IntermediaryInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Form, that is, ownership, of the security, that is, registered or bearer.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record InvestmentAccount66
     /// <summary>
     /// Place requested as the place of safekeeping.
     /// </summary>
-    public ISafekeepingPlaceFormat8Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat8Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Institution that maintains the records where the account is held.
     /// </summary>

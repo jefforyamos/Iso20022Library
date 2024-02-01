@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityType1Choice;
 /// <summary>
 /// Quantity type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IQuantityType1Choice
+public partial record Proprietary : QuantityType1Choice_
 {
     #nullable enable
     /// <summary>

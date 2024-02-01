@@ -46,7 +46,7 @@ public partial record SecuritiesFinancingReportingReconciliationStatusAdviceV02 
     [DataMember(Name="RcncltnData")]
     [XmlElement(ElementName="RcncltnData")]
     [Required]
-    public required ITradeData34Choice ReconciliationData { get; init; }
+    public required TradeData34Choice_ ReconciliationData { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

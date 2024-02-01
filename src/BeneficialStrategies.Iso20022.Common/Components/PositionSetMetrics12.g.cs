@@ -30,7 +30,7 @@ public partial record PositionSetMetrics12
     /// <summary>
     /// Quantity of the securities other than bonds.
     /// </summary>
-    public IQuantityNominalValue2Choice? QuantityOrNominalAmount { get; init; } 
+    public QuantityNominalValue2Choice_? QuantityOrNominalAmount { get; init; } 
     
     #nullable disable
 }

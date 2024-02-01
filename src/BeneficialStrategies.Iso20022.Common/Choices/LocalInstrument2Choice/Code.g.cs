@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LocalInstrument2Choice;
 /// <summary>
 /// Specifies the local instrument, as published in an external local instrument code list.
 /// </summary>
-public partial record Code : ILocalInstrument2Choice
+public partial record Code : LocalInstrument2Choice_
 {
     public required ExternalLocalInstrument1Code Value { get; init; }
 }

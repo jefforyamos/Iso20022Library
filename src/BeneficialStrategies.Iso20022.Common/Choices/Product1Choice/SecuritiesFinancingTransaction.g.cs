@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Product1Choice;
 /// <summary>
 /// Attributes relating to repurchase agreement cleared by the CCP.
 /// </summary>
-public partial record SecuritiesFinancingTransaction : IProduct1Choice
+public partial record SecuritiesFinancingTransaction : Product1Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record SecuritiesFinancingTransaction : IProduct1Choice
     /// <summary>
     /// Indicates whether the repo is a general collateral repo or specific repo.
     /// </summary>
-    public required IRepurchaseAgreementType1Choice RepurchaseAgreementType { get; init; } 
+    public required RepurchaseAgreementType1Choice_ RepurchaseAgreementType { get; init; } 
     /// <summary>
     /// Identifier for triparty agent if applicable.
     /// </summary>

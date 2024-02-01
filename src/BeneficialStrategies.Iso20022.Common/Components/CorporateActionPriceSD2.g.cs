@@ -24,7 +24,7 @@ public partial record CorporateActionPriceSD2
     /// <summary>
     /// Price and currency at which cash will be paid for fractional shares (cash-in-lieu rate) by DTC (The Depository Trust Corporation). Used in conjunction with a rounding factor element.
     /// </summary>
-    public IRateAndAmountFormat17Choice? DTCCashInLieuPrice { get; init; } 
+    public RateAndAmountFormat17Choice_? DTCCashInLieuPrice { get; init; } 
     
     #nullable disable
 }

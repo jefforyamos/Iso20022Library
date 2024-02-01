@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CustomerConductClassification1Ch
 /// <summary>
 /// Conduct type expressed as a code.
 /// </summary>
-public partial record Code : ICustomerConductClassification1Choice
+public partial record Code : CustomerConductClassification1Choice_
 {
     public required ConductClassification1Code Value { get; init; }
 }

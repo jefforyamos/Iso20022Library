@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraPositionProcessingStatus10C
 /// <summary>
 /// Specifies a choice of status for the processing of an intra-position movement.
 /// </summary>
-public partial record Proprietary : IIntraPositionProcessingStatus10Choice
+public partial record Proprietary : IntraPositionProcessingStatus10Choice_
 {
     #nullable enable
     /// <summary>

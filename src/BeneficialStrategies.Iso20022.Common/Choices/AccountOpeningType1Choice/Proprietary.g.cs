@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOpeningType1Choice;
 /// <summary>
 /// Type of account opening instruction expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IAccountOpeningType1Choice
+public partial record Proprietary : AccountOpeningType1Choice_
 {
     #nullable enable
     /// <summary>

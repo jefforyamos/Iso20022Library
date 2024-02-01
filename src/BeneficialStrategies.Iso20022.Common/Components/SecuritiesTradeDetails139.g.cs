@@ -40,15 +40,15 @@ public partial record SecuritiesTradeDetails139
     /// <summary>
     /// Status of the transfer.
     /// </summary>
-    public IPortfolioTransferStatus2Choice? Status { get; init; } 
+    public PortfolioTransferStatus2Choice_? Status { get; init; } 
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    public ITradeDate9Choice? TradeDate { get; init; } 
+    public TradeDate9Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public required ISettlementDate20Choice SettlementDate { get; init; } 
+    public required SettlementDate20Choice_ SettlementDate { get; init; } 
     /// <summary>
     /// Number of days on which the interest rate accrues (daily accrual note).
     /// </summary>
@@ -64,7 +64,7 @@ public partial record SecuritiesTradeDetails139
     /// <summary>
     /// Specifies that a trade is to be reported to a third party.
     /// </summary>
-    public IReporting8Choice? Reporting { get; init;  } // Warning: Don't know multiplicity.
+    public Reporting8Choice_[] Reporting { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details about the financial instrument quantity involved in the transfer.
     /// </summary>
@@ -96,7 +96,7 @@ public partial record SecuritiesTradeDetails139
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -14,7 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTradeVenueCriteria1Cho
 /// Usage:
 /// Result of the query should include all trades where this filed was populated with a MIC code (but not the trades with ‘XOFF’ or ‘XXXX’).
 /// </summary>
-public partial record AnyMIC : ISecuritiesTradeVenueCriteria1Choice
+public partial record AnyMIC : SecuritiesTradeVenueCriteria1Choice_
 {
     public required AnyMIC1Code Value { get; init; }
 }

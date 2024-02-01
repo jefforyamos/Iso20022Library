@@ -20,7 +20,7 @@ public partial record EnabledStatusReason1
     /// <summary>
     /// Reason for the enabled account status.
     /// </summary>
-    public required IEnabledStatusReason2Choice Code { get; init; } 
+    public required EnabledStatusReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the enabled account status.
     /// </summary>

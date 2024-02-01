@@ -20,11 +20,11 @@ public partial record Trigger1
     /// <summary>
     /// Details related to the date on which a variation is effective.
     /// </summary>
-    public IFixedOrRecurrentDate1Choice? DateChoice { get; init; } 
+    public FixedOrRecurrentDate1Choice_? DateChoice { get; init; } 
     /// <summary>
     /// Details related to the documentary event on which a variation is triggered.
     /// </summary>
-    public Document10? DocumentaryEvent { get; init;  } // Warning: Don't know multiplicity.
+    public Document10[] DocumentaryEvent { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

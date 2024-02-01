@@ -28,7 +28,7 @@ public partial record AcceptorConfiguration1
     /// <summary>
     /// Data set containing the acceptor parameters of a point of interaction (POI).
     /// </summary>
-    public TerminalManagementDataSet3? DataSet { get; init;  } // Warning: Don't know multiplicity.
+    public TerminalManagementDataSet3[] DataSet { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

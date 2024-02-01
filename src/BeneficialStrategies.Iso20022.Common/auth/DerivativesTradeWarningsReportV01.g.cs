@@ -46,7 +46,7 @@ public partial record DerivativesTradeWarningsReportV01 : IOuterRecord
     [DataMember(Name="WrnngsSttstcs")]
     [XmlElement(ElementName="WrnngsSttstcs")]
     [Required]
-    public required IStatisticsPerCounterparty16Choice WarningsStatistics { get; init; }
+    public required StatisticsPerCounterparty16Choice_ WarningsStatistics { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstrumentSubStructureType2Choic
 /// <summary>
 /// Instrument sub-structure type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IInstrumentSubStructureType2Choice
+public partial record Proprietary : InstrumentSubStructureType2Choice_
 {
     #nullable enable
     /// <summary>

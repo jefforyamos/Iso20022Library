@@ -82,7 +82,7 @@ public partial record CorporateActionEventProcessingStatusAdvice002V06 : IOuterR
     [DataMember(Name="EvtPrcgSts")]
     [XmlElement(ElementName="EvtPrcgSts")]
     [Required]
-    public required IEventProcessingStatus4Choice EventProcessingStatus { get; init; }
+    public required EventProcessingStatus4Choice_ EventProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides additional information.

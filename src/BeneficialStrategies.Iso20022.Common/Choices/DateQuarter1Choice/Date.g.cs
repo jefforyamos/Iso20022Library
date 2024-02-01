@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateQuarter1Choice;
 /// <summary>
 /// Date as year, month and day.
 /// </summary>
-public partial record Date : IDateQuarter1Choice
+public partial record Date : DateQuarter1Choice_
 {
     public required IsoISODate Value { get; init; }
 }

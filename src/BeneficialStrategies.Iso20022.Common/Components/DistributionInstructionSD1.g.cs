@@ -20,7 +20,7 @@ public partial record DistributionInstructionSD1
     /// <summary>
     /// Tax category number assigned on the announcement to provide a breakdown at a category level on the inbound instruction to determine tax treatment as required by issuers, their agents, or tax authorities.
     /// </summary>
-    public IReadOnlyCollection<TaxCategory2> TaxCategory { get; init; } = [];
+    public TaxCategory2[] TaxCategory { get; init; } = [];
     
     #nullable disable
 }

@@ -20,7 +20,7 @@ public partial record CorporateActionInformation1
     /// <summary>
     /// Identification of the issuer agent.
     /// </summary>
-    public required IPartyIdentification2Choice AgentIdentification { get; init; } 
+    public required PartyIdentification2Choice_ AgentIdentification { get; init; } 
     /// <summary>
     /// Reference given to the event by the CA event issuer (agent).
     /// </summary>
@@ -32,15 +32,15 @@ public partial record CorporateActionInformation1
     /// <summary>
     /// Type of corporate action event.
     /// </summary>
-    public required ICorporateActionEventType2FormatChoice EventType { get; init; } 
+    public required CorporateActionEventType2FormatChoice_ EventType { get; init; } 
     /// <summary>
     /// Specifies whether the event is mandatory, mandatory with options or voluntary.
     /// </summary>
-    public required ICorporateActionMandatoryVoluntary1FormatChoice MandatoryVoluntaryEventType { get; init; } 
+    public required CorporateActionMandatoryVoluntary1FormatChoice_ MandatoryVoluntaryEventType { get; init; } 
     /// <summary>
     /// Type of processing involved by a Corporate Action.
     /// </summary>
-    public ICorporateActionEventProcessingType1FormatChoice? EventProcessingType { get; init; } 
+    public CorporateActionEventProcessingType1FormatChoice_? EventProcessingType { get; init; } 
     /// <summary>
     /// Identification of the underlying financial instrument, ie, the financial instrument affected by the corporate action event.
     /// </summary>

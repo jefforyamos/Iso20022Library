@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementTransactionCondition36
 /// <summary>
 /// Settlement conditions expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISettlementTransactionCondition36Choice
+public partial record Proprietary : SettlementTransactionCondition36Choice_
 {
     #nullable enable
     /// <summary>

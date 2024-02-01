@@ -32,15 +32,15 @@ public partial record BuyIn3
     /// <summary>
     /// Buy in quantity called initially by the central counterparty.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice InitialQuantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ InitialQuantity { get; init; } 
     /// <summary>
     /// Quantity amount covered by the clearing member after notification.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice CoveredQuantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ CoveredQuantity { get; init; } 
     /// <summary>
     /// Quantity amount non covered by the clearing member after notification (this is, new buy in amount to be executed).
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice UncoveredQuantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ UncoveredQuantity { get; init; } 
     
     #nullable disable
 }

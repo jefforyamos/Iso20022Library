@@ -147,7 +147,7 @@ public partial record PaymentEvent7
     /// <summary>
     /// Specifies the amount of money asked or paid for the charge.
     /// </summary>
-    public IsoActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IsoActiveOrHistoricCurrencyAndAmount[] ChargeAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the exchange rate details between two currencies.
     /// </summary>

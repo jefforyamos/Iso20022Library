@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FormOfSecurity4Choice;
 /// <summary>
 /// Form of the security expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IFormOfSecurity4Choice
+public partial record Code : FormOfSecurity4Choice_
 {
     public required FormOfSecurity1Code Value { get; init; }
 }

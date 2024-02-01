@@ -24,11 +24,11 @@ public partial record OrderDesk1
     /// <summary>
     /// Days on which the order desk is closed.
     /// </summary>
-    public IsoISODate? ClosureDates { get; init;  } // Warning: Don't know multiplicity.
+    public IsoISODate[] ClosureDates { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the main order desk.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

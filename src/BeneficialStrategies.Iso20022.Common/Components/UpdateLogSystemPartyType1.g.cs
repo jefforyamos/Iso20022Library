@@ -20,11 +20,11 @@ public partial record UpdateLogSystemPartyType1
     /// <summary>
     /// Old value before the update.
     /// </summary>
-    public required ISystemPartyType1Choice Old { get; init; } 
+    public required SystemPartyType1Choice_ Old { get; init; } 
     /// <summary>
     /// New value after the update.
     /// </summary>
-    public required ISystemPartyType1Choice New { get; init; } 
+    public required SystemPartyType1Choice_ New { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DisabledStatusReason2Choice;
 /// <summary>
 /// Reason for the disabled account status expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IDisabledStatusReason2Choice
+public partial record Proprietary : DisabledStatusReason2Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification2Choice;
 /// <summary>
 /// Identification of a securities account.
 /// </summary>
-public partial record SecuritiesAccountIdentification : IAccountIdentification2Choice
+public partial record SecuritiesAccountIdentification : AccountIdentification2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reference2Choice;
 /// <summary>
 /// Unique identifier of the collateral proposal.
 /// </summary>
-public partial record CollateralProposalIdentification : IReference2Choice
+public partial record CollateralProposalIdentification : Reference2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

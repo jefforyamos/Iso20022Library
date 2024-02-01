@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RecordMessage1Choice;
 /// <summary>
 /// Authorisation initiation message record.
 /// </summary>
-public partial record AuthorisationInitiation : IRecordMessage1Choice
+public partial record AuthorisationInitiation : RecordMessage1Choice_
 {
     public required IsoMax2MBBinary Value { get; init; }
 }

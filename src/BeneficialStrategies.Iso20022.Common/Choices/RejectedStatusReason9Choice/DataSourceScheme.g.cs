@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedStatusReason9Choice;
 /// <summary>
 /// Proprietary identification of the reason for the rejected status.
 /// </summary>
-public partial record DataSourceScheme : IRejectedStatusReason9Choice
+public partial record DataSourceScheme : RejectedStatusReason9Choice_
 {
     #nullable enable
     /// <summary>

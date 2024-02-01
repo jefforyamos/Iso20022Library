@@ -20,11 +20,11 @@ public partial record PriceReport2
     /// <summary>
     /// Information related to the price valuation of a financial instrument.
     /// </summary>
-    public PriceValuation3? PriceValuationDetails { get; init;  } // Warning: Don't know multiplicity.
+    public PriceValuation3[] PriceValuationDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1? Extension { get; init;  } // Warning: Don't know multiplicity.
+    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

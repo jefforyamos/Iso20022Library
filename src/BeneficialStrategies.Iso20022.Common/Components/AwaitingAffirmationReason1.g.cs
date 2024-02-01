@@ -20,7 +20,7 @@ public partial record AwaitingAffirmationReason1
     /// <summary>
     /// Specifies the reason why the trade is wainting the affirmation.
     /// </summary>
-    public required IAwaitingAffirmationReason1Choice Code { get; init; } 
+    public required AwaitingAffirmationReason1Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional information about the reason in narrative form.
     /// </summary>

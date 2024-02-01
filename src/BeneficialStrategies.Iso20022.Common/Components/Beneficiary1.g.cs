@@ -20,11 +20,11 @@ public partial record Beneficiary1
     /// <summary>
     /// New beneficiary address, or new beneficiary name and address.
     /// </summary>
-    public required IAddressOrParty1Choice NewAddressOrNewBeneficiary { get; init; } 
+    public required AddressOrParty1Choice_ NewAddressOrNewBeneficiary { get; init; } 
     /// <summary>
     /// Additional information concerning the amended beneficiary details.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

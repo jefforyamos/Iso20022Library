@@ -20,11 +20,11 @@ public partial record IntraPositionDetails36
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
-    public IPriorityNumeric5Choice? Priority { get; init; } 
+    public PriorityNumeric5Choice_? Priority { get; init; } 
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice SettlementQuantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Number identifying a Securities Sub balance Type (e.g. restriction identification etc…).
     /// </summary>
@@ -32,7 +32,7 @@ public partial record IntraPositionDetails36
     /// <summary>
     /// Date and time at which the securities are to be moved.
     /// </summary>
-    public required IDateAndDateTimeChoice SettlementDate { get; init; } 
+    public required DateAndDateTimeChoice_ SettlementDate { get; init; } 
     /// <summary>
     /// Balance from which the securities are moving.
     /// </summary>

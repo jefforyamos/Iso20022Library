@@ -20,11 +20,11 @@ public partial record CashSortingCriterion1
     /// <summary>
     /// Type of criterion by which the estimated cash flow is being broken down, ie, country, institution, currency code or a user defined type, such as a region or distribution channel.
     /// </summary>
-    public required ISortCriteria1Choice SortingCriterionType { get; init; } 
+    public required SortCriteria1Choice_ SortingCriterionType { get; init; } 
     /// <summary>
     /// Parameter for which the cash movements are reported.
     /// </summary>
-    public ForecastParameter1? ForecastBreakdownDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ForecastParameter1[] ForecastBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

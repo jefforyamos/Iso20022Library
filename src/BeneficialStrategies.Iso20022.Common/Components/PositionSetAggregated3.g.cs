@@ -24,19 +24,19 @@ public partial record PositionSetAggregated3
     /// <summary>
     /// Aggregation of outstanding derivatives with similar dimensions. Numerous positions sets that are produced according to the combination of dimensions used to stratify the derivatives, and different metrics are used to represent the aggregations. 
     /// </summary>
-    public PositionSet5? PositionSet { get; init;  } // Warning: Don't know multiplicity.
+    public PositionSet5[] PositionSet { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Aggregation of outstanding derivatives according to the currency of the position, for use by central banks issuing specific currencies.
     /// </summary>
-    public PositionSet5? CurrencyPositionSet { get; init;  } // Warning: Don't know multiplicity.
+    public PositionSet5[] CurrencyPositionSet { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Aggregation of collateral for derivative positions using collateral fields as metrics.
     /// </summary>
-    public PositionSet4? CollateralPositionSet { get; init;  } // Warning: Don't know multiplicity.
+    public PositionSet4[] CollateralPositionSet { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Aggregation of collateral with similar dimensions that relate to the currency position sets, with relevant collateral related metrics.
     /// </summary>
-    public PositionSet4? CurrencyCollateralPositionSet { get; init;  } // Warning: Don't know multiplicity.
+    public PositionSet4[] CurrencyCollateralPositionSet { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

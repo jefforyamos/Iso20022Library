@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MemberCriteriaDefinition2Choice;
 /// <summary>
 /// Recalls the criteria (search and return criteria) defined in a preceding query.
 /// </summary>
-public partial record QueryName : IMemberCriteriaDefinition2Choice
+public partial record QueryName : MemberCriteriaDefinition2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

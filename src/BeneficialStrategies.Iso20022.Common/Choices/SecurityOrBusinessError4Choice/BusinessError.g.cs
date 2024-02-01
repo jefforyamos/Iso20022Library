@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityOrBusinessError4Choice;
 /// <summary>
 /// Provides the business error details.
 /// </summary>
-public partial record BusinessError : ISecurityOrBusinessError4Choice
+public partial record BusinessError : SecurityOrBusinessError4Choice_
 {
     #nullable enable
     /// <summary>

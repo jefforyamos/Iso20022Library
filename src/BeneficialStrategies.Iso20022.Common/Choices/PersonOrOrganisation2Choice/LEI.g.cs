@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonOrOrganisation2Choice;
 /// <summary>
 /// Legal entity identifier of the party.
 /// </summary>
-public partial record LEI : IPersonOrOrganisation2Choice
+public partial record LEI : PersonOrOrganisation2Choice_
 {
     public required IsoLEIIdentifier Value { get; init; }
 }

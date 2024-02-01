@@ -91,7 +91,7 @@ public partial record StandingSettlementInstructionV01 : IOuterRecord
     [DataMember(Name="MktId")]
     [XmlElement(ElementName="MktId")]
     [Required]
-    public required IMarketIdentificationOrCashPurpose1Choice MarketIdentification { get; init; }
+    public required MarketIdentificationOrCashPurpose1Choice_ MarketIdentification { get; init; }
     
     /// <summary>
     /// Currency for which the SSI is specified.
@@ -110,7 +110,7 @@ public partial record StandingSettlementInstructionV01 : IOuterRecord
     [DataMember(Name="SttlmDtls")]
     [XmlElement(ElementName="SttlmDtls")]
     [Required]
-    public required ISecuritiesOrCash1Choice SettlementDetails { get; init; }
+    public required SecuritiesOrCash1Choice_ SettlementDetails { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

@@ -46,7 +46,7 @@ public partial record SecuritiesFinancingReportingTransactionStateReportV01 : IO
     [DataMember(Name="TradData")]
     [XmlElement(ElementName="TradData")]
     [Required]
-    public required ITradeStateReport2Choice TradeData { get; init; }
+    public required TradeStateReport2Choice_ TradeData { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

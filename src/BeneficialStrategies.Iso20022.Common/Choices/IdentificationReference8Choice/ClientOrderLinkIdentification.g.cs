@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationReference8Choice;
 /// <summary>
 /// It permits order originators to tie together groups of orders in which trades resulting from orders are associated for a specific purpose, for example the calculation of average execution price for a customer.
 /// </summary>
-public partial record ClientOrderLinkIdentification : IIdentificationReference8Choice
+public partial record ClientOrderLinkIdentification : IdentificationReference8Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

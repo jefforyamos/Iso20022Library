@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification1Choice;
 /// <summary>
 /// Specifies the name by which a party is known and which is usually used to identify that party.
 /// </summary>
-public partial record PartyName : ISystemPartyModification1Choice
+public partial record PartyName : SystemPartyModification1Choice_
 {
     #nullable enable
     /// <summary>

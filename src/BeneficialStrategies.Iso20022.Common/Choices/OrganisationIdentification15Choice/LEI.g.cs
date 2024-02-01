@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrganisationIdentification15Choi
 /// <summary>
 /// Identification is done through the use of legal entity identifier code.
 /// </summary>
-public partial record LEI : IOrganisationIdentification15Choice
+public partial record LEI : OrganisationIdentification15Choice_
 {
     public required IsoLEIIdentifier Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FiscalYear1Choice;
 /// <summary>
 /// End date of the fiscal year.
 /// </summary>
-public partial record EndDate : IFiscalYear1Choice
+public partial record EndDate : FiscalYear1Choice_
 {
     public required IsoISODate Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity3Choi
 /// <summary>
 /// Amount of money used to derive the quantity of investment fund units to be sold, including all charges, commissions, and tax.
 /// </summary>
-public partial record GrossAmount : IFinancialInstrumentQuantity3Choice
+public partial record GrossAmount : FinancialInstrumentQuantity3Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

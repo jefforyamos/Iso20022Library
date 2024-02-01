@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DataRecord1Choice;
 /// <summary>
 /// Contains the data record in Text format.
 /// </summary>
-public partial record Text : IDataRecord1Choice
+public partial record Text : DataRecord1Choice_
 {
     public required IsoMax10MbText Value { get; init; }
 }

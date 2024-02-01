@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReversalReason4Choice;
 /// <summary>
 /// Reason for the reversal, as published in an external reason code list.
 /// </summary>
-public partial record Code : IReversalReason4Choice
+public partial record Code : ReversalReason4Choice_
 {
     public required ExternalReversalReason1Code Value { get; init; }
 }

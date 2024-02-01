@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountOrRate3Choice;
 /// <summary>
 /// Amount of money.
 /// </summary>
-public partial record Amount : IAmountOrRate3Choice
+public partial record Amount : AmountOrRate3Choice_
 {
     public required IsoActiveCurrencyAnd13DecimalAmount Value { get; init; }
 }

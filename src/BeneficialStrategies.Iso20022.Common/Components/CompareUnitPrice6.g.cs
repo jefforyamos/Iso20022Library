@@ -20,11 +20,11 @@ public partial record CompareUnitPrice6
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
-    public ISecuritiesTransactionPrice19Choice? Value1 { get; init; } 
+    public SecuritiesTransactionPrice19Choice_? Value1 { get; init; } 
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
-    public ISecuritiesTransactionPrice19Choice? Value2 { get; init; } 
+    public SecuritiesTransactionPrice19Choice_? Value2 { get; init; } 
     
     #nullable disable
 }

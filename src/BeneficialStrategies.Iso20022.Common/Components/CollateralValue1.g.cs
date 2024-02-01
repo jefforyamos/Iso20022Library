@@ -32,7 +32,7 @@ public partial record CollateralValue1
     /// <summary>
     /// Provides details of the price provided for the security.
     /// </summary>
-    public required IAmountOrCoefficientPrice1Choice ValuationPrice { get; init; } 
+    public required AmountOrCoefficientPrice1Choice_ ValuationPrice { get; init; } 
     
     #nullable disable
 }

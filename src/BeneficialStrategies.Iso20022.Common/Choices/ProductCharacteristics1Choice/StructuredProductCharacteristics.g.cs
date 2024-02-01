@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProductCharacteristics1Choice;
 /// <summary>
 /// Specifies the type of product characteristic.
 /// </summary>
-public partial record StructuredProductCharacteristics : IProductCharacteristics1Choice
+public partial record StructuredProductCharacteristics : ProductCharacteristics1Choice_
 {
     #nullable enable
     /// <summary>

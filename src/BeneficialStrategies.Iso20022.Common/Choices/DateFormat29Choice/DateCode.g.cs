@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat29Choice;
 /// <summary>
 /// Specifies the type of date.
 /// </summary>
-public partial record DateCode : IDateFormat29Choice
+public partial record DateCode : DateFormat29Choice_
 {
     public required DateType1Code Value { get; init; }
 }

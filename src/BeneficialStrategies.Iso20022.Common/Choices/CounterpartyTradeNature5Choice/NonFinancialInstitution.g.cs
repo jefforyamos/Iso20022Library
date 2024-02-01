@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyTradeNature5Choice;
 /// <summary>
 /// Indicates that reporting counterparty is a non financial institution.
 /// </summary>
-public partial record NonFinancialInstitution : ICounterpartyTradeNature5Choice
+public partial record NonFinancialInstitution : CounterpartyTradeNature5Choice_
 {
     #nullable enable
     /// <summary>

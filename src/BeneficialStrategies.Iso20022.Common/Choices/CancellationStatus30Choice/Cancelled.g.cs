@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationStatus30Choice;
 /// <summary>
 /// Specifies the reason why the transaction or instruction is cancelled.
 /// </summary>
-public partial record Cancelled : ICancellationStatus30Choice
+public partial record Cancelled : CancellationStatus30Choice_
 {
     #nullable enable
     #nullable disable

@@ -32,27 +32,27 @@ public partial record StatusTrail8
     /// <summary>
     /// Provides details on the processing status of the transaction.
     /// </summary>
-    public IProcessingStatus75Choice? ProcessingStatus { get; init; } 
+    public ProcessingStatus75Choice_? ProcessingStatus { get; init; } 
     /// <summary>
     /// Provides the matching status of an instruction as per the account servicer or the Market Infrastructure based on an allegement. At this time no matching took place on the market (at the CSD/ICSD/MI).
     /// </summary>
-    public IMatchingStatus25Choice? InferredMatchingStatus { get; init; } 
+    public MatchingStatus25Choice_? InferredMatchingStatus { get; init; } 
     /// <summary>
     /// Provides the matching status of the instruction.
     /// </summary>
-    public IMatchingStatus25Choice? MatchingStatus { get; init; } 
+    public MatchingStatus25Choice_? MatchingStatus { get; init; } 
     /// <summary>
     /// Provides the status of settlement of a transaction.
     /// </summary>
-    public ISettlementStatus17Choice? SettlementStatus { get; init; } 
+    public SettlementStatus17Choice_? SettlementStatus { get; init; } 
     /// <summary>
     /// Provides details on the modification processing status of the transaction.
     /// </summary>
-    public IModificationProcessingStatus7Choice? ModificationProcessingStatus { get; init; } 
+    public ModificationProcessingStatus7Choice_? ModificationProcessingStatus { get; init; } 
     /// <summary>
     /// Provides details on the processing status of the cancellation request.
     /// </summary>
-    public IProcessingStatus53Choice? CancellationStatus { get; init; } 
+    public ProcessingStatus53Choice_? CancellationStatus { get; init; } 
     /// <summary>
     /// Status is settled.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record StatusTrail8
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

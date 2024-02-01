@@ -20,7 +20,7 @@ public partial record PartyIdentificationAndAccount203
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    public required IPartyIdentification120Choice Identification { get; init; } 
+    public required PartyIdentification120Choice_ Identification { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a party.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record PartyIdentificationAndAccount203
     /// <summary>
     /// Specifies the role of the party in the transaction.
     /// </summary>
-    public ITradingPartyCapacity5Choice? PartyCapacity { get; init; } 
+    public TradingPartyCapacity5Choice_? PartyCapacity { get; init; } 
     
     #nullable disable
 }

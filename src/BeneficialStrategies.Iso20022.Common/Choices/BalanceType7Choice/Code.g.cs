@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceType7Choice;
 /// <summary>
 /// Balance type expressed in coded form.
 /// </summary>
-public partial record Code : IBalanceType7Choice
+public partial record Code : BalanceType7Choice_
 {
     public required FinancialAssetBalanceType1Code Value { get; init; }
 }

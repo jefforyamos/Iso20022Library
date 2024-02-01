@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NumberCount1Choice;
 /// <summary>
 /// Total numbers of settlement transactions, receipts and deliveries, and the concerned settlement transaction number.
 /// </summary>
-public partial record TotalNumber : INumberCount1Choice
+public partial record TotalNumber : NumberCount1Choice_
 {
     #nullable enable
     /// <summary>

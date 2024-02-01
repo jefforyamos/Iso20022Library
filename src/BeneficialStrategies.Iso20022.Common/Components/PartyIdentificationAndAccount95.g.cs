@@ -20,7 +20,7 @@ public partial record PartyIdentificationAndAccount95
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    public required IPartyIdentification71Choice PartyIdentification { get; init; } 
+    public required PartyIdentification71Choice_ PartyIdentification { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>

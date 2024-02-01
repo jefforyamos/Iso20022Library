@@ -20,7 +20,7 @@ public partial record OrderWaiver1
     /// <summary>
     /// Reason why the order has to be handled differently, probably in a manual fashion, because, for example, the investment manager has agreed a waiver to the terms.
     /// </summary>
-    public IOrderWaiverReason3Choice? OrderWaiverReason { get; init;  } // Warning: Don't know multiplicity.
+    public OrderWaiverReason3Choice_[] OrderWaiverReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the order waiver.
     /// </summary>

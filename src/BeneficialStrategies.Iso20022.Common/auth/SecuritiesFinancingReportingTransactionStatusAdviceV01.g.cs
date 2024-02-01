@@ -46,7 +46,7 @@ public partial record SecuritiesFinancingReportingTransactionStatusAdviceV01 : I
     [DataMember(Name="TxRptStsAndRsn")]
     [XmlElement(ElementName="TxRptStsAndRsn")]
     [Required]
-    public required ITradeData11Choice TransactionReportStatusAndReason { get; init; }
+    public required TradeData11Choice_ TransactionReportStatusAndReason { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

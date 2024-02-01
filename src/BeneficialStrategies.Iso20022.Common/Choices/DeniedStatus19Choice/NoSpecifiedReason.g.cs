@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DeniedStatus19Choice;
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoSpecifiedReason : IDeniedStatus19Choice
+public partial record NoSpecifiedReason : DeniedStatus19Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

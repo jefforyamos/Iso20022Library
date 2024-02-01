@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError5Cho
 /// <summary>
 /// Provides information specific to the collateral value reports included in the message.
 /// </summary>
-public partial record BusinessReport : ICollateralValueReportOrError5Choice
+public partial record BusinessReport : CollateralValueReportOrError5Choice_
 {
     #nullable enable
     /// <summary>
@@ -38,6 +38,6 @@ public partial record BusinessReport : ICollateralValueReportOrError5Choice
     /// <summary>
     /// Provides information specific to the report on collateral value positions.
     /// </summary>
-    public ICollateralValueReportOrError6Choice? CollateralValueReport { get; init;  } // Warning: Don't know multiplicity.
+    public CollateralValueReportOrError6Choice_? CollateralValueReport { get; init;  } // Warning: Don't know multiplicity.
     #nullable disable
 }

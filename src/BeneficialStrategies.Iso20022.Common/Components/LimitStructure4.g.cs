@@ -24,11 +24,11 @@ public partial record LimitStructure4
     /// <summary>
     /// Date and time at which the limit becomes effective.
     /// </summary>
-    public IDateAndDateTime2Choice? StartDateTime { get; init; } 
+    public DateAndDateTime2Choice_? StartDateTime { get; init; } 
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
-    public required IAmount2Choice Amount { get; init; } 
+    public required Amount2Choice_ Amount { get; init; } 
     /// <summary>
     /// Specifies if a limit is a debit limit or a credit limit.
     /// </summary>

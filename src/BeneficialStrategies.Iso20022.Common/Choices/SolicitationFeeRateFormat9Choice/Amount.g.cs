@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SolicitationFeeRateFormat9Choice
 /// <summary>
 /// Cash amount.
 /// </summary>
-public partial record Amount : ISolicitationFeeRateFormat9Choice
+public partial record Amount : SolicitationFeeRateFormat9Choice_
 {
     public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount Value { get; init; }
 }

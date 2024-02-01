@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceSubType1Choice;
 /// <summary>
 /// Balance sub-type, as published in an external balance sub-type code list.
 /// </summary>
-public partial record Code : IBalanceSubType1Choice
+public partial record Code : BalanceSubType1Choice_
 {
     public required ExternalBalanceSubType1Code Value { get; init; }
 }

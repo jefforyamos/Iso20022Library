@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status22Choice;
 /// <summary>
 /// Status of affirmation of a trade.
 /// </summary>
-public partial record AffirmationStatus : IStatus22Choice
+public partial record AffirmationStatus : Status22Choice_
 {
     #nullable enable
     #nullable disable

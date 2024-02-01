@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TrackerParty2Choice;
 /// <summary>
 /// Unique and unambiguous way to identify an organisation.
 /// </summary>
-public partial record OrganisationIdentification : ITrackerParty2Choice
+public partial record OrganisationIdentification : TrackerParty2Choice_
 {
     #nullable enable
     /// <summary>

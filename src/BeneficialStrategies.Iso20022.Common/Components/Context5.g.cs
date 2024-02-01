@@ -28,7 +28,7 @@ public partial record Context5
     /// <summary>
     /// Method and data intended to be used for this transaction in order to authenticate or verify the cardholder or his card.
     /// </summary>
-    public Verification1? Verification { get; init;  } // Warning: Don't know multiplicity.
+    public Verification1[] Verification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Context of risk associated with the transaction.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProformaStatusReason1Choice;
 /// <summary>
 /// There is no reason available or to report for the proforma account status.
 /// </summary>
-public partial record NoSpecifiedReason : IProformaStatusReason1Choice
+public partial record NoSpecifiedReason : ProformaStatusReason1Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

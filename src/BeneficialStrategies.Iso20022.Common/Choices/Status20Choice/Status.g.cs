@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status20Choice;
 /// <summary>
 /// Status of the account opening instruction or account modification instruction.
 /// </summary>
-public partial record Status : IStatus20Choice
+public partial record Status : Status20Choice_
 {
     public required AccountManagementStatus1Code Value { get; init; }
 }

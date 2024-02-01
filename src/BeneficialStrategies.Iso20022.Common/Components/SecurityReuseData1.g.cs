@@ -24,7 +24,7 @@ public partial record SecurityReuseData1
     /// <summary>
     /// Indication whether reused value is actual or estimated.
     /// </summary>
-    public required IReuseValue1Choice ReuseValue { get; init; } 
+    public required ReuseValue1Choice_ ReuseValue { get; init; } 
     
     #nullable disable
 }

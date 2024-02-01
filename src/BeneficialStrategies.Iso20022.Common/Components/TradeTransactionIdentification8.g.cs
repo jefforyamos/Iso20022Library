@@ -20,11 +20,11 @@ public partial record TradeTransactionIdentification8
     /// <summary>
     /// Unique code identifying the reporting counterparty.
     /// </summary>
-    public required IOrganisationIdentification9Choice ReportingCounterparty { get; init; } 
+    public required OrganisationIdentification9Choice_ ReportingCounterparty { get; init; } 
     /// <summary>
     /// Unique code identifying the entity with which the reporting counterparty concluded the transaction.
     /// </summary>
-    public required IOrganisationIdentification9Choice OtherCounterparty { get; init; } 
+    public required OrganisationIdentification9Choice_ OtherCounterparty { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the collateral portfolio.
     /// </summary>

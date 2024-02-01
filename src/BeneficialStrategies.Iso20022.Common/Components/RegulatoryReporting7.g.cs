@@ -21,24 +21,24 @@ public partial record RegulatoryReporting7
     /// <summary>
     /// Regulatory transaction reporting information from the Trading Side party.
     /// </summary>
-    public TradingSideTransactionReporting2? TradingSideTransactionReporting { get; init;  } // Warning: Don't know multiplicity.
+    public TradingSideTransactionReporting2[] TradingSideTransactionReporting { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Regulatory transaction reporting information from the Counterparty Side party.
     /// </summary>
-    public CounterpartySideTransactionReporting2? CounterpartySideTransactionReporting { get; init;  } // Warning: Don't know multiplicity.
+    public CounterpartySideTransactionReporting2[] CounterpartySideTransactionReporting { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies an agency or separate corporation of a futures exchange responsible for settling and
     /// clearing trades, collecting and maintaining margins, regulating delivery and reporting trade data. This can also be known as a Central Counterparty (CCP).
     /// </summary>
-    public IPartyIdentification242Choice? CentralCounterpartyClearingHouse { get; init; } 
+    public PartyIdentification242Choice_? CentralCounterpartyClearingHouse { get; init; } 
     /// <summary>
     /// Identifies the party that is a member of the clearing house and that acts as a liaison between the investor and the Central Counterparty (CCP).
     /// </summary>
-    public IPartyIdentification242Choice? ClearingBroker { get; init; } 
+    public PartyIdentification242Choice_? ClearingBroker { get; init; } 
     /// <summary>
     /// Identifies the party that is exempt from a clearing obligation.
     /// </summary>
-    public IPartyIdentification242Choice? ClearingExceptionParty { get; init; } 
+    public PartyIdentification242Choice_? ClearingExceptionParty { get; init; } 
     /// <summary>
     /// Specifies the reference number assigned by the clearing broker. A distinction can be made between the reference for the Central Counterparty (CCP) leg and the reference for the client leg of the transaction.
     /// </summary>
@@ -70,7 +70,7 @@ public partial record RegulatoryReporting7
     /// <summary>
     /// Specifies the date and time of the execution of the transaction in Coordinated Universal Time (UTC).
     /// </summary>
-    public IDateAndDateTime2Choice? ExecutionTimestamp { get; init; } 
+    public DateAndDateTime2Choice_? ExecutionTimestamp { get; init; } 
     /// <summary>
     /// Specifies whether the reportable transaction has one or more additional terms or provisions, other than those listed in the required real-time data fields, that materially affects the price of the reportable transaction.
     /// </summary>
@@ -126,7 +126,7 @@ public partial record RegulatoryReporting7
     /// <summary>
     /// Provides the commission and fee type anf amout or rate.
     /// </summary>
-    public FXCommissionOrFee1? CommissionsAndFees { get; init;  } // Warning: Don't know multiplicity.
+    public FXCommissionOrFee1[] CommissionsAndFees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies additional information that might be required by the regulator.
     /// </summary>

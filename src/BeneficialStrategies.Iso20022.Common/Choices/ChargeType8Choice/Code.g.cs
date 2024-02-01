@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeType8Choice;
 /// <summary>
 /// Cost or charge expressed as a code.
 /// </summary>
-public partial record Code : IChargeType8Choice
+public partial record Code : ChargeType8Choice_
 {
     public required InvestmentFundMiFIDFee2Code Value { get; init; }
 }

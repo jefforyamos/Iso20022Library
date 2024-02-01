@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderBreakdownType1Choice;
 /// <summary>
 /// Order breakdown type expressed as a code.
 /// </summary>
-public partial record Code : IOrderBreakdownType1Choice
+public partial record Code : OrderBreakdownType1Choice_
 {
     public required FundOrderType5Code Value { get; init; }
 }

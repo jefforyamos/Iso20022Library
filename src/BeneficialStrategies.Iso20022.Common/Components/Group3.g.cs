@@ -28,7 +28,7 @@ public partial record Group3
     /// <summary>
     /// Specifies a party and related certificate.
     /// </summary>
-    public PartyAndCertificate5? Party { get; init;  } // Warning: Don't know multiplicity.
+    public PartyAndCertificate5[] Party { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

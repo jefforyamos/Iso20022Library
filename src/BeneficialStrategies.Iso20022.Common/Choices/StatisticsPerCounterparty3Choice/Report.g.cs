@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty3Choice
 /// <summary>
 /// Detailed statistics per counterparty.
 /// </summary>
-public partial record Report : IStatisticsPerCounterparty3Choice
+public partial record Report : StatisticsPerCounterparty3Choice_
 {
     #nullable enable
     /// <summary>

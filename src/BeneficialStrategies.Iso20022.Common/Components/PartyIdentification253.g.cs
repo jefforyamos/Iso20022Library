@@ -90,7 +90,7 @@ public partial record PartyIdentification253
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains local language equivalent(s) of data in the current component.
     /// </summary>
@@ -98,7 +98,7 @@ public partial record PartyIdentification253
     /// <summary>
     /// Sponsored merchant is a merchant that uses the payment services of another entity that acts as the card acceptor.
     /// </summary>
-    public SponsoredMerchant2? SponsoredMerchant { get; init;  } // Warning: Don't know multiplicity.
+    public SponsoredMerchant2[] SponsoredMerchant { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

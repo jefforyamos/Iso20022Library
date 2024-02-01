@@ -28,7 +28,7 @@ public partial record CurrencyConversion11
     /// <summary>
     /// Information about the conversion of currency.
     /// </summary>
-    public CurrencyConversion12? ConversionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CurrencyConversion12[] ConversionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -20,11 +20,11 @@ public partial record ProductClassificationCriteria1
     /// <summary>
     /// Identifier is an ISO 10962 Classification of Financial Instrument (CFI).
     /// </summary>
-    public IsoCFIOct2015Identifier? ClassificationFinancialInstrument { get; init;  } // Warning: Don't know multiplicity.
+    public IsoCFIOct2015Identifier[] ClassificationFinancialInstrument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification through a unique product identifier.
     /// </summary>
-    public IsoMax52Text? UniqueProductIdentifier { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax52Text[] UniqueProductIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

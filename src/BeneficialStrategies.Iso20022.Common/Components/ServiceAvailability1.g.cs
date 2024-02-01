@@ -24,7 +24,7 @@ public partial record ServiceAvailability1
     /// <summary>
     /// Status of service availability.
     /// </summary>
-    public required ISystemEventType3Choice AvailabilityStatus { get; init; } 
+    public required SystemEventType3Choice_ AvailabilityStatus { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DistributionTypeFormat4Choice;
 /// <summary>
 /// Proprietary identification of the type of distribution.
 /// </summary>
-public partial record Proprietary : IDistributionTypeFormat4Choice
+public partial record Proprietary : DistributionTypeFormat4Choice_
 {
     #nullable enable
     /// <summary>

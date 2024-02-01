@@ -90,7 +90,7 @@ public partial record UnableToApply : IOuterRecord
     [DataMember(Name="Justfn")]
     [XmlElement(ElementName="Justfn")]
     [Required]
-    public required IUnableToApplyJustificationChoice Justification { get; init; }
+    public required UnableToApplyJustificationChoice_ Justification { get; init; }
     
     #nullable disable
     

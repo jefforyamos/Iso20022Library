@@ -46,7 +46,7 @@ public partial record StatusDetails2
     /// <summary>
     /// Amount of money asked or paid for the charge.
     /// </summary>
-    public IsoActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IsoActiveOrHistoricCurrencyAndAmount[] ChargeAmount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

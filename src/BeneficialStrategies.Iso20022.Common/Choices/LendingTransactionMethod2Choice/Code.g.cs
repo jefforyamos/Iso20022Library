@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LendingTransactionMethod2Choice;
 /// <summary>
 /// Lending transaction method expressed as a ISO20022 code.
 /// </summary>
-public partial record Code : ILendingTransactionMethod2Choice
+public partial record Code : LendingTransactionMethod2Choice_
 {
     public required LendingTransactionMethod1Code Value { get; init; }
 }

@@ -24,7 +24,7 @@ public partial record SettlementDetails88
     /// <summary>
     /// Provides details on either the delivering or receiving settlement parties.
     /// </summary>
-    public ISettlementParties3Choice? SettlementParties { get; init; } 
+    public SettlementParties3Choice_? SettlementParties { get; init; } 
     /// <summary>
     /// Indicates the collateral ownership.
     /// </summary>

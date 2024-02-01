@@ -32,15 +32,15 @@ public partial record TradeReportHeader4
     /// <summary>
     /// Specifies the competent authority that requires reporting of the transaction.
     /// </summary>
-    public IsoMax100Text? CompetentAuthority { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax100Text[] CompetentAuthority { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the new trade repository to which the derivative is transfered to.
     /// </summary>
-    public IOrganisationIdentification15Choice? NewTradeRepositoryIdentifier { get; init; } 
+    public OrganisationIdentification15Choice_? NewTradeRepositoryIdentifier { get; init; } 
     /// <summary>
     /// Underlying reason for reporting the derivative transaction.
     /// </summary>
-    public IsoMax100Text? ReportingPurpose { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax100Text[] ReportingPurpose { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice;
 /// <summary>
 /// Provides the details of the secured market transaction as reported by the reporting agent.
 /// </summary>
-public partial record Transaction : ISecuredMarketReport3Choice
+public partial record Transaction : SecuredMarketReport3Choice_
 {
     #nullable enable
     /// <summary>
@@ -40,7 +40,7 @@ public partial record Transaction : ISecuredMarketReport3Choice
     /// <summary>
     /// Identification of the counterparty of the reporting agent for the reported transaction.
     /// </summary>
-    public required ICounterpartyIdentification2Choice CounterpartyIdentification { get; init; } 
+    public required CounterpartyIdentification2Choice_ CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Identification of the tri-party agent, when the transaction has been performed via tri-party agent.
     /// </summary>
@@ -51,7 +51,7 @@ public partial record Transaction : ISecuredMarketReport3Choice
     /// It is to be reported with only the date when the time of the transaction is not available. 
     /// The reported time is the execution time when available or otherwise the time at which the transaction entered the trading system of the reporting agent.
     /// </summary>
-    public required IDateAndDateTimeChoice TradeDate { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDate { get; init; } 
     /// <summary>
     /// Date on which the amount of money is initially exchanged versus the asset as contractually agreed.
     /// Usage:

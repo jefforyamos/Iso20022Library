@@ -36,7 +36,7 @@ public partial record LoyaltyTransaction2
     /// <summary>
     /// Item purchased with the transaction.
     /// </summary>
-    public Product6? SaleItem { get; init;  } // Warning: Don't know multiplicity.
+    public Product6[] SaleItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

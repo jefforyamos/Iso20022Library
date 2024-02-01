@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ObligationType1Choice;
 /// <summary>
 /// Indicates the type of the obligation using a proprietary format.
 /// </summary>
-public partial record Proprietary : IObligationType1Choice
+public partial record Proprietary : ObligationType1Choice_
 {
     #nullable enable
     /// <summary>

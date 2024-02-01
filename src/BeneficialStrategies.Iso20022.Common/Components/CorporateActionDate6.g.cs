@@ -20,31 +20,31 @@ public partial record CorporateActionDate6
     /// <summary>
     /// Date/time at which the account servicer has set as the deadline to respond, with instructions, to an outstanding event. This time is dependent on the reference time zone of the account servicer as specified in a Service Level Agreement (SLA).
     /// </summary>
-    public IDateFormat6Choice? ResponseDeadline { get; init; } 
+    public DateFormat6Choice_? ResponseDeadline { get; init; } 
     /// <summary>
     /// Date/time by which cash must be in place in order to take part in the event.
     /// </summary>
-    public IDateFormat6Choice? SubscriptionCostDebitDate { get; init; } 
+    public DateFormat6Choice_? SubscriptionCostDebitDate { get; init; } 
     /// <summary>
     /// Issuer or issuer's agent deadline to respond, with an instruction, to an outstanding offer or privilege.
     /// </summary>
-    public IDateFormat6Choice? MarketDeadline { get; init; } 
+    public DateFormat6Choice_? MarketDeadline { get; init; } 
     /// <summary>
     /// Date/time at which an order expires or on which a privilege or offer terminates.
     /// </summary>
-    public IDateFormat6Choice? ExpiryDate { get; init; } 
+    public DateFormat6Choice_? ExpiryDate { get; init; } 
     /// <summary>
     /// Last day a holder can deliver the securities that it had elected on and/or previously protected.
     /// </summary>
-    public IDateFormat6Choice? CoverExpirationDate { get; init; } 
+    public DateFormat6Choice_? CoverExpirationDate { get; init; } 
     /// <summary>
     /// Last date/time a holder can request to defer delivery of securities pursuant to a notice of guaranteed delivery or other required documentation.
     /// </summary>
-    public IDateFormat6Choice? ProtectDate { get; init; } 
+    public DateFormat6Choice_? ProtectDate { get; init; } 
     /// <summary>
     /// Date/time at which the deal (rights) was agreed.
     /// </summary>
-    public IDateFormat6Choice? TradingDate { get; init; } 
+    public DateFormat6Choice_? TradingDate { get; init; } 
     
     #nullable disable
 }

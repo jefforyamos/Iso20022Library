@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CurrentOrDefaultReservation1Choi
 /// <summary>
 /// Identification of the current reservation.
 /// </summary>
-public partial record Current : ICurrentOrDefaultReservation1Choice
+public partial record Current : CurrentOrDefaultReservation1Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,11 +22,11 @@ public partial record Current : ICurrentOrDefaultReservation1Choice
     /// <summary>
     /// Identification of a particular cash clearing system.
     /// </summary>
-    public ISystemIdentification2Choice? SystemIdentification { get; init; } 
+    public SystemIdentification2Choice_? SystemIdentification { get; init; } 
     /// <summary>
     /// Nature of the reservation.
     /// </summary>
-    public required IReservationType1Choice Type { get; init; } 
+    public required ReservationType1Choice_ Type { get; init; } 
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>
@@ -34,6 +34,6 @@ public partial record Current : ICurrentOrDefaultReservation1Choice
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public IAccountIdentification4Choice? AccountIdentification { get; init; } 
+    public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     #nullable disable
 }

@@ -24,7 +24,7 @@ public partial record CurrencyExchangeReport4
     /// <summary>
     /// Reports either on currency exchange information or on a business error.
     /// </summary>
-    public required IExchangeRateReportOrError4Choice CurrencyExchangeOrError { get; init; } 
+    public required ExchangeRateReportOrError4Choice_ CurrencyExchangeOrError { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CapitalGainFormat4Choice;
 /// <summary>
 /// Proprietary identification of the type of capital gain.
 /// </summary>
-public partial record Proprietary : ICapitalGainFormat4Choice
+public partial record Proprietary : CapitalGainFormat4Choice_
 {
     #nullable enable
     /// <summary>

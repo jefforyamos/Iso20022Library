@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References27Choice;
 /// <summary>
 /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
 /// </summary>
-public partial record MarketInfrastructureTransactionIdentification : IReferences27Choice
+public partial record MarketInfrastructureTransactionIdentification : References27Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

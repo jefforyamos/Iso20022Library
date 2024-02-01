@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status26Choice;
 /// <summary>
 /// Status report details of a bulk or multiple or switch order cancellation message.
 /// </summary>
-public partial record CancellationStatusReport : IStatus26Choice
+public partial record CancellationStatusReport : Status26Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record CancellationStatusReport : IStatus26Choice
     /// <summary>
     /// Cancellation status of the order cancellation.
     /// </summary>
-    public required ICancellationStatus22Choice CancellationStatus { get; init; } 
+    public required CancellationStatus22Choice_ CancellationStatus { get; init; } 
     /// <summary>
     /// Party that initiates the status of the order cancellation.
     /// </summary>

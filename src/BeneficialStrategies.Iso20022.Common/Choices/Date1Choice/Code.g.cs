@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Date1Choice;
 /// <summary>
 /// Date is defined using a code.
 /// </summary>
-public partial record Code : IDate1Choice
+public partial record Code : Date1Choice_
 {
     public required DateType2Code Value { get; init; }
 }

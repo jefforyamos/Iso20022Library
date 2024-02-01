@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionCriteria5Choice;
 /// <summary>
 /// Recalls the criteria (search and return criteria) defined in a preceding query.
 /// </summary>
-public partial record QueryName : ITransactionCriteria5Choice
+public partial record QueryName : TransactionCriteria5Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

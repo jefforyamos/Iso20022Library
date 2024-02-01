@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References69Choice;
 /// <summary>
 /// Unambiguous identification of the message to be cancelled.
 /// </summary>
-public partial record OtherMessageIdentification : IReferences69Choice
+public partial record OtherMessageIdentification : References69Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

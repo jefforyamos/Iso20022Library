@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityOrAmount1Choice;
 /// <summary>
 /// Quantity is expressed in units, face amount or amortised amount.
 /// </summary>
-public partial record Quantity : IQuantityOrAmount1Choice
+public partial record Quantity : QuantityOrAmount1Choice_
 {
     #nullable enable
     #nullable disable

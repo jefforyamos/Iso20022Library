@@ -28,7 +28,7 @@ public partial record BatchRequest5
     /// <summary>
     /// Content of the Batch Request message.
     /// </summary>
-    public ITransactionToPerform5Choice? TransactionToPerform { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionToPerform5Choice_[] TransactionToPerform { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

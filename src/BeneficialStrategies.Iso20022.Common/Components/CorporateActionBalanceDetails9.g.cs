@@ -20,11 +20,11 @@ public partial record CorporateActionBalanceDetails9
     /// <summary>
     /// Total quantity of financial instruments of the balance.
     /// </summary>
-    public required IQuantity3Choice TotalEligibleBalance { get; init; } 
+    public required Quantity3Choice_ TotalEligibleBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public required IBalanceFormat1Choice UninstructedBalance { get; init; } 
+    public required BalanceFormat1Choice_ UninstructedBalance { get; init; } 
     /// <summary>
     /// Provides information about the total instructed balance.
     /// </summary>
@@ -80,11 +80,11 @@ public partial record CorporateActionBalanceDetails9
     /// <summary>
     /// Balance of financial instruments that are pending delivery.
     /// </summary>
-    public PendingBalance1? PendingDeliveryBalance { get; init;  } // Warning: Don't know multiplicity.
+    public PendingBalance1[] PendingDeliveryBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Balance of financial instruments that are pending receipt.
     /// </summary>
-    public PendingBalance1? PendingReceiptBalance { get; init;  } // Warning: Don't know multiplicity.
+    public PendingBalance1[] PendingReceiptBalance { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

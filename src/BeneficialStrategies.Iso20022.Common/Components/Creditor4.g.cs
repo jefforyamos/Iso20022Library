@@ -20,7 +20,7 @@ public partial record Creditor4
     /// <summary>
     /// Party that receives an amount of money from the debtor. In the context of the payment model, the creditor is also the credit account owner.
     /// </summary>
-    public required IPartyIdentification178Choice Creditor { get; init; } 
+    public required PartyIdentification178Choice_ Creditor { get; init; } 
     /// <summary>
     /// Reference assigned to a creditor by its financial institution, or relevant authority, authorising the creditor to take part in a direct debit scheme.
     /// </summary>

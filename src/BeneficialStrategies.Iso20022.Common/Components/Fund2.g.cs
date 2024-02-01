@@ -36,11 +36,11 @@ public partial record Fund2
     /// <summary>
     /// Date and, if required, the time, at which the price will be applied.
     /// </summary>
-    public IDateAndDateTimeChoice? TradeDateTime { get; init; } 
+    public DateAndDateTimeChoice_? TradeDateTime { get; init; } 
     /// <summary>
     /// Previous date and time at which the price was applied.
     /// </summary>
-    public IDateAndDateTimeChoice? PreviousTradeDateTime { get; init; } 
+    public DateAndDateTimeChoice_? PreviousTradeDateTime { get; init; } 
     /// <summary>
     /// Total value of all the holdings, less the fund's liabilities, of the fund/sub fund.
     /// </summary>
@@ -64,15 +64,15 @@ public partial record Fund2
     /// <summary>
     /// Cash movement into the fund/sub fund.
     /// </summary>
-    public CashInOutForecast7? CashInForecastDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashInOutForecast7[] CashInForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash movement out of the fund/sub fund.
     /// </summary>
-    public CashInOutForecast7? CashOutForecastDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashInOutForecast7[] CashOutForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net cash as a result of the cash-in and cash-out flows.
     /// </summary>
-    public NetCashForecast5? NetCashForecastDetails { get; init;  } // Warning: Don't know multiplicity.
+    public NetCashForecast5[] NetCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

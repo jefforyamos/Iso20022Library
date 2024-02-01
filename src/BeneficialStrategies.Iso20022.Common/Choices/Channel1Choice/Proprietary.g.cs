@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Channel1Choice;
 /// <summary>
 /// Submission channel expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IChannel1Choice
+public partial record Proprietary : Channel1Choice_
 {
     #nullable enable
     /// <summary>

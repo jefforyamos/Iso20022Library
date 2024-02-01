@@ -20,7 +20,7 @@ public partial record ProformaStatusReason1
     /// <summary>
     /// Reason for the proforma account status.
     /// </summary>
-    public required IProformaStatusReason2Choice Code { get; init; } 
+    public required ProformaStatusReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the proforma account status.
     /// </summary>

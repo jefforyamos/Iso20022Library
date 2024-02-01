@@ -42,11 +42,11 @@ public partial record MarginCall1
     /// <summary>
     /// Provides information like threshold amount, threshold type, minimum transfer amount, rouding amount or rounding convention, that applies to either the variation margin or the segregated independent amount.
     /// </summary>
-    public IMarginTerms1Choice? MarginTerms { get; init; } 
+    public MarginTerms1Choice_? MarginTerms { get; init; } 
     /// <summary>
     /// Provides details about the collateral held, in transit or that still needs to be agreed by both parties with a segregation between variation margin and segregated independent amount.
     /// </summary>
-    public ICollateralBalance1Choice? CollateralBalance { get; init; } 
+    public CollateralBalance1Choice_? CollateralBalance { get; init; } 
     
     #nullable disable
 }

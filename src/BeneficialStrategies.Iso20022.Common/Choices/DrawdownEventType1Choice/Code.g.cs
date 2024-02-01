@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DrawdownEventType1Choice;
 /// <summary>
 /// Type of event expressed as a code.
 /// </summary>
-public partial record Code : IDrawdownEventType1Choice
+public partial record Code : DrawdownEventType1Choice_
 {
     public required DrawdownEventType1Code Value { get; init; }
 }

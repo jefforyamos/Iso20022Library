@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentSchemeChoice;
 /// <summary>
 /// Specifies the channel through which the payment instruction is to be processed in coded form.
 /// </summary>
-public partial record Code : IPaymentSchemeChoice
+public partial record Code : PaymentSchemeChoice_
 {
     public required CashClearingSystem2Code Value { get; init; }
 }

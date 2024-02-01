@@ -36,7 +36,7 @@ public partial record RemittanceAmount1
     /// <summary>
     /// Set of elements used to provide information on the amount and reason of the document adjustment.
     /// </summary>
-    public DocumentAdjustment1? AdjustmentAmountAndReason { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentAdjustment1[] AdjustmentAmountAndReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of money remitted for the referred document.
     /// </summary>

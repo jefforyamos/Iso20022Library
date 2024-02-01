@@ -28,7 +28,7 @@ public partial record RiskAssessment1
     /// <summary>
     /// Reason for indicating a certain level of risk for the transaction.
     /// </summary>
-    public IsoMax35Text? Reason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Risk assessment result.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record RiskAssessment1
     /// <summary>
     /// Additional risk data associated with the transaction.
     /// </summary>
-    public AdditionalRiskData1? AdditionalRiskData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalRiskData1[] AdditionalRiskData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Recommended action based on risk assessment.
     /// </summary>
-    public ActionType8Code? RecommendedAction { get; init;  } // Warning: Don't know multiplicity.
+    public ActionType8Code[] RecommendedAction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Other recommended action based on risk assessment defined at national or private level.
     /// </summary>

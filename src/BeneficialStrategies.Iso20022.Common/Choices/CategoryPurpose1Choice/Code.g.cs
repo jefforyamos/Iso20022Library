@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CategoryPurpose1Choice;
 /// <summary>
 /// Category purpose, as published in an external category purpose code list.
 /// </summary>
-public partial record Code : ICategoryPurpose1Choice
+public partial record Code : CategoryPurpose1Choice_
 {
     public required ExternalCategoryPurpose1Code Value { get; init; }
 }

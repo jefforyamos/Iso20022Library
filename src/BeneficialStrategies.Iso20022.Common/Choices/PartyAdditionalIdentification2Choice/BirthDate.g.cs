@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyAdditionalIdentification2Ch
 /// <summary>
 /// Date of birth of an individual person.
 /// </summary>
-public partial record BirthDate : IPartyAdditionalIdentification2Choice
+public partial record BirthDate : PartyAdditionalIdentification2Choice_
 {
     public required IsoISODate Value { get; init; }
 }

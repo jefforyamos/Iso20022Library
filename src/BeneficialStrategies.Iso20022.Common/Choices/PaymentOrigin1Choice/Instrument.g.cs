@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentOrigin1Choice;
 /// <summary>
 /// Specifies the type of payment when not included in a SWIFT or proprietary format.
 /// </summary>
-public partial record Instrument : IPaymentOrigin1Choice
+public partial record Instrument : PaymentOrigin1Choice_
 {
     public required PaymentInstrument1Code Value { get; init; }
 }

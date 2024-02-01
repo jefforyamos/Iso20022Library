@@ -44,11 +44,11 @@ public partial record PaymentTransactionInformation1
     /// <summary>
     /// Detailed information on the status reason.
     /// </summary>
-    public StatusReasonInformation1? StatusReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public StatusReasonInformation1[] StatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information on charges related to the processing of the rejection of the instruction.||Usage: ChargesInformation is past on for information purposes only. Settlement of the charges will be done separately.
     /// </summary>
-    public ChargesInformation1? ChargesInformation { get; init;  } // Warning: Don't know multiplicity.
+    public ChargesInformation1[] ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Point in time when the payment order from the initiating party meets the processing conditions of the account servicing agent (debtor's agent in case of a credit transfer, creditor's agent in case of a direct debit). This means - amongst others - that the account servicing agent has received the payment order and has applied checks as eg, authorisation, availability of funds.
     /// </summary>

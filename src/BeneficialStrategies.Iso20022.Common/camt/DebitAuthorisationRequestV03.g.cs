@@ -76,7 +76,7 @@ public partial record DebitAuthorisationRequestV03 : IOuterRecord
     [DataMember(Name="Undrlyg")]
     [XmlElement(ElementName="Undrlyg")]
     [Required]
-    public required IUnderlyingTransaction1Choice Underlying { get; init; }
+    public required UnderlyingTransaction1Choice_ Underlying { get; init; }
     
     /// <summary>
     /// Detailed information about the request.

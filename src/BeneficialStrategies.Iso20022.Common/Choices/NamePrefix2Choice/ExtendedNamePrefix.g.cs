@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NamePrefix2Choice;
 /// <summary>
 /// Name prefix that is extended.
 /// </summary>
-public partial record ExtendedNamePrefix : INamePrefix2Choice
+public partial record ExtendedNamePrefix : NamePrefix2Choice_
 {
     public required IsoExtended350Code Value { get; init; }
 }

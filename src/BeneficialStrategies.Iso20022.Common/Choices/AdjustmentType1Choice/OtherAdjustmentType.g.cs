@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AdjustmentType1Choice;
 /// <summary>
 /// Specifies a type of adjustment not present in the code list.
 /// </summary>
-public partial record OtherAdjustmentType : IAdjustmentType1Choice
+public partial record OtherAdjustmentType : AdjustmentType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

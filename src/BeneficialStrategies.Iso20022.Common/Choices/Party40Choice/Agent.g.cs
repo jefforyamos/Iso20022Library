@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Party40Choice;
 /// <summary>
 /// Identification of a financial institution.
 /// </summary>
-public partial record Agent : IParty40Choice
+public partial record Agent : Party40Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationStatus22Choice;
 /// <summary>
 /// Status of the order cancellation request is rejected.
 /// </summary>
-public partial record Rejected : ICancellationStatus22Choice
+public partial record Rejected : CancellationStatus22Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the rejected status.
     /// </summary>
-    public IRejectedReason21Choice? Reason { get; init; } 
+    public RejectedReason21Choice_? Reason { get; init; } 
     /// <summary>
     /// Additional information about the rejected reason.
     /// </summary>

@@ -36,7 +36,7 @@ public partial record TransactionCertificateRecord2
     /// <summary>
     /// Documents provided as attachments to the registered contract.
     /// </summary>
-    public DocumentGeneralInformation5? Attachment { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentGeneralInformation5[] Attachment { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

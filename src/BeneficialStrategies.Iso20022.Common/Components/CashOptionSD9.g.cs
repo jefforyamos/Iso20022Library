@@ -52,19 +52,19 @@ public partial record CashOptionSD9
     /// <summary>
     /// Cash rate associated to the payout as declared on the market by the issuer or offeror.
     /// </summary>
-    public IPriceFormatSD2Choice? DeclaredCashRate { get; init; } 
+    public PriceFormatSD2Choice_? DeclaredCashRate { get; init; } 
     /// <summary>
     /// Gross cash rate associated to the payout as declared on the market by the issuer or offeror.
     /// </summary>
-    public IPriceFormatSD2Choice? DeclaredGrossRate { get; init; } 
+    public PriceFormatSD2Choice_? DeclaredGrossRate { get; init; } 
     /// <summary>
     /// Net cash rate associated to the payout as declared on the market by the issuer or offeror.
     /// </summary>
-    public IPriceFormatSD2Choice? DeclaredNetRate { get; init; } 
+    public PriceFormatSD2Choice_? DeclaredNetRate { get; init; } 
     /// <summary>
     /// Rate at which the fee will be charged to a DTC participant.
     /// </summary>
-    public IPriceFormatSD2Choice? DeclaredFeeRate { get; init; } 
+    public PriceFormatSD2Choice_? DeclaredFeeRate { get; init; } 
     /// <summary>
     /// Indicates the period during which the instructions for DTC (The Depository Trust Corporation) US Tax service will be accepted.
     /// </summary>

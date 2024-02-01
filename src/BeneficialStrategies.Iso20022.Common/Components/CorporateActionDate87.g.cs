@@ -28,7 +28,7 @@ public partial record CorporateActionDate87
     /// <summary>
     /// Date/time at which a foreign exchange rate will be determined.
     /// </summary>
-    public IDateAndDateTime2Choice? ForeignExchangeRateFixingDate { get; init; } 
+    public DateAndDateTime2Choice_? ForeignExchangeRateFixingDate { get; init; } 
     /// <summary>
     /// Date/time on which a payment can be made, for example, if the payment date is a non-business day or to indicate the first payment date of an offer.
     /// </summary>

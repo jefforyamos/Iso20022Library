@@ -20,7 +20,7 @@ public partial record LineItem14
     /// <summary>
     /// Calculated information about the goods of the underlying transaction.
     /// </summary>
-    public LineItemDetails12? LineItemDetails { get; init;  } // Warning: Don't know multiplicity.
+    public LineItemDetails12[] LineItemDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Line items total amount as indicated in the baseline.
     /// </summary>

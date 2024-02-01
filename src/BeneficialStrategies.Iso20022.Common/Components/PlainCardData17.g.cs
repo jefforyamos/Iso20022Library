@@ -36,7 +36,7 @@ public partial record PlainCardData17
     /// <summary>
     /// Additional card issuer specific data.
     /// </summary>
-    public IsoMax35Text? AdditionalCardData { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] AdditionalCardData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Entry mode of the card.
     /// </summary>

@@ -20,7 +20,7 @@ public partial record TransactionDetails11
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account owner (or the instructing party managing the account).
     /// </summary>
-    public required IReferences2Choice AccountOwnerTransactionIdentification { get; init; } 
+    public required References2Choice_ AccountOwnerTransactionIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account servicer.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record TransactionDetails11
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification13Choice? AccountOwner { get; init; } 
+    public PartyIdentification13Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record TransactionDetails11
     /// <summary>
     /// Specifies whether an associated FX should be cancelled.
     /// </summary>
-    public IFXCancellation1Choice? FXCancellation { get; init; } 
+    public FXCancellation1Choice_? FXCancellation { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason1Choice;
 /// <summary>
 /// Specifies the reason why the related instruction is cancelled, or the related cancellation request is executed.
 /// </summary>
-public partial record CancellationReason : IReason1Choice
+public partial record CancellationReason : Reason1Choice_
 {
     #nullable enable
     #nullable disable

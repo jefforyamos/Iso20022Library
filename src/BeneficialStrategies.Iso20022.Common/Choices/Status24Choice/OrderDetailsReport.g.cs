@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status24Choice;
 /// <summary>
 /// Status report details of all the individual orders conveyed in a bulk or multiple order message. Can be used if all the individual orders conveyed in a bulk or multiple order message have the same status.
 /// </summary>
-public partial record OrderDetailsReport : IStatus24Choice
+public partial record OrderDetailsReport : Status24Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record OrderDetailsReport : IStatus24Choice
     /// <summary>
     /// Status of a 'bulk' of orders. Can be used if all the individual orders conveyed in a bulk or multiple order message have the same status.
     /// </summary>
-    public required IOrderStatus3Choice OrderStatus { get; init; } 
+    public required OrderStatus3Choice_ OrderStatus { get; init; } 
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>

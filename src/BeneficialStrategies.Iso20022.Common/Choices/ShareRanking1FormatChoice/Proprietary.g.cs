@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ShareRanking1FormatChoice;
 /// <summary>
 /// Proprietary code to express the share ranking.
 /// </summary>
-public partial record Proprietary : IShareRanking1FormatChoice
+public partial record Proprietary : ShareRanking1FormatChoice_
 {
     #nullable enable
     /// <summary>

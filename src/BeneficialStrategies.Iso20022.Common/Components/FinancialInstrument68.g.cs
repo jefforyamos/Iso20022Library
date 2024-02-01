@@ -24,15 +24,15 @@ public partial record FinancialInstrument68
     /// <summary>
     /// Identification of the asset.
     /// </summary>
-    public required IFinancialInstrument1Choice Instrument { get; init; } 
+    public required FinancialInstrument1Choice_ Instrument { get; init; } 
     /// <summary>
     /// Specifies the quantity of assets to be transferred in units or in a percentage rate.
     /// </summary>
-    public required IQuantity44Choice Quantity { get; init; } 
+    public required Quantity44Choice_ Quantity { get; init; } 
     /// <summary>
     /// Breakdown of units.
     /// </summary>
-    public Unit11? UnitsDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Unit11[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
@@ -69,7 +69,7 @@ public partial record FinancialInstrument68
     /// <summary>
     /// Specifies the number of units that have been received (crystallised) or not yet received (uncrystallised) from the fund. This is typically relevant to a pension fund.
     /// </summary>
-    public Crystallisation1? CrystallisationDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Crystallisation1[] CrystallisationDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date or tax quarter used for the calculation of tax on the asset.
     /// </summary>
@@ -81,7 +81,7 @@ public partial record FinancialInstrument68
     /// <summary>
     /// Additional information about the financial instrument.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

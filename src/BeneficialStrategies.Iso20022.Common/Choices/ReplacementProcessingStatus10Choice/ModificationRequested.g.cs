@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReplacementProcessingStatus10Cho
 /// <summary>
 /// Replacement of the trade is Modification Requested.
 /// </summary>
-public partial record ModificationRequested : IReplacementProcessingStatus10Choice
+public partial record ModificationRequested : ReplacementProcessingStatus10Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderWaiverReason3Choice;
 /// <summary>
 /// Reason for the waiver expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IOrderWaiverReason3Choice
+public partial record Proprietary : OrderWaiverReason3Choice_
 {
     #nullable enable
     /// <summary>

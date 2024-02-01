@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Appearance3Choice;
 /// <summary>
 /// Appearance expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IAppearance3Choice
+public partial record Proprietary : Appearance3Choice_
 {
     #nullable enable
     /// <summary>

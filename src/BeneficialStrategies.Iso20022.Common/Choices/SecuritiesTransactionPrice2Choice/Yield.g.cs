@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice2Choic
 /// <summary>
 /// Price expressed as a yield.
 /// </summary>
-public partial record Yield : ISecuritiesTransactionPrice2Choice
+public partial record Yield : SecuritiesTransactionPrice2Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

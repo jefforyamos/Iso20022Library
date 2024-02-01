@@ -24,7 +24,7 @@ public partial record References6
     /// <summary>
     /// Reason of the message rejection.
     /// </summary>
-    public IsoMax350Text? RejectionReason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax350Text[] RejectionReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the rejected request message.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record References6
     /// <summary>
     /// File name of a document logically related to the request.
     /// </summary>
-    public IsoMax70Text? AttachedDocumentName { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] AttachedDocumentName { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

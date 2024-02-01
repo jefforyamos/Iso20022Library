@@ -20,11 +20,11 @@ public partial record ProceedsMovement1
     /// <summary>
     /// Provides information about the movement of the cash proceeds.
     /// </summary>
-    public CashProceeds1? CashProceedsMovementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashProceeds1[] CashProceedsMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the movement of the securities proceeds.
     /// </summary>
-    public SecuritiesProceeds1? SecuritiesProceedsMovementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SecuritiesProceeds1[] SecuritiesProceedsMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the tax voucher.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType2Choice;
 /// <summary>
 /// Indicates whether the report is complete or contains changes only.
 /// </summary>
-public partial record Code : IUpdateType2Choice
+public partial record Code : UpdateType2Choice_
 {
     public required StatementUpdateType1Code Value { get; init; }
 }

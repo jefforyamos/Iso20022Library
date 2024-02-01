@@ -130,7 +130,7 @@ public partial record AmendmentRejectionNotificationV03 : IOuterRecord
     [DataMember(Name="RjctnRsn")]
     [XmlElement(ElementName="RjctnRsn")]
     [Required]
-    public required IRejectionReason1Choice RejectionReason { get; init; }
+    public required RejectionReason1Choice_ RejectionReason { get; init; }
     
     /// <summary>
     /// Information on the next processing step required.

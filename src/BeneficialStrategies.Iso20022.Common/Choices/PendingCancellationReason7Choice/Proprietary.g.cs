@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingCancellationReason7Choice
 /// <summary>
 /// Pending reason specified as a proprietary code.
 /// </summary>
-public partial record Proprietary : IPendingCancellationReason7Choice
+public partial record Proprietary : PendingCancellationReason7Choice_
 {
     #nullable enable
     /// <summary>

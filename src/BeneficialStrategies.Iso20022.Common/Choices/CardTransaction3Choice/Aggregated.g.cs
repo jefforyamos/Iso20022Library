@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction3Choice;
 /// <summary>
 /// Card transaction details, based on card transaction aggregated data performed by the card acquirer.
 /// </summary>
-public partial record Aggregated : ICardTransaction3Choice
+public partial record Aggregated : CardTransaction3Choice_
 {
     #nullable enable
     /// <summary>
@@ -34,6 +34,6 @@ public partial record Aggregated : ICardTransaction3Choice
     /// <summary>
     /// Date range on which the globalisation applies.
     /// </summary>
-    public IDateOrDateTimePeriod1Choice? TransactionDateRange { get; init; } 
+    public DateOrDateTimePeriod1Choice_? TransactionDateRange { get; init; } 
     #nullable disable
 }

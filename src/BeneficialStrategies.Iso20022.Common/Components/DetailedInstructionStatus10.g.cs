@@ -28,7 +28,7 @@ public partial record DetailedInstructionStatus10
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification40Choice? AccountOwner { get; init; } 
+    public PartyIdentification40Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Identifies the subaccount of the safekeeping account.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record DetailedInstructionStatus10
     /// <summary>
     /// Owner of the voting rights.
     /// </summary>
-    public IReadOnlyCollection<IPartyIdentification40Choice> RightsHolder { get; init; } = [];
+    public PartyIdentification40Choice_[] RightsHolder { get; init; } = [];
     /// <summary>
     /// Indicates whether standing instructions have been applied or not.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record DetailedInstructionStatus10
     /// <summary>
     /// Details of the vote.
     /// </summary>
-    public IReadOnlyCollection<Vote6> VotePerResolution { get; init; } = [];
+    public Vote6[] VotePerResolution { get; init; } = [];
     
     #nullable disable
 }

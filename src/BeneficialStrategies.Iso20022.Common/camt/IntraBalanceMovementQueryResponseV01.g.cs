@@ -79,7 +79,7 @@ public partial record IntraBalanceMovementQueryResponseV01 : IOuterRecord
     [Description(@"Provides information on report or error resulting from the originating query message.")]
     [DataMember(Name="RptOrErr")]
     [XmlElement(ElementName="RptOrErr")]
-    public IIntraBalanceOrOperationalError7Choice? ReportOrError { get; init; }
+    public IntraBalanceOrOperationalError7Choice_? ReportOrError { get; init; }
     
     #nullable disable
     

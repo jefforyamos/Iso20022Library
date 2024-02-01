@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.VoteInstructionType1Choice;
 /// <summary>
 /// Vote option expressed as a code.
 /// </summary>
-public partial record Type : IVoteInstructionType1Choice
+public partial record Type : VoteInstructionType1Choice_
 {
     public required VoteInstruction6Code Value { get; init; }
 }

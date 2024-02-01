@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccount2Choice;
 /// <summary>
 /// Unique identification of the securities account.
 /// </summary>
-public partial record Account : ISecuritiesAccount2Choice
+public partial record Account : SecuritiesAccount2Choice_
 {
     #nullable enable
     /// <summary>

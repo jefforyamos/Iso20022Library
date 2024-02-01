@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SupportLetterType1Choice;
 /// <summary>
 /// Type of supporting letter expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISupportLetterType1Choice
+public partial record Proprietary : SupportLetterType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

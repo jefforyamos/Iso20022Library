@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DocumentIdentification3Choice;
 /// <summary>
 /// Identification of the document assigned by the account owner.
 /// </summary>
-public partial record AccountOwnerDocumentIdentification : IDocumentIdentification3Choice
+public partial record AccountOwnerDocumentIdentification : DocumentIdentification3Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

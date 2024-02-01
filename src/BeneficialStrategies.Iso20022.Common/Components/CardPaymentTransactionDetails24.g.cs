@@ -60,7 +60,7 @@ public partial record CardPaymentTransactionDetails24
     /// <summary>
     /// Product purchased with the transaction.
     /// </summary>
-    public Product1? Product { get; init;  } // Warning: Don't know multiplicity.
+    public Product1[] Product { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Detailed invoice data.
     /// </summary>

@@ -36,7 +36,7 @@ public partial record Transfer34
     /// <summary>
     /// Date for which the instructing party requests the transfer.
     /// </summary>
-    public IDateFormat1Choice? RequestedTransferDate { get; init; } 
+    public DateFormat1Choice_? RequestedTransferDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be exchanged at the International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
@@ -48,11 +48,11 @@ public partial record Transfer34
     /// <summary>
     /// Reason for the transfer.
     /// </summary>
-    public ITransferReason1Choice? TransferReason { get; init; } 
+    public TransferReason1Choice_? TransferReason { get; init; } 
     /// <summary>
     /// Specifies information about investment plans included in the holding.
     /// </summary>
-    public IReadOnlyCollection<HoldingsPlanType1Code> HoldingsPlanType { get; init; } = [];
+    public HoldingsPlanType1Code[] HoldingsPlanType { get; init; } = [];
     /// <summary>
     /// Information related to the financial instrument to be transferred.
     /// </summary>
@@ -60,11 +60,11 @@ public partial record Transfer34
     /// <summary>
     /// Total quantity of securities to be transferred, expressed as a number of units or a percentage rate.
     /// </summary>
-    public required IQuantity42Choice Quantity { get; init; } 
+    public required Quantity42Choice_ Quantity { get; init; } 
     /// <summary>
     /// Breakdown of units to be transferred.
     /// </summary>
-    public Unit8? UnitsDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Unit8[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rounding direction applied to nearest unit.
     /// </summary>
@@ -96,7 +96,7 @@ public partial record Transfer34
     /// <summary>
     /// Specifies how the payment of fees and taxes as a result of the transfer is covered, that is, whether by cash or the redemption of units.
     /// </summary>
-    public IChargePaymentMethod1Choice? TransferExpensesPaymentType { get; init; } 
+    public ChargePaymentMethod1Choice_? TransferExpensesPaymentType { get; init; } 
     
     #nullable disable
 }

@@ -20,7 +20,7 @@ public partial record FinancingDateDetails1
     /// <summary>
     /// Date on which the financing transaction has been booked in an account.
     /// </summary>
-    public IsoISODate? BookDate { get; init;  } // Warning: Don't know multiplicity.
+    public IsoISODate[] BookDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date on which a financed amount has been credited.
     /// </summary>

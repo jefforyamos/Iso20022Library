@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat48Choice;
 /// <summary>
 /// Price expressed as a percentage.
 /// </summary>
-public partial record PercentagePrice : IPriceFormat48Choice
+public partial record PercentagePrice : PriceFormat48Choice_
 {
     #nullable enable
     /// <summary>

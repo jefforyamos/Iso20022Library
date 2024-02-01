@@ -81,7 +81,7 @@ public partial record InformationRequestResponseV01 : IOuterRecord
     [DataMember(Name="SchCrit")]
     [XmlElement(ElementName="SchCrit")]
     [Required]
-    public required ISearchCriteria1Choice SearchCriteria { get; init; }
+    public required SearchCriteria1Choice_ SearchCriteria { get; init; }
     
     /// <summary>
     /// Provides the return indicators and the investigation result.

@@ -20,15 +20,15 @@ public partial record UnderlyingRatio2
     /// <summary>
     /// Number of held securities for the exercise.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice UnderlyingQuantityDenominator { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ UnderlyingQuantityDenominator { get; init; } 
     /// <summary>
     /// Number of related securities for the exercise.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice UnderlyingQuantityNumerator { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ UnderlyingQuantityNumerator { get; init; } 
     /// <summary>
     /// Related security into which the security can be converted.
     /// </summary>
-    public SecurityIdentification19? RelatedFinancialInstrumentIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityIdentification19[] RelatedFinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity13Choice;
 /// <summary>
 /// Total quantity of securities to be settled.
 /// </summary>
-public partial record PortfolioTransferOutRate : IQuantity13Choice
+public partial record PortfolioTransferOutRate : Quantity13Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

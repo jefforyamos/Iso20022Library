@@ -32,7 +32,7 @@ public partial record ReferredDocumentInformation4
     /// <summary>
     /// Set of elements used to provide the content of the referred document line.
     /// </summary>
-    public DocumentLineInformation1? LineDetails { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentLineInformation1[] LineDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Role8Choice;
 /// <summary>
 /// Role of the party in the activity expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IRole8Choice
+public partial record Proprietary : Role8Choice_
 {
     #nullable enable
     /// <summary>

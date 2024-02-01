@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnergy2Choice
 /// <summary>
 /// Light end energy commodity derivative.
 /// </summary>
-public partial record LightEnd : IAssetClassCommodityEnergy2Choice
+public partial record LightEnd : AssetClassCommodityEnergy2Choice_
 {
     #nullable enable
     /// <summary>

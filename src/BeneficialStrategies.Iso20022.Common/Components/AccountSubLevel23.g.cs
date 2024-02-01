@@ -28,7 +28,7 @@ public partial record AccountSubLevel23
     /// <summary>
     /// Detailed shareholding balance information for an account.
     /// </summary>
-    public ShareholdingBalance1? ShareholdingBalance { get; init;  } // Warning: Don't know multiplicity.
+    public ShareholdingBalance1[] ShareholdingBalance { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

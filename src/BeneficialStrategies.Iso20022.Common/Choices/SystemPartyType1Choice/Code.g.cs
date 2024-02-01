@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyType1Choice;
 /// <summary>
 /// System party type, in a coded format.
 /// </summary>
-public partial record Code : ISystemPartyType1Choice
+public partial record Code : SystemPartyType1Choice_
 {
     public required ExternalSystemPartyType1Code Value { get; init; }
 }

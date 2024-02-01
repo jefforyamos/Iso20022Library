@@ -20,7 +20,7 @@ public partial record Mandate7
     /// <summary>
     /// Unique identification, as assigned by the creditor, to unambiguously identify the mandate.
     /// </summary>
-    public IsoMax35Text? MandateIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] MandateIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification for the mandate request, as assigned by the initiating party.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record Mandate7
     /// <summary>
     /// Provides the reason for the setup of the mandate.
     /// </summary>
-    public IMandateSetupReason1Choice? Reason { get; init; } 
+    public MandateSetupReason1Choice_? Reason { get; init; } 
     /// <summary>
     /// Credit party that signs the mandate.
     /// </summary>
@@ -84,11 +84,11 @@ public partial record Mandate7
     /// <summary>
     /// Provides information to identify the underlying documents associated with the mandate.
     /// </summary>
-    public ReferredDocumentInformation6? ReferredDocument { get; init;  } // Warning: Don't know multiplicity.
+    public ReferredDocumentInformation6[] ReferredDocument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements within the message component.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -20,7 +20,7 @@ public partial record Repartition4
     /// <summary>
     /// Amount, units or percentage of financial instrument invested or withdrawn.
     /// </summary>
-    public required IUnitsOrAmountOrPercentage1Choice Quantity { get; init; } 
+    public required UnitsOrAmountOrPercentage1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Detailed information about the security or investment fund.
     /// </summary>

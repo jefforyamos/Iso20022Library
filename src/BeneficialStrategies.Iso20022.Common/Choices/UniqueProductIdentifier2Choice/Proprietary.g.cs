@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UniqueProductIdentifier2Choice;
 /// <summary>
 /// Product identifier expressed in a proprietary notation.
 /// </summary>
-public partial record Proprietary : IUniqueProductIdentifier2Choice
+public partial record Proprietary : UniqueProductIdentifier2Choice_
 {
     #nullable enable
     /// <summary>

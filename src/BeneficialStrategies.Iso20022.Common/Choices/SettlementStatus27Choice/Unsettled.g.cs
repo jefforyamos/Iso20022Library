@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementStatus27Choice;
 /// <summary>
 /// Instruction is unsettled.
 /// </summary>
-public partial record Unsettled : ISettlementStatus27Choice
+public partial record Unsettled : SettlementStatus27Choice_
 {
     #nullable enable
     /// <summary>

@@ -20,7 +20,7 @@ public partial record MaintenanceDelegation1
     /// <summary>
     /// Maintenance service to be delegated.
     /// </summary>
-    public DataSetCategory6Code? MaintenanceService { get; init;  } // Warning: Don't know multiplicity.
+    public DataSetCategory6Code[] MaintenanceService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Flag to indicate that the delegated maintenance must be performed on a subset of the terminal estate.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record MaintenanceDelegation1
     /// <summary>
     /// Subset of the terminal estate for the delegated actions, for instance for pilot or key deactivation). The subset may be expressed as a list of POI or terminal estate subset identifier.
     /// </summary>
-    public IsoMax35Text? POISubset { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] POISubset { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information for the MTM to build or include delegated actions in the management plan of the POI.
     /// </summary>
@@ -44,15 +44,15 @@ public partial record MaintenanceDelegation1
     /// <summary>
     /// Certificate path of the terminal manager.
     /// </summary>
-    public IsoMax5000Binary? Certificate { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax5000Binary[] Certificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Association of the TM identifier and the MTM identifier of a POI.
     /// </summary>
-    public MaintenanceIdentificationAssociation1? POIIdentificationAssociation { get; init;  } // Warning: Don't know multiplicity.
+    public MaintenanceIdentificationAssociation1[] POIIdentificationAssociation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the key to manage or to download.
     /// </summary>
-    public KEKIdentifier2? SymmetricKey { get; init;  } // Warning: Don't know multiplicity.
+    public KEKIdentifier2[] SymmetricKey { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Configuration parameters of the terminal manager to be sent by the MTM.
     /// </summary>

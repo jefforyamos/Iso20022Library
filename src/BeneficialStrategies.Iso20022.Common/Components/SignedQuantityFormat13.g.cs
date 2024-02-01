@@ -24,7 +24,7 @@ public partial record SignedQuantityFormat13
     /// <summary>
     /// Quantity of security.
     /// </summary>
-    public required IFinancialInstrumentQuantity36Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity36Choice_ Quantity { get; init; } 
     
     #nullable disable
 }

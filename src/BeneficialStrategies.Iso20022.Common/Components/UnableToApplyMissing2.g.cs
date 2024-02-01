@@ -20,7 +20,7 @@ public partial record UnableToApplyMissing2
     /// <summary>
     /// Specifies which data type is mising in the transaction.
     /// </summary>
-    public required IMissingData1Choice Type { get; init; } 
+    public required MissingData1Choice_ Type { get; init; } 
     /// <summary>
     /// Further details about the missing information.
     /// </summary>

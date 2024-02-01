@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementInstructionReason1Choi
 /// <summary>
 /// Settlement instruction reason expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISettlementInstructionReason1Choice
+public partial record Proprietary : SettlementInstructionReason1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument20Choice;
 /// <summary>
 /// Instruction, initiated by the creditor, to debit a debtor's account in favour of the creditor. A direct debit can be pre-authorised or not. In most countries, authorisation is in the form of a mandate between the debtor and creditor.
 /// </summary>
-public partial record DirectDebitDetails : IPaymentInstrument20Choice
+public partial record DirectDebitDetails : PaymentInstrument20Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxEfficientProductType1Choice;
 /// <summary>
 /// Type of tax efficient product expressed as a code.
 /// </summary>
-public partial record Code : ITaxEfficientProductType1Choice
+public partial record Code : TaxEfficientProductType1Choice_
 {
     public required TaxEfficientProductType1Code Value { get; init; }
 }

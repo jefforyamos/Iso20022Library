@@ -24,39 +24,39 @@ public partial record AcceptorConfigurationContent9
     /// <summary>
     /// Configuration parameters of the TMS protocol between a POI and a terminal manager.
     /// </summary>
-    public TMSProtocolParameters5? TMSProtocolParameters { get; init;  } // Warning: Don't know multiplicity.
+    public TMSProtocolParameters5[] TMSProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to an acquirer protocol.
     /// </summary>
-    public AcquirerProtocolParameters13? AcquirerProtocolParameters { get; init;  } // Warning: Don't know multiplicity.
+    public AcquirerProtocolParameters13[] AcquirerProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to the merchant.
     /// </summary>
-    public MerchantConfigurationParameters5? MerchantParameters { get; init;  } // Warning: Don't know multiplicity.
+    public MerchantConfigurationParameters5[] MerchantParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Manufacturer configuration parameters of the point of interaction.
     /// </summary>
-    public PaymentTerminalParameters7? TerminalParameters { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentTerminalParameters7[] TerminalParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to a payment application of the point of interaction.
     /// </summary>
-    public ApplicationParameters9? ApplicationParameters { get; init;  } // Warning: Don't know multiplicity.
+    public ApplicationParameters9[] ApplicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to the communication with an acquirer host or a terminal manager host.
     /// </summary>
-    public HostCommunicationParameter6? HostCommunicationParameters { get; init;  } // Warning: Don't know multiplicity.
+    public HostCommunicationParameter6[] HostCommunicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Point of interaction parameters related to the security of software application and application protocol.
     /// </summary>
-    public SecurityParameters12? SecurityParameters { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityParameters12[] SecurityParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Parameters dedicated to protocols between a sale system and the POI.
     /// </summary>
-    public SaleToPOIProtocolParameter1? SaleToPOIParameters { get; init;  } // Warning: Don't know multiplicity.
+    public SaleToPOIProtocolParameter1[] SaleToPOIParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Group of software packages to transfer to a group of POIComponent of the POI System.
     /// </summary>
-    public TerminalPackageType1? TerminalPackage { get; init;  } // Warning: Don't know multiplicity.
+    public TerminalPackageType1[] TerminalPackage { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

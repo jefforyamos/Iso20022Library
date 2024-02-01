@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification23Choice;
 /// <summary>
 /// Identifier for Dutch securities.
 /// </summary>
-public partial record Dutch : ISecurityIdentification23Choice
+public partial record Dutch : SecurityIdentification23Choice_
 {
     public required IsoDutchIdentifier Value { get; init; }
 }

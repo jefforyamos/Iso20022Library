@@ -20,7 +20,7 @@ public partial record BalanceDetails5
     /// <summary>
     /// Balance type.
     /// </summary>
-    public required IBalanceType6Choice Type { get; init; } 
+    public required BalanceType6Choice_ Type { get; init; } 
     /// <summary>
     /// Unrealised gain or loss.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record BalanceDetails5
     /// <summary>
     /// Detailed balance information.
     /// </summary>
-    public BalanceDetails6? DetailedBalance { get; init;  } // Warning: Don't know multiplicity.
+    public BalanceDetails6[] DetailedBalance { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -88,7 +88,7 @@ public partial record InvestmentRestrictions3
     /// <summary>
     /// Additional information about the investment restrictions.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

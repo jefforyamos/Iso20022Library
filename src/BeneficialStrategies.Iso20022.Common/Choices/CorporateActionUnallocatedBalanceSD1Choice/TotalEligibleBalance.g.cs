@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionUnallocatedBalanc
 /// <summary>
 /// Total quantity of financial instruments of the balance.
 /// </summary>
-public partial record TotalEligibleBalance : ICorporateActionUnallocatedBalanceSD1Choice
+public partial record TotalEligibleBalance : CorporateActionUnallocatedBalanceSD1Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record TotalEligibleBalance : ICorporateActionUnallocatedBalanceS
     /// <summary>
     /// Quantity of security.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
     #nullable disable
 }

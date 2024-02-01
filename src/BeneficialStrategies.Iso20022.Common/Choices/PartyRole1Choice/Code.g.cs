@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyRole1Choice;
 /// <summary>
 /// Role of the party in the activity.
 /// </summary>
-public partial record Code : IPartyRole1Choice
+public partial record Code : PartyRole1Choice_
 {
     public required PartyType1Code Value { get; init; }
 }

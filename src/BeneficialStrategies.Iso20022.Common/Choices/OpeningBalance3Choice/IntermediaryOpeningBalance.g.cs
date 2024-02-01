@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OpeningBalance3Choice;
 /// <summary>
 /// Opening balance of this page only. It must be the intermediary closing balance of the previous page (part of the same statement).
 /// </summary>
-public partial record IntermediaryOpeningBalance : IOpeningBalance3Choice
+public partial record IntermediaryOpeningBalance : OpeningBalance3Choice_
 {
     #nullable enable
     /// <summary>

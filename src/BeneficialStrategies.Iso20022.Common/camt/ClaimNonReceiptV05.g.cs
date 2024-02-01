@@ -66,7 +66,7 @@ public partial record ClaimNonReceiptV05 : IOuterRecord
     [DataMember(Name="Undrlyg")]
     [XmlElement(ElementName="Undrlyg")]
     [Required]
-    public required IUnderlyingTransaction3Choice Underlying { get; init; }
+    public required UnderlyingTransaction3Choice_ Underlying { get; init; }
     
     /// <summary>
     /// Provides the cover related information of a claim non receipt investigation. The absence of the component means that the message is not a cover related investigation.

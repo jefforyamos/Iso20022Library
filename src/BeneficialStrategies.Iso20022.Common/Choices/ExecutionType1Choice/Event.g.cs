@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExecutionType1Choice;
 /// <summary>
 /// Execution type is executed based on an event driven trigger.
 /// </summary>
-public partial record Event : IExecutionType1Choice
+public partial record Event : ExecutionType1Choice_
 {
     #nullable enable
     #nullable disable

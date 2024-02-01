@@ -20,7 +20,7 @@ public partial record SecuritiesQuantitySD5
     /// <summary>
     /// Instruction quantity for a given transaction sequence number.
     /// </summary>
-    public IFinancialInstrumentQuantity31Choice? InstructionQuantity { get; init; } 
+    public FinancialInstrumentQuantity31Choice_? InstructionQuantity { get; init; } 
     /// <summary>
     /// For rights subscription events with an oversubscription feature, the quantity of the oversubscription for the given instruction.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record SecuritiesQuantitySD5
     /// <summary>
     /// Quantity covered but transactions not in "MADE" status.
     /// </summary>
-    public IFinancialInstrumentQuantity31Choice? InterimCoveredQuantity { get; init; } 
+    public FinancialInstrumentQuantity31Choice_? InterimCoveredQuantity { get; init; } 
     
     #nullable disable
 }

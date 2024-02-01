@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason18FormatChoice;
 /// <summary>
 /// Standard code to specify the reason of a rejection of an election advice.
 /// </summary>
-public partial record Code : IRejectionReason18FormatChoice
+public partial record Code : RejectionReason18FormatChoice_
 {
     public required RejectionReason18Code Value { get; init; }
 }

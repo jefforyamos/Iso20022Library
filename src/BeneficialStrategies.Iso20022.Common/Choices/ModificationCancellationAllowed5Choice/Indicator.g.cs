@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModificationCancellationAllowed5
 /// <summary>
 /// Specifies whether a third party is allowed to modify or cancel the transaction.
 /// </summary>
-public partial record Indicator : IModificationCancellationAllowed5Choice
+public partial record Indicator : ModificationCancellationAllowed5Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

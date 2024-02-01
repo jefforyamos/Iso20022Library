@@ -28,7 +28,7 @@ public partial record TransferStatusAndReason
     /// <summary>
     /// Status of the transfer instruction is pending settlement.
     /// </summary>
-    public required IPendingSettlementStatusChoice PendingSettlement { get; init; } 
+    public required PendingSettlementStatusChoice_ PendingSettlement { get; init; } 
     /// <summary>
     /// Status of the transfer instruction is unmatched.
     /// </summary>
@@ -36,15 +36,15 @@ public partial record TransferStatusAndReason
     /// <summary>
     /// Status is in repair.
     /// </summary>
-    public required IInRepairStatus2Choice InRepair { get; init; } 
+    public required InRepairStatus2Choice_ InRepair { get; init; } 
     /// <summary>
     /// Status of the transfer instructed is rejected.
     /// </summary>
-    public required IRejectedStatus3Choice Rejected { get; init; } 
+    public required RejectedStatus3Choice_ Rejected { get; init; } 
     /// <summary>
     /// Party that initiates the status.
     /// </summary>
-    public IPartyIdentification1Choice? StatusInitiator { get; init; } 
+    public PartyIdentification1Choice_? StatusInitiator { get; init; } 
     
     #nullable disable
 }

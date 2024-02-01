@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Period4Choice;
 /// <summary>
 /// Time span defined by a start date, and an end date.
 /// </summary>
-public partial record FromDateToDate : IPeriod4Choice
+public partial record FromDateToDate : Period4Choice_
 {
     #nullable enable
     /// <summary>

@@ -36,15 +36,15 @@ public partial record OriginalPaymentInformation1
     /// <summary>
     /// Set of elements used to provide detailed information on the status reason.
     /// </summary>
-    public StatusReasonInformation8? StatusReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public StatusReasonInformation8[] StatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Detailed information on the number of transactions for each identical transaction status.
     /// </summary>
-    public NumberOfTransactionsPerStatus3? NumberOfTransactionsPerStatus { get; init;  } // Warning: Don't know multiplicity.
+    public NumberOfTransactionsPerStatus3[] NumberOfTransactionsPerStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of elements used to provide information on the original transactions to which the status report message refers.
     /// </summary>
-    public PaymentTransactionInformation25? TransactionInformationAndStatus { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentTransactionInformation25[] TransactionInformationAndStatus { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

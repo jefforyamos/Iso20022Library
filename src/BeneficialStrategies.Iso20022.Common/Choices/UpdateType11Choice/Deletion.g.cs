@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType11Choice;
 /// <summary>
 /// Deletion of information in the securities transaction.
 /// </summary>
-public partial record Deletion : IUpdateType11Choice
+public partial record Deletion : UpdateType11Choice_
 {
     #nullable enable
     /// <summary>

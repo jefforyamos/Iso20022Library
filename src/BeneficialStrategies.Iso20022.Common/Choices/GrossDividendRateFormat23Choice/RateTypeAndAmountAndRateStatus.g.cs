@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRateFormat23Choice;
 /// <summary>
 /// Specifies different formats for the gross dividend rate.
 /// </summary>
-public partial record RateTypeAndAmountAndRateStatus : IGrossDividendRateFormat23Choice
+public partial record RateTypeAndAmountAndRateStatus : GrossDividendRateFormat23Choice_
 {
     #nullable enable
     /// <summary>
     /// Value expressed as a rate type.
     /// </summary>
-    public required IRateType51Choice RateType { get; init; } 
+    public required RateType51Choice_ RateType { get; init; } 
     /// <summary>
     /// Value expressed as an amount.
     /// </summary>
@@ -26,6 +26,6 @@ public partial record RateTypeAndAmountAndRateStatus : IGrossDividendRateFormat2
     /// <summary>
     /// Value expressed as a rate status.
     /// </summary>
-    public IRateStatus4Choice? RateStatus { get; init; } 
+    public RateStatus4Choice_? RateStatus { get; init; } 
     #nullable disable
 }

@@ -13,7 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity29Cho
 /// Amount of money to be redeemed from the fund. 
 /// Gross Amount = Quantity * Price.
 /// </summary>
-public partial record GrossAmount : IFinancialInstrumentQuantity29Choice
+public partial record GrossAmount : FinancialInstrumentQuantity29Choice_
 {
     public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
 }

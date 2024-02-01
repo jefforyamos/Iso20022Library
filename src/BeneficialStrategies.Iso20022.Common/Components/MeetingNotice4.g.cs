@@ -32,7 +32,7 @@ public partial record MeetingNotice4
     /// <summary>
     /// Classifies the type of meeting.
     /// </summary>
-    public IMeetingTypeClassification1Choice? Classification { get; init; } 
+    public MeetingTypeClassification1Choice_? Classification { get; init; } 
     /// <summary>
     /// Official meeting announcement date.
     /// </summary>
@@ -48,15 +48,15 @@ public partial record MeetingNotice4
     /// <summary>
     /// Date and time by which the beneficial owner or agent must notify of its intention to participate in the meeting. This deadline is set by an intermediary.
     /// </summary>
-    public IDateFormat29Choice? AttendanceConfirmationDeadline { get; init; } 
+    public DateFormat29Choice_? AttendanceConfirmationDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the beneficial owner or agent must notify of its intention to participate in the meeting (STP mode). This deadline is set by an intermediary.
     /// </summary>
-    public IDateFormat29Choice? AttendanceConfirmationSTPDeadline { get; init; } 
+    public DateFormat29Choice_? AttendanceConfirmationSTPDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the attendance to the meeting should be confirmed. This deadline is set by the issuer.
     /// </summary>
-    public IDateFormat29Choice? AttendanceConfirmationMarketDeadline { get; init; } 
+    public DateFormat29Choice_? AttendanceConfirmationMarketDeadline { get; init; } 
     /// <summary>
     /// Address to use over the www (HTTP) service where additional information on the meeting may be found.
     /// </summary>
@@ -64,11 +64,11 @@ public partial record MeetingNotice4
     /// <summary>
     /// Additional procedural information about the general meeting, specifying the participation requirements and the voting procedures. Alternatively, this may indicate where such information may be obtained.
     /// </summary>
-    public IReadOnlyCollection<AdditionalRights2> AdditionalProcedureDetails { get; init; } = [];
+    public AdditionalRights2[] AdditionalProcedureDetails { get; init; } = [];
     /// <summary>
     /// Number of securities admitted to the vote, expressed as an amount and a currency.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? TotalNumberOfSecuritiesOutstanding { get; init; } 
+    public UnitOrFaceAmount1Choice_? TotalNumberOfSecuritiesOutstanding { get; init; } 
     /// <summary>
     /// Number of rights admitted to the vote.
     /// </summary>
@@ -80,15 +80,15 @@ public partial record MeetingNotice4
     /// <summary>
     /// Indicates whether a proxy is allowed.
     /// </summary>
-    public IProxy2Choice? ProxyChoice { get; init; } 
+    public Proxy2Choice_? ProxyChoice { get; init; } 
     /// <summary>
     /// Contact person at the party organising the meeting, at the issuer or at an intermediary.
     /// </summary>
-    public IReadOnlyCollection<MeetingContactPerson2> ContactPersonDetails { get; init; } = [];
+    public MeetingContactPerson2[] ContactPersonDetails { get; init; } = [];
     /// <summary>
     /// Date on which the company publishes the results of its meeting.
     /// </summary>
-    public IDateFormat3Choice? ResultPublicationDate { get; init; } 
+    public DateFormat3Choice_? ResultPublicationDate { get; init; } 
     
     #nullable disable
 }

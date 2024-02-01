@@ -24,7 +24,7 @@ public partial record CancelInstruction1
     /// <summary>
     /// Account and instructed positions to which the meeting instruction cancellation request applies.
     /// </summary>
-    public SafekeepingAccount9? InstructedPosition { get; init;  } // Warning: Don't know multiplicity.
+    public SafekeepingAccount9[] InstructedPosition { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

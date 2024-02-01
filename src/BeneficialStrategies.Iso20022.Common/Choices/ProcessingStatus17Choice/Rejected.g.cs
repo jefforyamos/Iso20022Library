@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus17Choice;
 /// <summary>
 /// Trade has been rejected.
 /// </summary>
-public partial record Rejected : IProcessingStatus17Choice
+public partial record Rejected : ProcessingStatus17Choice_
 {
     #nullable enable
     #nullable disable

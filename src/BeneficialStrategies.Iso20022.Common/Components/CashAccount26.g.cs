@@ -24,11 +24,11 @@ public partial record CashAccount26
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountOwner { get; init; } 
+    public PartyIdentification2Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountServicer { get; init; } 
+    public PartyIdentification2Choice_? AccountServicer { get; init; } 
     /// <summary>
     /// Information identifying a specific branch of a financial institution.||Usage: this component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record CashAccount26
     /// <summary>
     /// Purpose of the account/source fund type. This is typically linked to an investment product, eg, wrapper, ISA.
     /// </summary>
-    public IInvestmentAccountType1Choice? InvestmentAccountType { get; init; } 
+    public InvestmentAccountType1Choice_? InvestmentAccountType { get; init; } 
     /// <summary>
     /// Other identification such as national registration identification number, passport number.
     /// </summary>
-    public GenericIdentification46? AccountOwnerOtherIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification46[] AccountOwnerOtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

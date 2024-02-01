@@ -20,7 +20,7 @@ public partial record ShipmentAttribute2
     /// <summary>
     /// Shipment conditions.
     /// </summary>
-    public IShipmentCondition1Choice? Conditions { get; init; } 
+    public ShipmentCondition1Choice_? Conditions { get; init; } 
     /// <summary>
     /// Expected shipment date.
     /// </summary>

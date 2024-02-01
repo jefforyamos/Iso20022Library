@@ -28,7 +28,7 @@ public partial record Intermediary48
     /// <summary>
     /// Function performed by the intermediary or related party.
     /// </summary>
-    public IRole8Choice? Role { get; init; } 
+    public Role8Choice_? Role { get; init; } 
     /// <summary>
     /// Contact person and contact information.
     /// </summary>

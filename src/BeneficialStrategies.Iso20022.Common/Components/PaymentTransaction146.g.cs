@@ -99,7 +99,7 @@ public partial record PaymentTransaction146
     /// <summary>
     /// Provides information on the charges to be paid by the charge bearer(s) related to the processing of the return transaction.
     /// </summary>
-    public Charges12? ChargesInformation { get; init;  } // Warning: Don't know multiplicity.
+    public Charges12[] ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique reference, as assigned by the clearing system, to unambiguously identify the return instruction.
     /// </summary>
@@ -119,7 +119,7 @@ public partial record PaymentTransaction146
     /// <summary>
     /// Provides detailed information on the return reason.
     /// </summary>
-    public PaymentReturnReason6? ReturnReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentReturnReason6[] ReturnReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Key elements used to identify the original transaction that is being referred to.
     /// </summary>
@@ -127,7 +127,7 @@ public partial record PaymentTransaction146
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

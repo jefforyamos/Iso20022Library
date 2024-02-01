@@ -20,11 +20,11 @@ public partial record Commission25
     /// <summary>
     /// Specification of the commission type.
     /// </summary>
-    public required ICommissionType6Choice Type { get; init; } 
+    public required CommissionType6Choice_ Type { get; init; } 
     /// <summary>
     /// Amount of money due to a party as compensation for a service.
     /// </summary>
-    public required IAmountOrRate2Choice Commission { get; init; } 
+    public required AmountOrRate2Choice_ Commission { get; init; } 
     /// <summary>
     /// Information related to an identification, eg, party identification or account identification.
     /// </summary>

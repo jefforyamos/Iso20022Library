@@ -24,7 +24,7 @@ public partial record AdditionalData2
     /// <summary>
     /// Detail of the specific type of data.
     /// </summary>
-    public AdditionalData1? Details { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] Details { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

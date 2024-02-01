@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio6Choice;
 /// <summary>
 /// Portfolio is a general investment.
 /// </summary>
-public partial record GeneralInvestment : IFundPortfolio6Choice
+public partial record GeneralInvestment : FundPortfolio6Choice_
 {
     #nullable enable
     /// <summary>
     /// Type of investment.
     /// </summary>
-    public IGeneralInvestmentAccountType2Choice? Type { get; init; } 
+    public GeneralInvestmentAccountType2Choice_? Type { get; init; } 
     /// <summary>
     /// Specifies whether the account is, for example, in a nominee name or own name.
     /// </summary>

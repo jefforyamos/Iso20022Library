@@ -20,7 +20,7 @@ public partial record RateTypeAndPercentageRate8
     /// <summary>
     /// Value expressed as a rate type.
     /// </summary>
-    public required IRateType42Choice RateType { get; init; } 
+    public required RateType42Choice_ RateType { get; init; } 
     /// <summary>
     /// Value expressed as a rate.
     /// </summary>

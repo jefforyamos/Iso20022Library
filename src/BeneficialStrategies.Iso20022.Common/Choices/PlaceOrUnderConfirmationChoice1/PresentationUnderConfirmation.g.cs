@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PlaceOrUnderConfirmationChoice1;
 /// <summary>
 /// Place of presentation when there is a confirmation.
 /// </summary>
-public partial record PresentationUnderConfirmation : IPlaceOrUnderConfirmationChoice1
+public partial record PresentationUnderConfirmation : PlaceOrUnderConfirmationChoice1_
 {
     public required PresentationParty1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentIdentificatio
 /// <summary>
 /// Instrument consists of single instrument.
 /// </summary>
-public partial record Single : IFinancialInstrumentIdentification5Choice
+public partial record Single : FinancialInstrumentIdentification5Choice_
 {
     #nullable enable
     #nullable disable

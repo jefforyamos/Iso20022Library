@@ -28,19 +28,19 @@ public partial record SecuritiesOption18
     /// <summary>
     /// Specifies that the security identified is a temporary security identification used for processing reasons, for example, contra security used in the US.
     /// </summary>
-    public ITemporaryFinancialInstrumentIndicator1Choice? TemporaryFinancialInstrumentIndicator { get; init; } 
+    public TemporaryFinancialInstrumentIndicator1Choice_? TemporaryFinancialInstrumentIndicator { get; init; } 
     /// <summary>
     /// Quantity of securities that have been posted (credit or debit) to the safekeeping account.
     /// </summary>
-    public required IQuantity6Choice PostingQuantity { get; init; } 
+    public required Quantity6Choice_ PostingQuantity { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
-    public ISafekeepingPlaceFormat3Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
-    public IFractionDispositionType4Choice? FractionDisposition { get; init; } 
+    public FractionDispositionType4Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Currency in which the cash disbursed from an interest or dividend payment is offered.
     /// </summary>

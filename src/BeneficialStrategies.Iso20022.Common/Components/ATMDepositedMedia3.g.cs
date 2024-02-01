@@ -28,7 +28,7 @@ public partial record ATMDepositedMedia3
     /// <summary>
     /// Media item that are deposited.
     /// </summary>
-    public ATMDepositedMedia2? MediaItems { get; init;  } // Warning: Don't know multiplicity.
+    public ATMDepositedMedia2[] MediaItems { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

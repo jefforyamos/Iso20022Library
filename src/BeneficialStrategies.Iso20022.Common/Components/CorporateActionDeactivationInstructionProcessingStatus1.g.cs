@@ -20,7 +20,7 @@ public partial record CorporateActionDeactivationInstructionProcessingStatus1
     /// <summary>
     /// The processing status.
     /// </summary>
-    public required IProcessedStatus6FormatChoice Status { get; init; } 
+    public required ProcessedStatus6FormatChoice_ Status { get; init; } 
     /// <summary>
     /// Additional information about the status.
     /// </summary>

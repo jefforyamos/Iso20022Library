@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderStatus3Choice;
 /// <summary>
 /// Status of all the orders in the order message is suspended.
 /// </summary>
-public partial record Suspended : IOrderStatus3Choice
+public partial record Suspended : OrderStatus3Choice_
 {
     #nullable enable
     #nullable disable

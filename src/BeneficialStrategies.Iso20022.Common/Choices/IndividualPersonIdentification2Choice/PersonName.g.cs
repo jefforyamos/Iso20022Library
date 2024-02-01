@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IndividualPersonIdentification2C
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
-public partial record PersonName : IIndividualPersonIdentification2Choice
+public partial record PersonName : IndividualPersonIdentification2Choice_
 {
     #nullable enable
     /// <summary>

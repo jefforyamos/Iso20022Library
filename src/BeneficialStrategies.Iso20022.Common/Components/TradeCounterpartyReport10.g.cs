@@ -28,19 +28,19 @@ public partial record TradeCounterpartyReport10
     /// <summary>
     /// Identification of the broker as an intermediary for the reporting counterparty.
     /// </summary>
-    public IOrganisationIdentification9Choice? Broker { get; init; } 
+    public OrganisationIdentification9Choice_? Broker { get; init; } 
     /// <summary>
     /// Identification of the submitting agent in the case where the reporting counterparty has delegated the submission of the report to a third party or to the other counterparty.
     /// </summary>
-    public IOrganisationIdentification9Choice? SubmittingAgent { get; init; } 
+    public OrganisationIdentification9Choice_? SubmittingAgent { get; init; } 
     /// <summary>
     /// Identification of the clearing member in the case where the trade is cleared.
     /// </summary>
-    public IOrganisationIdentification9Choice? ClearingMember { get; init; } 
+    public OrganisationIdentification9Choice_? ClearingMember { get; init; } 
     /// <summary>
     /// Identification of the beneficiary who is subject to the rights and obligations arising from the contract.
     /// </summary>
-    public required IOrganisationIdentification9Choice Beneficiary { get; init; } 
+    public required OrganisationIdentification9Choice_ Beneficiary { get; init; } 
     
     #nullable disable
 }

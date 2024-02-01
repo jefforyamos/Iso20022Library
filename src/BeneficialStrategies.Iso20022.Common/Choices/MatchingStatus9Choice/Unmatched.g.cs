@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingStatus9Choice;
 /// <summary>
 /// Trade is unmatched or mismatched.
 /// </summary>
-public partial record Unmatched : IMatchingStatus9Choice
+public partial record Unmatched : MatchingStatus9Choice_
 {
     #nullable enable
     #nullable disable

@@ -24,11 +24,11 @@ public partial record CorporateActionOption1
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public required ICorporateActionOption1FormatChoice OptionType { get; init; } 
+    public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     /// <summary>
     /// Specifies the status of the option.
     /// </summary>
-    public required ICorporateActionEventStatus2FormatChoice OptionAvailabilityStatus { get; init; } 
+    public required CorporateActionEventStatus2FormatChoice_ OptionAvailabilityStatus { get; init; } 
     /// <summary>
     /// Whether or not certification is required from the account owner. |Yes: certification required |No: no certification required.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record CorporateActionOption1
     /// <summary>
     /// Type of certification which is required.
     /// </summary>
-    public IBeneficiaryCertificationType1FormatChoice? CertificationType { get; init; } 
+    public BeneficiaryCertificationType1FormatChoice_? CertificationType { get; init; } 
     /// <summary>
     /// Identification of a temporary security used for processing reasons, eg, contra security used in the US.
     /// </summary>
@@ -48,15 +48,15 @@ public partial record CorporateActionOption1
     /// <summary>
     /// Identification of the cash account held by an agent at the CSD.
     /// </summary>
-    public IAccountIdentification2Choice? AgentCashAccountIdentification { get; init; } 
+    public AccountIdentification2Choice_? AgentCashAccountIdentification { get; init; } 
     /// <summary>
     /// Specifies the conditions that apply to the offer.
     /// </summary>
-    public IOfferType1FormatChoice? OfferType { get; init;  } // Warning: Don't know multiplicity.
+    public OfferType1FormatChoice_[] OfferType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of intermediates securities distribution, eg, stock dividend, reverse right.
     /// </summary>
-    public IIntermediateSecurityDistributionType1FormatChoice? IntermediateSecuritiesDistributionType { get; init; } 
+    public IntermediateSecurityDistributionType1FormatChoice_? IntermediateSecuritiesDistributionType { get; init; } 
     /// <summary>
     /// Indicates whether withdrawal of instruction is allowed.
     /// </summary>
@@ -84,19 +84,19 @@ public partial record CorporateActionOption1
     /// <summary>
     /// Provides information about the securities movement linked to the CA option.
     /// </summary>
-    public SecurityOption1? SecuritiesMovementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityOption1[] SecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the cash movement linked to the CA option.
     /// </summary>
-    public CashOption1? CashMovementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashOption1[] CashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the agents linked to the CA option.
     /// </summary>
-    public CorporateActionAgent1? CorporateActionOtherAgentDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionAgent1[] CorporateActionOtherAgentDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
-    public IFractionDispositionType1FormatChoice? FractionDisposition { get; init; } 
+    public FractionDispositionType1FormatChoice_? FractionDisposition { get; init; } 
     /// <summary>
     /// ndicates whether redemption charges apply.
     /// </summary>
@@ -104,7 +104,7 @@ public partial record CorporateActionOption1
     /// <summary>
     /// Specifies the features that may apply to a corporate action option.
     /// </summary>
-    public IOptionFeatures1FormatChoice? OptionFeatures { get; init;  } // Warning: Don't know multiplicity.
+    public OptionFeatures1FormatChoice_[] OptionFeatures { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional information.
     /// </summary>

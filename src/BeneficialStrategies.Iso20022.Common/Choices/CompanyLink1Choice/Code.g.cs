@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CompanyLink1Choice;
 /// <summary>
 /// Company link expressed as a code.
 /// </summary>
-public partial record Code : ICompanyLink1Choice
+public partial record Code : CompanyLink1Choice_
 {
     public required CompanyLink1Code Value { get; init; }
 }

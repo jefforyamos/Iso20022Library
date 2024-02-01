@@ -31,7 +31,7 @@ public partial record Transaction103
     /// ISO 8583:1993/2003 bit 25.
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    public IsoExact4NumericText? MessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoExact4NumericText[] MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Alternate message reason to send the message.
     /// </summary>
@@ -39,7 +39,7 @@ public partial record Transaction103
     /// <summary>
     /// Data to qualify for incentive or other related programmes.
     /// </summary>
-    public SpecialProgrammeQualification1? SpecialProgrammeQualification { get; init;  } // Warning: Don't know multiplicity.
+    public SpecialProgrammeQualification1[] SpecialProgrammeQualification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
@@ -52,15 +52,15 @@ public partial record Transaction103
     /// Amounts that are not part of the transaction amount and not included in reconciliation.
     /// ISO 8583 bit 54
     /// </summary>
-    public AdditionalAmounts1? AdditionalAmounts { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalAmounts1[] AdditionalAmounts { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fees not included in the transaction amount.
     /// </summary>
-    public AdditionalFee1? AdditionalFees { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFee1[] AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

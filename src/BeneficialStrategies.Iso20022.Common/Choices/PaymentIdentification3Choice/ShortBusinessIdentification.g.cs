@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification3Choice;
 /// <summary>
 /// Business identification of the payment instruction given by the clearing agent.
 /// </summary>
-public partial record ShortBusinessIdentification : IPaymentIdentification3Choice
+public partial record ShortBusinessIdentification : PaymentIdentification3Choice_
 {
     #nullable enable
     /// <summary>

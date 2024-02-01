@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AdjustedBalanceTypeSD1Choice;
 /// <summary>
 /// Stock loan transaction position. Stock loan is loaned / borrowed from / to a third party.
 /// </summary>
-public partial record StockLoan : IAdjustedBalanceTypeSD1Choice
+public partial record StockLoan : AdjustedBalanceTypeSD1Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record StockLoan : IAdjustedBalanceTypeSD1Choice
     /// <summary>
     /// Quantity of security.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
     #nullable disable
 }

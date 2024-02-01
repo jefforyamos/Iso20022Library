@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport32Choice;
 /// <summary>
 /// Indicates an update of a contract valuation or collateral.
 /// </summary>
-public partial record ValuationUpdate : ITradeReport32Choice
+public partial record ValuationUpdate : TradeReport32Choice_
 {
     #nullable enable
     /// <summary>

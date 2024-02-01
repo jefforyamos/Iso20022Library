@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus68Choice;
 /// <summary>
 /// Provides the status of an instruction.
 /// </summary>
-public partial record Code : IProcessingStatus68Choice
+public partial record Code : ProcessingStatus68Choice_
 {
     public required TransactionProcessingStatus3Code Value { get; init; }
 }

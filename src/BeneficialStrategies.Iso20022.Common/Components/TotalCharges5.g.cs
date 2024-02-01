@@ -20,7 +20,7 @@ public partial record TotalCharges5
     /// <summary>
     /// Information related to a specific charge.
     /// </summary>
-    public IReadOnlyCollection<Charge23> ChargeDetails { get; init; } = [];
+    public Charge23[] ChargeDetails { get; init; } = [];
     
     #nullable disable
 }

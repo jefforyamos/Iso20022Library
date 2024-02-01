@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PutType3Choice;
 /// <summary>
 /// Put type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IPutType3Choice
+public partial record Proprietary : PutType3Choice_
 {
     #nullable enable
     /// <summary>

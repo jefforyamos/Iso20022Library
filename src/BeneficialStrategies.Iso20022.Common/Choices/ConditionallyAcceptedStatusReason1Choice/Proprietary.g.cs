@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConditionallyAcceptedStatusReaso
 /// <summary>
 /// Reason for the conditionally accepted status.
 /// </summary>
-public partial record Proprietary : IConditionallyAcceptedStatusReason1Choice
+public partial record Proprietary : ConditionallyAcceptedStatusReason1Choice_
 {
     #nullable enable
     /// <summary>

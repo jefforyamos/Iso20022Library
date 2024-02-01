@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AffirmationStatus11Choice;
 /// <summary>
 /// Status of affirmation of a trade.
 /// </summary>
-public partial record Affirmed : IAffirmationStatus11Choice
+public partial record Affirmed : AffirmationStatus11Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification54Choice;
 /// <summary>
 /// Mobile Subscriber Integrated Service Digital Network (i.e. mobile phone number of the SIM card).
 /// </summary>
-public partial record MSISDN : IAccountIdentification54Choice
+public partial record MSISDN : AccountIdentification54Choice_
 {
     public required IsoMax16Text Value { get; init; }
 }

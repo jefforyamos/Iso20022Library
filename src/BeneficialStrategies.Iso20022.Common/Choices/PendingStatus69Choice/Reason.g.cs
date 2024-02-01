@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingStatus69Choice;
 /// <summary>
 /// Specifies the reason of the pending status.
 /// </summary>
-public partial record Reason : IPendingStatus69Choice
+public partial record Reason : PendingStatus69Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the instruction has a pending status.
     /// </summary>
-    public required IPendingReason65Choice Code { get; init; } 
+    public required PendingReason65Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

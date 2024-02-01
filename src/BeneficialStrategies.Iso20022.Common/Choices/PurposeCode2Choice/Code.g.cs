@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PurposeCode2Choice;
 /// <summary>
 /// Securities account purpose as an ISO 20022 code.
 /// </summary>
-public partial record Code : IPurposeCode2Choice
+public partial record Code : PurposeCode2Choice_
 {
     public required SecuritiesAccountPurposeType1Code Value { get; init; }
 }

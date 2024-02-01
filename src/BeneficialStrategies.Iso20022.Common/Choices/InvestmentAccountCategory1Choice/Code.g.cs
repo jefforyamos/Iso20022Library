@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestmentAccountCategory1Choice
 /// <summary>
 /// Category of investment account expressed as a code.
 /// </summary>
-public partial record Code : IInvestmentAccountCategory1Choice
+public partial record Code : InvestmentAccountCategory1Choice_
 {
     public required InvestmentAccountCategory1Code Value { get; init; }
 }

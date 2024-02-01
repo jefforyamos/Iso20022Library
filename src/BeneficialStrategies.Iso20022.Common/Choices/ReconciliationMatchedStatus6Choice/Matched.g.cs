@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReconciliationMatchedStatus6Choi
 /// <summary>
 /// Indication that the reports subject of reconciliation match.
 /// </summary>
-public partial record Matched : IReconciliationMatchedStatus6Choice
+public partial record Matched : ReconciliationMatchedStatus6Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

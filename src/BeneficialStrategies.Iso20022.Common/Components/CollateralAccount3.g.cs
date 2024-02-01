@@ -24,7 +24,7 @@ public partial record CollateralAccount3
     /// <summary>
     /// Indicates the type of collateral account.
     /// </summary>
-    public ICollateralAccountIdentificationType3Choice? Type { get; init; } 
+    public CollateralAccountIdentificationType3Choice_? Type { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References71Choice;
 /// <summary>
 /// Unambiguous identification of the triparty collateral and exposure report to be cancelled.
 /// </summary>
-public partial record TripartyCollateralAndExposureReportIdentification : IReferences71Choice
+public partial record TripartyCollateralAndExposureReportIdentification : References71Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

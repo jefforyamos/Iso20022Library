@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FATCAForm1Choice;
 /// <summary>
 /// Type of Foreign Account Tax Compliance Act (FATCA) form expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IFATCAForm1Choice
+public partial record Proprietary : FATCAForm1Choice_
 {
     #nullable enable
     /// <summary>

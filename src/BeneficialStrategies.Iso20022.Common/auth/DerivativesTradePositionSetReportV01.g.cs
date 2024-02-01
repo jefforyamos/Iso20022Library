@@ -46,7 +46,7 @@ public partial record DerivativesTradePositionSetReportV01 : IOuterRecord
     [DataMember(Name="AggtdPos")]
     [XmlElement(ElementName="AggtdPos")]
     [Required]
-    public required IPositionSetAggregated1Choice AggregatedPosition { get; init; }
+    public required PositionSetAggregated1Choice_ AggregatedPosition { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.

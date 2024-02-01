@@ -20,11 +20,11 @@ public partial record Tax34
     /// <summary>
     /// Type of tax.
     /// </summary>
-    public required ITaxType1Choice Type { get; init; } 
+    public required TaxType1Choice_ Type { get; init; } 
     /// <summary>
     /// Basis used to determine the capital gain or loss.
     /// </summary>
-    public ITaxBasis1Choice? Basis { get; init; } 
+    public TaxBasis1Choice_? Basis { get; init; } 
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record Tax34
     /// <summary>
     /// Reason for the tax exemption.
     /// </summary>
-    public IExemptionReason1Choice? ExemptionReason { get; init; } 
+    public ExemptionReason1Choice_? ExemptionReason { get; init; } 
     /// <summary>
     /// Party that receives the tax. The recipient of, and the party entitled to, the tax may be two different parties.
     /// </summary>

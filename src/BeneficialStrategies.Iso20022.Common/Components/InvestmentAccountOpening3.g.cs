@@ -20,7 +20,7 @@ public partial record InvestmentAccountOpening3
     /// <summary>
     /// Specifies if the account opening instruction is about a newly created account or a supplementary account.
     /// </summary>
-    public required IAccountOpeningType1Choice OpeningType { get; init; } 
+    public required AccountOpeningType1Choice_ OpeningType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the account opening request at application level.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record InvestmentAccountOpening3
     /// <summary>
     /// Account to which the account opening is related.
     /// </summary>
-    public Account23? ExistingAccountIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public Account23[] ExistingAccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

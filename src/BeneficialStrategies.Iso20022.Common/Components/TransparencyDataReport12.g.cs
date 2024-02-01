@@ -38,7 +38,7 @@ public partial record TransparencyDataReport12
     /// <summary>
     /// Period to which the quantitative data fields relate.
     /// </summary>
-    public IPeriod4Choice? ReportingPeriod { get; init; } 
+    public Period4Choice_? ReportingPeriod { get; init; } 
     /// <summary>
     /// Flag to say if this ISIN is liquid or not post calculations.
     /// Usage:

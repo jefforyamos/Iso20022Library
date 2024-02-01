@@ -13,7 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountType4Choice;
 /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
 /// Usage: This amount has to be transported unchanged through the transaction chain.
 /// </summary>
-public partial record InstructedAmount : IAmountType4Choice
+public partial record InstructedAmount : AmountType4Choice_
 {
     public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
 }

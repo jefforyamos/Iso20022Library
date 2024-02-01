@@ -20,11 +20,11 @@ public partial record FinancialInstrumentForm2
     /// <summary>
     /// Indicates the booking appearance of the financial Instrument.
     /// </summary>
-    public IAppearance3Choice? BookingAppearance { get; init; } 
+    public Appearance3Choice_? BookingAppearance { get; init; } 
     /// <summary>
     /// Specifies the form, ie, ownership, of the security.
     /// </summary>
-    public IFormOfSecurity8Choice? LegalForm { get; init; } 
+    public FormOfSecurity8Choice_? LegalForm { get; init; } 
     
     #nullable disable
 }

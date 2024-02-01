@@ -24,11 +24,11 @@ public partial record AuthorityInvestigation2
     /// <summary>
     /// Identifies the roles the customer plays in the requested information.
     /// </summary>
-    public required IInvestigatedParties1Choice InvestigatedRoles { get; init; } 
+    public required InvestigatedParties1Choice_ InvestigatedRoles { get; init; } 
     /// <summary>
     /// Specifies the additional investigated parties.
     /// </summary>
-    public IInvestigatedParties1Choice? AdditionalInvestigatedParties { get; init; } 
+    public InvestigatedParties1Choice_? AdditionalInvestigatedParties { get; init; } 
     /// <summary>
     /// Additional information, in free text form, to complement the requested information.
     /// </summary>

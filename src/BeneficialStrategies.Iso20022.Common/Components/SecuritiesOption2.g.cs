@@ -20,15 +20,15 @@ public partial record SecuritiesOption2
     /// <summary>
     /// Minimum quantity of securities to be accepted (used in the framework of conditional privilege on election). In case of proration, if this minimum quantity is not reached then the instruction is void.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? ConditionalQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? ConditionalQuantity { get; init; } 
     /// <summary>
     /// Quantity instructed to be received over and above normal ensured entitlement.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? OverAndAboveNormalEnsuredEntitlementQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? OverAndAboveNormalEnsuredEntitlementQuantity { get; init; } 
     /// <summary>
     /// Specifies whether the quantity of financial instrument is a quantity of securities instructed or a quantity to receive.
     /// </summary>
-    public required IInstructedOrQuantityToReceive1Choice InstructedOrQuantityToReceive { get; init; } 
+    public required InstructedOrQuantityToReceive1Choice_ InstructedOrQuantityToReceive { get; init; } 
     
     #nullable disable
 }

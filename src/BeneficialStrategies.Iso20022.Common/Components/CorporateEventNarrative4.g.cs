@@ -20,11 +20,11 @@ public partial record CorporateEventNarrative4
     /// <summary>
     /// Issuer’s disclaimer notice relative to the meeting announcement information provided. It may be ignored for automated processing.
     /// </summary>
-    public LanguageSpecifiedNarrative1? Disclaimer { get; init;  } // Warning: Don't know multiplicity.
+    public LanguageSpecifiedNarrative1[] Disclaimer { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional information from the account servicer or a service provider solely intended for the next immediate account holder to enable or facilitate event processing between parties.
     /// </summary>
-    public IsoMax8000Text? ProcessingTextForNextIntermediary { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax8000Text[] ProcessingTextForNextIntermediary { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

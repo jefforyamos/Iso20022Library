@@ -24,75 +24,75 @@ public partial record CorporateActionBalanceDetails29
     /// <summary>
     /// Balance of financial instruments that are blocked.
     /// </summary>
-    public IBalanceFormat5Choice? BlockedBalance { get; init; } 
+    public BalanceFormat5Choice_? BlockedBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that have been borrowed from another party.
     /// </summary>
-    public IBalanceFormat5Choice? BorrowedBalance { get; init; } 
+    public BalanceFormat5Choice_? BorrowedBalance { get; init; } 
     /// <summary>
     /// Balance of securities that belong to a third party and that are held for the purpose of collateralisation.
     /// </summary>
-    public IBalanceFormat5Choice? CollateralInBalance { get; init; } 
+    public BalanceFormat5Choice_? CollateralInBalance { get; init; } 
     /// <summary>
     /// Balance of securities that belong to the safekeeping account indicated within this message, and are deposited with a third party for the purpose of collateralisation.
     /// </summary>
-    public IBalanceFormat5Choice? CollateralOutBalance { get; init; } 
+    public BalanceFormat5Choice_? CollateralOutBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that have been loaned to a third party.
     /// </summary>
-    public IBalanceFormat5Choice? OnLoanBalance { get; init; } 
+    public BalanceFormat5Choice_? OnLoanBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that are pending delivery.
     /// </summary>
-    public IBalanceFormat6Choice? PendingDeliveryBalance { get; init;  } // Warning: Don't know multiplicity.
+    public BalanceFormat6Choice_[] PendingDeliveryBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Balance of financial instruments that are pending receipt.
     /// </summary>
-    public IBalanceFormat6Choice? PendingReceiptBalance { get; init;  } // Warning: Don't know multiplicity.
+    public BalanceFormat6Choice_[] PendingReceiptBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Balance of financial instruments currently being processed by the institution responsible for registering the new beneficial owner (or nominee).
     /// </summary>
-    public IBalanceFormat5Choice? OutForRegistrationBalance { get; init; } 
+    public BalanceFormat5Choice_? OutForRegistrationBalance { get; init; } 
     /// <summary>
     /// Balance of securities representing only settled transactions; pending transactions not included.
     /// </summary>
-    public IBalanceFormat6Choice? SettlementPositionBalance { get; init;  } // Warning: Don't know multiplicity.
+    public BalanceFormat6Choice_[] SettlementPositionBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Balance of financial instruments that remain registered in the name of the prior beneficial owner.
     /// </summary>
-    public IBalanceFormat5Choice? StreetPositionBalance { get; init; } 
+    public BalanceFormat5Choice_? StreetPositionBalance { get; init; } 
     /// <summary>
     /// Balance of securities based on trade date, for example, includes all pending transactions in addition to the balance of settled transactions.
     /// </summary>
-    public IBalanceFormat5Choice? TradeDatePositionBalance { get; init; } 
+    public BalanceFormat5Choice_? TradeDatePositionBalance { get; init; } 
     /// <summary>
     /// Balance of physical securities that are in the process of being transferred from one depository/agent to another.
     /// </summary>
-    public IBalanceFormat5Choice? InTransshipmentBalance { get; init; } 
+    public BalanceFormat5Choice_? InTransshipmentBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that are registered (in the name of a nominee name or of the beneficial owner).
     /// </summary>
-    public IBalanceFormat5Choice? RegisteredBalance { get; init; } 
+    public BalanceFormat5Choice_? RegisteredBalance { get; init; } 
     /// <summary>
     /// Position that account holders should return to the account servicer to participate in the event or to fulfil their obligation for the event to be complete, for example, return of securities for late announced drawing.
     /// </summary>
-    public IBalanceFormat5Choice? ObligatedBalance { get; init; } 
+    public BalanceFormat5Choice_? ObligatedBalance { get; init; } 
     /// <summary>
     /// Balance of uninstructed position.
     /// </summary>
-    public IBalanceFormat5Choice? UninstructedBalance { get; init; } 
+    public BalanceFormat5Choice_? UninstructedBalance { get; init; } 
     /// <summary>
     /// Balance of instructed position.
     /// </summary>
-    public IBalanceFormat5Choice? InstructedBalance { get; init; } 
+    public BalanceFormat5Choice_? InstructedBalance { get; init; } 
     /// <summary>
     /// Balance that has been affected by the process run through the event.
     /// </summary>
-    public IBalanceFormat5Choice? AffectedBalance { get; init; } 
+    public BalanceFormat5Choice_? AffectedBalance { get; init; } 
     /// <summary>
     /// Balance that has not been affected by the process run through the event.
     /// </summary>
-    public IBalanceFormat5Choice? UnaffectedBalance { get; init; } 
+    public BalanceFormat5Choice_? UnaffectedBalance { get; init; } 
     
     #nullable disable
 }

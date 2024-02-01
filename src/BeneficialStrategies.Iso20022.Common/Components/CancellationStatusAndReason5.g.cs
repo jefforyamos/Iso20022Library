@@ -36,7 +36,7 @@ public partial record CancellationStatusAndReason5
     /// <summary>
     /// Status of the transfer cancellation.
     /// </summary>
-    public required IStatus31Choice Status { get; init; } 
+    public required Status31Choice_ Status { get; init; } 
     /// <summary>
     /// Party that initiates the status.
     /// </summary>

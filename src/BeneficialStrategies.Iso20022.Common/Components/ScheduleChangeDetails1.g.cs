@@ -24,7 +24,7 @@ public partial record ScheduleChangeDetails1
     /// <summary>
     /// Information about schedule.
     /// </summary>
-    public ScheduleChangeEntry1? ScheduleEntry { get; init;  } // Warning: Don't know multiplicity.
+    public ScheduleChangeEntry1[] ScheduleEntry { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

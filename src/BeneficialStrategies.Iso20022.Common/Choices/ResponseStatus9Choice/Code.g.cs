@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ResponseStatus9Choice;
 /// <summary>
 /// Specifies the status of the response expressed as a code.
 /// </summary>
-public partial record Code : IResponseStatus9Choice
+public partial record Code : ResponseStatus9Choice_
 {
     public required ResponseStatus2Code Value { get; init; }
 }

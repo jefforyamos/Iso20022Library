@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification2Choice;
 /// <summary>
 /// Specifies the options on how to contact the party.
 /// </summary>
-public partial record ContactDetails : ISystemPartyModification2Choice
+public partial record ContactDetails : SystemPartyModification2Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReuseDataReport3Choice;
 /// <summary>
 /// Information on collateral reusability for multiple transactions.
 /// </summary>
-public partial record CollateralReuseUpdate : IReuseDataReport3Choice
+public partial record CollateralReuseUpdate : ReuseDataReport3Choice_
 {
     #nullable enable
     /// <summary>

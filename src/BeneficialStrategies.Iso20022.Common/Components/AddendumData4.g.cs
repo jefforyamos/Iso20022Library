@@ -28,7 +28,7 @@ public partial record AddendumData4
     /// <summary>
     /// Contains additional data for the addendum.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

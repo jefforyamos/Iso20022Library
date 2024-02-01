@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingScheme1Choice;
 /// <summary>
 /// CBRF clearing scheme code.
 /// </summary>
-public partial record Code : IClearingScheme1Choice
+public partial record Code : ClearingScheme1Choice_
 {
     public required ExternalPurpose1Code Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record TradeTransactionValuationUpdate5
     /// <summary>
     /// Trade transaction data details.
     /// </summary>
-    public IReadOnlyCollection<CounterpartySpecificData23> CounterpartySpecificData { get; init; } = [];
+    public CounterpartySpecificData23[] CounterpartySpecificData { get; init; } = [];
     /// <summary>
     /// Trade transaction data details.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record TradeTransactionValuationUpdate5
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

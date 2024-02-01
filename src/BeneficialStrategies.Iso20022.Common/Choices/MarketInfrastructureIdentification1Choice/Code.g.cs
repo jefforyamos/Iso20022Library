@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketInfrastructureIdentificati
 /// <summary>
 /// Infrastructure through which the payment instruction is processed, as published in an external clearing system identification code list.
 /// </summary>
-public partial record Code : IMarketInfrastructureIdentification1Choice
+public partial record Code : MarketInfrastructureIdentification1Choice_
 {
     public required ExternalMarketInfrastructure1Code Value { get; init; }
 }

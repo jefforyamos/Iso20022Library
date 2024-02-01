@@ -28,7 +28,7 @@ public partial record RedemptionExecution4
     /// <summary>
     /// Specifies the category of the investment fund order.
     /// </summary>
-    public FundOrderType1? OrderType { get; init;  } // Warning: Don't know multiplicity.
+    public FundOrderType1[] OrderType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Investment fund class to which an investment fund order execution is related.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record RedemptionExecution4
     /// <summary>
     /// Date and time at which a price is applied, according to the terms stated in the prospectus.
     /// </summary>
-    public required IDateAndDateTimeChoice TradeDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     /// <summary>
     /// Price at which the order was executed.
     /// </summary>
@@ -72,11 +72,11 @@ public partial record RedemptionExecution4
     /// <summary>
     /// Part of the price deemed as accrued income or profit rather than capital. The interim profit amount is used for tax purposes.
     /// </summary>
-    public IProfitAndLoss1Choice? InterimProfitAmount { get; init; } 
+    public ProfitAndLoss1Choice_? InterimProfitAmount { get; init; } 
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// </summary>
-    public ForeignExchangeTerms4? ForeignExchangeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ForeignExchangeTerms4[] ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>

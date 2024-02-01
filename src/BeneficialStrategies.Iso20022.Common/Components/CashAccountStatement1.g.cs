@@ -24,7 +24,7 @@ public partial record CashAccountStatement1
     /// <summary>
     /// Provides information on the actual change occurred to the cash account.
     /// </summary>
-    public CashAccountReferenceDataChange1? Change { get; init;  } // Warning: Don't know multiplicity.
+    public CashAccountReferenceDataChange1[] Change { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

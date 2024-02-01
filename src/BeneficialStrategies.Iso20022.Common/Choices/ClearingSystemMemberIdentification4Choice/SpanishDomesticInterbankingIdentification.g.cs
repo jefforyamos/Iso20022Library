@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// <summary>
 /// Spanish Domestic Interbanking Code - identifies Spanish financial institutions on the Spanish national clearing system. The code is assigned by the Centro de Cooperacion Interbancaria (CCI).
 /// </summary>
-public partial record SpanishDomesticInterbankingIdentification : IClearingSystemMemberIdentification4Choice
+public partial record SpanishDomesticInterbankingIdentification : ClearingSystemMemberIdentification4Choice_
 {
     public required IsoSpanishDomesticInterbankingIdentifier Value { get; init; }
 }

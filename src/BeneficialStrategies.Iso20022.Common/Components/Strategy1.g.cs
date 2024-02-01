@@ -24,7 +24,7 @@ public partial record Strategy1
     /// <summary>
     /// Assumed stress move of the associated stress item under the scenario.
     /// </summary>
-    public required IStressSize1Choice StressSize { get; init; } 
+    public required StressSize1Choice_ StressSize { get; init; } 
     
     #nullable disable
 }

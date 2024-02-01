@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus84Choice;
 /// <summary>
 /// Cancellation is pending processing.
 /// </summary>
-public partial record PendingCancellation : IProcessingStatus84Choice
+public partial record PendingCancellation : ProcessingStatus84Choice_
 {
     #nullable enable
     #nullable disable

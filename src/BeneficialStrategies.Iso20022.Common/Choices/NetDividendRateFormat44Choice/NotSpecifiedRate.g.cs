@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NetDividendRateFormat44Choice;
 /// <summary>
 /// Value of the rate not specified.
 /// </summary>
-public partial record NotSpecifiedRate : INetDividendRateFormat44Choice
+public partial record NotSpecifiedRate : NetDividendRateFormat44Choice_
 {
     public required RateValueType7Code Value { get; init; }
 }

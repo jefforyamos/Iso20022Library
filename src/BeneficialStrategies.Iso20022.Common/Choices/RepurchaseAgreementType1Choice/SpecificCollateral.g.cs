@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RepurchaseAgreementType1Choice;
 /// <summary>
 /// Repurchase agreement where a single, pre-defined, financial instrument is sold and repurchased.
 /// </summary>
-public partial record SpecificCollateral : IRepurchaseAgreementType1Choice
+public partial record SpecificCollateral : RepurchaseAgreementType1Choice_
 {
     #nullable enable
     /// <summary>

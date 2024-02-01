@@ -24,7 +24,7 @@ public partial record Intermediary29
     /// <summary>
     /// Function performed by the intermediary.
     /// </summary>
-    public required IRole5Choice Role { get; init; } 
+    public required Role5Choice_ Role { get; init; } 
     /// <summary>
     /// Counterparties eligibility as defined by article 24 of the EU MiFID Directive applicable to transactions executed by investment firms for eligible counterparties.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record Intermediary29
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

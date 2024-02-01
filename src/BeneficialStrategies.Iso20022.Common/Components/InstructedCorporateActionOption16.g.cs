@@ -24,15 +24,15 @@ public partial record InstructedCorporateActionOption16
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public required ICorporateActionOption36Choice OptionType { get; init; } 
+    public required CorporateActionOption36Choice_ OptionType { get; init; } 
     /// <summary>
     /// Balance of instructed position.
     /// </summary>
-    public required IBalanceFormat7Choice InstructedBalance { get; init; } 
+    public required BalanceFormat7Choice_ InstructedBalance { get; init; } 
     /// <summary>
     /// Indicates the default action related to a corporate action event.
     /// </summary>
-    public IDefaultProcessingOrStandingInstruction1Choice? DefaultAction { get; init; } 
+    public DefaultProcessingOrStandingInstruction1Choice_? DefaultAction { get; init; } 
     /// <summary>
     /// Daily total of accepted instructions received for a given option.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record InstructedCorporateActionOption16
     /// <summary>
     /// Instructions details received for the given option.
     /// </summary>
-    public OptionInstructionDetails6? OptionInstructionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public OptionInstructionDetails6[] OptionInstructionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

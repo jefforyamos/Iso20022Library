@@ -24,11 +24,11 @@ public partial record TradeQueryExecutionFrequency3
     /// <summary>
     /// Specifies the day of the expected delivery of the query response.
     /// </summary>
-    public WeekDay3Code? DeliveryDay { get; init;  } // Warning: Don't know multiplicity.
+    public WeekDay3Code[] DeliveryDay { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Day of the month of the monthly query execution.
     /// </summary>
-    public IsoDayOfMonthNumber? DayOfMonth { get; init;  } // Warning: Don't know multiplicity.
+    public IsoDayOfMonthNumber[] DayOfMonth { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

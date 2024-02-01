@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reference2Choice;
 /// <summary>
 /// Choice between the identification of the MarginCallRequest message, the MarginCallResponse message, the CollateralProposal message, the CollateralProposalResponse message, the CollateralSubstitutionRequest message, the CollateralSubstitutionResponse message, the CollateralSubstitutionConfirmation message, the InterestPaymentRequest message, the InterestPaymentResponse message, the InterestPaymentStatement message or the MarginCallDisputeNotification message.
 /// </summary>
-public partial record CollateralSubstitutionRequestIdentification : IReference2Choice
+public partial record CollateralSubstitutionRequestIdentification : Reference2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

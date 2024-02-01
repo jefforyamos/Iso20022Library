@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.KeyChoiceValue2;
 /// <summary>
 /// Data block for a TR31 or TR34 block, where the block does not contain a key (for example the TR34 unbind which contains the signed authorization data).
 /// </summary>
-public partial record TRRelatedData : IKeyChoiceValue2
+public partial record TRRelatedData : KeyChoiceValue2_
 {
     #nullable enable
     /// <summary>

@@ -24,7 +24,7 @@ public partial record MemberQueryDefinition3
     /// <summary>
     /// Defines the member query criteria.
     /// </summary>
-    public IMemberCriteriaDefinition1Choice? MemberCriteria { get; init; } 
+    public MemberCriteriaDefinition1Choice_? MemberCriteria { get; init; } 
     
     #nullable disable
 }

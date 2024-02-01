@@ -24,7 +24,7 @@ public partial record ReportLine5
     /// <summary>
     /// Specifies the adjustments applied to obtain the net amount.
     /// </summary>
-    public Adjustment6? Adjustment { get; init;  } // Warning: Don't know multiplicity.
+    public Adjustment6[] Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net amount, after adjustments, intended to be paid.
     /// </summary>

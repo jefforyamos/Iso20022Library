@@ -20,7 +20,7 @@ public partial record AlternatePartyIdentification4
     /// <summary>
     /// Specifies the type of alternate identification of the party identified.
     /// </summary>
-    public required IIdentificationType6Choice IdentificationType { get; init; } 
+    public required IdentificationType6Choice_ IdentificationType { get; init; } 
     /// <summary>
     /// Country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
     /// </summary>

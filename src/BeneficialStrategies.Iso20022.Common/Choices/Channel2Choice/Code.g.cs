@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Channel2Choice;
 /// <summary>
 /// Specifies a channel by means of a code.
 /// </summary>
-public partial record Code : IChannel2Choice
+public partial record Code : Channel2Choice_
 {
     public required CommunicationMethod3Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingStatus28Choice;
 /// <summary>
 /// Provides the matching status of the instruction.
 /// </summary>
-public partial record Proprietary : IMatchingStatus28Choice
+public partial record Proprietary : MatchingStatus28Choice_
 {
     #nullable enable
     /// <summary>

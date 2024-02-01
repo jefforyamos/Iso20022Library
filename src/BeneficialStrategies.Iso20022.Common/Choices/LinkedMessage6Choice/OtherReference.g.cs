@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LinkedMessage6Choice;
 /// <summary>
 /// Linked other reference.
 /// </summary>
-public partial record OtherReference : ILinkedMessage6Choice
+public partial record OtherReference : LinkedMessage6Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record OtherReference : ILinkedMessage6Choice
     /// <summary>
     /// Issuer of the reference.
     /// </summary>
-    public IPartyIdentification247Choice? ReferenceIssuer { get; init; } 
+    public PartyIdentification247Choice_? ReferenceIssuer { get; init; } 
     /// <summary>
     /// Name of a message.
     /// </summary>
@@ -30,6 +30,6 @@ public partial record OtherReference : ILinkedMessage6Choice
     /// <summary>
     /// Identification of the type of message.
     /// </summary>
-    public required IDocumentNumber5Choice MessageNumber { get; init; } 
+    public required DocumentNumber5Choice_ MessageNumber { get; init; } 
     #nullable disable
 }

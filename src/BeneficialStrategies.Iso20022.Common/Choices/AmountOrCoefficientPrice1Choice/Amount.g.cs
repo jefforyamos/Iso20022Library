@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountOrCoefficientPrice1Choice;
 /// <summary>
 /// Provides details of the price when expressed with an amount.
 /// </summary>
-public partial record Amount : IAmountOrCoefficientPrice1Choice
+public partial record Amount : AmountOrCoefficientPrice1Choice_
 {
     public required IsoImpliedCurrencyAndAmount Value { get; init; }
 }

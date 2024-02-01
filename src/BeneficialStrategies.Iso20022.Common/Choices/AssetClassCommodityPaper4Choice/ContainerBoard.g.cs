@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityPaper4Choice;
 /// <summary>
 /// Container board commodity derivative.
 /// </summary>
-public partial record ContainerBoard : IAssetClassCommodityPaper4Choice
+public partial record ContainerBoard : AssetClassCommodityPaper4Choice_
 {
     #nullable enable
     /// <summary>

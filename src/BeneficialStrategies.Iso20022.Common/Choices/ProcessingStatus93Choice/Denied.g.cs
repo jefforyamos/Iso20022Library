@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus93Choice;
 /// <summary>
 /// Instruction/Request will not be executed.
 /// </summary>
-public partial record Denied : IProcessingStatus93Choice
+public partial record Denied : ProcessingStatus93Choice_
 {
     #nullable enable
     #nullable disable

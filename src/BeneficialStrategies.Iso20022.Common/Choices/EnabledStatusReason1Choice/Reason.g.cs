@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.EnabledStatusReason1Choice;
 /// <summary>
 /// Reason for the enabled account status.
 /// </summary>
-public partial record Reason : IEnabledStatusReason1Choice
+public partial record Reason : EnabledStatusReason1Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the enabled account status.
     /// </summary>
-    public required IEnabledStatusReason2Choice Code { get; init; } 
+    public required EnabledStatusReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the enabled account status.
     /// </summary>

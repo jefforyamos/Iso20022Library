@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SolicitationFeeRateFormat10Choic
 /// <summary>
 /// Ratio expressed as an amount to quantity ratio.
 /// </summary>
-public partial record AmountToQuantity : ISolicitationFeeRateFormat10Choice
+public partial record AmountToQuantity : SolicitationFeeRateFormat10Choice_
 {
     #nullable enable
     /// <summary>

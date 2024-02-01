@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity25Cho
 /// <summary>
 /// TBC.
 /// </summary>
-public partial record NominalValue : IFinancialInstrumentQuantity25Choice
+public partial record NominalValue : FinancialInstrumentQuantity25Choice_
 {
     public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
 }

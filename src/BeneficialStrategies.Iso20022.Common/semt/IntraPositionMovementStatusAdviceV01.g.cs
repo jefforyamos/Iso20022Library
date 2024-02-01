@@ -75,7 +75,7 @@ public partial record IntraPositionMovementStatusAdviceV01 : IOuterRecord
     [Description(@"Provides details on the processing status of the transaction.")]
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
-    public IIntraPositionProcessingStatus1Choice? ProcessingStatus { get; init; }
+    public IntraPositionProcessingStatus1Choice_? ProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides the status of settlement of a transaction.
@@ -84,7 +84,7 @@ public partial record IntraPositionMovementStatusAdviceV01 : IOuterRecord
     [Description(@"Provides the status of settlement of a transaction.")]
     [DataMember(Name="SttlmSts")]
     [XmlElement(ElementName="SttlmSts")]
-    public ISettlementStatus2Choice? SettlementStatus { get; init; }
+    public SettlementStatus2Choice_? SettlementStatus { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.
@@ -102,7 +102,7 @@ public partial record IntraPositionMovementStatusAdviceV01 : IOuterRecord
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public IPartyIdentification10Choice? MessageOriginator { get; init; }
+    public PartyIdentification10Choice_? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -111,7 +111,7 @@ public partial record IntraPositionMovementStatusAdviceV01 : IOuterRecord
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public IPartyIdentification10Choice? MessageRecipient { get; init; }
+    public PartyIdentification10Choice_? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

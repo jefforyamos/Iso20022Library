@@ -20,7 +20,7 @@ public partial record ContractReference1
     /// <summary>
     /// Type of the contract referred to.
     /// </summary>
-    public IDocumentType1Choice? Type { get; init; } 
+    public DocumentType1Choice_? Type { get; init; } 
     /// <summary>
     /// Reference of the contract.
     /// </summary>

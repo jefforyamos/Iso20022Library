@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GovernanceProcess1Choice;
 /// <summary>
 /// Type of governance process expressed as a code.
 /// </summary>
-public partial record Code : IGovernanceProcess1Choice
+public partial record Code : GovernanceProcess1Choice_
 {
     public required GovernanceProcessType1Code Value { get; init; }
 }

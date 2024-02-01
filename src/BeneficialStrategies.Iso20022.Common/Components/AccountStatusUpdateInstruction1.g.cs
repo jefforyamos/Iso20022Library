@@ -20,11 +20,11 @@ public partial record AccountStatusUpdateInstruction1
     /// <summary>
     /// Type of status change instructed for the account status.
     /// </summary>
-    public required IAccountStatusUpdateInstruction1Choice UpdateInstruction { get; init; } 
+    public required AccountStatusUpdateInstruction1Choice_ UpdateInstruction { get; init; } 
     /// <summary>
     /// Reason for the instruction to change the account status.
     /// </summary>
-    public IAccountStatusUpdateInstructionReason1Choice? UpdateInstructionReason { get; init; } 
+    public AccountStatusUpdateInstructionReason1Choice_? UpdateInstructionReason { get; init; } 
     
     #nullable disable
 }

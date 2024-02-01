@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus98Choice;
 /// <summary>
 /// Trade is ReceivedAtIntermediary.
 /// </summary>
-public partial record ReceivedAtIntermediary : IProcessingStatus98Choice
+public partial record ReceivedAtIntermediary : ProcessingStatus98Choice_
 {
     #nullable enable
     /// <summary>

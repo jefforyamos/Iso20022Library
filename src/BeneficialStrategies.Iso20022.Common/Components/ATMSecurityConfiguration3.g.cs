@@ -28,7 +28,7 @@ public partial record ATMSecurityConfiguration3
     /// <summary>
     /// Asymmetric encryption algorithm the security module is able to manage.
     /// </summary>
-    public Algorithm7Code? AsymmetricEncryptionAlgorithm { get; init;  } // Warning: Don't know multiplicity.
+    public Algorithm7Code[] AsymmetricEncryptionAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// True if the security module is able to manage a symmetric transport session key to protect cryptographic keys and data. False if only a previously exchanged symmetric key must be used; a proprietary symmetric key identifier is then used.
     /// </summary>
@@ -36,15 +36,15 @@ public partial record ATMSecurityConfiguration3
     /// <summary>
     /// Symmetric transport session key algorithm the security module is able to manage.
     /// </summary>
-    public Algorithm13Code? SymmetricTransportKeyAlgorithm { get; init;  } // Warning: Don't know multiplicity.
+    public Algorithm13Code[] SymmetricTransportKeyAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Symmetric encryption algorithm the security module is able to manage.
     /// </summary>
-    public Algorithm15Code? SymmetricEncryptionAlgorithm { get; init;  } // Warning: Don't know multiplicity.
+    public Algorithm15Code[] SymmetricEncryptionAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Format of data before encryption, if the format is not plaintext or implicit.
     /// </summary>
-    public EncryptionFormat1Code? EncryptionFormat { get; init;  } // Warning: Don't know multiplicity.
+    public EncryptionFormat1Code[] EncryptionFormat { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

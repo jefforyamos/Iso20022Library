@@ -20,7 +20,7 @@ public partial record CardProgramme1
     /// <summary>
     /// Card programme or brand proposed for the transaction.
     /// </summary>
-    public CardProgrammeMode2? CardProgrammeProposed { get; init;  } // Warning: Don't know multiplicity.
+    public CardProgrammeMode2[] CardProgrammeProposed { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Card programme or brand actually applied to the transaction.
     /// ISO 8583:87 bit 24

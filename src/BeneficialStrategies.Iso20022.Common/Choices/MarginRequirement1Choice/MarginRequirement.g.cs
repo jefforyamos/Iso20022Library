@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginRequirement1Choice;
 /// <summary>
 /// Provides details about the margin requirements for the variation margin and optionally the segregated independent amount.
 /// </summary>
-public partial record MarginRequirement : IMarginRequirement1Choice
+public partial record MarginRequirement : MarginRequirement1Choice_
 {
     #nullable enable
     /// <summary>

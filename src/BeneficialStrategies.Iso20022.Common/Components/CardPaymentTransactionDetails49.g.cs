@@ -56,7 +56,7 @@ public partial record CardPaymentTransactionDetails49
     /// <summary>
     /// Reason to process an online authorisation.
     /// </summary>
-    public OnLineReason1Code? OnLineReason { get; init;  } // Warning: Don't know multiplicity.
+    public OnLineReason1Code[] OnLineReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Transaction category level on an unattended POI (Point Of Interaction).
     /// </summary>
@@ -84,7 +84,7 @@ public partial record CardPaymentTransactionDetails49
     /// <summary>
     /// Item purchased with the transaction.
     /// </summary>
-    public Product6? SaleItem { get; init;  } // Warning: Don't know multiplicity.
+    public Product6[] SaleItem { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Location of the delivery, for instance pump number or parking bay.
     /// </summary>
@@ -92,7 +92,7 @@ public partial record CardPaymentTransactionDetails49
     /// <summary>
     /// Additional information related to the transaction like an Invoice or IndustryData (for example  hospitality, lodging, transportation).
     /// </summary>
-    public ExternallyDefinedData2? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public ExternallyDefinedData2[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data related to an integrated circuit card application.
     /// </summary>

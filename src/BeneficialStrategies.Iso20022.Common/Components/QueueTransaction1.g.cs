@@ -24,7 +24,7 @@ public partial record QueueTransaction1
     /// <summary>
     /// Identification of the account such as IBAN or local identifier.
     /// </summary>
-    public required IAccountIdentification4Choice Account { get; init; } 
+    public required AccountIdentification4Choice_ Account { get; init; } 
     /// <summary>
     /// Number of transaction per counterparty.
     /// </summary>

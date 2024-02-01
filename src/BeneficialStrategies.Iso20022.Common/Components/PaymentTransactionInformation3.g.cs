@@ -56,7 +56,7 @@ public partial record PaymentTransactionInformation3
     /// <summary>
     /// Detailed information on the cancellation reason.
     /// </summary>
-    public CancellationReasonInformation1? CancellationReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public CancellationReasonInformation1[] CancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of key elements of the original transaction being referred to.
     /// </summary>

@@ -20,15 +20,15 @@ public partial record CounterpartyIdentification4
     /// <summary>
     /// Identification of the counterparty in the transaction.
     /// </summary>
-    public required IOrganisationIdentification9Choice Identification { get; init; } 
+    public required OrganisationIdentification9Choice_ Identification { get; init; } 
     /// <summary>
     /// Nature of the reporting counterparty in accordance with the local regulation.
     /// </summary>
-    public ICounterpartyTradeNature7Choice? Nature { get; init; } 
+    public CounterpartyTradeNature7Choice_? Nature { get; init; } 
     /// <summary>
     /// Identification of the branch of the counterparty, when the transaction concludes a transaction through a branch office.
     /// </summary>
-    public IBranch2Choice? Branch { get; init; } 
+    public Branch2Choice_? Branch { get; init; } 
     /// <summary>
     /// Identifies whether the reporting counterparty is a collateral provider or a collateral taker.
     /// </summary>

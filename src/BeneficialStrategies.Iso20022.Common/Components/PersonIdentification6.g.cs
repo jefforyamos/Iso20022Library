@@ -24,7 +24,7 @@ public partial record PersonIdentification6
     /// <summary>
     /// Personal identification type.
     /// </summary>
-    public required IPersonIdentificationType1Choice PersonIdentificationType { get; init; } 
+    public required PersonIdentificationType1Choice_ PersonIdentificationType { get; init; } 
     
     #nullable disable
 }

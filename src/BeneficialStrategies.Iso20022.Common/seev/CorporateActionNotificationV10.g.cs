@@ -119,7 +119,7 @@ public partial record CorporateActionNotificationV10 : IOuterRecord
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
     [Required]
-    public required IAccountIdentification41Choice AccountDetails { get; init; }
+    public required AccountIdentification41Choice_ AccountDetails { get; init; }
     
     /// <summary>
     /// Details on rights credited to the account as for instance trading period, expiry date, renounceability.
@@ -164,7 +164,7 @@ public partial record CorporateActionNotificationV10 : IOuterRecord
     [Description(@"Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.")]
     [DataMember(Name="IssrAgt")]
     [XmlElement(ElementName="IssrAgt")]
-    public IPartyIdentification129Choice? IssuerAgent { get; init; }
+    public PartyIdentification129Choice_? IssuerAgent { get; init; }
     
     /// <summary>
     /// Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
@@ -173,7 +173,7 @@ public partial record CorporateActionNotificationV10 : IOuterRecord
     [Description(@"Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
     [DataMember(Name="PngAgt")]
     [XmlElement(ElementName="PngAgt")]
-    public IPartyIdentification120Choice? PayingAgent { get; init; }
+    public PartyIdentification120Choice_? PayingAgent { get; init; }
     
     /// <summary>
     /// Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
@@ -182,7 +182,7 @@ public partial record CorporateActionNotificationV10 : IOuterRecord
     [Description(@"Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
     [DataMember(Name="SubPngAgt")]
     [XmlElement(ElementName="SubPngAgt")]
-    public IPartyIdentification120Choice? SubPayingAgent { get; init; }
+    public PartyIdentification120Choice_? SubPayingAgent { get; init; }
     
     /// <summary>
     /// Party/agent responsible for maintaining the register of the security.
@@ -191,7 +191,7 @@ public partial record CorporateActionNotificationV10 : IOuterRecord
     [Description(@"Party/agent responsible for maintaining the register of the security.")]
     [DataMember(Name="Regar")]
     [XmlElement(ElementName="Regar")]
-    public IPartyIdentification120Choice? Registrar { get; init; }
+    public PartyIdentification120Choice_? Registrar { get; init; }
     
     /// <summary>
     /// Broker-dealer responsible for reselling to new investors securities (usually bonds) that have been tendered for purchase by their owner.
@@ -200,7 +200,7 @@ public partial record CorporateActionNotificationV10 : IOuterRecord
     [Description(@"Broker-dealer responsible for reselling to new investors securities (usually bonds) that have been tendered for purchase by their owner.")]
     [DataMember(Name="RsellngAgt")]
     [XmlElement(ElementName="RsellngAgt")]
-    public IPartyIdentification120Choice? ResellingAgent { get; init; }
+    public PartyIdentification120Choice_? ResellingAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution assigned by an issuer to accept presentations of instruments, usually bonds, for transfer and or exchange.
@@ -209,7 +209,7 @@ public partial record CorporateActionNotificationV10 : IOuterRecord
     [Description(@"A trust company, bank or similar financial institution assigned by an issuer to accept presentations of instruments, usually bonds, for transfer and or exchange.")]
     [DataMember(Name="PhysSctiesAgt")]
     [XmlElement(ElementName="PhysSctiesAgt")]
-    public IPartyIdentification120Choice? PhysicalSecuritiesAgent { get; init; }
+    public PartyIdentification120Choice_? PhysicalSecuritiesAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution that acts on behalf of an out-of-town agent or event agent where securities can be delivered in person.
@@ -218,7 +218,7 @@ public partial record CorporateActionNotificationV10 : IOuterRecord
     [Description(@"A trust company, bank or similar financial institution that acts on behalf of an out-of-town agent or event agent where securities can be delivered in person.")]
     [DataMember(Name="DrpAgt")]
     [XmlElement(ElementName="DrpAgt")]
-    public IPartyIdentification120Choice? DropAgent { get; init; }
+    public PartyIdentification120Choice_? DropAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution assigned by an issuer to maintain records of investors and account balances and transactions for the consent of a material change.
@@ -227,7 +227,7 @@ public partial record CorporateActionNotificationV10 : IOuterRecord
     [Description(@"A trust company, bank or similar financial institution assigned by an issuer to maintain records of investors and account balances and transactions for the consent of a material change.")]
     [DataMember(Name="SlctnAgt")]
     [XmlElement(ElementName="SlctnAgt")]
-    public IPartyIdentification120Choice? SolicitationAgent { get; init; }
+    public PartyIdentification120Choice_? SolicitationAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution assigned by an Issuer to provide information and copies of the offering documentation.
@@ -236,7 +236,7 @@ public partial record CorporateActionNotificationV10 : IOuterRecord
     [Description(@"A trust company, bank or similar financial institution assigned by an Issuer to provide information and copies of the offering documentation.")]
     [DataMember(Name="InfAgt")]
     [XmlElement(ElementName="InfAgt")]
-    public IPartyIdentification120Choice? InformationAgent { get; init; }
+    public PartyIdentification120Choice_? InformationAgent { get; init; }
     
     /// <summary>
     /// Issuer of the financial instrument.
@@ -245,7 +245,7 @@ public partial record CorporateActionNotificationV10 : IOuterRecord
     [Description(@"Issuer of the financial instrument.")]
     [DataMember(Name="Issr")]
     [XmlElement(ElementName="Issr")]
-    public IPartyIdentification129Choice? Issuer { get; init; }
+    public PartyIdentification129Choice_? Issuer { get; init; }
     
     /// <summary>
     /// Party making the offer and which is different from the issuing company.
@@ -254,7 +254,7 @@ public partial record CorporateActionNotificationV10 : IOuterRecord
     [Description(@"Party making the offer and which is different from the issuing company.")]
     [DataMember(Name="Offerr")]
     [XmlElement(ElementName="Offerr")]
-    public IPartyIdentification129Choice? Offeror { get; init; }
+    public PartyIdentification129Choice_? Offeror { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution appointed by a fund management company to maintain records of investors and account balances. The transfer agent records transactions, including subscriptions, redemptions, switches, transfers, and re-registrations.
@@ -263,7 +263,7 @@ public partial record CorporateActionNotificationV10 : IOuterRecord
     [Description(@"A trust company, bank or similar financial institution appointed by a fund management company to maintain records of investors and account balances. The transfer agent records transactions, including subscriptions, redemptions, switches, transfers, and re-registrations.")]
     [DataMember(Name="TrfAgt")]
     [XmlElement(ElementName="TrfAgt")]
-    public IPartyIdentification129Choice? TransferAgent { get; init; }
+    public PartyIdentification129Choice_? TransferAgent { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

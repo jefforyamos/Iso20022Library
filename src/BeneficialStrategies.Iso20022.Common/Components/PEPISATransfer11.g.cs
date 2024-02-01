@@ -28,7 +28,7 @@ public partial record PEPISATransfer11
     /// <summary>
     /// Information identifying the other individual investors, eg, name, address, social security number and date of birth.
     /// </summary>
-    public IndividualPerson8? OtherIndividualInvestor { get; init;  } // Warning: Don't know multiplicity.
+    public IndividualPerson8[] OtherIndividualInvestor { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information identifying the primary corporate investor, eg, name and address.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record PEPISATransfer11
     /// <summary>
     /// Information identifying the other corporate investors, eg, name and address.
     /// </summary>
-    public Organisation4? OtherCorporateInvestor { get; init;  } // Warning: Don't know multiplicity.
+    public Organisation4[] OtherCorporateInvestor { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of an account owned by the investor at the old plan manager (account servicer).
     /// </summary>
@@ -52,7 +52,7 @@ public partial record PEPISATransfer11
     /// <summary>
     /// Information related to the institution to which the financial instrument is to be transferred.
     /// </summary>
-    public required IPartyIdentification2Choice Transferee { get; init; } 
+    public required PartyIdentification2Choice_ Transferee { get; init; } 
     /// <summary>
     /// Identification of an account owned by the investor to which a cash entry is made based on the transfer of asset(s).
     /// </summary>
@@ -60,11 +60,11 @@ public partial record PEPISATransfer11
     /// <summary>
     /// Provides information related to the asset(s) transferred.
     /// </summary>
-    public ISATransfer3? ProductTransfer { get; init;  } // Warning: Don't know multiplicity.
+    public ISATransfer3[] ProductTransfer { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1? Extension { get; init;  } // Warning: Don't know multiplicity.
+    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

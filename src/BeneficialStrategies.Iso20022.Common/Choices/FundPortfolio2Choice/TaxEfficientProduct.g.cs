@@ -13,13 +13,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio2Choice;
 /// Portfolio is a government scheme to encourage investment in securities based unit and investment trusts, offering certain tax benefits. These are not investments in their own right but are tax exempt 'wrappers' in which equities, bonds and funds can be held to shelter them from various types of tax.
 /// In the UK, a typical tax wrapper product is known as an 'ISA' (Individual Savings Account).
 /// </summary>
-public partial record TaxEfficientProduct : IFundPortfolio2Choice
+public partial record TaxEfficientProduct : FundPortfolio2Choice_
 {
     #nullable enable
     /// <summary>
     /// Type of tax efficient product, for example, an individual savings account (ISA) in the UK.
     /// </summary>
-    public required ITaxEfficientProductType1Choice TaxEfficientProductType { get; init; } 
+    public required TaxEfficientProductType1Choice_ TaxEfficientProductType { get; init; } 
     /// <summary>
     /// Indicates whether, for the current year, the product contains a cash asset for transfer.
     /// </summary>

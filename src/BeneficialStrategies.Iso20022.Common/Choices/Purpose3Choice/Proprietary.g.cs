@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Purpose3Choice;
 /// <summary>
 /// Underlying reason for the SSI instruction, expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IPurpose3Choice
+public partial record Proprietary : Purpose3Choice_
 {
     #nullable enable
     /// <summary>

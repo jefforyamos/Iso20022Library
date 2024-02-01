@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters2Choice;
 /// <summary>
 /// Message to send for the send message command.
 /// </summary>
-public partial record ExpectedMessageFunction : IATMCommandParameters2Choice
+public partial record ExpectedMessageFunction : ATMCommandParameters2Choice_
 {
     public required MessageFunction8Code Value { get; init; }
 }

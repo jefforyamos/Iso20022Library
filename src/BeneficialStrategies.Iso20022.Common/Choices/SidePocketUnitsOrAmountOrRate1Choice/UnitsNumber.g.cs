@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SidePocketUnitsOrAmountOrRate1Ch
 /// <summary>
 /// Total quantity of units to be subscribed or redeemed in the side pocket.
 /// </summary>
-public partial record UnitsNumber : ISidePocketUnitsOrAmountOrRate1Choice
+public partial record UnitsNumber : SidePocketUnitsOrAmountOrRate1Choice_
 {
     #nullable enable
     /// <summary>

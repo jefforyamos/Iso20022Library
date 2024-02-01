@@ -91,7 +91,7 @@ public partial record StandingSettlementInstructionCancellationV01 : IOuterRecor
     [DataMember(Name="MktId")]
     [XmlElement(ElementName="MktId")]
     [Required]
-    public required IMarketIdentificationOrCashPurpose1Choice MarketIdentification { get; init; }
+    public required MarketIdentificationOrCashPurpose1Choice_ MarketIdentification { get; init; }
     
     /// <summary>
     /// Settlement information that helps to identify the standing settlement instruction for which the cancellation is sent.
@@ -101,7 +101,7 @@ public partial record StandingSettlementInstructionCancellationV01 : IOuterRecor
     [DataMember(Name="SttlmDtls")]
     [XmlElement(ElementName="SttlmDtls")]
     [Required]
-    public required IPartyOrCurrency1Choice SettlementDetails { get; init; }
+    public required PartyOrCurrency1Choice_ SettlementDetails { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously sent.

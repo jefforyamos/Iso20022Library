@@ -24,7 +24,7 @@ public partial record MandateAdjustment1
     /// <summary>
     /// Defines the category of adjustment.
     /// </summary>
-    public IFrequency37Choice? Category { get; init; } 
+    public Frequency37Choice_? Category { get; init; } 
     /// <summary>
     /// Pre-agreed amount to increase or decrease the mandate amount as justified per information in the category.
     /// </summary>

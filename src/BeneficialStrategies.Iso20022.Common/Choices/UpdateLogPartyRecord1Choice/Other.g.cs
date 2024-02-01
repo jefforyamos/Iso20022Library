@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 /// <summary>
 /// Specifies a proprietary update type.
 /// </summary>
-public partial record Other : IUpdateLogPartyRecord1Choice
+public partial record Other : UpdateLogPartyRecord1Choice_
 {
     #nullable enable
     /// <summary>

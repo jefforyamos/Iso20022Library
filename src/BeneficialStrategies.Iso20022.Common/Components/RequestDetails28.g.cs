@@ -24,7 +24,7 @@ public partial record RequestDetails28
     /// <summary>
     /// Specifies the financial instruments to be removed  (identification or attributes). 
     /// </summary>
-    public IRemovalProcessing2Choice? FinancialInstrumentAndAttributes { get; init;  } // Warning: Don't know multiplicity.
+    public RemovalProcessing2Choice_[] FinancialInstrumentAndAttributes { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the collateral parties of a contract.
     /// </summary>

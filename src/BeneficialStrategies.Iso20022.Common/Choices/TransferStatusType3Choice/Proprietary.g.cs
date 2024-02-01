@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferStatusType3Choice;
 /// <summary>
 /// Type of event expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITransferStatusType3Choice
+public partial record Proprietary : TransferStatusType3Choice_
 {
     #nullable enable
     /// <summary>

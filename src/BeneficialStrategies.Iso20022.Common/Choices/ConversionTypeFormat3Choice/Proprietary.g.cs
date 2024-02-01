@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConversionTypeFormat3Choice;
 /// <summary>
 /// Proprietary identification of the type of conversion.
 /// </summary>
-public partial record Proprietary : IConversionTypeFormat3Choice
+public partial record Proprietary : ConversionTypeFormat3Choice_
 {
     #nullable enable
     /// <summary>

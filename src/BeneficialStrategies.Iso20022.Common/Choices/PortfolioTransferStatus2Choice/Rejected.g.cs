@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PortfolioTransferStatus2Choice;
 /// <summary>
 /// Instruction/request has been rejected for further processing.
 /// </summary>
-public partial record Rejected : IPortfolioTransferStatus2Choice
+public partial record Rejected : PortfolioTransferStatus2Choice_
 {
     #nullable enable
     #nullable disable

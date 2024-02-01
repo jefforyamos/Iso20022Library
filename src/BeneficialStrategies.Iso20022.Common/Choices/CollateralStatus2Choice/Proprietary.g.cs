@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralStatus2Choice;
 /// <summary>
 /// Specifies the status of the execution with a proprietary scheme.
 /// </summary>
-public partial record Proprietary : ICollateralStatus2Choice
+public partial record Proprietary : CollateralStatus2Choice_
 {
     #nullable enable
     /// <summary>

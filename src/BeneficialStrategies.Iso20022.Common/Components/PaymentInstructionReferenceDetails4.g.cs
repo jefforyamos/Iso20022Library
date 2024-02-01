@@ -32,7 +32,7 @@ public partial record PaymentInstructionReferenceDetails4
     /// <summary>
     /// The message type with which the instruction has been initiated.
     /// </summary>
-    public IPaymentOrigin1Choice? PaymentMethod { get; init; } 
+    public PaymentOrigin1Choice_? PaymentMethod { get; init; } 
     /// <summary>
     /// The identification of the instructing agent that transmitted the payment instruction.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeQueryExecutionFrequency1Cho
 /// <summary>
 /// Query is executed on a daily basis.
 /// </summary>
-public partial record Daily : ITradeQueryExecutionFrequency1Choice
+public partial record Daily : TradeQueryExecutionFrequency1Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

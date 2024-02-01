@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NettingIdentification2Choice;
 /// <summary>
 /// Describes the netting group.
 /// </summary>
-public partial record NettingGroupIdentification : INettingIdentification2Choice
+public partial record NettingGroupIdentification : NettingIdentification2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

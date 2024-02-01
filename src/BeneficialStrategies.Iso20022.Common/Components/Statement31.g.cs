@@ -24,7 +24,7 @@ public partial record Statement31
     /// <summary>
     /// Date of the statement.
     /// </summary>
-    public required IDateAndDateTimeChoice StatementDateAndTime { get; init; } 
+    public required DateAndDateTimeChoice_ StatementDateAndTime { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TrancheIndicator2Choice;
 /// <summary>
 /// Indicates that derivative contract is untranched.
 /// </summary>
-public partial record Untranched : ITrancheIndicator2Choice
+public partial record Untranched : TrancheIndicator2Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

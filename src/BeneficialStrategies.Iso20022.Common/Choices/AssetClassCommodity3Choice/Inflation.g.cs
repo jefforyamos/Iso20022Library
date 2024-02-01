@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity3Choice;
 /// <summary>
 /// Inflation commodities.
 /// </summary>
-public partial record Inflation : IAssetClassCommodity3Choice
+public partial record Inflation : AssetClassCommodity3Choice_
 {
     #nullable enable
     /// <summary>

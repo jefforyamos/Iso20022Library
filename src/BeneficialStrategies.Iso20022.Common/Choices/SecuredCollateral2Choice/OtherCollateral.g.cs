@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredCollateral2Choice;
 /// <summary>
 /// Identifies the collateral when the asset class pledged as collateral does not correspond to an ISIN.
 /// </summary>
-public partial record OtherCollateral : ISecuredCollateral2Choice
+public partial record OtherCollateral : SecuredCollateral2Choice_
 {
     #nullable enable
     /// <summary>

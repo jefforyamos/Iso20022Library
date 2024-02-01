@@ -44,7 +44,7 @@ public partial record SponsoredMerchant2
     /// <summary>
     /// Additional sponsored merchant data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains local language equivalent(s) of data in the current component.
     /// </summary>

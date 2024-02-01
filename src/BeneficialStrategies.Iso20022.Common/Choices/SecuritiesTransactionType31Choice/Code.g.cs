@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionType31Choic
 /// <summary>
 /// Securities transaction type expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ISecuritiesTransactionType31Choice
+public partial record Code : SecuritiesTransactionType31Choice_
 {
     public required SecuritiesTransactionType11Code Value { get; init; }
 }

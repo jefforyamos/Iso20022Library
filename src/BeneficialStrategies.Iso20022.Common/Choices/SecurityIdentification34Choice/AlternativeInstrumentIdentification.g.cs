@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification34Choice;
 /// <summary>
 /// Proprietary identification of a security assigned by an institution or organisation.
 /// </summary>
-public partial record AlternativeInstrumentIdentification : ISecurityIdentification34Choice
+public partial record AlternativeInstrumentIdentification : SecurityIdentification34Choice_
 {
     public required IsoMax52Text Value { get; init; }
 }

@@ -32,7 +32,7 @@ public partial record Demand2
     /// <summary>
     /// Additional information related to the demand.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

@@ -20,7 +20,7 @@ public partial record GarnishmentType1
     /// <summary>
     /// Provides the type details of the garnishment.
     /// </summary>
-    public required IGarnishmentType1Choice CodeOrProprietary { get; init; } 
+    public required GarnishmentType1Choice_ CodeOrProprietary { get; init; } 
     /// <summary>
     /// Identification of the issuer of the garnishment type.
     /// </summary>

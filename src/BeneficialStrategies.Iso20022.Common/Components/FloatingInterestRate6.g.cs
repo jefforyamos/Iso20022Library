@@ -20,7 +20,7 @@ public partial record FloatingInterestRate6
     /// <summary>
     /// Identifies the reference index for the debt instrument.
     /// </summary>
-    public required IBenchmarkCurveName6Choice ReferenceRate { get; init; } 
+    public required BenchmarkCurveName6Choice_ ReferenceRate { get; init; } 
     /// <summary>
     /// Term of the index/benchmark of a floating rate bond. The term shall be expressed in days, weeks, months or years.
     /// </summary>

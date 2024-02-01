@@ -20,7 +20,7 @@ public partial record InvestmentAccount10
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification1Choice? OwnerIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification1Choice_[] OwnerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record InvestmentAccount10
     /// <summary>
     /// Party that provides services relating to financial products to investors, eg, advice on products and placement of orders for the investment fund.
     /// </summary>
-    public Intermediary1? IntermediaryInformation { get; init;  } // Warning: Don't know multiplicity.
+    public Intermediary1[] IntermediaryInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Form, ie, ownership, of the security, eg, registered or bearer.
     /// </summary>
@@ -56,11 +56,11 @@ public partial record InvestmentAccount10
     /// <summary>
     /// Place requested as the place of safekeeping.
     /// </summary>
-    public IPartyIdentification1Choice? SafekeepingPlace { get; init; } 
+    public PartyIdentification1Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Party related to an account that is not the legal account owner, eg, the power of attorney.
     /// </summary>
-    public IPartyIdentification1Choice? AccountServicer { get; init; } 
+    public PartyIdentification1Choice_? AccountServicer { get; init; } 
     
     #nullable disable
 }

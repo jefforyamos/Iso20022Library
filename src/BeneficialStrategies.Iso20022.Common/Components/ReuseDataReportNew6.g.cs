@@ -32,7 +32,7 @@ public partial record ReuseDataReportNew6
     /// <summary>
     /// Provides the details of the security or cash pledged as collateral.
     /// </summary>
-    public CollateralType19? CollateralComponent { get; init;  } // Warning: Don't know multiplicity.
+    public CollateralType19[] CollateralComponent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
     /// </summary>
@@ -40,11 +40,11 @@ public partial record ReuseDataReportNew6
     /// <summary>
     /// Information on funding sources used to finance margin loans.
     /// </summary>
-    public FundingSource3? FundingSource { get; init;  } // Warning: Don't know multiplicity.
+    public FundingSource3[] FundingSource { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

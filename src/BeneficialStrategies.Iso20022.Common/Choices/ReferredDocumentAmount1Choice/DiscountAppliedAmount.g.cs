@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReferredDocumentAmount1Choice;
 /// <summary>
 /// Amount of money that results from the application of an agreed discount to the amount due and payable to the creditor.
 /// </summary>
-public partial record DiscountAppliedAmount : IReferredDocumentAmount1Choice
+public partial record DiscountAppliedAmount : ReferredDocumentAmount1Choice_
 {
     public required IsoCurrencyAndAmount Value { get; init; }
 }

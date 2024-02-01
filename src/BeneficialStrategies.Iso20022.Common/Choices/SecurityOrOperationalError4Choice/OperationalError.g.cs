@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityOrOperationalError4Choic
 /// <summary>
 /// Provides the operational error details.
 /// </summary>
-public partial record OperationalError : ISecurityOrOperationalError4Choice
+public partial record OperationalError : SecurityOrOperationalError4Choice_
 {
     #nullable enable
     /// <summary>
     /// Specification of the error, in coded or proprietary form.
     /// </summary>
-    public required IErrorHandling3Choice Error { get; init; } 
+    public required ErrorHandling3Choice_ Error { get; init; } 
     /// <summary>
     /// Specification of the error, in free format.
     /// </summary>

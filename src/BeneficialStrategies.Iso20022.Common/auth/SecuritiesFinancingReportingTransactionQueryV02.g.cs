@@ -46,7 +46,7 @@ public partial record SecuritiesFinancingReportingTransactionQueryV02 : IOuterRe
     [DataMember(Name="RqstngAuthrty")]
     [XmlElement(ElementName="RqstngAuthrty")]
     [Required]
-    public required IPartyIdentification121Choice RequestingAuthority { get; init; }
+    public required PartyIdentification121Choice_ RequestingAuthority { get; init; }
     
     /// <summary>
     /// Criteria for defining recurrent and ad-hoc queries.
@@ -56,7 +56,7 @@ public partial record SecuritiesFinancingReportingTransactionQueryV02 : IOuterRe
     [DataMember(Name="TradQryData")]
     [XmlElement(ElementName="TradQryData")]
     [Required]
-    public required ITradeReportQuery13Choice TradeQueryData { get; init; }
+    public required TradeReportQuery13Choice_ TradeQueryData { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

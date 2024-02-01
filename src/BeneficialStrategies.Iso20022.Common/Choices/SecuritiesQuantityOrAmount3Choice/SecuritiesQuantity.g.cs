@@ -12,16 +12,16 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesQuantityOrAmount3Choic
 /// <summary>
 /// Provides information about securities quantity linked to a corporate action option.
 /// </summary>
-public partial record SecuritiesQuantity : ISecuritiesQuantityOrAmount3Choice
+public partial record SecuritiesQuantity : SecuritiesQuantityOrAmount3Choice_
 {
     #nullable enable
     /// <summary>
     /// Minimum quantity of securities to be accepted (used in the framework of conditional privilege on election). In case of proration, if this minimum quantity is not reached then the instruction is void.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? ConditionalQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? ConditionalQuantity { get; init; } 
     /// <summary>
     /// Quantity of securities to which this instruction applies.
     /// </summary>
-    public required IQuantity20Choice InstructedQuantity { get; init; } 
+    public required Quantity20Choice_ InstructedQuantity { get; init; } 
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntermediaryRoleChoice1;
 /// <summary>
 /// Role of the party in the activity.
 /// </summary>
-public partial record Role : IIntermediaryRoleChoice1
+public partial record Role : IntermediaryRoleChoice1_
 {
     public required InvestmentFundRole4Code Value { get; init; }
 }

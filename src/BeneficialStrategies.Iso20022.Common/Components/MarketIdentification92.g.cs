@@ -72,7 +72,7 @@ public partial record MarketIdentification92
     /// <summary>
     /// Details the validity of the specific record.
     /// </summary>
-    public required IPeriod4Choice ValidityPeriod { get; init; } 
+    public required Period4Choice_ ValidityPeriod { get; init; } 
     /// <summary>
     /// Date when the market identification code was last modified.
     /// </summary>

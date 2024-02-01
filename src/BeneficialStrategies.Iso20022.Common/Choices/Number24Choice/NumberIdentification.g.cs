@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Number24Choice;
 /// <summary>
 /// Number of maximum 4 numeric text.
 /// </summary>
-public partial record NumberIdentification : INumber24Choice
+public partial record NumberIdentification : Number24Choice_
 {
     public required IsoMax4NumericText Value { get; init; }
 }

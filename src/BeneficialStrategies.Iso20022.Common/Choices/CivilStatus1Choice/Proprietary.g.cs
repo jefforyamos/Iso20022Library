@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CivilStatus1Choice;
 /// <summary>
 /// Civil status expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICivilStatus1Choice
+public partial record Proprietary : CivilStatus1Choice_
 {
     #nullable enable
     /// <summary>

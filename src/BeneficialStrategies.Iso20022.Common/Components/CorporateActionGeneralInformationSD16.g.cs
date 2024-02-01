@@ -32,7 +32,7 @@ public partial record CorporateActionGeneralInformationSD16
     /// <summary>
     /// Additional information about the corporate action event.
     /// </summary>
-    public CorporateActionUnallocatedDetailsSD2? UnallocatedDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionUnallocatedDetailsSD2[] UnallocatedDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

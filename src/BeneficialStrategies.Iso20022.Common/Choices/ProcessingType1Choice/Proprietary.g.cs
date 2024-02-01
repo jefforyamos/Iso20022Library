@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingType1Choice;
 /// <summary>
 /// Type of processing restrictions, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IProcessingType1Choice
+public partial record Proprietary : ProcessingType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

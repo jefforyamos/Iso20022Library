@@ -20,15 +20,15 @@ public partial record PointOfInteractionCapabilities7
     /// <summary>
     /// Card reading capabilities of the ATM performing the transaction.
     /// </summary>
-    public CardDataReading4Code? CardReadData { get; init;  } // Warning: Don't know multiplicity.
+    public CardDataReading4Code[] CardReadData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Card writing capabilities of the terminal performing the transaction.
     /// </summary>
-    public CardDataReading4Code? CardWriteData { get; init;  } // Warning: Don't know multiplicity.
+    public CardDataReading4Code[] CardWriteData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Customer and card authentication capabilities available at the ATM.
     /// </summary>
-    public CardholderVerificationCapability3Code? Authentication { get; init;  } // Warning: Don't know multiplicity.
+    public CardholderVerificationCapability3Code[] Authentication { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum number of digits the ATM is able to accept when the cardholder enters its PIN.
     /// </summary>
@@ -48,15 +48,15 @@ public partial record PointOfInteractionCapabilities7
     /// <summary>
     /// Type of media the ATM is able to dispense.
     /// </summary>
-    public ATMMediaType1Code? WithdrawalMedia { get; init;  } // Warning: Don't know multiplicity.
+    public ATMMediaType1Code[] WithdrawalMedia { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of media the customer is able to deposit in the ATM.
     /// </summary>
-    public ATMMediaType2Code? DepositedMedia { get; init;  } // Warning: Don't know multiplicity.
+    public ATMMediaType2Code[] DepositedMedia { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Capabilities of the terminal to display or print message to the cardholder and the merchant.
     /// </summary>
-    public DisplayCapabilities5? MessageCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public DisplayCapabilities5[] MessageCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References71Choice;
 /// <summary>
 /// Unambiguous identification of the triparty collateral transaction instruction status advice to be cancelled.
 /// </summary>
-public partial record TripartyCollateralTransactionInstructionProcessingStatusAdviceIdentification : IReferences71Choice
+public partial record TripartyCollateralTransactionInstructionProcessingStatusAdviceIdentification : References71Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

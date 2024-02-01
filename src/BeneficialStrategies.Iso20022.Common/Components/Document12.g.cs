@@ -20,7 +20,7 @@ public partial record Document12
     /// <summary>
     /// Type of document or template.
     /// </summary>
-    public required IDocumentType1Choice Type { get; init; } 
+    public required DocumentType1Choice_ Type { get; init; } 
     /// <summary>
     /// Identification of the document or template.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record Document12
     /// <summary>
     /// Issue date or date time of the document.
     /// </summary>
-    public required IDateAndDateTime2Choice IssueDate { get; init; } 
+    public required DateAndDateTime2Choice_ IssueDate { get; init; } 
     /// <summary>
     /// Name of document or transaction, for example, tax invoice.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record Document12
     /// <summary>
     /// Format of the document or template, such as PDF, XML, XSLT.
     /// </summary>
-    public required IDocumentFormat1Choice Format { get; init; } 
+    public required DocumentFormat1Choice_ Format { get; init; } 
     /// <summary>
     /// Technical name of the file.
     /// </summary>

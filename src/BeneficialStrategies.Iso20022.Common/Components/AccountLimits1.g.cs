@@ -36,7 +36,7 @@ public partial record AccountLimits1
     /// <summary>
     /// Clearing scheme related to Registry of the Clearing Positions (RCP).
     /// </summary>
-    public IClearingScheme1Choice? ClearingCircuitScheme { get; init; } 
+    public ClearingScheme1Choice_? ClearingCircuitScheme { get; init; } 
     
     #nullable disable
 }

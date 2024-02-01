@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestType1Choice;
 /// <summary>
 /// Specifies the type of interest in uncoded form.
 /// </summary>
-public partial record Proprietary : IInterestType1Choice
+public partial record Proprietary : InterestType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

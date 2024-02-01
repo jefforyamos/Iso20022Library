@@ -24,7 +24,7 @@ public partial record ReportParameters1
     /// <summary>
     /// Date and time of the net position report.
     /// </summary>
-    public required IDateAndDateTimeChoice ReportDateAndTime { get; init; } 
+    public required DateAndDateTimeChoice_ ReportDateAndTime { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>

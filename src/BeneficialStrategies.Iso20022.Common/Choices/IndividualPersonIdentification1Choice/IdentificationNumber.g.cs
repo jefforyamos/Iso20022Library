@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IndividualPersonIdentification1C
 /// <summary>
 /// Identification of the person that owns the account.
 /// </summary>
-public partial record IdentificationNumber : IIndividualPersonIdentification1Choice
+public partial record IdentificationNumber : IndividualPersonIdentification1Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record IdentificationNumber : IIndividualPersonIdentification1Cho
     /// <summary>
     /// Type of identification.
     /// </summary>
-    public required IOtherIdentification3Choice IdentificationType { get; init; } 
+    public required OtherIdentification3Choice_ IdentificationType { get; init; } 
     #nullable disable
 }

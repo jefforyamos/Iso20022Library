@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason14FormatChoice;
 /// <summary>
 /// Standard code to specify the reason of a rejection of a movement cancellation request.
 /// </summary>
-public partial record Code : IRejectionReason14FormatChoice
+public partial record Code : RejectionReason14FormatChoice_
 {
     public required RejectionReason14Code Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record CorporateActionDeactivationInstructionStatus1
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public ICorporateActionOption1FormatChoice? OptionType { get; init; } 
+    public CorporateActionOption1FormatChoice_? OptionType { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>

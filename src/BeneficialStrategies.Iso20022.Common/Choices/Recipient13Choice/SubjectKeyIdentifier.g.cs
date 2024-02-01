@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient13Choice;
 /// <summary>
 /// Specifies the recipient's certificate by a key identifier.
 /// </summary>
-public partial record SubjectKeyIdentifier : IRecipient13Choice
+public partial record SubjectKeyIdentifier : Recipient13Choice_
 {
     public required IsoMax140Binary Value { get; init; }
 }

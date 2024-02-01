@@ -28,7 +28,7 @@ public partial record ReconciliationCounterpartyPairStatistics6
     /// <summary>
     /// Data on transaction requiring reconciliation or pairing. 
     /// </summary>
-    public ReconciliationReport14? ReconciliationReport { get; init;  } // Warning: Don't know multiplicity.
+    public ReconciliationReport14[] ReconciliationReport { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

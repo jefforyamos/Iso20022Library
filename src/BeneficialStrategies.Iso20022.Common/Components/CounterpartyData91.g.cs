@@ -20,19 +20,19 @@ public partial record CounterpartyData91
     /// <summary>
     /// Identification of the reporting counterparty.
     /// </summary>
-    public IOrganisationIdentification15Choice? ReportingCounterparty { get; init; } 
+    public OrganisationIdentification15Choice_? ReportingCounterparty { get; init; } 
     /// <summary>
     /// Identification of the other counterparty in the transaction.
     /// </summary>
-    public IPartyIdentification236Choice? OtherCounterparty { get; init; } 
+    public PartyIdentification236Choice_? OtherCounterparty { get; init; } 
     /// <summary>
     /// Unique code identifying the entity which submits the report. In the case where submission of the report has been delegated to a third party or to the other counterparty, a unique code identifying that entity.
     /// </summary>
-    public IOrganisationIdentification15Choice? ReportSubmittingEntity { get; init; } 
+    public OrganisationIdentification15Choice_? ReportSubmittingEntity { get; init; } 
     /// <summary>
     /// Unique code identifying that counterparty in the case where a financial counterparty is responsible for reporting on behalf of the other counterparty.
     /// </summary>
-    public IOrganisationIdentification15Choice? EntityResponsibleForReport { get; init; } 
+    public OrganisationIdentification15Choice_? EntityResponsibleForReport { get; init; } 
     
     #nullable disable
 }

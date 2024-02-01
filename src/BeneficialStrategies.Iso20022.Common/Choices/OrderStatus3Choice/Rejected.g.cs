@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderStatus3Choice;
 /// <summary>
 /// Status of all the orders in the order message is rejected. This status is used for orders that have not been accepted or entered in an order book.
 /// </summary>
-public partial record Rejected : IOrderStatus3Choice
+public partial record Rejected : OrderStatus3Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the rejected status.
     /// </summary>
-    public IRejectedReason20Choice? Reason { get; init; } 
+    public RejectedReason20Choice_? Reason { get; init; } 
     /// <summary>
     /// Additional information about the rejected reason.
     /// </summary>

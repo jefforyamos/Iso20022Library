@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportContent1Choice;
 /// <summary>
 /// BASE-64 encoded report content.
 /// </summary>
-public partial record Binary : IReportContent1Choice
+public partial record Binary : ReportContent1Choice_
 {
     public required IsoMax20MbBinary Value { get; init; }
 }

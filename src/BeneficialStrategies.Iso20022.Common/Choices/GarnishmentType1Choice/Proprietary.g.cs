@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GarnishmentType1Choice;
 /// <summary>
 /// Proprietary identification of the type of garnishment.
 /// </summary>
-public partial record Proprietary : IGarnishmentType1Choice
+public partial record Proprietary : GarnishmentType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

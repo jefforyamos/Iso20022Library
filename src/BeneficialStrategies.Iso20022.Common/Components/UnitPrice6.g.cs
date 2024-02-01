@@ -28,11 +28,11 @@ public partial record UnitPrice6
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    public PriceValue1? ValueInInvestmentCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public PriceValue1[] ValueInInvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    public PriceValue1? ValueInAlternativeCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public PriceValue1[] ValueInAlternativeCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the price information can be used for the execution of a transaction.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record UnitPrice6
     /// <summary>
     /// Amount included in the NAV that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
-    public IAmountPrice1Choice? TaxableIncomePerShare { get; init; } 
+    public AmountPrice1Choice_? TaxableIncomePerShare { get; init; } 
     /// <summary>
     /// Specifies whether the fund calculates a taxable interest per share (TIS).
     /// </summary>
@@ -60,15 +60,15 @@ public partial record UnitPrice6
     /// <summary>
     /// Amount of money associated with a service.
     /// </summary>
-    public Charge9? ChargeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Charge9[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to taxes that are due.
     /// </summary>
-    public Tax8? TaxLiabilityDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Tax8[] TaxLiabilityDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to taxes that are paid back.
     /// </summary>
-    public Tax8? TaxRefundDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Tax8[] TaxRefundDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

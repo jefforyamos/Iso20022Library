@@ -71,7 +71,7 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord
     [Description(@"Provides the status of allocation of collateral to cover the instruction.|")]
     [DataMember(Name="AllcnSts")]
     [XmlElement(ElementName="AllcnSts")]
-    public IAllocationStatus1Choice? AllocationStatus { get; init; }
+    public AllocationStatus1Choice_? AllocationStatus { get; init; }
     
     /// <summary>
     /// Provides the status of settlement of the transaction or the instruction.
@@ -80,7 +80,7 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord
     [Description(@"Provides the status of settlement of the transaction or the instruction.")]
     [DataMember(Name="SttlmSts")]
     [XmlElement(ElementName="SttlmSts")]
-    public ISettlementStatus27Choice? SettlementStatus { get; init; }
+    public SettlementStatus27Choice_? SettlementStatus { get; init; }
     
     /// <summary>
     /// Provides the collateral status of an instruction.
@@ -89,7 +89,7 @@ public partial record TripartyCollateralStatusAdviceV01 : IOuterRecord
     [Description(@"Provides the collateral status of an instruction.|")]
     [DataMember(Name="CollSts")]
     [XmlElement(ElementName="CollSts")]
-    public ICollateralStatus3Choice? CollateralStatus { get; init; }
+    public CollateralStatus3Choice_? CollateralStatus { get; init; }
     
     /// <summary>
     /// provides general information about the instruction and collateral transaction the message refers to.

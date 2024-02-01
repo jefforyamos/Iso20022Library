@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity46Cho
 /// <summary>
 /// Quantity expressed as a code.
 /// </summary>
-public partial record Code : IFinancialInstrumentQuantity46Choice
+public partial record Code : FinancialInstrumentQuantity46Choice_
 {
     public required Quantity1Code Value { get; init; }
 }

@@ -32,7 +32,7 @@ public partial record LoanData57
     /// <summary>
     /// Indicates whether clearing of contract has taken place.
     /// </summary>
-    public ICleared10Choice? ClearingStatus { get; init; } 
+    public Cleared10Choice_? ClearingStatus { get; init; } 
     /// <summary>
     /// Identification of the venue where the transaction was executed.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record LoanData57
     /// <summary>
     /// Price of unit of collateral component, including accrued interest for interest-bearing securities.
     /// </summary>
-    public ISecuritiesTransactionPrice11Choice? UnitPrice { get; init; } 
+    public SecuritiesTransactionPrice11Choice_? UnitPrice { get; init; } 
     /// <summary>
     /// Termination date in the case of a full early termination of the SFT.
     /// </summary>

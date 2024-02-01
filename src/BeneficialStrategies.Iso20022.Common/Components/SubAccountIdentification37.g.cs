@@ -20,7 +20,7 @@ public partial record SubAccountIdentification37
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification36Choice? AccountOwner { get; init; } 
+    public PartyIdentification36Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record SubAccountIdentification37
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities subaccount.
     /// </summary>
-    public AggregateBalanceInformation25? BalanceForSubAccount { get; init;  } // Warning: Don't know multiplicity.
+    public AggregateBalanceInformation25[] BalanceForSubAccount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

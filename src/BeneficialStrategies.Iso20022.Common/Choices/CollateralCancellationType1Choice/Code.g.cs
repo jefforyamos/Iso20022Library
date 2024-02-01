@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralCancellationType1Choic
 /// <summary>
 /// Provides the cancellation reason using an ISO 20022 code.
 /// </summary>
-public partial record Code : ICollateralCancellationType1Choice
+public partial record Code : CollateralCancellationType1Choice_
 {
     public required CollateralManagementCancellationReason1Code Value { get; init; }
 }

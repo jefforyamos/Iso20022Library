@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BorrowingReason1Choice;
 /// <summary>
 /// Borrowing reason expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IBorrowingReason1Choice
+public partial record Code : BorrowingReason1Choice_
 {
     public required BorrowingReason1Code Value { get; init; }
 }

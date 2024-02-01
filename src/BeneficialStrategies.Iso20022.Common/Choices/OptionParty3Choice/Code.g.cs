@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionParty3Choice;
 /// <summary>
 /// Option party expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IOptionParty3Choice
+public partial record Code : OptionParty3Choice_
 {
     public required OptionParty1Code Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record SettlementInformation17
     /// <summary>
     /// Choice between formats for the quantity of security.
     /// </summary>
-    public ISettlementUnitType3Choice? SecuritiesQuantityType { get; init; } 
+    public SettlementUnitType3Choice_? SecuritiesQuantityType { get; init; } 
     /// <summary>
     /// Specifies when the contract (i.e. MBS/TBA) will settle.
     /// </summary>
@@ -28,15 +28,15 @@ public partial record SettlementInformation17
     /// <summary>
     /// Indicates the minimum quantity (unit or nominal) of a security.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? MinimumDenomination { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? MinimumDenomination { get; init; } 
     /// <summary>
     /// Minimum multiple quantity (unit or nominal) of securities.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? MinimumMultipleQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? MinimumMultipleQuantity { get; init; } 
     /// <summary>
     /// Minimum quantity of securities that can be purchased without incurring a larger fee. For example, if the round lot size is 100 and the trade is for 125 shares, then 100 will be processed without a fee and the remaining 25 will incur a service fee for being an odd lot size.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? DeviatingSettlementUnit { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrumentQuantity1Choice_[] DeviatingSettlementUnit { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

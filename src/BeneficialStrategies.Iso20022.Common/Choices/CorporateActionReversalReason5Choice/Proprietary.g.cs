@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionReversalReason5Ch
 /// <summary>
 /// Proprietary identification for the reason of the reversal.
 /// </summary>
-public partial record Proprietary : ICorporateActionReversalReason5Choice
+public partial record Proprietary : CorporateActionReversalReason5Choice_
 {
     #nullable enable
     /// <summary>

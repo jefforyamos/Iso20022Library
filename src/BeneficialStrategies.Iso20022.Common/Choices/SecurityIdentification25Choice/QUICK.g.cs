@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification25Choice;
 /// <summary>
 /// Identifier of a security assigned by the Japanese QUICK identification scheme for financial instruments.
 /// </summary>
-public partial record QUICK : ISecurityIdentification25Choice
+public partial record QUICK : SecurityIdentification25Choice_
 {
     public required IsoQUICKIdentifier Value { get; init; }
 }

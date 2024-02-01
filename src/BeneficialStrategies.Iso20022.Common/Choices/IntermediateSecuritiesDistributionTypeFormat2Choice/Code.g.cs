@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntermediateSecuritiesDistributi
 /// <summary>
 /// Standard code to specify the type of intermediate security distribution.
 /// </summary>
-public partial record Code : IIntermediateSecuritiesDistributionTypeFormat2Choice
+public partial record Code : IntermediateSecuritiesDistributionTypeFormat2Choice_
 {
     public required IntermediateSecurityDistributionType2Code Value { get; init; }
 }

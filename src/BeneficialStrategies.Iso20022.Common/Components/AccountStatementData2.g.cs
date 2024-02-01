@@ -28,7 +28,7 @@ public partial record AccountStatementData2
     /// <summary>
     /// Statement information.
     /// </summary>
-    public AccountStatementDetails2? AccountStatement { get; init;  } // Warning: Don't know multiplicity.
+    public AccountStatementDetails2[] AccountStatement { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

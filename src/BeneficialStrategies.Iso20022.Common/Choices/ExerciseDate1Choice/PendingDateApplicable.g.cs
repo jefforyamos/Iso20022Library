@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExerciseDate1Choice;
 /// <summary>
 /// Indicates that price is currently not available, but pending.
 /// </summary>
-public partial record PendingDateApplicable : IExerciseDate1Choice
+public partial record PendingDateApplicable : ExerciseDate1Choice_
 {
     public required PriceStatus2Code Value { get; init; }
 }

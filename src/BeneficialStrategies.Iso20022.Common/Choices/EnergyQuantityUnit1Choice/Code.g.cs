@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EnergyQuantityUnit1Choice;
 /// <summary>
 /// Energy quantity units, expressed as a code.
 /// </summary>
-public partial record Code : IEnergyQuantityUnit1Choice
+public partial record Code : EnergyQuantityUnit1Choice_
 {
     public required EnergyQuantityUnit1Code Value { get; init; }
 }

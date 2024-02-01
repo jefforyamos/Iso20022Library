@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementFrequencyReason1Choice;
 /// <summary>
 /// Statement frequency expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IStatementFrequencyReason1Choice
+public partial record Proprietary : StatementFrequencyReason1Choice_
 {
     #nullable enable
     /// <summary>

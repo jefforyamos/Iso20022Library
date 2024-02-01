@@ -40,11 +40,11 @@ public partial record SettlementData2
     /// <summary>
     /// Specifies the party that pays the settlement amount.
     /// </summary>
-    public required IPartyIdentification8Choice PayingParty { get; init; } 
+    public required PartyIdentification8Choice_ PayingParty { get; init; } 
     /// <summary>
     /// Specifies the party that receives the settlement amount.
     /// </summary>
-    public required IPartyIdentification8Choice ReceivingParty { get; init; } 
+    public required PartyIdentification8Choice_ ReceivingParty { get; init; } 
     /// <summary>
     /// Date on which the settlement is due to settle.
     /// </summary>

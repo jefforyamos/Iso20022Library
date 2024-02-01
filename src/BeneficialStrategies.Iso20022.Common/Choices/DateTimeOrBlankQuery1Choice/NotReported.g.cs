@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateTimeOrBlankQuery1Choice;
 /// <summary>
 /// Field may be queried for not reported value.
 /// </summary>
-public partial record NotReported : IDateTimeOrBlankQuery1Choice
+public partial record NotReported : DateTimeOrBlankQuery1Choice_
 {
     public required NotReported1Code Value { get; init; }
 }

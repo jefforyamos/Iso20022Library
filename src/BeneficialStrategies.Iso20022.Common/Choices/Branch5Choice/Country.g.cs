@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Branch5Choice;
 /// <summary>
 /// Code of a country where the registered office of the branch counterparty is located or country of residence in case that the branch counterparty is a natural person.
 /// </summary>
-public partial record Country : IBranch5Choice
+public partial record Country : Branch5Choice_
 {
     public required CountryCode Value { get; init; }
 }

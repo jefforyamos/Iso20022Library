@@ -66,7 +66,7 @@ public partial record TransparencyDataReport16
     /// <summary>
     /// Derivative specific details.
     /// </summary>
-    public IDerivative3Choice? Derivative { get; init; } 
+    public Derivative3Choice_? Derivative { get; init; } 
     
     #nullable disable
 }

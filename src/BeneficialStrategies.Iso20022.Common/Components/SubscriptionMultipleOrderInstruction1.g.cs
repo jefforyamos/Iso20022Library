@@ -24,7 +24,7 @@ public partial record SubscriptionMultipleOrderInstruction1
     /// <summary>
     /// Information related to an intermediary.
     /// </summary>
-    public IReadOnlyCollection<Intermediary4> IntermediaryDetails { get; init; } = [];
+    public Intermediary4[] IntermediaryDetails { get; init; } = [];
     /// <summary>
     /// Message is a copy.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record SubscriptionMultipleOrderInstruction1
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1? Extension { get; init;  } // Warning: Don't know multiplicity.
+    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

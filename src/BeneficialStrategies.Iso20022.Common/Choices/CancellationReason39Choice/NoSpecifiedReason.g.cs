@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationReason39Choice;
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoSpecifiedReason : ICancellationReason39Choice
+public partial record NoSpecifiedReason : CancellationReason39Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

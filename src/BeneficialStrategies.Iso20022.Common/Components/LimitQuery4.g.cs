@@ -24,7 +24,7 @@ public partial record LimitQuery4
     /// <summary>
     /// Defines the limit query criteria.
     /// </summary>
-    public ILimitCriteria6Choice? LimitCriteria { get; init; } 
+    public LimitCriteria6Choice_? LimitCriteria { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity8Choi
 /// <summary>
 /// Total quantity of securities to be settled.
 /// </summary>
-public partial record UnitsNumber : IFinancialInstrumentQuantity8Choice
+public partial record UnitsNumber : FinancialInstrumentQuantity8Choice_
 {
     #nullable enable
     /// <summary>

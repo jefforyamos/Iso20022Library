@@ -36,19 +36,19 @@ public partial record OptionTransactionDetailsSD4
     /// <summary>
     /// Instructed quantity for reorganisation instructions or the deposit quantity for reorganisation / custody deposits.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice TransactionIdentificationQuantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ TransactionIdentificationQuantity { get; init; } 
     /// <summary>
     /// Oversubscribed quantity of the instruction.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? TransactionIdentificationOversubscriptionQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? TransactionIdentificationOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// For prorated events, portion of the instructed units that was accepted by the Issuer / Agent.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? AcceptedQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? AcceptedQuantity { get; init; } 
     /// <summary>
     /// For prorated events, the portion of the instructed quantity that was not accepted by the Issuer / Agent.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? UnacceptedQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? UnacceptedQuantity { get; init; } 
     /// <summary>
     /// Amount based upon the DTC cash rate per instruction.
     /// </summary>
@@ -56,11 +56,11 @@ public partial record OptionTransactionDetailsSD4
     /// <summary>
     /// Quantity based upon the DTC security rate per instruction.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? EntitledQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? EntitledQuantity { get; init; } 
     /// <summary>
     /// Entitled units for the oversubscription.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? EntitledOversubscriptionQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? EntitledOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Amount paid to the issuer / agent for subscription cost.
     /// </summary>
@@ -92,7 +92,7 @@ public partial record OptionTransactionDetailsSD4
     /// <summary>
     /// Quantity entered by the agent on PUT (Mortgage Backed) instructions to be paid. This quantity can be for the full or partial instructed quantity.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? AgentEnteredQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? AgentEnteredQuantity { get; init; } 
     /// <summary>
     /// Client free format instruction narrative information. Will be 80 characters for tender instructions, 150 characters for rights instructions and 20 characters for put instructions.
     /// </summary>

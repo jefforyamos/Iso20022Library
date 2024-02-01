@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PensionTransferScope1Choice;
 /// <summary>
 /// Type of pension policy, plan or scheme transfer scope expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IPensionTransferScope1Choice
+public partial record Proprietary : PensionTransferScope1Choice_
 {
     #nullable enable
     /// <summary>

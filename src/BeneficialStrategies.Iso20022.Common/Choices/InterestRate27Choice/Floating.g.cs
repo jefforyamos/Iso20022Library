@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate27Choice;
 /// <summary>
 /// Details about the variable rate.
 /// </summary>
-public partial record Floating : IInterestRate27Choice
+public partial record Floating : InterestRate27Choice_
 {
     #nullable enable
     /// <summary>
     /// Identifies the reference index for the debt instrument.
     /// </summary>
-    public IBenchmarkCurveName10Choice? ReferenceRate { get; init; } 
+    public BenchmarkCurveName10Choice_? ReferenceRate { get; init; } 
     /// <summary>
     /// Term of the reference rate of the floating rate bond. The term shall be expressed in days, weeks, months or years.
     /// </summary>
@@ -34,7 +34,7 @@ public partial record Floating : IInterestRate27Choice
     /// <summary>
     /// Indicates a margin, over or under an index, which determines a price or a rate for each leg of a derivative transaction with periodic payments; or a difference between two floating leg indexes.
     /// </summary>
-    public ISecuritiesTransactionPrice18Choice? Spread { get; init; } 
+    public SecuritiesTransactionPrice18Choice_? Spread { get; init; } 
     /// <summary>
     /// Specifies the rate adjustments as determined by the rate schedule.
     /// </summary>
@@ -42,6 +42,6 @@ public partial record Floating : IInterestRate27Choice
     /// <summary>
     /// Method for calculating the accrued interest on the principal amount for a fixed rate.
     /// </summary>
-    public IInterestComputationMethodFormat6Choice? DayCountBasis { get; init; } 
+    public InterestComputationMethodFormat6Choice_? DayCountBasis { get; init; } 
     #nullable disable
 }

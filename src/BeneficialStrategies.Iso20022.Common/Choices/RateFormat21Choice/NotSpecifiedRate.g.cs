@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateFormat21Choice;
 /// <summary>
 /// Value of the rate not specified.
 /// </summary>
-public partial record NotSpecifiedRate : IRateFormat21Choice
+public partial record NotSpecifiedRate : RateFormat21Choice_
 {
     public required RateValueType7Code Value { get; init; }
 }

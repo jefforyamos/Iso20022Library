@@ -24,15 +24,15 @@ public partial record IncentivePremium3
     /// <summary>
     /// Cash premium paid per security, per vote or per attendee.
     /// </summary>
-    public required IPriceRateOrAmountChoice Amount { get; init; } 
+    public required PriceRateOrAmountChoice_ Amount { get; init; } 
     /// <summary>
     /// Type of incentive premium.
     /// </summary>
-    public required IIncentivePremiumType1Choice Type { get; init; } 
+    public required IncentivePremiumType1Choice_ Type { get; init; } 
     /// <summary>
     /// Date/time for the payment of the premium.
     /// </summary>
-    public IDateFormat3Choice? PaymentDate { get; init; } 
+    public DateFormat3Choice_? PaymentDate { get; init; } 
     
     #nullable disable
 }

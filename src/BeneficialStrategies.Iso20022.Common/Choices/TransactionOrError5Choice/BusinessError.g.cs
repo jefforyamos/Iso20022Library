@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionOrError5Choice;
 /// <summary>
 /// Reason why the requested business information is not given.
 /// </summary>
-public partial record BusinessError : ITransactionOrError5Choice
+public partial record BusinessError : TransactionOrError5Choice_
 {
     #nullable enable
     /// <summary>
     /// Specification of the error, in coded or proprietary form.
     /// </summary>
-    public required IErrorHandling3Choice Error { get; init; } 
+    public required ErrorHandling3Choice_ Error { get; init; } 
     /// <summary>
     /// Specification of the error, in free format.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Party16Choice;
 /// <summary>
 /// Organised structure that is set up for a particular purpose, eg, a business, government body, department, charity, or financial institution.
 /// </summary>
-public partial record Organisation : IParty16Choice
+public partial record Organisation : Party16Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record Organisation : IParty16Choice
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution, eg, Dun & Bradstreet Identification.
     /// </summary>
-    public IPartyIdentification4Choice? Identification { get; init; } 
+    public PartyIdentification4Choice_? Identification { get; init; } 
     /// <summary>
     /// Purpose of the organisation, eg, charity.
     /// </summary>

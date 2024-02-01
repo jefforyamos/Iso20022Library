@@ -20,7 +20,7 @@ public partial record BasketConstituents1
     /// <summary>
     /// Proprietary identification of a security assigned by an institution or organisation.
     /// </summary>
-    public required IInstrumentIdentification1Choice InstrumentIdentification { get; init; } 
+    public required InstrumentIdentification1Choice_ InstrumentIdentification { get; init; } 
     /// <summary>
     /// Indicates the number of units of a particular constituent in a custom basket.
     /// </summary>

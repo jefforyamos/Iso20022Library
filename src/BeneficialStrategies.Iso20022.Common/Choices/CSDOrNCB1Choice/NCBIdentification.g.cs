@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CSDOrNCB1Choice;
 /// <summary>
 /// Unique identification to unambiguously identify the national central bank within the system.
 /// </summary>
-public partial record NCBIdentification : ICSDOrNCB1Choice
+public partial record NCBIdentification : CSDOrNCB1Choice_
 {
     public required IsoBICFIIdentifier Value { get; init; }
 }

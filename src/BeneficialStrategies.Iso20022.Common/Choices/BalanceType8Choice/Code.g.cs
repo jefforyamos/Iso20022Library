@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceType8Choice;
 /// <summary>
 /// Specifies the nature of a balance, in a coded form.
 /// </summary>
-public partial record Code : IBalanceType8Choice
+public partial record Code : BalanceType8Choice_
 {
     public required SystemBalanceType1Code Value { get; init; }
 }

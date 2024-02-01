@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ServiceStatus1Choice;
 /// <summary>
 /// Status, in a coded form.
 /// </summary>
-public partial record Code : IServiceStatus1Choice
+public partial record Code : ServiceStatus1Choice_
 {
     public required ServiceRequestStatus1Code Value { get; init; }
 }

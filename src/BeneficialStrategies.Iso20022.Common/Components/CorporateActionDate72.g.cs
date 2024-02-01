@@ -20,19 +20,19 @@ public partial record CorporateActionDate72
     /// <summary>
     /// Date/time on which the movement is due to take place (cash and/or securities).
     /// </summary>
-    public required IDateFormat49Choice PaymentDate { get; init; } 
+    public required DateFormat49Choice_ PaymentDate { get; init; } 
     /// <summary>
     /// Date/time when calculating economic benefit for a cash amount.
     /// </summary>
-    public IDateFormat55Choice? ValueDate { get; init; } 
+    public DateFormat55Choice_? ValueDate { get; init; } 
     /// <summary>
     /// Date/time at which a foreign exchange rate will be determined.
     /// </summary>
-    public IDateFormat49Choice? ForeignExchangeRateFixingDate { get; init; } 
+    public DateFormat49Choice_? ForeignExchangeRateFixingDate { get; init; } 
     /// <summary>
     /// Date/time on which a payment can be made, for example, if payment date is a non-business day or to indicate the first payment date of an offer.
     /// </summary>
-    public IDateFormat49Choice? EarliestPaymentDate { get; init; } 
+    public DateFormat49Choice_? EarliestPaymentDate { get; init; } 
     
     #nullable disable
 }

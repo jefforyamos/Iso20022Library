@@ -28,7 +28,7 @@ public partial record FinancingItemList1
     /// <summary>
     /// Reference to related documents for example to original assignment in a status response or retry.
     /// </summary>
-    public QualifiedDocumentInformation1? RelatedDocument { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1[] RelatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cut off date for items used to establish the total request amount.
     /// </summary>
@@ -44,11 +44,11 @@ public partial record FinancingItemList1
     /// <summary>
     /// Identifies parties that notify the assignment(s) and the notified parties.
     /// </summary>
-    public FinancingNotificationParties1? NotificationInformation { get; init;  } // Warning: Don't know multiplicity.
+    public FinancingNotificationParties1[] NotificationInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// List of items/transactions.
     /// </summary>
-    public FinancialItem1? FinancialItem { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialItem1[] FinancialItem { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number of individual items contained in the list.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record FinancingItemList1
     /// <summary>
     /// Total amount requested.
     /// </summary>
-    public IFinancingRateOrAmountChoice? TotalRequestFinancing { get; init; } 
+    public FinancingRateOrAmountChoice_? TotalRequestFinancing { get; init; } 
     /// <summary>
     /// Acceptable exchange rate for financing by different currency.
     /// </summary>
@@ -72,7 +72,7 @@ public partial record FinancingItemList1
     /// <summary>
     /// Instalment for the financing.
     /// </summary>
-    public Instalment2? FinancingInstalment { get; init;  } // Warning: Don't know multiplicity.
+    public Instalment2[] FinancingInstalment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional free form information concerning the list.
     /// </summary>

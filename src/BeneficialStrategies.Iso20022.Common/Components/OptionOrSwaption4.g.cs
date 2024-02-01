@@ -24,11 +24,11 @@ public partial record OptionOrSwaption4
     /// <summary>
     /// Predetermined price at which the holder will have to buy or sell the underlying instrument.
     /// </summary>
-    public ISecuritiesTransactionPrice3Choice? StrikePrice { get; init; } 
+    public SecuritiesTransactionPrice3Choice_? StrikePrice { get; init; } 
     /// <summary>
     /// Indication as to whether the option may be exercised only at a fixed date (European, and Asian style), a series of pre-specified dates (Bermudan) or at any time during the life of the contract (American style). This field does not have to be populated for ISIN instruments.
     /// </summary>
-    public OptionStyle6Code? OptionExerciseStyle { get; init;  } // Warning: Don't know multiplicity.
+    public OptionStyle6Code[] OptionExerciseStyle { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// In case of swaptions, maturity date of the underlying swap.
     /// </summary>

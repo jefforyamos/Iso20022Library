@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EUCapitalGain3Choice;
 /// <summary>
 /// EU capital gain expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IEUCapitalGain3Choice
+public partial record Proprietary : EUCapitalGain3Choice_
 {
     #nullable enable
     /// <summary>

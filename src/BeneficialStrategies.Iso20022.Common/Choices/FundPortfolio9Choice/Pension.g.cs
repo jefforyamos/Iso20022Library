@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPortfolio9Choice;
 /// <summary>
 /// Portfolio is a pension policy, plan or scheme.
 /// </summary>
-public partial record Pension : IFundPortfolio9Choice
+public partial record Pension : FundPortfolio9Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,11 +22,11 @@ public partial record Pension : IFundPortfolio9Choice
     /// <summary>
     /// Type of pension policy, plan or scheme.
     /// </summary>
-    public IPensionSchemeType3Choice? Type { get; init; } 
+    public PensionSchemeType3Choice_? Type { get; init; } 
     /// <summary>
     /// Scope of the pension policy, plan or scheme transfer.
     /// </summary>
-    public IPensionTransferScope1Choice? TransferScope { get; init; } 
+    public PensionTransferScope1Choice_? TransferScope { get; init; } 
     /// <summary>
     /// Tax reference issued to the pension policy, plan or scheme by a central organisation.
     /// </summary>

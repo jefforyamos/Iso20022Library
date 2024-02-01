@@ -28,7 +28,7 @@ public partial record TransferCancellationRejectedStatus1
     /// <summary>
     /// Proprietary identification of the reason for the rejected status.
     /// </summary>
-    public IReadOnlyCollection<GenericIdentification1> DataSourceScheme { get; init; } = [];
+    public GenericIdentification1[] DataSourceScheme { get; init; } = [];
     
     #nullable disable
 }

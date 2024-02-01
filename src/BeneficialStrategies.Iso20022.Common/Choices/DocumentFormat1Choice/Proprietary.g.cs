@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DocumentFormat1Choice;
 /// <summary>
 /// Document format expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IDocumentFormat1Choice
+public partial record Proprietary : DocumentFormat1Choice_
 {
     #nullable enable
     /// <summary>

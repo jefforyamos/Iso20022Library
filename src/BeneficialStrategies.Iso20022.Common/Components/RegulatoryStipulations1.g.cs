@@ -24,7 +24,7 @@ public partial record RegulatoryStipulations1
     /// <summary>
     /// Specifies regulatory stipulations that financial institutions must be compliant with in the country, region, and/or where they conduct business.
     /// </summary>
-    public IsoMax350Text? Stipulations { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax350Text[] Stipulations { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

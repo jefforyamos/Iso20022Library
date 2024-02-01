@@ -20,7 +20,7 @@ public partial record ActiveOrHistoricCurrencyAndAmountRange2
     /// <summary>
     /// Specified amount or amount range.
     /// </summary>
-    public required IImpliedCurrencyAmountRange1Choice Amount { get; init; } 
+    public required ImpliedCurrencyAmountRange1Choice_ Amount { get; init; } 
     /// <summary>
     /// Indicates whether the amount is a credited or debited amount.
     /// </summary>

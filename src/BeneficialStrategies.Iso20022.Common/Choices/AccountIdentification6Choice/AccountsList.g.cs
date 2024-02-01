@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification6Choice;
 /// <summary>
 /// Selected safekeeping accounts list to which the corporate action event applies.
 /// </summary>
-public partial record AccountsList : IAccountIdentification6Choice
+public partial record AccountsList : AccountIdentification6Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,10 +22,10 @@ public partial record AccountsList : IAccountIdentification6Choice
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification13Choice? AccountOwner { get; init; } 
+    public PartyIdentification13Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
-    public ISafekeepingPlaceFormat2Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat2Choice_? SafekeepingPlace { get; init; } 
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxAmountType1Choice;
 /// <summary>
 /// Specifies the amount type, in a free-text form.
 /// </summary>
-public partial record Proprietary : ITaxAmountType1Choice
+public partial record Proprietary : TaxAmountType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

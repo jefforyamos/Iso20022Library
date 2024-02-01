@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason16Choice;
 /// <summary>
 /// Specifies the reason why the modification request is pending.
 /// </summary>
-public partial record PendingModificationReason : IReason16Choice
+public partial record PendingModificationReason : Reason16Choice_
 {
     #nullable enable
     #nullable disable

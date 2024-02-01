@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingProcessingReason11Choice;
 /// <summary>
 /// Specifies the reason why the instruction has a pending processing status.
 /// </summary>
-public partial record Code : IPendingProcessingReason11Choice
+public partial record Code : PendingProcessingReason11Choice_
 {
     public required PendingProcessingReason1Code Value { get; init; }
 }

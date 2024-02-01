@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosedStatusReason1Choice;
 /// <summary>
 /// Reason for the closed account status.
 /// </summary>
-public partial record Reason : IClosedStatusReason1Choice
+public partial record Reason : ClosedStatusReason1Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the closed account status.
     /// </summary>
-    public required IClosedStatusReason2Choice Code { get; init; } 
+    public required ClosedStatusReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the closed account status.
     /// </summary>

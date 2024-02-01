@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References75Choice;
 /// <summary>
 /// Identification of the transaction assigned by the processor of the instruction other than the account owner, the account servicer and the market infrastructure.
 /// </summary>
-public partial record ProcessorTransactionIdentification : IReferences75Choice
+public partial record ProcessorTransactionIdentification : References75Choice_
 {
     public required IsoRestrictedFINXMax16Text Value { get; init; }
 }

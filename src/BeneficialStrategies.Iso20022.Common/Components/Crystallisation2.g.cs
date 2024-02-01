@@ -40,7 +40,7 @@ public partial record Crystallisation2
     /// <summary>
     /// Additional information about the crystallisation.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

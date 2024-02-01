@@ -24,11 +24,11 @@ public partial record AccountAndBalance17
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification36Choice? AccountOwner { get; init; } 
+    public PartyIdentification36Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
-    public ISafekeepingPlaceFormat2Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat2Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Provides information about balance related to a corporate action.
     /// </summary>

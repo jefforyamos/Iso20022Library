@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DiscountAmountType1Choice;
 /// <summary>
 /// Specifies the amount type, in a coded form.
 /// </summary>
-public partial record Code : IDiscountAmountType1Choice
+public partial record Code : DiscountAmountType1Choice_
 {
     public required ExternalDiscountAmountType1Code Value { get; init; }
 }

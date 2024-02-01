@@ -20,15 +20,15 @@ public partial record EntitlementAssessment3
     /// <summary>
     /// Date by which the securities should be blocked. This deadline is set by an intermediary.
     /// </summary>
-    public IDateFormat29Choice? SecuritiesBlockingDeadline { get; init; } 
+    public DateFormat29Choice_? SecuritiesBlockingDeadline { get; init; } 
     /// <summary>
     /// Date by which the securities should be blocked. This deadline is set by the issuer (STP mode).
     /// </summary>
-    public IDateFormat29Choice? SecuritiesBlockingSTPDeadline { get; init; } 
+    public DateFormat29Choice_? SecuritiesBlockingSTPDeadline { get; init; } 
     /// <summary>
     /// Date by which the securities should be blocked. This deadline is set by the issuer.
     /// </summary>
-    public IDateFormat29Choice? SecuritiesBlockingMarketDeadline { get; init; } 
+    public DateFormat29Choice_? SecuritiesBlockingMarketDeadline { get; init; } 
     /// <summary>
     /// Date by which the blocking period for the securities should end.
     /// </summary>
@@ -40,31 +40,31 @@ public partial record EntitlementAssessment3
     /// <summary>
     /// Date by which the securities have to be registered. This deadline is specified by an intermediary.
     /// </summary>
-    public IDateFormat29Choice? RegistrationSecuritiesDeadline { get; init; } 
+    public DateFormat29Choice_? RegistrationSecuritiesDeadline { get; init; } 
     /// <summary>
     /// Date by which the securities have to be registered. This deadline is specified by an intermediary (STP mode).
     /// </summary>
-    public IDateFormat29Choice? RegistrationSecuritiesSTPDeadline { get; init; } 
+    public DateFormat29Choice_? RegistrationSecuritiesSTPDeadline { get; init; } 
     /// <summary>
     /// Date by which the securities have to be registered. This deadline is set by the issuer.
     /// </summary>
-    public IDateFormat29Choice? RegistrationSecuritiesMarketDeadline { get; init; } 
+    public DateFormat29Choice_? RegistrationSecuritiesMarketDeadline { get; init; } 
     /// <summary>
     /// Date by which the holder needs to register its intention to participate in the meeting process in order to be allowed to participate in the meeting event. This deadline is specified by an intermediary.
     /// </summary>
-    public IDateFormat29Choice? RegistrationParticipationDeadline { get; init; } 
+    public DateFormat29Choice_? RegistrationParticipationDeadline { get; init; } 
     /// <summary>
     /// Date by which the holder needs to register its intention to participate in the meeting process in order to be allowed to participate in the meeting event. This deadline is specified by an intermediary (STP mode).
     /// </summary>
-    public IDateFormat29Choice? RegistrationParticipationSTPDeadline { get; init; } 
+    public DateFormat29Choice_? RegistrationParticipationSTPDeadline { get; init; } 
     /// <summary>
     /// Date by which the holder needs to register its intention to participate in the meeting process in order to be allowed to participate in the meeting event. This deadline is set by the issuer.
     /// </summary>
-    public IDateFormat29Choice? RegistrationParticipationMarketDeadline { get; init; } 
+    public DateFormat29Choice_? RegistrationParticipationMarketDeadline { get; init; } 
     /// <summary>
     /// Number of votes assigned to one security.
     /// </summary>
-    public IEntitlement1Choice? Entitlement { get; init; } 
+    public Entitlement1Choice_? Entitlement { get; init; } 
     
     #nullable disable
 }

@@ -20,7 +20,7 @@ public partial record IssuerInformation3
     /// <summary>
     /// Unique and unambiguous way to identify the organisation.
     /// </summary>
-    public required IPartyIdentification129Choice Identification { get; init; } 
+    public required PartyIdentification129Choice_ Identification { get; init; } 
     /// <summary>
     /// Address for the Universal Resource Locator (URL), for example, used over the www (HTTP) service.
     /// </summary>

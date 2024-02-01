@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError6Cho
 /// <summary>
 /// Requested information on the value of the position for collateral purposes.
 /// </summary>
-public partial record CollateralValue : ICollateralValueReportOrError6Choice
+public partial record CollateralValue : CollateralValueReportOrError6Choice_
 {
     #nullable enable
     /// <summary>

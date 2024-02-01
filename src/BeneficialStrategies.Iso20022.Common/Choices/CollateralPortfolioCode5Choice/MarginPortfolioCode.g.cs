@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralPortfolioCode5Choice;
 /// <summary>
 /// Specifies the unique code assigned by the reporting counterparty to the margin portfolio if the collateral is posted on a margin portfolio basis.
 /// </summary>
-public partial record MarginPortfolioCode : ICollateralPortfolioCode5Choice
+public partial record MarginPortfolioCode : CollateralPortfolioCode5Choice_
 {
     #nullable enable
     /// <summary>
@@ -20,12 +20,12 @@ public partial record MarginPortfolioCode : ICollateralPortfolioCode5Choice
     /// Usage:
     /// NoCode is reported if the collateralisation was performed on a transaction level basis, or if there is no collateral agreement or if no collateral is posted or received.
     /// </summary>
-    public required IPortfolioCode5Choice InitialMarginPortfolioCode { get; init; } 
+    public required PortfolioCode5Choice_ InitialMarginPortfolioCode { get; init; } 
     /// <summary>
     /// Specifies the unique code assigned by the reporting counterparty to the portfolio if the collateral is posted on a portfolio basis.
     /// Usage:
     /// NoCode is reported if the collateralisation was performed on a transaction level basis, or if there is no collateral agreement or if no collateral is posted or received.
     /// </summary>
-    public IPortfolioCode5Choice? VariationMarginPortfolioCode { get; init; } 
+    public PortfolioCode5Choice_? VariationMarginPortfolioCode { get; init; } 
     #nullable disable
 }

@@ -36,15 +36,15 @@ public partial record LineItemDetails14
     /// <summary>
     /// Identifies the product of the corresponding line item.
     /// </summary>
-    public IProductIdentifier2Choice? ProductIdentifier { get; init;  } // Warning: Don't know multiplicity.
+    public ProductIdentifier2Choice_[] ProductIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the characteristics of product.
     /// </summary>
-    public IProductCharacteristics1Choice? ProductCharacteristics { get; init;  } // Warning: Don't know multiplicity.
+    public ProductCharacteristics1Choice_[] ProductCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the category of product.
     /// </summary>
-    public IProductCategory1Choice? ProductCategory { get; init;  } // Warning: Don't know multiplicity.
+    public ProductCategory1Choice_[] ProductCategory { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Country of origin of the goods.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record LineItemDetails14
     /// <summary>
     /// Variance on price for the goods.
     /// </summary>
-    public Adjustment6? Adjustment { get; init;  } // Warning: Don't know multiplicity.
+    public Adjustment6[] Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Charges related to the conveyance of goods.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record LineItemDetails14
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters linked to the value of the goods in a trade transaction.
     /// </summary>
-    public Tax22? Tax { get; init;  } // Warning: Don't know multiplicity.
+    public Tax22[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total amount of the line item after adjustments have been applied.
     /// </summary>

@@ -20,15 +20,15 @@ public partial record CollateralResponse3
     /// <summary>
     /// Provides details on the securities collateral proposal.
     /// </summary>
-    public SecuritiesCollateralResponse2? SecuritiesCollateralResponse { get; init;  } // Warning: Don't know multiplicity.
+    public SecuritiesCollateralResponse2[] SecuritiesCollateralResponse { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides details on the cash collateral proposal.
     /// </summary>
-    public CashCollateralResponse3? CashCollateralResponse { get; init;  } // Warning: Don't know multiplicity.
+    public CashCollateralResponse3[] CashCollateralResponse { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides details on other collateral proposal.
     /// </summary>
-    public OtherCollateralResponse3? OtherCollateralResponse { get; init;  } // Warning: Don't know multiplicity.
+    public OtherCollateralResponse3[] OtherCollateralResponse { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

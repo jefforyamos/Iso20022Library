@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralAccountIdentificationT
 /// <summary>
 /// Indicates the type of collateral account expressed as a code.
 /// </summary>
-public partial record Type : ICollateralAccountIdentificationType3Choice
+public partial record Type : CollateralAccountIdentificationType3Choice_
 {
     public required CollateralAccountType1Code Value { get; init; }
 }

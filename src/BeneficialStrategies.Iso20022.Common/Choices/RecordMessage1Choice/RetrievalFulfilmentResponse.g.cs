@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RecordMessage1Choice;
 /// <summary>
 /// Retrieval fulfilment response message record.
 /// </summary>
-public partial record RetrievalFulfilmentResponse : IRecordMessage1Choice
+public partial record RetrievalFulfilmentResponse : RecordMessage1Choice_
 {
     public required IsoMax2MBBinary Value { get; init; }
 }

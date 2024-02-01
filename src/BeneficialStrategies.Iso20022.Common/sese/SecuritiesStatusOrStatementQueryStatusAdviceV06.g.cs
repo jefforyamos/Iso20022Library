@@ -93,7 +93,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV06 : IOuterRe
     [Description(@"Details of the request.")]
     [DataMember(Name="StsOrStmtReqd")]
     [XmlElement(ElementName="StsOrStmtReqd")]
-    public IStatusOrStatement11Choice? StatusOrStatementRequested { get; init; }
+    public StatusOrStatement11Choice_? StatusOrStatementRequested { get; init; }
     
     /// <summary>
     /// Provides details on the processing status of the request.
@@ -103,7 +103,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV06 : IOuterRe
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required IProcessingStatus89Choice ProcessingStatus { get; init; }
+    public required ProcessingStatus89Choice_ ProcessingStatus { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

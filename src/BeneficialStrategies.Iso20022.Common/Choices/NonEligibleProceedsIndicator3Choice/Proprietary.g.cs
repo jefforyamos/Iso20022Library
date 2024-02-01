@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NonEligibleProceedsIndicator3Cho
 /// <summary>
 /// Proprietary identification to specify information regarding the non eligibility of the outturn resources.
 /// </summary>
-public partial record Proprietary : INonEligibleProceedsIndicator3Choice
+public partial record Proprietary : NonEligibleProceedsIndicator3Choice_
 {
     #nullable enable
     /// <summary>

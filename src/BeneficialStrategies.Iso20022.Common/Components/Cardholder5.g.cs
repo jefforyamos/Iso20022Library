@@ -40,7 +40,7 @@ public partial record Cardholder5
     /// <summary>
     /// Data related to the authentication of the cardholder.
     /// </summary>
-    public CardholderAuthentication5? Authentication { get; init;  } // Warning: Don't know multiplicity.
+    public CardholderAuthentication5[] Authentication { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Numeric characters of the cardholder's address for verification.
     /// </summary>

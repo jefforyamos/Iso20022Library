@@ -24,7 +24,7 @@ public partial record BusinessDayQuery2
     /// <summary>
     /// Defines the business day information query criteria.
     /// </summary>
-    public IBusinessDayCriteria3Choice? Criteria { get; init; } 
+    public BusinessDayCriteria3Choice_? Criteria { get; init; } 
     
     #nullable disable
 }

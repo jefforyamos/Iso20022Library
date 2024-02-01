@@ -37,7 +37,7 @@ public partial record CorporateAction6SD1
     /// Total number of new shares to be issued.
     /// 発行新株式数.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? TotalNumberOfNewSharesIssued { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? TotalNumberOfNewSharesIssued { get; init; } 
     
     #nullable disable
 }

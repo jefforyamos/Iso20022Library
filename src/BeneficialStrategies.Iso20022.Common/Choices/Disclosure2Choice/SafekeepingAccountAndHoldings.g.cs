@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Disclosure2Choice;
 /// <summary>
 /// Details of the account, account sub-levels and holdings.
 /// </summary>
-public partial record SafekeepingAccountAndHoldings : IDisclosure2Choice
+public partial record SafekeepingAccountAndHoldings : Disclosure2Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,19 +22,19 @@ public partial record SafekeepingAccountAndHoldings : IDisclosure2Choice
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is, manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    public required IPartyIdentification195Choice AccountServicer { get; init; } 
+    public required PartyIdentification195Choice_ AccountServicer { get; init; } 
     /// <summary>
     /// Number of shares held by the responding intermediary on its own account.
     /// </summary>
-    public required IFinancialInstrumentQuantity18Choice ShareholdingBalanceOnOwnAccount { get; init; } 
+    public required FinancialInstrumentQuantity18Choice_ ShareholdingBalanceOnOwnAccount { get; init; } 
     /// <summary>
     /// Number of shares held by the responding intermediary on account of someone else.
     /// </summary>
-    public required IFinancialInstrumentQuantity18Choice ShareholdingBalanceOnClientAccount { get; init; } 
+    public required FinancialInstrumentQuantity18Choice_ ShareholdingBalanceOnClientAccount { get; init; } 
     /// <summary>
     /// Total number of shares held by the responding intermediary.
     /// </summary>
-    public required IFinancialInstrumentQuantity18Choice TotalShareholdingBalance { get; init; } 
+    public required FinancialInstrumentQuantity18Choice_ TotalShareholdingBalance { get; init; } 
     /// <summary>
     /// Shareholdings information at account sub level.
     /// </summary>

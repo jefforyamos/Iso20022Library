@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UniqueTransactionIdentifier1Choi
 /// <summary>
 /// Frequency expressed in a proprietary notation.
 /// </summary>
-public partial record Proprietary : IUniqueTransactionIdentifier1Choice
+public partial record Proprietary : UniqueTransactionIdentifier1Choice_
 {
     #nullable enable
     /// <summary>

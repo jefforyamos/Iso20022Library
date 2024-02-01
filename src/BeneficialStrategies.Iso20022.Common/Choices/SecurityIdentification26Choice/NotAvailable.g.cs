@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification26Choice;
 /// <summary>
 /// Default value, when not identification is available.
 /// </summary>
-public partial record NotAvailable : ISecurityIdentification26Choice
+public partial record NotAvailable : SecurityIdentification26Choice_
 {
     public required NotAvailable1Code Value { get; init; }
 }

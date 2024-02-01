@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentProductType1C
 /// <summary>
 /// Identifies the FI product type using a code.
 /// </summary>
-public partial record Code : IFinancialInstrumentProductType1Choice
+public partial record Code : FinancialInstrumentProductType1Choice_
 {
     public required ProductType1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestmentFundTransactionOutType
 /// <summary>
 /// Transaction type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IInvestmentFundTransactionOutType1Choice
+public partial record Proprietary : InvestmentFundTransactionOutType1Choice_
 {
     #nullable enable
     /// <summary>

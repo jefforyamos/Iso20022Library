@@ -24,7 +24,7 @@ public partial record AccountBalanceSD10
     /// <summary>
     /// Position that is concerned in transaction.
     /// </summary>
-    public IAdjustedBalanceTypeSD4Choice? TransactionPosition { get; init; } 
+    public AdjustedBalanceTypeSD4Choice_? TransactionPosition { get; init; } 
     /// <summary>
     /// Transaction contra participant identification for stock loans, repurchase agreements (REPOs).
     /// </summary>

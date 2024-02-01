@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessedStatus5FormatChoice;
 /// <summary>
 /// Standard code to specify the processing status of a request.
 /// </summary>
-public partial record Code : IProcessedStatus5FormatChoice
+public partial record Code : ProcessedStatus5FormatChoice_
 {
     public required ProcessedStatus5Code Value { get; init; }
 }

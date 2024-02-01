@@ -44,7 +44,7 @@ public partial record CorporateActionMovementCashMovementDetailsSD2
     /// <summary>
     /// Date/Time on which the posting / draft of cash is scheduled to take place for a transaction.
     /// </summary>
-    public IDateFormat28Choice? EarliestPaymentDate { get; init; } 
+    public DateFormat28Choice_? EarliestPaymentDate { get; init; } 
     /// <summary>
     /// Set of the DTC legacy sub reason codes representing tax rate. Used with reason codes ‘TJXD’ ‘TJXF’ ‘TJXI’ ‘TJXL’ ‘TJXR’ ‘TJXT’ ‘TJXU’ to identify the correct tax rate.
     /// </summary>

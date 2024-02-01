@@ -24,7 +24,7 @@ public partial record SecurityParameters5
     /// <summary>
     /// Cryptographic key used to store in the ATM.
     /// </summary>
-    public CryptographicKey8? Key { get; init;  } // Warning: Don't know multiplicity.
+    public CryptographicKey8[] Key { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Digital signature of implicit data depending on the security scheme download procedure.
     /// </summary>

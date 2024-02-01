@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus17Choice;
 /// <summary>
 /// Trade is in no instruction.
 /// </summary>
-public partial record NoInstruction : IProcessingStatus17Choice
+public partial record NoInstruction : ProcessingStatus17Choice_
 {
     #nullable enable
     /// <summary>

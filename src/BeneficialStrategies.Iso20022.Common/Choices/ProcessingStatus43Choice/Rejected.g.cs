@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus43Choice;
 /// <summary>
 /// Status of the standing settlement instruction, cancellation or deletion is rejected.
 /// </summary>
-public partial record Rejected : IProcessingStatus43Choice
+public partial record Rejected : ProcessingStatus43Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the rejected status.
     /// </summary>
-    public required IRejectedReason8Choice Reason { get; init; } 
+    public required RejectedReason8Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the processed instruction.
     /// </summary>

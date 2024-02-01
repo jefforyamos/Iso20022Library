@@ -28,11 +28,11 @@ public partial record StoredValueResponse5
     /// <summary>
     /// Result of loading/reloading a stored value card.
     /// </summary>
-    public StoredValueData5? Result { get; init;  } // Warning: Don't know multiplicity.
+    public StoredValueData5[] Result { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Customer or Merchant payment receipt.
     /// </summary>
-    public PaymentReceipt4? Receipt { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentReceipt4[] Receipt { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

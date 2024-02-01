@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LotteryTypeFormat1Choice;
 /// <summary>
 /// Standard code to specify the type of lottery announced.
 /// </summary>
-public partial record Code : ILotteryTypeFormat1Choice
+public partial record Code : LotteryTypeFormat1Choice_
 {
     public required LotteryType1Code Value { get; init; }
 }

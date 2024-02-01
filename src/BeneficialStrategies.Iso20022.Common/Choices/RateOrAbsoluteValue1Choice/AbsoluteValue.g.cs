@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateOrAbsoluteValue1Choice;
 /// <summary>
 /// Absolute value determined with a number.
 /// </summary>
-public partial record AbsoluteValue : IRateOrAbsoluteValue1Choice
+public partial record AbsoluteValue : RateOrAbsoluteValue1Choice_
 {
     public required IsoNumber Value { get; init; }
 }

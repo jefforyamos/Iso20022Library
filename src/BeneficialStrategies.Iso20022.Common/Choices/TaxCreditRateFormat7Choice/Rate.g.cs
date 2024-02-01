@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxCreditRateFormat7Choice;
 /// <summary>
 /// Value expressed as a rate.
 /// </summary>
-public partial record Rate : ITaxCreditRateFormat7Choice
+public partial record Rate : TaxCreditRateFormat7Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

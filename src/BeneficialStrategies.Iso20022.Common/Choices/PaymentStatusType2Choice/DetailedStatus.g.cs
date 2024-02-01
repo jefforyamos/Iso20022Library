@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusType2Choice;
 /// <summary>
 /// Contains the detailed status of the payment.
 /// </summary>
-public partial record DetailedStatus : IPaymentStatusType2Choice
+public partial record DetailedStatus : PaymentStatusType2Choice_
 {
     #nullable enable
     /// <summary>

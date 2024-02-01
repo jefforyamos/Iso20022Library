@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventReference3Ch
 /// <summary>
 /// Official and unique reference assigned by the official central body/ entity within each market at the beginning of a corporate action event.
 /// </summary>
-public partial record LinkedOfficialCorporateActionEventIdentification : ICorporateActionEventReference3Choice
+public partial record LinkedOfficialCorporateActionEventIdentification : CorporateActionEventReference3Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

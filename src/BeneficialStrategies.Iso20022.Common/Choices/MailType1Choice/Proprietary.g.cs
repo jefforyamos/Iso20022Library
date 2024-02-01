@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MailType1Choice;
 /// <summary>
 /// Mail type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IMailType1Choice
+public partial record Proprietary : MailType1Choice_
 {
     #nullable enable
     /// <summary>

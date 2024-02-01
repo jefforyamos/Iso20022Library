@@ -20,7 +20,7 @@ public partial record PartyIdentification214
     /// <summary>
     /// Identification of the party to which the disclosure response must be sent.
     /// </summary>
-    public required IPartyIdentification203Choice Identification { get; init; } 
+    public required PartyIdentification203Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the party to which the disclosure response must be sent.
     /// </summary>

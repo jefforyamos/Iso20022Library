@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkReport1Choice;
 /// <summary>
 /// Cancellation of a benchmark previously updated.
 /// </summary>
-public partial record Cancellation : IBenchmarkReport1Choice
+public partial record Cancellation : BenchmarkReport1Choice_
 {
     #nullable enable
     /// <summary>

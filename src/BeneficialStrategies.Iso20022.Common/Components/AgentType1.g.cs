@@ -20,7 +20,7 @@ public partial record AgentType1
     /// <summary>
     /// Code allocated to a financial or non-financial institution by the ISO 9362 Registration Authority, as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
     /// </summary>
-    public IsoAnyBICIdentifier? AnyBIC { get; init;  } // Warning: Don't know multiplicity.
+    public IsoAnyBICIdentifier[] AnyBIC { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the role of the party in the payment chain.
     /// </summary>

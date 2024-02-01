@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingPartyCapacity5Choice;
 /// <summary>
 /// Proprietary identification of additional information about the processed instruction.
 /// </summary>
-public partial record Proprietary : ITradingPartyCapacity5Choice
+public partial record Proprietary : TradingPartyCapacity5Choice_
 {
     #nullable enable
     /// <summary>

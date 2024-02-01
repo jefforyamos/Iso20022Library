@@ -87,7 +87,7 @@ public partial record InformationRequestOpeningV01 : IOuterRecord
     [DataMember(Name="InvstgtnPrd")]
     [XmlElement(ElementName="InvstgtnPrd")]
     [Required]
-    public required IDateOrDateTimePeriodChoice InvestigationPeriod { get; init; }
+    public required DateOrDateTimePeriodChoice_ InvestigationPeriod { get; init; }
     
     /// <summary>
     /// Specifies the the search criteria for the financial institution to perform the search on. The search criteria can be an account, a customer identification or a payment instrument type.
@@ -97,7 +97,7 @@ public partial record InformationRequestOpeningV01 : IOuterRecord
     [DataMember(Name="SchCrit")]
     [XmlElement(ElementName="SchCrit")]
     [Required]
-    public required ISearchCriteria1Choice SearchCriteria { get; init; }
+    public required SearchCriteria1Choice_ SearchCriteria { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

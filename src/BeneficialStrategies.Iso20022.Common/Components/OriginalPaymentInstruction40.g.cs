@@ -36,15 +36,15 @@ public partial record OriginalPaymentInstruction40
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    public StatusReasonInformation12? StatusReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public StatusReasonInformation12[] StatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Detailed information on the number of transactions for each identical transaction status.
     /// </summary>
-    public NumberOfTransactionsPerStatus5? NumberOfTransactionsPerStatus { get; init;  } // Warning: Don't know multiplicity.
+    public NumberOfTransactionsPerStatus5[] NumberOfTransactionsPerStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information on the original transactions to which the status report message refers.
     /// </summary>
-    public PaymentTransaction129? TransactionInformationAndStatus { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentTransaction129[] TransactionInformationAndStatus { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

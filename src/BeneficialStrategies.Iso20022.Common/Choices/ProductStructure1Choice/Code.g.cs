@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProductStructure1Choice;
 /// <summary>
 /// Product structure expressed as a code.
 /// </summary>
-public partial record Code : IProductStructure1Choice
+public partial record Code : ProductStructure1Choice_
 {
     public required ProductStructure1Code Value { get; init; }
 }

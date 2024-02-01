@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketClaimProcessingStatus1Choi
 /// <summary>
 /// Provides status information related to an instruction request rejected for further processing due to system reasons.
 /// </summary>
-public partial record Rejected : IMarketClaimProcessingStatus1Choice
+public partial record Rejected : MarketClaimProcessingStatus1Choice_
 {
     #nullable enable
     #nullable disable

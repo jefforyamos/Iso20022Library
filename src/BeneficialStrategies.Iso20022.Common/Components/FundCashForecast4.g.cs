@@ -24,11 +24,11 @@ public partial record FundCashForecast4
     /// <summary>
     /// Date and, if required, the time, at which the price has been applied.
     /// </summary>
-    public required IDateAndDateTimeChoice TradeDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     /// <summary>
     /// Previous date and time at which a price was applied.
     /// </summary>
-    public IDateAndDateTimeChoice? PreviousTradeDateTime { get; init; } 
+    public DateAndDateTimeChoice_? PreviousTradeDateTime { get; init; } 
     /// <summary>
     /// Investment fund class to which the cash flow is related.
     /// </summary>
@@ -56,11 +56,11 @@ public partial record FundCashForecast4
     /// <summary>
     /// Currency of the investment fund class.
     /// </summary>
-    public ActiveOrHistoricCurrencyCode? InvestmentCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public ActiveOrHistoricCurrencyCode[] InvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net cash movements per financial instrument.
     /// </summary>
-    public NetCashForecast2? NetCashForecastDetails { get; init;  } // Warning: Don't know multiplicity.
+    public NetCashForecast2[] NetCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the net cash flow is exceptional.
     /// </summary>
@@ -68,19 +68,19 @@ public partial record FundCashForecast4
     /// <summary>
     /// Cash flow by country.
     /// </summary>
-    public BreakdownByCountry1? BreakdownByCountry { get; init;  } // Warning: Don't know multiplicity.
+    public BreakdownByCountry1[] BreakdownByCountry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash flow by currency.
     /// </summary>
-    public BreakdownByCurrency1? BreakdownByCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public BreakdownByCurrency1[] BreakdownByCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash flow by party.
     /// </summary>
-    public BreakdownByParty1? BreakdownByParty { get; init;  } // Warning: Don't know multiplicity.
+    public BreakdownByParty1[] BreakdownByParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash flow by a user defined parameter/s.
     /// </summary>
-    public BreakdownByUserDefinedParameter1? BreakdownByUserDefinedParameter { get; init;  } // Warning: Don't know multiplicity.
+    public BreakdownByUserDefinedParameter1[] BreakdownByUserDefinedParameter { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

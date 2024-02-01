@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.VerificationValue1Choice;
 /// <summary>
 /// Value of the data expressed in hexadecimal encoded binary form.
 /// </summary>
-public partial record HexadecimalBinaryValue : IVerificationValue1Choice
+public partial record HexadecimalBinaryValue : VerificationValue1Choice_
 {
     public required IsoMax9999HexBinaryText Value { get; init; }
 }

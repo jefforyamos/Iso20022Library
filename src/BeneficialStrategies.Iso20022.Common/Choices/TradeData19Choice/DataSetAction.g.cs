@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData19Choice;
 /// <summary>
 /// Where no active instruments are present on a venue, this field should be set so that a valid instrument reference data file can be submitted to ESMA as per daily submission requirements.
 /// </summary>
-public partial record DataSetAction : ITradeData19Choice
+public partial record DataSetAction : TradeData19Choice_
 {
     public required ReportPeriodActivity1Code Value { get; init; }
 }

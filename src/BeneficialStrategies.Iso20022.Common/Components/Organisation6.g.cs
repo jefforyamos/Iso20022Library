@@ -52,7 +52,7 @@ public partial record Organisation6
     /// <summary>
     /// Person in the customer's organisation who can be contacted by the account servicer.
     /// </summary>
-    public PartyIdentification40? RepresentativeOfficer { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification40[] RepresentativeOfficer { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the person responsible of the treasury department within an organisation.
     /// </summary>
@@ -60,11 +60,11 @@ public partial record Organisation6
     /// <summary>
     /// Is the main mandate holder that will delegate some authority to other individuals (mandate holders) to perform some specific bank operations on the account.
     /// </summary>
-    public PartyIdentification40? MainMandateHolder { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification40[] MainMandateHolder { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Potential sender of a message related to the life cyle of an account.
     /// </summary>
-    public PartyIdentification40? Sender { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification40[] Sender { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

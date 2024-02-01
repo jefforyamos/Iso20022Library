@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityFertilizer4Ch
 /// <summary>
 /// Diammonium phosphate fertilizer commodity derivative.
 /// </summary>
-public partial record DiammoniumPhosphate : IAssetClassCommodityFertilizer4Choice
+public partial record DiammoniumPhosphate : AssetClassCommodityFertilizer4Choice_
 {
     #nullable enable
     /// <summary>

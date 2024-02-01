@@ -28,7 +28,7 @@ public partial record FeeCollectionReference1
     /// <summary>
     /// Identification of the fee collection.
     /// </summary>
-    public FeeCollectionIdentification1? FeeCollectionIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public FeeCollectionIdentification1[] FeeCollectionIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

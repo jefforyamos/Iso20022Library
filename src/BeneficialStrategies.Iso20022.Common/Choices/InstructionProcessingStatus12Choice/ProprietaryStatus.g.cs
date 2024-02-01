@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus12Cho
 /// <summary>
 /// Proprietary status related to an instruction.
 /// </summary>
-public partial record ProprietaryStatus : IInstructionProcessingStatus12Choice
+public partial record ProprietaryStatus : InstructionProcessingStatus12Choice_
 {
     #nullable enable
     /// <summary>

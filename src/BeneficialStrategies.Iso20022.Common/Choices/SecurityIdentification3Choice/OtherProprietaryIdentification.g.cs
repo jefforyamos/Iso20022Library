@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification3Choice;
 /// <summary>
 /// Proprietary identification of a security assigned by an institution or organisation.
 /// </summary>
-public partial record OtherProprietaryIdentification : ISecurityIdentification3Choice
+public partial record OtherProprietaryIdentification : SecurityIdentification3Choice_
 {
     #nullable enable
     /// <summary>

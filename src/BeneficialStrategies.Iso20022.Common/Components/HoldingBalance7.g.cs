@@ -20,7 +20,7 @@ public partial record HoldingBalance7
     /// <summary>
     /// Total quantity of financial instrument for the referenced holding.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? Balance { get; init; } 
+    public UnitOrFaceAmount1Choice_? Balance { get; init; } 
     /// <summary>
     /// Reason a security is not available or additional information about the financial instrument for which the balance is given, for example, unregistered, registered in nominee name.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record HoldingBalance7
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public ISafekeepingPlaceFormat2Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat2Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Date of the entitlement.
     /// </summary>

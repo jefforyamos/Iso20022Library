@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AcknowledgementDetails1Choice;
 /// <summary>
 /// Reference to the pay in call that is being acknowledged.
 /// </summary>
-public partial record PayInCallReference : IAcknowledgementDetails1Choice
+public partial record PayInCallReference : AcknowledgementDetails1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

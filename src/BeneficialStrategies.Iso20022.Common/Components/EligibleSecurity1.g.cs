@@ -28,7 +28,7 @@ public partial record EligibleSecurity1
     /// <summary>
     /// Identifies the party for which the eligible security is defined.
     /// </summary>
-    public required INCBOrPaymentBank1Choice PartyIdentification { get; init; } 
+    public required NCBOrPaymentBank1Choice_ PartyIdentification { get; init; } 
     
     #nullable disable
 }

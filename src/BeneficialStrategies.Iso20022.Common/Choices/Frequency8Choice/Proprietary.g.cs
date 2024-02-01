@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Frequency8Choice;
 /// <summary>
 /// Frequency expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IFrequency8Choice
+public partial record Proprietary : Frequency8Choice_
 {
     #nullable enable
     /// <summary>

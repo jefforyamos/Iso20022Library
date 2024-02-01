@@ -77,7 +77,7 @@ public partial record SecuritiesTransactionCancellationRequestStatusAdvice002V05
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required IProcessingStatus65Choice ProcessingStatus { get; init; }
+    public required ProcessingStatus65Choice_ ProcessingStatus { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.

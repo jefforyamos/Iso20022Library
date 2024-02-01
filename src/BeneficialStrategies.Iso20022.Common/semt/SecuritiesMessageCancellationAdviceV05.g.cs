@@ -67,7 +67,7 @@ public partial record SecuritiesMessageCancellationAdviceV05 : IOuterRecord
     [DataMember(Name="Ref")]
     [XmlElement(ElementName="Ref")]
     [Required]
-    public required IReferences43Choice Reference { get; init; }
+    public required References43Choice_ Reference { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.

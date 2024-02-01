@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References36Choice;
 /// <summary>
 /// Identification of the transaction as assigned by the processor.
 /// </summary>
-public partial record ProcessorTransactionIdentification : IReferences36Choice
+public partial record ProcessorTransactionIdentification : References36Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

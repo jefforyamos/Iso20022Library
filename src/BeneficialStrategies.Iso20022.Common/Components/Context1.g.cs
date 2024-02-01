@@ -28,11 +28,11 @@ public partial record Context1
     /// <summary>
     /// Contain validation result and/or data to be validated.
     /// </summary>
-    public Verification1? Verification { get; init;  } // Warning: Don't know multiplicity.
+    public Verification1[] Verification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Context of risk associated with the transaction.
     /// </summary>
-    public RiskContext1? RiskContext { get; init;  } // Warning: Don't know multiplicity.
+    public RiskContext1[] RiskContext { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Context of the sale associated with the card payment transaction.
     /// </summary>

@@ -56,7 +56,7 @@ public partial record DerivativesTradeReportV02 : IOuterRecord
     [DataMember(Name="TradData")]
     [XmlElement(ElementName="TradData")]
     [Required]
-    public required ITradeData19Choice TradeData { get; init; }
+    public required TradeData19Choice_ TradeData { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.

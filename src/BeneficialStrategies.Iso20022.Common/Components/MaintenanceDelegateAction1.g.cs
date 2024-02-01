@@ -44,11 +44,11 @@ public partial record MaintenanceDelegateAction1
     /// <summary>
     /// Additional information to include in the maintenance action.
     /// </summary>
-    public IsoMax3000Binary? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax3000Binary[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Sequence of action to include in the next MTM management plan.
     /// </summary>
-    public TMSAction4? Action { get; init;  } // Warning: Don't know multiplicity.
+    public TMSAction4[] Action { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

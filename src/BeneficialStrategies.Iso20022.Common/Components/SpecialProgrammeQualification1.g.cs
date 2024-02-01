@@ -24,7 +24,7 @@ public partial record SpecialProgrammeQualification1
     /// <summary>
     /// Name and value associated with a special programme.
     /// </summary>
-    public SpecialProgrammeDetails1? Detail { get; init;  } // Warning: Don't know multiplicity.
+    public SpecialProgrammeDetails1[] Detail { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

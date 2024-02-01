@@ -20,11 +20,11 @@ public partial record PensionOrder1
     /// <summary>
     /// Order attached to the pension policy, plan or scheme.
     /// </summary>
-    public required IPensionOrderType1Choice Type { get; init; } 
+    public required PensionOrderType1Choice_ Type { get; init; } 
     /// <summary>
     /// Additional information about the pension order.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

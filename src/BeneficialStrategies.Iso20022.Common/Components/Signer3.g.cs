@@ -24,7 +24,7 @@ public partial record Signer3
     /// <summary>
     /// Identification of the entity who has signed the data.
     /// </summary>
-    public IRecipient5Choice? SignerIdentification { get; init; } 
+    public Recipient5Choice_? SignerIdentification { get; init; } 
     /// <summary>
     /// Identification of a digest algorithm to apply before signature.
     /// </summary>

@@ -32,7 +32,7 @@ public partial record Record2
     /// <summary>
     /// Message to be sent in a batch transfer as a record.
     /// </summary>
-    public required IRecordMessage1Choice RecordMessage { get; init; } 
+    public required RecordMessage1Choice_ RecordMessage { get; init; } 
     
     #nullable disable
 }

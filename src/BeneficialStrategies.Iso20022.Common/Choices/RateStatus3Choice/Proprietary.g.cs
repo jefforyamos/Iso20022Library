@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateStatus3Choice;
 /// <summary>
 /// Proprietary identification of the status of the rate.
 /// </summary>
-public partial record Proprietary : IRateStatus3Choice
+public partial record Proprietary : RateStatus3Choice_
 {
     #nullable enable
     /// <summary>

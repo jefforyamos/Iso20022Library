@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Restriction3Choice;
 /// <summary>
 /// Restrictions expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IRestriction3Choice
+public partial record Code : Restriction3Choice_
 {
     public required OwnershipLegalRestrictions1Code Value { get; init; }
 }

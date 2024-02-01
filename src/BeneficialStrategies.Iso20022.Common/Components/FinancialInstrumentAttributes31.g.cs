@@ -20,7 +20,7 @@ public partial record FinancialInstrumentAttributes31
     /// <summary>
     /// Market(s) on which the security is listed.
     /// </summary>
-    public IMarketIdentification3Choice? PlaceOfListing { get; init; } 
+    public MarketIdentification3Choice_? PlaceOfListing { get; init; } 
     /// <summary>
     /// Assessment of securities credit and investment risk.
     /// </summary>
@@ -32,31 +32,31 @@ public partial record FinancialInstrumentAttributes31
     /// <summary>
     /// Specifies the computation method of (accrued) interest of the security.
     /// </summary>
-    public IInterestComputationMethodFormat3Choice? DayCountBasis { get; init; } 
+    public InterestComputationMethodFormat3Choice_? DayCountBasis { get; init; } 
     /// <summary>
     /// Specifies the form, ie, ownership, of the security.
     /// </summary>
-    public IFormOfSecurity4Choice? RegistrationForm { get; init; } 
+    public FormOfSecurity4Choice_? RegistrationForm { get; init; } 
     /// <summary>
     /// Specifies the frequency of an interest payment.
     /// </summary>
-    public IFrequency7Choice? PaymentFrequency { get; init; } 
+    public Frequency7Choice_? PaymentFrequency { get; init; } 
     /// <summary>
     /// Specifies the frequency of change to the variable rate of an interest bearing instrument.
     /// </summary>
-    public IFrequency7Choice? VariableRateChangeFrequency { get; init; } 
+    public Frequency7Choice_? VariableRateChangeFrequency { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, for example, common share with voting rights, fully paid, or registered.
     /// </summary>
-    public IClassificationType30Choice? ClassificationType { get; init; } 
+    public ClassificationType30Choice_? ClassificationType { get; init; } 
     /// <summary>
     /// Specifies how an option can be exercised (American, European, Bermudan).
     /// </summary>
-    public IOptionStyle6Choice? OptionStyle { get; init; } 
+    public OptionStyle6Choice_? OptionStyle { get; init; } 
     /// <summary>
     /// Specifies whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).
     /// </summary>
-    public IOptionType4Choice? OptionType { get; init; } 
+    public OptionType4Choice_? OptionType { get; init; } 
     /// <summary>
     /// Currency in which a security is issued or redenominated.
     /// </summary>
@@ -140,7 +140,7 @@ public partial record FinancialInstrumentAttributes31
     /// <summary>
     /// Number of the coupon attached to the physical security.
     /// </summary>
-    public INumber1Choice? CouponAttachedNumber { get; init; } 
+    public Number1Choice_? CouponAttachedNumber { get; init; } 
     /// <summary>
     /// Number identifying a group of underlying assets assigned by the issuer of a factored security.
     /// </summary>
@@ -148,7 +148,7 @@ public partial record FinancialInstrumentAttributes31
     /// <summary>
     /// Number allocated by options exchanges to record that an option has undergone a change in its contract specifications (particularly adjustment of the strike price).
     /// </summary>
-    public INumber1Choice? VersionNumber { get; init; } 
+    public Number1Choice_? VersionNumber { get; init; } 
     /// <summary>
     /// Indicates whether the interest bearing security is convertible into another type of security.
     /// </summary>
@@ -204,15 +204,15 @@ public partial record FinancialInstrumentAttributes31
     /// <summary>
     /// Indicates the minimum tradable quantity of a security.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? MinimumNominalQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? MinimumNominalQuantity { get; init; } 
     /// <summary>
     /// Minimum quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? MinimumExercisableQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; init; } 
     /// <summary>
     /// Minimum multiple quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? MinimumExercisableMultipleQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableMultipleQuantity { get; init; } 
     /// <summary>
     /// Signed face amount and amortised value of security.
     /// </summary>
@@ -220,7 +220,7 @@ public partial record FinancialInstrumentAttributes31
     /// <summary>
     /// Ratio or multiplying factor used to convert one contract into a quantity.
     /// </summary>
-    public IFinancialInstrumentQuantity18Choice? ContractSize { get; init; } 
+    public FinancialInstrumentQuantity18Choice_? ContractSize { get; init; } 
     /// <summary>
     /// Provides additional information about the financial instrument in narrative form.
     /// </summary>

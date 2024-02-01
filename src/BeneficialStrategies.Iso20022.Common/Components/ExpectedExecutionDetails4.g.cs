@@ -20,7 +20,7 @@ public partial record ExpectedExecutionDetails4
     /// <summary>
     /// Expected date or expected date and time at which a price will be applied according to the terms of the prospectus.
     /// </summary>
-    public IDateAndDateTimeChoice? ExpectedTradeDateTime { get; init; } 
+    public DateAndDateTimeChoice_? ExpectedTradeDateTime { get; init; } 
     /// <summary>
     /// Date of a payment, for example, a prepayment date.
     /// </summary>

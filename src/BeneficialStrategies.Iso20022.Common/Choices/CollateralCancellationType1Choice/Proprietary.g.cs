@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralCancellationType1Choic
 /// <summary>
 /// Provides the cancellation reason using a proprietary code.
 /// </summary>
-public partial record Proprietary : ICollateralCancellationType1Choice
+public partial record Proprietary : CollateralCancellationType1Choice_
 {
     #nullable enable
     /// <summary>

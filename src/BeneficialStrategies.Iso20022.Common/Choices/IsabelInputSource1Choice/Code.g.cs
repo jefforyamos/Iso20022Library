@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IsabelInputSource1Choice;
 /// <summary>
 /// Input source for the generation of the file, in a coded form.
 /// </summary>
-public partial record Code : IIsabelInputSource1Choice
+public partial record Code : IsabelInputSource1Choice_
 {
     public required InputSource1Code Value { get; init; }
 }

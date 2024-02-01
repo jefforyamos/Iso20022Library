@@ -28,7 +28,7 @@ public partial record OpeningConditions1
     /// <summary>
     /// Specifies the rate source associated with the non deliverable trade.
     /// </summary>
-    public IReadOnlyCollection<SettlementRateSource1> SettlementRateSource { get; init; } = [];
+    public SettlementRateSource1[] SettlementRateSource { get; init; } = [];
     
     #nullable disable
 }

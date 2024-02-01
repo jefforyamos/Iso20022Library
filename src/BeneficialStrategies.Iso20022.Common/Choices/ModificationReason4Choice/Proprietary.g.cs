@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModificationReason4Choice;
 /// <summary>
 /// Specifies the reason why the related instruction is modified, or the related modification request is executed.
 /// </summary>
-public partial record Proprietary : IModificationReason4Choice
+public partial record Proprietary : ModificationReason4Choice_
 {
     #nullable enable
     /// <summary>

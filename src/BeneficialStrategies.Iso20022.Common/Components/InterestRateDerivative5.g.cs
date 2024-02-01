@@ -20,7 +20,7 @@ public partial record InterestRateDerivative5
     /// <summary>
     /// Specific details on the underlying type of the interest rate derivative.
     /// </summary>
-    public required IInterestRateDerivative2Choice UnderlyingType { get; init; } 
+    public required InterestRateDerivative2Choice_ UnderlyingType { get; init; } 
     /// <summary>
     /// Populated when the underlying type is a bond or a bond future. Details the issuer and maturity date of the bond.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record InterestRateDerivative5
     /// <summary>
     /// Populated to define the inflation index.
     /// </summary>
-    public IInflationIndex1Choice? InflationIndex { get; init; } 
+    public InflationIndex1Choice_? InflationIndex { get; init; } 
     /// <summary>
     /// Provides the interest rate against a reference rate and term in number of days, weeks, months or years.
     /// </summary>

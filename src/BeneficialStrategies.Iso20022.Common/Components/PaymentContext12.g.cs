@@ -61,7 +61,7 @@ public partial record PaymentContext12
     /// <summary>
     /// Payment options the card acceptor can support.
     /// </summary>
-    public SupportedPaymentOption1Code? SupportedOption { get; init;  } // Warning: Don't know multiplicity.
+    public SupportedPaymentOption1Code[] SupportedOption { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

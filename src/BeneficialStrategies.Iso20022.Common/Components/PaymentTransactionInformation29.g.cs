@@ -68,7 +68,7 @@ public partial record PaymentTransactionInformation29
     /// <summary>
     /// Provides information on the charges to be paid by the charge bearer(s) related to the processing of the reversal transaction.
     /// </summary>
-    public ChargesInformation5? ChargesInformation { get; init;  } // Warning: Don't know multiplicity.
+    public ChargesInformation5[] ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Agent that instructs the next party in the chain to carry out the (set of) instruction(s).||Usage: The instructing agent is the party sending the reversal message and not the party that sent the original instruction that is being reversed.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record PaymentTransactionInformation29
     /// <summary>
     /// Set of elements used to provide detailed information on the reversal reason.
     /// </summary>
-    public ReversalReasonInformation6? ReversalReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public ReversalReasonInformation6[] ReversalReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of key elements used to identify the original transaction that is being referred to.
     /// </summary>

@@ -93,15 +93,15 @@ public partial record CreditTransferTransaction9
     /// <summary>
     /// Further information related to the processing of the payment instruction, provided by the initiating party, and intended for the creditor agent.
     /// </summary>
-    public InstructionForCreditorAgent2? InstructionForCreditorAgent { get; init;  } // Warning: Don't know multiplicity.
+    public InstructionForCreditorAgent2[] InstructionForCreditorAgent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information on the individual debit transaction(s) included in the message.
     /// </summary>
-    public DirectDebitTransactionInformation15? DirectDebitTransactionInformation { get; init;  } // Warning: Don't know multiplicity.
+    public DirectDebitTransactionInformation15[] DirectDebitTransactionInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

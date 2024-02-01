@@ -111,7 +111,7 @@ public partial record InitialBaselineSubmissionV05 : IOuterRecord
     [DataMember(Name="BkCtctPrsn")]
     [XmlElement(ElementName="BkCtctPrsn")]
     [Required]
-    public required IBankContactPerson1Choice BankContactPerson { get; init; }
+    public required BankContactPerson1Choice_ BankContactPerson { get; init; }
     
     /// <summary>
     /// Person to be contacted in another bank than seller or buyer's bank.

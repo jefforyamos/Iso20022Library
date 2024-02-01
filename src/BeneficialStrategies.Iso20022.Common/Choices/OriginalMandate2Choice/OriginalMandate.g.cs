@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalMandate2Choice;
 /// <summary>
 /// Provides the original mandate data.
 /// </summary>
-public partial record OriginalMandate : IOriginalMandate2Choice
+public partial record OriginalMandate : OriginalMandate2Choice_
 {
     #nullable enable
     /// <summary>

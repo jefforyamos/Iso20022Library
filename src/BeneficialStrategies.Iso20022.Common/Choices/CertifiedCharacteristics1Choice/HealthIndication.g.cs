@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CertifiedCharacteristics1Choice;
 /// <summary>
 /// Indicates if the goods have passed the health check.
 /// </summary>
-public partial record HealthIndication : ICertifiedCharacteristics1Choice
+public partial record HealthIndication : CertifiedCharacteristics1Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

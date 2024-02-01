@@ -20,11 +20,11 @@ public partial record FATCAStatus1
     /// <summary>
     /// Foreign Account Tax Compliance Act (FATCA) status.
     /// </summary>
-    public required IFATCAStatus1Choice Type { get; init; } 
+    public required FATCAStatus1Choice_ Type { get; init; } 
     /// <summary>
     /// Source of the Foreign Account Tax Compliance Act (FATCA) status.
     /// </summary>
-    public IFATCASource1Choice? Source { get; init; } 
+    public FATCASource1Choice_? Source { get; init; } 
     
     #nullable disable
 }

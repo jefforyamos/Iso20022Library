@@ -24,7 +24,7 @@ public partial record CurrencyQuery1
     /// <summary>
     ///  Defines of the currency query criteria.
     /// </summary>
-    public ICurrencyCriteria1Choice? CurrencyCriteria { get; init; } 
+    public CurrencyCriteria1Choice_? CurrencyCriteria { get; init; } 
     
     #nullable disable
 }

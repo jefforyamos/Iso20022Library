@@ -20,11 +20,11 @@ public partial record SecuritiesTradeDetails103
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    public IDateAndDateTime2Choice? TradeDate { get; init; } 
+    public DateAndDateTime2Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public required IDateAndDateTime2Choice OpeningSettlementDate { get; init; } 
+    public required DateAndDateTime2Choice_ OpeningSettlementDate { get; init; } 
     /// <summary>
     /// Number of days on which the interest rate accrues (daily accrual note).
     /// </summary>

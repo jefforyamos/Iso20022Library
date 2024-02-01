@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxableIncomePerShareCalculatedT
 /// <summary>
 /// Specifies whether the fund calculates a taxable interest per share (TIS).
 /// </summary>
-public partial record Proprietary : ITaxableIncomePerShareCalculatedType1Choice
+public partial record Proprietary : TaxableIncomePerShareCalculatedType1Choice_
 {
     #nullable enable
     /// <summary>

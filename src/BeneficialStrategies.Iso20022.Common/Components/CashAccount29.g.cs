@@ -20,11 +20,11 @@ public partial record CashAccount29
     /// <summary>
     /// Unique and unambiguous identification of the account between the account owner and the account servicer.
     /// </summary>
-    public required ICashAccountIdentification1Choice Identification { get; init; } 
+    public required CashAccountIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Institution that maintains the records where the account is held.
     /// </summary>
-    public IFinancialInstitutionIdentification3Choice? AccountServicer { get; init; } 
+    public FinancialInstitutionIdentification3Choice_? AccountServicer { get; init; } 
     
     #nullable disable
 }

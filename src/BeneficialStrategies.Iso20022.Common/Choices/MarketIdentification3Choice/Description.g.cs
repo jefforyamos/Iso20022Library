@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketIdentification3Choice;
 /// <summary>
 /// Description of the market when no Market Identifier Code is available.
 /// </summary>
-public partial record Description : IMarketIdentification3Choice
+public partial record Description : MarketIdentification3Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

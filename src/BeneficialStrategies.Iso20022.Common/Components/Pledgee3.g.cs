@@ -20,7 +20,7 @@ public partial record Pledgee3
     /// <summary>
     /// Unique identification of the party.
     /// </summary>
-    public IPledgeeFormat5Choice? PledgeeTypeAndIdentification { get; init; } 
+    public PledgeeFormat5Choice_? PledgeeTypeAndIdentification { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a party.
     /// </summary>

@@ -24,11 +24,11 @@ public partial record TechnicalError1
     /// <summary>
     /// Specifies the error code.
     /// </summary>
-    public required ITechnicalError1Choice ErrorCode { get; init; } 
+    public required TechnicalError1Choice_ ErrorCode { get; init; } 
     /// <summary>
     /// Specification of the error, in free format.
     /// </summary>
-    public IsoMax140Text? Description { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax140Text[] Description { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

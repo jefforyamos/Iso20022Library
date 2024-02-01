@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosureReason2Choice;
 /// <summary>
 /// Reason the system is closed/not operating, in a bilateral agreed code.
 /// </summary>
-public partial record Proprietary : IClosureReason2Choice
+public partial record Proprietary : ClosureReason2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

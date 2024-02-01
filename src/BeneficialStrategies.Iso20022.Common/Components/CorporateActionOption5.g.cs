@@ -20,19 +20,19 @@ public partial record CorporateActionOption5
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    public required IOptionNumber1Choice OptionNumber { get; init; } 
+    public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public required ICorporateActionOption4Choice OptionType { get; init; } 
+    public required CorporateActionOption4Choice_ OptionType { get; init; } 
     /// <summary>
     /// Specifies how fractional amount/quantities are treated.
     /// </summary>
-    public IFractionDispositionType2Choice? FractionDisposition { get; init; } 
+    public FractionDispositionType2Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Type of changes affecting the security form.
     /// </summary>
-    public ICorporateActionChangeTypeFormat2Choice? ChangeType { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionChangeTypeFormat2Choice_[] ChangeType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies that the corporate action instruction is to be processed using the Available-for-Collateral pool.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record CorporateActionOption5
     /// <summary>
     /// Date/time at which the instructing party requests the instruction to be executed.
     /// </summary>
-    public IDateAndDateTimeChoice? ExecutionRequestedDateTime { get; init; } 
+    public DateAndDateTimeChoice_? ExecutionRequestedDateTime { get; init; } 
     /// <summary>
     /// Provides information about rates and amounts related to a corporate action option.
     /// </summary>

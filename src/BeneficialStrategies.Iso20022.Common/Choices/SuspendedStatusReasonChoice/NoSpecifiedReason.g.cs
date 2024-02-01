@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SuspendedStatusReasonChoice;
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoSpecifiedReason : ISuspendedStatusReasonChoice
+public partial record NoSpecifiedReason : SuspendedStatusReasonChoice_
 {
     public required NoReasonCode Value { get; init; }
 }

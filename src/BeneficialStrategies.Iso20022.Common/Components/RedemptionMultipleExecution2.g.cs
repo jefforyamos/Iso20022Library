@@ -40,7 +40,7 @@ public partial record RedemptionMultipleExecution2
     /// <summary>
     /// Execution of a redemption order.
     /// </summary>
-    public RedemptionExecution4? IndividualExecutionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public RedemptionExecution4[] IndividualExecutionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment transaction resulting from the investment fund order execution.
     /// </summary>

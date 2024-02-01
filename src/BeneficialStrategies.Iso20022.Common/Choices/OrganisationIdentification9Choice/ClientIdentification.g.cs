@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrganisationIdentification9Choic
 /// <summary>
 /// Unique and unambiguous client identification of the organisation.
 /// </summary>
-public partial record ClientIdentification : IOrganisationIdentification9Choice
+public partial record ClientIdentification : OrganisationIdentification9Choice_
 {
     public required IsoMax50Text Value { get; init; }
 }

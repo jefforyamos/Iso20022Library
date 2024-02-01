@@ -24,19 +24,19 @@ public partial record ShareholdingBalance1
     /// <summary>
     /// Number of shares of this type of shareholding or with this date of shareholding held by the account owner.
     /// </summary>
-    public required IFinancialInstrumentQuantity18Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity18Choice_ Quantity { get; init; } 
     /// <summary>
     /// Date as from when the shares have been held by the shareholder on its account.
     /// </summary>
-    public IDateFormat57Choice? InitialDateOfShareholding { get; init; } 
+    public DateFormat57Choice_? InitialDateOfShareholding { get; init; } 
     /// <summary>
     /// Third party who is authorised to take specific actions on behalf of the shareholder.
     /// </summary>
-    public PartyIdentification218? ThirdParty { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification218[] ThirdParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

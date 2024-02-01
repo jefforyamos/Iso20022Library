@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceSubType1Choice;
 /// <summary>
 /// Specifies a proprietary code for the balance type.
 /// </summary>
-public partial record Proprietary : IBalanceSubType1Choice
+public partial record Proprietary : BalanceSubType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

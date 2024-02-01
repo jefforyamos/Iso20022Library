@@ -32,19 +32,19 @@ public partial record FundCashInBreakdown3
     /// <summary>
     /// Type of transaction that resulted in the cash-in movement, for example, subscription, switch-in.
     /// </summary>
-    public required IInvestmentFundTransactionInType1Choice InvestmentFundTransactionInType { get; init; } 
+    public required InvestmentFundTransactionInType1Choice_ InvestmentFundTransactionInType { get; init; } 
     /// <summary>
     /// Specifies how the original order was expressed that resulted in the cash-in movement, that is cash or units.
     /// </summary>
-    public required IQuantityType1Choice OriginalOrderQuantityType { get; init; } 
+    public required QuantityType1Choice_ OriginalOrderQuantityType { get; init; } 
     /// <summary>
     /// Charge for the placement of an order.
     /// </summary>
-    public Charge26? ChargeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Charge26[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to the commission applied to an order, for example, back-end or front-end commission.
     /// </summary>
-    public Commission21? CommissionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Commission21[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Settlement currency for the transaction.
     /// </summary>

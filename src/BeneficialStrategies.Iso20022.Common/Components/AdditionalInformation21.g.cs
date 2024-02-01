@@ -24,7 +24,7 @@ public partial record AdditionalInformation21
     /// <summary>
     /// Target of the additional information to print, display, send or store.
     /// </summary>
-    public UserInterface7Code? Target { get; init;  } // Warning: Don't know multiplicity.
+    public UserInterface7Code[] Target { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Format of the additional information.
     /// </summary>

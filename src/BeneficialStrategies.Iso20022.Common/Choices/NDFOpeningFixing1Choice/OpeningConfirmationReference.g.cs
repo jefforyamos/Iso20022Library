@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NDFOpeningFixing1Choice;
 /// <summary>
 /// Reference of the opening confirmation provided on an NDF fixing instruction to link back to the original NDF opening confirmation.
 /// </summary>
-public partial record OpeningConfirmationReference : INDFOpeningFixing1Choice
+public partial record OpeningConfirmationReference : NDFOpeningFixing1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

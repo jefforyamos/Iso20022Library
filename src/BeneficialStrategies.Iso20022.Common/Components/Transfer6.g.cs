@@ -36,7 +36,7 @@ public partial record Transfer6
     /// <summary>
     /// Date at which the instructing party places the transfer instruction.
     /// </summary>
-    public IDateFormat1Choice? TransferDate { get; init; } 
+    public DateFormat1Choice_? TransferDate { get; init; } 
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>

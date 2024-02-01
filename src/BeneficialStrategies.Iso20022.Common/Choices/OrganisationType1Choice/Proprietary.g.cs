@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrganisationType1Choice;
 /// <summary>
 /// Type of organisation expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IOrganisationType1Choice
+public partial record Proprietary : OrganisationType1Choice_
 {
     #nullable enable
     /// <summary>

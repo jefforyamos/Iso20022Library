@@ -24,11 +24,11 @@ public partial record NotionalQuantity9
     /// <summary>
     /// Indicates the unit of measure in which the total notional quantity and notional quantity schedules are expressed.
     /// </summary>
-    public IUnitOfMeasure8Choice? UnitOfMeasure { get; init; } 
+    public UnitOfMeasure8Choice_? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Indicates the schedule or frequency of the derivative transactions.
     /// </summary>
-    public IQuantityOrTerm1Choice? Details { get; init; } 
+    public QuantityOrTerm1Choice_? Details { get; init; } 
     
     #nullable disable
 }

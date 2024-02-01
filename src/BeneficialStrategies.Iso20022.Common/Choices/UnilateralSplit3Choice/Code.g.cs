@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnilateralSplit3Choice;
 /// <summary>
 /// Unilateral split expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IUnilateralSplit3Choice
+public partial record Code : UnilateralSplit3Choice_
 {
     public required SecuritiesTransactionType5Code Value { get; init; }
 }

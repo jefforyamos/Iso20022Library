@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReplacementProcessingStatus10Cho
 /// <summary>
 /// Replacement of the trade is denied.
 /// </summary>
-public partial record Denied : IReplacementProcessingStatus10Choice
+public partial record Denied : ReplacementProcessingStatus10Choice_
 {
     #nullable enable
     /// <summary>

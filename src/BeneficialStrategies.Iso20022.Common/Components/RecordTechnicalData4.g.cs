@@ -36,7 +36,7 @@ public partial record RecordTechnicalData4
     /// <summary>
     /// Period for which the associated instrument has been publically available.
     /// </summary>
-    public IPeriod4Choice? PublicationPeriod { get; init; } 
+    public Period4Choice_? PublicationPeriod { get; init; } 
     /// <summary>
     /// Flag to say if the record has ever been published.
     /// </summary>

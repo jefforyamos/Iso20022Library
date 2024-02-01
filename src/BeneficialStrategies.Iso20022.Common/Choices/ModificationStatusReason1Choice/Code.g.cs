@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModificationStatusReason1Choice;
 /// <summary>
 /// Reason for the modification status, in a coded form.
 /// </summary>
-public partial record Code : IModificationStatusReason1Choice
+public partial record Code : ModificationStatusReason1Choice_
 {
     public required ExternalPaymentModificationRejection1Code Value { get; init; }
 }

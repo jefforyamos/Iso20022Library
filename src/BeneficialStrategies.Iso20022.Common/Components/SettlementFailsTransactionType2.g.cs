@@ -20,23 +20,23 @@ public partial record SettlementFailsTransactionType2
     /// <summary>
     /// Purchase or sale of securities.
     /// </summary>
-    public required ISettlementTotalData1Choice SecuritiesBuyOrSell { get; init; } 
+    public required SettlementTotalData1Choice_ SecuritiesBuyOrSell { get; init; } 
     /// <summary>
     /// Relates to securities transfers aiming to provide or to return collateral.
     /// </summary>
-    public required ISettlementTotalData1Choice CollateralManagementOperation { get; init; } 
+    public required SettlementTotalData1Choice_ CollateralManagementOperation { get; init; } 
     /// <summary>
     /// Relates to a securities lending or borrowing operation.
     /// </summary>
-    public required ISettlementTotalData1Choice SecuritiesLendingOrBorrowing { get; init; } 
+    public required SettlementTotalData1Choice_ SecuritiesLendingOrBorrowing { get; init; } 
     /// <summary>
     /// Repurchase transactions.
     /// </summary>
-    public required ISettlementTotalData1Choice RepurchaseAgreement { get; init; } 
+    public required SettlementTotalData1Choice_ RepurchaseAgreement { get; init; } 
     /// <summary>
     /// Covers any securities transactions type not covered as a dedicated type.
     /// </summary>
-    public required ISettlementTotalData1Choice Other { get; init; } 
+    public required SettlementTotalData1Choice_ Other { get; init; } 
     
     #nullable disable
 }

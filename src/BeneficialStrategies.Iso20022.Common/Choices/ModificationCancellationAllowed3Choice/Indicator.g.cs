@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModificationCancellationAllowed3
 /// <summary>
 /// Modification, cancellation allowed information expressed as a indicator.
 /// </summary>
-public partial record Indicator : IModificationCancellationAllowed3Choice
+public partial record Indicator : ModificationCancellationAllowed3Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

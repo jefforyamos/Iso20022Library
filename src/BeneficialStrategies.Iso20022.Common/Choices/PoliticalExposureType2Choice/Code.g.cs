@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PoliticalExposureType2Choice;
 /// <summary>
 /// Type of political exposure expressed as a code.
 /// </summary>
-public partial record Code : IPoliticalExposureType2Choice
+public partial record Code : PoliticalExposureType2Choice_
 {
     public required PoliticalExposureType2Code Value { get; init; }
 }

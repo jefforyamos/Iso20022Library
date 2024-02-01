@@ -20,11 +20,11 @@ public partial record EligibleCounterpart2
     /// <summary>
     /// Unique business identifier code used to identify the party providing the eligible counterpart information.
     /// </summary>
-    public required ISystemPartyIdentification1Choice IssuerIdentification { get; init; } 
+    public required SystemPartyIdentification1Choice_ IssuerIdentification { get; init; } 
     /// <summary>
     /// Unique business identifier code used to identify the central securities depository to be defined as eligible.
     /// </summary>
-    public required ISystemPartyIdentification1Choice EligibleCounterpartIdentification { get; init; } 
+    public required SystemPartyIdentification1Choice_ EligibleCounterpartIdentification { get; init; } 
     /// <summary>
     /// Date from when the eligible counterpart is valid.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record EligibleCounterpart2
     /// <summary>
     /// Unique identification of the eligible counterpart party.
     /// </summary>
-    public required IEligibilityIdentification2Choice EligibilityIdentification { get; init; } 
+    public required EligibilityIdentification2Choice_ EligibilityIdentification { get; init; } 
     
     #nullable disable
 }

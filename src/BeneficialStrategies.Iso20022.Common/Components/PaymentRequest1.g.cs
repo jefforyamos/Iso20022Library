@@ -24,7 +24,7 @@ public partial record PaymentRequest1
     /// <summary>
     /// Data linked to card loyalty during payment.
     /// </summary>
-    public LoyaltyRequestData1? LoyaltyData { get; init;  } // Warning: Don't know multiplicity.
+    public LoyaltyRequestData1[] LoyaltyData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

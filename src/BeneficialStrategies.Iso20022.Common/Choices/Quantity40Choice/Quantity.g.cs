@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity40Choice;
 /// <summary>
 /// Quantity of financial instrument in units, original face amount or current face amount.
 /// </summary>
-public partial record Quantity : IQuantity40Choice
+public partial record Quantity : Quantity40Choice_
 {
     #nullable enable
     #nullable disable

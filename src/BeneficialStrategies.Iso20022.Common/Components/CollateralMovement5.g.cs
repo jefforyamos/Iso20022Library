@@ -24,7 +24,7 @@ public partial record CollateralMovement5
     /// <summary>
     /// Provides the collateral movement direction that is a delivery and optionaly a return, or a return only.
     /// </summary>
-    public ICollateralMovement3Choice? MovementDirection { get; init;  } // Warning: Don't know multiplicity.
+    public CollateralMovement3Choice_[] MovementDirection { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

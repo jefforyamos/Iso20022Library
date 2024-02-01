@@ -28,7 +28,7 @@ public partial record MaintenanceDelegationResponse3
     /// <summary>
     /// Information on the delegation of a maintenance action.
     /// </summary>
-    public MaintenanceDelegation6? DelegationResponse { get; init;  } // Warning: Don't know multiplicity.
+    public MaintenanceDelegation6[] DelegationResponse { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

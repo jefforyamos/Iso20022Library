@@ -28,7 +28,7 @@ public partial record TransactionIdentifications4
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account owner (or the instructing party managing the account).
     /// </summary>
-    public required IReferences4Choice AccountOwnerTransactionIdentification { get; init; } 
+    public required References4Choice_ AccountOwnerTransactionIdentification { get; init; } 
     
     #nullable disable
 }

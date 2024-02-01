@@ -56,7 +56,7 @@ public partial record SaleContext7
     /// <summary>
     /// Type of receipt requested or communication channel used.
     /// </summary>
-    public ReceiptType1Code? ReceiptType { get; init;  } // Warning: Don't know multiplicity.
+    public ReceiptType1Code[] ReceiptType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Destination of the receipt (for example, e-mail address, SMS number, etc.).
     /// </summary>

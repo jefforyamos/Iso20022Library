@@ -20,7 +20,7 @@ public partial record FinancialInstrumentIdentification4
     /// <summary>
     /// Unique and unambiguous identifier of a security, assigned under a formal or proprietary identification scheme.
     /// </summary>
-    public required ISecurityIdentification25Choice Identification { get; init; } 
+    public required SecurityIdentification25Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record FinancialInstrumentIdentification4
     /// <summary>
     /// Type of security.
     /// </summary>
-    public IClassificationType32Choice? ClassificationType { get; init; } 
+    public ClassificationType32Choice_? ClassificationType { get; init; } 
     /// <summary>
     /// Type of security offered in place of a restricted security, for example, common. 
     /// </summary>

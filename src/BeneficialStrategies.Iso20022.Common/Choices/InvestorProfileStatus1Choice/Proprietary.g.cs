@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestorProfileStatus1Choice;
 /// <summary>
 /// Investor profile status expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IInvestorProfileStatus1Choice
+public partial record Proprietary : InvestorProfileStatus1Choice_
 {
     #nullable enable
     /// <summary>

@@ -20,7 +20,7 @@ public partial record UnitPrice16
     /// <summary>
     /// Type of price.
     /// </summary>
-    public required IUnitPriceType1Choice UnitPriceType { get; init; } 
+    public required UnitPriceType1Choice_ UnitPriceType { get; init; } 
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record UnitPrice16
     /// <summary>
     /// Taxable income per share calculated.
     /// </summary>
-    public ITaxableIncomePerShareCalculatedType1Choice? TaxableIncomePerShareCalculated { get; init; } 
+    public TaxableIncomePerShareCalculatedType1Choice_? TaxableIncomePerShareCalculated { get; init; } 
     
     #nullable disable
 }

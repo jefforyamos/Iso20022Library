@@ -20,19 +20,19 @@ public partial record ReservationSearchCriteria5
     /// <summary>
     /// Patterns to search a date time.
     /// </summary>
-    public IDateTimeSearch2Choice? DateTime { get; init; } 
+    public DateTimeSearch2Choice_? DateTime { get; init; } 
     /// <summary>
     /// Identification of a particular cash clearing system.
     /// </summary>
-    public ISystemIdentification2Choice? SystemIdentification { get; init; } 
+    public SystemIdentification2Choice_? SystemIdentification { get; init; } 
     /// <summary>
     /// Type of reservation as set by default in the system. The default reservation is applicable by the system unless otherwise instructed.
     /// </summary>
-    public IReservationType2Choice? DefaultReservationType { get; init;  } // Warning: Don't know multiplicity.
+    public ReservationType2Choice_[] DefaultReservationType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of reservation applied by the system at the present time.
     /// </summary>
-    public IReservationType2Choice? CurrentReservationType { get; init;  } // Warning: Don't know multiplicity.
+    public ReservationType2Choice_[] CurrentReservationType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record ReservationSearchCriteria5
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public IAccountIdentification4Choice? AccountIdentification { get; init; } 
+    public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     
     #nullable disable
 }

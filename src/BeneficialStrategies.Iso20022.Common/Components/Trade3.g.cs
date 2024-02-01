@@ -76,7 +76,7 @@ public partial record Trade3
     /// <summary>
     /// Some associated trade reference needs to be specified.
     /// </summary>
-    public IsoMax70Text? AssociatedTradeReference { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] AssociatedTradeReference { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

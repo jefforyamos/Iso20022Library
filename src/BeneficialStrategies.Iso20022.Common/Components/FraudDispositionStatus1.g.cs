@@ -28,11 +28,11 @@ public partial record FraudDispositionStatus1
     /// <summary>
     /// Contains errors found in the submitted fraud report message.
     /// </summary>
-    public IsoMax256Text? ErrorData { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax256Text[] ErrorData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains warnings found in the submitted fraud report message.
     /// </summary>
-    public IsoMax256Text? WarningData { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax256Text[] WarningData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information
     /// </summary>

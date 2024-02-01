@@ -24,7 +24,7 @@ public partial record TreasuryProfile1
     /// <summary>
     /// Type of party that performs trading operations, for example, investor or custodian.
     /// </summary>
-    public required IPartyRole5Choice TraderType { get; init; } 
+    public required PartyRole5Choice_ TraderType { get; init; } 
     /// <summary>
     /// Tax rate.
     /// </summary>

@@ -51,7 +51,7 @@ public partial record CorporateActionNarrativeV06 : IOuterRecord
     [Description(@"General information about the safekeeping account and the account owner.")]
     [DataMember(Name="AcctDtls")]
     [XmlElement(ElementName="AcctDtls")]
-    public IAccountIdentification42Choice? AccountDetails { get; init; }
+    public AccountIdentification42Choice_? AccountDetails { get; init; }
     
     /// <summary>
     /// Provides information about the securitised right for entitlement.

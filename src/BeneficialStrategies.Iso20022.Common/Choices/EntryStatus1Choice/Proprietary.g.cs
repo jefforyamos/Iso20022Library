@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EntryStatus1Choice;
 /// <summary>
 /// Entry status, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IEntryStatus1Choice
+public partial record Proprietary : EntryStatus1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

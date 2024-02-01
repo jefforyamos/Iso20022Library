@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionRateSD6Choice;
 /// <summary>
 /// Quantity of additional securities for a given quantity of underlying securities where underlying securities are not exchanged or debited, for example, 1 for 1: 1 new equity credited for every 1 underlying equity = 2 resulting equities.
 /// </summary>
-public partial record AdditionalQuantityForExistingSecurities : ICorporateActionRateSD6Choice
+public partial record AdditionalQuantityForExistingSecurities : CorporateActionRateSD6Choice_
 {
     #nullable enable
     #nullable disable

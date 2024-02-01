@@ -25,11 +25,11 @@ public partial record VerificationInformation1
     /// <summary>
     /// Value of the data to be verified or authenticated.
     /// </summary>
-    public IVerificationValue1Choice? Value { get; init; } 
+    public VerificationValue1Choice_? Value { get; init; } 
     /// <summary>
     /// Reason to perform the verification.
     /// </summary>
-    public IsoMax35Text? Reason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date and time when the verification was performed.
     /// </summary>

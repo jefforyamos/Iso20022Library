@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus3Choi
 /// <summary>
 /// The transaction was created by the account servicer or a third party. It was not instructed directly by the account owner.
 /// </summary>
-public partial record Generated : IInstructionProcessingStatus3Choice
+public partial record Generated : InstructionProcessingStatus3Choice_
 {
     #nullable enable
     #nullable disable

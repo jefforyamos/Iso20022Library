@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification54Choice;
 /// <summary>
 /// PAN of the card identifying the account.
 /// </summary>
-public partial record Card : IAccountIdentification54Choice
+public partial record Card : AccountIdentification54Choice_
 {
     public required IsoMin8Max28NumericText Value { get; init; }
 }

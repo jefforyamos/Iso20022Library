@@ -24,7 +24,7 @@ public partial record DigestedData1
     /// <summary>
     /// Identification of a digest algorithm.
     /// </summary>
-    public AlgorithmIdentification1? DigestAlgorithm { get; init;  } // Warning: Don't know multiplicity.
+    public AlgorithmIdentification1[] DigestAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data on which the digest is computed.
     /// </summary>

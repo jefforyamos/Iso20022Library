@@ -55,7 +55,7 @@ public partial record Transaction141
     /// <summary>
     /// Clearing data at batch level allowing clearing in different currencies.
     /// </summary>
-    public ClearingBatchData2? ClearingBatchData { get; init;  } // Warning: Don't know multiplicity.
+    public ClearingBatchData2[] ClearingBatchData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Gross amount clearing totals.
     /// </summary>
@@ -63,15 +63,15 @@ public partial record Transaction141
     /// <summary>
     /// Information or instructions relevant for the agent in charge of the clearing.
     /// </summary>
-    public AdditionalInformation21? AgentData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation21[] AgentData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Record in batch.
     /// </summary>
-    public Record2? Record { get; init;  } // Warning: Don't know multiplicity.
+    public Record2[] Record { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

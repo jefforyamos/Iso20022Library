@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification3Choice;
 /// <summary>
 /// Identifier for Swiss securities assigned by Telekurs Financial, the Swiss numbering agency.
 /// </summary>
-public partial record Valoren : ISecurityIdentification3Choice
+public partial record Valoren : SecurityIdentification3Choice_
 {
     public required IsoValorenIdentifier Value { get; init; }
 }

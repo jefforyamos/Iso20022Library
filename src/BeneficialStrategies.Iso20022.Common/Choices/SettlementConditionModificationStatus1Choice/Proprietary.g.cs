@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementConditionModificationS
 /// <summary>
 /// Provides the status of the securities settlement condition modification request.
 /// </summary>
-public partial record Proprietary : ISettlementConditionModificationStatus1Choice
+public partial record Proprietary : SettlementConditionModificationStatus1Choice_
 {
     #nullable enable
     /// <summary>

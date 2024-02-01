@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingPartyCapacity5Choice;
 /// <summary>
 /// Specifies the role of the party in the transaction expressed as a code.
 /// </summary>
-public partial record Code : ITradingPartyCapacity5Choice
+public partial record Code : TradingPartyCapacity5Choice_
 {
     public required TradingCapacity7Code Value { get; init; }
 }

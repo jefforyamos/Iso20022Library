@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateOrBlankQuery2Choice;
 /// <summary>
 /// Indicates the date range.
 /// </summary>
-public partial record Range : IDateOrBlankQuery2Choice
+public partial record Range : DateOrBlankQuery2Choice_
 {
     #nullable enable
     /// <summary>

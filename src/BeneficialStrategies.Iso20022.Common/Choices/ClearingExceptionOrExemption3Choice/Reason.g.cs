@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingExceptionOrExemption3Cho
 /// <summary>
 /// No reason to report or no reason available to report.
 /// </summary>
-public partial record Reason : IClearingExceptionOrExemption3Choice
+public partial record Reason : ClearingExceptionOrExemption3Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

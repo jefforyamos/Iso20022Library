@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Party9Choice;
 /// <summary>
 /// Identification of a financial institution.
 /// </summary>
-public partial record FinancialInstitutionIdentification : IParty9Choice
+public partial record FinancialInstitutionIdentification : Party9Choice_
 {
     #nullable enable
     /// <summary>

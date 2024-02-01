@@ -20,7 +20,7 @@ public partial record IntraPositionDetails61
     /// <summary>
     /// Quantity of financial instrument effectively settled.
     /// </summary>
-    public required IFinancialInstrumentQuantity36Choice SettledQuantity { get; init; } 
+    public required FinancialInstrumentQuantity36Choice_ SettledQuantity { get; init; } 
     /// <summary>
     /// Number identifying a Securities Sub balance Type for example restriction identification.
     /// </summary>
@@ -32,23 +32,23 @@ public partial record IntraPositionDetails61
     /// <summary>
     /// Quantity of financial instrument previously settled.
     /// </summary>
-    public IFinancialInstrumentQuantity36Choice? PreviouslySettledQuantity { get; init; } 
+    public FinancialInstrumentQuantity36Choice_? PreviouslySettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument remaining to be settled.
     /// </summary>
-    public IFinancialInstrumentQuantity36Choice? RemainingToBeSettledQuantity { get; init; } 
+    public FinancialInstrumentQuantity36Choice_? RemainingToBeSettledQuantity { get; init; } 
     /// <summary>
     /// Date and time at which the securities were moved.
     /// </summary>
-    public required IDateAndDateTime2Choice SettlementDate { get; init; } 
+    public required DateAndDateTime2Choice_ SettlementDate { get; init; } 
     /// <summary>
     /// Date/time securities become available for sale (if securities become unavailable, this specifies the date/time at which they will become available again).
     /// </summary>
-    public IDateAndDateTime2Choice? AvailableDate { get; init; } 
+    public DateAndDateTime2Choice_? AvailableDate { get; init; } 
     /// <summary>
     /// Specifies the type of corporate event.
     /// </summary>
-    public ICorporateActionEventType101Choice? CorporateActionEventType { get; init; } 
+    public CorporateActionEventType101Choice_? CorporateActionEventType { get; init; } 
     /// <summary>
     /// Balance from which the securities are moving.
     /// </summary>

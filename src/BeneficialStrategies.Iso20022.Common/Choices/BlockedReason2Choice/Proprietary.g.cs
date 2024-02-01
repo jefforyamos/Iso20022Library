@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BlockedReason2Choice;
 /// <summary>
 /// Reason expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IBlockedReason2Choice
+public partial record Proprietary : BlockedReason2Choice_
 {
     #nullable enable
     /// <summary>

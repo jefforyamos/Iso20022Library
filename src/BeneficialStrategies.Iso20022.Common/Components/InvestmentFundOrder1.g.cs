@@ -24,7 +24,7 @@ public partial record InvestmentFundOrder1
     /// <summary>
     /// Reference of an order and order cancellation.
     /// </summary>
-    public InvestmentFundOrder5? OrderReferences { get; init;  } // Warning: Don't know multiplicity.
+    public InvestmentFundOrder5[] OrderReferences { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

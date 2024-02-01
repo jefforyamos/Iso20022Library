@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AgentRole1FormatChoice;
 /// <summary>
 /// Proprietary code to express the role of the agent.
 /// </summary>
-public partial record Proprietary : IAgentRole1FormatChoice
+public partial record Proprietary : AgentRole1FormatChoice_
 {
     #nullable enable
     /// <summary>

@@ -24,11 +24,11 @@ public partial record AcceptanceResult6
     /// <summary>
     /// Specifies the reason for the rejection of a mandate request.
     /// </summary>
-    public IMandateReason1Choice? RejectReason { get; init; } 
+    public MandateReason1Choice_? RejectReason { get; init; } 
     /// <summary>
     /// Further details on the reject reason.
     /// </summary>
-    public IsoMax105Text? AdditionalRejectReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax105Text[] AdditionalRejectReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

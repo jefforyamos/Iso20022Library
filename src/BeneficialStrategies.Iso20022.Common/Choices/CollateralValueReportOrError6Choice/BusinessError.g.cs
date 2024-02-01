@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralValueReportOrError6Cho
 /// <summary>
 /// Reason the requested business information is not given.
 /// </summary>
-public partial record BusinessError : ICollateralValueReportOrError6Choice
+public partial record BusinessError : CollateralValueReportOrError6Choice_
 {
     #nullable enable
     /// <summary>
     /// Specification of the error, in coded or proprietary form.
     /// </summary>
-    public required IErrorHandling3Choice Error { get; init; } 
+    public required ErrorHandling3Choice_ Error { get; init; } 
     /// <summary>
     /// Specification of the error, in free format.
     /// </summary>

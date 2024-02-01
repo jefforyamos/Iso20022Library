@@ -28,7 +28,7 @@ public partial record DisclosureRequestIdentification1
     /// <summary>
     /// Date set by the issuer on which shareholders identity is determined based on the settled positions struck in the books of the Issuer CSD or any other first intermediary at the close of business day. 
     /// </summary>
-    public required IDateFormat46Choice ShareholdersDisclosureRecordDate { get; init; } 
+    public required DateFormat46Choice_ ShareholdersDisclosureRecordDate { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReversedStatus2Choice;
 /// <summary>
 /// Reason for the reversal status.
 /// </summary>
-public partial record Reason : IReversedStatus2Choice
+public partial record Reason : ReversedStatus2Choice_
 {
     public required IsoMax350Text Value { get; init; }
 }

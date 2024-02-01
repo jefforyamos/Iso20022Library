@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityPaper3Choice;
 /// <summary>
 /// Pulp commodity derivative.
 /// </summary>
-public partial record Pulp : IAssetClassCommodityPaper3Choice
+public partial record Pulp : AssetClassCommodityPaper3Choice_
 {
     #nullable enable
     /// <summary>

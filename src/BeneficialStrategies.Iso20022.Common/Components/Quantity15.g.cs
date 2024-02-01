@@ -20,7 +20,7 @@ public partial record Quantity15
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice SettlementQuantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Denomination of the security to be received or delivered.
     /// </summary>
@@ -28,11 +28,11 @@ public partial record Quantity15
     /// <summary>
     /// Unique and unambiguous identifier of a certificate assigned by the issuer.
     /// </summary>
-    public SecuritiesCertificate5? CertificateNumber { get; init;  } // Warning: Don't know multiplicity.
+    public SecuritiesCertificate5[] CertificateNumber { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Breakdown of a quantity into lots such as tax lots, instrument series.
     /// </summary>
-    public QuantityBreakdown48? QuantityBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public QuantityBreakdown48[] QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

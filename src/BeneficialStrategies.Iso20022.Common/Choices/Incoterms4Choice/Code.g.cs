@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Incoterms4Choice;
 /// <summary>
 /// Specifies the applicable Incoterm by means of a code.
 /// </summary>
-public partial record Code : IIncoterms4Choice
+public partial record Code : Incoterms4Choice_
 {
     public required ExternalIncoterms1Code Value { get; init; }
 }

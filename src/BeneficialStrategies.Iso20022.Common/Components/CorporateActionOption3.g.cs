@@ -24,39 +24,39 @@ public partial record CorporateActionOption3
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public required ICorporateActionOption2Choice OptionType { get; init; } 
+    public required CorporateActionOption2Choice_ OptionType { get; init; } 
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
-    public IFractionDispositionType1Choice? FractionDisposition { get; init; } 
+    public FractionDispositionType1Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Specifies the conditions that apply to the offer.
     /// </summary>
-    public IOfferTypeFormat1Choice? OfferType { get; init;  } // Warning: Don't know multiplicity.
+    public OfferTypeFormat1Choice_[] OfferType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the features that may apply to a corporate action option.
     /// </summary>
-    public IOptionFeaturesFormat2Choice? OptionFeatures { get; init;  } // Warning: Don't know multiplicity.
+    public OptionFeaturesFormat2Choice_[] OptionFeatures { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the type of intermediates securities distribution.
     /// </summary>
-    public IIntermediateSecuritiesDistributionTypeFormat2Choice? IntermediateSecuritiesDistributionType { get; init; } 
+    public IntermediateSecuritiesDistributionTypeFormat2Choice_? IntermediateSecuritiesDistributionType { get; init; } 
     /// <summary>
     /// Specifies the status of the option.
     /// </summary>
-    public IOptionAvailabilityStatus1Choice? OptionAvailabilityStatus { get; init; } 
+    public OptionAvailabilityStatus1Choice_? OptionAvailabilityStatus { get; init; } 
     /// <summary>
     /// Type of certification which is required.
     /// </summary>
-    public IBeneficiaryCertificationType1Choice? CertificationType { get; init;  } // Warning: Don't know multiplicity.
+    public BeneficiaryCertificationType1Choice_[] CertificationType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Holder of the security has to certify, in line with the terms of the corporate action, that it is not domiciled in the country indicated.
     /// </summary>
-    public CountryCode? NonDomicileCountry { get; init;  } // Warning: Don't know multiplicity.
+    public CountryCode[] NonDomicileCountry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Country of domicile in which the Corporate Action option is valid. The holder of the security has to certify that it is domiciled in the country indicated.
     /// </summary>
-    public CountryCode? ValidDomicileCountry { get; init;  } // Warning: Don't know multiplicity.
+    public CountryCode[] ValidDomicileCountry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency in which the cash disbursed from an interest or dividend payment is offered.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record CorporateActionOption3
     /// <summary>
     /// Indicates whether the corporate action movement is a default processing or a standing instruction.
     /// </summary>
-    public required IDefaultProcessingOrStandingInstruction1Choice DefaultProcessingOrStandingInstruction { get; init; } 
+    public required DefaultProcessingOrStandingInstruction1Choice_ DefaultProcessingOrStandingInstruction { get; init; } 
     /// <summary>
     /// Indicates whether charges apply to the holder, for instance redemption charges.
     /// </summary>
@@ -108,11 +108,11 @@ public partial record CorporateActionOption3
     /// <summary>
     /// Provides information about the securities movement linked to the corporate action option.
     /// </summary>
-    public SecuritiesOption6? SecuritiesMovementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SecuritiesOption6[] SecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the cash movement linked to the corporate action option.
     /// </summary>
-    public CashOption4? CashMovementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashOption4[] CashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional information.
     /// </summary>

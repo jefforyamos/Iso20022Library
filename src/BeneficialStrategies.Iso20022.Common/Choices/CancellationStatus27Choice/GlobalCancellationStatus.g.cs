@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationStatus27Choice;
 /// <summary>
 /// Status applicable globally to the meeting instruction cancellation request message.
 /// </summary>
-public partial record GlobalCancellationStatus : ICancellationStatus27Choice
+public partial record GlobalCancellationStatus : CancellationStatus27Choice_
 {
     #nullable enable
     #nullable disable

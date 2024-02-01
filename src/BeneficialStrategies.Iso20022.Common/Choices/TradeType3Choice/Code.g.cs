@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeType3Choice;
 /// <summary>
 /// Trade type information expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ITradeType3Choice
+public partial record Code : TradeType3Choice_
 {
     public required TradeType3Code Value { get; init; }
 }

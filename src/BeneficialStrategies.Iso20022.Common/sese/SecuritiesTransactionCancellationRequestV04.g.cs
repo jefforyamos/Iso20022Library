@@ -71,7 +71,7 @@ public partial record SecuritiesTransactionCancellationRequestV04 : IOuterRecord
     [DataMember(Name="AcctOwnrTxId")]
     [XmlElement(ElementName="AcctOwnrTxId")]
     [Required]
-    public required IReferences2Choice AccountOwnerTransactionIdentification { get; init; }
+    public required References2Choice_ AccountOwnerTransactionIdentification { get; init; }
     
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account servicer.
@@ -107,7 +107,7 @@ public partial record SecuritiesTransactionCancellationRequestV04 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public IPartyIdentification36Choice? AccountOwner { get; init; }
+    public PartyIdentification36Choice_? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -135,7 +135,7 @@ public partial record SecuritiesTransactionCancellationRequestV04 : IOuterRecord
     [Description(@"Specifies whether an associated FX should be cancelled.")]
     [DataMember(Name="FxCxl")]
     [XmlElement(ElementName="FxCxl")]
-    public IFXCancellation1Choice? FXCancellation { get; init; }
+    public FXCancellation1Choice_? FXCancellation { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

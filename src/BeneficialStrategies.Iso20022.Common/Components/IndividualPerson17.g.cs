@@ -32,11 +32,11 @@ public partial record IndividualPerson17
     /// <summary>
     /// Postal address of a party.
     /// </summary>
-    public ILongPostalAddress2Choice? Address { get; init; } 
+    public LongPostalAddress2Choice_? Address { get; init; } 
     /// <summary>
     /// Organisation represented by a person, or for which a person works.
     /// </summary>
-    public IPartyIdentification9Choice? EmployingParty { get; init; } 
+    public PartyIdentification9Choice_? EmployingParty { get; init; } 
     /// <summary>
     /// Specifies details related to the attendance card.
     /// </summary>

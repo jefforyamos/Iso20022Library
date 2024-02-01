@@ -20,7 +20,7 @@ public partial record ProductCharacteristics4
     /// <summary>
     /// Characteristics of the product.
     /// </summary>
-    public IProductCharacteristics1Choice? Characteristic { get; init; } 
+    public ProductCharacteristics1Choice_? Characteristic { get; init; } 
     /// <summary>
     /// Measurement value for this product characteristic.
     /// </summary>

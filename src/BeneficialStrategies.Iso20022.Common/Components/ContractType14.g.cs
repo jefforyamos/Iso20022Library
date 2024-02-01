@@ -36,7 +36,7 @@ public partial record ContractType14
     /// <summary>
     /// Unique identification to identify the direct underlying instrument based on its type.
     /// </summary>
-    public ISecurityIdentification41Choice? UnderlyingInstrument { get; init; } 
+    public SecurityIdentification41Choice_? UnderlyingInstrument { get; init; } 
     /// <summary>
     /// Specifies the currency to be used for cash settlement of the transaction. 
     /// Usage: For multicurrency transactions that do not net, SettlementCurrency is to be considered as the first leg.

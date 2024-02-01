@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TargetMarket4Choice;
 /// <summary>
 /// Specifies how the financial product is in scope of the target market parameter.
 /// </summary>
-public partial record Type : ITargetMarket4Choice
+public partial record Type : TargetMarket4Choice_
 {
     public required InvestorType2Code Value { get; init; }
 }

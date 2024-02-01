@@ -24,7 +24,7 @@ public partial record PaymentTypeInformation6
     /// <summary>
     /// Agreement under which or rules under which the transaction should be processed.
     /// </summary>
-    public IServiceLevel2Choice? ServiceLevel { get; init; } 
+    public ServiceLevel2Choice_? ServiceLevel { get; init; } 
     /// <summary>
     /// Specifies the clearing channel to be used to process the payment instruction.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record PaymentTypeInformation6
     /// <summary>
     /// User community specific instrument.||Usage: When available, codes provided by local authorities should be used.
     /// </summary>
-    public ILocalInstrument1Choice? LocalInstrument { get; init; } 
+    public LocalInstrument1Choice_? LocalInstrument { get; init; } 
     /// <summary>
     /// Identifies the direct debit sequence, eg, first, recurrent, final or one-off.
     /// </summary>

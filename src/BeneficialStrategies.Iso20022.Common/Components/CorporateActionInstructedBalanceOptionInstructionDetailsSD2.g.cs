@@ -24,7 +24,7 @@ public partial record CorporateActionInstructedBalanceOptionInstructionDetailsSD
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    public required IOptionNumber1Choice OptionNumber { get; init; } 
+    public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Unique number assigned by the depository. Transaction identification will be either the DTC instruction reference number for reorganisation instructions (VOI) or the DAM reference number for custody / reorganisation deposits.
     /// </summary>
@@ -44,11 +44,11 @@ public partial record CorporateActionInstructedBalanceOptionInstructionDetailsSD
     /// <summary>
     /// Instructed quantity for reorganisation instructions or the deposit quantity for reorganisation / custody deposits.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice TransactionIdentificationQuantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ TransactionIdentificationQuantity { get; init; } 
     /// <summary>
     /// Quantity relating only to the oversubscription.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? TransactionIdentificationOversubscriptionQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? TransactionIdentificationOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Status of the instruction.
     /// </summary>
@@ -64,11 +64,11 @@ public partial record CorporateActionInstructedBalanceOptionInstructionDetailsSD
     /// <summary>
     /// Conditional quantity on the instruction.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? TransactionConditionalQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? TransactionConditionalQuantity { get; init; } 
     /// <summary>
     /// Tender bid price of the instruction.
     /// </summary>
-    public IPriceFormat57Choice? TransactionTenderBidPrice { get; init; } 
+    public PriceFormat57Choice_? TransactionTenderBidPrice { get; init; } 
     /// <summary>
     /// Customer identification entered by client upon instruction submission.
     /// </summary>

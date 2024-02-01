@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GovernanceIdentification1Choice;
 /// <summary>
 /// Governance identification information expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IGovernanceIdentification1Choice
+public partial record Proprietary : GovernanceIdentification1Choice_
 {
     #nullable enable
     /// <summary>

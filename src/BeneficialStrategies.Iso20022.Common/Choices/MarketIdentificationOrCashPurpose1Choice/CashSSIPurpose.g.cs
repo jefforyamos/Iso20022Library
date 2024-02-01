@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketIdentificationOrCashPurpos
 /// <summary>
 /// Underlying reason for the payment SSI instruction, expressed as a code.
 /// </summary>
-public partial record CashSSIPurpose : IMarketIdentificationOrCashPurpose1Choice
+public partial record CashSSIPurpose : MarketIdentificationOrCashPurpose1Choice_
 {
     public required ExternalMarketArea1Code Value { get; init; }
 }

@@ -36,7 +36,7 @@ public partial record TransferStatusAndReason3
     /// <summary>
     /// Status of the transfer instruction.
     /// </summary>
-    public required ITransferStatus1Choice TransferStatus { get; init; } 
+    public required TransferStatus1Choice_ TransferStatus { get; init; } 
     /// <summary>
     /// Date and time at which the transfer was executed.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record TransferStatusAndReason3
     /// <summary>
     /// Party that initiates the status.
     /// </summary>
-    public IPartyIdentification2Choice? StatusInitiator { get; init; } 
+    public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     
     #nullable disable
 }

@@ -20,7 +20,7 @@ public partial record Entitlement1
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountOwnerIdentification { get; init; } 
+    public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Idenfitication of the account.
     /// </summary>
@@ -28,11 +28,11 @@ public partial record Entitlement1
     /// <summary>
     /// Provides information about the securities distribution.
     /// </summary>
-    public SecuritiesEntitlement1? SecuritiesDistributionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SecuritiesEntitlement1[] SecuritiesDistributionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the cash distribution.
     /// </summary>
-    public CashEntitlement1? CashDistributionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashEntitlement1[] CashDistributionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

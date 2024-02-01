@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CharacterSearch1Choice;
 /// <summary>
 /// Set of characters that cannot match to be considered valid.
 /// </summary>
-public partial record NotContain : ICharacterSearch1Choice
+public partial record NotContain : CharacterSearch1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

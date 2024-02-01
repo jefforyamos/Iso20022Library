@@ -32,15 +32,15 @@ public partial record AccountSubLevel19
     /// <summary>
     /// Individual or entity that is ultimately entitled to the benefit of income and rights in a financial instrument, as opposed to a nominal or legal owner.
     /// </summary>
-    public BeneficialOwner2? BeneficialOwner { get; init;  } // Warning: Don't know multiplicity.
+    public BeneficialOwner2[] BeneficialOwner { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Report on the net position of a financial instrument on the sub-account (sub-account level 9), for a certain date. The agent, for example, a trade intermediary, may also be specified.
     /// </summary>
-    public AggregateHoldingBalance3? BalanceDetails { get; init;  } // Warning: Don't know multiplicity.
+    public AggregateHoldingBalance3[] BalanceDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

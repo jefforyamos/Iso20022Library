@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingStatus23Choice;
 /// <summary>
 /// Provides a proprietary status and a proprietary reason of the processing status of the trade.
 /// </summary>
-public partial record ProprietaryStatus : IMatchingStatus23Choice
+public partial record ProprietaryStatus : MatchingStatus23Choice_
 {
     #nullable enable
     /// <summary>

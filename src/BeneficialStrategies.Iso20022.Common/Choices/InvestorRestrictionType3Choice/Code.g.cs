@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestorRestrictionType3Choice;
 /// <summary>
 /// Investor restriction type expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IInvestorRestrictionType3Choice
+public partial record Code : InvestorRestrictionType3Choice_
 {
     public required InvestorRestrictionType1Code Value { get; init; }
 }

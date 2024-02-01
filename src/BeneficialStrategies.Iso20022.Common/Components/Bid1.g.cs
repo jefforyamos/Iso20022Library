@@ -72,7 +72,7 @@ public partial record Bid1
     /// <summary>
     /// Represents the basis price type in a bid order (list trading).
     /// </summary>
-    public required IBasisPriceType1Choice BasisPriceType { get; init; } 
+    public required BasisPriceType1Choice_ BasisPriceType { get; init; } 
     /// <summary>
     /// General details about the liquidity of the financial instrument.
     /// </summary>

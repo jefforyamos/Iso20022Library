@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.NetDividendRate1Choice;
 /// <summary>
 /// Value is expressed as an amount related to an underlying securities, eg, underlying security for which an interest is paid.
 /// </summary>
-public partial record RateTypeAmount : INetDividendRate1Choice
+public partial record RateTypeAmount : NetDividendRate1Choice_
 {
     #nullable enable
     /// <summary>
     /// Type of underlying securities to which the rate is related, eg, underlying security for which an interest is paid.
     /// </summary>
-    public required INetDividendRateType1FormatChoice RateType { get; init; } 
+    public required NetDividendRateType1FormatChoice_ RateType { get; init; } 
     /// <summary>
     /// Value expressed as an amount.
     /// </summary>

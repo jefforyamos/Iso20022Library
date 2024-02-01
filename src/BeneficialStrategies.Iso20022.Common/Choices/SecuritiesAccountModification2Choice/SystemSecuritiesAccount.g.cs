@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountModification2Ch
 /// <summary>
 /// Account to or from which a securities entry is made.
 /// </summary>
-public partial record SystemSecuritiesAccount : ISecuritiesAccountModification2Choice
+public partial record SystemSecuritiesAccount : SecuritiesAccountModification2Choice_
 {
     #nullable enable
     /// <summary>

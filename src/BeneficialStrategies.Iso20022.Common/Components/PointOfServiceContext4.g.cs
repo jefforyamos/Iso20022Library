@@ -67,7 +67,7 @@ public partial record PointOfServiceContext4
     /// <summary>
     /// Contains electronic commerce data. 
     /// </summary>
-    public ECommerceData1? ECommerceData { get; init;  } // Warning: Don't know multiplicity.
+    public ECommerceData1[] ECommerceData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// A code that identifies the type of MOTO transaction.
     /// </summary>
@@ -92,7 +92,7 @@ public partial record PointOfServiceContext4
     /// Security characteristics of the communication link in the card acceptance process.
     /// ISO 8583:2003 bit 22-4
     /// </summary>
-    public SecurityCharacteristics1Code? SecurityCharacteristics { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityCharacteristics1Code[] SecurityCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Other security characteristics.
     /// </summary>
@@ -125,7 +125,7 @@ public partial record PointOfServiceContext4
     /// <summary>
     /// Data used to assign specific conditions at the card acceptor location and decided by bilateral agreements.
     /// </summary>
-    public SpecialConditions1? SpecialConditions { get; init;  } // Warning: Don't know multiplicity.
+    public SpecialConditions1[] SpecialConditions { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

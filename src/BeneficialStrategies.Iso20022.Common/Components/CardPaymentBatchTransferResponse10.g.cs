@@ -20,11 +20,11 @@ public partial record CardPaymentBatchTransferResponse10
     /// <summary>
     /// Totals of transactions of all the data sets.
     /// </summary>
-    public TransactionTotals12? TransactionTotals { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionTotals12[] TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to the previously sent set of transaction.
     /// </summary>
-    public CardPaymentDataSet33? DataSet { get; init;  } // Warning: Don't know multiplicity.
+    public CardPaymentDataSet33[] DataSet { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

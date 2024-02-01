@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeQueryExecutionFrequency1Cho
 /// <summary>
 /// Query is executed on a monthly basis. The day of the month of the query execution should be specified.
 /// </summary>
-public partial record Monthly : ITradeQueryExecutionFrequency1Choice
+public partial record Monthly : TradeQueryExecutionFrequency1Choice_
 {
     public required IsoMax3Number Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetHolding1Choice;
 /// <summary>
 /// Value of cash collateral.
 /// </summary>
-public partial record Cash : IAssetHolding1Choice
+public partial record Cash : AssetHolding1Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

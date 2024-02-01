@@ -46,7 +46,7 @@ public partial record Cheque14
     /// <summary>
     /// Date and time at which the cheque amount becomes available on the payee account.
     /// </summary>
-    public IDateAndDateTime2Choice? EffectiveDate { get; init; } 
+    public DateAndDateTime2Choice_? EffectiveDate { get; init; } 
     /// <summary>
     /// Specifies the agent servicing the account of the cheque payer.
     /// </summary>

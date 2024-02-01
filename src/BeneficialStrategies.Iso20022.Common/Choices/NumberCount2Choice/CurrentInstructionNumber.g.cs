@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NumberCount2Choice;
 /// <summary>
 /// Sequential number of the instruction in a range of linked settlement instructions.
 /// </summary>
-public partial record CurrentInstructionNumber : INumberCount2Choice
+public partial record CurrentInstructionNumber : NumberCount2Choice_
 {
     public required IsoMax6NumericText Value { get; init; }
 }

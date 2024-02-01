@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PensionSchemeType2Choice;
 /// <summary>
 /// Type of pension policy, plan or scheme expressed as a code.
 /// </summary>
-public partial record Code : IPensionSchemeType2Choice
+public partial record Code : PensionSchemeType2Choice_
 {
     public required PensionSchemeType2Code Value { get; init; }
 }

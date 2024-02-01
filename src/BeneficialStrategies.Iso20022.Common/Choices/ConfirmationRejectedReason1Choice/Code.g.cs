@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConfirmationRejectedReason1Choic
 /// <summary>
 /// Reason for the rejected status expressed as a code.
 /// </summary>
-public partial record Code : IConfirmationRejectedReason1Choice
+public partial record Code : ConfirmationRejectedReason1Choice_
 {
     public required RejectedConfirmationStatusReason1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OvernightIndexSwap3Choice;
 /// <summary>
 /// Provides the reason why no transactions are being reported for a money market reporting period.
 /// </summary>
-public partial record DataSetAction : IOvernightIndexSwap3Choice
+public partial record DataSetAction : OvernightIndexSwap3Choice_
 {
     public required ReportPeriodActivity1Code Value { get; init; }
 }

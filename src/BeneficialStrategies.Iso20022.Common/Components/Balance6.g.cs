@@ -24,7 +24,7 @@ public partial record Balance6
     /// <summary>
     /// Total quantity of financial instruments of the balance.
     /// </summary>
-    public required IBalanceQuantity9Choice Quantity { get; init; } 
+    public required BalanceQuantity9Choice_ Quantity { get; init; } 
     
     #nullable disable
 }

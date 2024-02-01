@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SuspendedStatusReason4Choice;
 /// <summary>
 /// Reason for the suspended status, expressed as a code.
 /// </summary>
-public partial record ReasonDetails : ISuspendedStatusReason4Choice
+public partial record ReasonDetails : SuspendedStatusReason4Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the conditionally accepted status expressed as a code.
     /// </summary>
-    public required ISuspendedStatusReason5Choice Reason { get; init; } 
+    public required SuspendedStatusReason5Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the suspended reason.
     /// </summary>

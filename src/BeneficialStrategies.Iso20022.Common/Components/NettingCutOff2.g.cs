@@ -20,11 +20,11 @@ public partial record NettingCutOff2
     /// <summary>
     /// Identifies the netting party or group.
     /// </summary>
-    public required INettingIdentification2Choice NettingIdentification { get; init; } 
+    public required NettingIdentification2Choice_ NettingIdentification { get; init; } 
     /// <summary>
     /// Specifies the information regarding the updated netting cut off.
     /// </summary>
-    public CutOff1? NewCutOff { get; init;  } // Warning: Don't know multiplicity.
+    public CutOff1[] NewCutOff { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

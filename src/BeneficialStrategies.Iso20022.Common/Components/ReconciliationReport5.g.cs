@@ -32,7 +32,7 @@ public partial record ReconciliationReport5
     /// <summary>
     /// Indication whether the reconciliation is required.
     /// </summary>
-    public required IReconciliationStatus5Choice ReconciliationStatus { get; init; } 
+    public required ReconciliationStatus5Choice_ ReconciliationStatus { get; init; } 
     
     #nullable disable
 }

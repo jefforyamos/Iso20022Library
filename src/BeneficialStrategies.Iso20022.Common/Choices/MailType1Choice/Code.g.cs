@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MailType1Choice;
 /// <summary>
 /// Mail type expressed as a code.
 /// </summary>
-public partial record Code : IMailType1Choice
+public partial record Code : MailType1Choice_
 {
     public required MailType1Code Value { get; init; }
 }

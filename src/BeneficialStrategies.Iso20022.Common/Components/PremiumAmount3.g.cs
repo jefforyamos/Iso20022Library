@@ -20,7 +20,7 @@ public partial record PremiumAmount3
     /// <summary>
     /// Specifies the calculation method of the premium amount.
     /// </summary>
-    public required IPremiumQuote1Choice PremiumQuote { get; init; } 
+    public required PremiumQuote1Choice_ PremiumQuote { get; init; } 
     /// <summary>
     /// Identification of the premium currency in which the option is held. 
     /// </summary>

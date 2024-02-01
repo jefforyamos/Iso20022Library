@@ -24,11 +24,11 @@ public partial record OriginalMessage1
     /// <summary>
     /// Message sender specified in the original message.|
     /// </summary>
-    public required IParty9Choice From { get; init; } 
+    public required Party9Choice_ From { get; init; } 
     /// <summary>
     /// Message recipient specified in the original message.
     /// </summary>
-    public required IParty9Choice To { get; init; } 
+    public required Party9Choice_ To { get; init; } 
     /// <summary>
     /// Message identification specified in the original message.
     /// </summary>

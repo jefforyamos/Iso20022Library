@@ -27,7 +27,7 @@ public partial record Cardholder15
     /// ISO 8583:93 bit 112 (TLV tag 03/dataset 73)
     /// ISO 8583:2003 bit 51 (TLV tag 03/dataset 73)
     /// </summary>
-    public Credentials1? Identification { get; init;  } // Warning: Don't know multiplicity.
+    public Credentials1[] Identification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Complete address of the cardholder.
     /// </summary>

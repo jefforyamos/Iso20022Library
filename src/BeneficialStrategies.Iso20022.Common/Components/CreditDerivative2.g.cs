@@ -24,7 +24,7 @@ public partial record CreditDerivative2
     /// <summary>
     /// Designation of the underlying reference obligation.
     /// </summary>
-    public IDerivativePartyIdentification1Choice? ReferenceParty { get; init; } 
+    public DerivativePartyIdentification1Choice_? ReferenceParty { get; init; } 
     /// <summary>
     /// Frequency of payment of the interest rate or coupon.
     /// </summary>
@@ -49,7 +49,7 @@ public partial record CreditDerivative2
     /// <summary>
     /// Indicates whether the derivative contract is tranched or not.
     /// </summary>
-    public ITrancheIndicator2Choice? Tranche { get; init; } 
+    public TrancheIndicator2Choice_? Tranche { get; init; } 
     
     #nullable disable
 }

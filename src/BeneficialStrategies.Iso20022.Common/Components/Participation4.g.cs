@@ -28,7 +28,7 @@ public partial record Participation4
     /// <summary>
     /// Number of securities admitted to the vote, expressed as an amount and a currency.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? TotalNumberOfSecuritiesOutstanding { get; init; } 
+    public UnitOrFaceAmount1Choice_? TotalNumberOfSecuritiesOutstanding { get; init; } 
     /// <summary>
     /// Date of calculation of the total number of outstanding securities.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EquityDerivative3Choice;
 /// <summary>
 /// Populated when the sub asset class is neither swaps nor portfolio swaps.
 /// </summary>
-public partial record Other : IEquityDerivative3Choice
+public partial record Other : EquityDerivative3Choice_
 {
     public required UnderlyingEquityType6Code Value { get; init; }
 }

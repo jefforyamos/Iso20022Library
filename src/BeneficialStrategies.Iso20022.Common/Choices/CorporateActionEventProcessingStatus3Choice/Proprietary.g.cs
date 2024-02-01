@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventProcessingSt
 /// <summary>
 /// Status of a corporate action or the status of a payment expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICorporateActionEventProcessingStatus3Choice
+public partial record Proprietary : CorporateActionEventProcessingStatus3Choice_
 {
     #nullable enable
     /// <summary>

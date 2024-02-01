@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DeliveryReturn3Choice;
 /// <summary>
 /// Delivery return expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IDeliveryReturn3Choice
+public partial record Proprietary : DeliveryReturn3Choice_
 {
     #nullable enable
     /// <summary>

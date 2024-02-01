@@ -24,7 +24,7 @@ public partial record QuantityBreakdown16
     /// <summary>
     /// Quantity of financial instruments that is part of the lot described.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? LotQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? LotQuantity { get; init; } 
     /// <summary>
     /// Specifies the securities sub balance type indicator (example restriction type for a market infrastructure).
     /// </summary>
@@ -32,7 +32,7 @@ public partial record QuantityBreakdown16
     /// <summary>
     /// Date/time at which the lot was purchased.
     /// </summary>
-    public IDateAndDateTimeChoice? LotDateTime { get; init; } 
+    public DateAndDateTimeChoice_? LotDateTime { get; init; } 
     /// <summary>
     /// Price at which the lot was purchased.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record QuantityBreakdown16
     /// <summary>
     /// Specifies the type of price and information about the price.
     /// </summary>
-    public ITypeOfPrice3Choice? TypeOfPrice { get; init; } 
+    public TypeOfPrice3Choice_? TypeOfPrice { get; init; } 
     
     #nullable disable
 }

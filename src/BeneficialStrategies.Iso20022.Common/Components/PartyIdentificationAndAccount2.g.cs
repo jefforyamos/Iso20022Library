@@ -20,7 +20,7 @@ public partial record PartyIdentificationAndAccount2
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public required IPartyIdentification1Choice PartyIdentification { get; init; } 
+    public required PartyIdentification1Choice_ PartyIdentification { get; init; } 
     /// <summary>
     /// Identification of the account owned by the party.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record PartyIdentificationAndAccount2
     /// <summary>
     /// Date and optionally the time, at which this transaction was processed by the party identified in this sequence.
     /// </summary>
-    public IDateAndDateTimeChoice? ProcessingDate { get; init; } 
+    public DateAndDateTimeChoice_? ProcessingDate { get; init; } 
     
     #nullable disable
 }

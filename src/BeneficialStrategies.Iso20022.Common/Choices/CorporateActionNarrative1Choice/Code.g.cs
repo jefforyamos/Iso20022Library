@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionNarrative1Choice;
 /// <summary>
 /// Standard code to specify the narrative type of the message.
 /// </summary>
-public partial record Code : ICorporateActionNarrative1Choice
+public partial record Code : CorporateActionNarrative1Choice_
 {
     public required CorporateActionNarrative1Code Value { get; init; }
 }

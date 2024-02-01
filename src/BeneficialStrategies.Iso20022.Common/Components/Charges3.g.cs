@@ -24,7 +24,7 @@ public partial record Charges3
     /// <summary>
     /// Provides details of the individual charges record.
     /// </summary>
-    public ChargesRecord1? Record { get; init;  } // Warning: Don't know multiplicity.
+    public ChargesRecord1[] Record { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

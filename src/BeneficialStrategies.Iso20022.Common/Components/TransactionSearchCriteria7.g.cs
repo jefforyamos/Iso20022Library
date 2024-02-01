@@ -20,11 +20,11 @@ public partial record TransactionSearchCriteria7
     /// <summary>
     /// Defines the criteria which are used to search for the destination of the payment.
     /// </summary>
-    public SystemSearch3? PaymentTo { get; init;  } // Warning: Don't know multiplicity.
+    public SystemSearch3[] PaymentTo { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines the criteria which are used to search for the origin of the payment.
     /// </summary>
-    public SystemSearch3? PaymentFrom { get; init;  } // Warning: Don't know multiplicity.
+    public SystemSearch3[] PaymentFrom { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines the criteria which are used to search for a payment.
     /// </summary>

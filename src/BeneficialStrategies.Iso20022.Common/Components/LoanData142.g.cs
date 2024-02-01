@@ -48,7 +48,7 @@ public partial record LoanData142
     /// <summary>
     /// Data on amount and interest rates of the transaction.
     /// </summary>
-    public InterestRate6? MarginLoanAttribute { get; init;  } // Warning: Don't know multiplicity.
+    public InterestRate6[] MarginLoanAttribute { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Termination date in the case of a full early termination of the SFT.
     /// </summary>

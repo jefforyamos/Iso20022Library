@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralFlag10Choice;
 /// <summary>
 /// Indication that security is not collateralised.
 /// </summary>
-public partial record Uncollateralised : ICollateralFlag10Choice
+public partial record Uncollateralised : CollateralFlag10Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

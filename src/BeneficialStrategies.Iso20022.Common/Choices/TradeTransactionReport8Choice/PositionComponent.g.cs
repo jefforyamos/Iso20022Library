@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeTransactionReport8Choice;
 /// <summary>
 /// Indicates a derivative contract that is to be reported as a new trade and also included in a separate position report on the same day.
 /// </summary>
-public partial record PositionComponent : ITradeTransactionReport8Choice
+public partial record PositionComponent : TradeTransactionReport8Choice_
 {
     #nullable enable
     /// <summary>

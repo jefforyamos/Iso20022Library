@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GeographicLocation1Choice;
 /// <summary>
 /// Location on the earth specified by two numbers representing vertical and horizontal position.
 /// </summary>
-public partial record GeographicCoordinates : IGeographicLocation1Choice
+public partial record GeographicCoordinates : GeographicLocation1Choice_
 {
     #nullable enable
     /// <summary>

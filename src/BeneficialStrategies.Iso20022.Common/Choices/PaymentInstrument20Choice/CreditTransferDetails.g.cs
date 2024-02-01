@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument20Choice;
 /// <summary>
 /// Payment instrument between a debtor and a creditor, which flows through one or more financial institutions or systems.
 /// </summary>
-public partial record CreditTransferDetails : IPaymentInstrument20Choice
+public partial record CreditTransferDetails : PaymentInstrument20Choice_
 {
     #nullable enable
     /// <summary>

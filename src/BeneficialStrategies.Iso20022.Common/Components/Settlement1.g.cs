@@ -24,7 +24,7 @@ public partial record Settlement1
     /// <summary>
     /// Place where settlement of the securities takes place.
     /// </summary>
-    public IPartyIdentification34Choice? Depository { get; init; } 
+    public PartyIdentification34Choice_? Depository { get; init; } 
     
     #nullable disable
 }

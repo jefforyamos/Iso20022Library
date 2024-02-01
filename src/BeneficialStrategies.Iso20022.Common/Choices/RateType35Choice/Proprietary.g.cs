@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType35Choice;
 /// <summary>
 /// Rate expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IRateType35Choice
+public partial record Proprietary : RateType35Choice_
 {
     #nullable enable
     /// <summary>

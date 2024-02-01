@@ -20,15 +20,15 @@ public partial record SecurityAttributes12
     /// <summary>
     /// Provides additional details about the financial instrument.
     /// </summary>
-    public FinancialInstrument97? FinancialInstrumentType { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrument97[] FinancialInstrumentType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides details about the financial instrument attributes of a particular leg.
     /// </summary>
-    public CommonFinancialInstrumentAttributes12? FinancialInstrumentAttributes { get; init;  } // Warning: Don't know multiplicity.
+    public CommonFinancialInstrumentAttributes12[] FinancialInstrumentAttributes { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

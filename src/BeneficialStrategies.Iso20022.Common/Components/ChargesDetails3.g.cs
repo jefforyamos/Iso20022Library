@@ -20,11 +20,11 @@ public partial record ChargesDetails3
     /// <summary>
     /// Specifies the type of charges as a code or free text.
     /// </summary>
-    public required IChargesType1Choice Type { get; init; } 
+    public required ChargesType1Choice_ Type { get; init; } 
     /// <summary>
     /// Specifies if it is a fixed amount or a percentage.
     /// </summary>
-    public required IAmountOrPercentage2Choice AmountOrPercentage { get; init; } 
+    public required AmountOrPercentage2Choice_ AmountOrPercentage { get; init; } 
     
     #nullable disable
 }

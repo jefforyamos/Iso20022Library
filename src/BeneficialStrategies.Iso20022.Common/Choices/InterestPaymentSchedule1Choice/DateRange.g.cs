@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestPaymentSchedule1Choice;
 /// <summary>
 /// Specifies an expected date and a due date for the interest payment.
 /// </summary>
-public partial record DateRange : IInterestPaymentSchedule1Choice
+public partial record DateRange : InterestPaymentSchedule1Choice_
 {
     #nullable enable
     /// <summary>

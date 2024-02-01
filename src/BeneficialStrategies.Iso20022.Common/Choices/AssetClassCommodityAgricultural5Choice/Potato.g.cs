@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityAgricultural5
 /// <summary>
 /// Potato agricultural commodity derivative.
 /// </summary>
-public partial record Potato : IAssetClassCommodityAgricultural5Choice
+public partial record Potato : AssetClassCommodityAgricultural5Choice_
 {
     #nullable enable
     /// <summary>

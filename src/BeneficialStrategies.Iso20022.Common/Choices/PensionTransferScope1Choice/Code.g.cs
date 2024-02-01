@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PensionTransferScope1Choice;
 /// <summary>
 /// Type of pension policy, plan or scheme transfer scope expressed as a code.
 /// </summary>
-public partial record Code : IPensionTransferScope1Choice
+public partial record Code : PensionTransferScope1Choice_
 {
     public required PensionTransferScope1Code Value { get; init; }
 }

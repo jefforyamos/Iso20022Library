@@ -36,11 +36,11 @@ public partial record TotalFeesAndTaxes42
     /// <summary>
     /// Individual fee (charge/commission).
     /// </summary>
-    public Fee5? IndividualFee { get; init;  } // Warning: Don't know multiplicity.
+    public Fee5[] IndividualFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Individual tax.
     /// </summary>
-    public Tax35? IndividualTax { get; init;  } // Warning: Don't know multiplicity.
+    public Tax35[] IndividualTax { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

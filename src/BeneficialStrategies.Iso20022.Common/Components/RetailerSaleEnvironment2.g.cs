@@ -20,7 +20,7 @@ public partial record RetailerSaleEnvironment2
     /// <summary>
     /// Capabilities of the Sale system.
     /// </summary>
-    public SaleCapabilities1Code? SaleCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public SaleCapabilities1Code[] SaleCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Default currency associated with the sale system.
     /// </summary>

@@ -52,7 +52,7 @@ public partial record ISATransfer28
     /// <summary>
     /// Specifies portfolio information or government schemes, for example Individual Savings Account (ISA) in the UK.
     /// </summary>
-    public IISAPortfolio2Choice? Portfolio { get; init; } 
+    public ISAPortfolio2Choice_? Portfolio { get; init; } 
     /// <summary>
     /// Specifies whether all remaining assets in a portfolio not listed for transfer should be liquidated and transferred as cash.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record ISATransfer28
     /// <summary>
     /// Specifies the underlying assets for the ISA or portfolio.
     /// </summary>
-    public FinancialInstrument65? FinancialInstrumentAssetForTransfer { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrument65[] FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

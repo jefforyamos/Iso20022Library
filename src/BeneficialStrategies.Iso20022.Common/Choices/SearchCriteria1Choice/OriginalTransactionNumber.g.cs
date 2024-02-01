@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SearchCriteria1Choice;
 /// <summary>
 /// Specifies the original transaction number.
 /// </summary>
-public partial record OriginalTransactionNumber : ISearchCriteria1Choice
+public partial record OriginalTransactionNumber : SearchCriteria1Choice_
 {
     #nullable enable
     /// <summary>

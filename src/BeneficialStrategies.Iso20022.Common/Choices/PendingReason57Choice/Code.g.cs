@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingReason57Choice;
 /// <summary>
 /// Standard code to specify the reason why the instruction/event has a pending status.
 /// </summary>
-public partial record Code : IPendingReason57Choice
+public partial record Code : PendingReason57Choice_
 {
     public required PendingReason20Code Value { get; init; }
 }

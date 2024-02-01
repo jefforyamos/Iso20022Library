@@ -44,7 +44,7 @@ public partial record TargetMarket3
     /// <summary>
     /// Other target market parameter.
     /// </summary>
-    public OtherTargetMarket1? Other { get; init;  } // Warning: Don't know multiplicity.
+    public OtherTargetMarket1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

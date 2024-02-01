@@ -32,15 +32,15 @@ public partial record InvestmentAccount14
     /// <summary>
     /// Identification of an individual person whom legally owns the account.
     /// </summary>
-    public IIndividualPersonIdentificationChoice? IndividualOwnerIdentification { get; init; } 
+    public IndividualPersonIdentificationChoice_? IndividualOwnerIdentification { get; init; } 
     /// <summary>
     /// Identification of an organisation that legally owns the account.
     /// </summary>
-    public IPartyIdentification2Choice? OrganisationOwnerIdentification { get; init; } 
+    public PartyIdentification2Choice_? OrganisationOwnerIdentification { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountServicer { get; init; } 
+    public PartyIdentification2Choice_? AccountServicer { get; init; } 
     
     #nullable disable
 }

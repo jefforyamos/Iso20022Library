@@ -20,7 +20,7 @@ public partial record SuspendedStatusReason4
     /// <summary>
     /// Reason for the conditionally accepted status expressed as a code.
     /// </summary>
-    public required ISuspendedStatusReason5Choice Reason { get; init; } 
+    public required SuspendedStatusReason5Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the suspended reason.
     /// </summary>

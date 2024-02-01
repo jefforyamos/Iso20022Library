@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionAvailabilityStatus4Choice;
 /// <summary>
 /// Proprietary identification of the status of the option availability.
 /// </summary>
-public partial record Proprietary : IOptionAvailabilityStatus4Choice
+public partial record Proprietary : OptionAvailabilityStatus4Choice_
 {
     #nullable enable
     /// <summary>

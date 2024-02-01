@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TimeFrame9Choice;
 /// <summary>
 /// Time frame expressed as a code.
 /// </summary>
-public partial record Code : ITimeFrame9Choice
+public partial record Code : TimeFrame9Choice_
 {
     public required TimeFrame2Code Value { get; init; }
 }

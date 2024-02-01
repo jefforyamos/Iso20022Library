@@ -29,7 +29,7 @@ public partial record InterestRecord2
     /// <summary>
     /// Specifies the type of interest.
     /// </summary>
-    public IInterestType1Choice? Type { get; init; } 
+    public InterestType1Choice_? Type { get; init; } 
     /// <summary>
     /// Set of elements used to qualify the interest rate.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.VoteInstructionType2Choice;
 /// <summary>
 /// Vote option expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IVoteInstructionType2Choice
+public partial record Proprietary : VoteInstructionType2Choice_
 {
     #nullable enable
     /// <summary>

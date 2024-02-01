@@ -55,7 +55,7 @@ public partial record MeetingInstructionStatusV06 : IOuterRecord
     [DataMember(Name="InstrTp")]
     [XmlElement(ElementName="InstrTp")]
     [Required]
-    public required IInstructionType2Choice InstructionType { get; init; }
+    public required InstructionType2Choice_ InstructionType { get; init; }
     
     /// <summary>
     /// Set of elements that allow to identify unambiguously a meeting.
@@ -85,7 +85,7 @@ public partial record MeetingInstructionStatusV06 : IOuterRecord
     [DataMember(Name="InstrTpSts")]
     [XmlElement(ElementName="InstrTpSts")]
     [Required]
-    public required IInstructionTypeStatus3Choice InstructionTypeStatus { get; init; }
+    public required InstructionTypeStatus3Choice_ InstructionTypeStatus { get; init; }
     
     /// <summary>
     /// Party that confirms the receipt of the vote cast.
@@ -95,7 +95,7 @@ public partial record MeetingInstructionStatusV06 : IOuterRecord
     [DataMember(Name="CnfrmgPty")]
     [XmlElement(ElementName="CnfrmgPty")]
     [Required]
-    public required IPartyIdentification226Choice ConfirmingParty { get; init; }
+    public required PartyIdentification226Choice_ ConfirmingParty { get; init; }
     
     /// <summary>
     /// Party that cast the voting ballot.
@@ -105,7 +105,7 @@ public partial record MeetingInstructionStatusV06 : IOuterRecord
     [DataMember(Name="VoteCstgPty")]
     [XmlElement(ElementName="VoteCstgPty")]
     [Required]
-    public required IPartyIdentification226Choice VoteCastingParty { get; init; }
+    public required PartyIdentification226Choice_ VoteCastingParty { get; init; }
     
     /// <summary>
     /// Owner of the voting rights.
@@ -114,7 +114,7 @@ public partial record MeetingInstructionStatusV06 : IOuterRecord
     [Description(@"Owner of the voting rights.")]
     [DataMember(Name="RghtsHldr")]
     [XmlElement(ElementName="RghtsHldr")]
-    public IPartyIdentification227Choice? RightsHolder { get; init; }
+    public PartyIdentification227Choice_? RightsHolder { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.

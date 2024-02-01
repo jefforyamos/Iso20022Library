@@ -32,7 +32,7 @@ public partial record TaxParty4
     /// <summary>
     /// Specification of the tax exemption reason.
     /// </summary>
-    public ITaxExemptionReasonFormat1Choice? TaxExemptionReason { get; init;  } // Warning: Don't know multiplicity.
+    public TaxExemptionReasonFormat1Choice_[] TaxExemptionReason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

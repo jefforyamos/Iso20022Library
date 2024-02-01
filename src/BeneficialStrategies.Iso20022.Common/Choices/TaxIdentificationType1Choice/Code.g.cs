@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxIdentificationType1Choice;
 /// <summary>
 /// Type of tax identification number or identifier expressed as a code.
 /// </summary>
-public partial record Code : ITaxIdentificationType1Choice
+public partial record Code : TaxIdentificationType1Choice_
 {
     public required TaxIdentificationNumberType1Code Value { get; init; }
 }

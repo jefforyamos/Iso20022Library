@@ -20,11 +20,11 @@ public partial record InstructionStatusSearch4
     /// <summary>
     /// Status of a transfer.
     /// </summary>
-    public IPaymentStatusCodeSearch2Choice? PaymentInstructionStatus { get; init; } 
+    public PaymentStatusCodeSearch2Choice_? PaymentInstructionStatus { get; init; } 
     /// <summary>
     /// Date and time at which the status was assigned to the transfer.
     /// </summary>
-    public IDateTimePeriod1Choice? PaymentInstructionStatusDateTime { get; init; } 
+    public DateTimePeriod1Choice_? PaymentInstructionStatusDateTime { get; init; } 
     /// <summary>
     /// Defines the reason that has been used by the Target2 SSP system to reject the transaction.
     /// </summary>

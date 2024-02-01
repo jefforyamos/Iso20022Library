@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxBasis1Choice;
 /// <summary>
 /// Tax basis expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITaxBasis1Choice
+public partial record Proprietary : TaxBasis1Choice_
 {
     #nullable enable
     /// <summary>

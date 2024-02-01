@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus72Choice;
 /// <summary>
 /// Instruction has been completed by the executing party.
 /// </summary>
-public partial record Completed : IProcessingStatus72Choice
+public partial record Completed : ProcessingStatus72Choice_
 {
     #nullable enable
     /// <summary>

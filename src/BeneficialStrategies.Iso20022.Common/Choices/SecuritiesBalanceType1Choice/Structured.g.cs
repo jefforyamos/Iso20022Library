@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesBalanceType1Choice;
 /// <summary>
 /// Balance reason in structured format.
 /// </summary>
-public partial record Structured : ISecuritiesBalanceType1Choice
+public partial record Structured : SecuritiesBalanceType1Choice_
 {
     public required SecuritiesBalanceType1Code Value { get; init; }
 }

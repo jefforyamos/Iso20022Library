@@ -20,7 +20,7 @@ public partial record Charges1
     /// <summary>
     /// Type of charges.
     /// </summary>
-    public IChargeType2FormatChoice? Type { get; init; } 
+    public ChargeType2FormatChoice_? Type { get; init; } 
     /// <summary>
     /// Amount of charges.
     /// </summary>

@@ -20,7 +20,7 @@ public partial record RejectionReason53
     /// <summary>
     /// Identification of a transaction.
     /// </summary>
-    public required ITransactionIdentification3Choice TransactionIdentification { get; init; } 
+    public required TransactionIdentification3Choice_ TransactionIdentification { get; init; } 
     /// <summary>
     /// Information on status of submitted transactions.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record RejectionReason53
     /// <summary>
     /// Acceptance criteria of the transaction.
     /// </summary>
-    public GenericValidationRuleIdentification1? DetailedValidationRule { get; init;  } // Warning: Don't know multiplicity.
+    public GenericValidationRuleIdentification1[] DetailedValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

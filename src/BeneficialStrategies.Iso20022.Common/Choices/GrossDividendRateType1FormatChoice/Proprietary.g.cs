@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRateType1FormatChoi
 /// <summary>
 /// Proprietary code to express the type of gross dividend rate.
 /// </summary>
-public partial record Proprietary : IGrossDividendRateType1FormatChoice
+public partial record Proprietary : GrossDividendRateType1FormatChoice_
 {
     #nullable enable
     /// <summary>

@@ -20,11 +20,11 @@ public partial record AccountInterest1
     /// <summary>
     /// Specifies the type of interest.
     /// </summary>
-    public IInterestType1Choice? Type { get; init; } 
+    public InterestType1Choice_? Type { get; init; } 
     /// <summary>
     /// Set of elements qualifying the interest rate.
     /// </summary>
-    public Rate1? Rate { get; init;  } // Warning: Don't know multiplicity.
+    public Rate1[] Rate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Range of time between a start date and an end date for the calculation of the interest.
     /// </summary>

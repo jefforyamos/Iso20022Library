@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Party48Choice;
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
-public partial record IndividualPerson : IParty48Choice
+public partial record IndividualPerson : Party48Choice_
 {
     #nullable enable
     /// <summary>
     /// Term used to address the person.
     /// </summary>
-    public INamePrefix1Choice? NamePrefix { get; init; } 
+    public NamePrefix1Choice_? NamePrefix { get; init; } 
     /// <summary>
     /// First name of the person.
     /// </summary>
@@ -86,7 +86,7 @@ public partial record IndividualPerson : IParty48Choice
     /// <summary>
     /// Civil status of the individual person.
     /// </summary>
-    public ICivilStatus1Choice? CivilStatus { get; init; } 
+    public CivilStatus1Choice_? CivilStatus { get; init; } 
     /// <summary>
     /// Highest level of education reached by the individual person.
     /// </summary>

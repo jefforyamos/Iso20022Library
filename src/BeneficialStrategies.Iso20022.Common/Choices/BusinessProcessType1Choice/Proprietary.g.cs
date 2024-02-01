@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BusinessProcessType1Choice;
 /// <summary>
 /// Type of business process expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IBusinessProcessType1Choice
+public partial record Proprietary : BusinessProcessType1Choice_
 {
     #nullable enable
     /// <summary>

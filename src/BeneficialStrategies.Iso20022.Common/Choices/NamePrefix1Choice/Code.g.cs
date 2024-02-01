@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NamePrefix1Choice;
 /// <summary>
 /// Name prefix expressed as a code.
 /// </summary>
-public partial record Code : INamePrefix1Choice
+public partial record Code : NamePrefix1Choice_
 {
     public required NamePrefix1Code Value { get; init; }
 }

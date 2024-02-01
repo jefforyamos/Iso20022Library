@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DistributionPolicy2Choice;
 /// <summary>
 /// Distribution policy expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IDistributionPolicy2Choice
+public partial record Code : DistributionPolicy2Choice_
 {
     public required DistributionPolicy1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportContent1Choice;
 /// <summary>
 /// Encrypted report content.
 /// </summary>
-public partial record ProtectedData : IReportContent1Choice
+public partial record ProtectedData : ReportContent1Choice_
 {
     #nullable enable
     /// <summary>

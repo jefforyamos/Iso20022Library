@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventProcessingTy
 /// <summary>
 /// Proprietary code to express the type of event processing.
 /// </summary>
-public partial record Proprietary : ICorporateActionEventProcessingType1FormatChoice
+public partial record Proprietary : CorporateActionEventProcessingType1FormatChoice_
 {
     #nullable enable
     /// <summary>

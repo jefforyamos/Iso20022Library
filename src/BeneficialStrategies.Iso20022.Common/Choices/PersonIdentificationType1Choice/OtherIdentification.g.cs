@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonIdentificationType1Choice;
 /// <summary>
 /// Identifier issued to a person for which no specific identifier has been defined.
 /// </summary>
-public partial record OtherIdentification : IPersonIdentificationType1Choice
+public partial record OtherIdentification : PersonIdentificationType1Choice_
 {
     #nullable enable
     /// <summary>

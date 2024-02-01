@@ -28,7 +28,7 @@ public partial record RetailerReversalResult1
     /// <summary>
     /// Updated Customer order list after reversal.
     /// </summary>
-    public CustomerOrder1? CustomerOrder { get; init;  } // Warning: Don't know multiplicity.
+    public CustomerOrder1[] CustomerOrder { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

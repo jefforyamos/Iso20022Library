@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityPaper4Choice;
 /// <summary>
 /// Recovered paper commodity derivative.
 /// </summary>
-public partial record RecoveredPaper : IAssetClassCommodityPaper4Choice
+public partial record RecoveredPaper : AssetClassCommodityPaper4Choice_
 {
     #nullable enable
     /// <summary>

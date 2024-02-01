@@ -20,7 +20,7 @@ public partial record PartyIdentification76
     /// <summary>
     /// Identifies the owner of the investment account which is used to acquire or sell financial instruments.
     /// </summary>
-    public required IPersonOrOrganisation1Choice Identification { get; init; } 
+    public required PersonOrOrganisation1Choice_ Identification { get; init; } 
     /// <summary>
     /// Country of the branch that received the order from the client or made an investment decision for a client in accordance with a discretionary mandate given to it by the client.
     /// </summary>

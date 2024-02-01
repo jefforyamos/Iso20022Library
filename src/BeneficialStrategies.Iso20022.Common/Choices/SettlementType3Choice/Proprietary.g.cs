@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementType3Choice;
 /// <summary>
 /// Settlement type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISettlementType3Choice
+public partial record Proprietary : SettlementType3Choice_
 {
     #nullable enable
     /// <summary>

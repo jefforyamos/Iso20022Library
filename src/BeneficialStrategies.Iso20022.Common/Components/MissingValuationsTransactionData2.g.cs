@@ -28,7 +28,7 @@ public partial record MissingValuationsTransactionData2
     /// <summary>
     /// Date and time of the valuation.
     /// </summary>
-    public IDateAndDateTime2Choice? ValuationTimeStamp { get; init; } 
+    public DateAndDateTime2Choice_? ValuationTimeStamp { get; init; } 
     
     #nullable disable
 }

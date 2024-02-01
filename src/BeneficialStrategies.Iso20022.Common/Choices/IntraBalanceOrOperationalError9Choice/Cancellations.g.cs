@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraBalanceOrOperationalError9C
 /// <summary>
 /// Further details of the intrabalance cancellation transactions.
 /// </summary>
-public partial record Cancellations : IIntraBalanceOrOperationalError9Choice
+public partial record Cancellations : IntraBalanceOrOperationalError9Choice_
 {
     #nullable enable
     /// <summary>
@@ -30,7 +30,7 @@ public partial record Cancellations : IIntraBalanceOrOperationalError9Choice
     /// <summary>
     /// Status and status reason of the transaction.
     /// </summary>
-    public IProcessingStatus69Choice? ProcessingStatus { get; init; } 
+    public ProcessingStatus69Choice_? ProcessingStatus { get; init; } 
     /// <summary>
     /// Further details of the individual intrabalance cancellation transaction.
     /// </summary>

@@ -40,15 +40,15 @@ public partial record InvestmentAccount64
     /// <summary>
     /// Owner of the account.
     /// </summary>
-    public IAccountOwner2Choice? AccountOwner { get; init; } 
+    public AccountOwner2Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Intermediary or other party related to the management of the account.
     /// </summary>
-    public IReadOnlyCollection<Intermediary33> Intermediary { get; init; } = [];
+    public Intermediary33[] Intermediary { get; init; } = [];
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    public IPartyIdentification70Choice? AccountServicer { get; init; } 
+    public PartyIdentification70Choice_? AccountServicer { get; init; } 
     
     #nullable disable
 }

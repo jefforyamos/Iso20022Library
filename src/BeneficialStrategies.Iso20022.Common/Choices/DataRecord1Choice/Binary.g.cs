@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DataRecord1Choice;
 /// <summary>
 /// Contains the data record in Binary format.
 /// </summary>
-public partial record Binary : IDataRecord1Choice
+public partial record Binary : DataRecord1Choice_
 {
     public required IsoMax20MbBinary Value { get; init; }
 }

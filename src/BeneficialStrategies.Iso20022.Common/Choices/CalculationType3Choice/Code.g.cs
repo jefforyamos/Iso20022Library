@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CalculationType3Choice;
 /// <summary>
 /// Calculation type expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ICalculationType3Choice
+public partial record Code : CalculationType3Choice_
 {
     public required CalculationType1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateStatus3Choice;
 /// <summary>
 /// Standard code to specify the status of the rate.
 /// </summary>
-public partial record Code : IRateStatus3Choice
+public partial record Code : RateStatus3Choice_
 {
     public required RateStatus1Code Value { get; init; }
 }

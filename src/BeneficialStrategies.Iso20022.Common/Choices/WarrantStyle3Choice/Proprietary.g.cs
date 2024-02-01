@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.WarrantStyle3Choice;
 /// <summary>
 /// Warrant style expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IWarrantStyle3Choice
+public partial record Proprietary : WarrantStyle3Choice_
 {
     #nullable enable
     /// <summary>

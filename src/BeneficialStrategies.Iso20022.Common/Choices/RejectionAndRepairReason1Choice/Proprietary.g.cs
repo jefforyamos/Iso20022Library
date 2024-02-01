@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionAndRepairReason1Choice;
 /// <summary>
 /// Specifies the reason why the instruction/request has a repair or rejection status.
 /// </summary>
-public partial record Proprietary : IRejectionAndRepairReason1Choice
+public partial record Proprietary : RejectionAndRepairReason1Choice_
 {
     #nullable enable
     /// <summary>

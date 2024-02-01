@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementOrCorporateActionEvent
 /// <summary>
 /// Identifies the type of securities transaction.
 /// </summary>
-public partial record SecuritiesTransactionType : ISettlementOrCorporateActionEvent1Choice
+public partial record SecuritiesTransactionType : SettlementOrCorporateActionEvent1Choice_
 {
     #nullable enable
     #nullable disable

@@ -20,11 +20,11 @@ public partial record Fee5
     /// <summary>
     /// Type of fee (charge/commission).
     /// </summary>
-    public required IChargeType5Choice Type { get; init; } 
+    public required ChargeType5Choice_ Type { get; init; } 
     /// <summary>
     /// Method used to calculate the fee (charge/commission).
     /// </summary>
-    public IChargeBasis2Choice? Basis { get; init; } 
+    public ChargeBasis2Choice_? Basis { get; init; } 
     /// <summary>
     /// Standard fee (charge/commission) amount as specified in the fund prospectus or agreed for the account.
     /// </summary>

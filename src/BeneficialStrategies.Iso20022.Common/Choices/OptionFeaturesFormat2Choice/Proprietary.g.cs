@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionFeaturesFormat2Choice;
 /// <summary>
 /// Proprietary identification of the features that may apply to a corporate action option.
 /// </summary>
-public partial record Proprietary : IOptionFeaturesFormat2Choice
+public partial record Proprietary : OptionFeaturesFormat2Choice_
 {
     #nullable enable
     /// <summary>

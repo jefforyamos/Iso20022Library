@@ -36,7 +36,7 @@ public partial record CashOutForecast3
     /// <summary>
     /// Breakdown of cash out amounts, eg, by transaction or order type.
     /// </summary>
-    public FundCashOutBreakdown2? CashOutBreakdownDetails { get; init;  } // Warning: Don't know multiplicity.
+    public FundCashOutBreakdown2[] CashOutBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceSourceFormatChoice;
 /// <summary>
 /// Source of price quotation is the market, expressed as a Market Identifier Code (MIC).
 /// </summary>
-public partial record LocalMarketPlace : IPriceSourceFormatChoice
+public partial record LocalMarketPlace : PriceSourceFormatChoice_
 {
     public required IsoMICIdentifier Value { get; init; }
 }

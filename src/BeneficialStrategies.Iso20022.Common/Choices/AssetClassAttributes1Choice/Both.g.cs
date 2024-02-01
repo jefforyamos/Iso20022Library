@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassAttributes1Choice;
 /// <summary>
 /// Asset class is composed of both an interest derivate and a foreign exchange derivative.
 /// </summary>
-public partial record Both : IAssetClassAttributes1Choice
+public partial record Both : AssetClassAttributes1Choice_
 {
     #nullable enable
     /// <summary>

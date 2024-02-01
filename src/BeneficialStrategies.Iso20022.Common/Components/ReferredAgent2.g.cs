@@ -24,7 +24,7 @@ public partial record ReferredAgent2
     /// <summary>
     /// Placement agent that referred the investor.
     /// </summary>
-    public IPartyIdentification70Choice? ReferredPlacementAgent { get; init; } 
+    public PartyIdentification70Choice_? ReferredPlacementAgent { get; init; } 
     
     #nullable disable
 }

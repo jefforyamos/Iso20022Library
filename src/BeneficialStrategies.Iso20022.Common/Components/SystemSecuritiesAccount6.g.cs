@@ -39,7 +39,7 @@ public partial record SystemSecuritiesAccount6
     /// <summary>
     /// Specifies the type of the securities account.
     /// </summary>
-    public ISystemSecuritiesAccountType1Choice? Type { get; init; } 
+    public SystemSecuritiesAccountType1Choice_? Type { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
@@ -47,15 +47,15 @@ public partial record SystemSecuritiesAccount6
     /// <summary>
     /// Specifies the type of party owning the account.
     /// </summary>
-    public ISystemPartyType1Choice? PartyType { get; init; } 
+    public SystemPartyType1Choice_? PartyType { get; init; } 
     /// <summary>
     /// Additional attributes defined by a central security depositary for a securities account.
     /// </summary>
-    public MarketSpecificAttribute1? MarketSpecificAttribute { get; init;  } // Warning: Don't know multiplicity.
+    public MarketSpecificAttribute1[] MarketSpecificAttribute { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines the specific processing characteristics for a securities account to ensure configurability of specific requirements, as prescribed by national legal and regulatory requirements and practices.
     /// </summary>
-    public SystemRestriction1? Restriction { get; init;  } // Warning: Don't know multiplicity.
+    public SystemRestriction1[] Restriction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies information to identify securities accounts where allocation instructions are posted.
     /// </summary>

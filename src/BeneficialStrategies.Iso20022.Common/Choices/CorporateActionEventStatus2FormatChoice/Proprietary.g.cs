@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventStatus2Forma
 /// <summary>
 /// Proprietary code to express the status of the CA option.
 /// </summary>
-public partial record Proprietary : ICorporateActionEventStatus2FormatChoice
+public partial record Proprietary : CorporateActionEventStatus2FormatChoice_
 {
     #nullable enable
     /// <summary>

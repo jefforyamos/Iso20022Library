@@ -20,7 +20,7 @@ public partial record TransferIn8
     /// <summary>
     /// General information related to the transfer of a financial instrument.
     /// </summary>
-    public Transfer25? TransferDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Transfer25[] TransferDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to the account into which the financial instrument was received.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record TransferIn8
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public Extension1? Extension { get; init;  } // Warning: Don't know multiplicity.
+    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

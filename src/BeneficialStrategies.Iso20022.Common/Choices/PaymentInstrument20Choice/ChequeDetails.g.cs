@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument20Choice;
 /// <summary>
 /// Written order on which instructions are given to an account holder (a financial institution) to pay a stated sum to a named recipient (the payee).
 /// </summary>
-public partial record ChequeDetails : IPaymentInstrument20Choice
+public partial record ChequeDetails : PaymentInstrument20Choice_
 {
     #nullable enable
     /// <summary>

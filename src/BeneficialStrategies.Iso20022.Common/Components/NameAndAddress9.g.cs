@@ -24,7 +24,7 @@ public partial record NameAndAddress9
     /// <summary>
     /// Postal address of a party.
     /// </summary>
-    public ILongPostalAddress2Choice? Address { get; init; } 
+    public LongPostalAddress2Choice_? Address { get; init; } 
     
     #nullable disable
 }

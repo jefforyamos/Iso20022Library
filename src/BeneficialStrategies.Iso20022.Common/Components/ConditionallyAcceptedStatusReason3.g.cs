@@ -20,7 +20,7 @@ public partial record ConditionallyAcceptedStatusReason3
     /// <summary>
     /// Reason for the conditionally accepted status expressed as a code.
     /// </summary>
-    public required IConditionallyAcceptedStatusReason3Choice Reason { get; init; } 
+    public required ConditionallyAcceptedStatusReason3Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the conditionally accepted reason.
     /// </summary>

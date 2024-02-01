@@ -75,7 +75,7 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     [DataMember(Name="MktId")]
     [XmlElement(ElementName="MktId")]
     [Required]
-    public required IMarketIdentificationOrCashPurpose1Choice MarketIdentification { get; init; }
+    public required MarketIdentificationOrCashPurpose1Choice_ MarketIdentification { get; init; }
     
     /// <summary>
     /// Settlement information that helps to identify the standing settlement instruction, cancellation or deletion for which the status is sent.
@@ -85,7 +85,7 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     [DataMember(Name="SttlmDtls")]
     [XmlElement(ElementName="SttlmDtls")]
     [Required]
-    public required IPartyOrCurrency1Choice SettlementDetails { get; init; }
+    public required PartyOrCurrency1Choice_ SettlementDetails { get; init; }
     
     /// <summary>
     /// Reference to a linked message that was previously received.
@@ -105,7 +105,7 @@ public partial record StandingSettlementInstructionStatusAdviceV01 : IOuterRecor
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required IProcessingStatus43Choice ProcessingStatus { get; init; }
+    public required ProcessingStatus43Choice_ ProcessingStatus { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

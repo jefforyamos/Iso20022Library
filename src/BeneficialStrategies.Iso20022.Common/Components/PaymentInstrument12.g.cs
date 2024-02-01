@@ -24,7 +24,7 @@ public partial record PaymentInstrument12
     /// <summary>
     /// Choice of payment instruments.
     /// </summary>
-    public required IPaymentInstrument16Choice PaymentInstrument { get; init; } 
+    public required PaymentInstrument16Choice_ PaymentInstrument { get; init; } 
     /// <summary>
     /// Percentage of the dividend payment not to be reinvested, that is, to be paid in cash.
     /// </summary>

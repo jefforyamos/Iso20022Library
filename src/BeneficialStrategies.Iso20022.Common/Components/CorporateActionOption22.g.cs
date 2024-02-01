@@ -20,15 +20,15 @@ public partial record CorporateActionOption22
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    public required IOptionNumber1Choice OptionNumber { get; init; } 
+    public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public required ICorporateActionOption5Choice OptionType { get; init; } 
+    public required CorporateActionOption5Choice_ OptionType { get; init; } 
     /// <summary>
     /// Party that owns the account.
     /// </summary>
-    public IPartyIdentification41Choice? AccountOwner { get; init; } 
+    public PartyIdentification41Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record CorporateActionOption22
     /// <summary>
     /// Account on which a securities entry is made.
     /// </summary>
-    public ICashAccountIdentification5Choice? CashAccount { get; init; } 
+    public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
-    public ISafekeepingPlaceFormat2Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat2Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record CorporateActionOption22
     /// <summary>
     /// Specifies whether the quantity of financial instrument is a status quantity or a quantity to receive.
     /// </summary>
-    public IStatusOrQuantityToReceive1Choice? StatusQuantityOrQuantityToReceive { get; init; } 
+    public StatusOrQuantityToReceive1Choice_? StatusQuantityOrQuantityToReceive { get; init; } 
     
     #nullable disable
 }

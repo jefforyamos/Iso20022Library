@@ -24,15 +24,15 @@ public partial record TransactionTotals13
     /// <summary>
     /// Total of credit transactions.
     /// </summary>
-    public FinancialReconciliation2? FinancialReconciliation { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialReconciliation2[] FinancialReconciliation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains total message count.
     /// </summary>
-    public MessageReconciliation3? MessageReconciliation { get; init;  } // Warning: Don't know multiplicity.
+    public MessageReconciliation3[] MessageReconciliation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional fee reconciliation data.
     /// </summary>
-    public AdditionalFeeReconciliation2? AdditionalFeeReconciliation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFeeReconciliation2[] AdditionalFeeReconciliation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency of the transaction.
     /// </summary>

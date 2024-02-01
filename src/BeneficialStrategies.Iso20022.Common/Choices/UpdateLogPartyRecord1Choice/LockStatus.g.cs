@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 /// <summary>
 /// Specifies whether the party is locked or not, and the reason for this status, when required.
 /// </summary>
-public partial record LockStatus : IUpdateLogPartyRecord1Choice
+public partial record LockStatus : UpdateLogPartyRecord1Choice_
 {
     #nullable enable
     /// <summary>

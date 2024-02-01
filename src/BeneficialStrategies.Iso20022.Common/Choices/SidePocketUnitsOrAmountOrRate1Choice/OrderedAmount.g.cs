@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SidePocketUnitsOrAmountOrRate1Ch
 /// <summary>
 /// Amount of money to be invested or redeemed into the side pocket.
 /// </summary>
-public partial record OrderedAmount : ISidePocketUnitsOrAmountOrRate1Choice
+public partial record OrderedAmount : SidePocketUnitsOrAmountOrRate1Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

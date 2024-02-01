@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationProcessingStatus7Cho
 /// <summary>
 /// Provides the status of a cancellation request.
 /// </summary>
-public partial record Code : ICancellationProcessingStatus7Choice
+public partial record Code : CancellationProcessingStatus7Choice_
 {
     public required CancellationProcessingStatus1Code Value { get; init; }
 }

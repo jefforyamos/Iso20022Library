@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralPurpose1Choice;
 /// <summary>
 /// Provides the collateral purpose using a proprietary code.
 /// </summary>
-public partial record Proprietary : ICollateralPurpose1Choice
+public partial record Proprietary : CollateralPurpose1Choice_
 {
     #nullable enable
     /// <summary>

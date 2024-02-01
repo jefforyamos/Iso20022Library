@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CardPaymentDataSetTransaction10C
 /// <summary>
 /// Card payment transaction including an authorisation request.
 /// </summary>
-public partial record AuthorisationRequest : ICardPaymentDataSetTransaction10Choice
+public partial record AuthorisationRequest : CardPaymentDataSetTransaction10Choice_
 {
     #nullable enable
     /// <summary>

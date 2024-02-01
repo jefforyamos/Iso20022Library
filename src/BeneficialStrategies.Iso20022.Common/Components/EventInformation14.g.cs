@@ -28,11 +28,11 @@ public partial record EventInformation14
     /// <summary>
     /// Type of corporate action event.
     /// </summary>
-    public required ICorporateActionEventType90Choice EventType { get; init; } 
+    public required CorporateActionEventType90Choice_ EventType { get; init; } 
     /// <summary>
     /// Specifies whether the event is mandatory, mandatory with options or voluntary.
     /// </summary>
-    public required ICorporateActionMandatoryVoluntary4Choice MandatoryVoluntaryEventType { get; init; } 
+    public required CorporateActionMandatoryVoluntary4Choice_ MandatoryVoluntaryEventType { get; init; } 
     /// <summary>
     /// Provides information about the identification of the last notification.
     /// </summary>

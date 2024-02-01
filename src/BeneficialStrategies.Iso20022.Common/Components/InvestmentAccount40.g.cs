@@ -20,7 +20,7 @@ public partial record InvestmentAccount40
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification2Choice? OwnerIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification2Choice_[] OwnerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record InvestmentAccount40
     /// <summary>
     /// Party that provides services relating to financial products to investors, eg, advice on products and placement of orders for the investment fund.
     /// </summary>
-    public Intermediary25? IntermediaryInformation { get; init;  } // Warning: Don't know multiplicity.
+    public Intermediary25[] IntermediaryInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Form, ie, ownership, of the security, eg, registered or bearer.
     /// </summary>
@@ -56,11 +56,11 @@ public partial record InvestmentAccount40
     /// <summary>
     /// Place requested as the place of safekeeping.
     /// </summary>
-    public IPartyIdentification2Choice? SafekeepingPlace { get; init; } 
+    public PartyIdentification2Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Institution that maintains the records where the account is held.
     /// </summary>
-    public IPartyIdentification2Choice? AccountServicer { get; init; } 
+    public PartyIdentification2Choice_? AccountServicer { get; init; } 
     /// <summary>
     /// Sub-accounts that are grouped in a master or omnibus account.
     /// </summary>

@@ -20,15 +20,15 @@ public partial record AmountPricePerFinancialInstrumentQuantity9
     /// <summary>
     /// Type of amount price.
     /// </summary>
-    public required IYieldedOrValueType1Choice AmountPriceType { get; init; } 
+    public required YieldedOrValueType1Choice_ AmountPriceType { get; init; } 
     /// <summary>
     /// Value given to a price.
     /// </summary>
-    public required IPriceRateOrAmount3Choice PriceValue { get; init; } 
+    public required PriceRateOrAmount3Choice_ PriceValue { get; init; } 
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice FinancialInstrumentQuantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ FinancialInstrumentQuantity { get; init; } 
     /// <summary>
     /// Date at which the actual price for a financial instrument is fixed.
     /// </summary>

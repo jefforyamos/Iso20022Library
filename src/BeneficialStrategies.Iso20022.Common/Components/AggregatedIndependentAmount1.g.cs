@@ -32,7 +32,7 @@ public partial record AggregatedIndependentAmount1
     /// <summary>
     /// Any other amount that should be considered to calculate the independent amount.
     /// </summary>
-    public IndependentAmount2? OtherAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IndependentAmount2[] OtherAmount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

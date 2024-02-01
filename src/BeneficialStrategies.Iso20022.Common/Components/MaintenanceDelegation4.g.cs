@@ -20,7 +20,7 @@ public partial record MaintenanceDelegation4
     /// <summary>
     /// Maintenance service to be delegated.
     /// </summary>
-    public DataSetCategory6Code? MaintenanceService { get; init;  } // Warning: Don't know multiplicity.
+    public DataSetCategory6Code[] MaintenanceService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Response of the MTM to the delegation of the maintenance service.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record MaintenanceDelegation4
     /// <summary>
     /// Subset of the terminal estate for the delegated actions, for instance for pilot or key deactivation). The subset may be expressed as a list of POI or terminal estate subset identifier.
     /// </summary>
-    public IsoMax35Text? POISubset { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] POISubset { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the parameters subset assigned by the MTM.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record MaintenanceDelegation4
     /// <summary>
     /// Association of the TM identifier and the MTM identifier of a POI.
     /// </summary>
-    public MaintenanceIdentificationAssociation1? POIIdentificationAssociation { get; init;  } // Warning: Don't know multiplicity.
+    public MaintenanceIdentificationAssociation1[] POIIdentificationAssociation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

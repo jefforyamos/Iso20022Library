@@ -28,7 +28,7 @@ public partial record TaxExemptQuantitySD2
     /// <summary>
     /// Elected quantity.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
     
     #nullable disable
 }

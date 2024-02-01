@@ -20,7 +20,7 @@ public partial record InvestmentAccount65
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public PartyIdentification113? OwnerIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification113[] OwnerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>

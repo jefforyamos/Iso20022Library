@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RetrievalDeliveryMethod1Choice;
 /// <summary>
 /// Method requested by issuers to convey the transaction information.
 /// </summary>
-public partial record RequestedMethod : IRetrievalDeliveryMethod1Choice
+public partial record RequestedMethod : RetrievalDeliveryMethod1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

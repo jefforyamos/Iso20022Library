@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RepoCallRequestStatus5Choice;
 /// <summary>
 /// Proprietary status.
 /// </summary>
-public partial record Proprietary : IRepoCallRequestStatus5Choice
+public partial record Proprietary : RepoCallRequestStatus5Choice_
 {
     #nullable enable
     /// <summary>

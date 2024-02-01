@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosurePendingStatusReason1Choic
 /// <summary>
 /// There is no reason available or to report for the closure pending status.
 /// </summary>
-public partial record NoSpecifiedReason : IClosurePendingStatusReason1Choice
+public partial record NoSpecifiedReason : ClosurePendingStatusReason1Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

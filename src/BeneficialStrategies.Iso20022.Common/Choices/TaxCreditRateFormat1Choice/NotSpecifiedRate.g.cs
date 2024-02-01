@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxCreditRateFormat1Choice;
 /// <summary>
 /// Value of the rate not specified.
 /// </summary>
-public partial record NotSpecifiedRate : ITaxCreditRateFormat1Choice
+public partial record NotSpecifiedRate : TaxCreditRateFormat1Choice_
 {
     public required RateValueType6Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingSettlementStatusChoice;
 /// <summary>
 /// Reason for a pending status in the report.
 /// </summary>
-public partial record Reason : IPendingSettlementStatusChoice
+public partial record Reason : PendingSettlementStatusChoice_
 {
     #nullable enable
     /// <summary>

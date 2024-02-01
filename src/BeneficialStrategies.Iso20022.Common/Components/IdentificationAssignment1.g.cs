@@ -29,15 +29,15 @@ public partial record IdentificationAssignment1
     /// <summary>
     /// Party that created the identification assignment.
     /// </summary>
-    public IParty7Choice? Creator { get; init; } 
+    public Party7Choice_? Creator { get; init; } 
     /// <summary>
     /// Party that assigns the identification assignment to another party. This is also the sender of the message.
     /// </summary>
-    public required IParty7Choice Assigner { get; init; } 
+    public required Party7Choice_ Assigner { get; init; } 
     /// <summary>
     /// Party that the identification assignment is assigned to. This is also the receiver of the message.
     /// </summary>
-    public required IParty7Choice Assignee { get; init; } 
+    public required Party7Choice_ Assignee { get; init; } 
     
     #nullable disable
 }

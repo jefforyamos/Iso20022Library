@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AgreedAmount1Choice;
 /// <summary>
 /// Provides details about the agreed amount for the variation margin and optionaly the segregated independent amount.
 /// </summary>
-public partial record AgreedAmountDetails : IAgreedAmount1Choice
+public partial record AgreedAmountDetails : AgreedAmount1Choice_
 {
     #nullable enable
     /// <summary>

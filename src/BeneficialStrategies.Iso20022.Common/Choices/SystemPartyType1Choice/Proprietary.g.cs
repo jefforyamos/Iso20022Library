@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyType1Choice;
 /// <summary>
 /// System party type, in a proprietary format.
 /// </summary>
-public partial record Proprietary : ISystemPartyType1Choice
+public partial record Proprietary : SystemPartyType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

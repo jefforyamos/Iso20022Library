@@ -20,11 +20,11 @@ public partial record SecuritiesAccountAuditTrailReport3
     /// <summary>
     /// Provides the returned securities account reference data or error information.
     /// </summary>
-    public required IAuditTrailOrBusinessError6Choice SecuritiesAccountAuditTrailOrError { get; init; } 
+    public required AuditTrailOrBusinessError6Choice_ SecuritiesAccountAuditTrailOrError { get; init; } 
     /// <summary>
     /// Period in dates for which the audit trail is provided.
     /// </summary>
-    public IDatePeriodSearch1Choice? DatePeriod { get; init; } 
+    public DatePeriodSearch1Choice_? DatePeriod { get; init; } 
     /// <summary>
     /// Identifies the securities account for which the audit trail is provided.
     /// </summary>

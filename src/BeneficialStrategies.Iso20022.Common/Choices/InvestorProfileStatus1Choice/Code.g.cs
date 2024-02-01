@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestorProfileStatus1Choice;
 /// <summary>
 /// Investor profile status expressed as a code.
 /// </summary>
-public partial record Code : IInvestorProfileStatus1Choice
+public partial record Code : InvestorProfileStatus1Choice_
 {
     public required InvestorProfileStatus1Code Value { get; init; }
 }

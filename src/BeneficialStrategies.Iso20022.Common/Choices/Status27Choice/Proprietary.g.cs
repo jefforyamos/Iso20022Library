@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status27Choice;
 /// <summary>
 /// Status expressed in a proprietary form.
 /// </summary>
-public partial record Proprietary : IStatus27Choice
+public partial record Proprietary : Status27Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementStatus27Choice;
 /// <summary>
 /// Full settlement.
 /// </summary>
-public partial record Settled : ISettlementStatus27Choice
+public partial record Settled : SettlementStatus27Choice_
 {
     #nullable enable
     /// <summary>

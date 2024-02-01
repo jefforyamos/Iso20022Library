@@ -12,20 +12,20 @@ namespace BeneficialStrategies.Iso20022.Choices.ReservationOrError7Choice;
 /// <summary>
 /// Requested information on the limit.
 /// </summary>
-public partial record Reservation : IReservationOrError7Choice
+public partial record Reservation : ReservationOrError7Choice_
 {
     #nullable enable
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
-    public required IAmount2Choice Amount { get; init; } 
+    public required Amount2Choice_ Amount { get; init; } 
     /// <summary>
     /// Status of the limit, such as enabled or disabled.
     /// </summary>
-    public IReservationStatus1Choice? Status { get; init; } 
+    public ReservationStatus1Choice_? Status { get; init; } 
     /// <summary>
     /// Date and time at which the reservation becomes effective.
     /// </summary>
-    public IDateAndDateTime2Choice? StartDateTime { get; init; } 
+    public DateAndDateTime2Choice_? StartDateTime { get; init; } 
     #nullable disable
 }

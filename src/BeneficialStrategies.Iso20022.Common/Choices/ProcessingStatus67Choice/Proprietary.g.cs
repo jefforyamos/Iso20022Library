@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus67Choice;
 /// <summary>
 /// Specifies a choice of status for the processing of an intra-balance movement.
 /// </summary>
-public partial record Proprietary : IProcessingStatus67Choice
+public partial record Proprietary : ProcessingStatus67Choice_
 {
     #nullable enable
     /// <summary>

@@ -60,7 +60,7 @@ public partial record Contact4
     /// <summary>
     /// Contact details in another form.
     /// </summary>
-    public OtherContact1? Other { get; init;  } // Warning: Don't know multiplicity.
+    public OtherContact1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Preferred method used to reach the contact.
     /// </summary>

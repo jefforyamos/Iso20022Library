@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DebtorActivationAmendmentReason1
 /// <summary>
 /// Reason, as published in an external reason code list.
 /// </summary>
-public partial record Code : IDebtorActivationAmendmentReason1Choice
+public partial record Code : DebtorActivationAmendmentReason1Choice_
 {
     public required ExternalDebtorActivationAmendmentReason1Code Value { get; init; }
 }

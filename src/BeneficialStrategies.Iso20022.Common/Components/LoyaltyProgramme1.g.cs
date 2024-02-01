@@ -23,7 +23,7 @@ public partial record LoyaltyProgramme1
     /// False: Not eligible for loyalty
     /// Default: False.
     /// </summary>
-    public IsoTrueFalseIndicator? ProgrammeEligibilityIndicator { get; init;  } // Warning: Don't know multiplicity.
+    public IsoTrueFalseIndicator[] ProgrammeEligibilityIndicator { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Entity issuing the loyalty programme.
     /// </summary>

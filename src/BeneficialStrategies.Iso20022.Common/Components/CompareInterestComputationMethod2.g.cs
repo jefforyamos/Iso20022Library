@@ -20,11 +20,11 @@ public partial record CompareInterestComputationMethod2
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
-    public IInterestComputationMethodFormat6Choice? Value1 { get; init; } 
+    public InterestComputationMethodFormat6Choice_? Value1 { get; init; } 
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
-    public IInterestComputationMethodFormat6Choice? Value2 { get; init; } 
+    public InterestComputationMethodFormat6Choice_? Value2 { get; init; } 
     
     #nullable disable
 }

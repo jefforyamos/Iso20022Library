@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderBreakdownType1Choice;
 /// <summary>
 /// Order breakdown type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IOrderBreakdownType1Choice
+public partial record Proprietary : OrderBreakdownType1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FundParameters4Choice;
 /// <summary>
 /// Report parameters.
 /// </summary>
-public partial record Parameters : IFundParameters4Choice
+public partial record Parameters : FundParameters4Choice_
 {
     #nullable enable
     /// <summary>

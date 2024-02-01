@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FXCancellation1Choice;
 /// <summary>
 /// Specifies whether the underlying FX transaction should also be cancelled. Yes means FX is to be cancelled. No means FX is to be retained.
 /// </summary>
-public partial record Indicator : IFXCancellation1Choice
+public partial record Indicator : FXCancellation1Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

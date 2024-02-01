@@ -24,15 +24,15 @@ public partial record ValidationStatusReason2
     /// <summary>
     /// Specifies the reason for the status.
     /// </summary>
-    public IStatusReason6Choice? Reason { get; init; } 
+    public StatusReason6Choice_? Reason { get; init; } 
     /// <summary>
     /// Provides details about the rule which could not be validated.
     /// </summary>
-    public GenericValidationRuleIdentification1? ValidationRule { get; init;  } // Warning: Don't know multiplicity.
+    public GenericValidationRuleIdentification1[] ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further details on the status reason.||Usage: Additional information can be used for several purposes such as the reporting of repaired information.
     /// </summary>
-    public IsoMax105Text? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

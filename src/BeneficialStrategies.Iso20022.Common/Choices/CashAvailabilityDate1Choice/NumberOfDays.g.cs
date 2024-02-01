@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CashAvailabilityDate1Choice;
 /// <summary>
 /// Indicates the number of float days attached to the balance.
 /// </summary>
-public partial record NumberOfDays : ICashAvailabilityDate1Choice
+public partial record NumberOfDays : CashAvailabilityDate1Choice_
 {
     public required IsoMax15PlusSignedNumericText Value { get; init; }
 }

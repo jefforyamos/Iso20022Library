@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityFertilizer3Ch
 /// <summary>
 /// Ammonia fertilizer commodity derivative.
 /// </summary>
-public partial record Ammonia : IAssetClassCommodityFertilizer3Choice
+public partial record Ammonia : AssetClassCommodityFertilizer3Choice_
 {
     #nullable enable
     /// <summary>

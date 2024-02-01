@@ -63,7 +63,7 @@ public partial record RegulatoryTransactionReportStatusV01 : IOuterRecord
     [DataMember(Name="RptgInstn")]
     [XmlElement(ElementName="RptgInstn")]
     [Required]
-    public required IPartyIdentification23Choice ReportingInstitution { get; init; }
+    public required PartyIdentification23Choice_ ReportingInstitution { get; init; }
     
     /// <summary>
     /// Provides the status of the entire RegulatoryTransactionReport that was previously sent by the reporting institution.

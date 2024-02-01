@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AllegementReason1Choice;
 /// <summary>
 /// Specifies the reason why the instruction has been alleged.
 /// </summary>
-public partial record Code : IAllegementReason1Choice
+public partial record Code : AllegementReason1Choice_
 {
     public required AllegementReason1Code Value { get; init; }
 }

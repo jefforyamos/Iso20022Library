@@ -20,11 +20,11 @@ public partial record Intermediary23
     /// <summary>
     /// Unique and unambiguous identifier of the intermediary.
     /// </summary>
-    public required IPartyIdentification49Choice Identification { get; init; } 
+    public required PartyIdentification49Choice_ Identification { get; init; } 
     /// <summary>
     /// Function performed by the intermediary (investment funds).
     /// </summary>
-    public IRole2Choice? Role { get; init; } 
+    public Role2Choice_? Role { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>

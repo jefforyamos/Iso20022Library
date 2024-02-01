@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusCode5Choice;
 /// <summary>
 /// Qualifies further the pending status.
 /// </summary>
-public partial record Pending : IPaymentStatusCode5Choice
+public partial record Pending : PaymentStatusCode5Choice_
 {
     public required PendingStatus4Code Value { get; init; }
 }

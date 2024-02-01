@@ -84,7 +84,7 @@ public partial record AccountModificationInstructionV07 : IOuterRecord
     [DataMember(Name="InvstmtAcctSelctn")]
     [XmlElement(ElementName="InvstmtAcctSelctn")]
     [Required]
-    public required IAccountSelection2Choice InvestmentAccountSelection { get; init; }
+    public required AccountSelection2Choice_ InvestmentAccountSelection { get; init; }
     
     /// <summary>
     /// Information related to general characteristics of the account to be inserted, updated or deleted.

@@ -24,7 +24,7 @@ public partial record OrganisationIdentification9
     /// <summary>
     /// Unique identification of an organisation, as assigned by an institution, using an identification scheme.
     /// </summary>
-    public GenericOrganisationIdentification2? Other { get; init;  } // Warning: Don't know multiplicity.
+    public GenericOrganisationIdentification2[] Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

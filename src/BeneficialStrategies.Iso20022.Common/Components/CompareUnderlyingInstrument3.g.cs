@@ -20,11 +20,11 @@ public partial record CompareUnderlyingInstrument3
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
-    public ISecurityIdentification41Choice? Value1 { get; init; } 
+    public SecurityIdentification41Choice_? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
-    public ISecurityIdentification41Choice? Value2 { get; init; } 
+    public SecurityIdentification41Choice_? Value2 { get; init; } 
     
     #nullable disable
 }

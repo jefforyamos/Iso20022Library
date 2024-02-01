@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportContent1Choice;
 /// <summary>
 /// Report content in text format.
 /// </summary>
-public partial record Text : IReportContent1Choice
+public partial record Text : ReportContent1Choice_
 {
     public required IsoMax10MbText Value { get; init; }
 }

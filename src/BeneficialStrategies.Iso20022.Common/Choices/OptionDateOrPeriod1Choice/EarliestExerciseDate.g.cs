@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionDateOrPeriod1Choice;
 /// <summary>
 /// First date on which the call option or the put option can be exercised.
 /// </summary>
-public partial record EarliestExerciseDate : IOptionDateOrPeriod1Choice
+public partial record EarliestExerciseDate : OptionDateOrPeriod1Choice_
 {
     public required IsoISODate Value { get; init; }
 }

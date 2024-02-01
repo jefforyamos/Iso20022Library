@@ -20,11 +20,11 @@ public partial record Charge26
     /// <summary>
     /// Type of charge.
     /// </summary>
-    public required IChargeType4Choice Type { get; init; } 
+    public required ChargeType4Choice_ Type { get; init; } 
     /// <summary>
     /// Charge amount or charge rate applied.
     /// </summary>
-    public required IAmountOrRate3Choice ChargeApplied { get; init; } 
+    public required AmountOrRate3Choice_ ChargeApplied { get; init; } 
     
     #nullable disable
 }

@@ -72,7 +72,7 @@ public partial record PaymentTransaction44
     /// <summary>
     /// Provides information on the charges to be paid by the charge bearer(s) related to the processing of the return transaction.
     /// </summary>
-    public Charges2? ChargesInformation { get; init;  } // Warning: Don't know multiplicity.
+    public Charges2[] ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Agent that instructs the next party in the chain to carry out the (set of) instruction(s).||Usage: The instructing agent is the party sending the return message and not the party that sent the original instruction that is being returned.
     /// </summary>
@@ -84,7 +84,7 @@ public partial record PaymentTransaction44
     /// <summary>
     /// Provides detailed information on the return reason.
     /// </summary>
-    public PaymentReturnReason1? ReturnReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentReturnReason1[] ReturnReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Key elements used to identify the original transaction that is being referred to.
     /// </summary>
@@ -92,7 +92,7 @@ public partial record PaymentTransaction44
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

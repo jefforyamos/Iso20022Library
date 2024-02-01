@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesMovementStatus1Choice;
 /// <summary>
 /// Validation checks on the security have not yet started or are still ongoing.
 /// </summary>
-public partial record Pending : ISecuritiesMovementStatus1Choice
+public partial record Pending : SecuritiesMovementStatus1Choice_
 {
     #nullable enable
     /// <summary>

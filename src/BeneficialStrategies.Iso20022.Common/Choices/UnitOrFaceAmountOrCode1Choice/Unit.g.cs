@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitOrFaceAmountOrCode1Choice;
 /// <summary>
 /// Quantity expressed as a number, eg, a number of shares.
 /// </summary>
-public partial record Unit : IUnitOrFaceAmountOrCode1Choice
+public partial record Unit : UnitOrFaceAmountOrCode1Choice_
 {
     public required IsoDecimalNumber Value { get; init; }
 }

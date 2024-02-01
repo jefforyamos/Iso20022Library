@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderStatus3Choice;
 /// <summary>
 /// Status of all the orders in the order message is cancelled. This status is used for orders that have been accepted or that have been entered in an order book but that can not be executed.
 /// </summary>
-public partial record Cancelled : IOrderStatus3Choice
+public partial record Cancelled : OrderStatus3Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the cancelled status.
     /// </summary>
-    public ICancelledReason12Choice? Reason { get; init; } 
+    public CancelledReason12Choice_? Reason { get; init; } 
     /// <summary>
     /// Additional information about the cancelled status.
     /// </summary>

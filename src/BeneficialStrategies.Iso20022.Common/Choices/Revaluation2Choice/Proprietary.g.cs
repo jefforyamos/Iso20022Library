@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Revaluation2Choice;
 /// <summary>
 /// Reevaluation is determined using a data source scheme.
 /// </summary>
-public partial record Proprietary : IRevaluation2Choice
+public partial record Proprietary : Revaluation2Choice_
 {
     #nullable enable
     /// <summary>

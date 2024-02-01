@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FixedAmountOrUnlimited1Choice;
 /// <summary>
 /// Fixed amount.
 /// </summary>
-public partial record Amount : IFixedAmountOrUnlimited1Choice
+public partial record Amount : FixedAmountOrUnlimited1Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason7FormatChoice;
 /// <summary>
 /// Proprietary code to express the reason of a rejection cancellation request.
 /// </summary>
-public partial record Proprietary : IRejectionReason7FormatChoice
+public partial record Proprietary : RejectionReason7FormatChoice_
 {
     #nullable enable
     /// <summary>

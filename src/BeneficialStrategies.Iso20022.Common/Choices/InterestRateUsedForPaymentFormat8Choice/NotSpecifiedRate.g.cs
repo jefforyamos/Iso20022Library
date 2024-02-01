@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRateUsedForPaymentFormat
 /// <summary>
 /// Value of the rate not specified.
 /// </summary>
-public partial record NotSpecifiedRate : IInterestRateUsedForPaymentFormat8Choice
+public partial record NotSpecifiedRate : InterestRateUsedForPaymentFormat8Choice_
 {
     public required RateType13Code Value { get; init; }
 }

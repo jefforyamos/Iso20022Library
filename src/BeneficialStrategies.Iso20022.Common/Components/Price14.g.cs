@@ -20,7 +20,7 @@ public partial record Price14
     /// <summary>
     /// Value of the price.
     /// </summary>
-    public required IPriceRateOrAmount3Choice Value { get; init; } 
+    public required PriceRateOrAmount3Choice_ Value { get; init; } 
     /// <summary>
     /// Specification of the price type.
     /// </summary>

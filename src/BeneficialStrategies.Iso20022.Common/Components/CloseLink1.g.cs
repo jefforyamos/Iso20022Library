@@ -24,7 +24,7 @@ public partial record CloseLink1
     /// <summary>
     /// Identifies the party for which the close link is defined.
     /// </summary>
-    public required ISystemPartyIdentification1Choice PartyIdentification { get; init; } 
+    public required SystemPartyIdentification1Choice_ PartyIdentification { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AwaitingAffirmationReason2Choice
 /// <summary>
 /// Specifies the reason why the instruction has been alleged.
 /// </summary>
-public partial record Proprietary : IAwaitingAffirmationReason2Choice
+public partial record Proprietary : AwaitingAffirmationReason2Choice_
 {
     #nullable enable
     /// <summary>

@@ -32,11 +32,11 @@ public partial record IndividualPerson25
     /// <summary>
     /// Postal address of the party.
     /// </summary>
-    public ILongPostalAddress2Choice? Address { get; init; } 
+    public LongPostalAddress2Choice_? Address { get; init; } 
     /// <summary>
     /// Organisation represented by the person, or for which the person works.
     /// </summary>
-    public IPartyIdentification40Choice? EmployingParty { get; init; } 
+    public PartyIdentification40Choice_? EmployingParty { get; init; } 
     
     #nullable disable
 }

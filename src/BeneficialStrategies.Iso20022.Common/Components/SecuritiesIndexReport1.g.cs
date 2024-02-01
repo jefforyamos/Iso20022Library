@@ -30,11 +30,11 @@ public partial record SecuritiesIndexReport1
     /// <summary>
     /// Details the index that is being requested.
     /// </summary>
-    public required IFinancialInstrument46Choice Index { get; init; } 
+    public required FinancialInstrument46Choice_ Index { get; init; } 
     /// <summary>
     /// Date when the national competent authority last expressed its interest in this index.
     /// </summary>
-    public IPeriod4Choice? ValidityPeriod { get; init; } 
+    public Period4Choice_? ValidityPeriod { get; init; } 
     
     #nullable disable
 }

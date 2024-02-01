@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TemporaryFinancialInstrumentIndi
 /// <summary>
 /// Temporary financial instrument identification used for processing reasons.
 /// </summary>
-public partial record TemporaryIndicator : ITemporaryFinancialInstrumentIndicator1Choice
+public partial record TemporaryIndicator : TemporaryFinancialInstrumentIndicator1Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

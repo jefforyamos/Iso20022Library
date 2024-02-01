@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References78Choice;
 /// <summary>
 /// Identification of a counterparty transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
 /// </summary>
-public partial record CounterpartyMarketInfrastructureTransactionIdentification : IReferences78Choice
+public partial record CounterpartyMarketInfrastructureTransactionIdentification : References78Choice_
 {
     public required IsoRestrictedFINXMax16Text Value { get; init; }
 }

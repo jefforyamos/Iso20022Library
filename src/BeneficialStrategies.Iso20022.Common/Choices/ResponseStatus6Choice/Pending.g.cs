@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ResponseStatus6Choice;
 /// <summary>
 /// Pending status of an instruction, advice or request.
 /// </summary>
-public partial record Pending : IResponseStatus6Choice
+public partial record Pending : ResponseStatus6Choice_
 {
     #nullable enable
     #nullable disable

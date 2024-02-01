@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AcceptedStatusReason1Choice;
 /// <summary>
 /// Reason for the status expressed as a code.
 /// </summary>
-public partial record Code : IAcceptedStatusReason1Choice
+public partial record Code : AcceptedStatusReason1Choice_
 {
     public required AcceptedStatusReason1Code Value { get; init; }
 }

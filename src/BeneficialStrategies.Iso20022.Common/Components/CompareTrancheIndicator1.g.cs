@@ -20,11 +20,11 @@ public partial record CompareTrancheIndicator1
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
-    public ITrancheIndicator3Choice? Value1 { get; init; } 
+    public TrancheIndicator3Choice_? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
-    public ITrancheIndicator3Choice? Value2 { get; init; } 
+    public TrancheIndicator3Choice_? Value2 { get; init; } 
     
     #nullable disable
 }

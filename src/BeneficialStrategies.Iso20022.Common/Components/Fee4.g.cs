@@ -20,11 +20,11 @@ public partial record Fee4
     /// <summary>
     /// Type of fee.
     /// </summary>
-    public required IChargeType6Choice Type { get; init; } 
+    public required ChargeType6Choice_ Type { get; init; } 
     /// <summary>
     /// Method used to calculate the fee.
     /// </summary>
-    public IChargeBasis2Choice? Basis { get; init; } 
+    public ChargeBasis2Choice_? Basis { get; init; } 
     /// <summary>
     /// Fee amount.
     /// </summary>

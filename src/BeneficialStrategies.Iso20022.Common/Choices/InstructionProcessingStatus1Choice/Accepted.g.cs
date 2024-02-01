@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus1Choi
 /// <summary>
 /// Provides status information related to an instruction request accepted for further processing.
 /// </summary>
-public partial record Accepted : IInstructionProcessingStatus1Choice
+public partial record Accepted : InstructionProcessingStatus1Choice_
 {
     #nullable enable
     #nullable disable

@@ -56,7 +56,7 @@ public partial record ReturnAccountV08 : IOuterRecord
     [DataMember(Name="RptOrErr")]
     [XmlElement(ElementName="RptOrErr")]
     [Required]
-    public required IAccountOrOperationalError4Choice ReportOrError { get; init; }
+    public required AccountOrOperationalError4Choice_ ReportOrError { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

@@ -44,7 +44,7 @@ public partial record Instruction2
     /// <summary>
     /// Identification of the security holder who will attend and vote at the meeting in person and/or a person assigned by the security holder to attend the meeting without having any voting rights or taking any action.
     /// </summary>
-    public IndividualPerson17? MeetingAttendee { get; init;  } // Warning: Don't know multiplicity.
+    public IndividualPerson17[] MeetingAttendee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Request to execute specific instructions, such as participation registration, securities registration or blocking of securities.
     /// </summary>

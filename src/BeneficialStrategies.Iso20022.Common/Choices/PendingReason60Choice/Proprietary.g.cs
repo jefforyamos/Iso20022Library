@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingReason60Choice;
 /// <summary>
 /// Specifies the reason why the instruction has a pending status.
 /// </summary>
-public partial record Proprietary : IPendingReason60Choice
+public partial record Proprietary : PendingReason60Choice_
 {
     #nullable enable
     /// <summary>

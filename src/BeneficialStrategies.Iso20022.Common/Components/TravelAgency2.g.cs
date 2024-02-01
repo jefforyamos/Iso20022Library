@@ -24,7 +24,7 @@ public partial record TravelAgency2
     /// <summary>
     /// Provides detailed information about the travel package, excluding specific itinerary data. 
     /// </summary>
-    public TravelAgencyPackage1? TravelPackage { get; init;  } // Warning: Don't know multiplicity.
+    public TravelAgencyPackage1[] TravelPackage { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional travel details.
     /// </summary>

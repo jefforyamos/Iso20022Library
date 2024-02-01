@@ -168,7 +168,7 @@ public partial record AccountHoldingInformationRequestV04 : IOuterRecord
     [DataMember(Name="Trfee")]
     [XmlElement(ElementName="Trfee")]
     [Required]
-    public required IPartyIdentification70Choice Transferee { get; init; }
+    public required PartyIdentification70Choice_ Transferee { get; init; }
     
     /// <summary>
     /// Provides information related to the asset(s) transferred.

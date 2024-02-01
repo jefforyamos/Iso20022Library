@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventType1CodeCho
 /// <summary>
 /// Corporate action event type in free text form.
 /// </summary>
-public partial record Unstructured : ICorporateActionEventType1CodeChoice
+public partial record Unstructured : CorporateActionEventType1CodeChoice_
 {
     public required IsoMax35Text Value { get; init; }
 }

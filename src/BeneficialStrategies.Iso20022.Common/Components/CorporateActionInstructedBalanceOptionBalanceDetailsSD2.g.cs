@@ -24,7 +24,7 @@ public partial record CorporateActionInstructedBalanceOptionBalanceDetailsSD2
     /// <summary>
     /// Option Number of the extended balances.
     /// </summary>
-    public required IOptionNumber1Choice OptionNumber { get; init; } 
+    public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Balance of uncovered protect transactions at an option level.
     /// </summary>

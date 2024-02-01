@@ -48,7 +48,7 @@ public partial record CorporateActionMovementCashMovementDetailsSD3
     /// <summary>
     /// Date/Time on which the posting / draft of cash is scheduled to take place for a transaction.
     /// </summary>
-    public IDateFormat28Choice? EarliestPaymentDate { get; init; } 
+    public DateFormat28Choice_? EarliestPaymentDate { get; init; } 
     /// <summary>
     /// Unique DTCC legacy reference used for matching and reconciling legacy CCF records. The element will be populated to all levels of the message (Event Details, Options, Movements) where applicable to indicate how values are sourced from CCF legacy files. For example: event has 2 related Activity Types 74, and 54. If event details and cash option are sourced from the Activity Type 74, then Activity Type 74 will be in RDP Reference Number in event details, and also on the cash option. The activity type 54 will be "on" the security option. Also, usage rules will specify the different layouts of the RDP Reference Number based on DTCC event group (reorganization, distribution, or redemption).
     /// </summary>

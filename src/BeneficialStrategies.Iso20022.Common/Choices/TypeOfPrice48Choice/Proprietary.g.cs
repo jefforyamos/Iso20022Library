@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TypeOfPrice48Choice;
 /// <summary>
 /// Type of price expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITypeOfPrice48Choice
+public partial record Proprietary : TypeOfPrice48Choice_
 {
     #nullable enable
     /// <summary>

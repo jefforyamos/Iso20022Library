@@ -32,7 +32,7 @@ public partial record CorporateActionGeneralInformation167
     /// <summary>
     /// Type of corporate action event.
     /// </summary>
-    public required ICorporateActionEventType96Choice EventType { get; init; } 
+    public required CorporateActionEventType96Choice_ EventType { get; init; } 
     /// <summary>
     /// Identification of the security concerned by the corporate action.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record CorporateActionGeneralInformation167
     /// <summary>
     /// Fractional quantity resulting from an event which will be paid with cash in lieu.
     /// </summary>
-    public IFinancialInstrumentQuantity36Choice? FractionalQuantity { get; init; } 
+    public FinancialInstrumentQuantity36Choice_? FractionalQuantity { get; init; } 
     
     #nullable disable
 }

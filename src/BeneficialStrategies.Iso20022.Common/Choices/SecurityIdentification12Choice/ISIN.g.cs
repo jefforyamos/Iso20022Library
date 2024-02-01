@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification12Choice;
 /// <summary>
 /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation's International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
 /// </summary>
-public partial record ISIN : ISecurityIdentification12Choice
+public partial record ISIN : SecurityIdentification12Choice_
 {
     public required IsoISINIdentifier Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ISAPortfolio2Choice;
 /// <summary>
 /// Wrapper for a specific product or a specific sub-product owned by a set of beneficial owners.
 /// </summary>
-public partial record Portfolio : IISAPortfolio2Choice
+public partial record Portfolio : ISAPortfolio2Choice_
 {
     #nullable enable
     /// <summary>

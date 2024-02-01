@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingReason3Choice;
 /// <summary>
 /// Specifies the reason of the MatchedAlleged Status.
 /// </summary>
-public partial record Reason : IMatchingReason3Choice
+public partial record Reason : MatchingReason3Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the instruction has been alleged.
     /// </summary>
-    public required IAllegmentReason1Choice Code { get; init; } 
+    public required AllegmentReason1Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional information about the reason in narrative form.
     /// </summary>

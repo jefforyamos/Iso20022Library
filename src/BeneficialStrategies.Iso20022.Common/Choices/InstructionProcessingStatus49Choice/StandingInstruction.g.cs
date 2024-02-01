@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus49Cho
 /// <summary>
 /// Standing instruction has been applied.
 /// </summary>
-public partial record StandingInstruction : IInstructionProcessingStatus49Choice
+public partial record StandingInstruction : InstructionProcessingStatus49Choice_
 {
     #nullable enable
     /// <summary>

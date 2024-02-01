@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateCode18Choice;
 /// <summary>
 /// Date expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IDateCode18Choice
+public partial record Proprietary : DateCode18Choice_
 {
     #nullable enable
     /// <summary>

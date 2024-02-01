@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RecordMessage1Choice;
 /// <summary>
 /// Settlement reporting response message record.
 /// </summary>
-public partial record SettlementReportingResponse : IRecordMessage1Choice
+public partial record SettlementReportingResponse : RecordMessage1Choice_
 {
     public required IsoMax2MBBinary Value { get; init; }
 }

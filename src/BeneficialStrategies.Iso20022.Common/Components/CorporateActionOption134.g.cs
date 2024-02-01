@@ -20,19 +20,19 @@ public partial record CorporateActionOption134
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    public required IOptionNumber1Choice OptionNumber { get; init; } 
+    public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public required ICorporateActionOption29Choice OptionType { get; init; } 
+    public required CorporateActionOption29Choice_ OptionType { get; init; } 
     /// <summary>
     /// Specifies how fractional amount/quantities are treated.
     /// </summary>
-    public IFractionDispositionType29Choice? FractionDisposition { get; init; } 
+    public FractionDispositionType29Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Type of changes affecting the security form.
     /// </summary>
-    public ICorporateActionChangeTypeFormat7Choice? ChangeType { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionChangeTypeFormat7Choice_[] ChangeType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies that the corporate action instruction is to be processed using the Available-for-Collateral pool.
     /// </summary>
@@ -56,11 +56,11 @@ public partial record CorporateActionOption134
     /// <summary>
     /// Provides information about securities quantity linked to a corporate action option.
     /// </summary>
-    public required ISecuritiesQuantityOrAmount1Choice SecuritiesQuantityOrInstructedAmount { get; init; } 
+    public required SecuritiesQuantityOrAmount1Choice_ SecuritiesQuantityOrInstructedAmount { get; init; } 
     /// <summary>
     /// Date/time at which the instructing party requests the instruction to be executed.
     /// </summary>
-    public IDateAndDateTimeChoice? ExecutionRequestedDateTime { get; init; } 
+    public DateAndDateTimeChoice_? ExecutionRequestedDateTime { get; init; } 
     /// <summary>
     /// Provides information about rates and amounts related to a corporate action option.
     /// </summary>

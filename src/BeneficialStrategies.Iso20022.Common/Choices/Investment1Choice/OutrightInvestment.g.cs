@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice;
 /// <summary>
 /// Indicates that the investment was an outright purchase of a financial instrument or security as an investment.
 /// </summary>
-public partial record OutrightInvestment : IInvestment1Choice
+public partial record OutrightInvestment : Investment1Choice_
 {
     #nullable enable
     /// <summary>

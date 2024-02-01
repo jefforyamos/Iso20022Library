@@ -46,7 +46,7 @@ public partial record PayInCallV02 : IOuterRecord
     [DataMember(Name="PtyId")]
     [XmlElement(ElementName="PtyId")]
     [Required]
-    public required IPartyIdentification73Choice PartyIdentification { get; init; }
+    public required PartyIdentification73Choice_ PartyIdentification { get; init; }
     
     /// <summary>
     /// Contains the report generation information and the report items.

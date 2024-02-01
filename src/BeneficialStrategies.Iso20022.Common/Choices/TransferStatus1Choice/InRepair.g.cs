@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferStatus1Choice;
 /// <summary>
 /// Status of the transfer is in repair.
 /// </summary>
-public partial record InRepair : ITransferStatus1Choice
+public partial record InRepair : TransferStatus1Choice_
 {
     #nullable enable
     /// <summary>

@@ -20,7 +20,7 @@ public partial record RejectionReason67
     /// <summary>
     /// Specifies the reason why the instruction/request has a rejected status.
     /// </summary>
-    public required IRejectionReason52Choice Code { get; init; } 
+    public required RejectionReason52Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional information about the reason in narrative form.
     /// </summary>

@@ -36,7 +36,7 @@ public partial record SubscriptionBulkExecution2
     /// <summary>
     /// Execution of a subscription order.
     /// </summary>
-    public SubscriptionExecution3? IndividualExecutionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SubscriptionExecution3[] IndividualExecutionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency requested for settlement of cash proceeds.
     /// </summary>

@@ -24,7 +24,7 @@ public partial record BlockChainAddressWallet10
     /// <summary>
     /// Specifies the type of securities account.
     /// </summary>
-    public IPurposeCode8Choice? Type { get; init; } 
+    public PurposeCode8Choice_? Type { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>

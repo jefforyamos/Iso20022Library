@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventProcessingTy
 /// <summary>
 /// Standard code to specify the processing type of a corporate action event.
 /// </summary>
-public partial record Code : ICorporateActionEventProcessingType2Choice
+public partial record Code : CorporateActionEventProcessingType2Choice_
 {
     public required CorporateActionEventProcessingType1Code Value { get; init; }
 }

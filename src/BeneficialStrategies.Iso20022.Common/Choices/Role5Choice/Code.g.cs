@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Role5Choice;
 /// <summary>
 /// Role expressed in as a code.
 /// </summary>
-public partial record Code : IRole5Choice
+public partial record Code : Role5Choice_
 {
     public required InvestmentFundRole2Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ElectionTypeFormat3Choice;
 /// <summary>
 /// Proprietary identification of the type of election of a corporate action option.
 /// </summary>
-public partial record Proprietary : IElectionTypeFormat3Choice
+public partial record Proprietary : ElectionTypeFormat3Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason10FormatChoice;
 /// <summary>
 /// Proprietary code to express the reason of a rejection of a standing instruction cancellation request.
 /// </summary>
-public partial record Proprietary : IRejectionReason10FormatChoice
+public partial record Proprietary : RejectionReason10FormatChoice_
 {
     #nullable enable
     /// <summary>

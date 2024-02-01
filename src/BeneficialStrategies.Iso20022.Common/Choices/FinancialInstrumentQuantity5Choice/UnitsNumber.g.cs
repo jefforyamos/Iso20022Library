@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity5Choi
 /// <summary>
 /// Quantity of investment fund units redeemed.
 /// </summary>
-public partial record UnitsNumber : IFinancialInstrumentQuantity5Choice
+public partial record UnitsNumber : FinancialInstrumentQuantity5Choice_
 {
     #nullable enable
     /// <summary>

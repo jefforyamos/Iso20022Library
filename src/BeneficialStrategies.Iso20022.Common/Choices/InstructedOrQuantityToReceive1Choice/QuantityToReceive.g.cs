@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructedOrQuantityToReceive1Ch
 /// <summary>
 /// Quantity of the benefits that the account owner wants to receive, for example, as a result of dividend reinvestment.
 /// </summary>
-public partial record QuantityToReceive : IInstructedOrQuantityToReceive1Choice
+public partial record QuantityToReceive : InstructedOrQuantityToReceive1Choice_
 {
     #nullable enable
     #nullable disable

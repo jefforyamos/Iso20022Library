@@ -20,11 +20,11 @@ public partial record AccountManagementStatusAndReason5
     /// <summary>
     /// Status of the account management instruction that was previously received.
     /// </summary>
-    public required IStatus25Choice Status { get; init; } 
+    public required Status25Choice_ Status { get; init; } 
     /// <summary>
     /// Reason for the status of the account management instruction.
     /// </summary>
-    public IAcceptedStatusReason1Choice? StatusReason { get; init;  } // Warning: Don't know multiplicity.
+    public AcceptedStatusReason1Choice_[] StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identifier of the account opening or modification instruction at application level.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record AccountManagementStatusAndReason5
     /// <summary>
     /// Account to which the account opening is related.
     /// </summary>
-    public Account23? ExistingAccountIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public Account23[] ExistingAccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record AccountManagementStatusAndReason5
     /// <summary>
     /// Specifies the account is blocked and other factors for the blocked account.
     /// </summary>
-    public IBlockedStatusReason2Choice? BlockedStatus { get; init; } 
+    public BlockedStatusReason2Choice_? BlockedStatus { get; init; } 
     /// <summary>
     /// Date provided by the account owner to inform the account servicer of the date on which the holdings must be reported before the account is subsequently closed.
     /// </summary>

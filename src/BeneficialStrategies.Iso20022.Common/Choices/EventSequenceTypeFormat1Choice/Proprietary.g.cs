@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EventSequenceTypeFormat1Choice;
 /// <summary>
 /// Type of an event sequence, in a proprietary format. 
 /// </summary>
-public partial record Proprietary : IEventSequenceTypeFormat1Choice
+public partial record Proprietary : EventSequenceTypeFormat1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingPartyAndTime21Choice;
 /// <summary>
 /// Indicates that the contract is cleared.
 /// </summary>
-public partial record Reason : IClearingPartyAndTime21Choice
+public partial record Reason : ClearingPartyAndTime21Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

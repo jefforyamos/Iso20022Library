@@ -24,7 +24,7 @@ public partial record NotificationIdentification6
     /// <summary>
     /// Date and time at which the last notification document (message) was created by the sender.
     /// </summary>
-    public IDateAndDateTime2Choice? CreationDateTime { get; init; } 
+    public DateAndDateTime2Choice_? CreationDateTime { get; init; } 
     
     #nullable disable
 }

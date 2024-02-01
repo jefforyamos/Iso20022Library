@@ -20,31 +20,31 @@ public partial record CorporateActionRate1
     /// <summary>
     /// Annual rate of a financial instrument.
     /// </summary>
-    public IRateAndAmountFormat1Choice? Interest { get; init; } 
+    public RateAndAmountFormat1Choice_? Interest { get; init; } 
     /// <summary>
     /// Index rate related to the interest rate of the forthcoming interest payment.
     /// </summary>
-    public IRateFormat1Choice? RelatedIndex { get; init; } 
+    public RateFormat1Choice_? RelatedIndex { get; init; } 
     /// <summary>
     /// Percentage of securities the offeror/issuer will purchase or redeem under the terms of the event. This can be a number or the term "any and all".
     /// </summary>
-    public IRateFormat1Choice? PercentageSought { get; init; } 
+    public RateFormat1Choice_? PercentageSought { get; init; } 
     /// <summary>
     /// Rate of discount for securities purchased through a reinvestment scheme as compared to the current market price of security.
     /// </summary>
-    public IRateFormat1Choice? ReinvestmentDiscountToMarket { get; init; } 
+    public RateFormat1Choice_? ReinvestmentDiscountToMarket { get; init; } 
     /// <summary>
     /// Margin allowed over or under a given rate.
     /// </summary>
-    public IRateFormat1Choice? Spread { get; init; } 
+    public RateFormat1Choice_? Spread { get; init; } 
     /// <summary>
     /// Acceptable price increment used for submitting a bid.
     /// </summary>
-    public IAmountAndRateFormat3Choice? BidInterval { get; init; } 
+    public AmountAndRateFormat3Choice_? BidInterval { get; init; } 
     /// <summary>
     /// Rate used to calculate the amount of the charges/fees that cannot be categorised.
     /// </summary>
-    public IRateAndAmountFormat1Choice? Charges { get; init; } 
+    public RateAndAmountFormat1Choice_? Charges { get; init; } 
     
     #nullable disable
 }

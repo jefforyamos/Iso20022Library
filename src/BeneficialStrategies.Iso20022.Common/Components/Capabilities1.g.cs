@@ -21,20 +21,20 @@ public partial record Capabilities1
     /// Card reading capabilities of the terminal performing the transaction.
     /// ISO 8583:93 bit 22-2; ISO 8583:2003 bit 27-1
     /// </summary>
-    public CardDataReading7Code? CardReadingCapability { get; init;  } // Warning: Don't know multiplicity.
+    public CardDataReading7Code[] CardReadingCapability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Other types of card reading capabilities.
     /// </summary>
-    public IsoMax35Text? OtherCardReadingCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] OtherCardReadingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Card writing or output capabilities of the terminal performing the transaction.
     /// ISO 8583:93 bit 22-10, ISO 8583:2003 bit 27-8_9.
     /// </summary>
-    public CardDataWriting1Code? CardWritingCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public CardDataWriting1Code[] CardWritingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Other card writing or output capabilities of the terminal performing the transaction.
     /// </summary>
-    public IsoMax35Text? OtherCardWritingCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] OtherCardWritingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum number of digits that the Point of Interaction is able to accept when the cardholder enters its PIN.
     /// ISO 8583:87 bit 26, ISO 8583:93 bit 22-12, ISO 8583:2003 bit 27-11.
@@ -71,12 +71,12 @@ public partial record Capabilities1
     /// Capability of the terminal to display or print messages to the cardholder or the merchant.
     /// ISO 8583:93 bit 22-11, ISO 8583:2003-1 bit 27-4,5, 6, 7
     /// </summary>
-    public DisplayCapabilities6? MessageCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public DisplayCapabilities6[] MessageCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cardholder verification capabilities performing the transaction at the point of service.
     /// ISO 8583:93 bit 22-2, ISO 8583:2003 bit 27-2
     /// </summary>
-    public CardholderVerificationCapabilities1? CardholderVerificationCapability { get; init;  } // Warning: Don't know multiplicity.
+    public CardholderVerificationCapabilities1[] CardholderVerificationCapability { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

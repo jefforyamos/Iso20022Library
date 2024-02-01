@@ -28,7 +28,7 @@ public partial record IndividualOrderConfirmationStatusAndReason2
     /// <summary>
     /// Status of the order confirmation cancellation.
     /// </summary>
-    public required IConfirmationStatus1Choice Confirmation { get; init; } 
+    public required ConfirmationStatus1Choice_ Confirmation { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of an order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
     /// </summary>

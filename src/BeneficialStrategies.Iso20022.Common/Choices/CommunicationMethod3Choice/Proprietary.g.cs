@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CommunicationMethod3Choice;
 /// <summary>
 /// Method of transmission expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICommunicationMethod3Choice
+public partial record Proprietary : CommunicationMethod3Choice_
 {
     #nullable enable
     /// <summary>

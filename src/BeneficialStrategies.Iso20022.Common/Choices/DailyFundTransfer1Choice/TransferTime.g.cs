@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DailyFundTransfer1Choice;
 /// <summary>
 /// Time daily balances are transferred.
 /// </summary>
-public partial record TransferTime : IDailyFundTransfer1Choice
+public partial record TransferTime : DailyFundTransfer1Choice_
 {
     public required IsoISOTime Value { get; init; }
 }

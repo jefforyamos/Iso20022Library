@@ -35,7 +35,7 @@ public partial record OrganisationType2
     /// <summary>
     /// Unique identification of an organisation, as assigned by an institution, using an identification scheme is requested.
     /// </summary>
-    public GenericOrganisationType1? Other { get; init;  } // Warning: Don't know multiplicity.
+    public GenericOrganisationType1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

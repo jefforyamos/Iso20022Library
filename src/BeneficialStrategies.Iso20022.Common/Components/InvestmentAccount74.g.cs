@@ -28,11 +28,11 @@ public partial record InvestmentAccount74
     /// <summary>
     /// Specifies the account is blocked and other factors for the blocked account.
     /// </summary>
-    public IBlockedStatusReason2Choice? BlockedStatus { get; init; } 
+    public BlockedStatusReason2Choice_? BlockedStatus { get; init; } 
     /// <summary>
     /// Date the status is assigned.
     /// </summary>
-    public IDateAndDateTime1Choice? StatusDate { get; init; } 
+    public DateAndDateTime1Choice_? StatusDate { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
@@ -44,19 +44,19 @@ public partial record InvestmentAccount74
     /// <summary>
     /// Type of account.
     /// </summary>
-    public IAccountType2Choice? Type { get; init; } 
+    public AccountType2Choice_? Type { get; init; } 
     /// <summary>
     /// Ownership status of the account, for example, joint owners.
     /// </summary>
-    public IOwnershipType2Choice? OwnershipType { get; init; } 
+    public OwnershipType2Choice_? OwnershipType { get; init; } 
     /// <summary>
     /// Tax advantage specific to the account.
     /// </summary>
-    public ITaxExemptionReason2Choice? TaxExemption { get; init; } 
+    public TaxExemptionReason2Choice_? TaxExemption { get; init; } 
     /// <summary>
     /// Frequency at which a statement is issued.
     /// </summary>
-    public IStatementFrequencyReason2Choice? StatementFrequency { get; init; } 
+    public StatementFrequencyReason2Choice_? StatementFrequency { get; init; } 
     /// <summary>
     /// Currency chosen for reporting purposes by the account owner in agreement with the account servicer.
     /// </summary>
@@ -72,7 +72,7 @@ public partial record InvestmentAccount74
     /// <summary>
     /// Specifies, for income on the fund or security that is to be reinvested, parameters for the reinvestment. If the reinvestment percentage is less than one hundred percent, the remaining percentage will be invested according to the investor’s or account owner's subsequent instructions.
     /// </summary>
-    public Reinvestment4? ReinvestmentDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Reinvestment4[] ReinvestmentDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Method by which the tax (withholding tax) is to be processed, that is, either withheld at source or tax information is reported to tax authorities or tax information is reported due to the provision of a tax certificate.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record InvestmentAccount74
     /// <summary>
     /// Details for the reporting of tax, for example, the country of taxation.
     /// </summary>
-    public TaxReporting3? TaxReporting { get; init;  } // Warning: Don't know multiplicity.
+    public TaxReporting3[] TaxReporting { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details of the letter of intent.
     /// </summary>
@@ -100,7 +100,7 @@ public partial record InvestmentAccount74
     /// <summary>
     /// Detailed information about the investment fund or security associated to the account.
     /// </summary>
-    public FinancialInstrument87? FinancialInstrumentDetails { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrument87[] FinancialInstrumentDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Parameters to be applied on deal amount for orders when the amount is a fractional number.
     /// </summary>
@@ -108,11 +108,11 @@ public partial record InvestmentAccount74
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    public IPartyIdentification125Choice? AccountServicer { get; init; } 
+    public PartyIdentification125Choice_? AccountServicer { get; init; } 
     /// <summary>
     /// Specifies the type of usage of the account.
     /// </summary>
-    public IAccountUsageType2Choice? AccountUsageType { get; init; } 
+    public AccountUsageType2Choice_? AccountUsageType { get; init; } 
     /// <summary>
     /// Specifies if documentary evidence has been provided for the foreign resident.
     /// </summary>
@@ -120,15 +120,15 @@ public partial record InvestmentAccount74
     /// <summary>
     /// Date the investor or account owner signs the open account form.
     /// </summary>
-    public IDateAndDateTime1Choice? AccountSignatureDateTime { get; init; } 
+    public DateAndDateTime1Choice_? AccountSignatureDateTime { get; init; } 
     /// <summary>
     /// Means by which the investor or account owner submits the open account form.
     /// </summary>
-    public ITransactionChannelType1Choice? TransactionChannelType { get; init; } 
+    public TransactionChannelType1Choice_? TransactionChannelType { get; init; } 
     /// <summary>
     /// Specifies the category of the account.
     /// </summary>
-    public IInvestmentAccountCategory1Choice? InvestmentAccountCategory { get; init; } 
+    public InvestmentAccountCategory1Choice_? InvestmentAccountCategory { get; init; } 
     /// <summary>
     /// Specifies whether the holdings in the account are eligible for pledging.
     /// </summary>
@@ -144,19 +144,19 @@ public partial record InvestmentAccount74
     /// <summary>
     /// Functionality permitted to a third party in the actions that may be taken on an account on behalf of the investor.
     /// </summary>
-    public ILevelOfControl1Choice? PowerOfAttorneyLevelOfControl { get; init; } 
+    public LevelOfControl1Choice_? PowerOfAttorneyLevelOfControl { get; init; } 
     /// <summary>
     /// Specifies if the account is regarded as domestic or non-domestic for reporting purposes.
     /// </summary>
-    public IAccountingStatus1Choice? AccountingStatus { get; init; } 
+    public AccountingStatus1Choice_? AccountingStatus { get; init; } 
     /// <summary>
     /// Legal opening date for the account.
     /// </summary>
-    public IDateAndDateTime1Choice? OpeningDate { get; init; } 
+    public DateAndDateTime1Choice_? OpeningDate { get; init; } 
     /// <summary>
     /// Legal closing date for the account.
     /// </summary>
-    public IDateAndDateTime1Choice? ClosingDate { get; init; } 
+    public DateAndDateTime1Choice_? ClosingDate { get; init; } 
     /// <summary>
     /// Indicates whether the account can hold a negative position in a security.
     /// </summary>
@@ -168,15 +168,15 @@ public partial record InvestmentAccount74
     /// <summary>
     /// Specifies whether the investor assumes responsibility for the liability.
     /// </summary>
-    public ILiability1Choice? Liability { get; init; } 
+    public Liability1Choice_? Liability { get; init; } 
     /// <summary>
     /// Information used to determine fees and types of operations that can be carried out on the account.
     /// </summary>
-    public InvestorProfile2? InvestorProfile { get; init;  } // Warning: Don't know multiplicity.
+    public InvestorProfile2[] InvestorProfile { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fiscal year, when not the same as the calendar year.
     /// </summary>
-    public IFiscalYear1Choice? FiscalYear { get; init; } 
+    public FiscalYear1Choice_? FiscalYear { get; init; } 
     
     #nullable disable
 }

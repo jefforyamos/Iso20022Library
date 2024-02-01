@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DistributionPolicy2Choice;
 /// <summary>
 /// Distribution policy expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IDistributionPolicy2Choice
+public partial record Proprietary : DistributionPolicy2Choice_
 {
     #nullable enable
     /// <summary>

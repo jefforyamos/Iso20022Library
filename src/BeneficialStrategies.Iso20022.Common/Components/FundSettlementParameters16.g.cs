@@ -20,11 +20,11 @@ public partial record FundSettlementParameters16
     /// <summary>
     /// Condition under which the order/trade is to be/was executed. This may be required for settlement through T2S.
     /// </summary>
-    public ITradeTransactionCondition8Choice? TradeTransactionCondition { get; init;  } // Warning: Don't know multiplicity.
+    public TradeTransactionCondition8Choice_[] TradeTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Condition under which the order/trade is to be settled. This may be required for settlement through T2S.
     /// </summary>
-    public ISettlementTransactionCondition30Choice? SettlementTransactionCondition { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementTransactionCondition30Choice_[] SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of a specific system or set of rules and/or processes to be applied at the settlement place.
     /// </summary>

@@ -24,7 +24,7 @@ public partial record OriginalTransactionReference16
     /// <summary>
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
-    public IAmountType3Choice? Amount { get; init; } 
+    public AmountType3Choice_? Amount { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>

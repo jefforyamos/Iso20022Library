@@ -20,11 +20,11 @@ public partial record DocumentNumber9
     /// <summary>
     /// Number used to identify a message or document.
     /// </summary>
-    public required IDocumentNumber1Choice Number { get; init; } 
+    public required DocumentNumber1Choice_ Number { get; init; } 
     /// <summary>
     /// References of transaction for which the status is requested.
     /// </summary>
-    public Identification11? References { get; init;  } // Warning: Don't know multiplicity.
+    public Identification11[] References { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -36,7 +36,7 @@ public partial record CorporateActionNarrative1
     /// <summary>
     /// Provides the entity making the offer and is different from the issuing company.
     /// </summary>
-    public IPartyIdentification2Choice? Offeror { get; init; } 
+    public PartyIdentification2Choice_? Offeror { get; init; } 
     /// <summary>
     /// Provides the web address published for the event, ie the address for the Universal Resource Locator (URL), eg, used over the www (HTTP) service.
     /// </summary>

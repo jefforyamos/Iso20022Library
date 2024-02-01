@@ -24,7 +24,7 @@ public partial record SubscriptionMultipleOrder4
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
-    public IPlaceOfTradeIdentification1Choice? PlaceOfTrade { get; init; } 
+    public PlaceOfTradeIdentification1Choice_? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Date the investor places the order.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record SubscriptionMultipleOrder4
     /// <summary>
     /// Date on which the order expires.
     /// </summary>
-    public IDateAndDateTimeChoice? ExpiryDateTime { get; init; } 
+    public DateAndDateTimeChoice_? ExpiryDateTime { get; init; } 
     /// <summary>
     /// Future date at which the investor requests the order to be executed. The specification of a requested future trade date is not allowed in some markets. The date must be a date in the future.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record SubscriptionMultipleOrder4
     /// <summary>
     /// Order to invest the investor's principal in an investment fund.
     /// </summary>
-    public SubscriptionOrder8? IndividualOrderDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SubscriptionOrder8[] IndividualOrderDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the multiple order.
     /// </summary>

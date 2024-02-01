@@ -36,7 +36,7 @@ public partial record CollateralAmount12
     /// <summary>
     /// Specifies when the accrued interest is paid.
     /// </summary>
-    public IFrequency38Choice? PaymentFrequency { get; init; } 
+    public Frequency38Choice_? PaymentFrequency { get; init; } 
     /// <summary>
     /// Number of days after the accrual payment is due.
     /// </summary>

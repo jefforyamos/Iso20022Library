@@ -40,7 +40,7 @@ public partial record DriverInParty1
     /// <summary>
     /// Credential used by the driver for identification.
     /// </summary>
-    public TravelDocument1? DriverCredential { get; init;  } // Warning: Don't know multiplicity.
+    public TravelDocument1[] DriverCredential { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Driving license details.
     /// </summary>

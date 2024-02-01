@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PresentationMedium1Choice;
 /// <summary>
 /// Presentation medium.
 /// </summary>
-public partial record Code : IPresentationMedium1Choice
+public partial record Code : PresentationMedium1Choice_
 {
     public required PresentationMedium1Code Value { get; init; }
 }

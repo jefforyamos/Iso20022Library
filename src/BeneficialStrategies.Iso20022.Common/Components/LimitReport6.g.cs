@@ -24,7 +24,7 @@ public partial record LimitReport6
     /// <summary>
     /// Requested information on the limit or business error report when information has not been found.
     /// </summary>
-    public required ILimitOrError3Choice LimitOrError { get; init; } 
+    public required LimitOrError3Choice_ LimitOrError { get; init; } 
     
     #nullable disable
 }

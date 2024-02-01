@@ -28,7 +28,7 @@ public partial record BusinessDay7
     /// <summary>
     /// Information relating to system operations and foreseen events relating to the operation of the system.
     /// </summary>
-    public SystemAvailabilityAndEvents2? SystemInformationPerCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public SystemAvailabilityAndEvents2[] SystemInformationPerCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

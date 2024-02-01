@@ -52,7 +52,7 @@ public partial record UnderlyingPaymentTransaction7
     /// <summary>
     /// Agreement under which or rules under which the transaction should be processed.
     /// </summary>
-    public IServiceLevel8Choice? OriginalServiceLevel { get; init; } 
+    public ServiceLevel8Choice_? OriginalServiceLevel { get; init; } 
     
     #nullable disable
 }

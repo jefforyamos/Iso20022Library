@@ -13,7 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity26Cho
 /// Amount of money to be invested in the fund. 
 /// Net Amount = Quantity * Price.
 /// </summary>
-public partial record NetAmount : IFinancialInstrumentQuantity26Choice
+public partial record NetAmount : FinancialInstrumentQuantity26Choice_
 {
     public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
 }

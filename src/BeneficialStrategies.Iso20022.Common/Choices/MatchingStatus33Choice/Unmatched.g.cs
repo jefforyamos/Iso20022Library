@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingStatus33Choice;
 /// <summary>
 /// Instruction has not been matched.
 /// </summary>
-public partial record Unmatched : IMatchingStatus33Choice
+public partial record Unmatched : MatchingStatus33Choice_
 {
     #nullable enable
     #nullable disable

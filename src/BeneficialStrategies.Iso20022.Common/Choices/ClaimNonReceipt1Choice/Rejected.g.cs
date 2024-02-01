@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClaimNonReceipt1Choice;
 /// <summary>
 /// Specifies that the claim non receipt has been rejected and provides the reason for the rejection.
 /// </summary>
-public partial record Rejected : IClaimNonReceipt1Choice
+public partial record Rejected : ClaimNonReceipt1Choice_
 {
     #nullable enable
     #nullable disable

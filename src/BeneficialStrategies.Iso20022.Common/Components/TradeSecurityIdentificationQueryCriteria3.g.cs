@@ -24,23 +24,23 @@ public partial record TradeSecurityIdentificationQueryCriteria3
     /// <summary>
     /// Identification of the product through ISIN or AII.
     /// </summary>
-    public SecurityIdentificationQueryCriteria1? Identification { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityIdentificationQueryCriteria1[] Identification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Classification of information according to contract type.
     /// </summary>
-    public FinancialInstrumentContractType2Code? ContractType { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrumentContractType2Code[] ContractType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation's International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
     /// </summary>
-    public ISINQueryCriteria1? ISIN { get; init;  } // Warning: Don't know multiplicity.
+    public ISINQueryCriteria1[] ISIN { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the product through a unique product identifier.
     /// </summary>
-    public UPIQueryCriteria1? UniqueProductIdentifier { get; init;  } // Warning: Don't know multiplicity.
+    public UPIQueryCriteria1[] UniqueProductIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique identification to identify the direct underlying instrument based on its type. 
     /// </summary>
-    public ISecurityIdentificationQuery4Choice? UnderlyingInstrumentIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityIdentificationQuery4Choice_[] UnderlyingInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

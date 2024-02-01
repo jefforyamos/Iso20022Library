@@ -88,19 +88,19 @@ public partial record FundReferenceDataReport3
     /// <summary>
     /// Characteristics of the investment plan.
     /// </summary>
-    public InvestmentPlanCharacteristics1? PlanCharacteristics { get; init;  } // Warning: Don't know multiplicity.
+    public InvestmentPlanCharacteristics1[] PlanCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies, for a specific type of transaction, how amounts are to be paid in or paid out.
     /// </summary>
-    public PaymentInstrument16? PaymentInstrument { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentInstrument16[] PaymentInstrument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Account to be used for cash settlement.
     /// </summary>
-    public CashAccount202? CashSettlementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashAccount202[] CashSettlementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Processing characteristics specific to a local fund order desk.
     /// </summary>
-    public LocalMarketAnnex4? LocalMarketAnnex { get; init;  } // Warning: Don't know multiplicity.
+    public LocalMarketAnnex4[] LocalMarketAnnex { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Target market criteria.
     /// </summary>
@@ -112,11 +112,11 @@ public partial record FundReferenceDataReport3
     /// <summary>
     /// Costs and charges associated with the distribution of selling of the financial instrument. These may be one-off or recurring. These may be ex ante (intended) or post ante (actual).
     /// </summary>
-    public IReadOnlyCollection<CostsAndCharges2> CostsAndCharges { get; init; } = [];
+    public CostsAndCharges2[] CostsAndCharges { get; init; } = [];
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1? Extension { get; init;  } // Warning: Don't know multiplicity.
+    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

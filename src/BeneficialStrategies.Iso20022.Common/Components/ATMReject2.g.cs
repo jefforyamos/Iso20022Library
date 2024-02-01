@@ -33,7 +33,7 @@ public partial record ATMReject2
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    public ATMCommand7? Command { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCommand7[] Command { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Received message that has been rejected.
     /// </summary>

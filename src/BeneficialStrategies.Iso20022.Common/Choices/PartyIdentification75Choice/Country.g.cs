@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification75Choice;
 /// <summary>
 /// Country of the party.
 /// </summary>
-public partial record Country : IPartyIdentification75Choice
+public partial record Country : PartyIdentification75Choice_
 {
     public required CountryCode Value { get; init; }
 }

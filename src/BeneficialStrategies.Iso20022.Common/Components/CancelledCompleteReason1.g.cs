@@ -20,7 +20,7 @@ public partial record CancelledCompleteReason1
     /// <summary>
     /// Reason for the cancelled complete status.
     /// </summary>
-    public required ICancellationCompleteReason1Choice Reason { get; init; } 
+    public required CancellationCompleteReason1Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the cancelled complete status reason.
     /// </summary>

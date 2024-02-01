@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentMethod1Choice;
 /// <summary>
 /// Method of payment for the remittance of the CSD or the NCB to the invoicing party, in a proprietary free text format.
 /// </summary>
-public partial record Proprietary : IPaymentMethod1Choice
+public partial record Proprietary : PaymentMethod1Choice_
 {
     public required IsoMax210Text Value { get; init; }
 }

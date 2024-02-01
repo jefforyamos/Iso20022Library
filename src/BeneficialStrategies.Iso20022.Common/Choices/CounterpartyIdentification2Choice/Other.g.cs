@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyIdentification2Choic
 /// <summary>
 /// Other identification of the counterparty through the sector and the location.
 /// </summary>
-public partial record Other : ICounterpartyIdentification2Choice
+public partial record Other : CounterpartyIdentification2Choice_
 {
     #nullable enable
     /// <summary>
     /// Name or sector of the counterparty of the reporting agent used by the reporting agent.
     /// </summary>
-    public required INameOrSector1Choice NameOrSector { get; init; } 
+    public required NameOrSector1Choice_ NameOrSector { get; init; } 
     /// <summary>
     /// Location of the country in which the counterparty is incorporated.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus48Choice;
 /// <summary>
 /// Modification request from your counterparty for this transaction is pending waiting for your cancellation request or your consent.
 /// </summary>
-public partial record ModificationRequested : IProcessingStatus48Choice
+public partial record ModificationRequested : ProcessingStatus48Choice_
 {
     #nullable enable
     /// <summary>

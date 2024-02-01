@@ -28,11 +28,11 @@ public partial record TradeDateTimeQueryCriteria2
     /// <summary>
     /// Indicates the date when the trade was matured.
     /// </summary>
-    public IDateOrBlankQuery2Choice? MaturityDate { get; init; } 
+    public DateOrBlankQuery2Choice_? MaturityDate { get; init; } 
     /// <summary>
     /// Indicates the date when the trade was terminated.
     /// </summary>
-    public IDateOrBlankQuery2Choice? TerminationDate { get; init; } 
+    public DateOrBlankQuery2Choice_? TerminationDate { get; init; } 
     
     #nullable disable
 }

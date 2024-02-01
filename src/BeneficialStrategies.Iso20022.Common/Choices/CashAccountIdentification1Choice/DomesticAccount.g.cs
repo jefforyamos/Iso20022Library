@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CashAccountIdentification1Choice
 /// <summary>
 /// Account number used by financial institutions in individual countries to identify an account of a customer, but not necessarily the bank and branch of the financial institution in which the account is held.
 /// </summary>
-public partial record DomesticAccount : ICashAccountIdentification1Choice
+public partial record DomesticAccount : CashAccountIdentification1Choice_
 {
     #nullable enable
     /// <summary>

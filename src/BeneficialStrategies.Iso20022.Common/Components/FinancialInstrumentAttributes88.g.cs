@@ -24,7 +24,7 @@ public partial record FinancialInstrumentAttributes88
     /// <summary>
     /// Indicates whether certain terms of the derivative are defined purely according to exchange specifications or can be user defined.
     /// </summary>
-    public IReadOnlyCollection<Standardisation1Code> Standardisation { get; init; } = [];
+    public Standardisation1Code[] Standardisation { get; init; } = [];
     /// <summary>
     /// Schedule for leg payments.
     /// </summary>

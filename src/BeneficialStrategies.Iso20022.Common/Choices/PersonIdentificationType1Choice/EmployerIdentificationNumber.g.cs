@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonIdentificationType1Choice;
 /// <summary>
 /// Number assigned to an employer by a registration authority.
 /// </summary>
-public partial record EmployerIdentificationNumber : IPersonIdentificationType1Choice
+public partial record EmployerIdentificationNumber : PersonIdentificationType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

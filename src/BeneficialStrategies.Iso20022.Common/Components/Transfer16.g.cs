@@ -20,11 +20,11 @@ public partial record Transfer16
     /// <summary>
     /// Date at which the instructing party places the transfer instruction.
     /// </summary>
-    public IDateFormat1Choice? TransferDate { get; init; } 
+    public DateFormat1Choice_? TransferDate { get; init; } 
     /// <summary>
     /// Identifies whether or not saving plan or withdrawal or switch plan are included in the holdings.
     /// </summary>
-    public IReadOnlyCollection<HoldingsPlanType1Code> HoldingsPlanType { get; init; } = [];
+    public HoldingsPlanType1Code[] HoldingsPlanType { get; init; } = [];
     /// <summary>
     /// Information related to the financial instrument to be received.
     /// </summary>

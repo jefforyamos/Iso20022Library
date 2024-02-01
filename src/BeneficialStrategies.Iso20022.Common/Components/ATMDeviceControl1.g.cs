@@ -24,7 +24,7 @@ public partial record ATMDeviceControl1
     /// <summary>
     /// Maintenance command the ATM must perform.
     /// </summary>
-    public ATMCommand4? Command { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCommand4[] Command { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

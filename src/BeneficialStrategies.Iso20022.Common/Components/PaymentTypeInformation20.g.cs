@@ -24,11 +24,11 @@ public partial record PaymentTypeInformation20
     /// <summary>
     /// Agreement under which or rules under which the transaction should be processed.
     /// </summary>
-    public IServiceLevel8Choice? ServiceLevel { get; init; } 
+    public ServiceLevel8Choice_? ServiceLevel { get; init; } 
     /// <summary>
     /// User community specific instrument.||Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.
     /// </summary>
-    public ILocalInstrument2Choice? LocalInstrument { get; init; } 
+    public LocalInstrument2Choice_? LocalInstrument { get; init; } 
     /// <summary>
     /// Identifies the direct debit sequence, such as first, recurrent, final or one-off.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record PaymentTypeInformation20
     /// <summary>
     /// Specifies the high level purpose of the instruction based on a set of pre-defined categories.|Usage: This is used by the initiating party to provide information concerning the processing of the payment. It is likely to trigger special processing by any of the agents involved in the payment chain.
     /// </summary>
-    public ICategoryPurpose1Choice? CategoryPurpose { get; init; } 
+    public CategoryPurpose1Choice_? CategoryPurpose { get; init; } 
     
     #nullable disable
 }

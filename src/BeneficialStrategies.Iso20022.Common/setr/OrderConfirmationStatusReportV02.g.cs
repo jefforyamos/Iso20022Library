@@ -74,7 +74,7 @@ public partial record OrderConfirmationStatusReportV02 : IOuterRecord
     [Description(@"Reference to the message or communication that was previously received.")]
     [DataMember(Name="Ref")]
     [XmlElement(ElementName="Ref")]
-    public IReferences61Choice? Reference { get; init; }
+    public References61Choice_? Reference { get; init; }
     
     /// <summary>
     /// Status report details of an individual order confirmation.

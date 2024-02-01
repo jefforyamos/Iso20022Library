@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeStateReport2Choice;
 /// <summary>
 /// Information related to trade state reporting.
 /// </summary>
-public partial record State : ITradeStateReport2Choice
+public partial record State : TradeStateReport2Choice_
 {
     #nullable enable
     /// <summary>
@@ -26,11 +26,11 @@ public partial record State : ITradeStateReport2Choice
     /// <summary>
     /// Details of the loan used for financing the transaction.
     /// </summary>
-    public ITransactionLoanData20Choice? LoanData { get; init; } 
+    public TransactionLoanData20Choice_? LoanData { get; init; } 
     /// <summary>
     /// Information on collateral used in the transaction.
     /// </summary>
-    public ITransactionCollateralData15Choice? CollateralData { get; init; } 
+    public TransactionCollateralData15Choice_? CollateralData { get; init; } 
     /// <summary>
     /// List of possible values for TRs reconciliation purposes.
     /// </summary>

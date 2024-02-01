@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReportQuery16Choice;
 /// <summary>
 /// Query criteria specifically applied to ad-hoc queries.
 /// </summary>
-public partial record AdHocQuery : ITradeReportQuery16Choice
+public partial record AdHocQuery : TradeReportQuery16Choice_
 {
     #nullable enable
     /// <summary>

@@ -20,7 +20,7 @@ public partial record DocumentLineInformation1
     /// <summary>
     /// Provides identification of the document line.
     /// </summary>
-    public DocumentLineIdentification1? Identification { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentLineIdentification1[] Identification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Description associated with the document line.
     /// </summary>

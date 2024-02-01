@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NameOrSector1Choice;
 /// <summary>
 /// Internal name of the counterparty of the reporting agent used by the reporting agent.
 /// </summary>
-public partial record Name : INameOrSector1Choice
+public partial record Name : NameOrSector1Choice_
 {
     public required IsoMax70Text Value { get; init; }
 }

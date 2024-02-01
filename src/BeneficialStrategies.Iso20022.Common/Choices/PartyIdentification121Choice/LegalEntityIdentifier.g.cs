@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification121Choice;
 /// <summary>
 /// Identification of the party with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
 /// </summary>
-public partial record LegalEntityIdentifier : IPartyIdentification121Choice
+public partial record LegalEntityIdentifier : PartyIdentification121Choice_
 {
     public required IsoLEIIdentifier Value { get; init; }
 }

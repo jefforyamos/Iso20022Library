@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountStatusUpdateInstructionRe
 /// <summary>
 /// Reason for the instruction to change the account status.
 /// </summary>
-public partial record Reason : IAccountStatusUpdateInstructionReason1Choice
+public partial record Reason : AccountStatusUpdateInstructionReason1Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the instruction to change the account status.
     /// </summary>
-    public IAccountStatusUpdateInstructionReason2Choice? Code { get; init; } 
+    public AccountStatusUpdateInstructionReason2Choice_? Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the instruction to change the account status.
     /// </summary>

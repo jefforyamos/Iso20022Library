@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AutoExtend1Choice;
 /// <summary>
 /// Number of days.
 /// </summary>
-public partial record Days : IAutoExtend1Choice
+public partial record Days : AutoExtend1Choice_
 {
     public required IsoNumber Value { get; init; }
 }

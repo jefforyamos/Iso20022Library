@@ -28,7 +28,7 @@ public partial record RedemptionMultipleExecution3
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
-    public IPlaceOfTradeIdentification1Choice? PlaceOfTrade { get; init; } 
+    public PlaceOfTradeIdentification1Choice_? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Date and time at which the order was placed by the investor.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record RedemptionMultipleExecution3
     /// <summary>
     /// Execution of a redemption order.
     /// </summary>
-    public RedemptionExecution6? IndividualExecutionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public RedemptionExecution6[] IndividualExecutionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the multiple order.
     /// </summary>

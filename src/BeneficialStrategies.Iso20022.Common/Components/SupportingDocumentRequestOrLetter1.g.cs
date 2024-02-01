@@ -28,15 +28,15 @@ public partial record SupportingDocumentRequestOrLetter1
     /// <summary>
     /// Sender of the request or letter.
     /// </summary>
-    public IParty28Choice? Sender { get; init; } 
+    public Party28Choice_? Sender { get; init; } 
     /// <summary>
     /// Receiver of the request or letter.
     /// </summary>
-    public IParty28Choice? Receiver { get; init; } 
+    public Party28Choice_? Receiver { get; init; } 
     /// <summary>
     /// Provides the references of the original underlying message(s) for which supporting documents are requested or for which the letter is sent.
     /// </summary>
-    public OriginalMessage2? OriginalReferences { get; init;  } // Warning: Don't know multiplicity.
+    public OriginalMessage2[] OriginalReferences { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Subject of the letter or supporting document.
     /// </summary>
@@ -61,11 +61,11 @@ public partial record SupportingDocumentRequestOrLetter1
     /// <summary>
     /// Documents provided as attachments to the supporting document request or letter.
     /// </summary>
-    public DocumentGeneralInformation3? Attachment { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentGeneralInformation3[] Attachment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

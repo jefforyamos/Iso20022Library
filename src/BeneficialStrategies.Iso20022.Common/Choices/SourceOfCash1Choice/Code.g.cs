@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SourceOfCash1Choice;
 /// <summary>
 /// Source of cash expressed as a code.
 /// </summary>
-public partial record Code : ISourceOfCash1Choice
+public partial record Code : SourceOfCash1Choice_
 {
     public required SourceOfCash1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IsabelEbanking1Choice;
 /// <summary>
 /// Identification of the e-banking through a user identification.
 /// </summary>
-public partial record UserIdentification : IIsabelEbanking1Choice
+public partial record UserIdentification : IsabelEbanking1Choice_
 {
     public required IsoMax13AlphaNumericText Value { get; init; }
 }

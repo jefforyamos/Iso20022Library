@@ -28,7 +28,7 @@ public partial record FixedRate6
     /// <summary>
     /// Information related to payment frequency.
     /// </summary>
-    public IInterestRateFrequency2Choice? PaymentFrequency { get; init; } 
+    public InterestRateFrequency2Choice_? PaymentFrequency { get; init; } 
     
     #nullable disable
 }

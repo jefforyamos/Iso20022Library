@@ -24,7 +24,7 @@ public partial record CashAccount37
     /// <summary>
     /// Specifies the nature, or use, of the cash account.
     /// </summary>
-    public ICashAccountType2Choice? Type { get; init; } 
+    public CashAccountType2Choice_? Type { get; init; } 
     /// <summary>
     /// Specifies the currency of the cash account.
     /// </summary>
@@ -48,15 +48,15 @@ public partial record CashAccount37
     /// <summary>
     /// Balance is calculated with regard to many members in the system.
     /// </summary>
-    public CashBalance13? MultilateralBalance { get; init;  } // Warning: Don't know multiplicity.
+    public CashBalance13[] MultilateralBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Limit fixed by a party A with regard to a specific counterparty B and corresponding to the maximum amount of traffic that party A may send to party B. The bilateral limit can be expressed as a debit limit or a credit limit. |With the help of a bilateral limit, the direct participant restricts the use of liquidity when clearing payments with another direct participant.
     /// </summary>
-    public BilateralLimit3? CurrentBilateralLimit { get; init;  } // Warning: Don't know multiplicity.
+    public BilateralLimit3[] CurrentBilateralLimit { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Instruction given by a party that has explicit authority to instruct a debit on the account, that is either the debtor or originating party, to the debtor agent, to process liquidity transfers at specified intervals during an implicit or explicit period of time. A standing order is given once and is valid for an open or closed period of time.
     /// </summary>
-    public StandingOrder6? StandingOrder { get; init;  } // Warning: Don't know multiplicity.
+    public StandingOrder6[] StandingOrder { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

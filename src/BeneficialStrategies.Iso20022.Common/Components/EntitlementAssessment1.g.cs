@@ -20,15 +20,15 @@ public partial record EntitlementAssessment1
     /// <summary>
     /// Date by which the securities should be blocked. This deadline is set by an intermediary.
     /// </summary>
-    public IDateFormat2Choice? SecuritiesBlockingDeadline { get; init; } 
+    public DateFormat2Choice_? SecuritiesBlockingDeadline { get; init; } 
     /// <summary>
     /// Date by which the securities should be blocked. This deadline is set by the issuer. (STP mode).
     /// </summary>
-    public IDateFormat2Choice? SecuritiesBlockingSTPDeadline { get; init; } 
+    public DateFormat2Choice_? SecuritiesBlockingSTPDeadline { get; init; } 
     /// <summary>
     /// Date by which the securities should be blocked. This deadline is set by the issuer.
     /// </summary>
-    public IDateFormat2Choice? SecuritiesBlockingMarketDeadline { get; init; } 
+    public DateFormat2Choice_? SecuritiesBlockingMarketDeadline { get; init; } 
     /// <summary>
     /// Date by which the blocking period for the securities should end.
     /// </summary>
@@ -36,31 +36,31 @@ public partial record EntitlementAssessment1
     /// <summary>
     /// Date at which the positions are struck to note which parties will receive the entitlement, e.g. record date, book close date.
     /// </summary>
-    public IDateFormat3Choice? EntitlementFixingDate { get; init; } 
+    public DateFormat3Choice_? EntitlementFixingDate { get; init; } 
     /// <summary>
     /// Date by which the securities have to be registered. This deadline is specified by an intermediary.
     /// </summary>
-    public IDateFormat2Choice? RegistrationSecuritiesDeadline { get; init; } 
+    public DateFormat2Choice_? RegistrationSecuritiesDeadline { get; init; } 
     /// <summary>
     /// Date by which the securities have to be registered. This deadline is specified by an intermediary (STP mode).
     /// </summary>
-    public IDateFormat2Choice? RegistrationSecuritiesSTPDeadline { get; init; } 
+    public DateFormat2Choice_? RegistrationSecuritiesSTPDeadline { get; init; } 
     /// <summary>
     /// Date by which the securities have to be registered. This deadline is set by the issuer.
     /// </summary>
-    public IDateFormat2Choice? RegistrationSecuritiesMarketDeadline { get; init; } 
+    public DateFormat2Choice_? RegistrationSecuritiesMarketDeadline { get; init; } 
     /// <summary>
     /// Date by which the holder needs to register its intention to participate in the meeting process in order to be allowed to participate in the meeting event. This deadline is specified by an intermediary.
     /// </summary>
-    public IDateFormat2Choice? RegistrationParticipationDeadline { get; init; } 
+    public DateFormat2Choice_? RegistrationParticipationDeadline { get; init; } 
     /// <summary>
     /// Date by which the holder needs to register its intention to participate in the meeting process in order to be allowed to participate in the meeting event. This deadline is specified by an intermediary (STP mode).
     /// </summary>
-    public IDateFormat2Choice? RegistrationParticipationSTPDeadline { get; init; } 
+    public DateFormat2Choice_? RegistrationParticipationSTPDeadline { get; init; } 
     /// <summary>
     /// Date by which the holder needs to register its intention to participate in the meeting process in order to be allowed to participate in the meeting event. This deadline is set by the issuer.
     /// </summary>
-    public IDateFormat2Choice? RegistrationParticipationMarketDeadline { get; init; } 
+    public DateFormat2Choice_? RegistrationParticipationMarketDeadline { get; init; } 
     /// <summary>
     /// Specifies the calculation method of the number of votes assigned to one security. This element should be used when the entitlement calculation rule is complex.
     /// </summary>

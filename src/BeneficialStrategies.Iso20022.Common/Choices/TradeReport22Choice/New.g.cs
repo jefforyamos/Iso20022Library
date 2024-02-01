@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport22Choice;
 /// <summary>
 /// Indicates whether transaction is reported for the first time.
 /// </summary>
-public partial record New : ITradeReport22Choice
+public partial record New : TradeReport22Choice_
 {
     #nullable enable
     /// <summary>
@@ -26,11 +26,11 @@ public partial record New : ITradeReport22Choice
     /// <summary>
     /// Details of the loan used for financing the transaction.
     /// </summary>
-    public required ITransactionLoanData30Choice LoanData { get; init; } 
+    public required TransactionLoanData30Choice_ LoanData { get; init; } 
     /// <summary>
     /// Provides the details of the collateral used in the transaction.
     /// </summary>
-    public ITransactionCollateralData18Choice? CollateralData { get; init; } 
+    public TransactionCollateralData18Choice_? CollateralData { get; init; } 
     /// <summary>
     /// Information concerning the reported transaction level type.
     /// </summary>

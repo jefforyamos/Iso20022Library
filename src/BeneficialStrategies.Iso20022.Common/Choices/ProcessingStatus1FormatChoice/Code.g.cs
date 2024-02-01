@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus1FormatChoice;
 /// <summary>
 /// Standard code to specify the processing status.
 /// </summary>
-public partial record Code : IProcessingStatus1FormatChoice
+public partial record Code : ProcessingStatus1FormatChoice_
 {
     public required ProcessingStatus1Code Value { get; init; }
 }

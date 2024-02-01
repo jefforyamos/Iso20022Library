@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MemberIdentification3Choice;
 /// <summary>
 /// Business identification code of the member financial institution.
 /// </summary>
-public partial record BICFI : IMemberIdentification3Choice
+public partial record BICFI : MemberIdentification3Choice_
 {
     public required IsoBICFIDec2014Identifier Value { get; init; }
 }

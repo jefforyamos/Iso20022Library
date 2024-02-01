@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LinkageType4Choice;
 /// <summary>
 /// Linkage type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ILinkageType4Choice
+public partial record Proprietary : LinkageType4Choice_
 {
     #nullable enable
     /// <summary>

@@ -28,7 +28,7 @@ public partial record TrackerPartyIdentification2
     /// <summary>
     /// Unique and unambiguous identification of a party.
     /// </summary>
-    public ITrackerParty2Choice? Identification { get; init; } 
+    public TrackerParty2Choice_? Identification { get; init; } 
     
     #nullable disable
 }

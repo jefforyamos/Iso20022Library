@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesMovementStatus1Choice;
 /// <summary>
 /// Instruction is meant to cure a cash fail, but no cash fail position exists in the transaction
 /// </summary>
-public partial record Cash : ISecuritiesMovementStatus1Choice
+public partial record Cash : SecuritiesMovementStatus1Choice_
 {
     #nullable enable
     /// <summary>

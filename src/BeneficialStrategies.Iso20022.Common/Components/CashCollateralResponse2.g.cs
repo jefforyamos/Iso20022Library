@@ -32,7 +32,7 @@ public partial record CashCollateralResponse2
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public IAccountIdentification4Choice? CashAccountIdentification { get; init; } 
+    public AccountIdentification4Choice_? CashAccountIdentification { get; init; } 
     /// <summary>
     /// Specifies the reason why the instruction/cancellation request has a rejected status.
     /// </summary>

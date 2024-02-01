@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OvernightIndexSwap3Choice;
 /// <summary>
 /// Provides the details of the secured market transaction as reported by the reporting agent.
 /// </summary>
-public partial record Transaction : IOvernightIndexSwap3Choice
+public partial record Transaction : OvernightIndexSwap3Choice_
 {
     #nullable enable
     /// <summary>
@@ -40,14 +40,14 @@ public partial record Transaction : IOvernightIndexSwap3Choice
     /// <summary>
     /// Identification of the counterparty of the reporting agent for the reported transaction.
     /// </summary>
-    public required ICounterpartyIdentification2Choice CounterpartyIdentification { get; init; } 
+    public required CounterpartyIdentification2Choice_ CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Date and time on which the parties entered into the reported transaction.
     /// Usage: when time is available, it must be reported.
     /// It is to be reported with only the date when the time of the transaction is not available. 
     /// The reported time is the execution time when available or otherwise the time at which the transaction entered the trading system of the reporting agent.
     /// </summary>
-    public required IDateAndDateTimeChoice TradeDate { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDate { get; init; } 
     /// <summary>
     /// Represents the date as of which the overnight rate of the floating leg is computed.
     /// </summary>

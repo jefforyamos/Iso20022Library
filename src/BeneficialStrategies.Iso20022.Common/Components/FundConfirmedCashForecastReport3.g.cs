@@ -20,11 +20,11 @@ public partial record FundConfirmedCashForecastReport3
     /// <summary>
     /// Information about the fund/sub fund when the report either specifies cash flow for the fund/sub fund or for a share class of the fund/sub fund.
     /// </summary>
-    public Fund2? FundOrSubFundDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Fund2[] FundOrSubFundDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to the cash-in and cash-out flows for a specific trade date as a result of investment fund transactions, for example, subscriptions, redemptions or switches to/from a specified investment fund.
     /// </summary>
-    public FundCashForecast7? FundCashForecastDetails { get; init;  } // Warning: Don't know multiplicity.
+    public FundCashForecast7[] FundCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Estimated net cash as a result of the cash-in and cash-out flows.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record FundConfirmedCashForecastReport3
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1? Extension { get; init;  } // Warning: Don't know multiplicity.
+    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

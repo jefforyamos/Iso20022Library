@@ -28,7 +28,7 @@ public partial record OrderStatusAndReason4
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>
-    public IPartyIdentification2Choice? StatusInitiator { get; init; } 
+    public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     
     #nullable disable
 }

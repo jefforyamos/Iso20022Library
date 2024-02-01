@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventProcessingSt
 /// <summary>
 /// Status of a corporate action or the status of a payment expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ICorporateActionEventProcessingStatus4Choice
+public partial record Code : CorporateActionEventProcessingStatus4Choice_
 {
     public required CorporateActionEventProcessingStatus1Code Value { get; init; }
 }

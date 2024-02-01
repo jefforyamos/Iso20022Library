@@ -20,7 +20,7 @@ public partial record Transaction102
     /// <summary>
     /// Detailed description of an error that caused the message to be corrected/amended. Transmitted for further analysis.
     /// </summary>
-    public DetailedError1? AmendedData { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedError1[] AmendedData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record Transaction102
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

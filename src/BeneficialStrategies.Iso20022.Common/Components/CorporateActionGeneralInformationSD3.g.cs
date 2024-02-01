@@ -32,11 +32,11 @@ public partial record CorporateActionGeneralInformationSD3
     /// <summary>
     /// Date/time at which the movement was due to take place (cash and/or securities).
     /// </summary>
-    public IDateFormat22Choice? PaymentDate { get; init; } 
+    public DateFormat22Choice_? PaymentDate { get; init; } 
     /// <summary>
     /// Additional information about the corporate action event.
     /// </summary>
-    public CorporateActionUnallocatedDetailsSD1? UnallocatedDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionUnallocatedDetailsSD1[] UnallocatedDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

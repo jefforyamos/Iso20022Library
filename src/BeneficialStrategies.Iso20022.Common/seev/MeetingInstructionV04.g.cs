@@ -71,7 +71,7 @@ public partial record MeetingInstructionV04 : IOuterRecord
     [DataMember(Name="InstgPty")]
     [XmlElement(ElementName="InstgPty")]
     [Required]
-    public required IPartyIdentification9Choice InstructingParty { get; init; }
+    public required PartyIdentification9Choice_ InstructingParty { get; init; }
     
     /// <summary>
     /// Identifies the security for which the meeting is organised.

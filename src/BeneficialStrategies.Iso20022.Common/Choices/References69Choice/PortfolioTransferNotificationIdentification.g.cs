@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References69Choice;
 /// <summary>
 /// Identification of the portfolio transfer.
 /// </summary>
-public partial record PortfolioTransferNotificationIdentification : IReferences69Choice
+public partial record PortfolioTransferNotificationIdentification : References69Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -36,11 +36,11 @@ public partial record CashBalance7
     /// <summary>
     /// Indicates the date (and time) of the balance.
     /// </summary>
-    public required IDateAndDateTimeChoice Date { get; init; } 
+    public required DateAndDateTimeChoice_ Date { get; init; } 
     /// <summary>
     /// Set of elements used to indicate when the booked amount of money will become available, that is can be accessed and starts generating interest. ||Usage: This type of information is used in the US and is linked to particular instruments such as cheques.|Example: When a cheque is deposited, it will be booked on the deposit day, but the amount of money will only be accessible as of the indicated availability day (according to national banking regulations).
     /// </summary>
-    public CashAvailability1? Availability { get; init;  } // Warning: Don't know multiplicity.
+    public CashAvailability1[] Availability { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

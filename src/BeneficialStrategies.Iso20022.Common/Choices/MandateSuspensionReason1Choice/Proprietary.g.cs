@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateSuspensionReason1Choice;
 /// <summary>
 /// Reason, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IMandateSuspensionReason1Choice
+public partial record Proprietary : MandateSuspensionReason1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

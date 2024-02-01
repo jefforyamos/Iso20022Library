@@ -20,7 +20,7 @@ public partial record OptionEvent2
     /// <summary>
     /// Type of event in the life of the option.
     /// </summary>
-    public required IOptionEventType1Choice Type { get; init; } 
+    public required OptionEventType1Choice_ Type { get; init; } 
     /// <summary>
     /// Description of the event.
     /// </summary>

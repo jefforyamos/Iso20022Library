@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AcknowledgedAcceptedStatus14Choi
 /// <summary>
 /// Specifies the reason of the AcknowledgedAcceptedStatus.
 /// </summary>
-public partial record Reason : IAcknowledgedAcceptedStatus14Choice
+public partial record Reason : AcknowledgedAcceptedStatus14Choice_
 {
     #nullable enable
     /// <summary>
     /// Choice of format for the acknowledgement reason.
     /// </summary>
-    public required IAcknowledgementReason9Choice Code { get; init; } 
+    public required AcknowledgementReason9Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

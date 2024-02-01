@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData20Choice;
 /// <summary>
 /// Details of the repurchase trade transaction.
 /// </summary>
-public partial record RepurchaseTrade : ITransactionLoanData20Choice
+public partial record RepurchaseTrade : TransactionLoanData20Choice_
 {
     #nullable enable
     /// <summary>
@@ -30,7 +30,7 @@ public partial record RepurchaseTrade : ITransactionLoanData20Choice
     /// <summary>
     /// Indicates whether clearing of contract has taken place.
     /// </summary>
-    public ICleared10Choice? ClearingStatus { get; init; } 
+    public Cleared10Choice_? ClearingStatus { get; init; } 
     /// <summary>
     /// Identification of the trading venue where the transaction was executed.
     /// </summary>
@@ -66,11 +66,11 @@ public partial record RepurchaseTrade : ITransactionLoanData20Choice
     /// <summary>
     /// Period before or at the end of which the loan should be repaid or renegotiated for another term. 
     /// </summary>
-    public IContractTerm3Choice? Term { get; init;  } // Warning: Don't know multiplicity.
+    public ContractTerm3Choice_? Term { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Interest rate of the loan.
     /// </summary>
-    public IInterestRate20Choice? InterestRate { get; init; } 
+    public InterestRate20Choice_? InterestRate { get; init; } 
     /// <summary>
     /// Amount of money to be settled as of the start date and maturity date of the transaction.
     /// </summary>

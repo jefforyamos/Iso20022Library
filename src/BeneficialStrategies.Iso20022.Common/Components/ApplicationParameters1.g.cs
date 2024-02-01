@@ -28,7 +28,7 @@ public partial record ApplicationParameters1
     /// <summary>
     /// Configuration parameters used by the related payment application.
     /// </summary>
-    public IsoMax10000Binary? Parameters { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax10000Binary[] Parameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Sensitive parameters (sequence of Parameters including the enveloppes) encrypted with a cryptographic key.
     /// </summary>

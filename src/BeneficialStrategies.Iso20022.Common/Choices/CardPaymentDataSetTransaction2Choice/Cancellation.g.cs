@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CardPaymentDataSetTransaction2Ch
 /// <summary>
 /// Cancelled card payment transaction to be captured.
 /// </summary>
-public partial record Cancellation : ICardPaymentDataSetTransaction2Choice
+public partial record Cancellation : CardPaymentDataSetTransaction2Choice_
 {
     #nullable enable
     /// <summary>

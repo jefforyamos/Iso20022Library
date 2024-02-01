@@ -28,7 +28,7 @@ public partial record SecuritiesMovement7
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
-    public required IFinancialInstrumentQuantity33Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity33Choice_ Quantity { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is delivered/received as collateral or as a loan.
     /// </summary>

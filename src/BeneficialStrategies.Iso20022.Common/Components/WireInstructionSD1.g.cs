@@ -24,7 +24,7 @@ public partial record WireInstructionSD1
     /// <summary>
     /// Quantity of securities concerned in this wire.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice WireQuantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ WireQuantity { get; init; } 
     /// <summary>
     /// Name of the recipient bank for the wire.
     /// </summary>

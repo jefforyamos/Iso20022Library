@@ -44,15 +44,15 @@ public partial record PaymentResponse4
     /// <summary>
     /// Customer or Merchant payment receipt.
     /// </summary>
-    public PaymentReceipt4? PaymentReceipt { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentReceipt4[] PaymentReceipt { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data related to the result of a processed loyalty transaction.
     /// </summary>
-    public LoyaltyResult3? LoyaltyResult { get; init;  } // Warning: Don't know multiplicity.
+    public LoyaltyResult3[] LoyaltyResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Customer order attached to a customer, recorded in the POI system.
     /// </summary>
-    public CustomerOrder1? CustomerOrder { get; init;  } // Warning: Don't know multiplicity.
+    public CustomerOrder1[] CustomerOrder { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

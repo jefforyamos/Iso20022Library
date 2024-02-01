@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentificationFormatChoic
 /// <summary>
 /// Identification of the account expressed with a data source scheme, a code used within the data source scheme and the account identification.
 /// </summary>
-public partial record IdentificationAsDSS : IAccountIdentificationFormatChoice
+public partial record IdentificationAsDSS : AccountIdentificationFormatChoice_
 {
     #nullable enable
     /// <summary>

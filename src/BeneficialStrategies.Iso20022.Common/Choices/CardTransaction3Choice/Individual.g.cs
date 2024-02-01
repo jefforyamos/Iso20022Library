@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CardTransaction3Choice;
 /// <summary>
 /// Card transaction details for the individual transaction, as recorded at the POI (point of interaction).
 /// </summary>
-public partial record Individual : ICardTransaction3Choice
+public partial record Individual : CardTransaction3Choice_
 {
     #nullable enable
     /// <summary>

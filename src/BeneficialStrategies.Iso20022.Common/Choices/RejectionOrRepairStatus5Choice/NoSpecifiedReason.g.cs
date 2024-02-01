@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionOrRepairStatus5Choice;
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoSpecifiedReason : IRejectionOrRepairStatus5Choice
+public partial record NoSpecifiedReason : RejectionOrRepairStatus5Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

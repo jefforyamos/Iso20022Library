@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementTransactionCondition30
 /// <summary>
 /// Settlement condition expressed as a code.
 /// </summary>
-public partial record Code : ISettlementTransactionCondition30Choice
+public partial record Code : SettlementTransactionCondition30Choice_
 {
     public required SettlementTransactionCondition11Code Value { get; init; }
 }

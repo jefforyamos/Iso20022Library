@@ -24,7 +24,7 @@ public partial record LineItemAllowanceCharge2
     /// <summary>
     /// Actual monetary value of this allowance charge.
     /// </summary>
-    public IsoCurrencyAndAmount? ActualAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount[] ActualAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity on which this allowance charge is based.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record LineItemAllowanceCharge2
     /// <summary>
     /// Reason, expressed as text, for this allowance charge.
     /// </summary>
-    public IDiscountOrChargeType1Choice? Reason { get; init; } 
+    public DiscountOrChargeType1Choice_? Reason { get; init; } 
     
     #nullable disable
 }

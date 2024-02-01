@@ -36,11 +36,11 @@ public partial record BuyInAdviceDetails1
     /// <summary>
     /// Quantity of financial instrument concerned by the buy-in transaction.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? Quantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? Quantity { get; init; } 
     /// <summary>
     /// Price of the traded financial instrument in the buy-in transaction.
     /// </summary>
-    public IRateAndAmountFormat39Choice? BuyInPrice { get; init; } 
+    public RateAndAmountFormat39Choice_? BuyInPrice { get; init; } 
     /// <summary>
     /// Amount of money that has to be paid by the failing trading party in case of an unsuccessful or partially successful buy-in transaction.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record BuyInAdviceDetails1
     /// <summary>
     /// Settlement date of the buy-in. 
     /// </summary>
-    public IDateAndDateTime2Choice? BuyInSettlementDate { get; init; } 
+    public DateAndDateTime2Choice_? BuyInSettlementDate { get; init; } 
     
     #nullable disable
 }

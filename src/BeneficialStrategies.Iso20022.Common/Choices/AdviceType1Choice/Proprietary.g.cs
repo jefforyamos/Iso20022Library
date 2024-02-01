@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AdviceType1Choice;
 /// <summary>
 /// Advice type, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IAdviceType1Choice
+public partial record Proprietary : AdviceType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

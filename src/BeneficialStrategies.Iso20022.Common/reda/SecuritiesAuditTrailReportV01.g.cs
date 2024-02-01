@@ -55,7 +55,7 @@ public partial record SecuritiesAuditTrailReportV01 : IOuterRecord
     [DataMember(Name="RptOrErr")]
     [XmlElement(ElementName="RptOrErr")]
     [Required]
-    public required ISecuritiesAuditTrailOrOperationalError4Choice ReportOrError { get; init; }
+    public required SecuritiesAuditTrailOrOperationalError4Choice_ ReportOrError { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

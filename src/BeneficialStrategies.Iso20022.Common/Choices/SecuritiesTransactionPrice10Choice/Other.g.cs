@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice10Choi
 /// <summary>
 /// Indicates that price or quantity is expressed in another notation.
 /// </summary>
-public partial record Other : ISecuritiesTransactionPrice10Choice
+public partial record Other : SecuritiesTransactionPrice10Choice_
 {
     #nullable enable
     /// <summary>

@@ -81,7 +81,5 @@ public abstract class TestSerialization<T>
     {
         Sample.AssertXmlSerializerDeserializesValidIso20022(ExpectedSampleXml, Output);
     }
-
-
 }
 

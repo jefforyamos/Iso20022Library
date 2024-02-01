@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AutoExtend1Choice;
 /// <summary>
 /// Auto extension end date.
 /// </summary>
-public partial record Date : IAutoExtend1Choice
+public partial record Date : AutoExtend1Choice_
 {
     public required IsoISODate Value { get; init; }
 }

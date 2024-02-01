@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice;
 /// <summary>
 /// Indicates that the bank deposit is placed at a central bank.
 /// </summary>
-public partial record CentralBankDeposit : IInvestment1Choice
+public partial record CentralBankDeposit : Investment1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity4Choi
 /// <summary>
 /// Percentage of the total redemption amount used for the subscription in an investment fund or investment fund class.
 /// </summary>
-public partial record PercentageOfTotalRedemptionAmount : IFinancialInstrumentQuantity4Choice
+public partial record PercentageOfTotalRedemptionAmount : FinancialInstrumentQuantity4Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

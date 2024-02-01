@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat15Choice;
 /// <summary>
 /// Date is expressed using a code.
 /// </summary>
-public partial record DateCode : IDateFormat15Choice
+public partial record DateCode : DateFormat15Choice_
 {
     #nullable enable
     #nullable disable

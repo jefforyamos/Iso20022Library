@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References3Choice;
 /// <summary>
 /// Unambiguous identification of the allegement notification to be cancelled as know by the account servicer.
 /// </summary>
-public partial record SecuritiesSettlementTransactionAllegementNotificationTransactionIdentification : IReferences3Choice
+public partial record SecuritiesSettlementTransactionAllegementNotificationTransactionIdentification : References3Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

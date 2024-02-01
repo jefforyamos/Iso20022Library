@@ -24,15 +24,15 @@ public partial record Pension5
     /// <summary>
     /// Type of pension policy, plan or scheme.
     /// </summary>
-    public required IPensionSchemeType3Choice Type { get; init; } 
+    public required PensionSchemeType3Choice_ Type { get; init; } 
     /// <summary>
     /// Scope of the pension policy, plan or scheme transfer.
     /// </summary>
-    public IPensionTransferScope1Choice? TransferScope { get; init; } 
+    public PensionTransferScope1Choice_? TransferScope { get; init; } 
     /// <summary>
     /// Tax reference issued to the pension policy, plan or scheme by a central organisation.
     /// </summary>
-    public TaxReference1? TaxReference { get; init;  } // Warning: Don't know multiplicity.
+    public TaxReference1[] TaxReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Reference of the drawdown.
     /// </summary>
@@ -40,11 +40,11 @@ public partial record Pension5
     /// <summary>
     /// Drawdown status of the pension.
     /// </summary>
-    public IDrawdownStatus1Choice? DrawdownStatus { get; init; } 
+    public DrawdownStatus1Choice_? DrawdownStatus { get; init; } 
     /// <summary>
     /// Type of drawdown tranche.
     /// </summary>
-    public IDrawdownType2Choice? DrawdownType { get; init; } 
+    public DrawdownType2Choice_? DrawdownType { get; init; } 
     /// <summary>
     /// Number of drawdown tranches.
     /// </summary>
@@ -88,11 +88,11 @@ public partial record Pension5
     /// <summary>
     /// Type of lump sum paid to a member of the pension policy, plan or scheme.
     /// </summary>
-    public ILumpSumType1Choice? LumpSumType { get; init;  } // Warning: Don't know multiplicity.
+    public LumpSumType1Choice_[] LumpSumType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Order attached to the pension policy, plan or scheme.
     /// </summary>
-    public PensionOrder1? PensionOrder { get; init;  } // Warning: Don't know multiplicity.
+    public PensionOrder1[] PensionOrder { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether assets held within the pension are ring-fenced into specific tranches.
     /// </summary>
@@ -128,7 +128,7 @@ public partial record Pension5
     /// <summary>
     /// Additional information about the pension policy, plan or scheme.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

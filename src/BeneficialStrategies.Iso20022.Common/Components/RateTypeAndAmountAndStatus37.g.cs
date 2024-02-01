@@ -20,7 +20,7 @@ public partial record RateTypeAndAmountAndStatus37
     /// <summary>
     /// Value expressed as a rate type.
     /// </summary>
-    public required IDeemedRateType1Choice RateType { get; init; } 
+    public required DeemedRateType1Choice_ RateType { get; init; } 
     /// <summary>
     /// Value expressed as an amount.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record RateTypeAndAmountAndStatus37
     /// <summary>
     /// Value expressed as a rate status.
     /// </summary>
-    public IRateStatus3Choice? RateStatus { get; init; } 
+    public RateStatus3Choice_? RateStatus { get; init; } 
     
     #nullable disable
 }

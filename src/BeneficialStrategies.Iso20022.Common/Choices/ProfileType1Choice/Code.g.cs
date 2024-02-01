@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProfileType1Choice;
 /// <summary>
 /// Type of profile expressed as a code.
 /// </summary>
-public partial record Code : IProfileType1Choice
+public partial record Code : ProfileType1Choice_
 {
     public required ProfileType1Code Value { get; init; }
 }

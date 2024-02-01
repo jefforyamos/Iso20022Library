@@ -20,11 +20,11 @@ public partial record CorporateAction2
     /// <summary>
     /// Stage in the corporate action event life cycle.
     /// </summary>
-    public ICorporateActionEventStage1FormatChoice? EventStage { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionEventStage1FormatChoice_[] EventStage { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the option that will be selected by default if no instruction is provided by account owner.
     /// </summary>
-    public ICorporateActionOption1FormatChoice? DefaultOptionType { get; init; } 
+    public CorporateActionOption1FormatChoice_? DefaultOptionType { get; init; } 
     /// <summary>
     /// Identifies the option number that will be selected by default if no instruction is provided by account owner.
     /// </summary>
@@ -32,51 +32,51 @@ public partial record CorporateAction2
     /// <summary>
     /// The method of calculation of drawings and partial redemptions.
     /// </summary>
-    public ICorporateActionCalculationMethod1FormatChoice? CalculationMethod { get; init; } 
+    public CorporateActionCalculationMethod1FormatChoice_? CalculationMethod { get; init; } 
     /// <summary>
     /// Represents the presence of a back end odd lot provision and the quantity of equity required after proration to be eligible for this privilege.
     /// </summary>
-    public IUnitOrFaceAmountOrCode1Choice? BackEndOddLotSecuritiesQuantity { get; init; } 
+    public UnitOrFaceAmountOrCode1Choice_? BackEndOddLotSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Specifies that if an order is prorated holders of odd lots who tender their full position will not have tendered position prorated but rather accepted in full.
     /// </summary>
-    public IUnitOrFaceAmountOrCode1Choice? FrontEndOddLotSecuritiesQuantity { get; init; } 
+    public UnitOrFaceAmountOrCode1Choice_? FrontEndOddLotSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Minimum quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? MinimumExercisableSecuritiesQuantity { get; init; } 
+    public UnitOrFaceAmount1Choice_? MinimumExercisableSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Minimum multiple quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? MinimumExercisableMultipleSecuritiesQuantity { get; init; } 
+    public UnitOrFaceAmount1Choice_? MinimumExercisableMultipleSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Amount used when the called amount is not met by running the lottery with the base denomination.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? IncrementalDenomination { get; init; } 
+    public UnitOrFaceAmount1Choice_? IncrementalDenomination { get; init; } 
     /// <summary>
     /// New Denomination of the equity following, eg, an increase or decrease in nominal value.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? NewDenominationSecuritiesQuantity { get; init; } 
+    public UnitOrFaceAmount1Choice_? NewDenominationSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Quantity of equity that makes up the new board lot.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? NewBoardLotSecuritiesQuantity { get; init; } 
+    public UnitOrFaceAmount1Choice_? NewBoardLotSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Quantity of securities the offeror/issuer will purchase or redeem under the terms of the event. This can be a number or the term "any and all".
     /// </summary>
-    public IUnitOrFaceAmountOrCode1Choice? SecuritiesQuantitySought { get; init; } 
+    public UnitOrFaceAmountOrCode1Choice_? SecuritiesQuantitySought { get; init; } 
     /// <summary>
     /// The minimum integral amount of securities that each account owner must have remaining after the called amounts are applied.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? BaseDenomination { get; init; } 
+    public UnitOrFaceAmount1Choice_? BaseDenomination { get; init; } 
     /// <summary>
     /// Specifies the type of change announced.
     /// </summary>
-    public ICorporateActionChangeType1FormatChoice? ChangeType { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionChangeType1FormatChoice_[] ChangeType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the conditions that apply to the offer.
     /// </summary>
-    public IOfferType1FormatChoice? OfferType { get; init;  } // Warning: Don't know multiplicity.
+    public OfferType1FormatChoice_[] OfferType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether there is restrictions apply to the CA event or not.||Yes = There is restrictions.|No = There is no restrictions.
     /// </summary>
@@ -88,11 +88,11 @@ public partial record CorporateAction2
     /// <summary>
     /// Specifies the effect on the holdings of electing a Corporate Action option.
     /// </summary>
-    public IElectionMovementType1FormatChoice? ElectionType { get; init; } 
+    public ElectionMovementType1FormatChoice_? ElectionType { get; init; } 
     /// <summary>
     /// Specifies the type of lottery announced.
     /// </summary>
-    public ILotteryType1FormatChoice? LotteryType { get; init; } 
+    public LotteryType1FormatChoice_? LotteryType { get; init; } 
     /// <summary>
     /// Specifies the type of income.|The lists of income type codes to be used, are available on the SMPG website at www.smpg.info.
     /// </summary>
@@ -100,15 +100,15 @@ public partial record CorporateAction2
     /// <summary>
     /// Specifies the conditions in which a dividend is paid.
     /// </summary>
-    public ICorporateActionFrequencyType1FormatChoice? DividendType { get; init; } 
+    public CorporateActionFrequencyType1FormatChoice_? DividendType { get; init; } 
     /// <summary>
     /// Type of intermediates securities distribution, eg, stock dividend, reverse right.
     /// </summary>
-    public IIntermediateSecurityDistributionType1FormatChoice? IntermediateSecuritiesDistributionType { get; init; } 
+    public IntermediateSecurityDistributionType1FormatChoice_? IntermediateSecuritiesDistributionType { get; init; } 
     /// <summary>
     /// Number of the coupon attached/associated with a security.
     /// </summary>
-    public IsoMax3NumericText? CouponNumber { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax3NumericText[] CouponNumber { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number of days used for calculating the accrued interest amount.
     /// </summary>
@@ -124,7 +124,7 @@ public partial record CorporateAction2
     /// <summary>
     /// Provides information about the prices related to a CA event.
     /// </summary>
-    public CorporateActionPrice2? PriceDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionPrice2[] PriceDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the periods related to a CA event.
     /// </summary>
@@ -144,7 +144,7 @@ public partial record CorporateAction2
     /// <summary>
     /// Type of certification which is required.
     /// </summary>
-    public IBeneficiaryCertificationType1FormatChoice? CertificationType { get; init; } 
+    public BeneficiaryCertificationType1FormatChoice_? CertificationType { get; init; } 
     /// <summary>
     /// Specifies whether the capital gain is in the scope of the EU Savings directive for the income realised upon the sale, refund or redemption of shares and units (.) (Article 6(1d)).
     /// </summary>
@@ -160,11 +160,11 @@ public partial record CorporateAction2
     /// <summary>
     /// Specifies whether terms of the event allow resale of the rights.
     /// </summary>
-    public IRenounceableStatus1FormatChoice? RenounceableEntitlementStatusType { get; init; } 
+    public RenounceableStatus1FormatChoice_? RenounceableEntitlementStatusType { get; init; } 
     /// <summary>
     /// Specifies the conversion type of an instrument.
     /// </summary>
-    public IConversionType1FormatChoice? ConversionType { get; init; } 
+    public ConversionType1FormatChoice_? ConversionType { get; init; } 
     /// <summary>
     /// Indicates whether redemption charges apply.
     /// </summary>
@@ -172,7 +172,7 @@ public partial record CorporateAction2
     /// <summary>
     /// Specifies whether the proceeds of the event will be distributed on a rolling basis rather than on a specific date.
     /// </summary>
-    public IDistributionType1FormatChoice? DistributionType { get; init; } 
+    public DistributionType1FormatChoice_? DistributionType { get; init; } 
     
     #nullable disable
 }

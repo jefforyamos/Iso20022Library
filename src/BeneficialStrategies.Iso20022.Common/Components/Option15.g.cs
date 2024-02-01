@@ -20,7 +20,7 @@ public partial record Option15
     /// <summary>
     /// Specifies whether the option contract settles at the open or close of the market.
     /// </summary>
-    public ISettleStyle2Choice? OptionSettlementStyle { get; init; } 
+    public SettleStyle2Choice_? OptionSettlementStyle { get; init; } 
     /// <summary>
     /// Deadline by which a convertible security must be converted according to the terms of the issue.
     /// </summary>
@@ -32,19 +32,19 @@ public partial record Option15
     /// <summary>
     /// Minimum quantity of securities that must be exercised.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? MinimumExercisableQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; init; } 
     /// <summary>
     /// Period during which a convertible security may be converted according to the terms of the issue.
     /// </summary>
-    public IDateTimePeriod1Choice? ConversionPeriod { get; init; } 
+    public DateTimePeriod1Choice_? ConversionPeriod { get; init; } 
     /// <summary>
     /// Specifies how an option can be exercised (American, European, Bermudan).
     /// </summary>
-    public IOptionStyle1Choice? OptionStyle { get; init; } 
+    public OptionStyle1Choice_? OptionStyle { get; init; } 
     /// <summary>
     /// Specifies whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).
     /// </summary>
-    public IOptionType8Choice? OptionType { get; init; } 
+    public OptionType8Choice_? OptionType { get; init; } 
     /// <summary>
     /// Used for derivatives. The number of shares/units for the financial instrument involved in the option trade.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record Option15
     /// <summary>
     /// Method under which assignment was conducted.
     /// </summary>
-    public IAssignmentMethod2Choice? InstrumentAssignmentMethod { get; init; } 
+    public AssignmentMethod2Choice_? InstrumentAssignmentMethod { get; init; } 
     /// <summary>
     /// Number allocated by options exchanges to record that an option has undergone a change in its contract specifications (particularly adjustment of the strike price).
     /// </summary>
@@ -68,11 +68,11 @@ public partial record Option15
     /// <summary>
     /// Specifies whether the terms of the security (underlying instruments, expiration date, contract size) are defined according to the exchange specifications or whether they can be user defined.
     /// </summary>
-    public IStandardisation3Choice? Standardisation { get; init; } 
+    public Standardisation3Choice_? Standardisation { get; init; } 
     /// <summary>
     /// Specifies the party which is the buyer or the seller.
     /// </summary>
-    public IOptionParty3Choice? TradingPartyRole { get; init; } 
+    public OptionParty3Choice_? TradingPartyRole { get; init; } 
     /// <summary>
     /// Ratio or multiplying factor used to convert one contract into a quantity.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record Option15
     /// <summary>
     /// Provides more information about the underlying instrument.
     /// </summary>
-    public UnderlyingAttributes4? AdditionalUnderlyingAttributes { get; init;  } // Warning: Don't know multiplicity.
+    public UnderlyingAttributes4[] AdditionalUnderlyingAttributes { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

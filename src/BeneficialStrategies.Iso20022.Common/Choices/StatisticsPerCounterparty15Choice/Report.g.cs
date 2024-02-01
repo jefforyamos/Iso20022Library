@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatisticsPerCounterparty15Choic
 /// <summary>
 /// Detailed statistics per counterparty.
 /// </summary>
-public partial record Report : IStatisticsPerCounterparty15Choice
+public partial record Report : StatisticsPerCounterparty15Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record Report : IStatisticsPerCounterparty15Choice
     /// <summary>
     /// Different categories of statuses for a derivative.
     /// </summary>
-    public required IReportingRequirement2Choice ReconciliationCategories { get; init; } 
+    public required ReportingRequirement2Choice_ ReconciliationCategories { get; init; } 
     /// <summary>
     /// Number of all reports per status on derivatives submitted for reconciliation.
     /// </summary>

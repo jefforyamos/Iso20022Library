@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BeneficialOwnership4Choice;
 /// <summary>
 /// Beneficial ownership information expressed a proprietary code.
 /// </summary>
-public partial record Proprietary : IBeneficialOwnership4Choice
+public partial record Proprietary : BeneficialOwnership4Choice_
 {
     #nullable enable
     /// <summary>

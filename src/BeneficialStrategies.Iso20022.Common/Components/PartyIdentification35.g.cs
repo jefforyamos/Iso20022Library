@@ -20,7 +20,7 @@ public partial record PartyIdentification35
     /// <summary>
     /// Identification of a party.
     /// </summary>
-    public required IPartyIdentification12Choice Identification { get; init; } 
+    public required PartyIdentification12Choice_ Identification { get; init; } 
     /// <summary>
     /// Reference meaningful to the party identified.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record PartyIdentification35
     /// <summary>
     /// Provides alternate identification for a party using an id type, a country code and a text field.
     /// </summary>
-    public AlternatePartyIdentification2? AlternateIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public AlternatePartyIdentification2[] AlternateIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

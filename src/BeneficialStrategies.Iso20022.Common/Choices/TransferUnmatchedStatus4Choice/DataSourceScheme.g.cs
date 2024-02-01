@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferUnmatchedStatus4Choice;
 /// <summary>
 /// Proprietary identification of the reason for the unmatched status.
 /// </summary>
-public partial record DataSourceScheme : ITransferUnmatchedStatus4Choice
+public partial record DataSourceScheme : TransferUnmatchedStatus4Choice_
 {
     #nullable enable
     /// <summary>

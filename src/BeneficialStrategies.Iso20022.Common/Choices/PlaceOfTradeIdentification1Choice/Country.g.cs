@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PlaceOfTradeIdentification1Choic
 /// <summary>
 /// Country in which the transaction is executed.
 /// </summary>
-public partial record Country : IPlaceOfTradeIdentification1Choice
+public partial record Country : PlaceOfTradeIdentification1Choice_
 {
     public required CountryCode Value { get; init; }
 }

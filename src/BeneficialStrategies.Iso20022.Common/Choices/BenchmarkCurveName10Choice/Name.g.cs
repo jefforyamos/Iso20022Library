@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkCurveName10Choice;
 /// <summary>
 /// Provides the name that should be used where no ISIN or standardised name of the index exists, including its term.
 /// </summary>
-public partial record Name : IBenchmarkCurveName10Choice
+public partial record Name : BenchmarkCurveName10Choice_
 {
     public required IsoMax350Text Value { get; init; }
 }

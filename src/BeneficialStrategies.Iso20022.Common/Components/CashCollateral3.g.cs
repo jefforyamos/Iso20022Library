@@ -24,7 +24,7 @@ public partial record CashCollateral3
     /// <summary>
     /// Provides the identification of the clearing member 's cash account.
     /// </summary>
-    public IAccountIdentification4Choice? CashAccountIdentification { get; init; } 
+    public AccountIdentification4Choice_? CashAccountIdentification { get; init; } 
     /// <summary>
     /// Amount of the deposit.
     /// </summary>

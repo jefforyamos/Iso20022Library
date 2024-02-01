@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SequenceRange1Choice;
 /// <summary>
 /// Specified sequence to be excluded.
 /// </summary>
-public partial record NotEqualSequence : ISequenceRange1Choice
+public partial record NotEqualSequence : SequenceRange1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

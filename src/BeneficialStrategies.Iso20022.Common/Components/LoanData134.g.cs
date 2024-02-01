@@ -32,7 +32,7 @@ public partial record LoanData134
     /// <summary>
     /// Identification of the trading venue where the transaction was executed.
     /// </summary>
-    public ITradingVenueType1Choice? TradingVenue { get; init; } 
+    public TradingVenueType1Choice_? TradingVenue { get; init; } 
     /// <summary>
     /// Type of agreement expressed as a code set. Reference to the master agreement under which the counterparties concluded a documented transaction.
     /// </summary>
@@ -48,11 +48,11 @@ public partial record LoanData134
     /// <summary>
     /// Period before or at the end of which the loan should be repaid or renegotiated for another term. 
     /// </summary>
-    public IContractTerm6Choice? Term { get; init; } 
+    public ContractTerm6Choice_? Term { get; init; } 
     /// <summary>
     /// Interest rate of the loan.
     /// </summary>
-    public IRates1Choice? Rates { get; init; } 
+    public Rates1Choice_? Rates { get; init; } 
     /// <summary>
     /// Medium of exchange of currency.
     /// </summary>

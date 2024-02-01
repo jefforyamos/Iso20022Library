@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EnabledStatusReason1Choice;
 /// <summary>
 /// There is no reason available or to report for the enabled account status.
 /// </summary>
-public partial record NoSpecifiedReason : IEnabledStatusReason1Choice
+public partial record NoSpecifiedReason : EnabledStatusReason1Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

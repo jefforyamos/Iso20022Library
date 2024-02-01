@@ -12,16 +12,16 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingIdentification2Choice;
 /// <summary>
 /// Underlying of a swap transaction.
 /// </summary>
-public partial record Swap : IUnderlyingIdentification2Choice
+public partial record Swap : UnderlyingIdentification2Choice_
 {
     #nullable enable
     /// <summary>
     /// Instrument received by the buyer.
     /// </summary>
-    public IFinancialInstrumentIdentification7Choice? SwapIn { get; init; } 
+    public FinancialInstrumentIdentification7Choice_? SwapIn { get; init; } 
     /// <summary>
     /// Instrument paid by the buyer.
     /// </summary>
-    public IFinancialInstrumentIdentification7Choice? SwapOut { get; init; } 
+    public FinancialInstrumentIdentification7Choice_? SwapOut { get; init; } 
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.VoteInstructionForMeetingResolut
 /// <summary>
 /// Specifies the name and address of the shareholder to whom the rights to vote are transferred for resolutions added during the meeting.
 /// </summary>
-public partial record Shareholder : IVoteInstructionForMeetingResolution2Choice
+public partial record Shareholder : VoteInstructionForMeetingResolution2Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record Shareholder : IVoteInstructionForMeetingResolution2Choice
     /// <summary>
     /// Postal address of a party.
     /// </summary>
-    public ILongPostalAddress2Choice? Address { get; init; } 
+    public LongPostalAddress2Choice_? Address { get; init; } 
     #nullable disable
 }

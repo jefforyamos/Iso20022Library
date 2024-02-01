@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionMandatoryVoluntar
 /// <summary>
 /// Standard code to specify whether the event is mandatory, mandatory with options or voluntary.
 /// </summary>
-public partial record Code : ICorporateActionMandatoryVoluntary1Choice
+public partial record Code : CorporateActionMandatoryVoluntary1Choice_
 {
     public required CorporateActionMandatoryVoluntary1Code Value { get; init; }
 }

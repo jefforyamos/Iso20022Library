@@ -20,7 +20,7 @@ public partial record RetrievalFulfilmentInstructions1
     /// <summary>
     /// Contains information describing the fulfilment information delivery methods.
     /// </summary>
-    public IRetrievalDeliveryMethod1Choice? Method { get; init; } 
+    public RetrievalDeliveryMethod1Choice_? Method { get; init; } 
     /// <summary>
     /// Information related to a retrieval fulfilment.
     /// </summary>

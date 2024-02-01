@@ -32,7 +32,7 @@ public partial record FundParties1
     /// <summary>
     /// Other type of party.
     /// </summary>
-    public ExtendedParty13? OtherParty { get; init;  } // Warning: Don't know multiplicity.
+    public ExtendedParty13[] OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

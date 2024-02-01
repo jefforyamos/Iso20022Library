@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType4Choice;
 /// <summary>
 /// Rate type expressed, in an other form.
 /// </summary>
-public partial record Other : IRateType4Choice
+public partial record Other : RateType4Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

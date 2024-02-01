@@ -24,11 +24,11 @@ public partial record AcceptorConfiguration12
     /// <summary>
     /// Identifier assigned to a set of POI terminals performing some categories of transactions.
     /// </summary>
-    public IsoMax35Text? POIGroupIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] POIGroupIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data set containing the acceptor parameters of a point of interaction (POI).
     /// </summary>
-    public AcceptorConfigurationDataSet4? DataSet { get; init;  } // Warning: Don't know multiplicity.
+    public AcceptorConfigurationDataSet4[] DataSet { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

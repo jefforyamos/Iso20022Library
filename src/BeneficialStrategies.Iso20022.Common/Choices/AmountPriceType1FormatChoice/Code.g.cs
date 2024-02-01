@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountPriceType1FormatChoice;
 /// <summary>
 /// Standard code to specify the amount price type.
 /// </summary>
-public partial record Code : IAmountPriceType1FormatChoice
+public partial record Code : AmountPriceType1FormatChoice_
 {
     public required AmountPriceType1Code Value { get; init; }
 }

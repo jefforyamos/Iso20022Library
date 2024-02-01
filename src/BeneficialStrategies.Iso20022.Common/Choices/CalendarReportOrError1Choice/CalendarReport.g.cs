@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CalendarReportOrError1Choice;
 /// <summary>
 /// Provides the calendar information related to the system.
 /// </summary>
-public partial record CalendarReport : ICalendarReportOrError1Choice
+public partial record CalendarReport : CalendarReportOrError1Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record CalendarReport : ICalendarReportOrError1Choice
     /// <summary>
     /// Requested information on the calendar or business error report when information has not been found.
     /// </summary>
-    public required ICalendarOrBusinessError1Choice CalendarOrError { get; init; } 
+    public required CalendarOrBusinessError1Choice_ CalendarOrError { get; init; } 
     #nullable disable
 }

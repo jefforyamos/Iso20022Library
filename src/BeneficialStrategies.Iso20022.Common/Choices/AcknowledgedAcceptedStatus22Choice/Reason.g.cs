@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AcknowledgedAcceptedStatus22Choi
 /// <summary>
 /// Specifies the reason of the acknowledged accepted status.
 /// </summary>
-public partial record Reason : IAcknowledgedAcceptedStatus22Choice
+public partial record Reason : AcknowledgedAcceptedStatus22Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies additional information about the processed instruction.
     /// </summary>
-    public required IAcknowledgementReason13Choice Code { get; init; } 
+    public required AcknowledgementReason13Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

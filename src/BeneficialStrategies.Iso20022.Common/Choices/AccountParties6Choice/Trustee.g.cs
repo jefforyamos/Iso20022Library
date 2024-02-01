@@ -12,17 +12,17 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties6Choice;
 /// <summary>
 /// Legal owners of the property. However, the beneficiary has the equitable or beneficial ownership.
 /// </summary>
-public partial record Trustee : IAccountParties6Choice
+public partial record Trustee : AccountParties6Choice_
 {
     #nullable enable
     /// <summary>
     /// Information about the organisation or individual person.
     /// </summary>
-    public required IParty24Choice Party { get; init; } 
+    public required Party24Choice_ Party { get; init; } 
     /// <summary>
     /// Status of an identity check to prevent money laundering. This includes the counter-terrorism check.
     /// </summary>
-    public IMoneyLaunderingCheck1Choice? MoneyLaunderingCheck { get; init; } 
+    public MoneyLaunderingCheck1Choice_? MoneyLaunderingCheck { get; init; } 
     /// <summary>
     /// Percentage of ownership or beneficiary ownership of the shares/units in the account. All subsequent subscriptions and or redemptions will be allocated using the same percentage.
     /// </summary>
@@ -54,7 +54,7 @@ public partial record Trustee : IAccountParties6Choice
     /// <summary>
     /// Type of Foreign Account Tax Compliance Act (FATCA) form submitted by the investor.
     /// </summary>
-    public IFATCAForm1Choice? FATCAFormType { get; init;  } // Warning: Don't know multiplicity.
+    public FATCAForm1Choice_? FATCAFormType { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Foreign Account Tax Compliance Act (FATCA) status of the investor.
     /// </summary>

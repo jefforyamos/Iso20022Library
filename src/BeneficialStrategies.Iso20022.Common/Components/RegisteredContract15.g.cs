@@ -40,7 +40,7 @@ public partial record RegisteredContract15
     /// <summary>
     /// Reason of the closure.
     /// </summary>
-    public required IContractClosureReason1Choice ClosureReason { get; init; } 
+    public required ContractClosureReason1Choice_ ClosureReason { get; init; } 
     /// <summary>
     /// Contract cession details.
     /// </summary>
@@ -48,11 +48,11 @@ public partial record RegisteredContract15
     /// <summary>
     /// Documents provided as attachments to the contract registration closure request.
     /// </summary>
-    public DocumentGeneralInformation5? Attachment { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentGeneralInformation5[] Attachment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

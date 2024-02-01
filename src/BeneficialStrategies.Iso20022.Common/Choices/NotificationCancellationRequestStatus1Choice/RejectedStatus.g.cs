@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.NotificationCancellationRequestS
 /// <summary>
 /// Provides information about the rejection status.
 /// </summary>
-public partial record RejectedStatus : INotificationCancellationRequestStatus1Choice
+public partial record RejectedStatus : NotificationCancellationRequestStatus1Choice_
 {
     #nullable enable
     /// <summary>
     /// The rejection reason.
     /// </summary>
-    public IRejectionReason11FormatChoice? Reason { get; init;  } // Warning: Don't know multiplicity.
+    public RejectionReason11FormatChoice_? Reason { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the status.
     /// </summary>

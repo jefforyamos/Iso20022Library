@@ -38,7 +38,7 @@ public partial record CryptographicKey4
     /// <summary>
     /// Allowed usage of the key.
     /// </summary>
-    public KeyUsage1Code? Function { get; init;  } // Warning: Don't know multiplicity.
+    public KeyUsage1Code[] Function { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date and time on which the key must be activated.
     /// </summary>

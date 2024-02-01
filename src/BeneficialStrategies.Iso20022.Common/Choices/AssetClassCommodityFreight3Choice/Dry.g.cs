@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityFreight3Choic
 /// <summary>
 /// Dry freight commodity derivative.
 /// </summary>
-public partial record Dry : IAssetClassCommodityFreight3Choice
+public partial record Dry : AssetClassCommodityFreight3Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesReferenceDeltaStatusRe
 /// <summary>
 /// Specifies data that has been modified since the previous report.
 /// </summary>
-public partial record ModifiedRecord : ISecuritiesReferenceDeltaStatusReport5Choice
+public partial record ModifiedRecord : SecuritiesReferenceDeltaStatusReport5Choice_
 {
     #nullable enable
     /// <summary>

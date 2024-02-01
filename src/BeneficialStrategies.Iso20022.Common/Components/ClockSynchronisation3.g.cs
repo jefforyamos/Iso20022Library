@@ -24,7 +24,7 @@ public partial record ClockSynchronisation3
     /// <summary>
     /// Parameters to contact a time server.
     /// </summary>
-    public NetworkParameters7? SynchronisationServer { get; init;  } // Warning: Don't know multiplicity.
+    public NetworkParameters7[] SynchronisationServer { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Delay between two contacts of the server.
     /// </summary>

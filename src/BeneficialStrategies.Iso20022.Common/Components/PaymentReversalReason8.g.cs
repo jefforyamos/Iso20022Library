@@ -24,11 +24,11 @@ public partial record PaymentReversalReason8
     /// <summary>
     /// Specifies the reason for the reversal.
     /// </summary>
-    public IReversalReason4Choice? Reason { get; init; } 
+    public ReversalReason4Choice_? Reason { get; init; } 
     /// <summary>
     /// Further details on the reversal reason.
     /// </summary>
-    public IsoMax105Text? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

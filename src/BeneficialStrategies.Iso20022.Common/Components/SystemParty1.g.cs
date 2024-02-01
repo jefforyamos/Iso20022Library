@@ -42,11 +42,11 @@ public partial record SystemParty1
     /// <summary>
     /// Unique technical address to unambiguously identify a party for receiving messages from the executing system.
     /// </summary>
-    public ITechnicalIdentification1Choice? TechnicalAddress { get; init;  } // Warning: Don't know multiplicity.
+    public TechnicalIdentification1Choice_[] TechnicalAddress { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional attributes defined by a central security depositary for a party.
     /// </summary>
-    public MarketSpecificAttribute1? MarketSpecificAttribute { get; init;  } // Warning: Don't know multiplicity.
+    public MarketSpecificAttribute1[] MarketSpecificAttribute { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the name by which a party is known and which is usually used to identify that party.
     /// </summary>
@@ -54,7 +54,7 @@ public partial record SystemParty1
     /// <summary>
     /// Defines the specific processing characteristics for a party to ensure configurability of specific requirements, as prescribed by national legal and regulatory requirements and practices.
     /// </summary>
-    public SystemRestriction1? Restriction { get; init;  } // Warning: Don't know multiplicity.
+    public SystemRestriction1[] Restriction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

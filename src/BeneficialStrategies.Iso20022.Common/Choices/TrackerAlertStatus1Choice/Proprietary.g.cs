@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TrackerAlertStatus1Choice;
 /// <summary>
 /// Status of the tracker alert, in a proprietary form.
 /// </summary>
-public partial record Proprietary : ITrackerAlertStatus1Choice
+public partial record Proprietary : TrackerAlertStatus1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

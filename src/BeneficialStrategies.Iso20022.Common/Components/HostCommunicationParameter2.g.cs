@@ -28,7 +28,7 @@ public partial record HostCommunicationParameter2
     /// <summary>
     /// Cryptographic key used to communicate with the host.
     /// </summary>
-    public CryptographicKey3? Key { get; init;  } // Warning: Don't know multiplicity.
+    public CryptographicKey3[] Key { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

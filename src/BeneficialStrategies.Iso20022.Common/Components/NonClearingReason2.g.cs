@@ -20,7 +20,7 @@ public partial record NonClearingReason2
     /// <summary>
     /// Specifies the reason for a clearing exemption or exception.
     /// </summary>
-    public ClearingExemptionException1Code? ClearingExemptionException { get; init;  } // Warning: Don't know multiplicity.
+    public ClearingExemptionException1Code[] ClearingExemptionException { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the reason for which the contract has not been cleared.
     /// </summary>

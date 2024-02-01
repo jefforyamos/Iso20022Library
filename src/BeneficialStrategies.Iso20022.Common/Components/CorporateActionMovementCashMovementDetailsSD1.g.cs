@@ -40,7 +40,7 @@ public partial record CorporateActionMovementCashMovementDetailsSD1
     /// <summary>
     /// Date/Time on which the posting / draft of cash is scheduled to take place for a transaction.
     /// </summary>
-    public IDateFormat22Choice? EarliestPaymentDate { get; init; } 
+    public DateFormat22Choice_? EarliestPaymentDate { get; init; } 
     
     #nullable disable
 }

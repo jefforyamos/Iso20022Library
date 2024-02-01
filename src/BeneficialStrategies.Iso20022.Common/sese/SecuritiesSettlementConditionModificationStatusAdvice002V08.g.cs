@@ -95,7 +95,7 @@ public partial record SecuritiesSettlementConditionModificationStatusAdvice002V0
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required IProcessingStatus58Choice ProcessingStatus { get; init; }
+    public required ProcessingStatus58Choice_ ProcessingStatus { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

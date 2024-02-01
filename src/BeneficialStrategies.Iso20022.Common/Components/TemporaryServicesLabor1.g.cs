@@ -28,7 +28,7 @@ public partial record TemporaryServicesLabor1
     /// <summary>
     /// Contains details of the amount charged. 
     /// </summary>
-    public Amount12? Charge { get; init;  } // Warning: Don't know multiplicity.
+    public Amount12[] Charge { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

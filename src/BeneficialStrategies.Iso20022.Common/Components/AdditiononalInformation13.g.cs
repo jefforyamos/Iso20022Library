@@ -36,11 +36,11 @@ public partial record AdditiononalInformation13
     /// <summary>
     /// Regulator that may have to be informed about the remark, note, limitation or restriction.
     /// </summary>
-    public IPartyIdentification125Choice? Regulator { get; init; } 
+    public PartyIdentification125Choice_? Regulator { get; init; } 
     /// <summary>
     /// Status of the remark, note, limitation or restriction.
     /// </summary>
-    public IRestrictionStatus1Choice? Status { get; init; } 
+    public RestrictionStatus1Choice_? Status { get; init; } 
     /// <summary>
     /// Period of the restriction.
     /// </summary>

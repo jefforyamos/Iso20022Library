@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityStatus3Choice;
 /// <summary>
 /// Security status expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISecurityStatus3Choice
+public partial record Proprietary : SecurityStatus3Choice_
 {
     #nullable enable
     /// <summary>

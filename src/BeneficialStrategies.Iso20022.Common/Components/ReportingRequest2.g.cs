@@ -32,7 +32,7 @@ public partial record ReportingRequest2
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public required IParty12Choice AccountOwner { get; init; } 
+    public required Party12Choice_ AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record ReportingRequest2
     /// <summary>
     /// Provides details on the requested balance reporting.
     /// </summary>
-    public BalanceType12? RequestedBalanceType { get; init;  } // Warning: Don't know multiplicity.
+    public BalanceType12[] RequestedBalanceType { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

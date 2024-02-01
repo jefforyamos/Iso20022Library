@@ -20,11 +20,11 @@ public partial record TransportDetails3
     /// <summary>
     /// Reference to the identification of the underlying transport document.
     /// </summary>
-    public DocumentIdentification7? TransportDocumentReference { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentIdentification7[] TransportDocumentReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Goods that are transported.
     /// </summary>
-    public TransportedGoods1? TransportedGoods { get; init;  } // Warning: Don't know multiplicity.
+    public TransportedGoods1[] TransportedGoods { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Physical packaging of goods for transport.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record TransportDetails3
     /// <summary>
     /// Shipment date, actual or proposed.
     /// </summary>
-    public required IShipmentDate1Choice ShipmentDate { get; init; } 
+    public required ShipmentDate1Choice_ ShipmentDate { get; init; } 
     /// <summary>
     /// Charges related to the conveyance of goods.
     /// </summary>

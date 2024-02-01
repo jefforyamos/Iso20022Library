@@ -24,7 +24,7 @@ public partial record SubscriptionOrder4
     /// <summary>
     /// Specifies the category of the investment fund order.
     /// </summary>
-    public FundOrderType1? OrderType { get; init;  } // Warning: Don't know multiplicity.
+    public FundOrderType1[] OrderType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Investment fund class related to an order.
     /// </summary>
@@ -64,15 +64,15 @@ public partial record SubscriptionOrder4
     /// <summary>
     /// Charge for the placement of an order.
     /// </summary>
-    public Charge8? ChargeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Charge8[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Commission linked to the execution of an investment fund order.
     /// </summary>
-    public Commission6? CommissionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Commission6[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax applicable to an investment fund order.
     /// </summary>
-    public Tax6? TaxDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Tax6[] TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Parameters used to execute the settlement of an investment fund order.
     /// </summary>

@@ -24,7 +24,7 @@ public partial record UniqueTransactionIdentifier2
     /// <summary>
     /// Prior unique transaction identifier specifies the previous unique transaction identifier (UTI) that was created at the time the transaction was executed. This identifier can also be known as the Prior Unique Swap Identifier (PUSI).
     /// </summary>
-    public IsoMax52Text? PriorUniqueTransactionIdentifier { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax52Text[] PriorUniqueTransactionIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DeemedRateType2Choice;
 /// <summary>
 /// Proprietary identification of the type of deemed rate.
 /// </summary>
-public partial record Proprietary : IDeemedRateType2Choice
+public partial record Proprietary : DeemedRateType2Choice_
 {
     #nullable enable
     /// <summary>

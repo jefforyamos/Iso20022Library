@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionType6Choice;
 /// <summary>
 /// Option type expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IOptionType6Choice
+public partial record Code : OptionType6Choice_
 {
     public required OptionType1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LocationFormat1Choice;
 /// <summary>
 /// Indicates that the location is unknown.
 /// </summary>
-public partial record LocationCode : ILocationFormat1Choice
+public partial record LocationCode : LocationFormat1Choice_
 {
     public required PlaceType1Code Value { get; init; }
 }

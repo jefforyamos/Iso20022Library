@@ -24,7 +24,7 @@ public partial record SecuritiesBalance3
     /// <summary>
     /// Quantity of financial instrument at the time of the preparation of the statement. It is the resulting balance of securities post movements for delta (reporting on flow).
     /// </summary>
-    public required IBalanceQuantity13Choice Quantity { get; init; } 
+    public required BalanceQuantity13Choice_ Quantity { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is delivered/received as collateral or as loaned  securities.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record SecuritiesBalance3
     /// <summary>
     /// Rating and source of the rating of the financial instrument.
     /// </summary>
-    public Rating2? RatingDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Rating2[] RatingDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record SecuritiesBalance3
     /// <summary>
     /// Identification of the underlying market value lots based on the term of the underlyning trades. The issuer defines the lot identification.
     /// </summary>
-    public GenericIdentification178? TransactionLotNumber { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification178[] TransactionLotNumber { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

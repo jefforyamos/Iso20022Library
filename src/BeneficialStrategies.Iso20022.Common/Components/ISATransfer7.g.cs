@@ -28,11 +28,11 @@ public partial record ISATransfer7
     /// <summary>
     /// Requested date at which the assets should be transferred.
     /// </summary>
-    public IDateFormat1Choice? RequestedTransferDate { get; init; } 
+    public DateFormat1Choice_? RequestedTransferDate { get; init; } 
     /// <summary>
     /// Specifies portfolio information or government schemes, for example Individual Savings Account (ISA) in the UK.
     /// </summary>
-    public required IISAPortfolio1Choice Portfolio { get; init; } 
+    public required ISAPortfolio1Choice_ Portfolio { get; init; } 
     /// <summary>
     /// Indicates whether there is cash in the account that is awaiting investment.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record ISATransfer7
     /// <summary>
     /// Specifies the underlying assets for the ISA or portfolio.
     /// </summary>
-    public FinancialInstrument31? FinancialInstrumentAssetForTransfer { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrument31[] FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

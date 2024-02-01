@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementUpdateTypeCodeAndDSSCod
 /// <summary>
 /// Update type expressed as a data source scheme and a code used within the data source scheme.
 /// </summary>
-public partial record StatementUpdateTypeAsDSS : IStatementUpdateTypeCodeAndDSSCode1Choice
+public partial record StatementUpdateTypeAsDSS : StatementUpdateTypeCodeAndDSSCode1Choice_
 {
     #nullable enable
     /// <summary>

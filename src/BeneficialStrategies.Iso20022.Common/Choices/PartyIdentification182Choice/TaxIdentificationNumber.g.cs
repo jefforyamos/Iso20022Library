@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification182Choice;
 /// <summary>
 /// Number assigned by a tax authority to an entity.
 /// </summary>
-public partial record TaxIdentificationNumber : IPartyIdentification182Choice
+public partial record TaxIdentificationNumber : PartyIdentification182Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

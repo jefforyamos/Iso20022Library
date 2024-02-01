@@ -104,7 +104,7 @@ public partial record MarginCallResponseV05 : IOuterRecord
     [Description(@"Provides details about the agreed amount that would be due to party A.")]
     [DataMember(Name="AgrdAmtDueToA")]
     [XmlElement(ElementName="AgrdAmtDueToA")]
-    public IAgreedAmount1Choice? AgreedAmountDueToA { get; init; }
+    public AgreedAmount1Choice_? AgreedAmountDueToA { get; init; }
     
     /// <summary>
     /// Provides details about the agreed amount that would be due to party B.
@@ -113,7 +113,7 @@ public partial record MarginCallResponseV05 : IOuterRecord
     [Description(@"Provides details about the agreed amount that would be due to party B.")]
     [DataMember(Name="AgrdAmtDueToB")]
     [XmlElement(ElementName="AgrdAmtDueToB")]
-    public IAgreedAmount1Choice? AgreedAmountDueToB { get; init; }
+    public AgreedAmount1Choice_? AgreedAmountDueToB { get; init; }
     
     /// <summary>
     /// Provides response details about the margin call.

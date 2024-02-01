@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CashAccountIdentification8Choice
 /// <summary>
 /// Unique identification of an account, as assigned by the account servicer, using an identification scheme.
 /// </summary>
-public partial record Other : ICashAccountIdentification8Choice
+public partial record Other : CashAccountIdentification8Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record Other : ICashAccountIdentification8Choice
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
-    public IAccountSchemeName1Choice? SchemeName { get; init; } 
+    public AccountSchemeName1Choice_? SchemeName { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>

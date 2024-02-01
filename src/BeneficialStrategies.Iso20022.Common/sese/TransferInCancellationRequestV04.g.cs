@@ -73,7 +73,7 @@ public partial record TransferInCancellationRequestV04 : IOuterRecord
     [DataMember(Name="Cxl")]
     [XmlElement(ElementName="Cxl")]
     [Required]
-    public required ICancellation2Choice Cancellation { get; init; }
+    public required Cancellation2Choice_ Cancellation { get; init; }
     
     /// <summary>
     /// Information provided when the message is a copy of a previous message.

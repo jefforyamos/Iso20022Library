@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOrBusinessError3Choice;
 /// <summary>
 /// Requested information on the account.
 /// </summary>
-public partial record Account : IAccountOrBusinessError3Choice
+public partial record Account : AccountOrBusinessError3Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record Account : IAccountOrBusinessError3Choice
     /// <summary>
     /// Specifies the nature, or use, of the cash account.
     /// </summary>
-    public ICashAccountType2Choice? Type { get; init; } 
+    public CashAccountType2Choice_? Type { get; init; } 
     /// <summary>
     /// Specifies the currency of the cash account.
     /// </summary>

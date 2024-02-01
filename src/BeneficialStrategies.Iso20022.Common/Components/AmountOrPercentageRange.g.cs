@@ -24,7 +24,7 @@ public partial record AmountOrPercentageRange
     /// <summary>
     /// Indicates one of the constraints of a range of business values.
     /// </summary>
-    public IReadOnlyCollection<Term1> Term { get; init; } = [];
+    public Term1[] Term { get; init; } = [];
     
     #nullable disable
 }

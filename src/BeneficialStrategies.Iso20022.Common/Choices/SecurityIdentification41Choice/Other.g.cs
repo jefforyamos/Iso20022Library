@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification41Choice;
 /// <summary>
 /// Other identification of an underlier.
 /// </summary>
-public partial record Other : ISecurityIdentification41Choice
+public partial record Other : SecurityIdentification41Choice_
 {
     #nullable enable
     /// <summary>

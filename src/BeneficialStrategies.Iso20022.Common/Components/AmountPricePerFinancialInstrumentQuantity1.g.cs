@@ -20,7 +20,7 @@ public partial record AmountPricePerFinancialInstrumentQuantity1
     /// <summary>
     /// Type of amount price.
     /// </summary>
-    public required IAmountPriceType1FormatChoice AmountPriceType { get; init; } 
+    public required AmountPriceType1FormatChoice_ AmountPriceType { get; init; } 
     /// <summary>
     /// Value of the price.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record AmountPricePerFinancialInstrumentQuantity1
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
-    public required IUnitOrFaceAmount1Choice FinancialInstrumentQuantity { get; init; } 
+    public required UnitOrFaceAmount1Choice_ FinancialInstrumentQuantity { get; init; } 
     
     #nullable disable
 }

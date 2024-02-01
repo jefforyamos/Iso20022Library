@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReversedStatus2Choice;
 /// <summary>
 /// Proprietary identification of the reason for the reversed status.
 /// </summary>
-public partial record DataSourceScheme : IReversedStatus2Choice
+public partial record DataSourceScheme : ReversedStatus2Choice_
 {
     #nullable enable
     /// <summary>

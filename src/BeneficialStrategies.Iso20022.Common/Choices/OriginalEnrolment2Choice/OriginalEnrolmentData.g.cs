@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalEnrolment2Choice;
 /// <summary>
 /// Provides the original enrolment data.
 /// </summary>
-public partial record OriginalEnrolmentData : IOriginalEnrolment2Choice
+public partial record OriginalEnrolmentData : OriginalEnrolment2Choice_
 {
     #nullable enable
     /// <summary>

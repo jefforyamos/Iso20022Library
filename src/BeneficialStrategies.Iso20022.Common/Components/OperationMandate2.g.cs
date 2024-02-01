@@ -24,7 +24,7 @@ public partial record OperationMandate2
     /// <summary>
     /// Channel for which the operation mandate is valid. If ApplicableChannel equals Fax, this means that a bank operation instruction sent by fax will be processed according to the mandates exchanged in this message.
     /// </summary>
-    public IChannel2Choice? ApplicableChannel { get; init;  } // Warning: Don't know multiplicity.
+    public Channel2Choice_[] ApplicableChannel { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number of required and necessary signatures by the mandate.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record OperationMandate2
     /// <summary>
     /// Holder of the mandate.
     /// </summary>
-    public PartyAndAuthorisation1? MandateHolder { get; init;  } // Warning: Don't know multiplicity.
+    public PartyAndAuthorisation1[] MandateHolder { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Bank operation allowed by a mandate.
     /// </summary>
-    public BankTransactionCodeStructure4? BankOperation { get; init;  } // Warning: Don't know multiplicity.
+    public BankTransactionCodeStructure4[] BankOperation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Is the date when the mandate becomes valid.
     /// </summary>

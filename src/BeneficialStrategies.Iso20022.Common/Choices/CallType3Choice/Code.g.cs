@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CallType3Choice;
 /// <summary>
 /// Call type expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ICallType3Choice
+public partial record Code : CallType3Choice_
 {
     public required CallType1Code Value { get; init; }
 }

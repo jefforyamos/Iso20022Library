@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData32Choice;
 /// <summary>
 /// Details of the buy sell back transaction.
 /// </summary>
-public partial record BuySellBack : ITransactionLoanData32Choice
+public partial record BuySellBack : TransactionLoanData32Choice_
 {
     #nullable enable
     /// <summary>
@@ -34,7 +34,7 @@ public partial record BuySellBack : ITransactionLoanData32Choice
     /// <summary>
     /// Indicates whether clearing of contract has taken place.
     /// </summary>
-    public required ICleared16Choice ClearingStatus { get; init; } 
+    public required Cleared16Choice_ ClearingStatus { get; init; } 
     /// <summary>
     /// Venue of execution shall be identified by a unique code for this venue.
     /// </summary>
@@ -63,6 +63,6 @@ public partial record BuySellBack : ITransactionLoanData32Choice
     /// <summary>
     /// Price of unit of collateral component, including accrued interest for interest-bearing securities.
     /// </summary>
-    public ISecuritiesTransactionPrice19Choice? UnitPrice { get; init; } 
+    public SecuritiesTransactionPrice19Choice_? UnitPrice { get; init; } 
     #nullable disable
 }

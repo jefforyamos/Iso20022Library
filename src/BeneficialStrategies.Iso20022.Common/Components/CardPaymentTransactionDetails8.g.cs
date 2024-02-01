@@ -20,7 +20,7 @@ public partial record CardPaymentTransactionDetails8
     /// <summary>
     /// Amounts associated with the total amount of transaction.
     /// </summary>
-    public CardAmountAndCurrencyExchange1? Amount { get; init;  } // Warning: Don't know multiplicity.
+    public CardAmountAndCurrencyExchange1[] Amount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data related to an integrated circuit card application.
     /// </summary>

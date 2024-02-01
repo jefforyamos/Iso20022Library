@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason29Choice;
 /// <summary>
 /// Specifies the reason why the instruction/request has a rejection status using a code.
 /// </summary>
-public partial record Code : IRejectionReason29Choice
+public partial record Code : RejectionReason29Choice_
 {
     public required RejectionReason40Code Value { get; init; }
 }

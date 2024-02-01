@@ -20,23 +20,23 @@ public partial record CorporateActionPrice19
     /// <summary>
     /// Indicates whether the price is an indicative price or a market price.
     /// </summary>
-    public IIndicativeOrMarketPrice2Choice? IndicativeOrMarketPrice { get; init; } 
+    public IndicativeOrMarketPrice2Choice_? IndicativeOrMarketPrice { get; init; } 
     /// <summary>
     /// 1. Price at which security will be purchased/sold if warrant is exercised, either as an actual amount or a percentage.|2. Price at which a bond is converted to underlying security either as an actual amount or a percentage.|3. Strike price of an option, represented either as an actual amount, a percentage or a number of points above an index.
     /// </summary>
-    public IPriceFormat5Choice? ExercisePrice { get; init; } 
+    public PriceFormat5Choice_? ExercisePrice { get; init; } 
     /// <summary>
     /// Initial issue price of a financial instrument.
     /// </summary>
-    public IPriceFormat5Choice? IssuePrice { get; init; } 
+    public PriceFormat5Choice_? IssuePrice { get; init; } 
     /// <summary>
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, for example, redemption price.
     /// </summary>
-    public IPriceFormat21Choice? GenericCashPriceReceivedPerProduct { get; init; } 
+    public PriceFormat21Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
     /// <summary>
     /// Generic cash price paid per product by the underlying security holder either as a percentage or an amount, for example, reinvestment price.
     /// </summary>
-    public IPriceFormat5Choice? GenericCashPricePaidPerProduct { get; init; } 
+    public PriceFormat5Choice_? GenericCashPricePaidPerProduct { get; init; } 
     
     #nullable disable
 }

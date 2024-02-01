@@ -12,16 +12,16 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 /// <summary>
 /// Specifies the type classification of the party.
 /// </summary>
-public partial record Type : IUpdateLogPartyRecord1Choice
+public partial record Type : UpdateLogPartyRecord1Choice_
 {
     #nullable enable
     /// <summary>
     /// Old value before the update.
     /// </summary>
-    public required ISystemPartyType1Choice Old { get; init; } 
+    public required SystemPartyType1Choice_ Old { get; init; } 
     /// <summary>
     /// New value after the update.
     /// </summary>
-    public required ISystemPartyType1Choice New { get; init; } 
+    public required SystemPartyType1Choice_ New { get; init; } 
     #nullable disable
 }

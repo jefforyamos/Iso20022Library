@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OwnerIdentification1Choice;
 /// <summary>
 /// Identification of an organisation.
 /// </summary>
-public partial record OrganisationOwnerIdentification : IOwnerIdentification1Choice
+public partial record OrganisationOwnerIdentification : OwnerIdentification1Choice_
 {
     #nullable enable
     #nullable disable

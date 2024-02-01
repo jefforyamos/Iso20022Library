@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate20Choice;
 /// <summary>
 /// Details of the fixed rate.
 /// </summary>
-public partial record Fixed : IInterestRate20Choice
+public partial record Fixed : InterestRate20Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record Fixed : IInterestRate20Choice
     /// <summary>
     /// Method for calculating the accrued interest on the principal amount for a fixed rate.
     /// </summary>
-    public IInterestComputationMethodFormat6Choice? DayCountBasis { get; init; } 
+    public InterestComputationMethodFormat6Choice_? DayCountBasis { get; init; } 
     #nullable disable
 }

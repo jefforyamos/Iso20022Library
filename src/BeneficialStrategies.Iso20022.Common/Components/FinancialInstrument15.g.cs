@@ -20,7 +20,7 @@ public partial record FinancialInstrument15
     /// <summary>
     /// Identifies the financial instrument using a choice of either ISIN, local code, or a description of the instrument. ISIN is the preferred format.
     /// </summary>
-    public required ISecurityIdentification6Choice Identification { get; init; } 
+    public required SecurityIdentification6Choice_ Identification { get; init; } 
     /// <summary>
     /// Provides the ability to describe the instrument through a description and main characteristics.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record FinancialInstrument15
     /// <summary>
     /// Provides details of the underlying financial instrument for which the transaction report is being sent. If there is more than one underlying financial instrument then it is the dominant/ultimate instrument that should be identified here.
     /// </summary>
-    public ISecurityIdentification6Choice? UnderlyingInstrumentIdentification { get; init; } 
+    public SecurityIdentification6Choice_? UnderlyingInstrumentIdentification { get; init; } 
     
     #nullable disable
 }

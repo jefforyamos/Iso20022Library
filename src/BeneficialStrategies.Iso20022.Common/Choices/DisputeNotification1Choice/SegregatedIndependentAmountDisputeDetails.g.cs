@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DisputeNotification1Choice;
 /// <summary>
 /// Provides the dispute notification details for the segregated independent amount only.
 /// </summary>
-public partial record SegregatedIndependentAmountDisputeDetails : IDisputeNotification1Choice
+public partial record SegregatedIndependentAmountDisputeDetails : DisputeNotification1Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record SegregatedIndependentAmountDisputeDetails : IDisputeNotifi
     /// <summary>
     /// Specifies the type of dispute that is to be resolved regarding the disputed collateral amount.
     /// </summary>
-    public IDisputeResolutionType1Choice? DisputeResolutionType1Choice { get; init;  } // Warning: Don't know multiplicity.
+    public DisputeResolutionType1Choice_? DisputeResolutionType1Choice { get; init;  } // Warning: Don't know multiplicity.
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityAgricultural1
 /// <summary>
 /// Grain agricultural commodity derivative.
 /// </summary>
-public partial record Grain : IAssetClassCommodityAgricultural1Choice
+public partial record Grain : AssetClassCommodityAgricultural1Choice_
 {
     #nullable enable
     /// <summary>

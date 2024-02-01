@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CommissionType6Choice;
 /// <summary>
 /// Commission type is identified using a code.
 /// </summary>
-public partial record Code : ICommissionType6Choice
+public partial record Code : CommissionType6Choice_
 {
     public required CommissionType9Code Value { get; init; }
 }

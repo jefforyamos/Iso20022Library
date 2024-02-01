@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Restriction3Choice;
 /// <summary>
 /// Restrictions expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IRestriction3Choice
+public partial record Proprietary : Restriction3Choice_
 {
     #nullable enable
     /// <summary>

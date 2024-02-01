@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemIdentification2Choice;
 /// <summary>
 /// Clearing service selected for a transaction.
 /// </summary>
-public partial record MarketInfrastructureIdentification : ISystemIdentification2Choice
+public partial record MarketInfrastructureIdentification : SystemIdentification2Choice_
 {
     #nullable enable
     #nullable disable

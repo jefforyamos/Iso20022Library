@@ -24,7 +24,7 @@ public partial record SecuritiesAccount34
     /// <summary>
     /// Specifies the type of securities account.
     /// </summary>
-    public IPurposeCode8Choice? Type { get; init; } 
+    public PurposeCode8Choice_? Type { get; init; } 
     /// <summary>
     /// Description of the account.
     /// </summary>

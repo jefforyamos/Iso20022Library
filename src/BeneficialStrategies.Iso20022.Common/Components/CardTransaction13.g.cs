@@ -28,11 +28,11 @@ public partial record CardTransaction13
     /// <summary>
     /// Key that must be created and sent in the response, or that must be verified.
     /// </summary>
-    public KEKIdentifier3? RequestedKey { get; init;  } // Warning: Don't know multiplicity.
+    public KEKIdentifier3[] RequestedKey { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Created key to be stored.
     /// </summary>
-    public CryptographicKey6? Key { get; init;  } // Warning: Don't know multiplicity.
+    public CryptographicKey6[] Key { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Response to the key exchange request.
     /// </summary>

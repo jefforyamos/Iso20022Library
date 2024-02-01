@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateTimeSearch2Choice;
 /// <summary>
 /// Particular time span specified between a start date and an end date.
 /// </summary>
-public partial record FromToDateTime : IDateTimeSearch2Choice
+public partial record FromToDateTime : DateTimeSearch2Choice_
 {
     #nullable enable
     /// <summary>

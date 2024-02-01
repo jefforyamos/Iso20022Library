@@ -24,16 +24,16 @@ public partial record CardTransactionDetail5
     /// <summary>
     /// Fees between acquirer and issuer exclusive of the transaction amount, and expressed in the currency of the reconciliation.
     /// </summary>
-    public DetailedAmount11? TransactionFees { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount11[] TransactionFees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional amounts from the processor or the issuer without financial impacts on the transaction amount.
     /// </summary>
-    public DetailedAmount10? AdditionalAmounts { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount10[] AdditionalAmounts { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Reason to send a card acquirer to issuer message.
     /// It corresponds to ISO 8583, field number 25 for the version 93, and 9 for the version 2003.
     /// </summary>
-    public MessageReason1Code? MessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public MessageReason1Code[] MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data related to an integrated circuit card application.
     /// It corresponds to ISO 8583, field number 55 for the versions 93 and 2003.

@@ -80,7 +80,7 @@ public partial record FleetLineItem1
     /// <summary>
     /// Taxes related to the products or services. 
     /// </summary>
-    public Tax33? Tax { get; init;  } // Warning: Don't know multiplicity.
+    public Tax33[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total amount excluding tax.
     /// </summary>

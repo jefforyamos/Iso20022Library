@@ -28,7 +28,7 @@ public partial record GroupHeader38
     /// <summary>
     /// User identification or any user key to be used to check whether the initiating party is allowed to initiate transactions from the account specified in the message.||Usage: The content is not of a technical nature, but reflects the organisational structure at the initiating side.|The authorisation element can typically be used in relay scenarios, payment initiations, payment returns or payment reversals that are initiated on behalf of a party different from the initiating party.
     /// </summary>
-    public IReadOnlyCollection<IAuthorisation1Choice> Authorisation { get; init; } = [];
+    public Authorisation1Choice_[] Authorisation { get; init; } = [];
     /// <summary>
     /// Identifies whether a single entry per individual transaction or a batch entry for the sum of the amounts of all transactions within the group of a message is requested.|Usage: Batch booking is used to request and not order a possible batch booking.
     /// </summary>

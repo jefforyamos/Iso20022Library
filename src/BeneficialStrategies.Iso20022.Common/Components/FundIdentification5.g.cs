@@ -28,7 +28,7 @@ public partial record FundIdentification5
     /// <summary>
     /// Identification of the custodian which services the account of the fund.
     /// </summary>
-    public IPartyIdentification242Choice? CustodianIdentification { get; init; } 
+    public PartyIdentification242Choice_? CustodianIdentification { get; init; } 
     
     #nullable disable
 }

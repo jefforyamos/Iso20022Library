@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity2Choice;
 /// <summary>
 /// Code list for energy type of commodities.
 /// </summary>
-public partial record Energy : IAssetClassCommodity2Choice
+public partial record Energy : AssetClassCommodity2Choice_
 {
     public required AssetClassSubProductEnergyType1Code Value { get; init; }
 }

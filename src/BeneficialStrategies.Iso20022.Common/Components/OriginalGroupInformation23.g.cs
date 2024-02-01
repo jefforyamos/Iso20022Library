@@ -52,7 +52,7 @@ public partial record OriginalGroupInformation23
     /// <summary>
     /// Set of elements used to provide detailed information on the cancellation reason.
     /// </summary>
-    public CancellationReasonInformation3? CancellationReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public CancellationReasonInformation3[] CancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

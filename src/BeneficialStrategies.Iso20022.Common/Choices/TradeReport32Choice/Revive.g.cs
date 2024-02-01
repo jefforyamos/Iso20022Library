@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport32Choice;
 /// <summary>
 /// Re-opening of a derivative, at a trade or position level, that was cancelled with action type ‘Error’ or terminated by mistake.
 /// </summary>
-public partial record Revive : ITradeReport32Choice
+public partial record Revive : TradeReport32Choice_
 {
     #nullable enable
     /// <summary>

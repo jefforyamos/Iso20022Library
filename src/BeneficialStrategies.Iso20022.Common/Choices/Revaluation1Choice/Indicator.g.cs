@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Revaluation1Choice;
 /// <summary>
 /// Revaluation is determined using a yes/no indicator.
 /// </summary>
-public partial record Indicator : IRevaluation1Choice
+public partial record Indicator : Revaluation1Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

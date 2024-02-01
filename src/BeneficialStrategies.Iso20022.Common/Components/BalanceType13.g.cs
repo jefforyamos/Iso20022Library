@@ -20,11 +20,11 @@ public partial record BalanceType13
     /// <summary>
     /// Coded or proprietary format balance type.
     /// </summary>
-    public required IBalanceType10Choice CodeOrProprietary { get; init; } 
+    public required BalanceType10Choice_ CodeOrProprietary { get; init; } 
     /// <summary>
     /// Specifies the balance sub-type.
     /// </summary>
-    public IBalanceSubType1Choice? SubType { get; init; } 
+    public BalanceSubType1Choice_? SubType { get; init; } 
     
     #nullable disable
 }

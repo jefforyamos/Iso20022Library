@@ -24,7 +24,7 @@ public partial record TradeRecurrentQuery3
     /// <summary>
     /// Defines the requested frequency of the recurrent query.
     /// </summary>
-    public required ITradeQueryExecutionFrequency1Choice Frequency { get; init; } 
+    public required TradeQueryExecutionFrequency1Choice_ Frequency { get; init; } 
     /// <summary>
     /// Defines the date until which the query will be executed.
     /// </summary>

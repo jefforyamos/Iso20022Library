@@ -20,7 +20,7 @@ public partial record StressItem1
     /// <summary>
     /// Set of information relating to major representative product being stressed under the stress scenario.
     /// </summary>
-    public required IStressItem1Choice StressProduct { get; init; } 
+    public required StressItem1Choice_ StressProduct { get; init; } 
     
     #nullable disable
 }

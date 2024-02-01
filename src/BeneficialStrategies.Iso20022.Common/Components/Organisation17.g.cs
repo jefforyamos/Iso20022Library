@@ -24,7 +24,7 @@ public partial record Organisation17
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution, for example, Dun & Bradstreet Identification.
     /// </summary>
-    public IPartyIdentification4Choice? Identification { get; init; } 
+    public PartyIdentification4Choice_? Identification { get; init; } 
     /// <summary>
     /// Purpose of the organisation, for example, charity.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record Organisation17
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    public IReadOnlyCollection<ModificationScope1> ModifiedPostalAddress { get; init; } = [];
+    public ModificationScope1[] ModifiedPostalAddress { get; init; } = [];
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>

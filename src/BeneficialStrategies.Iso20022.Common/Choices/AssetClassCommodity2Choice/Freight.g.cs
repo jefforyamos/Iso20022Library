@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity2Choice;
 /// <summary>
 /// Code list for freight type of commodities.
 /// </summary>
-public partial record Freight : IAssetClassCommodity2Choice
+public partial record Freight : AssetClassCommodity2Choice_
 {
     public required AssetClassSubProductFreight1Code Value { get; init; }
 }

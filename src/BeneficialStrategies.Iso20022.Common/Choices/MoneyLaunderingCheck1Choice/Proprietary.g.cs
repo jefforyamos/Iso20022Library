@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MoneyLaunderingCheck1Choice;
 /// <summary>
 /// Money laundering status expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IMoneyLaunderingCheck1Choice
+public partial record Proprietary : MoneyLaunderingCheck1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedCancellationStatusReason
 /// <summary>
 /// Reason for the rejected status.
 /// </summary>
-public partial record ExtendedReason : IRejectedCancellationStatusReason1Choice
+public partial record ExtendedReason : RejectedCancellationStatusReason1Choice_
 {
     public required IsoExtended350Code Value { get; init; }
 }

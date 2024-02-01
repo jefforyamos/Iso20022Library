@@ -20,11 +20,11 @@ public partial record CorporateActionEventReference3
     /// <summary>
     /// Identification of the linked corporate action event.
     /// </summary>
-    public required ICorporateActionEventReference3Choice EventIdentification { get; init; } 
+    public required CorporateActionEventReference3Choice_ EventIdentification { get; init; } 
     /// <summary>
     /// Specifies when this corporate action event is to be processed relative to a linked corporate action event.
     /// </summary>
-    public IProcessingPosition7Choice? LinkageType { get; init; } 
+    public ProcessingPosition7Choice_? LinkageType { get; init; } 
     
     #nullable disable
 }

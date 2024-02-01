@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountingStatus1Choice;
 /// <summary>
 /// Accounting status expressed as a code.
 /// </summary>
-public partial record Code : IAccountingStatus1Choice
+public partial record Code : AccountingStatus1Choice_
 {
     public required AccountingStatus1Code Value { get; init; }
 }

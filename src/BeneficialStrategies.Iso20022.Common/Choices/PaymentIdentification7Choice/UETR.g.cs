@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification7Choice;
 /// <summary>
 /// Universally unique identifier to provide an end-to-end reference of a payment transaction.
 /// </summary>
-public partial record UETR : IPaymentIdentification7Choice
+public partial record UETR : PaymentIdentification7Choice_
 {
     public required IsoUUIDv4Identifier Value { get; init; }
 }

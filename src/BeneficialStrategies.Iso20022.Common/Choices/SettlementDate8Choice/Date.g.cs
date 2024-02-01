@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementDate8Choice;
 /// <summary>
 /// Numeric representation of the day of the month and year.
 /// </summary>
-public partial record Date : ISettlementDate8Choice
+public partial record Date : SettlementDate8Choice_
 {
     #nullable enable
     #nullable disable

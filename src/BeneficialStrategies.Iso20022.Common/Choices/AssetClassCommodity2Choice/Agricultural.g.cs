@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity2Choice;
 /// <summary>
 /// Code list for agricultural type of commodities.
 /// </summary>
-public partial record Agricultural : IAssetClassCommodity2Choice
+public partial record Agricultural : AssetClassCommodity2Choice_
 {
     public required AssetClassSubProductAgriculturalType1Code Value { get; init; }
 }

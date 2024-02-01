@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SignatureType1Choice;
 /// <summary>
 /// Signature type expressed as a code.
 /// </summary>
-public partial record Code : ISignatureType1Choice
+public partial record Code : SignatureType1Choice_
 {
     public required SignatureType2Code Value { get; init; }
 }

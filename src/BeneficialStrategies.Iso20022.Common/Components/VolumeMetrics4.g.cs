@@ -20,7 +20,7 @@ public partial record VolumeMetrics4
     /// <summary>
     /// Indication whether reused value is actual or estimated.
     /// </summary>
-    public IReuseValue1Choice? ReuseValue { get; init; } 
+    public ReuseValue1Choice_? ReuseValue { get; init; } 
     /// <summary>
     /// Provides details on the amount of the cash reinvestment in a given currency.
     /// </summary>

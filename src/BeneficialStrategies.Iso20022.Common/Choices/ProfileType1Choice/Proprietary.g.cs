@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProfileType1Choice;
 /// <summary>
 /// Type of profile expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IProfileType1Choice
+public partial record Proprietary : ProfileType1Choice_
 {
     #nullable enable
     /// <summary>

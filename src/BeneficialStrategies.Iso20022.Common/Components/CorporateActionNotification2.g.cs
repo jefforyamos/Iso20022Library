@@ -24,7 +24,7 @@ public partial record CorporateActionNotification2
     /// <summary>
     /// Specifies the status of the details of the corporate action event.
     /// </summary>
-    public required ICorporateActionProcessingStatus1Choice ProcessingStatus { get; init; } 
+    public required CorporateActionProcessingStatus1Choice_ ProcessingStatus { get; init; } 
     /// <summary>
     /// Indicates whether the eligible balance is final except for a voluntary corporate action event where it can represent the current eligible balance when communicated before expiration date of that event.
     /// </summary>

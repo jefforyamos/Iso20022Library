@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SuspendedStatusReason5Choice;
 /// <summary>
 /// Suspended reason expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISuspendedStatusReason5Choice
+public partial record Proprietary : SuspendedStatusReason5Choice_
 {
     #nullable enable
     /// <summary>

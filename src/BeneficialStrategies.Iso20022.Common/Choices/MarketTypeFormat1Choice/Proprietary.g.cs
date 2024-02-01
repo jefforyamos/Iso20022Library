@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketTypeFormat1Choice;
 /// <summary>
 /// Proprietary identification of the type of market in which transactions take place.
 /// </summary>
-public partial record Proprietary : IMarketTypeFormat1Choice
+public partial record Proprietary : MarketTypeFormat1Choice_
 {
     #nullable enable
     /// <summary>

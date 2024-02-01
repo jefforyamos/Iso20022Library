@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LocationFormat1Choice;
 /// <summary>
 /// Specifies physical address of the meeting.
 /// </summary>
-public partial record Address : ILocationFormat1Choice
+public partial record Address : LocationFormat1Choice_
 {
     #nullable enable
     /// <summary>

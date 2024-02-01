@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketClaimCancellationRequestSt
 /// <summary>
 /// Proprietary status related to an instruction cancellation request.
 /// </summary>
-public partial record ProprietaryStatus : IMarketClaimCancellationRequestStatus1Choice
+public partial record ProprietaryStatus : MarketClaimCancellationRequestStatus1Choice_
 {
     #nullable enable
     /// <summary>

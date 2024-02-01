@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneratedReasons6Choice;
 /// <summary>
 /// Specifies the reason why the transaction was generated.
 /// </summary>
-public partial record Code : IGeneratedReasons6Choice
+public partial record Code : GeneratedReasons6Choice_
 {
     public required GeneratedReason3Code Value { get; init; }
 }

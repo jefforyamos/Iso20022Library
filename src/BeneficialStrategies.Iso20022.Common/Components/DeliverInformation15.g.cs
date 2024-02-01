@@ -40,19 +40,19 @@ public partial record DeliverInformation15
     /// <summary>
     /// Charge related to the transfer of a financial instrument.
     /// </summary>
-    public Charge27? ChargeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Charge27[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Commission related to the transfer of a financial instrument.
     /// </summary>
-    public Commission22? CommissionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Commission22[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax related to the transfer of a financial instrument.
     /// </summary>
-    public Tax25? TaxDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Tax25[] TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies foreign exchange details applied to the payment of charges, taxes and commissions as a result of the transfer.
     /// </summary>
-    public ForeignExchangeTerms7? ForeignExchangeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ForeignExchangeTerms7[] ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>

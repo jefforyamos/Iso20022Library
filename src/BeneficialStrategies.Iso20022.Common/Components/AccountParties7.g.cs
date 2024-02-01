@@ -24,7 +24,7 @@ public partial record AccountParties7
     /// <summary>
     /// Main party associated with the account.
     /// </summary>
-    public IAccountParties2Choice? PrincipalAccountParty { get; init; } 
+    public AccountParties2Choice_? PrincipalAccountParty { get; init; } 
     /// <summary>
     /// Entity that is not the primary owner when the ownership of the investment account is split among several owners.
     /// </summary>
@@ -52,15 +52,15 @@ public partial record AccountParties7
     /// <summary>
     /// Granter role in the hedge funds industry.
     /// </summary>
-    public IReadOnlyCollection<InvestmentAccountOwnershipInformation7> Granter { get; init; } = [];
+    public InvestmentAccountOwnershipInformation7[] Granter { get; init; } = [];
     /// <summary>
     /// Settler role in the hedge funds industry.
     /// </summary>
-    public IReadOnlyCollection<InvestmentAccountOwnershipInformation7> Settler { get; init; } = [];
+    public InvestmentAccountOwnershipInformation7[] Settler { get; init; } = [];
     /// <summary>
     /// An other type of party.
     /// </summary>
-    public IReadOnlyCollection<ExtendedParty4> OtherParty { get; init; } = [];
+    public ExtendedParty4[] OtherParty { get; init; } = [];
     
     #nullable disable
 }

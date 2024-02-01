@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionInformationStatus
 /// <summary>
 /// Provides information about the rejection status.
 /// </summary>
-public partial record RejectedStatus : ICorporateActionInformationStatus1Choice
+public partial record RejectedStatus : CorporateActionInformationStatus1Choice_
 {
     #nullable enable
     /// <summary>
     /// The rejection reason.
     /// </summary>
-    public IRejectionReason15FormatChoice? Reason { get; init;  } // Warning: Don't know multiplicity.
+    public RejectionReason15FormatChoice_? Reason { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the status.
     /// </summary>

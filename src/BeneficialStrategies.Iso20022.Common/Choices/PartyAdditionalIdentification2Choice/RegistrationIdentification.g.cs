@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyAdditionalIdentification2Ch
 /// <summary>
 /// Official identification of an organisation in a specific register.
 /// </summary>
-public partial record RegistrationIdentification : IPartyAdditionalIdentification2Choice
+public partial record RegistrationIdentification : PartyAdditionalIdentification2Choice_
 {
     #nullable enable
     /// <summary>

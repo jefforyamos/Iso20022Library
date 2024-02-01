@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateValueType2FormatChoice;
 /// <summary>
 /// Standard code to specify the value of a rate.
 /// </summary>
-public partial record Code : IRateValueType2FormatChoice
+public partial record Code : RateValueType2FormatChoice_
 {
     public required RateValueType2Code Value { get; init; }
 }

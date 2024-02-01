@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InsuranceType2Choice;
 /// <summary>
 /// Type of insurance contract expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IInsuranceType2Choice
+public partial record Proprietary : InsuranceType2Choice_
 {
     #nullable enable
     /// <summary>

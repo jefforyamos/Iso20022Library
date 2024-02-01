@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountRate1Choice;
 /// <summary>
 /// Rate used to calculate the amount of the charge or fee.
 /// </summary>
-public partial record Rate : IAmountRate1Choice
+public partial record Rate : AmountRate1Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

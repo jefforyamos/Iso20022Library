@@ -24,7 +24,7 @@ public partial record DocumentToSend1
     /// <summary>
     /// Party that should receive the document.
     /// </summary>
-    public required IPartyIdentification2Choice Recipient { get; init; } 
+    public required PartyIdentification2Choice_ Recipient { get; init; } 
     /// <summary>
     /// Communication method to be used.
     /// </summary>

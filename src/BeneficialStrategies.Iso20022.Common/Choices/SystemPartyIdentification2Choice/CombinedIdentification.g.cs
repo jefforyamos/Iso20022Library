@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyIdentification2Choice
 /// <summary>
 /// Identifies the party with the combined identification of both the responsible entity and the party itself.
 /// </summary>
-public partial record CombinedIdentification : ISystemPartyIdentification2Choice
+public partial record CombinedIdentification : SystemPartyIdentification2Choice_
 {
     #nullable enable
     /// <summary>

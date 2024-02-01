@@ -14,7 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OriginalActivation2Choice;
 /// Usage:
 /// This element must be identical to the debtor identification in the original debtor activation request.
 /// </summary>
-public partial record OriginalDebtorIdentification : IOriginalActivation2Choice
+public partial record OriginalDebtorIdentification : OriginalActivation2Choice_
 {
     #nullable enable
     #nullable disable

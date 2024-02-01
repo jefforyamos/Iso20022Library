@@ -20,7 +20,7 @@ public partial record DeniedReason12
     /// <summary>
     /// Specifies the reason why the request has a denied status.
     /// </summary>
-    public required IDeniedReason17Choice Code { get; init; } 
+    public required DeniedReason17Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

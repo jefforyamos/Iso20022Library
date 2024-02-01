@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice11Choi
 /// <summary>
 /// Price expressed as basis points.
 /// </summary>
-public partial record BasisPoints : ISecuritiesTransactionPrice11Choice
+public partial record BasisPoints : SecuritiesTransactionPrice11Choice_
 {
     public required IsoDecimalNumber Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification196Choice;
 /// <summary>
 /// Legal entity.
 /// </summary>
-public partial record LegalPerson : IPartyIdentification196Choice
+public partial record LegalPerson : PartyIdentification196Choice_
 {
     #nullable enable
     /// <summary>
@@ -26,7 +26,7 @@ public partial record LegalPerson : IPartyIdentification196Choice
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    public required IPartyIdentification198Choice Identification { get; init; } 
+    public required PartyIdentification198Choice_ Identification { get; init; } 
     /// <summary>
     /// Country in which the company is incorporated or legally registered. 
     /// </summary>
@@ -38,7 +38,7 @@ public partial record LegalPerson : IPartyIdentification196Choice
     /// <summary>
     /// Type of investor.
     /// </summary>
-    public IInvestorType1Choice? InvestorType { get; init; } 
+    public InvestorType1Choice_? InvestorType { get; init; } 
     /// <summary>
     /// Provides information about the ownership on an asset.
     /// </summary>

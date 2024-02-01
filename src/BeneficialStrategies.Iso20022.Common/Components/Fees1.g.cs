@@ -24,7 +24,7 @@ public partial record Fees1
     /// <summary>
     /// Individual fee (charge/commission).
     /// </summary>
-    public Fee4? IndividualFee { get; init;  } // Warning: Don't know multiplicity.
+    public Fee4[] IndividualFee { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

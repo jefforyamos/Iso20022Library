@@ -20,7 +20,7 @@ public partial record Tax31
     /// <summary>
     /// Type of tax.
     /// </summary>
-    public required ITaxType3Choice Type { get; init; } 
+    public required TaxType3Choice_ Type { get; init; } 
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>

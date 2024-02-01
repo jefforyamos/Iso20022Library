@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CommunicationFormat1Choice;
 /// <summary>
 /// Unique and unambiguous identification of communication format using a code list.
 /// </summary>
-public partial record Code : ICommunicationFormat1Choice
+public partial record Code : CommunicationFormat1Choice_
 {
     public required ExternalCommunicationFormat1Code Value { get; init; }
 }

@@ -92,7 +92,7 @@ public partial record Wallet2
     /// <summary>
     /// Additional data associated with wallet.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

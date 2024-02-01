@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification38Choice;
 /// <summary>
 /// Unique identification of the securities account as assigned by the account servicer.
 /// </summary>
-public partial record SecuritiesAccountIdentification : IAccountIdentification38Choice
+public partial record SecuritiesAccountIdentification : AccountIdentification38Choice_
 {
     #nullable enable
     /// <summary>

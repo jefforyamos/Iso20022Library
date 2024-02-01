@@ -28,7 +28,7 @@ public partial record ManagementPlan1
     /// <summary>
     /// Data set related to the sequence of actions to be performed by a point of interaction (POI).
     /// </summary>
-    public TerminalManagementDataSet2? DataSet { get; init;  } // Warning: Don't know multiplicity.
+    public TerminalManagementDataSet2[] DataSet { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

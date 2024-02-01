@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CommunicationChannel1Choice;
 /// <summary>
 /// CBRF identification of the terminal.
 /// </summary>
-public partial record TerminalIdentification : ICommunicationChannel1Choice
+public partial record TerminalIdentification : CommunicationChannel1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

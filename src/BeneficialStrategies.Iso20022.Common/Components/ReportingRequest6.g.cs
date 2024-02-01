@@ -32,7 +32,7 @@ public partial record ReportingRequest6
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public required IParty40Choice AccountOwner { get; init; } 
+    public required Party40Choice_ AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record ReportingRequest6
     /// <summary>
     /// Specifies the range of identification sequence numbers which are being requested.
     /// </summary>
-    public ISequenceRange1Choice? ReportingSequence { get; init; } 
+    public SequenceRange1Choice_? ReportingSequence { get; init; } 
     /// <summary>
     /// Identifies the transactions to be reported.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record ReportingRequest6
     /// <summary>
     /// Provides details on the requested balance reporting.
     /// </summary>
-    public BalanceType13? RequestedBalanceType { get; init;  } // Warning: Don't know multiplicity.
+    public BalanceType13[] RequestedBalanceType { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

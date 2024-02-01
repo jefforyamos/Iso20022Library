@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateOrType1Choice;
 /// <summary>
 /// Pricing expressed as a rate index type or a rate name. Lookback and crystallization days.
 /// </summary>
-public partial record Type : IRateOrType1Choice
+public partial record Type : RateOrType1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionPrice1Choice;
 /// <summary>
 /// Specifies the price of the traded financial instrument.|This is the deal price of the individual trade transaction. |If there is only one trade transaction for the execution of the trade, then the deal price could equal the executed trade price (unless, for example, the price includes commissions or rounding, or some other factor has been applied to the deal price or the executed trade price, or both).
 /// </summary>
-public partial record DealPrice : ITransactionPrice1Choice
+public partial record DealPrice : TransactionPrice1Choice_
 {
     public required IsoCurrencyAndAmount Value { get; init; }
 }

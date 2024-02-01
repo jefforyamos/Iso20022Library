@@ -20,7 +20,7 @@ public partial record ReturnExcessCash1
     /// <summary>
     /// Identifies the return excess cash type.
     /// </summary>
-    public required IReturnExcessCash1Choice ReturnExcessCashType { get; init; } 
+    public required ReturnExcessCash1Choice_ ReturnExcessCashType { get; init; } 
     /// <summary>
     /// Currency of the cash collateral.
     /// </summary>

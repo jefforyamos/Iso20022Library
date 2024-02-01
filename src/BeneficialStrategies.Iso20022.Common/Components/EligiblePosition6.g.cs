@@ -28,11 +28,11 @@ public partial record EligiblePosition6
     /// <summary>
     /// Net position of a segregated holding of a single security within the overall position held in a securities account, for example, sub-balance per status.
     /// </summary>
-    public IReadOnlyCollection<HoldingBalance7> HoldingBalance { get; init; } = [];
+    public HoldingBalance7[] HoldingBalance { get; init; } = [];
     /// <summary>
     /// Identifies the owner of the voting rights.
     /// </summary>
-    public IReadOnlyCollection<PartyIdentification71> RightsHolder { get; init; } = [];
+    public PartyIdentification71[] RightsHolder { get; init; } = [];
     
     #nullable disable
 }

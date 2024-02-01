@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References3Choice;
 /// <summary>
 /// Unambiguous identification of the report message to be cancelled.
 /// </summary>
-public partial record SecuritiesBalanceAccountingReportIdentification : IReferences3Choice
+public partial record SecuritiesBalanceAccountingReportIdentification : References3Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraBalanceOrOperationalError8C
 /// <summary>
 /// Further details of the intrabalance modification transactions.
 /// </summary>
-public partial record Modifications : IIntraBalanceOrOperationalError8Choice
+public partial record Modifications : IntraBalanceOrOperationalError8Choice_
 {
     #nullable enable
     /// <summary>
@@ -30,7 +30,7 @@ public partial record Modifications : IIntraBalanceOrOperationalError8Choice
     /// <summary>
     /// Status and status reason of the transaction.
     /// </summary>
-    public IProcessingStatus71Choice? ProcessingStatus { get; init; } 
+    public ProcessingStatus71Choice_? ProcessingStatus { get; init; } 
     /// <summary>
     /// Further details of the individual intrabalance modification transaction.
     /// </summary>

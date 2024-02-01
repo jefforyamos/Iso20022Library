@@ -32,7 +32,7 @@ public partial record DealTransactionDetails5
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
-    public required IClosingDate4Choice ClosingDate { get; init; } 
+    public required ClosingDate4Choice_ ClosingDate { get; init; } 
     /// <summary>
     /// Specifies the details for the deal amounts.
     /// </summary>
@@ -40,11 +40,11 @@ public partial record DealTransactionDetails5
     /// <summary>
     /// Interest rate to be paid on the transaction amount as agreed between the counterparties and the tenor of the interest rate index.
     /// </summary>
-    public IRateOrName4Choice? PricingRateAndIndex { get; init; } 
+    public RateOrName4Choice_? PricingRateAndIndex { get; init; } 
     /// <summary>
     /// Indicates for a floating rate transaction if an overnight frequency  rate fixing should be applied.  If not present, a periodic fixing frequency will be applied (default is N).
     /// </summary>
-    public IFrequencyRateFixing1Choice? OvernightFrequencyRateFixing { get; init; } 
+    public FrequencyRateFixing1Choice_? OvernightFrequencyRateFixing { get; init; } 
     /// <summary>
     /// Premium or discount applied on a given rate.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record DealTransactionDetails5
     /// <summary>
     /// Specifies the computation method of (accrued) interest of the financial instrument.
     /// </summary>
-    public IInterestComputationMethodFormat4Choice? DayCountBasis { get; init; } 
+    public InterestComputationMethodFormat4Choice_? DayCountBasis { get; init; } 
     /// <summary>
     /// Specifies whether the instruction is free or against payment.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record DealTransactionDetails5
     /// <summary>
     /// Specifies whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// </summary>
-    public IOptionType6Choice? OptionType { get; init; } 
+    public OptionType6Choice_? OptionType { get; init; } 
     /// <summary>
     /// Indication whether the counterparties to the transaction have agreed to an evergreen or extendable repo.
     /// </summary>

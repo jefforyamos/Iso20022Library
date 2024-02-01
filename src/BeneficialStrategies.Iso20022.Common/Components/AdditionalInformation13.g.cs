@@ -24,7 +24,7 @@ public partial record AdditionalInformation13
     /// <summary>
     /// Type of instrument involved in the transactions on which the modification request should apply.
     /// </summary>
-    public IClassificationType32Choice? ClassificationType { get; init; } 
+    public ClassificationType32Choice_? ClassificationType { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
@@ -36,19 +36,19 @@ public partial record AdditionalInformation13
     /// <summary>
     /// Quantity of financial instrument concerned by the settlement condition modification request.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? Quantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? Quantity { get; init; } 
     /// <summary>
     /// Date/time when the request should take effect.
     /// </summary>
-    public IDateAndDateTimeChoice? EffectiveDate { get; init; } 
+    public DateAndDateTimeChoice_? EffectiveDate { get; init; } 
     /// <summary>
     /// Date/time when the request should cease to be in effect.
     /// </summary>
-    public IDateAndDateTimeChoice? ExpiryDate { get; init; } 
+    public DateAndDateTimeChoice_? ExpiryDate { get; init; } 
     /// <summary>
     /// Date/time of the release.
     /// </summary>
-    public IDateAndDateTimeChoice? CutOffDate { get; init; } 
+    public DateAndDateTimeChoice_? CutOffDate { get; init; } 
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
     /// </summary>

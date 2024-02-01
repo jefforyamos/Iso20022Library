@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NCBOrPaymentBank1Choice;
 /// <summary>
 /// Unique business identifier code used to identify the payment bank providing the information.
 /// </summary>
-public partial record PaymentBankIdentification : INCBOrPaymentBank1Choice
+public partial record PaymentBankIdentification : NCBOrPaymentBank1Choice_
 {
     #nullable enable
     /// <summary>

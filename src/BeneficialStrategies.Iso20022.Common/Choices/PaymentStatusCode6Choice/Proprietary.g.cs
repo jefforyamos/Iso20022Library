@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusCode6Choice;
 /// <summary>
 /// Qualifies further the proprietary status.
 /// </summary>
-public partial record Proprietary : IPaymentStatusCode6Choice
+public partial record Proprietary : PaymentStatusCode6Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

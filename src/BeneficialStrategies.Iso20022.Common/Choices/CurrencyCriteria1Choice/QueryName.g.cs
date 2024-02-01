@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CurrencyCriteria1Choice;
 /// <summary>
 /// Recalls the criteria (search and return criteria) defined in a preceding query.
 /// </summary>
-public partial record QueryName : ICurrencyCriteria1Choice
+public partial record QueryName : CurrencyCriteria1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

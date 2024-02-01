@@ -47,7 +47,7 @@ public partial record DirectDebitInstructionDetails2
     /// <summary>
     /// Provides further information about the status of a requested transaction schedule transfer.
     /// </summary>
-    public TransferInstruction1? OtherDetails { get; init;  } // Warning: Don't know multiplicity.
+    public TransferInstruction1[] OtherDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

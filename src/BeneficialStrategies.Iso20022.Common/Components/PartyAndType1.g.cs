@@ -20,7 +20,7 @@ public partial record PartyAndType1
     /// <summary>
     /// Type of additional party.
     /// </summary>
-    public required IPartyType1Choice Type { get; init; } 
+    public required PartyType1Choice_ Type { get; init; } 
     /// <summary>
     /// Details related to the additional party.
     /// </summary>

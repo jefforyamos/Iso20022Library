@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingInstructionStatus1Choice
 /// <summary>
 /// Provides information about the rejection status.
 /// </summary>
-public partial record RejectedStatus : IStandingInstructionStatus1Choice
+public partial record RejectedStatus : StandingInstructionStatus1Choice_
 {
     #nullable enable
     /// <summary>
     /// The rejection reason.
     /// </summary>
-    public IRejectionReason20FormatChoice? Reason { get; init;  } // Warning: Don't know multiplicity.
+    public RejectionReason20FormatChoice_? Reason { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the status.
     /// </summary>

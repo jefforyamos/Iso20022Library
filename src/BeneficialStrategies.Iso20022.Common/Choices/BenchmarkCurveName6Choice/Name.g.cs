@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkCurveName6Choice;
 /// <summary>
 /// Provides the name that should be used where no ISIN or standardized name of the index exists, including its term (such as ‘EURIBOR6M’, ‘LIBOR3M’).
 /// </summary>
-public partial record Name : IBenchmarkCurveName6Choice
+public partial record Name : BenchmarkCurveName6Choice_
 {
     public required IsoMax25Text Value { get; init; }
 }

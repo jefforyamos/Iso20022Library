@@ -92,7 +92,7 @@ public partial record CustomerAccountReturnCriteria1
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    public GenericIdentification42? Proprietary { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification42[] Proprietary { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

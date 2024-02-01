@@ -20,15 +20,15 @@ public partial record GeneralBusinessInformationSearchCriteria1
     /// <summary>
     /// Unique and unambiguous reference assigned to a general business information system.
     /// </summary>
-    public IsoMax35Text? Reference { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] Reference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Subject line of an item of general business information, summarizing the topic and intended destination of the information.
     /// </summary>
-    public ICharacterSearch1Choice? Subject { get; init;  } // Warning: Don't know multiplicity.
+    public CharacterSearch1Choice_[] Subject { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further information about the criticality or importance of a general business information system.
     /// </summary>
-    public InformationQualifierType1? Qualifier { get; init;  } // Warning: Don't know multiplicity.
+    public InformationQualifierType1[] Qualifier { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

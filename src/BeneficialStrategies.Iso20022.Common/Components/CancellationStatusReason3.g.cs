@@ -24,11 +24,11 @@ public partial record CancellationStatusReason3
     /// <summary>
     /// Specifies the reason for the status report.
     /// </summary>
-    public ICancellationStatusReason3Choice? Reason { get; init; } 
+    public CancellationStatusReason3Choice_? Reason { get; init; } 
     /// <summary>
     /// Further details on the cancellation status reason.
     /// </summary>
-    public IsoMax105Text? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

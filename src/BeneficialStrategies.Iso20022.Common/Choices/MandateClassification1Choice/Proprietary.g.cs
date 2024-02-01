@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateClassification1Choice;
 /// <summary>
 /// Category purpose, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IMandateClassification1Choice
+public partial record Proprietary : MandateClassification1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

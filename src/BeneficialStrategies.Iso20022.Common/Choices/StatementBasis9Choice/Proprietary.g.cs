@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementBasis9Choice;
 /// <summary>
 /// Statement basis expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IStatementBasis9Choice
+public partial record Proprietary : StatementBasis9Choice_
 {
     #nullable enable
     /// <summary>

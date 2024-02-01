@@ -24,11 +24,11 @@ public partial record TradingSideTransactionReporting2
     /// <summary>
     /// Identifies the party that is responsible for reporting the trade to the trade repository.
     /// </summary>
-    public IPartyIdentification242Choice? ReportingParty { get; init; } 
+    public PartyIdentification242Choice_? ReportingParty { get; init; } 
     /// <summary>
     /// Specifies the unique transaction identifier (UTI) to be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction over its life. This identifier can also be known as the Unique Swap Identifier (USI). This is the UTI from the Trading Side party.
     /// </summary>
-    public UniqueTransactionIdentifier2? TradingSideUniqueTransactionIdentifier { get; init;  } // Warning: Don't know multiplicity.
+    public UniqueTransactionIdentifier2[] TradingSideUniqueTransactionIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

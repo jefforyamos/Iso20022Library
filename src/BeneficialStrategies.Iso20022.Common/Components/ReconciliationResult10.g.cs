@@ -20,11 +20,11 @@ public partial record ReconciliationResult10
     /// <summary>
     /// First side of the contract that needs to be matched.
     /// </summary>
-    public required IOrganisationIdentification15Choice Counterparty1 { get; init; } 
+    public required OrganisationIdentification15Choice_ Counterparty1 { get; init; } 
     /// <summary>
     /// Second side of the contract that needs to be matched.
     /// </summary>
-    public required IOrganisationIdentification15Choice Counterparty2 { get; init; } 
+    public required OrganisationIdentification15Choice_ Counterparty2 { get; init; } 
     /// <summary>
     /// Criteria used to match the sides of the contract.
     /// </summary>

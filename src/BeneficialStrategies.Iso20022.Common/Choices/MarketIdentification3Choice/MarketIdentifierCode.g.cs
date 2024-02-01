@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketIdentification3Choice;
 /// <summary>
 /// Market Identifier Code. Identification of a financial market, as stipulated in the norm ISO 10383 "Codes for exchanges and market identifications".
 /// </summary>
-public partial record MarketIdentifierCode : IMarketIdentification3Choice
+public partial record MarketIdentifierCode : MarketIdentification3Choice_
 {
     public required IsoMICIdentifier Value { get; init; }
 }

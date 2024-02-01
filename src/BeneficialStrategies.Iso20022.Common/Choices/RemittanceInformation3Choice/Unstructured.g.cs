@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RemittanceInformation3Choice;
 /// <summary>
 /// Information, in free text form, to enable the matching, ie reconciliation, (reconciliation) of a payment with the items that the payment is intended to settle, such as commercial invoices in an accounts receivable system.
 /// </summary>
-public partial record Unstructured : IRemittanceInformation3Choice
+public partial record Unstructured : RemittanceInformation3Choice_
 {
     public required IsoMax140Text Value { get; init; }
 }

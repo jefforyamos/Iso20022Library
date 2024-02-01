@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExposureType23Choice;
 /// <summary>
 /// Specifies the underlying business area/type of trade causing the exposure expressed as a code.
 /// </summary>
-public partial record Code : IExposureType23Choice
+public partial record Code : ExposureType23Choice_
 {
     public required ExposureType14Code Value { get; init; }
 }

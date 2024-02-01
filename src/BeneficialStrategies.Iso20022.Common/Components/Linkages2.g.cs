@@ -20,15 +20,15 @@ public partial record Linkages2
     /// <summary>
     /// When the transaction is to be executed relative to a linked transaction.
     /// </summary>
-    public IProcessingPosition1Choice? ProcessingPosition { get; init; } 
+    public ProcessingPosition1Choice_? ProcessingPosition { get; init; } 
     /// <summary>
     /// Message type number/message identifier of the message referenced in the linkage sequence.
     /// </summary>
-    public IDocumentNumber1Choice? MessageNumber { get; init; } 
+    public DocumentNumber1Choice_? MessageNumber { get; init; } 
     /// <summary>
     /// Reference to the linked transaction.
     /// </summary>
-    public required IReferences1Choice Reference { get; init; } 
+    public required References1Choice_ Reference { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OwnershipType1Choice;
 /// <summary>
 /// Ownership type expressed as a code.
 /// </summary>
-public partial record Code : IOwnershipType1Choice
+public partial record Code : OwnershipType1Choice_
 {
     public required AccountOwnershipType3Code Value { get; init; }
 }

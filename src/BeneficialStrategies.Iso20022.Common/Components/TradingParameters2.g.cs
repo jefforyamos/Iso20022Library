@@ -24,23 +24,23 @@ public partial record TradingParameters2
     /// <summary>
     /// Minimum quantity of securities that can be purchased without incurring a larger fee. For example, if the round lot size is 100 and the trade is for 125 shares, then 100 will be processed without a fee and the remaining 25 will incur a service fee for being an odd lot size.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? RoundLot { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? RoundLot { get; init; } 
     /// <summary>
     /// Minimum number of securities that can be traded.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? TradeLotSize { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? TradeLotSize { get; init; } 
     /// <summary>
     /// Market(s) on which the security is listed.
     /// </summary>
-    public IReadOnlyCollection<IsoMICIdentifier> SecondaryPlaceOfListing { get; init; } = [];
+    public IsoMICIdentifier[] SecondaryPlaceOfListing { get; init; } = [];
     /// <summary>
     /// Minimum number of securities that can be traded.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? MinimumTradedNominalQuantity { get; init; } 
+    public UnitOrFaceAmount1Choice_? MinimumTradedNominalQuantity { get; init; } 
     /// <summary>
     /// Maximum number of securities that can be traded.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? MaximumTradedNominalQuantity { get; init; } 
+    public UnitOrFaceAmount1Choice_? MaximumTradedNominalQuantity { get; init; } 
     /// <summary>
     /// Indicates the minimum or smallest movement (up or down) in the price allowed for the security.
     /// </summary>

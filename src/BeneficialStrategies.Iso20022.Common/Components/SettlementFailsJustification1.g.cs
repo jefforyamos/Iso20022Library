@@ -24,7 +24,7 @@ public partial record SettlementFailsJustification1
     /// <summary>
     /// Specifies the rate of settlement fails, which does not exceed the limits rate as specified in the local regulation.
     /// </summary>
-    public required ISettlementDataRate1Choice Rate { get; init; } 
+    public required SettlementDataRate1Choice_ Rate { get; init; } 
     
     #nullable disable
 }

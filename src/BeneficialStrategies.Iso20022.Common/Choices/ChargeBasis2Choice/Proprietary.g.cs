@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeBasis2Choice;
 /// <summary>
 /// Fee (charge/commission) basis expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IChargeBasis2Choice
+public partial record Proprietary : ChargeBasis2Choice_
 {
     #nullable enable
     /// <summary>

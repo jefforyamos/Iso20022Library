@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AcceptedReason4Choice;
 /// <summary>
 /// Standard code to specify additional information about the processed instruction.
 /// </summary>
-public partial record Code : IAcceptedReason4Choice
+public partial record Code : AcceptedReason4Choice_
 {
     public required AcknowledgementReason8Code Value { get; init; }
 }

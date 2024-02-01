@@ -71,7 +71,7 @@ public partial record SecuritiesSettlementTransactionCounterpartyResponseV04 : I
     [DataMember(Name="RspnSts")]
     [XmlElement(ElementName="RspnSts")]
     [Required]
-    public required IResponseStatus6Choice ResponseStatus { get; init; }
+    public required ResponseStatus6Choice_ ResponseStatus { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PortfolioCode1Choice;
 /// <summary>
 /// Unique code determined by the reporting counterparty to identify the portfolio if collateral is reported on a portfolio basis.
 /// </summary>
-public partial record Portfolio : IPortfolioCode1Choice
+public partial record Portfolio : PortfolioCode1Choice_
 {
     public required IsoMax52Text Value { get; init; }
 }

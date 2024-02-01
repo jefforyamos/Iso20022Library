@@ -24,15 +24,15 @@ public partial record CardTransactionDetail2
     /// <summary>
     /// Additional amounts from the processor or the issuer without financial impacts on the transaction amount.
     /// </summary>
-    public DetailedAmount10? AdditionalAmounts { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount10[] AdditionalAmounts { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Account involved in the card transaction.
     /// </summary>
-    public CardAccount2? AccountAndBalance { get; init;  } // Warning: Don't know multiplicity.
+    public CardAccount2[] AccountAndBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Results of the verifications performed by the various agents during the processing of the transaction.
     /// </summary>
-    public TransactionVerificationResult4? TransactionVerificationResult { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionVerificationResult4[] TransactionVerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Transaction authorisation deadline to complete the related payment.
     /// It corresponds to ISO 8583, field number 57 for the version 93, and 3 for the version 2003.

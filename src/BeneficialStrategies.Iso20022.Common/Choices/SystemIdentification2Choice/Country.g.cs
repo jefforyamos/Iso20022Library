@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemIdentification2Choice;
 /// <summary>
 /// Country in which the system is located.
 /// </summary>
-public partial record Country : ISystemIdentification2Choice
+public partial record Country : SystemIdentification2Choice_
 {
     public required CountryCode Value { get; init; }
 }

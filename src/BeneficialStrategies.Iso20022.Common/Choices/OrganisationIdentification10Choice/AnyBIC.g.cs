@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrganisationIdentification10Choi
 /// <summary>
 /// Business identifier code used to identify the organisation.
 /// </summary>
-public partial record AnyBIC : IOrganisationIdentification10Choice
+public partial record AnyBIC : OrganisationIdentification10Choice_
 {
     public required IsoAnyBICDec2014Identifier Value { get; init; }
 }

@@ -24,7 +24,7 @@ public partial record RemittanceAmount2
     /// <summary>
     /// Amount specified for the referred document is the amount of discount to be applied to the amount due and payable to the creditor.
     /// </summary>
-    public DiscountAmountAndType1? DiscountAppliedAmount { get; init;  } // Warning: Don't know multiplicity.
+    public DiscountAmountAndType1[] DiscountAppliedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount specified for the referred document is the amount of a credit note.
     /// </summary>
@@ -32,11 +32,11 @@ public partial record RemittanceAmount2
     /// <summary>
     /// Quantity of cash resulting from the calculation of the tax.
     /// </summary>
-    public TaxAmountAndType1? TaxAmount { get; init;  } // Warning: Don't know multiplicity.
+    public TaxAmountAndType1[] TaxAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies detailed information on the amount and reason of the document adjustment.
     /// </summary>
-    public DocumentAdjustment1? AdjustmentAmountAndReason { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentAdjustment1[] AdjustmentAmountAndReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of money remitted for the referred document.
     /// </summary>

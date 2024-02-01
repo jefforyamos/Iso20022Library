@@ -58,7 +58,7 @@ public partial record CardData6
     /// ISO track 2 issued from the magnetic stripe card or from the ICC if the magnetic stripe was not read. The format  conforms to ISO 7813, removing beginning and ending sentinels and longitudinal redundancy check characters.
     /// ISO 8583 bit 35
     /// </summary>
-    public ITrack2Data1Choice? Track2 { get; init; } 
+    public Track2Data1Choice_? Track2 { get; init; } 
     /// <summary>
     /// ISO track 3 issued from the magnetic stripe card or from the ICC if the magnetic stripe was not read. The content conforms to ISO 4909, removing beginning and ending sentinels and longitudinal redundancy check characters.
     /// ISO 8583 bit 36
@@ -95,7 +95,7 @@ public partial record CardData6
     /// <summary>
     /// Additional card issuer specific data.
     /// </summary>
-    public AdditionalData1? AdditionalCardData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalCardData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

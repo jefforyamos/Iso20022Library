@@ -28,7 +28,7 @@ public partial record AccountParties4
     /// <summary>
     /// Legal owners of the property. However, the beneficiary has the equitable or beneficial ownership.
     /// </summary>
-    public IReadOnlyCollection<InvestmentAccountOwnershipInformation4> Trustee { get; init; } = [];
+    public InvestmentAccountOwnershipInformation4[] Trustee { get; init; } = [];
     /// <summary>
     /// Entity that holds shares/units on behalf of a legal minor. Although the account is registered under the name of the minor, the custodian retains control of the account.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record AccountParties4
     /// <summary>
     /// Co-owner of the investment account when the ownership is assigned to more than one party.
     /// </summary>
-    public IReadOnlyCollection<InvestmentAccountOwnershipInformation4> JointOwner { get; init; } = [];
+    public InvestmentAccountOwnershipInformation4[] JointOwner { get; init; } = [];
     /// <summary>
     /// Entity that is not the primary owner when the ownership of the investment account is split among several owners.
     /// </summary>
@@ -68,15 +68,15 @@ public partial record AccountParties4
     /// <summary>
     /// Granter role in the hedge funds industry.
     /// </summary>
-    public IReadOnlyCollection<InvestmentAccountOwnershipInformation4> Granter { get; init; } = [];
+    public InvestmentAccountOwnershipInformation4[] Granter { get; init; } = [];
     /// <summary>
     /// Settler role in the hedge funds industry.
     /// </summary>
-    public IReadOnlyCollection<InvestmentAccountOwnershipInformation4> Settler { get; init; } = [];
+    public InvestmentAccountOwnershipInformation4[] Settler { get; init; } = [];
     /// <summary>
     /// An other type of party.
     /// </summary>
-    public IReadOnlyCollection<ExtendedParty1> OtherParty { get; init; } = [];
+    public ExtendedParty1[] OtherParty { get; init; } = [];
     
     #nullable disable
 }

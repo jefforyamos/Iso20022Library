@@ -42,7 +42,7 @@ public partial record Cheque13
     /// <summary>
     /// Date and time at which the cheque amount becomes available on the payee account.
     /// </summary>
-    public IDateAndDateTime2Choice? ValueDate { get; init; } 
+    public DateAndDateTime2Choice_? ValueDate { get; init; } 
     /// <summary>
     /// Party that issues a cheque ordering the drawee agent to pay a specific amount, upon demand, to the payee.
     /// </summary>
@@ -70,7 +70,7 @@ public partial record Cheque13
     /// <summary>
     /// Further information related to the processing of the cheque instruction that may need to be acted upon by the agent processing the cheque.
     /// </summary>
-    public InstructionForChequeAgent1? InstructionForChequeAgent { get; init;  } // Warning: Don't know multiplicity.
+    public InstructionForChequeAgent1[] InstructionForChequeAgent { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

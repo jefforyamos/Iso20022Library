@@ -24,7 +24,7 @@ public partial record CurrencyExchangeCriteria1
     /// <summary>
     /// Defines the criteria based on which the information is extracted.
     /// </summary>
-    public CurrencySourceTarget1? SearchCriteria { get; init;  } // Warning: Don't know multiplicity.
+    public CurrencySourceTarget1[] SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

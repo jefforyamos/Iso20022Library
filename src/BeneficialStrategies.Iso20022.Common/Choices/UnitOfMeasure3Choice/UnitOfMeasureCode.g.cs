@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitOfMeasure3Choice;
 /// <summary>
 /// Quantity of a product on a line specified by a number. For example, 100 (kgs), 50 (pieces).
 /// </summary>
-public partial record UnitOfMeasureCode : IUnitOfMeasure3Choice
+public partial record UnitOfMeasureCode : UnitOfMeasure3Choice_
 {
     public required UnitOfMeasure4Code Value { get; init; }
 }

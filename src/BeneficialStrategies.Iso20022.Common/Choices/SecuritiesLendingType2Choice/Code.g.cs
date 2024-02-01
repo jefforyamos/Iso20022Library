@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesLendingType2Choice;
 /// <summary>
 /// Securities lending type expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ISecuritiesLendingType2Choice
+public partial record Code : SecuritiesLendingType2Choice_
 {
     public required SecuritiesLendingType1Code Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record Commodity43
     /// <summary>
     /// Details on commodities assignments to sectors.
     /// </summary>
-    public IAssetClassCommodity5Choice? Classification { get; init; } 
+    public AssetClassCommodity5Choice_? Classification { get; init; } 
     /// <summary>
     /// Quantity of the commodity.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record Commodity43
     /// <summary>
     /// Price of unit of asset or collateral component, including accrued interest for interest-bearing securities, used to value the commodity .
     /// </summary>
-    public ISecuritiesTransactionPrice19Choice? UnitPrice { get; init; } 
+    public SecuritiesTransactionPrice19Choice_? UnitPrice { get; init; } 
     /// <summary>
     /// Market value of asset or collateral component.
     /// </summary>

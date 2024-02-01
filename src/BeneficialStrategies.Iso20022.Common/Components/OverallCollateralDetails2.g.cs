@@ -32,7 +32,7 @@ public partial record OverallCollateralDetails2
     /// <summary>
     /// Valuation date/time of both the collateral and the exposure.
     /// </summary>
-    public required IDateAndDateTime2Choice ValuationDate { get; init; } 
+    public required DateAndDateTime2Choice_ ValuationDate { get; init; } 
     /// <summary>
     /// Provides additional information on the collateral.
     /// </summary>

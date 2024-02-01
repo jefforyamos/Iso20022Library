@@ -36,7 +36,7 @@ public partial record CollateralAmount18
     /// <summary>
     /// Specifies when the accrued interest is paid.
     /// </summary>
-    public IFrequency38Choice? PaymentFrequency { get; init; } 
+    public Frequency38Choice_? PaymentFrequency { get; init; } 
     /// <summary>
     /// Number of days after the accrual payment is due.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record CollateralAmount18
     /// <summary>
     /// Breakdown of transaction amount (required value for the exposure)  into market value lots based on the underlying trades.
     /// </summary>
-    public CollateralTransactionAmountBreakdown2? TransactionAmountBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public CollateralTransactionAmountBreakdown2[] TransactionAmountBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Value of collateral offered or sought. 
     /// </summary>

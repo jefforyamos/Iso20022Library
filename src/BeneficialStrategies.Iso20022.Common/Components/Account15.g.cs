@@ -28,7 +28,7 @@ public partial record Account15
     /// <summary>
     /// Institution that maintains the records where the account is held.
     /// </summary>
-    public required IPartyIdentification2Choice Servicer { get; init; } 
+    public required PartyIdentification2Choice_ Servicer { get; init; } 
     
     #nullable disable
 }

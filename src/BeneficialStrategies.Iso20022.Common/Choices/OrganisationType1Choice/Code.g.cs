@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrganisationType1Choice;
 /// <summary>
 /// Type of organisation expressed as a code.
 /// </summary>
-public partial record Code : IOrganisationType1Choice
+public partial record Code : OrganisationType1Choice_
 {
     public required OrganisationType1Code Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record AffirmationReason2
     /// <summary>
     /// Specifies the reason why the instruction/request has a unaffirmed status.
     /// </summary>
-    public required IUnaffirmedReason3Choice Code { get; init; } 
+    public required UnaffirmedReason3Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional information about the reason in narrative form.
     /// </summary>

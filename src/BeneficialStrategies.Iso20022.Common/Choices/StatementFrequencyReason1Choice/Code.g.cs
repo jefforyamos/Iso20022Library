@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementFrequencyReason1Choice;
 /// <summary>
 /// Statement frequency expressed as a code.
 /// </summary>
-public partial record Code : IStatementFrequencyReason1Choice
+public partial record Code : StatementFrequencyReason1Choice_
 {
     public required EventFrequency1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityAgricultural1
 /// <summary>
 /// Dairy agricultural commodity derivative.
 /// </summary>
-public partial record Dairy : IAssetClassCommodityAgricultural1Choice
+public partial record Dairy : AssetClassCommodityAgricultural1Choice_
 {
     #nullable enable
     /// <summary>

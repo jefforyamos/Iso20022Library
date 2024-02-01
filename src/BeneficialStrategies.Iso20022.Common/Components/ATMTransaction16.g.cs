@@ -48,11 +48,11 @@ public partial record ATMTransaction16
     /// <summary>
     /// Detail of the requested amounts for the deposit transaction.
     /// </summary>
-    public DetailedAmount16? DetailedRequestedAmount { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount16[] DetailedRequestedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional charge (for instance tax or fee).
     /// </summary>
-    public DetailedAmount13? AdditionalCharge { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount13[] AdditionalCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Outcome of the deposit authorisation.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record ATMTransaction16
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    public ATMCommand7? Command { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCommand7[] Command { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

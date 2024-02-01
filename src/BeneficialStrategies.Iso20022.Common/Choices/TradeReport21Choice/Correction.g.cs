@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport21Choice;
 /// <summary>
 /// Indicates that the report is correcting the erroneous data fields of a previously submitted position.
 /// </summary>
-public partial record Correction : ITradeReport21Choice
+public partial record Correction : TradeReport21Choice_
 {
     #nullable enable
     /// <summary>

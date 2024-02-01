@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AgreementFramework1Choice;
 /// <summary>
 /// Code to specify the type of collateral agreement.
 /// </summary>
-public partial record AgreementFramework : IAgreementFramework1Choice
+public partial record AgreementFramework : AgreementFramework1Choice_
 {
     public required AgreementFramework1Code Value { get; init; }
 }

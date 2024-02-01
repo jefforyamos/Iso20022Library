@@ -44,7 +44,7 @@ public partial record PositionSetDimensions3
     /// <summary>
     /// Unique identification of the direct underlying instrument based on its type.
     /// </summary>
-    public ISecurityIdentification34Choice? UnderlyingInstrument { get; init; } 
+    public SecurityIdentification34Choice_? UnderlyingInstrument { get; init; } 
     /// <summary>
     /// Currency of the notional amount. 
     /// Usage: In the case of an interest rate or currency derivative contract, this will be the notional currency of first leg.
@@ -79,7 +79,7 @@ public partial record PositionSetDimensions3
     /// <summary>
     /// Indicates the quote base for the exchange rate.
     /// </summary>
-    public IExchangeRateBasis1Choice? ExchangeRateBasis { get; init; } 
+    public ExchangeRateBasis1Choice_? ExchangeRateBasis { get; init; } 
     /// <summary>
     /// Specifies the type of the option whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// </summary>
@@ -87,7 +87,7 @@ public partial record PositionSetDimensions3
     /// <summary>
     /// Difference between a maturity date of a derivative and the reference date, based on a Gregorian calendar.
     /// </summary>
-    public ITimeToMaturity1Choice? TimeToMaturity { get; init; } 
+    public TimeToMaturity1Choice_? TimeToMaturity { get; init; } 
     /// <summary>
     /// Groups of IRS (Internal Revenue Service) derivatives with reference to whether leg 1 and leg 2 are fixed or floating.
     /// </summary>

@@ -24,7 +24,7 @@ public partial record PartyIdentification132
     /// <summary>
     /// Choice of identifier for a clearing system member, as assigned by the clearing system. In some clearing systems, the accounts of the clearing system members are also assigned an identifier.
     /// </summary>
-    public IClearingSystemMemberIdentification2Choice? ClearingSystemMemberIdentification { get; init; } 
+    public ClearingSystemMemberIdentification2Choice_? ClearingSystemMemberIdentification { get; init; } 
     /// <summary>
     /// Name and address of the party.
     /// </summary>

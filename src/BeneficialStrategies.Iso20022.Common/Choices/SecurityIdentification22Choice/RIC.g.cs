@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification22Choice;
 /// <summary>
 /// Reuters Identification Code (RIC). A numbering system used within the Reuters system to identify instruments worldwide. The RIC contains an X-character market specific code (can be the CUSIP or EPIC codes) followed by a full stop, then the two-digit ISO country code, eg, IBM in UK is IBM.UK.
 /// </summary>
-public partial record RIC : ISecurityIdentification22Choice
+public partial record RIC : SecurityIdentification22Choice_
 {
     public required IsoRICIdentifier Value { get; init; }
 }

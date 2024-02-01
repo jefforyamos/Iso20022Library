@@ -20,11 +20,11 @@ public partial record AdditionalBalanceInformation6
     /// <summary>
     /// Reason for the sub-balance.
     /// </summary>
-    public required ISubBalanceType6Choice SubBalanceType { get; init; } 
+    public required SubBalanceType6Choice_ SubBalanceType { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public required ISubBalanceQuantity3Choice Quantity { get; init; } 
+    public required SubBalanceQuantity3Choice_ Quantity { get; init; } 
     /// <summary>
     /// Provides additional subbalance information.
     /// </summary>

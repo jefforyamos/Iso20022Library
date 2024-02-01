@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FractionDispositionType1FormatCh
 /// <summary>
 /// Proprietary code to express how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
 /// </summary>
-public partial record Proprietary : IFractionDispositionType1FormatChoice
+public partial record Proprietary : FractionDispositionType1FormatChoice_
 {
     #nullable enable
     /// <summary>

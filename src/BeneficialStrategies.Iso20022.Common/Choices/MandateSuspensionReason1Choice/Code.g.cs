@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateSuspensionReason1Choice;
 /// <summary>
 /// Reason, as published in an external reason code list.
 /// </summary>
-public partial record Code : IMandateSuspensionReason1Choice
+public partial record Code : MandateSuspensionReason1Choice_
 {
     public required ExternalMandateSuspensionReason1Code Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record AccountStatusUpdateInstructionReason1
     /// <summary>
     /// Reason for the instruction to change the account status.
     /// </summary>
-    public IAccountStatusUpdateInstructionReason2Choice? Code { get; init; } 
+    public AccountStatusUpdateInstructionReason2Choice_? Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the instruction to change the account status.
     /// </summary>

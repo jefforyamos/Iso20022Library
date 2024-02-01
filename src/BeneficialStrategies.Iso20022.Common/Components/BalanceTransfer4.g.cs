@@ -24,7 +24,7 @@ public partial record BalanceTransfer4
     /// <summary>
     /// Contains details of the clearance and settlement method chosen to make the appropriate payment from account servicer to account servicer in order to transfer the positive or negative closing balance of the old account to the new account.
     /// </summary>
-    public ISettlementMethod4Choice? BalanceTransferMethod { get; init; } 
+    public SettlementMethod4Choice_? BalanceTransferMethod { get; init; } 
     /// <summary>
     /// Maximum value that the new account servicer will pay to the old account servicer when the closing balance on the old account is negative.
     /// </summary>

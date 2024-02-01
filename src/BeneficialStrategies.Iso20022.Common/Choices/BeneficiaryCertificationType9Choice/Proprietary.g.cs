@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BeneficiaryCertificationType9Cho
 /// <summary>
 /// Beneficial owner certification type expressed in a proprietary form.
 /// </summary>
-public partial record Proprietary : IBeneficiaryCertificationType9Choice
+public partial record Proprietary : BeneficiaryCertificationType9Choice_
 {
     #nullable enable
     /// <summary>

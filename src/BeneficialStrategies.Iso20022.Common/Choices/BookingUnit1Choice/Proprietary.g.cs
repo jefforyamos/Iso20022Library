@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BookingUnit1Choice;
 /// <summary>
 /// Booking unit is defined using a data source scheme.
 /// </summary>
-public partial record Proprietary : IBookingUnit1Choice
+public partial record Proprietary : BookingUnit1Choice_
 {
     #nullable enable
     /// <summary>

@@ -84,7 +84,7 @@ public partial record Mandate4
     /// <summary>
     /// Additional information that cannot be captured in the structured elements within the message component.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity44Choice;
 /// <summary>
 /// Cash amount to be transferred.
 /// </summary>
-public partial record CashAmount : IQuantity44Choice
+public partial record CashAmount : Quantity44Choice_
 {
     public required IsoActiveCurrencyAnd13DecimalAmount Value { get; init; }
 }

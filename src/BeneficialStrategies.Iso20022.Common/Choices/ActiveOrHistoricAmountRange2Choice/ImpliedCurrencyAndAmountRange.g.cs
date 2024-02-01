@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ActiveOrHistoricAmountRange2Choi
 /// <summary>
 /// Expresses an amount or an amount range with an explicit debit/credit indicator and where the currency is implied.
 /// </summary>
-public partial record ImpliedCurrencyAndAmountRange : IActiveOrHistoricAmountRange2Choice
+public partial record ImpliedCurrencyAndAmountRange : ActiveOrHistoricAmountRange2Choice_
 {
     #nullable enable
     /// <summary>
     /// A specified amount or amount range.
     /// </summary>
-    public required IImpliedCurrencyAmountRange1Choice Amount { get; init; } 
+    public required ImpliedCurrencyAmountRange1Choice_ Amount { get; init; } 
     /// <summary>
     /// Indicates whether the amount is a credited or debited amount.
     /// </summary>

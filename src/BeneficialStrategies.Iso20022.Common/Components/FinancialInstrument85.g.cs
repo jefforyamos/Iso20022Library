@@ -24,7 +24,7 @@ public partial record FinancialInstrument85
     /// <summary>
     /// Identification of the asset.
     /// </summary>
-    public required IFinancialInstrument62Choice Instrument { get; init; } 
+    public required FinancialInstrument62Choice_ Instrument { get; init; } 
     /// <summary>
     /// Specifies the quantity of assets to be transferred in units or in a percentage rate.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record FinancialInstrument85
     /// <summary>
     /// Breakdown of units.
     /// </summary>
-    public Unit11? UnitsDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Unit11[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
@@ -65,15 +65,15 @@ public partial record FinancialInstrument85
     /// <summary>
     /// Party and account from which the transferor delivers the financial instrument to the transferee.
     /// </summary>
-    public Account28? Transferor { get; init;  } // Warning: Don't know multiplicity.
+    public Account28[] Transferor { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of a related party or intermediary.
     /// </summary>
-    public Intermediary43? IntermediaryInformation { get; init;  } // Warning: Don't know multiplicity.
+    public Intermediary43[] IntermediaryInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number of units that have been received (crystallised) or not yet received (uncrystallised) from the fund. This is typically relevant to a pension fund.
     /// </summary>
-    public Crystallisation2? CrystallisationDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Crystallisation2[] CrystallisationDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date or tax quarter used for the calculation of tax on the asset.
     /// </summary>
@@ -81,11 +81,11 @@ public partial record FinancialInstrument85
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction.
     /// </summary>
-    public FundSettlementParameters17? SettlementPartiesDetails { get; init;  } // Warning: Don't know multiplicity.
+    public FundSettlementParameters17[] SettlementPartiesDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the financial instrument.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

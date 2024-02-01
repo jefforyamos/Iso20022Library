@@ -20,11 +20,11 @@ public partial record SubBalanceInformation16
     /// <summary>
     /// Reason for the sub-balance.
     /// </summary>
-    public required ISubBalanceType13Choice SubBalanceType { get; init; } 
+    public required SubBalanceType13Choice_ SubBalanceType { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public required ISubBalanceQuantity7Choice Quantity { get; init; } 
+    public required SubBalanceQuantity7Choice_ Quantity { get; init; } 
     /// <summary>
     /// Provides additional subbalance information.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record SubBalanceInformation16
     /// <summary>
     /// Provides additional instrument sub-balance information on all or parts of the reported financial instrument (unregistered, tax exempt, etc.).
     /// </summary>
-    public AdditionalBalanceInformation16? AdditionalBalanceBreakdownDetails { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalBalanceInformation16[] AdditionalBalanceBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

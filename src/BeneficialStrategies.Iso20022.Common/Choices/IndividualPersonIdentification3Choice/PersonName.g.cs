@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IndividualPersonIdentification3C
 /// <summary>
 /// Name of the person that owns the account.
 /// </summary>
-public partial record PersonName : IIndividualPersonIdentification3Choice
+public partial record PersonName : IndividualPersonIdentification3Choice_
 {
     #nullable enable
     /// <summary>

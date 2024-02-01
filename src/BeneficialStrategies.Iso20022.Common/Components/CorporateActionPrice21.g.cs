@@ -20,15 +20,15 @@ public partial record CorporateActionPrice21
     /// <summary>
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, for example, redemption price.
     /// </summary>
-    public IPriceFormat7Choice? GenericCashPriceReceivedPerProduct { get; init;  } // Warning: Don't know multiplicity.
+    public PriceFormat7Choice_[] GenericCashPriceReceivedPerProduct { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
-    public IPriceFormat5Choice? CashInLieuOfSharePrice { get; init; } 
+    public PriceFormat5Choice_? CashInLieuOfSharePrice { get; init; } 
     /// <summary>
     /// Amount of money required per over-subscribed equity as defined by the issuer.
     /// </summary>
-    public IPriceFormat5Choice? OverSubscriptionDepositPrice { get; init; } 
+    public PriceFormat5Choice_? OverSubscriptionDepositPrice { get; init; } 
     
     #nullable disable
 }

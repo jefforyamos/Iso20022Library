@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ImpliedCurrencyAmountRange1Choic
 /// <summary>
 /// Value that an amount must not match to be considered valid.
 /// </summary>
-public partial record NotEqualAmount : IImpliedCurrencyAmountRange1Choice
+public partial record NotEqualAmount : ImpliedCurrencyAmountRange1Choice_
 {
     public required IsoImpliedCurrencyAndAmount Value { get; init; }
 }

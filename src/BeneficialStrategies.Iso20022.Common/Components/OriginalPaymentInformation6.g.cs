@@ -28,7 +28,7 @@ public partial record OriginalPaymentInformation6
     /// <summary>
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
-    public IAmountType3Choice? Amount { get; init; } 
+    public AmountType3Choice_? Amount { get; init; } 
     /// <summary>
     /// Provides details of the currency exchange rate and contract.
     /// </summary>

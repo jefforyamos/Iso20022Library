@@ -39,11 +39,11 @@ public partial record Transaction137
     /// <summary>
     /// Additional functions or services to be performed in conjunction with the transaction.
     /// </summary>
-    public AdditionalService2? AdditionalService { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalService2[] AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data to qualify for incentive or other related programmes.
     /// </summary>
-    public SpecialProgrammeQualification1? SpecialProgrammeQualification { get; init;  } // Warning: Don't know multiplicity.
+    public SpecialProgrammeQualification1[] SpecialProgrammeQualification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
@@ -55,15 +55,15 @@ public partial record Transaction137
     /// <summary>
     /// Amounts that are not part of the transaction amount and not included in reconciliation.
     /// </summary>
-    public AdditionalAmounts3? AdditionalAmount { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalAmounts3[] AdditionalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fees not included in the transaction amount.
     /// </summary>
-    public AdditionalFee2? AdditionalFee { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFee2[] AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fees not included in the original transaction amount.
     /// </summary>
-    public AdditionalFee2? OriginalAdditionalFee { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFee2[] OriginalAdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies a customer account or a relationship to its account affected for debit, inquiries and the source of funding for transfers.
     /// </summary>
@@ -79,7 +79,7 @@ public partial record Transaction137
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

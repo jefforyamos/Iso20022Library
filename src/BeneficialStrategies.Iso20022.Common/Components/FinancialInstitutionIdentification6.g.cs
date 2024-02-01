@@ -20,7 +20,7 @@ public partial record FinancialInstitutionIdentification6
     /// <summary>
     /// Unique and unambiguous identifier of a clearing system member, as assigned by the system or system administrator.
     /// </summary>
-    public IClearingSystemMemberIdentification2Choice? ClearingSystemMemberIdentification { get; init; } 
+    public ClearingSystemMemberIdentification2Choice_? ClearingSystemMemberIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier, as assigned to a financial institution using a proprietary identification scheme.
     /// </summary>

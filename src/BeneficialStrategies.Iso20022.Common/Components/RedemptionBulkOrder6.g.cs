@@ -24,7 +24,7 @@ public partial record RedemptionBulkOrder6
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
-    public IPlaceOfTradeIdentification1Choice? PlaceOfTrade { get; init; } 
+    public PlaceOfTradeIdentification1Choice_? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Date and time the order is placed by the investor or its agent.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record RedemptionBulkOrder6
     /// <summary>
     /// Date on which the order expires.
     /// </summary>
-    public IDateAndDateTimeChoice? ExpiryDateTime { get; init; } 
+    public DateAndDateTimeChoice_? ExpiryDateTime { get; init; } 
     /// <summary>
     /// Future date at which the investor requests the order to be executed.|The specification of a requested future trade date is not allowed in some markets. The date must be a date in the future.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record RedemptionBulkOrder6
     /// <summary>
     /// Cancellation right of the investor with respect to the investment fund order.
     /// </summary>
-    public ICancellationRight1Choice? CancellationRight { get; init; } 
+    public CancellationRight1Choice_? CancellationRight { get; init; } 
     /// <summary>
     /// Investment fund class related to the order.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record RedemptionBulkOrder6
     /// <summary>
     /// Instruction from an investor to sell investment fund units back to the fund.
     /// </summary>
-    public RedemptionOrder15? IndividualOrderDetails { get; init;  } // Warning: Don't know multiplicity.
+    public RedemptionOrder15[] IndividualOrderDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency requested for settlement of cash proceeds.
     /// </summary>

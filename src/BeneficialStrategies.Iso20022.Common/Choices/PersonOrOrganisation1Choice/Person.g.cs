@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonOrOrganisation1Choice;
 /// <summary>
 /// Identification of a person.
 /// </summary>
-public partial record Person : IPersonOrOrganisation1Choice
+public partial record Person : PersonOrOrganisation1Choice_
 {
     #nullable enable
     /// <summary>

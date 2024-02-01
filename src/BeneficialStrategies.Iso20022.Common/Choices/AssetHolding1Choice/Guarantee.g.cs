@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetHolding1Choice;
 /// <summary>
 /// Promise to meet the obligations of a clearing member provided by a third party.
 /// </summary>
-public partial record Guarantee : IAssetHolding1Choice
+public partial record Guarantee : AssetHolding1Choice_
 {
     #nullable enable
     /// <summary>
     /// Identification of guarantee provider.
     /// </summary>
-    public required IPartyIdentification118Choice Provider { get; init; } 
+    public required PartyIdentification118Choice_ Provider { get; init; } 
     /// <summary>
     /// Value of the collateral guarantee.
     /// </summary>

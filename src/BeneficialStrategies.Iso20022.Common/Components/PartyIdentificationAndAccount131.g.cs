@@ -20,7 +20,7 @@ public partial record PartyIdentificationAndAccount131
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    public required IPartyIdentification104Choice Identification { get; init; } 
+    public required PartyIdentification104Choice_ Identification { get; init; } 
     /// <summary>
     /// Legal Entity Identification as an alternate identification for a party.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record PartyIdentificationAndAccount131
     /// <summary>
     /// Date/time at which the instruction was processed by the specified party.
     /// </summary>
-    public IDateAndDateTimeChoice? ProcessingDate { get; init; } 
+    public DateAndDateTimeChoice_? ProcessingDate { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction for the party identified.
     /// </summary>

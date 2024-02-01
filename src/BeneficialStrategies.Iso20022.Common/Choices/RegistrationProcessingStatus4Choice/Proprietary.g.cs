@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RegistrationProcessingStatus4Cho
 /// <summary>
 /// Provides the status of the registration processing.
 /// </summary>
-public partial record Proprietary : IRegistrationProcessingStatus4Choice
+public partial record Proprietary : RegistrationProcessingStatus4Choice_
 {
     #nullable enable
     /// <summary>

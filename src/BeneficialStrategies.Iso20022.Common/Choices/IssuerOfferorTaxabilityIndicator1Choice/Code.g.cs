@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IssuerOfferorTaxabilityIndicator
 /// <summary>
 /// Standard code to specify information regarding the issuer / offeror taxability status.
 /// </summary>
-public partial record Code : IIssuerOfferorTaxabilityIndicator1Choice
+public partial record Code : IssuerOfferorTaxabilityIndicator1Choice_
 {
     public required IssuerTaxability2Code Value { get; init; }
 }

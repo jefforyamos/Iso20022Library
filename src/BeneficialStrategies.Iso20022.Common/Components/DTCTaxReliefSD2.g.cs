@@ -28,7 +28,7 @@ public partial record DTCTaxReliefSD2
     /// <summary>
     /// Instructed quantity for DTC Tax Relief service elections.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice InstructionQuantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ InstructionQuantity { get; init; } 
     
     #nullable disable
 }

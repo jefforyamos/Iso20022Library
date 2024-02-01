@@ -24,7 +24,7 @@ public partial record CardPaymentTransaction4
     /// <summary>
     /// Service in addition to the main service.
     /// </summary>
-    public CardPaymentServiceType2Code? AdditionalService { get; init;  } // Warning: Don't know multiplicity.
+    public CardPaymentServiceType2Code[] AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional attribute of the service type.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record CardPaymentTransaction4
     /// <summary>
     /// List of incidents during the transaction.
     /// </summary>
-    public FailureReason1Code? FailureReason { get; init;  } // Warning: Don't know multiplicity.
+    public FailureReason1Code[] FailureReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction assigned by the initiating party for the recipient party.
     /// </summary>

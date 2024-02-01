@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonIdentificationType1Choice;
 /// <summary>
 /// Number assigned by a passport authority to a passport.
 /// </summary>
-public partial record PassportNumber : IPersonIdentificationType1Choice
+public partial record PassportNumber : PersonIdentificationType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

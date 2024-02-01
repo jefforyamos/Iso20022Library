@@ -20,11 +20,11 @@ public partial record FinancialCard1
     /// <summary>
     /// Monetary value of the credit limit for this financial card.
     /// </summary>
-    public IsoCurrencyAndAmount? CreditLimitAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount[] CreditLimitAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary value of the credit available for this financial card.
     /// </summary>
-    public IsoCurrencyAndAmount? CreditAvailableAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount[] CreditAvailableAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Interest rate expressed as a percentage for this financial card.
     /// </summary>

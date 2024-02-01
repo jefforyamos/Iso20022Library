@@ -20,7 +20,7 @@ public partial record PendingStatusReason14
     /// <summary>
     /// Reason for the pending account status.
     /// </summary>
-    public required IPendingStatusReason2Choice Code { get; init; } 
+    public required PendingStatusReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the pending account status.
     /// </summary>

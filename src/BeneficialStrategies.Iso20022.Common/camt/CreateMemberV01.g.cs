@@ -60,7 +60,7 @@ public partial record CreateMemberV01 : IOuterRecord
     [DataMember(Name="MmbId")]
     [XmlElement(ElementName="MmbId")]
     [Required]
-    public required IMemberIdentification3Choice MemberIdentification { get; init; }
+    public required MemberIdentification3Choice_ MemberIdentification { get; init; }
     
     /// <summary>
     /// New member values.

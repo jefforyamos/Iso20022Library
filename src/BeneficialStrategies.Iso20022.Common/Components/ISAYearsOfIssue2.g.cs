@@ -28,7 +28,7 @@ public partial record ISAYearsOfIssue2
     /// <summary>
     /// Selection of investment plans issued during previous years.
     /// </summary>
-    public IPreviousYearChoice? PreviousYears { get; init; } 
+    public PreviousYearChoice_? PreviousYears { get; init; } 
     
     #nullable disable
 }

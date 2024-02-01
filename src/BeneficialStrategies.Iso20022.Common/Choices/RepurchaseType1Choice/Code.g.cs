@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RepurchaseType1Choice;
 /// <summary>
 /// Type of securities financing transaction process expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IRepurchaseType1Choice
+public partial record Code : RepurchaseType1Choice_
 {
     public required RepurchaseType2Code Value { get; init; }
 }

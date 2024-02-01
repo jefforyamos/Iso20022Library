@@ -20,7 +20,7 @@ public partial record CommodityDerivative4
     /// <summary>
     /// Provides specific information related to commodity derivatives.
     /// </summary>
-    public ICommodityDerivative2Choice? ClassSpecific { get; init; } 
+    public CommodityDerivative2Choice_? ClassSpecific { get; init; } 
     /// <summary>
     /// Currency in which the notional is denominated.
     /// </summary>

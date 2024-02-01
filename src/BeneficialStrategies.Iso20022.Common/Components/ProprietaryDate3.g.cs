@@ -24,7 +24,7 @@ public partial record ProprietaryDate3
     /// <summary>
     /// Date in ISO format.
     /// </summary>
-    public required IDateAndDateTime2Choice Date { get; init; } 
+    public required DateAndDateTime2Choice_ Date { get; init; } 
     
     #nullable disable
 }

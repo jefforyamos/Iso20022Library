@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement4Choice;
 /// <summary>
 /// Provides the collateral movement direction that is a delivery and optionaly a return.
 /// </summary>
-public partial record CollateralMovementDirection : ICollateralMovement4Choice
+public partial record CollateralMovementDirection : CollateralMovement4Choice_
 {
     #nullable enable
     /// <summary>

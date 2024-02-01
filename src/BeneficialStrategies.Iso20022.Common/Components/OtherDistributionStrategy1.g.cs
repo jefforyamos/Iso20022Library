@@ -24,7 +24,7 @@ public partial record OtherDistributionStrategy1
     /// <summary>
     /// Choice of formats for the specification of whether the product is aimed at the type of return profile.
     /// </summary>
-    public IDistributionStrategy1Choice? Target { get; init; } 
+    public DistributionStrategy1Choice_? Target { get; init; } 
     /// <summary>
     /// Additional information about the target market and the investor's risk tolerance.
     /// </summary>

@@ -72,7 +72,7 @@ public partial record Trade1
     /// <summary>
     /// Provides details about each leg of the multileg instrument (foreign exchange swap).
     /// </summary>
-    public InstrumentLeg6? SwapLeg { get; init;  } // Warning: Don't know multiplicity.
+    public InstrumentLeg6[] SwapLeg { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the parameters of the foreign exchange option.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record Trade1
     /// <summary>
     /// Identification of the treasury trade product, as assigned under a formal or proprietary identification scheme.
     /// </summary>
-    public ISecurityIdentification22Choice? ProductIdentification { get; init; } 
+    public SecurityIdentification22Choice_? ProductIdentification { get; init; } 
     
     #nullable disable
 }

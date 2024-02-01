@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneratedReasons3Choice;
 /// <summary>
 /// Specifies the reason why the transaction was generated.
 /// </summary>
-public partial record Proprietary : IGeneratedReasons3Choice
+public partial record Proprietary : GeneratedReasons3Choice_
 {
     #nullable enable
     /// <summary>

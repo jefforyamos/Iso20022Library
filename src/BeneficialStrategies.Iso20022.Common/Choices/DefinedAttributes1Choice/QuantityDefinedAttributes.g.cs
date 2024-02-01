@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DefinedAttributes1Choice;
 /// <summary>
 /// Shares or some other fixed amount of derivative (such an ERIS future or swaption), or a fixed quantity of commodities.
 /// </summary>
-public partial record QuantityDefinedAttributes : IDefinedAttributes1Choice
+public partial record QuantityDefinedAttributes : DefinedAttributes1Choice_
 {
     #nullable enable
     /// <summary>

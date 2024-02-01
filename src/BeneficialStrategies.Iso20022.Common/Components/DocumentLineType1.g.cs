@@ -20,7 +20,7 @@ public partial record DocumentLineType1
     /// <summary>
     /// Provides the type details of the referred document line identification.
     /// </summary>
-    public required IDocumentLineType1Choice CodeOrProprietary { get; init; } 
+    public required DocumentLineType1Choice_ CodeOrProprietary { get; init; } 
     /// <summary>
     /// Identification of the issuer of the reference document line identificationtype.
     /// </summary>

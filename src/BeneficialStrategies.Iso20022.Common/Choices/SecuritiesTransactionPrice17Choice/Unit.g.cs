@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice17Choi
 /// <summary>
 /// Indicates that price is expressed in units.
 /// </summary>
-public partial record Unit : ISecuritiesTransactionPrice17Choice
+public partial record Unit : SecuritiesTransactionPrice17Choice_
 {
     public required IsoLongFraction19DecimalNumber Value { get; init; }
 }

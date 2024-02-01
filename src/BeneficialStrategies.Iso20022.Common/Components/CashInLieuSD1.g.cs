@@ -24,7 +24,7 @@ public partial record CashInLieuSD1
     /// <summary>
     /// Quantity elected.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
     
     #nullable disable
 }

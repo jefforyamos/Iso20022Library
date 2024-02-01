@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UniqueProductIdentifier2Choice;
 /// <summary>
 /// Identification through a unique product identifier.
 /// </summary>
-public partial record Identification : IUniqueProductIdentifier2Choice
+public partial record Identification : UniqueProductIdentifier2Choice_
 {
     public required IsoMax52Text Value { get; init; }
 }

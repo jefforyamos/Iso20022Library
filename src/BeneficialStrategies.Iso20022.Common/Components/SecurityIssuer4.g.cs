@@ -20,7 +20,7 @@ public partial record SecurityIssuer4
     /// <summary>
     /// Legal entity identification of the issuer of the security.
     /// </summary>
-    public IOrganisationIdentification15Choice? Identification { get; init; } 
+    public OrganisationIdentification15Choice_? Identification { get; init; } 
     /// <summary>
     /// Jurisdiction of the issuer of the security used as collateral. In case of securities issued by a foreign subsidiary, the jurisdiction of the ultimate parent company shall be reported or, if not known, jurisdiction of the subsidiary.
     /// </summary>

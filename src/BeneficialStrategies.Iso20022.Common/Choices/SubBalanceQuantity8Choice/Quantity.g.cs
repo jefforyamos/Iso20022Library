@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SubBalanceQuantity8Choice;
 /// <summary>
 /// Quantity of securities in the sub-balance.
 /// </summary>
-public partial record Quantity : ISubBalanceQuantity8Choice
+public partial record Quantity : SubBalanceQuantity8Choice_
 {
     #nullable enable
     #nullable disable

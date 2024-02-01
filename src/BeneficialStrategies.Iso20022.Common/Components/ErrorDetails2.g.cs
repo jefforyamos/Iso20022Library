@@ -36,7 +36,7 @@ public partial record ErrorDetails2
     /// <summary>
     /// Data element in error. 
     /// </summary>
-    public IsoMax4000Text? DataElementInError { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax4000Text[] DataElementInError { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

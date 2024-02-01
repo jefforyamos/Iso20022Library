@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountType2Choice;
 /// <summary>
 /// Type of account expressed as a code.
 /// </summary>
-public partial record Code : IAccountType2Choice
+public partial record Code : AccountType2Choice_
 {
     public required FundCashAccount4Code Value { get; init; }
 }

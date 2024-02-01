@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Liability1Choice;
 /// <summary>
 /// Liability expressed as a code.
 /// </summary>
-public partial record Code : ILiability1Choice
+public partial record Code : Liability1Choice_
 {
     public required Liability1Code Value { get; init; }
 }

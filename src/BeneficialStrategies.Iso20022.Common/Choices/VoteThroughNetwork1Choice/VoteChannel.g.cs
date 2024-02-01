@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.VoteThroughNetwork1Choice;
 /// <summary>
 /// Voting is performed via message sent through an alternate network channel, that is, either via the chain of intermediaries or via the channel as described in the processing text for next intermediary information field.
 /// </summary>
-public partial record VoteChannel : IVoteThroughNetwork1Choice
+public partial record VoteChannel : VoteThroughNetwork1Choice_
 {
     public required VoteChannel1Code Value { get; init; }
 }

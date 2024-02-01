@@ -20,11 +20,11 @@ public partial record CorporateActionPrice4
     /// <summary>
     /// Estimated price, eg, for valuation purposes.
     /// </summary>
-    public IPriceFormat2Choice? IndicativePrice { get; init; } 
+    public PriceFormat2Choice_? IndicativePrice { get; init; } 
     /// <summary>
     /// Last reported/known price of a financial instrument in a market.
     /// </summary>
-    public IPriceFormat2Choice? MarketPrice { get; init; } 
+    public PriceFormat2Choice_? MarketPrice { get; init; } 
     
     #nullable disable
 }

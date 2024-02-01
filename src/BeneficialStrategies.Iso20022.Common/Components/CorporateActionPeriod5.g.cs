@@ -20,31 +20,31 @@ public partial record CorporateActionPeriod5
     /// <summary>
     /// Period during which the price of a security is determined.
     /// </summary>
-    public IPeriod1Choice? PriceCalculationPeriod { get; init; } 
+    public Period1Choice_? PriceCalculationPeriod { get; init; } 
     /// <summary>
     /// Period during which both old and new equity may be traded simultaneously, for example, consolidation of equity or splitting of equity.
     /// </summary>
-    public IPeriod1Choice? ParallelTradingPeriod { get; init; } 
+    public Period1Choice_? ParallelTradingPeriod { get; init; } 
     /// <summary>
     /// Period during which the specified option, or all options of the event, remains valid, for example, offer period.
     /// </summary>
-    public IPeriod1Choice? ActionPeriod { get; init; } 
+    public Period1Choice_? ActionPeriod { get; init; } 
     /// <summary>
     /// Period during which the shareholder can revoke, change or withdraw its instruction.
     /// </summary>
-    public IPeriod1Choice? RevocabilityPeriod { get; init; } 
+    public Period1Choice_? RevocabilityPeriod { get; init; } 
     /// <summary>
     /// Period during which the privilege is not available, for example, this can happen whenever a meeting takes place or whenever a coupon payment is due.
     /// </summary>
-    public IPeriod1Choice? PrivilegeSuspensionPeriod { get; init; } 
+    public Period1Choice_? PrivilegeSuspensionPeriod { get; init; } 
     /// <summary>
     /// Period during which the participant of the account servicer can revoke change or withdraw its instructions.
     /// </summary>
-    public IPeriod1Choice? AccountServicerRevocabilityPeriod { get; init; } 
+    public Period1Choice_? AccountServicerRevocabilityPeriod { get; init; } 
     /// <summary>
     /// Period defining the last date on which withdrawal in street name requests on the outturn security will be accepted and the date on which the suspension will be released and withdrawal by transfer processing on the outturn security will resume.
     /// </summary>
-    public IPeriod1Choice? DepositorySuspensionPeriodForWithdrawal { get; init; } 
+    public Period1Choice_? DepositorySuspensionPeriodForWithdrawal { get; init; } 
     
     #nullable disable
 }

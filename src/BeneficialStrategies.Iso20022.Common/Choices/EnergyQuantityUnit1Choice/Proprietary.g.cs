@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EnergyQuantityUnit1Choice;
 /// <summary>
 /// Energy quantity unit, when energy unit code is not available, in a proprietary format.
 /// </summary>
-public partial record Proprietary : IEnergyQuantityUnit1Choice
+public partial record Proprietary : EnergyQuantityUnit1Choice_
 {
     public required IsoMax52Text Value { get; init; }
 }

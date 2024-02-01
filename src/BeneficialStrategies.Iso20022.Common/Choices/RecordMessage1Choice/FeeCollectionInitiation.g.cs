@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RecordMessage1Choice;
 /// <summary>
 /// Fee collection initiation message record.
 /// </summary>
-public partial record FeeCollectionInitiation : IRecordMessage1Choice
+public partial record FeeCollectionInitiation : RecordMessage1Choice_
 {
     public required IsoMax2MBBinary Value { get; init; }
 }

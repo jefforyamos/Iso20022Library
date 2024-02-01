@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionStyle6Choice;
 /// <summary>
 /// Option style expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IOptionStyle6Choice
+public partial record Proprietary : OptionStyle6Choice_
 {
     #nullable enable
     /// <summary>

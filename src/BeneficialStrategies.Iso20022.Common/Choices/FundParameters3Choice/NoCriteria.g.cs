@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FundParameters3Choice;
 /// <summary>
 /// Specifies that there is no criteria for the report. The request is a request for all reports, rather than reports attributed to a specific fund manager, date or financial instrument.
 /// </summary>
-public partial record NoCriteria : IFundParameters3Choice
+public partial record NoCriteria : FundParameters3Choice_
 {
     public required NoCriteria1Code Value { get; init; }
 }

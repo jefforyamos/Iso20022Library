@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus6Choice;
 /// <summary>
 /// Status advising on the rejection of the instruction.
 /// </summary>
-public partial record RejectionStatus : IInstructionStatus6Choice
+public partial record RejectionStatus : InstructionStatus6Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason advising the rejection of the instruction.
     /// </summary>
-    public required IInstructionRejectionStatus1Choice Reason { get; init; } 
+    public required InstructionRejectionStatus1Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the reason.
     /// </summary>

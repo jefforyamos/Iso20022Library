@@ -28,15 +28,15 @@ public partial record SecuritiesOption69
     /// <summary>
     /// Quantity of securities that have been posted (credit or debit) to the safekeeping account.
     /// </summary>
-    public required IQuantity10Choice PostingQuantity { get; init; } 
+    public required Quantity10Choice_ PostingQuantity { get; init; } 
     /// <summary>
     /// Date of the posting (credit or debit) to the account.
     /// </summary>
-    public required IDateAndDateTime2Choice PostingDate { get; init; } 
+    public required DateAndDateTime2Choice_ PostingDate { get; init; } 
     /// <summary>
     /// Date/Time of the posting (credit or debit) to the account that was initially communicated in the confirmation.
     /// </summary>
-    public IDateAndDateTime2Choice? OriginalPostingDate { get; init; } 
+    public DateAndDateTime2Choice_? OriginalPostingDate { get; init; } 
     
     #nullable disable
 }

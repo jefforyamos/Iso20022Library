@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Product1Choice;
 /// <summary>
 /// Derivative specific attributes.
 /// </summary>
-public partial record Derivative : IProduct1Choice
+public partial record Derivative : Product1Choice_
 {
     #nullable enable
     /// <summary>

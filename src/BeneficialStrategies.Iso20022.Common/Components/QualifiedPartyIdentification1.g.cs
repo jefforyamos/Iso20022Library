@@ -27,11 +27,11 @@ public partial record QualifiedPartyIdentification1
     /// <summary>
     /// List of identifications for the same party.
     /// </summary>
-    public SingleQualifiedPartyIdentification1? Party { get; init;  } // Warning: Don't know multiplicity.
+    public SingleQualifiedPartyIdentification1[] Party { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Short identification of the resulting party as a control mechanism for humans.
     /// </summary>
-    public IPartyIdentification2Choice? ShortIdentification { get; init; } 
+    public PartyIdentification2Choice_? ShortIdentification { get; init; } 
     /// <summary>
     /// Formally defined role qualifying the party.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CommunicationChannel1Choice;
 /// <summary>
 /// CBRF communication channel mode.
 /// </summary>
-public partial record ChannelMode : ICommunicationChannel1Choice
+public partial record ChannelMode : CommunicationChannel1Choice_
 {
     public required IsoExact1NumericText Value { get; init; }
 }

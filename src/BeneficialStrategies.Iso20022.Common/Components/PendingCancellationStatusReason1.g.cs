@@ -20,7 +20,7 @@ public partial record PendingCancellationStatusReason1
     /// <summary>
     /// Specifies the reason why the cancellation request is pending.
     /// </summary>
-    public required IPendingCancellationReason1Choice ReasonCode { get; init; } 
+    public required PendingCancellationReason1Choice_ ReasonCode { get; init; } 
     /// <summary>
     /// Provides additional information about the processed instruction.
     /// </summary>

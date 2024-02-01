@@ -24,7 +24,7 @@ public partial record SecurityPosition5
     /// <summary>
     /// Amount of securities that are eligible for the vote.
     /// </summary>
-    public IReadOnlyCollection<EligiblePosition2> Position { get; init; } = [];
+    public EligiblePosition2[] Position { get; init; } = [];
     
     #nullable disable
 }

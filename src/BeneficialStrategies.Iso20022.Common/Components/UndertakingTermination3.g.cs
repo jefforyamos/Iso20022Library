@@ -24,11 +24,11 @@ public partial record UndertakingTermination3
     /// <summary>
     /// Reason for the termination.
     /// </summary>
-    public ITerminationReason1Choice? Reason { get; init; } 
+    public TerminationReason1Choice_? Reason { get; init; } 
     /// <summary>
     /// Additional information related to the termination.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

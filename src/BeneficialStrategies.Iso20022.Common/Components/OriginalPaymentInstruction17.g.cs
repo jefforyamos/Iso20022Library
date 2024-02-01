@@ -48,15 +48,15 @@ public partial record OriginalPaymentInstruction17
     /// <summary>
     /// Provides detailed information on the cancellation status reason.
     /// </summary>
-    public CancellationStatusReason2? CancellationStatusReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public CancellationStatusReason2[] CancellationStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Detailed information on the number of transactions for each identical cancellation status.
     /// </summary>
-    public NumberOfCancellationsPerStatus1? NumberOfTransactionsPerCancellationStatus { get; init;  } // Warning: Don't know multiplicity.
+    public NumberOfCancellationsPerStatus1[] NumberOfTransactionsPerCancellationStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information on the original transactions to which the cancellation request message refers.
     /// </summary>
-    public PaymentTransaction66? TransactionInformationAndStatus { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentTransaction66[] TransactionInformationAndStatus { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

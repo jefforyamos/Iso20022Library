@@ -28,7 +28,7 @@ public partial record SecuritiesOption94
     /// <summary>
     /// Quantity of securities that have been posted (credit or debit) to the safekeeping account.
     /// </summary>
-    public required IQuantity51Choice PostingQuantity { get; init; } 
+    public required Quantity51Choice_ PostingQuantity { get; init; } 
     /// <summary>
     /// Date of the posting (credit or debit) to the account.
     /// </summary>

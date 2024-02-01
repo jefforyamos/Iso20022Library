@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderStatus4Choice;
 /// <summary>
 /// Status of the switch order is rejected.
 /// </summary>
-public partial record Rejected : IOrderStatus4Choice
+public partial record Rejected : OrderStatus4Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the rejected status.
     /// </summary>
-    public IRejectedReason20Choice? Reason { get; init; } 
+    public RejectedReason20Choice_? Reason { get; init; } 
     /// <summary>
     /// Additional information about the rejected reason.
     /// </summary>

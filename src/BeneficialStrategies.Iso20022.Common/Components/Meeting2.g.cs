@@ -20,7 +20,7 @@ public partial record Meeting2
     /// <summary>
     /// Date and time at which the meeting will take place.
     /// </summary>
-    public required IDateFormat2Choice DateAndTime { get; init; } 
+    public required DateFormat2Choice_ DateAndTime { get; init; } 
     /// <summary>
     /// Indicates the status of a meeting date.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record Meeting2
     /// <summary>
     /// Specifies location where meeting will take place.
     /// </summary>
-    public IReadOnlyCollection<ILocationFormat1Choice> Location { get; init; } = [];
+    public LocationFormat1Choice_[] Location { get; init; } = [];
     /// <summary>
     /// Minimum quantity of securities required to hold a meeting.
     /// </summary>

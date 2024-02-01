@@ -15,7 +15,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExerciseDate1Choice;
 /// For American style options, the first possible exercise date is the same as the ExecutionTimeStamp.|
 /// For Knock-in options, the first exercise date is reported when available.
 /// </summary>
-public partial record FirstExerciseDate : IExerciseDate1Choice
+public partial record FirstExerciseDate : ExerciseDate1Choice_
 {
     public required IsoISODate Value { get; init; }
 }

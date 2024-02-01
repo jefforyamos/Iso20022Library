@@ -24,11 +24,11 @@ public partial record CashAccount32
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification70Choice? AccountOwner { get; init; } 
+    public PartyIdentification70Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    public IPartyIdentification70Choice? AccountServicer { get; init; } 
+    public PartyIdentification70Choice_? AccountServicer { get; init; } 
     /// <summary>
     /// Information identifying a specific branch of a financial institution.||Usage: this component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
     /// </summary>

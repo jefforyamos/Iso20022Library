@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnableToApplyJustification2Choic
 /// <summary>
 /// Indicates whether or not all available information on the underlying payment instruction is requested.
 /// </summary>
-public partial record AnyInformation : IUnableToApplyJustification2Choice
+public partial record AnyInformation : UnableToApplyJustification2Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

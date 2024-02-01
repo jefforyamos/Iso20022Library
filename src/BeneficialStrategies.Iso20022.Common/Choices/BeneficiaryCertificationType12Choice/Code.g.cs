@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BeneficiaryCertificationType12Ch
 /// <summary>
 /// Beneficial owner certification type expressed in a coded form.
 /// </summary>
-public partial record Code : IBeneficiaryCertificationType12Choice
+public partial record Code : BeneficiaryCertificationType12Choice_
 {
     public required BeneficiaryCertificationType4Code Value { get; init; }
 }

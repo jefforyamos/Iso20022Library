@@ -20,7 +20,7 @@ public partial record OriginatorInformation1
     /// <summary>
     /// It may contain originator certificates associated with several different key management algorithms.
     /// </summary>
-    public IsoMax5000Binary? Certificate { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax5000Binary[] Certificate { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

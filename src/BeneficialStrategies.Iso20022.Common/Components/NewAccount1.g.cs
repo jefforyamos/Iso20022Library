@@ -24,7 +24,7 @@ public partial record NewAccount1
     /// <summary>
     /// Party or parties to be identified in the context of account operations.
     /// </summary>
-    public IndividualPerson19? AccountParty { get; init;  } // Warning: Don't know multiplicity.
+    public IndividualPerson19[] AccountParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.
     /// </summary>

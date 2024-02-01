@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionChannelType1Choice;
 /// <summary>
 /// Type of transaction channel expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITransactionChannelType1Choice
+public partial record Proprietary : TransactionChannelType1Choice_
 {
     #nullable enable
     /// <summary>

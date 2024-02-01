@@ -29,7 +29,7 @@ public partial record Terminal3
     /// Cardholder verification capabilities performing the transaction at the point of service.
     /// ISO 8583:93 bit 22-2, ISO 8583:2003 bit 27-2
     /// </summary>
-    public CardholderVerificationCapabilities1? CardholderVerificationCapability { get; init;  } // Warning: Don't know multiplicity.
+    public CardholderVerificationCapabilities1[] CardholderVerificationCapability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of terminal integration at a point of service location.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record Terminal3
     /// <summary>
     /// Data related to the components of the POI (Point Of Interaction) performing the transactions.
     /// </summary>
-    public PointOfInteractionComponent8? POIComponent { get; init;  } // Warning: Don't know multiplicity.
+    public PointOfInteractionComponent8[] POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

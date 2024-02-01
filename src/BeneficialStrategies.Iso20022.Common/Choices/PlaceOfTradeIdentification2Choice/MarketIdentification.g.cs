@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PlaceOfTradeIdentification2Choic
 /// <summary>
 /// Exchange or Multilateral Trading Facility (MTF) on which the transaction is executed.
 /// </summary>
-public partial record MarketIdentification : IPlaceOfTradeIdentification2Choice
+public partial record MarketIdentification : PlaceOfTradeIdentification2Choice_
 {
     public required IsoMICIdentifier Value { get; init; }
 }

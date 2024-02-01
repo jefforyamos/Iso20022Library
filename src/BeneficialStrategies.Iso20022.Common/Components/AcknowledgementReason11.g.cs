@@ -20,7 +20,7 @@ public partial record AcknowledgementReason11
     /// <summary>
     /// Choice of format for the acknowledgement reason.
     /// </summary>
-    public required IAcknowledgementReason14Choice Code { get; init; } 
+    public required AcknowledgementReason14Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

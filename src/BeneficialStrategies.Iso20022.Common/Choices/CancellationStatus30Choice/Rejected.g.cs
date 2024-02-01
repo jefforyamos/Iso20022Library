@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationStatus30Choice;
 /// <summary>
 /// Cancellation request has been rejected for further processing.
 /// </summary>
-public partial record Rejected : ICancellationStatus30Choice
+public partial record Rejected : CancellationStatus30Choice_
 {
     #nullable enable
     #nullable disable

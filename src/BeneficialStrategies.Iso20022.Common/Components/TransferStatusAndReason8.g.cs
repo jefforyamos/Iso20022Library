@@ -36,15 +36,15 @@ public partial record TransferStatusAndReason8
     /// <summary>
     /// Type of event for which the message is sent.
     /// </summary>
-    public ITransferStatusType3Choice? TransferEventType { get; init;  } // Warning: Don't know multiplicity.
+    public TransferStatusType3Choice_[] TransferEventType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Status of the transfer instruction.
     /// </summary>
-    public required ITransferStatus5Choice TransferStatus { get; init; } 
+    public required TransferStatus5Choice_ TransferStatus { get; init; } 
     /// <summary>
     /// Identification of the asset.
     /// </summary>
-    public IFinancialInstrument63Choice? Instrument { get; init; } 
+    public FinancialInstrument63Choice_? Instrument { get; init; } 
     /// <summary>
     /// Investment account information of the transfer for which the status or information is provided.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record TransferStatusAndReason8
     /// <summary>
     /// Identification of a related party or intermediary.
     /// </summary>
-    public Intermediary48? IntermediaryInformation { get; init;  } // Warning: Don't know multiplicity.
+    public Intermediary48[] IntermediaryInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date on which the transfer was executed.
     /// In some scenarios, this is the date and time to be used as the trade date when securities are settled through an International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
@@ -81,7 +81,7 @@ public partial record TransferStatusAndReason8
     /// <summary>
     /// Breakdown of units to be transferred.
     /// </summary>
-    public Unit11? UnitsDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Unit11[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information about the source security following a conversion.
     /// </summary>
@@ -93,15 +93,15 @@ public partial record TransferStatusAndReason8
     /// <summary>
     /// Details of a payment that will result from or resulting from the liquation of an asset and transfer of cash or for the transfer of cash that was not invested.
     /// </summary>
-    public PaymentInstrument18? PaymentDetails { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentInstrument18[] PaymentDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information about the realisation of benefits taken from a pension.
     /// </summary>
-    public BenefitCrystallisationEvent2? BenefitCrystallisationEvent { get; init;  } // Warning: Don't know multiplicity.
+    public BenefitCrystallisationEvent2[] BenefitCrystallisationEvent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details of a drawdown tranche.
     /// </summary>
-    public Drawdown2? DrawdownTranche { get; init;  } // Warning: Don't know multiplicity.
+    public Drawdown2[] DrawdownTranche { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Drawdown information not specifically associated with a drawdown tranche.
     /// </summary>
@@ -109,7 +109,7 @@ public partial record TransferStatusAndReason8
     /// <summary>
     /// Response information.
     /// </summary>
-    public IsoMax350Text? QueryResponse { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax350Text[] QueryResponse { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that initiates the status.
     /// </summary>
@@ -125,7 +125,7 @@ public partial record TransferStatusAndReason8
     /// <summary>
     /// Additional information about the status.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

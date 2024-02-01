@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesMovementStatus1Choice;
 /// <summary>
 /// At least one security cannot be used as collateral because a tax event is due in the next few days.
 /// </summary>
-public partial record Tax : ISecuritiesMovementStatus1Choice
+public partial record Tax : SecuritiesMovementStatus1Choice_
 {
     #nullable enable
     /// <summary>

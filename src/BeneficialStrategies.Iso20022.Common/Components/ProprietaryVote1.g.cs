@@ -24,7 +24,7 @@ public partial record ProprietaryVote1
     /// <summary>
     /// Quantity of securities voted.
     /// </summary>
-    public required IQuantityOrCode1Choice Quantity { get; init; } 
+    public required QuantityOrCode1Choice_ Quantity { get; init; } 
     
     #nullable disable
 }

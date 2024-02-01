@@ -20,7 +20,7 @@ public partial record SubAccountIdentification21
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification36Choice? AccountOwner { get; init; } 
+    public PartyIdentification36Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record SubAccountIdentification21
     /// <summary>
     /// Reporting per financial instrument.
     /// </summary>
-    public FinancialInstrumentDetails9? FinancialInstrumentDetails { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrumentDetails9[] FinancialInstrumentDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

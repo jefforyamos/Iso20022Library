@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonOrOrganisation1Choice;
 /// <summary>
 /// Market identifier code of the party.
 /// </summary>
-public partial record MIC : IPersonOrOrganisation1Choice
+public partial record MIC : PersonOrOrganisation1Choice_
 {
     public required IsoMICIdentifier Value { get; init; }
 }

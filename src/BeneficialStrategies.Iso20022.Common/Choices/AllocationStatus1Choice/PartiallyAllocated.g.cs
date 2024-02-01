@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AllocationStatus1Choice;
 /// <summary>
 /// Instruction has been partially covered by collateral.
 /// </summary>
-public partial record PartiallyAllocated : IAllocationStatus1Choice
+public partial record PartiallyAllocated : AllocationStatus1Choice_
 {
     #nullable enable
     /// <summary>

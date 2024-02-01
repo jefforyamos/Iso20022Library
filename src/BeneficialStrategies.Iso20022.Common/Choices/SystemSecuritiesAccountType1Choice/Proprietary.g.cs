@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemSecuritiesAccountType1Choi
 /// <summary>
 /// System securities account type, in a proprietary form.
 /// </summary>
-public partial record Proprietary : ISystemSecuritiesAccountType1Choice
+public partial record Proprietary : SystemSecuritiesAccountType1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LetterOfGuarantee4Choice;
 /// <summary>
 /// Letter of guarantee information expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ILetterOfGuarantee4Choice
+public partial record Proprietary : LetterOfGuarantee4Choice_
 {
     #nullable enable
     /// <summary>

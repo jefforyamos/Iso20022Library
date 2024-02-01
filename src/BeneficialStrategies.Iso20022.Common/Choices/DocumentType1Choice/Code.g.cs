@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DocumentType1Choice;
 /// <summary>
 /// Document type, in a coded form.
 /// </summary>
-public partial record Code : IDocumentType1Choice
+public partial record Code : DocumentType1Choice_
 {
     public required ExternalDocumentType1Code Value { get; init; }
 }

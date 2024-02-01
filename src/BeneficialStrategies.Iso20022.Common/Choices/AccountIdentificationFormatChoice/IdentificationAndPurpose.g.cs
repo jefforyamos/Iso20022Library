@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentificationFormatChoic
 /// <summary>
 /// Identification of the account expressed with an account number and a code.
 /// </summary>
-public partial record IdentificationAndPurpose : IAccountIdentificationFormatChoice
+public partial record IdentificationAndPurpose : AccountIdentificationFormatChoice_
 {
     #nullable enable
     /// <summary>

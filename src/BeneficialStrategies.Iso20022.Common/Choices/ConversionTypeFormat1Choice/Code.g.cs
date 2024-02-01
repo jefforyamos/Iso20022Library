@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConversionTypeFormat1Choice;
 /// <summary>
 /// Standard code to specify the type of conversion.
 /// </summary>
-public partial record Code : IConversionTypeFormat1Choice
+public partial record Code : ConversionTypeFormat1Choice_
 {
     public required ConversionType1Code Value { get; init; }
 }

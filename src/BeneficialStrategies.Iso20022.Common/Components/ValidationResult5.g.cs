@@ -32,7 +32,7 @@ public partial record ValidationResult5
     /// <summary>
     /// Description of the element that creates the mismatch.
     /// </summary>
-    public ElementIdentification1? MisMatchedElement { get; init;  } // Warning: Don't know multiplicity.
+    public ElementIdentification1[] MisMatchedElement { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonIdentificationType1Choice;
 /// <summary>
 /// Number assigned by a government agency to identify foreign nationals.
 /// </summary>
-public partial record AlienRegistrationNumber : IPersonIdentificationType1Choice
+public partial record AlienRegistrationNumber : PersonIdentificationType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

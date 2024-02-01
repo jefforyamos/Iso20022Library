@@ -20,7 +20,7 @@ public partial record CashAsset3
     /// <summary>
     /// Type of cash asset.
     /// </summary>
-    public required ICashAssetType1Choice CashAssetType { get; init; } 
+    public required CashAssetType1Choice_ CashAssetType { get; init; } 
     /// <summary>
     /// Currency of the asset in the holding.
     /// </summary>

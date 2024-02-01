@@ -20,7 +20,7 @@ public partial record PriceReport3
     /// <summary>
     /// Information related to the price valuation of a financial instrument.
     /// </summary>
-    public PriceValuation4? PriceValuationDetails { get; init;  } // Warning: Don't know multiplicity.
+    public PriceValuation4[] PriceValuationDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

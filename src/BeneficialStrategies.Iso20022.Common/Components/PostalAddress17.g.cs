@@ -20,7 +20,7 @@ public partial record PostalAddress17
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, that is presented in free format text.
     /// </summary>
-    public IReadOnlyCollection<IsoMax70Text> AddressLine { get; init; } = [];
+    public IsoMax70Text[] AddressLine { get; init; } = [];
     /// <summary>
     /// Name of a street or thoroughfare.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record PostalAddress17
     /// <summary>
     /// Identifies a subdivision of a country, for instance state, region, county.
     /// </summary>
-    public IReadOnlyCollection<IsoMax35Text> CountrySubDivision { get; init; } = [];
+    public IsoMax35Text[] CountrySubDivision { get; init; } = [];
     /// <summary>
     /// Nation with its own government, occupying a particular territory.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record PostalAddress17
     /// <summary>
     /// Geographic location of the ATM specified by geographic coordinates or UTM coordinates.
     /// </summary>
-    public IGeographicLocation1Choice? GeoLocation { get; init; } 
+    public GeographicLocation1Choice_? GeoLocation { get; init; } 
     
     #nullable disable
 }

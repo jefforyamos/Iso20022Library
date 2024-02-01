@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxCapacityParty1Choice;
 /// <summary>
 /// Party tax capacity expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ITaxCapacityParty1Choice
+public partial record Code : TaxCapacityParty1Choice_
 {
     public required TaxLiability1Code Value { get; init; }
 }

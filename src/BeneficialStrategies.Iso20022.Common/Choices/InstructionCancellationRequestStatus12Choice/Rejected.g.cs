@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionCancellationRequestSt
 /// <summary>
 /// Provides status information related to a cancellation request rejected for further processing due to system (data) reasons.
 /// </summary>
-public partial record Rejected : IInstructionCancellationRequestStatus12Choice
+public partial record Rejected : InstructionCancellationRequestStatus12Choice_
 {
     #nullable enable
     #nullable disable

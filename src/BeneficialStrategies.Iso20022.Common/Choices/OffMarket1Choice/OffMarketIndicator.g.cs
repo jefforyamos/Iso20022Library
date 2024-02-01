@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OffMarket1Choice;
 /// <summary>
 /// Indicates that the trade was executed off-exchange.
 /// </summary>
-public partial record OffMarketIndicator : IOffMarket1Choice
+public partial record OffMarketIndicator : OffMarket1Choice_
 {
     public required OffMarket1Code Value { get; init; }
 }

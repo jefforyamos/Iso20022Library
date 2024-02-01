@@ -20,7 +20,7 @@ public partial record SecuritiesTransactionIndicator2
     /// <summary>
     /// Indicates whether the transaction was executed under a pre-trade waiver.
     /// </summary>
-    public ReportingWaiverType1Code? WaiverIndicator { get; init;  } // Warning: Don't know multiplicity.
+    public ReportingWaiverType1Code[] WaiverIndicator { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates a short sell concluded by the investment agent on its own accounts or on behalf of a client, as described in the local regulation.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record SecuritiesTransactionIndicator2
     /// <summary>
     /// Indicates the type of transaction in accordance with the local regulation.
     /// </summary>
-    public ReportingWaiverType3Code? OTCPostTradeIndicator { get; init;  } // Warning: Don't know multiplicity.
+    public ReportingWaiverType3Code[] OTCPostTradeIndicator { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the transaction is objectively measurable as reducing risks directly relating to the commercial activity of the entity executing the transaction.
     /// </summary>

@@ -28,7 +28,7 @@ public partial record CashOption73
     /// <summary>
     /// Proceeds are taxable according to the information provided by the issuer / offeror.
     /// </summary>
-    public IIssuerOfferorTaxabilityIndicator1Choice? IssuerOfferorTaxabilityIndicator { get; init; } 
+    public IssuerOfferorTaxabilityIndicator1Choice_? IssuerOfferorTaxabilityIndicator { get; init; } 
     /// <summary>
     /// Specifies the type of income.|The lists of income type codes to be used, are available on the SMPG website at www.smpg.info.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record CashOption73
     /// <summary>
     /// Specifies the basis for the reduced rate of withholding.
     /// </summary>
-    public GenericIdentification47? ExemptionType { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification47[] ExemptionType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the country from which the income originates.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record CashOption73
     /// <summary>
     /// Choice between a cash account, a charges account or a tax account.
     /// </summary>
-    public IAccount9Choice? Account { get; init; } 
+    public Account9Choice_? Account { get; init; } 
     /// <summary>
     /// Provides information about cash parties.
     /// </summary>

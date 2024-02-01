@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TrackerParty2Choice;
 /// <summary>
 /// Unique and unambiguous identification of a person, for example a passport.
 /// </summary>
-public partial record PrivateIdentification : ITrackerParty2Choice
+public partial record PrivateIdentification : TrackerParty2Choice_
 {
     #nullable enable
     /// <summary>

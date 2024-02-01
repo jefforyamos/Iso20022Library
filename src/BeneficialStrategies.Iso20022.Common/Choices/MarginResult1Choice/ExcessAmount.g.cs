@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginResult1Choice;
 /// <summary>
 /// Excess amount that the central counterparty may restitute to the Clearing member.
 /// </summary>
-public partial record ExcessAmount : IMarginResult1Choice
+public partial record ExcessAmount : MarginResult1Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

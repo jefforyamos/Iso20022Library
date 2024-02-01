@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status31Choice;
 /// <summary>
 /// Status of the transfer cancellation is accepted or sent to next party.
 /// </summary>
-public partial record Status : IStatus31Choice
+public partial record Status : Status31Choice_
 {
     #nullable enable
     /// <summary>

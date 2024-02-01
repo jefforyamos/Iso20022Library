@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionReportOrError6Choice;
 /// <summary>
 /// Indicates that an operational error has been issued during the processing of the related request.
 /// </summary>
-public partial record OperationalError : ITransactionReportOrError6Choice
+public partial record OperationalError : TransactionReportOrError6Choice_
 {
     #nullable enable
     /// <summary>
     /// Specification of the error, in coded or proprietary form.
     /// </summary>
-    public required IErrorHandling3Choice Error { get; init; } 
+    public required ErrorHandling3Choice_ Error { get; init; } 
     /// <summary>
     /// Specification of the error, in free format.
     /// </summary>

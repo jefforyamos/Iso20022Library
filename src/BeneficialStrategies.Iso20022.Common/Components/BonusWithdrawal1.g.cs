@@ -20,7 +20,7 @@ public partial record BonusWithdrawal1
     /// <summary>
     /// Specifies whether the amount is the result of a bonus paid, a withdrawal or other kind of amount.
     /// </summary>
-    public required ITypeOfAmount1Choice TypeOfAmount { get; init; } 
+    public required TypeOfAmount1Choice_ TypeOfAmount { get; init; } 
     /// <summary>
     /// Amount of the bonus paid or the claimed amount. For example, a claimed amount for a lifetime ISA (LISA) or a government bonus paid out.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record BonusWithdrawal1
     /// <summary>
     /// Reason for the bonus amount paid to or an amount withdrawn from the investment product.
     /// </summary>
-    public IWithdrawalReason1Choice? Reason { get; init; } 
+    public WithdrawalReason1Choice_? Reason { get; init; } 
     /// <summary>
     /// Amount of an unclaimed bonus or an unclaimed withdrawal.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record BonusWithdrawal1
     /// <summary>
     /// Additional information about the monies paid out or withdrawn.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

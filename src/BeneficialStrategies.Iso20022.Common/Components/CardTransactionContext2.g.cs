@@ -63,15 +63,15 @@ public partial record CardTransactionContext2
     /// <summary>
     /// Payment options the card acceptor can support.
     /// </summary>
-    public SupportedPaymentOption1Code? SupportedOption { get; init;  } // Warning: Don't know multiplicity.
+    public SupportedPaymentOption1Code[] SupportedOption { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data used to assign specific condition such as liability shift or preferential interchange fees.
     /// </summary>
-    public CardTransactionCondition1? SpecialConditions { get; init;  } // Warning: Don't know multiplicity.
+    public CardTransactionCondition1[] SpecialConditions { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates to the issuer the level of risk of the transaction.
     /// </summary>
-    public CardTransactionRiskIndicator1? RiskIndicator { get; init;  } // Warning: Don't know multiplicity.
+    public CardTransactionRiskIndicator1[] RiskIndicator { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

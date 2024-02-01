@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkCurveName7Choice;
 /// <summary>
 /// Benchmark curve name expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IBenchmarkCurveName7Choice
+public partial record Code : BenchmarkCurveName7Choice_
 {
     public required BenchmarkCurveName1Code Value { get; init; }
 }

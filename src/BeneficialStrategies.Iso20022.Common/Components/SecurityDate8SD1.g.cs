@@ -26,11 +26,11 @@ public partial record SecurityDate8SD1
     /// Settlement date for the transaction where the new security is issued. 
     /// 発行日決済日程情報/決済日.
     /// </summary>
-    public IDateFormat22Choice? SettlementDateOfNewSecurity { get; init; } 
+    public DateFormat22Choice_? SettlementDateOfNewSecurity { get; init; } 
     /// <summary>
     /// Date/time at which trading of a security is suspended as the result of an event.
     /// </summary>
-    public IDateFormat22Choice? TradingSuspendedDate { get; init; } 
+    public DateFormat22Choice_? TradingSuspendedDate { get; init; } 
     
     #nullable disable
 }

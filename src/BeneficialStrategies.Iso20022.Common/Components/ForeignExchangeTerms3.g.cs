@@ -36,7 +36,7 @@ public partial record ForeignExchangeTerms3
     /// <summary>
     /// Party that proposes a foreign exchange rate.
     /// </summary>
-    public IPartyIdentification1Choice? QuotingInstitution { get; init; } 
+    public PartyIdentification1Choice_? QuotingInstitution { get; init; } 
     
     #nullable disable
 }

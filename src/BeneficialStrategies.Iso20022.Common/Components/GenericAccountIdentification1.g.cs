@@ -24,7 +24,7 @@ public partial record GenericAccountIdentification1
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
-    public IAccountSchemeName1Choice? SchemeName { get; init; } 
+    public AccountSchemeName1Choice_? SchemeName { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>

@@ -24,7 +24,7 @@ public partial record CalendarReport1
     /// <summary>
     /// Requested information on the calendar or business error report when information has not been found.
     /// </summary>
-    public required ICalendarOrBusinessError1Choice CalendarOrError { get; init; } 
+    public required CalendarOrBusinessError1Choice_ CalendarOrError { get; init; } 
     
     #nullable disable
 }

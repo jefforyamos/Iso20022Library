@@ -48,15 +48,15 @@ public partial record OriginalPaymentInformation3
     /// <summary>
     /// Set of elements used to provide detailed information on the cancellation status reason.
     /// </summary>
-    public CancellationStatusReasonInformation1? CancellationStatusReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public CancellationStatusReasonInformation1[] CancellationStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Detailed information on the number of transactions for each identical cancellation status.
     /// </summary>
-    public NumberOfCancellationsPerStatus1? NumberOfTransactionsPerCancellationStatus { get; init;  } // Warning: Don't know multiplicity.
+    public NumberOfCancellationsPerStatus1[] NumberOfTransactionsPerCancellationStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of elements used to provide information on the original transactions to which the cancellation request message refers.
     /// </summary>
-    public PaymentTransactionInformation32? TransactionInformationAndStatus { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentTransactionInformation32[] TransactionInformationAndStatus { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

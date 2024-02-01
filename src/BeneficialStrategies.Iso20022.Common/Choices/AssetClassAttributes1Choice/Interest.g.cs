@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassAttributes1Choice;
 /// <summary>
 /// Asset class is a non-financial instrument of type interest rate.
 /// </summary>
-public partial record Interest : IAssetClassAttributes1Choice
+public partial record Interest : AssetClassAttributes1Choice_
 {
     #nullable enable
     /// <summary>

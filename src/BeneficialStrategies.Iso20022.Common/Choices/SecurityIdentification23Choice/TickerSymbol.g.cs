@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification23Choice;
 /// <summary>
 /// Letters that identify a stock traded on a stock exchange. The Ticker Symbol is a short and convenient way of identifying a stock, for example, RTR.L for Reuters quoted in London.
 /// </summary>
-public partial record TickerSymbol : ISecurityIdentification23Choice
+public partial record TickerSymbol : SecurityIdentification23Choice_
 {
     public required IsoTickerIdentifier Value { get; init; }
 }

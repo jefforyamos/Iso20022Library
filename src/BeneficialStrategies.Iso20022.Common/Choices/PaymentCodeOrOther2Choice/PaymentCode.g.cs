@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentCodeOrOther2Choice;
 /// <summary>
 /// Specifies the payment period in coded form and a number of days.
 /// </summary>
-public partial record PaymentCode : IPaymentCodeOrOther2Choice
+public partial record PaymentCode : PaymentCodeOrOther2Choice_
 {
     #nullable enable
     /// <summary>

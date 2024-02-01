@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationType2Choice;
 /// <summary>
 /// Type of identification is defined using a data source scheme.
 /// </summary>
-public partial record Proprietary : IIdentificationType2Choice
+public partial record Proprietary : IdentificationType2Choice_
 {
     #nullable enable
     /// <summary>

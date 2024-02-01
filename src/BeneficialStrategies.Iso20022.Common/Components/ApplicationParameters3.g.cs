@@ -28,7 +28,7 @@ public partial record ApplicationParameters3
     /// <summary>
     /// Configuration parameters used by the related payment application.
     /// </summary>
-    public IsoMax100KBinary? Parameters { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax100KBinary[] Parameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Sensitive parameters (sequence of parameters including the enveloppes) encrypted with a cryptographic key.
     /// </summary>

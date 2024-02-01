@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionStatus37Choice;
 /// <summary>
 /// Specifies the reason of the rejection status.
 /// </summary>
-public partial record Reason : IRejectionStatus37Choice
+public partial record Reason : RejectionStatus37Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason provided for the status.
     /// </summary>
-    public required IRejectionReason42Choice Code { get; init; } 
+    public required RejectionReason42Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

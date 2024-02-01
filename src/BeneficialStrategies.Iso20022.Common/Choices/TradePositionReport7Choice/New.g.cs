@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradePositionReport7Choice;
 /// <summary>
 /// Indicates whether position is reported for the first time.
 /// </summary>
-public partial record New : ITradePositionReport7Choice
+public partial record New : TradePositionReport7Choice_
 {
     #nullable enable
     /// <summary>

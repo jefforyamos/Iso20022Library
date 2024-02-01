@@ -24,19 +24,19 @@ public partial record ActivityReportItems3
     /// <summary>
     /// Reference to the transaction for each financial institution which is a party to the transaction.
     /// </summary>
-    public IReadOnlyCollection<DocumentIdentification5> UserTransactionReference { get; init; } = [];
+    public DocumentIdentification5[] UserTransactionReference { get; init; } = [];
     /// <summary>
     /// Entity for which the activity is reported.
     /// </summary>
-    public BICIdentification1? ReportedEntity { get; init;  } // Warning: Don't know multiplicity.
+    public BICIdentification1[] ReportedEntity { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Describes an activity that took place during a period.
     /// </summary>
-    public ActivityDetails1? ReportedItem { get; init;  } // Warning: Don't know multiplicity.
+    public ActivityDetails1[] ReportedItem { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Next processing step required.
     /// </summary>
-    public PendingActivity2? PendingRequestForAction { get; init;  } // Warning: Don't know multiplicity.
+    public PendingActivity2[] PendingRequestForAction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

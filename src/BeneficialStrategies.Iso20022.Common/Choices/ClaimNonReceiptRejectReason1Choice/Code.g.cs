@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClaimNonReceiptRejectReason1Choi
 /// <summary>
 /// Reason for the rejection, in a coded form.
 /// </summary>
-public partial record Code : IClaimNonReceiptRejectReason1Choice
+public partial record Code : ClaimNonReceiptRejectReason1Choice_
 {
     public required ExternalClaimNonReceiptRejection1Code Value { get; init; }
 }

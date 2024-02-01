@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradePositionReport7Choice;
 /// <summary>
 /// Indicates that reported position is an early termination of an existing contract.
 /// </summary>
-public partial record EarlyTermination : ITradePositionReport7Choice
+public partial record EarlyTermination : TradePositionReport7Choice_
 {
     #nullable enable
     /// <summary>

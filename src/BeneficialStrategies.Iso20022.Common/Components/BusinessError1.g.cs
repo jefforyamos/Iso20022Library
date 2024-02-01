@@ -24,7 +24,7 @@ public partial record BusinessError1
     /// <summary>
     /// Provides the business error.
     /// </summary>
-    public ErrorHandling3? BusinessError { get; init;  } // Warning: Don't know multiplicity.
+    public ErrorHandling3[] BusinessError { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

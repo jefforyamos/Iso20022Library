@@ -40,7 +40,7 @@ public partial record PerformedTransaction1
     /// <summary>
     /// Data related to the result of a processed Loyalty transaction.
     /// </summary>
-    public LoyaltyResult1? LoyaltyResult { get; init;  } // Warning: Don't know multiplicity.
+    public LoyaltyResult1[] LoyaltyResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of the payment or loyalty to reverse.
     /// </summary>

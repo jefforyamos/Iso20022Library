@@ -24,7 +24,7 @@ public partial record CollateralOwnership4
     /// <summary>
     /// Indicates that the client owns the collateral.
     /// </summary>
-    public IPartyIdentification178Choice? ClientName { get; init; } 
+    public PartyIdentification178Choice_? ClientName { get; init; } 
     
     #nullable disable
 }

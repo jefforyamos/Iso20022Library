@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnsecuredMarketReport3Choice;
 /// <summary>
 /// Provides the details of the unsecured market transaction as reported by the reporting agent.
 /// </summary>
-public partial record Transaction : IUnsecuredMarketReport3Choice
+public partial record Transaction : UnsecuredMarketReport3Choice_
 {
     #nullable enable
     /// <summary>
@@ -40,14 +40,14 @@ public partial record Transaction : IUnsecuredMarketReport3Choice
     /// <summary>
     /// Identification of the counterparty of the reporting agent for the reported transaction.
     /// </summary>
-    public required ICounterpartyIdentification2Choice CounterpartyIdentification { get; init; } 
+    public required CounterpartyIdentification2Choice_ CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Date and time on which the parties entered into the reported transaction.
     /// Usage: when time is available, it must be reported.
     /// It is to be reported with only the date when the time of the transaction is not available. 
     /// The reported time is the execution time when available or otherwise the time at which the transaction entered the trading system of the reporting agent.
     /// </summary>
-    public required IDateAndDateTimeChoice TradeDate { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDate { get; init; } 
     /// <summary>
     /// Date on which the amount of money is exchanged by counterparties or on which the purchase or sale of a debt instrument settles. 
     /// With regard to call accounts and other unsecured borrowing/lending redeemable at notice, it is the date on which the deposit is rolled over, that is on which it would have been paid back if it had been called/not rolled over. In the case of a settlement failure in which settlement takes place on a different date than initially agreed, no transactional amendment needs to be reported.

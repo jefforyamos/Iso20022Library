@@ -44,7 +44,7 @@ public partial record TotalsPerBankTransactionCode2
     /// <summary>
     /// Set of elements used to indicate when the booked amount of money will become available, that is can be accessed and starts generating interest.
     /// </summary>
-    public CashBalanceAvailability2? Availability { get; init;  } // Warning: Don't know multiplicity.
+    public CashBalanceAvailability2[] Availability { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

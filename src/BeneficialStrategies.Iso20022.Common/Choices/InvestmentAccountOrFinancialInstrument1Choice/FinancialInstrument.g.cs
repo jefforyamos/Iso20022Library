@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestmentAccountOrFinancialInst
 /// <summary>
 /// Instrument that has intrinsic monetary value, and may transfer value, the price of which may be obtained from a financial market, eg, a bond or a cheque.
 /// </summary>
-public partial record FinancialInstrument : IInvestmentAccountOrFinancialInstrument1Choice
+public partial record FinancialInstrument : InvestmentAccountOrFinancialInstrument1Choice_
 {
     #nullable enable
     /// <summary>
     /// Identification of a security by an ISIN.
     /// </summary>
-    public required ISecurityIdentification1Choice Identification { get; init; } 
+    public required SecurityIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>

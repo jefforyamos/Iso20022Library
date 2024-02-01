@@ -24,15 +24,15 @@ public partial record CorporateActionOption185
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public required ICorporateActionOption30Choice OptionType { get; init; } 
+    public required CorporateActionOption30Choice_ OptionType { get; init; } 
     /// <summary>
     /// Provides information about securities movement related to a corporate action option.
     /// </summary>
-    public SecuritiesOption76? SecuritiesMovementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SecuritiesOption76[] SecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the cash movement linked to the corporate action option.
     /// </summary>
-    public CashOption76? CashMovementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashOption76[] CashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

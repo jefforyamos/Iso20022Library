@@ -24,7 +24,7 @@ public partial record CreditDerivative4
     /// <summary>
     /// Designation of the underlying reference obligation.
     /// </summary>
-    public IDerivativePartyIdentification1Choice? ReferenceParty { get; init; } 
+    public DerivativePartyIdentification1Choice_? ReferenceParty { get; init; } 
     /// <summary>
     /// Specifies the time unit associated with the frequency of payments.
     /// </summary>
@@ -49,7 +49,7 @@ public partial record CreditDerivative4
     /// <summary>
     /// Indicates whether the derivative contract is tranched or not.
     /// </summary>
-    public ITrancheIndicator3Choice? Tranche { get; init; } 
+    public TrancheIndicator3Choice_? Tranche { get; init; } 
     
     #nullable disable
 }

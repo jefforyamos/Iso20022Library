@@ -24,11 +24,11 @@ public partial record CardPaymentTransaction104
     /// <summary>
     /// This enables retailers, if they so wish, to clearly indicate whether the consent of the customer was explicitly obtained for a given service instead of being implicitly derived.
     /// </summary>
-    public IsoTrueFalseIndicator? CustomerConsent { get; init;  } // Warning: Don't know multiplicity.
+    public IsoTrueFalseIndicator[] CustomerConsent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// The card programme proposed by a retailer to a cardholder among a series of payment programmes offered by the retailer.
     /// </summary>
-    public IsoMax35Text? CardProgrammeProposed { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] CardProgrammeProposed { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// The card programme actually selected by the cardholder among the ones supported by the retailer and/or the one actually proposed to him.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record CardPaymentTransaction104
     /// <summary>
     /// List of incidents during the transaction.
     /// </summary>
-    public FailureReason3Code? FailureReason { get; init;  } // Warning: Don't know multiplicity.
+    public FailureReason3Code[] FailureReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction assigned by the initiating party for the recipient party.
     /// </summary>
@@ -84,7 +84,7 @@ public partial record CardPaymentTransaction104
     /// <summary>
     /// Additional information related to the transaction.
     /// </summary>
-    public IsoMax70Text? AdditionalTransactionData { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] AdditionalTransactionData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -24,7 +24,7 @@ public partial record SecurityIdentification32
     /// <summary>
     /// Identification of a security by proprietary or domestic identification scheme.
     /// </summary>
-    public OtherIdentification3? OtherIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public OtherIdentification3[] OtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Textual description of a security instrument.
     /// </summary>

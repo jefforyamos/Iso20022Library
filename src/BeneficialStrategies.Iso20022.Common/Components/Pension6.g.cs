@@ -24,15 +24,15 @@ public partial record Pension6
     /// <summary>
     /// Type of pension policy, plan or scheme.
     /// </summary>
-    public IPensionSchemeType3Choice? Type { get; init; } 
+    public PensionSchemeType3Choice_? Type { get; init; } 
     /// <summary>
     /// Scope of the pension policy, plan or scheme transfer.
     /// </summary>
-    public IPensionTransferScope1Choice? TransferScope { get; init; } 
+    public PensionTransferScope1Choice_? TransferScope { get; init; } 
     /// <summary>
     /// Tax reference issued to the pension policy, plan or scheme by a central organisation.
     /// </summary>
-    public TaxReference1? TaxReference { get; init;  } // Warning: Don't know multiplicity.
+    public TaxReference1[] TaxReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Reference of the drawdown.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record Pension6
     /// <summary>
     /// Additional information about the pension policy, plan or scheme.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

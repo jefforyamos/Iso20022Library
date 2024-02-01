@@ -28,7 +28,7 @@ public partial record SecuritiesQuantityDetailsSD3
     /// <summary>
     /// Instruction quantity for a given transaction sequence number.
     /// </summary>
-    public IFinancialInstrumentQuantity31Choice? InstructionQuantity { get; init; } 
+    public FinancialInstrumentQuantity31Choice_? InstructionQuantity { get; init; } 
     
     #nullable disable
 }

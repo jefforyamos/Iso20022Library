@@ -66,7 +66,7 @@ public partial record IntraPositionMovementConfirmation002V09 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public IPartyIdentification136Choice? AccountOwner { get; init; }
+    public PartyIdentification136Choice_? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -93,7 +93,7 @@ public partial record IntraPositionMovementConfirmation002V09 : IOuterRecord
     [Description(@"Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).")]
     [DataMember(Name="SfkpgPlc")]
     [XmlElement(ElementName="SfkpgPlc")]
-    public ISafekeepingPlaceFormat39Choice? SafekeepingPlace { get; init; }
+    public SafekeepingPlaceFormat39Choice_? SafekeepingPlace { get; init; }
     
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.

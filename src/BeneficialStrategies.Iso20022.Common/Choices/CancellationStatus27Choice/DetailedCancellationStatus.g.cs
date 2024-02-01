@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationStatus27Choice;
 /// <summary>
 /// Status of individual instruction cancellation request that were received within the instruction cancellation  message identified in InstructionType/InstructionCancellationIdentification. 
 /// </summary>
-public partial record DetailedCancellationStatus : ICancellationStatus27Choice
+public partial record DetailedCancellationStatus : CancellationStatus27Choice_
 {
     #nullable enable
     /// <summary>
@@ -30,6 +30,6 @@ public partial record DetailedCancellationStatus : ICancellationStatus27Choice
     /// <summary>
     /// Status of an individual meeting instruction cancellation request.
     /// </summary>
-    public required ICancellationStatus26Choice InstructionCancellationStatus { get; init; } 
+    public required CancellationStatus26Choice_ InstructionCancellationStatus { get; init; } 
     #nullable disable
 }

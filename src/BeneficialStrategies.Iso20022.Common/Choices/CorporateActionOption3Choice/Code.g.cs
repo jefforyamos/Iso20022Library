@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionOption3Choice;
 /// <summary>
 /// Option type expressed as a code.
 /// </summary>
-public partial record Code : ICorporateActionOption3Choice
+public partial record Code : CorporateActionOption3Choice_
 {
     public required CorporateActionOption3Code Value { get; init; }
 }

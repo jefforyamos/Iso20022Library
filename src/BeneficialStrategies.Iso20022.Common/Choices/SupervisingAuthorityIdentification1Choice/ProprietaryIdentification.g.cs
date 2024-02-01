@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SupervisingAuthorityIdentificati
 /// <summary>
 /// Unique and unambiguous identifier, as assigned to an institution using an external code list.
 /// </summary>
-public partial record ProprietaryIdentification : ISupervisingAuthorityIdentification1Choice
+public partial record ProprietaryIdentification : SupervisingAuthorityIdentification1Choice_
 {
     public required ExternalAuthorityIdentification1Code Value { get; init; }
 }

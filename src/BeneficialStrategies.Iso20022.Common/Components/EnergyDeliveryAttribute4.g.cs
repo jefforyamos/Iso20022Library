@@ -28,7 +28,7 @@ public partial record EnergyDeliveryAttribute4
     /// <summary>
     /// Start time and end time for each block or shape.
     /// </summary>
-    public TimePeriodDetails1? DeliveryTime { get; init;  } // Warning: Don't know multiplicity.
+    public TimePeriodDetails1[] DeliveryTime { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Duration of the delivery period.
     /// </summary>
@@ -36,15 +36,15 @@ public partial record EnergyDeliveryAttribute4
     /// <summary>
     /// Days of the week of the delivery.
     /// </summary>
-    public WeekDay3Code? WeekDay { get; init;  } // Warning: Don't know multiplicity.
+    public WeekDay3Code[] WeekDay { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Delivery capacity for each delivery interval specified.
     /// </summary>
-    public IQuantity46Choice? DeliveryCapacity { get; init; } 
+    public Quantity46Choice_? DeliveryCapacity { get; init; } 
     /// <summary>
     /// Daily or hourly quantity in MWh or kWh/d which corresponds to the underlying commodity.
     /// </summary>
-    public IEnergyQuantityUnit1Choice? QuantityUnit { get; init; } 
+    public EnergyQuantityUnit1Choice_? QuantityUnit { get; init; } 
     /// <summary>
     /// Indicates if applicable the price per quantity per delivery time interval.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModelFormIdentification1Choice;
 /// <summary>
 /// Model form identification.
 /// </summary>
-public partial record Code : IModelFormIdentification1Choice
+public partial record Code : ModelFormIdentification1Choice_
 {
     public required ExternalModelFormIdentification1Code Value { get; init; }
 }

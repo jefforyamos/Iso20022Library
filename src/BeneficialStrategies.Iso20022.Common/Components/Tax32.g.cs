@@ -20,7 +20,7 @@ public partial record Tax32
     /// <summary>
     /// Type of tax applied.
     /// </summary>
-    public required ITaxType3Choice Type { get; init; } 
+    public required TaxType3Choice_ Type { get; init; } 
     /// <summary>
     /// Amount of money resulting from the calculation of the tax. This amount is provided for information only.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record Tax32
     /// <summary>
     /// Reason for the tax exemption.
     /// </summary>
-    public IExemptionReason1Choice? ExemptionReason { get; init; } 
+    public ExemptionReason1Choice_? ExemptionReason { get; init; } 
     /// <summary>
     /// Party that receives the tax. The recipient of, and the party entitled to, the tax may be two different parties.
     /// </summary>

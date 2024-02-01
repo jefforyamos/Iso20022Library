@@ -20,11 +20,11 @@ public partial record SubBalanceInformation3
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public required ISubBalanceQuantity1Choice Quantity { get; init; } 
+    public required SubBalanceQuantity1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Type of subbalance.
     /// </summary>
-    public required ISubBalanceType2Choice SubBalanceType { get; init; } 
+    public required SubBalanceType2Choice_ SubBalanceType { get; init; } 
     
     #nullable disable
 }

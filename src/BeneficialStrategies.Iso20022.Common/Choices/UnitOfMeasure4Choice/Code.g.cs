@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitOfMeasure4Choice;
 /// <summary>
 /// Unit of measure expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IUnitOfMeasure4Choice
+public partial record Code : UnitOfMeasure4Choice_
 {
     public required UnitOfMeasure4Code Value { get; init; }
 }

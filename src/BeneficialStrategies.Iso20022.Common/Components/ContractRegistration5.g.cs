@@ -32,11 +32,11 @@ public partial record ContractRegistration5
     /// <summary>
     /// Details about the opening of the contract registration.
     /// </summary>
-    public ContractRegistration6? ContractRegistrationOpening { get; init;  } // Warning: Don't know multiplicity.
+    public ContractRegistration6[] ContractRegistrationOpening { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

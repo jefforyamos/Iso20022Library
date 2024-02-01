@@ -20,11 +20,11 @@ public partial record AdviceType1
     /// <summary>
     /// Type of credit advice requested.
     /// </summary>
-    public IAdviceType1Choice? CreditAdvice { get; init; } 
+    public AdviceType1Choice_? CreditAdvice { get; init; } 
     /// <summary>
     /// Type de debit advice requested.
     /// </summary>
-    public IAdviceType1Choice? DebitAdvice { get; init; } 
+    public AdviceType1Choice_? DebitAdvice { get; init; } 
     
     #nullable disable
 }

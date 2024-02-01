@@ -88,7 +88,7 @@ public partial record PaymentInstruction39
     /// <summary>
     /// Provides information on the individual transaction(s) included in the message.
     /// </summary>
-    public DirectDebitTransactionInformation28? DirectDebitTransactionInformation { get; init;  } // Warning: Don't know multiplicity.
+    public DirectDebitTransactionInformation28[] DirectDebitTransactionInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

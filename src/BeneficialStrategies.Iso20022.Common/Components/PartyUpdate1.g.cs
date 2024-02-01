@@ -36,15 +36,15 @@ public partial record PartyUpdate1
     /// <summary>
     /// Information about decision taken by a relevant institution concerning the party.
     /// </summary>
-    public StatusDetail1? Status { get; init;  } // Warning: Don't know multiplicity.
+    public StatusDetail1[] Status { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Period of time when the associated record is technically valid.
     /// </summary>
-    public IPeriod4Choice? TechnicalValidityPeriod { get; init; } 
+    public Period4Choice_? TechnicalValidityPeriod { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

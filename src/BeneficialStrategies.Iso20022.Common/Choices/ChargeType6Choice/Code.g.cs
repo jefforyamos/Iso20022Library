@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeType6Choice;
 /// <summary>
 /// Type of fee expressed as a code.
 /// </summary>
-public partial record Code : IChargeType6Choice
+public partial record Code : ChargeType6Choice_
 {
     public required InvestmentFundFee2Code Value { get; init; }
 }

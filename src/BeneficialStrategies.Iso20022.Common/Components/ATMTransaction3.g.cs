@@ -32,7 +32,7 @@ public partial record ATMTransaction3
     /// <summary>
     /// Amount per bundle in the currency of the total presented amount, in the order of the presentation.
     /// </summary>
-    public IsoImpliedCurrencyAndAmount? BundlePresentedAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IsoImpliedCurrencyAndAmount[] BundlePresentedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Status of the amount presented to the customer in the last bundle.
     /// </summary>
@@ -40,11 +40,11 @@ public partial record ATMTransaction3
     /// <summary>
     /// Incident occurring during the processing of the transaction.
     /// </summary>
-    public FailureReason4Code? Incident { get; init;  } // Warning: Don't know multiplicity.
+    public FailureReason4Code[] Incident { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Explanation of the incident.
     /// </summary>
-    public IsoMax70Text? IncidentDetail { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] IncidentDetail { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the reconciliation period assigned by the ATM.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record ATMTransaction3
     /// <summary>
     /// Additional charge (for instance tax or fee).
     /// </summary>
-    public DetailedAmount13? AdditionalCharge { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount13[] AdditionalCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// True if the customer has requested a receipt.
     /// </summary>
@@ -108,11 +108,11 @@ public partial record ATMTransaction3
     /// <summary>
     /// Current totals of the ATM.
     /// </summary>
-    public ATMTotals1? ATMTotals { get; init;  } // Warning: Don't know multiplicity.
+    public ATMTotals1[] ATMTotals { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information on the cassettes of the ATM.
     /// </summary>
-    public ATMCassette1? Cassette { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCassette1[] Cassette { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

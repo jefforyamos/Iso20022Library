@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeCounterpartyRelationship1Ch
 /// <summary>
 /// Classification of the party relationship via a pre-determined code list.
 /// </summary>
-public partial record Code : ITradeCounterpartyRelationship1Choice
+public partial record Code : TradeCounterpartyRelationship1Choice_
 {
     public required ExternalPartyRelationshipType1Code Value { get; init; }
 }

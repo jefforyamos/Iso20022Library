@@ -20,7 +20,7 @@ public partial record PartyIdentificationAndAccount3
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public required IPartyIdentification2Choice PartyIdentification { get; init; } 
+    public required PartyIdentification2Choice_ PartyIdentification { get; init; } 
     /// <summary>
     /// Identification of the account owned by the party.
     /// </summary>

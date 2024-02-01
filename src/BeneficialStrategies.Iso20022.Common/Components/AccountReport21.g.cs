@@ -20,11 +20,11 @@ public partial record AccountReport21
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public required IAccountIdentification4Choice AccountIdentification { get; init; } 
+    public required AccountIdentification4Choice_ AccountIdentification { get; init; } 
     /// <summary>
     /// Requested information on the account or business error when information has not been found.
     /// </summary>
-    public required IAccountOrBusinessError3Choice AccountOrError { get; init; } 
+    public required AccountOrBusinessError3Choice_ AccountOrError { get; init; } 
     
     #nullable disable
 }

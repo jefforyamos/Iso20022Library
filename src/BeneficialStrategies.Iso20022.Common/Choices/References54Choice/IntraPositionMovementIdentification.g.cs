@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References54Choice;
 /// <summary>
 /// Unambiguous identification of the intra-position movement transaction as known by the account owner (or instructing party acting on its behalf).
 /// </summary>
-public partial record IntraPositionMovementIdentification : IReferences54Choice
+public partial record IntraPositionMovementIdentification : References54Choice_
 {
     public required IsoRestrictedFINXMax16Text Value { get; init; }
 }

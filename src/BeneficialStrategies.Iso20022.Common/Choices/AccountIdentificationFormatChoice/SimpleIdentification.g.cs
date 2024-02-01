@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentificationFormatChoic
 /// <summary>
 /// Unique and unambiguous identification for the account between the account owner and the account servicer.
 /// </summary>
-public partial record SimpleIdentification : IAccountIdentificationFormatChoice
+public partial record SimpleIdentification : AccountIdentificationFormatChoice_
 {
     #nullable enable
     /// <summary>

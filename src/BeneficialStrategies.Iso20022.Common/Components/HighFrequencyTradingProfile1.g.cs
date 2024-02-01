@@ -24,11 +24,11 @@ public partial record HighFrequencyTradingProfile1
     /// <summary>
     /// Frequency of settlement.
     /// </summary>
-    public ISettlementFrequency1Choice? SettlementFrequency { get; init; } 
+    public SettlementFrequency1Choice_? SettlementFrequency { get; init; } 
     /// <summary>
     /// Specifies whether consolidation is done generally or at the level of segregated account.
     /// </summary>
-    public IConsolidationType1Choice? ConsolidationType { get; init; } 
+    public ConsolidationType1Choice_? ConsolidationType { get; init; } 
     
     #nullable disable
 }

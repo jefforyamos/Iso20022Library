@@ -24,15 +24,15 @@ public partial record CorporateActionRate71
     /// <summary>
     /// Rate of allowed over-subscription.
     /// </summary>
-    public IRateAndAmountFormat39Choice? OversubscriptionRate { get; init; } 
+    public RateAndAmountFormat39Choice_? OversubscriptionRate { get; init; } 
     /// <summary>
     /// Requested tax rate that will be withheld by the tax authorities of the jurisdiction of the issuer, for which a relief at source and/or reclaim may be possible.
     /// </summary>
-    public IRateAndAmountFormat40Choice? RequestedWithholdingTaxRate { get; init;  } // Warning: Don't know multiplicity.
+    public RateAndAmountFormat40Choice_[] RequestedWithholdingTaxRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Requested rate at which the income will be withheld by the jurisdiction other than the jurisdiction of the issuer’s country of tax incorporation, for which a relief at source and/or reclaim may be possible.
     /// </summary>
-    public IRateAndAmountFormat40Choice? RequestedSecondLevelTaxRate { get; init;  } // Warning: Don't know multiplicity.
+    public RateAndAmountFormat40Choice_[] RequestedSecondLevelTaxRate { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

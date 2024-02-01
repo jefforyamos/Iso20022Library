@@ -28,7 +28,7 @@ public partial record RTPPartyIdentification1
     /// <summary>
     /// Unique and unambiguous identification of a party.
     /// </summary>
-    public IParty49Choice? Identification { get; init; } 
+    public Party49Choice_? Identification { get; init; } 
     /// <summary>
     /// Country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
     /// </summary>

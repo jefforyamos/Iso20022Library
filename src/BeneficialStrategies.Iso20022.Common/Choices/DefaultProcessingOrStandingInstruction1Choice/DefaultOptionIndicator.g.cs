@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DefaultProcessingOrStandingInstr
 /// <summary>
 /// Indicates whether the option, for example, currency option, will be selected by default if no instruction is provided by the account owner.
 /// </summary>
-public partial record DefaultOptionIndicator : IDefaultProcessingOrStandingInstruction1Choice
+public partial record DefaultOptionIndicator : DefaultProcessingOrStandingInstruction1Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

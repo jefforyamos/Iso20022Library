@@ -20,7 +20,7 @@ public partial record IntentToPay2
     /// <summary>
     /// Specifies if breakdown is by purchase order or commercial invoice.
     /// </summary>
-    public required IBreakDown1Choice Breakdown { get; init; } 
+    public required BreakDown1Choice_ Breakdown { get; init; } 
     /// <summary>
     /// Date at which the payment would be effected.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PlanStatus2Choice;
 /// <summary>
 /// Status of the plan expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IPlanStatus2Choice
+public partial record Proprietary : PlanStatus2Choice_
 {
     #nullable enable
     /// <summary>

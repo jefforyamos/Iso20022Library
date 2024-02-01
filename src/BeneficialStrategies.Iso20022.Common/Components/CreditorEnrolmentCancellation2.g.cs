@@ -28,11 +28,11 @@ public partial record CreditorEnrolmentCancellation2
     /// <summary>
     /// Provides the original creditor enrolment data.
     /// </summary>
-    public required IOriginalEnrolment2Choice OriginalEnrolment { get; init; } 
+    public required OriginalEnrolment2Choice_ OriginalEnrolment { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

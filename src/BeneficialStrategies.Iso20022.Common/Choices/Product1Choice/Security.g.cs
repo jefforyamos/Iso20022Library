@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Product1Choice;
 /// <summary>
 /// Attributes relating to cleared securities.
 /// </summary>
-public partial record Security : IProduct1Choice
+public partial record Security : Product1Choice_
 {
     #nullable enable
     /// <summary>

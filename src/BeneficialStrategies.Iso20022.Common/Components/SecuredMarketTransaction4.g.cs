@@ -50,7 +50,7 @@ public partial record SecuredMarketTransaction4
     /// <summary>
     /// Identification of the counterparty of the reporting agent for the reported transaction.
     /// </summary>
-    public required ICounterpartyIdentification3Choice CounterpartyIdentification { get; init; } 
+    public required CounterpartyIdentification3Choice_ CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Identification of the tri-party agent, when the transaction has been performed via tri-party agent.
     /// </summary>
@@ -61,7 +61,7 @@ public partial record SecuredMarketTransaction4
     /// It is to be reported with only the date when the time of the transaction is not available. 
     /// The reported time is the execution time when available or otherwise the time at which the transaction entered the trading system of the reporting agent.
     /// </summary>
-    public required IDateAndDateTimeChoice TradeDate { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDate { get; init; } 
     /// <summary>
     /// Date on which the amount of money is initially exchanged versus the asset as contractually agreed.
     /// Usage:
@@ -108,7 +108,7 @@ public partial record SecuredMarketTransaction4
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

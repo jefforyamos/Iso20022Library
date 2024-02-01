@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonOrOrganisation1Choice;
 /// <summary>
 /// Identifies internal party.
 /// </summary>
-public partial record Internal : IPersonOrOrganisation1Choice
+public partial record Internal : PersonOrOrganisation1Choice_
 {
     public required InternalPartyRole1Code Value { get; init; }
 }

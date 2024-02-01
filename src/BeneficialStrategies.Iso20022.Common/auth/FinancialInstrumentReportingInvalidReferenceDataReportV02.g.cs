@@ -48,7 +48,7 @@ public partial record FinancialInstrumentReportingInvalidReferenceDataReportV02 
     [DataMember(Name="DtPrd")]
     [XmlElement(ElementName="DtPrd")]
     [Required]
-    public required IPeriod4Choice DatePeriod { get; init; }
+    public required Period4Choice_ DatePeriod { get; init; }
     
     /// <summary>
     /// Number of invalid records in this message.

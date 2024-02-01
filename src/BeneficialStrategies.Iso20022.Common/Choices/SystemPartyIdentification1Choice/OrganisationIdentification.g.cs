@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyIdentification1Choice
 /// <summary>
 /// Provides the identification of a party.
 /// </summary>
-public partial record OrganisationIdentification : ISystemPartyIdentification1Choice
+public partial record OrganisationIdentification : SystemPartyIdentification1Choice_
 {
     #nullable enable
     #nullable disable

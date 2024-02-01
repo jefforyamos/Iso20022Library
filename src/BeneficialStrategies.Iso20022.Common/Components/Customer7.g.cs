@@ -40,7 +40,7 @@ public partial record Customer7
     /// <summary>
     /// Credentials of the financial customer.
     /// </summary>
-    public Credentials2? Credentials { get; init;  } // Warning: Don't know multiplicity.
+    public Credentials2[] Credentials { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Nationality information (ISO 3166-1 alpha-2 or alpha-3)
     /// </summary>
@@ -60,7 +60,7 @@ public partial record Customer7
     /// <summary>
     /// Additional information related to the customer.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

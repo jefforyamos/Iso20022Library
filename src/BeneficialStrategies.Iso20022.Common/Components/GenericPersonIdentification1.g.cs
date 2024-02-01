@@ -24,7 +24,7 @@ public partial record GenericPersonIdentification1
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
-    public IPersonIdentificationSchemeName1Choice? SchemeName { get; init; } 
+    public PersonIdentificationSchemeName1Choice_? SchemeName { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References53Choice;
 /// <summary>
 /// Unambiguous identification of the report to be cancelled.
 /// </summary>
-public partial record SecuritiesSettlementTransactionAllegementReportIdentification : IReferences53Choice
+public partial record SecuritiesSettlementTransactionAllegementReportIdentification : References53Choice_
 {
     public required IsoRestrictedFINXMax16Text Value { get; init; }
 }

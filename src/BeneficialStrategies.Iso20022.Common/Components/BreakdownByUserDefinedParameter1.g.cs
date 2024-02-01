@@ -20,7 +20,7 @@ public partial record BreakdownByUserDefinedParameter1
     /// <summary>
     /// Party for which the cash flow is being reported.
     /// </summary>
-    public IPartyIdentification2Choice? Party { get; init; } 
+    public PartyIdentification2Choice_? Party { get; init; } 
     /// <summary>
     /// Country for which the cash flow is being reported.
     /// </summary>
@@ -32,19 +32,19 @@ public partial record BreakdownByUserDefinedParameter1
     /// <summary>
     /// Parameter for which the cash flow is being reported.
     /// </summary>
-    public IDataFormat2Choice? UserDefined { get; init; } 
+    public DataFormat2Choice_? UserDefined { get; init; } 
     /// <summary>
     /// Cash movement into the fund as a result of investment funds transactions, eg, subscriptions or switch-in.
     /// </summary>
-    public CashInForecast3? CashInForecast { get; init;  } // Warning: Don't know multiplicity.
+    public CashInForecast3[] CashInForecast { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash movement out of the fund as a result of investment funds transactions, eg, redemptions or switch-out.
     /// </summary>
-    public CashOutForecast3? CashOutForecast { get; init;  } // Warning: Don't know multiplicity.
+    public CashOutForecast3[] CashOutForecast { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net cash as a result of the cash-in and cash-out flows specified for the user defined parameter.
     /// </summary>
-    public NetCashForecast2? NetCashForecast { get; init;  } // Warning: Don't know multiplicity.
+    public NetCashForecast2[] NetCashForecast { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

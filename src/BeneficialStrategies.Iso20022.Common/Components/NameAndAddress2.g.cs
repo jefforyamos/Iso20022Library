@@ -24,7 +24,7 @@ public partial record NameAndAddress2
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    public ILongPostalAddress1Choice? Address { get; init; } 
+    public LongPostalAddress1Choice_? Address { get; init; } 
     
     #nullable disable
 }

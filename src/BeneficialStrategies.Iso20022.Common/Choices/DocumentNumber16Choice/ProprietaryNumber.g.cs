@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DocumentNumber16Choice;
 /// <summary>
 /// Proprietary document identification.
 /// </summary>
-public partial record ProprietaryNumber : IDocumentNumber16Choice
+public partial record ProprietaryNumber : DocumentNumber16Choice_
 {
     #nullable enable
     /// <summary>

@@ -69,7 +69,7 @@ public partial record SecuritiesSettlementTransactionModificationRequest002V09 :
     [Description(@"Specifies the type of update requested.")]
     [DataMember(Name="UpdTp")]
     [XmlElement(ElementName="UpdTp")]
-    public required IReadOnlyCollection<IUpdateType38Choice> UpdateType { get; init; } = []; // Min=1, Max=3
+    public required IReadOnlyCollection<UpdateType38Choice_> UpdateType { get; init; } = []; // Min=1, Max=3
     
     #nullable disable
     

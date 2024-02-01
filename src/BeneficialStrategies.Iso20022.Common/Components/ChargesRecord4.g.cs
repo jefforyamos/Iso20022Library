@@ -25,7 +25,7 @@ public partial record ChargesRecord4
     /// <summary>
     /// Identifies the underlying transaction(s) to which the charges apply.
     /// </summary>
-    public TransactionReferences7? UnderlyingTransaction { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionReferences7[] UnderlyingTransaction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of transaction charges to be paid by the charge bearer.
     /// </summary>
@@ -37,7 +37,7 @@ public partial record ChargesRecord4
     /// <summary>
     /// Date and time at which the charges are or will be available.
     /// </summary>
-    public IDateAndDateTime2Choice? ValueDate { get; init; } 
+    public DateAndDateTime2Choice_? ValueDate { get; init; } 
     /// <summary>
     /// Specifies the debtor agent of the initial transaction, if different from the charges account owner.
     /// </summary>
@@ -58,7 +58,7 @@ public partial record ChargesRecord4
     /// <summary>
     /// Specifies the type of charge.
     /// </summary>
-    public IChargeType3Choice? Type { get; init; } 
+    public ChargeType3Choice_? Type { get; init; } 
     /// <summary>
     /// Further information related to the processing of the payment adjustment instruction that may need to be acted upon by the next agent. 
     /// </summary>

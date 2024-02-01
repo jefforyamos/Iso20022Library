@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OpeningBalance3Choice;
 /// <summary>
 /// Opening balance of the financial instrument in the statement.
 /// </summary>
-public partial record FirstOpeningBalance : IOpeningBalance3Choice
+public partial record FirstOpeningBalance : OpeningBalance3Choice_
 {
     #nullable enable
     /// <summary>

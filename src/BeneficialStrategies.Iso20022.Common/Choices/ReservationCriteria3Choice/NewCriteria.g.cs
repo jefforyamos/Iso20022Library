@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReservationCriteria3Choice;
 /// <summary>
 /// Defines the criteria based on which the information is extracted.
 /// </summary>
-public partial record NewCriteria : IReservationCriteria3Choice
+public partial record NewCriteria : ReservationCriteria3Choice_
 {
     #nullable enable
     /// <summary>

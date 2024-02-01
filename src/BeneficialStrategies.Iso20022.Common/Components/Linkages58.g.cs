@@ -20,11 +20,11 @@ public partial record Linkages58
     /// <summary>
     /// Message type number/message identifier of the message referenced in the linkage sequence.
     /// </summary>
-    public IDocumentNumber5Choice? MessageNumber { get; init; } 
+    public DocumentNumber5Choice_? MessageNumber { get; init; } 
     /// <summary>
     /// Reference to the linked transaction or instruction.
     /// </summary>
-    public required IReferences70Choice References { get; init; } 
+    public required References70Choice_ References { get; init; } 
     
     #nullable disable
 }

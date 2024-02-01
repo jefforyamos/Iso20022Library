@@ -24,11 +24,11 @@ public partial record CaseAssignment3
     /// <summary>
     /// Party who assigns the case. |Usage: This is also the sender of the message.
     /// </summary>
-    public required IParty12Choice Assigner { get; init; } 
+    public required Party12Choice_ Assigner { get; init; } 
     /// <summary>
     /// Party to which the case is assigned.|Usage: This is also the receiver of the message.
     /// </summary>
-    public required IParty12Choice Assignee { get; init; } 
+    public required Party12Choice_ Assignee { get; init; } 
     /// <summary>
     /// Date and time at which the assignment was created.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketClaimProcessingStatus1Choi
 /// <summary>
 /// Proprietary status related to an instruction.
 /// </summary>
-public partial record ProprietaryStatus : IMarketClaimProcessingStatus1Choice
+public partial record ProprietaryStatus : MarketClaimProcessingStatus1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountStatusUpdateInstructionRe
 /// <summary>
 /// Reason for the instruction to change the account status expressed as a code.
 /// </summary>
-public partial record Code : IAccountStatusUpdateInstructionReason2Choice
+public partial record Code : AccountStatusUpdateInstructionReason2Choice_
 {
     public required AccountStatusUpdateRequestReason1Code Value { get; init; }
 }

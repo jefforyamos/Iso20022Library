@@ -20,7 +20,7 @@ public partial record ExpiryTerms2
     /// <summary>
     /// Date and time when the undertaking will cease to be available.
     /// </summary>
-    public IDateAndDateTimeChoice? DateTime { get; init; } 
+    public DateAndDateTimeChoice_? DateTime { get; init; } 
     /// <summary>
     /// Details related to the automatic extension of the undertaking.
     /// </summary>

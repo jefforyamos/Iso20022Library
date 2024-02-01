@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CalendarOrBusinessError1Choice;
 /// <summary>
 /// Requested information on the system calendar.
 /// </summary>
-public partial record CalendarData : ICalendarOrBusinessError1Choice
+public partial record CalendarData : CalendarOrBusinessError1Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record CalendarData : ICalendarOrBusinessError1Choice
     /// <summary>
     /// Status of the system.
     /// </summary>
-    public required ISystemStatus3Choice SystemStatus { get; init; } 
+    public required SystemStatus3Choice_ SystemStatus { get; init; } 
     #nullable disable
 }

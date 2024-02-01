@@ -20,7 +20,7 @@ public partial record PendingReason27
     /// <summary>
     /// Specifies the reason of the pending status expressed as a code.
     /// </summary>
-    public required IPendingReason52Choice Code { get; init; } 
+    public required PendingReason52Choice_ Code { get; init; } 
     /// <summary>
     /// Indicates that there is no reason available or to report.
     /// </summary>

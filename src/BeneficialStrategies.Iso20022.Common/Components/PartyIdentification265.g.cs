@@ -24,7 +24,7 @@ public partial record PartyIdentification265
     /// <summary>
     /// Unique and unambiguous identifier, as assigned to a financial institution using a proprietary identification scheme.
     /// </summary>
-    public IReadOnlyCollection<IsoMax35Text> AlternativeIdentifier { get; init; } = [];
+    public IsoMax35Text[] AlternativeIdentifier { get; init; } = [];
     
     #nullable disable
 }

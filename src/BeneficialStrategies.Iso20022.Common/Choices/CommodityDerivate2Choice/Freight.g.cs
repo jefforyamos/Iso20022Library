@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CommodityDerivate2Choice;
 /// <summary>
 /// Details specific to freight derivatives.
 /// </summary>
-public partial record Freight : ICommodityDerivate2Choice
+public partial record Freight : CommodityDerivate2Choice_
 {
     #nullable enable
     /// <summary>

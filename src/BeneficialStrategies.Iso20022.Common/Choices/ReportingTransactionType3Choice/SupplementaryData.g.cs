@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportingTransactionType3Choice;
 /// <summary>
 /// Additional information that can not be captured in the structured fields and/or any other specific block.
 /// </summary>
-public partial record SupplementaryData : IReportingTransactionType3Choice
+public partial record SupplementaryData : ReportingTransactionType3Choice_
 {
     #nullable enable
     /// <summary>

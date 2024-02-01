@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LinkedMessage1Choice;
 /// <summary>
 /// Linked related reference.
 /// </summary>
-public partial record RelatedReference : ILinkedMessage1Choice
+public partial record RelatedReference : LinkedMessage1Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record RelatedReference : ILinkedMessage1Choice
     /// <summary>
     /// Issuer of the reference.
     /// </summary>
-    public IPartyIdentification2Choice? ReferenceIssuer { get; init; } 
+    public PartyIdentification2Choice_? ReferenceIssuer { get; init; } 
     /// <summary>
     /// Name of a message.
     /// </summary>

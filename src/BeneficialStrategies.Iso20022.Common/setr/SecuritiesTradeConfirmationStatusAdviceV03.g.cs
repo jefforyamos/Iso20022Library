@@ -71,7 +71,7 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV03 : IOuterRecord
     [Description(@"Provides details on the affitrmation status of a trade.")]
     [DataMember(Name="AffirmSts")]
     [XmlElement(ElementName="AffirmSts")]
-    public IAffirmationStatus11Choice? AffirmationStatus { get; init; }
+    public AffirmationStatus11Choice_? AffirmationStatus { get; init; }
     
     /// <summary>
     /// Provides the processing status of a trade.
@@ -80,7 +80,7 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV03 : IOuterRecord
     [Description(@"Provides the processing status of a trade.")]
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
-    public IProcessingStatus98Choice? ProcessingStatus { get; init; }
+    public ProcessingStatus98Choice_? ProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides details on the matching status of a trade.
@@ -89,7 +89,7 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV03 : IOuterRecord
     [Description(@"Provides details on the matching status of a trade.")]
     [DataMember(Name="MtchgSts")]
     [XmlElement(ElementName="MtchgSts")]
-    public IMatchingStatus35Choice? MatchingStatus { get; init; }
+    public MatchingStatus35Choice_? MatchingStatus { get; init; }
     
     /// <summary>
     /// Provides the replacement processing status of a trade.
@@ -98,7 +98,7 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV03 : IOuterRecord
     [Description(@"Provides the replacement processing status of a trade.")]
     [DataMember(Name="RplcmntPrcgSts")]
     [XmlElement(ElementName="RplcmntPrcgSts")]
-    public IReplacementProcessingStatus10Choice? ReplacementProcessingStatus { get; init; }
+    public ReplacementProcessingStatus10Choice_? ReplacementProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides details on the cancellation status of a trade.
@@ -107,7 +107,7 @@ public partial record SecuritiesTradeConfirmationStatusAdviceV03 : IOuterRecord
     [Description(@"Provides details on the cancellation status of a trade.")]
     [DataMember(Name="CxlPrcgSts")]
     [XmlElement(ElementName="CxlPrcgSts")]
-    public ICancellationProcessingStatus10Choice? CancellationProcessingStatus { get; init; }
+    public CancellationProcessingStatus10Choice_? CancellationProcessingStatus { get; init; }
     
     /// <summary>
     /// Details of the trading party.

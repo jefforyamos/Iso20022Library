@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CommissionType1Choice;
 /// <summary>
 /// Commission type is defined using a data source scheme.
 /// </summary>
-public partial record Proprietary : ICommissionType1Choice
+public partial record Proprietary : CommissionType1Choice_
 {
     #nullable enable
     /// <summary>

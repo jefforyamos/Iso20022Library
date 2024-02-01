@@ -80,7 +80,7 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     [Description(@"Provides the status of an instruction.")]
     [DataMember(Name="InstrPrcgSts")]
     [XmlElement(ElementName="InstrPrcgSts")]
-    public IProcessingStatus82Choice? InstructionProcessingStatus { get; init; }
+    public ProcessingStatus82Choice_? InstructionProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides the matching status of the instruction.
@@ -89,7 +89,7 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     [Description(@"Provides the matching status of the instruction.")]
     [DataMember(Name="MtchgSts")]
     [XmlElement(ElementName="MtchgSts")]
-    public IMatchingStatus33Choice? MatchingStatus { get; init; }
+    public MatchingStatus33Choice_? MatchingStatus { get; init; }
     
     /// <summary>
     /// Provides the status of a cancellation request or status query.
@@ -98,7 +98,7 @@ public partial record TripartyCollateralTransactionInstructionProcessingStatusAd
     [Description(@"Provides the status of a cancellation request or status query.|")]
     [DataMember(Name="CxlPrcgSts")]
     [XmlElement(ElementName="CxlPrcgSts")]
-    public ICancellationStatus30Choice? CancellationProcessingStatus { get; init; }
+    public CancellationStatus30Choice_? CancellationProcessingStatus { get; init; }
     
     /// <summary>
     /// provides general information about the instruction and collateral transaction the message refers to.

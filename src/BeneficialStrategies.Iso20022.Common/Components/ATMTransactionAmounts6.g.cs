@@ -32,7 +32,7 @@ public partial record ATMTransactionAmounts6
     /// <summary>
     /// Additional amount that may be displayed to the customer, for instance the daily limit or the daily balance for the service.
     /// </summary>
-    public ATMTransactionAmounts7? AdditionalAmount { get; init;  } // Warning: Don't know multiplicity.
+    public ATMTransactionAmounts7[] AdditionalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

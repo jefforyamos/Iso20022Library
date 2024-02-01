@@ -24,7 +24,7 @@ public partial record IndividualPerson19
     /// <summary>
     /// Previous name used.
     /// </summary>
-    public IndividualPersonNameLong1? PreviousName { get; init;  } // Warning: Don't know multiplicity.
+    public IndividualPersonNameLong1[] PreviousName { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the gender of the person.
     /// </summary>
@@ -64,11 +64,11 @@ public partial record IndividualPerson19
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    public PostalAddress6? PostalAddress { get; init;  } // Warning: Don't know multiplicity.
+    public PostalAddress6[] PostalAddress { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information about a citizen.
     /// </summary>
-    public CitizenshipInformation1? CitizenshipInformation { get; init;  } // Warning: Don't know multiplicity.
+    public CitizenshipInformation1[] CitizenshipInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Address for the primary contact.
     /// </summary>
@@ -80,11 +80,11 @@ public partial record IndividualPerson19
     /// <summary>
     /// Other type of identification.
     /// </summary>
-    public GenericIdentification44? OtherIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification44[] OtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additonal information required for the account switch.
     /// </summary>
-    public TransferInstruction1? OtherDetails { get; init;  } // Warning: Don't know multiplicity.
+    public TransferInstruction1[] OtherDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

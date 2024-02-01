@@ -57,7 +57,7 @@ public partial record PaymentInstruction11
     /// <summary>
     /// Payment processes required to transfer cash from the debtor to the creditor.
     /// </summary>
-    public CreditTransferTransaction10? CreditTransferTransaction { get; init;  } // Warning: Don't know multiplicity.
+    public CreditTransferTransaction10[] CreditTransferTransaction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

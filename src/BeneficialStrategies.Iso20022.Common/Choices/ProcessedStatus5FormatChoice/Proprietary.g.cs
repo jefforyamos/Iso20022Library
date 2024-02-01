@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessedStatus5FormatChoice;
 /// <summary>
 /// Proprietary code to express the processing status of a request.
 /// </summary>
-public partial record Proprietary : IProcessedStatus5FormatChoice
+public partial record Proprietary : ProcessedStatus5FormatChoice_
 {
     #nullable enable
     /// <summary>

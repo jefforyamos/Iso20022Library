@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UniqueTransactionIdentifier2Choi
 /// <summary>
 /// Trade identifier expressed in a proprietary notation.
 /// </summary>
-public partial record Proprietary : IUniqueTransactionIdentifier2Choice
+public partial record Proprietary : UniqueTransactionIdentifier2Choice_
 {
     #nullable enable
     /// <summary>

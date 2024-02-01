@@ -36,7 +36,7 @@ public partial record YieldCalculation7
     /// <summary>
     /// Period on which the calculation is based.
     /// </summary>
-    public IDateTimePeriod1Choice? ValuePeriod { get; init; } 
+    public DateTimePeriod1Choice_? ValuePeriod { get; init; } 
     /// <summary>
     /// Included as needed to clarify yield irregularities associated with date, e.g. when it falls on a non-business day.
     /// </summary>

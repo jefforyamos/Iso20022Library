@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConsentTypeFormat1Choice;
 /// <summary>
 /// Standard code to specify the consent type required.
 /// </summary>
-public partial record Code : IConsentTypeFormat1Choice
+public partial record Code : ConsentTypeFormat1Choice_
 {
     public required ConsentType1Code Value { get; init; }
 }

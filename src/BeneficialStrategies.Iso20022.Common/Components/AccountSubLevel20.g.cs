@@ -24,11 +24,11 @@ public partial record AccountSubLevel20
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public required IPartyIdentification196Choice AccountHolder { get; init; } 
+    public required PartyIdentification196Choice_ AccountHolder { get; init; } 
     /// <summary>
     /// Detailed shareholding balance information for an account.
     /// </summary>
-    public ShareholdingBalance1? ShareholdingBalance { get; init;  } // Warning: Don't know multiplicity.
+    public ShareholdingBalance1[] ShareholdingBalance { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

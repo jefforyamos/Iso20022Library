@@ -32,7 +32,7 @@ public partial record UpdatedAdditionalInformation11
     /// <summary>
     /// Provides additional textual information.
     /// </summary>
-    public IsoMax350Text? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax350Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

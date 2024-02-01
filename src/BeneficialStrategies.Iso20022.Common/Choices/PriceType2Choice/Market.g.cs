@@ -12,16 +12,16 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceType2Choice;
 /// <summary>
 /// Last reported price of a financial instrument in a market, determined by supply and demand.
 /// </summary>
-public partial record Market : IPriceType2Choice
+public partial record Market : PriceType2Choice_
 {
     #nullable enable
     /// <summary>
     /// Specification of the price type.
     /// </summary>
-    public required IYieldedOrValueType1Choice Type { get; init; } 
+    public required YieldedOrValueType1Choice_ Type { get; init; } 
     /// <summary>
     /// Value of the price, for example, as a currency and value.
     /// </summary>
-    public required IPriceRateOrAmount1Choice Value { get; init; } 
+    public required PriceRateOrAmount1Choice_ Value { get; init; } 
     #nullable disable
 }

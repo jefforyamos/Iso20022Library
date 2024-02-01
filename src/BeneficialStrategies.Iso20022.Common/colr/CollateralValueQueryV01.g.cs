@@ -55,7 +55,7 @@ public partial record CollateralValueQueryV01 : IOuterRecord
     [Description(@"Definition of the collateral query.")]
     [DataMember(Name="CollValQryDef")]
     [XmlElement(ElementName="CollValQryDef")]
-    public ICollateralValueCriteriaDefinition3Choice? CollateralValueQueryDefinition { get; init; }
+    public CollateralValueCriteriaDefinition3Choice_? CollateralValueQueryDefinition { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

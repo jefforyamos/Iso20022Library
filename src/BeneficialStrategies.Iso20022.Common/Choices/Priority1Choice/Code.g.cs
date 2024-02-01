@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Priority1Choice;
 /// <summary>
 /// Priority code, in a coded form.
 /// </summary>
-public partial record Code : IPriority1Choice
+public partial record Code : Priority1Choice_
 {
     public required Priority5Code Value { get; init; }
 }

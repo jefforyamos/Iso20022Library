@@ -32,7 +32,7 @@ public partial record DetailedStatisticsPerCounterparty7
     /// <summary>
     /// Identification of the competent authority which supervises the reporting counterparty.
     /// </summary>
-    public CompetentAuthority1? CompetentAuthority { get; init;  } // Warning: Don't know multiplicity.
+    public CompetentAuthority1[] CompetentAuthority { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

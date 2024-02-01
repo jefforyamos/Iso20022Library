@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExemptionReason1Choice;
 /// <summary>
 /// Exemption reason expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IExemptionReason1Choice
+public partial record Proprietary : ExemptionReason1Choice_
 {
     #nullable enable
     /// <summary>

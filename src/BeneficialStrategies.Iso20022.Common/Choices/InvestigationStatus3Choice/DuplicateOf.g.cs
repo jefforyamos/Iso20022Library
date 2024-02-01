@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatus3Choice;
 /// <summary>
 /// Indicates a duplicated case. |Usage: When present, the case identified in the message must be closed. The case identified as duplicated (in this component) will be pursued.
 /// </summary>
-public partial record DuplicateOf : IInvestigationStatus3Choice
+public partial record DuplicateOf : InvestigationStatus3Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record DuplicateOf : IInvestigationStatus3Choice
     /// <summary>
     /// Party that created the investigation case.
     /// </summary>
-    public required IParty12Choice Creator { get; init; } 
+    public required Party12Choice_ Creator { get; init; } 
     /// <summary>
     /// Indicates whether or not the case was previously closed and is now re-opened.
     /// </summary>

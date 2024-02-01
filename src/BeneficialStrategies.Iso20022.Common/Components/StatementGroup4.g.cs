@@ -28,7 +28,7 @@ public partial record StatementGroup4
     /// <summary>
     /// Specifies the individual to contact in case of technical problems at the sender's location.
     /// </summary>
-    public IReadOnlyCollection<Contact4> SenderIndividualContact { get; init; } = [];
+    public Contact4[] SenderIndividualContact { get; init; } = [];
     /// <summary>
     /// Financial institution customer receiving the statement.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record StatementGroup4
     /// <summary>
     /// Specifies the individual to contact in case of technical problems at the receiver's location.
     /// </summary>
-    public IReadOnlyCollection<Contact4> ReceiverIndividualContact { get; init; } = [];
+    public Contact4[] ReceiverIndividualContact { get; init; } = [];
     /// <summary>
     /// Provides the bank services billing statement recounting of all service chargeable events that occurred during a reporting cycle, such as the end of the month reporting.
     /// </summary>
-    public BillingStatement4? BillingStatement { get; init;  } // Warning: Don't know multiplicity.
+    public BillingStatement4[] BillingStatement { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

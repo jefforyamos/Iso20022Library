@@ -32,11 +32,11 @@ public partial record CashMovement1
     /// <summary>
     /// Specifies the charges.
     /// </summary>
-    public Charges1? Charges { get; init;  } // Warning: Don't know multiplicity.
+    public Charges1[] Charges { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the account which is debited/credited.
     /// </summary>
-    public IReadOnlyCollection<CashAccount18> AccountDetails { get; init; } = [];
+    public CashAccount18[] AccountDetails { get; init; } = [];
     
     #nullable disable
 }

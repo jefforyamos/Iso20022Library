@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityMetal2Choice;
 /// <summary>
 /// Precious metal commodity derivative.
 /// </summary>
-public partial record Precious : IAssetClassCommodityMetal2Choice
+public partial record Precious : AssetClassCommodityMetal2Choice_
 {
     #nullable enable
     /// <summary>

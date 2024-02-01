@@ -60,7 +60,7 @@ public partial record PaymentTransaction97
     /// <summary>
     /// Identifies the agent(s) currently participating in a transaction.
     /// </summary>
-    public PaymentEvent2? Agent { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentEvent2[] Agent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the financial institution servicing an account for the creditor.
     /// </summary>
@@ -98,7 +98,7 @@ public partial record PaymentTransaction97
     /// <summary>
     /// Specifies the payment events related to the underlying cover payment.
     /// </summary>
-    public CoverPaymentEvent1? CoverPaymentEvent { get; init;  } // Warning: Don't know multiplicity.
+    public CoverPaymentEvent1[] CoverPaymentEvent { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -20,11 +20,11 @@ public partial record QuantityAndAccount7
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice SettlementQuantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification13Choice? AccountOwner { get; init; } 
+    public PartyIdentification13Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
@@ -32,11 +32,11 @@ public partial record QuantityAndAccount7
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    public ICashAccountIdentification5Choice? CashAccount { get; init; } 
+    public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public ISafekeepingPlaceFormat3Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; init; } 
     
     #nullable disable
 }

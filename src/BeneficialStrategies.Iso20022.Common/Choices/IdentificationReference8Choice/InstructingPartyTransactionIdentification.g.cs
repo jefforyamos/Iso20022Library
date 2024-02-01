@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationReference8Choice;
 /// <summary>
 /// Unambiguous identification of the confirmation transaction as known by the instructing party.
 /// </summary>
-public partial record InstructingPartyTransactionIdentification : IIdentificationReference8Choice
+public partial record InstructingPartyTransactionIdentification : IdentificationReference8Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

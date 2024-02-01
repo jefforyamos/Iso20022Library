@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentCodeOrOther2Choice;
 /// <summary>
 /// Specifies payment terms not present in a code list.
 /// </summary>
-public partial record OtherPaymentTerms : IPaymentCodeOrOther2Choice
+public partial record OtherPaymentTerms : PaymentCodeOrOther2Choice_
 {
     public required IsoMax140Text Value { get; init; }
 }

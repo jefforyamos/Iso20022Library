@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityRestrictionType2Choice;
 /// <summary>
 /// Type of the restriction, for example, selling restriction, buying restriction, placing restriction.
 /// </summary>
-public partial record RestrictionType : ISecurityRestrictionType2Choice
+public partial record RestrictionType : SecurityRestrictionType2Choice_
 {
     public required RestrictionType1Code Value { get; init; }
 }

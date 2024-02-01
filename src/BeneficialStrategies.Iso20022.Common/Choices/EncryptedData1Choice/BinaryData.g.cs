@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EncryptedData1Choice;
 /// <summary>
 /// BASE-64 encoded encrypted data.
 /// </summary>
-public partial record BinaryData : IEncryptedData1Choice
+public partial record BinaryData : EncryptedData1Choice_
 {
     public required IsoMax100KBinary Value { get; init; }
 }

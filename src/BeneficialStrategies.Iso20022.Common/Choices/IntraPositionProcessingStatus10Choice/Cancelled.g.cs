@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraPositionProcessingStatus10C
 /// <summary>
 /// Instruction has been cancelled.
 /// </summary>
-public partial record Cancelled : IIntraPositionProcessingStatus10Choice
+public partial record Cancelled : IntraPositionProcessingStatus10Choice_
 {
     #nullable enable
     #nullable disable

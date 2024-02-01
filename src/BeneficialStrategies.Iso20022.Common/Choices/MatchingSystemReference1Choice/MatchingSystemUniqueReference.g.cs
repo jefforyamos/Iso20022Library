@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingSystemReference1Choice;
 /// <summary>
 /// Reference to the unique system identification assigned to the trade by the central matching system.
 /// </summary>
-public partial record MatchingSystemUniqueReference : IMatchingSystemReference1Choice
+public partial record MatchingSystemUniqueReference : MatchingSystemReference1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

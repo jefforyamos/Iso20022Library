@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReplacementProcessingStatus7Choi
 /// <summary>
 /// Replacement of the trade is ReceivedAtStockExchange.
 /// </summary>
-public partial record ReceivedAtStockExchange : IReplacementProcessingStatus7Choice
+public partial record ReceivedAtStockExchange : ReplacementProcessingStatus7Choice_
 {
     #nullable enable
     /// <summary>

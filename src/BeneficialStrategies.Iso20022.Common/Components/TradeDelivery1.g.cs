@@ -44,7 +44,7 @@ public partial record TradeDelivery1
     /// <summary>
     /// Physical consolidation of goods for transport.
     /// </summary>
-    public Consignment2? Consignment { get; init;  } // Warning: Don't know multiplicity.
+    public Consignment2[] Consignment { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

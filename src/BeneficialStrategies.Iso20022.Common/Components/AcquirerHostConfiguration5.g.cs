@@ -24,7 +24,7 @@ public partial record AcquirerHostConfiguration5
     /// <summary>
     /// Types of message to sent to this host.
     /// </summary>
-    public MessageFunction15Code? MessageToSend { get; init;  } // Warning: Don't know multiplicity.
+    public MessageFunction15Code[] MessageToSend { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

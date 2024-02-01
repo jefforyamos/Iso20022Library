@@ -81,11 +81,11 @@ public partial record PartyIdentification203
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Sponsored merchant is a merchant that uses the payment services of another entity that acts as the card acceptor.
     /// </summary>
-    public SponsoredMerchant1? SponsoredMerchant { get; init;  } // Warning: Don't know multiplicity.
+    public SponsoredMerchant1[] SponsoredMerchant { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

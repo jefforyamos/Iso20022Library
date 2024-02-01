@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CompensationReason1Choice;
 /// <summary>
 /// Reason for the payment compensation, in a coded form.
 /// </summary>
-public partial record Code : ICompensationReason1Choice
+public partial record Code : CompensationReason1Choice_
 {
     public required ExternalPaymentCompensationReason1Code Value { get; init; }
 }

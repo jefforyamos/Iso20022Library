@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitOrFaceAmount1Choice;
 /// <summary>
 /// Quantity expressed as an amount representing the face amount, ie, the principal, of a debt instrument.
 /// </summary>
-public partial record FaceAmount : IUnitOrFaceAmount1Choice
+public partial record FaceAmount : UnitOrFaceAmount1Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

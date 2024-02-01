@@ -20,11 +20,11 @@ public partial record Reservation4
     /// <summary>
     /// Date and time at which the reservation becomes effective.
     /// </summary>
-    public IDateAndDateTime2Choice? StartDateTime { get; init; } 
+    public DateAndDateTime2Choice_? StartDateTime { get; init; } 
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
-    public required IAmount2Choice Amount { get; init; } 
+    public required Amount2Choice_ Amount { get; init; } 
     
     #nullable disable
 }

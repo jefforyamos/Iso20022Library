@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModificationCancellationAllowed1
 /// <summary>
 /// Specifies whether physical settlement may be executed using a letter of guarantee or if the physical certificates should be used.
 /// </summary>
-public partial record Indicator : IModificationCancellationAllowed1Choice
+public partial record Indicator : ModificationCancellationAllowed1Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

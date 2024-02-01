@@ -20,7 +20,7 @@ public partial record PartyIdentificationAndAccount93
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification2Choice? PartyIdentification { get; init; } 
+    public PartyIdentification2Choice_? PartyIdentification { get; init; } 
     /// <summary>
     /// Identification of the account owned by the party.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record PartyIdentificationAndAccount93
     /// <summary>
     /// Place where settlement of the securities takes place.
     /// </summary>
-    public required IPartyIdentification2Choice PlaceOfSettlement { get; init; } 
+    public required PartyIdentification2Choice_ PlaceOfSettlement { get; init; } 
     
     #nullable disable
 }

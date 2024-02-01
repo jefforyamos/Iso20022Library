@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.YieldedOrValueType2Choice;
 /// <summary>
 /// Indicates whether the price is expressed as a yield.
 /// </summary>
-public partial record Yielded : IYieldedOrValueType2Choice
+public partial record Yielded : YieldedOrValueType2Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

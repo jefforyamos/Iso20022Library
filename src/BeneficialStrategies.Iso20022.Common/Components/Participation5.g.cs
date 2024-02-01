@@ -28,7 +28,7 @@ public partial record Participation5
     /// <summary>
     /// Number of securities admitted to the vote, expressed as a number of units or a face amount.
     /// </summary>
-    public IFinancialInstrumentQuantity18Choice? TotalNumberOfSecuritiesOutstanding { get; init; } 
+    public FinancialInstrumentQuantity18Choice_? TotalNumberOfSecuritiesOutstanding { get; init; } 
     /// <summary>
     /// Date of calculation of the total number of outstanding securities.
     /// </summary>

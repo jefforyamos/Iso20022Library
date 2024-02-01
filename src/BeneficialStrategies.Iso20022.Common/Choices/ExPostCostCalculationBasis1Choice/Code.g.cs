@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExPostCostCalculationBasis1Choic
 /// <summary>
 /// Ex post cost calculation basis expressed as a code.
 /// </summary>
-public partial record Code : IExPostCostCalculationBasis1Choice
+public partial record Code : ExPostCostCalculationBasis1Choice_
 {
     public required ExPostCostCalculationBasis1Code Value { get; init; }
 }

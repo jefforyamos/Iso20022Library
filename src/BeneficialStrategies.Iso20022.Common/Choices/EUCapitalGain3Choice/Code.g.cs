@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EUCapitalGain3Choice;
 /// <summary>
 /// EU capital gain expressed as a code.
 /// </summary>
-public partial record Code : IEUCapitalGain3Choice
+public partial record Code : EUCapitalGain3Choice_
 {
     public required EUCapitalGain2Code Value { get; init; }
 }

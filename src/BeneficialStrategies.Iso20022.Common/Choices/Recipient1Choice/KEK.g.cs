@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient1Choice;
 /// <summary>
 /// Encryption key using previously distributed symmetric key.
 /// </summary>
-public partial record KEK : IRecipient1Choice
+public partial record KEK : Recipient1Choice_
 {
     #nullable enable
     /// <summary>

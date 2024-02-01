@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FundPaymentType1Choice;
 /// <summary>
 /// Type of payment instrument expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IFundPaymentType1Choice
+public partial record Proprietary : FundPaymentType1Choice_
 {
     #nullable enable
     /// <summary>

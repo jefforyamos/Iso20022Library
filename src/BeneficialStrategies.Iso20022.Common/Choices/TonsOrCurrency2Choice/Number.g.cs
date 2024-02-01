@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TonsOrCurrency2Choice;
 /// <summary>
 /// Total number of specific transactions expresses in tons.
 /// </summary>
-public partial record Number : ITonsOrCurrency2Choice
+public partial record Number : TonsOrCurrency2Choice_
 {
     public required IsoDecimalNumber Value { get; init; }
 }

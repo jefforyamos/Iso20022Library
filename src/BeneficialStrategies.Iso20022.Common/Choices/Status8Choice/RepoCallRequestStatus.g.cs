@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status8Choice;
 /// <summary>
 /// Provides the status of the repurchase agreement call request.
 /// </summary>
-public partial record RepoCallRequestStatus : IStatus8Choice
+public partial record RepoCallRequestStatus : Status8Choice_
 {
     #nullable enable
     #nullable disable

@@ -24,7 +24,7 @@ public partial record FinancialInstitutionIdentification16
     /// <summary>
     /// Information used to identify a member within a clearing system.
     /// </summary>
-    public IClearingSystemMemberIdentification4Choice? ClearingSystemMemberIdentification { get; init; } 
+    public ClearingSystemMemberIdentification4Choice_? ClearingSystemMemberIdentification { get; init; } 
     /// <summary>
     /// Name and address of the party.
     /// </summary>

@@ -24,7 +24,7 @@ public partial record ReportParameters3
     /// <summary>
     /// Date (and time) and time of the report.
     /// </summary>
-    public required IDateAndDateTimeChoice ReportDateAndTime { get; init; } 
+    public required DateAndDateTimeChoice_ ReportDateAndTime { get; init; } 
     /// <summary>
     /// Currency used for the calculation of the margin.
     /// </summary>

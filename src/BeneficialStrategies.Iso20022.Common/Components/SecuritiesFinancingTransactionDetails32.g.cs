@@ -28,35 +28,35 @@ public partial record SecuritiesFinancingTransactionDetails32
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
-    public ITerminationDate5Choice? TerminationDate { get; init; } 
+    public TerminationDate5Choice_? TerminationDate { get; init; } 
     /// <summary>
     /// Date/Time at which rate change has taken place.
     /// </summary>
-    public IDateAndDateTimeChoice? RateChangeDate { get; init; } 
+    public DateAndDateTimeChoice_? RateChangeDate { get; init; } 
     /// <summary>
     /// Earliest date/time at which the call back can take place.
     /// </summary>
-    public IDateAndDateTimeChoice? EarliestCallBackDate { get; init; } 
+    public DateAndDateTimeChoice_? EarliestCallBackDate { get; init; } 
     /// <summary>
     /// Date/time at which the commission is calculated.
     /// </summary>
-    public IDateAndDateTimeChoice? CommissionCalculationDate { get; init; } 
+    public DateAndDateTimeChoice_? CommissionCalculationDate { get; init; } 
     /// <summary>
     /// Specifies whether the rate is fixed or variable.
     /// </summary>
-    public IRateType67Choice? RateType { get; init; } 
+    public RateType67Choice_? RateType { get; init; } 
     /// <summary>
     /// Specifies whether the collateral position should be subject to automatic revaluation by the account servicer.
     /// </summary>
-    public IRevaluationIndicator4Choice? Revaluation { get; init; } 
+    public RevaluationIndicator4Choice_? Revaluation { get; init; } 
     /// <summary>
     /// Legal framework of the transaction.
     /// </summary>
-    public ILegalFramework4Choice? LegalFramework { get; init; } 
+    public LegalFramework4Choice_? LegalFramework { get; init; } 
     /// <summary>
     /// Identifies the computation method of accrued interest of the related financial instrument.
     /// </summary>
-    public IInterestComputationMethodFormat5Choice? InterestComputationMethod { get; init; } 
+    public InterestComputationMethodFormat5Choice_? InterestComputationMethod { get; init; } 
     /// <summary>
     /// Specifies whether the maturity date of the securities financing transaction may be modified.
     /// </summary>
@@ -88,7 +88,7 @@ public partial record SecuritiesFinancingTransactionDetails32
     /// <summary>
     /// Interest rate to be paid on the transaction amount, as agreed between the counterparties.
     /// </summary>
-    public IRateOrName2Choice? PricingRate { get; init; } 
+    public RateOrName2Choice_? PricingRate { get; init; } 
     /// <summary>
     /// Repurchase spread expressed as a rate; margin over or under an index that determines the repurchase rate.
     /// </summary>

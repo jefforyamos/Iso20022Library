@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PlaceOfTradeIdentification3Choic
 /// <summary>
 /// Place at which the Over-the-Counter (OTC) transaction is executed.
 /// </summary>
-public partial record OverTheCounter : IPlaceOfTradeIdentification3Choice
+public partial record OverTheCounter : PlaceOfTradeIdentification3Choice_
 {
     public required IsoRestrictedFINMax30Text Value { get; init; }
 }

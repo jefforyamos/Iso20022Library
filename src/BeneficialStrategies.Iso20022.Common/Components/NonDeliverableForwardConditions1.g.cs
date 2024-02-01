@@ -24,7 +24,7 @@ public partial record NonDeliverableForwardConditions1
     /// <summary>
     /// Specifies either the conditions for an NDF oepning or an NDF fixing confirmation.
     /// </summary>
-    public required INDFOpeningFixing1Choice OpeningFixingConditions { get; init; } 
+    public required NDFOpeningFixing1Choice_ OpeningFixingConditions { get; init; } 
     
     #nullable disable
 }

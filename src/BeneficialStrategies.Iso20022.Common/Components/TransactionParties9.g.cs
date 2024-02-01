@@ -20,11 +20,11 @@ public partial record TransactionParties9
     /// <summary>
     /// Party that initiated the payment that is reported in the entry.
     /// </summary>
-    public IParty40Choice? InitiatingParty { get; init; } 
+    public Party40Choice_? InitiatingParty { get; init; } 
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
-    public IParty40Choice? Debtor { get; init; } 
+    public Party40Choice_? Debtor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the debtor.
     /// </summary>
@@ -32,11 +32,11 @@ public partial record TransactionParties9
     /// <summary>
     /// Ultimate party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
-    public IParty40Choice? UltimateDebtor { get; init; } 
+    public Party40Choice_? UltimateDebtor { get; init; } 
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
-    public IParty40Choice? Creditor { get; init; } 
+    public Party40Choice_? Creditor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor to which a credit entry has been posted as a result of the payment transaction.
     /// </summary>
@@ -44,15 +44,15 @@ public partial record TransactionParties9
     /// <summary>
     /// Ultimate party to which an amount of money is due.
     /// </summary>
-    public IParty40Choice? UltimateCreditor { get; init; } 
+    public Party40Choice_? UltimateCreditor { get; init; } 
     /// <summary>
     /// Party that plays an active role in planning and executing the transactions that create or liquidate investments of the investors assets, or that move the investor's assets from one investment to another. A trading party is a trade instructor, an investment decision-maker, a post trade administrator, or a trader. In the context of treasury, it is the party that negotiates and executes the treasury transaction.
     /// </summary>
-    public IParty40Choice? TradingParty { get; init; } 
+    public Party40Choice_? TradingParty { get; init; } 
     /// <summary>
     /// Proprietary party related to the underlying transaction.
     /// </summary>
-    public ProprietaryParty5? Proprietary { get; init;  } // Warning: Don't know multiplicity.
+    public ProprietaryParty5[] Proprietary { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

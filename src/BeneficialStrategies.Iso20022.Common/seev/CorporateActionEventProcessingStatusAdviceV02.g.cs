@@ -82,7 +82,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV02 : IOuterReco
     [DataMember(Name="EvtPrcgSts")]
     [XmlElement(ElementName="EvtPrcgSts")]
     [Required]
-    public required IEventProcessingStatus1Choice EventProcessingStatus { get; init; }
+    public required EventProcessingStatus1Choice_ EventProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides additional information.

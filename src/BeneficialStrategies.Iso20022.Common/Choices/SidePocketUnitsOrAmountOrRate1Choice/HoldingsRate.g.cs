@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SidePocketUnitsOrAmountOrRate1Ch
 /// <summary>
 /// Percentage of the financial instrument quantity to be invested or redeemed in the side pocket or lot.
 /// </summary>
-public partial record HoldingsRate : ISidePocketUnitsOrAmountOrRate1Choice
+public partial record HoldingsRate : SidePocketUnitsOrAmountOrRate1Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

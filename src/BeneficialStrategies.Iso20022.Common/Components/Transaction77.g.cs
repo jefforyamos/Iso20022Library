@@ -29,7 +29,7 @@ public partial record Transaction77
     /// <summary>
     /// Additional functions or services to be performed in conjunction with the transaction.
     /// </summary>
-    public AdditionalService1? AdditionalService { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalService1[] AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Attribute of the transaction.
     /// ISO 8583:87 bit 25
@@ -45,11 +45,11 @@ public partial record Transaction77
     /// ISO 8583:93/2003 bit 25
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    public IsoExact4NumericText? MessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoExact4NumericText[] MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Supports message reason codes that are not defined in external code list. 
     /// </summary>
-    public IsoMax35Text? AlternateMessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains the period (expressed in minutes) within which a merchant is expected to complete the transaction.
     /// ISO8583:1993 and ISO 8583:2003 Bit 57
@@ -70,7 +70,7 @@ public partial record Transaction77
     /// <summary>
     /// Data to qualify for incentive or other related programmes.
     /// </summary>
-    public SpecialProgrammeQualification1? SpecialProgrammeQualification { get; init;  } // Warning: Don't know multiplicity.
+    public SpecialProgrammeQualification1[] SpecialProgrammeQualification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
@@ -78,7 +78,7 @@ public partial record Transaction77
     /// <summary>
     /// Information about the dispute.
     /// </summary>
-    public DisputeData1? DisputeData { get; init;  } // Warning: Don't know multiplicity.
+    public DisputeData1[] DisputeData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amounts of the card transaction.
     /// </summary>
@@ -87,20 +87,20 @@ public partial record Transaction77
     /// Amounts that are not part of the transaction amount and not included in reconciliation.
     /// ISO 8583 bit 54
     /// </summary>
-    public AdditionalAmounts1? AdditionalAmounts { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalAmounts1[] AdditionalAmounts { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fees not included in the transaction amount.
     /// </summary>
-    public AdditionalFee1? AdditionalFees { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFee1[] AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fees not included in the original transaction amount.
     /// ISO 8583:93/2003 bit 66
     /// </summary>
-    public AdditionalFee1? OriginalAdditionalFees { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFee1[] OriginalAdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains ATM deposit details.
     /// </summary>
-    public DepositDetails1? DepositDetails { get; init;  } // Warning: Don't know multiplicity.
+    public DepositDetails1[] DepositDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Financial services related to the account.
     /// </summary>
@@ -122,7 +122,7 @@ public partial record Transaction77
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

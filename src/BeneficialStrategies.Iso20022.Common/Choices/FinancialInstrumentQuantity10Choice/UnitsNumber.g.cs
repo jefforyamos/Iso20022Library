@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity10Cho
 /// <summary>
 /// Total quantity of units to be redeemed.
 /// </summary>
-public partial record UnitsNumber : IFinancialInstrumentQuantity10Choice
+public partial record UnitsNumber : FinancialInstrumentQuantity10Choice_
 {
     #nullable enable
     /// <summary>

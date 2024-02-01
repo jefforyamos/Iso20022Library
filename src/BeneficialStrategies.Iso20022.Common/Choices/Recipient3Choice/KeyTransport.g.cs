@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient3Choice;
 /// <summary>
 /// Encryption key using previously distributed asymmetric public key.
 /// </summary>
-public partial record KeyTransport : IRecipient3Choice
+public partial record KeyTransport : Recipient3Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginType2Choice;
 /// <summary>
 /// Proprietary or institution's own code that specifies the type of margin, for example, initial margin, variation margin, initial deposit or coupon margin.
 /// </summary>
-public partial record Proprietary : IMarginType2Choice
+public partial record Proprietary : MarginType2Choice_
 {
     #nullable enable
     /// <summary>

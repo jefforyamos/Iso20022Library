@@ -95,7 +95,7 @@ public partial record MeetingInstructionStatusV02 : IOuterRecord
     [DataMember(Name="RptgPty")]
     [XmlElement(ElementName="RptgPty")]
     [Required]
-    public required IPartyIdentification9Choice ReportingParty { get; init; }
+    public required PartyIdentification9Choice_ ReportingParty { get; init; }
     
     /// <summary>
     /// Identifies the securities for which the meeting is organised.
@@ -115,7 +115,7 @@ public partial record MeetingInstructionStatusV02 : IOuterRecord
     [DataMember(Name="InstrSts")]
     [XmlElement(ElementName="InstrSts")]
     [Required]
-    public required IInstructionStatus1Choice InstructionStatus { get; init; }
+    public required InstructionStatus1Choice_ InstructionStatus { get; init; }
     
     /// <summary>
     /// Status applying to the instruction cancellation request received. The instruction cancellation is identified by the InstructionCancellationIdentification.
@@ -125,7 +125,7 @@ public partial record MeetingInstructionStatusV02 : IOuterRecord
     [DataMember(Name="CxlSts")]
     [XmlElement(ElementName="CxlSts")]
     [Required]
-    public required ICancellationStatus1Choice CancellationStatus { get; init; }
+    public required CancellationStatus1Choice_ CancellationStatus { get; init; }
     
     #nullable disable
     

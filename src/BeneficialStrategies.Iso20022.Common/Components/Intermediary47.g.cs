@@ -20,7 +20,7 @@ public partial record Intermediary47
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution.
     /// </summary>
-    public required IPartyIdentification125Choice Identification { get; init; } 
+    public required PartyIdentification125Choice_ Identification { get; init; } 
     /// <summary>
     /// Identification of the party with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>

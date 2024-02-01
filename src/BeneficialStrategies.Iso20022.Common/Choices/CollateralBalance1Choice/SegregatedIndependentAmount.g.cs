@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralBalance1Choice;
 /// <summary>
 /// Provides details about the collateral held, in transit or that still needs to be agreed by both parties, against the segregated independent amount only.
 /// </summary>
-public partial record SegregatedIndependentAmount : ICollateralBalance1Choice
+public partial record SegregatedIndependentAmount : CollateralBalance1Choice_
 {
     #nullable enable
     /// <summary>

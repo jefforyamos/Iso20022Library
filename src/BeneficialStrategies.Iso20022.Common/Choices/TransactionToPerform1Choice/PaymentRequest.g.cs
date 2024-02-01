@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionToPerform1Choice;
 /// <summary>
 /// Content of the Payment Request message.
 /// </summary>
-public partial record PaymentRequest : ITransactionToPerform1Choice
+public partial record PaymentRequest : TransactionToPerform1Choice_
 {
     #nullable enable
     /// <summary>

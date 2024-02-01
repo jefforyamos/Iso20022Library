@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingSettlementStatus3Choice;
 /// <summary>
 /// Proprietary identification of the reason for the pending settlement status.
 /// </summary>
-public partial record DataSourceScheme : IPendingSettlementStatus3Choice
+public partial record DataSourceScheme : PendingSettlementStatus3Choice_
 {
     #nullable enable
     /// <summary>

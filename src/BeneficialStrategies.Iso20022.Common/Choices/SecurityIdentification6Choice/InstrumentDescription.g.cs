@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification6Choice;
 /// <summary>
 /// Provides the ability to describe the instrument through a description and main characteristics.
 /// </summary>
-public partial record InstrumentDescription : ISecurityIdentification6Choice
+public partial record InstrumentDescription : SecurityIdentification6Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record InstrumentDescription : ISecurityIdentification6Choice
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, eg, common share with voting rights, fully paid, or registered.
     /// </summary>
-    public ISecurityClassificationType1Choice? ClassificationType { get; init; } 
+    public SecurityClassificationType1Choice_? ClassificationType { get; init; } 
     /// <summary>
     /// Provides the place of listing using a market identifier code (MIC).
     /// </summary>
@@ -42,7 +42,7 @@ public partial record InstrumentDescription : ISecurityIdentification6Choice
     /// <summary>
     /// Predetermined price at which the holder will have to buy or sell the underlying instrument.
     /// </summary>
-    public IPriceRateOrAmountChoice? StrikePrice { get; init; } 
+    public PriceRateOrAmountChoice_? StrikePrice { get; init; } 
     /// <summary>
     /// Indicates the ratio or multiplying factor used to convert one contract into a quantity. In the case of an equity or a bond, the price multiplier is 1.
     /// </summary>

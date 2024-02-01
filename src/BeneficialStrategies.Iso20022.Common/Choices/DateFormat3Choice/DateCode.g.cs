@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat3Choice;
 /// <summary>
 /// Indicates that date is unknown.
 /// </summary>
-public partial record DateCode : IDateFormat3Choice
+public partial record DateCode : DateFormat3Choice_
 {
     public required DateType1Code Value { get; init; }
 }

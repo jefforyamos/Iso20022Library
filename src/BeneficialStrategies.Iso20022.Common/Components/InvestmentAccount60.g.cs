@@ -24,7 +24,7 @@ public partial record InvestmentAccount60
     /// <summary>
     /// Account type.
     /// </summary>
-    public IInvestmentAccountType1Choice? Type { get; init; } 
+    public InvestmentAccountType1Choice_? Type { get; init; } 
     
     #nullable disable
 }

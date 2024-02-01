@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reversal8Choice;
 /// <summary>
 /// Details of the transfer out confirmation to be reversed.
 /// </summary>
-public partial record TransferOutConfirmationDetails : IReversal8Choice
+public partial record TransferOutConfirmationDetails : Reversal8Choice_
 {
     #nullable enable
     /// <summary>

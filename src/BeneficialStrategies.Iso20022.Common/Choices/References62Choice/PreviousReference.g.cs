@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References62Choice;
 /// <summary>
 /// Reference to a linked message that was previously sent.
 /// </summary>
-public partial record PreviousReference : IReferences62Choice
+public partial record PreviousReference : References62Choice_
 {
     #nullable enable
     /// <summary>

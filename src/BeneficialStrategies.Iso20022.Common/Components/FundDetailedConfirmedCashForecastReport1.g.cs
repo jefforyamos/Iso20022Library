@@ -20,11 +20,11 @@ public partial record FundDetailedConfirmedCashForecastReport1
     /// <summary>
     /// Information related to the cash-in and cash-out flows for a specific trade date as a result of investment fund transactions, for example, subscriptions, redemptions or switches to/from a specified investment fund. The information provided is sorted by pre-defined criteria such as country, institution, currency or user defined criteria.
     /// </summary>
-    public FundCashForecast2? FundCashForecastDetails { get; init;  } // Warning: Don't know multiplicity.
+    public FundCashForecast2[] FundCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1? Extension { get; init;  } // Warning: Don't know multiplicity.
+    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

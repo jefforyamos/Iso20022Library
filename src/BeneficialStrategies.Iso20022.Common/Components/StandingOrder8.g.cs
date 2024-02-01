@@ -20,7 +20,7 @@ public partial record StandingOrder8
     /// <summary>
     /// Amount of money and currency to be transferred when a payment instruction is created as a result of a standing order.
     /// </summary>
-    public IAmount2Choice? Amount { get; init; } 
+    public Amount2Choice_? Amount { get; init; } 
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record StandingOrder8
     /// <summary>
     /// Defines whether the standing order is executed through a time-based or an event-based trigger.
     /// </summary>
-    public IExecutionType1Choice? ExecutionType { get; init; } 
+    public ExecutionType1Choice_? ExecutionType { get; init; } 
     /// <summary>
     /// Regularity with which payment instructions are to be created and processed as a result of the standing order, such as daily, weekly, or monthly.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record StandingOrder8
     /// <summary>
     /// Dates during which the standing order is in effect.
     /// </summary>
-    public IDatePeriod2Choice? ValidityPeriod { get; init; } 
+    public DatePeriod2Choice_? ValidityPeriod { get; init; } 
     /// <summary>
     /// Indicates whether the standing order is defined as a zero sweeping order. When true, the liquidity transfer standing order will transfer all amount of money out of the account so the resulting balance is zero.
     /// </summary>

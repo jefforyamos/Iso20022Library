@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType45Choice;
 /// <summary>
 /// Standard code to specify the type of rate.
 /// </summary>
-public partial record Code : IRateType45Choice
+public partial record Code : RateType45Choice_
 {
     public required RateType7Code Value { get; init; }
 }

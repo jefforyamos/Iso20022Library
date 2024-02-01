@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity29Cho
 /// <summary>
 /// Number of investment fund units redeemed.
 /// </summary>
-public partial record UnitsNumber : IFinancialInstrumentQuantity29Choice
+public partial record UnitsNumber : FinancialInstrumentQuantity29Choice_
 {
     public required IsoDecimalNumber Value { get; init; }
 }

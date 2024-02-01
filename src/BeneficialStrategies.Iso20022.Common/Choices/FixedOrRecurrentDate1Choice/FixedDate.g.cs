@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FixedOrRecurrentDate1Choice;
 /// <summary>
 /// Date on which the variation is triggered.
 /// </summary>
-public partial record FixedDate : IFixedOrRecurrentDate1Choice
+public partial record FixedDate : FixedOrRecurrentDate1Choice_
 {
     public required IsoISODate Value { get; init; }
 }

@@ -20,11 +20,11 @@ public partial record TerminalPackageType1
     /// <summary>
     /// Identification of the POI (Point Of Interaction) component.
     /// </summary>
-    public PointOfInteractionComponentIdentification1? POIComponentIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public PointOfInteractionComponentIdentification1[] POIComponentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Chunk of a software package.
     /// </summary>
-    public PackageType1? Package { get; init;  } // Warning: Don't know multiplicity.
+    public PackageType1[] Package { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

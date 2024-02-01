@@ -40,7 +40,7 @@ public partial record LossBearing1
     /// <summary>
     /// Specifies another type of loss bearing.
     /// </summary>
-    public OtherTargetMarketLossBearing1? Other { get; init;  } // Warning: Don't know multiplicity.
+    public OtherTargetMarketLossBearing1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

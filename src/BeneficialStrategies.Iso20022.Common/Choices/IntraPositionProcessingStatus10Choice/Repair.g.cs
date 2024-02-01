@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraPositionProcessingStatus10C
 /// <summary>
 /// Instruction/Request is accepted but in repair.
 /// </summary>
-public partial record Repair : IIntraPositionProcessingStatus10Choice
+public partial record Repair : IntraPositionProcessingStatus10Choice_
 {
     #nullable enable
     #nullable disable

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UniqueTransactionIdentifier3Choi
 /// <summary>
 /// Indicates unique transaction identifier is not available.
 /// </summary>
-public partial record NotAvailable : IUniqueTransactionIdentifier3Choice
+public partial record NotAvailable : UniqueTransactionIdentifier3Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

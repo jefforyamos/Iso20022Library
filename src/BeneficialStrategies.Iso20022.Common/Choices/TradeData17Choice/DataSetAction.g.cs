@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData17Choice;
 /// <summary>
 /// Where no active instruments are present on a venue, this field should be set so that a valid instrument reference data file can be submitted to the competent authority as per daily submission requirements.
 /// </summary>
-public partial record DataSetAction : ITradeData17Choice
+public partial record DataSetAction : TradeData17Choice_
 {
     public required ReportPeriodActivity1Code Value { get; init; }
 }

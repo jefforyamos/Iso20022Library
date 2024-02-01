@@ -24,7 +24,7 @@ public partial record RemittanceLocation3
     /// <summary>
     /// Set of elements used to provide information on the location and/or delivery of the remittance information.
     /// </summary>
-    public RemittanceLocationDetails1? RemittanceLocationDetails { get; init;  } // Warning: Don't know multiplicity.
+    public RemittanceLocationDetails1[] RemittanceLocationDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the underlying transaction.
     /// </summary>

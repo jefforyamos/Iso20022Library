@@ -36,15 +36,15 @@ public partial record TradeTransactionIdentification24
     /// <summary>
     /// Indicates the time stamp of a derivative event.
     /// </summary>
-    public IDateAndDateTime2Choice? DerivativeEventTimeStamp { get; init; } 
+    public DateAndDateTime2Choice_? DerivativeEventTimeStamp { get; init; } 
     /// <summary>
     /// Unique code identifying the entity with which the reporting counterparty concluded the transaction.
     /// </summary>
-    public IPartyIdentification248Choice? OtherCounterparty { get; init; } 
+    public PartyIdentification248Choice_? OtherCounterparty { get; init; } 
     /// <summary>
     /// Choice between a Unique Transaction Identifier (UTI) or a proprietary identifier as agreed with the counterparty.
     /// </summary>
-    public IUniqueTransactionIdentifier2Choice? UniqueIdentifier { get; init; } 
+    public UniqueTransactionIdentifier2Choice_? UniqueIdentifier { get; init; } 
     /// <summary>
     /// Details related to the master agreement.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record TradeTransactionIdentification24
     /// <summary>
     /// Unique codes identifying the portfolio.
     /// </summary>
-    public ICollateralPortfolioCode5Choice? CollateralPortfolioCode { get; init; } 
+    public CollateralPortfolioCode5Choice_? CollateralPortfolioCode { get; init; } 
     
     #nullable disable
 }

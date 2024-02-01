@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason20FormatChoice;
 /// <summary>
 /// Proprietary code to express the reason of a rejection of the standing instruction request.
 /// </summary>
-public partial record Proprietary : IRejectionReason20FormatChoice
+public partial record Proprietary : RejectionReason20FormatChoice_
 {
     #nullable enable
     /// <summary>

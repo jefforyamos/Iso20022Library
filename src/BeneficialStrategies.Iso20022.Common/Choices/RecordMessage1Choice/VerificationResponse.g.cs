@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RecordMessage1Choice;
 /// <summary>
 /// Verification response message record.
 /// </summary>
-public partial record VerificationResponse : IRecordMessage1Choice
+public partial record VerificationResponse : RecordMessage1Choice_
 {
     public required IsoMax2MBBinary Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus98Choice;
 /// <summary>
 /// Trade is DefaultAction.
 /// </summary>
-public partial record DefaultAction : IProcessingStatus98Choice
+public partial record DefaultAction : ProcessingStatus98Choice_
 {
     #nullable enable
     /// <summary>

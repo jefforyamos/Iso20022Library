@@ -20,7 +20,7 @@ public partial record LocalMarketAnnex3
     /// <summary>
     /// Country of the local fund order desk.
     /// </summary>
-    public CountryCode? Country { get; init;  } // Warning: Don't know multiplicity.
+    public CountryCode[] Country { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Local entity appointed by the fund, to which orders should be submitted. 
     /// </summary>
@@ -40,11 +40,11 @@ public partial record LocalMarketAnnex3
     /// <summary>
     /// Account to be used for cash settlement.
     /// </summary>
-    public CashAccount202? CashSettlementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashAccount202[] CashSettlementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the fund order desk.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

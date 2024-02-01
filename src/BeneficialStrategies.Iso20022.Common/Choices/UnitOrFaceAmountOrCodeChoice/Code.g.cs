@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitOrFaceAmountOrCodeChoice;
 /// <summary>
 /// Quantity expressed as a code.
 /// </summary>
-public partial record Code : IUnitOrFaceAmountOrCodeChoice
+public partial record Code : UnitOrFaceAmountOrCodeChoice_
 {
     public required Quantity1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeTaxBasisType2Choice;
 /// <summary>
 /// Securities transaction type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IChargeTaxBasisType2Choice
+public partial record Proprietary : ChargeTaxBasisType2Choice_
 {
     #nullable enable
     /// <summary>

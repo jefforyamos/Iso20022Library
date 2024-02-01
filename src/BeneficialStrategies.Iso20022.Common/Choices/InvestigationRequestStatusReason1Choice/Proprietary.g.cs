@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationRequestStatusReason
 /// <summary>
 /// Reason for the status, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IInvestigationRequestStatusReason1Choice
+public partial record Proprietary : InvestigationRequestStatusReason1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

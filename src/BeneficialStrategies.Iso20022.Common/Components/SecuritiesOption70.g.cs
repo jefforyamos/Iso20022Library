@@ -28,7 +28,7 @@ public partial record SecuritiesOption70
     /// <summary>
     /// Specifies that the security identified is a temporary security identification used for processing reasons, for example, contra security used in the US.
     /// </summary>
-    public ITemporaryFinancialInstrumentIndicator3Choice? TemporaryFinancialInstrumentIndicator { get; init; } 
+    public TemporaryFinancialInstrumentIndicator3Choice_? TemporaryFinancialInstrumentIndicator { get; init; } 
     /// <summary>
     /// Specifies the nature of the securities issue.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record SecuritiesOption70
     /// <summary>
     /// Proceeds are taxable according to the information provided by the issuer / offeror.
     /// </summary>
-    public IIssuerOfferorTaxabilityIndicator1Choice? IssuerOfferorTaxabilityIndicator { get; init; } 
+    public IssuerOfferorTaxabilityIndicator1Choice_? IssuerOfferorTaxabilityIndicator { get; init; } 
     /// <summary>
     /// Specifies the type of income.|The lists of income type codes to be used, are available on the SMPG website at www.smpg.info.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record SecuritiesOption70
     /// <summary>
     /// Specifies the basis for the reduced rate of withholding.
     /// </summary>
-    public GenericIdentification30? ExemptionType { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification30[] ExemptionType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the country from which the income originates.
     /// </summary>
@@ -52,15 +52,15 @@ public partial record SecuritiesOption70
     /// <summary>
     /// Quantity of securities that have been posted (credit or debit) to the safekeeping account.
     /// </summary>
-    public required IQuantity6Choice PostingQuantity { get; init; } 
+    public required Quantity6Choice_ PostingQuantity { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
-    public ISafekeepingPlaceFormat29Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat29Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
-    public IFractionDispositionType27Choice? FractionDisposition { get; init; } 
+    public FractionDispositionType27Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Currency in which the cash disbursed from an interest or dividend payment is offered.
     /// </summary>

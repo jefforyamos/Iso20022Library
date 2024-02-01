@@ -24,7 +24,7 @@ public partial record PartyStatement1
     /// <summary>
     /// Provides information on the actual change occurred to a party.
     /// </summary>
-    public PartyReferenceDataChange1? Change { get; init;  } // Warning: Don't know multiplicity.
+    public PartyReferenceDataChange1[] Change { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

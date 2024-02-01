@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative3Choice;
 /// <summary>
 /// Details specific for emission allowance derivatives
 /// </summary>
-public partial record EmissionAllowance : IDerivative3Choice
+public partial record EmissionAllowance : Derivative3Choice_
 {
     public required EmissionAllowanceProductType1Code Value { get; init; }
 }

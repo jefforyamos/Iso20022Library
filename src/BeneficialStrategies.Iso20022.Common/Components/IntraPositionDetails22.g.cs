@@ -20,7 +20,7 @@ public partial record IntraPositionDetails22
     /// <summary>
     /// Quantity of financial instrument effectively settled.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice SettledQuantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ SettledQuantity { get; init; } 
     /// <summary>
     /// Number identifying a Securities Sub balance Type (e.g. restriction identification etc…).
     /// </summary>
@@ -32,23 +32,23 @@ public partial record IntraPositionDetails22
     /// <summary>
     /// Quantity of financial instrument previously settled.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? PreviouslySettledQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? PreviouslySettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument remaining to be settled.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? RemainingToBeSettledQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? RemainingToBeSettledQuantity { get; init; } 
     /// <summary>
     /// Date and time at which the securities were moved.
     /// </summary>
-    public required IDateAndDateTimeChoice SettlementDate { get; init; } 
+    public required DateAndDateTimeChoice_ SettlementDate { get; init; } 
     /// <summary>
     /// Date/time securities become available for sale (if securities become unavailable, this specifies the date/time at which they will become available again).
     /// </summary>
-    public IDateAndDateTimeChoice? AvailableDate { get; init; } 
+    public DateAndDateTimeChoice_? AvailableDate { get; init; } 
     /// <summary>
     /// Specifies the type of corporate event.
     /// </summary>
-    public ICorporateActionEventType3Choice? CorporateActionEventType { get; init; } 
+    public CorporateActionEventType3Choice_? CorporateActionEventType { get; init; } 
     /// <summary>
     /// Balance from which the securities are moving.
     /// </summary>

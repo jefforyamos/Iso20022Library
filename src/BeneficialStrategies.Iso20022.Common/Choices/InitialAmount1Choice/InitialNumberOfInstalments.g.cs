@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InitialAmount1Choice;
 /// <summary>
 /// Number of pre-paid instalment periods at the time the investment plan is created.
 /// </summary>
-public partial record InitialNumberOfInstalments : IInitialAmount1Choice
+public partial record InitialNumberOfInstalments : InitialAmount1Choice_
 {
     public required IsoNumber Value { get; init; }
 }

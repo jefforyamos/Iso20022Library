@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionEventType1Choice;
 /// <summary>
 /// Specifies the type of event for an option using a code.
 /// </summary>
-public partial record Code : IOptionEventType1Choice
+public partial record Code : OptionEventType1Choice_
 {
     public required OptionEventType1Code Value { get; init; }
 }

@@ -95,7 +95,7 @@ public partial record TransferOutInstructionV05 : IOuterRecord
     [Description(@"Requested date at which the instructing party places the transfer instruction.")]
     [DataMember(Name="ReqdTrfDt")]
     [XmlElement(ElementName="ReqdTrfDt")]
-    public IDateFormat1Choice? RequestedTransferDate { get; init; }
+    public DateFormat1Choice_? RequestedTransferDate { get; init; }
     
     /// <summary>
     /// General information related to the transfer of a financial instrument.

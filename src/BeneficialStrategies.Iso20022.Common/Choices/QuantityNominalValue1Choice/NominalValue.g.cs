@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityNominalValue1Choice;
 /// <summary>
 /// Total nominal amount of bonds (number of bonds multiplied by the face value).
 /// </summary>
-public partial record NominalValue : IQuantityNominalValue1Choice
+public partial record NominalValue : QuantityNominalValue1Choice_
 {
     public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
 }

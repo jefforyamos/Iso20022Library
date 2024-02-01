@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingReason42Choice;
 /// <summary>
 /// Specifies the reason why the cancellation request is pending.
 /// </summary>
-public partial record Code : IPendingReason42Choice
+public partial record Code : PendingReason42Choice_
 {
     public required PendingReason9Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitOfMeasure6Choice;
 /// <summary>
 /// Identifies the unit of measure not present in the code list.
 /// </summary>
-public partial record OtherUnitOfMeasure : IUnitOfMeasure6Choice
+public partial record OtherUnitOfMeasure : UnitOfMeasure6Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

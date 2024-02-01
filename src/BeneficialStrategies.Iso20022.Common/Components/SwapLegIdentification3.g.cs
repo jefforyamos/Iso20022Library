@@ -20,11 +20,11 @@ public partial record SwapLegIdentification3
     /// <summary>
     /// Instrument received by the buyer.
     /// </summary>
-    public IFinancialInstrumentIdentification8Choice? SwapIn { get; init; } 
+    public FinancialInstrumentIdentification8Choice_? SwapIn { get; init; } 
     /// <summary>
     /// Instrument paid by the buyer.
     /// </summary>
-    public IFinancialInstrumentIdentification8Choice? SwapOut { get; init; } 
+    public FinancialInstrumentIdentification8Choice_? SwapOut { get; init; } 
     
     #nullable disable
 }

@@ -28,15 +28,15 @@ public partial record RegisteredContract5
     /// <summary>
     /// Details of the contract being registered.
     /// </summary>
-    public required IUnderlyingContract1Choice Contract { get; init; } 
+    public required UnderlyingContract1Choice_ Contract { get; init; } 
     /// <summary>
     /// Contract balance on date of contract registration.
     /// </summary>
-    public ContractBalance1? ContractBalance { get; init;  } // Warning: Don't know multiplicity.
+    public ContractBalance1[] ContractBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of the payment schedule provided in the contract.
     /// </summary>
-    public IPaymentScheduleType1Choice? PaymentScheduleType { get; init; } 
+    public PaymentScheduleType1Choice_? PaymentScheduleType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the registered contract as assigned by the registration agent.
     /// </summary>
@@ -50,11 +50,11 @@ public partial record RegisteredContract5
     /// <summary>
     /// Journal of previously closed registered contracts for the same underlying contract, which were requested at the same registration agent.
     /// </summary>
-    public RegisteredContractJournal1? RegisteredContractJournal { get; init;  } // Warning: Don't know multiplicity.
+    public RegisteredContractJournal1[] RegisteredContractJournal { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details on amendments to the registered contract.
     /// </summary>
-    public RegisteredContractAmendment1? Amendment { get; init;  } // Warning: Don't know multiplicity.
+    public RegisteredContractAmendment1[] Amendment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the communication method for the submission of the registered contract.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkCurveName6Choice;
 /// <summary>
 /// International Securities Identification Number (ISIN) identifier of an index / benchmark.
 /// </summary>
-public partial record ISIN : IBenchmarkCurveName6Choice
+public partial record ISIN : BenchmarkCurveName6Choice_
 {
     public required IsoISINOct2015Identifier Value { get; init; }
 }

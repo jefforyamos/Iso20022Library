@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClaimNonReceiptRejectReason1Choi
 /// <summary>
 /// Reason for the rejection, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IClaimNonReceiptRejectReason1Choice
+public partial record Proprietary : ClaimNonReceiptRejectReason1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

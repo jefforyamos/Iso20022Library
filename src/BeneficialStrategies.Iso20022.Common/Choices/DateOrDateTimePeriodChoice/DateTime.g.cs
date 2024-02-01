@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateOrDateTimePeriodChoice;
 /// <summary>
 /// Period expressed a dates and times.
 /// </summary>
-public partial record DateTime : IDateOrDateTimePeriodChoice
+public partial record DateTime : DateOrDateTimePeriodChoice_
 {
     #nullable enable
     /// <summary>

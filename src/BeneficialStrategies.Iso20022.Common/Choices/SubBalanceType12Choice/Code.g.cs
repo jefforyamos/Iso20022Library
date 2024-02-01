@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SubBalanceType12Choice;
 /// <summary>
 /// Reason a security is not available or additional information about the financial instrument for which the balance is given, for example, unregistered, registered in nominee name.
 /// </summary>
-public partial record Code : ISubBalanceType12Choice
+public partial record Code : SubBalanceType12Choice_
 {
     public required SecuritiesBalanceType7Code Value { get; init; }
 }

@@ -20,11 +20,11 @@ public partial record CashAccount41
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public IAccountIdentification4Choice? Identification { get; init; } 
+    public AccountIdentification4Choice_? Identification { get; init; } 
     /// <summary>
     /// Specifies the nature, or use of the account.
     /// </summary>
-    public ICashAccountType2Choice? Type { get; init; } 
+    public CashAccountType2Choice_? Type { get; init; } 
     /// <summary>
     /// Identification of the currency in which the account is held.
     /// </summary>

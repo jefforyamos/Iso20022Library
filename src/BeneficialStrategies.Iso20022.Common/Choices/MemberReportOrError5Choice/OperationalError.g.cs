@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.MemberReportOrError5Choice;
 /// <summary>
 /// Indicates that an operational error has been issued during the processing of the related request.
 /// </summary>
-public partial record OperationalError : IMemberReportOrError5Choice
+public partial record OperationalError : MemberReportOrError5Choice_
 {
     #nullable enable
     /// <summary>
     /// Specification of the error, in coded or proprietary form.
     /// </summary>
-    public required IErrorHandling1Choice Error { get; init; } 
+    public required ErrorHandling1Choice_ Error { get; init; } 
     /// <summary>
     /// Specification of the error, in free format.
     /// </summary>

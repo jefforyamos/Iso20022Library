@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OtherAmountType1Choice;
 /// <summary>
 /// Type of amount expressed as a code.
 /// </summary>
-public partial record Code : IOtherAmountType1Choice
+public partial record Code : OtherAmountType1Choice_
 {
     public required OtherAmountType1Code Value { get; init; }
 }

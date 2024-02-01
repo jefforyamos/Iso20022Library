@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DiscountOrChargeType1Choice;
 /// <summary>
 /// Type of discount.
 /// </summary>
-public partial record DiscountType : IDiscountOrChargeType1Choice
+public partial record DiscountType : DiscountOrChargeType1Choice_
 {
     #nullable enable
     #nullable disable

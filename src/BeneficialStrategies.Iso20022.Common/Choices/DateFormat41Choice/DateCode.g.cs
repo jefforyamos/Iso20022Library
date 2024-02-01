@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat41Choice;
 /// <summary>
 /// Specifies the type of date.
 /// </summary>
-public partial record DateCode : IDateFormat41Choice
+public partial record DateCode : DateFormat41Choice_
 {
     #nullable enable
     #nullable disable

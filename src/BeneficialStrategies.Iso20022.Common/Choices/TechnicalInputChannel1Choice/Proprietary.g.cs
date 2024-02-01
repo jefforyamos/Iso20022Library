@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TechnicalInputChannel1Choice;
 /// <summary>
 /// Technical channel used to input the instruction, in a proprietary form.
 /// </summary>
-public partial record Proprietary : ITechnicalInputChannel1Choice
+public partial record Proprietary : TechnicalInputChannel1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

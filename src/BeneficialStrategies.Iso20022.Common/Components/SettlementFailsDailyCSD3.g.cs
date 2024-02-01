@@ -20,11 +20,11 @@ public partial record SettlementFailsDailyCSD3
     /// <summary>
     /// Intra-CSD settlement instructions data.
     /// </summary>
-    public required ISettlementFailsDailyInstructionType1Choice IntraCSD { get; init; } 
+    public required SettlementFailsDailyInstructionType1Choice_ IntraCSD { get; init; } 
     /// <summary>
     /// Cross-CSD settlement instructions data.
     /// </summary>
-    public required ISettlementFailsDailyInstructionType1Choice CrossCSD { get; init; } 
+    public required SettlementFailsDailyInstructionType1Choice_ CrossCSD { get; init; } 
     
     #nullable disable
 }

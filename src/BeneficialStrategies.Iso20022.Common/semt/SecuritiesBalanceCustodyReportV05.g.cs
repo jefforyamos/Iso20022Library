@@ -80,7 +80,7 @@ public partial record SecuritiesBalanceCustodyReportV05 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public IPartyIdentification36Choice? AccountOwner { get; init; }
+    public PartyIdentification36Choice_? AccountOwner { get; init; }
     
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.|.
@@ -89,7 +89,7 @@ public partial record SecuritiesBalanceCustodyReportV05 : IOuterRecord
     [Description(@"Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.|.")]
     [DataMember(Name="AcctSvcr")]
     [XmlElement(ElementName="AcctSvcr")]
-    public IPartyIdentification49Choice? AccountServicer { get; init; }
+    public PartyIdentification49Choice_? AccountServicer { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.

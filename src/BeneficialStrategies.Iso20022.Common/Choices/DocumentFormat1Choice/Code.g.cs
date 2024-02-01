@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DocumentFormat1Choice;
 /// <summary>
 /// Document format.
 /// </summary>
-public partial record Code : IDocumentFormat1Choice
+public partial record Code : DocumentFormat1Choice_
 {
     public required ExternalDocumentFormat1Code Value { get; init; }
 }

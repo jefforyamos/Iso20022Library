@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingStatusReason1Choice;
 /// <summary>
 /// Reason for the pending account status.
 /// </summary>
-public partial record Reason : IPendingStatusReason1Choice
+public partial record Reason : PendingStatusReason1Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the pending account status.
     /// </summary>
-    public required IPendingStatusReason2Choice Code { get; init; } 
+    public required PendingStatusReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the pending account status.
     /// </summary>

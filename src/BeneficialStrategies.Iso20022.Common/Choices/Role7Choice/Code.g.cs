@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Role7Choice;
 /// <summary>
 /// Role of the party in the activity expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IRole7Choice
+public partial record Code : Role7Choice_
 {
     public required InvestmentFundRole2Code Value { get; init; }
 }

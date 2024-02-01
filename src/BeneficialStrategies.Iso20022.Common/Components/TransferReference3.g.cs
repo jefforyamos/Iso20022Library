@@ -24,7 +24,7 @@ public partial record TransferReference3
     /// <summary>
     /// Transfer and cancellation reference.
     /// </summary>
-    public TransferReference4? TransferReferences { get; init;  } // Warning: Don't know multiplicity.
+    public TransferReference4[] TransferReferences { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

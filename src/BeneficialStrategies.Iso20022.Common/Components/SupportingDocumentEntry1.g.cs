@@ -57,7 +57,7 @@ public partial record SupportingDocumentEntry1
     /// <summary>
     /// Documents provided as attachments to the supporting document entry.
     /// </summary>
-    public DocumentGeneralInformation3? Attachment { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentGeneralInformation3[] Attachment { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

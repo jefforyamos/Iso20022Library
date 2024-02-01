@@ -25,7 +25,7 @@ public partial record NotionalAmount6
     /// <summary>
     /// Specifies the effective date and end date of the schedule for derivative transactions negotiated in monetary amounts varying throughout the life of the transaction.
     /// </summary>
-    public Schedule11? SchedulePeriod { get; init;  } // Warning: Don't know multiplicity.
+    public Schedule11[] SchedulePeriod { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the currency of the notional amount.
     /// </summary>

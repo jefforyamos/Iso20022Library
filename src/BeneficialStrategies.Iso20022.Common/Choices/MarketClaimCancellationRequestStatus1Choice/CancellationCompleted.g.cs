@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketClaimCancellationRequestSt
 /// <summary>
 /// Provides status information related to an instruction cancellation request that is completed.
 /// </summary>
-public partial record CancellationCompleted : IMarketClaimCancellationRequestStatus1Choice
+public partial record CancellationCompleted : MarketClaimCancellationRequestStatus1Choice_
 {
     #nullable enable
     #nullable disable

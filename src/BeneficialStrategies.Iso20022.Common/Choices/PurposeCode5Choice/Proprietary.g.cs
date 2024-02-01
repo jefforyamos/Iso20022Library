@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PurposeCode5Choice;
 /// <summary>
 /// Specifies the execution priority of the instruction with a proprietary scheme.
 /// </summary>
-public partial record Proprietary : IPurposeCode5Choice
+public partial record Proprietary : PurposeCode5Choice_
 {
     #nullable enable
     /// <summary>

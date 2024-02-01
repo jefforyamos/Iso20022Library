@@ -20,7 +20,7 @@ public partial record CashAccount10
     /// <summary>
     /// Unique and unambiguous identification of the account between the account owner and the account servicer.
     /// </summary>
-    public required IAccountIdentification3Choice Identification { get; init; } 
+    public required AccountIdentification3Choice_ Identification { get; init; } 
     
     #nullable disable
 }

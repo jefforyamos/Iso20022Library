@@ -24,7 +24,7 @@ public partial record RecordTechnicalData1
     /// <summary>
     /// Describes the reason for the exchange of the transaction report between the competent authorities.
     /// </summary>
-    public AuthorityExchangeReason1Code? ExchangeReason { get; init;  } // Warning: Don't know multiplicity.
+    public AuthorityExchangeReason1Code[] ExchangeReason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

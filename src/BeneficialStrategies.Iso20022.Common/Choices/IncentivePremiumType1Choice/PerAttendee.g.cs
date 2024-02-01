@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IncentivePremiumType1Choice;
 /// <summary>
 /// Indicates that the premium is given per attendee.
 /// </summary>
-public partial record PerAttendee : IIncentivePremiumType1Choice
+public partial record PerAttendee : IncentivePremiumType1Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

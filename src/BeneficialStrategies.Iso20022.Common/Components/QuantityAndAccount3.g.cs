@@ -20,7 +20,7 @@ public partial record QuantityAndAccount3
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice SettlementQuantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Denomination of the security to be received or delivered.
     /// </summary>
@@ -28,11 +28,11 @@ public partial record QuantityAndAccount3
     /// <summary>
     /// Unique and unambiguous identifier of a certificate assigned by the issuer.
     /// </summary>
-    public SecuritiesCertificate1? CertificateNumber { get; init;  } // Warning: Don't know multiplicity.
+    public SecuritiesCertificate1[] CertificateNumber { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification13Choice? AccountOwner { get; init; } 
+    public PartyIdentification13Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
@@ -40,15 +40,15 @@ public partial record QuantityAndAccount3
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    public ICashAccountIdentification5Choice? CashAccount { get; init; } 
+    public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Breakdown of a quantity into lots such as tax lots, instrument series, etc.
     /// </summary>
-    public QuantityBreakdown3? QuantityBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public QuantityBreakdown3[] QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public ISafekeepingPlaceFormat3Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; init; } 
     
     #nullable disable
 }

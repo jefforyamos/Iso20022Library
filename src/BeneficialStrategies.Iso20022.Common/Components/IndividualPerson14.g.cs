@@ -36,7 +36,7 @@ public partial record IndividualPerson14
     /// <summary>
     /// Organisation represented by a person, or for which a person works.
     /// </summary>
-    public IPartyIdentification9Choice? EmployingParty { get; init; } 
+    public PartyIdentification9Choice_? EmployingParty { get; init; } 
     
     #nullable disable
 }

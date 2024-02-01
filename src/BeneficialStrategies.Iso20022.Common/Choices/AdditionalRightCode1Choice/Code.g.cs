@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AdditionalRightCode1Choice;
 /// <summary>
 /// Identifies the additional right code.
 /// </summary>
-public partial record Code : IAdditionalRightCode1Choice
+public partial record Code : AdditionalRightCode1Choice_
 {
     public required AdditionalRight1Code Value { get; init; }
 }

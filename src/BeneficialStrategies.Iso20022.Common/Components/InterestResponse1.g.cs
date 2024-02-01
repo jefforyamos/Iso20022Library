@@ -24,7 +24,7 @@ public partial record InterestResponse1
     /// <summary>
     /// Provides a reason for rejection identified using a code or a proprietary format.
     /// </summary>
-    public IRejectionReason21FormatChoice? RejectionReason { get; init; } 
+    public RejectionReason21FormatChoice_? RejectionReason { get; init; } 
     /// <summary>
     /// Provides additional information on the rejection reason.
     /// </summary>

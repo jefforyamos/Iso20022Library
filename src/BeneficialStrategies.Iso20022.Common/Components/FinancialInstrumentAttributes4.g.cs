@@ -24,43 +24,43 @@ public partial record FinancialInstrumentAttributes4
     /// <summary>
     /// Specifies the computation method of (accrued) interest of the security.
     /// </summary>
-    public IInterestComputationMethodFormat1Choice? DayCountBasis { get; init; } 
+    public InterestComputationMethodFormat1Choice_? DayCountBasis { get; init; } 
     /// <summary>
     /// Specifies the form, ie, ownership, of the security.
     /// </summary>
-    public IFormOfSecurity2Choice? RegistrationForm { get; init; } 
+    public FormOfSecurity2Choice_? RegistrationForm { get; init; } 
     /// <summary>
     /// Specifies the frequency of an interest payment.
     /// </summary>
-    public IFrequency3Choice? PaymentFrequency { get; init; } 
+    public Frequency3Choice_? PaymentFrequency { get; init; } 
     /// <summary>
     /// Status of payment of a security at a particular time.
     /// </summary>
-    public ISecuritiesPaymentStatus2Choice? PaymentStatus { get; init; } 
+    public SecuritiesPaymentStatus2Choice_? PaymentStatus { get; init; } 
     /// <summary>
     /// Indicates the direction of payment for asset or mortgage backed securities, ie, whether the repaid capital is distributed (payment direction is down) or capitalized (payment direction is up).
     /// </summary>
-    public IPaymentDirection2Choice? PaymentDirection { get; init; } 
+    public PaymentDirection2Choice_? PaymentDirection { get; init; } 
     /// <summary>
     /// Specifies the frequency of change to the variable rate of an interest bearing instrument.
     /// </summary>
-    public IFrequency3Choice? VariableRateChangeFrequency { get; init; } 
+    public Frequency3Choice_? VariableRateChangeFrequency { get; init; } 
     /// <summary>
     /// Indicates the level of priority to claim on income and assets of the company in case of the payment of dividends and in the event of a bankruptcy, for example, ordinary/common stocks, preferred stocks, subordinated debt, etc.
     /// </summary>
-    public IPreferenceToIncome2Choice? PreferenceToIncome { get; init; } 
+    public PreferenceToIncome2Choice_? PreferenceToIncome { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, for example, common share with voting rights, fully paid, or registered.
     /// </summary>
-    public IClassificationType2Choice? ClassificationType { get; init; } 
+    public ClassificationType2Choice_? ClassificationType { get; init; } 
     /// <summary>
     /// Specifies how an option can be exercised (American, European, Bermudan).
     /// </summary>
-    public IOptionStyle4Choice? OptionStyle { get; init; } 
+    public OptionStyle4Choice_? OptionStyle { get; init; } 
     /// <summary>
     /// Specifies whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).
     /// </summary>
-    public IOptionType2Choice? OptionType { get; init; } 
+    public OptionType2Choice_? OptionType { get; init; } 
     /// <summary>
     /// Currency in which a security is issued or redenominated.
     /// </summary>
@@ -128,15 +128,15 @@ public partial record FinancialInstrumentAttributes4
     /// <summary>
     /// Number of the coupon attached to the physical security.
     /// </summary>
-    public INumber2Choice? CouponAttachedNumber { get; init; } 
+    public Number2Choice_? CouponAttachedNumber { get; init; } 
     /// <summary>
     /// Number identifying a group of underlying assets assigned by the issuer of a factored security.
     /// </summary>
-    public INumber2Choice? PoolNumber { get; init; } 
+    public Number2Choice_? PoolNumber { get; init; } 
     /// <summary>
     /// Breakdown of a quantity into lots such as tax lots, instrument series, etc.
     /// </summary>
-    public QuantityBreakdown5? QuantityBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public QuantityBreakdown5[] QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the interest rate of an interest bearing instrument is reset periodically.
     /// </summary>
@@ -152,7 +152,7 @@ public partial record FinancialInstrumentAttributes4
     /// <summary>
     /// Value of the price, for example, as a currency and value per unit or as a percentage.
     /// </summary>
-    public IPriceType1Choice? MarketOrIndicativePrice { get; init; } 
+    public PriceType1Choice_? MarketOrIndicativePrice { get; init; } 
     /// <summary>
     /// Predetermined price at which the holder of a derivative will buy or sell the underlying instrument.
     /// </summary>
@@ -172,15 +172,15 @@ public partial record FinancialInstrumentAttributes4
     /// <summary>
     /// Indicates the minimum tradable quantity of a security.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? MinimumNominalQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? MinimumNominalQuantity { get; init; } 
     /// <summary>
     /// Ratio or multiplying factor used to convert one contract into a quantity.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? ContractSize { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? ContractSize { get; init; } 
     /// <summary>
     /// Identification of the underlying security by an ISIN.
     /// </summary>
-    public SecurityIdentification11? UnderlyingFinancialInstrumentIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityIdentification11[] UnderlyingFinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional information about the financial instrument in narrative form.
     /// </summary>

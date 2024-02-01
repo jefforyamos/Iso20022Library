@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesLendingType3Choice;
 /// <summary>
 /// Name of the identification scheme, in a coded form as published in an external list.
 /// </summary>
-public partial record Code : ISecuritiesLendingType3Choice
+public partial record Code : SecuritiesLendingType3Choice_
 {
     public required ExternalSecuritiesLendingType1Code Value { get; init; }
 }

@@ -56,7 +56,7 @@ public partial record DerivativesTradeMarginDataTransactionStateReportV01 : IOut
     [DataMember(Name="TradData")]
     [XmlElement(ElementName="TradData")]
     [Required]
-    public required ITradeData56Choice TradeData { get; init; }
+    public required TradeData56Choice_ TradeData { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

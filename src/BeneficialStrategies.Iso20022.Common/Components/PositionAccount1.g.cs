@@ -20,7 +20,7 @@ public partial record PositionAccount1
     /// <summary>
     /// Unique identifier of the position account.
     /// </summary>
-    public required IPartyIdentification118Choice Identification { get; init; } 
+    public required PartyIdentification118Choice_ Identification { get; init; } 
     
     #nullable disable
 }

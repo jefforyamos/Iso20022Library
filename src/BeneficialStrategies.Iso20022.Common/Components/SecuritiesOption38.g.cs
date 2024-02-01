@@ -28,11 +28,11 @@ public partial record SecuritiesOption38
     /// <summary>
     /// Specifies that the security identified is a temporary security identification used for processing reasons, for example, contra security used in the US.
     /// </summary>
-    public ITemporaryFinancialInstrumentIndicator1Choice? TemporaryFinancialInstrumentIndicator { get; init; } 
+    public TemporaryFinancialInstrumentIndicator1Choice_? TemporaryFinancialInstrumentIndicator { get; init; } 
     /// <summary>
     /// Specifies information regarding outturn resources that cannot be processed by the Central Securities Depository (CSD). Special delivery instruction is required from the account owner for the corporate action outcome to be credited.
     /// </summary>
-    public INonEligibleProceedsIndicator1Choice? NonEligibleProceedsIndicator { get; init; } 
+    public NonEligibleProceedsIndicator1Choice_? NonEligibleProceedsIndicator { get; init; } 
     /// <summary>
     /// Proceeds are taxable according to the information provided by the issuer / offeror.
     /// </summary>
@@ -44,15 +44,15 @@ public partial record SecuritiesOption38
     /// <summary>
     /// Quantity of securities based on the terms of the corporate action event and balance of underlying securities entitled to the account owner. (This quantity can be positive or negative).
     /// </summary>
-    public IQuantity6Choice? EntitledQuantity { get; init; } 
+    public Quantity6Choice_? EntitledQuantity { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public ISafekeepingPlaceFormat2Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat2Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
-    public IFractionDispositionType19Choice? FractionDisposition { get; init; } 
+    public FractionDispositionType19Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Currency in which the cash disbursed from an interest or dividend payment is offered.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record SecuritiesOption38
     /// <summary>
     /// Period during which intermediate or outturn securities are tradable in a secondary market.
     /// </summary>
-    public IPeriod3Choice? TradingPeriod { get; init; } 
+    public Period3Choice_? TradingPeriod { get; init; } 
     /// <summary>
     /// Provides information about the dates related to securities movement.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus82Choice;
 /// <summary>
 /// All checks relative to the instruction (except collateral) are successful.
 /// </summary>
-public partial record Future : IProcessingStatus82Choice
+public partial record Future : ProcessingStatus82Choice_
 {
     #nullable enable
     /// <summary>

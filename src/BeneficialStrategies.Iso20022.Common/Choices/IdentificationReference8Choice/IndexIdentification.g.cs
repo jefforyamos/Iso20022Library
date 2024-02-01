@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationReference8Choice;
 /// <summary>
 /// Reference identifying a index trade.
 /// </summary>
-public partial record IndexIdentification : IIdentificationReference8Choice
+public partial record IndexIdentification : IdentificationReference8Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

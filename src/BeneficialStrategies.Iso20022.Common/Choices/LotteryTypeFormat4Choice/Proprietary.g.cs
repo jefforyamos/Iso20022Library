@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LotteryTypeFormat4Choice;
 /// <summary>
 /// Proprietary identification of the type of lottery announced.
 /// </summary>
-public partial record Proprietary : ILotteryTypeFormat4Choice
+public partial record Proprietary : LotteryTypeFormat4Choice_
 {
     #nullable enable
     /// <summary>

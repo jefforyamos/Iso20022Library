@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status29Choice;
 /// <summary>
 /// Provides the status of settlement of a transaction.
 /// </summary>
-public partial record SettlementStatus : IStatus29Choice
+public partial record SettlementStatus : Status29Choice_
 {
     #nullable enable
     #nullable disable

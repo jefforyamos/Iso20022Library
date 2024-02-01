@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationPendingStatus7Choice
 /// <summary>
 /// Proprietary identification of the reason for the cancellation pending status.
 /// </summary>
-public partial record DataSourceScheme : ICancellationPendingStatus7Choice
+public partial record DataSourceScheme : CancellationPendingStatus7Choice_
 {
     #nullable enable
     /// <summary>

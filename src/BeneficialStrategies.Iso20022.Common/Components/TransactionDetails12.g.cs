@@ -20,11 +20,11 @@ public partial record TransactionDetails12
     /// <summary>
     /// Reference to the message advised to be cancelled by the account servicer.
     /// </summary>
-    public required IReferences3Choice Reference { get; init; } 
+    public required References3Choice_ Reference { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification13Choice? AccountOwner { get; init; } 
+    public PartyIdentification13Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>

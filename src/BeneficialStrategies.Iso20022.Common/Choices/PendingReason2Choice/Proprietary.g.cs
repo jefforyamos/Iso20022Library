@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingReason2Choice;
 /// <summary>
 /// Specifies the reason why the cancellation request is pending.
 /// </summary>
-public partial record Proprietary : IPendingReason2Choice
+public partial record Proprietary : PendingReason2Choice_
 {
     #nullable enable
     /// <summary>

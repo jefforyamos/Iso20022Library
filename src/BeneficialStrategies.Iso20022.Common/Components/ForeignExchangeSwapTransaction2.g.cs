@@ -42,14 +42,14 @@ public partial record ForeignExchangeSwapTransaction2
     /// <summary>
     /// Identification of the counterparty of the reporting agent for the reported transaction.
     /// </summary>
-    public required ICounterpartyIdentification2Choice CounterpartyIdentification { get; init; } 
+    public required CounterpartyIdentification2Choice_ CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Date and time on which the parties entered into the reported transaction.
     /// Usage: when time is available, it must be reported.
     /// It is to be reported with only the date when the time of the transaction is not available. 
     /// The reported time is the execution time when available or otherwise the time at which the transaction entered the trading system of the reporting agent.
     /// </summary>
-    public required IDateAndDateTimeChoice TradeDate { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDate { get; init; } 
     /// <summary>
     /// Date on which one party sells to the other a specified amount of a specified currency against payment of an agreed amount of a specified different currency based on an agreed foreign exchange rate known as foreign exchange spot rate.
     /// </summary>
@@ -73,7 +73,7 @@ public partial record ForeignExchangeSwapTransaction2
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

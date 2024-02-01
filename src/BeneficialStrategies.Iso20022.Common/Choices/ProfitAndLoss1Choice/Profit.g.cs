@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProfitAndLoss1Choice;
 /// <summary>
 /// Value of the positive amount.
 /// </summary>
-public partial record Profit : IProfitAndLoss1Choice
+public partial record Profit : ProfitAndLoss1Choice_
 {
     public required IsoActiveCurrencyAnd13DecimalAmount Value { get; init; }
 }

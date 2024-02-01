@@ -28,7 +28,7 @@ public partial record CorporateActionEventStageFormat4SD1
     /// 買付株式数／未定／非設定
     /// ※買付前の通知において、「非設定」のデータが1件あり。未定との違いは不明。".
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice SecuritiesPurchased { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ SecuritiesPurchased { get; init; } 
     
     #nullable disable
 }

@@ -20,7 +20,7 @@ public partial record PartyIdentificationAndAccount218
     /// <summary>
     /// Identification of a party.
     /// </summary>
-    public required IPartyIdentification240Choice Identification { get; init; } 
+    public required PartyIdentification240Choice_ Identification { get; init; } 
     /// <summary>
     /// Provides additional information regarding the party, for example, the contact unit or person responsible for the transaction identified in the message.
     /// </summary>

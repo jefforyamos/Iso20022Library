@@ -20,11 +20,11 @@ public partial record CorporateActionAgent1
     /// <summary>
     /// Identification of the agent.
     /// </summary>
-    public required IPartyIdentification2Choice AgentIdentification { get; init; } 
+    public required PartyIdentification2Choice_ AgentIdentification { get; init; } 
     /// <summary>
     /// Role played by the agent.
     /// </summary>
-    public required IAgentRole1FormatChoice AgentRole { get; init; } 
+    public required AgentRole1FormatChoice_ AgentRole { get; init; } 
     /// <summary>
     /// Contact person at the agent.
     /// </summary>

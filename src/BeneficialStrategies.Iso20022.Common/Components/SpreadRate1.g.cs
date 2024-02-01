@@ -24,7 +24,7 @@ public partial record SpreadRate1
     /// <summary>
     /// Specifies if the spreadf is expressed as an amount or a rate.
     /// </summary>
-    public required IAmountOrRate1Choice RateOrAmount { get; init; } 
+    public required AmountOrRate1Choice_ RateOrAmount { get; init; } 
     
     #nullable disable
 }

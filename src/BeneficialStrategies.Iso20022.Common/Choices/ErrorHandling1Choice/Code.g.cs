@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ErrorHandling1Choice;
 /// <summary>
 /// Specification of the error, in coded form.
 /// </summary>
-public partial record Code : IErrorHandling1Choice
+public partial record Code : ErrorHandling1Choice_
 {
     public required ErrorHandling1Code Value { get; init; }
 }

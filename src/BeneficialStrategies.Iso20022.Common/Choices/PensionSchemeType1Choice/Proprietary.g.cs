@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PensionSchemeType1Choice;
 /// <summary>
 /// Type of pension policy, plan or scheme expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IPensionSchemeType1Choice
+public partial record Proprietary : PensionSchemeType1Choice_
 {
     #nullable enable
     /// <summary>

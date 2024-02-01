@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus39Cho
 /// <summary>
 /// Provides status information related to an instruction request cancelled.
 /// </summary>
-public partial record Cancelled : IInstructionProcessingStatus39Choice
+public partial record Cancelled : InstructionProcessingStatus39Choice_
 {
     #nullable enable
     #nullable disable

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SignatureType1Choice;
 /// <summary>
 /// Signature type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISignatureType1Choice
+public partial record Proprietary : SignatureType1Choice_
 {
     #nullable enable
     /// <summary>

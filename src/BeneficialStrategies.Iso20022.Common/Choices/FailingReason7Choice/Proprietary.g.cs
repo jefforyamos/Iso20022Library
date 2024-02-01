@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FailingReason7Choice;
 /// <summary>
 /// Specifies the reason why the instruction has a failing settlement status.
 /// </summary>
-public partial record Proprietary : IFailingReason7Choice
+public partial record Proprietary : FailingReason7Choice_
 {
     #nullable enable
     /// <summary>

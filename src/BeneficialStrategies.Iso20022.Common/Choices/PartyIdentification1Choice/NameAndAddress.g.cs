@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification1Choice;
 /// <summary>
 /// Name by which a party is known and which is usually used to identify that party.
 /// </summary>
-public partial record NameAndAddress : IPartyIdentification1Choice
+public partial record NameAndAddress : PartyIdentification1Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record NameAndAddress : IPartyIdentification1Choice
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    public ILongPostalAddress1Choice? Address { get; init; } 
+    public LongPostalAddress1Choice_? Address { get; init; } 
     #nullable disable
 }

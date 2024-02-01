@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportParameter2Choice;
 /// <summary>
 /// Currency for which the estimated cash flow is being reported.
 /// </summary>
-public partial record Currency : IReportParameter2Choice
+public partial record Currency : ReportParameter2Choice_
 {
     public required ActiveOrHistoricCurrencyCode Value { get; init; }
 }

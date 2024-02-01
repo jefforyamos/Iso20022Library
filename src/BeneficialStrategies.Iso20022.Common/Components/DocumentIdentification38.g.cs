@@ -20,15 +20,15 @@ public partial record DocumentIdentification38
     /// <summary>
     /// Unique identifier of the document (message) assigned either by the account servicer or the account owner.
     /// </summary>
-    public required IDocumentIdentification4Choice Identification { get; init; } 
+    public required DocumentIdentification4Choice_ Identification { get; init; } 
     /// <summary>
     /// Identification of the type of document.
     /// </summary>
-    public IDocumentNumber6Choice? DocumentNumber { get; init; } 
+    public DocumentNumber6Choice_? DocumentNumber { get; init; } 
     /// <summary>
     /// Specifies when this document is to be processed relative to another referred document.
     /// </summary>
-    public IProcessingPosition10Choice? LinkageType { get; init; } 
+    public ProcessingPosition10Choice_? LinkageType { get; init; } 
     
     #nullable disable
 }

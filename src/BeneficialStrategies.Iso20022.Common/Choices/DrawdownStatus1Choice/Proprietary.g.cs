@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DrawdownStatus1Choice;
 /// <summary>
 /// Status expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IDrawdownStatus1Choice
+public partial record Proprietary : DrawdownStatus1Choice_
 {
     #nullable enable
     /// <summary>

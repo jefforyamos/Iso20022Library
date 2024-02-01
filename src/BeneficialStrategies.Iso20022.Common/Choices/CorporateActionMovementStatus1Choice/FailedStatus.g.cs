@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionMovementStatus1Ch
 /// <summary>
 /// Provides information about the settlement failure.
 /// </summary>
-public partial record FailedStatus : ICorporateActionMovementStatus1Choice
+public partial record FailedStatus : CorporateActionMovementStatus1Choice_
 {
     #nullable enable
     /// <summary>
@@ -26,7 +26,7 @@ public partial record FailedStatus : ICorporateActionMovementStatus1Choice
     /// <summary>
     /// Identification of the party that owns the client account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountOwnerIdentification { get; init; } 
+    public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Provides information about the resource movement that failed and the reason of the failure.
     /// </summary>

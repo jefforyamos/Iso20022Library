@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// <summary>
 /// Identification Code for a clearing system, that has not yet been identified in the list of clearing systems.
 /// </summary>
-public partial record OtherClearingCodeIdentification : IClearingSystemMemberIdentification2Choice
+public partial record OtherClearingCodeIdentification : ClearingSystemMemberIdentification2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

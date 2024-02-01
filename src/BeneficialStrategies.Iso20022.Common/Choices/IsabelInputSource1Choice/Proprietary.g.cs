@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IsabelInputSource1Choice;
 /// <summary>
 /// Input source for the generation of the file, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IIsabelInputSource1Choice
+public partial record Proprietary : IsabelInputSource1Choice_
 {
     public required IsoMax4AlphaNumericText Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record CorporateActionAmendmentProcessingStatus1
     /// <summary>
     /// The processing status.
     /// </summary>
-    public required IProcessedStatus5FormatChoice Status { get; init; } 
+    public required ProcessedStatus5FormatChoice_ Status { get; init; } 
     /// <summary>
     /// Additional information about the status.
     /// </summary>

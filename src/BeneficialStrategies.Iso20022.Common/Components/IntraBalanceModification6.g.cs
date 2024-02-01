@@ -32,7 +32,7 @@ public partial record IntraBalanceModification6
     /// <summary>
     /// Status and status reason of the transaction.
     /// </summary>
-    public IProcessingStatus71Choice? ProcessingStatus { get; init; } 
+    public ProcessingStatus71Choice_? ProcessingStatus { get; init; } 
     /// <summary>
     /// Unambiguous identification of the modification request.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DistributionType1FormatChoice;
 /// <summary>
 /// Standard code to specify the distribution type.
 /// </summary>
-public partial record Code : IDistributionType1FormatChoice
+public partial record Code : DistributionType1FormatChoice_
 {
     public required DistributionType1Code Value { get; init; }
 }

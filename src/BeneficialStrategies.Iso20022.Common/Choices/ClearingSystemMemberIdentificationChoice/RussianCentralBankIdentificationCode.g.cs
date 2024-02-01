@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// <summary>
 /// Russian Central Bank Identification Code - identifies Russian financial institutions on the Russian national clearing system.
 /// </summary>
-public partial record RussianCentralBankIdentificationCode : IClearingSystemMemberIdentificationChoice
+public partial record RussianCentralBankIdentificationCode : ClearingSystemMemberIdentificationChoice_
 {
     public required IsoRussianCentralBankIdentificationCodeIdentifier Value { get; init; }
 }

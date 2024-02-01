@@ -28,7 +28,7 @@ public partial record FinancialInstrumentDescription3
     /// <summary>
     /// Identification of the place of safekeeping.
     /// </summary>
-    public IPartyIdentification2Choice? SafekeepingPlace { get; init; } 
+    public PartyIdentification2Choice_? SafekeepingPlace { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionOrError4Choice;
 /// <summary>
 /// Requested information on the payment transaction.
 /// </summary>
-public partial record Transaction : ITransactionOrError4Choice
+public partial record Transaction : TransactionOrError4Choice_
 {
     #nullable enable
     /// <summary>

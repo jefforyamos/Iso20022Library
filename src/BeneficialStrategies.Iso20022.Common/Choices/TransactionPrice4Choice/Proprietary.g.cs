@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionPrice4Choice;
 /// <summary>
 /// Proprietary price specification related to the underlying transaction.
 /// </summary>
-public partial record Proprietary : ITransactionPrice4Choice
+public partial record Proprietary : TransactionPrice4Choice_
 {
     #nullable enable
     /// <summary>

@@ -20,7 +20,7 @@ public partial record RejectedStatusReason42
     /// <summary>
     /// Reason for the rejected status.
     /// </summary>
-    public required IRejectedReason44Choice ReasonCode { get; init; } 
+    public required RejectedReason44Choice_ ReasonCode { get; init; } 
     /// <summary>
     /// Additional information about the rejection status.
     /// </summary>

@@ -31,6 +31,10 @@
     <ProjectReference Include="..\BeneficialStrategies.Iso20022.SchemaValidation\BeneficialStrategies.Iso20022.SchemaValidation.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="pain/CustomerCreditTransferInitiation.xml" />
+  </ItemGroup>
+
   <ProjectExtensions>
     <MonoDevelop>
       <Properties>

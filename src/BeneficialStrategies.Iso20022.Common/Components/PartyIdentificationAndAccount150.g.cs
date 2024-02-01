@@ -20,7 +20,7 @@ public partial record PartyIdentificationAndAccount150
     /// <summary>
     /// Information related to an identification, eg, party identification or account identification.
     /// </summary>
-    public IPartyIdentification117Choice? Identification { get; init; } 
+    public PartyIdentification117Choice_? Identification { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record PartyIdentificationAndAccount150
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    public ICashAccountIdentification5Choice? CashAccount { get; init; } 
+    public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction for the party identified.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityRestrictionType2Choice;
 /// <summary>
 /// Type of the restriction, for example, selling restriction, buying restriction, placing restriction.
 /// </summary>
-public partial record ProprietaryRestriction : ISecurityRestrictionType2Choice
+public partial record ProprietaryRestriction : SecurityRestrictionType2Choice_
 {
     #nullable enable
     /// <summary>

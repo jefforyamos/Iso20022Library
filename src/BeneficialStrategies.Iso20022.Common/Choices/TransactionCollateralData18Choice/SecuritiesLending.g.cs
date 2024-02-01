@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionCollateralData18Choic
 /// <summary>
 /// Specifies the type of collateral used for the securities lending transaction.
 /// </summary>
-public partial record SecuritiesLending : ITransactionCollateralData18Choice
+public partial record SecuritiesLending : TransactionCollateralData18Choice_
 {
     #nullable enable
     #nullable disable

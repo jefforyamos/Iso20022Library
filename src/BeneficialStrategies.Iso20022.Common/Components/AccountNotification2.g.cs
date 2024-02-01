@@ -44,7 +44,7 @@ public partial record AccountNotification2
     /// <summary>
     /// Specifies the application used to generate the reporting.
     /// </summary>
-    public IReportingSource1Choice? ReportingSource { get; init; } 
+    public ReportingSource1Choice_? ReportingSource { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account to which credit and debit entries are made.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record AccountNotification2
     /// <summary>
     /// Set of elements used to provide general interest information that applies to the account at a particular moment in time.
     /// </summary>
-    public AccountInterest2? Interest { get; init;  } // Warning: Don't know multiplicity.
+    public AccountInterest2[] Interest { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of elements used to provide summary information on entries.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record AccountNotification2
     /// <summary>
     /// Set of elements used to specify an entry in the debit credit notification.|Usage: At least one reference must be provided to identify the entry and its underlying transaction(s).
     /// </summary>
-    public ReportEntry2? Entry { get; init;  } // Warning: Don't know multiplicity.
+    public ReportEntry2[] Entry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further details of the account notification.
     /// </summary>

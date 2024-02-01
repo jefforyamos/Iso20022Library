@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Account9Choice;
 /// <summary>
 /// Account to be used for charges if different from the account for payment.
 /// </summary>
-public partial record ChargesAccount : IAccount9Choice
+public partial record ChargesAccount : Account9Choice_
 {
     #nullable enable
     #nullable disable

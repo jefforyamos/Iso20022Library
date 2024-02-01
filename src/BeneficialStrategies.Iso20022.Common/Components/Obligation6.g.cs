@@ -24,7 +24,7 @@ public partial record Obligation6
     /// <summary>
     /// Party that is acting on behalf of party A and that offers collateral management services.
     /// </summary>
-    public IPartyIdentification178Choice? ServicingPartyA { get; init; } 
+    public PartyIdentification178Choice_? ServicingPartyA { get; init; } 
     /// <summary>
     /// Other entity associated with the collateral agreement and type of the CCP membership type where the counterparty is a CCP.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record Obligation6
     /// <summary>
     /// Party that is acting on behalf of party B and that offers collateral management services.
     /// </summary>
-    public IPartyIdentification178Choice? ServicingPartyB { get; init; } 
+    public PartyIdentification178Choice_? ServicingPartyB { get; init; } 
     /// <summary>
     /// Provides additional information on the collateral account of the party delivering/receiving the collateral.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record Obligation6
     /// <summary>
     /// Close of business date on which the initiating party is valuing the margin call.
     /// </summary>
-    public required IDateAndDateTime2Choice ValuationDate { get; init; } 
+    public required DateAndDateTime2Choice_ ValuationDate { get; init; } 
     
     #nullable disable
 }

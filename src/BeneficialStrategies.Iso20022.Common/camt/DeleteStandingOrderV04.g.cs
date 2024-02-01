@@ -56,7 +56,7 @@ public partial record DeleteStandingOrderV04 : IOuterRecord
     [DataMember(Name="StgOrdrDtls")]
     [XmlElement(ElementName="StgOrdrDtls")]
     [Required]
-    public required IStandingOrderOrAll3Choice StandingOrderDetails { get; init; }
+    public required StandingOrderOrAll3Choice_ StandingOrderDetails { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

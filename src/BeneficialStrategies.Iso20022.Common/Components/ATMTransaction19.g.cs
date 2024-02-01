@@ -32,11 +32,11 @@ public partial record ATMTransaction19
     /// <summary>
     /// Incident occurring during the processing of the transaction.
     /// </summary>
-    public FailureReason7Code? Incident { get; init;  } // Warning: Don't know multiplicity.
+    public FailureReason7Code[] Incident { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Explanation of the incident.
     /// </summary>
-    public IsoMax70Text? IncidentDetail { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] IncidentDetail { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unprotected account information.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record ATMTransaction19
     /// <summary>
     /// Additional charge (for instance tax or fee).
     /// </summary>
-    public DetailedAmount13? AdditionalCharge { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount13[] AdditionalCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// True if the customer has requested a receipt.
     /// </summary>
@@ -80,19 +80,19 @@ public partial record ATMTransaction19
     /// <summary>
     /// Deposited media put in the safe.
     /// </summary>
-    public ATMDepositedMedia1? DepositedMedia { get; init;  } // Warning: Don't know multiplicity.
+    public ATMDepositedMedia1[] DepositedMedia { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Media unit not put in the safe. These deposits have to be reconciliated.
     /// </summary>
-    public ATMDepositedMedia3? ToBeReconciledMediaCounters { get; init;  } // Warning: Don't know multiplicity.
+    public ATMDepositedMedia3[] ToBeReconciledMediaCounters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Current totals of the ATM.
     /// </summary>
-    public ATMTotals1? ATMTotals { get; init;  } // Warning: Don't know multiplicity.
+    public ATMTotals1[] ATMTotals { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information on the cassettes of the ATM.
     /// </summary>
-    public ATMCassette2? Cassette { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCassette2[] Cassette { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>

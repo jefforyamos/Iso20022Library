@@ -64,7 +64,7 @@ public partial record IntraBalanceMovementStatusAdviceV01 : IOuterRecord
     [Description(@"Provides details on the processing status of the transaction.")]
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
-    public IProcessingStatus67Choice? ProcessingStatus { get; init; }
+    public ProcessingStatus67Choice_? ProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides the settlement status of a transaction.
@@ -73,7 +73,7 @@ public partial record IntraBalanceMovementStatusAdviceV01 : IOuterRecord
     [Description(@"Provides the settlement status of a transaction.")]
     [DataMember(Name="SttlmSts")]
     [XmlElement(ElementName="SttlmSts")]
-    public ISettlementStatus16Choice? SettlementStatus { get; init; }
+    public SettlementStatus16Choice_? SettlementStatus { get; init; }
     
     /// <summary>
     /// Account to or from which an entry is made.

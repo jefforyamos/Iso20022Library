@@ -20,7 +20,7 @@ public partial record OtherReference1
     /// <summary>
     /// Type of reference
     /// </summary>
-    public required IReferenceType1Choice Type { get; init; } 
+    public required ReferenceType1Choice_ Type { get; init; } 
     /// <summary>
     /// Value of the reference
     /// </summary>

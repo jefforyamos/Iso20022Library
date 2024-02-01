@@ -20,7 +20,7 @@ public partial record Ownership1
     /// <summary>
     /// Specifies the type of ownership.
     /// </summary>
-    public IOwnershipType3Choice? OwnershipType { get; init; } 
+    public OwnershipType3Choice_? OwnershipType { get; init; } 
     /// <summary>
     /// Percentage of ownership that a person has on an asset.
     /// </summary>

@@ -20,31 +20,31 @@ public partial record CorporateActionDate60
     /// <summary>
     /// Date/time at which the account servicer has set as the deadline to respond, with instructions, to an outstanding event. This time is dependent on the reference time zone of the account servicer as specified in a Service Level Agreement (SLA).
     /// </summary>
-    public IDateFormat43Choice? ResponseDeadline { get; init; } 
+    public DateFormat43Choice_? ResponseDeadline { get; init; } 
     /// <summary>
     /// Date/time by which cash must be in place in order to take part in the event.
     /// </summary>
-    public IDateFormat43Choice? SubscriptionCostDebitDate { get; init; } 
+    public DateFormat43Choice_? SubscriptionCostDebitDate { get; init; } 
     /// <summary>
     /// Issuer or issuer's agent deadline to respond, with an instruction, to an outstanding offer or privilege.
     /// </summary>
-    public IDateFormat43Choice? MarketDeadline { get; init; } 
+    public DateFormat43Choice_? MarketDeadline { get; init; } 
     /// <summary>
     /// Date/time at which an order expires or on which a privilege or offer terminates.
     /// </summary>
-    public IDateFormat43Choice? ExpiryDate { get; init; } 
+    public DateFormat43Choice_? ExpiryDate { get; init; } 
     /// <summary>
     /// Last day a holder can deliver the securities that it had elected on and/or previously protected.
     /// </summary>
-    public IDateFormat43Choice? CoverExpirationDate { get; init; } 
+    public DateFormat43Choice_? CoverExpirationDate { get; init; } 
     /// <summary>
     /// Last date/time a holder can request to defer delivery of securities pursuant to a notice of guaranteed delivery or other required documentation.
     /// </summary>
-    public IDateFormat43Choice? ProtectDate { get; init; } 
+    public DateFormat43Choice_? ProtectDate { get; init; } 
     /// <summary>
     /// Date/time at which the deal (rights) was agreed.
     /// </summary>
-    public IDateFormat43Choice? TradingDate { get; init; } 
+    public DateFormat43Choice_? TradingDate { get; init; } 
     
     #nullable disable
 }

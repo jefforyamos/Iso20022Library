@@ -36,7 +36,7 @@ public partial record IndividualOrderStatusAndReason8
     /// <summary>
     /// Cancellation status of the order cancellation.
     /// </summary>
-    public required ICancellationStatus22Choice CancellationStatus { get; init; } 
+    public required CancellationStatus22Choice_ CancellationStatus { get; init; } 
     /// <summary>
     /// Party that initiates the status of the individual order cancellation.
     /// </summary>

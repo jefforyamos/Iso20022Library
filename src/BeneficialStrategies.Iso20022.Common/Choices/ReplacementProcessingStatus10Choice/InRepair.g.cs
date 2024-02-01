@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReplacementProcessingStatus10Cho
 /// <summary>
 /// Replacement of the trade is In repair.
 /// </summary>
-public partial record InRepair : IReplacementProcessingStatus10Choice
+public partial record InRepair : ReplacementProcessingStatus10Choice_
 {
     #nullable enable
     /// <summary>

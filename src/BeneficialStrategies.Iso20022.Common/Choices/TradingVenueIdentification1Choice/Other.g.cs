@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingVenueIdentification1Choic
 /// <summary>
 /// Identification used where a venue does not have an already defined code type.
 /// </summary>
-public partial record Other : ITradingVenueIdentification1Choice
+public partial record Other : TradingVenueIdentification1Choice_
 {
     #nullable enable
     /// <summary>

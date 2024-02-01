@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReturnReason1Choice;
 /// <summary>
 /// Reason for the return not catered for by the available codes.
 /// </summary>
-public partial record Proprietary : IReturnReason1Choice
+public partial record Proprietary : ReturnReason1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

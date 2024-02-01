@@ -20,11 +20,11 @@ public partial record PartyIdentification79
     /// <summary>
     /// Identifies the account which is used to acquire or sell financial instruments.
     /// </summary>
-    public PartyIdentification76? AccountOwner { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification76[] AccountOwner { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the person who makes the decision on the financial instrument, acquire in case the of a buyer or to sell in case of the seller.
     /// </summary>
-    public IPersonOrOrganisation2Choice? DecisionMaker { get; init;  } // Warning: Don't know multiplicity.
+    public PersonOrOrganisation2Choice_[] DecisionMaker { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

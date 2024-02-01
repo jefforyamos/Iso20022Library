@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TonsOrCurrency2Choice;
 /// <summary>
 /// Total volume of specific transactions expresses in currency and amount format.
 /// </summary>
-public partial record Amount : ITonsOrCurrency2Choice
+public partial record Amount : TonsOrCurrency2Choice_
 {
     public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
 }

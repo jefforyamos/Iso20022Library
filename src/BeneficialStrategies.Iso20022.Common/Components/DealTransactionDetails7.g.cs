@@ -20,7 +20,7 @@ public partial record DealTransactionDetails7
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
-    public required IClosingDate4Choice ClosingDate { get; init; } 
+    public required ClosingDate4Choice_ ClosingDate { get; init; } 
     /// <summary>
     /// Provide deal amount details.
     /// </summary>

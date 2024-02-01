@@ -86,7 +86,7 @@ public partial record SecuritiesBalanceCustodyReportV03 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public IPartyIdentification13Choice? AccountOwner { get; init; }
+    public PartyIdentification13Choice_? AccountOwner { get; init; }
     
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.|.
@@ -95,7 +95,7 @@ public partial record SecuritiesBalanceCustodyReportV03 : IOuterRecord
     [Description(@"Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.|.")]
     [DataMember(Name="AcctSvcr")]
     [XmlElement(ElementName="AcctSvcr")]
-    public IPartyIdentification10Choice? AccountServicer { get; init; }
+    public PartyIdentification10Choice_? AccountServicer { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -150,7 +150,7 @@ public partial record SecuritiesBalanceCustodyReportV03 : IOuterRecord
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public IPartyIdentification10Choice? MessageOriginator { get; init; }
+    public PartyIdentification10Choice_? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -159,7 +159,7 @@ public partial record SecuritiesBalanceCustodyReportV03 : IOuterRecord
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public IPartyIdentification10Choice? MessageRecipient { get; init; }
+    public PartyIdentification10Choice_? MessageRecipient { get; init; }
     
     #nullable disable
     

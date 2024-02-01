@@ -13,7 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentificationQuery3Choi
 /// Query for not available value (N/A).
 /// Usage: N/A means that value was not available at the time of the reporting.
 /// </summary>
-public partial record NotAvailable : ISecurityIdentificationQuery3Choice
+public partial record NotAvailable : SecurityIdentificationQuery3Choice_
 {
     public required NotAvailable1Code Value { get; init; }
 }

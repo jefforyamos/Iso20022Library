@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRateDerivative2Choice;
 /// <summary>
 /// Underlying interest rate type is a swap, swaption, a future on a swap or a forward on a swap with regard to the underlying swap.
 /// </summary>
-public partial record SwapRelated : IInterestRateDerivative2Choice
+public partial record SwapRelated : InterestRateDerivative2Choice_
 {
     public required SwapType1Code Value { get; init; }
 }

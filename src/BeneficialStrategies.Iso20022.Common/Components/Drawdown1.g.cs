@@ -20,11 +20,11 @@ public partial record Drawdown1
     /// <summary>
     /// Type of drawdown tranche.
     /// </summary>
-    public required IDrawdownType1Choice TrancheType { get; init; } 
+    public required DrawdownType1Choice_ TrancheType { get; init; } 
     /// <summary>
     /// Specifies the rules that are applicable to the drawdown. For example, in the UK market, the pre-A-day rule that was introduced on 6 April 2006.)
     /// </summary>
-    public IApplicableRules1Choice? ApplicableRules { get; init; } 
+    public ApplicableRules1Choice_? ApplicableRules { get; init; } 
     /// <summary>
     /// Percentage of the total transfer value covered by the drawdown.
     /// </summary>
@@ -76,7 +76,7 @@ public partial record Drawdown1
     /// <summary>
     /// Additional information about the drawdown.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

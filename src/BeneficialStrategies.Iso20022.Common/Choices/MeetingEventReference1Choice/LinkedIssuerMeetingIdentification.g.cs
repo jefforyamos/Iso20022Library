@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MeetingEventReference1Choice;
 /// <summary>
 /// Official and unique reference assigned by the official central body/ entity within each market at the beginning of a meeting event.
 /// </summary>
-public partial record LinkedIssuerMeetingIdentification : IMeetingEventReference1Choice
+public partial record LinkedIssuerMeetingIdentification : MeetingEventReference1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

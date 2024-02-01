@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Account8Choice;
 /// <summary>
 /// Account in which cash is maintained.
 /// </summary>
-public partial record CashAccount : IAccount8Choice
+public partial record CashAccount : Account8Choice_
 {
     #nullable enable
     #nullable disable

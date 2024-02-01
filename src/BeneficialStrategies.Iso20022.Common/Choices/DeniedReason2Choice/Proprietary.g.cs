@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DeniedReason2Choice;
 /// <summary>
 /// Specifies the reason why the request was denied.
 /// </summary>
-public partial record Proprietary : IDeniedReason2Choice
+public partial record Proprietary : DeniedReason2Choice_
 {
     #nullable enable
     /// <summary>

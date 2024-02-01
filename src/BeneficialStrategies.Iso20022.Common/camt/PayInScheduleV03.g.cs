@@ -46,7 +46,7 @@ public partial record PayInScheduleV03 : IOuterRecord
     [DataMember(Name="PtyId")]
     [XmlElement(ElementName="PtyId")]
     [Required]
-    public required IPartyIdentification73Choice PartyIdentification { get; init; }
+    public required PartyIdentification73Choice_ PartyIdentification { get; init; }
     
     /// <summary>
     /// General information applicable to the report.

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SourceOfCash1Choice;
 /// <summary>
 /// Source of cash expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISourceOfCash1Choice
+public partial record Proprietary : SourceOfCash1Choice_
 {
     #nullable enable
     /// <summary>

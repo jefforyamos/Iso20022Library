@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredCollateral1Choice;
 /// <summary>
 /// Identifies the security pledged via a single ISIN.
 /// </summary>
-public partial record SingleCollateral : ISecuredCollateral1Choice
+public partial record SingleCollateral : SecuredCollateral1Choice_
 {
     #nullable enable
     /// <summary>

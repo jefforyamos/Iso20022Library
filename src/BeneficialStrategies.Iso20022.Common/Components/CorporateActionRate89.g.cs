@@ -20,15 +20,15 @@ public partial record CorporateActionRate89
     /// <summary>
     /// Quantity of additional intermediate securities/new equities awarded for a given quantity of securities derived from subscription.
     /// </summary>
-    public IRatioFormat17Choice? AdditionalQuantityForSubscribedResultantSecurities { get; init; } 
+    public RatioFormat17Choice_? AdditionalQuantityForSubscribedResultantSecurities { get; init; } 
     /// <summary>
     /// Quantity of additional securities for a given quantity of underlying securities where underlying securities are not exchanged or debited, for example, 1 for 1: 1 new equity credited for every 1 underlying equity = 2 resulting equities.
     /// </summary>
-    public IRatioFormat17Choice? AdditionalQuantityForExistingSecurities { get; init; } 
+    public RatioFormat17Choice_? AdditionalQuantityForExistingSecurities { get; init; } 
     /// <summary>
     /// Quantity of new securities for a given quantity of underlying securities, where the underlying securities will be exchanged or debited, for example, 2 for 1: 2 new equities credited for every 1 underlying equity debited = 2 resulting equities.
     /// </summary>
-    public IRatioFormat18Choice? NewToOld { get; init; } 
+    public RatioFormat18Choice_? NewToOld { get; init; } 
     /// <summary>
     /// Rate used to determine the cash consideration split across outturn settlement transactions that are the result of a transformation of the parent transaction.
     /// </summary>
@@ -36,23 +36,23 @@ public partial record CorporateActionRate89
     /// <summary>
     /// Rate used to calculate the amount of the charges/fees that cannot be categorised.
     /// </summary>
-    public IRateAndAmountFormat37Choice? ChargesFees { get; init; } 
+    public RateAndAmountFormat37Choice_? ChargesFees { get; init; } 
     /// <summary>
     /// Percentage of fiscal tax to apply.
     /// </summary>
-    public IRateFormat3Choice? FiscalStamp { get; init; } 
+    public RateFormat3Choice_? FiscalStamp { get; init; } 
     /// <summary>
     /// Rate applicable to the event announced, for example, redemption rate for a redemption event.
     /// </summary>
-    public IRateFormat3Choice? ApplicableRate { get; init; } 
+    public RateFormat3Choice_? ApplicableRate { get; init; } 
     /// <summary>
     /// Amount of money per equity allocated as the result of a tax credit.
     /// </summary>
-    public IRateFormat20Choice? TaxCreditRate { get; init; } 
+    public RateFormat20Choice_? TaxCreditRate { get; init; } 
     /// <summary>
     /// Rate of financial transaction tax.
     /// </summary>
-    public IRateFormat3Choice? FinancialTransactionTaxRate { get; init; } 
+    public RateFormat3Choice_? FinancialTransactionTaxRate { get; init; } 
     
     #nullable disable
 }

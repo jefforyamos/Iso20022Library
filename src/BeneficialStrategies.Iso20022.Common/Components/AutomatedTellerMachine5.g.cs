@@ -48,7 +48,7 @@ public partial record AutomatedTellerMachine5
     /// <summary>
     /// List of ATM devices out of service.
     /// </summary>
-    public ATMDevice2Code? OutOfServiceDevice { get; init;  } // Warning: Don't know multiplicity.
+    public ATMDevice2Code[] OutOfServiceDevice { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Mechanism used to protect the message of the ATM protocol.
     /// </summary>

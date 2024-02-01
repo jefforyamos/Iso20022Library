@@ -20,11 +20,11 @@ public partial record SecuritiesSubBalanceTypeAndQuantityBreakdown5
     /// <summary>
     /// Specifies the securities sub balance type indicator (example restriction type for a market infrastructure).
     /// </summary>
-    public required ISecuritiesBalanceType6Choice Type { get; init; } 
+    public required SecuritiesBalanceType6Choice_ Type { get; init; } 
     /// <summary>
     /// Breakdown of a quantity into lots such as tax lots, instrument series.
     /// </summary>
-    public QuantityBreakdown61? QuantityBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public QuantityBreakdown61[] QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

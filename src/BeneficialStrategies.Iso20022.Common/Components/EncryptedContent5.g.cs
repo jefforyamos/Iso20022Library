@@ -28,7 +28,7 @@ public partial record EncryptedContent5
     /// <summary>
     /// Encrypted data, result of the content encryption.
     /// </summary>
-    public EncryptedDataElement1? EncryptedDataElement { get; init;  } // Warning: Don't know multiplicity.
+    public EncryptedDataElement1[] EncryptedDataElement { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

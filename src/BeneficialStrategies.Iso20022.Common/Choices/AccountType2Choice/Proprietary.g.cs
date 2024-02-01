@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountType2Choice;
 /// <summary>
 /// Type of account expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IAccountType2Choice
+public partial record Proprietary : AccountType2Choice_
 {
     #nullable enable
     /// <summary>

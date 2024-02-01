@@ -12,17 +12,17 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAuditTrailOrOperationa
 /// <summary>
 /// Report information about securities reference data.
 /// </summary>
-public partial record SecuritiesAuditTrailReport : ISecuritiesAuditTrailOrOperationalError4Choice
+public partial record SecuritiesAuditTrailReport : SecuritiesAuditTrailOrOperationalError4Choice_
 {
     #nullable enable
     /// <summary>
     /// Identifies the returned securities reference data or error information.
     /// </summary>
-    public required IAuditTrailOrBusinessError6Choice SecuritiesAuditTrailOrError { get; init; } 
+    public required AuditTrailOrBusinessError6Choice_ SecuritiesAuditTrailOrError { get; init; } 
     /// <summary>
     /// Period in dates for which the audit trail is provided.
     /// </summary>
-    public IDatePeriodSearch1Choice? DatePeriod { get; init; } 
+    public DatePeriodSearch1Choice_? DatePeriod { get; init; } 
     /// <summary>
     /// Identifies the securities for which the audit trail is provided.
     /// </summary>

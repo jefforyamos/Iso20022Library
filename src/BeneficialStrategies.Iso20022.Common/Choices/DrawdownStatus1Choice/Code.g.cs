@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DrawdownStatus1Choice;
 /// <summary>
 /// Status expressed as a code.
 /// </summary>
-public partial record Code : IDrawdownStatus1Choice
+public partial record Code : DrawdownStatus1Choice_
 {
     public required DrawdownStatus1Code Value { get; init; }
 }

@@ -20,11 +20,11 @@ public partial record FXCommissionOrFee1
     /// <summary>
     /// Type of the commission or fee.
     /// </summary>
-    public required IFXAmountType1Choice Type { get; init; } 
+    public required FXAmountType1Choice_ Type { get; init; } 
     /// <summary>
     /// Amount or rate of the commissions and fees.
     /// </summary>
-    public required IAmountOrRate4Choice AmountOrRate { get; init; } 
+    public required AmountOrRate4Choice_ AmountOrRate { get; init; } 
     /// <summary>
     /// Indicates that the amount or rate value is positive or negative.
     /// Usage: when absent, it means that amount value is 0 or positive.

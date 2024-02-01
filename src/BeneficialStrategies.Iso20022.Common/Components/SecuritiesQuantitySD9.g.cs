@@ -20,15 +20,15 @@ public partial record SecuritiesQuantitySD9
     /// <summary>
     /// Total oversubscription quantity of all transaction sequence instructions.
     /// </summary>
-    public IFinancialInstrumentQuantity31Choice? TotalOversubscriptionQuantity { get; init; } 
+    public FinancialInstrumentQuantity31Choice_? TotalOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Quantity covered but transactions not in "MADE" status.
     /// </summary>
-    public IFinancialInstrumentQuantity31Choice? InterimCoveredQuantity { get; init; } 
+    public FinancialInstrumentQuantity31Choice_? InterimCoveredQuantity { get; init; } 
     /// <summary>
     /// Minimum quantity of securities to be accepted (used in the framework of conditional privilege on election). In case of proration, if this minimum quantity is not reached then the instruction is void.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? ConditionalQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? ConditionalQuantity { get; init; } 
     
     #nullable disable
 }

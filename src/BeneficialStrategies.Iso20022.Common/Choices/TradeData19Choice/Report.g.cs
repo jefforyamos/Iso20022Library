@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData19Choice;
 /// <summary>
 /// Reporting of position or transaction for trade lifecycle events.
 /// </summary>
-public partial record Report : ITradeData19Choice
+public partial record Report : TradeData19Choice_
 {
     #nullable enable
     #nullable disable

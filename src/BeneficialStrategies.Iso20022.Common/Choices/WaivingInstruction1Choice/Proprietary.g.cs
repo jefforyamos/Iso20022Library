@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.WaivingInstruction1Choice;
 /// <summary>
 /// Type of waiving instruction expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IWaivingInstruction1Choice
+public partial record Proprietary : WaivingInstruction1Choice_
 {
     #nullable enable
     /// <summary>

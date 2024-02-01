@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AutomaticBorrowing5Choice;
 /// <summary>
 /// Condition for automatic borrowing expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IAutomaticBorrowing5Choice
+public partial record Code : AutomaticBorrowing5Choice_
 {
     public required AutoBorrowing1Code Value { get; init; }
 }

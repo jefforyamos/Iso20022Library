@@ -47,7 +47,7 @@ public partial record FinancialSupervisedPartyIdentityReportV01 : IOuterRecord
     [DataMember(Name="PtyData")]
     [XmlElement(ElementName="PtyData")]
     [Required]
-    public required IPartyReport1Choice PartyData { get; init; }
+    public required PartyReport1Choice_ PartyData { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

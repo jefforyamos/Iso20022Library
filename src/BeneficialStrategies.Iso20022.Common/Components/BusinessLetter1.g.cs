@@ -37,15 +37,15 @@ public partial record BusinessLetter1
     /// <summary>
     /// Identifier of a related letter.
     /// </summary>
-    public QualifiedDocumentInformation1? RelatedLetter { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1[] RelatedLetter { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifier of a related message.
     /// </summary>
-    public QualifiedDocumentInformation1? RelatedMessage { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1[] RelatedMessage { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cross references the lists that are associated to this letter inside a message. The identifiers are relative to the Originator.
     /// </summary>
-    public IsoMax35Text? ContentIdentifier { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] ContentIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Urgency or order of importance that the originator would like the recipient of the business letter to apply to the processing of the letter.
     /// </summary>
@@ -57,39 +57,39 @@ public partial record BusinessLetter1
     /// <summary>
     /// Primary recipient of the business letter. The exact meaning is given by the users.
     /// </summary>
-    public QualifiedPartyIdentification1? PrimaryRecipient { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedPartyIdentification1[] PrimaryRecipient { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Sender of the business letter. The exact meaning is given by the users.
     /// </summary>
-    public QualifiedPartyIdentification1? Sender { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedPartyIdentification1[] Sender { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// User who, either individually or in concert with others, authorises the origination of a message.
     /// </summary>
-    public QualifiedPartyIdentification1? AuthorisationUser { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedPartyIdentification1[] AuthorisationUser { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party to receive a reply to this letter.
     /// </summary>
-    public QualifiedPartyIdentification1? ResponseRecipient { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedPartyIdentification1[] ResponseRecipient { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party to receive a copy of the message.
     /// </summary>
-    public QualifiedPartyIdentification1? CopyRecipient { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedPartyIdentification1[] CopyRecipient { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Other party involved. This element is usable as a target for IDREFs.
     /// </summary>
-    public QualifiedPartyIdentification1? OtherParty { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedPartyIdentification1[] OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Associated free form document.
     /// </summary>
-    public QualifiedDocumentInformation1? AssociatedDocument { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1[] AssociatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Governing contract.
     /// </summary>
-    public QualifiedDocumentInformation1? GoverningContract { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1[] GoverningContract { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rules and laws governing the letter.
     /// </summary>
-    public GovernanceRules2? LegalContext { get; init;  } // Warning: Don't know multiplicity.
+    public GovernanceRules2[] LegalContext { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Free form information about this message.
     /// </summary>
@@ -105,7 +105,7 @@ public partial record BusinessLetter1
     /// <summary>
     /// Digital signatures and signing parties of this letter or parts of it.
     /// </summary>
-    public QualifiedPartyAndXMLSignature1? DigitalSignature { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedPartyAndXMLSignature1[] DigitalSignature { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -20,7 +20,7 @@ public partial record Charge4
     /// <summary>
     /// Type of service for which a charge is asked or paid.
     /// </summary>
-    public required IChargeTypeFormat2Choice Type { get; init; } 
+    public required ChargeTypeFormat2Choice_ Type { get; init; } 
     /// <summary>
     /// Amount of money asked or paid for the charge.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record Charge4
     /// <summary>
     /// Party entitled to the amount of money resulting from a charge.
     /// </summary>
-    public IPartyIdentification1Choice? RecipientIdentification { get; init; } 
+    public PartyIdentification1Choice_? RecipientIdentification { get; init; } 
     
     #nullable disable
 }

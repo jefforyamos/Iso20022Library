@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Period8Choice;
 /// <summary>
 /// Date and time at which the date period range starts.
 /// </summary>
-public partial record FromDateTime : IPeriod8Choice
+public partial record FromDateTime : Period8Choice_
 {
     public required IsoISODateTime Value { get; init; }
 }

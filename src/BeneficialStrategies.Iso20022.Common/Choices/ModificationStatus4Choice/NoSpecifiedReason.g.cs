@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModificationStatus4Choice;
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoSpecifiedReason : IModificationStatus4Choice
+public partial record NoSpecifiedReason : ModificationStatus4Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

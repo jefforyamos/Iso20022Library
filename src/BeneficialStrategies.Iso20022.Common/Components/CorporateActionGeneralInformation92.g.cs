@@ -28,7 +28,7 @@ public partial record CorporateActionGeneralInformation92
     /// <summary>
     /// Specifies the type of narrative related to the message.
     /// </summary>
-    public ICorporateActionNarrative3Choice? NarrativeType { get; init; } 
+    public CorporateActionNarrative3Choice_? NarrativeType { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status19Choice;
 /// <summary>
 /// Provides the status of allocation of collateral to cover the instruction.
 /// </summary>
-public partial record AllocationStatus : IStatus19Choice
+public partial record AllocationStatus : Status19Choice_
 {
     #nullable enable
     #nullable disable

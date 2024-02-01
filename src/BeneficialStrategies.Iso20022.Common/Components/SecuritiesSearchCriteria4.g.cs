@@ -28,11 +28,11 @@ public partial record SecuritiesSearchCriteria4
     /// <summary>
     /// Planned final repayment date at the time of issuance.
     /// </summary>
-    public IDatePeriodSearch1Choice? MaturityDate { get; init; } 
+    public DatePeriodSearch1Choice_? MaturityDate { get; init; } 
     /// <summary>
     /// Date/time at which the security was made available.
     /// </summary>
-    public IDatePeriodSearch1Choice? IssueDate { get; init; } 
+    public DatePeriodSearch1Choice_? IssueDate { get; init; } 
     /// <summary>
     /// Currency in which a security is issued or redenominated.
     /// </summary>
@@ -44,27 +44,27 @@ public partial record SecuritiesSearchCriteria4
     /// <summary>
     /// Specifies the status of the security within its lifecycle.
     /// </summary>
-    public ISecurityStatus3Choice? SecurityStatus { get; init; } 
+    public SecurityStatus3Choice_? SecurityStatus { get; init; } 
     /// <summary>
     /// Entity involved in an activity.
     /// </summary>
-    public ISystemPartyIdentification2Choice? MaintainingCSD { get; init; } 
+    public SystemPartyIdentification2Choice_? MaintainingCSD { get; init; } 
     /// <summary>
     /// Entity involved in an activity.
     /// </summary>
-    public ISystemPartyIdentification2Choice? InvestorCSD { get; init; } 
+    public SystemPartyIdentification2Choice_? InvestorCSD { get; init; } 
     /// <summary>
     /// Entity involved in an activity.
     /// </summary>
-    public ISystemPartyIdentification2Choice? IssuerCSD { get; init; } 
+    public SystemPartyIdentification2Choice_? IssuerCSD { get; init; } 
     /// <summary>
     /// Technical issuer of a security.
     /// </summary>
-    public ISystemPartyIdentification2Choice? TechnicalIssuerCSD { get; init; } 
+    public SystemPartyIdentification2Choice_? TechnicalIssuerCSD { get; init; } 
     /// <summary>
     /// CSD of a security.
     /// </summary>
-    public ISystemPartyIdentification2Choice? CSD { get; init; } 
+    public SystemPartyIdentification2Choice_? CSD { get; init; } 
     
     #nullable disable
 }

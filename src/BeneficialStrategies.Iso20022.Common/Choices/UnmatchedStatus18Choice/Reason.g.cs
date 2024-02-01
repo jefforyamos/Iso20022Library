@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.UnmatchedStatus18Choice;
 /// <summary>
 /// Specifies the reason of the unmatched status.
 /// </summary>
-public partial record Reason : IUnmatchedStatus18Choice
+public partial record Reason : UnmatchedStatus18Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the instruction has an unmatched status.
     /// </summary>
-    public required IUnmatchedReason24Choice Code { get; init; } 
+    public required UnmatchedReason24Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

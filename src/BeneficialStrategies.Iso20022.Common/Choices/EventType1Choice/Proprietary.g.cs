@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EventType1Choice;
 /// <summary>
 /// Type of the event, in a free text form.
 /// </summary>
-public partial record Proprietary : IEventType1Choice
+public partial record Proprietary : EventType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

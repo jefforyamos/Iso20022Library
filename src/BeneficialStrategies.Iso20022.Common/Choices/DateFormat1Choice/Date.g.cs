@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateFormat1Choice;
 /// <summary>
 /// Date expressed as a calendar date.
 /// </summary>
-public partial record Date : IDateFormat1Choice
+public partial record Date : DateFormat1Choice_
 {
     public required IsoISODate Value { get; init; }
 }

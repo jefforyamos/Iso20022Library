@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportingRequirement2Choice;
 /// <summary>
 /// Specifies categories of statuses of a derivative when there is no reporting requirement for both counterparties.
 /// </summary>
-public partial record NoReportingRequirement : IReportingRequirement2Choice
+public partial record NoReportingRequirement : ReportingRequirement2Choice_
 {
     #nullable enable
     /// <summary>

@@ -20,11 +20,11 @@ public partial record RateDetails32
     /// <summary>
     /// Rate used for additional tax that cannot be categorised.
     /// </summary>
-    public IRateAndAmountFormat39Choice? AdditionalTax { get; init; } 
+    public RateAndAmountFormat39Choice_? AdditionalTax { get; init; } 
     /// <summary>
     /// Rate used to calculate the amount of the charges/fees that cannot be categorised.
     /// </summary>
-    public IRateAndAmountFormat39Choice? ChargesFees { get; init; } 
+    public RateAndAmountFormat39Choice_? ChargesFees { get; init; } 
     /// <summary>
     /// Percentage of fiscal tax to apply.
     /// </summary>
@@ -32,23 +32,23 @@ public partial record RateDetails32
     /// <summary>
     /// Cash dividend amount per equity before deductions or allowances have been made.
     /// </summary>
-    public IGrossDividendRateFormat29Choice? GrossDividendRate { get; init;  } // Warning: Don't know multiplicity.
+    public GrossDividendRateFormat29Choice_[] GrossDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash rate made available, as an incentive, in addition to the solicitation fee, in order to encourage early participation in an offer.
     /// </summary>
-    public ISolicitationFeeRateFormat8Choice? EarlySolicitationFeeRate { get; init; } 
+    public SolicitationFeeRateFormat8Choice_? EarlySolicitationFeeRate { get; init; } 
     /// <summary>
     /// Cash rate made available in an event in order to encourage participation in the offer. As information, Payment is made to a third party who has solicited an entity to take part in the offer.
     /// </summary>
-    public IRateAndAmountFormat39Choice? ThirdPartyIncentiveRate { get; init; } 
+    public RateAndAmountFormat39Choice_? ThirdPartyIncentiveRate { get; init; } 
     /// <summary>
     /// Actual interest rate used for the payment of the interest for the specified interest period.
     /// </summary>
-    public IInterestRateUsedForPaymentFormat7Choice? InterestRateUsedForPayment { get; init;  } // Warning: Don't know multiplicity.
+    public InterestRateUsedForPaymentFormat7Choice_[] InterestRateUsedForPayment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash dividend amount per equity after deductions or allowances have been made.
     /// </summary>
-    public INetDividendRateFormat32Choice? NetDividendRate { get; init;  } // Warning: Don't know multiplicity.
+    public NetDividendRateFormat32Choice_[] NetDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rate applicable to the event announced, for example, redemption rate for a redemption event.
     /// </summary>
@@ -56,23 +56,23 @@ public partial record RateDetails32
     /// <summary>
     /// Rate of the cash premium made available if the securities holder consents or participates to an event, for example consent fees or solicitation fee.
     /// </summary>
-    public ISolicitationFeeRateFormat8Choice? SolicitationFeeRate { get; init; } 
+    public SolicitationFeeRateFormat8Choice_? SolicitationFeeRate { get; init; } 
     /// <summary>
     /// Amount of money per equity allocated as the result of a tax credit.
     /// </summary>
-    public IRateFormat22Choice? TaxCreditRate { get; init; } 
+    public RateFormat22Choice_? TaxCreditRate { get; init; } 
     /// <summary>
     /// Percentage of a cash distribution that will be withheld by the tax authorities of the jurisdiction of the issuer, for which a relief at source and/or reclaim may be possible.
     /// </summary>
-    public IRateAndAmountFormat40Choice? WithholdingTaxRate { get; init;  } // Warning: Don't know multiplicity.
+    public RateAndAmountFormat40Choice_[] WithholdingTaxRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rate at which the income will be withheld by a jurisdiction other than the jurisdiction of the issuer’s country of tax incorporation, for which a relief at source and/or reclaim may be possible. It is levied in complement or offset of the withholding tax rate (TAXR) levied by the jurisdiction of the issuer’s tax domicile.
     /// </summary>
-    public IRateAndAmountFormat40Choice? SecondLevelTax { get; init;  } // Warning: Don't know multiplicity.
+    public RateAndAmountFormat40Choice_[] SecondLevelTax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Taxation applied on an amount clearly identified as an income.
     /// </summary>
-    public IRateAndAmountFormat39Choice? TaxOnIncome { get; init; } 
+    public RateAndAmountFormat39Choice_? TaxOnIncome { get; init; } 
     /// <summary>
     /// Taxation applied on an amount clearly identified as capital profits, capital gains.
     /// </summary>
@@ -88,7 +88,7 @@ public partial record RateDetails32
     /// <summary>
     /// Rate applied for the calculation of deemed proceeds which are not paid to security holders but on which withholding tax is applicable.
     /// </summary>
-    public IRateAndAmountFormat52Choice? DeemedRate { get; init;  } // Warning: Don't know multiplicity.
+    public RateAndAmountFormat52Choice_[] DeemedRate { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -36,7 +36,7 @@ public partial record PackageType4
     /// <summary>
     /// Consecutive slices of the full software package identified through PackageIdentification starting with first slice at the place identified with OffsetStart and ending with the last slice at the previous place identified with OffsetEnd.
     /// </summary>
-    public ExternallyDefinedData4? PackageBlock { get; init;  } // Warning: Don't know multiplicity.
+    public ExternallyDefinedData4[] PackageBlock { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

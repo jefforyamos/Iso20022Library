@@ -24,11 +24,11 @@ public partial record FIToFIDirectDebitTransactionInformationDetails1
     /// <summary>
     /// Characteristics that apply to the credit side of the payment transaction(s) included in the message.
     /// </summary>
-    public CreditTransferTransaction9? CreditInstruction { get; init;  } // Warning: Don't know multiplicity.
+    public CreditTransferTransaction9[] CreditInstruction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

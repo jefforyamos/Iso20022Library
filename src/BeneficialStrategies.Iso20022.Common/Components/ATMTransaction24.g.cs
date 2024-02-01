@@ -48,7 +48,7 @@ public partial record ATMTransaction24
     /// <summary>
     /// Sequence of actions to be performed by the ATM to complete the transaction.
     /// </summary>
-    public Action7? Action { get; init;  } // Warning: Don't know multiplicity.
+    public Action7[] Action { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information about the source account of the transfer.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record ATMTransaction24
     /// <summary>
     /// Information about the destination account of the transfer.
     /// </summary>
-    public CardAccount13? AccountTo { get; init;  } // Warning: Don't know multiplicity.
+    public CardAccount13[] AccountTo { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Encryption of the destination account information.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record ATMTransaction24
     /// <summary>
     /// Additional charge (for instance tax or fee).
     /// </summary>
-    public DetailedAmount18? AdditionalCharge { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount18[] AdditionalCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Limit of amounts for the customer.
     /// </summary>
@@ -112,7 +112,7 @@ public partial record ATMTransaction24
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    public ATMCommand7? Command { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCommand7[] Command { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

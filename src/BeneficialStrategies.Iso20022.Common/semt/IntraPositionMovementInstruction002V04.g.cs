@@ -77,7 +77,7 @@ public partial record IntraPositionMovementInstruction002V04 : IOuterRecord
     [Description(@"Count of the number of transactions linked.")]
     [DataMember(Name="NbCounts")]
     [XmlElement(ElementName="NbCounts")]
-    public INumberCount1Choice? NumberCounts { get; init; }
+    public NumberCount1Choice_? NumberCounts { get; init; }
     
     /// <summary>
     /// Link to another transaction that must be processed after, before or at the same time.
@@ -95,7 +95,7 @@ public partial record IntraPositionMovementInstruction002V04 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public IPartyIdentification103Choice? AccountOwner { get; init; }
+    public PartyIdentification103Choice_? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -114,7 +114,7 @@ public partial record IntraPositionMovementInstruction002V04 : IOuterRecord
     [Description(@"Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).")]
     [DataMember(Name="SfkpgPlc")]
     [XmlElement(ElementName="SfkpgPlc")]
-    public ISafekeepingPlaceFormat17Choice? SafekeepingPlace { get; init; }
+    public SafekeepingPlaceFormat17Choice_? SafekeepingPlace { get; init; }
     
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.

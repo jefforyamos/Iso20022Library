@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemStatus3Choice;
 /// <summary>
 /// Status of the system, in a coded form.
 /// </summary>
-public partial record Code : ISystemStatus3Choice
+public partial record Code : SystemStatus3Choice_
 {
     public required SystemStatus3Code Value { get; init; }
 }

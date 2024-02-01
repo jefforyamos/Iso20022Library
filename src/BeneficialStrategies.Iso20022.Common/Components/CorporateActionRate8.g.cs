@@ -24,7 +24,7 @@ public partial record CorporateActionRate8
     /// <summary>
     /// Rate of allowed over-subscription.
     /// </summary>
-    public IRateAndAmountFormat12Choice? OversubscriptionRate { get; init; } 
+    public RateAndAmountFormat12Choice_? OversubscriptionRate { get; init; } 
     /// <summary>
     /// Requested tax rate in case of breakdown of tax rate, for example, used for adjustment of tax rate. This is the new requested applicable rate.
     /// </summary>

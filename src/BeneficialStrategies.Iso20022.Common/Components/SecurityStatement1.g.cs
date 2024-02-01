@@ -24,7 +24,7 @@ public partial record SecurityStatement1
     /// <summary>
     /// Provides information on the actual change occurred to a financial instrument.
     /// </summary>
-    public SecuritiesReferenceDataChange1? Change { get; init;  } // Warning: Don't know multiplicity.
+    public SecuritiesReferenceDataChange1[] Change { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

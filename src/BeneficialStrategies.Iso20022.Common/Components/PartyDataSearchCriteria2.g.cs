@@ -20,15 +20,15 @@ public partial record PartyDataSearchCriteria2
     /// <summary>
     /// Specifies the opening date of the party.
     /// </summary>
-    public IDatePeriodSearch1Choice? OpeningDate { get; init; } 
+    public DatePeriodSearch1Choice_? OpeningDate { get; init; } 
     /// <summary>
     /// Specifies the closing date of the party.
     /// </summary>
-    public IDatePeriodSearch1Choice? ClosingDate { get; init; } 
+    public DatePeriodSearch1Choice_? ClosingDate { get; init; } 
     /// <summary>
     /// Specifies the type classification of the party.
     /// </summary>
-    public ISystemPartyType1Choice? Type { get; init; } 
+    public SystemPartyType1Choice_? Type { get; init; } 
     /// <summary>
     /// Unique identification of the party responsible for the maintenance of the party reference data.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record PartyDataSearchCriteria2
     /// <summary>
     /// Specifies the date when the restriction for the party has been issued.
     /// </summary>
-    public IDateAndDateTimeSearch4Choice? RestrictionIssueDate { get; init; } 
+    public DateAndDateTimeSearch4Choice_? RestrictionIssueDate { get; init; } 
     /// <summary>
     /// Specifies the type of residence where the party has its permanent home or principal establishment.
     /// </summary>

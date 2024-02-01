@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FloatingRateIdentification3Choic
 /// <summary>
 /// Defines a floating rate which is not included in the list of predefined floating curves.
 /// </summary>
-public partial record Proprietary : IFloatingRateIdentification3Choice
+public partial record Proprietary : FloatingRateIdentification3Choice_
 {
     public required IsoMax350Text Value { get; init; }
 }

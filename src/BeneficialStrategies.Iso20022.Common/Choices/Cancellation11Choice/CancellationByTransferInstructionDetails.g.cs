@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation11Choice;
 /// <summary>
 /// Information related to the transfer instruction to be cancelled.
 /// </summary>
-public partial record CancellationByTransferInstructionDetails : ICancellation11Choice
+public partial record CancellationByTransferInstructionDetails : Cancellation11Choice_
 {
     #nullable enable
     /// <summary>
@@ -50,7 +50,7 @@ public partial record CancellationByTransferInstructionDetails : ICancellation11
     /// <summary>
     /// Information related to the institution to which the financial instrument is to be transferred.
     /// </summary>
-    public required IPartyIdentification70Choice Transferee { get; init; } 
+    public required PartyIdentification70Choice_ Transferee { get; init; } 
     /// <summary>
     /// Identification of a related party or intermediary.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RequestType3Choice;
 /// <summary>
 /// Liquidity transfer request type, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IRequestType3Choice
+public partial record Proprietary : RequestType3Choice_
 {
     #nullable enable
     /// <summary>

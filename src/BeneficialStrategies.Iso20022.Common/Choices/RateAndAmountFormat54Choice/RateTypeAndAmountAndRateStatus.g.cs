@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RateAndAmountFormat54Choice;
 /// <summary>
 /// Value is expressed as a rate type and an amount.
 /// </summary>
-public partial record RateTypeAndAmountAndRateStatus : IRateAndAmountFormat54Choice
+public partial record RateTypeAndAmountAndRateStatus : RateAndAmountFormat54Choice_
 {
     #nullable enable
     /// <summary>
     /// Value expressed as a rate type.
     /// </summary>
-    public required IDeemedRateType2Choice RateType { get; init; } 
+    public required DeemedRateType2Choice_ RateType { get; init; } 
     /// <summary>
     /// Value expressed as an amount.
     /// </summary>
@@ -26,6 +26,6 @@ public partial record RateTypeAndAmountAndRateStatus : IRateAndAmountFormat54Cho
     /// <summary>
     /// Value expressed as a rate status.
     /// </summary>
-    public IRateStatus4Choice? RateStatus { get; init; } 
+    public RateStatus4Choice_? RateStatus { get; init; } 
     #nullable disable
 }

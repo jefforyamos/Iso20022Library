@@ -20,7 +20,7 @@ public partial record VoteMethods5
     /// <summary>
     /// Network address through which a voting party can cast its vote via a structured message.
     /// </summary>
-    public IVoteThroughNetwork1Choice? VoteThroughNetwork { get; init; } 
+    public VoteThroughNetwork1Choice_? VoteThroughNetwork { get; init; } 
     /// <summary>
     /// Address where the voting ballot can be sent.
     /// </summary>
@@ -28,11 +28,11 @@ public partial record VoteMethods5
     /// <summary>
     /// Electronic address, e-mail or web site, where a security holder can vote.
     /// </summary>
-    public IReadOnlyCollection<CommunicationAddress12> ElectronicVote { get; init; } = [];
+    public CommunicationAddress12[] ElectronicVote { get; init; } = [];
     /// <summary>
     /// Telephone number providing access to an automated voting system.
     /// </summary>
-    public IReadOnlyCollection<IsoMax35Text> VoteByTelephone { get; init; } = [];
+    public IsoMax35Text[] VoteByTelephone { get; init; } = [];
     
     #nullable disable
 }

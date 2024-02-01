@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModificationProcessingStatus11Ch
 /// <summary>
 /// Modification request will not be executed.
 /// </summary>
-public partial record Denied : IModificationProcessingStatus11Choice
+public partial record Denied : ModificationProcessingStatus11Choice_
 {
     #nullable enable
     #nullable disable

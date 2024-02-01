@@ -24,7 +24,7 @@ public partial record AuthenticatedData8
     /// <summary>
     /// Session key or protection key identification used by the recipient.
     /// </summary>
-    public IRecipient11Choice? Recipient { get; init;  } // Warning: Don't know multiplicity.
+    public Recipient11Choice_[] Recipient { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Algorithm to compute message authentication code (MAC).
     /// </summary>

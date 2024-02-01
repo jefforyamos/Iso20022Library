@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialIdentificationSchemeNam
 /// <summary>
 /// Name of the identification scheme, in a coded form as published in an external list.
 /// </summary>
-public partial record Code : IFinancialIdentificationSchemeName1Choice
+public partial record Code : FinancialIdentificationSchemeName1Choice_
 {
     public required ExternalFinancialInstitutionIdentification1Code Value { get; init; }
 }

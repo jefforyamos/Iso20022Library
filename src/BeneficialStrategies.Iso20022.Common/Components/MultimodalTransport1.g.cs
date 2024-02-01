@@ -20,35 +20,35 @@ public partial record MultimodalTransport1
     /// <summary>
     /// Place from where the goods must leave.
     /// </summary>
-    public IAirportName1Choice? DepartureAirport { get; init;  } // Warning: Don't know multiplicity.
+    public AirportName1Choice_[] DepartureAirport { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Place where the goods must arrive.
     /// </summary>
-    public IAirportName1Choice? DestinationAirport { get; init;  } // Warning: Don't know multiplicity.
+    public AirportName1Choice_[] DestinationAirport { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the port where the goods are loaded on board the ship.
     /// </summary>
-    public IsoMax35Text? PortOfLoading { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] PortOfLoading { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the port where the goods are discharged.
     /// </summary>
-    public IsoMax35Text? PortOfDischarge { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] PortOfDischarge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the location where the goods are received for transportation.
     /// </summary>
-    public IsoMax35Text? PlaceOfReceipt { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] PlaceOfReceipt { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the location of delivery of the goods.
     /// </summary>
-    public IsoMax35Text? PlaceOfDelivery { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] PlaceOfDelivery { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the location where the goods are take in charge for transportation.
     /// </summary>
-    public IsoMax35Text? TakingInCharge { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] TakingInCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the location of the final destination of the goods.
     /// </summary>
-    public IsoMax35Text? PlaceOfFinalDestination { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] PlaceOfFinalDestination { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

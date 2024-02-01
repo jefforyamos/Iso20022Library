@@ -44,7 +44,7 @@ public partial record TransactionDates1
     /// <summary>
     /// Proprietary date related to the underlying transaction.
     /// </summary>
-    public ProprietaryDate1? Proprietary { get; init;  } // Warning: Don't know multiplicity.
+    public ProprietaryDate1[] Proprietary { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

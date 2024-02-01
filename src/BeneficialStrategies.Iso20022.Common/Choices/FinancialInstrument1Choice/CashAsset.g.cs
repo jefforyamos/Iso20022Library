@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument1Choice;
 /// <summary>
 /// Identification of the cash asset.
 /// </summary>
-public partial record CashAsset : IFinancialInstrument1Choice
+public partial record CashAsset : FinancialInstrument1Choice_
 {
     #nullable enable
     /// <summary>
     /// Type of cash asset.
     /// </summary>
-    public required ICashAssetType1Choice CashAssetType { get; init; } 
+    public required CashAssetType1Choice_ CashAssetType { get; init; } 
     /// <summary>
     /// Additional information about the cash asset.
     /// </summary>

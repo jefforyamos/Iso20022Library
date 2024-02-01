@@ -28,7 +28,7 @@ public partial record GroupHeader60
     /// <summary>
     /// Identification of the party that is receiving the message, when different from the account owner.
     /// </summary>
-    public IParty12Choice? MessageRecipient { get; init; } 
+    public Party12Choice_? MessageRecipient { get; init; } 
     
     #nullable disable
 }

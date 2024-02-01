@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModelType1Choice;
 /// <summary>
 /// Proprietary or institution's own code that specifies the type of margin model used by the central counterparty.
 /// </summary>
-public partial record Proprietary : IModelType1Choice
+public partial record Proprietary : ModelType1Choice_
 {
     #nullable enable
     /// <summary>

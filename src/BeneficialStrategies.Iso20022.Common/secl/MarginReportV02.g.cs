@@ -79,7 +79,7 @@ public partial record MarginReportV02 : IOuterRecord
     [DataMember(Name="ClrMmb")]
     [XmlElement(ElementName="ClrMmb")]
     [Required]
-    public required IPartyIdentification35Choice ClearingMember { get; init; }
+    public required PartyIdentification35Choice_ ClearingMember { get; init; }
     
     /// <summary>
     /// Provides details on the valuation of the collateral on deposit.

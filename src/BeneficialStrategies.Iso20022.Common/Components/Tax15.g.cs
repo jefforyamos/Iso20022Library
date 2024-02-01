@@ -40,7 +40,7 @@ public partial record Tax15
     /// <summary>
     /// Party that receives the tax. The recipient of, and the party entitled to, the tax may be two different parties.
     /// </summary>
-    public IPartyIdentification2Choice? RecipientIdentification { get; init; } 
+    public PartyIdentification2Choice_? RecipientIdentification { get; init; } 
     /// <summary>
     /// Indicates whether a tax exemption applies.
     /// </summary>

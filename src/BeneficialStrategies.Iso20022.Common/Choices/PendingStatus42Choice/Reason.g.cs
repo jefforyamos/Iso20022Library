@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingStatus42Choice;
 /// <summary>
 /// Reason for the pending status.
 /// </summary>
-public partial record Reason : IPendingStatus42Choice
+public partial record Reason : PendingStatus42Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the instruction's processing is pending.
     /// </summary>
-    public required IPendingReason33Choice ReasonCode { get; init; } 
+    public required PendingReason33Choice_ ReasonCode { get; init; } 
     /// <summary>
     /// Provides additional information about the processed instruction.
     /// </summary>

@@ -28,7 +28,7 @@ public partial record ValuationsDetails1
     /// <summary>
     /// Date and time at which the financial instruments are to be delivered or received effectively (Effective Settlement Date and Time).
     /// </summary>
-    public IDateAndDateTime2Choice? SettlementDate { get; init; } 
+    public DateAndDateTime2Choice_? SettlementDate { get; init; } 
     /// <summary>
     /// Securities collateral position valuation amounts.
     /// </summary>

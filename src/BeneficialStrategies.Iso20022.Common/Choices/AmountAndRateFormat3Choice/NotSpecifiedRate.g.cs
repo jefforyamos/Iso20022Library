@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountAndRateFormat3Choice;
 /// <summary>
 /// The rate is not specified.
 /// </summary>
-public partial record NotSpecifiedRate : IAmountAndRateFormat3Choice
+public partial record NotSpecifiedRate : AmountAndRateFormat3Choice_
 {
     #nullable enable
     #nullable disable

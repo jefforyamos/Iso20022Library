@@ -32,7 +32,7 @@ public partial record TransactionIdentifications17
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account owner (or the instructing party managing the account).
     /// </summary>
-    public required IReferences22Choice AccountOwnerTransactionIdentification { get; init; } 
+    public required References22Choice_ AccountOwnerTransactionIdentification { get; init; } 
     
     #nullable disable
 }

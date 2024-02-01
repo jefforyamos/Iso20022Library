@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderStatus5Choice;
 /// <summary>
 /// Status of the individual order is accepted or already executed or sent to next party or received. There is no reason attached.
 /// </summary>
-public partial record Status : IOrderStatus5Choice
+public partial record Status : OrderStatus5Choice_
 {
     public required OrderStatus4Code Value { get; init; }
 }

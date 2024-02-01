@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus43Choice;
 /// <summary>
 /// Status of the standing settlement instruction, cancellation or deletion is pending.
 /// </summary>
-public partial record PendingProcessing : IProcessingStatus43Choice
+public partial record PendingProcessing : ProcessingStatus43Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the pending status.
     /// </summary>
-    public required IPendingProcessingReason9Choice Reason { get; init; } 
+    public required PendingProcessingReason9Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the processed instruction.
     /// </summary>

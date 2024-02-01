@@ -24,7 +24,7 @@ public partial record ReportParameters4
     /// <summary>
     /// Date and time of the report.
     /// </summary>
-    public required IDateAndDateTimeChoice ReportDateAndTime { get; init; } 
+    public required DateAndDateTimeChoice_ ReportDateAndTime { get; init; } 
     
     #nullable disable
 }

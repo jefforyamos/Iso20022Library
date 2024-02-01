@@ -24,11 +24,11 @@ public partial record PaymentCancellationReason2
     /// <summary>
     /// Specifies the reason for the cancellation.
     /// </summary>
-    public ICancellationReason14Choice? Reason { get; init; } 
+    public CancellationReason14Choice_? Reason { get; init; } 
     /// <summary>
     /// Further details on the cancellation request reason.
     /// </summary>
-    public IsoMax105Text? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

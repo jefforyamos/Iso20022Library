@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport32Choice;
 /// <summary>
 /// Indicates transfers swap transaction from one SDR to another SDR (change of swap data repository).
 /// </summary>
-public partial record PortOut : ITradeReport32Choice
+public partial record PortOut : TradeReport32Choice_
 {
     #nullable enable
     /// <summary>

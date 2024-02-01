@@ -20,7 +20,7 @@ public partial record CorporateEventNarrative2
     /// <summary>
     /// Issuer’s disclaimer notice relative to the meeting announcement information provided. It may be ignored for automated processing.
     /// </summary>
-    public IsoMax350Text? Disclaimer { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax350Text[] Disclaimer { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

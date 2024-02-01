@@ -20,11 +20,11 @@ public partial record ISAYearsOfIssue6
     /// <summary>
     /// ISA that was issued during the current fiscal year.
     /// </summary>
-    public ICurrentYearType2Choice? CurrentYear { get; init; } 
+    public CurrentYearType2Choice_? CurrentYear { get; init; } 
     /// <summary>
     /// Selection of investment plans issued during previous years.
     /// </summary>
-    public IPreviousYearChoice? PreviousYears { get; init; } 
+    public PreviousYearChoice_? PreviousYears { get; init; } 
     
     #nullable disable
 }

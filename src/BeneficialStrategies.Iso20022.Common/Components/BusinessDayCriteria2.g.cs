@@ -24,7 +24,7 @@ public partial record BusinessDayCriteria2
     /// <summary>
     /// Defines the criteria on which the information is extracted.
     /// </summary>
-    public BusinessDaySearchCriteria2? SearchCriteria { get; init;  } // Warning: Don't know multiplicity.
+    public BusinessDaySearchCriteria2[] SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines the expected report.
     /// </summary>

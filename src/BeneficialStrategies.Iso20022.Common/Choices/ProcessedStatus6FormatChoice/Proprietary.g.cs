@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessedStatus6FormatChoice;
 /// <summary>
 /// Proprietary code to express the processing status of a deactivation instruction.
 /// </summary>
-public partial record Proprietary : IProcessedStatus6FormatChoice
+public partial record Proprietary : ProcessedStatus6FormatChoice_
 {
     #nullable enable
     /// <summary>

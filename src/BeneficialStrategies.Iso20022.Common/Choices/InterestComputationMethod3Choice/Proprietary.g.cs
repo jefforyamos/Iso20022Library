@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestComputationMethod3Choice
 /// <summary>
 /// Interest computation method is determined using a data source scheme.
 /// </summary>
-public partial record Proprietary : IInterestComputationMethod3Choice
+public partial record Proprietary : InterestComputationMethod3Choice_
 {
     #nullable enable
     /// <summary>

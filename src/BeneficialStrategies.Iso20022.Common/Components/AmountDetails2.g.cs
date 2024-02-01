@@ -36,7 +36,7 @@ public partial record AmountDetails2
     /// <summary>
     /// Taxes related to the products or services. 
     /// </summary>
-    public Tax39? Tax { get; init;  } // Warning: Don't know multiplicity.
+    public Tax39[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

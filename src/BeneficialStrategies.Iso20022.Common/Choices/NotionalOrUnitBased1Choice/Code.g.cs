@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NotionalOrUnitBased1Choice;
 /// <summary>
 /// Type of unit basis for a financial instrument expressed as a code.
 /// </summary>
-public partial record Code : INotionalOrUnitBased1Choice
+public partial record Code : NotionalOrUnitBased1Choice_
 {
     public required NotionalOrUnitBased1Code Value { get; init; }
 }

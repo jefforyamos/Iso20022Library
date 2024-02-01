@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AgentRole1FormatChoice;
 /// <summary>
 /// Standard code to specify the role of the agent.
 /// </summary>
-public partial record Code : IAgentRole1FormatChoice
+public partial record Code : AgentRole1FormatChoice_
 {
     public required AgentRole2Code Value { get; init; }
 }

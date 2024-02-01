@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentType4Choice;
 /// <summary>
 /// Payment type that is not included in a predefined list.
 /// </summary>
-public partial record Proprietary : IPaymentType4Choice
+public partial record Proprietary : PaymentType4Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TrackerParty2Choice;
 /// <summary>
 /// Unique and unambiguous identification of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
 /// </summary>
-public partial record FinancialInstitutionIdentification : ITrackerParty2Choice
+public partial record FinancialInstitutionIdentification : TrackerParty2Choice_
 {
     #nullable enable
     /// <summary>

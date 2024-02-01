@@ -20,11 +20,11 @@ public partial record InterestRateLegs14
     /// <summary>
     /// Details concerning the rate in the first leg of an interest rate contract.
     /// </summary>
-    public IInterestRate33Choice? FirstLeg { get; init; } 
+    public InterestRate33Choice_? FirstLeg { get; init; } 
     /// <summary>
     /// Details concerning the rate in the second leg of an interest rate contract.
     /// </summary>
-    public IInterestRate33Choice? SecondLeg { get; init; } 
+    public InterestRate33Choice_? SecondLeg { get; init; } 
     
     #nullable disable
 }

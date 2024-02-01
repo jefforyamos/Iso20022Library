@@ -20,7 +20,7 @@ public partial record DerivativeCommodity2
     /// <summary>
     /// Commodity product attributes.
     /// </summary>
-    public required IAssetClassCommodity3Choice Product { get; init; } 
+    public required AssetClassCommodity3Choice_ Product { get; init; } 
     /// <summary>
     /// Transaction type as specified by the trading venue.
     /// </summary>

@@ -20,31 +20,31 @@ public partial record SecuritiesOption1
     /// <summary>
     /// Maximum quantity (or lot) of financial instrument that must be exercised or tendered.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? MaximumExercisableQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? MaximumExercisableQuantity { get; init; } 
     /// <summary>
     /// Minimum quantity (or lot) of financial instrument that must be exercised or tendered.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? MinimumExercisableQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; init; } 
     /// <summary>
     /// Minimum multiple quantity (or lot) of financial instrument that must be exercised or tendered.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? MinimumExercisableMultipleQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableMultipleQuantity { get; init; } 
     /// <summary>
     /// Quantity of equity that makes up the new board lot.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? NewBoardLotQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? NewBoardLotQuantity { get; init; } 
     /// <summary>
     /// New denomination of the equity following, for example, an increase or decrease in nominal value.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? NewDenominationQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? NewDenominationQuantity { get; init; } 
     /// <summary>
     /// Specifies that if an order is prorated holders of odd lots who tender their full position will not have tendered position prorated but rather accepted in full.
     /// </summary>
-    public IFinancialInstrumentQuantity2Choice? FrontEndOddLotQuantity { get; init; } 
+    public FinancialInstrumentQuantity2Choice_? FrontEndOddLotQuantity { get; init; } 
     /// <summary>
     /// Represents the presence of a back end odd lot provision and the quantity of equity required after proration to be eligible for this privilege.
     /// </summary>
-    public IFinancialInstrumentQuantity2Choice? BackEndOddLotQuantity { get; init; } 
+    public FinancialInstrumentQuantity2Choice_? BackEndOddLotQuantity { get; init; } 
     
     #nullable disable
 }

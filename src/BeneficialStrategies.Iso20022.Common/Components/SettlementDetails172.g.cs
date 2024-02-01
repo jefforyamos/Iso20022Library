@@ -24,15 +24,15 @@ public partial record SettlementDetails172
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
-    public IPriorityNumeric5Choice? Priority { get; init; } 
+    public PriorityNumeric5Choice_? Priority { get; init; } 
     /// <summary>
     /// Conditions under which the order/trade is to be settled.
     /// </summary>
-    public ISettlementTransactionCondition22Choice? SettlementTransactionCondition { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementTransactionCondition22Choice_[] SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Role of a party in the settlement of the transaction.
     /// </summary>
-    public ISettlingCapacity8Choice? SettlingCapacity { get; init; } 
+    public SettlingCapacity8Choice_? SettlingCapacity { get; init; } 
     /// <summary>
     /// Specifies the stamp duty type or exemption reason applicable to the settlement transaction.
     /// </summary>
@@ -40,55 +40,55 @@ public partial record SettlementDetails172
     /// <summary>
     /// Specifies whether the settlement transaction is to be settled through an RTGS or a non RTGS system.
     /// </summary>
-    public ISecuritiesRTGS5Choice? SecuritiesRTGS { get; init; } 
+    public SecuritiesRTGS5Choice_? SecuritiesRTGS { get; init; } 
     /// <summary>
     /// Specifies whether there is change of beneficial ownership.
     /// </summary>
-    public IBeneficialOwnership5Choice? BeneficialOwnership { get; init; } 
+    public BeneficialOwnership5Choice_? BeneficialOwnership { get; init; } 
     /// <summary>
     /// Specifies the category of cash clearing system, for example, cheque clearing.
     /// </summary>
-    public ICashSettlementSystem5Choice? CashClearingSystem { get; init; } 
+    public CashSettlementSystem5Choice_? CashClearingSystem { get; init; } 
     /// <summary>
     /// Tax role capacity of the instructing party.
     /// </summary>
-    public ITaxCapacityParty5Choice? TaxCapacity { get; init; } 
+    public TaxCapacityParty5Choice_? TaxCapacity { get; init; } 
     /// <summary>
     /// Specifies if an instruction is for a market side or a client side transaction.
     /// </summary>
-    public IMarketClientSide7Choice? MarketClientSide { get; init; } 
+    public MarketClientSide7Choice_? MarketClientSide { get; init; } 
     /// <summary>
     /// Specifies whether the forex standing instruction in place should apply.
     /// </summary>
-    public IFXStandingInstruction5Choice? FXStandingInstruction { get; init; } 
+    public FXStandingInstruction5Choice_? FXStandingInstruction { get; init; } 
     /// <summary>
     /// Specifies whether the settlement instruction is a block parent or child.
     /// </summary>
-    public IBlockTrade5Choice? BlockTrade { get; init; } 
+    public BlockTrade5Choice_? BlockTrade { get; init; } 
     /// <summary>
     /// Regulatory restrictions applicable to a security.
     /// </summary>
-    public IRestriction6Choice? LegalRestrictions { get; init; } 
+    public Restriction6Choice_? LegalRestrictions { get; init; } 
     /// <summary>
     /// Specifies whether the settlement instruction is to be settled through the default or the alternate settlement system.
     /// </summary>
-    public ISettlementSystemMethod5Choice? SettlementSystemMethod { get; init; } 
+    public SettlementSystemMethod5Choice_? SettlementSystemMethod { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction is eligible for netting.
     /// </summary>
-    public INettingEligibility5Choice? NettingEligibility { get; init; } 
+    public NettingEligibility5Choice_? NettingEligibility { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction is CCP (Central Counterparty) eligible.
     /// </summary>
-    public ICentralCounterPartyEligibility5Choice? CCPEligibility { get; init; } 
+    public CentralCounterPartyEligibility5Choice_? CCPEligibility { get; init; } 
     /// <summary>
     /// Specifies whether the loan and/or collateral is tracked.
     /// </summary>
-    public ITracking5Choice? Tracking { get; init; } 
+    public Tracking5Choice_? Tracking { get; init; } 
     /// <summary>
     /// Condition for automatic borrowing.
     /// </summary>
-    public IAutomaticBorrowing8Choice? AutomaticBorrowing { get; init; } 
+    public AutomaticBorrowing8Choice_? AutomaticBorrowing { get; init; } 
     /// <summary>
     /// Specifies whether partial settlement is allowed.
     /// </summary>

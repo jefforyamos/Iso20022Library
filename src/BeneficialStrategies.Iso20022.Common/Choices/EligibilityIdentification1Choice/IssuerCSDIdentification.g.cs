@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EligibilityIdentification1Choice
 /// <summary>
 /// Issuer CSD identification used to identify the securities to be defined as eligible.
 /// </summary>
-public partial record IssuerCSDIdentification : IEligibilityIdentification1Choice
+public partial record IssuerCSDIdentification : EligibilityIdentification1Choice_
 {
     #nullable enable
     #nullable disable

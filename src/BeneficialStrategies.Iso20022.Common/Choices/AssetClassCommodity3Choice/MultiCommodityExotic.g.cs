@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity3Choice;
 /// <summary>
 /// Multi Commodity Exotic.
 /// </summary>
-public partial record MultiCommodityExotic : IAssetClassCommodity3Choice
+public partial record MultiCommodityExotic : AssetClassCommodity3Choice_
 {
     #nullable enable
     /// <summary>

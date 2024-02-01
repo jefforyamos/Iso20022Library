@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus10Choice;
 /// <summary>
 /// Status advising that the instruction is pending and advising on the reason for the pending status.
 /// </summary>
-public partial record Pending : IInstructionStatus10Choice
+public partial record Pending : InstructionStatus10Choice_
 {
     #nullable enable
     #nullable disable

@@ -28,7 +28,7 @@ public partial record SecuritiesTransaction1
     /// <summary>
     /// Number of units of the financial instrument, or the number of derivative contracts in the transaction.
     /// </summary>
-    public required IFinancialInstrumentQuantity25Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity25Choice_ Quantity { get; init; } 
     /// <summary>
     /// Indicates as to whether an increase or a decrease of notional of derivative contracts has taken place.
     /// </summary>
@@ -42,7 +42,7 @@ public partial record SecuritiesTransaction1
     /// Where price reported in monetary terms, it shall be provided in the major currency unit.
     /// Where price is not applicable the field should be left blank.
     /// </summary>
-    public required ISecuritiesTransactionPrice4Choice Price { get; init; } 
+    public required SecuritiesTransactionPrice4Choice_ Price { get; init; } 
     /// <summary>
     /// Net amount of the transaction means the cash amount which is paid by the buyer of the debt instrument upon the settlement of the transaction.
     /// </summary>

@@ -20,11 +20,11 @@ public partial record PriceData1
     /// <summary>
     /// Indicates the price per derivative excluding, where applicable: fees, taxes or commissions.
     /// </summary>
-    public ISecuritiesTransactionPrice17Choice? Price { get; init; } 
+    public SecuritiesTransactionPrice17Choice_? Price { get; init; } 
     /// <summary>
     /// Specifies the effective date and end date of the schedule for derivative transactions with prices varying throughout the life of the transaction.
     /// </summary>
-    public Schedule1? PriceSchedule { get; init;  } // Warning: Don't know multiplicity.
+    public Schedule1[] PriceSchedule { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the unit of measure in which the price is expressed.
     /// </summary>

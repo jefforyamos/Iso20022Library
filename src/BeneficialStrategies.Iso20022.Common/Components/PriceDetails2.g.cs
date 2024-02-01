@@ -20,15 +20,15 @@ public partial record PriceDetails2
     /// <summary>
     /// 1. Price at which security will be purchased/sold if warrant is exercised, either as an actual amount or a percentage.|2. Price at which a bond is converted to underlying security either as an actual amount or a percentage.|3. Strike price of an option, represented either as an actual amount, a percentage or a number of points above an index.
     /// </summary>
-    public IPriceFormat6Choice? ExercisePrice { get; init; } 
+    public PriceFormat6Choice_? ExercisePrice { get; init; } 
     /// <summary>
     /// Generic cash price paid per product by the underlying security holder either as a percentage or an amount, for example, reinvestment price.
     /// </summary>
-    public IPriceFormat5Choice? GenericCashPricePaidPerProduct { get; init; } 
+    public PriceFormat5Choice_? GenericCashPricePaidPerProduct { get; init; } 
     /// <summary>
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, for example, redemption price.
     /// </summary>
-    public IPriceFormat7Choice? GenericCashPriceReceivedPerProduct { get; init; } 
+    public PriceFormat7Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
     
     #nullable disable
 }

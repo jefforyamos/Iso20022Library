@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 /// <summary>
 /// Specifies the opening date of the party.
 /// </summary>
-public partial record OpeningDate : IUpdateLogPartyRecord1Choice
+public partial record OpeningDate : UpdateLogPartyRecord1Choice_
 {
     #nullable enable
     /// <summary>

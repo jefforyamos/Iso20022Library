@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RepairStatus14Choice;
 /// <summary>
 /// Specifies the reason of the repair status.
 /// </summary>
-public partial record Reason : IRepairStatus14Choice
+public partial record Reason : RepairStatus14Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the instruction/request has a rejected or repair status.
     /// </summary>
-    public required IRepairReason12Choice Code { get; init; } 
+    public required RepairReason12Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

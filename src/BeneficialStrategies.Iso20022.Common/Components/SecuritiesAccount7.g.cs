@@ -20,7 +20,7 @@ public partial record SecuritiesAccount7
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountOwnerIdentification { get; init; } 
+    public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Idenfitication of the account where financial instruments are maintained.
     /// </summary>

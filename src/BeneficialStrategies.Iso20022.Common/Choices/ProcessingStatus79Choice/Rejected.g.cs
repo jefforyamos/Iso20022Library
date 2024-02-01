@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus79Choice;
 /// <summary>
 /// Buy-in advice is rejected for further processing.
 /// </summary>
-public partial record Rejected : IProcessingStatus79Choice
+public partial record Rejected : ProcessingStatus79Choice_
 {
     #nullable enable
     #nullable disable

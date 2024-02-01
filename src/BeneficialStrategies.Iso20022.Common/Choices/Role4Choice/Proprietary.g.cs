@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Role4Choice;
 /// <summary>
 /// Role of the party in the activity expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IRole4Choice
+public partial record Proprietary : Role4Choice_
 {
     #nullable enable
     /// <summary>

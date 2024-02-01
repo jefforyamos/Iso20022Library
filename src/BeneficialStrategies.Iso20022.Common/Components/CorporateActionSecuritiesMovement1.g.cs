@@ -20,7 +20,7 @@ public partial record CorporateActionSecuritiesMovement1
     /// <summary>
     /// Date and time of the posting.
     /// </summary>
-    public IDateAndDateTimeChoice? PostingDateTime { get; init; } 
+    public DateAndDateTimeChoice_? PostingDateTime { get; init; } 
     /// <summary>
     /// Identification of the financial instrument.
     /// </summary>
@@ -28,11 +28,11 @@ public partial record CorporateActionSecuritiesMovement1
     /// <summary>
     /// Quantity of securities that is posted.
     /// </summary>
-    public required IUnitOrFaceAmount1Choice PostingQuantity { get; init; } 
+    public required UnitOrFaceAmount1Choice_ PostingQuantity { get; init; } 
     /// <summary>
     /// Provides information about the account which is debited/credited.
     /// </summary>
-    public IReadOnlyCollection<SecuritiesAccount8> AccountDetails { get; init; } = [];
+    public SecuritiesAccount8[] AccountDetails { get; init; } = [];
     
     #nullable disable
 }

@@ -28,7 +28,7 @@ public partial record PartyIdentification1
     /// <summary>
     /// Unique and unambiguous identification of a party.
     /// </summary>
-    public IParty1Choice? Identification { get; init; } 
+    public Party1Choice_? Identification { get; init; } 
     
     #nullable disable
 }

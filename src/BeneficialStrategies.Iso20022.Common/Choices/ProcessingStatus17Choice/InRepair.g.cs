@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus17Choice;
 /// <summary>
 /// Trade is InRepair.
 /// </summary>
-public partial record InRepair : IProcessingStatus17Choice
+public partial record InRepair : ProcessingStatus17Choice_
 {
     #nullable enable
     #nullable disable

@@ -28,7 +28,7 @@ public partial record SecurityParameters4
     /// <summary>
     /// Ordered certificate chain of the asymmetric key encryption key, starting with the ATM certificate.
     /// </summary>
-    public IsoMax5000Binary? Certificate { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax5000Binary[] Certificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Random value from the ATM to avoid message replay.
     /// </summary>

@@ -24,11 +24,11 @@ public partial record UnderlyingAttributes4
     /// <summary>
     /// Unit amount of the underlying security.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? Quantity { get; init; } 
+    public UnitOrFaceAmount1Choice_? Quantity { get; init; } 
     /// <summary>
     /// Indicates order settlement period for the underlying instrument. Represents the number of days until settlement; for example, 2 means T+1 settlement, 4 means T+3 settlement, 5 means T+4 settlement.
     /// </summary>
-    public ISettlementType3Choice? SettlementType { get; init; } 
+    public SettlementType3Choice_? SettlementType { get; init; } 
     /// <summary>
     /// Cash amount associated with the underlying component. Necessary for derivatives that deliver into more than one underlying instrument and one of the underlying's is a fixed cash value.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record UnderlyingAttributes4
     /// <summary>
     /// Unit amount of the underlying security (shares) adjusted for pending corporate action not yet allocated.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? AdjustedQuantity { get; init; } 
+    public UnitOrFaceAmount1Choice_? AdjustedQuantity { get; init; } 
     /// <summary>
     /// Foreign exchange rate used to compute the current value.
     /// </summary>

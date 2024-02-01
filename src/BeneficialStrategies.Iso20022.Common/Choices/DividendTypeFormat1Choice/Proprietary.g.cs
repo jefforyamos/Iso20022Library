@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DividendTypeFormat1Choice;
 /// <summary>
 /// Proprietary identification of the frequency of the corporate action event.
 /// </summary>
-public partial record Proprietary : IDividendTypeFormat1Choice
+public partial record Proprietary : DividendTypeFormat1Choice_
 {
     #nullable enable
     /// <summary>

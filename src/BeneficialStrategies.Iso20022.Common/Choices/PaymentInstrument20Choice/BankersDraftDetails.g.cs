@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument20Choice;
 /// <summary>
 /// Cheque drawn by a bank on itself or its agent. A person who owes money to another buys the draft from a bank for cash and hands it to the creditor.
 /// </summary>
-public partial record BankersDraftDetails : IPaymentInstrument20Choice
+public partial record BankersDraftDetails : PaymentInstrument20Choice_
 {
     #nullable enable
     /// <summary>

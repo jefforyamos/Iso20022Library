@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxReferenceParty1Choice;
 /// <summary>
 /// Type of party expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITaxReferenceParty1Choice
+public partial record Proprietary : TaxReferenceParty1Choice_
 {
     #nullable enable
     /// <summary>

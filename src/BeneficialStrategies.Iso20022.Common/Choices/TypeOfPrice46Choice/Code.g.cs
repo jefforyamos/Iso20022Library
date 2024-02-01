@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TypeOfPrice46Choice;
 /// <summary>
 /// Type expressed as a code.
 /// </summary>
-public partial record Code : ITypeOfPrice46Choice
+public partial record Code : TypeOfPrice46Choice_
 {
     public required TypeOfPrice10Code Value { get; init; }
 }

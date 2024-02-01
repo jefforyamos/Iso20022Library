@@ -20,7 +20,7 @@ public partial record RateTypeAndLookback2
     /// <summary>
     /// Specifies the rate type as an index type or by its name.
     /// </summary>
-    public required IBenchmarkCurveName13Choice Type { get; init; } 
+    public required BenchmarkCurveName13Choice_ Type { get; init; } 
     /// <summary>
     /// Number of days prior to the current day to source the rate.
     /// </summary>

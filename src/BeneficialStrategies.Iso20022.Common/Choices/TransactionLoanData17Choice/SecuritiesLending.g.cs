@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData17Choice;
 /// <summary>
 /// Details of the securities lending transaction.
 /// </summary>
-public partial record SecuritiesLending : ITransactionLoanData17Choice
+public partial record SecuritiesLending : TransactionLoanData17Choice_
 {
     #nullable enable
     /// <summary>
@@ -30,7 +30,7 @@ public partial record SecuritiesLending : ITransactionLoanData17Choice
     /// <summary>
     /// Indicates whether clearing of contract has taken place.
     /// </summary>
-    public ICleared10Choice? ClearingStatus { get; init; } 
+    public Cleared10Choice_? ClearingStatus { get; init; } 
     /// <summary>
     /// Identification of the venue where the transaction was executed.
     /// </summary>
@@ -58,7 +58,7 @@ public partial record SecuritiesLending : ITransactionLoanData17Choice
     /// <summary>
     /// Indication whether the transaction is open term or, i.e. has no fixed maturity date, or fixed term with a contractually agreed maturity date.
     /// </summary>
-    public IContractTerm3Choice? Term { get; init;  } // Warning: Don't know multiplicity.
+    public ContractTerm3Choice_? Term { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Indication of the type of assets subject of the transaction.
     /// </summary>
@@ -70,7 +70,7 @@ public partial record SecuritiesLending : ITransactionLoanData17Choice
     /// <summary>
     /// Rate agreed to be paid by the lender for the reinvestment of the cash collateral minus lending fee.
     /// </summary>
-    public IInterestRate20Choice? RebateRate { get; init; } 
+    public InterestRate20Choice_? RebateRate { get; init; } 
     /// <summary>
     /// Fee that the borrower of the security or commodity pays to the lender.
     /// </summary>

@@ -20,11 +20,11 @@ public partial record Commission21
     /// <summary>
     /// Type of commission.
     /// </summary>
-    public required ICommissionType5Choice CommissionType { get; init; } 
+    public required CommissionType5Choice_ CommissionType { get; init; } 
     /// <summary>
     /// Commission amount or commission rate applied.
     /// </summary>
-    public required IAmountOrRate3Choice CommissionApplied { get; init; } 
+    public required AmountOrRate3Choice_ CommissionApplied { get; init; } 
     
     #nullable disable
 }

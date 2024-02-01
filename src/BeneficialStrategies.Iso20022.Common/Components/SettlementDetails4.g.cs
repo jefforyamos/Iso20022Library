@@ -20,27 +20,27 @@ public partial record SettlementDetails4
     /// <summary>
     /// Conditions under which the order/trade is to be settled.
     /// </summary>
-    public ISettlementTransactionCondition2Choice? SettlementTransactionCondition { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementTransactionCondition2Choice_[] SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether registration should occur upon receipt.
     /// </summary>
-    public IRegistration1Choice? Registration { get; init; } 
+    public Registration1Choice_? Registration { get; init; } 
     /// <summary>
     /// Regulatory restrictions applicable to a security.
     /// </summary>
-    public IRestriction1Choice? LegalRestrictions { get; init; } 
+    public Restriction1Choice_? LegalRestrictions { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction is to be settled through an RTGS or a non RTGS system.
     /// </summary>
-    public ISecuritiesRTGS1Choice? SecuritiesRTGS { get; init; } 
+    public SecuritiesRTGS1Choice_? SecuritiesRTGS { get; init; } 
     /// <summary>
     /// Specifies whether the settlement instruction is to be settled through the default or the alternate settlement system.
     /// </summary>
-    public ISettlementSystemMethod1Choice? SettlementSystemMethod { get; init; } 
+    public SettlementSystemMethod1Choice_? SettlementSystemMethod { get; init; } 
     /// <summary>
     /// Tax role capacity of the instructing party.
     /// </summary>
-    public ITaxCapacityParty1Choice? TaxCapacity { get; init; } 
+    public TaxCapacityParty1Choice_? TaxCapacity { get; init; } 
     /// <summary>
     /// Specifies the stamp duty type or exemption reason applicable to the settlement transaction.
     /// </summary>

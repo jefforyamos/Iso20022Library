@@ -32,7 +32,7 @@ public partial record InvestmentFundOrder9
     /// <summary>
     /// Reason for the cancellation.
     /// </summary>
-    public ICancellationReason32Choice? CancellationReason { get; init; } 
+    public CancellationReason32Choice_? CancellationReason { get; init; } 
     
     #nullable disable
 }

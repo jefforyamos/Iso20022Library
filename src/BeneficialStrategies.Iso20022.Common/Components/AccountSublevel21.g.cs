@@ -20,15 +20,15 @@ public partial record AccountSublevel21
     /// <summary>
     /// Quantity of shares for which shareholding details are not disclosed.
     /// </summary>
-    public IFinancialInstrumentQuantity18Choice? NonDisclosedShareholdingQuantity { get; init; } 
+    public FinancialInstrumentQuantity18Choice_? NonDisclosedShareholdingQuantity { get; init; } 
     /// <summary>
     /// Quantity of shares for which shareholding details are not reported as the quantity of shares owned by the shareholder is under the threshold limit.
     /// </summary>
-    public IFinancialInstrumentQuantity18Choice? BelowThresholdShareholdingQuantity { get; init; } 
+    public FinancialInstrumentQuantity18Choice_? BelowThresholdShareholdingQuantity { get; init; } 
     /// <summary>
     /// Details of the account sub-levels and holdings.
     /// </summary>
-    public AccountSubLevel20? Disclosure { get; init;  } // Warning: Don't know multiplicity.
+    public AccountSubLevel20[] Disclosure { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

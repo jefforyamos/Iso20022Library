@@ -32,11 +32,11 @@ public partial record CorporateActionGeneralInformation135
     /// <summary>
     /// Type of corporate action event.
     /// </summary>
-    public required ICorporateActionEventType84Choice EventType { get; init; } 
+    public required CorporateActionEventType84Choice_ EventType { get; init; } 
     /// <summary>
     /// Specifies whether the event is mandatory, mandatory with options or voluntary.
     /// </summary>
-    public required ICorporateActionMandatoryVoluntary3Choice MandatoryVoluntaryEventType { get; init; } 
+    public required CorporateActionMandatoryVoluntary3Choice_ MandatoryVoluntaryEventType { get; init; } 
     /// <summary>
     /// Identification of the security concerned by the corporate action.
     /// </summary>

@@ -29,7 +29,7 @@ public partial record ResendSearchCriteria2
     /// Independent counter for a range of message sequences, which are available once per party technical address.
     /// Specifies the range of identification sequence numbers for a specific couple sender/receiver.
     /// </summary>
-    public ISequenceRange1Choice? SequenceRange { get; init; } 
+    public SequenceRange1Choice_? SequenceRange { get; init; } 
     /// <summary>
     /// Unambiguously identifies the original bsiness message, which was delivered by the business sender.
     /// </summary>

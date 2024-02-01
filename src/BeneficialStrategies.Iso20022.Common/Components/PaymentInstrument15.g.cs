@@ -32,7 +32,7 @@ public partial record PaymentInstrument15
     /// <summary>
     /// Payment process for the transfer of cash from the debtor to the creditor.
     /// </summary>
-    public IPaymentInstrument23Choice? CashSettlementDetails { get; init; } 
+    public PaymentInstrument23Choice_? CashSettlementDetails { get; init; } 
     
     #nullable disable
 }

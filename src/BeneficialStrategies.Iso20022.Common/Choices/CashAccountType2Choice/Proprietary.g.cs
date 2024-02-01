@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CashAccountType2Choice;
 /// <summary>
 /// Nature or use of the account in a proprietary form.
 /// </summary>
-public partial record Proprietary : ICashAccountType2Choice
+public partial record Proprietary : CashAccountType2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

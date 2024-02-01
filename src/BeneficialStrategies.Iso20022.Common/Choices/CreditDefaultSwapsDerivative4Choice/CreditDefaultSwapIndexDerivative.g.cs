@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditDefaultSwapsDerivative4Cho
 /// <summary>
 /// A credit default swap derivative on an index.
 /// </summary>
-public partial record CreditDefaultSwapIndexDerivative : ICreditDefaultSwapsDerivative4Choice
+public partial record CreditDefaultSwapIndexDerivative : CreditDefaultSwapsDerivative4Choice_
 {
     #nullable enable
     /// <summary>

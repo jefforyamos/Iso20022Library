@@ -25,7 +25,7 @@ public partial record AccountBalance1
     /// <summary>
     /// Balance of the account.
     /// </summary>
-    public Balance15? Balance { get; init;  } // Warning: Don't know multiplicity.
+    public Balance15[] Balance { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

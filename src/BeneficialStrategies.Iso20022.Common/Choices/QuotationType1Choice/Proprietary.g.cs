@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.QuotationType1Choice;
 /// <summary>
 /// Type of quotation expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IQuotationType1Choice
+public partial record Proprietary : QuotationType1Choice_
 {
     #nullable enable
     /// <summary>

@@ -20,7 +20,7 @@ public partial record RecurringTransaction5
     /// <summary>
     /// Type of instalment plan.
     /// </summary>
-    public InstalmentPlan1Code? InstalmentPlan { get; init;  } // Warning: Don't know multiplicity.
+    public InstalmentPlan1Code[] InstalmentPlan { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the instalment plan.
     /// </summary>
@@ -72,19 +72,19 @@ public partial record RecurringTransaction5
     /// <summary>
     /// Contains the charge details of an instalment plan.
     /// </summary>
-    public InstalmentAmountDetails1? DetailedCharges { get; init;  } // Warning: Don't know multiplicity.
+    public InstalmentAmountDetails1[] DetailedCharges { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details of the interest rate.
     /// </summary>
-    public InterestRateDetails1? InterestRate { get; init;  } // Warning: Don't know multiplicity.
+    public InterestRateDetails1[] InterestRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains grace period details.
     /// </summary>
-    public GracePeriod1? GracePeriod { get; init;  } // Warning: Don't know multiplicity.
+    public GracePeriod1[] GracePeriod { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Notice related to the InstalmentPlan.
     /// </summary>
-    public ActionMessage10? PlanNotice { get; init;  } // Warning: Don't know multiplicity.
+    public ActionMessage10[] PlanNotice { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

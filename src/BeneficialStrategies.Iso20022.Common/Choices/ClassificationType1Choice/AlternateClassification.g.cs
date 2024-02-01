@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClassificationType1Choice;
 /// <summary>
 /// Proprietary classification of financial instrument.
 /// </summary>
-public partial record AlternateClassification : IClassificationType1Choice
+public partial record AlternateClassification : ClassificationType1Choice_
 {
     #nullable enable
     /// <summary>

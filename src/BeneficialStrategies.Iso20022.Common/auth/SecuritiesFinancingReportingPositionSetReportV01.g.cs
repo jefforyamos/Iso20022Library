@@ -46,7 +46,7 @@ public partial record SecuritiesFinancingReportingPositionSetReportV01 : IOuterR
     [DataMember(Name="AggtdPoss")]
     [XmlElement(ElementName="AggtdPoss")]
     [Required]
-    public required IPositionSetReport3Choice AggregatedPositions { get; init; }
+    public required PositionSetReport3Choice_ AggregatedPositions { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.

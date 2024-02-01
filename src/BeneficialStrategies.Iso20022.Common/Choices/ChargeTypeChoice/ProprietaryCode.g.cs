@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeTypeChoice;
 /// <summary>
 /// Type of charge is a bilaterally agreed code.
 /// </summary>
-public partial record ProprietaryCode : IChargeTypeChoice
+public partial record ProprietaryCode : ChargeTypeChoice_
 {
     public required IsoMax4AlphaNumericText Value { get; init; }
 }

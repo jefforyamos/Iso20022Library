@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TypeOfAmount1Choice;
 /// <summary>
 /// Type of amount expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITypeOfAmount1Choice
+public partial record Proprietary : TypeOfAmount1Choice_
 {
     #nullable enable
     /// <summary>

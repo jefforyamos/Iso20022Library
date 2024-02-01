@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RepoCallRequestStatus5Choice;
 /// <summary>
 /// Instruction has been acknowledged by the account servicer.
 /// </summary>
-public partial record AcknowledgedAccepted : IRepoCallRequestStatus5Choice
+public partial record AcknowledgedAccepted : RepoCallRequestStatus5Choice_
 {
     #nullable enable
     #nullable disable

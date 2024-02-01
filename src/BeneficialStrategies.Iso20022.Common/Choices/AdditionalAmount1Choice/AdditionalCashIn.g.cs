@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AdditionalAmount1Choice;
 /// <summary>
 /// Additional amount of money paid by the investor in addition to the switch redemption amount.
 /// </summary>
-public partial record AdditionalCashIn : IAdditionalAmount1Choice
+public partial record AdditionalCashIn : AdditionalAmount1Choice_
 {
     public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
 }

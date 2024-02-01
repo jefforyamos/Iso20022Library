@@ -24,7 +24,7 @@ public partial record ReconciliationStatisticsPerCounterparty3
     /// <summary>
     /// Different categories of statuses for a derivative.
     /// </summary>
-    public required IReportingRequirement2Choice ReconciliationCategories { get; init; } 
+    public required ReportingRequirement2Choice_ ReconciliationCategories { get; init; } 
     /// <summary>
     /// Number of all reports per status on derivatives submitted for reconciliation.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record ReconciliationStatisticsPerCounterparty3
     /// <summary>
     /// Details of derivatives submitted for reconciliation per counterparty pair.
     /// </summary>
-    public ReconciliationCounterpartyPairStatistics6? TransactionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ReconciliationCounterpartyPairStatistics6[] TransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

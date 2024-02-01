@@ -128,11 +128,11 @@ public partial record CreditTransferTransaction23
     /// <summary>
     /// Further information related to the processing of the payment instruction, provided by the initiating party, and intended for the creditor agent.
     /// </summary>
-    public InstructionForCreditorAgent2? InstructionForCreditorAgent { get; init;  } // Warning: Don't know multiplicity.
+    public InstructionForCreditorAgent2[] InstructionForCreditorAgent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further information related to the processing of the payment instruction that may need to be acted upon by the next agent. ||Usage: The next agent may not be the creditor agent.|The instruction can relate to a level of service, can be an instruction that has to be executed by the agent, or can be information required by the next agent.
     /// </summary>
-    public InstructionForNextAgent1? InstructionForNextAgent { get; init;  } // Warning: Don't know multiplicity.
+    public InstructionForNextAgent1[] InstructionForNextAgent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts' receivable system.
     /// </summary>
@@ -144,7 +144,7 @@ public partial record CreditTransferTransaction23
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

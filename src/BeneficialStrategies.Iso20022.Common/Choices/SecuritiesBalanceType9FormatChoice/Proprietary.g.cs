@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesBalanceType9FormatChoi
 /// <summary>
 /// Proprietary code to express the type of securities balance.
 /// </summary>
-public partial record Proprietary : ISecuritiesBalanceType9FormatChoice
+public partial record Proprietary : SecuritiesBalanceType9FormatChoice_
 {
     #nullable enable
     /// <summary>

@@ -20,11 +20,11 @@ public partial record InvestmentAccountOwnershipInformation8
     /// <summary>
     /// Information about the organisation or individual person.
     /// </summary>
-    public required IParty15Choice Party { get; init; } 
+    public required Party15Choice_ Party { get; init; } 
     /// <summary>
     /// Status of an identity check to prevent money laundering. This includes the counter-terrorism check.
     /// </summary>
-    public IMoneyLaunderingCheck1Choice? MoneyLaunderingCheck { get; init; } 
+    public MoneyLaunderingCheck1Choice_? MoneyLaunderingCheck { get; init; } 
     /// <summary>
     /// Percentage of ownership or beneficiary ownership of the shares/units in the account. All subsequent subscriptions and or redemptions will be allocated using the same percentage.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record InvestmentAccountOwnershipInformation8
     /// <summary>
     /// Information related to the party profile to be inserted or deleted.
     /// </summary>
-    public IReadOnlyCollection<ModificationScope19> ModifiedInvestorProfileValidation { get; init; } = [];
+    public ModificationScope19[] ModifiedInvestorProfileValidation { get; init; } = [];
     /// <summary>
     /// Details about the MiFID classification of the account owner.
     /// </summary>

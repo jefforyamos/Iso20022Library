@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemStatus2Choice;
 /// <summary>
 /// Status of the system, in a proprietary form.
 /// </summary>
-public partial record Proprietary : ISystemStatus2Choice
+public partial record Proprietary : SystemStatus2Choice_
 {
     #nullable enable
     /// <summary>

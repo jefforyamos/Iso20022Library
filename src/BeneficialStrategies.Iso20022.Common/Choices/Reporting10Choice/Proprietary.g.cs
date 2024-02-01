@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reporting10Choice;
 /// <summary>
 /// Third party reporting information expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IReporting10Choice
+public partial record Proprietary : Reporting10Choice_
 {
     #nullable enable
     /// <summary>

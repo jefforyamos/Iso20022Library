@@ -24,7 +24,7 @@ public partial record Lodging3
     /// <summary>
     /// Component provides detailed information about lodging accommodations and related expenses for the cardholder. Acquirers can submit multiple occurrences of this component for each lodging transaction, to provide details of one or more folios. 
     /// </summary>
-    public LodgingLineItem2? LineItem { get; init;  } // Warning: Don't know multiplicity.
+    public LodgingLineItem2[] LineItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

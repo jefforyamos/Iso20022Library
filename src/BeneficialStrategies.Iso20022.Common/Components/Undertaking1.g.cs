@@ -32,7 +32,7 @@ public partial record Undertaking1
     /// <summary>
     /// Type of undertaking, for example, performance, payment.
     /// </summary>
-    public required IUndertakingType1Choice Type { get; init; } 
+    public required UndertakingType1Choice_ Type { get; init; } 
     /// <summary>
     /// Party obligated to reimburse the issuer.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record Undertaking1
     /// <summary>
     /// Party to be named in the undertaking as the “applicant” when different from the obligor.
     /// </summary>
-    public PartyIdentification43? Applicant { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification43[] Applicant { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that issues the undertaking (or counter-undertaking).
     /// </summary>
@@ -48,7 +48,7 @@ public partial record Undertaking1
     /// <summary>
     /// Ultimate party in whose favour the undertaking is to be issued.
     /// </summary>
-    public PartyIdentification43? Beneficiary { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification43[] Beneficiary { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party asked to advise the undertaking to the beneficiary or to another advising party.
     /// </summary>
@@ -84,7 +84,7 @@ public partial record Undertaking1
     /// <summary>
     /// Party, in addition to the other parties specified in the undertaking, that is also related to the undertaking.
     /// </summary>
-    public PartyAndType1? AdditionalParty { get; init;  } // Warning: Don't know multiplicity.
+    public PartyAndType1[] AdditionalParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rules and laws governing the undertaking.
     /// </summary>
@@ -92,7 +92,7 @@ public partial record Undertaking1
     /// <summary>
     /// Details of the underlying transaction for which the undertaking is issued.
     /// </summary>
-    public UnderlyingTradeTransaction1? UnderlyingTransaction { get; init;  } // Warning: Don't know multiplicity.
+    public UnderlyingTradeTransaction1[] UnderlyingTransaction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Presentation details related to the undertaking.
     /// </summary>
@@ -124,7 +124,7 @@ public partial record Undertaking1
     /// <summary>
     /// Details related to a variation in amount that is automatically applied.
     /// </summary>
-    public AutomaticVariation1? AutomaticAmountVariation { get; init;  } // Warning: Don't know multiplicity.
+    public AutomaticVariation1[] AutomaticAmountVariation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details of the communication channel.
     /// </summary>
@@ -144,11 +144,11 @@ public partial record Undertaking1
     /// <summary>
     /// Document or template enclosed in the undertaking directly related to the undertaking to be issued.
     /// </summary>
-    public Document9? EnclosedFile { get; init;  } // Warning: Don't know multiplicity.
+    public Document9[] EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the application for an undertaking.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> AdditionalApplicationInformation { get; init; } = [];
+    public IsoMax2000Text[] AdditionalApplicationInformation { get; init; } = [];
     
     #nullable disable
 }

@@ -42,17 +42,17 @@ public partial record DebtorActivation3
     /// <summary>
     /// Unique identifier of the debtor required by the creditor, for example  the reference number or customer number. Unique identification provided by the web bank or web payment services user, with which the creditor may identify the debtor in its system.
     /// </summary>
-    public IParty49Choice? CustomerIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public Party49Choice_[] CustomerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Document format type supported to exchange the contracts.
     /// </summary>
-    public IDocumentFormat2Choice? ContractFormatType { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentFormat2Choice_[] ContractFormatType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Code choice external/prop
     /// Description
     /// identical to the Instruction for Debtor
     /// </summary>
-    public ContractReference1? ContractReference { get; init;  } // Warning: Don't know multiplicity.
+    public ContractReference1[] ContractReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
@@ -68,11 +68,11 @@ public partial record DebtorActivation3
     /// <summary>
     /// Date and time at which the debtor activation will be activated.
     /// </summary>
-    public IDateAndDateTime2Choice? StartDate { get; init; } 
+    public DateAndDateTime2Choice_? StartDate { get; init; } 
     /// <summary>
     /// Date and time at which the debtor activation will be deactivated.
     /// </summary>
-    public IDateAndDateTime2Choice? EndDate { get; init; } 
+    public DateAndDateTime2Choice_? EndDate { get; init; } 
     /// <summary>
     /// Unique, one-time code that a creditor may require from a debtor for activation purposes, and which is known only by the creditor and the debtor.
     /// </summary>

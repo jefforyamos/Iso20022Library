@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FractionDispositionType30Choice;
 /// <summary>
 /// Standard code to specify how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
 /// </summary>
-public partial record Code : IFractionDispositionType30Choice
+public partial record Code : FractionDispositionType30Choice_
 {
     public required FractionDispositionType11Code Value { get; init; }
 }

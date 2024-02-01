@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReferenceValue1Choice;
 /// <summary>
 /// Internationalized Resource Identifier (IRI) address.
 /// </summary>
-public partial record IRI : IReferenceValue1Choice
+public partial record IRI : ReferenceValue1Choice_
 {
     public required IsoMax2048Text Value { get; init; }
 }

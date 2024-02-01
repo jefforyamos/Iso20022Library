@@ -32,23 +32,23 @@ public partial record AccountSubLevel15
     /// <summary>
     /// Individual or entity that is ultimately entitled to the benefit of income and rights in a financial instrument, as opposed to a nominal or legal owner.
     /// </summary>
-    public BeneficialOwner2? BeneficialOwner { get; init;  } // Warning: Don't know multiplicity.
+    public BeneficialOwner2[] BeneficialOwner { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Report on the net position of a financial instrument on the sub-account (sub-account level 5), for a certain date. The agent, for example, a trade intermediary, may also be specified.
     /// </summary>
-    public AggregateHoldingBalance3? BalanceDetails { get; init;  } // Warning: Don't know multiplicity.
+    public AggregateHoldingBalance3[] BalanceDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Holdings of level 5.
     /// </summary>
-    public AccountSubLevel16? AccountSubLevel6 { get; init;  } // Warning: Don't know multiplicity.
+    public AccountSubLevel16[] AccountSubLevel6 { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Difference in holdings between the safekeeping account and the sub-accounts of level 6.
     /// </summary>
-    public AggregateHoldingBalance2? AccountSubLevel6Difference { get; init;  } // Warning: Don't know multiplicity.
+    public AggregateHoldingBalance2[] AccountSubLevel6Difference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

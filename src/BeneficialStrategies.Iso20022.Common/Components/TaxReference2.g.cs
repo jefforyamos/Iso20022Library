@@ -20,7 +20,7 @@ public partial record TaxReference2
     /// <summary>
     /// Type of tax reference.
     /// </summary>
-    public ITaxReferenceType1Choice? Type { get; init; } 
+    public TaxReferenceType1Choice_? Type { get; init; } 
     /// <summary>
     /// Pension scheme tax reference issued to the pension plan by a central organisation.
     /// </summary>

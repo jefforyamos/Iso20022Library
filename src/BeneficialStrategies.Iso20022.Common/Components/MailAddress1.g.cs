@@ -20,11 +20,11 @@ public partial record MailAddress1
     /// <summary>
     /// Physical mail address for correspondance.
     /// </summary>
-    public IReadOnlyCollection<PostalAddress1> Correspondence { get; init; } = [];
+    public PostalAddress1[] Correspondence { get; init; } = [];
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
-    public IReadOnlyCollection<IsoMax256Text> EmailAddress { get; init; } = [];
+    public IsoMax256Text[] EmailAddress { get; init; } = [];
     
     #nullable disable
 }

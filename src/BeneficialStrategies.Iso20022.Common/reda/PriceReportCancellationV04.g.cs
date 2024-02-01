@@ -117,7 +117,7 @@ public partial record PriceReportCancellationV04 : IOuterRecord
     [Description(@"Date or date and time the price will be corrected.")]
     [DataMember(Name="XpctdPricCrrctnDt")]
     [XmlElement(ElementName="XpctdPricCrrctnDt")]
-    public IDateAndDateTime1Choice? ExpectedPriceCorrectionDate { get; init; }
+    public DateAndDateTime1Choice_? ExpectedPriceCorrectionDate { get; init; }
     
     /// <summary>
     /// Indicates whether or not all the prices of the referenced price report are cancelled.

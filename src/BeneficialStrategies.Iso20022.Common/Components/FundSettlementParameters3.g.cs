@@ -24,11 +24,11 @@ public partial record FundSettlementParameters3
     /// <summary>
     /// Place where the settlement of transaction will take place. In the context of the investment funds, the place of settlement is the transfer agent, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public required IPartyIdentification2Choice SettlementPlace { get; init; } 
+    public required PartyIdentification2Choice_ SettlementPlace { get; init; } 
     /// <summary>
     /// Place requested as the place of safekeeping.
     /// </summary>
-    public IPartyIdentification2Choice? SafekeepingPlace { get; init; } 
+    public PartyIdentification2Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Identifies the securities settlement system to be used.
     /// </summary>

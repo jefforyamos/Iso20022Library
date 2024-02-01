@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 /// <summary>
 /// Additional attributes defined by a central security depositary for a party.
 /// </summary>
-public partial record MarketSpecificAttribute : IUpdateLogPartyRecord1Choice
+public partial record MarketSpecificAttribute : UpdateLogPartyRecord1Choice_
 {
     #nullable enable
     /// <summary>

@@ -20,7 +20,7 @@ public partial record SuspendedStatusReason1
     /// <summary>
     /// Reason for a suspended status in structured form.
     /// </summary>
-    public IReadOnlyCollection<SuspendedStatusReason2Code> Structured { get; init; } = [];
+    public SuspendedStatusReason2Code[] Structured { get; init; } = [];
     /// <summary>
     /// Reason for a suspended status in free format text.
     /// </summary>

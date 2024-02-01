@@ -44,7 +44,7 @@ public partial record BenefitCrystallisationEvent2
     /// <summary>
     /// Additional information about the benefit crystallisation event.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

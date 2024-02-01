@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateAndPeriod3Choice;
 /// <summary>
 /// Date of the statement.
 /// </summary>
-public partial record StatementDate : IDateAndPeriod3Choice
+public partial record StatementDate : DateAndPeriod3Choice_
 {
     #nullable enable
     #nullable disable

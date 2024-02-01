@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification233Choice;
 /// <summary>
 /// Private person.
 /// </summary>
-public partial record NaturalPerson : IPartyIdentification233Choice
+public partial record NaturalPerson : PartyIdentification233Choice_
 {
     #nullable enable
     /// <summary>

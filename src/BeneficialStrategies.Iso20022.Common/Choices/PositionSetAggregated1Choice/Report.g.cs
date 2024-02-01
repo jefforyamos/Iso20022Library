@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PositionSetAggregated1Choice;
 /// <summary>
 /// Detailed aggregated position set report between a pair of counterparties.
 /// </summary>
-public partial record Report : IPositionSetAggregated1Choice
+public partial record Report : PositionSetAggregated1Choice_
 {
     #nullable enable
     /// <summary>

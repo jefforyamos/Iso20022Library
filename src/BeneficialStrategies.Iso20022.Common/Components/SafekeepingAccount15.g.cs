@@ -28,7 +28,7 @@ public partial record SafekeepingAccount15
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification231Choice? AccountOwner { get; init; } 
+    public PartyIdentification231Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Identification of a subaccount within the safekeeping account.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record SafekeepingAccount15
     /// <summary>
     /// Quantity of securities to which this instruction applies.
     /// </summary>
-    public IReadOnlyCollection<HoldingBalance12> InstructedBalance { get; init; } = [];
+    public HoldingBalance12[] InstructedBalance { get; init; } = [];
     /// <summary>
     /// Owner of the voting rights.
     /// </summary>
-    public IReadOnlyCollection<IPartyIdentification246Choice> RightsHolder { get; init; } = [];
+    public PartyIdentification246Choice_[] RightsHolder { get; init; } = [];
     /// <summary>
     /// Detailed information about the pledge.
     /// </summary>

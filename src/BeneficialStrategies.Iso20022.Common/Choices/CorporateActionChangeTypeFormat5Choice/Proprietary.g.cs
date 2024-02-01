@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionChangeTypeFormat5
 /// <summary>
 /// Proprietary identification of the type of changes.
 /// </summary>
-public partial record Proprietary : ICorporateActionChangeTypeFormat5Choice
+public partial record Proprietary : CorporateActionChangeTypeFormat5Choice_
 {
     #nullable enable
     /// <summary>

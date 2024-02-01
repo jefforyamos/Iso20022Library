@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosingBalance6Choice;
 /// <summary>
 /// Sum of the opening balance and all entries booked to the account at the close of the statement period.
 /// </summary>
-public partial record Final : IClosingBalance6Choice
+public partial record Final : ClosingBalance6Choice_
 {
     #nullable enable
     #nullable disable

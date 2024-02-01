@@ -33,7 +33,7 @@ public partial record PayloadDescription1
     /// Manifest that describes the related items or attachments.
     /// This block is repeated for each different type of item.
     /// </summary>
-    public ManifestDetails1? ManifestDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ManifestDetails1[] ManifestDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

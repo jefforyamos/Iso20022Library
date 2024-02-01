@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitType1Choice;
 /// <summary>
 /// Type of the limit, in a coded form.
 /// </summary>
-public partial record Code : ILimitType1Choice
+public partial record Code : LimitType1Choice_
 {
     public required LimitType3Code Value { get; init; }
 }

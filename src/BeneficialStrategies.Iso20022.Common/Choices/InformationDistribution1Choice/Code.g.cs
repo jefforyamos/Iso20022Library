@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InformationDistribution1Choice;
 /// <summary>
 /// Information distribution expressed as a code.
 /// </summary>
-public partial record Code : IInformationDistribution1Choice
+public partial record Code : InformationDistribution1Choice_
 {
     public required InformationDistribution2Code Value { get; init; }
 }

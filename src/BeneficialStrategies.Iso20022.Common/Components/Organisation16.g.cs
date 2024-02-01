@@ -24,7 +24,7 @@ public partial record Organisation16
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution, for example, Dun & Bradstreet Identification.
     /// </summary>
-    public IPartyIdentification4Choice? Identification { get; init; } 
+    public PartyIdentification4Choice_? Identification { get; init; } 
     /// <summary>
     /// Purpose of the organisation, for example, charity.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record Organisation16
     /// <summary>
     /// Tax identification information.
     /// </summary>
-    public TaxIdentification2? TaxIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public TaxIdentification2[] TaxIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number assigned by a national registration authority to an entity.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record Organisation16
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    public IReadOnlyCollection<PostalAddress3> PostalAddress { get; init; } = [];
+    public PostalAddress3[] PostalAddress { get; init; } = [];
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>

@@ -28,11 +28,11 @@ public partial record SecuritiesOption49
     /// <summary>
     /// Specifies that the security identified is a temporary security identification used for processing reasons, for example, contra security used in the US.
     /// </summary>
-    public ITemporaryFinancialInstrumentIndicator3Choice? TemporaryFinancialInstrumentIndicator { get; init; } 
+    public TemporaryFinancialInstrumentIndicator3Choice_? TemporaryFinancialInstrumentIndicator { get; init; } 
     /// <summary>
     /// Specifies information regarding outturn resources that cannot be processed by the Central Securities Depository (CSD). Special delivery instruction is required from the account owner for the corporate action outcome to be credited.
     /// </summary>
-    public INonEligibleProceedsIndicator3Choice? NonEligibleProceedsIndicator { get; init; } 
+    public NonEligibleProceedsIndicator3Choice_? NonEligibleProceedsIndicator { get; init; } 
     /// <summary>
     /// Proceeds are taxable according to the information provided by the issuer / offeror.
     /// </summary>
@@ -48,15 +48,15 @@ public partial record SecuritiesOption49
     /// <summary>
     /// Specifies the basis for the reduced rate of withholding.
     /// </summary>
-    public GenericIdentification30? ExemptionType { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification30[] ExemptionType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity of securities based on the terms of the corporate action event and balance of underlying securities entitled to the account owner. (This quantity can be positive or negative).
     /// </summary>
-    public IQuantity6Choice? EntitledQuantity { get; init; } 
+    public Quantity6Choice_? EntitledQuantity { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
-    public ISafekeepingPlaceFormat10Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat10Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Indicates the country from which the income originates.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record SecuritiesOption49
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
-    public IFractionDispositionType26Choice? FractionDisposition { get; init; } 
+    public FractionDispositionType26Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Currency in which the cash disbursed from an interest or dividend payment is offered.
     /// </summary>
@@ -72,7 +72,7 @@ public partial record SecuritiesOption49
     /// <summary>
     /// Period during which intermediate or outturn securities are tradable in a secondary market.
     /// </summary>
-    public IPeriod3Choice? TradingPeriod { get; init; } 
+    public Period3Choice_? TradingPeriod { get; init; } 
     /// <summary>
     /// Provides information about the dates related to securities movement.
     /// </summary>

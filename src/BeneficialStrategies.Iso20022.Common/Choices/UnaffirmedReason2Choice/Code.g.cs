@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnaffirmedReason2Choice;
 /// <summary>
 /// Specifies the reason why the instruction/request has an unaffirmed status.
 /// </summary>
-public partial record Code : IUnaffirmedReason2Choice
+public partial record Code : UnaffirmedReason2Choice_
 {
     public required UnaffirmedReason1Code Value { get; init; }
 }

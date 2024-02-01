@@ -32,7 +32,7 @@ public partial record CommonData8
     /// <summary>
     /// Service in addition to the main service.
     /// </summary>
-    public CardPaymentServiceType9Code? AdditionalService { get; init;  } // Warning: Don't know multiplicity.
+    public CardPaymentServiceType9Code[] AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional attribute of the service type.
     /// </summary>

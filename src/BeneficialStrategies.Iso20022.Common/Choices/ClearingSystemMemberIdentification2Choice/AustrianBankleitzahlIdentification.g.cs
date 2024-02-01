@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// <summary>
 /// Austrian Bankleitzahl - identifies Austrian financial institutions on the Austrian national clearing system.
 /// </summary>
-public partial record AustrianBankleitzahlIdentification : IClearingSystemMemberIdentification2Choice
+public partial record AustrianBankleitzahlIdentification : ClearingSystemMemberIdentification2Choice_
 {
     public required IsoAustrianBankleitzahlIdentifier Value { get; init; }
 }

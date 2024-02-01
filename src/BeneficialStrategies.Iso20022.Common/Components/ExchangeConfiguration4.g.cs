@@ -20,7 +20,7 @@ public partial record ExchangeConfiguration4
     /// <summary>
     /// Exchange policy between parties.
     /// </summary>
-    public ExchangePolicy1Code? ExchangePolicy { get; init;  } // Warning: Don't know multiplicity.
+    public ExchangePolicy1Code[] ExchangePolicy { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum number of transactions without exchange.
     /// </summary>

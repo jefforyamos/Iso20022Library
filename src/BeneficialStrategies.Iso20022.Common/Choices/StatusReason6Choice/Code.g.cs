@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatusReason6Choice;
 /// <summary>
 /// Reason for the status, as published in an external reason code list.
 /// </summary>
-public partial record Code : IStatusReason6Choice
+public partial record Code : StatusReason6Choice_
 {
     public required ExternalStatusReason1Code Value { get; init; }
 }

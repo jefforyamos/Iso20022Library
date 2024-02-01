@@ -40,7 +40,7 @@ public partial record TradeData10
     /// <summary>
     /// Specifies the previous status of a trade.
     /// </summary>
-    public IStatus5Choice? PreviousStatus { get; init; } 
+    public Status5Choice_? PreviousStatus { get; init; } 
     /// <summary>
     /// Additional information on the previous status of a trade in a central system.
     /// </summary>

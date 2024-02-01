@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProductCharacteristics1Choice;
 /// <summary>
 /// Specifies the type of product characteristic not present in the code list.
 /// </summary>
-public partial record OtherProductCharacteristics : IProductCharacteristics1Choice
+public partial record OtherProductCharacteristics : ProductCharacteristics1Choice_
 {
     #nullable enable
     /// <summary>

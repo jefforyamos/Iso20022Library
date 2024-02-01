@@ -24,7 +24,7 @@ public partial record AlternateSecurityIdentification7
     /// <summary>
     /// Source of the identification, that is, domestic (national) or proprietary.
     /// </summary>
-    public required IIdentificationSource1Choice IdentificationSource { get; init; } 
+    public required IdentificationSource1Choice_ IdentificationSource { get; init; } 
     
     #nullable disable
 }

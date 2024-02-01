@@ -24,7 +24,7 @@ public partial record UnderlyingTransaction2
     /// <summary>
     /// Set of elements used to provide information on the original transactions to which the cancellation request message refers.
     /// </summary>
-    public PaymentTransactionInformation31? TransactionInformation { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentTransactionInformation31[] TransactionInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

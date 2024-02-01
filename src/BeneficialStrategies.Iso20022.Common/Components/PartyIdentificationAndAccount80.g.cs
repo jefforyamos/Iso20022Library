@@ -20,7 +20,7 @@ public partial record PartyIdentificationAndAccount80
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    public required IPartyIdentification32Choice Identification { get; init; } 
+    public required PartyIdentification32Choice_ Identification { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
@@ -28,19 +28,19 @@ public partial record PartyIdentificationAndAccount80
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    public ICashAccountIdentification5Choice? CashAccount { get; init; } 
+    public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Account to be used for charges/fees if different from the account for payment.
     /// </summary>
-    public ICashAccountIdentification5Choice? ChargesAccount { get; init; } 
+    public CashAccountIdentification5Choice_? ChargesAccount { get; init; } 
     /// <summary>
     /// Account to be used for commission if different from the account for payment.
     /// </summary>
-    public ICashAccountIdentification5Choice? CommissionAccount { get; init; } 
+    public CashAccountIdentification5Choice_? CommissionAccount { get; init; } 
     /// <summary>
     /// Account to be used for taxes if different from the account for payment.
     /// </summary>
-    public ICashAccountIdentification5Choice? TaxAccount { get; init; } 
+    public CashAccountIdentification5Choice_? TaxAccount { get; init; } 
     /// <summary>
     /// Provides additional information to a party identification.
     /// </summary>

@@ -28,7 +28,7 @@ public partial record GroupHeader77
     /// <summary>
     /// Identification of the party that is sending the message, when different from the account owner.
     /// </summary>
-    public IParty40Choice? MessageSender { get; init; } 
+    public Party40Choice_? MessageSender { get; init; } 
     
     #nullable disable
 }

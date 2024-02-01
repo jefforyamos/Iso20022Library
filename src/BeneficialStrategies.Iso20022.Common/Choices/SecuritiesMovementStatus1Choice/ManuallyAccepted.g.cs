@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesMovementStatus1Choice;
 /// <summary>
 /// Security does not satisfy the eligibility criteria stipulated in the triparty agreement. However the bank has manually accepted this security.
 /// </summary>
-public partial record ManuallyAccepted : ISecuritiesMovementStatus1Choice
+public partial record ManuallyAccepted : SecuritiesMovementStatus1Choice_
 {
     #nullable enable
     /// <summary>

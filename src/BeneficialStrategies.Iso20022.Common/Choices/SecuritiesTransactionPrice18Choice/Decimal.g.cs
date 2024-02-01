@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice18Choi
 /// <summary>
 /// Indicates that price is expressed as a decimal.
 /// </summary>
-public partial record Decimal : ISecuritiesTransactionPrice18Choice
+public partial record Decimal : SecuritiesTransactionPrice18Choice_
 {
     public required IsoBaseOneRate Value { get; init; }
 }

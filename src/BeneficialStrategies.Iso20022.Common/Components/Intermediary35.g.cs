@@ -20,7 +20,7 @@ public partial record Intermediary35
     /// <summary>
     /// Unique and unambiguous identifier of the intermediary.
     /// </summary>
-    public required IPartyIdentification70Choice Identification { get; init; } 
+    public required PartyIdentification70Choice_ Identification { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record Intermediary35
     /// <summary>
     /// Function performed by the intermediary.
     /// </summary>
-    public IRole4Choice? Role { get; init; } 
+    public Role4Choice_? Role { get; init; } 
     
     #nullable disable
 }

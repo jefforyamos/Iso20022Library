@@ -20,7 +20,7 @@ public partial record PartyIdentification268
     /// <summary>
     /// Unique and unambiguous way to identify an organisation.
     /// </summary>
-    public required IPartyIdentification244Choice Identification { get; init; } 
+    public required PartyIdentification244Choice_ Identification { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>

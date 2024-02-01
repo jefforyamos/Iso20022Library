@@ -48,7 +48,7 @@ public partial record CorporateActionConfirmationCashMovementDetailsSD4
     /// <summary>
     /// Date/Time on which the posting /draft of the securities took place.
     /// </summary>
-    public IDateFormat28Choice? PostingDate { get; init; } 
+    public DateFormat28Choice_? PostingDate { get; init; } 
     /// <summary>
     /// Set of the DTC legacy sub reason codes representing tax rate. Used with reason codes ‘TJXD’ ‘TJXF’ ‘TJXI’ ‘TJXL’ ‘TJXR’ ‘TJXT’ ‘TJXU’ to identify the correct tax rate.
     /// </summary>

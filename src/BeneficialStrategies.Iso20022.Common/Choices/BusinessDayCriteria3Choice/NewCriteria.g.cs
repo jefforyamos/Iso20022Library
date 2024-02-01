@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BusinessDayCriteria3Choice;
 /// <summary>
 /// Explicitly defines the query criteria.
 /// </summary>
-public partial record NewCriteria : IBusinessDayCriteria3Choice
+public partial record NewCriteria : BusinessDayCriteria3Choice_
 {
     #nullable enable
     /// <summary>

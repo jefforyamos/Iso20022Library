@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationResult1Choice;
 /// <summary>
 /// Provides the result.
 /// </summary>
-public partial record Result : IInvestigationResult1Choice
+public partial record Result : InvestigationResult1Choice_
 {
     #nullable enable
     #nullable disable

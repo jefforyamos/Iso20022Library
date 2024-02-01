@@ -31,7 +31,7 @@ public partial record DerivativeInstrument6
     /// <summary>
     /// Choice to specify the type(s) of underlying instrument(s) that make up the financial instrument.
     /// </summary>
-    public required IUnderlyingIdentification2Choice UnderlyingInstrument { get; init; } 
+    public required UnderlyingIdentification2Choice_ UnderlyingInstrument { get; init; } 
     /// <summary>
     /// Specifies whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// </summary>
@@ -39,7 +39,7 @@ public partial record DerivativeInstrument6
     /// <summary>
     /// Predetermined price at which the holder will have to buy or sell the underlying instrument.
     /// </summary>
-    public ISecuritiesTransactionPrice4Choice? StrikePrice { get; init; } 
+    public SecuritiesTransactionPrice4Choice_? StrikePrice { get; init; } 
     /// <summary>
     /// Indication as to whether the option may be exercised only at a fixed date (European, and Asian style), a series of pre-specified dates (Bermudan) or at any time during the life of the contract (American style). This field does not have to be populated for ISIN instruments.
     /// </summary>
@@ -51,7 +51,7 @@ public partial record DerivativeInstrument6
     /// <summary>
     /// Specific attributes of the underlying asset class of the financial instrument.
     /// </summary>
-    public IAssetClassAttributes1Choice? AssetClassSpecificAttributes { get; init; } 
+    public AssetClassAttributes1Choice_? AssetClassSpecificAttributes { get; init; } 
     
     #nullable disable
 }

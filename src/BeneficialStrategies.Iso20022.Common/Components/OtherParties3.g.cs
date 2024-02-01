@@ -20,23 +20,23 @@ public partial record OtherParties3
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
     /// </summary>
-    public IPartyIdentification14Choice? Investor { get; init; } 
+    public PartyIdentification14Choice_? Investor { get; init; } 
     /// <summary>
     /// Foreign Financial Institution which has been authorised by local authorities to act as account management institution in the country.
     /// </summary>
-    public IPartyIdentification10Choice? QualifiedForeignIntermediary { get; init; } 
+    public PartyIdentification10Choice_? QualifiedForeignIntermediary { get; init; } 
     /// <summary>
     /// Identification of the stock exchange to which transaction reporting will be done.
     /// </summary>
-    public IPartyIdentification10Choice? StockExchange { get; init; } 
+    public PartyIdentification10Choice_? StockExchange { get; init; } 
     /// <summary>
     /// Institution to which a trade must be reported.
     /// </summary>
-    public IPartyIdentification10Choice? TradeRegulator { get; init; } 
+    public PartyIdentification10Choice_? TradeRegulator { get; init; } 
     /// <summary>
     /// Party responsible for the administration of a tri-party collateral transaction including collateral allocation, marking to market and substitution of collateral.
     /// </summary>
-    public IPartyIdentification10Choice? TripartyAgent { get; init; } 
+    public PartyIdentification10Choice_? TripartyAgent { get; init; } 
     
     #nullable disable
 }

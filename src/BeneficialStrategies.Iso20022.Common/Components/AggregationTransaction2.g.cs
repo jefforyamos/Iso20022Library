@@ -32,7 +32,7 @@ public partial record AggregationTransaction2
     /// <summary>
     /// Individual payment that has been aggregated.
     /// </summary>
-    public DetailedAmount14? IndividualPayment { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount14[] IndividualPayment { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

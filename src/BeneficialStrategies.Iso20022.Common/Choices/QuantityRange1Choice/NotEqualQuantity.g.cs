@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityRange1Choice;
 /// <summary>
 /// Value that a quantity must not match to be considered valid.
 /// </summary>
-public partial record NotEqualQuantity : IQuantityRange1Choice
+public partial record NotEqualQuantity : QuantityRange1Choice_
 {
     public required IsoDecimalNumber Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record Price6
     /// <summary>
     /// Value of the price expressed as a currency and value or as a rate.
     /// </summary>
-    public required IPriceRateOrAmountChoice RateOrAmount { get; init; } 
+    public required PriceRateOrAmountChoice_ RateOrAmount { get; init; } 
     /// <summary>
     /// Specification of the price type.
     /// </summary>

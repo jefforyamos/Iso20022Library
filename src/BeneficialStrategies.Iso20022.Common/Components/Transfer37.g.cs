@@ -44,15 +44,15 @@ public partial record Transfer37
     /// <summary>
     /// Date and time at which the transfer was executed.
     /// </summary>
-    public required IDateAndDateTime2Choice EffectiveTransferDate { get; init; } 
+    public required DateAndDateTime2Choice_ EffectiveTransferDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities were exchanged at the International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
-    public IDateAndDateTime2Choice? EffectiveSettlementDate { get; init; } 
+    public DateAndDateTime2Choice_? EffectiveSettlementDate { get; init; } 
     /// <summary>
     /// Date and time at which the transaction is completed and cleared, that is, securities are delivered.
     /// </summary>
-    public IDateAndDateTime2Choice? TradeDate { get; init; } 
+    public DateAndDateTime2Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date on which the investor signed the transfer order form.
     /// </summary>
@@ -60,11 +60,11 @@ public partial record Transfer37
     /// <summary>
     /// Reason for the transfer.
     /// </summary>
-    public ITransferReason1Choice? TransferReason { get; init; } 
+    public TransferReason1Choice_? TransferReason { get; init; } 
     /// <summary>
     /// Specifies information about investment plans included in the holding.
     /// </summary>
-    public IReadOnlyCollection<HoldingsPlanType1Code> HoldingsPlanType { get; init; } = [];
+    public HoldingsPlanType1Code[] HoldingsPlanType { get; init; } = [];
     /// <summary>
     /// Information related to the financial instrument transferred.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record Transfer37
     /// <summary>
     /// Breakdown of units transferred.
     /// </summary>
-    public Unit12? UnitsDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Unit12[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rounding direction applied to nearest unit.
     /// </summary>
@@ -120,7 +120,7 @@ public partial record Transfer37
     /// <summary>
     /// Specifies how the payment of fees and taxes as a result of the transfer is covered, that is, whether by cash or the redemption of units.
     /// </summary>
-    public IChargePaymentMethod1Choice? TransferExpensesPaymentType { get; init; } 
+    public ChargePaymentMethod1Choice_? TransferExpensesPaymentType { get; init; } 
     
     #nullable disable
 }

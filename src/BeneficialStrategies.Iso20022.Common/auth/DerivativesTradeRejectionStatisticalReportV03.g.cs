@@ -46,7 +46,7 @@ public partial record DerivativesTradeRejectionStatisticalReportV03 : IOuterReco
     [DataMember(Name="RjctnSttstcs")]
     [XmlElement(ElementName="RjctnSttstcs")]
     [Required]
-    public required IStatisticsPerCounterparty17Choice RejectionStatistics { get; init; }
+    public required StatisticsPerCounterparty17Choice_ RejectionStatistics { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.

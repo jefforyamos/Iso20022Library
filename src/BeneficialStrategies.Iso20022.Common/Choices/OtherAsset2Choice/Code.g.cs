@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OtherAsset2Choice;
 /// <summary>
 /// Other asset type specified as a code.
 /// </summary>
-public partial record Code : IOtherAsset2Choice
+public partial record Code : OtherAsset2Choice_
 {
     public required OtherAsset2Code Value { get; init; }
 }

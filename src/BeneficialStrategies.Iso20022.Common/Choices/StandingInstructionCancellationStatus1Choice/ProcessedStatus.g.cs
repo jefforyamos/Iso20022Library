@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingInstructionCancellationS
 /// <summary>
 /// Provides information about the processing status of the cancellation request.
 /// </summary>
-public partial record ProcessedStatus : IStandingInstructionCancellationStatus1Choice
+public partial record ProcessedStatus : StandingInstructionCancellationStatus1Choice_
 {
     #nullable enable
     /// <summary>
     /// The processing status.
     /// </summary>
-    public required IProcessedStatus4FormatChoice Status { get; init; } 
+    public required ProcessedStatus4FormatChoice_ Status { get; init; } 
     /// <summary>
     /// Additional information about the status.
     /// </summary>

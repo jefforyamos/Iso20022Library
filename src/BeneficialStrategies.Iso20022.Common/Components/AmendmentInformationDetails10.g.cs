@@ -56,11 +56,11 @@ public partial record AmendmentInformationDetails10
     /// <summary>
     /// Original frequency that has been modified.
     /// </summary>
-    public IFrequency21Choice? OriginalFrequency { get; init; } 
+    public Frequency21Choice_? OriginalFrequency { get; init; } 
     /// <summary>
     /// Original reason for the mandate to allow the user to distinguish between different mandates for the same creditor.
     /// </summary>
-    public IMandateSetupReason1Choice? OriginalReason { get; init; } 
+    public MandateSetupReason1Choice_? OriginalReason { get; init; } 
     
     #nullable disable
 }

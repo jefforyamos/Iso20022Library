@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// <summary>
 /// Portuguese National Clearing Code - identifies Portuguese financial institutions on the Portuguese national clearing system.
 /// </summary>
-public partial record PortugueseNCCIdentification : IClearingSystemMemberIdentification4Choice
+public partial record PortugueseNCCIdentification : ClearingSystemMemberIdentification4Choice_
 {
     public required IsoPortugueseNCCIdentifier Value { get; init; }
 }

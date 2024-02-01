@@ -28,7 +28,7 @@ public partial record PortfolioTransfer1
     /// <summary>
     /// Choice of tax efficient product, general investment or pension.
     /// </summary>
-    public IFundPortfolio1Choice? Portfolio { get; init; } 
+    public FundPortfolio1Choice_? Portfolio { get; init; } 
     /// <summary>
     /// Specifies whether all remaining assets in the portfolio not listed for transfer should be liquidated and transferred as cash. 
     /// </summary>
@@ -40,11 +40,11 @@ public partial record PortfolioTransfer1
     /// <summary>
     /// Asset to be transferred.
     /// </summary>
-    public FinancialInstrument67? FinancialInstrumentAssetForTransfer { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrument67[] FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the product transfer.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

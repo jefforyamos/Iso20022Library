@@ -36,7 +36,7 @@ public partial record ATMService23
     /// <summary>
     /// Identification of the variant of the service.
     /// </summary>
-    public IsoMax35Text? ServiceVariantIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] ServiceVariantIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

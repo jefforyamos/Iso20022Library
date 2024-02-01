@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Amount1Choice;
 /// <summary>
 /// Amount of increase, and currency.
 /// </summary>
-public partial record IncreaseAmount : IAmount1Choice
+public partial record IncreaseAmount : Amount1Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

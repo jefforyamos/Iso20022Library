@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification3Choice;
 /// <summary>
 /// Unique and unambiguous identifier for a payment instruction, as assigned by the clearing agent or the initiating party.
 /// </summary>
-public partial record PaymentInstructionReference : IPaymentIdentification3Choice
+public partial record PaymentInstructionReference : PaymentIdentification3Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

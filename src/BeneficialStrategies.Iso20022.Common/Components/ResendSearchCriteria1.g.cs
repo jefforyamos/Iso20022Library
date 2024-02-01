@@ -36,7 +36,7 @@ public partial record ResendSearchCriteria1
     /// <summary>
     /// Unique identification to unambiguously identify the recipient of the report message.
     /// </summary>
-    public required IPartyIdentification71Choice Recipient { get; init; } 
+    public required PartyIdentification71Choice_ Recipient { get; init; } 
     
     #nullable disable
 }

@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Status31Choice;
 /// <summary>
 /// Status of the transfer cancellation is rejected.
 /// </summary>
-public partial record Rejected : IStatus31Choice
+public partial record Rejected : Status31Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the rejected status.
     /// </summary>
-    public required IRejectedReason17Choice Reason { get; init; } 
+    public required RejectedReason17Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the rejected status reason.
     /// </summary>

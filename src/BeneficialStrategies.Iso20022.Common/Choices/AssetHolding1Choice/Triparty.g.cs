@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetHolding1Choice;
 /// <summary>
 /// Mark-to-market pre-haircut value of triparty collateral.
 /// </summary>
-public partial record Triparty : IAssetHolding1Choice
+public partial record Triparty : AssetHolding1Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

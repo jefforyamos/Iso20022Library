@@ -24,7 +24,7 @@ public partial record OtherTypeOfCollateral2
     /// <summary>
     /// Quantity of other collateral.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? Quantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? Quantity { get; init; } 
     
     #nullable disable
 }

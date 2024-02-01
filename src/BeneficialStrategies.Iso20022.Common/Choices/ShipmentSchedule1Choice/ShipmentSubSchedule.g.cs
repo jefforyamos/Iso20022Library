@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ShipmentSchedule1Choice;
 /// <summary>
 /// Specifies a shipment schedule, ie, quantity that must be shipped no sooner than the earliest shipment date and no later than the latest shipment date.
 /// </summary>
-public partial record ShipmentSubSchedule : IShipmentSchedule1Choice
+public partial record ShipmentSubSchedule : ShipmentSchedule1Choice_
 {
     #nullable enable
     /// <summary>

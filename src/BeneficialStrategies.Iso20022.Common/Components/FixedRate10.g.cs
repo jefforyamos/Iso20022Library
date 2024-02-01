@@ -20,7 +20,7 @@ public partial record FixedRate10
     /// <summary>
     /// Indicates the per annum rate of the fixed leg(s) of an interest rate contract.
     /// </summary>
-    public ISecuritiesTransactionPrice14Choice? Rate { get; init; } 
+    public SecuritiesTransactionPrice14Choice_? Rate { get; init; } 
     /// <summary>
     /// Identifies the computation method that determines how interest payments are calculated. It is used to compute the year fraction of the calculation period, and indicates the number of days in the calculation period divided by the number of days in the year.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record FixedRate10
     /// <summary>
     /// Specifies the time unit associated with the frequency of payments.
     /// </summary>
-    public IInterestRateFrequency3Choice? PaymentFrequency { get; init; } 
+    public InterestRateFrequency3Choice_? PaymentFrequency { get; init; } 
     
     #nullable disable
 }

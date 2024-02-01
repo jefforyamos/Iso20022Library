@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AllegementStatus3Choice;
 /// <summary>
 /// Status of the allegement reported.
 /// </summary>
-public partial record Proprietary : IAllegementStatus3Choice
+public partial record Proprietary : AllegementStatus3Choice_
 {
     #nullable enable
     /// <summary>

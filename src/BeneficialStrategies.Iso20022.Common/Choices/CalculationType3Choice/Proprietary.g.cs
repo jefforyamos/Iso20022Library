@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CalculationType3Choice;
 /// <summary>
 /// Calculation type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICalculationType3Choice
+public partial record Proprietary : CalculationType3Choice_
 {
     #nullable enable
     /// <summary>

@@ -46,7 +46,7 @@ public partial record SecuritiesFinancingReportingTransactionReportV01 : IOuterR
     [DataMember(Name="TradData")]
     [XmlElement(ElementName="TradData")]
     [Required]
-    public required ITradeData15Choice TradeData { get; init; }
+    public required TradeData15Choice_ TradeData { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

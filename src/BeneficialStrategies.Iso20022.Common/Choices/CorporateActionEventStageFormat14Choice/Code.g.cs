@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventStageFormat1
 /// <summary>
 /// Standard code to specify the stage of the corporate action event.
 /// </summary>
-public partial record Code : ICorporateActionEventStageFormat14Choice
+public partial record Code : CorporateActionEventStageFormat14Choice_
 {
     public required CorporateActionEventStage4Code Value { get; init; }
 }

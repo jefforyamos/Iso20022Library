@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ElectionAdviceStatus1Choice;
 /// <summary>
 /// Provides information about the processing status of advice.
 /// </summary>
-public partial record ProcessedStatus : IElectionAdviceStatus1Choice
+public partial record ProcessedStatus : ElectionAdviceStatus1Choice_
 {
     #nullable enable
     /// <summary>
     /// The processing status.
     /// </summary>
-    public required IProcessedStatus3FormatChoice Status { get; init; } 
+    public required ProcessedStatus3FormatChoice_ Status { get; init; } 
     /// <summary>
     /// Additional information about the status.
     /// </summary>

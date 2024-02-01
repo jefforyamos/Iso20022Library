@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DeniedReason17Choice;
 /// <summary>
 /// Specifies additional information about the processed instruction.
 /// </summary>
-public partial record Proprietary : IDeniedReason17Choice
+public partial record Proprietary : DeniedReason17Choice_
 {
     #nullable enable
     /// <summary>

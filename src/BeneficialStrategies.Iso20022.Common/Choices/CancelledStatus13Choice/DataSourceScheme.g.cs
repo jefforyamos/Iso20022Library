@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancelledStatus13Choice;
 /// <summary>
 /// Proprietary identification of the reason for the cancelled status.
 /// </summary>
-public partial record DataSourceScheme : ICancelledStatus13Choice
+public partial record DataSourceScheme : CancelledStatus13Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat1Choice;
 /// <summary>
 /// The value of the price is not specified.
 /// </summary>
-public partial record NotSpecified : IPriceFormat1Choice
+public partial record NotSpecified : PriceFormat1Choice_
 {
     #nullable enable
     #nullable disable

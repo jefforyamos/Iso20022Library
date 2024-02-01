@@ -24,19 +24,19 @@ public partial record ProxyAppointmentInformation3
     /// <summary>
     /// Date by which the information on the proxy assignment must be received by the intermediary.
     /// </summary>
-    public IDateFormat29Choice? Deadline { get; init; } 
+    public DateFormat29Choice_? Deadline { get; init; } 
     /// <summary>
     /// Date by which the information on the proxy assignment must be received by the intermediary (STP mode).
     /// </summary>
-    public IDateFormat29Choice? STPDeadline { get; init; } 
+    public DateFormat29Choice_? STPDeadline { get; init; } 
     /// <summary>
     /// Date by which the information on the proxy assignment must be received by the issuer.
     /// </summary>
-    public IDateFormat29Choice? MarketDeadline { get; init; } 
+    public DateFormat29Choice_? MarketDeadline { get; init; } 
     /// <summary>
     /// Specifies the proxy person that is authorised by the issuer.
     /// </summary>
-    public IReadOnlyCollection<Proxy5> AuthorisedProxy { get; init; } = [];
+    public Proxy5[] AuthorisedProxy { get; init; } = [];
     
     #nullable disable
 }

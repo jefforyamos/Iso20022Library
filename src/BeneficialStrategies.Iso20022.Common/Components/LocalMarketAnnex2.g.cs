@@ -20,7 +20,7 @@ public partial record LocalMarketAnnex2
     /// <summary>
     /// Country in which the processing characteristic applies.
     /// </summary>
-    public CountryCode? Country { get; init;  } // Warning: Don't know multiplicity.
+    public CountryCode[] Country { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Organisation established primarily to provide financial services.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record LocalMarketAnnex2
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    public CashAccount22? SettlementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashAccount22[] SettlementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

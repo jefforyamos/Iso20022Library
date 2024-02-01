@@ -161,7 +161,7 @@ public partial record PortfolioTransferInstructionV07 : IOuterRecord
     [DataMember(Name="Trfee")]
     [XmlElement(ElementName="Trfee")]
     [Required]
-    public required IPartyIdentification70Choice Transferee { get; init; }
+    public required PartyIdentification70Choice_ Transferee { get; init; }
     
     /// <summary>
     /// Identification of a related party or intermediary.

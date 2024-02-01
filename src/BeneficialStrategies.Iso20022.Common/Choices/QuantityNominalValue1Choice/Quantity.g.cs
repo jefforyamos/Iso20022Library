@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityNominalValue1Choice;
 /// <summary>
 /// Quantity of the securities other than bonds.
 /// </summary>
-public partial record Quantity : IQuantityNominalValue1Choice
+public partial record Quantity : QuantityNominalValue1Choice_
 {
     public required IsoDecimalNumber Value { get; init; }
 }

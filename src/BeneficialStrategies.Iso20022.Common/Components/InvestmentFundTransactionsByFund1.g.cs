@@ -20,7 +20,7 @@ public partial record InvestmentFundTransactionsByFund1
     /// <summary>
     /// Identification of a security by an ISIN.
     /// </summary>
-    public required ISecurityIdentification1Choice Identification { get; init; } 
+    public required SecurityIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record InvestmentFundTransactionsByFund1
     /// <summary>
     /// Process of buying, selling, switching or transferring fund units.
     /// </summary>
-    public InvestmentFundTransaction2? TransactionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public InvestmentFundTransaction2[] TransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Balance of the financial instrument for this specific statement page.
     /// </summary>

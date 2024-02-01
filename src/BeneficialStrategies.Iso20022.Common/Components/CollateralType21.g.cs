@@ -20,15 +20,15 @@ public partial record CollateralType21
     /// <summary>
     /// Data specific to securities and related fields used as a collateral.
     /// </summary>
-    public Security52? Security { get; init;  } // Warning: Don't know multiplicity.
+    public Security52[] Security { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of funds provided as collateral for borrowing the securities or commodities.
     /// </summary>
-    public AmountHaircutMargin1? Cash { get; init;  } // Warning: Don't know multiplicity.
+    public AmountHaircutMargin1[] Cash { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data specific to commodities and related fields used as a collateral.
     /// </summary>
-    public Commodity43? Commodity { get; init;  } // Warning: Don't know multiplicity.
+    public Commodity43[] Commodity { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

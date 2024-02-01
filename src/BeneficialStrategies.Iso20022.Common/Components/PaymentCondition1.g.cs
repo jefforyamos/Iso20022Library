@@ -32,7 +32,7 @@ public partial record PaymentCondition1
     /// <summary>
     /// Discount rate applied for immediate payment upon receipt of the request.
     /// </summary>
-    public IAmountOrRate1Choice? ImmediatePaymentRebate { get; init; } 
+    public AmountOrRate1Choice_? ImmediatePaymentRebate { get; init; } 
     /// <summary>
     /// Indicates if a payment guarantee is requested, assuming a payment guarantee contract exists between the different actors.
     /// </summary>

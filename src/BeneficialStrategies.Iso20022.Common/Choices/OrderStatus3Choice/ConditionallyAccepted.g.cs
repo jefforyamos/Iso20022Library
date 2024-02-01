@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderStatus3Choice;
 /// <summary>
 /// Status of all the orders in the order message is conditionally accepted.
 /// </summary>
-public partial record ConditionallyAccepted : IOrderStatus3Choice
+public partial record ConditionallyAccepted : OrderStatus3Choice_
 {
     #nullable enable
     #nullable disable

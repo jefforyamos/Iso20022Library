@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeData56Choice;
 /// <summary>
 /// Information concerning the reporting at transaction level.
 /// </summary>
-public partial record State : ITradeData56Choice
+public partial record State : TradeData56Choice_
 {
     #nullable enable
     /// <summary>
@@ -30,7 +30,7 @@ public partial record State : ITradeData56Choice
     /// <summary>
     /// Choice between a Unique Transaction Identifier (UTI) or a proprietary identifier as agreed with the counterparty. 
     /// </summary>
-    public IUniqueTransactionIdentifier2Choice? TransactionIdentification { get; init; } 
+    public UniqueTransactionIdentifier2Choice_? TransactionIdentification { get; init; } 
     /// <summary>
     /// Information related to collateral agreement existing between counterparties.
     /// </summary>

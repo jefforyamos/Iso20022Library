@@ -58,15 +58,15 @@ public partial record FundProcessingPassport1
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    public CashAccount22? SettlementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashAccount22[] SettlementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Context, or geographic environment, in which trading parties may meet in order to negotiate and execute trades among themselves.
     /// </summary>
-    public LocalMarketAnnex2? LocalMarketAnnex { get; init;  } // Warning: Don't know multiplicity.
+    public LocalMarketAnnex2[] LocalMarketAnnex { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1? Extension { get; init;  } // Warning: Don't know multiplicity.
+    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

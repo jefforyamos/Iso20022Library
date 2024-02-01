@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BeneficiaryCertificationType1For
 /// <summary>
 /// Proprietary code to express the type of beneficiary's certification.
 /// </summary>
-public partial record Proprietary : IBeneficiaryCertificationType1FormatChoice
+public partial record Proprietary : BeneficiaryCertificationType1FormatChoice_
 {
     #nullable enable
     /// <summary>

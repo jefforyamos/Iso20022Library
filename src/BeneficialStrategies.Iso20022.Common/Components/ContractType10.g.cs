@@ -36,7 +36,7 @@ public partial record ContractType10
     /// <summary>
     /// Unique identification to identify the direct underlying instrument based on its type.
     /// </summary>
-    public ISecurityIdentification36Choice? UnderlyingInstrument { get; init; } 
+    public SecurityIdentification36Choice_? UnderlyingInstrument { get; init; } 
     /// <summary>
     /// Currency of the notional amount. 
     /// Usage: In the case of an interest rate or currency derivative contract, this will be the notional currency of first leg.

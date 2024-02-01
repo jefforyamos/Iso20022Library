@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CategoryPurpose1Choice;
 /// <summary>
 /// Category purpose, in a proprietary form.
 /// </summary>
-public partial record Proprietary : ICategoryPurpose1Choice
+public partial record Proprietary : CategoryPurpose1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

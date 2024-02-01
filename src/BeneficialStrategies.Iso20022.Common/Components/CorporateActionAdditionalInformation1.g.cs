@@ -20,7 +20,7 @@ public partial record CorporateActionAdditionalInformation1
     /// <summary>
     /// Provides information about the beneficial owner of the securities.
     /// </summary>
-    public BeneficialOwner1? BeneficialOwnerDetails { get; init;  } // Warning: Don't know multiplicity.
+    public BeneficialOwner1[] BeneficialOwnerDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information required for the registration.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record CorporateActionAdditionalInformation1
     /// <summary>
     /// Identification of the receiver of outturned resources (cash/securities) in case the resources need to be delivered outside the CSD.
     /// </summary>
-    public IPartyIdentification2Choice? ReceiverIdentification { get; init; } 
+    public PartyIdentification2Choice_? ReceiverIdentification { get; init; } 
     /// <summary>
     /// Whether or not certification is required from the account owner. |Y: certification required |N: no certification required.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record CorporateActionAdditionalInformation1
     /// <summary>
     /// Type of certification which is required.
     /// </summary>
-    public IBeneficiaryCertificationType1FormatChoice? CertificationType { get; init; } 
+    public BeneficiaryCertificationType1FormatChoice_? CertificationType { get; init; } 
     /// <summary>
     /// Provides information about the delivery details of proceeds.
     /// </summary>
-    public ProceedsDelivery1? DeliveryDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ProceedsDelivery1[] DeliveryDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional details pertaining to the corporate action instruction.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionType1CodeChoice;
 /// <summary>
 /// Transaction type in a structured format.
 /// </summary>
-public partial record Structured : ITransactionType1CodeChoice
+public partial record Structured : TransactionType1CodeChoice_
 {
     public required TransactionType2Code Value { get; init; }
 }

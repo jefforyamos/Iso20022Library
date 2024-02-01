@@ -20,7 +20,7 @@ public partial record SubBalanceInformation2
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public required ISubBalanceQuantity1Choice Quantity { get; init; } 
+    public required SubBalanceQuantity1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Reason for the sub-balance.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record SubBalanceInformation2
     /// <summary>
     /// Net position of a segregated holding of a single security within the overall position held in a securities account, eg, sub-balance per status.
     /// </summary>
-    public AdditionalBalanceInformation2? AdditionalBalanceBreakdownDetails { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalBalanceInformation2[] AdditionalBalanceBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

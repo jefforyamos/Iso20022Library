@@ -20,15 +20,15 @@ public partial record QuantityAndAccount108
     /// <summary>
     /// Quantity of financial instrument effectively settled.
     /// </summary>
-    public required IQuantity54Choice SettledQuantity { get; init; } 
+    public required Quantity54Choice_ SettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument previously settled.
     /// </summary>
-    public IFinancialInstrumentQuantity36Choice? PreviouslySettledQuantity { get; init; } 
+    public FinancialInstrumentQuantity36Choice_? PreviouslySettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument remaining to be settled.
     /// </summary>
-    public IFinancialInstrumentQuantity36Choice? RemainingToBeSettledQuantity { get; init; } 
+    public FinancialInstrumentQuantity36Choice_? RemainingToBeSettledQuantity { get; init; } 
     /// <summary>
     /// Amount of money previously settled.
     /// </summary>
@@ -56,11 +56,11 @@ public partial record QuantityAndAccount108
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    public ICashAccountIdentification6Choice? CashAccount { get; init; } 
+    public CashAccountIdentification6Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Breakdown of a quantity into lots such as tax lots, instrument series.
     /// </summary>
-    public QuantityBreakdown75? QuantityBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public QuantityBreakdown75[] QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>

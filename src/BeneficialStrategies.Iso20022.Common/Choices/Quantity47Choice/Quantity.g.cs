@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity47Choice;
 /// <summary>
 /// Quantity of delivery.
 /// </summary>
-public partial record Quantity : IQuantity47Choice
+public partial record Quantity : Quantity47Choice_
 {
     public required IsoLongFraction19DecimalNumber Value { get; init; }
 }

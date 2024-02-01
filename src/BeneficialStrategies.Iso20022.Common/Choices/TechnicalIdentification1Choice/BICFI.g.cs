@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TechnicalIdentification1Choice;
 /// <summary>
 /// Technical address of the party is defined as a financial institution business identifier code.
 /// </summary>
-public partial record BICFI : ITechnicalIdentification1Choice
+public partial record BICFI : TechnicalIdentification1Choice_
 {
     public required IsoBICFIIdentifier Value { get; init; }
 }

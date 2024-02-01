@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRateFormat9Choice;
 /// <summary>
 /// Specifies different formats for the gross dividend rate.
 /// </summary>
-public partial record RateTypeAndAmountAndRateStatus : IGrossDividendRateFormat9Choice
+public partial record RateTypeAndAmountAndRateStatus : GrossDividendRateFormat9Choice_
 {
     #nullable enable
     /// <summary>
     /// Value expressed as a rate type.
     /// </summary>
-    public required IRateType22Choice RateType { get; init; } 
+    public required RateType22Choice_ RateType { get; init; } 
     /// <summary>
     /// Value expressed as an amount.
     /// </summary>
@@ -26,6 +26,6 @@ public partial record RateTypeAndAmountAndRateStatus : IGrossDividendRateFormat9
     /// <summary>
     /// Value expressed as a rate status.
     /// </summary>
-    public IRateStatus1Choice? RateStatus { get; init; } 
+    public RateStatus1Choice_? RateStatus { get; init; } 
     #nullable disable
 }

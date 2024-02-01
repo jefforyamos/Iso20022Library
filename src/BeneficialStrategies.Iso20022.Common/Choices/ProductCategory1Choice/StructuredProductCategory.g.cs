@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProductCategory1Choice;
 /// <summary>
 /// Specifies the type of product category.
 /// </summary>
-public partial record StructuredProductCategory : IProductCategory1Choice
+public partial record StructuredProductCategory : ProductCategory1Choice_
 {
     #nullable enable
     /// <summary>

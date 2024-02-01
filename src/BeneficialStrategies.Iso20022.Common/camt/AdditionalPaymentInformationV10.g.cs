@@ -76,7 +76,7 @@ public partial record AdditionalPaymentInformationV10 : IOuterRecord
     [DataMember(Name="Undrlyg")]
     [XmlElement(ElementName="Undrlyg")]
     [Required]
-    public required IUnderlyingTransaction6Choice Underlying { get; init; }
+    public required UnderlyingTransaction6Choice_ Underlying { get; init; }
     
     /// <summary>
     /// Additional information to the underlying payment instruction.

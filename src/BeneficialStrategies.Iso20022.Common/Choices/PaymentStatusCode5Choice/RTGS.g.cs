@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusCode5Choice;
 /// <summary>
 /// Qualifies further the RTGS status.
 /// </summary>
-public partial record RTGS : IPaymentStatusCode5Choice
+public partial record RTGS : PaymentStatusCode5Choice_
 {
     public required IsoMax4AlphaNumericText Value { get; init; }
 }

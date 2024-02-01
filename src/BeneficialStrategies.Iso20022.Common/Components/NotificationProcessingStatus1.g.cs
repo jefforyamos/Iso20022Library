@@ -20,7 +20,7 @@ public partial record NotificationProcessingStatus1
     /// <summary>
     /// The processing status.
     /// </summary>
-    public required IProcessedStatus1FormatChoice Status { get; init; } 
+    public required ProcessedStatus1FormatChoice_ Status { get; init; } 
     /// <summary>
     /// Additional information about the status.
     /// </summary>

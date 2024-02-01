@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DiscountAmountType1Choice;
 /// <summary>
 /// Specifies the amount type, in a free-text form.
 /// </summary>
-public partial record Proprietary : IDiscountAmountType1Choice
+public partial record Proprietary : DiscountAmountType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

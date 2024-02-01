@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredMarketReport3Choice;
 /// <summary>
 /// Provides the reason why no transactions are being reported for a money market reporting period.
 /// </summary>
-public partial record DataSetAction : ISecuredMarketReport3Choice
+public partial record DataSetAction : SecuredMarketReport3Choice_
 {
     public required ReportPeriodActivity1Code Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record Meeting5
     /// <summary>
     /// Date and time at which the meeting will take place.
     /// </summary>
-    public required IDateFormat58Choice DateAndTime { get; init; } 
+    public required DateFormat58Choice_ DateAndTime { get; init; } 
     /// <summary>
     /// Status of the meeting date.
     /// </summary>
@@ -32,11 +32,11 @@ public partial record Meeting5
     /// <summary>
     /// Location at which the meeting will take place.
     /// </summary>
-    public IReadOnlyCollection<ILocationFormat1Choice> Location { get; init; } = [];
+    public LocationFormat1Choice_[] Location { get; init; } = [];
     /// <summary>
     /// Minimum quantity of securities required to hold a meeting.
     /// </summary>
-    public IQuorumQuantity1Choice? QuorumQuantity { get; init; } 
+    public QuorumQuantity1Choice_? QuorumQuantity { get; init; } 
     /// <summary>
     /// Address for the Universal Resource Locator (URL), for example, used over the www (HTTP) service.
     /// </summary>

@@ -20,7 +20,7 @@ public partial record AcknowledgementReason2
     /// <summary>
     /// Specifies additional information about the processed instruction.
     /// </summary>
-    public required IAcknowledgementReason3Choice Code { get; init; } 
+    public required AcknowledgementReason3Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

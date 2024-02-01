@@ -24,7 +24,7 @@ public partial record CorporateActionInstructedBalanceOptionInstructionSD5
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    public required IOptionNumber1Choice OptionNumber { get; init; } 
+    public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Instruction reference number assigned by DTC to the uncovered protect instruction.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record CorporateActionInstructedBalanceOptionInstructionSD5
     /// <summary>
     /// Quantity relating only to the oversubscription.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? TransactionIdentificationOversubscriptionQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? TransactionIdentificationOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Status of the instruction.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record CorporateActionInstructedBalanceOptionInstructionSD5
     /// <summary>
     /// Tax category number assigned on the announcement to provide a breakdown at a category level on the inbound instruction to determine tax treatment as required by issuers, their agents, or tax authorities.
     /// </summary>
-    public IReadOnlyCollection<TaxCategory2> TaxCategory { get; init; } = [];
+    public TaxCategory2[] TaxCategory { get; init; } = [];
     
     #nullable disable
 }

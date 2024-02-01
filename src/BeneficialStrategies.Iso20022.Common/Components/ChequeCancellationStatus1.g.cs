@@ -24,7 +24,7 @@ public partial record ChequeCancellationStatus1
     /// <summary>
     /// Specifies the status for the cancellation request.
     /// </summary>
-    public required IChequeCancellationStatus1Choice Status { get; init; } 
+    public required ChequeCancellationStatus1Choice_ Status { get; init; } 
     /// <summary>
     /// Further details on the cancellation request reason.
     /// </summary>

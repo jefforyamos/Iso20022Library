@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AgreementFramework1Choice;
 /// <summary>
 /// Proprietary identification to specify the type of collateral agreement.
 /// </summary>
-public partial record ProprietaryIdentification : IAgreementFramework1Choice
+public partial record ProprietaryIdentification : AgreementFramework1Choice_
 {
     #nullable enable
     /// <summary>

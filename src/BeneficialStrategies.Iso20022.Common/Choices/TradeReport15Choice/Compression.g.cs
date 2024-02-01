@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport15Choice;
 /// <summary>
 /// Indicates a compression of the reported contract.
 /// </summary>
-public partial record Compression : ITradeReport15Choice
+public partial record Compression : TradeReport15Choice_
 {
     #nullable enable
     /// <summary>

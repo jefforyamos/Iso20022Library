@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingStatus34Choice;
 /// <summary>
 /// Reason not specified.
 /// </summary>
-public partial record NoSpecifiedReason : IPendingStatus34Choice
+public partial record NoSpecifiedReason : PendingStatus34Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

@@ -24,7 +24,7 @@ public partial record CashAccount34
     /// <summary>
     /// Institution that maintains the records where the account is held.
     /// </summary>
-    public IFinancialInstitutionIdentification7Choice? AccountServicer { get; init; } 
+    public FinancialInstitutionIdentification7Choice_? AccountServicer { get; init; } 
     
     #nullable disable
 }

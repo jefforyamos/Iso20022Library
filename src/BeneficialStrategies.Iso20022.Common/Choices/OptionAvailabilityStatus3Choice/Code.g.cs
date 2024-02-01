@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionAvailabilityStatus3Choice;
 /// <summary>
 /// Standard code to specify the status of the option availability.
 /// </summary>
-public partial record Code : IOptionAvailabilityStatus3Choice
+public partial record Code : OptionAvailabilityStatus3Choice_
 {
     public required OptionAvailabilityStatus1Code Value { get; init; }
 }

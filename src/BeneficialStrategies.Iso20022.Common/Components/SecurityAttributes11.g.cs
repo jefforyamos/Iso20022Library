@@ -20,7 +20,7 @@ public partial record SecurityAttributes11
     /// <summary>
     /// Way(s) of identifying the security.
     /// </summary>
-    public SecurityIdentification39? FinancialInstrumentIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityIdentification39[] FinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional details about the financial instrument.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record SecurityAttributes11
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
-    public CommonFinancialInstrumentAttributes11? FinancialInstrumentAttributes { get; init;  } // Warning: Don't know multiplicity.
+    public CommonFinancialInstrumentAttributes11[] FinancialInstrumentAttributes { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

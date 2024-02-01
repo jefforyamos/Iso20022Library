@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CountrySubdivision1Choice;
 /// <summary>
 /// Country subdivision of jurisdiction.
 /// </summary>
-public partial record Code : ICountrySubdivision1Choice
+public partial record Code : CountrySubdivision1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportParameter2Choice;
 /// <summary>
 /// Parameter for which the estimated cash flow is being reported.
 /// </summary>
-public partial record UserDefined : IReportParameter2Choice
+public partial record UserDefined : ReportParameter2Choice_
 {
     #nullable enable
     #nullable disable

@@ -56,15 +56,15 @@ public partial record CurrencyConversion19
     /// <summary>
     /// Commission or additional charges made as part of a currency conversion.
     /// </summary>
-    public Commission19? CommissionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Commission19[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Markup made as part of a currency conversion.
     /// </summary>
-    public Commission18? MarkUpDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Commission18[] MarkUpDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Card scheme declaration (disclaimer) to present to the cardholder.
     /// </summary>
-    public ActionMessage7? DeclarationDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ActionMessage7[] DeclarationDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

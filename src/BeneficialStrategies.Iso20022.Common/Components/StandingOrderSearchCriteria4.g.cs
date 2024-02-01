@@ -28,7 +28,7 @@ public partial record StandingOrderSearchCriteria4
     /// <summary>
     /// Type of the standing order.
     /// </summary>
-    public IStandingOrderType1Choice? Type { get; init; } 
+    public StandingOrderType1Choice_? Type { get; init; } 
     /// <summary>
     /// Liquidity transfer origin or destination account within the pool of accounts under management of the requestor.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record StandingOrderSearchCriteria4
     /// <summary>
     /// Dates during which the standing order is in effect.
     /// </summary>
-    public IDatePeriod2Choice? ValidityPeriod { get; init; } 
+    public DatePeriod2Choice_? ValidityPeriod { get; init; } 
     /// <summary>
     /// Specifies if the account is debited or credited by the standing order.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record StandingOrderSearchCriteria4
     /// <summary>
     /// Liquidity transfer origin or destination account within the pool of accounts under management of the requestor.
     /// </summary>
-    public IAccountIdentification4Choice? AssociatedPoolAccount { get; init; } 
+    public AccountIdentification4Choice_? AssociatedPoolAccount { get; init; } 
     /// <summary>
     /// Unique identification to unambiguously identify the link set in which the standing order is defined. The link set is a collection of standing order defined in a specific sequence.
     /// </summary>

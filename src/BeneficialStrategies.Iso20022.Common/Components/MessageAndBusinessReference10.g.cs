@@ -20,7 +20,7 @@ public partial record MessageAndBusinessReference10
     /// <summary>
     /// Reference to a linked message that was previously sent.
     /// </summary>
-    public IReferences62Choice? Reference { get; init; } 
+    public References62Choice_? Reference { get; init; } 
     /// <summary>
     /// Reference to a linked message that was previously received.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record MessageAndBusinessReference10
     /// <summary>
     /// Unique and unambiguous identifiers of one or more individual order instructions or individual order cancellation requests.
     /// </summary>
-    public InvestmentFundOrder8? OrderReference { get; init;  } // Warning: Don't know multiplicity.
+    public InvestmentFundOrder8[] OrderReference { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

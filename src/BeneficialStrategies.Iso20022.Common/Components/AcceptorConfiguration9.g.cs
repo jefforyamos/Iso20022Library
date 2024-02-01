@@ -24,7 +24,7 @@ public partial record AcceptorConfiguration9
     /// <summary>
     /// Data set containing the acceptor parameters of a point of interaction (POI).
     /// </summary>
-    public AcceptorConfigurationDataSet1? DataSet { get; init;  } // Warning: Don't know multiplicity.
+    public AcceptorConfigurationDataSet1[] DataSet { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

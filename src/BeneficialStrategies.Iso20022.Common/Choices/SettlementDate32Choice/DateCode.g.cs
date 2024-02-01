@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementDate32Choice;
 /// <summary>
 /// Date and time at which the securities are to be delivered or received.
 /// </summary>
-public partial record DateCode : ISettlementDate32Choice
+public partial record DateCode : SettlementDate32Choice_
 {
     #nullable enable
     #nullable disable

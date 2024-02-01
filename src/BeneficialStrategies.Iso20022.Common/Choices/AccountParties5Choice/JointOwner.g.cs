@@ -12,17 +12,17 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties5Choice;
 /// <summary>
 /// Co-owner of the investment account when the ownership is assigned to more than one party.
 /// </summary>
-public partial record JointOwner : IAccountParties5Choice
+public partial record JointOwner : AccountParties5Choice_
 {
     #nullable enable
     /// <summary>
     /// Information about the organisation or individual person.
     /// </summary>
-    public required IParty23Choice Party { get; init; } 
+    public required Party23Choice_ Party { get; init; } 
     /// <summary>
     /// Status of an identity check to prevent money laundering. This includes the counter-terrorism check.
     /// </summary>
-    public IMoneyLaunderingCheck1Choice? MoneyLaunderingCheck { get; init; } 
+    public MoneyLaunderingCheck1Choice_? MoneyLaunderingCheck { get; init; } 
     /// <summary>
     /// Information to support Know Your Customer processes.
     /// </summary>
@@ -54,7 +54,7 @@ public partial record JointOwner : IAccountParties5Choice
     /// <summary>
     /// Type of Foreign Account Tax Compliance Act (FATCA) form submitted by the investor.
     /// </summary>
-    public IFATCAForm1Choice? FATCAFormType { get; init;  } // Warning: Don't know multiplicity.
+    public FATCAForm1Choice_? FATCAFormType { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Foreign Account Tax Compliance Act (FATCA) status of the investor.
     /// </summary>

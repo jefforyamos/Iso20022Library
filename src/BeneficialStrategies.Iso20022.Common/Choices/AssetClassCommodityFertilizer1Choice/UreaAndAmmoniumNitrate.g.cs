@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityFertilizer1Ch
 /// <summary>
 /// Urea and ammonium nitrate fertilizer commodity derivative.
 /// </summary>
-public partial record UreaAndAmmoniumNitrate : IAssetClassCommodityFertilizer1Choice
+public partial record UreaAndAmmoniumNitrate : AssetClassCommodityFertilizer1Choice_
 {
     #nullable enable
     /// <summary>

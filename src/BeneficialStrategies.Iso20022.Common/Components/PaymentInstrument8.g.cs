@@ -24,7 +24,7 @@ public partial record PaymentInstrument8
     /// <summary>
     /// Cash account to debit for the payment of a subscription or of a savings plan to an investment fund.
     /// </summary>
-    public IReadOnlyCollection<CashAccount4> CashAccountDetails { get; init; } = [];
+    public CashAccount4[] CashAccountDetails { get; init; } = [];
     /// <summary>
     /// Settlement instructions for a payment by card.
     /// </summary>

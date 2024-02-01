@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType36Choice;
 /// <summary>
 /// Request to replace all present data of a security.
 /// </summary>
-public partial record Replace : IUpdateType36Choice
+public partial record Replace : UpdateType36Choice_
 {
     #nullable enable
     /// <summary>

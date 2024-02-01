@@ -20,7 +20,7 @@ public partial record PartyIdentificationAndAccount154
     /// <summary>
     /// Unique and unambiguous way to identify an organisation.
     /// </summary>
-    public required IPartyIdentification245Choice Identification { get; init; } 
+    public required PartyIdentification245Choice_ Identification { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
@@ -28,7 +28,7 @@ public partial record PartyIdentificationAndAccount154
     /// <summary>
     /// Account in which cash is maintained.
     /// </summary>
-    public ICashAccountIdentification5Choice? CashAccount { get; init; } 
+    public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Reference meaningful to the party identified.
     /// </summary>

@@ -40,11 +40,11 @@ public partial record ReportEntry4
     /// <summary>
     /// Date and time when an entry is posted to an account on the account servicer's books.||Usage: Booking date is the expected booking date, unless the status is booked, in which case it is the actual booking date.
     /// </summary>
-    public IDateAndDateTimeChoice? BookingDate { get; init; } 
+    public DateAndDateTimeChoice_? BookingDate { get; init; } 
     /// <summary>
     /// Date and time at which assets become available to the account owner in case of a credit entry, or cease to be available to the account owner in case of a debit entry.|Usage: If entry status is pending and value date is present, then the value date refers to an expected/requested value date.|For entries subject to availability/float and for which availability information is provided, the value date must not be used. In this case the availability component identifies the number of availability days.
     /// </summary>
-    public IDateAndDateTimeChoice? ValueDate { get; init; } 
+    public DateAndDateTimeChoice_? ValueDate { get; init; } 
     /// <summary>
     /// Unique reference as assigned by the account servicing institution to unambiguously identify the entry.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record ReportEntry4
     /// <summary>
     /// Indicates when the booked amount of money will become available, that is can be accessed and starts generating interest. ||Usage: This type of information is used in the US and is linked to particular instruments such as cheques.|Example: When a cheque is deposited, it will be booked on the deposit day, but the amount of money will only be accessible as of the indicated availability day (according to national banking regulations).
     /// </summary>
-    public CashBalanceAvailability2? Availability { get; init;  } // Warning: Don't know multiplicity.
+    public CashBalanceAvailability2[] Availability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of elements used to fully identify the type of underlying transaction resulting in an entry.
     /// </summary>
@@ -77,7 +77,7 @@ public partial record ReportEntry4
     /// <summary>
     /// Channel used to technically input the instruction related to the entry.
     /// </summary>
-    public ITechnicalInputChannel1Choice? TechnicalInputChannel { get; init; } 
+    public TechnicalInputChannel1Choice_? TechnicalInputChannel { get; init; } 
     /// <summary>
     /// Provides details of the interest amount included in the entry amount.||Usage: This component is used on entry level in the case of batch or aggregate bookings.
     /// </summary>
@@ -89,7 +89,7 @@ public partial record ReportEntry4
     /// <summary>
     /// Provides details on the entry.
     /// </summary>
-    public EntryDetails3? EntryDetails { get; init;  } // Warning: Don't know multiplicity.
+    public EntryDetails3[] EntryDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further details of the entry.
     /// </summary>

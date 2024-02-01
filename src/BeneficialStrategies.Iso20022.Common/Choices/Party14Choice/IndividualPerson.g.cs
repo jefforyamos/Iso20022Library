@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Party14Choice;
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
-public partial record IndividualPerson : IParty14Choice
+public partial record IndividualPerson : Party14Choice_
 {
     #nullable enable
     /// <summary>
     /// Term used to address a person.
     /// </summary>
-    public INamePrefix1Choice? NamePrefix { get; init; } 
+    public NamePrefix1Choice_? NamePrefix { get; init; } 
     /// <summary>
     /// First name of a person.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LegIdentification1Choice;
 /// <summary>
 /// Unique technical identifier for the instance of the leg within a switch.
 /// </summary>
-public partial record RedemptionLegIdentification : ILegIdentification1Choice
+public partial record RedemptionLegIdentification : LegIdentification1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

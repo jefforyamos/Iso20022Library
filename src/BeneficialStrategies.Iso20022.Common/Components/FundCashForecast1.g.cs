@@ -20,11 +20,11 @@ public partial record FundCashForecast1
     /// <summary>
     /// Date and, if required, the time, at which the price has been applied.
     /// </summary>
-    public required IDateAndDateTimeChoice TradeDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     /// <summary>
     /// Previous date and time at which a price was applied.
     /// </summary>
-    public IDateAndDateTimeChoice? PreviousTradeDateTime { get; init; } 
+    public DateAndDateTimeChoice_? PreviousTradeDateTime { get; init; } 
     /// <summary>
     /// Investment fund class to which a cash flow is related.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record FundCashForecast1
     /// <summary>
     /// Currency of the investment fund class.
     /// </summary>
-    public ActiveOrHistoricCurrencyCode? InvestmentCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public ActiveOrHistoricCurrencyCode[] InvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the net cash flow is exceptional.
     /// </summary>
@@ -60,15 +60,15 @@ public partial record FundCashForecast1
     /// <summary>
     /// Cash movements into a fund as a result of investment funds transactions, eg, subscriptions or switch-in.
     /// </summary>
-    public CashInForecast2? CashInForecastDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashInForecast2[] CashInForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash movements out of a fund as a result of investment funds transactions, eg, redemptions or switch-out.
     /// </summary>
-    public CashOutForecast2? CashOutForecastDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashOutForecast2[] CashOutForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash movements from or to a fund as a result of investment funds transactions.
     /// </summary>
-    public NetCashForecast1? NetCashForecastDetails { get; init;  } // Warning: Don't know multiplicity.
+    public NetCashForecast1[] NetCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

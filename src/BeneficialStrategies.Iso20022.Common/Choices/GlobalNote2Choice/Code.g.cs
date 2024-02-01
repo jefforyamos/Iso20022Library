@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GlobalNote2Choice;
 /// <summary>
 /// Global note expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IGlobalNote2Choice
+public partial record Code : GlobalNote2Choice_
 {
     public required GlobalNote1Code Value { get; init; }
 }

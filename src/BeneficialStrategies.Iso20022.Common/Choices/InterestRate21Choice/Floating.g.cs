@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate21Choice;
 /// <summary>
 /// Attributes related specifically to floating rate of an interest rate contract.
 /// </summary>
-public partial record Floating : IInterestRate21Choice
+public partial record Floating : InterestRate21Choice_
 {
     #nullable enable
     /// <summary>
     /// Indication of the floating rate used.
     /// </summary>
-    public IFloatingRateIdentification3Choice? Rate { get; init; } 
+    public FloatingRateIdentification3Choice_? Rate { get; init; } 
     /// <summary>
     /// Information related to reference period.
     /// </summary>
@@ -30,10 +30,10 @@ public partial record Floating : IInterestRate21Choice
     /// <summary>
     /// Information related to payment frequency.
     /// </summary>
-    public IInterestRateFrequency2Choice? PaymentFrequency { get; init; } 
+    public InterestRateFrequency2Choice_? PaymentFrequency { get; init; } 
     /// <summary>
     /// Information related to reset of payment frequency.
     /// </summary>
-    public IInterestRateFrequency2Choice? ResetFrequency { get; init; } 
+    public InterestRateFrequency2Choice_? ResetFrequency { get; init; } 
     #nullable disable
 }

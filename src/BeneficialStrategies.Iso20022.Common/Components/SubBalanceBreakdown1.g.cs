@@ -20,11 +20,11 @@ public partial record SubBalanceBreakdown1
     /// <summary>
     /// Reason for the sub-balance.
     /// </summary>
-    public required ISubBalanceType9Choice SubBalanceType { get; init; } 
+    public required SubBalanceType9Choice_ SubBalanceType { get; init; } 
     /// <summary>
     /// Quantity of financial instrument in the sub-balance.
     /// </summary>
-    public required ISubBalanceQuantity5Choice Quantity { get; init; } 
+    public required SubBalanceQuantity5Choice_ Quantity { get; init; } 
     
     #nullable disable
 }

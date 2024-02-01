@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason6FormatChoice;
 /// <summary>
 /// Standard code to specify the reason of a rejection of the notification advice.
 /// </summary>
-public partial record Code : IRejectionReason6FormatChoice
+public partial record Code : RejectionReason6FormatChoice_
 {
     public required RejectionReason6Code Value { get; init; }
 }

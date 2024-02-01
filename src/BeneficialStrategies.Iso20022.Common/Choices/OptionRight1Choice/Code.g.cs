@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionRight1Choice;
 /// <summary>
 /// Option rights expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IOptionRight1Choice
+public partial record Code : OptionRight1Choice_
 {
     public required OptionRight1Code Value { get; init; }
 }

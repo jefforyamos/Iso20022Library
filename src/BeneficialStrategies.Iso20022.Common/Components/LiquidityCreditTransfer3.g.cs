@@ -32,7 +32,7 @@ public partial record LiquidityCreditTransfer3
     /// <summary>
     /// Amount of money that the transaction administrator transfers from one account to another.
     /// </summary>
-    public required IAmount2Choice TransferredAmount { get; init; } 
+    public required Amount2Choice_ TransferredAmount { get; init; } 
     /// <summary>
     /// Owner of the account to be debited.
     /// </summary>

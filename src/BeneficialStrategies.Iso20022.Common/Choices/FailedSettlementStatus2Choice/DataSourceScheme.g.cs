@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FailedSettlementStatus2Choice;
 /// <summary>
 /// Proprietary identification of the reason for the failed settlement status.
 /// </summary>
-public partial record DataSourceScheme : IFailedSettlementStatus2Choice
+public partial record DataSourceScheme : FailedSettlementStatus2Choice_
 {
     #nullable enable
     /// <summary>

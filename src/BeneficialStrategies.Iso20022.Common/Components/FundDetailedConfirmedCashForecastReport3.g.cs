@@ -24,7 +24,7 @@ public partial record FundDetailedConfirmedCashForecastReport3
     /// <summary>
     /// Information related to the cash-in and cash-out flows for a specific trade date as a result of transactions in shares in an investment fund, for example, subscriptions, redemptions or switches. The information provided is sorted by pre-defined criteria such as country, institution, currency or user defined criteria.
     /// </summary>
-    public FundCashForecast6? FundCashForecastDetails { get; init;  } // Warning: Don't know multiplicity.
+    public FundCashForecast6[] FundCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Estimated net cash as a result of the cash-in and cash-out flows.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record FundDetailedConfirmedCashForecastReport3
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1? Extension { get; init;  } // Warning: Don't know multiplicity.
+    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancelledStatusReason1Choice;
 /// <summary>
 /// Reason for the cancelled status.
 /// </summary>
-public partial record Proprietary : ICancelledStatusReason1Choice
+public partial record Proprietary : CancelledStatusReason1Choice_
 {
     #nullable enable
     /// <summary>

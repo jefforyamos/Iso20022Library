@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FailedSettlementStatus2Choice;
 /// <summary>
 /// Reason for the failed settlement status.
 /// </summary>
-public partial record Reason : IFailedSettlementStatus2Choice
+public partial record Reason : FailedSettlementStatus2Choice_
 {
     public required IsoMax350Text Value { get; init; }
 }

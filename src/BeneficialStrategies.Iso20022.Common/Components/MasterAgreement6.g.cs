@@ -20,7 +20,7 @@ public partial record MasterAgreement6
     /// <summary>
     /// Classification of a master agreement.
     /// </summary>
-    public required IAgreementType1Choice Type { get; init; } 
+    public required AgreementType1Choice_ Type { get; init; } 
     /// <summary>
     /// Reference to the year of the master agreement version used for the reported trade.
     /// </summary>

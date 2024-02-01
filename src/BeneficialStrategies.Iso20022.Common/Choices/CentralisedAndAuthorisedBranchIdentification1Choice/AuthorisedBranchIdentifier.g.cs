@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CentralisedAndAuthorisedBranchId
 /// <summary>
 /// Identifier of the authorised branch.
 /// </summary>
-public partial record AuthorisedBranchIdentifier : ICentralisedAndAuthorisedBranchIdentification1Choice
+public partial record AuthorisedBranchIdentifier : CentralisedAndAuthorisedBranchIdentification1Choice_
 {
     #nullable enable
     /// <summary>

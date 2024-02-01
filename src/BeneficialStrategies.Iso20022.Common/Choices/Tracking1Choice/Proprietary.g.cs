@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Tracking1Choice;
 /// <summary>
 /// Tracking information expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITracking1Choice
+public partial record Proprietary : Tracking1Choice_
 {
     #nullable enable
     /// <summary>

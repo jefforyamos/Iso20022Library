@@ -40,7 +40,7 @@ public partial record DocumentGeneralInformation2
     /// <summary>
     /// Attached binary file for this document.
     /// </summary>
-    public BinaryFile1? AttachedBinaryFile { get; init;  } // Warning: Don't know multiplicity.
+    public BinaryFile1[] AttachedBinaryFile { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

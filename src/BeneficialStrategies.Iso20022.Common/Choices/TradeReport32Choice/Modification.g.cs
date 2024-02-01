@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport32Choice;
 /// <summary>
 /// Indicates a modification to the terms or details of a previously reported transaction, but not a correction.
 /// </summary>
-public partial record Modification : ITradeReport32Choice
+public partial record Modification : TradeReport32Choice_
 {
     #nullable enable
     /// <summary>

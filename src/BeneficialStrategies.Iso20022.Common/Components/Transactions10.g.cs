@@ -28,7 +28,7 @@ public partial record Transactions10
     /// <summary>
     /// Reports either on the transaction information or on a business error.
     /// </summary>
-    public TransactionReport7? TransactionReport { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionReport7[] TransactionReport { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

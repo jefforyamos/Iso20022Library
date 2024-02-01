@@ -20,35 +20,35 @@ public partial record IntraPositionMovementDetails1
     /// <summary>
     /// Identifications (account owner and/or account servicer) of the intra-position movement.
     /// </summary>
-    public IReferences5Choice? Identification { get; init; } 
+    public References5Choice_? Identification { get; init; } 
     /// <summary>
     /// Quantity of financial instrument effectively settled.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice SettledQuantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ SettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument previously settled.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? PreviouslySettledQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? PreviouslySettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument remaining to be settled.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? RemainingToBeSettledQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? RemainingToBeSettledQuantity { get; init; } 
     /// <summary>
     /// Balance to which the securities were moved.
     /// </summary>
-    public required ISecuritiesBalanceType3Choice BalanceTo { get; init; } 
+    public required SecuritiesBalanceType3Choice_ BalanceTo { get; init; } 
     /// <summary>
     /// Date and time at which the securities were moved.
     /// </summary>
-    public required IDateAndDateTimeChoice SettlementDate { get; init; } 
+    public required DateAndDateTimeChoice_ SettlementDate { get; init; } 
     /// <summary>
     /// Date/time securities become available for sale (if securities become unavailable, this specifies the date/time at which they will become available again).
     /// </summary>
-    public IDateAndDateTimeChoice? AvailableDate { get; init; } 
+    public DateAndDateTimeChoice_? AvailableDate { get; init; } 
     /// <summary>
     /// Specifies the type of corporate event.
     /// </summary>
-    public ICorporateActionEventType3Choice? CorporateActionEventType { get; init; } 
+    public CorporateActionEventType3Choice_? CorporateActionEventType { get; init; } 
     /// <summary>
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record IntraPositionMovementDetails1
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension2? Extension { get; init;  } // Warning: Don't know multiplicity.
+    public Extension2[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BidRangeType1Choice;
 /// <summary>
 /// Bid range type expressed as a code value.
 /// </summary>
-public partial record Code : IBidRangeType1Choice
+public partial record Code : BidRangeType1Choice_
 {
     public required BidRangeType1Code Value { get; init; }
 }

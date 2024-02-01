@@ -20,7 +20,7 @@ public partial record UnitPrice21
     /// <summary>
     /// Type and information about a price.
     /// </summary>
-    public required ITypeOfPrice31Choice Type { get; init; } 
+    public required TypeOfPrice31Choice_ Type { get; init; } 
     /// <summary>
     /// Value of the price, for example, as a currency and value.
     /// </summary>

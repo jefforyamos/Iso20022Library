@@ -20,11 +20,11 @@ public partial record RemittanceInformation1
     /// <summary>
     /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, eg, commercial invoices in an accounts' receivable system in an unstructured form.
     /// </summary>
-    public IsoMax140Text? Unstructured { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax140Text[] Unstructured { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, eg, commercial invoices in an accounts' receivable system in a structured form.
     /// </summary>
-    public StructuredRemittanceInformation6? Structured { get; init;  } // Warning: Don't know multiplicity.
+    public StructuredRemittanceInformation6[] Structured { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

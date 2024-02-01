@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NotionalOrUnitBased1Choice;
 /// <summary>
 /// Type of unit basis for a financial instrument expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : INotionalOrUnitBased1Choice
+public partial record Proprietary : NotionalOrUnitBased1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentProductType1C
 /// <summary>
 /// Identifies the FI product type using a data source scheme.
 /// </summary>
-public partial record Proprietary : IFinancialInstrumentProductType1Choice
+public partial record Proprietary : FinancialInstrumentProductType1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ResponseType1Choice;
 /// <summary>
 /// Provides a margin call response type using a proprietary code.
 /// </summary>
-public partial record Proprietary : IResponseType1Choice
+public partial record Proprietary : ResponseType1Choice_
 {
     #nullable enable
     /// <summary>

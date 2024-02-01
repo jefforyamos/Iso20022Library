@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportingSource1Choice;
 /// <summary>
 /// Reporting source, as published in an external reporting source code list.
 /// </summary>
-public partial record Code : IReportingSource1Choice
+public partial record Code : ReportingSource1Choice_
 {
     public required ExternalReportingSource1Code Value { get; init; }
 }

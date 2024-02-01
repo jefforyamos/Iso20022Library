@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOwner1Choice;
 /// <summary>
 /// Identification of the individual person that legally owns the account.
 /// </summary>
-public partial record IndividualOwnerIdentification : IAccountOwner1Choice
+public partial record IndividualOwnerIdentification : AccountOwner1Choice_
 {
     #nullable enable
     #nullable disable

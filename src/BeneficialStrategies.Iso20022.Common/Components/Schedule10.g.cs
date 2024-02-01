@@ -24,7 +24,7 @@ public partial record Schedule10
     /// <summary>
     /// Indicates the unit of measure in which the total notional quantity and notional quantity schedules are expressed.
     /// </summary>
-    public IUnitOfMeasure8Choice? UnitOfMeasure { get; init; } 
+    public UnitOfMeasure8Choice_? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Indicates the unadjusted date at which obligations under the  derivative transaction come into effect, as included in the confirmation.
     /// </summary>

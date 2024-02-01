@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.References59Choice;
 /// <summary>
 /// Reference to a transaction that cannot be identified using a standard reference element present in the message.
 /// </summary>
-public partial record OtherTransactionIdentification : IReferences59Choice
+public partial record OtherTransactionIdentification : References59Choice_
 {
     #nullable enable
     /// <summary>
     /// Message type number/message identifier of the message referenced in the linkage sequence.
     /// </summary>
-    public IDocumentNumber6Choice? MessageNumber { get; init; } 
+    public DocumentNumber6Choice_? MessageNumber { get; init; } 
     /// <summary>
     /// Identification of the document.
     /// </summary>

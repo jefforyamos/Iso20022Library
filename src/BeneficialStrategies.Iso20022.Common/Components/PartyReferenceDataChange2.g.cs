@@ -24,7 +24,7 @@ public partial record PartyReferenceDataChange2
     /// <summary>
     /// Provides the party data record for which details of the change are provided.
     /// </summary>
-    public IUpdateLogPartyRecord1Choice? Record { get; init;  } // Warning: Don't know multiplicity.
+    public UpdateLogPartyRecord1Choice_[] Record { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the timestamp of the operation.
     /// </summary>

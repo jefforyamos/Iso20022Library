@@ -20,7 +20,7 @@ public partial record IndividualPerson41
     /// <summary>
     /// Unique and unambiguous identification of the proxy.
     /// </summary>
-    public IPartyIdentification232Choice? Identification { get; init; } 
+    public PartyIdentification232Choice_? Identification { get; init; } 
     /// <summary>
     /// Method of voting participation to the general meeting.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record IndividualPerson41
     /// <summary>
     /// Organisation represented by the person, or for which the person works.
     /// </summary>
-    public IPartyIdentification129Choice? EmployingParty { get; init; } 
+    public PartyIdentification129Choice_? EmployingParty { get; init; } 
     /// <summary>
     /// Details related to the attendance card.
     /// </summary>

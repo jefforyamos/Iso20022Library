@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification235Choice;
 /// <summary>
 /// The party is a legal person.
 /// </summary>
-public partial record Legal : IPartyIdentification235Choice
+public partial record Legal : PartyIdentification235Choice_
 {
     #nullable enable
     #nullable disable

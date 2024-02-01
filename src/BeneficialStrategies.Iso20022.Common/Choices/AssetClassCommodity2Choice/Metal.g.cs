@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity2Choice;
 /// <summary>
 /// Code list for metal type of commodities.
 /// </summary>
-public partial record Metal : IAssetClassCommodity2Choice
+public partial record Metal : AssetClassCommodity2Choice_
 {
     public required AssetClassSubProductMetal1Code Value { get; init; }
 }

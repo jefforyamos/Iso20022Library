@@ -24,7 +24,7 @@ public partial record LimitCriteria6
     /// <summary>
     /// Defines the criteria to extract the limit information.
     /// </summary>
-    public LimitSearchCriteria6? SearchCriteria { get; init;  } // Warning: Don't know multiplicity.
+    public LimitSearchCriteria6[] SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines the expected limit report.
     /// </summary>

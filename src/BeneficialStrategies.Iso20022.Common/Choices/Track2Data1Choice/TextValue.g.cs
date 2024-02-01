@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Track2Data1Choice;
 /// <summary>
 /// Value of track 2 data expressed in text form.
 /// </summary>
-public partial record TextValue : ITrack2Data1Choice
+public partial record TextValue : Track2Data1Choice_
 {
     public required IsoMax37Text Value { get; init; }
 }

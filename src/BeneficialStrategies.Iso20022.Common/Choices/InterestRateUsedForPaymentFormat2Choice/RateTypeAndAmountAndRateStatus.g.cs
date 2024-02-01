@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRateUsedForPaymentFormat
 /// <summary>
 /// Specifies different formats for interest rate used for payment.
 /// </summary>
-public partial record RateTypeAndAmountAndRateStatus : IInterestRateUsedForPaymentFormat2Choice
+public partial record RateTypeAndAmountAndRateStatus : InterestRateUsedForPaymentFormat2Choice_
 {
     #nullable enable
     /// <summary>
     /// Value expressed as a rate type.
     /// </summary>
-    public required IRateType6Choice RateType { get; init; } 
+    public required RateType6Choice_ RateType { get; init; } 
     /// <summary>
     /// Value expressed as an amount.
     /// </summary>
@@ -26,6 +26,6 @@ public partial record RateTypeAndAmountAndRateStatus : IInterestRateUsedForPayme
     /// <summary>
     /// Value expressed as a rate status.
     /// </summary>
-    public IRateStatus1Choice? RateStatus { get; init; } 
+    public RateStatus1Choice_? RateStatus { get; init; } 
     #nullable disable
 }

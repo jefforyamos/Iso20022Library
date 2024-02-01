@@ -20,23 +20,23 @@ public partial record CorporateActionDate24
     /// <summary>
     /// Date/Time of the posting (credit or debit) to the account.
     /// </summary>
-    public required IDateAndDateTimeChoice PostingDate { get; init; } 
+    public required DateAndDateTimeChoice_ PostingDate { get; init; } 
     /// <summary>
     /// Date/time when calculating economic benefit for a cash amount.
     /// </summary>
-    public IDateAndDateTimeChoice? ValueDate { get; init; } 
+    public DateAndDateTimeChoice_? ValueDate { get; init; } 
     /// <summary>
     /// Date/time at which a foreign exchange rate will be determined.
     /// </summary>
-    public IDateAndDateTimeChoice? ForeignExchangeRateFixingDate { get; init; } 
+    public DateAndDateTimeChoice_? ForeignExchangeRateFixingDate { get; init; } 
     /// <summary>
     /// Date on which a payment can be made, for example, if payment date is a non-business day or to indicate the first payment date of an offer.
     /// </summary>
-    public IDateAndDateTimeChoice? EarliestPaymentDate { get; init; } 
+    public DateAndDateTimeChoice_? EarliestPaymentDate { get; init; } 
     /// <summary>
     /// Date on which the distribution is due to take place (cash and/or securities).
     /// </summary>
-    public IDateAndDateTimeChoice? PaymentDate { get; init; } 
+    public DateAndDateTimeChoice_? PaymentDate { get; init; } 
     
     #nullable disable
 }

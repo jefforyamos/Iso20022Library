@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReconciliationStatus5Choice;
 /// <summary>
 /// Information that no reconciliation is required.
 /// </summary>
-public partial record NoReconciliationRequired : IReconciliationStatus5Choice
+public partial record NoReconciliationRequired : ReconciliationStatus5Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

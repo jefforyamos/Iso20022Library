@@ -12,24 +12,24 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementFailsDailyInstructionT
 /// <summary>
 /// Aggregated data of settlement instructions.
 /// </summary>
-public partial record Data : ISettlementFailsDailyInstructionType1Choice
+public partial record Data : SettlementFailsDailyInstructionType1Choice_
 {
     #nullable enable
     /// <summary>
     /// Fails due to delivery versus payment (DVP) settlement transactions, covers both delivery versus payment and receive versus payment transactions. 
     /// </summary>
-    public required ISettlementDailyFailureReason1Choice DeliveryVersusPayment { get; init; } 
+    public required SettlementDailyFailureReason1Choice_ DeliveryVersusPayment { get; init; } 
     /// <summary>
     /// Fails due to delivery with payment (DWP) settlement transactions, covers both delivery with payment (DWP) and receive with payment (RWP) transactions. 
     /// </summary>
-    public required ISettlementDailyFailureReason1Choice DeliveryWithPayment { get; init; } 
+    public required SettlementDailyFailureReason1Choice_ DeliveryWithPayment { get; init; } 
     /// <summary>
     /// Fails due to payment free of delivery (PFOD) settlement transactions, covers both debit payment free of delivery (DPFOD) and credit payment free of delivery (CPFOD) transactions.
     /// </summary>
-    public required ISettlementDailyFailureReason1Choice PaymentFreeOfDelivery { get; init; } 
+    public required SettlementDailyFailureReason1Choice_ PaymentFreeOfDelivery { get; init; } 
     /// <summary>
     /// Fails due to free of payment (FoP) settlement transactions, covers both deliver free of payment (DFoP) and receive free of payment (RFoP) transactions.
     /// </summary>
-    public required ISettlementDailyFailureReason1Choice FreeOfPayment { get; init; } 
+    public required SettlementDailyFailureReason1Choice_ FreeOfPayment { get; init; } 
     #nullable disable
 }

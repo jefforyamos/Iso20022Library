@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginTerms1Choice;
 /// <summary>
 /// Elements used to calculate the collateral margin call for the segregated independent amount.
 /// </summary>
-public partial record SegregatedIndependentAmountMargin : IMarginTerms1Choice
+public partial record SegregatedIndependentAmountMargin : MarginTerms1Choice_
 {
     #nullable enable
     /// <summary>

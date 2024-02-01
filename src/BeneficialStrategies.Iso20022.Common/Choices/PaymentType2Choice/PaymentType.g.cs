@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentType2Choice;
 /// <summary>
 /// Type, or nature, of the payment, eg, express payment.
 /// </summary>
-public partial record PaymentType : IPaymentType2Choice
+public partial record PaymentType : PaymentType2Choice_
 {
     public required PaymentType3Code Value { get; init; }
 }

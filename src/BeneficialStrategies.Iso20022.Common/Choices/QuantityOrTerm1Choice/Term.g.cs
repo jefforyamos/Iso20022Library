@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityOrTerm1Choice;
 /// <summary>
 /// Frequency expressed in tenor notation.
 /// </summary>
-public partial record Term : IQuantityOrTerm1Choice
+public partial record Term : QuantityOrTerm1Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record Term : IQuantityOrTerm1Choice
     /// <summary>
     /// Indicates the unit of measure in which the total notional quantity and notional quantity schedules are expressed.
     /// </summary>
-    public IUnitOfMeasure8Choice? UnitOfMeasure { get; init; } 
+    public UnitOfMeasure8Choice_? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Specifies the number of time units (as expressed by the frequency period) that determines the frequency at which periodic dates occur.
     /// </summary>

@@ -32,7 +32,7 @@ public partial record AcceptorAuthorisationRequest10
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

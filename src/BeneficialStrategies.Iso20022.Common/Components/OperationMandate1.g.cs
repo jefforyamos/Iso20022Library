@@ -32,11 +32,11 @@ public partial record OperationMandate1
     /// <summary>
     /// Holder of the mandate.
     /// </summary>
-    public PartyAndCertificate1? MandateHolder { get; init;  } // Warning: Don't know multiplicity.
+    public PartyAndCertificate1[] MandateHolder { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Bank operation allowed by a mandate.
     /// </summary>
-    public BankTransactionCodeStructure4? BankOperation { get; init;  } // Warning: Don't know multiplicity.
+    public BankTransactionCodeStructure4[] BankOperation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Is the date when the mandate becomes valid.
     /// </summary>

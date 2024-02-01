@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationReason31Choice;
 /// <summary>
 /// Confirmation cancellation reason expressed as a code.
 /// </summary>
-public partial record Code : ICancellationReason31Choice
+public partial record Code : CancellationReason31Choice_
 {
     public required ConfirmationCancellationReason1Code Value { get; init; }
 }

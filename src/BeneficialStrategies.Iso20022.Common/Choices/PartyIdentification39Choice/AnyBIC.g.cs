@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification39Choice;
 /// <summary>
 /// Unique and unambiguous way to identify an organisation.
 /// </summary>
-public partial record AnyBIC : IPartyIdentification39Choice
+public partial record AnyBIC : PartyIdentification39Choice_
 {
     public required IsoAnyBICIdentifier Value { get; init; }
 }

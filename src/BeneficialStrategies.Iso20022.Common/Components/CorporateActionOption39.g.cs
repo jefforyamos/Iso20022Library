@@ -20,19 +20,19 @@ public partial record CorporateActionOption39
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    public required IOptionNumber1Choice OptionNumber { get; init; } 
+    public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public required ICorporateActionOption11Choice OptionType { get; init; } 
+    public required CorporateActionOption11Choice_ OptionType { get; init; } 
     /// <summary>
     /// Provides information about the securities movement linked to the corporate action option.
     /// </summary>
-    public SecuritiesOption27? SecuritiesMovementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SecuritiesOption27[] SecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the cash movement related to a corporate action option.
     /// </summary>
-    public CashOption19? CashMovementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashOption19[] CashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

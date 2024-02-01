@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementType6Choice;
 /// <summary>
 /// Statement type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IStatementType6Choice
+public partial record Proprietary : StatementType6Choice_
 {
     #nullable enable
     /// <summary>

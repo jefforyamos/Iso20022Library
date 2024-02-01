@@ -40,7 +40,7 @@ public partial record SummaryAmounts2
     /// <summary>
     /// Indicates if excess cash collateral in the currency is automatically returned as per the collateral provider’s Excess Cash Margin Instruction (colr.017).
     /// </summary>
-    public ReturnExcessCash1? ReturnExcessCashAndCollateralCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public ReturnExcessCash1[] ReturnExcessCashAndCollateralCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Minimum amount to pay/receive as specified in the agreement in the base currency (to avoid the need to transfer an inconveniently small amount of collateral).
     /// </summary>

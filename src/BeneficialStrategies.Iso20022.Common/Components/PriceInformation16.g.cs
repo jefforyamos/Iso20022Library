@@ -20,15 +20,15 @@ public partial record PriceInformation16
     /// <summary>
     /// Specifies the type of price and information about the price.
     /// </summary>
-    public required ITypeOfPrice45Choice Type { get; init; } 
+    public required TypeOfPrice45Choice_ Type { get; init; } 
     /// <summary>
     /// Type of value in which the price is expressed.
     /// </summary>
-    public required IYieldedOrValueType1Choice ValueType { get; init; } 
+    public required YieldedOrValueType1Choice_ ValueType { get; init; } 
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    public required IPriceRateOrAmountOrUnknown1Choice Value { get; init; } 
+    public required PriceRateOrAmountOrUnknown1Choice_ Value { get; init; } 
     /// <summary>
     /// Place from which the price was obtained.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record PriceInformation16
     /// <summary>
     /// Date on which the price is obtained. With an investment fund, this is as stated in the prospectus.
     /// </summary>
-    public IDateAndDateTimeChoice? QuotationDate { get; init; } 
+    public DateAndDateTimeChoice_? QuotationDate { get; init; } 
     
     #nullable disable
 }

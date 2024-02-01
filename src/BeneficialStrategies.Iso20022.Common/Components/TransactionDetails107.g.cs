@@ -24,15 +24,15 @@ public partial record TransactionDetails107
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    public ITradeDate8Choice? TradeDate { get; init; } 
+    public TradeDate8Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public required ISettlementDate17Choice SettlementDate { get; init; } 
+    public required SettlementDate17Choice_ SettlementDate { get; init; } 
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    public required IQuantity6Choice SettlementQuantity { get; init; } 
+    public required Quantity6Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Total amount of money to be paid or received in exchange for the securities.
     /// </summary>

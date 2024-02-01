@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OtherAsset2Choice;
 /// <summary>
 /// Other asset type specified as a proprietary code.
 /// </summary>
-public partial record Proprietary : IOtherAsset2Choice
+public partial record Proprietary : OtherAsset2Choice_
 {
     #nullable enable
     /// <summary>

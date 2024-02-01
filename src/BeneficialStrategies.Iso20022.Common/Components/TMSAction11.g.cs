@@ -28,7 +28,7 @@ public partial record TMSAction11
     /// <summary>
     /// Cryptographic key used to communicate with the host.
     /// </summary>
-    public KEKIdentifier5? Key { get; init;  } // Warning: Don't know multiplicity.
+    public KEKIdentifier5[] Key { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the master terminal manager or the terminal manager with which the POI has to perform the action.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record TMSAction11
     /// <summary>
     /// Type of POI components to send in a status report.
     /// </summary>
-    public DataSetCategory18Code? ComponentType { get; init;  } // Warning: Don't know multiplicity.
+    public DataSetCategory18Code[] ComponentType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the delegation scope assigned by the MTM.
     /// </summary>
@@ -72,7 +72,7 @@ public partial record TMSAction11
     /// <summary>
     /// Additional process to perform before starting or after completing the action by the point of interaction (POI).
     /// </summary>
-    public TerminalManagementAdditionalProcess1Code? AdditionalProcess { get; init;  } // Warning: Don't know multiplicity.
+    public TerminalManagementAdditionalProcess1Code[] AdditionalProcess { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Definition of retry process if activation of the action fails.
     /// </summary>
@@ -88,19 +88,19 @@ public partial record TMSAction11
     /// <summary>
     /// Certificate chain for the encryption of temporary transport key of the key to inject.
     /// </summary>
-    public IsoMax10KBinary? KeyEnciphermentCertificate { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax10KBinary[] KeyEnciphermentCertificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Action to perform in case of error on the related action in progress.
     /// </summary>
-    public ErrorAction5? ErrorAction { get; init;  } // Warning: Don't know multiplicity.
+    public ErrorAction5[] ErrorAction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the maintenance action.
     /// </summary>
-    public IsoMax3000Binary? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax3000Binary[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Configuration of a message item.
     /// </summary>
-    public MessageItemCondition2? MessageItem { get; init;  } // Warning: Don't know multiplicity.
+    public MessageItemCondition2[] MessageItem { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to a device request of the POI.
     /// </summary>

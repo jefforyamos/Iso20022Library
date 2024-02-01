@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DetailedMissingMarginInformation
 /// <summary>
 /// Specifies the type of report activity for a specific reporting period.
 /// </summary>
-public partial record DataSetAction : IDetailedMissingMarginInformationStatistics4Choice
+public partial record DataSetAction : DetailedMissingMarginInformationStatistics4Choice_
 {
     public required ReportPeriodActivity1Code Value { get; init; }
 }

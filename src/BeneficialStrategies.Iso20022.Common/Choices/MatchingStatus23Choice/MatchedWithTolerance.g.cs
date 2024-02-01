@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingStatus23Choice;
 /// <summary>
 /// Trade is matched with tolerance.
 /// </summary>
-public partial record MatchedWithTolerance : IMatchingStatus23Choice
+public partial record MatchedWithTolerance : MatchingStatus23Choice_
 {
     #nullable enable
     /// <summary>

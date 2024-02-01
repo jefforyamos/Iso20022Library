@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InRepairStatus2Choice;
 /// <summary>
 /// Reason for an in repair status in the report.
 /// </summary>
-public partial record Reason : IInRepairStatus2Choice
+public partial record Reason : InRepairStatus2Choice_
 {
     #nullable enable
     /// <summary>

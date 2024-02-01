@@ -20,7 +20,7 @@ public partial record OrganisationIdentification30
     /// <summary>
     /// Unique and unambiguous identification of the organisation.
     /// </summary>
-    public required IOrganisationIdentification8Choice Identification { get; init; } 
+    public required OrganisationIdentification8Choice_ Identification { get; init; } 
     /// <summary>
     /// Indicates the name of the reporting counterparty.
     /// </summary>

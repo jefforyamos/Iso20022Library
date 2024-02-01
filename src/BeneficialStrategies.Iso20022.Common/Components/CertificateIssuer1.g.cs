@@ -20,7 +20,7 @@ public partial record CertificateIssuer1
     /// <summary>
     /// Relative distinguished name inside a X.509 certificate.
     /// </summary>
-    public RelativeDistinguishedName1? RelativeDistinguishedName { get; init;  } // Warning: Don't know multiplicity.
+    public RelativeDistinguishedName1[] RelativeDistinguishedName { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

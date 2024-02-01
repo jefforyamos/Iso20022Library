@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InRepairStatus2Choice;
 /// <summary>
 /// Proprietary identification for a reason of a specific status in the report.
 /// </summary>
-public partial record DataSourceScheme : IInRepairStatus2Choice
+public partial record DataSourceScheme : InRepairStatus2Choice_
 {
     #nullable enable
     /// <summary>

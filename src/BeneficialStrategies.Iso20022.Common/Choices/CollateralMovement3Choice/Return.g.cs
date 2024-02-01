@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralMovement3Choice;
 /// <summary>
 /// Provides the collateral movement direction that is a return only.
 /// </summary>
-public partial record Return : ICollateralMovement3Choice
+public partial record Return : CollateralMovement3Choice_
 {
     #nullable enable
     /// <summary>

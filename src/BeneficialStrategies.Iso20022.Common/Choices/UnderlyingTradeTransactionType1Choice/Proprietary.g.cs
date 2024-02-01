@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTradeTransactionType1C
 /// <summary>
 /// Type of commercial contract expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IUnderlyingTradeTransactionType1Choice
+public partial record Proprietary : UnderlyingTradeTransactionType1Choice_
 {
     #nullable enable
     /// <summary>

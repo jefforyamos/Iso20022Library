@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification41Choice;
 /// <summary>
 /// Identification of constituents for a basket of indexes.
 /// </summary>
-public partial record Basket : ISecurityIdentification41Choice
+public partial record Basket : SecurityIdentification41Choice_
 {
     #nullable enable
     /// <summary>

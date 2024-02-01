@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType49Choice;
 /// <summary>
 /// Standard code to specify the type of gross dividend rate.
 /// </summary>
-public partial record Code : IRateType49Choice
+public partial record Code : RateType49Choice_
 {
     public required GrossDividendRateType2Code Value { get; init; }
 }

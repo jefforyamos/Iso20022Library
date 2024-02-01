@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ProformaStatusReason1Choice;
 /// <summary>
 /// Reason for the proforma account status.
 /// </summary>
-public partial record Reason : IProformaStatusReason1Choice
+public partial record Reason : ProformaStatusReason1Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the proforma account status.
     /// </summary>
-    public required IProformaStatusReason2Choice Code { get; init; } 
+    public required ProformaStatusReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the proforma account status.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementSystemMethod3Choice;
 /// <summary>
 /// Settlement system expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ISettlementSystemMethod3Choice
+public partial record Code : SettlementSystemMethod3Choice_
 {
     public required SettlementSystemMethod1Code Value { get; init; }
 }

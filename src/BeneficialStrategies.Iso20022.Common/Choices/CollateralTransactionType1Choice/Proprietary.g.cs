@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralTransactionType1Choice
 /// <summary>
 /// Proprietary identification of additional information about the processed instruction.
 /// </summary>
-public partial record Proprietary : ICollateralTransactionType1Choice
+public partial record Proprietary : CollateralTransactionType1Choice_
 {
     #nullable enable
     /// <summary>

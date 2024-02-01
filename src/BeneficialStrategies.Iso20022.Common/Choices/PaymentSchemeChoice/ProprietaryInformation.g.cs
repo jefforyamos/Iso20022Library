@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentSchemeChoice;
 /// <summary>
 /// Channel that is specific to a user community and is required for use within that user community.||Usage: if the channel is included in the list of codes provided for the payment scheme, the code element should be used instead of the proprietary element.
 /// </summary>
-public partial record ProprietaryInformation : IPaymentSchemeChoice
+public partial record ProprietaryInformation : PaymentSchemeChoice_
 {
     public required IsoMax35Text Value { get; init; }
 }

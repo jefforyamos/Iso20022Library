@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesRTGS1Choice;
 /// <summary>
 /// Securities RTGS information expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISecuritiesRTGS1Choice
+public partial record Proprietary : SecuritiesRTGS1Choice_
 {
     #nullable enable
     /// <summary>

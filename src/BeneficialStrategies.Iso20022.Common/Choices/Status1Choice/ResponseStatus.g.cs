@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status1Choice;
 /// <summary>
 /// Provides the status of the received collateral message (collateral claim, a collateral proposal or a proposal/request for collateral substitution) from a collateral management perspective.
 /// </summary>
-public partial record ResponseStatus : IStatus1Choice
+public partial record ResponseStatus : Status1Choice_
 {
     #nullable enable
     #nullable disable

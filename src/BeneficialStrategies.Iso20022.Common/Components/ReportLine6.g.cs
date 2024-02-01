@@ -24,7 +24,7 @@ public partial record ReportLine6
     /// <summary>
     /// Specifies the adjustments applied to obtain the net amount.
     /// </summary>
-    public Adjustment6? Adjustment { get; init;  } // Warning: Don't know multiplicity.
+    public Adjustment6[] Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net amount, after adjustments, intended to be paid.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record ReportLine6
     /// <summary>
     /// Specifies how the net amount to be paid is related to different purchase orders.
     /// </summary>
-    public ReportLine7? BreakdownByPurchaseOrder { get; init;  } // Warning: Don't know multiplicity.
+    public ReportLine7[] BreakdownByPurchaseOrder { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

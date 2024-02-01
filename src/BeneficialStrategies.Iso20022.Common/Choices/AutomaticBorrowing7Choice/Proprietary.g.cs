@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AutomaticBorrowing7Choice;
 /// <summary>
 /// Condition for automatic borrowing expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IAutomaticBorrowing7Choice
+public partial record Proprietary : AutomaticBorrowing7Choice_
 {
     #nullable enable
     /// <summary>

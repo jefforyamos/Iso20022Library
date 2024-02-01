@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BeneficiaryCertificationType5Cho
 /// <summary>
 /// Standard code to specify the type of certification required.
 /// </summary>
-public partial record Code : IBeneficiaryCertificationType5Choice
+public partial record Code : BeneficiaryCertificationType5Choice_
 {
     public required BeneficiaryCertificationType4Code Value { get; init; }
 }

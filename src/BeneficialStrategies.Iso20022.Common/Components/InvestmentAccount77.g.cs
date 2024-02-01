@@ -32,11 +32,11 @@ public partial record InvestmentAccount77
     /// <summary>
     /// Identification of the owner of the account.
     /// </summary>
-    public IOwnerIdentification3Choice? OwnerIdentification { get; init; } 
+    public OwnerIdentification3Choice_? OwnerIdentification { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    public IPartyIdentification125Choice? AccountServicer { get; init; } 
+    public PartyIdentification125Choice_? AccountServicer { get; init; } 
     
     #nullable disable
 }

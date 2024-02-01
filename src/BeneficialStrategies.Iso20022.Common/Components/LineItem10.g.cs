@@ -36,11 +36,11 @@ public partial record LineItem10
     /// <summary>
     /// Specific purchase account for recording debits and credits for accounting purposes.
     /// </summary>
-    public AccountingAccount1? PurchaseAccountingAccount { get; init;  } // Warning: Don't know multiplicity.
+    public AccountingAccount1[] PurchaseAccountingAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    public IsoCurrencyAndAmount? NetPrice { get; init;  } // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount[] NetPrice { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity and conversion factor on which the net price is based for this line item product and/or service.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record LineItem10
     /// <summary>
     /// Allowance or charge applied to the net price.
     /// </summary>
-    public LineItemAllowanceCharge1? NetPriceAllowanceCharge { get; init;  } // Warning: Don't know multiplicity.
+    public LineItemAllowanceCharge1[] NetPriceAllowanceCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net weight of the product.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record LineItem10
     /// <summary>
     /// Gross price of the product and/or service.
     /// </summary>
-    public IsoCurrencyAndAmount? GrossPrice { get; init;  } // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount[] GrossPrice { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity and conversion factor on which the gross price is based for this line item product and/or service.
     /// </summary>
@@ -68,19 +68,19 @@ public partial record LineItem10
     /// <summary>
     /// Logistics service charge for this line item.
     /// </summary>
-    public ChargesDetails2? LogisticsCharge { get; init;  } // Warning: Don't know multiplicity.
+    public ChargesDetails2[] LogisticsCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
     /// </summary>
-    public LineItemTax1? Tax { get; init;  } // Warning: Don't know multiplicity.
+    public LineItemTax1[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Allowance or charge specified for this line item.
     /// </summary>
-    public LineItemAllowanceCharge1? AllowanceCharge { get; init;  } // Warning: Don't know multiplicity.
+    public LineItemAllowanceCharge1[] AllowanceCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Modification on the value of goods and / or services. For example: rebate, discount, surcharge.
     /// </summary>
-    public Adjustment4? FinancialAdjustment { get; init;  } // Warning: Don't know multiplicity.
+    public Adjustment4[] FinancialAdjustment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity billed for this line item.
     /// </summary>
@@ -96,7 +96,7 @@ public partial record LineItem10
     /// <summary>
     /// Physical packaging of the product.
     /// </summary>
-    public Packaging1? Packaging { get; init;  } // Warning: Don't know multiplicity.
+    public Packaging1[] Packaging { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity that is free of charge for this line item.
     /// </summary>
@@ -140,7 +140,7 @@ public partial record LineItem10
     /// <summary>
     /// Note included in this line item.
     /// </summary>
-    public AdditionalInformation1? IncludedNote { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation1[] IncludedNote { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

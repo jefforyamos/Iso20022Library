@@ -32,7 +32,7 @@ public partial record HoldBackInformation3
     /// <summary>
     /// New identification of the security.
     /// </summary>
-    public ISecurityIdentification25Choice? FinancialInstrumentIdentification { get; init; } 
+    public SecurityIdentification25Choice_? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// New name of the security.
     /// </summary>

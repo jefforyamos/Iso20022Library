@@ -20,11 +20,11 @@ public partial record SecuritiesTradeDetails34
     /// <summary>
     /// Reference assigned to the trade by the investor or the trading party. This reference will be used throughout the trade life cycle to access/update the trade details.
     /// </summary>
-    public IsoMax35Text? TradeIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] TradeIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unambiguous identification of a collateral transaction as assigned by the instructing party.
     /// </summary>
-    public IsoMax35Text? CollateralTransactionIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] CollateralTransactionIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Market in which a trade transaction has been executed.
     /// </summary>
@@ -36,15 +36,15 @@ public partial record SecuritiesTradeDetails34
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    public ITradeDate1Choice? TradeDate { get; init; } 
+    public TradeDate1Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public ISettlementDate1Choice? SettlementDate { get; init; } 
+    public SettlementDate1Choice_? SettlementDate { get; init; } 
     /// <summary>
     /// Date and time after the settlement date specified in the trade, used for pool trades resulting from the original To Be Assigned (TBA) securities.
     /// </summary>
-    public IDateAndDateTimeChoice? LateDeliveryDate { get; init; } 
+    public DateAndDateTimeChoice_? LateDeliveryDate { get; init; } 
     /// <summary>
     /// Specifies the price of the traded financial instrument.|This is the deal price of the individual trade transaction. |If there is only one trade transaction for the execution of the trade, then the deal price could equal the executed trade price (unless, for example, the price includes commissions or rounding, or some other factor has been applied to the deal price or the executed trade price, or both).
     /// </summary>
@@ -56,39 +56,39 @@ public partial record SecuritiesTradeDetails34
     /// <summary>
     /// Specifies additional information relative to the processing of the trade.
     /// </summary>
-    public IOpeningClosing1Choice? OpeningClosing { get; init; } 
+    public OpeningClosing1Choice_? OpeningClosing { get; init; } 
     /// <summary>
     /// Specifies that a trade is to be reported to a third party.
     /// </summary>
-    public IReporting2Choice? Reporting { get; init;  } // Warning: Don't know multiplicity.
+    public Reporting2Choice_[] Reporting { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the conditions under which the order/trade is to be/was executed.
     /// </summary>
-    public ITradeTransactionCondition1Choice? TradeTransactionCondition { get; init;  } // Warning: Don't know multiplicity.
+    public TradeTransactionCondition1Choice_[] TradeTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the role of the investor in the transaction.
     /// </summary>
-    public IInvestorCapacity1Choice? InvestorCapacity { get; init; } 
+    public InvestorCapacity1Choice_? InvestorCapacity { get; init; } 
     /// <summary>
     /// Specifies the role of the trading party in the transaction.
     /// </summary>
-    public ITradeOriginator1Choice? TradeOriginatorRole { get; init; } 
+    public TradeOriginator1Choice_? TradeOriginatorRole { get; init; } 
     /// <summary>
     /// Specifies the type of price and information about the price.
     /// </summary>
-    public ITypeOfPrice3Choice? TypeOfPrice { get; init; } 
+    public TypeOfPrice3Choice_? TypeOfPrice { get; init; } 
     /// <summary>
     /// Account servicer is instructed to buy the indicated currency after the receipt of cash proceeds or to sell the indicated currency in order to obtain the necessary currency to fund the transaction.
     /// </summary>
-    public ICurrencyToBuyOrSell1Choice? CurrencyToBuyOrSell { get; init; } 
+    public CurrencyToBuyOrSell1Choice_? CurrencyToBuyOrSell { get; init; } 
     /// <summary>
     /// Provides the matching status of the instruction.
     /// </summary>
-    public IMatchingStatus1Choice? MatchingStatus { get; init; } 
+    public MatchingStatus1Choice_? MatchingStatus { get; init; } 
     /// <summary>
     /// Status of affirmation of a trade.
     /// </summary>
-    public IAffirmationStatus1Choice? AffirmationStatus { get; init; } 
+    public AffirmationStatus1Choice_? AffirmationStatus { get; init; } 
     /// <summary>
     /// Provides additional details pertaining to foreign exchange instructions.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateAndDateTimeSearch5Choice;
 /// <summary>
 /// Specified date.
 /// </summary>
-public partial record Date : IDateAndDateTimeSearch5Choice
+public partial record Date : DateAndDateTimeSearch5Choice_
 {
     #nullable enable
     #nullable disable

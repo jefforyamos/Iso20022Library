@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PurposeCode9Choice;
 /// <summary>
 /// Specifies the execution priority of the instruction with a proprietary scheme.
 /// </summary>
-public partial record Proprietary : IPurposeCode9Choice
+public partial record Proprietary : PurposeCode9Choice_
 {
     #nullable enable
     /// <summary>

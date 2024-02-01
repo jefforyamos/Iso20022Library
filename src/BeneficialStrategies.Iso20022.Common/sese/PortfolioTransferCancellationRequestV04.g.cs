@@ -89,7 +89,7 @@ public partial record PortfolioTransferCancellationRequestV04 : IOuterRecord
     [DataMember(Name="Cxl")]
     [XmlElement(ElementName="Cxl")]
     [Required]
-    public required ICancellation3Choice Cancellation { get; init; }
+    public required Cancellation3Choice_ Cancellation { get; init; }
     
     #nullable disable
     

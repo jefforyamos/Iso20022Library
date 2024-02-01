@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentOrigin1Choice;
 /// <summary>
 /// Specifies that the payment was included in a proprietary format message.
 /// </summary>
-public partial record Proprietary : IPaymentOrigin1Choice
+public partial record Proprietary : PaymentOrigin1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

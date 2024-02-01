@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CRSStatus3Choice;
 /// <summary>
 /// Common Reporting Standard (CRS) status expressed as a code.
 /// </summary>
-public partial record Code : ICRSStatus3Choice
+public partial record Code : CRSStatus3Choice_
 {
     public required CRSStatus1Code Value { get; init; }
 }

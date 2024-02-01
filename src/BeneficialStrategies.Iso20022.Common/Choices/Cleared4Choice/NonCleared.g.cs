@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Cleared4Choice;
 /// <summary>
 /// Specifies that the contract has not been cleared.
 /// </summary>
-public partial record NonCleared : ICleared4Choice
+public partial record NonCleared : Cleared4Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

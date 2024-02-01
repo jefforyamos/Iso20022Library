@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Amount3Choice;
 /// <summary>
 /// Number of monetary units specified in a currency where the unit of currency is implied by the context.
 /// </summary>
-public partial record AmountWithoutCurrency : IAmount3Choice
+public partial record AmountWithoutCurrency : Amount3Choice_
 {
     public required IsoImpliedCurrencyAndAmount Value { get; init; }
 }

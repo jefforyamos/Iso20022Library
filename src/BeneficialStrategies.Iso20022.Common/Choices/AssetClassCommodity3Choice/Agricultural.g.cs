@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity3Choice;
 /// <summary>
 /// Agricultural commodities.
 /// </summary>
-public partial record Agricultural : IAssetClassCommodity3Choice
+public partial record Agricultural : AssetClassCommodity3Choice_
 {
     #nullable enable
     #nullable disable

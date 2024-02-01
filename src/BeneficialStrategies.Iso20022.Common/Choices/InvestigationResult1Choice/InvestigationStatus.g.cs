@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationResult1Choice;
 /// <summary>
 /// Provides the investigation status.
 /// </summary>
-public partial record InvestigationStatus : IInvestigationResult1Choice
+public partial record InvestigationStatus : InvestigationResult1Choice_
 {
     public required InvestigationStatus1Code Value { get; init; }
 }

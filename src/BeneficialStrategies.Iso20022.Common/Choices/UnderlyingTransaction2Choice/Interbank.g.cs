@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction2Choice;
 /// <summary>
 /// Set of elements used to reference the details of the original interbank payment transaction.
 /// </summary>
-public partial record Interbank : IUnderlyingTransaction2Choice
+public partial record Interbank : UnderlyingTransaction2Choice_
 {
     #nullable enable
     /// <summary>

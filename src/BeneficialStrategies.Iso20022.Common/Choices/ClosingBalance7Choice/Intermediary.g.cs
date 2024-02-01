@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosingBalance7Choice;
 /// <summary>
 /// Closing balance of this page only. This balance must be the intermediary opening balance of the next page of the same statement.
 /// </summary>
-public partial record Intermediary : IClosingBalance7Choice
+public partial record Intermediary : ClosingBalance7Choice_
 {
     #nullable enable
     #nullable disable

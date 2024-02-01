@@ -24,7 +24,7 @@ public partial record SecuritiesAuditTrailSearchCriteria4
     /// <summary>
     /// Describes date period for querying information.
     /// </summary>
-    public IDatePeriodSearch1Choice? DatePeriod { get; init; } 
+    public DatePeriodSearch1Choice_? DatePeriod { get; init; } 
     
     #nullable disable
 }

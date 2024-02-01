@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification118Choice;
 /// <summary>
 /// Unique identification of the party using a proprietary code.
 /// </summary>
-public partial record Proprietary : IPartyIdentification118Choice
+public partial record Proprietary : PartyIdentification118Choice_
 {
     #nullable enable
     /// <summary>

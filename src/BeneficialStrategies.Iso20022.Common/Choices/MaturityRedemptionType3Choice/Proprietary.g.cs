@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MaturityRedemptionType3Choice;
 /// <summary>
 /// Maturity redemption type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IMaturityRedemptionType3Choice
+public partial record Proprietary : MaturityRedemptionType3Choice_
 {
     #nullable enable
     /// <summary>

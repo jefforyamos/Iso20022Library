@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ContractTerm7Choice;
 /// <summary>
 /// Transaction is open term, that is, has no fixed maturity date.
 /// </summary>
-public partial record Open : IContractTerm7Choice
+public partial record Open : ContractTerm7Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MoneyLaunderingCheck1Choice;
 /// <summary>
 /// Money laundering status expressed as a code.
 /// </summary>
-public partial record Code : IMoneyLaunderingCheck1Choice
+public partial record Code : MoneyLaunderingCheck1Choice_
 {
     public required MoneyLaunderingCheck1Code Value { get; init; }
 }

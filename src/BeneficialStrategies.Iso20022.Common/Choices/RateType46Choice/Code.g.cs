@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType46Choice;
 /// <summary>
 /// Standard code to specify the type of withholding tax rate.
 /// </summary>
-public partial record Code : IRateType46Choice
+public partial record Code : RateType46Choice_
 {
     public required WithholdingTaxRateType1Code Value { get; init; }
 }

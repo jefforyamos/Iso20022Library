@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusType2Choice;
 /// <summary>
 /// Contains the status of the payment taken from field 79 of the MT 199.
 /// </summary>
-public partial record RawStatus : IPaymentStatusType2Choice
+public partial record RawStatus : PaymentStatusType2Choice_
 {
     public required IsoMax1850Text Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EquityDerivative3Choice;
 /// <summary>
 /// Populated when the sub asset class is either swap or portfolio swap and the underlying type is an index.
 /// </summary>
-public partial record Index : IEquityDerivative3Choice
+public partial record Index : EquityDerivative3Choice_
 {
     public required UnderlyingEquityType4Code Value { get; init; }
 }

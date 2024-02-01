@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CashAssetType1Choice;
 /// <summary>
 /// Type of cash expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICashAssetType1Choice
+public partial record Proprietary : CashAssetType1Choice_
 {
     #nullable enable
     /// <summary>

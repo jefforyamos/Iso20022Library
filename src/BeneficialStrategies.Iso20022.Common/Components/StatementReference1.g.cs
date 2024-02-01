@@ -24,7 +24,7 @@ public partial record StatementReference1
     /// <summary>
     /// Date and time the statement was created.
     /// </summary>
-    public required IDateAndDateTimeChoice StatementDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Page number of the related message (within the statement) and continuation indicator to indicate that the statement is to continue or that the related message is the last page of the statement.
     /// </summary>

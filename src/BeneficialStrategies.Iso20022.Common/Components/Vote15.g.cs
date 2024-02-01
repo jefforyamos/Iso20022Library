@@ -24,7 +24,7 @@ public partial record Vote15
     /// <summary>
     /// Vote instructed.
     /// </summary>
-    public required IVoteInstructionType2Choice VoteOption { get; init; } 
+    public required VoteInstructionType2Choice_ VoteOption { get; init; } 
     
     #nullable disable
 }

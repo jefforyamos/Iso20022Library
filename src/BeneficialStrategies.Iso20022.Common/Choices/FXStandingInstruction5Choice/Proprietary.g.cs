@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FXStandingInstruction5Choice;
 /// <summary>
 /// FX Standing instruction information expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IFXStandingInstruction5Choice
+public partial record Proprietary : FXStandingInstruction5Choice_
 {
     #nullable enable
     /// <summary>

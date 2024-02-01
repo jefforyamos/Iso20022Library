@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyAuditTrailOrError2Choice;
 /// <summary>
 /// Provides the details of the audit trail data reported.
 /// </summary>
-public partial record AuditTrail : IPartyAuditTrailOrError2Choice
+public partial record AuditTrail : PartyAuditTrailOrError2Choice_
 {
     #nullable enable
     /// <summary>
     /// Individual record of the party audit trail.
     /// </summary>
-    public IUpdateLogPartyRecord1Choice? Record { get; init;  } // Warning: Don't know multiplicity.
+    public UpdateLogPartyRecord1Choice_? Record { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Timestamp of the change.
     /// </summary>

@@ -20,7 +20,7 @@ public partial record CorporateActionElection1
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public required ICorporateActionOption1FormatChoice OptionType { get; init; } 
+    public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
@@ -28,11 +28,11 @@ public partial record CorporateActionElection1
     /// <summary>
     /// Quantity of the securities that was instructed in the original election advice.
     /// </summary>
-    public required IUnitOrFaceAmount1Choice OriginalInstructedQuantity { get; init; } 
+    public required UnitOrFaceAmount1Choice_ OriginalInstructedQuantity { get; init; } 
     /// <summary>
     /// Remaining instructed securities quantity after the amendment of the election.
     /// </summary>
-    public required IUnitOrFaceAmount1Choice RemainingQuantity { get; init; } 
+    public required UnitOrFaceAmount1Choice_ RemainingQuantity { get; init; } 
     
     #nullable disable
 }

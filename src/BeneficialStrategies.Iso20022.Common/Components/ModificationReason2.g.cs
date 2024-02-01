@@ -20,7 +20,7 @@ public partial record ModificationReason2
     /// <summary>
     /// Specifies the reason why the transaction is modified.
     /// </summary>
-    public required IModificationReason2Choice Code { get; init; } 
+    public required ModificationReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

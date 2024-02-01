@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification93Choice;
 /// <summary>
 /// Country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
 /// </summary>
-public partial record Country : IPartyIdentification93Choice
+public partial record Country : PartyIdentification93Choice_
 {
     public required CountryCode Value { get; init; }
 }

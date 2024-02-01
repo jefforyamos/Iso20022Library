@@ -28,7 +28,7 @@ public partial record ProcessingCharacteristics1
     /// <summary>
     /// Currency in which a subscription or redemption is accepted.
     /// </summary>
-    public ActiveCurrencyCode? DealingCurrencyAccepted { get; init;  } // Warning: Don't know multiplicity.
+    public ActiveCurrencyCode[] DealingCurrencyAccepted { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Last date/time at which an order to subscribe or redeem can be given.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record ProcessingCharacteristics1
     /// <summary>
     /// TimeFrame or period concept that allows definition of a period as number of days before or after a defined activity.
     /// </summary>
-    public required ITimeFrame3Choice DealingCutOffTimeFrame { get; init; } 
+    public required TimeFrame3Choice_ DealingCutOffTimeFrame { get; init; } 
     /// <summary>
     /// An agreed number of days after the Trade date (T) used to define standard timeframes e.g T+3 settlement period ||Where T = the date the price is applied to a transaction.
     /// </summary>
-    public required ITimeframe2Choice SettlementCycle { get; init; } 
+    public required Timeframe2Choice_ SettlementCycle { get; init; } 
     
     #nullable disable
 }

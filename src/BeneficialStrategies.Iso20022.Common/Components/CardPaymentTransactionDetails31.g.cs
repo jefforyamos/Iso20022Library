@@ -68,7 +68,7 @@ public partial record CardPaymentTransactionDetails31
     /// <summary>
     /// Item purchased with the transaction.
     /// </summary>
-    public Product3? SaleItem { get; init;  } // Warning: Don't know multiplicity.
+    public Product3[] SaleItem { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Location of the delivery, for instance pump number or parking bay.
     /// </summary>

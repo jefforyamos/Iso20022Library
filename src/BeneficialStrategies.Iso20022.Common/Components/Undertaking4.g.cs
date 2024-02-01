@@ -28,11 +28,11 @@ public partial record Undertaking4
     /// <summary>
     /// Party requested to be named in the local undertaking as the party on whose behalf the undertaking is issued.
     /// </summary>
-    public PartyIdentification43? Applicant { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification43[] Applicant { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party in whose favour the requested local undertaking is to be issued.
     /// </summary>
-    public PartyIdentification43? Beneficiary { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification43[] Beneficiary { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date on which the requested local undertaking is to be issued.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record Undertaking4
     /// <summary>
     /// Party, in addition to the other parties specified in the requested local undertaking, that is also related to the requested local undertaking.
     /// </summary>
-    public PartyAndType1? AdditionalParty { get; init;  } // Warning: Don't know multiplicity.
+    public PartyAndType1[] AdditionalParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rules and laws governing the requested local undertaking.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record Undertaking4
     /// <summary>
     /// Details of the underlying transaction for which the undertaking is issued.
     /// </summary>
-    public UnderlyingTradeTransaction1? UnderlyingTransaction { get; init;  } // Warning: Don't know multiplicity.
+    public UnderlyingTradeTransaction1[] UnderlyingTransaction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Presentation details related to the undertaking.
     /// </summary>
@@ -96,7 +96,7 @@ public partial record Undertaking4
     /// <summary>
     /// Details related to a variation in amount that is automatically applied.
     /// </summary>
-    public AutomaticVariation1? AutomaticAmountVariation { get; init;  } // Warning: Don't know multiplicity.
+    public AutomaticVariation1[] AutomaticAmountVariation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details of the communication channel.
     /// </summary>
@@ -108,7 +108,7 @@ public partial record Undertaking4
     /// <summary>
     /// Additional information related to the requested local undertaking.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

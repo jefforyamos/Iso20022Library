@@ -28,11 +28,11 @@ public partial record Warrant4
     /// <summary>
     /// Indicates when a warrant can be exercised.
     /// </summary>
-    public IWarrantStyle3Choice? Type { get; init; } 
+    public WarrantStyle3Choice_? Type { get; init; } 
     /// <summary>
     /// Entity appointed by the issuer to process the exercising of warrants, sometimes responsible for the issuance of the warrants into the market.
     /// </summary>
-    public Organisation38? WarrantAgent { get; init;  } // Warning: Don't know multiplicity.
+    public Organisation38[] WarrantAgent { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

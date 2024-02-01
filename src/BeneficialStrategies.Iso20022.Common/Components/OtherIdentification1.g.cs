@@ -28,7 +28,7 @@ public partial record OtherIdentification1
     /// <summary>
     /// Type of the identification.
     /// </summary>
-    public required IIdentificationSource3Choice Type { get; init; } 
+    public required IdentificationSource3Choice_ Type { get; init; } 
     
     #nullable disable
 }

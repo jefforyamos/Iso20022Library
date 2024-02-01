@@ -24,7 +24,7 @@ public partial record VariationMarginDispute1
     /// <summary>
     /// Specifies the type of dispute that is to be resolved regarding the disputed collateral amount.
     /// </summary>
-    public IDisputeResolutionType2Choice? ResolutionTypeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public DisputeResolutionType2Choice_[] ResolutionTypeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

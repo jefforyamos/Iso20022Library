@@ -20,7 +20,7 @@ public partial record DebitAuthorisation1
     /// <summary>
     /// Specifies the reason for the cancellation request.
     /// </summary>
-    public required ICancellationReason14Choice CancellationReason { get; init; } 
+    public required CancellationReason14Choice_ CancellationReason { get; init; } 
     /// <summary>
     /// Amount of money requested for debit authorisation.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record DebitAuthorisation1
     /// <summary>
     /// Further details on the cancellation request reason.
     /// </summary>
-    public IsoMax105Text? AdditionalCancellationReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax105Text[] AdditionalCancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

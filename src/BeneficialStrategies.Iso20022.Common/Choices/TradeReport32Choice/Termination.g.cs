@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport32Choice;
 /// <summary>
 /// Indicates that reported transaction is a termination or an early termination of an existing contract.
 /// </summary>
-public partial record Termination : ITradeReport32Choice
+public partial record Termination : TradeReport32Choice_
 {
     #nullable enable
     /// <summary>

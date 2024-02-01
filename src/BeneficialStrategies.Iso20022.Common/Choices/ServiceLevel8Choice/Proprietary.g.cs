@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ServiceLevel8Choice;
 /// <summary>
 /// Specifies a pre-agreed service or level of service between the parties, as a proprietary code.
 /// </summary>
-public partial record Proprietary : IServiceLevel8Choice
+public partial record Proprietary : ServiceLevel8Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

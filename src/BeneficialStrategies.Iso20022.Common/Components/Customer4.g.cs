@@ -28,7 +28,7 @@ public partial record Customer4
     /// <summary>
     /// Identification of the customer recognized by the taxation authority.
     /// </summary>
-    public IsoMax70Text? TaxRegistrationIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] TaxRegistrationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contact at the company.
     /// </summary>

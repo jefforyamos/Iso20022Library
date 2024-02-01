@@ -105,7 +105,7 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="ElctnAdvcSts")]
     [XmlElement(ElementName="ElctnAdvcSts")]
     [Required]
-    public required IElectionAdviceStatus1Choice ElectionAdviceStatus { get; init; }
+    public required ElectionAdviceStatus1Choice_ ElectionAdviceStatus { get; init; }
     
     /// <summary>
     /// Status of the election cancellation request sent by the CSD.
@@ -115,7 +115,7 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="ElctnCxlReqSts")]
     [XmlElement(ElementName="ElctnCxlReqSts")]
     [Required]
-    public required IElectionCancellationStatus1Choice ElectionCancellationRequestStatus { get; init; }
+    public required ElectionCancellationStatus1Choice_ ElectionCancellationRequestStatus { get; init; }
     
     /// <summary>
     /// Status of the amendment request sent by the CSD.
@@ -125,7 +125,7 @@ public partial record AgentCAElectionStatusAdviceV01 : IOuterRecord
     [DataMember(Name="ElctnAmdmntReqSts")]
     [XmlElement(ElementName="ElctnAmdmntReqSts")]
     [Required]
-    public required IElectionAmendmentStatus1Choice ElectionAmendmentRequestStatus { get; init; }
+    public required ElectionAmendmentStatus1Choice_ ElectionAmendmentRequestStatus { get; init; }
     
     #nullable disable
     

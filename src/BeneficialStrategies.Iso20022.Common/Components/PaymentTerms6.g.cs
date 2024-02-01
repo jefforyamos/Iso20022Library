@@ -28,7 +28,7 @@ public partial record PaymentTerms6
     /// <summary>
     /// Textual description of these payment terms.
     /// </summary>
-    public IsoMax140Text? Description { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax140Text[] Description { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Partial payment, expressed as a percentage, for the payment terms.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record PaymentTerms6
     /// <summary>
     /// Direct debit mandate identification specified for these payment terms.
     /// </summary>
-    public IsoMax35Text? DirectDebitMandateIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] DirectDebitMandateIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount used as a basis to calculate the discount amount for these payment terms.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantityChoic
 /// <summary>
 /// Quantity expressed as an amount representing the face amount, ie, the principal, of a debt instrument.
 /// </summary>
-public partial record FaceAmount : IFinancialInstrumentQuantityChoice
+public partial record FaceAmount : FinancialInstrumentQuantityChoice_
 {
     public required IsoImpliedCurrencyAndAmount Value { get; init; }
 }

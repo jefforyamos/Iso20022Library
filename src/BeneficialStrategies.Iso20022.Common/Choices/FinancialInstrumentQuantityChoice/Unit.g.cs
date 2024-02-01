@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantityChoic
 /// <summary>
 /// Quantity expressed as a number, eg, a number of shares.
 /// </summary>
-public partial record Unit : IFinancialInstrumentQuantityChoice
+public partial record Unit : FinancialInstrumentQuantityChoice_
 {
     public required IsoDecimalNumber Value { get; init; }
 }

@@ -55,7 +55,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV03 : IOuterRe
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public IPartyIdentification36Choice? AccountOwner { get; init; }
+    public PartyIdentification36Choice_? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.
@@ -73,7 +73,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV03 : IOuterRe
     [Description(@"Details of the request.")]
     [DataMember(Name="StsOrStmtReqd")]
     [XmlElement(ElementName="StsOrStmtReqd")]
-    public IStatusOrStatement5Choice? StatusOrStatementRequested { get; init; }
+    public StatusOrStatement5Choice_? StatusOrStatementRequested { get; init; }
     
     /// <summary>
     /// Provides details on the processing status of the request.
@@ -83,7 +83,7 @@ public partial record SecuritiesStatusOrStatementQueryStatusAdviceV03 : IOuterRe
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required IProcessingStatus22Choice ProcessingStatus { get; init; }
+    public required ProcessingStatus22Choice_ ProcessingStatus { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

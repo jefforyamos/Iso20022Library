@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.QuantityRange1Choice;
 /// <summary>
 /// Upper boundary of a range of quantity values.
 /// </summary>
-public partial record ToQuantity : IQuantityRange1Choice
+public partial record ToQuantity : QuantityRange1Choice_
 {
     #nullable enable
     /// <summary>

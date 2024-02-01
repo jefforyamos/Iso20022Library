@@ -20,7 +20,7 @@ public partial record PowerOfAttorneyRequirements3
     /// <summary>
     /// Specifies whether the power of attorney needs to be validated by some authority.
     /// </summary>
-    public IReadOnlyCollection<PowerOfAttorneyLegalisation1Code> LegalRequirement { get; init; } = [];
+    public PowerOfAttorneyLegalisation1Code[] LegalRequirement { get; init; } = [];
     /// <summary>
     /// Specifies the documents needed to obtain a valid power of attorney.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record PowerOfAttorneyRequirements3
     /// <summary>
     /// Date by which the requested documents must be provided.
     /// </summary>
-    public IDateFormat29Choice? DocumentSubmissionDeadline { get; init; } 
+    public DateFormat29Choice_? DocumentSubmissionDeadline { get; init; } 
     
     #nullable disable
 }

@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderStatus5Choice;
 /// <summary>
 /// Status of the individual order is rejected. This status is used for an order that has not been accepted or entered in an order book.
 /// </summary>
-public partial record Rejected : IOrderStatus5Choice
+public partial record Rejected : OrderStatus5Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the rejected status.
     /// </summary>
-    public IRejectedReason20Choice? Reason { get; init; } 
+    public RejectedReason20Choice_? Reason { get; init; } 
     /// <summary>
     /// Additional information about the rejected reason.
     /// </summary>

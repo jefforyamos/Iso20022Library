@@ -28,7 +28,7 @@ public partial record CurrencyReference2
     /// <summary>
     /// The value of one currency expressed in relation to another currency. ExchangeRate expresses the ratio between UnitCurrency and QuotedCurrency (ExchangeRate = UnitCurrency/QuotedCurrency).
     /// </summary>
-    public ExchangeRateInformation1? ExchangeRateInformation { get; init;  } // Warning: Don't know multiplicity.
+    public ExchangeRateInformation1[] ExchangeRateInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

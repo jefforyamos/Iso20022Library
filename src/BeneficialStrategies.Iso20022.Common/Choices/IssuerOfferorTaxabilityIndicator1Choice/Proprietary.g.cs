@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IssuerOfferorTaxabilityIndicator
 /// <summary>
 /// Proprietary identification to specify information regarding the issuer / offeror taxability status.
 /// </summary>
-public partial record Proprietary : IIssuerOfferorTaxabilityIndicator1Choice
+public partial record Proprietary : IssuerOfferorTaxabilityIndicator1Choice_
 {
     #nullable enable
     /// <summary>

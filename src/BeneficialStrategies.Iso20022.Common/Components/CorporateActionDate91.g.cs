@@ -20,11 +20,11 @@ public partial record CorporateActionDate91
     /// <summary>
     /// Last day a holder can deliver the securities that it had elected on and/or previously protected.
     /// </summary>
-    public IDateFormat43Choice? CoverExpirationDeadline { get; init; } 
+    public DateFormat43Choice_? CoverExpirationDeadline { get; init; } 
     /// <summary>
     /// Date/time at which the deal (rights) was agreed.
     /// </summary>
-    public IDateFormat49Choice? TradingDate { get; init; } 
+    public DateFormat49Choice_? TradingDate { get; init; } 
     
     #nullable disable
 }

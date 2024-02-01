@@ -20,11 +20,11 @@ public partial record PartyIdentification50
     /// <summary>
     /// Party that is the beneficial owner of the specified quantity of securities.
     /// </summary>
-    public required IPartyIdentification48Choice OwnerIdentification { get; init; } 
+    public required PartyIdentification48Choice_ OwnerIdentification { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
-    public AlternatePartyIdentification2? AlternateIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public AlternatePartyIdentification2[] AlternateIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Country in which a person is permanently domiciled (the place of a persons permanent home).
     /// </summary>
@@ -32,15 +32,15 @@ public partial record PartyIdentification50
     /// <summary>
     /// Holder of the security certifies, in line with the terms of the corporate action, that it is not domiciled in the country indicated.
     /// </summary>
-    public CountryCode? NonDomicileCountry { get; init;  } // Warning: Don't know multiplicity.
+    public CountryCode[] NonDomicileCountry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity of securities belonging to the beneficial owner specified.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice OwnedSecuritiesQuantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ OwnedSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Type of certification which is required.
     /// </summary>
-    public IBeneficiaryCertificationType2Choice? CertificationType { get; init;  } // Warning: Don't know multiplicity.
+    public BeneficiaryCertificationType2Choice_[] CertificationType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides details relative to the beneficial owner not included within structured fields of this message.
     /// </summary>

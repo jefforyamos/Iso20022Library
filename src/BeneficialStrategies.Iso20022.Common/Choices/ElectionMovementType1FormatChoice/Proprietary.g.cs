@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ElectionMovementType1FormatChoic
 /// <summary>
 /// Proprietary code to express the effect on the holdings of electing a Corporate Action option.
 /// </summary>
-public partial record Proprietary : IElectionMovementType1FormatChoice
+public partial record Proprietary : ElectionMovementType1FormatChoice_
 {
     #nullable enable
     /// <summary>

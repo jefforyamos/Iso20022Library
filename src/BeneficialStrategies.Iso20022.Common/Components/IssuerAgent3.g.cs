@@ -20,7 +20,7 @@ public partial record IssuerAgent3
     /// <summary>
     /// Identification of the issuer agent.
     /// </summary>
-    public required IPartyIdentification129Choice Identification { get; init; } 
+    public required PartyIdentification129Choice_ Identification { get; init; } 
     /// <summary>
     /// Role of the issuer agent.
     /// </summary>

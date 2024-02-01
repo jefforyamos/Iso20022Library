@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonIdentificationType3Choice;
 /// <summary>
 /// Person identification expressed as a code.
 /// </summary>
-public partial record Code : IPersonIdentificationType3Choice
+public partial record Code : PersonIdentificationType3Choice_
 {
     public required PersonIdentificationType3Code Value { get; init; }
 }

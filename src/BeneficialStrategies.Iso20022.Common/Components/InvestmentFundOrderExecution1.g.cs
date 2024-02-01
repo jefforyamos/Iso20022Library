@@ -28,7 +28,7 @@ public partial record InvestmentFundOrderExecution1
     /// <summary>
     /// Reference of an order, client or deal reference.
     /// </summary>
-    public InvestmentFundOrderExecution2? OrderReferences { get; init;  } // Warning: Don't know multiplicity.
+    public InvestmentFundOrderExecution2[] OrderReferences { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

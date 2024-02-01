@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ShipmentSchedule1Choice;
 /// <summary>
 /// Specifies an earliest shipment date and a latest shipment date.
 /// </summary>
-public partial record ShipmentDateRange : IShipmentSchedule1Choice
+public partial record ShipmentDateRange : ShipmentSchedule1Choice_
 {
     #nullable enable
     /// <summary>

@@ -32,7 +32,7 @@ public partial record CorporateActionConfirmationSecuritiesMovementDetailsSD6
     /// <summary>
     /// Resulting quantity of securities concerned in this transaction.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? TransactionQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? TransactionQuantity { get; init; } 
     /// <summary>
     /// Transaction reason.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record CorporateActionConfirmationSecuritiesMovementDetailsSD6
     /// <summary>
     /// Date/Time on which the posting /draft of the securities took place.
     /// </summary>
-    public IDateFormat48Choice? PostingDate { get; init; } 
+    public DateFormat48Choice_? PostingDate { get; init; } 
     /// <summary>
     /// Set of the DTC legacy sub reason codes representing tax rate. Used with reason codes ‘TJXD’ ‘TJXF’ ‘TJXI’ ‘TJXL’ ‘TJXR’ ‘TJXT’ ‘TJXU’ to identify the correct tax rate.
     /// </summary>

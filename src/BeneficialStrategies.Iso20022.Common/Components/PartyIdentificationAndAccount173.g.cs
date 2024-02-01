@@ -20,7 +20,7 @@ public partial record PartyIdentificationAndAccount173
     /// <summary>
     /// Identification of a party.
     /// </summary>
-    public required IPartyIdentification137Choice Identification { get; init; } 
+    public required PartyIdentification137Choice_ Identification { get; init; } 
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record PartyIdentificationAndAccount173
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
-    public AlternatePartyIdentification9? AlternateIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public AlternatePartyIdentification9[] AlternateIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -52,15 +52,15 @@ public partial record MeetingNotice2
     /// <summary>
     /// Date and time by which the beneficial owner or agent must notify of their intention to participate in a meeting. This deadline is set by an intermediary.
     /// </summary>
-    public IDateFormat2Choice? AttendanceConfirmationDeadline { get; init; } 
+    public DateFormat2Choice_? AttendanceConfirmationDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the beneficial owner or agent must notify of their intention to participate in a meeting (STP mode). This deadline is set by an intermediary.
     /// </summary>
-    public IDateFormat2Choice? AttendanceConfirmationSTPDeadline { get; init; } 
+    public DateFormat2Choice_? AttendanceConfirmationSTPDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the attendance to the meeting should be confirmed. This deadline is set by the issuer.
     /// </summary>
-    public IDateFormat2Choice? AttendanceConfirmationMarketDeadline { get; init; } 
+    public DateFormat2Choice_? AttendanceConfirmationMarketDeadline { get; init; } 
     /// <summary>
     /// Address to use over the www (HTTP) service where addtional information on the meeting may be found.
     /// </summary>
@@ -68,11 +68,11 @@ public partial record MeetingNotice2
     /// <summary>
     /// Date and time by which security holders can propose amendments or new resolutions. This deadline is set by an intermediary.
     /// </summary>
-    public IDateFormat2Choice? ResolutionProposalDeadline { get; init; } 
+    public DateFormat2Choice_? ResolutionProposalDeadline { get; init; } 
     /// <summary>
     /// Date and time by which security holders can propose amendments or new resolutions. This deadline is set by the issuer.
     /// </summary>
-    public IDateFormat2Choice? ResolutionProposalMarketDeadline { get; init; } 
+    public DateFormat2Choice_? ResolutionProposalMarketDeadline { get; init; } 
     /// <summary>
     /// Specifies the minimum stake in share capital or cash value or number of security holders required to table resolutions.
     /// </summary>
@@ -104,11 +104,11 @@ public partial record MeetingNotice2
     /// <summary>
     /// Contact person at the party organising the meeting, at the issuer or at an intermediary.
     /// </summary>
-    public IReadOnlyCollection<MeetingContactPerson1> ContactPersonDetails { get; init; } = [];
+    public MeetingContactPerson1[] ContactPersonDetails { get; init; } = [];
     /// <summary>
     /// Date on which a company publishes the results of its meeting.
     /// </summary>
-    public IDateFormat3Choice? ResultPublicationDate { get; init; } 
+    public DateFormat3Choice_? ResultPublicationDate { get; init; } 
     
     #nullable disable
 }

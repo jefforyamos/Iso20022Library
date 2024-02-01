@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationReference11Choice;
 /// <summary>
 /// Unambiguous identification of the confirmation transaction as known by the market infrastructure.
 /// </summary>
-public partial record MarketInfrastructureTransactionIdentification : IIdentificationReference11Choice
+public partial record MarketInfrastructureTransactionIdentification : IdentificationReference11Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

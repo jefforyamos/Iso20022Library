@@ -24,11 +24,11 @@ public partial record PriceValuation3
     /// <summary>
     /// Date and time of the price valuation for the investment fund/fund class.
     /// </summary>
-    public IDateAndDateTimeChoice? ValuationDateTime { get; init; } 
+    public DateAndDateTimeChoice_? ValuationDateTime { get; init; } 
     /// <summary>
     /// Date and time at which a price is applied, according to the terms stated in the prospectus. The NAV date is also known as the trade date. The NAV date becomes the trade date in an order.
     /// </summary>
-    public required IDateAndDateTimeChoice NAVDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ NAVDateTime { get; init; } 
     /// <summary>
     /// Investment fund class for which the net asset value is calculated.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record PriceValuation3
     /// <summary>
     /// Issuer of the fund.
     /// </summary>
-    public IPartyIdentification2Choice? FundManagementCompany { get; init; } 
+    public PartyIdentification2Choice_? FundManagementCompany { get; init; } 
     /// <summary>
     /// Value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
     /// </summary>
-    public IsoActiveOrHistoricCurrencyAndAmount? TotalNAV { get; init;  } // Warning: Don't know multiplicity.
+    public IsoActiveOrHistoricCurrencyAndAmount[] TotalNAV { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total number of investment fund class units that have been issued.
     /// </summary>
@@ -48,11 +48,11 @@ public partial record PriceValuation3
     /// <summary>
     /// Date and time of the next price valuation for the investment fund/fund class.
     /// </summary>
-    public IDateAndDateTimeChoice? NextValuationDateTime { get; init; } 
+    public DateAndDateTimeChoice_? NextValuationDateTime { get; init; } 
     /// <summary>
     /// Date and time of the previous price valuation for the investment fund/fund class.
     /// </summary>
-    public IDateAndDateTimeChoice? PreviousValuationDateTime { get; init; } 
+    public DateAndDateTimeChoice_? PreviousValuationDateTime { get; init; } 
     /// <summary>
     /// Specifies how the valuation is done, based on the schedule stated in the prospectus.
     /// </summary>
@@ -72,11 +72,11 @@ public partial record PriceValuation3
     /// <summary>
     /// Amount of money for which goods or services are offered, sold, or bought.
     /// </summary>
-    public UnitPrice15? PriceDetails { get; init;  } // Warning: Don't know multiplicity.
+    public UnitPrice15[] PriceDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to the price variations of an investment fund class.
     /// </summary>
-    public ValuationStatistics3? ValuationStatistics { get; init;  } // Warning: Don't know multiplicity.
+    public ValuationStatistics3[] ValuationStatistics { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Factors that give indications about the performance of a fund.
     /// </summary>

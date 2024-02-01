@@ -20,11 +20,11 @@ public partial record InvestorProfile2
     /// <summary>
     /// Type of profile.
     /// </summary>
-    public IProfileType1Choice? Type { get; init; } 
+    public ProfileType1Choice_? Type { get; init; } 
     /// <summary>
     /// Status of the profile.
     /// </summary>
-    public IInvestorProfileStatus1Choice? Status { get; init; } 
+    public InvestorProfileStatus1Choice_? Status { get; init; } 
     /// <summary>
     /// Information about the profile for treasury trading.
     /// </summary>

@@ -32,7 +32,7 @@ public partial record AdministrativeResponse1
     /// <summary>
     /// Contains details of the transaction to be retrieved.
     /// </summary>
-    public OriginalTransaction2? OriginalTransaction { get; init;  } // Warning: Don't know multiplicity.
+    public OriginalTransaction2[] OriginalTransaction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Component contains data structures applicable to certain industries that require specific data within transaction messages. 
     /// </summary>
@@ -40,7 +40,7 @@ public partial record AdministrativeResponse1
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData2? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData2[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Outcome of the processing of the authorisation
     /// </summary>
@@ -53,11 +53,11 @@ public partial record AdministrativeResponse1
     /// <summary>
     /// Contains protected data and the attributes used to protect the data.
     /// </summary>
-    public ProtectedData1? ProtectedData { get; init;  } // Warning: Don't know multiplicity.
+    public ProtectedData1[] ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OfferTypeFormat3Choice;
 /// <summary>
 /// Standard code to specify the conditions that apply to the offer.
 /// </summary>
-public partial record Code : IOfferTypeFormat3Choice
+public partial record Code : OfferTypeFormat3Choice_
 {
     public required OfferType2Code Value { get; init; }
 }

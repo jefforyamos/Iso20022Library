@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PoliticallyExposedPersonStatus1C
 /// <summary>
 /// Status of the politically exposed person expressed as a code.
 /// </summary>
-public partial record Code : IPoliticallyExposedPersonStatus1Choice
+public partial record Code : PoliticallyExposedPersonStatus1Choice_
 {
     public required PoliticallyExposedPersonStatus1Code Value { get; init; }
 }

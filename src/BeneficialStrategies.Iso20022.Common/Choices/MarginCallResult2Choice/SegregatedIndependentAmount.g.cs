@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginCallResult2Choice;
 /// <summary>
 /// Provides the summation of the call amounts for the segregated independent amount only.
 /// </summary>
-public partial record SegregatedIndependentAmount : IMarginCallResult2Choice
+public partial record SegregatedIndependentAmount : MarginCallResult2Choice_
 {
     #nullable enable
     /// <summary>

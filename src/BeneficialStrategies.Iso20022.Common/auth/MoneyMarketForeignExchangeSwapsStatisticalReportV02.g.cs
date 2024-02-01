@@ -56,7 +56,7 @@ public partial record MoneyMarketForeignExchangeSwapsStatisticalReportV02 : IOut
     [DataMember(Name="FXSwpsRpt")]
     [XmlElement(ElementName="FXSwpsRpt")]
     [Required]
-    public required IForeignExchangeSwap3Choice ForeignExchangeSwapsReport { get; init; }
+    public required ForeignExchangeSwap3Choice_ ForeignExchangeSwapsReport { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

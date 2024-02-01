@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketClientSide7Choice;
 /// <summary>
 /// Market side or a client side information expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IMarketClientSide7Choice
+public partial record Code : MarketClientSide7Choice_
 {
     public required MarketClientSide1Code Value { get; init; }
 }

@@ -28,15 +28,15 @@ public partial record StatementOfInvestmentFundTransactions3
     /// <summary>
     /// Creation/cancellation of investment units on the books of the fund or its designated agent, as a result of executing an investment fund order.
     /// </summary>
-    public InvestmentFundTransactionsByFund3? TransactionOnAccount { get; init;  } // Warning: Don't know multiplicity.
+    public InvestmentFundTransactionsByFund3[] TransactionOnAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Sub-account of the safekeeping or investment account.
     /// </summary>
-    public SubAccountIdentification36? SubAccountDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SubAccountIdentification36[] SubAccountDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1? Extension { get; init;  } // Warning: Don't know multiplicity.
+    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportItemStatus1Choice;
 /// <summary>
 /// Statement is rejected.
 /// </summary>
-public partial record Rejected : IReportItemStatus1Choice
+public partial record Rejected : ReportItemStatus1Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the exception status.
     /// </summary>
-    public required IReportItemRejectionReason1Choice Exception { get; init; } 
+    public required ReportItemRejectionReason1Choice_ Exception { get; init; } 
     /// <summary>
     /// Additional information about the reason for the status that cannot be provided in a structured field.
     /// </summary>

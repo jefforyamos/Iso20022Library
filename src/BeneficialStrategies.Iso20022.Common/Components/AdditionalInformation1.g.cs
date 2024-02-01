@@ -20,7 +20,7 @@ public partial record AdditionalInformation1
     /// <summary>
     /// Specifies the type of additional information.
     /// </summary>
-    public required IInformationType1Choice InformationType { get; init; } 
+    public required InformationType1Choice_ InformationType { get; init; } 
     /// <summary>
     /// Contents of the additional information.
     /// </summary>

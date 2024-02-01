@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IndividualPersonIdentificationCh
 /// <summary>
 /// Information related to an identification, eg, party identification or account identification.
 /// </summary>
-public partial record IdentificationNumber : IIndividualPersonIdentificationChoice
+public partial record IdentificationNumber : IndividualPersonIdentificationChoice_
 {
     #nullable enable
     /// <summary>

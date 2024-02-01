@@ -24,7 +24,7 @@ public partial record Organisation21
     /// <summary>
     /// Unique and unambiguous identifier for the organisation.
     /// </summary>
-    public IPartyIdentification72Choice? Identification { get; init; } 
+    public PartyIdentification72Choice_? Identification { get; init; } 
     /// <summary>
     /// Purpose of the organisation, for example, charity.
     /// </summary>

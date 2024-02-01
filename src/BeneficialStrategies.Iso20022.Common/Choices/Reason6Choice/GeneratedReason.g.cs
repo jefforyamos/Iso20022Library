@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Reason6Choice;
 /// <summary>
 /// Specifies the reason why the transaction was generated.
 /// </summary>
-public partial record GeneratedReason : IReason6Choice
+public partial record GeneratedReason : Reason6Choice_
 {
     #nullable enable
     #nullable disable

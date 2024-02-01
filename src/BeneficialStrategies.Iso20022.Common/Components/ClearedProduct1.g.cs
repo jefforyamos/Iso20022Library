@@ -20,7 +20,7 @@ public partial record ClearedProduct1
     /// <summary>
     /// Exchange or trading venue where product is traded.
     /// </summary>
-    public IsoMICIdentifier? TradingVenue { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMICIdentifier[] TradingVenue { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// CCP's unique identification for product cleared.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record ClearedProduct1
     /// <summary>
     /// Choice between the major categories of financial instruments.
     /// </summary>
-    public required IProduct1Choice Product { get; init; } 
+    public required Product1Choice_ Product { get; init; } 
     /// <summary>
     /// Measure of the current stock of a financial instrument that has been traded on an exchange or cleared via a central counterparty.
     /// </summary>

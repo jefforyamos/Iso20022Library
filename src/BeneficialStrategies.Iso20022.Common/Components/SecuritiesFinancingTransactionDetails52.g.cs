@@ -68,7 +68,7 @@ public partial record SecuritiesFinancingTransactionDetails52
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    public required IQuantity51Choice SettlementQuantity { get; init; } 
+    public required Quantity51Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Total amount of money to be paid or received in exchange for the securities at the opening of a securities financing transaction.
     /// </summary>
@@ -80,31 +80,31 @@ public partial record SecuritiesFinancingTransactionDetails52
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public required ISettlementDate19Choice OpeningSettlementDate { get; init; } 
+    public required SettlementDate19Choice_ OpeningSettlementDate { get; init; } 
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
-    public ITerminationDate6Choice? TerminationDate { get; init; } 
+    public TerminationDate6Choice_? TerminationDate { get; init; } 
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    public ITradeDate8Choice? TradeDate { get; init; } 
+    public TradeDate8Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date/time at which the sender expects settlement.
     /// </summary>
-    public IDateAndDateTime2Choice? ExpectedSettlementDate { get; init; } 
+    public DateAndDateTime2Choice_? ExpectedSettlementDate { get; init; } 
     /// <summary>
     /// For against payment transactions, the value date/time at which the account servicer expects the settlement amount to be credited or debited.
     /// </summary>
-    public IDateAndDateTime2Choice? ExpectedValueDate { get; init; } 
+    public DateAndDateTime2Choice_? ExpectedValueDate { get; init; } 
     /// <summary>
     /// Date and time after the settlement date specified in the trade, used for pool trades resulting from the original To Be Assigned (TBA) securities.
     /// </summary>
-    public IDateAndDateTime2Choice? LateDeliveryDate { get; init; } 
+    public DateAndDateTime2Choice_? LateDeliveryDate { get; init; } 
     /// <summary>
     /// Date/Time at which rate change has taken place.
     /// </summary>
-    public IDateAndDateTime2Choice? RateChangeDate { get; init; } 
+    public DateAndDateTime2Choice_? RateChangeDate { get; init; } 
     /// <summary>
     /// Specifies the type of securities financing transaction, that is, repurchase agreement, reverse repurchase agreement, securities lending or securities borrowing.
     /// </summary>
@@ -124,7 +124,7 @@ public partial record SecuritiesFinancingTransactionDetails52
     /// <summary>
     /// Specifies whether the rate is fixed or variable.
     /// </summary>
-    public IRateType35Choice? RateType { get; init; } 
+    public RateType35Choice_? RateType { get; init; } 
     /// <summary>
     /// Index or support rate used together with the spread to calculate the repurchase rate.
     /// </summary>
@@ -144,7 +144,7 @@ public partial record SecuritiesFinancingTransactionDetails52
     /// <summary>
     /// Interest rate to be paid on the transaction amount, as agreed between the counterparties.
     /// </summary>
-    public IRateOrName1Choice? PricingRate { get; init; } 
+    public RateOrName1Choice_? PricingRate { get; init; } 
     /// <summary>
     /// Repurchase spread expressed as a rate; margin over or under an index that determines the repurchase rate.
     /// </summary>

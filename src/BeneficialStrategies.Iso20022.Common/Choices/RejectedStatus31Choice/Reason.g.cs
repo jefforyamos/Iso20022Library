@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedStatus31Choice;
 /// <summary>
 /// Reason why the meeting instruction cancellation request message or the individual meeting instruction cancellation request is rejected.
 /// </summary>
-public partial record Reason : IRejectedStatus31Choice
+public partial record Reason : RejectedStatus31Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the rejected status.
     /// </summary>
-    public required IRejectedReason29Choice ReasonCode { get; init; } 
+    public required RejectedReason29Choice_ ReasonCode { get; init; } 
     /// <summary>
     /// Additional information about the rejection status.
     /// </summary>

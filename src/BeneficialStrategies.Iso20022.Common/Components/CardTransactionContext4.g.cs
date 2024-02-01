@@ -20,7 +20,7 @@ public partial record CardTransactionContext4
     /// <summary>
     /// Data used to assign specific condition such as liability shift or preferential interchange fees.
     /// </summary>
-    public CardTransactionCondition1? SpecialConditions { get; init;  } // Warning: Don't know multiplicity.
+    public CardTransactionCondition1[] SpecialConditions { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

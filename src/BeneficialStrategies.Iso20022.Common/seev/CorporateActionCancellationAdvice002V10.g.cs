@@ -72,7 +72,7 @@ public partial record CorporateActionCancellationAdvice002V10 : IOuterRecord
     [DataMember(Name="AcctsDtls")]
     [XmlElement(ElementName="AcctsDtls")]
     [Required]
-    public required IAccountIdentification43Choice AccountsDetails { get; init; }
+    public required AccountIdentification43Choice_ AccountsDetails { get; init; }
     
     /// <summary>
     /// Information about the corporate action event.
@@ -99,7 +99,7 @@ public partial record CorporateActionCancellationAdvice002V10 : IOuterRecord
     [Description(@"Party appointed to administer the event on behalf of the issuer company/offeror. The party may be contacted for more information about the event.")]
     [DataMember(Name="IssrAgt")]
     [XmlElement(ElementName="IssrAgt")]
-    public IPartyIdentification137Choice? IssuerAgent { get; init; }
+    public PartyIdentification137Choice_? IssuerAgent { get; init; }
     
     /// <summary>
     /// Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
@@ -108,7 +108,7 @@ public partial record CorporateActionCancellationAdvice002V10 : IOuterRecord
     [Description(@"Agent (principal or fiscal paying agent) appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
     [DataMember(Name="PngAgt")]
     [XmlElement(ElementName="PngAgt")]
-    public IPartyIdentification137Choice? PayingAgent { get; init; }
+    public PartyIdentification137Choice_? PayingAgent { get; init; }
     
     /// <summary>
     /// Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.
@@ -117,7 +117,7 @@ public partial record CorporateActionCancellationAdvice002V10 : IOuterRecord
     [Description(@"Sub-agent appointed to execute the payment for the corporate action event on behalf of the issuer company/offeror.")]
     [DataMember(Name="SubPngAgt")]
     [XmlElement(ElementName="SubPngAgt")]
-    public IPartyIdentification137Choice? SubPayingAgent { get; init; }
+    public PartyIdentification137Choice_? SubPayingAgent { get; init; }
     
     /// <summary>
     /// Party/agent responsible for maintaining the register of a security.
@@ -126,7 +126,7 @@ public partial record CorporateActionCancellationAdvice002V10 : IOuterRecord
     [Description(@"Party/agent responsible for maintaining the register of a security.")]
     [DataMember(Name="Regar")]
     [XmlElement(ElementName="Regar")]
-    public IPartyIdentification137Choice? Registrar { get; init; }
+    public PartyIdentification137Choice_? Registrar { get; init; }
     
     /// <summary>
     /// A broker-dealer responsible for reselling to new investors securities (usually bonds) that have been tendered for purchase by their owner.
@@ -135,7 +135,7 @@ public partial record CorporateActionCancellationAdvice002V10 : IOuterRecord
     [Description(@"A broker-dealer responsible for reselling to new investors securities (usually bonds) that have been tendered for purchase by their owner.")]
     [DataMember(Name="RsellngAgt")]
     [XmlElement(ElementName="RsellngAgt")]
-    public IPartyIdentification137Choice? ResellingAgent { get; init; }
+    public PartyIdentification137Choice_? ResellingAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution assigned by an issuer to accept presentations of instruments, usually bonds, for transfer and or exchange.
@@ -144,7 +144,7 @@ public partial record CorporateActionCancellationAdvice002V10 : IOuterRecord
     [Description(@"A trust company, bank or similar financial institution assigned by an issuer to accept presentations of instruments, usually bonds, for transfer and or exchange.")]
     [DataMember(Name="PhysSctiesAgt")]
     [XmlElement(ElementName="PhysSctiesAgt")]
-    public IPartyIdentification137Choice? PhysicalSecuritiesAgent { get; init; }
+    public PartyIdentification137Choice_? PhysicalSecuritiesAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution that acts on behalf of an out-of-town agent or event agent where securities can be delivered in person.
@@ -153,7 +153,7 @@ public partial record CorporateActionCancellationAdvice002V10 : IOuterRecord
     [Description(@"A trust company, bank or similar financial institution that acts on behalf of an out-of-town agent or event agent where securities can be delivered in person.")]
     [DataMember(Name="DrpAgt")]
     [XmlElement(ElementName="DrpAgt")]
-    public IPartyIdentification137Choice? DropAgent { get; init; }
+    public PartyIdentification137Choice_? DropAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution assigned by an issuer to maintain records of investors and account balances and transactions for the consent of a material change.
@@ -162,7 +162,7 @@ public partial record CorporateActionCancellationAdvice002V10 : IOuterRecord
     [Description(@"A trust company, bank or similar financial institution assigned by an issuer to maintain records of investors and account balances and transactions for the consent of a material change.")]
     [DataMember(Name="SlctnAgt")]
     [XmlElement(ElementName="SlctnAgt")]
-    public IPartyIdentification137Choice? SolicitationAgent { get; init; }
+    public PartyIdentification137Choice_? SolicitationAgent { get; init; }
     
     /// <summary>
     /// A trust company, bank or similar financial institution assigned by an Issuer to provide information and copies of the offering documentation.
@@ -171,7 +171,7 @@ public partial record CorporateActionCancellationAdvice002V10 : IOuterRecord
     [Description(@"A trust company, bank or similar financial institution assigned by an Issuer to provide information and copies of the offering documentation.")]
     [DataMember(Name="InfAgt")]
     [XmlElement(ElementName="InfAgt")]
-    public IPartyIdentification137Choice? InformationAgent { get; init; }
+    public PartyIdentification137Choice_? InformationAgent { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

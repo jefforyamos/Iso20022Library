@@ -24,7 +24,7 @@ public partial record MisMatchReport3
     /// <summary>
     /// Details of each mismatch occurrence.
     /// </summary>
-    public ValidationResult5? MisMatchInformation { get; init;  } // Warning: Don't know multiplicity.
+    public ValidationResult5[] MisMatchInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

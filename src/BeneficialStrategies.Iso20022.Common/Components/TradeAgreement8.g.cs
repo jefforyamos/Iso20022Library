@@ -28,7 +28,7 @@ public partial record TradeAgreement8
     /// <summary>
     /// Identification of a matching system reference by a choice between a matching system unique identification or the related reference.
     /// </summary>
-    public required IMatchingSystemReference1Choice MatchingSystemReference { get; init; } 
+    public required MatchingSystemReference1Choice_ MatchingSystemReference { get; init; } 
     /// <summary>
     /// Reference common to both parties of the trade.
     /// </summary>

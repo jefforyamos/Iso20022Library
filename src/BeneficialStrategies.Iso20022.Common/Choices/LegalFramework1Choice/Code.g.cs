@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LegalFramework1Choice;
 /// <summary>
 /// Legal framework expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ILegalFramework1Choice
+public partial record Code : LegalFramework1Choice_
 {
     public required LegalFramework1Code Value { get; init; }
 }

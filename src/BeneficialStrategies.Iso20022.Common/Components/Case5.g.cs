@@ -24,7 +24,7 @@ public partial record Case5
     /// <summary>
     /// Party that created the investigation case.
     /// </summary>
-    public required IParty40Choice Creator { get; init; } 
+    public required Party40Choice_ Creator { get; init; } 
     /// <summary>
     /// Indicates whether or not the case was previously closed and is now re-opened.
     /// </summary>

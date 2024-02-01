@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxAmountOrRate4Choice;
 /// <summary>
 /// Rate used to calculate the tax.
 /// </summary>
-public partial record Rate : ITaxAmountOrRate4Choice
+public partial record Rate : TaxAmountOrRate4Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

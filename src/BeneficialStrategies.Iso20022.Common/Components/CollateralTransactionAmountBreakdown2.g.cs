@@ -28,7 +28,7 @@ public partial record CollateralTransactionAmountBreakdown2
     /// <summary>
     /// Period that applies to the aggregate transation amount (exposure).
     /// </summary>
-    public IPeriod4Choice? Period { get; init; } 
+    public Period4Choice_? Period { get; init; } 
     
     #nullable disable
 }

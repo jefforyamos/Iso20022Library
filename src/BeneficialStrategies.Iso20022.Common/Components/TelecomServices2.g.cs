@@ -24,7 +24,7 @@ public partial record TelecomServices2
     /// <summary>
     /// Telecom Services Line Item component is designed to carry detail level telephony billing data and to enable issuers to supply more transaction information to their consumer and corporate clients pertaining to telecommunications services and related billing information. 
     /// </summary>
-    public TelecomServicesLineItem2? LineItem { get; init;  } // Warning: Don't know multiplicity.
+    public TelecomServicesLineItem2[] LineItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

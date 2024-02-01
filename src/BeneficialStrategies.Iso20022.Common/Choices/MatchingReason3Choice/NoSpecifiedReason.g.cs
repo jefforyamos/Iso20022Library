@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingReason3Choice;
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoSpecifiedReason : IMatchingReason3Choice
+public partial record NoSpecifiedReason : MatchingReason3Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

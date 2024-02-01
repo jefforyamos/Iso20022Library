@@ -20,7 +20,7 @@ public partial record Document11
     /// <summary>
     /// Type of document.
     /// </summary>
-    public IPresentationDocumentFormat1Choice? Type { get; init; } 
+    public PresentationDocumentFormat1Choice_? Type { get; init; } 
     /// <summary>
     /// Wording for document.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record Document11
     /// <summary>
     /// Details related to an electronic presentation.
     /// </summary>
-    public Presentation3? ElectronicDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Presentation3[] ElectronicDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

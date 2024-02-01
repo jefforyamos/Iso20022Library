@@ -48,11 +48,11 @@ public partial record TotalsPerBankTransactionCode5
     /// <summary>
     /// Set of elements used to indicate when the booked amount of money will become available, that is can be accessed and starts generating interest.
     /// </summary>
-    public CashAvailability1? Availability { get; init;  } // Warning: Don't know multiplicity.
+    public CashAvailability1[] Availability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the date (and time) of the transaction summary.
     /// </summary>
-    public IDateAndDateTime2Choice? Date { get; init; } 
+    public DateAndDateTime2Choice_? Date { get; init; } 
     
     #nullable disable
 }

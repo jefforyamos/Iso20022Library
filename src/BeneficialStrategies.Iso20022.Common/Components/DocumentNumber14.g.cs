@@ -20,7 +20,7 @@ public partial record DocumentNumber14
     /// <summary>
     /// Number used to identify a message or document.
     /// </summary>
-    public required IDocumentNumber6Choice Number { get; init; } 
+    public required DocumentNumber6Choice_ Number { get; init; } 
     
     #nullable disable
 }

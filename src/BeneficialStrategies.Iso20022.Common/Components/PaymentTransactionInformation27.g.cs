@@ -72,7 +72,7 @@ public partial record PaymentTransactionInformation27
     /// <summary>
     /// Provides information on the charges to be paid by the charge bearer(s) related to the processing of the return transaction.
     /// </summary>
-    public ChargesInformation5? ChargesInformation { get; init;  } // Warning: Don't know multiplicity.
+    public ChargesInformation5[] ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Agent that instructs the next party in the chain to carry out the (set of) instruction(s).||Usage: The instructing agent is the party sending the return message and not the party that sent the original instruction that is being returned.
     /// </summary>
@@ -84,7 +84,7 @@ public partial record PaymentTransactionInformation27
     /// <summary>
     /// Set of elements used to provide detailed information on the return reason.
     /// </summary>
-    public ReturnReasonInformation9? ReturnReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public ReturnReasonInformation9[] ReturnReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of key elements used to identify the original transaction that is being referred to.
     /// </summary>

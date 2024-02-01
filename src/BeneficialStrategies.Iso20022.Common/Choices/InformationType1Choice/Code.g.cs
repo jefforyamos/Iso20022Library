@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InformationType1Choice;
 /// <summary>
 /// Type of additional information in a coded form.
 /// </summary>
-public partial record Code : IInformationType1Choice
+public partial record Code : InformationType1Choice_
 {
     public required InformationType1Code Value { get; init; }
 }

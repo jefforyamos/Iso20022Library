@@ -28,7 +28,7 @@ public partial record CardTransaction18
     /// <summary>
     /// Card transaction details, which can be either globalised by the acquirer or individual transaction.
     /// </summary>
-    public ICardTransaction3Choice? Transaction { get; init; } 
+    public CardTransaction3Choice_? Transaction { get; init; } 
     /// <summary>
     /// Prepaid account for the transfer or loading of an amount of money.
     /// </summary>

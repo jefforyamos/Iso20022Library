@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationReason11Choice;
 /// <summary>
 /// Specifies the reason of the CancellationPending Status.
 /// </summary>
-public partial record Reason : ICancellationReason11Choice
+public partial record Reason : CancellationReason11Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the trade is wainting the cancellation.
     /// </summary>
-    public required IAwaitingCancellationReason1Choice Code { get; init; } 
+    public required AwaitingCancellationReason1Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional information about the reason in narrative form.
     /// </summary>

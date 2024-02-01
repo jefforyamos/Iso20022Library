@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkCurveName6Choice;
 /// <summary>
 /// Name of the index / benchmark of a floating rate bond.
 /// </summary>
-public partial record Index : IBenchmarkCurveName6Choice
+public partial record Index : BenchmarkCurveName6Choice_
 {
     public required BenchmarkCurveName2Code Value { get; init; }
 }

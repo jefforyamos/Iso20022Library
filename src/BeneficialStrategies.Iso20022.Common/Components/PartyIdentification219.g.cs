@@ -24,7 +24,7 @@ public partial record PartyIdentification219
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    public required IPartyIdentification195Choice Identification { get; init; } 
+    public required PartyIdentification195Choice_ Identification { get; init; } 
     /// <summary>
     /// Identifies the contact person by its name, given name and address.
     /// </summary>

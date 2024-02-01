@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IssuerOrInvestor1Choice;
 /// <summary>
 /// CSD Issuer of a security.
 /// </summary>
-public partial record IssuerCSD : IIssuerOrInvestor1Choice
+public partial record IssuerCSD : IssuerOrInvestor1Choice_
 {
     #nullable enable
     #nullable disable

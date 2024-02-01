@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesReferenceDeltaStatusRe
 /// <summary>
 /// Specifies instruments which have been terminated / have reached there pre-set termination data and are no longer valid instruments.
 /// </summary>
-public partial record TerminatedRecord : ISecuritiesReferenceDeltaStatusReport3Choice
+public partial record TerminatedRecord : SecuritiesReferenceDeltaStatusReport3Choice_
 {
     #nullable enable
     /// <summary>

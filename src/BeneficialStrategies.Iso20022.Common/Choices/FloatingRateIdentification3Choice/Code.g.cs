@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FloatingRateIdentification3Choic
 /// <summary>
 /// List of floating rate curves.
 /// </summary>
-public partial record Code : IFloatingRateIdentification3Choice
+public partial record Code : FloatingRateIdentification3Choice_
 {
     public required BenchmarkCurveName3Code Value { get; init; }
 }

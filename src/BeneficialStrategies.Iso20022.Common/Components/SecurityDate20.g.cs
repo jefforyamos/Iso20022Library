@@ -20,27 +20,27 @@ public partial record SecurityDate20
     /// <summary>
     /// Date/time at which the movement is due to take place (cash and/or securities).
     /// </summary>
-    public required IDateFormat30Choice PaymentDate { get; init; } 
+    public required DateFormat30Choice_ PaymentDate { get; init; } 
     /// <summary>
     /// Date/time at which securities become available for trading, for example first dealing date.
     /// </summary>
-    public IDateFormat30Choice? AvailableDate { get; init; } 
+    public DateFormat30Choice_? AvailableDate { get; init; } 
     /// <summary>
     /// Date/time at which a security will be entitled to a dividend.
     /// </summary>
-    public IDateFormat30Choice? DividendRankingDate { get; init; } 
+    public DateFormat30Choice_? DividendRankingDate { get; init; } 
     /// <summary>
     /// Date/time at which a payment can be made, for example, if payment date is a non-business day or to indicate the first payment date of an offer.
     /// </summary>
-    public IDateFormat30Choice? EarliestPaymentDate { get; init; } 
+    public DateFormat30Choice_? EarliestPaymentDate { get; init; } 
     /// <summary>
     /// Date/time at which security will assimilate, become fungible, or have the same rights to dividends as the parent issue.
     /// </summary>
-    public IDateFormat30Choice? PariPassuDate { get; init; } 
+    public DateFormat30Choice_? PariPassuDate { get; init; } 
     /// <summary>
     /// Date/time at which the securities to be reorganised will cease to be tradeable.
     /// </summary>
-    public IDateFormat30Choice? LastTradingDate { get; init; } 
+    public DateFormat30Choice_? LastTradingDate { get; init; } 
     
     #nullable disable
 }

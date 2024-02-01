@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionFrequencyType1For
 /// <summary>
 /// Standard code to specify the frequency of a CA event.
 /// </summary>
-public partial record Code : ICorporateActionFrequencyType1FormatChoice
+public partial record Code : CorporateActionFrequencyType1FormatChoice_
 {
     public required CorporateActionFrequencyType1Code Value { get; init; }
 }

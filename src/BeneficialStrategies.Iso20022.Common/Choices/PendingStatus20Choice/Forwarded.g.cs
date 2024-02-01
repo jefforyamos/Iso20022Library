@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingStatus20Choice;
 /// <summary>
 /// Allegement is forwarded.
 /// </summary>
-public partial record Forwarded : IPendingStatus20Choice
+public partial record Forwarded : PendingStatus20Choice_
 {
     #nullable enable
     /// <summary>

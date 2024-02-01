@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountOpeningType1Choice;
 /// <summary>
 /// Type of account opening instruction expressed as a code.
 /// </summary>
-public partial record Code : IAccountOpeningType1Choice
+public partial record Code : AccountOpeningType1Choice_
 {
     public required AccountOpeningType1Code Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record PostalAddress24
     /// <summary>
     /// Identifies the nature of the postal address.
     /// </summary>
-    public IAddressType3Choice? AddressType { get; init; } 
+    public AddressType3Choice_? AddressType { get; init; } 
     /// <summary>
     /// Identification of a division of a large organisation or building.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record PostalAddress24
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, presented in free format text.
     /// </summary>
-    public IReadOnlyCollection<IsoMax70Text> AddressLine { get; init; } = [];
+    public IsoMax70Text[] AddressLine { get; init; } = [];
     
     #nullable disable
 }

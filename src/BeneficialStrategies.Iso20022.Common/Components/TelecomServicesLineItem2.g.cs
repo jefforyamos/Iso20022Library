@@ -40,11 +40,11 @@ public partial record TelecomServicesLineItem2
     /// <summary>
     /// Contains the amount pertaining to the telephony billing event.
     /// </summary>
-    public Amount20? Charge { get; init;  } // Warning: Don't know multiplicity.
+    public Amount20[] Charge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total of taxes applicable to the billing amount
     /// </summary>
-    public Tax39? TotalTax { get; init;  } // Warning: Don't know multiplicity.
+    public Tax39[] TotalTax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total amount applicable to the billing event. 
     /// </summary>

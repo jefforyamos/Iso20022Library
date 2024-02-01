@@ -24,11 +24,11 @@ public partial record CardPaymentTransaction39
     /// <summary>
     /// Result of the verifications performed by the issuer to deliver or decline the authorisation.
     /// </summary>
-    public TransactionVerificationResult3? TransactionVerificationResult { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionVerificationResult3[] TransactionVerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Product code for which the authorisation was declined.
     /// </summary>
-    public IsoMax70Text? DeclinedProductCode { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] DeclinedProductCode { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Balance of the account, related to the payment.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record CardPaymentTransaction39
     /// <summary>
     /// Set of actions to be performed by the POI (Point Of Interaction) system.
     /// </summary>
-    public Action3? Action { get; init;  } // Warning: Don't know multiplicity.
+    public Action3[] Action { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Conversion between the currency of a card acceptor and the currency of a card issuer, provided by a dedicated service provider. The currency conversion has to be accepted by the cardholder.
     /// </summary>

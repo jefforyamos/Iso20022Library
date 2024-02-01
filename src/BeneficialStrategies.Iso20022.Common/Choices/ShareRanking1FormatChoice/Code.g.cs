@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ShareRanking1FormatChoice;
 /// <summary>
 /// Standard code to specify the share ranking.
 /// </summary>
-public partial record Code : IShareRanking1FormatChoice
+public partial record Code : ShareRanking1FormatChoice_
 {
     public required ShareRanking1Code Value { get; init; }
 }

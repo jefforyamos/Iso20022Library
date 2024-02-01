@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// <summary>
 /// Identification for a clearing system member, identified in the list of clearing system member identifications published externally.
 /// </summary>
-public partial record Identification : IClearingSystemMemberIdentification3Choice
+public partial record Identification : ClearingSystemMemberIdentification3Choice_
 {
     public required ExternalClearingSystemMemberCode Value { get; init; }
 }

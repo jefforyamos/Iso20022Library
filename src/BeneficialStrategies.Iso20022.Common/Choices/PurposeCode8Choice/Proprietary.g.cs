@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PurposeCode8Choice;
 /// <summary>
 /// Securities account purpose as a proprietary code.
 /// </summary>
-public partial record Proprietary : IPurposeCode8Choice
+public partial record Proprietary : PurposeCode8Choice_
 {
     #nullable enable
     /// <summary>

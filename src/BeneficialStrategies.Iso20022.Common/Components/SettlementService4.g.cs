@@ -32,7 +32,7 @@ public partial record SettlementService4
     /// <summary>
     /// Additional Settlement Information.
     /// </summary>
-    public AdditionalData1? AdditionalSettlementInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalSettlementInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

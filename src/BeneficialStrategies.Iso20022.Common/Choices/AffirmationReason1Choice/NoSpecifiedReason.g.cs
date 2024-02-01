@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AffirmationReason1Choice;
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoSpecifiedReason : IAffirmationReason1Choice
+public partial record NoSpecifiedReason : AffirmationReason1Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

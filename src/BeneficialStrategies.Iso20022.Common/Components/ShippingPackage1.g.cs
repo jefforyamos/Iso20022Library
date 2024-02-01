@@ -40,7 +40,7 @@ public partial record ShippingPackage1
     /// <summary>
     /// Contains the product details.
     /// </summary>
-    public Product7? Product { get; init;  } // Warning: Don't know multiplicity.
+    public Product7[] Product { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>

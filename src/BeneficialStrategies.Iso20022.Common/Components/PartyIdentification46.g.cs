@@ -20,7 +20,7 @@ public partial record PartyIdentification46
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    public required IPartyIdentification44Choice Identification { get; init; } 
+    public required PartyIdentification44Choice_ Identification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction for the party identified.
     /// </summary>

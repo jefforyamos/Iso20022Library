@@ -20,7 +20,7 @@ public partial record ReturnIndicator1
     /// <summary>
     /// Specifies the dates between which period the response results relate to.
     /// </summary>
-    public IDateOrDateTimePeriodChoice? ResponsePeriod { get; init; } 
+    public DateOrDateTimePeriodChoice_? ResponsePeriod { get; init; } 
     /// <summary>
     /// Identifies the authority request type as a code.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record ReturnIndicator1
     /// <summary>
     /// Provides the investigation result.
     /// </summary>
-    public required IInvestigationResult1Choice InvestigationResult { get; init; } 
+    public required InvestigationResult1Choice_ InvestigationResult { get; init; } 
     /// <summary>
     /// Additional information, in free text form, to complement the investigation result.
     /// </summary>

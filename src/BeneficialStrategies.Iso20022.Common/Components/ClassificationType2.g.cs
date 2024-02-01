@@ -28,7 +28,7 @@ public partial record ClassificationType2
     /// <summary>
     /// Proprietary classification of financial instrument.
     /// </summary>
-    public GenericIdentification36? AlternateClassification { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification36[] AlternateClassification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

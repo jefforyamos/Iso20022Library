@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity21Choice;
 /// <summary>
 /// Proprietary quantity of security format.
 /// </summary>
-public partial record ProprietaryQuantity : IQuantity21Choice
+public partial record ProprietaryQuantity : Quantity21Choice_
 {
     #nullable enable
     /// <summary>

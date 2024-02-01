@@ -36,7 +36,7 @@ public partial record RentalDetails1
     /// <summary>
     /// Time period for the whole duration of rental.
     /// </summary>
-    public PeriodUnit2Code? RentalTimePeriod { get; init;  } // Warning: Don't know multiplicity.
+    public PeriodUnit2Code[] RentalTimePeriod { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Time period expressed in a number of units (for example, 1 week, 3 days, etc.).
     /// </summary>

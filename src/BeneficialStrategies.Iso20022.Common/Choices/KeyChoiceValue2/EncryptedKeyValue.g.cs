@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.KeyChoiceValue2;
 /// <summary>
 /// Encrypted value of the cryptographic key.
 /// </summary>
-public partial record EncryptedKeyValue : IKeyChoiceValue2
+public partial record EncryptedKeyValue : KeyChoiceValue2_
 {
     #nullable enable
     /// <summary>

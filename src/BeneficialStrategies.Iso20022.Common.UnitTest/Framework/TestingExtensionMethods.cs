@@ -148,6 +148,26 @@ public static class TestingExtensionMethods
         Assert.Equal(dataObjectToSerialize, copy);
     }
 
+    public static void AssertOuterRecordDataContractSerializerRoundTrip<T>(this T dataObjectToSerialize, ITestOutputHelper? outputHelper = null)
+       where T : IOuterRecord
+    {
+        var serializer = new System.Runtime.Serialization.DataContractSerializer(typeof(T));
+        var memoryStream = new MemoryStream();
+        serializer.WriteObject(memoryStream, dataObjectToSerialize);
+        var valueInStream = memoryStream.ExtractStringContentsAndResetPointer();
+        outputHelper?.WriteLine($"The dataserializer has used this as the contents of the serialization: \r\n {valueInStream}\r\n");
+
+        // memoryStream.Position = 0;
+        // using (var textReader = new StreamReader(memoryStream, null, true, -1, true))
+        // {
+        //     outputHelper?.WriteLine($"The dataserializer has used this as the contents of the serialization: \r\n {textReader.ReadToEnd()}\r\n");
+        // }
+        memoryStream.Position = 0;
+        var copy = serializer.ReadObject(memoryStream);
+        Assert.Equal(dataObjectToSerialize, copy);
+    }
+
+
     public static void AssertDataContractSerializerDeserializesValidISO20022<T>(this T dataObjectToSerialize, string knownValidXml, ITestOutputHelper? outputHelper = null)
        where T : Iso20022Certified<T>
     {

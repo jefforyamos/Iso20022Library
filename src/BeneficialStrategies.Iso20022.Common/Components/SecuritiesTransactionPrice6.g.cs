@@ -28,7 +28,7 @@ public partial record SecuritiesTransactionPrice6
     /// <summary>
     /// Specifies the digital token when the number of units may not be known.
     /// </summary>
-    public DigitalTokenAmount2? DigitalToken { get; init;  } // Warning: Don't know multiplicity.
+    public DigitalTokenAmount2[] DigitalToken { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -20,11 +20,11 @@ public partial record VotingRightsThreshold1
     /// <summary>
     /// Voting rights threshold required for a resolution to pass in percentage or in quantity.
     /// </summary>
-    public required INumberOrPercentage1Choice Threshold { get; init; } 
+    public required NumberOrPercentage1Choice_ Threshold { get; init; } 
     /// <summary>
     /// Nature of the quantity used as a basis to set a threshold for voting on resolutions at general meetings.
     /// </summary>
-    public IThresholdBasis1Choice? ThresholdBasis { get; init; } 
+    public ThresholdBasis1Choice_? ThresholdBasis { get; init; } 
     
     #nullable disable
 }

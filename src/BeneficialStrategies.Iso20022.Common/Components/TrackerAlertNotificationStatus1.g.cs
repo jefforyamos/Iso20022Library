@@ -20,15 +20,15 @@ public partial record TrackerAlertNotificationStatus1
     /// <summary>
     /// Specifies the status of an alert, in a coded form.
     /// </summary>
-    public required ITrackerAlertStatus1Choice AlertStatus { get; init; } 
+    public required TrackerAlertStatus1Choice_ AlertStatus { get; init; } 
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    public ITrackerAlertStatusReason1Choice? StatusReason { get; init;  } // Warning: Don't know multiplicity.
+    public TrackerAlertStatusReason1Choice_[] StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further details on the status reason.||Usage: Additional information can be used for several purposes such as the reporting of repaired information.
     /// </summary>
-    public IsoMax105Text? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

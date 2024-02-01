@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConfirmationStatus1Choice;
 /// <summary>
 /// Status of the order confirmation is accepted or received or sent to next party or there is a communication problem with next party. There is no reason attached.
 /// </summary>
-public partial record Status : IConfirmationStatus1Choice
+public partial record Status : ConfirmationStatus1Choice_
 {
     public required OrderConfirmationStatus1Code Value { get; init; }
 }

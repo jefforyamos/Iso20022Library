@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BeneficiaryCertificationType2Cho
 /// <summary>
 /// Proprietary identification of the type of certification required.
 /// </summary>
-public partial record Proprietary : IBeneficiaryCertificationType2Choice
+public partial record Proprietary : BeneficiaryCertificationType2Choice_
 {
     #nullable enable
     /// <summary>

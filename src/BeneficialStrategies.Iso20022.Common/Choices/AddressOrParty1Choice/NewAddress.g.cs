@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AddressOrParty1Choice;
 /// <summary>
 /// New beneficiary address.
 /// </summary>
-public partial record NewAddress : IAddressOrParty1Choice
+public partial record NewAddress : AddressOrParty1Choice_
 {
     #nullable enable
     /// <summary>

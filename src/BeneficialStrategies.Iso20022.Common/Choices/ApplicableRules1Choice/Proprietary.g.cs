@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ApplicableRules1Choice;
 /// <summary>
 /// Applicable rules expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IApplicableRules1Choice
+public partial record Proprietary : ApplicableRules1Choice_
 {
     #nullable enable
     /// <summary>

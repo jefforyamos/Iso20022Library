@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat3Choice;
 /// <summary>
 /// Price expressed as a rate, ie, percentage.
 /// </summary>
-public partial record Rate : IPriceFormat3Choice
+public partial record Rate : PriceFormat3Choice_
 {
     #nullable enable
     /// <summary>
     /// Type of rate, eg, yield.
     /// </summary>
-    public required IPriceRateType3FormatChoice RateType { get; init; } 
+    public required PriceRateType3FormatChoice_ RateType { get; init; } 
     /// <summary>
     /// Price expressed as a rate, ie, percentage.
     /// </summary>

@@ -20,11 +20,11 @@ public partial record CRSStatus4
     /// <summary>
     /// Common Reporting Standard (CRS) status.
     /// </summary>
-    public required ICRSStatus3Choice Type { get; init; } 
+    public required CRSStatus3Choice_ Type { get; init; } 
     /// <summary>
     /// Source of the Common Reporting Standard (CRS) status.
     /// </summary>
-    public ICRSSource1Choice? Source { get; init; } 
+    public CRSSource1Choice_? Source { get; init; } 
     /// <summary>
     /// Reporting country for the CRS status when there is an exception at the country level.
     /// </summary>

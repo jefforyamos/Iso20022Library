@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingSystemReference1Choice;
 /// <summary>
 /// Refers to the identification of a previous event in the life of a trade which is amended or cancelled.
 /// </summary>
-public partial record RelatedReference : IMatchingSystemReference1Choice
+public partial record RelatedReference : MatchingSystemReference1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

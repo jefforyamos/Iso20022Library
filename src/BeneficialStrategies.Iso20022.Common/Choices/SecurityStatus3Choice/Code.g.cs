@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityStatus3Choice;
 /// <summary>
 /// Security status expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ISecurityStatus3Choice
+public partial record Code : SecurityStatus3Choice_
 {
     public required SecurityStatus2Code Value { get; init; }
 }

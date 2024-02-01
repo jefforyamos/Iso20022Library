@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnaffirmedReason2Choice;
 /// <summary>
 /// Specifies the reason why the instruction/request has a unaffirmed status.
 /// </summary>
-public partial record Proprietary : IUnaffirmedReason2Choice
+public partial record Proprietary : UnaffirmedReason2Choice_
 {
     #nullable enable
     /// <summary>

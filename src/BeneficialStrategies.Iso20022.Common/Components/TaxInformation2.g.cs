@@ -48,7 +48,7 @@ public partial record TaxInformation2
     /// <summary>
     /// Set of characteristics defining the type of tax.
     /// </summary>
-    public TaxDetails? TaxTypeInformation { get; init;  } // Warning: Don't know multiplicity.
+    public TaxDetails[] TaxTypeInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

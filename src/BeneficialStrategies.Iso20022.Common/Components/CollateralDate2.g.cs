@@ -24,7 +24,7 @@ public partial record CollateralDate2
     /// <summary>
     /// Date/time at which the instructing party requests the instruction to be executed. 
     /// </summary>
-    public IDateAndDateTime2Choice? RequestedExecutionDate { get; init; } 
+    public DateAndDateTime2Choice_? RequestedExecutionDate { get; init; } 
     /// <summary>
     /// Date on which the financial instruments are to be delivered or received.
     /// </summary>

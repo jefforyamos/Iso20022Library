@@ -20,7 +20,7 @@ public partial record RepairReason9
     /// <summary>
     /// Specifies the reason why the instruction/request has a repair status.
     /// </summary>
-    public required IRepairReason10Choice Code { get; init; } 
+    public required RepairReason10Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

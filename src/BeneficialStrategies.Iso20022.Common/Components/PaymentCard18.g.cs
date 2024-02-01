@@ -44,7 +44,7 @@ public partial record PaymentCard18
     /// <summary>
     /// Party that issues a payment card, as expressed by a numeric identification of the card issuer according to ISO/IEC 7812-1.
     /// </summary>
-    public IPartyIdentification70Choice? CardIssuerIdentification { get; init; } 
+    public PartyIdentification70Choice_? CardIssuerIdentification { get; init; } 
     /// <summary>
     /// Security code written on, or in, the card.
     /// </summary>

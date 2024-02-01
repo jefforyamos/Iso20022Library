@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BreakDown1Choice;
 /// <summary>
 /// The intention to pay is based on a purchase order.
 /// </summary>
-public partial record ByPurchaseOrder : IBreakDown1Choice
+public partial record ByPurchaseOrder : BreakDown1Choice_
 {
     #nullable enable
     /// <summary>

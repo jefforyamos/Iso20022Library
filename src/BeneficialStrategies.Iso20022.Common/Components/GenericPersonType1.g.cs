@@ -24,7 +24,7 @@ public partial record GenericPersonType1
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
-    public required IPersonIdentificationSchemeName1Choice SchemeName { get; init; } 
+    public required PersonIdentificationSchemeName1Choice_ SchemeName { get; init; } 
     
     #nullable disable
 }

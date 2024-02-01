@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType3Choice;
 /// <summary>
 /// Rate is determined using a data source scheme.
 /// </summary>
-public partial record Proprietary : IRateType3Choice
+public partial record Proprietary : RateType3Choice_
 {
     #nullable enable
     /// <summary>

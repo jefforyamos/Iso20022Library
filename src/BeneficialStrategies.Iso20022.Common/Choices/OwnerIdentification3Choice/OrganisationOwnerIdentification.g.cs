@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.OwnerIdentification3Choice;
 /// <summary>
 /// Identification of an organisation.
 /// </summary>
-public partial record OrganisationOwnerIdentification : IOwnerIdentification3Choice
+public partial record OrganisationOwnerIdentification : OwnerIdentification3Choice_
 {
     #nullable enable
     /// <summary>
     /// Unique identification of the party.
     /// </summary>
-    public required IPartyIdentification125Choice Party { get; init; } 
+    public required PartyIdentification125Choice_ Party { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for the party.
     /// </summary>

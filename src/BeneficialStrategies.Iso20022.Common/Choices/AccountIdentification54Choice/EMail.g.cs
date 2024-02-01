@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification54Choice;
 /// <summary>
 /// E-mail identifying the account.
 /// </summary>
-public partial record EMail : IAccountIdentification54Choice
+public partial record EMail : AccountIdentification54Choice_
 {
     public required IsoMax256Text Value { get; init; }
 }

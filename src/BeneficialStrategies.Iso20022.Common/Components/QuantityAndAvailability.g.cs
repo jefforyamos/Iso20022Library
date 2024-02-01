@@ -20,7 +20,7 @@ public partial record QuantityAndAvailability
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public required IFinancialInstrumentQuantityChoice Quantity { get; init; } 
+    public required FinancialInstrumentQuantityChoice_ Quantity { get; init; } 
     /// <summary>
     /// Indicates whether the quantity of securities on the sub-balance is available.
     /// </summary>

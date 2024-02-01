@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradePositionReport7Choice;
 /// <summary>
 /// Indicates a cancellation of a wrongly submitted entire report in case the contract never came into existence or was not subject to reporting requirements but was reported to a trade repository by mistake.
 /// </summary>
-public partial record Error : ITradePositionReport7Choice
+public partial record Error : TradePositionReport7Choice_
 {
     #nullable enable
     /// <summary>

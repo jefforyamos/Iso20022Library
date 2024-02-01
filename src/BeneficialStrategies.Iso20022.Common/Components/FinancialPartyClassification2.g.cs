@@ -20,7 +20,7 @@ public partial record FinancialPartyClassification2
     /// <summary>
     /// Classification of the business activities of the reporting counterparty.
     /// </summary>
-    public IsoNACEDomainIdentifier? Classification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoNACEDomainIdentifier[] Classification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Nature business activities of the reporting counterparty as an investment fund.
     /// </summary>

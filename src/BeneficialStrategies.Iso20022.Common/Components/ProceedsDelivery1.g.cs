@@ -24,15 +24,15 @@ public partial record ProceedsDelivery1
     /// <summary>
     /// Identification of the cash account to which the cash has to be delivered.
     /// </summary>
-    public required ICashAccountIdentification1Choice CashAccountIdentification { get; init; } 
+    public required CashAccountIdentification1Choice_ CashAccountIdentification { get; init; } 
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountOwnerIdentification { get; init; } 
+    public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Identification of the institution servicing the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountServicerIdentification { get; init; } 
+    public PartyIdentification2Choice_? AccountServicerIdentification { get; init; } 
     
     #nullable disable
 }

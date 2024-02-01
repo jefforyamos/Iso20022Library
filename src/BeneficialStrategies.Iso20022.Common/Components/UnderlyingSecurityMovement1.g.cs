@@ -24,11 +24,11 @@ public partial record UnderlyingSecurityMovement1
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
-    public required IUnitOrFaceAmount1Choice SecuritiesQuantity { get; init; } 
+    public required UnitOrFaceAmount1Choice_ SecuritiesQuantity { get; init; } 
     /// <summary>
     /// Provides information about the debited/credited securities account.
     /// </summary>
-    public IReadOnlyCollection<SecuritiesAccount8> AccountDetails { get; init; } = [];
+    public SecuritiesAccount8[] AccountDetails { get; init; } = [];
     
     #nullable disable
 }

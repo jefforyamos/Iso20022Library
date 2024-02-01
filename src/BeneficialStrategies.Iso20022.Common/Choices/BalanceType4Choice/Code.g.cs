@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceType4Choice;
 /// <summary>
 /// Specifies the code for the type of a balance, eg, opening booked balance.
 /// </summary>
-public partial record Code : IBalanceType4Choice
+public partial record Code : BalanceType4Choice_
 {
     public required BalanceType11Code Value { get; init; }
 }

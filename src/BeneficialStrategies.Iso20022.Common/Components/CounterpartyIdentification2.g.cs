@@ -20,11 +20,11 @@ public partial record CounterpartyIdentification2
     /// <summary>
     /// Identification of the counterparty in the transaction.
     /// </summary>
-    public required IOrganisationIdentification9Choice Identification { get; init; } 
+    public required OrganisationIdentification9Choice_ Identification { get; init; } 
     /// <summary>
     /// Identification of the branch of the counterparty, when the transaction concludes a transaction through a branch office.
     /// </summary>
-    public IBranch2Choice? Branch { get; init; } 
+    public Branch2Choice_? Branch { get; init; } 
     /// <summary>
     /// Country where the registered office of the counterparty is located or country of residence in case that the counterparty is a natural person.
     /// </summary>

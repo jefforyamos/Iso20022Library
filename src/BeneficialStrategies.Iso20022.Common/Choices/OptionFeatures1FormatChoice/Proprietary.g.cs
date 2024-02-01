@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionFeatures1FormatChoice;
 /// <summary>
 /// Proprietary code to express the feature of an option.
 /// </summary>
-public partial record Proprietary : IOptionFeatures1FormatChoice
+public partial record Proprietary : OptionFeatures1FormatChoice_
 {
     #nullable enable
     /// <summary>

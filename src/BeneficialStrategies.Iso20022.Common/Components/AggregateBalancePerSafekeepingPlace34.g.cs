@@ -24,7 +24,7 @@ public partial record AggregateBalancePerSafekeepingPlace34
     /// <summary>
     /// Market(s) on which the security is listed.
     /// </summary>
-    public IMarketIdentification3Choice? PlaceOfListing { get; init; } 
+    public MarketIdentification3Choice_? PlaceOfListing { get; init; } 
     /// <summary>
     /// Choice between formats for the entity to which the financial instruments are pledged.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record AggregateBalancePerSafekeepingPlace34
     /// <summary>
     /// Price of the financial instrument in one or more currencies.
     /// </summary>
-    public PriceInformation20? PriceDetails { get; init;  } // Warning: Don't know multiplicity.
+    public PriceInformation20[] PriceDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// </summary>
-    public ForeignExchangeTerms34? ForeignExchangeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ForeignExchangeTerms34[] ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the number of days used for calculating the accrued interest amount.
     /// </summary>
@@ -60,19 +60,19 @@ public partial record AggregateBalancePerSafekeepingPlace34
     /// <summary>
     /// Breakdown of the aggregate quantity reported into significant lots, for example, tax lots.
     /// </summary>
-    public QuantityBreakdown53? QuantityBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public QuantityBreakdown53[] QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the collateral movement.
     /// </summary>
-    public IExposureType16Choice? ExposureType { get; init; } 
+    public ExposureType16Choice_? ExposureType { get; init; } 
     /// <summary>
     /// Breakdown of the aggregate balance per meaningful sub-balances and availability.
     /// </summary>
-    public SubBalanceInformation14? BalanceBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public SubBalanceInformation14[] BalanceBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional instrument sub-balance information on all or parts of the reported financial instrument (unregistered, tax exempt, etc.).
     /// </summary>
-    public AdditionalBalanceInformation14? AdditionalBalanceBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalBalanceInformation14[] AdditionalBalanceBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional information on the holding.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CentralCounterPartyEligibility1C
 /// <summary>
 /// Central counterparty eligibility information expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICentralCounterPartyEligibility1Choice
+public partial record Proprietary : CentralCounterPartyEligibility1Choice_
 {
     #nullable enable
     /// <summary>

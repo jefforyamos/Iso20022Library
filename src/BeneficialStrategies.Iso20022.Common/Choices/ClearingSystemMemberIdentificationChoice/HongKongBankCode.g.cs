@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// <summary>
 /// Hong Kong Bank Code - identifies Hong Kong financial institutions on the Hong Kong local clearing system.
 /// </summary>
-public partial record HongKongBankCode : IClearingSystemMemberIdentificationChoice
+public partial record HongKongBankCode : ClearingSystemMemberIdentificationChoice_
 {
     public required IsoHongKongBankIdentifier Value { get; init; }
 }

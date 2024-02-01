@@ -24,7 +24,7 @@ public partial record PartyReport1
     /// <summary>
     /// Identifies the returned party reference data or error information.
     /// </summary>
-    public required IPartyOrBusinessError1Choice PartyOrError { get; init; } 
+    public required PartyOrBusinessError1Choice_ PartyOrError { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeConfirmation3Choice;
 /// <summary>
 /// Indicates that contract was not confirmed.
 /// </summary>
-public partial record NonConfirmed : ITradeConfirmation3Choice
+public partial record NonConfirmed : TradeConfirmation3Choice_
 {
     #nullable enable
     /// <summary>

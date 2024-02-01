@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxAmountOrRate4Choice;
 /// <summary>
 /// Amount of money resulting from the calculation of the tax.
 /// </summary>
-public partial record Amount : ITaxAmountOrRate4Choice
+public partial record Amount : TaxAmountOrRate4Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

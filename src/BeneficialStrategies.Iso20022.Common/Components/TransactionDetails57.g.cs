@@ -20,11 +20,11 @@ public partial record TransactionDetails57
     /// <summary>
     /// Specifies the type of activity to which this instruction relates.
     /// </summary>
-    public required ITransactionActivity1Choice TransactionActivity { get; init; } 
+    public required TransactionActivity1Choice_ TransactionActivity { get; init; } 
     /// <summary>
     /// Choice of type for the transaction reported.
     /// </summary>
-    public ISettlementOrCorporateActionEvent9Choice? SettlementTransactionOrCorporateActionEventType { get; init; } 
+    public SettlementOrCorporateActionEvent9Choice_? SettlementTransactionOrCorporateActionEventType { get; init; } 
     /// <summary>
     /// Specifies if the movement on a securities account results from a deliver or a receive instruction.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record TransactionDetails57
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public ISafekeepingPlaceFormat3Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Infrastructure which may be a component of a clearing house and which facilitates clearing and settlement for its members by standing between the buyer and the seller. It may net transactions and it substitutes itself as settlement counterparty for each position.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record TransactionDetails57
     /// <summary>
     /// Quantity of financial instrument (to be) posted to the safekeeping account.
     /// </summary>
-    public required IQuantity6Choice PostingQuantity { get; init; } 
+    public required Quantity6Choice_ PostingQuantity { get; init; } 
     /// <summary>
     /// Number of days on which the interest rate accrues (daily accrual note).
     /// </summary>
@@ -68,19 +68,19 @@ public partial record TransactionDetails57
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    public ITradeDate1Choice? TradeDate { get; init; } 
+    public TradeDate1Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date and time at which a transaction is completed and cleared, that is, payment is effected and securities are delivered.
     /// </summary>
-    public required IDateAndDateTimeChoice EffectiveSettlementDate { get; init; } 
+    public required DateAndDateTimeChoice_ EffectiveSettlementDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public ISettlementDate1Choice? SettlementDate { get; init; } 
+    public SettlementDate1Choice_? SettlementDate { get; init; } 
     /// <summary>
     /// Date and time assets become available to the account owner (in a credit entry), or cease to be available to the account owner (in a debit entry).
     /// </summary>
-    public IDateAndDateTimeChoice? ValueDate { get; init; } 
+    public DateAndDateTimeChoice_? ValueDate { get; init; } 
     /// <summary>
     /// Identifies the chain of delivering settlement parties.
     /// </summary>

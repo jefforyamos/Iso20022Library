@@ -20,11 +20,11 @@ public partial record DefaultFundReport1
     /// <summary>
     /// Provides details about the calculation of the clearing member contribution to the default fund.
     /// </summary>
-    public DefaultFund1? DefaultFundCalculation { get; init;  } // Warning: Don't know multiplicity.
+    public DefaultFund1[] DefaultFundCalculation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides details about the collateral held.
     /// </summary>
-    public Collateral3? CollateralDescription { get; init;  } // Warning: Don't know multiplicity.
+    public Collateral3[] CollateralDescription { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Excess amount that the central counterparty will restitute to the clearing member or deficit to be provided by the member for the guarantee fund.
     /// </summary>

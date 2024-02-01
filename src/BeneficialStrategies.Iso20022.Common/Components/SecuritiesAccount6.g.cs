@@ -28,11 +28,11 @@ public partial record SecuritiesAccount6
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountOwnerIdentification { get; init; } 
+    public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Identification of the place of safekeeping.
     /// </summary>
-    public required IPartyIdentification2Choice SafekeepingPlace { get; init; } 
+    public required PartyIdentification2Choice_ SafekeepingPlace { get; init; } 
     /// <summary>
     /// Provides information required for the registration of the security.
     /// </summary>

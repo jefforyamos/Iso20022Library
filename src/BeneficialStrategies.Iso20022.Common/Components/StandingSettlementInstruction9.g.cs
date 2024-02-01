@@ -20,11 +20,11 @@ public partial record StandingSettlementInstruction9
     /// <summary>
     /// Specifies what settlement standing instruction database is to be used to derive the settlement parties involved in the transaction.
     /// </summary>
-    public required ISettlementStandingInstructionDatabase3Choice SettlementStandingInstructionDatabase { get; init; } 
+    public required SettlementStandingInstructionDatabase3Choice_ SettlementStandingInstructionDatabase { get; init; } 
     /// <summary>
     /// Vendor of the Settlement Standing Instruction database requested to be consulted.
     /// </summary>
-    public IPartyIdentification32Choice? Vendor { get; init; } 
+    public PartyIdentification32Choice_? Vendor { get; init; } 
     /// <summary>
     /// Delivering parties, other than the seller, needed for deriving the standing settlement instruction (for example, depository) or provided for information purposes (for example, instructing party settlement chain).
     /// </summary>

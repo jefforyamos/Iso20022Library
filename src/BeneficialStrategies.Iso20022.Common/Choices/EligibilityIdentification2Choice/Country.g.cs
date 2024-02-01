@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EligibilityIdentification2Choice
 /// <summary>
 /// Country code used to identify the issuance country to be defined as eligible.
 /// </summary>
-public partial record Country : IEligibilityIdentification2Choice
+public partial record Country : EligibilityIdentification2Choice_
 {
     public required CountryCode Value { get; init; }
 }

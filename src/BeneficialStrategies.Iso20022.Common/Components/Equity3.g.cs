@@ -20,7 +20,7 @@ public partial record Equity3
     /// <summary>
     /// Indicates the level of priority to claim on income and assets of the company in case of the payment of dividends and in the event of a bankruptcy, for example, ordinary/common stocks, preferred stocks, subordinated debt, etc.
     /// </summary>
-    public required IPreferenceToIncome5Choice PreferenceToIncome { get; init; } 
+    public required PreferenceToIncome5Choice_ PreferenceToIncome { get; init; } 
     /// <summary>
     /// Date/time at which the security will no longer exist, for example, redeemable preference shares.
     /// </summary>

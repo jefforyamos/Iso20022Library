@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Branch6Choice;
 /// <summary>
 /// Identification of the branch office of a reporting counterparty.
 /// </summary>
-public partial record Identification : IBranch6Choice
+public partial record Identification : Branch6Choice_
 {
     #nullable enable
     #nullable disable

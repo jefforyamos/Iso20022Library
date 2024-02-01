@@ -32,7 +32,7 @@ public partial record ValidationResult3
     /// <summary>
     /// Description of the elements that violated the rule.
     /// </summary>
-    public ElementIdentification3? Element { get; init;  } // Warning: Don't know multiplicity.
+    public ElementIdentification3[] Element { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

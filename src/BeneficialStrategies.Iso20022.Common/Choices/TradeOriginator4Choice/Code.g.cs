@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeOriginator4Choice;
 /// <summary>
 /// Trading party capacity expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ITradeOriginator4Choice
+public partial record Code : TradeOriginator4Choice_
 {
     public required OriginatorRole2Code Value { get; init; }
 }

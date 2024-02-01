@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GeneralBusinessInformationCriter
 /// <summary>
 /// Recalls the criteria (search and return criteria) defined in a preceding query.
 /// </summary>
-public partial record QueryName : IGeneralBusinessInformationCriteriaDefinition1Choice
+public partial record QueryName : GeneralBusinessInformationCriteriaDefinition1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

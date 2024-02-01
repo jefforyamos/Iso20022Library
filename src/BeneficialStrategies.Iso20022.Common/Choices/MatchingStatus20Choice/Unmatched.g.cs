@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingStatus20Choice;
 /// <summary>
 /// Status is unmatched.
 /// </summary>
-public partial record Unmatched : IMatchingStatus20Choice
+public partial record Unmatched : MatchingStatus20Choice_
 {
     #nullable enable
     #nullable disable

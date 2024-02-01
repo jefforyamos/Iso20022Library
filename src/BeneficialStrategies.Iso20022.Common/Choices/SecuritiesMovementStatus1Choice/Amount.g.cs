@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesMovementStatus1Choice;
 /// <summary>
 /// Checks on the amount of the securities have failed for at least one security.
 /// </summary>
-public partial record Amount : ISecuritiesMovementStatus1Choice
+public partial record Amount : SecuritiesMovementStatus1Choice_
 {
     #nullable enable
     /// <summary>

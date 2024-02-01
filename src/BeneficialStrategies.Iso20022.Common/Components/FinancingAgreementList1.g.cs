@@ -28,7 +28,7 @@ public partial record FinancingAgreementList1
     /// <summary>
     /// Reference to related document.
     /// </summary>
-    public QualifiedDocumentInformation1? RelatedDocument { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1[] RelatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Requestor of the agreement(s).
     /// </summary>
@@ -52,11 +52,11 @@ public partial record FinancingAgreementList1
     /// <summary>
     /// Party or parties to notify and to acknowledge the agreement.
     /// </summary>
-    public FinancingNotificationParties1? NotificationInformation { get; init;  } // Warning: Don't know multiplicity.
+    public FinancingNotificationParties1[] NotificationInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// List of agreement items.
     /// </summary>
-    public FinancingAgreementItem1? Item { get; init;  } // Warning: Don't know multiplicity.
+    public FinancingAgreementItem1[] Item { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number of individual items contained in the list.
     /// </summary>

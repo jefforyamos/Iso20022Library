@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RequestType3Choice;
 /// <summary>
 /// Liquidity transfer request type, in a coded form.
 /// </summary>
-public partial record Code : IRequestType3Choice
+public partial record Code : RequestType3Choice_
 {
     public required StandingOrderQueryType1Code Value { get; init; }
 }

@@ -24,7 +24,7 @@ public partial record GenericOrganisationIdentification2
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
-    public IOrganisationIdentificationSchemeName2Choice? SchemeName { get; init; } 
+    public OrganisationIdentificationSchemeName2Choice_? SchemeName { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>

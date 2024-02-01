@@ -20,7 +20,7 @@ public partial record BankInstructions1
     /// <summary>
     /// Instructions from the bank.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> Text { get; init; } = [];
+    public IsoMax2000Text[] Text { get; init; } = [];
     /// <summary>
     /// Last date for a response to the bank instructions.
     /// </summary>

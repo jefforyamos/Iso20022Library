@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationRejectionStatus1Choi
 /// <summary>
 /// Reason advising the rejection of the instruction cancellation request in the form of a code.
 /// </summary>
-public partial record Code : ICancellationRejectionStatus1Choice
+public partial record Code : CancellationRejectionStatus1Choice_
 {
     public required RejectionReason2Code Value { get; init; }
 }

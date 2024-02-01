@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RepurchaseAgreementType3Choice;
 /// <summary>
 /// Indicates that the repurchase agreement is where a single, pre defined, financial instrument is sold and repurchased.
 /// </summary>
-public partial record SpecificCollateral : IRepurchaseAgreementType3Choice
+public partial record SpecificCollateral : RepurchaseAgreementType3Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassDetailedSubProductType
 /// <summary>
 /// Proprietary or institution's own code that specifies the type of commodity.
 /// </summary>
-public partial record Proprietary : IAssetClassDetailedSubProductType1Choice
+public partial record Proprietary : AssetClassDetailedSubProductType1Choice_
 {
     #nullable enable
     /// <summary>

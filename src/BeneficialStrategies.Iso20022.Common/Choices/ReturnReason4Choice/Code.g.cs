@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReturnReason4Choice;
 /// <summary>
 /// Reason for the return in a coded form.
 /// </summary>
-public partial record Code : IReturnReason4Choice
+public partial record Code : ReturnReason4Choice_
 {
     public required TransactionReturnReason1Code Value { get; init; }
 }

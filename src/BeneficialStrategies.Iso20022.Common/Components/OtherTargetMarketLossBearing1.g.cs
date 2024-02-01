@@ -24,7 +24,7 @@ public partial record OtherTargetMarketLossBearing1
     /// <summary>
     /// Choice of formats for the specification of whether the product is aimed at the type of loss bearing.
     /// </summary>
-    public ITargetMarket1Choice? Target { get; init; } 
+    public TargetMarket1Choice_? Target { get; init; } 
     /// <summary>
     /// Additional information about the target market and the investor's loss bearing.
     /// </summary>

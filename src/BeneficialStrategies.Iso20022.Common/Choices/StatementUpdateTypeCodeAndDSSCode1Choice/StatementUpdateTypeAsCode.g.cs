@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementUpdateTypeCodeAndDSSCod
 /// <summary>
 /// Update type expressed as a code.
 /// </summary>
-public partial record StatementUpdateTypeAsCode : IStatementUpdateTypeCodeAndDSSCode1Choice
+public partial record StatementUpdateTypeAsCode : StatementUpdateTypeCodeAndDSSCode1Choice_
 {
     public required StatementUpdateType1Code Value { get; init; }
 }

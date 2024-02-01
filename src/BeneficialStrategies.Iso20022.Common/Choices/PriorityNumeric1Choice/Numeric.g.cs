@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriorityNumeric1Choice;
 /// <summary>
 /// Specifies the execution priority of the instruction with a number between 0001 and 9999.
 /// </summary>
-public partial record Numeric : IPriorityNumeric1Choice
+public partial record Numeric : PriorityNumeric1Choice_
 {
     public required IsoExact4NumericText Value { get; init; }
 }

@@ -32,15 +32,15 @@ public partial record NonFinancialResponseContentComponent3
     /// <summary>
     /// Details of instalment supoported by the Service Provider.
     /// </summary>
-    public RecurringTransaction5? Instalment { get; init;  } // Warning: Don't know multiplicity.
+    public RecurringTransaction5[] Instalment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional elements sent by the ServiceProvider which are not linked to payment.
     /// </summary>
-    public ExternallyDefinedData4? AdditionalResponse { get; init;  } // Warning: Don't know multiplicity.
+    public ExternallyDefinedData4[] AdditionalResponse { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of actions to be performed by the POI (Point Of Interaction) system.
     /// </summary>
-    public Action14? Action { get; init;  } // Warning: Don't know multiplicity.
+    public Action14[] Action { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Result of the processing of the request.
     /// </summary>

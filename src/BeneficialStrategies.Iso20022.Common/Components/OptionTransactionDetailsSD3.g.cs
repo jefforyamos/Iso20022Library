@@ -36,7 +36,7 @@ public partial record OptionTransactionDetailsSD3
     /// <summary>
     /// Instructed quantity for reorganisation instructions or the deposit quantity for reorganisation / custody deposits.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice TransactionIdentificationQuantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ TransactionIdentificationQuantity { get; init; } 
     /// <summary>
     /// Amount based upon the DTC cash rate per instruction.
     /// </summary>
@@ -44,15 +44,15 @@ public partial record OptionTransactionDetailsSD3
     /// <summary>
     /// Quantity based upon the DTC security rate per instruction.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? EntitledQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? EntitledQuantity { get; init; } 
     /// <summary>
     /// Quantity entered by the agent on PUT (Mortgage Backed) instructions to be paid. This quantity can be for the full or partial instructed quantity.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? AgentEnteredQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? AgentEnteredQuantity { get; init; } 
     /// <summary>
     /// Instructed quantity less the quantity entered by Agent on PUT (Mortgage Backed) instructions. Remaining unpaid quantity.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? AgentRemainingQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? AgentRemainingQuantity { get; init; } 
     /// <summary>
     /// Customer identification entered by client upon instruction submission.
     /// </summary>

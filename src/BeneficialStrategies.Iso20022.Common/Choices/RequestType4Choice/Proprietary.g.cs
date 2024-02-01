@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RequestType4Choice;
 /// <summary>
 /// Request type is in proprietary format.
 /// </summary>
-public partial record Proprietary : IRequestType4Choice
+public partial record Proprietary : RequestType4Choice_
 {
     #nullable enable
     /// <summary>

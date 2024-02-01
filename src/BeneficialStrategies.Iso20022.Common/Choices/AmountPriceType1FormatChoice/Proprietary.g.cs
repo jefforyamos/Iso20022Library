@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountPriceType1FormatChoice;
 /// <summary>
 /// Proprietary code to express the amount price type.
 /// </summary>
-public partial record Proprietary : IAmountPriceType1FormatChoice
+public partial record Proprietary : AmountPriceType1FormatChoice_
 {
     #nullable enable
     /// <summary>

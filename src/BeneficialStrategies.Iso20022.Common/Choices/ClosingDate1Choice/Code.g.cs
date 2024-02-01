@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosingDate1Choice;
 /// <summary>
 /// Closing date is defined using a code or data source scheme.
 /// </summary>
-public partial record Code : IClosingDate1Choice
+public partial record Code : ClosingDate1Choice_
 {
     #nullable enable
     #nullable disable

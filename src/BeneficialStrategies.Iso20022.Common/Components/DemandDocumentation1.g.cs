@@ -28,7 +28,7 @@ public partial record DemandDocumentation1
     /// <summary>
     /// Document or template enclosed in the demand.
     /// </summary>
-    public Document9? EnclosedFile { get; init;  } // Warning: Don't know multiplicity.
+    public Document9[] EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Narrative text constituting the demand.
     /// </summary>

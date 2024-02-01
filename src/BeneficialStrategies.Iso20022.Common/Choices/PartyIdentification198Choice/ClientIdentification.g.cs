@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification198Choice;
 /// <summary>
 /// Unique and unambiguous identification of the client's counterparty.
 /// </summary>
-public partial record ClientIdentification : IPartyIdentification198Choice
+public partial record ClientIdentification : PartyIdentification198Choice_
 {
     public required IsoMax50Text Value { get; init; }
 }

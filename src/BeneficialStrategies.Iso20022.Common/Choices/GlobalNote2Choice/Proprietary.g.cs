@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GlobalNote2Choice;
 /// <summary>
 /// Global note expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IGlobalNote2Choice
+public partial record Proprietary : GlobalNote2Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeTransactionCondition8Choice
 /// <summary>
 /// Trade condition expressed as a code.
 /// </summary>
-public partial record Code : ITradeTransactionCondition8Choice
+public partial record Code : TradeTransactionCondition8Choice_
 {
     public required TradeTransactionCondition5Code Value { get; init; }
 }

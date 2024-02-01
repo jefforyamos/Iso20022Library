@@ -24,11 +24,11 @@ public partial record Margin3
     /// <summary>
     /// Provides details on the calculation of the variation margin.
     /// </summary>
-    public VariationMargin3? VariationMargin { get; init;  } // Warning: Don't know multiplicity.
+    public VariationMargin3[] VariationMargin { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides details on the margin type and amount.
     /// </summary>
-    public Margin4? OtherMargin { get; init;  } // Warning: Don't know multiplicity.
+    public Margin4[] OtherMargin { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

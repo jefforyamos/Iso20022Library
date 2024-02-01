@@ -20,7 +20,7 @@ public partial record Attendance2
     /// <summary>
     /// Conditions for physical admittance to the general meeting.
     /// </summary>
-    public IReadOnlyCollection<AttendanceAdmissionConditions2> AdmissionConditions { get; init; } = [];
+    public AttendanceAdmissionConditions2[] AdmissionConditions { get; init; } = [];
     /// <summary>
     /// Specifies how to order the attendance card or to give notice of attendance.
     /// </summary>
@@ -28,11 +28,11 @@ public partial record Attendance2
     /// <summary>
     /// Date and time by which the beneficial owner or agent must provide notification of its intention to participate in the meeting. This deadline is set by an intermediary.
     /// </summary>
-    public IDateFormat58Choice? ConfirmationDeadline { get; init; } 
+    public DateFormat58Choice_? ConfirmationDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the attendance to the meeting should be confirmed. This deadline is set by the issuer.
     /// </summary>
-    public IDateFormat58Choice? ConfirmationMarketDeadline { get; init; } 
+    public DateFormat58Choice_? ConfirmationMarketDeadline { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestmentNeed2Choice;
 /// <summary>
 /// Investment need expressed as a code.
 /// </summary>
-public partial record Code : IInvestmentNeed2Choice
+public partial record Code : InvestmentNeed2Choice_
 {
     public required InvestmentNeed2Code Value { get; init; }
 }

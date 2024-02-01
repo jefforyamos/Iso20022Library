@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StampDutyType1FormatChoice;
 /// <summary>
 /// Standard code to specify the stamp duty information.
 /// </summary>
-public partial record Code : IStampDutyType1FormatChoice
+public partial record Code : StampDutyType1FormatChoice_
 {
     public required StampDutyType1Code Value { get; init; }
 }

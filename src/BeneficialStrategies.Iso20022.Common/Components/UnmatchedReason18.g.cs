@@ -20,7 +20,7 @@ public partial record UnmatchedReason18
     /// <summary>
     /// Specifies the reason why the instruction has an unmatched status.
     /// </summary>
-    public required IUnmatchedReason25Choice Code { get; init; } 
+    public required UnmatchedReason25Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

@@ -52,7 +52,7 @@ public partial record AutomatedTellerMachine10
     /// <summary>
     /// List of ATM devices out of service.
     /// </summary>
-    public ATMDevice2Code? AvailableDevice { get; init;  } // Warning: Don't know multiplicity.
+    public ATMDevice2Code[] AvailableDevice { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

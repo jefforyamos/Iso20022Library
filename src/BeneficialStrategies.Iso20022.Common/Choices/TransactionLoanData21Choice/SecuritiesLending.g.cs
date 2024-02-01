@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData21Choice;
 /// <summary>
 /// Details of the securities lending transaction.
 /// </summary>
-public partial record SecuritiesLending : ITransactionLoanData21Choice
+public partial record SecuritiesLending : TransactionLoanData21Choice_
 {
     #nullable enable
     /// <summary>
@@ -26,7 +26,7 @@ public partial record SecuritiesLending : ITransactionLoanData21Choice
     /// <summary>
     /// Indication whether the transaction is open term or, i.e. has no fixed maturity date, or fixed term with a contractually agreed maturity date.
     /// </summary>
-    public IContractTerm3Choice? Term { get; init;  } // Warning: Don't know multiplicity.
+    public ContractTerm3Choice_? Term { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Indication of the type of assets subject of the transaction.
     /// </summary>
@@ -34,7 +34,7 @@ public partial record SecuritiesLending : ITransactionLoanData21Choice
     /// <summary>
     /// Interest rate (rate agreed to be paid by the lender for the reinvestment of the cash collateral minus lending fee) paid by the lender of the security or commodity to the borrower (positive rebate rate) or by the borrower to the lender (negative rebate rate) on the balance of the provided cash collateral.
     /// </summary>
-    public required IInterestRate20Choice RebateRate { get; init; } 
+    public required InterestRate20Choice_ RebateRate { get; init; } 
     /// <summary>
     /// Specifies loan value, that is the quantity or nominal amount multiplied by the price.
     /// </summary>
@@ -54,7 +54,7 @@ public partial record SecuritiesLending : ITransactionLoanData21Choice
     /// <summary>
     /// Indicates whether clearing of contract has taken place.
     /// </summary>
-    public required ICleared10Choice ClearingStatus { get; init; } 
+    public required Cleared10Choice_ ClearingStatus { get; init; } 
     /// <summary>
     /// Venue of execution shall be identified by a unique code for this venue.
     /// </summary>

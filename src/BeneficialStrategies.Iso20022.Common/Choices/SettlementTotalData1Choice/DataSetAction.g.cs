@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementTotalData1Choice;
 /// <summary>
 /// Where no transaction was concluded, this field should be set so that a valid transaction data file can be submitted to ESMA as per daily submission requirements.
 /// </summary>
-public partial record DataSetAction : ISettlementTotalData1Choice
+public partial record DataSetAction : SettlementTotalData1Choice_
 {
     public required ReportPeriodActivity1Code Value { get; init; }
 }

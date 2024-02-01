@@ -20,11 +20,11 @@ public partial record CorporateActionNarrative10
     /// <summary>
     /// Provides additional information or specifies in more detail the content of a message. This field may only be used when the information to be transmitted, cannot be coded.
     /// </summary>
-    public IsoMax350Text? AdditionalText { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax350Text[] AdditionalText { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional information regarding the party, for example, the contact unit or person responsible for the transaction identified in the message.
     /// </summary>
-    public IsoMax350Text? PartyContactNarrative { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax350Text[] PartyContactNarrative { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

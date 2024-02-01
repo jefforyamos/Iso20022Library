@@ -28,7 +28,7 @@ public partial record RejectionReason69
     /// <summary>
     /// Identification of the invalid or unrecognised reference.
     /// </summary>
-    public ILinkedMessage6Choice? LinkedMessage { get; init; } 
+    public LinkedMessage6Choice_? LinkedMessage { get; init; } 
     
     #nullable disable
 }

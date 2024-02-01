@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReplacementProcessingStatus7Choi
 /// <summary>
 /// Replacement of the trade is pending.
 /// </summary>
-public partial record Pending : IReplacementProcessingStatus7Choice
+public partial record Pending : ReplacementProcessingStatus7Choice_
 {
     #nullable enable
     /// <summary>

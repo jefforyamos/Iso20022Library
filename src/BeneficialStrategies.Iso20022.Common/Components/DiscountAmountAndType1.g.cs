@@ -20,7 +20,7 @@ public partial record DiscountAmountAndType1
     /// <summary>
     /// Specifies the type of the amount.
     /// </summary>
-    public IDiscountAmountType1Choice? Type { get; init; } 
+    public DiscountAmountType1Choice_? Type { get; init; } 
     /// <summary>
     /// Amount of money, which has been typed.
     /// </summary>

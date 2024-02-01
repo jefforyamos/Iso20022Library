@@ -20,7 +20,7 @@ public partial record Tax28
     /// <summary>
     /// Type of tax.
     /// </summary>
-    public required ITaxType1Choice Type { get; init; } 
+    public required TaxType1Choice_ Type { get; init; } 
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
@@ -28,11 +28,11 @@ public partial record Tax28
     /// <summary>
     /// Basis used to determine the capital gain or loss, for example, the purchase price.
     /// </summary>
-    public ITaxBasis1Choice? Basis { get; init; } 
+    public TaxBasis1Choice_? Basis { get; init; } 
     /// <summary>
     /// Party that receives the tax. The recipient of, and the party entitled to, the tax may be two different parties.
     /// </summary>
-    public IPartyIdentification70Choice? RecipientIdentification { get; init; } 
+    public PartyIdentification70Choice_? RecipientIdentification { get; init; } 
     /// <summary>
     /// Indicates whether a tax exemption applies.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record Tax28
     /// <summary>
     /// Reason for a tax exemption.
     /// </summary>
-    public IExemptionReason1Choice? ExemptionReason { get; init; } 
+    public ExemptionReason1Choice_? ExemptionReason { get; init; } 
     /// <summary>
     /// Information used to calculate the tax.
     /// </summary>

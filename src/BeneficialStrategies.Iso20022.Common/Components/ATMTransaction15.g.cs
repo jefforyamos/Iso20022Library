@@ -40,11 +40,11 @@ public partial record ATMTransaction15
     /// <summary>
     /// Amounts of the deposit transaction.
     /// </summary>
-    public DetailedAmount16? DetailedRequestedAmount { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount16[] DetailedRequestedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Deposited media put in the safe.
     /// </summary>
-    public ATMDepositedMedia1? DepositedMedia { get; init;  } // Warning: Don't know multiplicity.
+    public ATMDepositedMedia1[] DepositedMedia { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// True if a receipt has be requested by the customer.
     /// </summary>

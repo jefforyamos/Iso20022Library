@@ -30,7 +30,7 @@ public partial record PersonType2
     /// <summary>
     /// Unique identification of a person, as assigned by an institution, using an identification scheme is requested.
     /// </summary>
-    public GenericPersonType1? Other { get; init;  } // Warning: Don't know multiplicity.
+    public GenericPersonType1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

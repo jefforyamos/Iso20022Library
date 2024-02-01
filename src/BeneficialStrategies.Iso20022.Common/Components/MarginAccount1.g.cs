@@ -20,11 +20,11 @@ public partial record MarginAccount1
     /// <summary>
     /// Unique identifier of the margin account.
     /// </summary>
-    public required IPartyIdentification118Choice Identification { get; init; } 
+    public required PartyIdentification118Choice_ Identification { get; init; } 
     /// <summary>
     /// Operational construct used to record a position in a set of financial instruments, often linked by a common set of characteristics, ownership or trading strategy.
     /// </summary>
-    public PositionAccount1? PositionAccount { get; init;  } // Warning: Don't know multiplicity.
+    public PositionAccount1[] PositionAccount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

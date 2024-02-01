@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityPaper3Choice;
 /// <summary>
 /// Newsprint commodity derivative.
 /// </summary>
-public partial record Newsprint : IAssetClassCommodityPaper3Choice
+public partial record Newsprint : AssetClassCommodityPaper3Choice_
 {
     #nullable enable
     /// <summary>

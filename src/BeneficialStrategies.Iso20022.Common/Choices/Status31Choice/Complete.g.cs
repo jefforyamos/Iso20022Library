@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Status31Choice;
 /// <summary>
 /// Status of the transfer cancellation is complete. The cancellation instruction has been accepted and processed, the cancellation is complete.
 /// </summary>
-public partial record Complete : IStatus31Choice
+public partial record Complete : Status31Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the cancelled complete status.
     /// </summary>
-    public required ICancellationCompleteReason1Choice Reason { get; init; } 
+    public required CancellationCompleteReason1Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the cancelled complete status reason.
     /// </summary>

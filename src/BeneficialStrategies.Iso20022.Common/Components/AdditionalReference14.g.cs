@@ -24,7 +24,7 @@ public partial record AdditionalReference14
     /// <summary>
     /// Issuer of the reference.
     /// </summary>
-    public IPartyIdentification247Choice? ReferenceIssuer { get; init; } 
+    public PartyIdentification247Choice_? ReferenceIssuer { get; init; } 
     /// <summary>
     /// Name of a message.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record AdditionalReference14
     /// <summary>
     /// Identification of the type of message.
     /// </summary>
-    public required IDocumentNumber5Choice MessageNumber { get; init; } 
+    public required DocumentNumber5Choice_ MessageNumber { get; init; } 
     
     #nullable disable
 }

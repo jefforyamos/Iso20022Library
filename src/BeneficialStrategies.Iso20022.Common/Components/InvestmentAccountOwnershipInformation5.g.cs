@@ -36,7 +36,7 @@ public partial record InvestmentAccountOwnershipInformation5
     /// <summary>
     /// Information to support Know Your Customer processes.
     /// </summary>
-    public PartyProfileInformation1? InvestorProfileValidation { get; init;  } // Warning: Don't know multiplicity.
+    public PartyProfileInformation1[] InvestorProfileValidation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Percentage of ownership or of beneficial ownership of the shares/units in the account. All subsequent subscriptions and or redemptions will be allocated using the same percentage.
     /// </summary>

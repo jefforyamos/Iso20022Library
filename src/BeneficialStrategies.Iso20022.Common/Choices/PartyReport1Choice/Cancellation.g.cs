@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyReport1Choice;
 /// <summary>
 /// Cancellation of a party previously updated.
 /// </summary>
-public partial record Cancellation : IPartyReport1Choice
+public partial record Cancellation : PartyReport1Choice_
 {
     #nullable enable
     /// <summary>

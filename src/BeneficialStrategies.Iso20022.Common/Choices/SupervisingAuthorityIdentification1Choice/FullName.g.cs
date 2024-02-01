@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SupervisingAuthorityIdentificati
 /// <summary>
 /// Full name of the institution.
 /// </summary>
-public partial record FullName : ISupervisingAuthorityIdentification1Choice
+public partial record FullName : SupervisingAuthorityIdentification1Choice_
 {
     public required IsoMax350Text Value { get; init; }
 }

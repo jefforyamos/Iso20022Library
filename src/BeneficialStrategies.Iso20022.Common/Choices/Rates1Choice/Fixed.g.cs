@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Rates1Choice;
 /// <summary>
 /// Details of the fixed rate.
 /// </summary>
-public partial record Fixed : IRates1Choice
+public partial record Fixed : Rates1Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

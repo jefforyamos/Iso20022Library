@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionCalculationMethod
 /// <summary>
 /// Proprietary code to express the calculation method for drawings.
 /// </summary>
-public partial record Proprietary : ICorporateActionCalculationMethod1FormatChoice
+public partial record Proprietary : CorporateActionCalculationMethod1FormatChoice_
 {
     #nullable enable
     /// <summary>

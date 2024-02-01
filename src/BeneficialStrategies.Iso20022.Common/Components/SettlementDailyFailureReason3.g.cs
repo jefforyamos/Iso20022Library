@@ -20,11 +20,11 @@ public partial record SettlementDailyFailureReason3
     /// <summary>
     /// Fails due to lack of securities.
     /// </summary>
-    public required ISettlementTotalData1Choice FailedSecurities { get; init; } 
+    public required SettlementTotalData1Choice_ FailedSecurities { get; init; } 
     /// <summary>
     /// Fails due to lack of cash.
     /// </summary>
-    public required ISettlementTotalData1Choice FailedCash { get; init; } 
+    public required SettlementTotalData1Choice_ FailedCash { get; init; } 
     
     #nullable disable
 }

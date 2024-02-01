@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CardPaymentDataSetTransaction9Ch
 /// <summary>
 /// Completed card payment transaction to be captured.
 /// </summary>
-public partial record Completion : ICardPaymentDataSetTransaction9Choice
+public partial record Completion : CardPaymentDataSetTransaction9Choice_
 {
     #nullable enable
     /// <summary>

@@ -20,7 +20,7 @@ public partial record NonFinancialRequestContentComponent3
     /// <summary>
     /// Type of non financial request that the Acceptor wants to be processed.
     /// </summary>
-    public NonFinancialRequestType2Code? NonFinancialRequestType { get; init;  } // Warning: Don't know multiplicity.
+    public NonFinancialRequestType2Code[] NonFinancialRequestType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Card payment transaction between an acceptor and an acquirer.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record NonFinancialRequestContentComponent3
     /// <summary>
     /// Additional elements requested to the ServiceProvider which are not linked to payment.
     /// </summary>
-    public IReadOnlyCollection<ExternallyDefinedData4> AdditionalRequest { get; init; } = [];
+    public ExternallyDefinedData4[] AdditionalRequest { get; init; } = [];
     
     #nullable disable
 }

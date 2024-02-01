@@ -40,7 +40,7 @@ public partial record InterestAmount1
     /// <summary>
     /// Percentage charged for the use of an amount of money, usually expressed at an annual rate. The interest rate is the ratio of the amount of interest paid during a certain period of time compared to the principal amount of the interest bearing financial instrument.
     /// </summary>
-    public IInterestRate1Choice? InterestRate { get; init; } 
+    public InterestRate1Choice_? InterestRate { get; init; } 
     /// <summary>
     /// Specifies the computation method of (accrued) interest of the security.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record InterestAmount1
     /// <summary>
     /// Specifies whether the collateral has been posted against the variation margin, the segregated independent amount or to cover any other risk defined with a proprietary code.
     /// </summary>
-    public required ICollateralPurpose1Choice CollateralPurpose { get; init; } 
+    public required CollateralPurpose1Choice_ CollateralPurpose { get; init; } 
     /// <summary>
     /// Provides details about the opening collateral balance.
     /// </summary>

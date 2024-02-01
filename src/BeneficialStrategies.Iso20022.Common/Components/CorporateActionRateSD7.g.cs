@@ -24,7 +24,7 @@ public partial record CorporateActionRateSD7
     /// <summary>
     /// Corresponding rate of the security disbursed by CSD (for an example in US, DTC The Depository Trust Corporation).
     /// </summary>
-    public ICorporateActionRateSD6Choice? CSDSecurityRate { get; init; } 
+    public CorporateActionRateSD6Choice_? CSDSecurityRate { get; init; } 
     /// <summary>
     /// Denotes whether the rate is approximate.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record CorporateActionRateSD7
     /// <summary>
     /// Rate at which a fee will be charged to a DTC (The Depository Trust Corporation) participant.
     /// </summary>
-    public IPriceFormatSD1Choice? DTCFeeRate { get; init; } 
+    public PriceFormatSD1Choice_? DTCFeeRate { get; init; } 
     
     #nullable disable
 }

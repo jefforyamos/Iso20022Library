@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RenounceableEntitlementStatusTyp
 /// <summary>
 /// Proprietary identification of the renounceable status.
 /// </summary>
-public partial record Proprietary : IRenounceableEntitlementStatusTypeFormat4Choice
+public partial record Proprietary : RenounceableEntitlementStatusTypeFormat4Choice_
 {
     #nullable enable
     /// <summary>

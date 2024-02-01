@@ -24,7 +24,7 @@ public partial record ProprietaryStatusAndReason1
     /// <summary>
     /// Proprietary identification of the reason related to a proprietary status.
     /// </summary>
-    public ProprietaryReason1? ProprietaryReason { get; init;  } // Warning: Don't know multiplicity.
+    public ProprietaryReason1[] ProprietaryReason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

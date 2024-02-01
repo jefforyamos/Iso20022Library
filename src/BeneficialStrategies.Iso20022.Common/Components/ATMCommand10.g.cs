@@ -40,7 +40,7 @@ public partial record ATMCommand10
     /// <summary>
     /// Trace of reasons by the entities in the path from the origin of the command to the ATM.
     /// </summary>
-    public ATMCommandReason1Code? TraceReason { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCommandReason1Code[] TraceReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the reason to request this command.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record ATMCommand10
     /// <summary>
     /// Specific parameters attached to the command.
     /// </summary>
-    public IATMCommandParameters3Choice? CommandParameters { get; init; } 
+    public ATMCommandParameters3Choice_? CommandParameters { get; init; } 
     
     #nullable disable
 }

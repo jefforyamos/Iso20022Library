@@ -24,7 +24,7 @@ public partial record PaymentInstrument11
     /// <summary>
     /// Choice of payment instruments.
     /// </summary>
-    public required IPaymentInstrument17Choice PaymentInstrument { get; init; } 
+    public required PaymentInstrument17Choice_ PaymentInstrument { get; init; } 
     
     #nullable disable
 }

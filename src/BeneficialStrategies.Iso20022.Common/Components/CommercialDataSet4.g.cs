@@ -40,11 +40,11 @@ public partial record CommercialDataSet4
     /// <summary>
     /// Information about the goods and/or services of the underlying transaction.
     /// </summary>
-    public LineItem12? Goods { get; init;  } // Warning: Don't know multiplicity.
+    public LineItem12[] Goods { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the payment terms by means of a code and a limit in time.
     /// </summary>
-    public PaymentTerms4? PaymentTerms { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentTerms4[] PaymentTerms { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies how the transaction should be settled.
     /// </summary>

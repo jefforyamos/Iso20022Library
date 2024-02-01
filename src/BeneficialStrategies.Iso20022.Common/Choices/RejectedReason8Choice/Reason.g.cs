@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedReason8Choice;
 /// <summary>
 /// Reason for the rejected status.
 /// </summary>
-public partial record Reason : IRejectedReason8Choice
+public partial record Reason : RejectedReason8Choice_
 {
     #nullable enable
     #nullable disable

@@ -24,7 +24,7 @@ public partial record ClosingBalance6
     /// <summary>
     /// Closing balance for the statement period (final closing balance) or of this page (intermediary closing balance).
     /// </summary>
-    public required IClosingBalance7Choice ClosingBalance { get; init; } 
+    public required ClosingBalance7Choice_ ClosingBalance { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancelledReason12Choice;
 /// <summary>
 /// Cancelled reason expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICancelledReason12Choice
+public partial record Proprietary : CancelledReason12Choice_
 {
     #nullable enable
     /// <summary>

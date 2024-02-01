@@ -24,7 +24,7 @@ public partial record SegregatedIndependentAmountDispute2
     /// <summary>
     /// Specifies the type of dispute that is to be resolved regarding the disputed collateral amount.
     /// </summary>
-    public IDisputeResolutionType1Choice? DisputeResolutionType1Choice { get; init;  } // Warning: Don't know multiplicity.
+    public DisputeResolutionType1Choice_[] DisputeResolutionType1Choice { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

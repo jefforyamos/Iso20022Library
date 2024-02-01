@@ -96,7 +96,7 @@ public partial record InvestmentAccount26
     /// <summary>
     /// Detailed information about the investment fund associated to the account.
     /// </summary>
-    public FinancialInstrument10? FundDetails { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrument10[] FundDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Parameters to be applied on deal amount for orders when the amount is a fractional number.
     /// </summary>
@@ -104,7 +104,7 @@ public partial record InvestmentAccount26
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountServicer { get; init; } 
+    public PartyIdentification2Choice_? AccountServicer { get; init; } 
     
     #nullable disable
 }

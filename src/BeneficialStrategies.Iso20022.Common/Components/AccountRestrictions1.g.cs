@@ -36,11 +36,11 @@ public partial record AccountRestrictions1
     /// <summary>
     /// Regulator that may have to be informed about restrictions or limitations on the account or account party.
     /// </summary>
-    public IPartyIdentification70Choice? Regulator { get; init; } 
+    public PartyIdentification70Choice_? Regulator { get; init; } 
     /// <summary>
     /// Status of the restriction.
     /// </summary>
-    public IRestrictionStatus1Choice? Status { get; init; } 
+    public RestrictionStatus1Choice_? Status { get; init; } 
     /// <summary>
     /// Period of the restriction.
     /// </summary>

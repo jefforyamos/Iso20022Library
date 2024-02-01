@@ -24,19 +24,19 @@ public partial record SecurityRestriction3
     /// <summary>
     /// Type of the restriction, for example, selling restriction, buying restriction, placing restriction.
     /// </summary>
-    public ISecurityRestrictionType2Choice? RestrictionType { get; init; } 
+    public SecurityRestrictionType2Choice_? RestrictionType { get; init; } 
     /// <summary>
     /// Specifies the regulatory restrictions applicable to a security.
     /// </summary>
-    public ILegalRestrictions5Choice? LegalRestrictionType { get; init; } 
+    public LegalRestrictions5Choice_? LegalRestrictionType { get; init; } 
     /// <summary>
     /// Specifies whether the restriction to be applied is relevant for citizen, resident, country.
     /// </summary>
-    public IInvestorRestrictionType3Choice? InvestorRestrictionType { get; init;  } // Warning: Don't know multiplicity.
+    public InvestorRestrictionType3Choice_[] InvestorRestrictionType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of investor that is allowed to hold the security.
     /// </summary>
-    public IInvestorType3Choice? InvestorType { get; init;  } // Warning: Don't know multiplicity.
+    public InvestorType3Choice_[] InvestorType { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

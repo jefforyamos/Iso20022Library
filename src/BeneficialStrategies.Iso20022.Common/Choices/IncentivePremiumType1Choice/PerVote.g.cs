@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IncentivePremiumType1Choice;
 /// <summary>
 /// Number of votes giving right to a premium.
 /// </summary>
-public partial record PerVote : IIncentivePremiumType1Choice
+public partial record PerVote : IncentivePremiumType1Choice_
 {
     public required IsoNumber Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportItemRejectionReason1Choice
 /// <summary>
 /// Status reason expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IReportItemRejectionReason1Choice
+public partial record Proprietary : ReportItemRejectionReason1Choice_
 {
     #nullable enable
     /// <summary>

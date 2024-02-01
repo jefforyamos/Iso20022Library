@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity36Cho
 /// <summary>
 /// Quantity of digital tokens expressed as a number, for example, a number of blockchain tokens.
 /// </summary>
-public partial record DigitalTokenUnit : IFinancialInstrumentQuantity36Choice
+public partial record DigitalTokenUnit : FinancialInstrumentQuantity36Choice_
 {
     public required IsoMax30DecimalNumber Value { get; init; }
 }

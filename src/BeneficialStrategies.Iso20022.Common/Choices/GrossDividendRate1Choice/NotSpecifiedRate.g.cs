@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.GrossDividendRate1Choice;
 /// <summary>
 /// The value of the rate is not specified, eg, the rate is unknown.
 /// </summary>
-public partial record NotSpecifiedRate : IGrossDividendRate1Choice
+public partial record NotSpecifiedRate : GrossDividendRate1Choice_
 {
     #nullable enable
     #nullable disable

@@ -44,23 +44,23 @@ public partial record SaleToPOIProtocolParameter3
     /// <summary>
     /// Identify a message that a Sale system could send to the POI system.
     /// </summary>
-    public RetailerMessage1Code? AllowedSaleMessage { get; init;  } // Warning: Don't know multiplicity.
+    public RetailerMessage1Code[] AllowedSaleMessage { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identify a message that a POI system could send to the Sale system.
     /// </summary>
-    public RetailerMessage1Code? AllowedPOIMessage { get; init;  } // Warning: Don't know multiplicity.
+    public RetailerMessage1Code[] AllowedPOIMessage { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identify a service that a POI system could support to the Sale system.
     /// </summary>
-    public RetailerService2Code? AllowedPOIService { get; init;  } // Warning: Don't know multiplicity.
+    public RetailerService2Code[] AllowedPOIService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identify a device request that a Sale system could ask to the POI system.
     /// </summary>
-    public RetailerService8Code? AllowedSaleDevice { get; init;  } // Warning: Don't know multiplicity.
+    public RetailerService8Code[] AllowedSaleDevice { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// List of types that the receiver supports and that the sender could use as type of an ExternallyDefinedData message component.
     /// </summary>
-    public IsoMax1025Text? ExternallyTypeSupported { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax1025Text[] ExternallyTypeSupported { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

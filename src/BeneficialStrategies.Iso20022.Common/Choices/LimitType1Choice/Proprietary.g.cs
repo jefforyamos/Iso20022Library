@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LimitType1Choice;
 /// <summary>
 /// Type of the limit, in a proprietary form.
 /// </summary>
-public partial record Proprietary : ILimitType1Choice
+public partial record Proprietary : LimitType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

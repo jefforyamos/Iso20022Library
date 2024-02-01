@@ -20,7 +20,7 @@ public partial record ISAYearsOfIssue5
     /// <summary>
     /// ISA that was issued during the current fiscal year.
     /// </summary>
-    public ICurrentYearType1Choice? CurrentYear { get; init; } 
+    public CurrentYearType1Choice_? CurrentYear { get; init; } 
     /// <summary>
     /// Indicates whether the ISA contains a cash component asset for transfer.
     /// </summary>

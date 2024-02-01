@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EventType1Choice;
 /// <summary>
 /// Type of the event, in a coded form as published in an external list.
 /// </summary>
-public partial record Code : IEventType1Choice
+public partial record Code : EventType1Choice_
 {
     public required ExternalSystemEventType1Code Value { get; init; }
 }

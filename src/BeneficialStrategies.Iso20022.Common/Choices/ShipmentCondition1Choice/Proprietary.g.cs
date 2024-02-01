@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ShipmentCondition1Choice;
 /// <summary>
 /// Shipment conditions expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IShipmentCondition1Choice
+public partial record Proprietary : ShipmentCondition1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

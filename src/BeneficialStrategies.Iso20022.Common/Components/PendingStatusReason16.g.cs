@@ -20,7 +20,7 @@ public partial record PendingStatusReason16
     /// <summary>
     /// Reason for the pending status.
     /// </summary>
-    public required IPendingReason51Choice ReasonCode { get; init; } 
+    public required PendingReason51Choice_ ReasonCode { get; init; } 
     /// <summary>
     /// Additional information about the pending status.
     /// </summary>

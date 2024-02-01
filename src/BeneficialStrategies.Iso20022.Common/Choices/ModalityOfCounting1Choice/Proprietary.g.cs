@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModalityOfCounting1Choice;
 /// <summary>
 /// Modality of counting expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IModalityOfCounting1Choice
+public partial record Proprietary : ModalityOfCounting1Choice_
 {
     #nullable enable
     /// <summary>

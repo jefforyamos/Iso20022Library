@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FXStandingInstruction4Choice;
 /// <summary>
 /// Specifies whether the forex standing instruction in place should apply.
 /// </summary>
-public partial record Indicator : IFXStandingInstruction4Choice
+public partial record Indicator : FXStandingInstruction4Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

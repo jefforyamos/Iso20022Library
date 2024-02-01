@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementSystemMethod5Choice;
 /// <summary>
 /// Settlement system expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISettlementSystemMethod5Choice
+public partial record Proprietary : SettlementSystemMethod5Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationSource2Choice;
 /// <summary>
 /// Entity that issues the proprietary identification.
 /// </summary>
-public partial record Proprietary : IIdentificationSource2Choice
+public partial record Proprietary : IdentificationSource2Choice_
 {
     public required IsoRestrictedFINExact2Text Value { get; init; }
 }

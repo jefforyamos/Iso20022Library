@@ -24,7 +24,7 @@ public partial record GenericIdentification82
     /// <summary>
     /// Type of identification.
     /// </summary>
-    public required IOtherIdentification3Choice Type { get; init; } 
+    public required OtherIdentification3Choice_ Type { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>

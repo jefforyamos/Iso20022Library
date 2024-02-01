@@ -100,7 +100,7 @@ public partial record CorporateActionSD1
     /// <summary>
     /// Provides details of certificates that have been called for redemption.
     /// </summary>
-    public CorporateActionSD5? CertificateDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CorporateActionSD5[] CertificateDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

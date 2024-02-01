@@ -24,7 +24,7 @@ public partial record ChequeCancellationReason1
     /// <summary>
     /// Specifies the reason for the cancellation request.
     /// </summary>
-    public required IChequeCancellationReason1Choice Reason { get; init; } 
+    public required ChequeCancellationReason1Choice_ Reason { get; init; } 
     /// <summary>
     /// Further details on the cancellation request reason.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.WithdrawalReason1Choice;
 /// <summary>
 /// Withdrawal reason expressed as a code.
 /// </summary>
-public partial record Code : IWithdrawalReason1Choice
+public partial record Code : WithdrawalReason1Choice_
 {
     public required PortfolioWithdrawalReason1Code Value { get; init; }
 }

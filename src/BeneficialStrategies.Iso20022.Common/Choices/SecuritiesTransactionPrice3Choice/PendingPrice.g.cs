@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice3Choic
 /// <summary>
 /// Indicates that price is currently not available, but pending.
 /// </summary>
-public partial record PendingPrice : ISecuritiesTransactionPrice3Choice
+public partial record PendingPrice : SecuritiesTransactionPrice3Choice_
 {
     public required PriceStatus1Code Value { get; init; }
 }

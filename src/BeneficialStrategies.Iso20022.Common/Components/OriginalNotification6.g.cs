@@ -36,7 +36,7 @@ public partial record OriginalNotification6
     /// <summary>
     /// Identifies the original notification item, to which the cancellation advice refers.
     /// </summary>
-    public OriginalNotificationReference4? OriginalNotificationReference { get; init;  } // Warning: Don't know multiplicity.
+    public OriginalNotificationReference4[] OriginalNotificationReference { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

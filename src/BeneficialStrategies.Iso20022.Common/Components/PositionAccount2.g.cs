@@ -24,7 +24,7 @@ public partial record PositionAccount2
     /// <summary>
     /// Position in a financial instrument or set of financial instruments.
     /// </summary>
-    public Position1? Position { get; init;  } // Warning: Don't know multiplicity.
+    public Position1[] Position { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

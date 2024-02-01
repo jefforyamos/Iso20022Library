@@ -20,7 +20,7 @@ public partial record SecurityIdentification11
     /// <summary>
     /// Identification of a security.
     /// </summary>
-    public required ISecurityIdentification11Choice Identification { get; init; } 
+    public required SecurityIdentification11Choice_ Identification { get; init; } 
     /// <summary>
     /// Textual description of a security instrument.
     /// </summary>

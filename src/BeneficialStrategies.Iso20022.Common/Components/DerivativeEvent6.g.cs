@@ -24,11 +24,11 @@ public partial record DerivativeEvent6
     /// <summary>
     /// Indicates means of identification of a derivative event.
     /// </summary>
-    public IEventIdentifier1Choice? Identification { get; init; } 
+    public EventIdentifier1Choice_? Identification { get; init; } 
     /// <summary>
     /// Indicates the time stamp of a derivative event.
     /// </summary>
-    public IDateAndDateTime2Choice? TimeStamp { get; init; } 
+    public DateAndDateTime2Choice_? TimeStamp { get; init; } 
     /// <summary>
     /// Indicator of whether the modification of the swap transaction reflects newly agreed upon term(s) from the previously negotiated terms resulting in price forming event.
     /// Usage: When absent, meaning of AmendmentIndicator is False.

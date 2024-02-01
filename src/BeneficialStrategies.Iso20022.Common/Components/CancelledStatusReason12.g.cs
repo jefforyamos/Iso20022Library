@@ -20,7 +20,7 @@ public partial record CancelledStatusReason12
     /// <summary>
     /// Specifies the reason why the instruction or instruction cancellation has been cancelled.
     /// </summary>
-    public required ICancelledReason9Choice ReasonCode { get; init; } 
+    public required CancelledReason9Choice_ ReasonCode { get; init; } 
     /// <summary>
     /// Provides additional information about the processed instruction.
     /// </summary>

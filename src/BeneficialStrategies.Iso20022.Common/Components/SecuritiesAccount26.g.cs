@@ -24,7 +24,7 @@ public partial record SecuritiesAccount26
     /// <summary>
     /// Specifies the type of securities account.
     /// </summary>
-    public IPurposeCode7Choice? Type { get; init; } 
+    public PurposeCode7Choice_? Type { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>

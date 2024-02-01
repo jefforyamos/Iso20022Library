@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LegalRestrictions4Choice;
 /// <summary>
 /// Legal restrictions expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ILegalRestrictions4Choice
+public partial record Proprietary : LegalRestrictions4Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification11Choice;
 /// <summary>
 /// An infrastructure that is very often a component of a clearinghouse, and facilitates clearing and settlement for its members by standing between the buyer and the seller of a trade. It may net transactions, and substitutes itself as a settlement counterparty to each position.
 /// </summary>
-public partial record CentralCounterparty : IPartyIdentification11Choice
+public partial record CentralCounterparty : PartyIdentification11Choice_
 {
     public required IsoMICIdentifier Value { get; init; }
 }

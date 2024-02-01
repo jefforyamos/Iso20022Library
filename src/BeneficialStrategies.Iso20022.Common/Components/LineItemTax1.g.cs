@@ -20,11 +20,11 @@ public partial record LineItemTax1
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
-    public IsoCurrencyAndAmount? CalculatedAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount[] CalculatedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of tax applied.
     /// </summary>
-    public ITaxTypeFormat1Choice? TypeCode { get; init; } 
+    public TaxTypeFormat1Choice_? TypeCode { get; init; } 
     /// <summary>
     /// Date of the tax point date when this tax, levy or duty becomes applicable.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record LineItemTax1
     /// <summary>
     /// Category name, expressed as text, of the tax, levy or duty.
     /// </summary>
-    public IsoMax35Text? CategoryName { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] CategoryName { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

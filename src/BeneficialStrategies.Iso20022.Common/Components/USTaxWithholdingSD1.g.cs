@@ -28,11 +28,11 @@ public partial record USTaxWithholdingSD1
     /// <summary>
     /// Percentage of a cash distribution that will be withheld by a tax authority.
     /// </summary>
-    public IRateFormat6Choice? WithholdingTaxRate { get; init; } 
+    public RateFormat6Choice_? WithholdingTaxRate { get; init; } 
     /// <summary>
     /// Elected quantity per NRA tax code.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
     
     #nullable disable
 }

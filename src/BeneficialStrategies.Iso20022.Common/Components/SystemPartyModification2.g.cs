@@ -24,7 +24,7 @@ public partial record SystemPartyModification2
     /// <summary>
     /// Specifies the set of elements to be modified for the party reference data.
     /// </summary>
-    public required ISystemPartyModification2Choice RequestedModification { get; init; } 
+    public required SystemPartyModification2Choice_ RequestedModification { get; init; } 
     
     #nullable disable
 }

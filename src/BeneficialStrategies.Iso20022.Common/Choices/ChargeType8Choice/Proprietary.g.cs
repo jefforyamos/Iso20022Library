@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeType8Choice;
 /// <summary>
 /// Cost or charge expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IChargeType8Choice
+public partial record Proprietary : ChargeType8Choice_
 {
     #nullable enable
     /// <summary>

@@ -92,7 +92,7 @@ public partial record TransactionMatchingCriteria6
     /// <summary>
     /// Specifies whether the information on the settlement dates are matching or not.
     /// </summary>
-    public CompareDate3? SettlementDate { get; init;  } // Warning: Don't know multiplicity.
+    public CompareDate3[] SettlementDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the delivery types are matching or not.
     /// </summary>
@@ -104,15 +104,15 @@ public partial record TransactionMatchingCriteria6
     /// <summary>
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
-    public CompareDate3? PriceScheduleUnadjustedEffectiveDate { get; init;  } // Warning: Don't know multiplicity.
+    public CompareDate3[] PriceScheduleUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
-    public CompareDate3? PriceScheduleUnadjustedEndDate { get; init;  } // Warning: Don't know multiplicity.
+    public CompareDate3[] PriceScheduleUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the transaction price in effect between the unadjusted effective and end date are matching or not.
     /// </summary>
-    public CompareUnitPrice5? TransactionSchedulePrice { get; init;  } // Warning: Don't know multiplicity.
+    public CompareUnitPrice5[] TransactionSchedulePrice { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the package prices are matching or not.
     /// </summary>
@@ -124,15 +124,15 @@ public partial record TransactionMatchingCriteria6
     /// <summary>
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
-    public CompareDate3? NotionalAmountFirstLegUnadjustedEffectiveDate { get; init;  } // Warning: Don't know multiplicity.
+    public CompareDate3[] NotionalAmountFirstLegUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
-    public CompareDate3? NotionalAmountFirstLegUnadjustedEndDate { get; init;  } // Warning: Don't know multiplicity.
+    public CompareDate3[] NotionalAmountFirstLegUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the notional amount in effect on associated effective date of first legs are matching or not.
     /// </summary>
-    public CompareAmountAndDirection3? NotionalAmountFirstLegScheduleAmount { get; init;  } // Warning: Don't know multiplicity.
+    public CompareAmountAndDirection3[] NotionalAmountFirstLegScheduleAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the notional quantity first legs are matching or not.
     /// </summary>
@@ -140,15 +140,15 @@ public partial record TransactionMatchingCriteria6
     /// <summary>
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
-    public CompareDate3? NotionalQuantityFirstLegUnadjustedEffectiveDate { get; init;  } // Warning: Don't know multiplicity.
+    public CompareDate3[] NotionalQuantityFirstLegUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
-    public CompareDate3? NotionalQuantityFirstLegUnadjustedEndDate { get; init;  } // Warning: Don't know multiplicity.
+    public CompareDate3[] NotionalQuantityFirstLegUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the notional quantity in effect on associated effective date of first legs are matching or not.
     /// </summary>
-    public CompareLongFraction19DecimalNumber1? NotionalQuantityFirstLegScheduleQuantity { get; init;  } // Warning: Don't know multiplicity.
+    public CompareLongFraction19DecimalNumber1[] NotionalQuantityFirstLegScheduleQuantity { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the notional amount second legs are matching or not.
     /// </summary>
@@ -156,15 +156,15 @@ public partial record TransactionMatchingCriteria6
     /// <summary>
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
-    public CompareDate3? NotionalAmountSecondLegUnadjustedEffectiveDate { get; init;  } // Warning: Don't know multiplicity.
+    public CompareDate3[] NotionalAmountSecondLegUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
-    public CompareDate3? NotionalAmountSecondLegUnadjustedEndDate { get; init;  } // Warning: Don't know multiplicity.
+    public CompareDate3[] NotionalAmountSecondLegUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the notional amount in effect on associated effective date of second legs are matching or not.
     /// </summary>
-    public CompareAmountAndDirection3? NotionalAmountSecondLegScheduleAmount { get; init;  } // Warning: Don't know multiplicity.
+    public CompareAmountAndDirection3[] NotionalAmountSecondLegScheduleAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the notional quantity second legs are matching or not.
     /// </summary>
@@ -172,19 +172,19 @@ public partial record TransactionMatchingCriteria6
     /// <summary>
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
-    public CompareDate3? NotionalQuantitySecondLegUnadjustedEffectiveDate { get; init;  } // Warning: Don't know multiplicity.
+    public CompareDate3[] NotionalQuantitySecondLegUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
-    public CompareDate3? NotionalQuantitySecondLegUnadjustedEndDate { get; init;  } // Warning: Don't know multiplicity.
+    public CompareDate3[] NotionalQuantitySecondLegUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the notional quantity in effect on associated effective date of second legs are matching or not.
     /// </summary>
-    public CompareLongFraction19DecimalNumber1? NotionalQuantitySecondLegScheduleQuantity { get; init;  } // Warning: Don't know multiplicity.
+    public CompareLongFraction19DecimalNumber1[] NotionalQuantitySecondLegScheduleQuantity { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment related to elements not reported in dedicated fields.
     /// </summary>
-    public CompareOtherPayment1? OtherPayment { get; init;  } // Warning: Don't know multiplicity.
+    public CompareOtherPayment1[] OtherPayment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the interest fixed rate legs are matching or not.
     /// </summary>
@@ -328,7 +328,7 @@ public partial record TransactionMatchingCriteria6
     /// <summary>
     /// Specifies whether the information on the delivery points or zones are matching or not.
     /// </summary>
-    public CompareDeliveryInterconnectionPoint1? EnergyDeliveryPointOrZone { get; init;  } // Warning: Don't know multiplicity.
+    public CompareDeliveryInterconnectionPoint1[] EnergyDeliveryPointOrZone { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the interconnection points are matching or not.
     /// </summary>
@@ -340,7 +340,7 @@ public partial record TransactionMatchingCriteria6
     /// <summary>
     /// Attributes related to delivery of derivative contracts.
     /// </summary>
-    public CompareEnergyDeliveryAttribute1? DeliveryAttribute { get; init;  } // Warning: Don't know multiplicity.
+    public CompareEnergyDeliveryAttribute1[] DeliveryAttribute { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the option types are matching or not.
     /// </summary>
@@ -348,7 +348,7 @@ public partial record TransactionMatchingCriteria6
     /// <summary>
     /// Specifies whether the information on the exercise styles are matching or not.
     /// </summary>
-    public CompareOptionStyle1? OptionExerciseStyle { get; init;  } // Warning: Don't know multiplicity.
+    public CompareOptionStyle1[] OptionExerciseStyle { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the strike prices are matching or not.
     /// </summary>
@@ -356,15 +356,15 @@ public partial record TransactionMatchingCriteria6
     /// <summary>
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
-    public CompareDate3? OptionStrikePriceScheduleUnadjustedEffectiveDate { get; init;  } // Warning: Don't know multiplicity.
+    public CompareDate3[] OptionStrikePriceScheduleUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
-    public CompareDate3? OptionStrikePriceScheduleUnadjustedEndDate { get; init;  } // Warning: Don't know multiplicity.
+    public CompareDate3[] OptionStrikePriceScheduleUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the strike price in effect on associated effective dates are matching or not.
     /// </summary>
-    public CompareUnitPrice4? OptionStrikePriceScheduleAmount { get; init;  } // Warning: Don't know multiplicity.
+    public CompareUnitPrice4[] OptionStrikePriceScheduleAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the premium amounts are matching or not.
     /// </summary>

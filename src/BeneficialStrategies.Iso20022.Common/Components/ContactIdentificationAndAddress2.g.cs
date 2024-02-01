@@ -24,7 +24,7 @@ public partial record ContactIdentificationAndAddress2
     /// <summary>
     /// Role of the party in the payment.
     /// </summary>
-    public required IPaymentRole1Choice Role { get; init; } 
+    public required PaymentRole1Choice_ Role { get; init; } 
     /// <summary>
     /// Number, or virtual address, used for communication.
     /// </summary>

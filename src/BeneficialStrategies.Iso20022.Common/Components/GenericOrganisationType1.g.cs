@@ -24,7 +24,7 @@ public partial record GenericOrganisationType1
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
-    public required IOrganisationIdentificationSchemeName1Choice SchemeName { get; init; } 
+    public required OrganisationIdentificationSchemeName1Choice_ SchemeName { get; init; } 
     
     #nullable disable
 }

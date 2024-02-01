@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PledgeeFormat4Choice;
 /// <summary>
 /// Identification of the entity to which the financial instruments are pledged expressed as a code and a BIC.
 /// </summary>
-public partial record TypeAndIdentification : IPledgeeFormat4Choice
+public partial record TypeAndIdentification : PledgeeFormat4Choice_
 {
     #nullable enable
     /// <summary>

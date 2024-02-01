@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AirportName1Choice;
 /// <summary>
 /// Identifies an airport by means of its IATA identification code. Example: LHR.
 /// </summary>
-public partial record AirportCode : IAirportName1Choice
+public partial record AirportCode : AirportName1Choice_
 {
     public required IsoMax6Text Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record CancelledStatusReason16
     /// <summary>
     /// Reason for the cancelled status.
     /// </summary>
-    public ICancelledReason12Choice? Reason { get; init; } 
+    public CancelledReason12Choice_? Reason { get; init; } 
     /// <summary>
     /// Additional information about the cancelled status.
     /// </summary>

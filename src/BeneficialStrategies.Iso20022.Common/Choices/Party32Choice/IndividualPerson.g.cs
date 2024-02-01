@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Party32Choice;
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
-public partial record IndividualPerson : IParty32Choice
+public partial record IndividualPerson : Party32Choice_
 {
     #nullable enable
     /// <summary>
     /// Term used to address the person.
     /// </summary>
-    public INamePrefix1Choice? NamePrefix { get; init; } 
+    public NamePrefix1Choice_? NamePrefix { get; init; } 
     /// <summary>
     /// First name of the person.
     /// </summary>
@@ -78,7 +78,7 @@ public partial record IndividualPerson : IParty32Choice
     /// <summary>
     /// Specifies if due diligence checks on the political exposure of the investor or account servicer have been carried out and whether these checks are national or foreign. (A politically exposed person is someone who has been entrusted with a prominent public function, or an individual who is closely related to such a person.).
     /// </summary>
-    public IPoliticalExposureType1Choice? PoliticallyExposedPersonType { get; init; } 
+    public PoliticalExposureType1Choice_? PoliticallyExposedPersonType { get; init; } 
     /// <summary>
     /// Date of death.
     /// </summary>
@@ -86,7 +86,7 @@ public partial record IndividualPerson : IParty32Choice
     /// <summary>
     /// Civil status of the individual person.
     /// </summary>
-    public ICivilStatus1Choice? CivilStatus { get; init; } 
+    public CivilStatus1Choice_? CivilStatus { get; init; } 
     /// <summary>
     /// Highest level of education reached by the individual person.
     /// </summary>

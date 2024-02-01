@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Party13Choice;
 /// <summary>
 /// Unique and unambiguous identification of a financial institution.
 /// </summary>
-public partial record FinancialInstitutionIdentification : IParty13Choice
+public partial record FinancialInstitutionIdentification : Party13Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesReferenceDeltaStatusRe
 /// <summary>
 /// Specifies new instruments that have been added since the previous report.
 /// </summary>
-public partial record NewRecord : ISecuritiesReferenceDeltaStatusReport5Choice
+public partial record NewRecord : SecuritiesReferenceDeltaStatusReport5Choice_
 {
     #nullable enable
     /// <summary>

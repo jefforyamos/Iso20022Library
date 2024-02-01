@@ -24,7 +24,7 @@ public partial record PaymentInstruction13
     /// <summary>
     /// Type, or nature, of the payment, for example an express payment.
     /// </summary>
-    public IPaymentType4Choice? PaymentType { get; init; } 
+    public PaymentType4Choice_? PaymentType { get; init; } 
     
     #nullable disable
 }

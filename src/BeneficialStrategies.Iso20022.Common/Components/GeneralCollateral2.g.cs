@@ -20,7 +20,7 @@ public partial record GeneralCollateral2
     /// <summary>
     /// List of the identifiers of the securities eligible for a general collateral repurchase agreement.
     /// </summary>
-    public IsoMax35Text? EligibleFinancialInstrumentIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] EligibleFinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

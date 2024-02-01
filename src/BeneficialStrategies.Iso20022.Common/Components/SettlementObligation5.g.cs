@@ -24,7 +24,7 @@ public partial record SettlementObligation5
     /// <summary>
     /// Indicates the type of the obligation.
     /// </summary>
-    public IObligationType1Choice? ObligationType { get; init; } 
+    public ObligationType1Choice_? ObligationType { get; init; } 
     /// <summary>
     /// Provides additional information related to the linked obligation.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record SettlementObligation5
     /// <summary>
     /// Specifies the quantity related to the settlement obligation.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Provides the price applied to that net position.
     /// </summary>

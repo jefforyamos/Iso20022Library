@@ -26,7 +26,7 @@ public partial record UpdatedAdditionalInformation5SD3
     /// Total distribution fund rate per share.
     /// 一株あたりの交付金先等の額.
     /// </summary>
-    public IRateAndAmountFormat36Choice? DistributionAmountPerShare { get; init; } 
+    public RateAndAmountFormat36Choice_? DistributionAmountPerShare { get; init; } 
     /// <summary>
     /// Rate information of how much net asset decrease happens as a result of the fund distribution.
     /// </summary>
@@ -35,17 +35,17 @@ public partial record UpdatedAdditionalInformation5SD3
     /// Distribution amount of accumulated profit per share.
     /// 一株あたり利益剰余金の額.
     /// </summary>
-    public IRateAndAmountFormat36Choice? AccumulatedProfitPerShare { get; init; } 
+    public RateAndAmountFormat36Choice_? AccumulatedProfitPerShare { get; init; } 
     /// <summary>
     /// Taxable distribution amount of dividend.
     /// 一株あたりみなし配当の額.
     /// </summary>
-    public IRateAndAmountFormat36Choice? DeemedDividendPerShare { get; init; } 
+    public RateAndAmountFormat36Choice_? DeemedDividendPerShare { get; init; } 
     /// <summary>
     /// Tax exempted distribution amount of dividend. 
     /// 一株あたりみなし譲渡収入の額.
     /// </summary>
-    public IRateAndAmountFormat36Choice? ResidualDistributionAmountPerShare { get; init; } 
+    public RateAndAmountFormat36Choice_? ResidualDistributionAmountPerShare { get; init; } 
     
     #nullable disable
 }

@@ -28,11 +28,11 @@ public partial record AccountingStatementOfHoldings2
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
     /// </summary>
-    public AggregateBalanceInformation3? BalanceForAccount { get; init;  } // Warning: Don't know multiplicity.
+    public AggregateBalanceInformation3[] BalanceForAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// The sub-account of the safekeeping or investment account.
     /// </summary>
-    public SubAccountIdentification3? SubAccountDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SubAccountIdentification3[] SubAccountDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Value of total holdings reported.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record AccountingStatementOfHoldings2
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1? Extension { get; init;  } // Warning: Don't know multiplicity.
+    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

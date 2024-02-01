@@ -20,7 +20,7 @@ public partial record Intermediary13
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution, eg, Dun & Bradstreet Identification.
     /// </summary>
-    public required IPartyIdentification4Choice Identification { get; init; } 
+    public required PartyIdentification4Choice_ Identification { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>

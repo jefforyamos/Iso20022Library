@@ -32,7 +32,7 @@ public partial record ATMCassetteCounters1
     /// <summary>
     /// Counters of media inside the cassette.
     /// </summary>
-    public ATMCassetteCounters2? Counter { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCassetteCounters2[] Counter { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Current number of media present in the cassette.
     /// </summary>

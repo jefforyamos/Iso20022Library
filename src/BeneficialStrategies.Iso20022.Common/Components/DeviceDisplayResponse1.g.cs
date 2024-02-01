@@ -20,7 +20,7 @@ public partial record DeviceDisplayResponse1
     /// <summary>
     /// Give result for display request.
     /// </summary>
-    public OutputResult1? OutputResult { get; init;  } // Warning: Don't know multiplicity.
+    public OutputResult1[] OutputResult { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

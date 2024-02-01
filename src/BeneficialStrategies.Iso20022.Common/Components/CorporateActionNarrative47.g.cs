@@ -20,7 +20,7 @@ public partial record CorporateActionNarrative47
     /// <summary>
     /// Provides the entity making the offer and is different from the issuing company.
     /// </summary>
-    public UpdatedAdditionalInformation6? Offeror { get; init;  } // Warning: Don't know multiplicity.
+    public UpdatedAdditionalInformation6[] Offeror { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the new name of a company following a name change.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record CorporateActionNarrative47
     /// <summary>
     /// Provides the web address published for the event, that is, the address for the Universal Resource Locator (URL), for example, used over the www (HTTP) service.
     /// </summary>
-    public UpdatedURLlnformation5? URLAddress { get; init;  } // Warning: Don't know multiplicity.
+    public UpdatedURLlnformation5[] URLAddress { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementTransactionCondition7C
 /// <summary>
 /// Settlement conditions expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ISettlementTransactionCondition7Choice
+public partial record Code : SettlementTransactionCondition7Choice_
 {
     public required SettlementTransactionCondition6Code Value { get; init; }
 }

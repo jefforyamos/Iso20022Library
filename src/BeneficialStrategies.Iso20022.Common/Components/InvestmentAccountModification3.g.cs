@@ -36,7 +36,7 @@ public partial record InvestmentAccountModification3
     /// <summary>
     /// Account to which the account opening is related.
     /// </summary>
-    public Account23? ExistingAccountIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public Account23[] ExistingAccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

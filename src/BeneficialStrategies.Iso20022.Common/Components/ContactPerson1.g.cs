@@ -24,7 +24,7 @@ public partial record ContactPerson1
     /// <summary>
     /// Identification of the institution that the contact person represents.
     /// </summary>
-    public IPartyIdentification2Choice? InstitutionIdentification { get; init; } 
+    public PartyIdentification2Choice_? InstitutionIdentification { get; init; } 
     
     #nullable disable
 }

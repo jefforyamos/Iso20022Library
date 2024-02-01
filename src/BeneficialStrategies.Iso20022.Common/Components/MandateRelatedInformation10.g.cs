@@ -48,11 +48,11 @@ public partial record MandateRelatedInformation10
     /// <summary>
     /// Regularity with which direct debit instructions are to be created and processed.
     /// </summary>
-    public IFrequency21Choice? Frequency { get; init; } 
+    public Frequency21Choice_? Frequency { get; init; } 
     /// <summary>
     /// Reason for the direct debit mandate to allow the user to distinguish between different mandates for the same creditor.
     /// </summary>
-    public IMandateSetupReason1Choice? Reason { get; init; } 
+    public MandateSetupReason1Choice_? Reason { get; init; } 
     
     #nullable disable
 }

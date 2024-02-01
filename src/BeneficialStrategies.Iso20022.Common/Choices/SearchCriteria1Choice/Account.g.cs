@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SearchCriteria1Choice;
 /// <summary>
 /// Identifies the account as the search criteria for the financial institution to do the investigation.
 /// </summary>
-public partial record Account : ISearchCriteria1Choice
+public partial record Account : SearchCriteria1Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record Account : ISearchCriteria1Choice
     /// <summary>
     /// Specifies the investigated parties related to the account such as the owner, beneficiary, signatory or any party playing a role in that account for which the investigation needs to be done.
     /// </summary>
-    public required IInvestigatedParties1Choice InvestigatedParties { get; init; } 
+    public required InvestigatedParties1Choice_ InvestigatedParties { get; init; } 
     /// <summary>
     /// Identifies the authority request type as a code.
     /// </summary>

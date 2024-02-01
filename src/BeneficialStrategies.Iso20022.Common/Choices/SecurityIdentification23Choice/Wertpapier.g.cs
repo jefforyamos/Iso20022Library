@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification23Choice;
 /// <summary>
 /// Wertpapier Kenn-nummer. A number issued in Germany by the Wertpapier Mitteilungen. The Wertpapier Kenn-nummer, sometimes called WPK, contains 6-digits, but no check digit. There are different ranges of numbers representing different classes of securities.
 /// </summary>
-public partial record Wertpapier : ISecurityIdentification23Choice
+public partial record Wertpapier : SecurityIdentification23Choice_
 {
     public required IsoWertpapierIdentifier Value { get; init; }
 }

@@ -28,7 +28,7 @@ public partial record ATMTransaction7
     /// <summary>
     /// Sequence of actions to be performed by the ATM to complete the transaction.
     /// </summary>
-    public Action5? Action { get; init;  } // Warning: Don't know multiplicity.
+    public Action5[] Action { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Profile of the customer with the allowed services and restrictions.
     /// </summary>
@@ -40,11 +40,11 @@ public partial record ATMTransaction7
     /// <summary>
     /// Account information associated to the customer.
     /// </summary>
-    public CardAccount6? AccountInformation { get; init;  } // Warning: Don't know multiplicity.
+    public CardAccount6[] AccountInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Statement information of an account.
     /// </summary>
-    public ATMAccountStatement1? AccountStatementData { get; init;  } // Warning: Don't know multiplicity.
+    public ATMAccountStatement1[] AccountStatementData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Exchange rate and calculated amount to be presented to the customer when the dispense currency or the deposit currency (target currency) is different to account currency (source currency).
     /// </summary>
@@ -56,7 +56,7 @@ public partial record ATMTransaction7
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    public ATMCommand1? Command { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCommand1[] Command { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

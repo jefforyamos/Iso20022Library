@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument61Choice;
 /// <summary>
 /// Identification of the security.
 /// </summary>
-public partial record Security : IFinancialInstrument61Choice
+public partial record Security : FinancialInstrument61Choice_
 {
     #nullable enable
     /// <summary>
     /// Unique and unambiguous identifier of a security, assigned under a formal or proprietary identification scheme.
     /// </summary>
-    public required ISecurityIdentification25Choice Identification { get; init; } 
+    public required SecurityIdentification25Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
@@ -30,6 +30,6 @@ public partial record Security : IFinancialInstrument61Choice
     /// <summary>
     /// Type of security.
     /// </summary>
-    public IClassificationType32Choice? ClassificationType { get; init; } 
+    public ClassificationType32Choice_? ClassificationType { get; init; } 
     #nullable disable
 }

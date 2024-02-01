@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RetrievalDeliveryMethod1Choice;
 /// <summary>
 /// Method established by fulfilment system.
 /// </summary>
-public partial record EstablishedMethod : IRetrievalDeliveryMethod1Choice
+public partial record EstablishedMethod : RetrievalDeliveryMethod1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralBalance1Choice;
 /// <summary>
 /// Collateral currently received (+)/delivered (-) in the base currency. This amount is after the haircut has been applied.
 /// </summary>
-public partial record TotalCollateral : ICollateralBalance1Choice
+public partial record TotalCollateral : CollateralBalance1Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

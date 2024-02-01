@@ -36,7 +36,7 @@ public partial record RetrievalInitiation2
     /// <summary>
     /// Contains protected data and the attributes used to protect the data.
     /// </summary>
-    public ProtectedData1? ProtectedData { get; init;  } // Warning: Don't know multiplicity.
+    public ProtectedData1[] ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Destination ID or routing information of Retrieval fulfilment initiation message. 
     /// </summary>
@@ -44,7 +44,7 @@ public partial record RetrievalInitiation2
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

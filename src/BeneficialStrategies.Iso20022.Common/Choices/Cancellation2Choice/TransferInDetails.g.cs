@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation2Choice;
 /// <summary>
 /// Details of the transfer in request to cancel.
 /// </summary>
-public partial record TransferInDetails : ICancellation2Choice
+public partial record TransferInDetails : Cancellation2Choice_
 {
     #nullable enable
     /// <summary>

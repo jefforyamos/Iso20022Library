@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PortfolioTransferStatus2Choice;
 /// <summary>
 /// Status that cannot be reported using one of the available standard status.
 /// </summary>
-public partial record Proprietary : IPortfolioTransferStatus2Choice
+public partial record Proprietary : PortfolioTransferStatus2Choice_
 {
     #nullable enable
     /// <summary>

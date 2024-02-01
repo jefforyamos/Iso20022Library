@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnvironmental
 /// <summary>
 /// Carbon related environmental commodity derivative.
 /// </summary>
-public partial record CarbonRelated : IAssetClassCommodityEnvironmental2Choice
+public partial record CarbonRelated : AssetClassCommodityEnvironmental2Choice_
 {
     #nullable enable
     /// <summary>

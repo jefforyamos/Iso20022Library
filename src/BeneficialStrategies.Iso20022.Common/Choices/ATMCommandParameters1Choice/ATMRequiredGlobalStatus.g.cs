@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters1Choice;
 /// <summary>
 /// Required status of the ATM, parameters of the status update command.
 /// </summary>
-public partial record ATMRequiredGlobalStatus : IATMCommandParameters1Choice
+public partial record ATMRequiredGlobalStatus : ATMCommandParameters1Choice_
 {
     public required ATMStatus1Code Value { get; init; }
 }

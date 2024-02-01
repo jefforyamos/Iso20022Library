@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationFormat3Choice;
 /// <summary>
 /// Format expressed as a proprietary identification.
 /// </summary>
-public partial record ProprietaryIdentification : IIdentificationFormat3Choice
+public partial record ProprietaryIdentification : IdentificationFormat3Choice_
 {
     #nullable enable
     /// <summary>

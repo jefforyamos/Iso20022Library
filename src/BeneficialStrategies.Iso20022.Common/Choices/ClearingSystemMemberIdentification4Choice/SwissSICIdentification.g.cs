@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// <summary>
 /// Swiss Interbank Clearing (SIC) Code - identifies Swiss financial institutions domestically, on the Swiss national clearing system.
 /// </summary>
-public partial record SwissSICIdentification : IClearingSystemMemberIdentification4Choice
+public partial record SwissSICIdentification : ClearingSystemMemberIdentification4Choice_
 {
     public required IsoSwissSICIdentifier Value { get; init; }
 }

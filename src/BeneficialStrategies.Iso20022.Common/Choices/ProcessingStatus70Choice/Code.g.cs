@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus70Choice;
 /// <summary>
 /// Specifies the processing status of the instruction in a coded format.
 /// </summary>
-public partial record Code : IProcessingStatus70Choice
+public partial record Code : ProcessingStatus70Choice_
 {
     public required TransactionProcessingStatus4Code Value { get; init; }
 }

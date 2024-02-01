@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DefinedAttributes1Choice;
 /// <summary>
 /// Value defined attributes for derivatives where the terms of the contract define the value of payable per unit of a move in some published index. This includes the floating leg of interest rate swaps which implicitly are payments proportional to the change in the index.
 /// </summary>
-public partial record ValueDefinedAttributes : IDefinedAttributes1Choice
+public partial record ValueDefinedAttributes : DefinedAttributes1Choice_
 {
     #nullable enable
     /// <summary>

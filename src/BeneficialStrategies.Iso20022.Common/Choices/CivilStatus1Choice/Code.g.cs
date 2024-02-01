@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CivilStatus1Choice;
 /// <summary>
 /// Civil status expressed as a code.
 /// </summary>
-public partial record Code : ICivilStatus1Choice
+public partial record Code : CivilStatus1Choice_
 {
     public required CivilStatus1Code Value { get; init; }
 }

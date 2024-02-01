@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus90Choice;
 /// <summary>
 /// Instruction has been cancelled (only as a response to a SecuritiesTransactionStatusQuery). The status on the processing of a cancellation request must be provided using a SecuritiesTransactionCancellationRequestStatusAdvice.
 /// </summary>
-public partial record Cancelled : IProcessingStatus90Choice
+public partial record Cancelled : ProcessingStatus90Choice_
 {
     #nullable enable
     #nullable disable

@@ -24,7 +24,7 @@ public partial record GeneralBusinessReport6
     /// <summary>
     /// Requested business information.
     /// </summary>
-    public required IGeneralBusinessOrError8Choice GeneralBusinessOrError { get; init; } 
+    public required GeneralBusinessOrError8Choice_ GeneralBusinessOrError { get; init; } 
     
     #nullable disable
 }

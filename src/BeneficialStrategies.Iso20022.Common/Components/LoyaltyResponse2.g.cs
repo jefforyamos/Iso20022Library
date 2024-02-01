@@ -32,7 +32,7 @@ public partial record LoyaltyResponse2
     /// <summary>
     /// Data related to the result of a processed loyalty transaction.
     /// </summary>
-    public LoyaltyResult2? Result { get; init;  } // Warning: Don't know multiplicity.
+    public LoyaltyResult2[] Result { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

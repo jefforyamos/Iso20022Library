@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceRateOrAmountOrUnknown2Choic
 /// <summary>
 /// Indicates whether the market price is unknown.
 /// </summary>
-public partial record UnknownIndicator : IPriceRateOrAmountOrUnknown2Choice
+public partial record UnknownIndicator : PriceRateOrAmountOrUnknown2Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

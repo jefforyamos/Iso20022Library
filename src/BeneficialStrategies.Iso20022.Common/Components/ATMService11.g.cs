@@ -32,7 +32,7 @@ public partial record ATMService11
     /// <summary>
     /// Identification of the variant of the service.
     /// </summary>
-    public IsoMax35Text? ServiceVariantIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] ServiceVariantIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// True if deposit with cash back transaction.
     /// </summary>

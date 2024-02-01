@@ -32,7 +32,7 @@ public partial record DetailedInstructionCancellationStatus14
     /// <summary>
     /// Status of an individual meeting instruction cancellation request.
     /// </summary>
-    public required ICancellationStatus26Choice InstructionCancellationStatus { get; init; } 
+    public required CancellationStatus26Choice_ InstructionCancellationStatus { get; init; } 
     
     #nullable disable
 }

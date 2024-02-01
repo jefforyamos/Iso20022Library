@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingProcessingReason9Choice;
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoSpecifiedReason : IPendingProcessingReason9Choice
+public partial record NoSpecifiedReason : PendingProcessingReason9Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

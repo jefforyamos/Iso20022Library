@@ -24,31 +24,31 @@ public partial record CorporateActionDateSD9
     /// <summary>
     /// Actual early expiration time as set by the issuer/offer/agent.
     /// </summary>
-    public IDateFormat49Choice? ActualEarlyExpirationDate { get; init; } 
+    public DateFormat49Choice_? ActualEarlyExpirationDate { get; init; } 
     /// <summary>
     /// Last day protect instructions can be submitted to the issuer / agent.
     /// </summary>
-    public IDateFormat49Choice? ActualProtectExpirationDate { get; init; } 
+    public DateFormat49Choice_? ActualProtectExpirationDate { get; init; } 
     /// <summary>
     /// Last day protect instructions can be submitted to the issuer / agent for the early expiration.
     /// </summary>
-    public IDateFormat49Choice? ActualEarlyProtectExpirationDate { get; init; } 
+    public DateFormat49Choice_? ActualEarlyProtectExpirationDate { get; init; } 
     /// <summary>
     /// Last day protect instructions can be submitted to DTC for the early expiration.
     /// </summary>
-    public IDateFormat49Choice? DTCEarlyProtectExpirationDate { get; init; } 
+    public DateFormat49Choice_? DTCEarlyProtectExpirationDate { get; init; } 
     /// <summary>
     /// Last day cover early protect instructions can be submitted to the issuer / agent.
     /// </summary>
-    public IDateFormat49Choice? ActualEarlyCoverProtectExpirationDate { get; init; } 
+    public DateFormat49Choice_? ActualEarlyCoverProtectExpirationDate { get; init; } 
     /// <summary>
     /// Last day cover early protect instructions can be submitted to DTC.
     /// </summary>
-    public IDateFormat49Choice? DTCEarlyCoverProtectExpirationDate { get; init; } 
+    public DateFormat49Choice_? DTCEarlyCoverProtectExpirationDate { get; init; } 
     /// <summary>
     /// For Reorganization events, date at which instructions will be accepted by agent for payment.
     /// </summary>
-    public IDateFormat49Choice? ProcessToDate { get; init; } 
+    public DateFormat49Choice_? ProcessToDate { get; init; } 
     
     #nullable disable
 }

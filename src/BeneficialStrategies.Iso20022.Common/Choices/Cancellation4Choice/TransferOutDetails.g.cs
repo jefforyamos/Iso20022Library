@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation4Choice;
 /// <summary>
 /// Details of the transfer out request to cancel.
 /// </summary>
-public partial record TransferOutDetails : ICancellation4Choice
+public partial record TransferOutDetails : Cancellation4Choice_
 {
     #nullable enable
     /// <summary>
     /// Requested date at which the instructing party places the transfer instruction.
     /// </summary>
-    public IDateFormat1Choice? RequestedTransferDate { get; init; } 
+    public DateFormat1Choice_? RequestedTransferDate { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>

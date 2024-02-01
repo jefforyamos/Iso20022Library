@@ -24,7 +24,7 @@ public partial record SignedQuantityFormat12
     /// <summary>
     /// Choice between different quantity of security formats.
     /// </summary>
-    public required IQuantity53Choice QuantityChoice { get; init; } 
+    public required Quantity53Choice_ QuantityChoice { get; init; } 
     
     #nullable disable
 }

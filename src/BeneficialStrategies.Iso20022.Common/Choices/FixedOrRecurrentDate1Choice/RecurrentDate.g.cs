@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FixedOrRecurrentDate1Choice;
 /// <summary>
 /// Details related to recurrent dates on which the variation is triggered.
 /// </summary>
-public partial record RecurrentDate : IFixedOrRecurrentDate1Choice
+public partial record RecurrentDate : FixedOrRecurrentDate1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus4Choice;
 /// <summary>
 /// Status advising on the processing of the instruction.
 /// </summary>
-public partial record ProcessingStatus : IInstructionStatus4Choice
+public partial record ProcessingStatus : InstructionStatus4Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ConfirmationRejectedReason1Choic
 /// <summary>
 /// Reason for the rejected status.
 /// </summary>
-public partial record Proprietary : IConfirmationRejectedReason1Choice
+public partial record Proprietary : ConfirmationRejectedReason1Choice_
 {
     #nullable enable
     /// <summary>

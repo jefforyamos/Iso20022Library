@@ -20,11 +20,11 @@ public partial record SystemStatus3
     /// <summary>
     /// Current status of a system.
     /// </summary>
-    public required ISystemStatus2Choice Status { get; init; } 
+    public required SystemStatus2Choice_ Status { get; init; } 
     /// <summary>
     /// Period of time during which the status of the system is valid.
     /// </summary>
-    public IDateTimePeriod1Choice? ValidityTime { get; init; } 
+    public DateTimePeriod1Choice_? ValidityTime { get; init; } 
     
     #nullable disable
 }

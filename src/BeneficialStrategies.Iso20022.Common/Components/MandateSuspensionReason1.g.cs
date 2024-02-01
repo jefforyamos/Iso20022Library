@@ -24,11 +24,11 @@ public partial record MandateSuspensionReason1
     /// <summary>
     /// Specifies the reason for the suspension request.
     /// </summary>
-    public required IMandateSuspensionReason1Choice Reason { get; init; } 
+    public required MandateSuspensionReason1Choice_ Reason { get; init; } 
     /// <summary>
     /// Further details on the suspension request reason.
     /// </summary>
-    public IsoMax105Text? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

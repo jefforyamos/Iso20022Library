@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PortfolioTransferStatus1Choice;
 /// <summary>
 /// Status of the portfolio transfer reported.
 /// </summary>
-public partial record Proprietary : IPortfolioTransferStatus1Choice
+public partial record Proprietary : PortfolioTransferStatus1Choice_
 {
     #nullable enable
     /// <summary>

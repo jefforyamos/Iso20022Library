@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountType1Choice;
 /// <summary>
 /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.||Usage: Currency of the amount is expressed in the currency (or one of the currencies) of the debtor's account or another currency, eg, pay 1000000 EUR (and debtor's account is is EUR) or pay 1000000 JPY (and debtor's account is in EUR).
 /// </summary>
-public partial record InstructedAmount : IAmountType1Choice
+public partial record InstructedAmount : AmountType1Choice_
 {
     public required IsoCurrencyAndAmount Value { get; init; }
 }

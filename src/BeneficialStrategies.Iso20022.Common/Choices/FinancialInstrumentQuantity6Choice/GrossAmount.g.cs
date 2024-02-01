@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity6Choi
 /// <summary>
 /// Amount of money used to determine the quantity of investment fund units to be subscribed, including all charges, commissions, and tax.
 /// </summary>
-public partial record GrossAmount : IFinancialInstrumentQuantity6Choice
+public partial record GrossAmount : FinancialInstrumentQuantity6Choice_
 {
     public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
 }

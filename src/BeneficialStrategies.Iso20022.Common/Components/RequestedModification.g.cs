@@ -60,7 +60,7 @@ public partial record RequestedModification
     /// <summary>
     /// Specification of a pre-agreed offering between clearing agents, or the channel through which the payment instruction is to be processed. This payment scheme can point to a specific rulebook governing the rules of clearing and settlement between two parties.
     /// </summary>
-    public IPaymentSchemeChoice? PaymentScheme { get; init; } 
+    public PaymentSchemeChoice_? PaymentScheme { get; init; } 
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
@@ -76,11 +76,11 @@ public partial record RequestedModification
     /// <summary>
     /// Structured information that enables the matching, ie, reconciliation, of a payment with the items that the payment is intended to settle, such as commercial invoices in an account receivable system.
     /// </summary>
-    public IRemittanceInformation3Choice? RemittanceInformation { get; init; } 
+    public RemittanceInformation3Choice_? RemittanceInformation { get; init; } 
     /// <summary>
     /// Underlying reason for the payment transaction.
     /// </summary>
-    public IPurposeChoice? Purpose { get; init; } 
+    public PurposeChoice_? Purpose { get; init; } 
     /// <summary>
     /// Further information related to the processing of the payment instruction. The instruction can relate to a level of service between the bank and the customer, or give instructions to and for specific parties in the payment chain.
     /// </summary>
@@ -92,7 +92,7 @@ public partial record RequestedModification
     /// <summary>
     /// Unformatted information from the sender to the receiver.
     /// </summary>
-    public IReadOnlyCollection<IsoMax35Text> SenderToReceiverInformation { get; init; } = [];
+    public IsoMax35Text[] SenderToReceiverInformation { get; init; } = [];
     
     #nullable disable
 }

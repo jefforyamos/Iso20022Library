@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesBalanceType9FormatChoi
 /// <summary>
 /// Standard code to specify the type of securities balance.
 /// </summary>
-public partial record Code : ISecuritiesBalanceType9FormatChoice
+public partial record Code : SecuritiesBalanceType9FormatChoice_
 {
     public required SecuritiesBalanceType9Code Value { get; init; }
 }

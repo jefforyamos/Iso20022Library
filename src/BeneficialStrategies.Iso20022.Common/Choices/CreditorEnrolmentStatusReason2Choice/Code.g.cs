@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditorEnrolmentStatusReason2Ch
 /// <summary>
 /// Reason, as published in an external reason code list.
 /// </summary>
-public partial record Code : ICreditorEnrolmentStatusReason2Choice
+public partial record Code : CreditorEnrolmentStatusReason2Choice_
 {
     public required ExternalCreditorEnrolmentStatusReason1Code Value { get; init; }
 }

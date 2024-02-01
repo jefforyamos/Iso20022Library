@@ -32,7 +32,7 @@ public partial record CorporateActionEventAndBalance3
     /// <summary>
     /// Provides additional information related to the event and the balance of the corporate action.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

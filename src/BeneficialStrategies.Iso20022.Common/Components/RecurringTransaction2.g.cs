@@ -20,7 +20,7 @@ public partial record RecurringTransaction2
     /// <summary>
     /// Type of instalment plan.
     /// </summary>
-    public InstalmentPlan1Code? InstalmentPlan { get; init;  } // Warning: Don't know multiplicity.
+    public InstalmentPlan1Code[] InstalmentPlan { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the instalment plan.
     /// </summary>

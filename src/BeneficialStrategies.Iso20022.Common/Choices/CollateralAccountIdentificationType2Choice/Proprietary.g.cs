@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralAccountIdentificationT
 /// <summary>
 /// Specifies the collateral account expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICollateralAccountIdentificationType2Choice
+public partial record Proprietary : CollateralAccountIdentificationType2Choice_
 {
     #nullable enable
     /// <summary>

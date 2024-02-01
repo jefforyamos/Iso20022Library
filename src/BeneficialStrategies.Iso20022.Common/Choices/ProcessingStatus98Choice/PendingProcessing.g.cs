@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus98Choice;
 /// <summary>
 /// Processing of the trade is pending.
 /// </summary>
-public partial record PendingProcessing : IProcessingStatus98Choice
+public partial record PendingProcessing : ProcessingStatus98Choice_
 {
     #nullable enable
     #nullable disable

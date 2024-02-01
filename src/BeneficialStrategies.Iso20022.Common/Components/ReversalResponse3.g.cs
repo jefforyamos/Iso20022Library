@@ -48,7 +48,7 @@ public partial record ReversalResponse3
     /// <summary>
     /// Various receipts linked to the reversal.
     /// </summary>
-    public PaymentReceipt2? Receipt { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentReceipt2[] Receipt { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

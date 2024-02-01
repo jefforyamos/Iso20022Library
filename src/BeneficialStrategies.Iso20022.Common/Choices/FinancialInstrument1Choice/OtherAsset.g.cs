@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument1Choice;
 /// <summary>
 /// Identification of another kind of asset in the holding that is not a security or cash.
 /// </summary>
-public partial record OtherAsset : IFinancialInstrument1Choice
+public partial record OtherAsset : FinancialInstrument1Choice_
 {
     #nullable enable
     /// <summary>
     /// Type of asset.
     /// </summary>
-    public required IOtherAsset1Choice OtherAssetType { get; init; } 
+    public required OtherAsset1Choice_ OtherAssetType { get; init; } 
     /// <summary>
     /// Technical identification of the asset.
     /// </summary>

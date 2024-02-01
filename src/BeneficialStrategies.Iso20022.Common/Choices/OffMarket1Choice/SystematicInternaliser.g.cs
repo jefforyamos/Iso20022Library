@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OffMarket1Choice;
 /// <summary>
 /// Provides the BIC code of the systematic internaliser.
 /// </summary>
-public partial record SystematicInternaliser : IOffMarket1Choice
+public partial record SystematicInternaliser : OffMarket1Choice_
 {
     public required IsoAnyBICIdentifier Value { get; init; }
 }

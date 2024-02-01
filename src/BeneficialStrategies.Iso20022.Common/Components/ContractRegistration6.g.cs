@@ -28,19 +28,19 @@ public partial record ContractRegistration6
     /// <summary>
     /// Details of the contract being registered.
     /// </summary>
-    public required IUnderlyingContract3Choice Contract { get; init; } 
+    public required UnderlyingContract3Choice_ Contract { get; init; } 
     /// <summary>
     /// Contract balance on date of contract registration.
     /// </summary>
-    public ContractBalance1? ContractBalance { get; init;  } // Warning: Don't know multiplicity.
+    public ContractBalance1[] ContractBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of the payment schedule provided in the contract.
     /// </summary>
-    public IPaymentScheduleType2Choice? PaymentScheduleType { get; init; } 
+    public PaymentScheduleType2Choice_? PaymentScheduleType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of a previous contract registration.
     /// </summary>
-    public DocumentIdentification22? PreviousRegistrationIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentIdentification22[] PreviousRegistrationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further details on the registered contract opening.
     /// </summary>
@@ -48,11 +48,11 @@ public partial record ContractRegistration6
     /// <summary>
     /// Documents provided as attachments to the contract registration request.
     /// </summary>
-    public DocumentGeneralInformation5? Attachment { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentGeneralInformation5[] Attachment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

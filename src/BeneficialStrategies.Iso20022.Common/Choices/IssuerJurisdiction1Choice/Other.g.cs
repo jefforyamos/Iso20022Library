@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IssuerJurisdiction1Choice;
 /// <summary>
 /// Other than those explicitly mentioned/listed.
 /// </summary>
-public partial record Other : IIssuerJurisdiction1Choice
+public partial record Other : IssuerJurisdiction1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

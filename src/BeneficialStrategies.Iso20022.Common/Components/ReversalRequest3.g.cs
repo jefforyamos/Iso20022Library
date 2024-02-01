@@ -24,7 +24,7 @@ public partial record ReversalRequest3
     /// <summary>
     /// Data linked to card loyalty during payment.
     /// </summary>
-    public LoyaltyRequestData2? LoyaltyData { get; init;  } // Warning: Don't know multiplicity.
+    public LoyaltyRequestData2[] LoyaltyData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Reason for this reversal.
     /// </summary>

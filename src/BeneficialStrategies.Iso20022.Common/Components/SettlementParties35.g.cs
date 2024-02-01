@@ -24,11 +24,11 @@ public partial record SettlementParties35
     /// <summary>
     /// Identifier needed for settlement purposes. This identifier could be, for example, an identifier that identifies an institution or agent at a CDS or ICSD (Depository Trust Clearing Corporation (DTC) Institution ID or DTC Agent ID). It could also be a local tax identification number or an ‘investor identification’, as mandated by local market practice.
     /// </summary>
-    public GenericIdentification49? LocalMarketIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification49[] LocalMarketIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Registration information required for settlement. For some markets, for example, Spain (Iberclear) registration details are mandatory and should be part of the SSI. In some cases, the name of the institution is different than what's provided in the BIC Directory. If this is the case, the name should be provided.
     /// </summary>
-    public IPartyIdentification99Choice? RegistrationDetails { get; init; } 
+    public PartyIdentification99Choice_? RegistrationDetails { get; init; } 
     
     #nullable disable
 }

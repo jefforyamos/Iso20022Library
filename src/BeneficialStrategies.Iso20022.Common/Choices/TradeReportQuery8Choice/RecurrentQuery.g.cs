@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReportQuery8Choice;
 /// <summary>
 /// Query criteria specifically applied to recurrent queries.
 /// </summary>
-public partial record RecurrentQuery : ITradeReportQuery8Choice
+public partial record RecurrentQuery : TradeReportQuery8Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record RecurrentQuery : ITradeReportQuery8Choice
     /// <summary>
     /// Defines the requested frequency of the recurrent query.
     /// </summary>
-    public required ITradeQueryExecutionFrequency1Choice Frequency { get; init; } 
+    public required TradeQueryExecutionFrequency1Choice_ Frequency { get; init; } 
     /// <summary>
     /// Defines the date until which the query will be executed.
     /// </summary>

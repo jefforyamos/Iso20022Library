@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorrectiveTransaction2Choice;
 /// <summary>
 /// Set of elements used to reference the details of the corrective interbank payment transaction.
 /// </summary>
-public partial record Interbank : ICorrectiveTransaction2Choice
+public partial record Interbank : CorrectiveTransaction2Choice_
 {
     #nullable enable
     /// <summary>

@@ -40,11 +40,11 @@ public partial record Transaction145
     /// Reason or purpose to send the message.
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    public ISO8583MessageReasonCode? MessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public ISO8583MessageReasonCode[] MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Supports message reason codes that are not defined in external code list. 
     /// </summary>
-    public IsoMax256Text? AlternateMessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax256Text[] AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains the period (expressed in minutes) within which a merchant is expected to complete the transaction.
     /// ISO8583:1993 and ISO 8583:2003 Bit 57
@@ -53,7 +53,7 @@ public partial record Transaction145
     /// <summary>
     /// Additional functions or services to be performed in conjunction with the transaction.
     /// </summary>
-    public AdditionalService2? AdditionalService { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalService2[] AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates that additional data will be provided in a separate addendum message.
     /// </summary>
@@ -69,7 +69,7 @@ public partial record Transaction145
     /// <summary>
     /// Data to qualify for incentive or other related programmes.
     /// </summary>
-    public SpecialProgrammeQualification1? SpecialProgrammeQualification { get; init;  } // Warning: Don't know multiplicity.
+    public SpecialProgrammeQualification1[] SpecialProgrammeQualification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
@@ -77,7 +77,7 @@ public partial record Transaction145
     /// <summary>
     /// Information about the dispute.
     /// </summary>
-    public DisputeData3? DisputeData { get; init;  } // Warning: Don't know multiplicity.
+    public DisputeData3[] DisputeData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amounts of the card transaction.
     /// </summary>
@@ -85,19 +85,19 @@ public partial record Transaction145
     /// <summary>
     /// Amounts that are not part of the transaction amount and not included in reconciliation.
     /// </summary>
-    public AdditionalAmounts3? AdditionalAmount { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalAmounts3[] AdditionalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fees not included in the transaction amount.
     /// </summary>
-    public AdditionalFee2? AdditionalFee { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFee2[] AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fees not included in the original transaction amount.
     /// </summary>
-    public AdditionalFee2? OriginalAdditionalFee { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFee2[] OriginalAdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains ATM deposit details.
     /// </summary>
-    public DepositDetails2? DepositDetails { get; init;  } // Warning: Don't know multiplicity.
+    public DepositDetails2[] DepositDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Financial services related to the account.
     /// </summary>
@@ -119,7 +119,7 @@ public partial record Transaction145
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the chargeback.
     /// </summary>

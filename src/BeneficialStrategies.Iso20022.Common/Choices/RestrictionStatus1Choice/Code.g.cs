@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RestrictionStatus1Choice;
 /// <summary>
 /// Status of the restriction expressed as a code.
 /// </summary>
-public partial record Code : IRestrictionStatus1Choice
+public partial record Code : RestrictionStatus1Choice_
 {
     public required RestrictionStatus1Code Value { get; init; }
 }

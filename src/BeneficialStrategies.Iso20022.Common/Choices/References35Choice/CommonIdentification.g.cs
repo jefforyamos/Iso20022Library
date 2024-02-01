@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References35Choice;
 /// <summary>
 /// Unique reference agreed upon by the two trade counterparties to identify the trade.
 /// </summary>
-public partial record CommonIdentification : IReferences35Choice
+public partial record CommonIdentification : References35Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

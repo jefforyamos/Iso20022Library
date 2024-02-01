@@ -28,7 +28,7 @@ public partial record BatchResponse5
     /// <summary>
     /// Performed transaction content.
     /// </summary>
-    public PerformedTransaction5? PerformedTransaction { get; init;  } // Warning: Don't know multiplicity.
+    public PerformedTransaction5[] PerformedTransaction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -24,7 +24,7 @@ public partial record ISATransfer25
     /// <summary>
     /// Provides information related to the asset(s) transferred.
     /// </summary>
-    public ISATransfer22? ProductTransfer { get; init;  } // Warning: Don't know multiplicity.
+    public ISATransfer22[] ProductTransfer { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

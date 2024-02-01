@@ -28,33 +28,33 @@ public partial record TradeCounterpartyReport20
     /// <summary>
     /// Identification of the entity [party] acting as an intermediary which [who] arranges the transaction for the reporting counterparty (“arranging broker”).
     /// </summary>
-    public IOrganisationIdentification15Choice? Broker { get; init; } 
+    public OrganisationIdentification15Choice_? Broker { get; init; } 
     /// <summary>
     /// Identification of the party that ultimately submits the report to the trade repository.
     /// </summary>
-    public IOrganisationIdentification15Choice? SubmittingAgent { get; init; } 
+    public OrganisationIdentification15Choice_? SubmittingAgent { get; init; } 
     /// <summary>
     /// Identifies the clearing member through which a derivative transaction is cleared at a central counterparty (CCP).  The element applies to transactions under the agency clearing model and the principal clearing model.
     /// </summary>
-    public IPartyIdentification248Choice? ClearingMember { get; init; } 
+    public PartyIdentification248Choice_? ClearingMember { get; init; } 
     /// <summary>
     /// Identification of the beneficiary of a derivative transaction, that is a party that is subject to the rights and obligations arising from the contract.
     /// ||Usage: In case of two occurances of beneficiary, the first iteration should always be the beneficiary 1 of the counterparty 1 and the second iteration is the beneficiary 2 of the counterparty 2. In case of single occurance of Beneficiary, RelationshipRecord should be provided.
     /// </summary>
-    public IReadOnlyCollection<IPartyIdentification248Choice> Beneficiary { get; init; } = [];
+    public PartyIdentification248Choice_[] Beneficiary { get; init; } = [];
     /// <summary>
     /// According to jurisdictional requirements, identification of the entity with the legal obligation or responsibility to report.
     /// </summary>
-    public IOrganisationIdentification15Choice? EntityResponsibleForReport { get; init; } 
+    public OrganisationIdentification15Choice_? EntityResponsibleForReport { get; init; } 
     /// <summary>
     /// Identification of the entity that executed the transaction on behalf of the counterparty, and binds the counterparty to the terms of the transaction, but is not a broker.
     /// Usage: In case of two occurances of ExecutionAgent, the first iteration should always be the execution agent 1 of the counterparty 1 and the second iteration is the execution agent 2 of the counterparty 2. In case of single occurance of ExecutionAgent, RelationshipRecord should be provided.
     /// </summary>
-    public IReadOnlyCollection<IOrganisationIdentification15Choice> ExecutionAgent { get; init; } = [];
+    public OrganisationIdentification15Choice_[] ExecutionAgent { get; init; } = [];
     /// <summary>
     /// Specifies the relationship record between two parties part of the transaction.
     /// </summary>
-    public TradeCounterpartyRelationshipRecord1? RelationshipRecord { get; init;  } // Warning: Don't know multiplicity.
+    public TradeCounterpartyRelationshipRecord1[] RelationshipRecord { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

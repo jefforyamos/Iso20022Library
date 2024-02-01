@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UniqueTransactionIdentifier1Choi
 /// <summary>
 /// Unique trade identifier (UTI) as agreed with the counterparty.
 /// </summary>
-public partial record UniqueTransactionIdentifier : IUniqueTransactionIdentifier1Choice
+public partial record UniqueTransactionIdentifier : UniqueTransactionIdentifier1Choice_
 {
     public required IsoUTIIdentifier Value { get; init; }
 }

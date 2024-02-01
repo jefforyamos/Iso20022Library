@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AdjustedBalanceTypeSD1Choice;
 /// <summary>
 /// Securities undelivered (FAIL) transaction position. FAIL occurs due to the failure of selling clients to deliver the securities to their brokers so the latter can deliver them to the buying brokers.  .
 /// </summary>
-public partial record Fail : IAdjustedBalanceTypeSD1Choice
+public partial record Fail : AdjustedBalanceTypeSD1Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record Fail : IAdjustedBalanceTypeSD1Choice
     /// <summary>
     /// Quantity of security.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
     #nullable disable
 }

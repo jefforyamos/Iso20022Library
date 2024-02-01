@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus54Choice;
 /// <summary>
 /// Cancellation requested executed.
 /// </summary>
-public partial record Cancelled : IProcessingStatus54Choice
+public partial record Cancelled : ProcessingStatus54Choice_
 {
     #nullable enable
     #nullable disable

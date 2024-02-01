@@ -28,7 +28,7 @@ public partial record DisputeReference1
     /// <summary>
     /// Identification of the dispute.
     /// </summary>
-    public DisputeIdentification1? DisputeIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public DisputeIdentification1[] DisputeIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

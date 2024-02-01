@@ -20,11 +20,11 @@ public partial record CollateralParameters10
     /// <summary>
     /// Specifies the type of collateral instruction.
     /// </summary>
-    public required ICollateralTransactionType1Choice CollateralInstructionType { get; init; } 
+    public required CollateralTransactionType1Choice_ CollateralInstructionType { get; init; } 
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the exposure.
     /// </summary>
-    public required IExposureType23Choice ExposureType { get; init; } 
+    public required ExposureType23Choice_ ExposureType { get; init; } 
     /// <summary>
     /// Specifies whether the client is the collateral taker or giver.
     /// </summary>
@@ -33,7 +33,7 @@ public partial record CollateralParameters10
     /// Percentage by which the collateral value sought is increased, in selecting securities for a collateral basket, to reflect the taker's margin requirements.
     /// Margin or haircut to be applied on the exposure amount, expressed  as a percentage.
     /// </summary>
-    public IRateOrType1Choice? ValueSoughtMarginRate { get; init; } 
+    public RateOrType1Choice_? ValueSoughtMarginRate { get; init; } 
     /// <summary>
     /// Change of title for the collateral. If N then collateral is pledged.
     /// </summary>
@@ -65,7 +65,7 @@ public partial record CollateralParameters10
     /// <summary>
     /// Collateral taker's answer to the collateral giver instruction.
     /// </summary>
-    public IResponseStatus9Choice? ResponseStatus { get; init; } 
+    public ResponseStatus9Choice_? ResponseStatus { get; init; } 
     /// <summary>
     /// Provides additional information to a collateral instruction.
     /// </summary>

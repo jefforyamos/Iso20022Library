@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Recipient5Choice;
 /// <summary>
 /// Certificate issuer name and serial number (see ITU X.509).
 /// </summary>
-public partial record IssuerAndSerialNumber : IRecipient5Choice
+public partial record IssuerAndSerialNumber : Recipient5Choice_
 {
     #nullable enable
     /// <summary>

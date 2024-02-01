@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentificationSearchCrite
 /// <summary>
 /// Search for one or more accounts based on partial identification of the account(s).
 /// </summary>
-public partial record ContainText : IAccountIdentificationSearchCriteria2Choice
+public partial record ContainText : AccountIdentificationSearchCriteria2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

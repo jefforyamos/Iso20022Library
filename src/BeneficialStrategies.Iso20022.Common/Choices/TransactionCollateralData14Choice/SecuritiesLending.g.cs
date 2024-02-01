@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionCollateralData14Choic
 /// <summary>
 /// Data on collateral used for the securities lending transaction.
 /// </summary>
-public partial record SecuritiesLending : ITransactionCollateralData14Choice
+public partial record SecuritiesLending : TransactionCollateralData14Choice_
 {
     #nullable enable
     #nullable disable

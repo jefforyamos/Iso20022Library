@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References70Choice;
 /// <summary>
 /// Reference assigned to the instruction by the triparty-agent/service-provider.
 /// </summary>
-public partial record TripartyAgentServiceProviderCollateralInstructionIdentification : IReferences70Choice
+public partial record TripartyAgentServiceProviderCollateralInstructionIdentification : References70Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

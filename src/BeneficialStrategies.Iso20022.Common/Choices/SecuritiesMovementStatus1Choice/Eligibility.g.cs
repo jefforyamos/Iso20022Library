@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesMovementStatus1Choice;
 /// <summary>
 /// At least one security does not satisfy the eligibility criteria as defined in the triparty agreement (or in the eligibility set) for this transaction.
 /// </summary>
-public partial record Eligibility : ISecuritiesMovementStatus1Choice
+public partial record Eligibility : SecuritiesMovementStatus1Choice_
 {
     #nullable enable
     /// <summary>

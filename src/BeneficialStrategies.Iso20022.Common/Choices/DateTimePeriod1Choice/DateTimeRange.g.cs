@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateTimePeriod1Choice;
 /// <summary>
 /// Range of time between a start date and time and an end date and time.
 /// </summary>
-public partial record DateTimeRange : IDateTimePeriod1Choice
+public partial record DateTimeRange : DateTimePeriod1Choice_
 {
     #nullable enable
     /// <summary>

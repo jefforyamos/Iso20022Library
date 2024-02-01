@@ -20,7 +20,7 @@ public partial record DateCodeAndTimeFormat4
     /// <summary>
     /// Specifies the type of date.
     /// </summary>
-    public required IDateCode26Choice DateCode { get; init; } 
+    public required DateCode26Choice_ DateCode { get; init; } 
     /// <summary>
     /// Specifies the time.
     /// </summary>

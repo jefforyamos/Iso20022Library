@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity13Cho
 /// <summary>
 /// Amount of money used to determine the quantity of investment fund units to be subscribed.
 /// </summary>
-public partial record OrderedAmount : IFinancialInstrumentQuantity13Choice
+public partial record OrderedAmount : FinancialInstrumentQuantity13Choice_
 {
     public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
 }

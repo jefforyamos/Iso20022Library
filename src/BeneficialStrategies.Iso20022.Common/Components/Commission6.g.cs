@@ -36,7 +36,7 @@ public partial record Commission6
     /// <summary>
     /// Party entitled to the amount of money resulting from a commission.
     /// </summary>
-    public IPartyIdentification2Choice? RecipientIdentification { get; init; } 
+    public PartyIdentification2Choice_? RecipientIdentification { get; init; } 
     /// <summary>
     /// Reference to the agreement established between the fund and another party. This element, amongst others, defines the conditions of the commissions.
     /// </summary>

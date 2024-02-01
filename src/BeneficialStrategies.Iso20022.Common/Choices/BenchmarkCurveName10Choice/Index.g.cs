@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BenchmarkCurveName10Choice;
 /// <summary>
 /// Index name where the underlying is an index.
 /// </summary>
-public partial record Index : IBenchmarkCurveName10Choice
+public partial record Index : BenchmarkCurveName10Choice_
 {
     public required BenchmarkCurveName3Code Value { get; init; }
 }

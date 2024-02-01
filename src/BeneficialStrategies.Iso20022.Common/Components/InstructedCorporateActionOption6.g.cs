@@ -24,15 +24,15 @@ public partial record InstructedCorporateActionOption6
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public required ICorporateActionOption18Choice OptionType { get; init; } 
+    public required CorporateActionOption18Choice_ OptionType { get; init; } 
     /// <summary>
     /// Balance of instructed position.
     /// </summary>
-    public required IBalanceFormat5Choice InstructedBalance { get; init; } 
+    public required BalanceFormat5Choice_ InstructedBalance { get; init; } 
     /// <summary>
     /// Indicates the default action related to a corporate action event.
     /// </summary>
-    public IDefaultProcessingOrStandingInstruction1Choice? DefaultAction { get; init; } 
+    public DefaultProcessingOrStandingInstruction1Choice_? DefaultAction { get; init; } 
     /// <summary>
     /// Any deadline chosen by the account servicer (service level agreement).
     /// </summary>
@@ -40,7 +40,7 @@ public partial record InstructedCorporateActionOption6
     /// <summary>
     /// Specifies the type of deadline for instructing.
     /// </summary>
-    public required IDeadlineCode3Choice DeadlineType { get; init; } 
+    public required DeadlineCode3Choice_ DeadlineType { get; init; } 
     
     #nullable disable
 }

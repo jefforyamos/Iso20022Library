@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BasisPriceType1Choice;
 /// <summary>
 /// Basis price type is defined using a data source scheme.
 /// </summary>
-public partial record Proprietary : IBasisPriceType1Choice
+public partial record Proprietary : BasisPriceType1Choice_
 {
     #nullable enable
     /// <summary>

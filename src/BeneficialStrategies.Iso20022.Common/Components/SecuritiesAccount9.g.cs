@@ -24,7 +24,7 @@ public partial record SecuritiesAccount9
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountOwnerIdentification { get; init; } 
+    public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Idenfitication of the account.
     /// </summary>
@@ -32,11 +32,11 @@ public partial record SecuritiesAccount9
     /// <summary>
     /// Type of balance.
     /// </summary>
-    public ISecuritiesBalanceType10FormatChoice? BalanceType { get; init; } 
+    public SecuritiesBalanceType10FormatChoice_? BalanceType { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public ICorporateActionOption1FormatChoice? OptionType { get; init; } 
+    public CorporateActionOption1FormatChoice_? OptionType { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>

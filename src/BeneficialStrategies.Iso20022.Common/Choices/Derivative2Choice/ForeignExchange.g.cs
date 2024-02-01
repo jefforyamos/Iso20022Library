@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Derivative2Choice;
 /// <summary>
 /// Details specific for Foreign exchange.
 /// </summary>
-public partial record ForeignExchange : IDerivative2Choice
+public partial record ForeignExchange : Derivative2Choice_
 {
     #nullable enable
     /// <summary>

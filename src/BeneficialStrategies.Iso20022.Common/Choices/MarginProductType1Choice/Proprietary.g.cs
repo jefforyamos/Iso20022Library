@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginProductType1Choice;
 /// <summary>
 /// Specifies the underlying product of the margin using a proprietary format.
 /// </summary>
-public partial record Proprietary : IMarginProductType1Choice
+public partial record Proprietary : MarginProductType1Choice_
 {
     #nullable enable
     /// <summary>

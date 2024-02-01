@@ -40,7 +40,7 @@ public partial record RiskTolerance1
     /// <summary>
     /// Specifies another type of risk tolerance.
     /// </summary>
-    public OtherTargetMarketRiskTolerance1? Other { get; init;  } // Warning: Don't know multiplicity.
+    public OtherTargetMarketRiskTolerance1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

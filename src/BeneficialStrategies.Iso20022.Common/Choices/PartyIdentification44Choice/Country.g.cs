@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification44Choice;
 /// <summary>
 /// Unique and unambiguous way to identify an organisation.
 /// </summary>
-public partial record Country : IPartyIdentification44Choice
+public partial record Country : PartyIdentification44Choice_
 {
     public required CountryCode Value { get; init; }
 }

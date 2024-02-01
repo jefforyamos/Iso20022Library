@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxType3Choice;
 /// <summary>
 /// Type of tax expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITaxType3Choice
+public partial record Proprietary : TaxType3Choice_
 {
     #nullable enable
     /// <summary>

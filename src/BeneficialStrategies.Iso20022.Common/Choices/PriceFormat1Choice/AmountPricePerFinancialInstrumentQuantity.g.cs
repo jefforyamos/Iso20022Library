@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat1Choice;
 /// <summary>
 /// Price expressed as an amount per a quantity of financial instruments.
 /// </summary>
-public partial record AmountPricePerFinancialInstrumentQuantity : IPriceFormat1Choice
+public partial record AmountPricePerFinancialInstrumentQuantity : PriceFormat1Choice_
 {
     #nullable enable
     /// <summary>
     /// Type of amount price.
     /// </summary>
-    public required IAmountPriceType1FormatChoice AmountPriceType { get; init; } 
+    public required AmountPriceType1FormatChoice_ AmountPriceType { get; init; } 
     /// <summary>
     /// Value of the price.
     /// </summary>
@@ -26,6 +26,6 @@ public partial record AmountPricePerFinancialInstrumentQuantity : IPriceFormat1C
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
-    public required IUnitOrFaceAmount1Choice FinancialInstrumentQuantity { get; init; } 
+    public required UnitOrFaceAmount1Choice_ FinancialInstrumentQuantity { get; init; } 
     #nullable disable
 }

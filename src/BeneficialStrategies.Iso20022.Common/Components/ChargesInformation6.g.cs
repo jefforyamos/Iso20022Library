@@ -32,7 +32,7 @@ public partial record ChargesInformation6
     /// <summary>
     /// Specifies the type of charge.
     /// </summary>
-    public IChargeType2Choice? Type { get; init; } 
+    public ChargeType2Choice_? Type { get; init; } 
     /// <summary>
     /// Rate used to calculate the amount of the charge or fee.
     /// </summary>

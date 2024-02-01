@@ -20,23 +20,23 @@ public partial record CorporateActionPrice68
     /// <summary>
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
-    public IPriceFormat45Choice? CashInLieuOfSharePrice { get; init; } 
+    public PriceFormat45Choice_? CashInLieuOfSharePrice { get; init; } 
     /// <summary>
     /// Amount of money required per over-subscribed equity as defined by the issuer.
     /// </summary>
-    public IPriceFormat45Choice? OverSubscriptionDepositPrice { get; init; } 
+    public PriceFormat45Choice_? OverSubscriptionDepositPrice { get; init; } 
     /// <summary>
     /// Maximum cash amount that may be instructed.
     /// </summary>
-    public IPriceFormat61Choice? MaximumCashToInstruct { get; init; } 
+    public PriceFormat61Choice_? MaximumCashToInstruct { get; init; } 
     /// <summary>
     /// Minimum cash amount that may be instructed.
     /// </summary>
-    public IPriceFormat61Choice? MinimumCashToInstruct { get; init; } 
+    public PriceFormat61Choice_? MinimumCashToInstruct { get; init; } 
     /// <summary>
     /// Minimum multiple of a cash amount that may be instructed.
     /// </summary>
-    public IPriceFormat61Choice? MinimumMultipleCashToInstruct { get; init; } 
+    public PriceFormat61Choice_? MinimumMultipleCashToInstruct { get; init; } 
     
     #nullable disable
 }

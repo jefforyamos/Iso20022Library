@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationSource4Choice;
 /// <summary>
 /// Unique and unambiguous identification source using a proprietary identification scheme.
 /// </summary>
-public partial record Proprietary : IIdentificationSource4Choice
+public partial record Proprietary : IdentificationSource4Choice_
 {
     public required IsoRestrictedFINExact2Text Value { get; init; }
 }

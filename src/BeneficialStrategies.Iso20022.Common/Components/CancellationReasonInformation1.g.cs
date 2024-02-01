@@ -24,11 +24,11 @@ public partial record CancellationReasonInformation1
     /// <summary>
     /// Specifies the reason for the cancellation.
     /// </summary>
-    public ICancellationReason1Choice? CancellationReason { get; init; } 
+    public CancellationReason1Choice_? CancellationReason { get; init; } 
     /// <summary>
     /// Further details on the cancellation request reason.||Usage: Additional cancellation reason information can be used to further detail the cancellation request reason.
     /// </summary>
-    public IsoMax105Text? AdditionalCancellationReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax105Text[] AdditionalCancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

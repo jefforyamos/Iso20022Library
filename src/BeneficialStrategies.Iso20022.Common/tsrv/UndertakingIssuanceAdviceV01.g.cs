@@ -65,7 +65,7 @@ public partial record UndertakingIssuanceAdviceV01 : IOuterRecord
     [DataMember(Name="DtOfAdvc")]
     [XmlElement(ElementName="DtOfAdvc")]
     [Required]
-    public required IDateAndDateTimeChoice DateOfAdvice { get; init; }
+    public required DateAndDateTimeChoice_ DateOfAdvice { get; init; }
     
     /// <summary>
     /// Details related to the advice of the issued undertaking.

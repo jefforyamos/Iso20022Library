@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AcceptedStatus3Choice;
 /// <summary>
 /// Reason for the accepted status.
 /// </summary>
-public partial record Reason : IAcceptedStatus3Choice
+public partial record Reason : AcceptedStatus3Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the instruction or instruction cancellation has been accepted.
     /// </summary>
-    public required IAcceptedReason3Choice ReasonCode { get; init; } 
+    public required AcceptedReason3Choice_ ReasonCode { get; init; } 
     /// <summary>
     /// Provides additional information about the processed instruction.
     /// </summary>

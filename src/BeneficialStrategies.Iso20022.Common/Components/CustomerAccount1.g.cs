@@ -20,7 +20,7 @@ public partial record CustomerAccount1
     /// <summary>
     /// Identification of the account.
     /// </summary>
-    public required IAccountIdentification4Choice Identification { get; init; } 
+    public required AccountIdentification4Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
@@ -76,7 +76,7 @@ public partial record CustomerAccount1
     /// <summary>
     /// Restriction on capability or operations allowed.
     /// </summary>
-    public Restriction1? Restriction { get; init;  } // Warning: Don't know multiplicity.
+    public Restriction1[] Restriction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

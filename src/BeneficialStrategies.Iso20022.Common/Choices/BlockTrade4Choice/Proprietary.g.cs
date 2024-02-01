@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BlockTrade4Choice;
 /// <summary>
 /// Block parent or child information expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IBlockTrade4Choice
+public partial record Proprietary : BlockTrade4Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClosurePendingStatusReason2Choic
 /// <summary>
 /// Reason for the closure pending status expressed as a code.
 /// </summary>
-public partial record Code : IClosurePendingStatusReason2Choice
+public partial record Code : ClosurePendingStatusReason2Choice_
 {
     public required ClosurePendingStatusReason1Code Value { get; init; }
 }

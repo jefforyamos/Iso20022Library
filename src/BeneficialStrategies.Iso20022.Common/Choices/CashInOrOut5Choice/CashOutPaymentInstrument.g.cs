@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CashInOrOut5Choice;
 /// <summary>
 /// Payment instrument for the cash-out flow.
 /// </summary>
-public partial record CashOutPaymentInstrument : ICashInOrOut5Choice
+public partial record CashOutPaymentInstrument : CashInOrOut5Choice_
 {
     #nullable enable
     #nullable disable

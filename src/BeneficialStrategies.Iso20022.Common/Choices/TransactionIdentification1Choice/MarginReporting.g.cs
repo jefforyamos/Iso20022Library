@@ -12,17 +12,17 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionIdentification1Choice
 /// <summary>
 /// Provides identification of the marfin reporting.
 /// </summary>
-public partial record MarginReporting : ITransactionIdentification1Choice
+public partial record MarginReporting : TransactionIdentification1Choice_
 {
     #nullable enable
     /// <summary>
     /// Unique code identifying the reporting counterparty.
     /// </summary>
-    public required IOrganisationIdentification9Choice ReportingCounterparty { get; init; } 
+    public required OrganisationIdentification9Choice_ ReportingCounterparty { get; init; } 
     /// <summary>
     /// Unique code identifying the entity with which the reporting counterparty concluded the transaction.
     /// </summary>
-    public required IOrganisationIdentification9Choice OtherCounterparty { get; init; } 
+    public required OrganisationIdentification9Choice_ OtherCounterparty { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the collateral portfolio.
     /// </summary>

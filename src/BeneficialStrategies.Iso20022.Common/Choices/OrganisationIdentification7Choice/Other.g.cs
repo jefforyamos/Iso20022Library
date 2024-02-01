@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.OrganisationIdentification7Choic
 /// <summary>
 /// Unique identification of a counterparty, using a client code or a business identification code.
 /// </summary>
-public partial record Other : IOrganisationIdentification7Choice
+public partial record Other : OrganisationIdentification7Choice_
 {
     #nullable enable
     /// <summary>
     /// Unique and unambiguous identification of the organisation.
     /// </summary>
-    public required IOrganisationIdentification8Choice Identification { get; init; } 
+    public required OrganisationIdentification8Choice_ Identification { get; init; } 
     /// <summary>
     /// Indicates the name of the reporting counterparty.
     /// </summary>

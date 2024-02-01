@@ -24,7 +24,7 @@ public partial record CommunicationCharacteristics2
     /// <summary>
     /// Entity that communicate with the current component, using this communication device.
     /// </summary>
-    public PartyType7Code? RemoteParty { get; init;  } // Warning: Don't know multiplicity.
+    public PartyType7Code[] RemoteParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Communication hardware is activated.
     /// </summary>

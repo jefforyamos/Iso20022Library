@@ -36,11 +36,11 @@ public partial record StatementEntry1
     /// <summary>
     /// Date and time when an entry is posted to an account on the account servicer's books.
     /// </summary>
-    public IDateAndDateTimeChoice? BookingDate { get; init; } 
+    public DateAndDateTimeChoice_? BookingDate { get; init; } 
     /// <summary>
     /// Date and time assets become available to the account owner (in a credit entry), or cease to be available to the account owner (in a debit entry).||Usage: For entries which are subject to availability/float (and for which availability information is present), value date must not be used, as the availability component identifies the number of availability days.
     /// </summary>
-    public IDateAndDateTimeChoice? ValueDate { get; init; } 
+    public DateAndDateTimeChoice_? ValueDate { get; init; } 
     /// <summary>
     /// Account servicing institution's reference for the underlying transaction.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record StatementEntry1
     /// <summary>
     /// Set of elements used to indicate when the booked funds will become available, ie can be accessed and start generating interest. ||Usage: this type of info is eg used in US, and is linked to particular instruments, such as cheques.|Example: When a cheque is deposited, it will be booked on the deposit day, but the funds will only be accessible as of the indicated availability day (according to national banking regulations).
     /// </summary>
-    public CashBalanceAvailability1? Availability { get; init;  } // Warning: Don't know multiplicity.
+    public CashBalanceAvailability1[] Availability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of elements to fully identify the type of underlying transaction resulting in an entry.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record StatementEntry1
     /// <summary>
     /// Set of elements providing details on batched transactions.||Usage: this element can be repeated in case more than one batch is included in the entry, eg, in lockbox scenarios, to specify the ID and number of transactions included in each of the batches.
     /// </summary>
-    public BatchInformation1? Batch { get; init;  } // Warning: Don't know multiplicity.
+    public BatchInformation1[] Batch { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of elements providing information on the original amount.||Usage: This component (on entry level) should be used when a total original batch or aggregate amount has to be provided. (If required, the original amounts for each individual transaction can be included in the same component on transaction details level.).
     /// </summary>
@@ -72,15 +72,15 @@ public partial record StatementEntry1
     /// <summary>
     /// Provides information on the charges included in the entry amount.||Usage: this component is used in case of batch or aggregate bookings.
     /// </summary>
-    public ChargesInformation3? Charges { get; init;  } // Warning: Don't know multiplicity.
+    public ChargesInformation3[] Charges { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of elements providing details on the interest amount included in the entry amount.||Usage: it is used in case of batch or aggregate bookings.
     /// </summary>
-    public TransactionInterest1? Interest { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionInterest1[] Interest { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of elements providing information on the underlying transaction (s).
     /// </summary>
-    public EntryTransaction1? TransactionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public EntryTransaction1[] TransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further details on the entry details.
     /// </summary>

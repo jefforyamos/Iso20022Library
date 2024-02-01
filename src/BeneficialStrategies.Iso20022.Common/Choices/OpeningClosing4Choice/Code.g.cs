@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OpeningClosing4Choice;
 /// <summary>
 /// Opening closing information expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IOpeningClosing4Choice
+public partial record Code : OpeningClosing4Choice_
 {
     public required OpeningClosing1Code Value { get; init; }
 }

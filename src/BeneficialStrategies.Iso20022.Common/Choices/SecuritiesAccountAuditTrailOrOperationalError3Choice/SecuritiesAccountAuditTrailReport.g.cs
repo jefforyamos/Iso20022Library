@@ -12,17 +12,17 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountAuditTrailOrOpe
 /// <summary>
 /// Report information about securities account reference data.
 /// </summary>
-public partial record SecuritiesAccountAuditTrailReport : ISecuritiesAccountAuditTrailOrOperationalError3Choice
+public partial record SecuritiesAccountAuditTrailReport : SecuritiesAccountAuditTrailOrOperationalError3Choice_
 {
     #nullable enable
     /// <summary>
     /// Provides the returned securities account reference data or error information.
     /// </summary>
-    public required IAuditTrailOrBusinessError6Choice SecuritiesAccountAuditTrailOrError { get; init; } 
+    public required AuditTrailOrBusinessError6Choice_ SecuritiesAccountAuditTrailOrError { get; init; } 
     /// <summary>
     /// Period in dates for which the audit trail is provided.
     /// </summary>
-    public IDatePeriodSearch1Choice? DatePeriod { get; init; } 
+    public DatePeriodSearch1Choice_? DatePeriod { get; init; } 
     /// <summary>
     /// Identifies the securities account for which the audit trail is provided.
     /// </summary>

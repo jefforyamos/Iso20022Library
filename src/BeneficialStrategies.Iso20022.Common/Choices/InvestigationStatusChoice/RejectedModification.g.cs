@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatusChoice;
 /// <summary>
 /// Reason for the rejection of a modification request, in a coded form.
 /// </summary>
-public partial record RejectedModification : IInvestigationStatusChoice
+public partial record RejectedModification : InvestigationStatusChoice_
 {
     public required PaymentModificationRejection1Code Value { get; init; }
 }

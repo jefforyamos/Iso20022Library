@@ -24,11 +24,11 @@ public partial record InstructionsTransactionsSequence2
     /// <summary>
     /// Instruction quantity for a given transaction sequence number.
     /// </summary>
-    public IFinancialInstrumentQuantity31Choice? InstructionQuantity { get; init; } 
+    public FinancialInstrumentQuantity31Choice_? InstructionQuantity { get; init; } 
     /// <summary>
     /// For rights subscription events with an oversubscription feature, the quantity of the oversubscription for the given instruction.
     /// </summary>
-    public IFinancialInstrumentQuantity31Choice? OversubscriptionQuantity { get; init; } 
+    public FinancialInstrumentQuantity31Choice_? OversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Customer identification entered by client upon instruction submission.
     /// </summary>

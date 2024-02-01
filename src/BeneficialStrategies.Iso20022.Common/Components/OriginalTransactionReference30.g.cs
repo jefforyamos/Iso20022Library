@@ -32,7 +32,7 @@ public partial record OriginalTransactionReference30
     /// <summary>
     /// Provides reference information to the original transaction.
     /// </summary>
-    public PaymentIdentification5? OriginalTransaction { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentIdentification5[] OriginalTransaction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

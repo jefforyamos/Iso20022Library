@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StressSize1Choice;
 /// <summary>
 /// Absolute shift if the shift is defined as an absolute move.
 /// </summary>
-public partial record Absolute : IStressSize1Choice
+public partial record Absolute : StressSize1Choice_
 {
     #nullable enable
     /// <summary>

@@ -56,7 +56,7 @@ public partial record NetReportV02 : IOuterRecord
     [DataMember(Name="NetSvcPtcptId")]
     [XmlElement(ElementName="NetSvcPtcptId")]
     [Required]
-    public required IPartyIdentification242Choice NetServiceParticipantIdentification { get; init; }
+    public required PartyIdentification242Choice_ NetServiceParticipantIdentification { get; init; }
     
     /// <summary>
     /// Describes the counterparty participant involved in (all of) the obligations of the report.
@@ -65,7 +65,7 @@ public partial record NetReportV02 : IOuterRecord
     [Description(@"Describes the counterparty participant involved in (all of) the obligations of the report.")]
     [DataMember(Name="NetSvcCtrPtyId")]
     [XmlElement(ElementName="NetSvcCtrPtyId")]
-    public IPartyIdentification242Choice? NetServiceCounterpartyIdentification { get; init; }
+    public PartyIdentification242Choice_? NetServiceCounterpartyIdentification { get; init; }
     
     /// <summary>
     /// Provides the amount, direct parties or netting groups involved in the obligation.

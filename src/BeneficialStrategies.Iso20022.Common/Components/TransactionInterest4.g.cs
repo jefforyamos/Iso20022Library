@@ -24,7 +24,7 @@ public partial record TransactionInterest4
     /// <summary>
     /// Individual interest record.
     /// </summary>
-    public InterestRecord2? Record { get; init;  } // Warning: Don't know multiplicity.
+    public InterestRecord2[] Record { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

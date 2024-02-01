@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SequenceRange1Choice;
 /// <summary>
 /// End sequence of the range.
 /// </summary>
-public partial record ToSequence : ISequenceRange1Choice
+public partial record ToSequence : SequenceRange1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

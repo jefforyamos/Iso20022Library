@@ -36,7 +36,7 @@ public partial record ResolutionInformation2
     /// <summary>
     /// Provides information on the charges to be paid by the charge bearer(s) related to the payment transaction.
     /// </summary>
-    public Charges2? Charges { get; init;  } // Warning: Don't know multiplicity.
+    public Charges2[] Charges { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

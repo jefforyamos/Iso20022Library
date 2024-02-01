@@ -20,7 +20,7 @@ public partial record InvestmentFundsOrderBreakdown2
     /// <summary>
     /// Type of order breakdown.
     /// </summary>
-    public required IOrderBreakdownType1Choice OrderBreakdownType { get; init; } 
+    public required OrderBreakdownType1Choice_ OrderBreakdownType { get; init; } 
     /// <summary>
     /// Portion of the net amount that is attributed to an order type.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters2Choice;
 /// <summary>
 /// Parameters to be used by the security scheme update command.
 /// </summary>
-public partial record RequiredSecurityScheme : IATMCommandParameters2Choice
+public partial record RequiredSecurityScheme : ATMCommandParameters2Choice_
 {
     public required ATMSecurityScheme2Code Value { get; init; }
 }

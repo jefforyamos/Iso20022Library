@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxExemptionReason1Choice;
 /// <summary>
 /// Tax exemption reason expressed as a code.
 /// </summary>
-public partial record Code : ITaxExemptionReason1Choice
+public partial record Code : TaxExemptionReason1Choice_
 {
     public required TaxExemptReason1Code Value { get; init; }
 }

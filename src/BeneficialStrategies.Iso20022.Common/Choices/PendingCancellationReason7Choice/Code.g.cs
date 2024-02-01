@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingCancellationReason7Choice
 /// <summary>
 /// Pending reason specified as a code.
 /// </summary>
-public partial record Code : IPendingCancellationReason7Choice
+public partial record Code : PendingCancellationReason7Choice_
 {
     public required PendingCancellationReason6Code Value { get; init; }
 }

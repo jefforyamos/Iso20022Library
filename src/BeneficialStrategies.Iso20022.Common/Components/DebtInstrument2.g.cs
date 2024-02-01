@@ -32,7 +32,7 @@ public partial record DebtInstrument2
     /// <summary>
     /// Interest rate of the debt instrument.
     /// </summary>
-    public required IInterestRate6Choice InterestRate { get; init; } 
+    public required InterestRate6Choice_ InterestRate { get; init; } 
     /// <summary>
     /// Seniority for a specific debt instrument.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationStatus30Choice;
 /// <summary>
 /// Cancellation has been processed by the account servicer.
 /// </summary>
-public partial record Processed : ICancellationStatus30Choice
+public partial record Processed : CancellationStatus30Choice_
 {
     #nullable enable
     /// <summary>

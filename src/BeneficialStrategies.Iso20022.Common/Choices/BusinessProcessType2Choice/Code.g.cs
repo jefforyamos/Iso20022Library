@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BusinessProcessType2Choice;
 /// <summary>
 /// Business process type is identified using a code.
 /// </summary>
-public partial record Code : IBusinessProcessType2Choice
+public partial record Code : BusinessProcessType2Choice_
 {
     public required BusinessProcessType1Code Value { get; init; }
 }

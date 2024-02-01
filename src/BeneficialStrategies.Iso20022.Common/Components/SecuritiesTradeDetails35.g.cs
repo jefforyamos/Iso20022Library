@@ -36,7 +36,7 @@ public partial record SecuritiesTradeDetails35
     /// <summary>
     /// Reference assigned to the trade by the investor or the trading party. This reference will be used throughout the trade life cycle to access/update the trade details.
     /// </summary>
-    public IsoMax35Text? TradeIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] TradeIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique reference agreed upon by the two trade counterparties to identify the trade.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record SecuritiesTradeDetails35
     /// <summary>
     /// Unambiguous identification of a collateral transaction as assigned by the instructing party.
     /// </summary>
-    public IsoMax35Text? CollateralTransactionIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] CollateralTransactionIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies if the movement on a securities account results from a deliver or a receive instruction.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record SecuritiesTradeDetails35
     /// <summary>
     /// Status of the allegement.
     /// </summary>
-    public IAllegementStatus1Choice? Status { get; init; } 
+    public AllegementStatus1Choice_? Status { get; init; } 
     /// <summary>
     /// Market in which a trade transaction has been executed.
     /// </summary>
@@ -72,11 +72,11 @@ public partial record SecuritiesTradeDetails35
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    public ITradeDate1Choice? TradeDate { get; init; } 
+    public TradeDate1Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public required ISettlementDate1Choice SettlementDate { get; init; } 
+    public required SettlementDate1Choice_ SettlementDate { get; init; } 
     /// <summary>
     /// Specifies the price of the traded financial instrument.|This is the deal price of the individual trade transaction. |If there is only one trade transaction for the execution of the trade, then the deal price could equal the executed trade price (unless, for example, the price includes commissions or rounding, or some other factor has been applied to the deal price or the executed trade price, or both).
     /// </summary>
@@ -96,11 +96,11 @@ public partial record SecuritiesTradeDetails35
     /// <summary>
     /// Indicates the conditions under which the order/trade is to be/was executed.
     /// </summary>
-    public ITradeTransactionCondition1Choice? TradeTransactionCondition { get; init;  } // Warning: Don't know multiplicity.
+    public TradeTransactionCondition1Choice_[] TradeTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the type of price and information about the price.
     /// </summary>
-    public ITypeOfPrice3Choice? TypeOfPrice { get; init; } 
+    public TypeOfPrice3Choice_? TypeOfPrice { get; init; } 
     /// <summary>
     /// Details about the financial instrument quantity and the account involved in the transaction.
     /// </summary>
@@ -136,7 +136,7 @@ public partial record SecuritiesTradeDetails35
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

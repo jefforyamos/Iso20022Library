@@ -24,7 +24,7 @@ public partial record DeviceInitialisationCardReaderRequest3
     /// <summary>
     /// Payment instrument entry mode requested by the Sale System.
     /// </summary>
-    public CardDataReading8Code? ForceEntryMode { get; init;  } // Warning: Don't know multiplicity.
+    public CardDataReading8Code[] ForceEntryMode { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Flag to indicate the POI System to keep the card in the reader for a smart card.
     /// </summary>

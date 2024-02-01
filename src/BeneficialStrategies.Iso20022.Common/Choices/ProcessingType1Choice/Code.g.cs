@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingType1Choice;
 /// <summary>
 /// Type of processing restrictions, in a coded form.
 /// </summary>
-public partial record Code : IProcessingType1Choice
+public partial record Code : ProcessingType1Choice_
 {
     public required ProcessingType1Code Value { get; init; }
 }

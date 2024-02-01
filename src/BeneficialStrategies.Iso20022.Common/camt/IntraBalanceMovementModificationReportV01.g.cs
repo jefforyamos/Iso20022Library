@@ -77,7 +77,7 @@ public partial record IntraBalanceMovementModificationReportV01 : IOuterRecord
     [Description(@"Provides information on report or error resulting from the originating query message.")]
     [DataMember(Name="RptOrErr")]
     [XmlElement(ElementName="RptOrErr")]
-    public IIntraBalanceOrOperationalError8Choice? ReportOrError { get; init; }
+    public IntraBalanceOrOperationalError8Choice_? ReportOrError { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

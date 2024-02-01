@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketType8Choice;
 /// <summary>
 /// Market type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IMarketType8Choice
+public partial record Proprietary : MarketType8Choice_
 {
     #nullable enable
     /// <summary>

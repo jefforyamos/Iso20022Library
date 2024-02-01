@@ -20,11 +20,11 @@ public partial record CounterpartyData78
     /// <summary>
     /// Unique code identifying the entity which submits the report. In the case where submission of the report has been delegated to a third party or to the other counterparty, a unique code identifying that entity.
     /// </summary>
-    public required IOrganisationIdentification10Choice ReportSubmittingEntity { get; init; } 
+    public required OrganisationIdentification10Choice_ ReportSubmittingEntity { get; init; } 
     /// <summary>
     /// Unique code identifying the reporting counterparty.
     /// </summary>
-    public required IOrganisationIdentification10Choice ReportingCounterparty { get; init; } 
+    public required OrganisationIdentification10Choice_ ReportingCounterparty { get; init; } 
     
     #nullable disable
 }

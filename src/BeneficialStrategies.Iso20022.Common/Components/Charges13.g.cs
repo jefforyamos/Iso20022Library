@@ -32,7 +32,7 @@ public partial record Charges13
     /// <summary>
     /// Defines the type of charges.
     /// </summary>
-    public IChargeType3Choice? Type { get; init; } 
+    public ChargeType3Choice_? Type { get; init; } 
     
     #nullable disable
 }

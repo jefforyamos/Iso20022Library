@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxReferenceType1Choice;
 /// <summary>
 /// Type of tax reference expressed as a code.
 /// </summary>
-public partial record Code : ITaxReferenceType1Choice
+public partial record Code : TaxReferenceType1Choice_
 {
     public required PersonIdentificationType7Code Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record VoteInstructionType1
     /// <summary>
     /// Vote option allowed at the resolution level.
     /// </summary>
-    public required IVoteInstructionType1Choice VoteInstructionTypeCode { get; init; } 
+    public required VoteInstructionType1Choice_ VoteInstructionTypeCode { get; init; } 
     /// <summary>
     /// Additional information about the vote instruction type code when expressed as a proprietary code.
     /// </summary>

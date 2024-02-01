@@ -20,7 +20,7 @@ public partial record MeetingCancellationReason2
     /// <summary>
     /// Reason for cancelling a meeting.
     /// </summary>
-    public IMeetingCancellationReason1Choice? CancellationReasonCode { get; init; } 
+    public MeetingCancellationReason1Choice_? CancellationReasonCode { get; init; } 
     /// <summary>
     /// Provides more information on the reason for cancelling a meeting in free format form.
     /// </summary>

@@ -20,7 +20,7 @@ public partial record ReceivedStatusReason1
     /// <summary>
     /// Reason for the received status.
     /// </summary>
-    public required IReceivedReason1Choice Reason { get; init; } 
+    public required ReceivedReason1Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the processed instruction.
     /// </summary>

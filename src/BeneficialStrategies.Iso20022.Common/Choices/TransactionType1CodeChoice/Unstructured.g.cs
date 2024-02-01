@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionType1CodeChoice;
 /// <summary>
 /// Transaction type in free text form.
 /// </summary>
-public partial record Unstructured : ITransactionType1CodeChoice
+public partial record Unstructured : TransactionType1CodeChoice_
 {
     public required IsoMax35Text Value { get; init; }
 }

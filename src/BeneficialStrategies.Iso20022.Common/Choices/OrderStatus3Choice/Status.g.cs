@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderStatus3Choice;
 /// <summary>
 /// Status of all the orders in the order message. There is no reason attached.
 /// </summary>
-public partial record Status : IOrderStatus3Choice
+public partial record Status : OrderStatus3Choice_
 {
     public required OrderStatus4Code Value { get; init; }
 }

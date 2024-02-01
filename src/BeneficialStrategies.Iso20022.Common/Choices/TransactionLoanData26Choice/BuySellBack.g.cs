@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData26Choice;
 /// <summary>
 /// Details of the buy sell back transaction.
 /// </summary>
-public partial record BuySellBack : ITransactionLoanData26Choice
+public partial record BuySellBack : TransactionLoanData26Choice_
 {
     #nullable enable
     /// <summary>

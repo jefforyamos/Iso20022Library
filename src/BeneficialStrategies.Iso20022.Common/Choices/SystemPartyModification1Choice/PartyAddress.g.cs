@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemPartyModification1Choice;
 /// <summary>
 /// Information that locates and identifies a specific address, as defined by postal services.
 /// </summary>
-public partial record PartyAddress : ISystemPartyModification1Choice
+public partial record PartyAddress : SystemPartyModification1Choice_
 {
     #nullable enable
     /// <summary>

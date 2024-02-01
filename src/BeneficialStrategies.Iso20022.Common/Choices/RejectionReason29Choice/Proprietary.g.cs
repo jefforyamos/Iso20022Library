@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason29Choice;
 /// <summary>
 /// Specifies the reason why the instruction/request has a rejection status using a proprietary format.
 /// </summary>
-public partial record Proprietary : IRejectionReason29Choice
+public partial record Proprietary : RejectionReason29Choice_
 {
     #nullable enable
     /// <summary>

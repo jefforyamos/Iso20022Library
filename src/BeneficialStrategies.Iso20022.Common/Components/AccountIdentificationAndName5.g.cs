@@ -20,7 +20,7 @@ public partial record AccountIdentificationAndName5
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public required IAccountIdentification4Choice Identification { get; init; } 
+    public required AccountIdentification4Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>

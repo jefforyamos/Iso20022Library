@@ -28,7 +28,7 @@ public partial record TrackerStatusAndTransaction7
     /// <summary>
     /// Key elements used to identify the original transaction(s) that is being referred to.
     /// </summary>
-    public TrackerPaymentTransaction7? Transaction { get; init;  } // Warning: Don't know multiplicity.
+    public TrackerPaymentTransaction7[] Transaction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

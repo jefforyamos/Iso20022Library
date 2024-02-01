@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity5Choi
 /// <summary>
 /// Percentage of the total switch amount (buy-driven) to be invested in a particular investment fund or investment fund class.
 /// </summary>
-public partial record PercentageOfTotalSubscriptionAmount : IFinancialInstrumentQuantity5Choice
+public partial record PercentageOfTotalSubscriptionAmount : FinancialInstrumentQuantity5Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

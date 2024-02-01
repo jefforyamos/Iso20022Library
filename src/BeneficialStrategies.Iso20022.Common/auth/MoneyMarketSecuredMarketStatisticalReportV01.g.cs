@@ -56,7 +56,7 @@ public partial record MoneyMarketSecuredMarketStatisticalReportV01 : IOuterRecor
     [DataMember(Name="ScrdMktRpt")]
     [XmlElement(ElementName="ScrdMktRpt")]
     [Required]
-    public required ISecuredMarketReport3Choice SecuredMarketReport { get; init; }
+    public required SecuredMarketReport3Choice_ SecuredMarketReport { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

@@ -20,7 +20,7 @@ public partial record LimitStructure2
     /// <summary>
     /// Identification of the default limit.
     /// </summary>
-    public required ILimitIdentification1Choice LimitIdentification { get; init; } 
+    public required LimitIdentification1Choice_ LimitIdentification { get; init; } 
     /// <summary>
     /// New limit values.
     /// </summary>

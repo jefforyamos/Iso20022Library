@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExchangeRateReportOrError1Choice
 /// <summary>
 /// Reports on currency exchange information.
 /// </summary>
-public partial record CurrencyExchangeReport : IExchangeRateReportOrError1Choice
+public partial record CurrencyExchangeReport : ExchangeRateReportOrError1Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record CurrencyExchangeReport : IExchangeRateReportOrError1Choice
     /// <summary>
     /// Reports either on currency exchange information or on a business error.
     /// </summary>
-    public required IExchangeRateReportOrError2Choice CurrencyExchangeOrError { get; init; } 
+    public required ExchangeRateReportOrError2Choice_ CurrencyExchangeOrError { get; init; } 
     #nullable disable
 }

@@ -24,7 +24,7 @@ public partial record AuthenticatedData3
     /// <summary>
     /// Information related to the transport key.
     /// </summary>
-    public IRecipient3Choice? Recipient { get; init;  } // Warning: Don't know multiplicity.
+    public Recipient3Choice_[] Recipient { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Algorithm to compute message authentication code (MAC).
     /// </summary>

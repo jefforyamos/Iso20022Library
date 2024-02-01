@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxBasis1Choice;
 /// <summary>
 /// Tax basis expressed as a code.
 /// </summary>
-public partial record Code : ITaxBasis1Choice
+public partial record Code : TaxBasis1Choice_
 {
     public required TaxationBasis2Code Value { get; init; }
 }

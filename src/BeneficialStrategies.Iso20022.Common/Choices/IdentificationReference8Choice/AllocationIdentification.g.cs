@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationReference8Choice;
 /// <summary>
 /// Reference of the linked message at the allocation level which identifies a centrally matched transaction.
 /// </summary>
-public partial record AllocationIdentification : IIdentificationReference8Choice
+public partial record AllocationIdentification : IdentificationReference8Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

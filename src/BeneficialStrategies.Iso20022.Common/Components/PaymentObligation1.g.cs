@@ -52,7 +52,7 @@ public partial record PaymentObligation1
     /// <summary>
     /// Payment processes required to transfer cash from the debtor to the creditor.
     /// </summary>
-    public PaymentTerms2? PaymentTerms { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentTerms2[] PaymentTerms { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Instruction between two clearing agents stipulating the cash transfer characteristics between the two parties.
     /// </summary>

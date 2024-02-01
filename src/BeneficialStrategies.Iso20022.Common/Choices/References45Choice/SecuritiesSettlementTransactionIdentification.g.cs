@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References45Choice;
 /// <summary>
 /// Unambiguous identification of the securities settlement transaction.
 /// </summary>
-public partial record SecuritiesSettlementTransactionIdentification : IReferences45Choice
+public partial record SecuritiesSettlementTransactionIdentification : References45Choice_
 {
     #nullable enable
     /// <summary>

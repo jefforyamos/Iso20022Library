@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Removal1Choice;
 /// <summary>
 /// Specifies the removal processing change requested expressed as a code.
 /// </summary>
-public partial record Code : IRemoval1Choice
+public partial record Code : Removal1Choice_
 {
     public required FinancialInstrumentRemoval1Code Value { get; init; }
 }

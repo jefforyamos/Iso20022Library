@@ -20,7 +20,7 @@ public partial record VolumeCapReport1
     /// <summary>
     /// Date or date range the report relates to.
     /// </summary>
-    public IPeriod4Choice? ReportingPeriod { get; init; } 
+    public Period4Choice_? ReportingPeriod { get; init; } 
     /// <summary>
     /// The venue this report is in relation to specified as {MIC} (segment MIC, where available, otherwise operational MIC).
     /// </summary>
@@ -28,7 +28,7 @@ public partial record VolumeCapReport1
     /// <summary>
     /// Volume cap data specific to a reporting period.
     /// </summary>
-    public VolumeCapReport2? InstrumentReport { get; init;  } // Warning: Don't know multiplicity.
+    public VolumeCapReport2[] InstrumentReport { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

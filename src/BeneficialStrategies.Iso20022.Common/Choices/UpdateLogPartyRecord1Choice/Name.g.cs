@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 /// <summary>
 /// Specifies the name by which a party is known and which is usually used to identify that party.
 /// </summary>
-public partial record Name : IUpdateLogPartyRecord1Choice
+public partial record Name : UpdateLogPartyRecord1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CertifiedCharacteristics1Choice;
 /// <summary>
 /// Quality of the goods, as proven by the certificate.
 /// </summary>
-public partial record Quality : ICertifiedCharacteristics1Choice
+public partial record Quality : CertifiedCharacteristics1Choice_
 {
     public required IsoMax70Text Value { get; init; }
 }

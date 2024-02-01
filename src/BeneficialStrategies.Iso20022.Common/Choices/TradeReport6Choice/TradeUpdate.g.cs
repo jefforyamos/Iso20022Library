@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport6Choice;
 /// <summary>
 /// Information on margin held as a part of a transaction.
 /// </summary>
-public partial record TradeUpdate : ITradeReport6Choice
+public partial record TradeUpdate : TradeReport6Choice_
 {
     #nullable enable
     /// <summary>

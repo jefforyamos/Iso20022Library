@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StressItem1Choice;
 /// <summary>
 /// Variable, index, benchmark or other price used in the valuation of a financial instrument.
 /// </summary>
-public partial record RiskFactor : IStressItem1Choice
+public partial record RiskFactor : StressItem1Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record RiskFactor : IStressItem1Choice
     /// <summary>
     /// Assumed stress move of the associated stress item under the scenario.
     /// </summary>
-    public required IStressSize1Choice StressSize { get; init; } 
+    public required StressSize1Choice_ StressSize { get; init; } 
     #nullable disable
 }

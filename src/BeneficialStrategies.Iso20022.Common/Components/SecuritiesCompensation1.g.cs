@@ -20,7 +20,7 @@ public partial record SecuritiesCompensation1
     /// <summary>
     /// Place where settlement of the securities takes place.
     /// </summary>
-    public required IPartyIdentification34Choice Depository { get; init; } 
+    public required PartyIdentification34Choice_ Depository { get; init; } 
     /// <summary>
     /// Provides the total amount of money to be settled.
     /// </summary>

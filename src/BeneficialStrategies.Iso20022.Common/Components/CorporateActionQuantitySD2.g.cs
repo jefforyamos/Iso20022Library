@@ -24,11 +24,11 @@ public partial record CorporateActionQuantitySD2
     /// <summary>
     /// Minimum integral amount of securities that each account owner must have remaining after the called amounts are applied.
     /// </summary>
-    public IFinancialInstrumentQuantity22Choice? BaseDenomination { get; init; } 
+    public FinancialInstrumentQuantity22Choice_? BaseDenomination { get; init; } 
     /// <summary>
     /// Amount used when the called amount is not met by running the lottery with the base denomination.
     /// </summary>
-    public IFinancialInstrumentQuantity22Choice? IncrementalDenomination { get; init; } 
+    public FinancialInstrumentQuantity22Choice_? IncrementalDenomination { get; init; } 
     
     #nullable disable
 }

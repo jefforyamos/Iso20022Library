@@ -28,7 +28,7 @@ public partial record ParticipantAndStatus1
     /// <summary>
     /// Provides details on operational availability of the participant business service.
     /// </summary>
-    public ServiceAvailability1? ServiceAvailability { get; init;  } // Warning: Don't know multiplicity.
+    public ServiceAvailability1[] ServiceAvailability { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

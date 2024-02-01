@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DeemedRateType2Choice;
 /// <summary>
 /// Standard code to specify the type of deemed rate.
 /// </summary>
-public partial record Code : IDeemedRateType2Choice
+public partial record Code : DeemedRateType2Choice_
 {
     public required DeemedRateType1Code Value { get; init; }
 }

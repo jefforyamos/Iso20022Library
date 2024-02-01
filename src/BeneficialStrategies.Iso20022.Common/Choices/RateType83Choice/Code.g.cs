@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType83Choice;
 /// <summary>
 /// Standard code to specify the type of net dividend rate.
 /// </summary>
-public partial record Code : IRateType83Choice
+public partial record Code : RateType83Choice_
 {
     public required NetDividendRateType7Code Value { get; init; }
 }

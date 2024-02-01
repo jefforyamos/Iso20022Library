@@ -28,23 +28,23 @@ public partial record GlobalDistributionRequest1
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public required ICorporateActionOption1FormatChoice OptionType { get; init; } 
+    public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     /// <summary>
     /// Date on which the holders of securities are/will be recorded for the income being paid or for entitlement to the rights or offer/privilege.
     /// </summary>
-    public required IDateFormat4Choice RecordDate { get; init; } 
+    public required DateFormat4Choice_ RecordDate { get; init; } 
     /// <summary>
     /// Date on which securities/cash will be paid.
     /// </summary>
-    public required IDateFormat4Choice PaymentDate { get; init; } 
+    public required DateFormat4Choice_ PaymentDate { get; init; } 
     /// <summary>
     /// Provides information about the securities movement.
     /// </summary>
-    public SecurityMovement1? SecuritiesMovement { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityMovement1[] SecuritiesMovement { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the cash movement.
     /// </summary>
-    public CashMovement1? CashMovement { get; init;  } // Warning: Don't know multiplicity.
+    public CashMovement1[] CashMovement { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

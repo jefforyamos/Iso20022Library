@@ -94,7 +94,7 @@ public partial record BuyInRegulatoryAdviceResponseV01 : IOuterRecord
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
     [Required]
-    public required IProcessingStatus79Choice ProcessingStatus { get; init; }
+    public required ProcessingStatus79Choice_ ProcessingStatus { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

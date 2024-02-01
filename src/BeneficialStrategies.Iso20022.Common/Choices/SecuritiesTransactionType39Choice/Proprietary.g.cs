@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionType39Choic
 /// <summary>
 /// Securities transaction type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISecuritiesTransactionType39Choice
+public partial record Proprietary : SecuritiesTransactionType39Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ElectionTypeFormat4Choice;
 /// <summary>
 /// Standard code to specify the effect on the holdings of electing a corporate action option.
 /// </summary>
-public partial record Code : IElectionTypeFormat4Choice
+public partial record Code : ElectionTypeFormat4Choice_
 {
     public required ElectionMovementType2Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntermediaryRoleChoice1;
 /// <summary>
 /// Role of the party in the activity.
 /// </summary>
-public partial record Proprietary : IIntermediaryRoleChoice1
+public partial record Proprietary : IntermediaryRoleChoice1_
 {
     #nullable enable
     /// <summary>

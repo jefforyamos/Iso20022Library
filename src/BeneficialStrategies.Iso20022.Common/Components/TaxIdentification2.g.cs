@@ -24,7 +24,7 @@ public partial record TaxIdentification2
     /// <summary>
     /// Type of tax identification number or identifier.
     /// </summary>
-    public required ITaxIdentificationType1Choice TaxIdentificationType { get; init; } 
+    public required TaxIdentificationType1Choice_ TaxIdentificationType { get; init; } 
     /// <summary>
     /// Entity that assigns the identifier.
     /// </summary>

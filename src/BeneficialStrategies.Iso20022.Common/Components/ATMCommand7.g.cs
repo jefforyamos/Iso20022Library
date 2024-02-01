@@ -36,7 +36,7 @@ public partial record ATMCommand7
     /// <summary>
     /// Specific parameters attached to the command.
     /// </summary>
-    public IATMCommandParameters1Choice? CommandParameters { get; init; } 
+    public ATMCommandParameters1Choice_? CommandParameters { get; init; } 
     
     #nullable disable
 }

@@ -24,11 +24,11 @@ public partial record ATMService17
     /// <summary>
     /// Variant of the service.
     /// </summary>
-    public ATMService18? ServiceVariant { get; init;  } // Warning: Don't know multiplicity.
+    public ATMService18[] ServiceVariant { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Limits of amounts.
     /// </summary>
-    public ATMTransactionAmounts6? Limits { get; init;  } // Warning: Don't know multiplicity.
+    public ATMTransactionAmounts6[] Limits { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Preferred withdrawal transaction chosen by the customer.
     /// </summary>

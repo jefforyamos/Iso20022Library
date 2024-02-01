@@ -36,15 +36,15 @@ public partial record ExtendOrPayQuery1
     /// <summary>
     /// Contact at the issuing bank.
     /// </summary>
-    public Contacts3? BankContact { get; init;  } // Warning: Don't know multiplicity.
+    public Contacts3[] BankContact { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Document or template enclosed in the request.
     /// </summary>
-    public Document9? EnclosedFile { get; init;  } // Warning: Don't know multiplicity.
+    public Document9[] EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the request.
     /// </summary>
-    public IReadOnlyCollection<IsoMax2000Text> AdditionalInformation { get; init; } = [];
+    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

@@ -24,15 +24,15 @@ public partial record ProxyAppointmentInformation5
     /// <summary>
     /// Date by which the information on the proxy assignment must be received by the intermediary.
     /// </summary>
-    public IDateFormat58Choice? Deadline { get; init; } 
+    public DateFormat58Choice_? Deadline { get; init; } 
     /// <summary>
     /// Date by which the information on the proxy assignment must be received by the issuer.
     /// </summary>
-    public IDateFormat58Choice? MarketDeadline { get; init; } 
+    public DateFormat58Choice_? MarketDeadline { get; init; } 
     /// <summary>
     /// Proxy person that is authorised by the issuer.
     /// </summary>
-    public IReadOnlyCollection<Proxy9> AuthorisedProxy { get; init; } = [];
+    public Proxy9[] AuthorisedProxy { get; init; } = [];
     
     #nullable disable
 }

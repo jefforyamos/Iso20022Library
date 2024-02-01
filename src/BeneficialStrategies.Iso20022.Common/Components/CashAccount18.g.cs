@@ -24,11 +24,11 @@ public partial record CashAccount18
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountOwnerIdentification { get; init; } 
+    public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Identification of the cash account or the securities account from which the cash account is derived.
     /// </summary>
-    public required IAccountIdentification2Choice AccountIdentification { get; init; } 
+    public required AccountIdentification2Choice_ AccountIdentification { get; init; } 
     /// <summary>
     /// The cash balance type.
     /// </summary>

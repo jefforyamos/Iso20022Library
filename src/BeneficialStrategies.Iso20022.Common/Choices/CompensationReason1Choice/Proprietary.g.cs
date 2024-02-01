@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CompensationReason1Choice;
 /// <summary>
 /// Reason for the payment compensation, in a proprietary form.
 /// </summary>
-public partial record Proprietary : ICompensationReason1Choice
+public partial record Proprietary : CompensationReason1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

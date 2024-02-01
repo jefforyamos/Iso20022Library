@@ -20,7 +20,7 @@ public partial record FinancialInstitutionIdentificationList1
     /// <summary>
     /// Repeated identifiers.
     /// </summary>
-    public FinancialInstitutionIdentification9? List { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstitutionIdentification9[] List { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

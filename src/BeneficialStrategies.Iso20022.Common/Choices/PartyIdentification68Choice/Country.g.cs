@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification68Choice;
 /// <summary>
 /// Nation with its own government, occupying a particular territory.
 /// </summary>
-public partial record Country : IPartyIdentification68Choice
+public partial record Country : PartyIdentification68Choice_
 {
     public required CountryCode Value { get; init; }
 }

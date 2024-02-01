@@ -20,7 +20,7 @@ public partial record PriceRate1
     /// <summary>
     /// Type of rate, eg, yield.
     /// </summary>
-    public required IPriceRateType3FormatChoice RateType { get; init; } 
+    public required PriceRateType3FormatChoice_ RateType { get; init; } 
     /// <summary>
     /// Price expressed as a rate, ie, percentage.
     /// </summary>

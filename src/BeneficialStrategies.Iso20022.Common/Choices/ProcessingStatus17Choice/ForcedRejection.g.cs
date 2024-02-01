@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus17Choice;
 /// <summary>
 /// Trade is in forced rejection.
 /// </summary>
-public partial record ForcedRejection : IProcessingStatus17Choice
+public partial record ForcedRejection : ProcessingStatus17Choice_
 {
     #nullable enable
     /// <summary>

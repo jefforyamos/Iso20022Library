@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModificationProcessingStatus7Cho
 /// <summary>
 /// Modification is pending processing.
 /// </summary>
-public partial record PendingProcessing : IModificationProcessingStatus7Choice
+public partial record PendingProcessing : ModificationProcessingStatus7Choice_
 {
     #nullable enable
     #nullable disable

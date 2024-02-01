@@ -24,7 +24,7 @@ public partial record CorporateActionNotification7
     /// <summary>
     /// Specifies the status of the details of the corporate action event.
     /// </summary>
-    public required ICorporateActionProcessingStatus5Choice ProcessingStatus { get; init; } 
+    public required CorporateActionProcessingStatus5Choice_ ProcessingStatus { get; init; } 
     
     #nullable disable
 }

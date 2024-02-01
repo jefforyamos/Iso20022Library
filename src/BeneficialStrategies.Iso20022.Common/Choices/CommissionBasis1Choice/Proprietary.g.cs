@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CommissionBasis1Choice;
 /// <summary>
 /// Commission basis expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICommissionBasis1Choice
+public partial record Proprietary : CommissionBasis1Choice_
 {
     #nullable enable
     /// <summary>

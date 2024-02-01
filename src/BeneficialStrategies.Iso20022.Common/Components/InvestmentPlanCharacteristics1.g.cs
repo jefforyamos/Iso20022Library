@@ -20,11 +20,11 @@ public partial record InvestmentPlanCharacteristics1
     /// <summary>
     /// Type of investment plan.
     /// </summary>
-    public required IInvestmentFundPlanType1Choice PlanType { get; init; } 
+    public required InvestmentFundPlanType1Choice_ PlanType { get; init; } 
     /// <summary>
     /// Frequency of the investment plan.
     /// </summary>
-    public IFrequency20Choice? Frequency { get; init; } 
+    public Frequency20Choice_? Frequency { get; init; } 
     /// <summary>
     /// Total number of times the amount must be invested at the predefined frequency as of the start date of the investment plan.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record InvestmentPlanCharacteristics1
     /// <summary>
     /// Minimum amount of the periodical payments. (If there is no maximum, then '0' must be specified for the Amount or Units.)
     /// </summary>
-    public IUnitsOrAmount1Choice? Quantity { get; init; } 
+    public UnitsOrAmount1Choice_? Quantity { get; init; } 
     /// <summary>
     /// Indicates whether it is possible to continue the savings plan after the end date.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record InvestmentPlanCharacteristics1
     /// <summary>
     /// Additional information about the investment plan.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

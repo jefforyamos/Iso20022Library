@@ -32,7 +32,7 @@ public partial record AccountReport1
     /// <summary>
     /// Information specifying the account mandate.
     /// </summary>
-    public OperationMandate1? Mandate { get; init;  } // Warning: Don't know multiplicity.
+    public OperationMandate1[] Mandate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identification of the account used as a reference for the opening of another account.
     /// </summary>

@@ -48,7 +48,7 @@ public partial record ATMEquipment1
     /// <summary>
     /// Configuration parameter version.
     /// </summary>
-    public ATMConfigurationParameter1? ConfigurationParameter { get; init;  } // Warning: Don't know multiplicity.
+    public ATMConfigurationParameter1[] ConfigurationParameter { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

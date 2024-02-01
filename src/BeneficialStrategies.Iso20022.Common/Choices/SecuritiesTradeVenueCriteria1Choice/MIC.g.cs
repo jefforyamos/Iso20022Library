@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTradeVenueCriteria1Cho
 /// <summary>
 /// Market identifier code of the trading venue.
 /// </summary>
-public partial record MIC : ISecuritiesTradeVenueCriteria1Choice
+public partial record MIC : SecuritiesTradeVenueCriteria1Choice_
 {
     public required IsoMICIdentifier Value { get; init; }
 }

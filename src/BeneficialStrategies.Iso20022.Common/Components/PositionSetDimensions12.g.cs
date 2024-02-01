@@ -20,7 +20,7 @@ public partial record PositionSetDimensions12
     /// <summary>
     /// Information describing the reporting counterparty.
     /// </summary>
-    public IOrganisationIdentification15Choice? ReportingCounterparty { get; init; } 
+    public OrganisationIdentification15Choice_? ReportingCounterparty { get; init; } 
     /// <summary>
     /// Provides the details of the collateral used in the transaction.
     /// </summary>

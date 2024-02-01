@@ -20,15 +20,15 @@ public partial record TransactionParties7
     /// <summary>
     /// Ultimate party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
-    public IParty40Choice? UltimateDebtor { get; init; } 
+    public Party40Choice_? UltimateDebtor { get; init; } 
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
-    public required IParty40Choice Debtor { get; init; } 
+    public required Party40Choice_ Debtor { get; init; } 
     /// <summary>
     /// Party that initiates the payment.|Usage: This can be either the debtor or a party that initiates the credit transfer on behalf of the debtor.
     /// </summary>
-    public IParty40Choice? InitiatingParty { get; init; } 
+    public Party40Choice_? InitiatingParty { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
@@ -64,11 +64,11 @@ public partial record TransactionParties7
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
-    public required IParty40Choice Creditor { get; init; } 
+    public required Party40Choice_ Creditor { get; init; } 
     /// <summary>
     /// Ultimate party to which an amount of money is due.
     /// </summary>
-    public IParty40Choice? UltimateCreditor { get; init; } 
+    public Party40Choice_? UltimateCreditor { get; init; } 
     
     #nullable disable
 }

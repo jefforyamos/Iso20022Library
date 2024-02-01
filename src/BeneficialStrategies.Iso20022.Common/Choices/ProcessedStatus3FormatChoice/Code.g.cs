@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessedStatus3FormatChoice;
 /// <summary>
 /// Standard code to specify the processing status of an advice, a request or a movement.
 /// </summary>
-public partial record Code : IProcessedStatus3FormatChoice
+public partial record Code : ProcessedStatus3FormatChoice_
 {
     public required ProcessedStatus3Code Value { get; init; }
 }

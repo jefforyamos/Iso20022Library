@@ -28,7 +28,7 @@ public partial record GenericValidationRuleIdentification1
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
-    public IValidationRuleSchemeName1Choice? SchemeName { get; init; } 
+    public ValidationRuleSchemeName1Choice_? SchemeName { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>

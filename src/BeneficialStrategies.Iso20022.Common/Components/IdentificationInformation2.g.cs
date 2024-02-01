@@ -24,7 +24,7 @@ public partial record IdentificationInformation2
     /// <summary>
     /// Unambiguous identification of the account of a party.
     /// </summary>
-    public IAccountIdentification4Choice? Account { get; init; } 
+    public AccountIdentification4Choice_? Account { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for a party.
     /// </summary>

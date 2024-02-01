@@ -24,7 +24,7 @@ public partial record OpeningBalance5
     /// <summary>
     /// Opening balance for the statement period (first opening balance) or of this page (intermediary opening balance).
     /// </summary>
-    public required IOpeningBalance6Choice OpeningBalance { get; init; } 
+    public required OpeningBalance6Choice_ OpeningBalance { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferType1Choice;
 /// <summary>
 /// Transfer type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITransferType1Choice
+public partial record Proprietary : TransferType1Choice_
 {
     #nullable enable
     /// <summary>

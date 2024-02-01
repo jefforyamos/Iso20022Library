@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BPOApplicableRules1Choice;
 /// <summary>
 /// Applicable rules are not URBPO and are specified here with version.
 /// </summary>
-public partial record OtherRulesAndVersion : IBPOApplicableRules1Choice
+public partial record OtherRulesAndVersion : BPOApplicableRules1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

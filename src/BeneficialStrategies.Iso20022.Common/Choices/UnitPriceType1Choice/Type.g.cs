@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitPriceType1Choice;
 /// <summary>
 /// Type and information about a price.
 /// </summary>
-public partial record Type : IUnitPriceType1Choice
+public partial record Type : UnitPriceType1Choice_
 {
     public required TypeOfPrice13Code Value { get; init; }
 }

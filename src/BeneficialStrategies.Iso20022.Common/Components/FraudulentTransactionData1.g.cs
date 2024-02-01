@@ -30,11 +30,11 @@ public partial record FraudulentTransactionData1
     /// ISO 8583:93/2003 bit 25
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    public IsoExact4NumericText? MessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoExact4NumericText[] MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Supports message reason codes that are not defined  in external code list. 
     /// </summary>
-    public IsoMax35Text? AlternateMessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Complete or partial details of the original message identified as fraudulent.
     /// </summary>

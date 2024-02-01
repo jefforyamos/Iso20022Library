@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Registration12Choice;
 /// <summary>
 /// Registration information expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IRegistration12Choice
+public partial record Code : Registration12Choice_
 {
     public required Registration2Code Value { get; init; }
 }

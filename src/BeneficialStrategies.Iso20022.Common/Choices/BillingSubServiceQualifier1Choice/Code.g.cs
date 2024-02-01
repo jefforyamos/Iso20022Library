@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingSubServiceQualifier1Choic
 /// <summary>
 /// Specifies the contents of the sub service qualifier, in a coded form.
 /// </summary>
-public partial record Code : IBillingSubServiceQualifier1Choice
+public partial record Code : BillingSubServiceQualifier1Choice_
 {
     public required BillingSubServiceQualifier1Code Value { get; init; }
 }

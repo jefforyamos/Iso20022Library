@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnergy1Choice
 /// <summary>
 /// Definition of Coal energy commodity derivative.
 /// </summary>
-public partial record Coal : IAssetClassCommodityEnergy1Choice
+public partial record Coal : AssetClassCommodityEnergy1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason21FormatChoice;
 /// <summary>
 /// Provides the interest rejection reason using a proprietary code.
 /// </summary>
-public partial record Proprietary : IRejectionReason21FormatChoice
+public partial record Proprietary : RejectionReason21FormatChoice_
 {
     #nullable enable
     /// <summary>

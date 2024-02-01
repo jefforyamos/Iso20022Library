@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity32Cho
 /// <summary>
 /// Indicates that quantity is expressed as a nominal value.
 /// </summary>
-public partial record NominalValue : IFinancialInstrumentQuantity32Choice
+public partial record NominalValue : FinancialInstrumentQuantity32Choice_
 {
     public required IsoActiveOrHistoricCurrencyAnd19DecimalAmount Value { get; init; }
 }

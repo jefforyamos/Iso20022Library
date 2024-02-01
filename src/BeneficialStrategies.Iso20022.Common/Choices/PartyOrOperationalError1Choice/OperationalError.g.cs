@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrOperationalError1Choice;
 /// <summary>
 /// Operational error resulting from a rejection.
 /// </summary>
-public partial record OperationalError : IPartyOrOperationalError1Choice
+public partial record OperationalError : PartyOrOperationalError1Choice_
 {
     #nullable enable
     /// <summary>
     /// Specification of the error, in coded or proprietary form.
     /// </summary>
-    public required IErrorHandling1Choice Error { get; init; } 
+    public required ErrorHandling1Choice_ Error { get; init; } 
     /// <summary>
     /// Specification of the error, in free format.
     /// </summary>

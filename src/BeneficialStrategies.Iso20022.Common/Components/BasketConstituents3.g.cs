@@ -20,7 +20,7 @@ public partial record BasketConstituents3
     /// <summary>
     /// Proprietary identification of a security assigned by an institution or organisation.
     /// </summary>
-    public required IInstrumentIdentification6Choice InstrumentIdentification { get; init; } 
+    public required InstrumentIdentification6Choice_ InstrumentIdentification { get; init; } 
     /// <summary>
     /// Indicates the number of units of a particular constituent in a custom basket.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record BasketConstituents3
     /// <summary>
     /// Specifies the unit of measure in which the number of units of a particular custom basket constituent is expressed.
     /// </summary>
-    public IUnitOfMeasure8Choice? UnitOfMeasure { get; init; } 
+    public UnitOfMeasure8Choice_? UnitOfMeasure { get; init; } 
     
     #nullable disable
 }

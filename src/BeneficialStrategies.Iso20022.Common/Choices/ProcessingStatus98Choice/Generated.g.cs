@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus98Choice;
 /// <summary>
 /// Trade is generated.
 /// </summary>
-public partial record Generated : IProcessingStatus98Choice
+public partial record Generated : ProcessingStatus98Choice_
 {
     #nullable enable
     /// <summary>

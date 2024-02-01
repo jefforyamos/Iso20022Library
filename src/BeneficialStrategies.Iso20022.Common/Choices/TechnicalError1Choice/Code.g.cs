@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TechnicalError1Choice;
 /// <summary>
 /// Reason for the technical error, as published in an external technical error code list.
 /// </summary>
-public partial record Code : ITechnicalError1Choice
+public partial record Code : TechnicalError1Choice_
 {
     public required ExternalTechnicalError1Code Value { get; init; }
 }

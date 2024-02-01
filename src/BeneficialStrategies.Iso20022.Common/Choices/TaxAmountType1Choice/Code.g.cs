@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxAmountType1Choice;
 /// <summary>
 /// Specifies the amount type, in a coded form.
 /// </summary>
-public partial record Code : ITaxAmountType1Choice
+public partial record Code : TaxAmountType1Choice_
 {
     public required ExternalTaxAmountType1Code Value { get; init; }
 }

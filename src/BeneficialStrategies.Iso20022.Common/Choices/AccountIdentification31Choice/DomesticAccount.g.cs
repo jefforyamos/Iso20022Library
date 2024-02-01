@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification31Choice;
 /// <summary>
 /// Account number used by financial institutions in individual countries to identify an account of a customer, but not necessarily the bank and branch of the financial institution in which the account is held.
 /// </summary>
-public partial record DomesticAccount : IAccountIdentification31Choice
+public partial record DomesticAccount : AccountIdentification31Choice_
 {
     #nullable enable
     /// <summary>

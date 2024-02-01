@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus41Cho
 /// <summary>
 /// Instruction is accepted.
 /// </summary>
-public partial record Accepted : IInstructionProcessingStatus41Choice
+public partial record Accepted : InstructionProcessingStatus41Choice_
 {
     #nullable enable
     /// <summary>

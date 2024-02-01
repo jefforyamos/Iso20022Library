@@ -20,19 +20,19 @@ public partial record CorporateActionOption167
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    public required IOptionNumber1Choice OptionNumber { get; init; } 
+    public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public required ICorporateActionOption32Choice OptionType { get; init; } 
+    public required CorporateActionOption32Choice_ OptionType { get; init; } 
     /// <summary>
     /// Specifies the features that may apply to a corporate action option.
     /// </summary>
-    public IOptionFeaturesFormat25Choice? OptionFeatures { get; init; } 
+    public OptionFeaturesFormat25Choice_? OptionFeatures { get; init; } 
     /// <summary>
     /// Party that owns the account.
     /// </summary>
-    public IPartyIdentification127Choice? AccountOwner { get; init; } 
+    public PartyIdentification127Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
@@ -40,11 +40,11 @@ public partial record CorporateActionOption167
     /// <summary>
     /// Account on which a securities entry is made.
     /// </summary>
-    public ICashAccountIdentification5Choice? CashAccount { get; init; } 
+    public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
-    public ISafekeepingPlaceFormat28Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat28Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record CorporateActionOption167
     /// <summary>
     /// Quantity of securities that has been assigned the status indicated.
     /// </summary>
-    public IQuantity6Choice? StatusQuantity { get; init; } 
+    public Quantity6Choice_? StatusQuantity { get; init; } 
     /// <summary>
     /// Amount of cash subscribed that has been assigned the status indicated.
     /// </summary>

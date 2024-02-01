@@ -28,7 +28,7 @@ public partial record TradeStatusReport1
     /// <summary>
     /// Set of elements used to provide detailed information on the status reason.
     /// </summary>
-    public StatusReasonInformation8? StatusReason { get; init;  } // Warning: Don't know multiplicity.
+    public StatusReasonInformation8[] StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the report.
     /// </summary>

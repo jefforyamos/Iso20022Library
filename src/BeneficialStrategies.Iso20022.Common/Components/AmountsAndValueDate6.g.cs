@@ -20,11 +20,11 @@ public partial record AmountsAndValueDate6
     /// <summary>
     /// Currency and amount bought in a foreign exchange trade.
     /// </summary>
-    public required ICurrencyOrDigitalTokenAmount1Choice TradingSideBuyAmount { get; init; } 
+    public required CurrencyOrDigitalTokenAmount1Choice_ TradingSideBuyAmount { get; init; } 
     /// <summary>
     /// Currency and amount sold in a foreign exchange trade.
     /// </summary>
-    public required ICurrencyOrDigitalTokenAmount1Choice TradingSideSellAmount { get; init; } 
+    public required CurrencyOrDigitalTokenAmount1Choice_ TradingSideSellAmount { get; init; } 
     /// <summary>
     /// Date on which the trade is settled, for example, the amounts are due.
     /// </summary>

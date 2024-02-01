@@ -20,15 +20,15 @@ public partial record QuantityAndAccount80
     /// <summary>
     /// Quantity of financial instrument effectively settled.
     /// </summary>
-    public required IQuantity6Choice SettledQuantity { get; init; } 
+    public required Quantity6Choice_ SettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument previously settled.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? PreviouslySettledQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? PreviouslySettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument remaining to be settled.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? RemainingToBeSettledQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? RemainingToBeSettledQuantity { get; init; } 
     /// <summary>
     /// Amount of money previously settled.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record QuantityAndAccount80
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    public ICashAccountIdentification5Choice? CashAccount { get; init; } 
+    public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>

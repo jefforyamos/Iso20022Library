@@ -12,17 +12,17 @@ namespace BeneficialStrategies.Iso20022.Choices.ReconciliationMatchedStatus9Choi
 /// <summary>
 /// Indication that the reports subject of reconciliation do not match.
 /// </summary>
-public partial record NotMatched : IReconciliationMatchedStatus9Choice
+public partial record NotMatched : ReconciliationMatchedStatus9Choice_
 {
     #nullable enable
     /// <summary>
     /// First side of the contract that needs to be matched.
     /// </summary>
-    public required IOrganisationIdentification15Choice Counterparty1 { get; init; } 
+    public required OrganisationIdentification15Choice_ Counterparty1 { get; init; } 
     /// <summary>
     /// Second side of the contract that needs to be matched.
     /// </summary>
-    public required IOrganisationIdentification15Choice Counterparty2 { get; init; } 
+    public required OrganisationIdentification15Choice_ Counterparty2 { get; init; } 
     /// <summary>
     /// Criteria used to match the sides of the contract.
     /// </summary>

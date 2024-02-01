@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PremiumQuote1Choice;
 /// <summary>
 /// Premium calculation is based on points of the put amount.
 /// </summary>
-public partial record PointsOfPutAmount : IPremiumQuote1Choice
+public partial record PointsOfPutAmount : PremiumQuote1Choice_
 {
     public required IsoBaseOneRate Value { get; init; }
 }

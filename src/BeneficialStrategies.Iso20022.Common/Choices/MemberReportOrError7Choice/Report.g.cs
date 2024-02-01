@@ -12,16 +12,16 @@ namespace BeneficialStrategies.Iso20022.Choices.MemberReportOrError7Choice;
 /// <summary>
 /// Provides the details on the requested member.
 /// </summary>
-public partial record Report : IMemberReportOrError7Choice
+public partial record Report : MemberReportOrError7Choice_
 {
     #nullable enable
     /// <summary>
     /// Unique and unambiguous identification of a member within a system, assigned using the member identification scheme of the system.
     /// </summary>
-    public required IMemberIdentification3Choice MemberIdentification { get; init; } 
+    public required MemberIdentification3Choice_ MemberIdentification { get; init; } 
     /// <summary>
     /// Reports either on a member or a business error.
     /// </summary>
-    public required IMemberReportOrError8Choice MemberOrError { get; init; } 
+    public required MemberReportOrError8Choice_ MemberOrError { get; init; } 
     #nullable disable
 }

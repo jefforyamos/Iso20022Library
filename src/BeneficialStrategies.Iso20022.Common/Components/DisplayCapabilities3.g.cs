@@ -24,7 +24,7 @@ public partial record DisplayCapabilities3
     /// <summary>
     /// Available message format.
     /// </summary>
-    public OutputFormat1Code? AvailableFormat { get; init;  } // Warning: Don't know multiplicity.
+    public OutputFormat1Code[] AvailableFormat { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number of lines of the display.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record DisplayCapabilities3
     /// <summary>
     /// Available language for the message. Reference ISO 639-1 (alpha-2) et ISO 639-2 (alpha-3).
     /// </summary>
-    public LanguageCode? AvailableLanguage { get; init;  } // Warning: Don't know multiplicity.
+    public LanguageCode[] AvailableLanguage { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

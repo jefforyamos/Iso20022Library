@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentScheduleType2Choice;
 /// <summary>
 /// Payment schedule type defined in a proprietary format.
 /// </summary>
-public partial record Proprietary : IPaymentScheduleType2Choice
+public partial record Proprietary : PaymentScheduleType2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

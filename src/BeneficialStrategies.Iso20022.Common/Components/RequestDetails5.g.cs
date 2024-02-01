@@ -28,7 +28,7 @@ public partial record RequestDetails5
     /// <summary>
     /// Report key and returned data.
     /// </summary>
-    public RequestDetails4? ReportKey { get; init;  } // Warning: Don't know multiplicity.
+    public RequestDetails4[] ReportKey { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

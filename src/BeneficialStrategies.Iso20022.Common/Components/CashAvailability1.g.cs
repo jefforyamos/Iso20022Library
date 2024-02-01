@@ -20,7 +20,7 @@ public partial record CashAvailability1
     /// <summary>
     /// Indicates when the amount of money will become available.
     /// </summary>
-    public required ICashAvailabilityDate1Choice Date { get; init; } 
+    public required CashAvailabilityDate1Choice_ Date { get; init; } 
     /// <summary>
     /// Identifies the available amount.
     /// </summary>

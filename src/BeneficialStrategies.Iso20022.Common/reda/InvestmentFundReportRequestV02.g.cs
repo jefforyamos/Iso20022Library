@@ -78,7 +78,7 @@ public partial record InvestmentFundReportRequestV02 : IOuterRecord
     [DataMember(Name="FPPRpt")]
     [XmlElement(ElementName="FPPRpt")]
     [Required]
-    public required IFundParameters3Choice FundProcessingPassportReport { get; init; }
+    public required FundParameters3Choice_ FundProcessingPassportReport { get; init; }
     
     #nullable disable
     

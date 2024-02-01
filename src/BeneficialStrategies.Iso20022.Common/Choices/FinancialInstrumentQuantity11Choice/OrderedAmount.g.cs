@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity11Cho
 /// <summary>
 /// Amount of money instructed for the subscription or redemption.
 /// </summary>
-public partial record OrderedAmount : IFinancialInstrumentQuantity11Choice
+public partial record OrderedAmount : FinancialInstrumentQuantity11Choice_
 {
     public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
 }

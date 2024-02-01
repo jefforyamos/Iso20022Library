@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationSource1Choice;
 /// <summary>
 /// Entity that issues the proprietary identification.
 /// </summary>
-public partial record Proprietary : IIdentificationSource1Choice
+public partial record Proprietary : IdentificationSource1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

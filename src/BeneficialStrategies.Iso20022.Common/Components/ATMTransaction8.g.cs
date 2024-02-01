@@ -40,7 +40,7 @@ public partial record ATMTransaction8
     /// <summary>
     /// Media mix to select.
     /// </summary>
-    public ATMMediaMix2? Mix { get; init;  } // Warning: Don't know multiplicity.
+    public ATMMediaMix2[] Mix { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

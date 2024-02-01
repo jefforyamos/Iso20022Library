@@ -28,7 +28,7 @@ public partial record LiquidityStressTestResult1
     /// <summary>
     /// Indicates the stressed resources and liquidity requirements under the liquidity stress test. The balance of resources are reported as of day ‘T‐1’. The requirements and any flows of resources are reported on their respective day from day ’ T’ to ‘T+5'.
     /// </summary>
-    public IReadOnlyCollection<LiquidityRequiredAndAvailable1> LiquidityRequiredAndAvailable { get; init; } = [];
+    public LiquidityRequiredAndAvailable1[] LiquidityRequiredAndAvailable { get; init; } = [];
     
     #nullable disable
 }

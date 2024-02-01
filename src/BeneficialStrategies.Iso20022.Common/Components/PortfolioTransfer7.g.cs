@@ -32,7 +32,7 @@ public partial record PortfolioTransfer7
     /// <summary>
     /// Choice of tax efficient product, general investment or pension.
     /// </summary>
-    public IFundPortfolio5Choice? Portfolio { get; init; } 
+    public FundPortfolio5Choice_? Portfolio { get; init; } 
     /// <summary>
     /// Indicates that not all the assets in the holding/portfolio are specified and that some other kind of other communication is required.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record PortfolioTransfer7
     /// <summary>
     /// Specifies whether there is cash in the account awaiting investment and the currency.
     /// </summary>
-    public ResidualCash1? ResidualCash { get; init;  } // Warning: Don't know multiplicity.
+    public ResidualCash1[] ResidualCash { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax date applicable to all the assets.
     /// </summary>
@@ -48,11 +48,11 @@ public partial record PortfolioTransfer7
     /// <summary>
     /// Asset to be transferred.
     /// </summary>
-    public FinancialInstrument85? FinancialInstrumentAssetForTransfer { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrument85[] FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the product transfer.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

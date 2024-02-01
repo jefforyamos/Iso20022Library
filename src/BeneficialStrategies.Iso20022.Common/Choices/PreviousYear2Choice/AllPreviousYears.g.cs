@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PreviousYear2Choice;
 /// <summary>
 /// Selection of all investment plans.
 /// </summary>
-public partial record AllPreviousYears : IPreviousYear2Choice
+public partial record AllPreviousYears : PreviousYear2Choice_
 {
     public required IsoPreviousAll Value { get; init; }
 }

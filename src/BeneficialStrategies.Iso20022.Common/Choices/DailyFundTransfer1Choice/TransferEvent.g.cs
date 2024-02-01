@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DailyFundTransfer1Choice;
 /// <summary>
 /// Information about code and number of transfer.
 /// </summary>
-public partial record TransferEvent : IDailyFundTransfer1Choice
+public partial record TransferEvent : DailyFundTransfer1Choice_
 {
     #nullable enable
     /// <summary>

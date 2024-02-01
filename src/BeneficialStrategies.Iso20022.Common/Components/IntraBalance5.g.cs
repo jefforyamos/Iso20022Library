@@ -20,11 +20,11 @@ public partial record IntraBalance5
     /// <summary>
     /// Total amount of money to be settled.
     /// </summary>
-    public required IAmount2Choice SettlementAmount { get; init; } 
+    public required Amount2Choice_ SettlementAmount { get; init; } 
     /// <summary>
     /// Date and time at which the amount of money is to be moved.
     /// </summary>
-    public required IDateAndDateTime2Choice SettlementDate { get; init; } 
+    public required DateAndDateTime2Choice_ SettlementDate { get; init; } 
     /// <summary>
     /// Balance from which the amount of money is moved.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record IntraBalance5
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
-    public IPriorityNumeric4Choice? Priority { get; init; } 
+    public PriorityNumeric4Choice_? Priority { get; init; } 
     /// <summary>
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>

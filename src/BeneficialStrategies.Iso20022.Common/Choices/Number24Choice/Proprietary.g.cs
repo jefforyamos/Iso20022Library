@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Number24Choice;
 /// <summary>
 /// Number of maximum 35 text, with the possibility to provide an issuer for the number identification.
 /// </summary>
-public partial record Proprietary : INumber24Choice
+public partial record Proprietary : Number24Choice_
 {
     #nullable enable
     /// <summary>

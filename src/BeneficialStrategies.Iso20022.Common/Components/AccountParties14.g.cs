@@ -24,7 +24,7 @@ public partial record AccountParties14
     /// <summary>
     /// Main party associated with the account.
     /// </summary>
-    public IAccountParties9Choice? PrincipalAccountParty { get; init; } 
+    public AccountParties9Choice_? PrincipalAccountParty { get; init; } 
     /// <summary>
     /// Entity that is not the primary owner when the ownership of the investment account is split among several owners.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record AccountParties14
     /// <summary>
     /// Party for which shares are to be registered.
     /// </summary>
-    public IRegisteredShareholderName1Choice? RegisteredShareholderName { get; init; } 
+    public RegisteredShareholderName1Choice_? RegisteredShareholderName { get; init; } 
     
     #nullable disable
 }

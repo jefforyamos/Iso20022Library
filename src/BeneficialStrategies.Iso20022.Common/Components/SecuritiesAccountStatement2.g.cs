@@ -24,7 +24,7 @@ public partial record SecuritiesAccountStatement2
     /// <summary>
     /// Provides information on the actual change occurred to a securities account.
     /// </summary>
-    public SecuritiesAccountReferenceDataChange2? Change { get; init;  } // Warning: Don't know multiplicity.
+    public SecuritiesAccountReferenceDataChange2[] Change { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

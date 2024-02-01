@@ -36,7 +36,7 @@ public partial record LoanData144
     /// <summary>
     /// Indicates whether clearing of contract has taken place.
     /// </summary>
-    public required ICleared16Choice ClearingStatus { get; init; } 
+    public required Cleared16Choice_ ClearingStatus { get; init; } 
     /// <summary>
     /// Venue of execution shall be identified by a unique code for this venue.
     /// </summary>
@@ -65,7 +65,7 @@ public partial record LoanData144
     /// <summary>
     /// Price of unit of collateral component, including accrued interest for interest-bearing securities.
     /// </summary>
-    public ISecuritiesTransactionPrice19Choice? UnitPrice { get; init; } 
+    public SecuritiesTransactionPrice19Choice_? UnitPrice { get; init; } 
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemMemberStatus1Choice;
 /// <summary>
 /// System member status, in a coded form.
 /// </summary>
-public partial record Code : ISystemMemberStatus1Choice
+public partial record Code : SystemMemberStatus1Choice_
 {
     public required MemberStatus1Code Value { get; init; }
 }

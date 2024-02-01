@@ -20,7 +20,7 @@ public partial record NetDividendRate2
     /// <summary>
     /// Type of underlying securities to which the rate is related, eg, underlying security for which an interest is paid.
     /// </summary>
-    public required INetDividendRateType1FormatChoice RateType { get; init; } 
+    public required NetDividendRateType1FormatChoice_ RateType { get; init; } 
     /// <summary>
     /// Value expressed as an amount.
     /// </summary>

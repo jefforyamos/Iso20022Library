@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventReference4Ch
 /// <summary>
 /// Reference assigned by the account servicer to unambiguously identify a related corporate action event.
 /// </summary>
-public partial record LinkedCorporateActionIdentification : ICorporateActionEventReference4Choice
+public partial record LinkedCorporateActionIdentification : CorporateActionEventReference4Choice_
 {
     public required IsoRestrictedFINXMax16Text Value { get; init; }
 }

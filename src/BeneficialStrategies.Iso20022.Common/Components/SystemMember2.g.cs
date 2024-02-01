@@ -20,11 +20,11 @@ public partial record SystemMember2
     /// <summary>
     /// Identification of a particular cash clearing system.
     /// </summary>
-    public ISystemIdentification2Choice? SystemIdentification { get; init; } 
+    public SystemIdentification2Choice_? SystemIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of a member within a system, assigned using the member identification scheme of the system.
     /// </summary>
-    public required IMemberIdentification2Choice MemberIdentification { get; init; } 
+    public required MemberIdentification2Choice_ MemberIdentification { get; init; } 
     
     #nullable disable
 }

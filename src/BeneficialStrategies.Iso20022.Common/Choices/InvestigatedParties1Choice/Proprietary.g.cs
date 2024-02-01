@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigatedParties1Choice;
 /// <summary>
 /// Specifies the investigated parties as a proprietary code.
 /// </summary>
-public partial record Proprietary : IInvestigatedParties1Choice
+public partial record Proprietary : InvestigatedParties1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

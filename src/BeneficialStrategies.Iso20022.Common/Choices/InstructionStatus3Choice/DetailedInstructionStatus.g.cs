@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionStatus3Choice;
 /// <summary>
 /// Status applying to individual instructions of a MeetingInstruction.
 /// </summary>
-public partial record DetailedInstructionStatus : IInstructionStatus3Choice
+public partial record DetailedInstructionStatus : InstructionStatus3Choice_
 {
     #nullable enable
     /// <summary>
@@ -30,6 +30,6 @@ public partial record DetailedInstructionStatus : IInstructionStatus3Choice
     /// <summary>
     /// Status applying to individual instructions of a MeetingInstruction.
     /// </summary>
-    public required IInstructionStatus4Choice InstructionStatus { get; init; } 
+    public required InstructionStatus4Choice_ InstructionStatus { get; init; } 
     #nullable disable
 }

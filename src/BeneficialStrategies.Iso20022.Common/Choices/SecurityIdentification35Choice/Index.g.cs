@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityIdentification35Choice;
 /// <summary>
 /// Index name where the underlying is an index.
 /// </summary>
-public partial record Index : ISecurityIdentification35Choice
+public partial record Index : SecurityIdentification35Choice_
 {
     public required BenchmarkCurveName3Code Value { get; init; }
 }

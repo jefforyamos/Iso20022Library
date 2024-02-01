@@ -66,7 +66,7 @@ public partial record ReturnReservationV06 : IOuterRecord
     [DataMember(Name="RptOrErr")]
     [XmlElement(ElementName="RptOrErr")]
     [Required]
-    public required IReservationOrError8Choice ReportOrError { get; init; }
+    public required ReservationOrError8Choice_ ReportOrError { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.

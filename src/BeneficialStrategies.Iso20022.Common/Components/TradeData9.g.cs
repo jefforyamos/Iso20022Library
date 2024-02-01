@@ -48,7 +48,7 @@ public partial record TradeData9
     /// <summary>
     /// Specifies the previous status of the trade.
     /// </summary>
-    public IStatus5Choice? PreviousStatus { get; init; } 
+    public Status5Choice_? PreviousStatus { get; init; } 
     /// <summary>
     /// Specifies whether a trade is alleged or not.
     /// </summary>

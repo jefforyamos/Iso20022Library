@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ContractBalanceType1Choice;
 /// <summary>
 /// Specifies the nature of a balance, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IContractBalanceType1Choice
+public partial record Proprietary : ContractBalanceType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

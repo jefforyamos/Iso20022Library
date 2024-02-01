@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrument48Choice;
 /// <summary>
 /// The LEI code of the issuer where the instrument is referring to an issuer rather than one single instrument.
 /// </summary>
-public partial record LEI : IFinancialInstrument48Choice
+public partial record LEI : FinancialInstrument48Choice_
 {
     public required IsoLEIIdentifier Value { get; init; }
 }

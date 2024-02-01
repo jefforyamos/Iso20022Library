@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PurposeCode5Choice;
 /// <summary>
 /// Specifies the type of securities account.
 /// </summary>
-public partial record Code : IPurposeCode5Choice
+public partial record Code : PurposeCode5Choice_
 {
     public required SecuritiesAccountPurposeType1Code Value { get; init; }
 }

@@ -25,11 +25,11 @@ public partial record GrossDividendRateFormat6SD1
     /// <summary>
     /// Provides the maximum dividend rate as announced by the Issuer.
     /// </summary>
-    public IRateAndAmountFormat16Choice? MaximumDividendRate { get; init; } 
+    public RateAndAmountFormat16Choice_? MaximumDividendRate { get; init; } 
     /// <summary>
     /// Provides the minimum dividend rate as announced by the Issuer.
     /// </summary>
-    public IRateAndAmountFormat16Choice? MinimumDividendRate { get; init; } 
+    public RateAndAmountFormat16Choice_? MinimumDividendRate { get; init; } 
     
     #nullable disable
 }

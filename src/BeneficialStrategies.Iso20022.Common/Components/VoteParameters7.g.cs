@@ -20,7 +20,7 @@ public partial record VoteParameters7
     /// <summary>
     /// Number of holdings required for a vote.
     /// </summary>
-    public IFinancialInstrumentQuantity18Choice? SecuritiesQuantityRequiredToVote { get; init; } 
+    public FinancialInstrumentQuantity18Choice_? SecuritiesQuantityRequiredToVote { get; init; } 
     /// <summary>
     /// Indicates whether a vote can be on a part of the entire holding, that is, part of the position is un-voted.
     /// </summary>
@@ -32,11 +32,11 @@ public partial record VoteParameters7
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the intermediary.
     /// </summary>
-    public IDateFormat58Choice? VoteDeadline { get; init; } 
+    public DateFormat58Choice_? VoteDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the issuer.
     /// </summary>
-    public IDateFormat58Choice? VoteMarketDeadline { get; init; } 
+    public DateFormat58Choice_? VoteMarketDeadline { get; init; } 
     /// <summary>
     /// Specifies the different methods that can be used to vote.
     /// </summary>
@@ -52,11 +52,11 @@ public partial record VoteParameters7
     /// <summary>
     /// Date until which the instructing party can revoke, change or withdraw its voting instruction. This deadline is specified by an intermediary.
     /// </summary>
-    public IDateFormat58Choice? RevocabilityDeadline { get; init; } 
+    public DateFormat58Choice_? RevocabilityDeadline { get; init; } 
     /// <summary>
     /// Date until which the instructing party can revoke, change or withdraw its voting instruction. This deadline is set by the issuer.
     /// </summary>
-    public IDateFormat58Choice? RevocabilityMarketDeadline { get; init; } 
+    public DateFormat58Choice_? RevocabilityMarketDeadline { get; init; } 
     /// <summary>
     /// Indicates whether beneficiary details, for example, name and address, must be supplied in order to take part in a meeting.
     /// </summary>
@@ -72,15 +72,15 @@ public partial record VoteParameters7
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the intermediary to take advantage of the early incentive premium.
     /// </summary>
-    public IDateFormat58Choice? EarlyVoteWithPremiumDeadline { get; init; } 
+    public DateFormat58Choice_? EarlyVoteWithPremiumDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the intermediary to take advantage of the premium.
     /// </summary>
-    public IDateFormat58Choice? VoteWithPremiumDeadline { get; init; } 
+    public DateFormat58Choice_? VoteWithPremiumDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the issuer to take advantage of the premium.
     /// </summary>
-    public IDateFormat58Choice? VoteWithPremiumMarketDeadline { get; init; } 
+    public DateFormat58Choice_? VoteWithPremiumMarketDeadline { get; init; } 
     /// <summary>
     /// Additional information on specific requirements for allowing a person to vote.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectionReason13FormatChoice;
 /// <summary>
 /// Standard code to specify the reason of a rejection of a movement.
 /// </summary>
-public partial record Code : IRejectionReason13FormatChoice
+public partial record Code : RejectionReason13FormatChoice_
 {
     public required RejectionReason13Code Value { get; init; }
 }

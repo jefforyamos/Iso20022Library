@@ -40,7 +40,7 @@ public partial record SubscriptionBulkOrder2
     /// <summary>
     /// Order to invest the investor's principal in an investment fund.
     /// </summary>
-    public SubscriptionOrder3? IndividualOrderDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SubscriptionOrder3[] IndividualOrderDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency requested for settlement of cash proceeds.
     /// </summary>

@@ -91,7 +91,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     [DataMember(Name="EvtPrcgSts")]
     [XmlElement(ElementName="EvtPrcgSts")]
     [Required]
-    public required IEventProcessingStatus1Choice EventProcessingStatus { get; init; }
+    public required EventProcessingStatus1Choice_ EventProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides additional information.
@@ -109,7 +109,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public IPartyIdentification10Choice? MessageOriginator { get; init; }
+    public PartyIdentification10Choice_? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -118,7 +118,7 @@ public partial record CorporateActionEventProcessingStatusAdviceV01 : IOuterReco
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public IPartyIdentification10Choice? MessageRecipient { get; init; }
+    public PartyIdentification10Choice_? MessageRecipient { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

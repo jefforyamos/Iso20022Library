@@ -20,11 +20,11 @@ public partial record Limits7
     /// <summary>
     /// Report is given for a current risk management type limit.
     /// </summary>
-    public LimitReport7? CurrentLimit { get; init;  } // Warning: Don't know multiplicity.
+    public LimitReport7[] CurrentLimit { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Report is given for a default risk management type limit.
     /// </summary>
-    public LimitReport7? DefaultLimit { get; init;  } // Warning: Don't know multiplicity.
+    public LimitReport7[] DefaultLimit { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

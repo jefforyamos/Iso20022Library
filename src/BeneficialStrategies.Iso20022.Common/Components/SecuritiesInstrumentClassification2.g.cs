@@ -30,7 +30,7 @@ public partial record SecuritiesInstrumentClassification2
     /// Usage:
     /// Within MiFIR, the FromDate is populated while the instrument is valid. From Date To Date is only populated when the record is being invalidated.
     /// </summary>
-    public required IPeriod4Choice ValidityPeriod { get; init; } 
+    public required Period4Choice_ ValidityPeriod { get; init; } 
     /// <summary>
     /// Date when this record was last modified.
     /// </summary>

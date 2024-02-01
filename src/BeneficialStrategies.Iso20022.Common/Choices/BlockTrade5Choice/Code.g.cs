@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BlockTrade5Choice;
 /// <summary>
 /// Block parent or child information expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IBlockTrade5Choice
+public partial record Code : BlockTrade5Choice_
 {
     public required BlockTrade1Code Value { get; init; }
 }

@@ -44,7 +44,7 @@ public partial record SecurityIdentification37
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, for example, common share with voting rights, fully paid, or registered.
     /// </summary>
-    public ISecurityClassificationType2Choice? ClassificationType { get; init; } 
+    public SecurityClassificationType2Choice_? ClassificationType { get; init; } 
     /// <summary>
     /// Currency of the investment fund class.
     /// </summary>
@@ -56,11 +56,11 @@ public partial record SecurityIdentification37
     /// <summary>
     /// Country where the fund is registered for distribution.
     /// </summary>
-    public CountryCode? RegisteredDistributionCountry { get; init;  } // Warning: Don't know multiplicity.
+    public CountryCode[] RegisteredDistributionCountry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Classification of the financial instrument. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00060.
     /// </summary>
-    public IProductStructure1Choice? ProductType { get; init; } 
+    public ProductStructure1Choice_? ProductType { get; init; } 
     /// <summary>
     /// Issuer of the financial instrument. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00070.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record SecurityIdentification37
     /// <summary>
     /// Governance procedure that must be followed. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00075.
     /// </summary>
-    public IGovernanceProcess1Choice? IssuerProductGovernanceProcess { get; init; } 
+    public GovernanceProcess1Choice_? IssuerProductGovernanceProcess { get; init; } 
     /// <summary>
     /// Designation of the product category or nature, for example, Pacific Equity, Equity Fund, Money Market Fund. If the product is a structured security product, the European Structured Investment Products Association (EUSIPA) code should be used as defined in the scope of European MiFID Template (EMT) reference 00095. 
     /// </summary>
@@ -81,12 +81,12 @@ public partial record SecurityIdentification37
     /// <summary>
     /// Specifies whether the financial instrument is unit based or notional (nominal). When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00085.
     /// </summary>
-    public INotionalOrUnitBased1Choice? NotionalOrUnitBased { get; init; } 
+    public NotionalOrUnitBased1Choice_? NotionalOrUnitBased { get; init; } 
     /// <summary>
     /// When the financial instrument is a structured security, specifies if the ex-ante and ex-post costs and charges are specified as an absolute figure, that is, a currency and amount, or as a percentage rate, related to the specific reference value. 
     /// When used in reference to MiFID, this is in the scope of the European MiFID Template reference 00096.
     /// </summary>
-    public IQuotationType1Choice? QuotationType { get; init; } 
+    public QuotationType1Choice_? QuotationType { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is leveraged or has contingent liability. This enables reporting on the depreciation of leveraged financial instruments or contingent liability transactions in accordance with Art. 62 of the MiFID II's Delegated Regulation as defined in the scope of European MiFID Template (EMT) reference 00100.
     /// </summary>
@@ -98,11 +98,11 @@ public partial record SecurityIdentification37
     /// <summary>
     /// Specifies the basis for ex-post calculations. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00120.
     /// </summary>
-    public IExPostCostCalculationBasis1Choice? ExPostCostCalculationBasis { get; init; } 
+    public ExPostCostCalculationBasis1Choice_? ExPostCostCalculationBasis { get; init; } 
     /// <summary>
     /// Additional information about the security.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

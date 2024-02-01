@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingCancellationReason3Choice
 /// <summary>
 /// Proprietary identification of the reason why a cancellation request sent for the related instruction is pending.
 /// </summary>
-public partial record Proprietary : IPendingCancellationReason3Choice
+public partial record Proprietary : PendingCancellationReason3Choice_
 {
     #nullable enable
     /// <summary>

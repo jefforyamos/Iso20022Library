@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NamePrefix1Choice;
 /// <summary>
 /// Name prefix expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : INamePrefix1Choice
+public partial record Proprietary : NamePrefix1Choice_
 {
     #nullable enable
     /// <summary>

@@ -46,7 +46,7 @@ public partial record InvestorRequirements2
     /// Minimum recommended holding period (RHP).
     /// When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05080.
     /// </summary>
-    public ITimeHorizon2Choice? MinimumHoldingPeriod { get; init; } 
+    public TimeHorizon2Choice_? MinimumHoldingPeriod { get; init; } 
     /// <summary>
     /// Specifies whether the product is compatible with investors that have Environmental, Social and Governance (ESG) preferences. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05105.
     /// </summary>
@@ -54,11 +54,11 @@ public partial record InvestorRequirements2
     /// <summary>
     /// Specifies other specific investment needs. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05115.
     /// </summary>
-    public IInvestmentNeed2Choice? OtherSpecificInvestmentNeed { get; init; } 
+    public InvestmentNeed2Choice_? OtherSpecificInvestmentNeed { get; init; } 
     /// <summary>
     /// Other investment need. 
     /// </summary>
-    public OtherInvestmentNeed1? Other { get; init;  } // Warning: Don't know multiplicity.
+    public OtherInvestmentNeed1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatusOrQuantityToReceive1Choice
 /// <summary>
 /// Quantity of securities that has been assigned the status indicated.
 /// </summary>
-public partial record StatusQuantity : IStatusOrQuantityToReceive1Choice
+public partial record StatusQuantity : StatusOrQuantityToReceive1Choice_
 {
     #nullable enable
     #nullable disable

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity2Choice;
 /// <summary>
 /// Indicates the index type of commodities.
 /// </summary>
-public partial record Index : IAssetClassCommodity2Choice
+public partial record Index : AssetClassCommodity2Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

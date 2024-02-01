@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity5Choi
 /// <summary>
 /// Portion of the investor's holdings, in a specific investment fund/ fund class, that is redeemed.
 /// </summary>
-public partial record HoldingsRedemptionRate : IFinancialInstrumentQuantity5Choice
+public partial record HoldingsRedemptionRate : FinancialInstrumentQuantity5Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

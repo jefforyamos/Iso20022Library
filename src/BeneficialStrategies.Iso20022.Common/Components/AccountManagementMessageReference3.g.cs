@@ -20,7 +20,7 @@ public partial record AccountManagementMessageReference3
     /// <summary>
     /// Reference to a linked message.
     /// </summary>
-    public ILinkedMessage3Choice? LinkedReference { get; init; } 
+    public LinkedMessage3Choice_? LinkedReference { get; init; } 
     /// <summary>
     /// Specifies if the status request refers to an earlier account opening or modification instruction message.
     /// </summary>

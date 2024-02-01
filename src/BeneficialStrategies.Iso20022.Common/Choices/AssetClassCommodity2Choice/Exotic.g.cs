@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity2Choice;
 /// <summary>
 /// Indicates the exotic type of commodities.
 /// </summary>
-public partial record Exotic : IAssetClassCommodity2Choice
+public partial record Exotic : AssetClassCommodity2Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

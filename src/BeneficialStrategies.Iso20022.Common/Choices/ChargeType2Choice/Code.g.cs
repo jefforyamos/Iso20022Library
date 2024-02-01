@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargeType2Choice;
 /// <summary>
 /// Charge type, in a coded form.
 /// </summary>
-public partial record Code : IChargeType2Choice
+public partial record Code : ChargeType2Choice_
 {
     public required ChargeType1Code Value { get; init; }
 }

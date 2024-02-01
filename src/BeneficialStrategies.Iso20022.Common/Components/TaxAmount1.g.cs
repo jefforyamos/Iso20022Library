@@ -32,7 +32,7 @@ public partial record TaxAmount1
     /// <summary>
     /// Set of elements used to provide details on the tax period and amount.
     /// </summary>
-    public TaxRecordDetails1? Details { get; init;  } // Warning: Don't know multiplicity.
+    public TaxRecordDetails1[] Details { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

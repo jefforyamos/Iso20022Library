@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessedStatus6FormatChoice;
 /// <summary>
 /// Standard code to specify the processing status of a deactivation instruction.
 /// </summary>
-public partial record Code : IProcessedStatus6FormatChoice
+public partial record Code : ProcessedStatus6FormatChoice_
 {
     public required ProcessedStatus6Code Value { get; init; }
 }

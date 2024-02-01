@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountOrBusinessError
 /// <summary>
 /// Specifies the data requested for the securities account.
 /// </summary>
-public partial record SecuritiesAccount : ISecuritiesAccountOrBusinessError3Choice
+public partial record SecuritiesAccount : SecuritiesAccountOrBusinessError3Choice_
 {
     #nullable enable
     /// <summary>
@@ -37,7 +37,7 @@ public partial record SecuritiesAccount : ISecuritiesAccountOrBusinessError3Choi
     /// <summary>
     /// Specifies the type of the securities account.
     /// </summary>
-    public ISystemSecuritiesAccountType1Choice? Type { get; init; } 
+    public SystemSecuritiesAccountType1Choice_? Type { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
@@ -45,7 +45,7 @@ public partial record SecuritiesAccount : ISecuritiesAccountOrBusinessError3Choi
     /// <summary>
     /// Specifies the type of party owning the account.
     /// </summary>
-    public ISystemPartyType1Choice? PartyType { get; init; } 
+    public SystemPartyType1Choice_? PartyType { get; init; } 
     /// <summary>
     /// Additional attributes defined by a central security depositary for a securities account.
     /// </summary>

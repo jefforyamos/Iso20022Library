@@ -28,7 +28,7 @@ public partial record StatusReport3
     /// <summary>
     /// Data related to a status report of a point of interaction (POI).
     /// </summary>
-    public TerminalManagementDataSet9? DataSet { get; init;  } // Warning: Don't know multiplicity.
+    public TerminalManagementDataSet9[] DataSet { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventType30Choice
 /// <summary>
 /// Corporate action event type expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ICorporateActionEventType30Choice
+public partial record Code : CorporateActionEventType30Choice_
 {
     public required CorporateActionEventType19Code Value { get; init; }
 }

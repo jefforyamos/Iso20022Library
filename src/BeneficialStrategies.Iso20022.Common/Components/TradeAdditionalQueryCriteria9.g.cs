@@ -20,11 +20,11 @@ public partial record TradeAdditionalQueryCriteria9
     /// <summary>
     /// Code list of the action types allowed as query criteria.
     /// </summary>
-    public TransactionOperationType8Code? ActionType { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionOperationType8Code[] ActionType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the execution venue of the reported transaction.
     /// </summary>
-    public ISecuritiesTradeVenueCriteria1Choice? ExecutionVenue { get; init; } 
+    public SecuritiesTradeVenueCriteria1Choice_? ExecutionVenue { get; init; } 
     /// <summary>
     /// Indicates the nature of the reporting counterparty (if is a CCP, a financial, non-financial counterparty or other type of counterparty).
     /// </summary>
@@ -36,7 +36,7 @@ public partial record TradeAdditionalQueryCriteria9
     /// <summary>
     /// Code list of available values for asset class criteria.
     /// </summary>
-    public ProductType4Code? AssetClass { get; init;  } // Warning: Don't know multiplicity.
+    public ProductType4Code[] AssetClass { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the product classification of the reported transaction.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record TradeAdditionalQueryCriteria9
     /// <summary>
     /// Classification of derivative event type.
     /// </summary>
-    public DerivativeEventType3Code? EventType { get; init;  } // Warning: Don't know multiplicity.
+    public DerivativeEventType3Code[] EventType { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

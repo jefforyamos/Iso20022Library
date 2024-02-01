@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ATMCommandParameters3Choice;
 /// <summary>
 /// Parameters to be used to update the configuration or the status security device.
 /// </summary>
-public partial record SecurityDevice : IATMCommandParameters3Choice
+public partial record SecurityDevice : ATMCommandParameters3Choice_
 {
     #nullable enable
     /// <summary>

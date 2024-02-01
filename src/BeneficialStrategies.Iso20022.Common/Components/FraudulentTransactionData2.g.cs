@@ -29,11 +29,11 @@ public partial record FraudulentTransactionData2
     /// Reason for sending the message.
     /// The ISO 8583 maintenance agency (MA) manages this Message reason code list.
     /// </summary>
-    public ISO8583MessageReasonCode? MessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public ISO8583MessageReasonCode[] MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Supports message reason codes that are not defined  in external code list. 
     /// </summary>
-    public IsoMax35Text? AlternateMessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Complete or partial details of the original message identified as fraudulent.
     /// </summary>

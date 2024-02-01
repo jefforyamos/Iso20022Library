@@ -24,7 +24,7 @@ public partial record ReportGetTotalsResponse1
     /// <summary>
     /// Result of the Sale to POI Totals processing.
     /// </summary>
-    public TransactionTotalsSet1? TransactionTotalsSet { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionTotalsSet1[] TransactionTotalsSet { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

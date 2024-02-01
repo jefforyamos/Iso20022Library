@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus88Choice;
 /// <summary>
 /// Processing of the instruction/request is pending.
 /// </summary>
-public partial record PendingProcessing : IProcessingStatus88Choice
+public partial record PendingProcessing : ProcessingStatus88Choice_
 {
     #nullable enable
     #nullable disable

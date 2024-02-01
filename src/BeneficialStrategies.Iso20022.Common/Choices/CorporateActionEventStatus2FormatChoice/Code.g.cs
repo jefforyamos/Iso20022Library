@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventStatus2Forma
 /// <summary>
 /// Standard code to specify the status of the CA option.
 /// </summary>
-public partial record Code : ICorporateActionEventStatus2FormatChoice
+public partial record Code : CorporateActionEventStatus2FormatChoice_
 {
     public required CorporateActionEventStatus2Code Value { get; init; }
 }

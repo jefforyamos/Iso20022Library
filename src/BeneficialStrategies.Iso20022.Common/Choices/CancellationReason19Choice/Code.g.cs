@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationReason19Choice;
 /// <summary>
 /// Specifies the reason why the related instruction is cancelled, or the related cancellation request is executed.
 /// </summary>
-public partial record Code : ICancellationReason19Choice
+public partial record Code : CancellationReason19Choice_
 {
     public required CancelledStatusReason13Code Value { get; init; }
 }

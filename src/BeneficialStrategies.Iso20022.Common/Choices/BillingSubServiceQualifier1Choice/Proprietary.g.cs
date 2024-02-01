@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingSubServiceQualifier1Choic
 /// <summary>
 /// Specifies the contents of the sub service qualifier, in a free-text form.
 /// </summary>
-public partial record Proprietary : IBillingSubServiceQualifier1Choice
+public partial record Proprietary : BillingSubServiceQualifier1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateSetupReason1Choice;
 /// <summary>
 /// Reason for the mandate setup, as published in an external reason code list.
 /// </summary>
-public partial record Code : IMandateSetupReason1Choice
+public partial record Code : MandateSetupReason1Choice_
 {
     public required ExternalMandateSetupReason1Code Value { get; init; }
 }

@@ -20,7 +20,7 @@ public partial record ProcessingCharacteristics2
     /// <summary>
     /// Currency in which a subscription or redemption is accepted.
     /// </summary>
-    public ActiveCurrencyCode? DealingCurrencyAccepted { get; init;  } // Warning: Don't know multiplicity.
+    public ActiveCurrencyCode[] DealingCurrencyAccepted { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Minimum initial quantity of securities, expressed as an amount that must be purchased at subscription.
     /// </summary>
@@ -66,7 +66,7 @@ public partial record ProcessingCharacteristics2
     /// for orders placed with the main Fund Order Desk, eg. T+3. Enter "P" (pre-payment) if cleared funds may be required before a
     /// subscription order can be executed.
     /// </summary>
-    public required ITimeFrame5Choice SettlementCycle { get; init; } 
+    public required TimeFrame5Choice_ SettlementCycle { get; init; } 
     
     #nullable disable
 }

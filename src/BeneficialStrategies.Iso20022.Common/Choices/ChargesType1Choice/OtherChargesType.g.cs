@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChargesType1Choice;
 /// <summary>
 /// Specifies the type of charge by means of a free text.
 /// </summary>
-public partial record OtherChargesType : IChargesType1Choice
+public partial record OtherChargesType : ChargesType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

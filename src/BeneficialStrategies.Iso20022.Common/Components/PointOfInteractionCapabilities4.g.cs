@@ -21,17 +21,17 @@ public partial record PointOfInteractionCapabilities4
     /// Card reading capabilities of the terminal performing the transaction. 
     /// It correspond to the ISO 8583 field number 22-2 for the version 93, and field number 27-1 for the version 2003.
     /// </summary>
-    public CardDataReading2Code? CardReadingCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public CardDataReading2Code[] CardReadingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Card writting capabilities of the terminal performing the transaction. 
     /// It correspond to the ISO 8583 field number 22-10 for the version 93, and field number 27-8_9 for the version 2003.
     /// </summary>
-    public CardDataReading3Code? CardWrittingCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public CardDataReading3Code[] CardWrittingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cardholder verification capabilities by the terminal. 
     /// It correspond to the ISO 8583 field number 22-2 for the versions 87 and 93, and field number 27-2 for the version 2003.
     /// </summary>
-    public CardholderVerificationCapability2Code? CardholderVerificationCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public CardholderVerificationCapability2Code[] CardholderVerificationCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum number of digits the POI is able to accept when the cardholder enters its PIN. 
     /// It correspond to the ISO 8583, field number 25 for the version 87, 22-12 for the version 93, and field number 27-11 for the version 2003.
@@ -57,7 +57,7 @@ public partial record PointOfInteractionCapabilities4
     /// Capabilities of the terminal to display or print message to the cardholder and the merchant. 
     /// It correspond to the ISO 8583 field number 22-11 for the version 93, and field number 27-6 for the version 2003.
     /// </summary>
-    public DisplayCapabilities3? MessageCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public DisplayCapabilities3[] MessageCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

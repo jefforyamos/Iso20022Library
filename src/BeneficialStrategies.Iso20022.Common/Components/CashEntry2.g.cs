@@ -24,7 +24,7 @@ public partial record CashEntry2
     /// <summary>
     /// Date at which an entry is posted to an account on the account servicer's books.
     /// </summary>
-    public IDateAndDateTime2Choice? Date { get; init; } 
+    public DateAndDateTime2Choice_? Date { get; init; } 
     /// <summary>
     /// Status of an entry on the books of the account servicer.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record CashEntry2
     /// <summary>
     /// Further details of the entry.
     /// </summary>
-    public IsoMax140Text? AdditionalEntryInformation { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax140Text[] AdditionalEntryInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

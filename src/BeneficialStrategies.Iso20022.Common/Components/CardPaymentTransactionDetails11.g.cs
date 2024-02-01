@@ -28,7 +28,7 @@ public partial record CardPaymentTransactionDetails11
     /// <summary>
     /// Detailed amounts associated with the total amount of transaction.
     /// </summary>
-    public DetailedAmount2? DetailedAmount { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount2[] DetailedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Transaction authorisation deadline to complete the related payment.
     /// </summary>

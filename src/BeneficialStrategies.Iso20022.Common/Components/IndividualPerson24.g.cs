@@ -20,7 +20,7 @@ public partial record IndividualPerson24
     /// <summary>
     /// Term used to address a person.
     /// </summary>
-    public INamePrefix1Choice? NamePrefix { get; init; } 
+    public NamePrefix1Choice_? NamePrefix { get; init; } 
     /// <summary>
     /// First name of a person.
     /// </summary>
@@ -84,11 +84,11 @@ public partial record IndividualPerson24
     /// <summary>
     /// Address information to be either inserted, updated or deleted.
     /// </summary>
-    public IReadOnlyCollection<ModificationScope1> ModifiedPostalAddress { get; init; } = [];
+    public ModificationScope1[] ModifiedPostalAddress { get; init; } = [];
     /// <summary>
     /// Citizenship information to be inserted or deleted.
     /// </summary>
-    public IReadOnlyCollection<ModificationScope3> ModifiedCitizenship { get; init; } = [];
+    public ModificationScope3[] ModifiedCitizenship { get; init; } = [];
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
@@ -100,7 +100,7 @@ public partial record IndividualPerson24
     /// <summary>
     /// Identification information to be either inserted or deleted.
     /// </summary>
-    public IReadOnlyCollection<ModificationScope23> ModifiedOtherIdentification { get; init; } = [];
+    public ModificationScope23[] ModifiedOtherIdentification { get; init; } = [];
     /// <summary>
     /// Additional regulatory information about the investor that is required in some markets to support anti-money laundering laws.
     /// </summary>
@@ -108,7 +108,7 @@ public partial record IndividualPerson24
     /// <summary>
     /// Specifies if due diligence checks on the political exposure of the investor have been carried out and whether these checks are national or foreign. (A politically exposed person is someone who has been entrusted with a prominent public function, or an individual who is closely related to such a person.).
     /// </summary>
-    public IPoliticalExposureType1Choice? PoliticallyExposedPersonType { get; init; } 
+    public PoliticalExposureType1Choice_? PoliticallyExposedPersonType { get; init; } 
     
     #nullable disable
 }

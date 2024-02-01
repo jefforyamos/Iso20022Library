@@ -36,11 +36,11 @@ public partial record VehicleRentalCustomer1
     /// <summary>
     /// Vehicle rental driver.
     /// </summary>
-    public DriverInParty1? PrimaryDriver { get; init;  } // Warning: Don't know multiplicity.
+    public DriverInParty1[] PrimaryDriver { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of identification of the additional vehicle rental customer.
     /// </summary>
-    public DriverInParty1? AdditionalDriver { get; init;  } // Warning: Don't know multiplicity.
+    public DriverInParty1[] AdditionalDriver { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Loyalty programme details. 
     /// </summary>

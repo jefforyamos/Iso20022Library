@@ -74,7 +74,7 @@ public partial record TradeLegStatementV03 : IOuterRecord
     [DataMember(Name="ClrMmb")]
     [XmlElement(ElementName="ClrMmb")]
     [Required]
-    public required IPartyIdentification35Choice ClearingMember { get; init; }
+    public required PartyIdentification35Choice_ ClearingMember { get; init; }
     
     /// <summary>
     /// Identifies the clearing member account at the Central counterparty through which the trade must be cleared (sometimes called position account).

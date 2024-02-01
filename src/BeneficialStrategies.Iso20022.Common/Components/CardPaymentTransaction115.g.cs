@@ -32,7 +32,7 @@ public partial record CardPaymentTransaction115
     /// <summary>
     /// The card program proposed by a retailer to a cardholder among a series of payment programmes offered by the retailer.
     /// </summary>
-    public IsoMax35Text? CardProgrammeProposed { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] CardProgrammeProposed { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// The card program actually selected by the cardholder among the ones supported by the retailer and/or the one actually proposed to him.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record CardPaymentTransaction115
     /// <summary>
     /// Additional information related to the transaction.
     /// </summary>
-    public IsoMax70Text? AdditionalTransactionData { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] AdditionalTransactionData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

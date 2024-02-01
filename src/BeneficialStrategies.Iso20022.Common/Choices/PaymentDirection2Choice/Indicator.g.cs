@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentDirection2Choice;
 /// <summary>
 /// Indicates the direction of payment for asset or mortgage backed securities, ie, whether the repaid capital is distributed (payment direction is down) or capitalized (payment direction is up).
 /// </summary>
-public partial record Indicator : IPaymentDirection2Choice
+public partial record Indicator : PaymentDirection2Choice_
 {
     public required IsoPaymentDirectionIndicator Value { get; init; }
 }

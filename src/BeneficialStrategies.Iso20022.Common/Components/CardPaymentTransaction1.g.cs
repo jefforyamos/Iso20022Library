@@ -28,7 +28,7 @@ public partial record CardPaymentTransaction1
     /// <summary>
     /// Service in addition to the main service.
     /// </summary>
-    public CardPaymentServiceType2Code? AdditionalService { get; init;  } // Warning: Don't know multiplicity.
+    public CardPaymentServiceType2Code[] AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional attribute of the service type.
     /// </summary>

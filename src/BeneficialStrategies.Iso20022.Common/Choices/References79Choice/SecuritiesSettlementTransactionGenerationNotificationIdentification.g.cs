@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References79Choice;
 /// <summary>
 /// Unambiguous identification of the notification message to be cancelled.
 /// </summary>
-public partial record SecuritiesSettlementTransactionGenerationNotificationIdentification : IReferences79Choice
+public partial record SecuritiesSettlementTransactionGenerationNotificationIdentification : References79Choice_
 {
     #nullable enable
     /// <summary>

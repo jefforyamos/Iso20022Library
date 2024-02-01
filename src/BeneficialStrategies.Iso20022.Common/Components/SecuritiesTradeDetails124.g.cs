@@ -28,15 +28,15 @@ public partial record SecuritiesTradeDetails124
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    public ITradeDate9Choice? TradeDate { get; init; } 
+    public TradeDate9Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public ISettlementDate20Choice? SettlementDate { get; init; } 
+    public SettlementDate20Choice_? SettlementDate { get; init; } 
     /// <summary>
     /// Date and time at which a transaction is completed and cleared, that is, payment is effected and securities are delivered.
     /// </summary>
-    public required ISettlementDate22Choice EffectiveSettlementDate { get; init; } 
+    public required SettlementDate22Choice_ EffectiveSettlementDate { get; init; } 
     /// <summary>
     /// Specifies the price of the traded financial instrument.|This is the deal price of the individual trade transaction. |If there is only one trade transaction for the execution of the trade, then the deal price could equal the executed trade price (unless, for example, the price includes commissions or rounding, or some other factor has been applied to the deal price or the executed trade price, or both).
     /// </summary>
@@ -44,7 +44,7 @@ public partial record SecuritiesTradeDetails124
     /// <summary>
     /// Specifies that a trade is to be reported to a third party.
     /// </summary>
-    public IReporting9Choice? Reporting { get; init;  } // Warning: Don't know multiplicity.
+    public Reporting9Choice_[] Reporting { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number of days on which the interest rate accrues (daily accrual note).
     /// </summary>
@@ -52,15 +52,15 @@ public partial record SecuritiesTradeDetails124
     /// <summary>
     /// Indicates the conditions under which the order/trade is to be/was executed.
     /// </summary>
-    public ITradeTransactionCondition6Choice? TradeTransactionCondition { get; init;  } // Warning: Don't know multiplicity.
+    public TradeTransactionCondition6Choice_[] TradeTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the role of the investor in the transaction.
     /// </summary>
-    public IInvestorCapacity5Choice? InvestorCapacity { get; init; } 
+    public InvestorCapacity5Choice_? InvestorCapacity { get; init; } 
     /// <summary>
     /// Specifies the role of the trading party in the transaction.
     /// </summary>
-    public ITradeOriginator4Choice? TradeOriginatorRole { get; init; } 
+    public TradeOriginator4Choice_? TradeOriginatorRole { get; init; } 
     /// <summary>
     /// Provides additional settlement processing information which cannot be included within the structured fields of the message.
     /// </summary>

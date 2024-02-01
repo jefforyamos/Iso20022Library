@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EventIdentifier1Choice;
 /// <summary>
 /// Specifies post trade risk reduction identifier.
 /// </summary>
-public partial record PostTradeRiskReductionIdentifier : IEventIdentifier1Choice
+public partial record PostTradeRiskReductionIdentifier : EventIdentifier1Choice_
 {
     #nullable enable
     /// <summary>

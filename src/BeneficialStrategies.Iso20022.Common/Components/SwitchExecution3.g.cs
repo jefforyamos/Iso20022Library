@@ -52,11 +52,11 @@ public partial record SwitchExecution3
     /// <summary>
     /// Redemption leg of a switch order execution.
     /// </summary>
-    public SwitchRedemptionLegExecution2? RedemptionLegDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SwitchRedemptionLegExecution2[] RedemptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Subscription leg of a switch order execution.
     /// </summary>
-    public SwitchSubscriptionLegExecution2? SubscriptionLegDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SwitchSubscriptionLegExecution2[] SubscriptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment transaction resulting from the investment fund order execution.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record SwitchExecution3
     /// <summary>
     /// Currency exchange related to the execution of an investment fund order.
     /// </summary>
-    public ForeignExchangeTerms4? ForeignExchangeDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ForeignExchangeTerms4[] ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

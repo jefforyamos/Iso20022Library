@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingProcessingStatus4Choice;
 /// <summary>
 /// Specifies the reason of the PendingProcessingStatus.
 /// </summary>
-public partial record Reason : IPendingProcessingStatus4Choice
+public partial record Reason : PendingProcessingStatus4Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the instruction has a pending processing status.
     /// </summary>
-    public required IPendingProcessingReason1Choice Code { get; init; } 
+    public required PendingProcessingReason1Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

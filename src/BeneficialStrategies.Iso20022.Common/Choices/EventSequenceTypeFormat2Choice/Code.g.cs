@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EventSequenceTypeFormat2Choice;
 /// <summary>
 /// Type of an event sequence, in a coded format.
 /// </summary>
-public partial record Code : IEventSequenceTypeFormat2Choice
+public partial record Code : EventSequenceTypeFormat2Choice_
 {
     public required EventSequenceType1Code Value { get; init; }
 }

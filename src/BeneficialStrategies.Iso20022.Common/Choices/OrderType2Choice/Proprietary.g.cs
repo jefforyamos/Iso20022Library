@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderType2Choice;
 /// <summary>
 /// Order type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IOrderType2Choice
+public partial record Proprietary : OrderType2Choice_
 {
     #nullable enable
     /// <summary>

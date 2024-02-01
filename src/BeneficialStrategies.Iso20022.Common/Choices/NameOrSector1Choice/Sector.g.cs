@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NameOrSector1Choice;
 /// <summary>
 /// Represents the counterparty institutional section (such as non-financial corporation, central bank.).
 /// </summary>
-public partial record Sector : INameOrSector1Choice
+public partial record Sector : NameOrSector1Choice_
 {
     public required IsoSNA2008SectorIdentifier Value { get; init; }
 }

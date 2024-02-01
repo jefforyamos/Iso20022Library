@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReturnReason5Choice;
 /// <summary>
 /// Reason for the return, as published in an external reason code list.
 /// </summary>
-public partial record Code : IReturnReason5Choice
+public partial record Code : ReturnReason5Choice_
 {
     public required ExternalReturnReason1Code Value { get; init; }
 }

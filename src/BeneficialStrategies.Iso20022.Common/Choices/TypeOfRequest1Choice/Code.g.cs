@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TypeOfRequest1Choice;
 /// <summary>
 /// Type of request expressed as a code.
 /// </summary>
-public partial record Code : ITypeOfRequest1Choice
+public partial record Code : TypeOfRequest1Choice_
 {
     public required TypeOfRequest1Code Value { get; init; }
 }

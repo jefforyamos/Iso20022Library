@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status1Choice;
 /// <summary>
 /// Provides the matching status of the instruction.
 /// </summary>
-public partial record MatchingStatus : IStatus1Choice
+public partial record MatchingStatus : Status1Choice_
 {
     #nullable enable
     #nullable disable

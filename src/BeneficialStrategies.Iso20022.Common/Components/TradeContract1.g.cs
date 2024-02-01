@@ -28,11 +28,11 @@ public partial record TradeContract1
     /// <summary>
     /// Party that is specified as the buyer for this trade agreement.
     /// </summary>
-    public TradeParty2? Buyer { get; init;  } // Warning: Don't know multiplicity.
+    public TradeParty2[] Buyer { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that is specified as the seller for this trade agreement.
     /// </summary>
-    public TradeParty2? Seller { get; init;  } // Warning: Don't know multiplicity.
+    public TradeParty2[] Seller { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Planned final payment date at the time of issuance.
     /// </summary>
@@ -60,11 +60,11 @@ public partial record TradeContract1
     /// <summary>
     /// Schedule of the shipment.
     /// </summary>
-    public IShipmentSchedule2Choice? ShipmentSchedule { get; init; } 
+    public ShipmentSchedule2Choice_? ShipmentSchedule { get; init; } 
     /// <summary>
     /// Documents provided as attachments to the trade contract.
     /// </summary>
-    public DocumentGeneralInformation3? Attachment { get; init;  } // Warning: Don't know multiplicity.
+    public DocumentGeneralInformation3[] Attachment { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

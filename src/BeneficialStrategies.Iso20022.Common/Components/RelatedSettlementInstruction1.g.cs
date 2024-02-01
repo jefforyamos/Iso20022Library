@@ -24,7 +24,7 @@ public partial record RelatedSettlementInstruction1
     /// <summary>
     /// Quantity of securities for which the market claim has been raised.
     /// </summary>
-    public IFinancialInstrumentQuantity18Choice? RelatedSettlementQuantity { get; init; } 
+    public FinancialInstrumentQuantity18Choice_? RelatedSettlementQuantity { get; init; } 
     
     #nullable disable
 }

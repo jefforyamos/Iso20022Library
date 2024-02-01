@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionOption22Choice;
 /// <summary>
 /// Proprietary identification of the type of corporate action option.
 /// </summary>
-public partial record Proprietary : ICorporateActionOption22Choice
+public partial record Proprietary : CorporateActionOption22Choice_
 {
     #nullable enable
     /// <summary>

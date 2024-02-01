@@ -20,7 +20,7 @@ public partial record ChargesDetails4
     /// <summary>
     /// Specifies the type of charges as a code or free text.
     /// </summary>
-    public required IChargesType1Choice ChargesType { get; init; } 
+    public required ChargesType1Choice_ ChargesType { get; init; } 
     /// <summary>
     /// Amount of money asked or paid for the charge.
     /// </summary>

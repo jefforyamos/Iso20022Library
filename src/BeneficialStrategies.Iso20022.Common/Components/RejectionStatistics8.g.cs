@@ -28,7 +28,7 @@ public partial record RejectionStatistics8
     /// <summary>
     /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass data validations.
     /// </summary>
-    public required IDetailedTransactionStatistics6Choice DerivativeStatistics { get; init; } 
+    public required DetailedTransactionStatistics6Choice_ DerivativeStatistics { get; init; } 
     
     #nullable disable
 }

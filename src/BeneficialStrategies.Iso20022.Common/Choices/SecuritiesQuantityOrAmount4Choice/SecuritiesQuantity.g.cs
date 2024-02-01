@@ -12,20 +12,20 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesQuantityOrAmount4Choic
 /// <summary>
 /// Provides information about securities quantity linked to a corporate action option.
 /// </summary>
-public partial record SecuritiesQuantity : ISecuritiesQuantityOrAmount4Choice
+public partial record SecuritiesQuantity : SecuritiesQuantityOrAmount4Choice_
 {
     #nullable enable
     /// <summary>
     /// Minimum quantity of securities to be accepted (used in the framework of conditional privilege on election). In case of proration, if this minimum quantity is not reached then the instruction is void.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? ConditionalQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? ConditionalQuantity { get; init; } 
     /// <summary>
     /// Quantity of securities to which this instruction applies.
     /// </summary>
-    public required IQuantity20Choice InstructedQuantity { get; init; } 
+    public required Quantity20Choice_ InstructedQuantity { get; init; } 
     /// <summary>
     /// Quantity of additional shares requested due to the difference of “round-up against payment” practice between the account servicer and the account holder (for instance for French dividend option).
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? AdditionalRoundUpQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? AdditionalRoundUpQuantity { get; init; } 
     #nullable disable
 }

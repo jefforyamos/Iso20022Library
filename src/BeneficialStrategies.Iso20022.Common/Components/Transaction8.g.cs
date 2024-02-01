@@ -32,7 +32,7 @@ public partial record Transaction8
     /// <summary>
     /// Reference assigned to the trade by the investor or the trading party. This reference will be used throughout the trade life cycle to access/update the trade details.
     /// </summary>
-    public IsoMax35Text? TradeIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] TradeIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record Transaction8
     /// <summary>
     /// Status and reason for the transaction.
     /// </summary>
-    public StatusAndReason2? StatusAndReason { get; init;  } // Warning: Don't know multiplicity.
+    public StatusAndReason2[] StatusAndReason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

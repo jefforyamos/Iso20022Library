@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedReason36Choice;
 /// <summary>
 /// Rejection reason specified as a code.
 /// </summary>
-public partial record Code : IRejectedReason36Choice
+public partial record Code : RejectedReason36Choice_
 {
     public required RejectionReason58Code Value { get; init; }
 }

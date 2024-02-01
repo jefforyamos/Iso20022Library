@@ -20,11 +20,11 @@ public partial record GeneralCollateral3
     /// <summary>
     /// ISINs of allocated securities of general collateral where known.
     /// </summary>
-    public FinancialInstrument59? FinancialInstrumentIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrument59[] FinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// List of eligible securities to be allocated where known.
     /// </summary>
-    public IsoISINOct2015Identifier? EligibleFinancialInstrumentIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public IsoISINOct2015Identifier[] EligibleFinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

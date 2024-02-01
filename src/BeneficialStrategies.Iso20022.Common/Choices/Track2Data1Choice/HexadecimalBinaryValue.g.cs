@@ -14,7 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Track2Data1Choice;
 /// Binary, length of 19 with maximum 37 hexadecimal text characters.
 /// When an odd number of hexadecimal text characters is present, a zero must be appended to the end of the string to pad to an even number of hexadecimal text characters.
 /// </summary>
-public partial record HexadecimalBinaryValue : ITrack2Data1Choice
+public partial record HexadecimalBinaryValue : Track2Data1Choice_
 {
     public required IsoMax19HexBinaryText Value { get; init; }
 }

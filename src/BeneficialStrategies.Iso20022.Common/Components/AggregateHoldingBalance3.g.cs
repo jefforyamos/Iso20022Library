@@ -20,11 +20,11 @@ public partial record AggregateHoldingBalance3
     /// <summary>
     /// Report on the net position of a financial instrument on the sub-account, for a certain date.
     /// </summary>
-    public AggregateHoldingBalance1? BalanceForAccount { get; init;  } // Warning: Don't know multiplicity.
+    public AggregateHoldingBalance1[] BalanceForAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Agent of the financial instrument, for example, a trade intermediary.
     /// </summary>
-    public Intermediary29? Agent { get; init;  } // Warning: Don't know multiplicity.
+    public Intermediary29[] Agent { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

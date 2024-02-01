@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditDefaultSwapsDerivative4Cho
 /// <summary>
 /// A credit default swap on a single name instrument.
 /// </summary>
-public partial record SingleNameCreditDefaultSwap : ICreditDefaultSwapsDerivative4Choice
+public partial record SingleNameCreditDefaultSwap : CreditDefaultSwapsDerivative4Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record SingleNameCreditDefaultSwap : ICreditDefaultSwapsDerivativ
     /// <summary>
     /// Reference entity of a single name credit default swap (CDS) or a derivative on single name credit default swap (CDS).
     /// </summary>
-    public IDerivativePartyIdentification1Choice? ReferenceParty { get; init; } 
+    public DerivativePartyIdentification1Choice_? ReferenceParty { get; init; } 
     /// <summary>
     /// Currency in which the notional is denominated.
     /// </summary>

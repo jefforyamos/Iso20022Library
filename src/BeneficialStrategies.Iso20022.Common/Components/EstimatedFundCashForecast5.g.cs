@@ -24,11 +24,11 @@ public partial record EstimatedFundCashForecast5
     /// <summary>
     /// Date and, if required, the time, at which the price will be applied.
     /// </summary>
-    public required IDateAndDateTimeChoice TradeDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     /// <summary>
     /// Previous date and time at which the price was applied.
     /// </summary>
-    public IDateAndDateTimeChoice? PreviousTradeDateTime { get; init; } 
+    public DateAndDateTimeChoice_? PreviousTradeDateTime { get; init; } 
     /// <summary>
     /// Investment fund class to which the cash flow is related.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record EstimatedFundCashForecast5
     /// <summary>
     /// Estimated total value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
     /// </summary>
-    public IsoActiveOrHistoricCurrencyAndAmount? EstimatedTotalNAV { get; init;  } // Warning: Don't know multiplicity.
+    public IsoActiveOrHistoricCurrencyAndAmount[] EstimatedTotalNAV { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Previous value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
     /// </summary>
-    public IsoActiveOrHistoricCurrencyAndAmount? PreviousTotalNAV { get; init;  } // Warning: Don't know multiplicity.
+    public IsoActiveOrHistoricCurrencyAndAmount[] PreviousTotalNAV { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Estimated total number of investment fund class units that have been issued.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record EstimatedFundCashForecast5
     /// <summary>
     /// Currency of the investment fund class.
     /// </summary>
-    public ActiveOrHistoricCurrencyCode? InvestmentCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public ActiveOrHistoricCurrencyCode[] InvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information about the designation of the share class currency, that is, whether it is for onshore or offshore purposes and other information that may be required. This is typically only required for CNY funds.
     /// </summary>
@@ -80,23 +80,23 @@ public partial record EstimatedFundCashForecast5
     /// <summary>
     /// Estimated cash flow by party.
     /// </summary>
-    public BreakdownByParty3? BreakdownByParty { get; init;  } // Warning: Don't know multiplicity.
+    public BreakdownByParty3[] BreakdownByParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Estimated cash flow by country.
     /// </summary>
-    public BreakdownByCountry2? BreakdownByCountry { get; init;  } // Warning: Don't know multiplicity.
+    public BreakdownByCountry2[] BreakdownByCountry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Estimated cash flow by currency.
     /// </summary>
-    public BreakdownByCurrency2? BreakdownByCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public BreakdownByCurrency2[] BreakdownByCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Estimated cash flow by a user defined parameter/s.
     /// </summary>
-    public BreakdownByUserDefinedParameter3? BreakdownByUserDefinedParameter { get; init;  } // Warning: Don't know multiplicity.
+    public BreakdownByUserDefinedParameter3[] BreakdownByUserDefinedParameter { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Estimated net cash movements per financial instrument.
     /// </summary>
-    public NetCashForecast4? EstimatedNetCashForecastDetails { get; init;  } // Warning: Don't know multiplicity.
+    public NetCashForecast4[] EstimatedNetCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -20,7 +20,7 @@ public partial record Repartition3
     /// <summary>
     /// Amount, units or percentage of financial instrument invested or withdrawn.
     /// </summary>
-    public required IUnitsOrAmountOrPercentage1Choice Quantity { get; init; } 
+    public required UnitsOrAmountOrPercentage1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, eg, dividend option or valuation currency.
     /// </summary>

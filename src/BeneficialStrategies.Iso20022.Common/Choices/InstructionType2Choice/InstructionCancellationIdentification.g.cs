@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionType2Choice;
 /// <summary>
 /// Identification of the original meeting instruction cancellation request message for which the global status or the status(es) of one or more individual instruction cancellation requests are provided.
 /// </summary>
-public partial record InstructionCancellationIdentification : IInstructionType2Choice
+public partial record InstructionCancellationIdentification : InstructionType2Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -28,7 +28,7 @@ public partial record FinancialInstrumentDetails9
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public ISafekeepingPlaceFormat3Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Opening balance for the statement period (first opening balance) or of this page (intermediary opening balance).
     /// </summary>
@@ -40,7 +40,7 @@ public partial record FinancialInstrumentDetails9
     /// <summary>
     /// Transaction details.
     /// </summary>
-    public Transaction18? Transaction { get; init;  } // Warning: Don't know multiplicity.
+    public Transaction18[] Transaction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

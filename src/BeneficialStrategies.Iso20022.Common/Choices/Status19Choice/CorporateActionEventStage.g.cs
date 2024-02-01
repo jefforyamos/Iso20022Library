@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status19Choice;
 /// <summary>
 /// Stage in the corporate action event life cycle.
 /// </summary>
-public partial record CorporateActionEventStage : IStatus19Choice
+public partial record CorporateActionEventStage : Status19Choice_
 {
     #nullable enable
     #nullable disable

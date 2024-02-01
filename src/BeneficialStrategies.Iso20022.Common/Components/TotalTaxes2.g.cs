@@ -24,7 +24,7 @@ public partial record TotalTaxes2
     /// <summary>
     /// Information related to a specific tax.
     /// </summary>
-    public Tax7? TaxDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Tax7[] TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

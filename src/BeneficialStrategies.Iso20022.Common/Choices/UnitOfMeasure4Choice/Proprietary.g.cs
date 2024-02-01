@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitOfMeasure4Choice;
 /// <summary>
 /// Unit of measure expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IUnitOfMeasure4Choice
+public partial record Proprietary : UnitOfMeasure4Choice_
 {
     #nullable enable
     /// <summary>

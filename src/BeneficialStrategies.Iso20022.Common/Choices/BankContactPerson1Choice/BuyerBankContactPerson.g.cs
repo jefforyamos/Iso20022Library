@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BankContactPerson1Choice;
 /// <summary>
 /// Person to be contacted in the buyer's bank.
 /// </summary>
-public partial record BuyerBankContactPerson : IBankContactPerson1Choice
+public partial record BuyerBankContactPerson : BankContactPerson1Choice_
 {
     #nullable enable
     /// <summary>

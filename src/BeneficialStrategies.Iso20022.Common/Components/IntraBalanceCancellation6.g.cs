@@ -32,7 +32,7 @@ public partial record IntraBalanceCancellation6
     /// <summary>
     /// Status and status reason of the transaction.
     /// </summary>
-    public IProcessingStatus69Choice? ProcessingStatus { get; init; } 
+    public ProcessingStatus69Choice_? ProcessingStatus { get; init; } 
     /// <summary>
     /// Unambiguous identification of the cancellation request.
     /// </summary>

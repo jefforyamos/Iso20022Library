@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionProcessingStatus1
 /// <summary>
 /// Indicates that the message is for information only, that is processing of client's instruction will not be supported by the Account Servicer.
 /// </summary>
-public partial record ForInformationOnlyIndicator : ICorporateActionProcessingStatus1Choice
+public partial record ForInformationOnlyIndicator : CorporateActionProcessingStatus1Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

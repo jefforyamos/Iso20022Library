@@ -20,39 +20,39 @@ public partial record CorporateActionPrice81
     /// <summary>
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
-    public IPriceFormat57Choice? CashInLieuOfSharePrice { get; init; } 
+    public PriceFormat57Choice_? CashInLieuOfSharePrice { get; init; } 
     /// <summary>
     /// Amount of money required per over-subscribed equity as defined by the issuer.
     /// </summary>
-    public IPriceFormat57Choice? OverSubscriptionDepositPrice { get; init; } 
+    public PriceFormat57Choice_? OverSubscriptionDepositPrice { get; init; } 
     /// <summary>
     /// Maximum cash amount that may be instructed.
     /// </summary>
-    public IPriceFormat62Choice? MaximumCashToInstruct { get; init; } 
+    public PriceFormat62Choice_? MaximumCashToInstruct { get; init; } 
     /// <summary>
     /// Minimum cash amount that may be instructed.
     /// </summary>
-    public IPriceFormat62Choice? MinimumCashToInstruct { get; init; } 
+    public PriceFormat62Choice_? MinimumCashToInstruct { get; init; } 
     /// <summary>
     /// Minimum multiple of a cash amount that may be instructed.
     /// </summary>
-    public IPriceFormat62Choice? MinimumMultipleCashToInstruct { get; init; } 
+    public PriceFormat62Choice_? MinimumMultipleCashToInstruct { get; init; } 
     /// <summary>
     /// Maximum or cap price at which a holder can bid, for example, on a Dutch auction offer.
     /// </summary>
-    public IPriceFormat59Choice? MaximumPrice { get; init; } 
+    public PriceFormat59Choice_? MaximumPrice { get; init; } 
     /// <summary>
     /// Minimum or floor price at which a holder can bid, for example, on a Dutch auction offer.
     /// </summary>
-    public IPriceFormat59Choice? MinimumPrice { get; init; } 
+    public PriceFormat59Choice_? MinimumPrice { get; init; } 
     /// <summary>
     /// First acceptable price after the Minimum Price at which a holder can bid, for example on a Dutch auction offer.
     /// </summary>
-    public IPriceFormat59Choice? FirstBidIncrementPrice { get; init; } 
+    public PriceFormat59Choice_? FirstBidIncrementPrice { get; init; } 
     /// <summary>
     /// Last acceptable price before the Maximum Price at which a holder can bid, for example on a Dutch auction offer.
     /// </summary>
-    public IPriceFormat59Choice? LastBidIncrementPrice { get; init; } 
+    public PriceFormat59Choice_? LastBidIncrementPrice { get; init; } 
     
     #nullable disable
 }

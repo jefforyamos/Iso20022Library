@@ -56,11 +56,11 @@ public partial record SwitchOrder2
     /// <summary>
     /// Part of an investment fund switch order that is a redemption.
     /// </summary>
-    public SwitchRedemptionLegOrder2? RedemptionLegDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SwitchRedemptionLegOrder2[] RedemptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Part of an investment fund switch order that is a subscription.
     /// </summary>
-    public SwitchSubscriptionLegOrder2? SubscriptionLegDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SwitchSubscriptionLegOrder2[] SubscriptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment transaction resulting from the investment fund order execution.
     /// </summary>

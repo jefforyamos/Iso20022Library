@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity2Choice;
 /// <summary>
 /// Code list for environmental type of commodities.
 /// </summary>
-public partial record Environmental : IAssetClassCommodity2Choice
+public partial record Environmental : AssetClassCommodity2Choice_
 {
     public required AssetClassSubProductEnvironmentalType1Code Value { get; init; }
 }

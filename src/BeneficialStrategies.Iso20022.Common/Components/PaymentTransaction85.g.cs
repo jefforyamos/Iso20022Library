@@ -52,7 +52,7 @@ public partial record PaymentTransaction85
     /// <summary>
     /// Provides detailed information on the cancellation status reason.
     /// </summary>
-    public CancellationStatusReason3? CancellationStatusReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public CancellationStatusReason3[] CancellationStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Reference of a return or a reversal transaction that is initiated to fix the case under investigation as part of the resolution.
     /// </summary>
@@ -68,11 +68,11 @@ public partial record PaymentTransaction85
     /// <summary>
     /// Party who assigns the case.|Usage: This is also the agent that instructs the next party in the chain to carry out the (set of) cancellation request(s).
     /// </summary>
-    public IParty35Choice? Assigner { get; init; } 
+    public Party35Choice_? Assigner { get; init; } 
     /// <summary>
     /// Party to which the case is assigned.|Usage: This is also the agent that is instructed by the previous party in the chain to carry out the (set of) cancellation request(s).
     /// </summary>
-    public IParty35Choice? Assignee { get; init; } 
+    public Party35Choice_? Assignee { get; init; } 
     /// <summary>
     /// Key elements used to identify the original transaction that is being referred to.
     /// </summary>

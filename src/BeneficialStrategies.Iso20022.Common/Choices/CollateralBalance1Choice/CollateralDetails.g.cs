@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralBalance1Choice;
 /// <summary>
 /// Provides details about the collateral held, in transit or that still needs to be agreed by both parties, for the variation margin and optionally the segregated independent amount.
 /// </summary>
-public partial record CollateralDetails : ICollateralBalance1Choice
+public partial record CollateralDetails : CollateralBalance1Choice_
 {
     #nullable enable
     /// <summary>

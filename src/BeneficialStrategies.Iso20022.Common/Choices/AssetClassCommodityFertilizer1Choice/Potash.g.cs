@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityFertilizer1Ch
 /// <summary>
 /// Potash fertilizer commodity derivative.
 /// </summary>
-public partial record Potash : IAssetClassCommodityFertilizer1Choice
+public partial record Potash : AssetClassCommodityFertilizer1Choice_
 {
     #nullable enable
     /// <summary>

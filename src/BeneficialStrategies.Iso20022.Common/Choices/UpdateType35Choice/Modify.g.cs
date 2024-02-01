@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateType35Choice;
 /// <summary>
 /// Set of data requested to modify a security.
 /// </summary>
-public partial record Modify : IUpdateType35Choice
+public partial record Modify : UpdateType35Choice_
 {
     #nullable enable
     /// <summary>

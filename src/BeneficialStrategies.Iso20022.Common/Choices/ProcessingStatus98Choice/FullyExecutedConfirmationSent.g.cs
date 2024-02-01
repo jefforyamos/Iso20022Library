@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus98Choice;
 /// <summary>
 /// The trade is fully executed and the confirmation is sent.
 /// </summary>
-public partial record FullyExecutedConfirmationSent : IProcessingStatus98Choice
+public partial record FullyExecutedConfirmationSent : ProcessingStatus98Choice_
 {
     #nullable enable
     /// <summary>

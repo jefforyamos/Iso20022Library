@@ -28,7 +28,7 @@ public partial record QuantityBreakdown71
     /// <summary>
     /// Date/time at which the lot was purchased.
     /// </summary>
-    public IDateAndDateTime2Choice? LotDateTime { get; init; } 
+    public DateAndDateTime2Choice_? LotDateTime { get; init; } 
     /// <summary>
     /// Price at which the lot was purchased.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record QuantityBreakdown71
     /// <summary>
     /// Specifies the type of price and information about the price.
     /// </summary>
-    public ITypeOfPrice32Choice? TypeOfPrice { get; init; } 
+    public TypeOfPrice32Choice_? TypeOfPrice { get; init; } 
     
     #nullable disable
 }

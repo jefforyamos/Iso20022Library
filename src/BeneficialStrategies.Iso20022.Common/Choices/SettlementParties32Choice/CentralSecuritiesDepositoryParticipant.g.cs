@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementParties32Choice;
 /// <summary>
 /// Legal entity identifier of the central securities depository participant involved in the transaction.
 /// </summary>
-public partial record CentralSecuritiesDepositoryParticipant : ISettlementParties32Choice
+public partial record CentralSecuritiesDepositoryParticipant : SettlementParties32Choice_
 {
     #nullable enable
     #nullable disable

@@ -32,7 +32,7 @@ public partial record OptionInstructionDetails6
     /// <summary>
     /// Securities quantity instructed in the instruction.
     /// </summary>
-    public required IFinancialInstrumentQuantity15Choice InstructionQuantity { get; init; } 
+    public required FinancialInstrumentQuantity15Choice_ InstructionQuantity { get; init; } 
     /// <summary>
     /// Date of the instruction.
     /// </summary>
@@ -48,11 +48,11 @@ public partial record OptionInstructionDetails6
     /// <summary>
     /// Bid price of the instruction.
     /// </summary>
-    public IPriceFormat57Choice? BidPrice { get; init; } 
+    public PriceFormat57Choice_? BidPrice { get; init; } 
     /// <summary>
     /// Conditional quantity of the instruction.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? ConditionalQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? ConditionalQuantity { get; init; } 
     /// <summary>
     /// Customer related narrative information.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record OptionInstructionDetails6
     /// <summary>
     /// Status of a particular instruction.
     /// </summary>
-    public required IInstructionProcessingStatus43Choice InstructionStatus { get; init; } 
+    public required InstructionProcessingStatus43Choice_ InstructionStatus { get; init; } 
     
     #nullable disable
 }

@@ -36,7 +36,7 @@ public partial record TransactionTypeAndAdditionalParameters7
     /// <summary>
     /// Identifies the type of securities financing modification requested.
     /// </summary>
-    public IRepurchaseType7Choice? ModificationType { get; init; } 
+    public RepurchaseType7Choice_? ModificationType { get; init; } 
     /// <summary>
     /// Unique reference agreed upon by the two trade counterparties to identify the trade.
     /// </summary>

@@ -24,7 +24,7 @@ public partial record PaymentInstrumentType1
     /// <summary>
     /// Identifies the authority request type as a code.
     /// </summary>
-    public AuthorityRequestType1? AuthorityRequestType { get; init;  } // Warning: Don't know multiplicity.
+    public AuthorityRequestType1[] AuthorityRequestType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information, in free text form, to complement the requested information.
     /// </summary>

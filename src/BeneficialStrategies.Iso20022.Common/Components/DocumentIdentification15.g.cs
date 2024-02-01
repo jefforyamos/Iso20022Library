@@ -24,7 +24,7 @@ public partial record DocumentIdentification15
     /// <summary>
     /// Specifies when this document is to be processed relative to an other referred document.
     /// </summary>
-    public IProcessingPosition1Choice? LinkageType { get; init; } 
+    public ProcessingPosition1Choice_? LinkageType { get; init; } 
     
     #nullable disable
 }

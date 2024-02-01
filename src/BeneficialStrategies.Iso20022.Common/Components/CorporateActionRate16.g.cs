@@ -20,35 +20,35 @@ public partial record CorporateActionRate16
     /// <summary>
     /// Annual rate of a financial instrument.
     /// </summary>
-    public IRateAndAmountFormat14Choice? Interest { get; init; } 
+    public RateAndAmountFormat14Choice_? Interest { get; init; } 
     /// <summary>
     /// Percentage of securities the offeror/issuer will purchase or redeem under the terms of the event. This can be a number or the term "any and all".
     /// </summary>
-    public IRateFormat5Choice? PercentageSought { get; init; } 
+    public RateFormat5Choice_? PercentageSought { get; init; } 
     /// <summary>
     /// Index rate related to the interest rate of the forthcoming interest payment.
     /// </summary>
-    public IRateFormat6Choice? RelatedIndex { get; init; } 
+    public RateFormat6Choice_? RelatedIndex { get; init; } 
     /// <summary>
     /// Margin allowed over or under a given rate.
     /// </summary>
-    public IRateFormat6Choice? Spread { get; init; } 
+    public RateFormat6Choice_? Spread { get; init; } 
     /// <summary>
     /// Acceptable price increment used for submitting a bid.
     /// </summary>
-    public IRateAndAmountFormat14Choice? BidInterval { get; init; } 
+    public RateAndAmountFormat14Choice_? BidInterval { get; init; } 
     /// <summary>
     /// Factor used to calculate the value of the outstanding principal of the financial instrument (for factored securities) until the next redemption (factor) date.
     /// </summary>
-    public IRateFormat3Choice? PreviousFactor { get; init; } 
+    public RateFormat3Choice_? PreviousFactor { get; init; } 
     /// <summary>
     /// Factor used to calculate the value of the outstanding principal of the financial instrument (for factored securities) that will applicable after the redemption (factor) date.
     /// </summary>
-    public IRateFormat3Choice? NextFactor { get; init; } 
+    public RateFormat3Choice_? NextFactor { get; init; } 
     /// <summary>
     /// Rate of discount for securities purchased through a reinvestment scheme as compared to the current market price of security.
     /// </summary>
-    public IRateFormat6Choice? ReinvestmentDiscountRateToMarket { get; init; } 
+    public RateFormat6Choice_? ReinvestmentDiscountRateToMarket { get; init; } 
     
     #nullable disable
 }

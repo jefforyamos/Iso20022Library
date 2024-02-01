@@ -64,7 +64,7 @@ public partial record VehicleRentalInvoice1
     /// <summary>
     /// Vehicle rental charge.
     /// </summary>
-    public RentalRate1? RentalCharge { get; init;  } // Warning: Don't know multiplicity.
+    public RentalRate1[] RentalCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
@@ -76,11 +76,11 @@ public partial record VehicleRentalInvoice1
     /// <summary>
     /// Contains the details of additional amount for a specific vehicle rental service type. 
     /// </summary>
-    public Amount9? AdditionalAmount { get; init;  } // Warning: Don't know multiplicity.
+    public Amount9[] AdditionalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Taxes related to the products or services. 
     /// </summary>
-    public Tax33? Tax { get; init;  } // Warning: Don't know multiplicity.
+    public Tax33[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

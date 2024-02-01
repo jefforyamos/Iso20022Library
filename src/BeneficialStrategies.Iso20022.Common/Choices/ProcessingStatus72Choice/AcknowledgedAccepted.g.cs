@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus72Choice;
 /// <summary>
 /// Instruction has been acknowledged by the executing party.
 /// </summary>
-public partial record AcknowledgedAccepted : IProcessingStatus72Choice
+public partial record AcknowledgedAccepted : ProcessingStatus72Choice_
 {
     #nullable enable
     /// <summary>

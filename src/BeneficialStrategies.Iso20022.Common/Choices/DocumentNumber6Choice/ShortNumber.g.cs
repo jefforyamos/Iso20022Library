@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DocumentNumber6Choice;
 /// <summary>
 /// Message type number of the document referenced.
 /// </summary>
-public partial record ShortNumber : IDocumentNumber6Choice
+public partial record ShortNumber : DocumentNumber6Choice_
 {
     public required IsoExact3NumericText Value { get; init; }
 }

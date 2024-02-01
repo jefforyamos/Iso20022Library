@@ -160,7 +160,7 @@ public partial record PEPOrISAOrPortfolioTransferConfirmationV02 : IOuterRecord
     [DataMember(Name="NewPlanMgr")]
     [XmlElement(ElementName="NewPlanMgr")]
     [Required]
-    public required IPartyIdentification2Choice NewPlanManager { get; init; }
+    public required PartyIdentification2Choice_ NewPlanManager { get; init; }
     
     /// <summary>
     /// Identification of an account owned by the investor to which a cash entry is made based on the transfer of asset(s).

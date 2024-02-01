@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AuditTrailOrBusinessError2Choice
 /// <summary>
 /// Choice between data concerning static data audit trail retrieved or business error.
 /// </summary>
-public partial record AuditTrail : IAuditTrailOrBusinessError2Choice
+public partial record AuditTrail : AuditTrailOrBusinessError2Choice_
 {
     #nullable enable
     /// <summary>

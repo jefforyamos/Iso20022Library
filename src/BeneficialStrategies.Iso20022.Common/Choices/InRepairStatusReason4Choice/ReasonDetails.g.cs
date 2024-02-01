@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.InRepairStatusReason4Choice;
 /// <summary>
 /// Reason for the in repair status, expressed as a code.
 /// </summary>
-public partial record ReasonDetails : IInRepairStatusReason4Choice
+public partial record ReasonDetails : InRepairStatusReason4Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the in repair status expressed as a code.
     /// </summary>
-    public required IInRepairStatusReason5Choice Reason { get; init; } 
+    public required InRepairStatusReason5Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the in repair reason.
     /// </summary>

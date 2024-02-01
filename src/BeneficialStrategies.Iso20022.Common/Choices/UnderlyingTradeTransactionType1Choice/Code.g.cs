@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTradeTransactionType1C
 /// <summary>
 /// Type of commercial contract.
 /// </summary>
-public partial record Code : IUnderlyingTradeTransactionType1Choice
+public partial record Code : UnderlyingTradeTransactionType1Choice_
 {
     public required ExternalUnderlyingTradeTransactionType1Code Value { get; init; }
 }

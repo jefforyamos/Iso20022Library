@@ -24,7 +24,7 @@ public partial record ContentInformationType3
     /// <summary>
     /// Data protection by a message authentication code (MAC).
     /// </summary>
-    public AuthenticatedData1? AuthenticatedData { get; init;  } // Warning: Don't know multiplicity.
+    public AuthenticatedData1[] AuthenticatedData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

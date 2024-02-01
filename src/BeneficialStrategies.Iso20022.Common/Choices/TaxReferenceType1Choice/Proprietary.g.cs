@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxReferenceType1Choice;
 /// <summary>
 /// Type of tax reference expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITaxReferenceType1Choice
+public partial record Proprietary : TaxReferenceType1Choice_
 {
     #nullable enable
     /// <summary>

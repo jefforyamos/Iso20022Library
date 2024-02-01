@@ -40,19 +40,19 @@ public partial record Transaction146
     /// Reason or purpose to send the message.
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    public ISO8583MessageReasonCode? MessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public ISO8583MessageReasonCode[] MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Supports message reason codes that are not defined  in external code list. 
     /// </summary>
-    public IsoMax256Text? AlternateMessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax256Text[] AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional functions or services to be performed in conjunction with the transaction.
     /// </summary>
-    public AdditionalService2? AdditionalService { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalService2[] AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data to qualify for incentive or other related programmes.
     /// </summary>
-    public SpecialProgrammeQualification1? SpecialProgrammeQualification { get; init;  } // Warning: Don't know multiplicity.
+    public SpecialProgrammeQualification1[] SpecialProgrammeQualification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
@@ -66,7 +66,7 @@ public partial record Transaction146
     /// Further details of some or all amounts in the transaction amount.   
     /// The detailed amount is used to calculate the reconciliation amount for messages in which the transaction amount is absent. 
     /// </summary>
-    public DetailedAmount23? DetailedAmount { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedAmount23[] DetailedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount used for reconciliation. 
     /// Calculated based on the transaction amount, except when the transaction amount is absent. When transaction amount is absent, the reconciliation amount is calculated on the detailed amount field 
@@ -75,11 +75,11 @@ public partial record Transaction146
     /// <summary>
     /// Amounts that are not part of the transaction amount and not included in reconciliation.
     /// </summary>
-    public AdditionalAmounts3? AdditionalAmount { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalAmounts3[] AdditionalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fees not included in the transaction amount.
     /// </summary>
-    public AdditionalFee2? AdditionalFee { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFee2[] AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Financial services related to the account.
     /// </summary>
@@ -99,7 +99,7 @@ public partial record Transaction146
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -28,7 +28,7 @@ public partial record CurrencyControlRecordStatus1
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    public ValidationStatusReason1? StatusReason { get; init;  } // Warning: Don't know multiplicity.
+    public ValidationStatusReason1[] StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the date and time when the status was issued.
     /// </summary>

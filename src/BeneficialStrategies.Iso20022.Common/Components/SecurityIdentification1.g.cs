@@ -44,7 +44,7 @@ public partial record SecurityIdentification1
     /// <summary>
     /// Countries where the fund is registered for distribution.
     /// </summary>
-    public CountryCode? RegisteredDistributionCountry { get; init;  } // Warning: Don't know multiplicity.
+    public CountryCode[] RegisteredDistributionCountry { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

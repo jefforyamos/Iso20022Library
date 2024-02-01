@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxableIncomePerShareCalculatedF
 /// <summary>
 /// Standard code to specify whether the fund calculates the taxable income per dividend/taxable income per share (TID/TIS).
 /// </summary>
-public partial record Code : ITaxableIncomePerShareCalculatedFormat4Choice
+public partial record Code : TaxableIncomePerShareCalculatedFormat4Choice_
 {
     public required CorporateActionTaxableIncomePerShareCalculated1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateAndAmountFormat1Choice;
 /// <summary>
 /// The value is expressed as a currency and amount.
 /// </summary>
-public partial record Amount : IRateAndAmountFormat1Choice
+public partial record Amount : RateAndAmountFormat1Choice_
 {
     public required IsoActiveCurrencyAndAmount Value { get; init; }
 }

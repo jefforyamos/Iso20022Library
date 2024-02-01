@@ -28,7 +28,7 @@ public partial record ATMSecurityConfiguration4
     /// <summary>
     /// Digital signature algorithm the security module is able to manage.
     /// </summary>
-    public Algorithm14Code? DigitalSignatureAlgorithm { get; init;  } // Warning: Don't know multiplicity.
+    public Algorithm14Code[] DigitalSignatureAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

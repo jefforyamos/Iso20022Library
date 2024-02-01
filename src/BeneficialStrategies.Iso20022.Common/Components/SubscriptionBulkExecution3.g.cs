@@ -24,7 +24,7 @@ public partial record SubscriptionBulkExecution3
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
-    public IPlaceOfTradeIdentification1Choice? PlaceOfTrade { get; init; } 
+    public PlaceOfTradeIdentification1Choice_? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Date and time at which the order was placed by the investor.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record SubscriptionBulkExecution3
     /// <summary>
     /// Execution of a subscription order.
     /// </summary>
-    public SubscriptionExecution5? IndividualExecutionDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SubscriptionExecution5[] IndividualExecutionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency requested for settlement of cash proceeds.
     /// </summary>

@@ -20,7 +20,7 @@ public partial record ProcessingCharacteristics6
     /// <summary>
     /// Currency in which a switch is accepted.
     /// </summary>
-    public ActiveCurrencyCode? DealingCurrencyAccepted { get; init;  } // Warning: Don't know multiplicity.
+    public ActiveCurrencyCode[] DealingCurrencyAccepted { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether an application form is required for a switch.
     /// </summary>
@@ -72,11 +72,11 @@ public partial record ProcessingCharacteristics6
     /// <summary>
     /// Settlement timing.
     /// </summary>
-    public ITimeFrame8Choice? SettlementCycle { get; init; } 
+    public TimeFrame8Choice_? SettlementCycle { get; init; } 
     /// <summary>
     /// Additional information about the switch processing characteristics.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -20,15 +20,15 @@ public partial record PaymentStatus6
     /// <summary>
     /// Status of a transfer, in coded form, as assigned by the transaction administrator.
     /// </summary>
-    public IPaymentStatusCode6Choice? Code { get; init; } 
+    public PaymentStatusCode6Choice_? Code { get; init; } 
     /// <summary>
     /// Date and time at which the status was assigned to the transfer.
     /// </summary>
-    public IDateAndDateTime2Choice? DateTime { get; init; } 
+    public DateAndDateTime2Choice_? DateTime { get; init; } 
     /// <summary>
     /// Reason provided for the status of a transfer.
     /// </summary>
-    public IPaymentStatusReason1Choice? Reason { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentStatusReason1Choice_[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingReason1Choi
 /// <summary>
 /// Indicates that there is no reason available or to report.
 /// </summary>
-public partial record NoSpecifiedReason : IInstructionProcessingReason1Choice
+public partial record NoSpecifiedReason : InstructionProcessingReason1Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

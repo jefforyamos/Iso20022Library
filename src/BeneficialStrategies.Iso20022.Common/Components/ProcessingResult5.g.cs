@@ -34,16 +34,16 @@ public partial record ProcessingResult5
     /// <summary>
     /// Set of actions to be performed.
     /// </summary>
-    public Action9? Action { get; init;  } // Warning: Don't know multiplicity.
+    public Action9[] Action { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional action to perform.
     /// </summary>
-    public AdditionalAction1? AdditionalAction { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalAction1[] AdditionalAction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information relevant for the destination.
     /// ISO 8583 bit 44
     /// </summary>
-    public AdditionalInformation20? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation20[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

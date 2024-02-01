@@ -20,7 +20,7 @@ public partial record QuantityAndAccount112
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
-    public IQuantity54Choice? SettlementQuantity { get; init; } 
+    public Quantity54Choice_? SettlementQuantity { get; init; } 
     /// <summary>
     /// Denomination of the security to be received or delivered.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record QuantityAndAccount112
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    public ICashAccountIdentification6Choice? CashAccount { get; init; } 
+    public CashAccountIdentification6Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
@@ -48,7 +48,7 @@ public partial record QuantityAndAccount112
     /// <summary>
     /// Breakdown of a quantity into lots such as tax lots, instrument series.
     /// </summary>
-    public QuantityBreakdown69? QuantityBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public QuantityBreakdown69[] QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

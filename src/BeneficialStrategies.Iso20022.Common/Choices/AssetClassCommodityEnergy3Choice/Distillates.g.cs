@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnergy3Choice
 /// <summary>
 /// Distillates energy commodity derivative.
 /// </summary>
-public partial record Distillates : IAssetClassCommodityEnergy3Choice
+public partial record Distillates : AssetClassCommodityEnergy3Choice_
 {
     #nullable enable
     /// <summary>

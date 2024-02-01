@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IndicativeOrMarketPrice8Choice;
 /// <summary>
 /// Last reported/known price of a financial instrument in a market.
 /// </summary>
-public partial record MarketPrice : IIndicativeOrMarketPrice8Choice
+public partial record MarketPrice : IndicativeOrMarketPrice8Choice_
 {
     #nullable enable
     #nullable disable

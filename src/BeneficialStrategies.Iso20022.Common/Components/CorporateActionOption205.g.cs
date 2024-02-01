@@ -20,19 +20,19 @@ public partial record CorporateActionOption205
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    public required IOptionNumber1Choice OptionNumber { get; init; } 
+    public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
-    public required ICorporateActionOption39Choice OptionType { get; init; } 
+    public required CorporateActionOption39Choice_ OptionType { get; init; } 
     /// <summary>
     /// Specifies the features that may apply to a corporate action option.
     /// </summary>
-    public IOptionFeaturesFormat19Choice? OptionFeatures { get; init;  } // Warning: Don't know multiplicity.
+    public OptionFeaturesFormat19Choice_[] OptionFeatures { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
-    public IFractionDispositionType30Choice? FractionDisposition { get; init; } 
+    public FractionDispositionType30Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Currency in which the cash disbursed from an interest or dividend payment is offered.
     /// </summary>
@@ -60,11 +60,11 @@ public partial record CorporateActionOption205
     /// <summary>
     /// Provides information about the securities movement linked to the corporate action option.
     /// </summary>
-    public SecuritiesOption87? SecuritiesMovementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SecuritiesOption87[] SecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the cash movement related to a corporate action option.
     /// </summary>
-    public CashOption80? CashMovementDetails { get; init;  } // Warning: Don't know multiplicity.
+    public CashOption80[] CashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

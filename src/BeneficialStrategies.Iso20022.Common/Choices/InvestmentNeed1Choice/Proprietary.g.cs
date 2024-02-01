@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestmentNeed1Choice;
 /// <summary>
 /// Investment need expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IInvestmentNeed1Choice
+public partial record Proprietary : InvestmentNeed1Choice_
 {
     #nullable enable
     /// <summary>

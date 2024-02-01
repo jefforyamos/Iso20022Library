@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PersonIdentificationSchemeName1C
 /// <summary>
 /// Name of the identification scheme, in a free text form.
 /// </summary>
-public partial record Proprietary : IPersonIdentificationSchemeName1Choice
+public partial record Proprietary : PersonIdentificationSchemeName1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

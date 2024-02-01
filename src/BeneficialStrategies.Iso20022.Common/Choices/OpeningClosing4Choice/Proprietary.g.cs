@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OpeningClosing4Choice;
 /// <summary>
 /// Opening closing information expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IOpeningClosing4Choice
+public partial record Proprietary : OpeningClosing4Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity8Choi
 /// <summary>
 /// Amount of money used to derive the quantity of investment fund units to be sold.
 /// </summary>
-public partial record OrderedAmount : IFinancialInstrumentQuantity8Choice
+public partial record OrderedAmount : FinancialInstrumentQuantity8Choice_
 {
     public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RemittanceInformation3Choice;
 /// <summary>
 /// Information in structured form, that is supplied to enable the matching, ie, reconciliation, of a payment with the items that the payment is intended to settle, eg, commercial invoices in an account receivable system.
 /// </summary>
-public partial record Structured : IRemittanceInformation3Choice
+public partial record Structured : RemittanceInformation3Choice_
 {
     #nullable enable
     /// <summary>
@@ -26,7 +26,7 @@ public partial record Structured : IRemittanceInformation3Choice
     /// <summary>
     /// Amount of money and currency of a document referred to in the remittance section. The amount is typically either the original amount due and payable, or the amount actually remitted for the referred document.
     /// </summary>
-    public IReferredDocumentAmount1Choice? ReferredDocumentAmount { get; init;  } // Warning: Don't know multiplicity.
+    public ReferredDocumentAmount1Choice_? ReferredDocumentAmount { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identification of a document that distinguishes that document from another document referred to in the remittance information, usually assigned by the originator of the referred document/transaction.
     /// </summary>

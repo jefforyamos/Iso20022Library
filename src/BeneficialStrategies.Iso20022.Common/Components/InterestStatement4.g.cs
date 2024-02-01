@@ -40,7 +40,7 @@ public partial record InterestStatement4
     /// <summary>
     /// Provides the details of the interest calculation.
     /// </summary>
-    public InterestCalculation4? InterestCalculation { get; init;  } // Warning: Don't know multiplicity.
+    public InterestCalculation4[] InterestCalculation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

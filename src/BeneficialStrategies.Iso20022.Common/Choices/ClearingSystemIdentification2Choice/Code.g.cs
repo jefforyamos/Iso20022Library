@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemIdentification2Cho
 /// <summary>
 /// Identification of a clearing system, in a coded form as published in an external list.
 /// </summary>
-public partial record Code : IClearingSystemIdentification2Choice
+public partial record Code : ClearingSystemIdentification2Choice_
 {
     public required ExternalClearingSystemIdentification1Code Value { get; init; }
 }

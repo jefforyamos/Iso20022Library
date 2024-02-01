@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionEventType35Choice
 /// <summary>
 /// Event types expressed as a code.
 /// </summary>
-public partial record Code : ICorporateActionEventType35Choice
+public partial record Code : CorporateActionEventType35Choice_
 {
     public required CorporateActionEventType17Code Value { get; init; }
 }

@@ -20,15 +20,15 @@ public partial record SettlementTax1
     /// <summary>
     /// Type of tax applied.
     /// </summary>
-    public ITaxTypeFormat1Choice? TypeCode { get; init; } 
+    public TaxTypeFormat1Choice_? TypeCode { get; init; } 
     /// <summary>
     /// Monetary value resulting from the calculation of this tax, levy or duty.
     /// </summary>
-    public IsoCurrencyAndAmount? CalculatedAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount[] CalculatedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary value used as the basis on which this tax, levy or duty is calculated.
     /// </summary>
-    public IsoCurrencyAndAmount? BasisAmount { get; init;  } // Warning: Don't know multiplicity.
+    public IsoCurrencyAndAmount[] BasisAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date of the tax point when this tax, levy or duty becomes applicable.
     /// </summary>

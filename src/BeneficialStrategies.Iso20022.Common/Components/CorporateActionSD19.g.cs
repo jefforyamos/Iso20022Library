@@ -28,7 +28,7 @@ public partial record CorporateActionSD19
     /// <summary>
     /// Date/time at which the movement was due to take place (cash and/or securities).
     /// </summary>
-    public IDateFormat48Choice? PaymentDate { get; init; } 
+    public DateFormat48Choice_? PaymentDate { get; init; } 
     /// <summary>
     /// Date/time on which the lottery is run and applied to the holder's positions. This is also applicable to partial calls.
     /// </summary>

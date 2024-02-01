@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DrawdownEventType1Choice;
 /// <summary>
 /// Type of event expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IDrawdownEventType1Choice
+public partial record Proprietary : DrawdownEventType1Choice_
 {
     #nullable enable
     /// <summary>

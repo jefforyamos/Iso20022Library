@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingProcessing1Choice;
 /// <summary>
 /// Specifies the reason of the Pending Processing Status.
 /// </summary>
-public partial record Reason : IPendingProcessing1Choice
+public partial record Reason : PendingProcessing1Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the trade is wainting the affirmation.
     /// </summary>
-    public required IAwaitingAffirmationReason1Choice Code { get; init; } 
+    public required AwaitingAffirmationReason1Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional information about the reason in narrative form.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedStatus3Choice;
 /// <summary>
 /// Reason for a rejected status in the report.
 /// </summary>
-public partial record Reason : IRejectedStatus3Choice
+public partial record Reason : RejectedStatus3Choice_
 {
     #nullable enable
     /// <summary>

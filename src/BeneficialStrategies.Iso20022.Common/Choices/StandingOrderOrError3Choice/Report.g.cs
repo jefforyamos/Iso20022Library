@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderOrError3Choice;
 /// <summary>
 /// Reports either on the standing order or on a business error.
 /// </summary>
-public partial record Report : IStandingOrderOrError3Choice
+public partial record Report : StandingOrderOrError3Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record Report : IStandingOrderOrError3Choice
     /// <summary>
     /// Requested information on the standing order or business error when information has not been found.
     /// </summary>
-    public required IStandingOrderOrError4Choice StandingOrderOrError { get; init; } 
+    public required StandingOrderOrError4Choice_ StandingOrderOrError { get; init; } 
     #nullable disable
 }

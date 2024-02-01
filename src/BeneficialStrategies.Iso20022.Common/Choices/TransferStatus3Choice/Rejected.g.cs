@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferStatus3Choice;
 /// <summary>
 /// Status of the transfer is rejected.
 /// </summary>
-public partial record Rejected : ITransferStatus3Choice
+public partial record Rejected : TransferStatus3Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason for the rejected status.
     /// </summary>
-    public required IRejectedReason15Choice Reason { get; init; } 
+    public required RejectedReason15Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the rejected status reason.
     /// </summary>

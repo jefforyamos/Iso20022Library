@@ -44,7 +44,7 @@ public partial record Driver1
     /// <summary>
     /// Additional identification used for the driver.
     /// </summary>
-    public TravelDocument1? AdditionalIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public TravelDocument1[] AdditionalIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date of birth of vehicle rental driver. 
     /// </summary>

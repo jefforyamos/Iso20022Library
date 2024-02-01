@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditorEnrolmentCancellationRea
 /// <summary>
 /// Reason, as published in an external reason code list.
 /// </summary>
-public partial record Code : ICreditorEnrolmentCancellationReason1Choice
+public partial record Code : CreditorEnrolmentCancellationReason1Choice_
 {
     public required ExternalCreditorEnrolmentCancellationReason1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// <summary>
 /// Extensive branch network list of the Australian Bank State Branch (BSB) Code. The codes are used for identifying Australian financial institutions, as assigned by the Australian Payments Clearing Association (APCA).
 /// </summary>
-public partial record AustralianExtensiveBranchNetworkIdentification : IClearingSystemMemberIdentification4Choice
+public partial record AustralianExtensiveBranchNetworkIdentification : ClearingSystemMemberIdentification4Choice_
 {
     public required IsoExtensiveBranchNetworkIdentifier Value { get; init; }
 }

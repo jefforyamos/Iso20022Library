@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BlockedReason1Choice;
 /// <summary>
 /// Reason expressed as a code.
 /// </summary>
-public partial record Reason : IBlockedReason1Choice
+public partial record Reason : BlockedReason1Choice_
 {
     public required BlockedReason1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateStatus1Choice;
 /// <summary>
 /// Name of the identification scheme, in a free text form.
 /// </summary>
-public partial record Proprietary : IMandateStatus1Choice
+public partial record Proprietary : MandateStatus1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

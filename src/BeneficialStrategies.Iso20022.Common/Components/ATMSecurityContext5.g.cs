@@ -24,7 +24,7 @@ public partial record ATMSecurityContext5
     /// <summary>
     /// Key exchange security schemes implemented in the hardware security module of the ATM.
     /// </summary>
-    public ATMSecurityScheme4Code? SecuritySchemeCapabilities { get; init;  } // Warning: Don't know multiplicity.
+    public ATMSecurityScheme4Code[] SecuritySchemeCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Hardware security module of the ATM.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record ATMSecurityContext5
     /// <summary>
     /// Cryptographic keys stored in the hardware security module of the ATM.
     /// </summary>
-    public CryptographicKey11? Key { get; init;  } // Warning: Don't know multiplicity.
+    public CryptographicKey11[] Key { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Random value from the host provided during a previous exchange.
     /// </summary>

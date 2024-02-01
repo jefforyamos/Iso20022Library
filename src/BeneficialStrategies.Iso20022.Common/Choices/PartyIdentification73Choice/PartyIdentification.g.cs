@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyIdentification73Choice;
 /// <summary>
 /// Party Identification specified as a list of values per element.
 /// </summary>
-public partial record PartyIdentification : IPartyIdentification73Choice
+public partial record PartyIdentification : PartyIdentification73Choice_
 {
     #nullable enable
     /// <summary>
@@ -34,7 +34,7 @@ public partial record PartyIdentification : IPartyIdentification73Choice
     /// <summary>
     /// Choice of a clearing system identifier.
     /// </summary>
-    public IClearingSystemIdentification2Choice? ClearingSystemIdentification { get; init; } 
+    public ClearingSystemIdentification2Choice_? ClearingSystemIdentification { get; init; } 
     /// <summary>
     /// Identification of the Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>

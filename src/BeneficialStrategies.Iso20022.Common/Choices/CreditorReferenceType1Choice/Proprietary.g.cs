@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditorReferenceType1Choice;
 /// <summary>
 /// Creditor reference type, in a proprietary form.
 /// </summary>
-public partial record Proprietary : ICreditorReferenceType1Choice
+public partial record Proprietary : CreditorReferenceType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

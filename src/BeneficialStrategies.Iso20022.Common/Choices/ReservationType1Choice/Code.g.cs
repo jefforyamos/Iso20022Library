@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReservationType1Choice;
 /// <summary>
 /// Liquidity transfer request type, in a coded form.
 /// </summary>
-public partial record Code : IReservationType1Choice
+public partial record Code : ReservationType1Choice_
 {
     public required ReservationType2Code Value { get; init; }
 }

@@ -24,19 +24,19 @@ public partial record CorporateActionRate47
     /// <summary>
     /// Rate of allowed over-subscription.
     /// </summary>
-    public IRateAndAmountFormat5Choice? OversubscriptionRate { get; init; } 
+    public RateAndAmountFormat5Choice_? OversubscriptionRate { get; init; } 
     /// <summary>
     /// Requested tax rate in case of breakdown of tax rate, for example, used for adjustment of tax rate. This is the new requested applicable rate.
     /// </summary>
-    public IRateAndAmountFormat21Choice? RequestedTaxationRate { get; init;  } // Warning: Don't know multiplicity.
+    public RateAndAmountFormat21Choice_[] RequestedTaxationRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Requested rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.
     /// </summary>
-    public IRateAndAmountFormat21Choice? RequestedWithholdingOfForeignTax { get; init;  } // Warning: Don't know multiplicity.
+    public RateAndAmountFormat21Choice_[] RequestedWithholdingOfForeignTax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Requested rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.
     /// </summary>
-    public IRateAndAmountFormat21Choice? RequestedWithholdingOfLocalTax { get; init;  } // Warning: Don't know multiplicity.
+    public RateAndAmountFormat21Choice_[] RequestedWithholdingOfLocalTax { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -24,7 +24,7 @@ public partial record HoldIndicator6
     /// <summary>
     /// Specifies the reason of the registration status.
     /// </summary>
-    public RegistrationReason5? Reason { get; init;  } // Warning: Don't know multiplicity.
+    public RegistrationReason5[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

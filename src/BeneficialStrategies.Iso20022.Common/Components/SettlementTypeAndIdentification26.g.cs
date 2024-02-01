@@ -28,7 +28,7 @@ public partial record SettlementTypeAndIdentification26
     /// <summary>
     /// Identifies the intended settlement date.
     /// </summary>
-    public IDateAndDateTime2Choice? SettlementDate { get; init; } 
+    public DateAndDateTime2Choice_? SettlementDate { get; init; } 
     
     #nullable disable
 }

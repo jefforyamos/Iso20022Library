@@ -32,7 +32,7 @@ public partial record PEPISATransfer5
     /// <summary>
     /// UK government schemes to encourage individuals to invest in securities based unit and investment trusts, offering certain tax benefits. These are not investment in their own right but are tax exempt wrappers in which individuals can hold equities, bonds and funds to shelter them from income and capital gains tax. |The Personal Equity Plan (PEP) and the Individual Savings Account (ISA) are provided only by UK based financial institutions.
     /// </summary>
-    public required IPreviousYearChoice PEP { get; init; } 
+    public required PreviousYearChoice_ PEP { get; init; } 
     /// <summary>
     /// Wrapper for a specific product or a specific sub-product owned by a set of beneficial owners.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record PEPISATransfer5
     /// <summary>
     /// Specifies the underlying assets for the PEP, ISA or portfolio.
     /// </summary>
-    public FinancialInstrument12? FinancialInstrumentAssetForTransfer { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrument12[] FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

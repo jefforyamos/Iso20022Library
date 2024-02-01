@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AddressType1Choice;
 /// <summary>
 /// Type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IAddressType1Choice
+public partial record Proprietary : AddressType1Choice_
 {
     #nullable enable
     /// <summary>

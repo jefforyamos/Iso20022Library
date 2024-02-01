@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SortCriteria1Choice;
 /// <summary>
 /// Pre-defined way of indicating how the information is broken down.
 /// </summary>
-public partial record Predefined : ISortCriteria1Choice
+public partial record Predefined : SortCriteria1Choice_
 {
     public required ReportSortedType1Code Value { get; init; }
 }

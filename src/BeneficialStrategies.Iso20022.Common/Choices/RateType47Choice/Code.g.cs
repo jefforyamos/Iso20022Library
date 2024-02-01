@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType47Choice;
 /// <summary>
 /// Standard code to specify the type of tax rate.
 /// </summary>
-public partial record Code : IRateType47Choice
+public partial record Code : RateType47Choice_
 {
     public required DividendRateType1Code Value { get; init; }
 }

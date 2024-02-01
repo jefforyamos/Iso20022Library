@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus17Choice;
 /// <summary>
 /// Trade is standing instruction.
 /// </summary>
-public partial record StandingInstruction : IProcessingStatus17Choice
+public partial record StandingInstruction : ProcessingStatus17Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecurityOrBusinessError4Choice;
 /// <summary>
 /// Provides the financial instruments details.
 /// </summary>
-public partial record SecurityReport : ISecurityOrBusinessError4Choice
+public partial record SecurityReport : SecurityOrBusinessError4Choice_
 {
     #nullable enable
     /// <summary>

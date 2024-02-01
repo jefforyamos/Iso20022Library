@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Status1Choice;
 /// <summary>
 /// Provides the status of the registration processing.
 /// </summary>
-public partial record RegistrationProcessingStatus : IStatus1Choice
+public partial record RegistrationProcessingStatus : Status1Choice_
 {
     #nullable enable
     #nullable disable

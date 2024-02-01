@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Number3Choice;
 /// <summary>
 /// Number of maximum 3 numeric text.
 /// </summary>
-public partial record Short : INumber3Choice
+public partial record Short : Number3Choice_
 {
     public required IsoExact3NumericText Value { get; init; }
 }

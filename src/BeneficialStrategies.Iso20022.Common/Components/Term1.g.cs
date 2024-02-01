@@ -24,7 +24,7 @@ public partial record Term1
     /// <summary>
     /// Indicates the value.
     /// </summary>
-    public required IRateOrAbsoluteValue1Choice Value { get; init; } 
+    public required RateOrAbsoluteValue1Choice_ Value { get; init; } 
     
     #nullable disable
 }

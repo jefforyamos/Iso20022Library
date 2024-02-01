@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstructionProcessingStatus44Cho
 /// <summary>
 /// Provides status information related to a pending instruction.
 /// </summary>
-public partial record Pending : IInstructionProcessingStatus44Choice
+public partial record Pending : InstructionProcessingStatus44Choice_
 {
     #nullable enable
     #nullable disable

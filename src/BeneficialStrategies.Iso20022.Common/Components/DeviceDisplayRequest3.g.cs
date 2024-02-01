@@ -20,7 +20,7 @@ public partial record DeviceDisplayRequest3
     /// <summary>
     /// Message to be displayed.
     /// </summary>
-    public ActionMessage8? DisplayOutput { get; init;  } // Warning: Don't know multiplicity.
+    public ActionMessage8[] DisplayOutput { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

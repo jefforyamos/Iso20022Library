@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementStandingInstructionDat
 /// <summary>
 /// Settlement standing instruction database expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ISettlementStandingInstructionDatabase3Choice
+public partial record Proprietary : SettlementStandingInstructionDatabase3Choice_
 {
     #nullable enable
     /// <summary>

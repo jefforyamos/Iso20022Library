@@ -24,7 +24,7 @@ public partial record NonFinancialResponseComponent1
     /// <summary>
     /// Response of the non financial request.
     /// </summary>
-    public NonFinancialResponseContentComponent1? ResponseContent { get; init;  } // Warning: Don't know multiplicity.
+    public NonFinancialResponseContentComponent1[] ResponseContent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Result of the processing of the request.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record NonFinancialResponseComponent1
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

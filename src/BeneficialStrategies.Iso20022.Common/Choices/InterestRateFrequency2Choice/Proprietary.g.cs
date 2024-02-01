@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRateFrequency2Choice;
 /// <summary>
 /// Frequency expressed in a proprietary notation.
 /// </summary>
-public partial record Proprietary : IInterestRateFrequency2Choice
+public partial record Proprietary : InterestRateFrequency2Choice_
 {
     public required IsoMax52Text Value { get; init; }
 }

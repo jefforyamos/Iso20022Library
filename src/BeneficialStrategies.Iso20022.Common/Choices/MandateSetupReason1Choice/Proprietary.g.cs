@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MandateSetupReason1Choice;
 /// <summary>
 /// Reason for the mandate setup, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IMandateSetupReason1Choice
+public partial record Proprietary : MandateSetupReason1Choice_
 {
     public required IsoMax70Text Value { get; init; }
 }

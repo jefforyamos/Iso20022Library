@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References27Choice;
 /// <summary>
 /// Unambiguous identification of the transaction as known by the account owner (or the instructing party managing the account).
 /// </summary>
-public partial record AccountOwnerTransactionIdentification : IReferences27Choice
+public partial record AccountOwnerTransactionIdentification : References27Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

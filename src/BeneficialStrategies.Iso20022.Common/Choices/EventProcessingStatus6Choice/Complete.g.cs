@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EventProcessingStatus6Choice;
 /// <summary>
 /// Specifies that a corporate action event processing has been completed.
 /// </summary>
-public partial record Complete : IEventProcessingStatus6Choice
+public partial record Complete : EventProcessingStatus6Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus80Choice;
 /// <summary>
 /// Instruction/request has been cancelled.
 /// </summary>
-public partial record Cancelled : IProcessingStatus80Choice
+public partial record Cancelled : ProcessingStatus80Choice_
 {
     #nullable enable
     #nullable disable

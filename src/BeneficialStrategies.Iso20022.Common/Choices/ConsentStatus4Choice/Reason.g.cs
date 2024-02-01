@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ConsentStatus4Choice;
 /// <summary>
 /// Reason provided for the status.
 /// </summary>
-public partial record Reason : IConsentStatus4Choice
+public partial record Reason : ConsentStatus4Choice_
 {
     #nullable enable
     /// <summary>
     /// Reason provided for the status.
     /// </summary>
-    public required IConsentOrRejectionReason4Choice Code { get; init; } 
+    public required ConsentOrRejectionReason4Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>

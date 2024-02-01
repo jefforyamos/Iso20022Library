@@ -24,7 +24,7 @@ public partial record NaturalPersonIdentification1
     /// <summary>
     /// Type of local identification for a natural person.
     /// </summary>
-    public IIdentificationType45Choice? IdentificationType { get; init; } 
+    public IdentificationType45Choice_? IdentificationType { get; init; } 
     
     #nullable disable
 }

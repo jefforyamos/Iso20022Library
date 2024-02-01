@@ -20,7 +20,7 @@ public partial record UnitPrice18
     /// <summary>
     /// Specifies the unit price.
     /// </summary>
-    public required IUnitOfMeasure3Choice UnitPrice { get; init; } 
+    public required UnitOfMeasure3Choice_ UnitPrice { get; init; } 
     /// <summary>
     /// Price expressed as a currency and value.
     /// </summary>

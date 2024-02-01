@@ -28,7 +28,7 @@ public partial record FinancialInstrumentDetails34
     /// <summary>
     /// Identification of the sub-balance.
     /// </summary>
-    public IntraPositionDetails51? SubBalance { get; init;  } // Warning: Don't know multiplicity.
+    public IntraPositionDetails51[] SubBalance { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

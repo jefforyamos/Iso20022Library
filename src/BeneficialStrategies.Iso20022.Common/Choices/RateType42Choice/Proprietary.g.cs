@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType42Choice;
 /// <summary>
 /// Proprietary identification of the type of withholding tax rate.
 /// </summary>
-public partial record Proprietary : IRateType42Choice
+public partial record Proprietary : RateType42Choice_
 {
     #nullable enable
     /// <summary>

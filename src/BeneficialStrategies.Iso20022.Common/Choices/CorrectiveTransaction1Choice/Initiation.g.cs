@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorrectiveTransaction1Choice;
 /// <summary>
 /// Set of elements used to reference the details of the corrective payment initiation.
 /// </summary>
-public partial record Initiation : ICorrectiveTransaction1Choice
+public partial record Initiation : CorrectiveTransaction1Choice_
 {
     #nullable enable
     /// <summary>

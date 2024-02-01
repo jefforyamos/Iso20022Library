@@ -52,7 +52,7 @@ public partial record SaleContext2
     /// <summary>
     /// Merchant using the payment services of a payment facilitator, acting as a card acceptor.
     /// </summary>
-    public Organisation26? SponsoredMerchant { get; init;  } // Warning: Don't know multiplicity.
+    public Organisation26[] SponsoredMerchant { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// True if the payment transaction is a partial payment of the sale transaction.
     /// </summary>

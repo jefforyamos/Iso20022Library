@@ -20,11 +20,11 @@ public partial record CollateralParameters13
     /// <summary>
     /// Specifies the type of collateral instruction.
     /// </summary>
-    public required ICollateralTransactionType1Choice CollateralInstructionType { get; init; } 
+    public required CollateralTransactionType1Choice_ CollateralInstructionType { get; init; } 
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the exposure.
     /// </summary>
-    public required IExposureType23Choice ExposureType { get; init; } 
+    public required ExposureType23Choice_ ExposureType { get; init; } 
     /// <summary>
     /// Specifies whether the client is the collateral taker or giver.
     /// </summary>

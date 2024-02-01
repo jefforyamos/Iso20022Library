@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NarrativeType1Choice;
 /// <summary>
 /// Type of narrative.
 /// </summary>
-public partial record Code : INarrativeType1Choice
+public partial record Code : NarrativeType1Choice_
 {
     public required ExternalNarrativeType1Code Value { get; init; }
 }

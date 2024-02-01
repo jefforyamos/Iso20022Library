@@ -20,22 +20,22 @@ public partial record TradeTransaction49
     /// <summary>
     /// Choice between a Unique Transaction Identifier (UTI) or a proprietary identifier as agreed with the counterparty.
     /// </summary>
-    public IUniqueTransactionIdentifier2Choice? TransactionIdentification { get; init; } 
+    public UniqueTransactionIdentifier2Choice_? TransactionIdentification { get; init; } 
     /// <summary>
     /// Choice between a Unique Transaction Identifier (UTI) or a proprietary identifier assigned to the predecessor transaction that has given rise to the reported transaction due to a lifecycle event.
     /// |
     /// Usage: This data element is not applicable when reporting many-to-one and many-to-many relations between transactions (for example, in the case of a compression).
     /// This data element may be applicable when reporting one-to-one and one-to-many relations between transactions (for example, in the case of a clearing).|
     /// </summary>
-    public IUniqueTransactionIdentifier3Choice? PriorTransactionIdentification { get; init; } 
+    public UniqueTransactionIdentifier3Choice_? PriorTransactionIdentification { get; init; } 
     /// <summary>
     /// Choice between a Unique Transaction Identifier (UTI) or a proprietary identifier of the position in which a derivative is included. This field is applicable only for the reports related to the termination of a derivative due to its inclusion in a position. |
     /// </summary>
-    public IUniqueTransactionIdentifier3Choice? SubsequentTransactionIdentification { get; init; } 
+    public UniqueTransactionIdentifier3Choice_? SubsequentTransactionIdentification { get; init; } 
     /// <summary>
     /// Specifies the unique code assigned by the reporting counterparty to the portfolio if the collateral is posted on a portfolio basis.
     /// </summary>
-    public ICollateralPortfolioCode5Choice? CollateralPortfolioCode { get; init; } 
+    public CollateralPortfolioCode5Choice_? CollateralPortfolioCode { get; init; } 
     /// <summary>
     /// Unique number to indicate a group of reports which relate to the same execution.
     /// </summary>
@@ -66,7 +66,7 @@ public partial record TradeTransaction49
     /// <summary>
     /// Number of units of the financial instrument, that is, the nominal value.
     /// </summary>
-    public IFinancialInstrumentQuantity32Choice? Quantity { get; init; } 
+    public FinancialInstrumentQuantity32Choice_? Quantity { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is settled physically or in cash or decided at expiration time by counterparty.
     /// </summary>
@@ -97,7 +97,7 @@ public partial record TradeTransaction49
     /// Indicates the unadjusted date, as per the contract, by which all transfer of cash or assets should take place and the counterparties should no longer have any outstanding obligations to each other.||
     /// For products that may not have a final contractual settlement date (eg American options), this data element reflects the date by which the transfer of cash or asset would take place if termination were to occur on the expiration date.
     /// </summary>
-    public IsoISODate? SettlementDate { get; init;  } // Warning: Don't know multiplicity.
+    public IsoISODate[] SettlementDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details related to the master agreement.
     /// </summary>
@@ -122,7 +122,7 @@ public partial record TradeTransaction49
     /// <summary>
     /// Specifies whether the contract was electronically confirmed, non-electronically confirmed or remains unconfirmed.
     /// </summary>
-    public ITradeConfirmation1Choice? TradeConfirmation { get; init; } 
+    public TradeConfirmation1Choice_? TradeConfirmation { get; init; } 
     /// <summary>
     /// Indicates whether the derivative transaction has one or more additional terms or provisions that materially affect the price of the transaction.
     /// Usage: If the element is not present, the NonStandardisedTerm is False.
@@ -153,7 +153,7 @@ public partial record TradeTransaction49
     /// <summary>
     /// Information related to commodity asset class type.
     /// </summary>
-    public IAssetClassCommodity6Choice? Commodity { get; init; } 
+    public AssetClassCommodity6Choice_? Commodity { get; init; } 
     /// <summary>
     /// Information related to credit derivative asset class type.
     /// </summary>
@@ -169,7 +169,7 @@ public partial record TradeTransaction49
     /// <summary>
     /// Payment related to elements not reported in dedicated fields.
     /// </summary>
-    public OtherPayment5? OtherPayment { get; init;  } // Warning: Don't know multiplicity.
+    public OtherPayment5[] OtherPayment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// A combination of two or more transactions that are reported separately but that are negotiated together as the product of a single economic agreement.
     /// </summary>

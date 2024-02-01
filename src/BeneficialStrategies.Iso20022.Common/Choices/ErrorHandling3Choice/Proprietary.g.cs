@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ErrorHandling3Choice;
 /// <summary>
 /// Specification of the error, in free format.
 /// </summary>
-public partial record Proprietary : IErrorHandling3Choice
+public partial record Proprietary : ErrorHandling3Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

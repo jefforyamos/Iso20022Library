@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradingVenueType1Choice;
 /// <summary>
 /// Whether the Securities Financing Transaction was concluded on a domestic trading venue or a foregin trading venue.
 /// </summary>
-public partial record OnVenue : ITradingVenueType1Choice
+public partial record OnVenue : TradingVenueType1Choice_
 {
     public required TradeMarket2Code Value { get; init; }
 }

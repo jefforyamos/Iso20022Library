@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransferStatus3Choice;
 /// <summary>
 /// Status of the transfer is received, accepted, sent to next party, matched, already executed, or settled.
 /// </summary>
-public partial record Status : ITransferStatus3Choice
+public partial record Status : TransferStatus3Choice_
 {
     #nullable enable
     /// <summary>

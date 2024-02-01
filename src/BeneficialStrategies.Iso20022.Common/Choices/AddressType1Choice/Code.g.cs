@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AddressType1Choice;
 /// <summary>
 /// Type expressed as a code.
 /// </summary>
-public partial record Code : IAddressType1Choice
+public partial record Code : AddressType1Choice_
 {
     public required AddressType1Code Value { get; init; }
 }

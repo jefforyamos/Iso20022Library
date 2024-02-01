@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderOrAll1Choice;
 /// <summary>
 /// Identification of all standing orders defined with specific characteristics.
 /// </summary>
-public partial record AllStandingOrders : IStandingOrderOrAll1Choice
+public partial record AllStandingOrders : StandingOrderOrAll1Choice_
 {
     #nullable enable
     /// <summary>

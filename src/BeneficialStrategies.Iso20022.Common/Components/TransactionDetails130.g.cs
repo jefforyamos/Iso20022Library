@@ -20,11 +20,11 @@ public partial record TransactionDetails130
     /// <summary>
     /// Specifies the type of activity to which this instruction relates.
     /// </summary>
-    public required ITransactionActivity4Choice TransactionActivity { get; init; } 
+    public required TransactionActivity4Choice_ TransactionActivity { get; init; } 
     /// <summary>
     /// Choice of type for the transaction reported.
     /// </summary>
-    public ISettlementOrCorporateActionEvent32Choice? SettlementTransactionOrCorporateActionEventType { get; init; } 
+    public SettlementOrCorporateActionEvent32Choice_? SettlementTransactionOrCorporateActionEventType { get; init; } 
     /// <summary>
     /// Specifies if the movement on a securities account results from a deliver or a receive instruction.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record TransactionDetails130
     /// <summary>
     /// Quantity of financial instrument (to be) posted to the safekeeping account.
     /// </summary>
-    public required IQuantity10Choice PostingQuantity { get; init; } 
+    public required Quantity10Choice_ PostingQuantity { get; init; } 
     /// <summary>
     /// Amount of money that is to be/was posted to the account.
     /// </summary>
@@ -64,23 +64,23 @@ public partial record TransactionDetails130
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    public ITradeDate9Choice? TradeDate { get; init; } 
+    public TradeDate9Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date/time at which the sender expects settlement.
     /// </summary>
-    public IDateAndDateTime2Choice? ExpectedSettlementDate { get; init; } 
+    public DateAndDateTime2Choice_? ExpectedSettlementDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
-    public required ISettlementDate32Choice SettlementDate { get; init; } 
+    public required SettlementDate32Choice_ SettlementDate { get; init; } 
     /// <summary>
     /// Date and time after the settlement date specified in the trade, used for pool trades resulting from the original To Be Assigned (TBA) securities.
     /// </summary>
-    public IDateAndDateTime2Choice? LateDeliveryDate { get; init; } 
+    public DateAndDateTime2Choice_? LateDeliveryDate { get; init; } 
     /// <summary>
     /// For against payment transactions, the value date/time at which the account servicer expects the settlement amount to be credited or debited.
     /// </summary>
-    public IDateAndDateTime2Choice? ExpectedValueDate { get; init; } 
+    public DateAndDateTime2Choice_? ExpectedValueDate { get; init; } 
     /// <summary>
     /// Time stamp on when the transaction is acknowledged.
     /// </summary>
@@ -104,7 +104,7 @@ public partial record TransactionDetails130
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

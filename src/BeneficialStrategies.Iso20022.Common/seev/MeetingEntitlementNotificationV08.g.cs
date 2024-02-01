@@ -81,7 +81,7 @@ public partial record MeetingEntitlementNotificationV08 : IOuterRecord
     [DataMember(Name="Issr")]
     [XmlElement(ElementName="Issr")]
     [Required]
-    public required IPartyIdentification129Choice Issuer { get; init; }
+    public required PartyIdentification129Choice_ Issuer { get; init; }
     
     /// <summary>
     /// Security for which the meeting is organised, the account and the positions of the security holder.
@@ -109,7 +109,7 @@ public partial record MeetingEntitlementNotificationV08 : IOuterRecord
     [Description(@"Person physically attending the meeting as a natural or legal person.")]
     [DataMember(Name="MtgAttndee")]
     [XmlElement(ElementName="MtgAttndee")]
-    public IPartyIdentification232Choice? MeetingAttendee { get; init; }
+    public PartyIdentification232Choice_? MeetingAttendee { get; init; }
     
     /// <summary>
     /// Third party agent assigned by the shareholder that is legally authorised to cast a vote on the shareholder's behalf at the general meeting.
@@ -118,7 +118,7 @@ public partial record MeetingEntitlementNotificationV08 : IOuterRecord
     [Description(@"Third party agent assigned by the shareholder that is legally authorised to cast a vote on the shareholder's behalf at the general meeting.")]
     [DataMember(Name="Prxy")]
     [XmlElement(ElementName="Prxy")]
-    public IPartyIdentification232Choice? Proxy { get; init; }
+    public PartyIdentification232Choice_? Proxy { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.

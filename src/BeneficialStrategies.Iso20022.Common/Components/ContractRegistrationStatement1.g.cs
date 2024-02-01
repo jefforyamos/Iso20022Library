@@ -40,19 +40,19 @@ public partial record ContractRegistrationStatement1
     /// <summary>
     /// Journal of the transactions recorded under the registered currency control contract.
     /// </summary>
-    public TransactionCertificate1? TransactionJournal { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionCertificate1[] TransactionJournal { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Journal of the supporting documents recorded under the registered currency control contract.
     /// </summary>
-    public SupportingDocument1? SupportingDocumentJournal { get; init;  } // Warning: Don't know multiplicity.
+    public SupportingDocument1[] SupportingDocumentJournal { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Journal of additional supporting documents recorded under the registered currency control contract.
     /// </summary>
-    public SupportingDocument1? AdditionalSupportingDocumentJournal { get; init;  } // Warning: Don't know multiplicity.
+    public SupportingDocument1[] AdditionalSupportingDocumentJournal { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details on the currency control rule against which has been violated.
     /// </summary>
-    public GenericValidationRuleIdentification1? RegulatoryRuleValidation { get; init;  } // Warning: Don't know multiplicity.
+    public GenericValidationRuleIdentification1[] RegulatoryRuleValidation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total turn over amount recorded under the currency control contract for the amount of all.
     /// </summary>
@@ -60,7 +60,7 @@ public partial record ContractRegistrationStatement1
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

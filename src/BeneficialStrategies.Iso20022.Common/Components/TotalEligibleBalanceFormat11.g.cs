@@ -20,7 +20,7 @@ public partial record TotalEligibleBalanceFormat11
     /// <summary>
     /// Provides information about balance related to a corporate action.
     /// </summary>
-    public IQuantity80Choice? Balance { get; init; } 
+    public Quantity80Choice_? Balance { get; init; } 
     /// <summary>
     /// Number of units of a fund that were purchased in a previous distribution period and/or held at the beginning of a distribution period, for example Group I Units in the UK.
     /// </summary>

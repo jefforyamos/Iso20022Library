@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Channel1Choice;
 /// <summary>
 /// Submission channel.
 /// </summary>
-public partial record Code : IChannel1Choice
+public partial record Code : Channel1Choice_
 {
     public required ExternalChannel1Code Value { get; init; }
 }

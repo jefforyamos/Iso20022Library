@@ -28,7 +28,7 @@ public partial record BalanceRestrictionType1
     /// <summary>
     /// Classification of the type of processing restriction that the system should apply for the restriction.
     /// </summary>
-    public IProcessingType1Choice? ProcessingType { get; init; } 
+    public ProcessingType1Choice_? ProcessingType { get; init; } 
     
     #nullable disable
 }

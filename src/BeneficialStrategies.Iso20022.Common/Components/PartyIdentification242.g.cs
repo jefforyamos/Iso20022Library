@@ -20,7 +20,7 @@ public partial record PartyIdentification242
     /// <summary>
     /// Identification of the party.
     /// </summary>
-    public required IPartyIdentification178Choice Identification { get; init; } 
+    public required PartyIdentification178Choice_ Identification { get; init; } 
     /// <summary>
     /// Type of membership the collateral provider holds with the CCP.
     /// </summary>

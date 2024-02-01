@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ExposureType10Choice;
 /// <summary>
 /// Collateral movement exposure type expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IExposureType10Choice
+public partial record Code : ExposureType10Choice_
 {
     public required ExposureType4Code Value { get; init; }
 }

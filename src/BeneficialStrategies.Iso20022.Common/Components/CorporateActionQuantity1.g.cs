@@ -20,35 +20,35 @@ public partial record CorporateActionQuantity1
     /// <summary>
     /// Minimum quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? MinimumExercisableQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; init; } 
     /// <summary>
     /// Minimum multiple quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? MinimumExercisableMultipleQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? MinimumExercisableMultipleQuantity { get; init; } 
     /// <summary>
     /// Maximum number of securities the offeror is requesting to complete the event.
     /// </summary>
-    public IFinancialInstrumentQuantity2Choice? MaximumQuantity { get; init; } 
+    public FinancialInstrumentQuantity2Choice_? MaximumQuantity { get; init; } 
     /// <summary>
     /// Minimum quantity of securities the offeror/issuer will purchase or redeem under the terms of the event. This can be a number or the term "any and all".
     /// </summary>
-    public IFinancialInstrumentQuantity2Choice? MinimumQuantitySought { get; init; } 
+    public FinancialInstrumentQuantity2Choice_? MinimumQuantitySought { get; init; } 
     /// <summary>
     /// Quantity of equity that makes up the new board lot.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? NewBoardLotQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? NewBoardLotQuantity { get; init; } 
     /// <summary>
     /// New denomination of the equity following, for example, an increase or decrease in nominal value.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? NewDenominationQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? NewDenominationQuantity { get; init; } 
     /// <summary>
     /// Minimum integral amount of securities that each account owner must have remaining after the called amounts are applied.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? BaseDenomination { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? BaseDenomination { get; init; } 
     /// <summary>
     /// Amount used when the called amount is not met by running the lottery with the base denomination.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? IncrementalDenomination { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? IncrementalDenomination { get; init; } 
     
     #nullable disable
 }

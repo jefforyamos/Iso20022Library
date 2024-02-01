@@ -25,7 +25,7 @@ public partial record FinancialItem1
     /// <summary>
     /// Identifier of financial document that is the base document for this item, for example an invoice number.
     /// </summary>
-    public QualifiedDocumentInformation1? FinancialDocumentReference { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1[] FinancialDocumentReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the value is a debit or credit.
     /// </summary>
@@ -41,7 +41,7 @@ public partial record FinancialItem1
     /// <summary>
     /// Instalment information for payment.
     /// </summary>
-    public Instalment2? InstalmentInformation { get; init;  } // Warning: Don't know multiplicity.
+    public Instalment2[] InstalmentInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional proprietary textual information concerning the item.
     /// </summary>
@@ -49,7 +49,7 @@ public partial record FinancialItem1
     /// <summary>
     /// Associated free form document, for example a delivery confirmation.
     /// </summary>
-    public QualifiedDocumentInformation1? AssociatedDocument { get; init;  } // Warning: Don't know multiplicity.
+    public QualifiedDocumentInformation1[] AssociatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Validation status of the item.
     /// </summary>

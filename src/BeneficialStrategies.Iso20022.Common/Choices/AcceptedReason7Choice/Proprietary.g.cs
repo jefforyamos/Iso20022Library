@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AcceptedReason7Choice;
 /// <summary>
 /// Reason for the accepted status expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IAcceptedReason7Choice
+public partial record Proprietary : AcceptedReason7Choice_
 {
     #nullable enable
     /// <summary>

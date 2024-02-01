@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FXCancellation4Choice;
 /// <summary>
 /// Specifies whether the underlying forex transaction should also be cancelled. Yes means forex is to be cancelled. No means forex is to be retained.
 /// </summary>
-public partial record Indicator : IFXCancellation4Choice
+public partial record Indicator : FXCancellation4Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

@@ -24,7 +24,7 @@ public partial record Location2
     /// <summary>
     /// Codified representation of the jurisdiction as published in ISO 3166-2.
     /// </summary>
-    public ICountrySubdivision1Choice? CountrySubDivision { get; init; } 
+    public CountrySubdivision1Choice_? CountrySubDivision { get; init; } 
     /// <summary>
     /// Name of jurisdiction, for example, Frankfurt.
     /// </summary>

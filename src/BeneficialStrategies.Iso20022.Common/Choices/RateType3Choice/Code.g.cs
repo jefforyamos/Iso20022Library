@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType3Choice;
 /// <summary>
 /// Rate is defined using a code.
 /// </summary>
-public partial record Code : IRateType3Choice
+public partial record Code : RateType3Choice_
 {
     public required RateType1Code Value { get; init; }
 }

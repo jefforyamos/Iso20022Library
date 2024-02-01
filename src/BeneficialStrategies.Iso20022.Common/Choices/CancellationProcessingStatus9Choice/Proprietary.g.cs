@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationProcessingStatus9Cho
 /// <summary>
 /// Provides the status of a cancellation request.
 /// </summary>
-public partial record Proprietary : ICancellationProcessingStatus9Choice
+public partial record Proprietary : CancellationProcessingStatus9Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity55Choice;
 /// <summary>
 /// Face amount and amortised value of security.
 /// </summary>
-public partial record OriginalAndCurrentFaceAmount : IQuantity55Choice
+public partial record OriginalAndCurrentFaceAmount : Quantity55Choice_
 {
     #nullable enable
     /// <summary>

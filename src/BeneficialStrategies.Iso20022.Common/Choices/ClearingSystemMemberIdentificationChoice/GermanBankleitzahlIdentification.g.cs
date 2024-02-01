@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ClearingSystemMemberIdentificati
 /// <summary>
 /// German Bankleitzahl - identifies German financial institutions on the German national clearing systems.
 /// </summary>
-public partial record GermanBankleitzahlIdentification : IClearingSystemMemberIdentificationChoice
+public partial record GermanBankleitzahlIdentification : ClearingSystemMemberIdentificationChoice_
 {
     public required IsoGermanBankleitzahlIdentifier Value { get; init; }
 }

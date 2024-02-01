@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PortfolioTransferStatus1Choice;
 /// <summary>
 /// Status of the allegement reported.
 /// </summary>
-public partial record Code : IPortfolioTransferStatus1Choice
+public partial record Code : PortfolioTransferStatus1Choice_
 {
     public required AllegementStatus2Code Value { get; init; }
 }

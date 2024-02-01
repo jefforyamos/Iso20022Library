@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ObligationType1Choice;
 /// <summary>
 /// Indicates the type of the obligation using a code.
 /// </summary>
-public partial record Code : IObligationType1Choice
+public partial record Code : ObligationType1Choice_
 {
     public required ObligationType1Code Value { get; init; }
 }

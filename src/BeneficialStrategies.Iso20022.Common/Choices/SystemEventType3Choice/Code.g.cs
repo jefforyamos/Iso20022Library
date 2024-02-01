@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SystemEventType3Choice;
 /// <summary>
 /// Type of system event, as published in an external code list.
 /// </summary>
-public partial record Code : ISystemEventType3Choice
+public partial record Code : SystemEventType3Choice_
 {
     public required ExternalSystemEvent1Code Value { get; init; }
 }

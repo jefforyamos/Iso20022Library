@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusCodeSearch2Choice;
 /// <summary>
 /// State of a payment instruction at a specified time.
 /// </summary>
-public partial record PendingAndFinalStatus : IPaymentStatusCodeSearch2Choice
+public partial record PendingAndFinalStatus : PaymentStatusCodeSearch2Choice_
 {
     public required CashPaymentStatus2Code Value { get; init; }
 }

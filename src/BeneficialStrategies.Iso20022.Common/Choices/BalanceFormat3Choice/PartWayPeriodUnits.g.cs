@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BalanceFormat3Choice;
 /// <summary>
 /// Number of units of a fund that were purchased part way throughout a distribution period, for example Group II Units in the U.K.
 /// </summary>
-public partial record PartWayPeriodUnits : IBalanceFormat3Choice
+public partial record PartWayPeriodUnits : BalanceFormat3Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record PartWayPeriodUnits : IBalanceFormat3Choice
     /// <summary>
     /// Quantity of security.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
     #nullable disable
 }

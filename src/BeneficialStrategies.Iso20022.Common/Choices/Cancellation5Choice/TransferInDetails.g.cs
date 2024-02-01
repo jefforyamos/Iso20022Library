@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.Cancellation5Choice;
 /// <summary>
 /// Details of the transfer in request to cancel.
 /// </summary>
-public partial record TransferInDetails : ICancellation5Choice
+public partial record TransferInDetails : Cancellation5Choice_
 {
     #nullable enable
     /// <summary>
     /// Requested date at which the instructing party places the transfer instruction.
     /// </summary>
-    public IDateFormat1Choice? RequestedTransferDate { get; init; } 
+    public DateFormat1Choice_? RequestedTransferDate { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>

@@ -24,11 +24,11 @@ public partial record ReportHeader4
     /// <summary>
     /// Party reporting the status of the investigation case.
     /// </summary>
-    public required IParty12Choice From { get; init; } 
+    public required Party12Choice_ From { get; init; } 
     /// <summary>
     /// Party to which the status of the case is reported.
     /// </summary>
-    public required IParty12Choice To { get; init; } 
+    public required Party12Choice_ To { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>

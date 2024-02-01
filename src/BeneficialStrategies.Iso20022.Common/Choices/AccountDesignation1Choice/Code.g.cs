@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountDesignation1Choice;
 /// <summary>
 /// Account designation expressed as a code.
 /// </summary>
-public partial record Code : IAccountDesignation1Choice
+public partial record Code : AccountDesignation1Choice_
 {
     public required Rank1Code Value { get; init; }
 }

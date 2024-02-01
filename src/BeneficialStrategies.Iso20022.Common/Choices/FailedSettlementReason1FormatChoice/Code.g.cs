@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.FailedSettlementReason1FormatCho
 /// <summary>
 /// Standard code to specify the reason of a settlement failure.
 /// </summary>
-public partial record Code : IFailedSettlementReason1FormatChoice
+public partial record Code : FailedSettlementReason1FormatChoice_
 {
     public required FailedSettlementReason1Code Value { get; init; }
 }

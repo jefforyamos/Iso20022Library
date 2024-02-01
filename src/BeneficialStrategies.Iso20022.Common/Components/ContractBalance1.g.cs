@@ -20,7 +20,7 @@ public partial record ContractBalance1
     /// <summary>
     /// Specifies the type of the contract balance.
     /// </summary>
-    public required IContractBalanceType1Choice Type { get; init; } 
+    public required ContractBalanceType1Choice_ Type { get; init; } 
     /// <summary>
     /// Currency and amount of money of the contract balance.
     /// </summary>

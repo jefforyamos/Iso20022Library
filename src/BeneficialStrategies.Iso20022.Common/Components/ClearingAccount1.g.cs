@@ -24,7 +24,7 @@ public partial record ClearingAccount1
     /// <summary>
     /// Operational construct used by a central counterparty to record ownership of assets posted as collateral by clearing members to meet their obligations at the central counterparty.
     /// </summary>
-    public CollateralAccount5? CollateralAccountOwner { get; init;  } // Warning: Don't know multiplicity.
+    public CollateralAccount5[] CollateralAccountOwner { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

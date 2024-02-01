@@ -24,7 +24,7 @@ public partial record BalanceDetails6
     /// <summary>
     /// Balance type.
     /// </summary>
-    public IBalanceType7Choice? Type { get; init; } 
+    public BalanceType7Choice_? Type { get; init; } 
     /// <summary>
     /// Unrealised gain or loss.
     /// </summary>

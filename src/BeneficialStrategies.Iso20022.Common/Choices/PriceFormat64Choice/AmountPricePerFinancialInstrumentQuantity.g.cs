@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat64Choice;
 /// <summary>
 /// Price expressed as a ratio: amount price per financial instrument quantity.
 /// </summary>
-public partial record AmountPricePerFinancialInstrumentQuantity : IPriceFormat64Choice
+public partial record AmountPricePerFinancialInstrumentQuantity : PriceFormat64Choice_
 {
     #nullable enable
     /// <summary>
@@ -26,6 +26,6 @@ public partial record AmountPricePerFinancialInstrumentQuantity : IPriceFormat64
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
-    public required IFinancialInstrumentQuantity33Choice FinancialInstrumentQuantity { get; init; } 
+    public required FinancialInstrumentQuantity33Choice_ FinancialInstrumentQuantity { get; init; } 
     #nullable disable
 }

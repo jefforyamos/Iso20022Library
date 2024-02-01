@@ -24,7 +24,7 @@ public partial record AccountQuery2
     /// <summary>
     /// Defines the account query criteria.
     /// </summary>
-    public IAccountCriteria2Choice? AccountCriteria { get; init; } 
+    public AccountCriteria2Choice_? AccountCriteria { get; init; } 
     
     #nullable disable
 }

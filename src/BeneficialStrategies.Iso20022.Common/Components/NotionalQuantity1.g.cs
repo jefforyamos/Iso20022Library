@@ -24,7 +24,7 @@ public partial record NotionalQuantity1
     /// <summary>
     /// Specifies the effective date and end date of the schedule for derivative transactions negotiated in non-monetary amounts with a notional quantity varying throughout the life of the transaction.
     /// </summary>
-    public Schedule2? Schedule { get; init;  } // Warning: Don't know multiplicity.
+    public Schedule2[] Schedule { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the unit of measure in which the total notional quantity and notional quantity schedules are expressed.
     /// </summary>

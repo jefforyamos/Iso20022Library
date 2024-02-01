@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateCode1Choice;
 /// <summary>
 /// Date expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IDateCode1Choice
+public partial record Code : DateCode1Choice_
 {
     public required DateType5Code Value { get; init; }
 }

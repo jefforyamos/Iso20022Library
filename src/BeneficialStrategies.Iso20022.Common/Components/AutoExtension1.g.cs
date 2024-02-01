@@ -20,7 +20,7 @@ public partial record AutoExtension1
     /// <summary>
     /// Indicates that the undertaking is automatically extendable and the period of extension.
     /// </summary>
-    public IAutoExtend1Choice? Period { get; init; } 
+    public AutoExtend1Choice_? Period { get; init; } 
     /// <summary>
     /// Final expiry date after which the undertaking will no longer be subject to automatic extension.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record AutoExtension1
     /// <summary>
     /// Details related to the notification of the end of the period for notification of non-extension of the expiry date.
     /// </summary>
-    public NonExtension1? NonExtensionNotification { get; init;  } // Warning: Don't know multiplicity.
+    public NonExtension1[] NonExtensionNotification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

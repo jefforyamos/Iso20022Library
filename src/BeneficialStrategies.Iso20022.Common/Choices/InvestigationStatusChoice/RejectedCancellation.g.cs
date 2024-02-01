@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestigationStatusChoice;
 /// <summary>
 /// Explains the reason for rejecting a payment cancellation request.
 /// </summary>
-public partial record RejectedCancellation : IInvestigationStatusChoice
+public partial record RejectedCancellation : InvestigationStatusChoice_
 {
     #nullable enable
     /// <summary>

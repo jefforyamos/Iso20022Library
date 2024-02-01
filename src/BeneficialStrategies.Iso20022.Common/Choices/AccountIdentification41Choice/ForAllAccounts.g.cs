@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification41Choice;
 /// <summary>
 /// All safekeeping accounts that own an underlying financial instrument.
 /// </summary>
-public partial record ForAllAccounts : IAccountIdentification41Choice
+public partial record ForAllAccounts : AccountIdentification41Choice_
 {
     #nullable enable
     /// <summary>

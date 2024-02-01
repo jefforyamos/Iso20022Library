@@ -20,11 +20,11 @@ public partial record PartyIdentificationAndAccount119
     /// <summary>
     /// Identification of the party that legally owns the account.
     /// </summary>
-    public PartyIdentification90? PartyIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification90[] PartyIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the account owned by the party.
     /// </summary>
-    public AccountIdentification30? AccountIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public AccountIdentification30[] AccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

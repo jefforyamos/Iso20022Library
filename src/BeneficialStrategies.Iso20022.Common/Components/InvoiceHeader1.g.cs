@@ -28,7 +28,7 @@ public partial record InvoiceHeader1
     /// <summary>
     /// Name of invoice document or transaction, for example, tax invoice.
     /// </summary>
-    public IsoMax35Text? Name { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] Name { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Issue date of the document.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record InvoiceHeader1
     /// <summary>
     /// Note included in this invoice document.
     /// </summary>
-    public AdditionalInformation6? IncludedNote { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation6[] IncludedNote { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

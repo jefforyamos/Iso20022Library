@@ -24,19 +24,19 @@ public partial record CardPaymentTransaction128
     /// <summary>
     /// Result of the verifications performed by the issuer to deliver or decline the authorisation.
     /// </summary>
-    public TransactionVerificationResult4? TransactionVerificationResult { get; init;  } // Warning: Don't know multiplicity.
+    public TransactionVerificationResult4[] TransactionVerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Product code which are allowed by the payment card.
     /// </summary>
-    public Product4? AllowedProductCode { get; init;  } // Warning: Don't know multiplicity.
+    public Product4[] AllowedProductCode { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Product code not allowed by the payment card.
     /// </summary>
-    public Product4? NotAllowedProductCode { get; init;  } // Warning: Don't know multiplicity.
+    public Product4[] NotAllowedProductCode { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Products that may be added to the purchase after the authorisation.
     /// </summary>
-    public Product5? AdditionalAvailableProduct { get; init;  } // Warning: Don't know multiplicity.
+    public Product5[] AdditionalAvailableProduct { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Balance and currency code of the account, related to the payment.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record CardPaymentTransaction128
     /// <summary>
     /// Set of actions to be performed by the POI (Point Of Interaction) system.
     /// </summary>
-    public Action14? Action { get; init;  } // Warning: Don't know multiplicity.
+    public Action14[] Action { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Conversion between the currency of a card acceptor and the currency of a card issuer, provided by a dedicated service provider. The currency conversion has to be proposed to the cardholder.
     /// </summary>

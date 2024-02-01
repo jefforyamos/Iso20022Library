@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EndPoint1Choice;
 /// <summary>
 /// Final payment of the standing order due.
 /// </summary>
-public partial record LastPaymentDate : IEndPoint1Choice
+public partial record LastPaymentDate : EndPoint1Choice_
 {
     public required IsoISODate Value { get; init; }
 }

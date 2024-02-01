@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.LevelOfControl1Choice;
 /// <summary>
 /// Level of control expressed as a code.
 /// </summary>
-public partial record Code : ILevelOfControl1Choice
+public partial record Code : LevelOfControl1Choice_
 {
     public required LevelOfControl1Code Value { get; init; }
 }

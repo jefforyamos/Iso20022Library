@@ -12,17 +12,17 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountParties10Choice;
 /// <summary>
 /// Entity named by the beneficial owner to act on its behalf, often to facilitate dealing, or to conceal the identity of the beneficiary.
 /// </summary>
-public partial record Nominee : IAccountParties10Choice
+public partial record Nominee : AccountParties10Choice_
 {
     #nullable enable
     /// <summary>
     /// Information about the organisation or individual person.
     /// </summary>
-    public required IParty32Choice Party { get; init; } 
+    public required Party32Choice_ Party { get; init; } 
     /// <summary>
     /// Status of an identity check to prevent money laundering. This includes the counter-terrorism check.
     /// </summary>
-    public IMoneyLaunderingCheck1Choice? MoneyLaunderingCheck { get; init; } 
+    public MoneyLaunderingCheck1Choice_? MoneyLaunderingCheck { get; init; } 
     /// <summary>
     /// Information to support Know Your Customer (KYC) processes.
     /// </summary>
@@ -54,7 +54,7 @@ public partial record Nominee : IAccountParties10Choice
     /// <summary>
     /// Type of Foreign Account Tax Compliance Act (FATCA) form submitted by the investor or account owner.
     /// </summary>
-    public IFATCAForm1Choice? FATCAFormType { get; init;  } // Warning: Don't know multiplicity.
+    public FATCAForm1Choice_? FATCAFormType { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Foreign Account Tax Compliance Act (FATCA) status of the investor or account owner.
     /// </summary>
@@ -66,7 +66,7 @@ public partial record Nominee : IAccountParties10Choice
     /// <summary>
     /// Type of Common Reporting Standard (CRS) form submitted by the investor or account owner.
     /// </summary>
-    public ICRSForm1Choice? CRSFormType { get; init;  } // Warning: Don't know multiplicity.
+    public CRSForm1Choice_? CRSFormType { get; init;  } // Warning: Don't know multiplicity.
     /// <summary>
     /// Common Reporting Standard (CRS) status of the investor or account owner.
     /// </summary>
@@ -82,7 +82,7 @@ public partial record Nominee : IAccountParties10Choice
     /// <summary>
     /// Tax advantage specific to the account party.
     /// </summary>
-    public ITaxExemptionReason2Choice? TaxExemption { get; init; } 
+    public TaxExemptionReason2Choice_? TaxExemption { get; init; } 
     /// <summary>
     /// Details for the reporting of tax, for example, the country of taxation.
     /// </summary>
@@ -94,7 +94,7 @@ public partial record Nominee : IAccountParties10Choice
     /// <summary>
     /// Method used for postal mailing.
     /// </summary>
-    public IMailType1Choice? MailType { get; init; } 
+    public MailType1Choice_? MailType { get; init; } 
     /// <summary>
     /// Country and residential status of the organisation or individual person.
     /// </summary>
@@ -114,7 +114,7 @@ public partial record Nominee : IAccountParties10Choice
     /// <summary>
     /// Account owner's connection with the trading party or broker.
     /// </summary>
-    public ICompanyLink1Choice? CompanyLink { get; init; } 
+    public CompanyLink1Choice_? CompanyLink { get; init; } 
     /// <summary>
     /// Reference to be specified when a letter (for example, an order confirmation) is sent by an automated mailing system.
     /// </summary>
@@ -134,7 +134,7 @@ public partial record Nominee : IAccountParties10Choice
     /// <summary>
     /// Specifies if the account party is regarded as domestic or non-domestic for reporting purposes.
     /// </summary>
-    public IAccountingStatus1Choice? AccountingStatus { get; init; } 
+    public AccountingStatus1Choice_? AccountingStatus { get; init; } 
     /// <summary>
     /// Additional information such as remarks or notes that must be conveyed about the party and or limitations and restrictions.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport22Choice;
 /// <summary>
 /// Indicates contract that is to be reported as a new trade and also included in a separate position report on the same day.
 /// </summary>
-public partial record PositionComponent : ITradeReport22Choice
+public partial record PositionComponent : TradeReport22Choice_
 {
     #nullable enable
     /// <summary>
@@ -26,7 +26,7 @@ public partial record PositionComponent : ITradeReport22Choice
     /// <summary>
     /// Details of the loan used for financing the transaction.
     /// </summary>
-    public ITransactionLoanData32Choice? LoanData { get; init; } 
+    public TransactionLoanData32Choice_? LoanData { get; init; } 
     /// <summary>
     /// Provides the details of the collateral used in the transaction.
     /// </summary>

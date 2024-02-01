@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.VerificationValue1Choice;
 /// <summary>
 /// Value of the data expressed in BASE-64 encoded binary form.
 /// </summary>
-public partial record BinaryValue : IVerificationValue1Choice
+public partial record BinaryValue : VerificationValue1Choice_
 {
     public required IsoMax5000Binary Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MissingData1Choice;
 /// <summary>
 /// Missing data type, in a coded form.
 /// </summary>
-public partial record Code : IMissingData1Choice
+public partial record Code : MissingData1Choice_
 {
     public required ExternalUnableToApplyMissingData1Code Value { get; init; }
 }

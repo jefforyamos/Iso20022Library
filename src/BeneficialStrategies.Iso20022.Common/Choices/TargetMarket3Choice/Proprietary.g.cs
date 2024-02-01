@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TargetMarket3Choice;
 /// <summary>
 /// Specifies whether the product is aimed at the target expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ITargetMarket3Choice
+public partial record Proprietary : TargetMarket3Choice_
 {
     #nullable enable
     /// <summary>

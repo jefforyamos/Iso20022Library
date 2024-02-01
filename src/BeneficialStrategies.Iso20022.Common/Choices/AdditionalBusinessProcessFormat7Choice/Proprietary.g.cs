@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AdditionalBusinessProcessFormat7
 /// <summary>
 /// Proprietary identification of the additional business process "tax refund" linked to a corporate action event.
 /// </summary>
-public partial record Proprietary : IAdditionalBusinessProcessFormat7Choice
+public partial record Proprietary : AdditionalBusinessProcessFormat7Choice_
 {
     #nullable enable
     /// <summary>

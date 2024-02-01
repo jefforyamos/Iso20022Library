@@ -20,7 +20,7 @@ public partial record Cardholder6
     /// <summary>
     /// Identification of the cardholder involved in a transaction.
     /// </summary>
-    public PersonIdentification7? Identification { get; init;  } // Warning: Don't know multiplicity.
+    public PersonIdentification7[] Identification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cardholder name associated with the card.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record Cardholder6
     /// <summary>
     /// Data related to the authentication of the cardholder.
     /// </summary>
-    public CardholderAuthentication4? Authentication { get; init;  } // Warning: Don't know multiplicity.
+    public CardholderAuthentication4[] Authentication { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Numeric characters of the cardholder's address for verification.
     /// </summary>

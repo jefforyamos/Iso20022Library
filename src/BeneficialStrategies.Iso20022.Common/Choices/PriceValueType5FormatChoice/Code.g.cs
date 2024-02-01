@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceValueType5FormatChoice;
 /// <summary>
 /// Standard code to specify the value of a price.
 /// </summary>
-public partial record Code : IPriceValueType5FormatChoice
+public partial record Code : PriceValueType5FormatChoice_
 {
     public required PriceValueType5Code Value { get; init; }
 }

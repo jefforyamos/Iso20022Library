@@ -49,7 +49,7 @@ public partial record TemporaryServices1
     /// <summary>
     /// Contains miscellaneous expense details.
     /// </summary>
-    public Amount13? MiscellaneousExpenses { get; init;  } // Warning: Don't know multiplicity.
+    public Amount13[] MiscellaneousExpenses { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Subtotal amount exclusive of tax.
     /// </summary>
@@ -57,7 +57,7 @@ public partial record TemporaryServices1
     /// <summary>
     /// Contains the amount of taxes assessed for temporary services.
     /// </summary>
-    public Tax33? Tax { get; init;  } // Warning: Don't know multiplicity.
+    public Tax33[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional user-defined data pertaining to the temporary services. 
     /// </summary>

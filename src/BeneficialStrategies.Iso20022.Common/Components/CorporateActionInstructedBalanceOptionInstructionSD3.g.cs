@@ -24,7 +24,7 @@ public partial record CorporateActionInstructedBalanceOptionInstructionSD3
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
-    public required IOptionNumber1Choice OptionNumber { get; init; } 
+    public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Contra CUSIP Identification of the option instruction.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record CorporateActionInstructedBalanceOptionInstructionSD3
     /// <summary>
     /// Quantity relating only to the oversubscription.
     /// </summary>
-    public IFinancialInstrumentQuantity15Choice? TransactionIdentificationOversubscriptionQuantity { get; init; } 
+    public FinancialInstrumentQuantity15Choice_? TransactionIdentificationOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Status of the instruction.
     /// </summary>

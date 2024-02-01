@@ -32,7 +32,7 @@ public partial record ReportTransactionResponse2
     /// <summary>
     /// List of Transaction Report containing one Transaction Report for each transaction matching the Search criteria. This list may be partial according to requested block.
     /// </summary>
-    public PointOfInteractionTransactionReport2? TransactionReport { get; init;  } // Warning: Don't know multiplicity.
+    public PointOfInteractionTransactionReport2[] TransactionReport { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

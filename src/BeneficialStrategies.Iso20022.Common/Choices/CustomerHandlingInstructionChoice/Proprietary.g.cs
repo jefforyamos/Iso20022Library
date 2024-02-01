@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CustomerHandlingInstructionChoic
 /// <summary>
 /// Customer handling instruction is defined using a data source scheme.
 /// </summary>
-public partial record Proprietary : ICustomerHandlingInstructionChoice
+public partial record Proprietary : CustomerHandlingInstructionChoice_
 {
     #nullable enable
     /// <summary>

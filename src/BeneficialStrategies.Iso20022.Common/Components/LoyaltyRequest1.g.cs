@@ -28,7 +28,7 @@ public partial record LoyaltyRequest1
     /// <summary>
     /// Data related to a Loyalty program or account.
     /// </summary>
-    public LoyaltyRequestData1? Data { get; init;  } // Warning: Don't know multiplicity.
+    public LoyaltyRequestData1[] Data { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

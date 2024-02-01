@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationFormat1Choice;
 /// <summary>
 /// Format expressed as a long identification.
 /// </summary>
-public partial record LongIdentification : IIdentificationFormat1Choice
+public partial record LongIdentification : IdentificationFormat1Choice_
 {
     public required IsoMax30Text Value { get; init; }
 }

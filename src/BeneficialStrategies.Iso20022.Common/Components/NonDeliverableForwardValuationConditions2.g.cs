@@ -32,7 +32,7 @@ public partial record NonDeliverableForwardValuationConditions2
     /// <summary>
     /// Party through which the settlement will take place. It may contain the BIC of a central settlement system eg CLSBUS33.
     /// </summary>
-    public IPartyIdentification8Choice? SettlementParty { get; init; } 
+    public PartyIdentification8Choice_? SettlementParty { get; init; } 
     
     #nullable disable
 }

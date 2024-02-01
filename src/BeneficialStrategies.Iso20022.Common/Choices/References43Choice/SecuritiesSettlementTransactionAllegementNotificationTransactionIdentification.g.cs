@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References43Choice;
 /// <summary>
 /// Unambiguous identification of the allegement notification to be cancelled as know by the account servicer.
 /// </summary>
-public partial record SecuritiesSettlementTransactionAllegementNotificationTransactionIdentification : IReferences43Choice
+public partial record SecuritiesSettlementTransactionAllegementNotificationTransactionIdentification : References43Choice_
 {
     #nullable enable
     /// <summary>

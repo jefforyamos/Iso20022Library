@@ -24,7 +24,7 @@ public partial record IncentivePremium2
     /// <summary>
     /// Cash premium paid per security, per vote or per attendee.
     /// </summary>
-    public required IPriceRateOrAmountChoice Amount { get; init; } 
+    public required PriceRateOrAmountChoice_ Amount { get; init; } 
     /// <summary>
     /// Number of securities giving right to a premium.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record IncentivePremium2
     /// <summary>
     /// Date/time for the payment of the premium.
     /// </summary>
-    public IDateFormat3Choice? PaymentDate { get; init; } 
+    public DateFormat3Choice_? PaymentDate { get; init; } 
     
     #nullable disable
 }

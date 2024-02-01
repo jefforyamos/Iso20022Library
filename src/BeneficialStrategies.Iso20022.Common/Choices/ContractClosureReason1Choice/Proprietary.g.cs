@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ContractClosureReason1Choice;
 /// <summary>
 /// Reason in a proprietary format.
 /// </summary>
-public partial record Proprietary : IContractClosureReason1Choice
+public partial record Proprietary : ContractClosureReason1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

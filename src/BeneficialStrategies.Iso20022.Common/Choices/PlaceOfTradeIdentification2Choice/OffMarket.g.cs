@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PlaceOfTradeIdentification2Choic
 /// <summary>
 /// Indicates that the trade was executed off -exchange.
 /// </summary>
-public partial record OffMarket : IPlaceOfTradeIdentification2Choice
+public partial record OffMarket : PlaceOfTradeIdentification2Choice_
 {
     #nullable enable
     #nullable disable

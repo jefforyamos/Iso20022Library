@@ -28,11 +28,11 @@ public partial record SettlementObligation8
     /// <summary>
     /// Intended settlement date of the position.
     /// </summary>
-    public required IDateFormat11Choice IntendedSettlementDate { get; init; } 
+    public required DateFormat11Choice_ IntendedSettlementDate { get; init; } 
     /// <summary>
     /// Specifies the quantity related to the settlement obligation.
     /// </summary>
-    public required IFinancialInstrumentQuantity1Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Provides the total amount to be settled.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record SettlementObligation8
     /// <summary>
     /// Provides the trade date.
     /// </summary>
-    public ITradeDate3Choice? TradeDate { get; init; } 
+    public TradeDate3Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Identifies the trading capacity of seller.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record SettlementObligation8
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public ISafekeepingPlaceFormat7Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat7Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Clearing member account at the central securities depository.
     /// </summary>
@@ -72,11 +72,11 @@ public partial record SettlementObligation8
     /// <summary>
     /// Provides details on the parties that are part of the settlement chain.
     /// </summary>
-    public ISettlementParties4Choice? SettlementParties { get; init; } 
+    public SettlementParties4Choice_? SettlementParties { get; init; } 
     /// <summary>
     /// Provides additional information about the settlement obligation details.
     /// </summary>
-    public SettlementObligation5? AdditionalSettlementObligationDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementObligation5[] AdditionalSettlementObligationDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

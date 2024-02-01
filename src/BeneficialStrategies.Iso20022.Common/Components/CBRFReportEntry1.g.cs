@@ -28,7 +28,7 @@ public partial record CBRFReportEntry1
     /// <summary>
     /// Information identifying electronic messages.
     /// </summary>
-    public ElectronicMessageDetails1? MessageDetails { get; init;  } // Warning: Don't know multiplicity.
+    public ElectronicMessageDetails1[] MessageDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

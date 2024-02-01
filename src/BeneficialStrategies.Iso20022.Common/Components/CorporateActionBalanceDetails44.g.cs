@@ -20,59 +20,59 @@ public partial record CorporateActionBalanceDetails44
     /// <summary>
     /// Total quantity of financial instruments of the balance.
     /// </summary>
-    public IQuantity80Choice? TotalEligibleBalance { get; init; } 
+    public Quantity80Choice_? TotalEligibleBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that are blocked.
     /// </summary>
-    public IBalanceFormat14Choice? BlockedBalance { get; init; } 
+    public BalanceFormat14Choice_? BlockedBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that have been borrowed from another party.
     /// </summary>
-    public IBalanceFormat14Choice? BorrowedBalance { get; init; } 
+    public BalanceFormat14Choice_? BorrowedBalance { get; init; } 
     /// <summary>
     /// Balance of securities that belong to a third party and that are held for the purpose of collateralisation.
     /// </summary>
-    public IBalanceFormat14Choice? CollateralInBalance { get; init; } 
+    public BalanceFormat14Choice_? CollateralInBalance { get; init; } 
     /// <summary>
     /// Balance of securities that belong to the safekeeping account indicated within this message, and are deposited with a third party for the purpose of collateralisation.
     /// </summary>
-    public IBalanceFormat14Choice? CollateralOutBalance { get; init; } 
+    public BalanceFormat14Choice_? CollateralOutBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that have been loaned to a third party.
     /// </summary>
-    public IBalanceFormat14Choice? OnLoanBalance { get; init; } 
+    public BalanceFormat14Choice_? OnLoanBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that are pending delivery.
     /// </summary>
-    public IBalanceFormat14Choice? PendingDeliveryBalance { get; init;  } // Warning: Don't know multiplicity.
+    public BalanceFormat14Choice_[] PendingDeliveryBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Balance of financial instruments that are pending receipt.
     /// </summary>
-    public IBalanceFormat14Choice? PendingReceiptBalance { get; init;  } // Warning: Don't know multiplicity.
+    public BalanceFormat14Choice_[] PendingReceiptBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Balance of financial instruments currently being processed by the institution responsible for registering the new beneficial owner (or nominee).
     /// </summary>
-    public IBalanceFormat14Choice? OutForRegistrationBalance { get; init; } 
+    public BalanceFormat14Choice_? OutForRegistrationBalance { get; init; } 
     /// <summary>
     /// Balance of securities representing only settled transactions; pending transactions not included.
     /// </summary>
-    public IBalanceFormat14Choice? SettlementPositionBalance { get; init; } 
+    public BalanceFormat14Choice_? SettlementPositionBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that remain registered in the name of the prior beneficial owner.
     /// </summary>
-    public IBalanceFormat14Choice? StreetPositionBalance { get; init; } 
+    public BalanceFormat14Choice_? StreetPositionBalance { get; init; } 
     /// <summary>
     /// Balance of securities based on trade date, for example, includes all pending transactions in addition to the balance of settled transactions.
     /// </summary>
-    public IBalanceFormat14Choice? TradeDatePositionBalance { get; init; } 
+    public BalanceFormat14Choice_? TradeDatePositionBalance { get; init; } 
     /// <summary>
     /// Balance of physical securities that are in the process of being transferred from one depository/agent to another.
     /// </summary>
-    public IBalanceFormat14Choice? InTransshipmentBalance { get; init; } 
+    public BalanceFormat14Choice_? InTransshipmentBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that are registered (in the name of a nominee name or of the beneficial owner).
     /// </summary>
-    public IBalanceFormat14Choice? RegisteredBalance { get; init; } 
+    public BalanceFormat14Choice_? RegisteredBalance { get; init; } 
     
     #nullable disable
 }

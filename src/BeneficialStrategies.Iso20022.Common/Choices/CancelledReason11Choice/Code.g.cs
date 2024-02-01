@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancelledReason11Choice;
 /// <summary>
 /// Standard code to specify the reason why the instruction is cancelled.
 /// </summary>
-public partial record Code : ICancelledReason11Choice
+public partial record Code : CancelledReason11Choice_
 {
     public required CancelledStatusReason6Code Value { get; init; }
 }

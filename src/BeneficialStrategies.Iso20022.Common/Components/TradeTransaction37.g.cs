@@ -20,14 +20,14 @@ public partial record TradeTransaction37
     /// <summary>
     /// Choice between a Unique Transaction Identifier (UTI) or a proprietary identifier as agreed with the counterparty.
     /// </summary>
-    public required IUniqueTransactionIdentifier1Choice UniqueTransactionIdentifier { get; init; } 
+    public required UniqueTransactionIdentifier1Choice_ UniqueTransactionIdentifier { get; init; } 
     /// <summary>
     /// Identifies the UTI assigned to the predecessor transaction that has given rise to the reported transaction due to a lifecycle event.
     /// |
     /// Usage: This data element is not applicable when reporting many-to-one and many-to-many relations between transactions (for example, in the case of a compression).
     /// This data element may be applicable when reporting one-to-one and one-to-many relations between transactions (for example, in the case of a clearing).|
     /// </summary>
-    public IUniqueTransactionIdentifier1Choice? PriorUniqueTransactionIdentifier { get; init; } 
+    public UniqueTransactionIdentifier1Choice_? PriorUniqueTransactionIdentifier { get; init; } 
     /// <summary>
     /// Unique number to indicate a group of reports which relate to the same execution.
     /// </summary>
@@ -49,11 +49,11 @@ public partial record TradeTransaction37
     /// Indicates monetary or converted amount for the derivatives transaction.
     /// Usage: In case of partial terminations, and amortisations and in case of contracts where the notional, due to the characteristics of the contract, varies over time, it shall reflect the remaining notional after the change took place.
     /// </summary>
-    public IReadOnlyCollection<NotionalAmount1> NotionalAmount { get; init; } = [];
+    public NotionalAmount1[] NotionalAmount { get; init; } = [];
     /// <summary>
     /// Indicates for each leg of the transaction the total notional quantity of the underlying asset for the term of the transaction.|
     /// </summary>
-    public IReadOnlyCollection<NotionalQuantity1> NotionalQuantity { get; init; } = [];
+    public NotionalQuantity1[] NotionalQuantity { get; init; } = [];
     /// <summary>
     /// Specifies the ratio of the absolute change in price of a derivative transaction to the change in price of the underlier, at the time a new transaction is reported or when a change in the notional amount is reported.
     /// </summary>
@@ -61,7 +61,7 @@ public partial record TradeTransaction37
     /// <summary>
     /// Number of units of the financial instrument, that is, the nominal value.
     /// </summary>
-    public IFinancialInstrumentQuantity32Choice? Quantity { get; init; } 
+    public FinancialInstrumentQuantity32Choice_? Quantity { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is settled physically or in cash or decided at expiration time by counterparty.
     /// </summary>
@@ -89,7 +89,7 @@ public partial record TradeTransaction37
     /// Indicates the unadjusted date, as per the contract, by which all transfer of cash or assets should take place and the counterparties should no longer have any outstanding obligations to each other.||
     /// For products that may not have a final contractual settlement date (eg American options), this data element reflects the date by which the transfer of cash or asset would take place if termination were to occur on the expiration date.
     /// </summary>
-    public IsoISODate? SettlementDate { get; init;  } // Warning: Don't know multiplicity.
+    public IsoISODate[] SettlementDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details related to the master agreement.
     /// </summary>
@@ -97,7 +97,7 @@ public partial record TradeTransaction37
     /// <summary>
     /// Specifies whether the contract was electronically confirmed, non-electronically confirmed or remains unconfirmed.
     /// </summary>
-    public ITradeConfirmation1Choice? TradeConfirmation { get; init; } 
+    public TradeConfirmation1Choice_? TradeConfirmation { get; init; } 
     /// <summary>
     /// Information related to clearing of the reported contract.
     /// </summary>
@@ -113,7 +113,7 @@ public partial record TradeTransaction37
     /// <summary>
     /// Information related to commodity asset class type.
     /// </summary>
-    public IAssetClassCommodity2Choice? Commodity { get; init; } 
+    public AssetClassCommodity2Choice_? Commodity { get; init; } 
     /// <summary>
     /// Attributes specific for derivative contracts related to natural gas and electricity delivered in the European Union.
     /// </summary>
@@ -129,7 +129,7 @@ public partial record TradeTransaction37
     /// <summary>
     /// Payment related to elements not reported in dedicated fields.
     /// </summary>
-    public OtherPayment3? OtherPayment { get; init;  } // Warning: Don't know multiplicity.
+    public OtherPayment3[] OtherPayment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// A combination of two or more transactions that are reported separately but that are negotiated together as the product of a single economic agreement.
     /// </summary>

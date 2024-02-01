@@ -66,7 +66,7 @@ public partial record SecuritiesMessageCancellationAdviceV03 : IOuterRecord
     [DataMember(Name="Ref")]
     [XmlElement(ElementName="Ref")]
     [Required]
-    public required IReferences18Choice Reference { get; init; }
+    public required References18Choice_ Reference { get; init; }
     
     /// <summary>
     /// Party that legally owns the account.
@@ -75,7 +75,7 @@ public partial record SecuritiesMessageCancellationAdviceV03 : IOuterRecord
     [Description(@"Party that legally owns the account.")]
     [DataMember(Name="AcctOwnr")]
     [XmlElement(ElementName="AcctOwnr")]
-    public IPartyIdentification36Choice? AccountOwner { get; init; }
+    public PartyIdentification36Choice_? AccountOwner { get; init; }
     
     /// <summary>
     /// Account to or from which a securities entry is made.

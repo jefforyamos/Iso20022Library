@@ -20,7 +20,7 @@ public partial record Margin4
     /// <summary>
     /// Specifies the type of margin that is calculated.
     /// </summary>
-    public required IMarginType1Choice Type { get; init; } 
+    public required MarginType1Choice_ Type { get; init; } 
     /// <summary>
     /// Provides the margin amount in the reporting currency and optionally in the original currency.
     /// </summary>

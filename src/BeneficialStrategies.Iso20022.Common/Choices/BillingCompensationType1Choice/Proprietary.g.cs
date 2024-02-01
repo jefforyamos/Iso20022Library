@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingCompensationType1Choice;
 /// <summary>
 /// Defines the type of billing compensation, as defined in a proprietary format.
 /// </summary>
-public partial record Proprietary : IBillingCompensationType1Choice
+public partial record Proprietary : BillingCompensationType1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

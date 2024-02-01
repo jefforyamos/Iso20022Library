@@ -32,7 +32,7 @@ public partial record CardPaymentEnvironment37
     /// <summary>
     /// Data related to the components of the POI (Point Of Interaction) that have been performed the payment transactions.
     /// </summary>
-    public PointOfInteractionComponent5? POIComponent { get; init;  } // Warning: Don't know multiplicity.
+    public PointOfInteractionComponent5[] POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

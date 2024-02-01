@@ -24,11 +24,11 @@ public partial record FeeAndTax1
     /// <summary>
     /// Individual fee (charge/commission).
     /// </summary>
-    public Fee1? IndividualFee { get; init;  } // Warning: Don't know multiplicity.
+    public Fee1[] IndividualFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Individual tax amount.
     /// </summary>
-    public Tax30? IndividualTax { get; init;  } // Warning: Don't know multiplicity.
+    public Tax30[] IndividualTax { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

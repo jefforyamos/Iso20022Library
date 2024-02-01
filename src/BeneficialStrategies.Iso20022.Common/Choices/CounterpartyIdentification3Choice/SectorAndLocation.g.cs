@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CounterpartyIdentification3Choic
 /// <summary>
 /// Identification of the counterparty through the sector and the location.
 /// </summary>
-public partial record SectorAndLocation : ICounterpartyIdentification3Choice
+public partial record SectorAndLocation : CounterpartyIdentification3Choice_
 {
     #nullable enable
     /// <summary>

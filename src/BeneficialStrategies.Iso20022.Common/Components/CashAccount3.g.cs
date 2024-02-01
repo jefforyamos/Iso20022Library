@@ -20,7 +20,7 @@ public partial record CashAccount3
     /// <summary>
     /// Unique and unambiguous identification of the account between the account owner and the account servicer.
     /// </summary>
-    public required IAccountIdentification1Choice Identification { get; init; } 
+    public required AccountIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Nature, or use, of the account.
     /// </summary>

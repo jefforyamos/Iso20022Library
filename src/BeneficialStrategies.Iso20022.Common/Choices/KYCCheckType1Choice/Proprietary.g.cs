@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.KYCCheckType1Choice;
 /// <summary>
 /// Type of Know Your Customer (KYC) check type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IKYCCheckType1Choice
+public partial record Proprietary : KYCCheckType1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRate33Choice;
 /// <summary>
 /// Attributes related specifically to floating rate of an interest rate contract.
 /// </summary>
-public partial record Floating : IInterestRate33Choice
+public partial record Floating : InterestRate33Choice_
 {
     #nullable enable
     /// <summary>
@@ -26,7 +26,7 @@ public partial record Floating : IInterestRate33Choice
     /// <summary>
     /// Indication of the floating rate used.
     /// </summary>
-    public IFloatingRateIdentification8Choice? Rate { get; init; } 
+    public FloatingRateIdentification8Choice_? Rate { get; init; } 
     /// <summary>
     /// Information related to reference period.
     /// </summary>
@@ -34,7 +34,7 @@ public partial record Floating : IInterestRate33Choice
     /// <summary>
     /// Indicates a margin, over or under an index, which determines a price or a rate for each leg of a derivative transaction with periodic payments; or a difference between two floating leg indexes.
     /// </summary>
-    public ISecuritiesTransactionPrice20Choice? Spread { get; init; } 
+    public SecuritiesTransactionPrice20Choice_? Spread { get; init; } 
     /// <summary>
     /// Identifies the computation method that determines how interest payments are calculated. It is used to compute the year fraction of the calculation period, and indicates the number of days in the calculation period divided by the number of days in the year.
     /// </summary>
@@ -42,11 +42,11 @@ public partial record Floating : IInterestRate33Choice
     /// <summary>
     /// Specifies the time unit associated with the frequency of payments.
     /// </summary>
-    public IInterestRateFrequency3Choice? PaymentFrequency { get; init; } 
+    public InterestRateFrequency3Choice_? PaymentFrequency { get; init; } 
     /// <summary>
     /// Information related to reset of payment frequency.
     /// </summary>
-    public IInterestRateFrequency3Choice? ResetFrequency { get; init; } 
+    public InterestRateFrequency3Choice_? ResetFrequency { get; init; } 
     /// <summary>
     /// Indicates the nearest date in the future at which the floating reference rate will be reset.
     /// </summary>

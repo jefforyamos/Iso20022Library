@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UpdateLogPartyRecord1Choice;
 /// <summary>
 /// Specifies the closing date of the party.
 /// </summary>
-public partial record ClosingDate : IUpdateLogPartyRecord1Choice
+public partial record ClosingDate : UpdateLogPartyRecord1Choice_
 {
     #nullable enable
     /// <summary>

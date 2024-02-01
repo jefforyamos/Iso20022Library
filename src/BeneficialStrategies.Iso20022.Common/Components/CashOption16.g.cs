@@ -28,7 +28,7 @@ public partial record CashOption16
     /// <summary>
     /// Specifies information regarding outturn resources that cannot be processed by the Central Securities Depository (CSD). Special delivery instruction is required from the account owner for the corporate action outcome to be credited.
     /// </summary>
-    public INonEligibleProceedsIndicator1Choice? NonEligibleProceedsIndicator { get; init; } 
+    public NonEligibleProceedsIndicator1Choice_? NonEligibleProceedsIndicator { get; init; } 
     /// <summary>
     /// Proceeds are taxable according to the information provided by the issuer / offeror.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record CashOption16
     /// <summary>
     /// Identification of the account in which cash is maintained.
     /// </summary>
-    public ICashAccountIdentification5Choice? CashAccountIdentification { get; init; } 
+    public CashAccountIdentification5Choice_? CashAccountIdentification { get; init; } 
     /// <summary>
     /// Provides information about the amounts related to a cash movement.
     /// </summary>

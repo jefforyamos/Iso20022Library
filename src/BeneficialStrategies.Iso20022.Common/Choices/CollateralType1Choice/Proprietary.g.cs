@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralType1Choice;
 /// <summary>
 /// Type of collateral expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICollateralType1Choice
+public partial record Proprietary : CollateralType1Choice_
 {
     #nullable enable
     /// <summary>

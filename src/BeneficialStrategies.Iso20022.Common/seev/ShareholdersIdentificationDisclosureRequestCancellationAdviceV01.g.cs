@@ -64,7 +64,7 @@ public partial record ShareholdersIdentificationDisclosureRequestCancellationAdv
     [Description(@"Issuer of the financial instrument.")]
     [DataMember(Name="Issr")]
     [XmlElement(ElementName="Issr")]
-    public IPartyIdentification129Choice? Issuer { get; init; }
+    public PartyIdentification129Choice_? Issuer { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

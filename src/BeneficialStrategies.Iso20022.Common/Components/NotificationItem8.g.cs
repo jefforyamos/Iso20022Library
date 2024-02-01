@@ -36,7 +36,7 @@ public partial record NotificationItem8
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IParty40Choice? AccountOwner { get; init; } 
+    public Party40Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record NotificationItem8
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
-    public IParty40Choice? Debtor { get; init; } 
+    public Party40Choice_? Debtor { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
@@ -68,7 +68,7 @@ public partial record NotificationItem8
     /// <summary>
     /// Underlying reason for the payment transaction.
     /// </summary>
-    public IPurpose2Choice? Purpose { get; init; } 
+    public Purpose2Choice_? Purpose { get; init; } 
     /// <summary>
     /// Provides information related to the handling of the remittance information by any of the agents in the transaction processing chain.
     /// </summary>

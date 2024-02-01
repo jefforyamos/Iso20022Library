@@ -24,7 +24,7 @@ public partial record SecuritiesAccount12
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountOwnerIdentification { get; init; } 
+    public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Idenfitication of the account where financial instruments are maintained.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record SecuritiesAccount12
     /// <summary>
     /// Type of balance.
     /// </summary>
-    public ISecuritiesBalanceType6FormatChoice? BalanceType { get; init; } 
+    public SecuritiesBalanceType6FormatChoice_? BalanceType { get; init; } 
     /// <summary>
     /// Specifies the form of the financial instrument.
     /// </summary>

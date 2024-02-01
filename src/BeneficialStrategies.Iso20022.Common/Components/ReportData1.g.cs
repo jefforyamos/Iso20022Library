@@ -36,7 +36,7 @@ public partial record ReportData1
     /// <summary>
     /// Specifies the amount requested.
     /// </summary>
-    public PayInCallItem? PayInCallAmount { get; init;  } // Warning: Don't know multiplicity.
+    public PayInCallItem[] PayInCallAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the requested amount in multiple currencies.
     /// </summary>

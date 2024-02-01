@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxCalculationBasisType1Choice;
 /// <summary>
 /// Basis used to determine the capital gain or loss, eg, the purchase price.
 /// </summary>
-public partial record Proprietary : ITaxCalculationBasisType1Choice
+public partial record Proprietary : TaxCalculationBasisType1Choice_
 {
     #nullable enable
     /// <summary>

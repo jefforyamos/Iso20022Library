@@ -20,11 +20,11 @@ public partial record CutOffData2
     /// <summary>
     /// Describes the participant receiving the net report.
     /// </summary>
-    public required IPartyIdentification242Choice ParticipantIdentification { get; init; } 
+    public required PartyIdentification242Choice_ ParticipantIdentification { get; init; } 
     /// <summary>
     /// Specifies the information regarding the updated netting cut off.
     /// </summary>
-    public NettingCutOff2? NettingCutOffDetails { get; init;  } // Warning: Don't know multiplicity.
+    public NettingCutOff2[] NettingCutOffDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CashAccountType3Choice;
 /// <summary>
 /// Type of cash account expressed as a code.
 /// </summary>
-public partial record Code : ICashAccountType3Choice
+public partial record Code : CashAccountType3Choice_
 {
     public required CashAccountType5Code Value { get; init; }
 }

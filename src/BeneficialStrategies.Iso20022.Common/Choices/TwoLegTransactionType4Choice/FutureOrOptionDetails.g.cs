@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TwoLegTransactionType4Choice;
 /// <summary>
 /// Parameters for contracts which obligate the buyer to receive and the seller to deliver in the future the assets specified at an agreed price or contracts which grant to the holder either the privilege to purchase or the privilege to sell the assets specified at a predetermined price or formula at or within a time in the future.
 /// </summary>
-public partial record FutureOrOptionDetails : ITwoLegTransactionType4Choice
+public partial record FutureOrOptionDetails : TwoLegTransactionType4Choice_
 {
     #nullable enable
     /// <summary>
@@ -70,7 +70,7 @@ public partial record FutureOrOptionDetails : ITwoLegTransactionType4Choice
     /// <summary>
     /// Date on which new securities begin trading.
     /// </summary>
-    public IDateAndDateTime1Choice? FirstDealingDate { get; init; } 
+    public DateAndDateTime1Choice_? FirstDealingDate { get; init; } 
     /// <summary>
     /// Ratio applied to convert the related security.
     /// </summary>
@@ -86,7 +86,7 @@ public partial record FutureOrOptionDetails : ITwoLegTransactionType4Choice
     /// <summary>
     /// Rights to exercise the privilege to purchase or to sell the assets specified at a predetermined price or formula at or within a time in the future.
     /// </summary>
-    public IOptionRight2Choice? OptionRights { get; init; } 
+    public OptionRight2Choice_? OptionRights { get; init; } 
     /// <summary>
     /// Indicates whether or not this is the last transaction.
     /// </summary>

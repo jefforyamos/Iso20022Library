@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRateFrequency3Choice;
 /// <summary>
 /// Frequency expressed in tenor notation.
 /// </summary>
-public partial record Term : IInterestRateFrequency3Choice
+public partial record Term : InterestRateFrequency3Choice_
 {
     #nullable enable
     /// <summary>

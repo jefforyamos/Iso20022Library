@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CreditLineType1Choice;
 /// <summary>
 /// Type of the credit line, as published in an external purpose code list.
 /// </summary>
-public partial record Code : ICreditLineType1Choice
+public partial record Code : CreditLineType1Choice_
 {
     public required ExternalCreditLineType1Code Value { get; init; }
 }

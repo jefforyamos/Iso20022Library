@@ -36,7 +36,7 @@ public partial record StatusDetail1
     /// <summary>
     /// Period of time when the decision is effective.
     /// </summary>
-    public IPeriod4Choice? ActivityPeriod { get; init; } 
+    public Period4Choice_? ActivityPeriod { get; init; } 
     /// <summary>
     /// Any other additional information about the decision.
     /// </summary>

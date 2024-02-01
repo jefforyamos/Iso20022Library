@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IdentificationSource3Choice;
 /// <summary>
 /// Unique and unambiguous identification source, as assigned via a pre-determined code list.
 /// </summary>
-public partial record Code : IIdentificationSource3Choice
+public partial record Code : IdentificationSource3Choice_
 {
     public required ExternalFinancialInstrumentIdentificationType1Code Value { get; init; }
 }

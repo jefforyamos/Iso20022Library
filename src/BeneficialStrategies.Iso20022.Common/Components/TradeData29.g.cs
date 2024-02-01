@@ -20,15 +20,15 @@ public partial record TradeData29
     /// <summary>
     /// Information about accepted and rejected reports and the reasons of rejection.
     /// </summary>
-    public DetailedReportStatistics5? ReportStatistics { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedReportStatistics5[] ReportStatistics { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information about accepted and rejected transactions and the reasons of rejection.
     /// </summary>
-    public IDetailedTransactionStatistics2Choice? TransactionStatistics { get; init;  } // Warning: Don't know multiplicity.
+    public DetailedTransactionStatistics2Choice_[] TransactionStatistics { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

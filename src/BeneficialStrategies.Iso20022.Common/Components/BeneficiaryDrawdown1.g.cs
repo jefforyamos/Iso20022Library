@@ -20,7 +20,7 @@ public partial record BeneficiaryDrawdown1
     /// <summary>
     /// Type of beneficiary.
     /// </summary>
-    public IBeneficiaryType1Choice? BeneficiaryType { get; init; } 
+    public BeneficiaryType1Choice_? BeneficiaryType { get; init; } 
     /// <summary>
     /// Indicates whether the original pension holder was under the age limit when deceased. Typically, in the UK this limit is seventy-five.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record BeneficiaryDrawdown1
     /// <summary>
     /// Additional information about the recipient of the drawdown.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

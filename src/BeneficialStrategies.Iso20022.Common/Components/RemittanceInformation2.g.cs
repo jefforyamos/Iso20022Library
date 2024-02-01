@@ -20,7 +20,7 @@ public partial record RemittanceInformation2
     /// <summary>
     /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, for example, commercial invoices in an accounts' receivable system in an unstructured form.
     /// </summary>
-    public IsoMax140Text? Unstructured { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax140Text[] Unstructured { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

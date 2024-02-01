@@ -32,15 +32,15 @@ public partial record Report6
     /// <summary>
     /// Date of the statement.
     /// </summary>
-    public required IDateAndDateTime1Choice ReportDateTime { get; init; } 
+    public required DateAndDateTime1Choice_ ReportDateTime { get; init; } 
     /// <summary>
     /// Specifies the regularity of an event.
     /// </summary>
-    public IFrequency25Choice? Frequency { get; init; } 
+    public Frequency25Choice_? Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the report is complete or contains changes only.
     /// </summary>
-    public IStatementUpdateTypeCodeAndDSSCode1Choice? UpdateType { get; init; } 
+    public StatementUpdateTypeCodeAndDSSCode1Choice_? UpdateType { get; init; } 
     /// <summary>
     /// Notifies the type of report transmitted.
     /// </summary>

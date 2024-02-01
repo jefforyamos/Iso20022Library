@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DatePeriod2Choice;
 /// <summary>
 /// End date of the range.
 /// </summary>
-public partial record ToDate : IDatePeriod2Choice
+public partial record ToDate : DatePeriod2Choice_
 {
     public required IsoISODate Value { get; init; }
 }

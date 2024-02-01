@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderType1Choice;
 /// <summary>
 /// Liquidity transfer standing order type, in a free text form.
 /// </summary>
-public partial record Proprietary : IStandingOrderType1Choice
+public partial record Proprietary : StandingOrderType1Choice_
 {
     #nullable enable
     /// <summary>

@@ -20,11 +20,11 @@ public partial record AggregateBalanceInformation5
     /// <summary>
     /// Total quantity of financial instrument for the referenced holding.
     /// </summary>
-    public required IBalanceQuantity1Choice AggregateQuantity { get; init; } 
+    public required BalanceQuantity1Choice_ AggregateQuantity { get; init; } 
     /// <summary>
     /// Total value of a balance of the securities account for a specific financial instrument, expressed in one or more currencies.
     /// </summary>
-    public IsoActiveOrHistoricCurrencyAndAmount? HoldingValue { get; init;  } // Warning: Don't know multiplicity.
+    public IsoActiveOrHistoricCurrencyAndAmount[] HoldingValue { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Previous total value of a balance of the securities account for a specific financial instrument, expressed in one or more currencies.
     /// </summary>
@@ -40,15 +40,15 @@ public partial record AggregateBalanceInformation5
     /// <summary>
     /// Net position of a segregated holding of a single security within the overall position held in the securities account, eg, sub-balance per status.
     /// </summary>
-    public AdditionalBalanceInformation3? BalanceBreakdownDetails { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalBalanceInformation3[] BalanceBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information relating to a sub balance of the investment fund.
     /// </summary>
-    public SubBalanceInformation3? SubBalanceInformation { get; init;  } // Warning: Don't know multiplicity.
+    public SubBalanceInformation3[] SubBalanceInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Price of the financial instrument.
     /// </summary>
-    public PriceInformation3? PriceDetails { get; init;  } // Warning: Don't know multiplicity.
+    public PriceInformation3[] PriceDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Part of an investor's subscription amount that is held by the fund in order to pay incentive / performance fees at the end of the fiscal year.
     /// </summary>

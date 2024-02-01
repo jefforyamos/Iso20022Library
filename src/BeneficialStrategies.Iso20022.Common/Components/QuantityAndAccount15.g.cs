@@ -20,15 +20,15 @@ public partial record QuantityAndAccount15
     /// <summary>
     /// Quantity of financial instrument effectively settled.
     /// </summary>
-    public required IQuantity6Choice SettledQuantity { get; init; } 
+    public required Quantity6Choice_ SettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument previously settled.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? PreviouslySettledQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? PreviouslySettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument remaining to be settled.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? RemainingToBeSettledQuantity { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? RemainingToBeSettledQuantity { get; init; } 
     /// <summary>
     /// Amount of money previously settled.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record QuantityAndAccount15
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification36Choice? AccountOwner { get; init; } 
+    public PartyIdentification36Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
@@ -52,15 +52,15 @@ public partial record QuantityAndAccount15
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    public ICashAccountIdentification5Choice? CashAccount { get; init; } 
+    public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Breakdown of a quantity into lots such as tax lots, instrument series, etc.
     /// </summary>
-    public QuantityBreakdown9? QuantityBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public QuantityBreakdown9[] QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public ISafekeepingPlaceFormat3Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; init; } 
     
     #nullable disable
 }

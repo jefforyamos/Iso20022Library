@@ -20,11 +20,11 @@ public partial record CorporateActionPrice65
     /// <summary>
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
-    public IPriceFormat57Choice? CashInLieuOfSharePrice { get; init; } 
+    public PriceFormat57Choice_? CashInLieuOfSharePrice { get; init; } 
     /// <summary>
     /// Amount of money required per over-subscribed equity as defined by the issuer.
     /// </summary>
-    public IPriceFormat57Choice? OverSubscriptionDepositPrice { get; init; } 
+    public PriceFormat57Choice_? OverSubscriptionDepositPrice { get; init; } 
     
     #nullable disable
 }

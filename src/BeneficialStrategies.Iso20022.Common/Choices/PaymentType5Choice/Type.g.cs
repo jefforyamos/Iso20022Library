@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentType5Choice;
 /// <summary>
 /// Type, or nature, of the payment.
 /// </summary>
-public partial record Type : IPaymentType5Choice
+public partial record Type : PaymentType5Choice_
 {
     public required PaymentType4Code Value { get; init; }
 }

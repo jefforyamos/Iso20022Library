@@ -14,7 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CollateralPortfolioCode5Choice;
 /// Usage:
 /// NoPortfolio is reported if the collateralisation was performed on a transaction level basis, or if there is no collateral agreement or if no collateral is posted or received.
 /// </summary>
-public partial record Portfolio : ICollateralPortfolioCode5Choice
+public partial record Portfolio : CollateralPortfolioCode5Choice_
 {
     #nullable enable
     #nullable disable

@@ -40,7 +40,7 @@ public partial record PlainCardData1
     /// <summary>
     /// Magnetic track or equivalent payment card data.
     /// </summary>
-    public TrackData1? TrackData { get; init;  } // Warning: Don't know multiplicity.
+    public TrackData1[] TrackData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Card security code (CSC) associated with the card performing the transaction.
     /// </summary>

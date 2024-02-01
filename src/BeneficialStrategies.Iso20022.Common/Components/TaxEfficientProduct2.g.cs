@@ -20,7 +20,7 @@ public partial record TaxEfficientProduct2
     /// <summary>
     /// Type of tax efficient product, for example, an individual savings account (ISA) in the UK.
     /// </summary>
-    public required ITaxEfficientProductType1Choice TaxEfficientProductType { get; init; } 
+    public required TaxEfficientProductType1Choice_ TaxEfficientProductType { get; init; } 
     /// <summary>
     /// Indicates whether, for the current year, the product contains a cash asset for transfer.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record TaxEfficientProduct2
     /// <summary>
     /// Bonus paid out or withdrawn.
     /// </summary>
-    public BonusWithdrawal1? BonusOrWithdrawal { get; init;  } // Warning: Don't know multiplicity.
+    public BonusWithdrawal1[] BonusOrWithdrawal { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the investor as assigned by a tax authority. 
     /// </summary>
@@ -48,11 +48,11 @@ public partial record TaxEfficientProduct2
     /// <summary>
     /// Value of the investments to follow.
     /// </summary>
-    public DateAndAmount2? InvestmentsToFollowValue { get; init;  } // Warning: Don't know multiplicity.
+    public DateAndAmount2[] InvestmentsToFollowValue { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information about an innovative finance product.
     /// </summary>
-    public InnovativeFinance1? InnovativeFinance { get; init;  } // Warning: Don't know multiplicity.
+    public InnovativeFinance1[] InnovativeFinance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Lowest investment amount in the current year, used to calculate a tax deduction amount.
     /// </summary>
@@ -76,7 +76,7 @@ public partial record TaxEfficientProduct2
     /// <summary>
     /// Additional information about the tax efficient product.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RemovalProcessing2Choice;
 /// <summary>
 /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
 /// </summary>
-public partial record FinancialInstrumentIdentification : IRemovalProcessing2Choice
+public partial record FinancialInstrumentIdentification : RemovalProcessing2Choice_
 {
     #nullable enable
     /// <summary>

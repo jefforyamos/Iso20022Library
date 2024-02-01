@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification30Choice;
 /// <summary>
 /// Account number used by financial institutions in individual countries to identify an account of a customer, but not necessarily the bank and branch of the financial institution in which the account is held.
 /// </summary>
-public partial record Domestic : IAccountIdentification30Choice
+public partial record Domestic : AccountIdentification30Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

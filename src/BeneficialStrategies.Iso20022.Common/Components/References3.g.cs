@@ -32,11 +32,11 @@ public partial record References3
     /// <summary>
     /// Reason of the request.
     /// </summary>
-    public IsoMax35Text? RequestReason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] RequestReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// File name of a document logically related to the request.
     /// </summary>
-    public IsoMax70Text? AttachedDocumentName { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] AttachedDocumentName { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -28,7 +28,7 @@ public partial record DetailedInstructionStatus18
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public IPartyIdentification231Choice? AccountOwner { get; init; } 
+    public PartyIdentification231Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Identification of the subaccount within the safekeeping account.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record DetailedInstructionStatus18
     /// <summary>
     /// Owner of the voting rights.
     /// </summary>
-    public IReadOnlyCollection<IPartyIdentification246Choice> RightsHolder { get; init; } = [];
+    public PartyIdentification246Choice_[] RightsHolder { get; init; } = [];
     /// <summary>
     /// Identification of the person appointed by the security holder as the proxy.
     /// </summary>
-    public IPartyIdentification232Choice? Proxy { get; init; } 
+    public PartyIdentification232Choice_? Proxy { get; init; } 
     /// <summary>
     /// Indicates whether standing instructions have been applied or not.
     /// </summary>
@@ -48,15 +48,15 @@ public partial record DetailedInstructionStatus18
     /// <summary>
     /// Modality through which the votes that have been recorded and counted were received by the issuer, including whether this is ahead of the meeting or at the meeting.
     /// </summary>
-    public required IModalityOfCounting1Choice ModalityOfCounting { get; init; } 
+    public required ModalityOfCounting1Choice_ ModalityOfCounting { get; init; } 
     /// <summary>
     /// Date or date and time at which the votes that have been recorded and counted were received.
     /// </summary>
-    public IDateAndDateTime1Choice? VoteReceiptDateTime { get; init; } 
+    public DateAndDateTime1Choice_? VoteReceiptDateTime { get; init; } 
     /// <summary>
     /// Details of the vote.
     /// </summary>
-    public IReadOnlyCollection<Vote17> VotePerResolution { get; init; } = [];
+    public Vote17[] VotePerResolution { get; init; } = [];
     
     #nullable disable
 }

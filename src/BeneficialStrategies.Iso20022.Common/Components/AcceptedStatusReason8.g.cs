@@ -20,7 +20,7 @@ public partial record AcceptedStatusReason8
     /// <summary>
     /// Specifies the reason why the instruction has been accepted.
     /// </summary>
-    public required IAcceptedReason9Choice ReasonCode { get; init; } 
+    public required AcceptedReason9Choice_ ReasonCode { get; init; } 
     /// <summary>
     /// Provides additional information about the processed instruction.
     /// </summary>

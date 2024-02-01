@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RatioFormat23Choice;
 /// <summary>
 /// Ratio expressed as a quotient of amounts.
 /// </summary>
-public partial record AmountToAmount : IRatioFormat23Choice
+public partial record AmountToAmount : RatioFormat23Choice_
 {
     #nullable enable
     /// <summary>

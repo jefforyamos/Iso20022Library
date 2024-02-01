@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TaxableIncomePerShareCalculated2
 /// <summary>
 /// Taxable income per share (TIS) calculated expressed as a code.
 /// </summary>
-public partial record Code : ITaxableIncomePerShareCalculated2Choice
+public partial record Code : TaxableIncomePerShareCalculated2Choice_
 {
     public required TaxableIncomePerShareCalculated2Code Value { get; init; }
 }

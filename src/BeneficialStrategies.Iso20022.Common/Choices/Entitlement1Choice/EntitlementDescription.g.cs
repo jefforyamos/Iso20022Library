@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Entitlement1Choice;
 /// <summary>
 /// Specifies the calculation method of the number of votes assigned to one security. This element should be used when the entitlement calculation rule is complex.
 /// </summary>
-public partial record EntitlementDescription : IEntitlement1Choice
+public partial record EntitlementDescription : Entitlement1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

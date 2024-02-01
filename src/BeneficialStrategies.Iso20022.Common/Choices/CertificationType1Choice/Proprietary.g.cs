@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CertificationType1Choice;
 /// <summary>
 /// Certificate type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : ICertificationType1Choice
+public partial record Proprietary : CertificationType1Choice_
 {
     #nullable enable
     /// <summary>

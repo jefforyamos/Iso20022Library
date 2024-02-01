@@ -20,7 +20,7 @@ public partial record AccountManagementMessageReference4
     /// <summary>
     /// Reference to a linked message.
     /// </summary>
-    public ILinkedMessage4Choice? LinkedReference { get; init; } 
+    public LinkedMessage4Choice_? LinkedReference { get; init; } 
     /// <summary>
     /// Type of account management instruction for which the status is requested or a request to know the status of the account.
     /// </summary>

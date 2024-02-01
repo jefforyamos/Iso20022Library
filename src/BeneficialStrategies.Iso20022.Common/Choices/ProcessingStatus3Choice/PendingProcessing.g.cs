@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus3Choice;
 /// <summary>
 /// Processing of the instruction/request is pending.
 /// </summary>
-public partial record PendingProcessing : IProcessingStatus3Choice
+public partial record PendingProcessing : ProcessingStatus3Choice_
 {
     #nullable enable
     #nullable disable

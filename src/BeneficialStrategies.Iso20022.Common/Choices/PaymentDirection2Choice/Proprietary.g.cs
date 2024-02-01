@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentDirection2Choice;
 /// <summary>
 /// Payment direction expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IPaymentDirection2Choice
+public partial record Proprietary : PaymentDirection2Choice_
 {
     #nullable enable
     /// <summary>

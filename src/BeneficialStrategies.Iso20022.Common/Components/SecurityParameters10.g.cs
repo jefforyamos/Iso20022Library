@@ -24,11 +24,11 @@ public partial record SecurityParameters10
     /// <summary>
     /// Cryptographic key used to store in the ATM.
     /// </summary>
-    public CryptographicKey12? Key { get; init;  } // Warning: Don't know multiplicity.
+    public CryptographicKey12[] Key { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Element containing the signature.
     /// </summary>
-    public IATMSignature2Choice? SignatureChoice { get; init; } 
+    public ATMSignature2Choice_? SignatureChoice { get; init; } 
     
     #nullable disable
 }

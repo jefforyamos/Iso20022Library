@@ -36,7 +36,7 @@ public partial record PointOfInteraction2
     /// <summary>
     /// Data related to a component of the POI performing the transaction.
     /// </summary>
-    public PointOfInteractionComponent3? Component { get; init;  } // Warning: Don't know multiplicity.
+    public PointOfInteractionComponent3[] Component { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

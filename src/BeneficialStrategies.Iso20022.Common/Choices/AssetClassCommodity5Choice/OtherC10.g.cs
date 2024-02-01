@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodity5Choice;
 /// <summary>
 /// Other C10 commodities.
 /// </summary>
-public partial record OtherC10 : IAssetClassCommodity5Choice
+public partial record OtherC10 : AssetClassCommodity5Choice_
 {
     #nullable enable
     #nullable disable

@@ -24,7 +24,7 @@ public partial record Intermediary28
     /// <summary>
     /// Function performed by the intermediary.
     /// </summary>
-    public required IRole5Choice Role { get; init; } 
+    public required Role5Choice_ Role { get; init; } 
     
     #nullable disable
 }

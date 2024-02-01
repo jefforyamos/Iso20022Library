@@ -32,7 +32,7 @@ public partial record DetailedReportStatistics5
     /// <summary>
     /// Number of reports rejected per error code.
     /// </summary>
-    public NumberOfTransactionsPerValidationRule5? NumberOfReportsRejectedPerError { get; init;  } // Warning: Don't know multiplicity.
+    public NumberOfTransactionsPerValidationRule5[] NumberOfReportsRejectedPerError { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

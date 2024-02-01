@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateAndDateTime1Choice;
 /// <summary>
 /// Numeric representation of time of the day and the day of the month and year.
 /// </summary>
-public partial record DateTime : IDateAndDateTime1Choice
+public partial record DateTime : DateAndDateTime1Choice_
 {
     public required IsoISODateTime Value { get; init; }
 }

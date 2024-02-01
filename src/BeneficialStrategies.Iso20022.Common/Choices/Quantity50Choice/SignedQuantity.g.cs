@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity50Choice;
 /// <summary>
 /// Signed quantity of security.
 /// </summary>
-public partial record SignedQuantity : IQuantity50Choice
+public partial record SignedQuantity : Quantity50Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,6 +22,6 @@ public partial record SignedQuantity : IQuantity50Choice
     /// <summary>
     /// Quantity of security.
     /// </summary>
-    public required IFinancialInstrumentQuantity33Choice Quantity { get; init; } 
+    public required FinancialInstrumentQuantity33Choice_ Quantity { get; init; } 
     #nullable disable
 }

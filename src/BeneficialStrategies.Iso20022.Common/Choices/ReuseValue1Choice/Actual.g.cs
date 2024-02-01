@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReuseValue1Choice;
 /// <summary>
 /// Total value of the collateral reused when it can be defined at the transaction level.
 /// </summary>
-public partial record Actual : IReuseValue1Choice
+public partial record Actual : ReuseValue1Choice_
 {
     public required IsoActiveOrHistoricCurrencyAndAmount Value { get; init; }
 }

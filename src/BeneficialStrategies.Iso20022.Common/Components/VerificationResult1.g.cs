@@ -42,7 +42,7 @@ public partial record VerificationResult1
     /// <summary>
     /// Details of the result.
     /// </summary>
-    public AdditionalData1? ResultDetails { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] ResultDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

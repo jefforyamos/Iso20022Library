@@ -20,7 +20,7 @@ public partial record NetworkParameters5
     /// <summary>
     /// Network addresses of the host.
     /// </summary>
-    public NetworkParameters4? Address { get; init;  } // Warning: Don't know multiplicity.
+    public NetworkParameters4[] Address { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// User name identifying the client.
     /// </summary>
@@ -32,15 +32,15 @@ public partial record NetworkParameters5
     /// <summary>
     /// X.509 Certificate required to authenticate the server.
     /// </summary>
-    public IsoMax10KBinary? ServerCertificate { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax10KBinary[] ServerCertificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the X.509 Certificates required to authenticate the server, for instance a digest of the certificate.
     /// </summary>
-    public IsoMax140Binary? ServerCertificateIdentifier { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax140Binary[] ServerCertificateIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// X.509 Certificate required to authenticate the client.
     /// </summary>
-    public IsoMax10KBinary? ClientCertificate { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax10KBinary[] ClientCertificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the set of security elements to access the host.
     /// </summary>

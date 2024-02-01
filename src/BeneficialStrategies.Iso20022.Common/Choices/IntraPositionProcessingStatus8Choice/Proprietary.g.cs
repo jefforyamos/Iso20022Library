@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.IntraPositionProcessingStatus8Ch
 /// <summary>
 /// Specifies a choice of status for the processing of an intra-position movement.
 /// </summary>
-public partial record Proprietary : IIntraPositionProcessingStatus8Choice
+public partial record Proprietary : IntraPositionProcessingStatus8Choice_
 {
     #nullable enable
     /// <summary>

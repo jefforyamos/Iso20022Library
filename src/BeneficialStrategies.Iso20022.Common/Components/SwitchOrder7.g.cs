@@ -28,7 +28,7 @@ public partial record SwitchOrder7
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
-    public IPlaceOfTradeIdentification1Choice? PlaceOfTrade { get; init; } 
+    public PlaceOfTradeIdentification1Choice_? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the order, as assigned by the instructing party.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record SwitchOrder7
     /// <summary>
     /// Party related to the transaction.
     /// </summary>
-    public IReadOnlyCollection<Intermediary40> RelatedPartyDetails { get; init; } = [];
+    public Intermediary40[] RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Future date at which the investor requests the order to be executed.|The specification of a requested future trade date is not allowed in some markets. The date must be a date in the future.
     /// </summary>
@@ -64,23 +64,23 @@ public partial record SwitchOrder7
     /// <summary>
     /// Choice between additional cash in or resulting cash out.
     /// </summary>
-    public IAdditionalAmount1Choice? AdditionalAmount { get; init; } 
+    public AdditionalAmount1Choice_? AdditionalAmount { get; init; } 
     /// <summary>
     /// Date on which the order expires.
     /// </summary>
-    public IDateAndDateTimeChoice? ExpiryDateTime { get; init; } 
+    public DateAndDateTimeChoice_? ExpiryDateTime { get; init; } 
     /// <summary>
     /// Cancellation right of the investor with respect to the investment fund order.
     /// </summary>
-    public ICancellationRight1Choice? CancellationRight { get; init; } 
+    public CancellationRight1Choice_? CancellationRight { get; init; } 
     /// <summary>
     /// Part of the investment fund switch order that is a redemption.
     /// </summary>
-    public SwitchRedemptionLegOrder6? RedemptionLegDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SwitchRedemptionLegOrder6[] RedemptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Part of the investment fund switch order that is a subscription.
     /// </summary>
-    public SwitchSubscriptionLegOrder6? SubscriptionLegDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SwitchSubscriptionLegOrder6[] SubscriptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment process for the transfer of cash from the debtor to the creditor.
     /// </summary>
@@ -110,15 +110,15 @@ public partial record SwitchOrder7
     /// <summary>
     /// Assessment of the customer’s behaviour at the time of the account opening application.
     /// </summary>
-    public ICustomerConductClassification1Choice? CustomerConductClassification { get; init; } 
+    public CustomerConductClassification1Choice_? CustomerConductClassification { get; init; } 
     /// <summary>
     /// Means by which the investor or account owner submits the open account form.
     /// </summary>
-    public ITransactionChannelType1Choice? TransactionChannelType { get; init; } 
+    public TransactionChannelType1Choice_? TransactionChannelType { get; init; } 
     /// <summary>
     /// Type of signature.
     /// </summary>
-    public ISignatureType1Choice? SignatureType { get; init; } 
+    public SignatureType1Choice_? SignatureType { get; init; } 
     /// <summary>
     /// Information about a non-standard order.
     /// </summary>

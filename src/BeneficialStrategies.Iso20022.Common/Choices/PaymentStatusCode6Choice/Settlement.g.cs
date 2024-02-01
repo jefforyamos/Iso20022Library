@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusCode6Choice;
 /// <summary>
 /// Qualifies further the settlement status.
 /// </summary>
-public partial record Settlement : IPaymentStatusCode6Choice
+public partial record Settlement : PaymentStatusCode6Choice_
 {
     public required IsoMax4AlphaNumericText Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SettlementInstructionGeneration2
 /// <summary>
 /// Settlement instruction generation expressed as a ISO20022 code.
 /// </summary>
-public partial record Code : ISettlementInstructionGeneration2Choice
+public partial record Code : SettlementInstructionGeneration2Choice_
 {
     public required SettlementInstructionGeneration1Code Value { get; init; }
 }

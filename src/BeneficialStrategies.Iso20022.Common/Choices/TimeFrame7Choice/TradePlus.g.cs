@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TimeFrame7Choice;
 /// <summary>
 /// Number of days after the trade date (T) for the standard settlement timeframe.
 /// </summary>
-public partial record TradePlus : ITimeFrame7Choice
+public partial record TradePlus : TimeFrame7Choice_
 {
     public required IsoNumber Value { get; init; }
 }

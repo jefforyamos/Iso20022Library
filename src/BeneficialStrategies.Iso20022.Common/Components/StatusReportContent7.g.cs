@@ -24,7 +24,7 @@ public partial record StatusReportContent7
     /// <summary>
     /// Data related to a component of the POI (Point Of Interaction) performing the status report.
     /// </summary>
-    public PointOfInteractionComponent8? POIComponent { get; init;  } // Warning: Don't know multiplicity.
+    public PointOfInteractionComponent8[] POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Human attendance at the POI (Point Of Interaction) location during transactions.
     /// </summary>
@@ -36,15 +36,15 @@ public partial record StatusReportContent7
     /// <summary>
     /// Request the terminal management system to answer with the identified data set.
     /// </summary>
-    public TerminalManagementDataSet25? DataSetRequired { get; init;  } // Warning: Don't know multiplicity.
+    public TerminalManagementDataSet25[] DataSetRequired { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Result of an individual terminal management action by the point of interaction.
     /// </summary>
-    public TMSEvent6? Event { get; init;  } // Warning: Don't know multiplicity.
+    public TMSEvent6[] Event { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Error log of the point of interaction since the last status report.
     /// </summary>
-    public IsoMax140Text? Errors { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax140Text[] Errors { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

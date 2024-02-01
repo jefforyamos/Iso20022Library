@@ -20,7 +20,7 @@ public partial record BillingBalance1
     /// <summary>
     /// Defines the type of balance.
     /// </summary>
-    public required IBillingBalanceType1Choice Type { get; init; } 
+    public required BillingBalanceType1Choice_ Type { get; init; } 
     /// <summary>
     /// Balance value.
     /// </summary>

@@ -28,7 +28,7 @@ public partial record VerificationReport4
     /// <summary>
     /// Specifies the reason why the verified identification information is incorrect.
     /// </summary>
-    public IVerificationReason1Choice? Reason { get; init; } 
+    public VerificationReason1Choice_? Reason { get; init; } 
     /// <summary>
     /// Provides party and/or account identification information as given in the original message.
     /// </summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingSettlementStatus3Choice;
 /// <summary>
 /// Reason for the settlement pending status.
 /// </summary>
-public partial record ExtendedReason : IPendingSettlementStatus3Choice
+public partial record ExtendedReason : PendingSettlementStatus3Choice_
 {
     public required IsoExtended350Code Value { get; init; }
 }

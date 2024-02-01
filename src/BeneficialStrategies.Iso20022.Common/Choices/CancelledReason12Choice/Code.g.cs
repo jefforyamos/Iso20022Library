@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancelledReason12Choice;
 /// <summary>
 /// Cancelled reason expressed as a code.
 /// </summary>
-public partial record Code : ICancelledReason12Choice
+public partial record Code : CancelledReason12Choice_
 {
     public required CancelledStatusReason2Code Value { get; init; }
 }

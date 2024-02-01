@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountOrCoefficientPrice1Choice;
 /// <summary>
 /// Provides details of the price when expressed with a coefficient.
 /// </summary>
-public partial record Coefficient : IAmountOrCoefficientPrice1Choice
+public partial record Coefficient : AmountOrCoefficientPrice1Choice_
 {
     public required IsoDecimalNumber Value { get; init; }
 }

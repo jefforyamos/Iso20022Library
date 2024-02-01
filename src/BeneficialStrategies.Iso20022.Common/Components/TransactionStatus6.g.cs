@@ -24,7 +24,7 @@ public partial record TransactionStatus6
     /// <summary>
     /// Indicates whether the transaction is pending initiation or has been initiated.
     /// </summary>
-    public ICollateralStatus2Choice? ExecutionStatus { get; init; } 
+    public CollateralStatus2Choice_? ExecutionStatus { get; init; } 
     
     #nullable disable
 }

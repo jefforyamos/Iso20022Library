@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassAttributes1Choice;
 /// <summary>
 /// Asset class is a non-financial instrument of type foreign exchange.
 /// </summary>
-public partial record ForeignExchange : IAssetClassAttributes1Choice
+public partial record ForeignExchange : AssetClassAttributes1Choice_
 {
     #nullable enable
     /// <summary>

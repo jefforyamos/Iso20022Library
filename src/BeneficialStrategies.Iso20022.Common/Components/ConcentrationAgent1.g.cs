@@ -24,7 +24,7 @@ public partial record ConcentrationAgent1
     /// <summary>
     /// Inflows and outflows to and from the CCP’s concentration accounts aggregated across all business lines / waterfalls. 
     /// </summary>
-    public ConcentrationAccount1? Account { get; init;  } // Warning: Don't know multiplicity.
+    public ConcentrationAccount1[] Account { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

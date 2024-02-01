@@ -56,7 +56,7 @@ public partial record MoneyMarketOvernightIndexSwapsStatisticalReportV01 : IOute
     [DataMember(Name="OvrnghtIndxSwpsRpt")]
     [XmlElement(ElementName="OvrnghtIndxSwpsRpt")]
     [Required]
-    public required IOvernightIndexSwap3Choice OvernightIndexSwapsReport { get; init; }
+    public required OvernightIndexSwap3Choice_ OvernightIndexSwapsReport { get; init; }
     
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.

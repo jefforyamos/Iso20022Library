@@ -36,7 +36,7 @@ public partial record MessageHeader8
     /// <summary>
     /// Specific actions to be executed through the request.
     /// </summary>
-    public IRequestType4Choice? RequestType { get; init; } 
+    public RequestType4Choice_? RequestType { get; init; } 
     /// <summary>
     /// Recalls the criteria (search and return criteria) defined in a preceding query.
     /// </summary>

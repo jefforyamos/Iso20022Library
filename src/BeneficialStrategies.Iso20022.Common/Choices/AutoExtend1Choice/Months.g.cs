@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AutoExtend1Choice;
 /// <summary>
 /// Number of months.
 /// </summary>
-public partial record Months : IAutoExtend1Choice
+public partial record Months : AutoExtend1Choice_
 {
     public required IsoNumber Value { get; init; }
 }

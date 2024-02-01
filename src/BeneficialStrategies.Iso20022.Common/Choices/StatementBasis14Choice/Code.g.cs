@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StatementBasis14Choice;
 /// <summary>
 /// Statement basis expressed as code.
 /// </summary>
-public partial record Code : IStatementBasis14Choice
+public partial record Code : StatementBasis14Choice_
 {
     public required StatementBasis3Code Value { get; init; }
 }

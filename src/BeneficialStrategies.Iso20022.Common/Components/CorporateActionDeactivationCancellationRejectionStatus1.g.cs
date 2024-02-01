@@ -20,7 +20,7 @@ public partial record CorporateActionDeactivationCancellationRejectionStatus1
     /// <summary>
     /// The rejection reason.
     /// </summary>
-    public IRejectionReason7FormatChoice? Reason { get; init;  } // Warning: Don't know multiplicity.
+    public RejectionReason7FormatChoice_[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the status.
     /// </summary>

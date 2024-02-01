@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountPrice1Choice;
 /// <summary>
 /// Amount expressed as a unit price.
 /// </summary>
-public partial record UnitPrice : IAmountPrice1Choice
+public partial record UnitPrice : AmountPrice1Choice_
 {
     #nullable enable
     /// <summary>

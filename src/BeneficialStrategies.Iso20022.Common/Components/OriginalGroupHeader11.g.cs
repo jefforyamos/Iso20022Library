@@ -32,7 +32,7 @@ public partial record OriginalGroupHeader11
     /// <summary>
     /// Provides detailed information on the reversal reason.
     /// </summary>
-    public PaymentReversalReason8? ReversalReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public PaymentReversalReason8[] ReversalReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

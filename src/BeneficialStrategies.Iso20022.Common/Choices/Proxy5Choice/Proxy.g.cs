@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Proxy5Choice;
 /// <summary>
 /// Proxy assignment and registration information.
 /// </summary>
-public partial record Proxy : IProxy5Choice
+public partial record Proxy : Proxy5Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,11 +22,11 @@ public partial record Proxy : IProxy5Choice
     /// <summary>
     /// Date by which the information on the proxy assignment must be received by the intermediary.
     /// </summary>
-    public IDateFormat58Choice? Deadline { get; init; } 
+    public DateFormat58Choice_? Deadline { get; init; } 
     /// <summary>
     /// Date by which the information on the proxy assignment must be received by the issuer.
     /// </summary>
-    public IDateFormat58Choice? MarketDeadline { get; init; } 
+    public DateFormat58Choice_? MarketDeadline { get; init; } 
     /// <summary>
     /// Proxy person that is authorised by the issuer.
     /// </summary>

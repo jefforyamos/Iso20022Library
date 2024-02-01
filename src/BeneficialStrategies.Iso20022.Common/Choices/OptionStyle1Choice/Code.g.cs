@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OptionStyle1Choice;
 /// <summary>
 /// Option style is defined using a code.
 /// </summary>
-public partial record Code : IOptionStyle1Choice
+public partial record Code : OptionStyle1Choice_
 {
     public required OptionStyle1Code Value { get; init; }
 }

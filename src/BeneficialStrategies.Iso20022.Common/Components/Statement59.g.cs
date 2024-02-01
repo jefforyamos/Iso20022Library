@@ -24,7 +24,7 @@ public partial record Statement59
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
-    public INumber3Choice? StatementNumber { get; init; } 
+    public Number3Choice_? StatementNumber { get; init; } 
     /// <summary>
     /// Identification of the query message sent to request this statement.
     /// </summary>
@@ -36,15 +36,15 @@ public partial record Statement59
     /// <summary>
     /// Date and time when the statement was created.
     /// </summary>
-    public required IDateAndDateTimeChoice StatementDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Date period for which the statement was created.
     /// </summary>
-    public required IDatePeriod1Choice StatementPeriod { get; init; } 
+    public required DatePeriod1Choice_ StatementPeriod { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
-    public IFrequency22Choice? Frequency { get; init; } 
+    public Frequency22Choice_? Frequency { get; init; } 
     /// <summary>
     /// Granularity of the frequency used for the reporting.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record Statement59
     /// <summary>
     /// Specifies whether the statement is complete or contains changes only.
     /// </summary>
-    public IUpdateType4Choice? UpdateType { get; init; } 
+    public UpdateType4Choice_? UpdateType { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or updated information reported in the statement.
     /// </summary>

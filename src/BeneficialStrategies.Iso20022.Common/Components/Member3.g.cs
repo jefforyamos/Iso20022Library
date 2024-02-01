@@ -20,11 +20,11 @@ public partial record Member3
     /// <summary>
     /// Physical/logical address belonging to a member, segregated from its main address that is used for normal operations. The fund return address is used to route messages that require specific attention/exception handling, eg, returns or rejects.
     /// </summary>
-    public IMemberIdentification2Choice? MemberReturnAddress { get; init;  } // Warning: Don't know multiplicity.
+    public MemberIdentification2Choice_[] MemberReturnAddress { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Person to be contacted in a given organisation.
     /// </summary>
-    public ContactIdentificationAndAddress1? ContactReference { get; init;  } // Warning: Don't know multiplicity.
+    public ContactIdentificationAndAddress1[] ContactReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number, or virtual address, used for communication.
     /// </summary>

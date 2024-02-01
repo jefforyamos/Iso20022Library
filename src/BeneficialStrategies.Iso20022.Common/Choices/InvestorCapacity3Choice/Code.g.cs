@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestorCapacity3Choice;
 /// <summary>
 /// Investor capacity expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : IInvestorCapacity3Choice
+public partial record Code : InvestorCapacity3Choice_
 {
     public required Eligibility1Code Value { get; init; }
 }

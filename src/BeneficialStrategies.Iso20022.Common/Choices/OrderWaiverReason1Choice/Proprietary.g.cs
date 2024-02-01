@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.OrderWaiverReason1Choice;
 /// <summary>
 /// Reason why an order has to be handled differently, probably in a manual fashion, because, for example, the investment manager has agreed a waiver to the terms.
 /// </summary>
-public partial record Proprietary : IOrderWaiverReason1Choice
+public partial record Proprietary : OrderWaiverReason1Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionType1Choice;
 /// <summary>
 /// Type of investment fund transaction.
 /// </summary>
-public partial record TransactionType : ITransactionType1Choice
+public partial record TransactionType : TransactionType1Choice_
 {
     #nullable enable
     #nullable disable

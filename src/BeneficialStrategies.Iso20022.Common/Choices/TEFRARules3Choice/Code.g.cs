@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TEFRARules3Choice;
 /// <summary>
 /// TEFRA rules expressed as an ISO 20022 code.
 /// </summary>
-public partial record Code : ITEFRARules3Choice
+public partial record Code : TEFRARules3Choice_
 {
     public required TEFRARules1Code Value { get; init; }
 }

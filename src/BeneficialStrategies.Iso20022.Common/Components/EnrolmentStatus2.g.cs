@@ -24,7 +24,7 @@ public partial record EnrolmentStatus2
     /// <summary>
     /// Provides detailed information on the status for the request.
     /// </summary>
-    public required IServiceStatus1Choice Status { get; init; } 
+    public required ServiceStatus1Choice_ Status { get; init; } 
     /// <summary>
     /// Specifies the reason for the status of the enrolment request.
     /// </summary>
@@ -32,15 +32,15 @@ public partial record EnrolmentStatus2
     /// <summary>
     /// Provides the original creditor enrolment data.
     /// </summary>
-    public IOriginalEnrolment2Choice? OriginalEnrolmentReference { get; init; } 
+    public OriginalEnrolment2Choice_? OriginalEnrolmentReference { get; init; } 
     /// <summary>
     /// Actual date when the creditor enrolment was executed.
     /// </summary>
-    public IDateAndDateTime2Choice? EffectiveEnrolmentDate { get; init; } 
+    public DateAndDateTime2Choice_? EffectiveEnrolmentDate { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

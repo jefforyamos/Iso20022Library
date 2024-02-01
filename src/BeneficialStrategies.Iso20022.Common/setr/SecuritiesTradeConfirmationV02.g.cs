@@ -66,7 +66,7 @@ public partial record SecuritiesTradeConfirmationV02 : IOuterRecord
     [Description(@"Count of the number of transactions linked.")]
     [DataMember(Name="NbCnt")]
     [XmlElement(ElementName="NbCnt")]
-    public INumberCount1Choice? NumberCount { get; init; }
+    public NumberCount1Choice_? NumberCount { get; init; }
     
     /// <summary>
     /// Reference to the transaction identifier issued by a business party and/or market infrastructure. It may also be used to reference a previous transaction, for example, a block/allocation instruction, or tie a set of messages together.

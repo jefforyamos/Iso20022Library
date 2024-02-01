@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AuthenticationChannel1Choice;
 /// <summary>
 /// Authentication channel expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IAuthenticationChannel1Choice
+public partial record Proprietary : AuthenticationChannel1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

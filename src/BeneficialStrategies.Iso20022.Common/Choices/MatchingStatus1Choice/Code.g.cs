@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MatchingStatus1Choice;
 /// <summary>
 /// Provides the matching status of the instruction.
 /// </summary>
-public partial record Code : IMatchingStatus1Choice
+public partial record Code : MatchingStatus1Choice_
 {
     public required MatchingStatus1Code Value { get; init; }
 }

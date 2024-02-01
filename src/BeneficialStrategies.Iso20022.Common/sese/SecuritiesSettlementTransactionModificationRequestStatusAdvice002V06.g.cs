@@ -103,7 +103,7 @@ public partial record SecuritiesSettlementTransactionModificationRequestStatusAd
     [DataMember(Name="ModPrcgSts")]
     [XmlElement(ElementName="ModPrcgSts")]
     [Required]
-    public required IModificationProcessingStatus11Choice ModificationProcessingStatus { get; init; }
+    public required ModificationProcessingStatus11Choice_ ModificationProcessingStatus { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.

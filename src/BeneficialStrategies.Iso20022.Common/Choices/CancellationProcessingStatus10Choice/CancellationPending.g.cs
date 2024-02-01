@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancellationProcessingStatus10Ch
 /// <summary>
 /// Trade is in cancelation pending.
 /// </summary>
-public partial record CancellationPending : ICancellationProcessingStatus10Choice
+public partial record CancellationPending : CancellationProcessingStatus10Choice_
 {
     #nullable enable
     #nullable disable

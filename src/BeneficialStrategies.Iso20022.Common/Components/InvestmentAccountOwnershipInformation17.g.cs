@@ -20,15 +20,15 @@ public partial record InvestmentAccountOwnershipInformation17
     /// <summary>
     /// Information about the organisation or individual person.
     /// </summary>
-    public required IParty48Choice Party { get; init; } 
+    public required Party48Choice_ Party { get; init; } 
     /// <summary>
     /// Status of an identity check to prevent money laundering. This includes the counter-terrorism check.
     /// </summary>
-    public IMoneyLaunderingCheck1Choice? MoneyLaunderingCheck { get; init; } 
+    public MoneyLaunderingCheck1Choice_? MoneyLaunderingCheck { get; init; } 
     /// <summary>
     /// Information related to the party profile to be inserted or deleted.
     /// </summary>
-    public ModificationScope27? ModifiedInvestorProfileValidation { get; init;  } // Warning: Don't know multiplicity.
+    public ModificationScope27[] ModifiedInvestorProfileValidation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Percentage of ownership or of beneficial ownership of the shares/units in the account. All subsequent subscriptions or purchases and or redemptions or sells will be allocated using the same percentage.
     /// </summary>
@@ -52,15 +52,15 @@ public partial record InvestmentAccountOwnershipInformation17
     /// <summary>
     /// Type of information that must be provided to the account holder.
     /// </summary>
-    public Notification2? Notification { get; init;  } // Warning: Don't know multiplicity.
+    public Notification2[] Notification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of Foreign Account Tax Compliance Act (FATCA) form submitted by the investor or account owner.
     /// </summary>
-    public IFATCAForm1Choice? FATCAFormType { get; init;  } // Warning: Don't know multiplicity.
+    public FATCAForm1Choice_[] FATCAFormType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Foreign Account Tax Compliance Act (FATCA) status of the investor or account owner.
     /// </summary>
-    public FATCAStatus2? FATCAStatus { get; init;  } // Warning: Don't know multiplicity.
+    public FATCAStatus2[] FATCAStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date provided by the account owner to inform the account servicer of the date on which the holdings must be reported before the account is subsequently closed.
     /// </summary>
@@ -68,11 +68,11 @@ public partial record InvestmentAccountOwnershipInformation17
     /// <summary>
     /// Type of Common Reporting Standard (CRS) form submitted by the investor or account owner.
     /// </summary>
-    public ICRSForm1Choice? CRSFormType { get; init;  } // Warning: Don't know multiplicity.
+    public CRSForm1Choice_[] CRSFormType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Common Reporting Standard (CRS) status of the investor or account owner.
     /// </summary>
-    public CRSStatus4? CRSStatus { get; init;  } // Warning: Don't know multiplicity.
+    public CRSStatus4[] CRSStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date provided by the account owner to inform the account servicer of the date on which the holdings must be reported before the account is subsequently closed.
     /// </summary>
@@ -80,15 +80,15 @@ public partial record InvestmentAccountOwnershipInformation17
     /// <summary>
     /// Alternative identification, for example, national registration identification number, passport number, tax identification number. This may be an account number used to further identify the beneficial owner, for example, a Central Provident Fund (CFP) account as required for Singapore.
     /// </summary>
-    public GenericIdentification82? OtherIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public GenericIdentification82[] OtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax advantage specific to the account party.
     /// </summary>
-    public ITaxExemptionReason2Choice? TaxExemption { get; init; } 
+    public TaxExemptionReason2Choice_? TaxExemption { get; init; } 
     /// <summary>
     /// Details for the reporting of tax, for example, the country of taxation.
     /// </summary>
-    public TaxReporting3? TaxReporting { get; init;  } // Warning: Don't know multiplicity.
+    public TaxReporting3[] TaxReporting { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Language in which the organisation or person communicates.
     /// </summary>
@@ -96,7 +96,7 @@ public partial record InvestmentAccountOwnershipInformation17
     /// <summary>
     /// Method used for postal mailing.
     /// </summary>
-    public IMailType1Choice? MailType { get; init; } 
+    public MailType1Choice_? MailType { get; init; } 
     /// <summary>
     /// Country and residential status of the organisation or individual person.
     /// </summary>
@@ -116,7 +116,7 @@ public partial record InvestmentAccountOwnershipInformation17
     /// <summary>
     /// Account owner's connection with the trading party or broker.
     /// </summary>
-    public ICompanyLink1Choice? CompanyLink { get; init; } 
+    public CompanyLink1Choice_? CompanyLink { get; init; } 
     /// <summary>
     /// Reference to be specified when a letter, for example, an order confirmation, is sent by an automated mailing system.
     /// </summary>
@@ -124,11 +124,11 @@ public partial record InvestmentAccountOwnershipInformation17
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
-    public CommunicationAddress6? PrimaryCommunicationAddress { get; init;  } // Warning: Don't know multiplicity.
+    public CommunicationAddress6[] PrimaryCommunicationAddress { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
-    public CommunicationAddress6? SecondaryCommunicationAddress { get; init;  } // Warning: Don't know multiplicity.
+    public CommunicationAddress6[] SecondaryCommunicationAddress { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional regulatory information about the investor or account owner that is required in some markets to support anti-money laundering laws.
     /// </summary>
@@ -136,11 +136,11 @@ public partial record InvestmentAccountOwnershipInformation17
     /// <summary>
     /// Specifies if the account party is regarded as domestic or non-domestic for reporting purposes.
     /// </summary>
-    public IAccountingStatus1Choice? AccountingStatus { get; init; } 
+    public AccountingStatus1Choice_? AccountingStatus { get; init; } 
     /// <summary>
     /// Additional information such as remarks or notes that must be conveyed about the party and or limitations and restrictions.
     /// </summary>
-    public AdditiononalInformation13? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditiononalInformation13[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party is the controlling person. 
     /// (For an Entity that is a legal person, the term “Controlling Persons” means the natural person(s) who exercises control over the Entity. “Control” over an Entity is generally exercised by the natural person(s) who ultimately has a controlling ownership interest in the Entity. A “control ownership interest” depends on the ownership structure of the legal person and is usually identified on the basis of a threshold applying a risk-based approach (e.g. any person(s) owning more than a certain percentage of the legal person, such as 25%). Where no natural person(s) exercises control through ownership interests, the Controlling Person(s) of the Entity will be the natural person(s) who exercises control of the Entity through other means. Where no natural person(s) is identified as exercising control of the Entity, the Controlling Person(s) of the Entity will be the natural person(s) who holds the position of senior managing official.).

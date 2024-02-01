@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesAccountOrOperationalEr
 /// <summary>
 /// Operational error resulting from a rejection.
 /// </summary>
-public partial record OperationalError : ISecuritiesAccountOrOperationalError2Choice
+public partial record OperationalError : SecuritiesAccountOrOperationalError2Choice_
 {
     #nullable enable
     /// <summary>
     /// Specification of the error, in coded or proprietary form.
     /// </summary>
-    public required IErrorHandling2Choice Error { get; init; } 
+    public required ErrorHandling2Choice_ Error { get; init; } 
     /// <summary>
     /// Specification of the error, in free format.
     /// </summary>

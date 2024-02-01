@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MemberCriteriaDefinition2Choice;
 /// <summary>
 /// Defines the criteria based on which the information is extracted.
 /// </summary>
-public partial record NewCriteria : IMemberCriteriaDefinition2Choice
+public partial record NewCriteria : MemberCriteriaDefinition2Choice_
 {
     #nullable enable
     /// <summary>

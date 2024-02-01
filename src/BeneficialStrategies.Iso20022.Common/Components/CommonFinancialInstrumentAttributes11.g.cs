@@ -20,11 +20,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// <summary>
     /// Specifies the status of the security within its lifecycle.
     /// </summary>
-    public ISecurityStatus3Choice? SecurityStatus { get; init; } 
+    public SecurityStatus3Choice_? SecurityStatus { get; init; } 
     /// <summary>
     /// Name of the security.
     /// </summary>
-    public FinancialInstrumentName2? FinancialInstrumentName { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrumentName2[] FinancialInstrumentName { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency in which a security is issued or redenominated.
     /// </summary>
@@ -56,15 +56,15 @@ public partial record CommonFinancialInstrumentAttributes11
     /// <summary>
     /// Specifies the regulatory restrictions applicable to a security.
     /// </summary>
-    public ILegalRestrictions4Choice? LegalRestrictions { get; init; } 
+    public LegalRestrictions4Choice_? LegalRestrictions { get; init; } 
     /// <summary>
     /// Position limits are created for the purpose of maintaining stable and fair markets. Contracts held by one individual investor with different brokers may be combined in order to gauge accurately the level of control held by one party. ||Each option and futures contract will have varying position limits.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? PositionLimit { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? PositionLimit { get; init; } 
     /// <summary>
     /// Near-term position limit for the instrument.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? NearTermPositionLimit { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? NearTermPositionLimit { get; init; } 
     /// <summary>
     /// Original Date/time at which the security is listed at the specific exchange or trading venue.
     /// </summary>
@@ -92,19 +92,19 @@ public partial record CommonFinancialInstrumentAttributes11
     /// <summary>
     /// Market(s) on which the security is traded.
     /// </summary>
-    public TradingParameters2? TradingMarket { get; init;  } // Warning: Don't know multiplicity.
+    public TradingParameters2[] TradingMarket { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the spread to benchmark details of an indication of interest.
     /// </summary>
-    public BenchmarkCurve6? SpreadAndBenchmarkCurve { get; init;  } // Warning: Don't know multiplicity.
+    public BenchmarkCurve6[] SpreadAndBenchmarkCurve { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Represents the type of put.
     /// </summary>
-    public IPutType3Choice? PutType { get; init; } 
+    public PutType3Choice_? PutType { get; init; } 
     /// <summary>
     /// Represents the type of call.
     /// </summary>
-    public ICallType3Choice? CallType { get; init; } 
+    public CallType3Choice_? CallType { get; init; } 
     /// <summary>
     /// Indicates whether a security is interchangeable, ie, the security is allowed to be replaced by another security, without loss of value.
     /// </summary>
@@ -128,11 +128,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// <summary>
     /// Number of target securities for the conversion.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? ConversionRatioNumerator { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? ConversionRatioNumerator { get; init; } 
     /// <summary>
     /// Number of held securities for the conversion.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? ConversionRatioDenominator { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? ConversionRatioDenominator { get; init; } 
     /// <summary>
     /// Primary place of deposit.
     /// </summary>
@@ -140,11 +140,11 @@ public partial record CommonFinancialInstrumentAttributes11
     /// <summary>
     /// Indicates whether the notional amount value is to be traded in either an amount or in units.
     /// </summary>
-    public IUnitOrFaceAmount1Choice? TradingMethod { get; init; } 
+    public UnitOrFaceAmount1Choice_? TradingMethod { get; init; } 
     /// <summary>
     /// Indicates the TEFRA rule under which the security is issued.
     /// </summary>
-    public ITEFRARules3Choice? TEFRARule { get; init; } 
+    public TEFRARules3Choice_? TEFRARule { get; init; } 
     /// <summary>
     /// Identifies the series number.
     /// </summary>
@@ -156,27 +156,27 @@ public partial record CommonFinancialInstrumentAttributes11
     /// <summary>
     /// Amount or percentage of a cash distribution that will be withheld by a tax authority.
     /// </summary>
-    public SecurityWithHoldingTax1? WithholdingTaxRegime { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityWithHoldingTax1[] WithholdingTaxRegime { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Status of payment of a security at a particular time.
     /// </summary>
-    public ISecuritiesPaymentStatus5Choice? PaymentStatus { get; init; } 
+    public SecuritiesPaymentStatus5Choice_? PaymentStatus { get; init; } 
     /// <summary>
     /// Indicates the physical form of the securities on the closing date.
     /// </summary>
-    public IInitialPhysicalForm4Choice? InitialPhysicalForm { get; init; } 
+    public InitialPhysicalForm4Choice_? InitialPhysicalForm { get; init; } 
     /// <summary>
     /// Indicates the physical form of the securities after the exchange of the initial certificate issued on the closing date.
     /// </summary>
-    public IInitialPhysicalForm3Choice? AfterExchangePhysicalForm { get; init; } 
+    public InitialPhysicalForm3Choice_? AfterExchangePhysicalForm { get; init; } 
     /// <summary>
     /// Entity appointed by the ICSDs to provide safekeeping for securities in new global note (NGN) form.
     /// </summary>
-    public IPartyIdentification177Choice? CommonSafekeeper { get; init; } 
+    public PartyIdentification177Choice_? CommonSafekeeper { get; init; } 
     /// <summary>
     /// Indicates the type of redemption at maturity.
     /// </summary>
-    public IMaturityRedemptionType3Choice? RedemptionType { get; init; } 
+    public MaturityRedemptionType3Choice_? RedemptionType { get; init; } 
     /// <summary>
     /// ISO currency for the payment of the cash proceeds.
     /// </summary>
@@ -184,15 +184,15 @@ public partial record CommonFinancialInstrumentAttributes11
     /// <summary>
     /// Regulatory restriction(s) linked to the security.
     /// </summary>
-    public SecurityRestriction3? Restriction { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityRestriction3[] Restriction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the date from which the financial instrument identification is valid.
     /// </summary>
-    public FinancialInstrumentIdentificationValidity3? FinancialInstrumentIdentificationValidity { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrumentIdentificationValidity3[] FinancialInstrumentIdentificationValidity { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Settlement of the securities in a securities transaction, that is, the instruction to deliver or receive securities, involving the payment of an amount of money or not.
     /// </summary>
-    public SettlementInformation17? SettlementInformation { get; init;  } // Warning: Don't know multiplicity.
+    public SettlementInformation17[] SettlementInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the form of the financial Instrument.
     /// </summary>
@@ -224,7 +224,7 @@ public partial record CommonFinancialInstrumentAttributes11
     /// <summary>
     /// Defines how the CSD is linked to the security.
     /// </summary>
-    public SecurityCSDLink7? SecurityCSDLink { get; init;  } // Warning: Don't know multiplicity.
+    public SecurityCSDLink7[] SecurityCSDLink { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

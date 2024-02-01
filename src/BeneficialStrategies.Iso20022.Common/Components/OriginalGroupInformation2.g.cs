@@ -32,7 +32,7 @@ public partial record OriginalGroupInformation2
     /// <summary>
     /// Detailed information on the return reason.
     /// </summary>
-    public ReturnReasonInformation1? ReturnReasonInformation { get; init;  } // Warning: Don't know multiplicity.
+    public ReturnReasonInformation1[] ReturnReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

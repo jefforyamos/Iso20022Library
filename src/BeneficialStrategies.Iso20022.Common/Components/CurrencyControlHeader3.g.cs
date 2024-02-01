@@ -32,7 +32,7 @@ public partial record CurrencyControlHeader3
     /// <summary>
     /// Party that initiates the instruction.
     /// </summary>
-    public required IParty28Choice InitiatingParty { get; init; } 
+    public required Party28Choice_ InitiatingParty { get; init; } 
     /// <summary>
     /// Agent which forwards the message.
     /// </summary>

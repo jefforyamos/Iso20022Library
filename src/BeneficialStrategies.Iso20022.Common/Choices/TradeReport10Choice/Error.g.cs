@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TradeReport10Choice;
 /// <summary>
 /// Indicates whether transaction was reported by mistake and needs to be removed.
 /// </summary>
-public partial record Error : ITradeReport10Choice
+public partial record Error : TradeReport10Choice_
 {
     #nullable enable
     /// <summary>

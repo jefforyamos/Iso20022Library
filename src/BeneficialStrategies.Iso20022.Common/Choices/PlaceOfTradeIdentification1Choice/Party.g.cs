@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PlaceOfTradeIdentification1Choic
 /// <summary>
 /// Party's location at which the transaction is executed.
 /// </summary>
-public partial record Party : IPlaceOfTradeIdentification1Choice
+public partial record Party : PlaceOfTradeIdentification1Choice_
 {
     public required IsoAnyBICIdentifier Value { get; init; }
 }

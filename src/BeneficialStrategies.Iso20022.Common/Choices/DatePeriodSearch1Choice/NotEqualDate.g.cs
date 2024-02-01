@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DatePeriodSearch1Choice;
 /// <summary>
 /// Specified date to be excluded from the search.
 /// </summary>
-public partial record NotEqualDate : IDatePeriodSearch1Choice
+public partial record NotEqualDate : DatePeriodSearch1Choice_
 {
     public required IsoISODate Value { get; init; }
 }

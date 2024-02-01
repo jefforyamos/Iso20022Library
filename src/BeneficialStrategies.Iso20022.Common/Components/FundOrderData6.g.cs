@@ -28,7 +28,7 @@ public partial record FundOrderData6
     /// <summary>
     /// Choice between additional cash in or resulting cash out.
     /// </summary>
-    public IAdditionalAmount1Choice? AdditionalAmount { get; init; } 
+    public AdditionalAmount1Choice_? AdditionalAmount { get; init; } 
     /// <summary>
     /// Currency from which the quoted currency is converted in an exchange rate calculation.
     /// 1 x <UnitCcy> = <XchgRate> x <QtdCcy>.

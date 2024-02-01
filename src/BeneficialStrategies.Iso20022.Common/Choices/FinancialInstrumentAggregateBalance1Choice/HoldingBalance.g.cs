@@ -12,17 +12,17 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentAggregateBala
 /// <summary>
 /// Balance of holdings.
 /// </summary>
-public partial record HoldingBalance : IFinancialInstrumentAggregateBalance1Choice
+public partial record HoldingBalance : FinancialInstrumentAggregateBalance1Choice_
 {
     #nullable enable
     /// <summary>
     /// Balance of settled transactions.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? SettledBalance { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? SettledBalance { get; init; } 
     /// <summary>
     /// Balance of settled transactions and transactions pending settlement.
     /// </summary>
-    public IFinancialInstrumentQuantity1Choice? TradedBalance { get; init; } 
+    public FinancialInstrumentQuantity1Choice_? TradedBalance { get; init; } 
     /// <summary>
     /// Breakdown of the balances of holdings into sub-balances.
     /// </summary>

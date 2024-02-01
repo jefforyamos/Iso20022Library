@@ -20,7 +20,7 @@ public partial record PreviousYear2
     /// <summary>
     /// Selection of investment plans issued during previous years.
     /// </summary>
-    public required IPreviousYear1Choice PreviousYears { get; init; } 
+    public required PreviousYear1Choice_ PreviousYears { get; init; } 
     /// <summary>
     /// Indicates whether the ISA contains a cash component asset for transfer.
     /// </summary>

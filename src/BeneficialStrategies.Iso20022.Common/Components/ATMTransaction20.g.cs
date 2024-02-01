@@ -28,11 +28,11 @@ public partial record ATMTransaction20
     /// <summary>
     /// Incident occurring during the processing of the transaction.
     /// </summary>
-    public FailureReason7Code? Incident { get; init;  } // Warning: Don't know multiplicity.
+    public FailureReason7Code[] Incident { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Explanation of the incident.
     /// </summary>
-    public IsoMax70Text? IncidentDetail { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] IncidentDetail { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the reconciliation period assigned by the ATM.
     /// </summary>

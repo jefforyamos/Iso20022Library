@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.VerificationReason1Choice;
 /// <summary>
 /// Reason why the verified identification information is incorrect, as published in an external reason code list.
 /// </summary>
-public partial record Code : IVerificationReason1Choice
+public partial record Code : VerificationReason1Choice_
 {
     public required ExternalVerificationReason1Code Value { get; init; }
 }

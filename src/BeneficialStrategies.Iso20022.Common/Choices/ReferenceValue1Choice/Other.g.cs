@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.ReferenceValue1Choice;
 /// <summary>
 /// Other type of reference.
 /// </summary>
-public partial record Other : IReferenceValue1Choice
+public partial record Other : ReferenceValue1Choice_
 {
     #nullable enable
     /// <summary>
     /// Type of reference
     /// </summary>
-    public required IReferenceType1Choice Type { get; init; } 
+    public required ReferenceType1Choice_ Type { get; init; } 
     /// <summary>
     /// Value of the reference
     /// </summary>

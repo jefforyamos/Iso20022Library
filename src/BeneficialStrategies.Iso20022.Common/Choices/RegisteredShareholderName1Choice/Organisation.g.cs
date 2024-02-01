@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RegisteredShareholderName1Choice
 /// <summary>
 /// Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.
 /// </summary>
-public partial record Organisation : IRegisteredShareholderName1Choice
+public partial record Organisation : RegisteredShareholderName1Choice_
 {
     #nullable enable
     /// <summary>

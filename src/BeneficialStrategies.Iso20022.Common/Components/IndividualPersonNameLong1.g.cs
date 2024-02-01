@@ -20,7 +20,7 @@ public partial record IndividualPersonNameLong1
     /// <summary>
     /// Prefix, as a title before a person's name.
     /// </summary>
-    public INamePrefix2Choice? NamePrefix { get; init; } 
+    public NamePrefix2Choice_? NamePrefix { get; init; } 
     /// <summary>
     /// Surname is a name added to a given name and is part of a personal name. In many cases, a surname is a family name.
     /// </summary>

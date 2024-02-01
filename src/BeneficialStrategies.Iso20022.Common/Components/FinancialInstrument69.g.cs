@@ -24,15 +24,15 @@ public partial record FinancialInstrument69
     /// <summary>
     /// Identification of the asset.
     /// </summary>
-    public required IFinancialInstrument1Choice Instrument { get; init; } 
+    public required FinancialInstrument1Choice_ Instrument { get; init; } 
     /// <summary>
     /// Quantity of asset to be transferred.
     /// </summary>
-    public IQuantity44Choice? Quantity { get; init; } 
+    public Quantity44Choice_? Quantity { get; init; } 
     /// <summary>
     /// Specifies how the financial instrument is transferred.
     /// </summary>
-    public required ITransferType1Choice TransferType { get; init; } 
+    public required TransferType1Choice_ TransferType { get; init; } 
     /// <summary>
     /// Security is to be converted into another security before transfer.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record FinancialInstrument69
     /// <summary>
     /// Breakdown of units.
     /// </summary>
-    public Unit11? UnitsDetails { get; init;  } // Warning: Don't know multiplicity.
+    public Unit11[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
@@ -105,7 +105,7 @@ public partial record FinancialInstrument69
     /// <summary>
     /// Additional information about the financial instrument.
     /// </summary>
-    public AdditionalInformation15? AdditionalInformation { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

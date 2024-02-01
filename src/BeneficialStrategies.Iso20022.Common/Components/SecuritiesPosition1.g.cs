@@ -24,7 +24,7 @@ public partial record SecuritiesPosition1
     /// <summary>
     /// Specifies the quantity of a position or a balance.
     /// </summary>
-    public required ISubBalanceQuantity2Choice Quantity { get; init; } 
+    public required SubBalanceQuantity2Choice_ Quantity { get; init; } 
     
     #nullable disable
 }

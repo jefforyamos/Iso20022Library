@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RateType48Choice;
 /// <summary>
 /// Proprietary identification of the type of tax rate.
 /// </summary>
-public partial record Proprietary : IRateType48Choice
+public partial record Proprietary : RateType48Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CorporateActionMandatoryVoluntar
 /// <summary>
 /// Proprietary code to express whether the event is mandatory, mandatory with options or voluntary.
 /// </summary>
-public partial record Proprietary : ICorporateActionMandatoryVoluntary1FormatChoice
+public partial record Proprietary : CorporateActionMandatoryVoluntary1FormatChoice_
 {
     #nullable enable
     /// <summary>

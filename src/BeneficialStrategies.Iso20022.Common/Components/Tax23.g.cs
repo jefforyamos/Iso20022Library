@@ -20,11 +20,11 @@ public partial record Tax23
     /// <summary>
     /// Specifies the type of tax.
     /// </summary>
-    public required ITaxType2Choice Type { get; init; } 
+    public required TaxType2Choice_ Type { get; init; } 
     /// <summary>
     /// Specifies the tax as an amount or percentage.
     /// </summary>
-    public required IAmountOrPercentage2Choice AmountOrPercentage { get; init; } 
+    public required AmountOrPercentage2Choice_ AmountOrPercentage { get; init; } 
     
     #nullable disable
 }

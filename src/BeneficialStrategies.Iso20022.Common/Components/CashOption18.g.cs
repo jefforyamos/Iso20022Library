@@ -32,7 +32,7 @@ public partial record CashOption18
     /// <summary>
     /// Choice between a cash account, a charges account or a tax account.
     /// </summary>
-    public IAccount8Choice? Account { get; init; } 
+    public Account8Choice_? Account { get; init; } 
     /// <summary>
     /// Provides information about cash parties.
     /// </summary>

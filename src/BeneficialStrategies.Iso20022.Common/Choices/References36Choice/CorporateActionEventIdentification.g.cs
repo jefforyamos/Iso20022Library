@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.References36Choice;
 /// <summary>
 /// Identification assigned by the account servicer to unambiguously identify a corporate action event.
 /// </summary>
-public partial record CorporateActionEventIdentification : IReferences36Choice
+public partial record CorporateActionEventIdentification : References36Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

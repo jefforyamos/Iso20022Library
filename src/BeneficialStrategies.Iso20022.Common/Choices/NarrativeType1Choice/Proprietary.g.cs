@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.NarrativeType1Choice;
 /// <summary>
 /// Type of narrative expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : INarrativeType1Choice
+public partial record Proprietary : NarrativeType1Choice_
 {
     #nullable enable
     /// <summary>

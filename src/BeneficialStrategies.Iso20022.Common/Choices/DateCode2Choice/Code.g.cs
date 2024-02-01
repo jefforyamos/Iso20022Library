@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateCode2Choice;
 /// <summary>
 /// Standard code to specify the type of date.
 /// </summary>
-public partial record Code : IDateCode2Choice
+public partial record Code : DateCode2Choice_
 {
     public required DateType6Code Value { get; init; }
 }

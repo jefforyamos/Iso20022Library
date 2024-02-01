@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ModificationProcessingStatus9Cho
 /// <summary>
 /// Provides the status of a modification request.
 /// </summary>
-public partial record Code : IModificationProcessingStatus9Choice
+public partial record Code : ModificationProcessingStatus9Choice_
 {
     public required ModificationProcessingStatus1Code Value { get; init; }
 }

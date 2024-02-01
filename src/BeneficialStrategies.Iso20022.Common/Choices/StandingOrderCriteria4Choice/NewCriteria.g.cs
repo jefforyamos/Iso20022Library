@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.StandingOrderCriteria4Choice;
 /// <summary>
 /// Explicitly defines the query criteria.
 /// </summary>
-public partial record NewCriteria : IStandingOrderCriteria4Choice
+public partial record NewCriteria : StandingOrderCriteria4Choice_
 {
     #nullable enable
     /// <summary>

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument16Choice;
 /// <summary>
 /// Settlement instructions for a payment by cheque.
 /// </summary>
-public partial record ChequeDetails : IPaymentInstrument16Choice
+public partial record ChequeDetails : PaymentInstrument16Choice_
 {
     #nullable enable
     /// <summary>

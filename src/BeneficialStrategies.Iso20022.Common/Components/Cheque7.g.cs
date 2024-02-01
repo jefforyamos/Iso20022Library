@@ -32,7 +32,7 @@ public partial record Cheque7
     /// <summary>
     /// Specifies the delivery method of the cheque by the debtor's agent.
     /// </summary>
-    public IChequeDeliveryMethod1Choice? DeliveryMethod { get; init; } 
+    public ChequeDeliveryMethod1Choice_? DeliveryMethod { get; init; } 
     /// <summary>
     /// Party to whom the debtor's agent needs to send the cheque.
     /// </summary>
@@ -52,7 +52,7 @@ public partial record Cheque7
     /// <summary>
     /// Information that needs to be printed on a cheque, used by the payer to add miscellaneous information.
     /// </summary>
-    public IReadOnlyCollection<IsoMax35Text> MemoField { get; init; } = [];
+    public IsoMax35Text[] MemoField { get; init; } = [];
     /// <summary>
     /// Regional area in which the cheque can be cleared, when a country has no nation-wide cheque clearing organisation.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record Cheque7
     /// <summary>
     /// Signature to be used by the cheque servicer on a specific cheque to be printed.
     /// </summary>
-    public IReadOnlyCollection<IsoMax70Text> Signature { get; init; } = [];
+    public IsoMax70Text[] Signature { get; init; } = [];
     
     #nullable disable
 }

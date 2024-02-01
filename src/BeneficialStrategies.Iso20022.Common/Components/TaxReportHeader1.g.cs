@@ -28,7 +28,7 @@ public partial record TaxReportHeader1
     /// <summary>
     /// Party to which the TaxReport is delivered. This message block contains party details for a specific tax authority.
     /// </summary>
-    public TaxOrganisationIdentification1? TaxAuthority { get; init;  } // Warning: Don't know multiplicity.
+    public TaxOrganisationIdentification1[] TaxAuthority { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

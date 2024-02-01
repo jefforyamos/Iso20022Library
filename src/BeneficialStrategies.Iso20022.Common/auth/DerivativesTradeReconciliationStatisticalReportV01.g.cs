@@ -46,7 +46,7 @@ public partial record DerivativesTradeReconciliationStatisticalReportV01 : IOute
     [DataMember(Name="SttstcsPerCtrPty")]
     [XmlElement(ElementName="SttstcsPerCtrPty")]
     [Required]
-    public required IStatisticsPerCounterparty1Choice StatisticsPerCounterparty { get; init; }
+    public required StatisticsPerCounterparty1Choice_ StatisticsPerCounterparty { get; init; }
     
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.

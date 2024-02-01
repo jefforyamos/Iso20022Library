@@ -31,11 +31,11 @@ public partial record Transaction134
     /// Reason or purpose to send the message.
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    public ISO8583MessageReasonCode? MessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public ISO8583MessageReasonCode[] MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Supports message reason codes that are not defined in external code list. 
     /// </summary>
-    public IsoMax256Text? AlternateMessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax256Text[] AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
@@ -51,7 +51,7 @@ public partial record Transaction134
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    public AdditionalFee2? AdditionalFee { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFee2[] AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information pertaining to the network management type or function being performed.
     /// </summary>
@@ -59,7 +59,7 @@ public partial record Transaction134
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

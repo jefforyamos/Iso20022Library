@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AssetClassCommodityEnvironmental
 /// <summary>
 /// Weather environmental commodity derivative.
 /// </summary>
-public partial record Weather : IAssetClassCommodityEnvironmental3Choice
+public partial record Weather : AssetClassCommodityEnvironmental3Choice_
 {
     #nullable enable
     /// <summary>

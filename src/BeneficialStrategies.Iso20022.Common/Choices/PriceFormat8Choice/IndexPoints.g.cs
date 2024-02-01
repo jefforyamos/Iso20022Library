@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat8Choice;
 /// <summary>
 /// Price expressed as an index points.
 /// </summary>
-public partial record IndexPoints : IPriceFormat8Choice
+public partial record IndexPoints : PriceFormat8Choice_
 {
     public required IsoDecimalNumber Value { get; init; }
 }

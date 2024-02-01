@@ -24,7 +24,7 @@ public partial record ClearingPartyAndTime10
     /// <summary>
     /// Identifies the central counterparty (CCP) that cleared the transaction.
     /// </summary>
-    public IOrganisationIdentification10Choice? CCP { get; init; } 
+    public OrganisationIdentification10Choice_? CCP { get; init; } 
     /// <summary>
     /// Time and date when clearing took place.
     /// </summary>

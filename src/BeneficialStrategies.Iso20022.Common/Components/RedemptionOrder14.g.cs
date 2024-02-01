@@ -28,7 +28,7 @@ public partial record RedemptionOrder14
     /// <summary>
     /// Category of the investment fund order.
     /// </summary>
-    public IReadOnlyCollection<IFundOrderType4Choice> OrderType { get; init; } = [];
+    public FundOrderType4Choice_[] OrderType { get; init; } = [];
     /// <summary>
     /// Investment fund class related to the order.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record RedemptionOrder14
     /// <summary>
     /// Amount of money or the number of units or percentage to be redeemed for the redemption order.
     /// </summary>
-    public required IFinancialInstrumentQuantity28Choice AmountOrUnitsOrPercentage { get; init; } 
+    public required FinancialInstrumentQuantity28Choice_ AmountOrUnitsOrPercentage { get; init; } 
     /// <summary>
     /// Indicates the rounding direction applied to nearest unit.
     /// </summary>
@@ -113,7 +113,7 @@ public partial record RedemptionOrder14
     /// <summary>
     /// Breakdown of the net amount per type of order.
     /// </summary>
-    public IReadOnlyCollection<InvestmentFundsOrderBreakdown2> StaffClientBreakdown { get; init; } = [];
+    public InvestmentFundsOrderBreakdown2[] StaffClientBreakdown { get; init; } = [];
     /// <summary>
     /// Specifies if advice has been received from an independent financial advisor.
     /// </summary>
@@ -125,7 +125,7 @@ public partial record RedemptionOrder14
     /// <summary>
     /// Party related to the transaction.
     /// </summary>
-    public IReadOnlyCollection<Intermediary40> RelatedPartyDetails { get; init; } = [];
+    public Intermediary40[] RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Part of an investor's retained subscription amount that is returned by the fund in order to reimburse preliminary incentive/performance fees.
     /// </summary>
@@ -133,15 +133,15 @@ public partial record RedemptionOrder14
     /// <summary>
     /// Assessment of the customer’s behaviour at the time of the account opening application.
     /// </summary>
-    public ICustomerConductClassification1Choice? CustomerConductClassification { get; init; } 
+    public CustomerConductClassification1Choice_? CustomerConductClassification { get; init; } 
     /// <summary>
     /// Means by which the investor or account owner submits the open account form.
     /// </summary>
-    public ITransactionChannelType1Choice? TransactionChannelType { get; init; } 
+    public TransactionChannelType1Choice_? TransactionChannelType { get; init; } 
     /// <summary>
     /// Type of signature.
     /// </summary>
-    public ISignatureType1Choice? SignatureType { get; init; } 
+    public SignatureType1Choice_? SignatureType { get; init; } 
     /// <summary>
     /// Information about a non-standard order.
     /// </summary>

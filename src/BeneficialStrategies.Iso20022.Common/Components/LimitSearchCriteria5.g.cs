@@ -20,19 +20,19 @@ public partial record LimitSearchCriteria5
     /// <summary>
     /// Identification of a particular cash clearing system.
     /// </summary>
-    public ISystemIdentification2Choice? SystemIdentification { get; init; } 
+    public SystemIdentification2Choice_? SystemIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of a member within a system, assigned using the member identification scheme of the system.
     /// </summary>
-    public BranchAndFinancialInstitutionIdentification5? BilateralLimitCounterpartyIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public BranchAndFinancialInstitutionIdentification5[] BilateralLimitCounterpartyIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of limit as set by default in the system. The default limit is applicable by the system unless otherwise instructed.
     /// </summary>
-    public ILimitType1Choice? DefaultLimitType { get; init;  } // Warning: Don't know multiplicity.
+    public LimitType1Choice_[] DefaultLimitType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of limit applied by the system at the present time.
     /// </summary>
-    public ILimitType1Choice? CurrentLimitType { get; init;  } // Warning: Don't know multiplicity.
+    public LimitType1Choice_[] CurrentLimitType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>
@@ -40,15 +40,15 @@ public partial record LimitSearchCriteria5
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public IAccountIdentification4Choice? AccountIdentification { get; init; } 
+    public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     /// <summary>
     /// Actual usage of the limit expressed as an amount.
     /// </summary>
-    public IActiveAmountRange3Choice? UsedAmount { get; init; } 
+    public ActiveAmountRange3Choice_? UsedAmount { get; init; } 
     /// <summary>
     /// Actual usage of the limit expressed as a percentage.
     /// </summary>
-    public IPercentageRange1Choice? UsedPercentage { get; init; } 
+    public PercentageRange1Choice_? UsedPercentage { get; init; } 
     /// <summary>
     /// Currency unit used to specify the limit amount.
     /// </summary>
@@ -56,11 +56,11 @@ public partial record LimitSearchCriteria5
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
-    public IActiveAmountRange3Choice? LimitAmount { get; init; } 
+    public ActiveAmountRange3Choice_? LimitAmount { get; init; } 
     /// <summary>
     /// Range of dates when the limit becomes valid.
     /// </summary>
-    public IDateAndPeriod2Choice? LimitValidAsOfDate { get; init; } 
+    public DateAndPeriod2Choice_? LimitValidAsOfDate { get; init; } 
     
     #nullable disable
 }

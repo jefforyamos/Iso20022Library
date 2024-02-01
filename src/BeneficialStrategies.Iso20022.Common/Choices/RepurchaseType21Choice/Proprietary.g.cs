@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RepurchaseType21Choice;
 /// <summary>
 /// Type of securities financing transaction process expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IRepurchaseType21Choice
+public partial record Proprietary : RepurchaseType21Choice_
 {
     #nullable enable
     /// <summary>

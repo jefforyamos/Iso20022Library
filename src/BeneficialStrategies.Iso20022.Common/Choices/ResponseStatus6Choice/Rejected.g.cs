@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ResponseStatus6Choice;
 /// <summary>
 /// Rejected status of an instruction, advice or request.
 /// </summary>
-public partial record Rejected : IResponseStatus6Choice
+public partial record Rejected : ResponseStatus6Choice_
 {
     #nullable enable
     #nullable disable

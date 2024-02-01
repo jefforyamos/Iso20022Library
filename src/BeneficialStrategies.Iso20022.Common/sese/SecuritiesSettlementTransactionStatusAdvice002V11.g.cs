@@ -76,7 +76,7 @@ public partial record SecuritiesSettlementTransactionStatusAdvice002V11 : IOuter
     [Description(@"Provides details on the processing status of the transaction.")]
     [DataMember(Name="PrcgSts")]
     [XmlElement(ElementName="PrcgSts")]
-    public IProcessingStatus81Choice? ProcessingStatus { get; init; }
+    public ProcessingStatus81Choice_? ProcessingStatus { get; init; }
     
     /// <summary>
     /// Provides the matching status of an instruction as per the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).
@@ -85,7 +85,7 @@ public partial record SecuritiesSettlementTransactionStatusAdvice002V11 : IOuter
     [Description(@"Provides the matching status of an instruction as per the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).")]
     [DataMember(Name="IfrrdMtchgSts")]
     [XmlElement(ElementName="IfrrdMtchgSts")]
-    public IMatchingStatus32Choice? InferredMatchingStatus { get; init; }
+    public MatchingStatus32Choice_? InferredMatchingStatus { get; init; }
     
     /// <summary>
     /// Provides the matching status of the instruction.
@@ -94,7 +94,7 @@ public partial record SecuritiesSettlementTransactionStatusAdvice002V11 : IOuter
     [Description(@"Provides the matching status of the instruction.")]
     [DataMember(Name="MtchgSts")]
     [XmlElement(ElementName="MtchgSts")]
-    public IMatchingStatus32Choice? MatchingStatus { get; init; }
+    public MatchingStatus32Choice_? MatchingStatus { get; init; }
     
     /// <summary>
     /// Provides the status of settlement of a transaction.
@@ -103,7 +103,7 @@ public partial record SecuritiesSettlementTransactionStatusAdvice002V11 : IOuter
     [Description(@"Provides the status of settlement of a transaction.")]
     [DataMember(Name="SttlmSts")]
     [XmlElement(ElementName="SttlmSts")]
-    public ISettlementStatus29Choice? SettlementStatus { get; init; }
+    public SettlementStatus29Choice_? SettlementStatus { get; init; }
     
     /// <summary>
     /// Identifies the details of the transaction.

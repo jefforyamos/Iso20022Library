@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InvestorCapacity5Choice;
 /// <summary>
 /// Investor capacity expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IInvestorCapacity5Choice
+public partial record Proprietary : InvestorCapacity5Choice_
 {
     #nullable enable
     /// <summary>

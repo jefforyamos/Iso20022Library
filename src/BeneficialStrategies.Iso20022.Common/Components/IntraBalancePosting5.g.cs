@@ -24,7 +24,7 @@ public partial record IntraBalancePosting5
     /// <summary>
     /// Further details on the individual intrabalance movement transaction.
     /// </summary>
-    public IntraBalancePosting6? Movement { get; init;  } // Warning: Don't know multiplicity.
+    public IntraBalancePosting6[] Movement { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

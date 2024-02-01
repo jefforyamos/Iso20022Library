@@ -99,7 +99,7 @@ public partial record AgentCADeactivationStatusAdviceV01 : IOuterRecord
     [DataMember(Name="DeactvtnCxlReqSts")]
     [XmlElement(ElementName="DeactvtnCxlReqSts")]
     [Required]
-    public required ICorporateActionDeactivationCancellationStatus1Choice DeactivationCancellationRequestStatus { get; init; }
+    public required CorporateActionDeactivationCancellationStatus1Choice_ DeactivationCancellationRequestStatus { get; init; }
     
     #nullable disable
     

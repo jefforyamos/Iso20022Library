@@ -51,7 +51,7 @@ public partial record InvestorRequirements1
     /// Minimum recommended holding period (RHP).
     /// When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05080. In EMT v1, this is known as Time Horizon.
     /// </summary>
-    public ITimeHorizon1Choice? MinimumHoldingPeriod { get; init; } 
+    public TimeHorizon1Choice_? MinimumHoldingPeriod { get; init; } 
     /// <summary>
     /// Specifies whether the product may be terminated early. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05100.
     /// </summary>
@@ -59,11 +59,11 @@ public partial record InvestorRequirements1
     /// <summary>
     /// Specifies specific indicative investment needs. Should be discussed and agreed between the asset manager and bank. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05110.
     /// </summary>
-    public IInvestmentNeed1Choice? SpecificInvestmentNeed { get; init; } 
+    public InvestmentNeed1Choice_? SpecificInvestmentNeed { get; init; } 
     /// <summary>
     /// Other investment need. 
     /// </summary>
-    public OtherInvestmentNeed1? Other { get; init;  } // Warning: Don't know multiplicity.
+    public OtherInvestmentNeed1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

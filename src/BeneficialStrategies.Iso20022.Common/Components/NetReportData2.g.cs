@@ -44,7 +44,7 @@ public partial record NetReportData2
     /// <summary>
     /// Describes the central system responsible for generating the net report.
     /// </summary>
-    public IPartyIdentification242Choice? NetReportServicer { get; init; } 
+    public PartyIdentification242Choice_? NetReportServicer { get; init; } 
     /// <summary>
     /// Describes the type of netting service supporting the net report.
     /// </summary>

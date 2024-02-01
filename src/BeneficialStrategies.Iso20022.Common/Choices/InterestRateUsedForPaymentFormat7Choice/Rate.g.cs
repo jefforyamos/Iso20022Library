@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InterestRateUsedForPaymentFormat
 /// <summary>
 /// Value is expressed as a rate.
 /// </summary>
-public partial record Rate : IInterestRateUsedForPaymentFormat7Choice
+public partial record Rate : InterestRateUsedForPaymentFormat7Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

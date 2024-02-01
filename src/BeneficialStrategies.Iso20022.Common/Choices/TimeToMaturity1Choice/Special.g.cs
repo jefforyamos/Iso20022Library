@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TimeToMaturity1Choice;
 /// <summary>
 /// Provides the time to maturity when no period is provide.
 /// </summary>
-public partial record Special : ITimeToMaturity1Choice
+public partial record Special : TimeToMaturity1Choice_
 {
     public required SpecialPurpose2Code Value { get; init; }
 }

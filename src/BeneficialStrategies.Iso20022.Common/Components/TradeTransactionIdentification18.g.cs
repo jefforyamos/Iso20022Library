@@ -20,11 +20,11 @@ public partial record TradeTransactionIdentification18
     /// <summary>
     /// Unique code identifying the reporting counterparty.
     /// </summary>
-    public required IOrganisationIdentification15Choice ReportingCounterparty { get; init; } 
+    public required OrganisationIdentification15Choice_ ReportingCounterparty { get; init; } 
     /// <summary>
     /// Unique code identifying the entity with which the reporting counterparty concluded the transaction.
     /// </summary>
-    public required IPartyIdentification236Choice OtherCounterparty { get; init; } 
+    public required PartyIdentification236Choice_ OtherCounterparty { get; init; } 
     /// <summary>
     /// Unique trade Identifier (UTI) as agreed with the counterparty.
     /// </summary>

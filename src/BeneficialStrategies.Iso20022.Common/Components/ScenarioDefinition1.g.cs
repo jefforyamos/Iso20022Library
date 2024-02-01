@@ -32,7 +32,7 @@ public partial record ScenarioDefinition1
     /// <summary>
     /// Information relating to the one / two major representative product(s).
     /// </summary>
-    public IReadOnlyCollection<StressItem1> StressItem { get; init; } = [];
+    public StressItem1[] StressItem { get; init; } = [];
     /// <summary>
     /// Long description of the scenario.
     /// </summary>

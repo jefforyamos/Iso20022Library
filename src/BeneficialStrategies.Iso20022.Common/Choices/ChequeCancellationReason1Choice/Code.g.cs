@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ChequeCancellationReason1Choice;
 /// <summary>
 /// Reason, as published in an external code set.
 /// </summary>
-public partial record Code : IChequeCancellationReason1Choice
+public partial record Code : ChequeCancellationReason1Choice_
 {
     public required ExternalChequeCancellationReason1Code Value { get; init; }
 }

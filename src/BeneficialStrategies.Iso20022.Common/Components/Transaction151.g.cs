@@ -34,7 +34,7 @@ public partial record Transaction151
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    public AdditionalFee2? AdditionalFee { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFee2[] AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of a collection.
     /// Mandatory for start or end of a collection and their acknowledgements if the batch is included in a collection.
@@ -99,14 +99,14 @@ public partial record Transaction151
     /// <summary>
     /// List of collection identification that should have been sent or received.
     /// </summary>
-    public IsoMax70Text? CollectionIdentificationList { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] CollectionIdentificationList { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// List of batch identifications of the collection.
     /// For a start of collection, the identification of expected batches, if known.
     /// For an end of collection, this is the identification of batches sent in the closing collection.
     /// For an end of collection acknowledgement, this is the identification of batches received in the collection.
     /// </summary>
-    public IsoMax70Text? BatchIdentificationList { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax70Text[] BatchIdentificationList { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of a specific checkpoint.
     /// </summary>
@@ -138,7 +138,7 @@ public partial record Transaction151
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies that this batch or collection is a corrected version of a batch or collection that was previously sent.
     /// </summary>

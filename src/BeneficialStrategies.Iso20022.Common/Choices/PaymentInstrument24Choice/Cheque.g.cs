@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentInstrument24Choice;
 /// <summary>
 /// Indicates whether the payment is done via cheque.
 /// </summary>
-public partial record Cheque : IPaymentInstrument24Choice
+public partial record Cheque : PaymentInstrument24Choice_
 {
     public required IsoYesNoIndicator Value { get; init; }
 }

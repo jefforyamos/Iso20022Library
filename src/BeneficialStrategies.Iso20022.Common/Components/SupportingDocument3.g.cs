@@ -44,15 +44,15 @@ public partial record SupportingDocument3
     /// <summary>
     /// Reference of the registered contract or the underlying contract for the supporting documents.
     /// </summary>
-    public required IContractRegistrationReference2Choice ContractReference { get; init; } 
+    public required ContractRegistrationReference2Choice_ ContractReference { get; init; } 
     /// <summary>
     /// Individual entry of the supporting document.
     /// </summary>
-    public SupportingDocumentEntry2? Entry { get; init;  } // Warning: Don't know multiplicity.
+    public SupportingDocumentEntry2[] Entry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

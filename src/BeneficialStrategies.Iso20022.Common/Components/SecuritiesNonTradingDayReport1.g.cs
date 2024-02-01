@@ -20,11 +20,11 @@ public partial record SecuritiesNonTradingDayReport1
     /// <summary>
     /// Identification of the specific venue this relates to - operating MIC, segment MIC, NCA
     /// </summary>
-    public required ITradingVenueIdentification1Choice Identification { get; init; } 
+    public required TradingVenueIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Provides the non working days of the identified venue. Details on why it is a non working day are also captured.
     /// </summary>
-    public SecuritiesNonTradingDay1? NonWorkingDay { get; init;  } // Warning: Don't know multiplicity.
+    public SecuritiesNonTradingDay1[] NonWorkingDay { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

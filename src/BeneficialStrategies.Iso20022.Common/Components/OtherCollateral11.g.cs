@@ -44,11 +44,11 @@ public partial record OtherCollateral11
     /// <summary>
     /// Date on which the other collateral was issued.
     /// </summary>
-    public IDateFormat14Choice? IssueDate { get; init; } 
+    public DateFormat14Choice_? IssueDate { get; init; } 
     /// <summary>
     /// Date on which the other collateral expires.
     /// </summary>
-    public IDateFormat14Choice? ExpiryDate { get; init; } 
+    public DateFormat14Choice_? ExpiryDate { get; init; } 
     /// <summary>
     /// Indicates that the collateral deposited in the clearing house covers the margin until a specific timeframe.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record OtherCollateral11
     /// <summary>
     /// Party that issues the bank guarantee or letter of / documentary credit.
     /// </summary>
-    public IPartyIdentification178Choice? Issuer { get; init; } 
+    public PartyIdentification178Choice_? Issuer { get; init; } 
     /// <summary>
     /// Valuation date of the other collateral when it was taken as collateral.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record OtherCollateral11
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
-    public ISafekeepingPlaceFormat29Choice? SafekeepingPlace { get; init; } 
+    public SafekeepingPlaceFormat29Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>

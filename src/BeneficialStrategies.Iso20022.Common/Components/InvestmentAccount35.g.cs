@@ -36,19 +36,19 @@ public partial record InvestmentAccount35
     /// <summary>
     /// Purpose of the account/source fund type. This is typically linked to an investment product, for example, wrapper, ISA.
     /// </summary>
-    public IAccountType1Choice? Type { get; init; } 
+    public AccountType1Choice_? Type { get; init; } 
     /// <summary>
     /// Ownership status of the account, for example, joint owners.
     /// </summary>
-    public required IOwnershipType1Choice OwnershipType { get; init; } 
+    public required OwnershipType1Choice_ OwnershipType { get; init; } 
     /// <summary>
     /// Tax advantage specific to the account.
     /// </summary>
-    public ITaxExemptionReason1Choice? TaxExemption { get; init; } 
+    public TaxExemptionReason1Choice_? TaxExemption { get; init; } 
     /// <summary>
     /// Frequency at which a statement is issued.
     /// </summary>
-    public IStatementFrequencyReason1Choice? StatementFrequency { get; init; } 
+    public StatementFrequencyReason1Choice_? StatementFrequency { get; init; } 
     /// <summary>
     /// Currency chosen for reporting purposes by the account owner in agreement with the account servicer.
     /// </summary>
@@ -88,19 +88,19 @@ public partial record InvestmentAccount35
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
-    public IPartyIdentification2Choice? AccountServicer { get; init; } 
+    public PartyIdentification2Choice_? AccountServicer { get; init; } 
     /// <summary>
     /// Detailed information about the investment fund associated to the account.
     /// </summary>
-    public FinancialInstrument29? FundsDetails { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrument29[] FundsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Part of the investment account to or from which cash entries are made.
     /// </summary>
-    public IReadOnlyCollection<CashAccount12> CashAccount { get; init; } = [];
+    public CashAccount12[] CashAccount { get; init; } = [];
     /// <summary>
     /// Part of the investment account to or from which securities entries are made.
     /// </summary>
-    public IReadOnlyCollection<SecuritiesAccount4> SecuritiesAccount { get; init; } = [];
+    public SecuritiesAccount4[] SecuritiesAccount { get; init; } = [];
     /// <summary>
     /// Specifies information about blocked accounts.
     /// </summary>
@@ -108,7 +108,7 @@ public partial record InvestmentAccount35
     /// <summary>
     /// Specifies the type of usage of the account.
     /// </summary>
-    public IAccountUsageType1Choice? AccountUsageType { get; init; } 
+    public AccountUsageType1Choice_? AccountUsageType { get; init; } 
     /// <summary>
     /// Specifies if documentary evidence has been provided for the foreign resident.
     /// </summary>
@@ -116,7 +116,7 @@ public partial record InvestmentAccount35
     /// <summary>
     /// Date the investor signs the open account form.
     /// </summary>
-    public IDateAndDateTimeChoice? AccountSignatureDateTime { get; init; } 
+    public DateAndDateTimeChoice_? AccountSignatureDateTime { get; init; } 
     
     #nullable disable
 }

@@ -40,7 +40,7 @@ public partial record CardPaymentTransactionDetails45
     /// <summary>
     /// Reason to process an online authorisation.
     /// </summary>
-    public OnLineReason1Code? OnLineReason { get; init;  } // Warning: Don't know multiplicity.
+    public OnLineReason1Code[] OnLineReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Transaction category level on an unattended POI (Point Of Interaction).
     /// </summary>
@@ -68,7 +68,7 @@ public partial record CardPaymentTransactionDetails45
     /// <summary>
     /// Item purchased with the transaction.
     /// </summary>
-    public Product3? SaleItem { get; init;  } // Warning: Don't know multiplicity.
+    public Product3[] SaleItem { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Location of the delivery, for instance pump number or parking bay.
     /// </summary>

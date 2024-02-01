@@ -32,7 +32,7 @@ public partial record LongPaymentIdentification1
     /// <summary>
     /// Message type with which the instruction has been initiated.
     /// </summary>
-    public IPaymentOrigin1Choice? PaymentMethod { get; init; } 
+    public PaymentOrigin1Choice_? PaymentMethod { get; init; } 
     /// <summary>
     /// Agent that instructs the next party in the chain to carry out the (set of) instruction(s).
     /// </summary>

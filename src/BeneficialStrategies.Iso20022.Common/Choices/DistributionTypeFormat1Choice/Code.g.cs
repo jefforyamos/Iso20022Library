@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DistributionTypeFormat1Choice;
 /// <summary>
 /// Standard code to specify whether the proceeds of the event will be distributed on a rolling basis rather than on a specific date.
 /// </summary>
-public partial record Code : IDistributionTypeFormat1Choice
+public partial record Code : DistributionTypeFormat1Choice_
 {
     public required DistributionType1Code Value { get; init; }
 }

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReuseDataReport6Choice;
 /// <summary>
 /// Indicates that the report is correcting the erroneous data fields of a previously submitted position.
 /// </summary>
-public partial record Correction : IReuseDataReport6Choice
+public partial record Correction : ReuseDataReport6Choice_
 {
     #nullable enable
     /// <summary>

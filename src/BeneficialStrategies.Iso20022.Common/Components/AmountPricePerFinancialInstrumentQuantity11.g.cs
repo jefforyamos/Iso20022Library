@@ -28,7 +28,7 @@ public partial record AmountPricePerFinancialInstrumentQuantity11
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
-    public required IFinancialInstrumentQuantity36Choice FinancialInstrumentQuantity { get; init; } 
+    public required FinancialInstrumentQuantity36Choice_ FinancialInstrumentQuantity { get; init; } 
     
     #nullable disable
 }

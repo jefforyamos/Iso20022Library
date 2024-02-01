@@ -20,7 +20,7 @@ public partial record SwitchLegReferences2
     /// <summary>
     /// Identification of a switch leg.
     /// </summary>
-    public required ILegIdentification1Choice LegIdentification { get; init; } 
+    public required LegIdentification1Choice_ LegIdentification { get; init; } 
     /// <summary>
     /// Additional information about the reason for the rejection of the leg.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record SwitchLegReferences2
     /// <summary>
     /// Elements from the original individual order that have been repaired so that the order can be accepted.
     /// </summary>
-    public IReadOnlyCollection<Fee3> RepairedFee { get; init; } = [];
+    public Fee3[] RepairedFee { get; init; } = [];
     /// <summary>
     /// Account identification of the switch leg that is rejected or repaired.
     /// </summary>

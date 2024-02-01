@@ -59,7 +59,7 @@ public partial record Terminal1
     /// <summary>
     /// Data related to the components of the POI (Point Of Interaction) performing the transactions.
     /// </summary>
-    public PointOfInteractionComponent8? POIComponent { get; init;  } // Warning: Don't know multiplicity.
+    public PointOfInteractionComponent8[] POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

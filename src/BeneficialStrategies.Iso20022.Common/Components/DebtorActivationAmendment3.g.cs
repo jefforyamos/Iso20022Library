@@ -32,11 +32,11 @@ public partial record DebtorActivationAmendment3
     /// <summary>
     /// Provides the original activation data.
     /// </summary>
-    public required IOriginalActivation2Choice OriginalActivation { get; init; } 
+    public required OriginalActivation2Choice_ OriginalActivation { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1? SupplementaryData { get; init;  } // Warning: Don't know multiplicity.
+    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

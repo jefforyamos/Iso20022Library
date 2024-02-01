@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PendingStatusReason2Choice;
 /// <summary>
 /// Reason for the pending account status expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IPendingStatusReason2Choice
+public partial record Proprietary : PendingStatusReason2Choice_
 {
     #nullable enable
     /// <summary>

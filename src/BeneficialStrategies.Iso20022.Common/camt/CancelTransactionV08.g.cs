@@ -66,7 +66,7 @@ public partial record CancelTransactionV08 : IOuterRecord
     [DataMember(Name="PmtId")]
     [XmlElement(ElementName="PmtId")]
     [Required]
-    public required IPaymentIdentification6Choice PaymentIdentification { get; init; }
+    public required PaymentIdentification6Choice_ PaymentIdentification { get; init; }
     
     /// <summary>
     /// Account to or from which a cash entry is made.

@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.EventProcessingStatus4Choice;
 /// <summary>
 /// Proprietary status related to the event processing.
 /// </summary>
-public partial record ProprietaryStatus : IEventProcessingStatus4Choice
+public partial record ProprietaryStatus : EventProcessingStatus4Choice_
 {
     #nullable enable
     /// <summary>

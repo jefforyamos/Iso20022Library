@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.BillingBalanceType1Choice;
 /// <summary>
 /// Defines the type of billing balance, as published in an external billing balance type code list.
 /// </summary>
-public partial record Code : IBillingBalanceType1Choice
+public partial record Code : BillingBalanceType1Choice_
 {
     public required ExternalBillingBalanceType1Code Value { get; init; }
 }

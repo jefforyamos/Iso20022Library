@@ -24,11 +24,11 @@ public partial record PriceInformation9
     /// <summary>
     /// Date on which the price is obtained. With an investment fund, this is as stated in the prospectus.
     /// </summary>
-    public IDateAndDateTime1Choice? QuotationDate { get; init; } 
+    public DateAndDateTime1Choice_? QuotationDate { get; init; } 
     /// <summary>
     /// Period during which the price of a security is determined (For outturn securities).
     /// </summary>
-    public IDateTimePeriodChoice? PriceCalculationPeriod { get; init; } 
+    public DateTimePeriodChoice_? PriceCalculationPeriod { get; init; } 
     /// <summary>
     /// Place from which the price was obtained.
     /// </summary>

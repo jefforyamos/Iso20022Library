@@ -24,7 +24,7 @@ public partial record ParticipantInformation1
     /// <summary>
     /// National BIC identifiers for authorised and central branches.
     /// </summary>
-    public ICentralisedAndAuthorisedBranchIdentification1Choice? BankBranch { get; init; } 
+    public CentralisedAndAuthorisedBranchIdentification1Choice_? BankBranch { get; init; } 
     /// <summary>
     /// CBRF identification of the terminal.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record ParticipantInformation1
     /// <summary>
     /// Intraday restrictions details.
     /// </summary>
-    public IsoMax35Text? Restrictions { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax35Text[] Restrictions { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// External payment system details.
     /// </summary>

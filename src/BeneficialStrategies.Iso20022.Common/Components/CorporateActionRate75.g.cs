@@ -20,19 +20,19 @@ public partial record CorporateActionRate75
     /// <summary>
     /// Quantity of additional intermediate securities/new equities awarded for a given quantity of securities derived from subscription.
     /// </summary>
-    public IRatioFormat21Choice? AdditionalQuantityForSubscribedResultantSecurities { get; init; } 
+    public RatioFormat21Choice_? AdditionalQuantityForSubscribedResultantSecurities { get; init; } 
     /// <summary>
     /// Quantity of additional securities for a given quantity of underlying securities where underlying securities are not exchanged or debited, for example, 1 for 1: 1 new equity credited for every 1 underlying equity = 2 resulting equities.
     /// </summary>
-    public IRatioFormat21Choice? AdditionalQuantityForExistingSecurities { get; init; } 
+    public RatioFormat21Choice_? AdditionalQuantityForExistingSecurities { get; init; } 
     /// <summary>
     /// Quantity of new securities for a given quantity of underlying securities, where the underlying securities will be exchanged or debited, for example, 2 for 1: 2 new equities credited for every 1 underlying equity debited = 2 resulting equities.
     /// </summary>
-    public IRatioFormat22Choice? NewToOld { get; init; } 
+    public RatioFormat22Choice_? NewToOld { get; init; } 
     /// <summary>
     /// Rate used to calculate the amount of the charges/fees that cannot be categorised.
     /// </summary>
-    public IRateAndAmountFormat43Choice? ChargesFees { get; init; } 
+    public RateAndAmountFormat43Choice_? ChargesFees { get; init; } 
     /// <summary>
     /// Percentage of fiscal tax to apply.
     /// </summary>
@@ -44,7 +44,7 @@ public partial record CorporateActionRate75
     /// <summary>
     /// Amount of money per equity allocated as the result of a tax credit.
     /// </summary>
-    public ITaxCreditRateFormat9Choice? TaxCreditRate { get; init;  } // Warning: Don't know multiplicity.
+    public TaxCreditRateFormat9Choice_[] TaxCreditRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rate of financial transaction tax.
     /// </summary>

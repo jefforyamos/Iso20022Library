@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarketType9Choice;
 /// <summary>
 /// Market type expressed as a proprietary code.
 /// </summary>
-public partial record Proprietary : IMarketType9Choice
+public partial record Proprietary : MarketType9Choice_
 {
     #nullable enable
     /// <summary>

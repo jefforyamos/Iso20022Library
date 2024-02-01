@@ -36,19 +36,19 @@ public partial record MarginCall2
     /// <summary>
     /// Amount of expected margin that will be either delivered to party A by party B or recalled to party A from party B.
     /// </summary>
-    public IMarginRequirement1Choice? RequirementDetailsDueToA { get; init; } 
+    public MarginRequirement1Choice_? RequirementDetailsDueToA { get; init; } 
     /// <summary>
     /// Amount of expected margin that will be either delivered to party B by party A or recalled to party B from party A.
     /// </summary>
-    public IMarginRequirement1Choice? RequirementDetailsDueToB { get; init; } 
+    public MarginRequirement1Choice_? RequirementDetailsDueToB { get; init; } 
     /// <summary>
     /// Provides details about the type of collateral that will be either delivered to party A by party B or recalled to party A from party B.
     /// </summary>
-    public IExpectedCollateral2Choice? ExpectedCollateralDueToA { get; init; } 
+    public ExpectedCollateral2Choice_? ExpectedCollateralDueToA { get; init; } 
     /// <summary>
     /// Provides details about the type of collateral that will be either delivered to party B by party A or recalled to party B from party A.
     /// </summary>
-    public IExpectedCollateral2Choice? ExpectedCollateralDueToB { get; init; } 
+    public ExpectedCollateral2Choice_? ExpectedCollateralDueToB { get; init; } 
     
     #nullable disable
 }

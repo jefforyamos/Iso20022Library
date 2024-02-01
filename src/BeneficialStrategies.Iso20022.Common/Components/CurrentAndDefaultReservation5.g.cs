@@ -20,11 +20,11 @@ public partial record CurrentAndDefaultReservation5
     /// <summary>
     /// Report is given for a current reservation.
     /// </summary>
-    public ReservationReport7? CurrentReservation { get; init;  } // Warning: Don't know multiplicity.
+    public ReservationReport7[] CurrentReservation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Report is given for a default reservation.
     /// </summary>
-    public ReservationReport7? DefaultReservation { get; init;  } // Warning: Don't know multiplicity.
+    public ReservationReport7[] DefaultReservation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

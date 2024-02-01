@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginType1Choice;
 /// <summary>
 /// Provides the margin type using a proprietary format.
 /// </summary>
-public partial record Proprietary : IMarginType1Choice
+public partial record Proprietary : MarginType1Choice_
 {
     #nullable enable
     /// <summary>

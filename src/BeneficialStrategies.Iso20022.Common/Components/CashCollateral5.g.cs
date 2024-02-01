@@ -24,7 +24,7 @@ public partial record CashCollateral5
     /// <summary>
     /// Provides the identification of the clearing member 's cash account.
     /// </summary>
-    public IAccountIdentification4Choice? CashAccountIdentification { get; init; } 
+    public AccountIdentification4Choice_? CashAccountIdentification { get; init; } 
     /// <summary>
     /// Identifies the register number of the collateral deposit assigned by the central counterparty.
     /// </summary>

@@ -20,15 +20,15 @@ public partial record CorporateActionNarrative30
     /// <summary>
     /// Provides information required for the registration.
     /// </summary>
-    public IsoMax350Text? RegistrationDetails { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax350Text[] RegistrationDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional information regarding the party, for example, the contact unit or person responsible for the transaction identified in the message.
     /// </summary>
-    public IsoMax350Text? PartyContactNarrative { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax350Text[] PartyContactNarrative { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information required for the certification/breakdown.
     /// </summary>
-    public IsoMax350Text? CertificationBreakdown { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax350Text[] CertificationBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

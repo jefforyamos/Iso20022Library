@@ -52,7 +52,7 @@ public partial record AddendumData3
     /// <summary>
     /// Component supports corporate transactions for travel agency, airline, or railway transactions. Acquirers may submit multiple occurrences of this component. Each occurrence provides detailed travel agency fee data associated with a travel agency, airline, or railway transaction.
     /// </summary>
-    public TravelAgency3? TravelAgency { get; init;  } // Warning: Don't know multiplicity.
+    public TravelAgency3[] TravelAgency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Component supports ticketing transactions for airline, railway, and travel agency transactions to provide passenger ticket information for the cardholder. 
     /// </summary>
@@ -60,11 +60,11 @@ public partial record AddendumData3
     /// <summary>
     /// Component provides detailed vehicle rental information. One occurrence of this component provides rental agreement data reporting for a single vehicle rental transaction.
     /// </summary>
-    public VehicleRentalService2? VehicleRental { get; init;  } // Warning: Don't know multiplicity.
+    public VehicleRentalService2[] VehicleRental { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Component provides detailed information about lodging accommodations and related expenses for the cardholder. Acquirers can submit multiple occurrences of this component for each lodging transaction, to provide details of one or more folios.
     /// </summary>
-    public Lodging3? Lodging { get; init;  } // Warning: Don't know multiplicity.
+    public Lodging3[] Lodging { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Shipping or Courier Service detail component provides detailed information regarding delivery or courier services. 
     /// </summary>
@@ -76,7 +76,7 @@ public partial record AddendumData3
     /// <summary>
     /// Temporary Services component provides detailed information regarding the billing for services rendered on a temporary or contract basis. The component provides information such as the employee job performed, timekeeping, and billing rates.
     /// </summary>
-    public TemporaryServices2? TemporaryServices { get; init;  } // Warning: Don't know multiplicity.
+    public TemporaryServices2[] TemporaryServices { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data exclusively related to a card issuer financial loan of the payment transaction, or instalment.
     /// </summary>
@@ -84,7 +84,7 @@ public partial record AddendumData3
     /// <summary>
     /// Contains additional data for the addendum.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

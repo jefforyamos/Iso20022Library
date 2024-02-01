@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyOrGroup1Choice;
 /// <summary>
 /// Specifies the identification of a group of parties.
 /// </summary>
-public partial record GroupIdentification : IPartyOrGroup1Choice
+public partial record GroupIdentification : PartyOrGroup1Choice_
 {
     public required IsoMax4AlphaNumericText Value { get; init; }
 }

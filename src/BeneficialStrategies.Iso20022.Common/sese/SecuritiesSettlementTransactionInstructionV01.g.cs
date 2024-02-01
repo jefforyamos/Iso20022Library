@@ -79,7 +79,7 @@ public partial record SecuritiesSettlementTransactionInstructionV01 : IOuterReco
     [Description(@"Count of the number of transactions linked.")]
     [DataMember(Name="NbCounts")]
     [XmlElement(ElementName="NbCounts")]
-    public INumberCount1Choice? NumberCounts { get; init; }
+    public NumberCount1Choice_? NumberCounts { get; init; }
     
     /// <summary>
     /// Link to another transaction that must be processed after, before or at the same time.
@@ -209,7 +209,7 @@ public partial record SecuritiesSettlementTransactionInstructionV01 : IOuterReco
     [Description(@"Party that originated the message, if other than the sender.")]
     [DataMember(Name="MsgOrgtr")]
     [XmlElement(ElementName="MsgOrgtr")]
-    public IPartyIdentification10Choice? MessageOriginator { get; init; }
+    public PartyIdentification10Choice_? MessageOriginator { get; init; }
     
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
@@ -218,7 +218,7 @@ public partial record SecuritiesSettlementTransactionInstructionV01 : IOuterReco
     [Description(@"Party that is the final destination of the message, if other than the receiver.")]
     [DataMember(Name="MsgRcpt")]
     [XmlElement(ElementName="MsgRcpt")]
-    public IPartyIdentification10Choice? MessageRecipient { get; init; }
+    public PartyIdentification10Choice_? MessageRecipient { get; init; }
     
     /// <summary>
     /// Provides information required for the registration or physical settlement.

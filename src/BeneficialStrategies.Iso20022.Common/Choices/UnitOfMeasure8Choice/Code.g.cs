@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnitOfMeasure8Choice;
 /// <summary>
 /// Unit of measure, as defined in an external code set.
 /// </summary>
-public partial record Code : IUnitOfMeasure8Choice
+public partial record Code : UnitOfMeasure8Choice_
 {
     public required ExternalUnitOfMeasure1Code Value { get; init; }
 }

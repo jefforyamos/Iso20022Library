@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.QuorumQuantity1Choice;
 /// <summary>
 /// Minimum quantity of securities, expressed as a percentage, required to hold a meeting.
 /// </summary>
-public partial record QuorumQuantityPercentage : IQuorumQuantity1Choice
+public partial record QuorumQuantityPercentage : QuorumQuantity1Choice_
 {
     public required IsoPercentageRate Value { get; init; }
 }

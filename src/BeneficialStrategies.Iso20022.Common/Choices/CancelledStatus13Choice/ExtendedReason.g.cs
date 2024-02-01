@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CancelledStatus13Choice;
 /// <summary>
 /// Reason for the cancelled status.
 /// </summary>
-public partial record ExtendedReason : ICancelledStatus13Choice
+public partial record ExtendedReason : CancelledStatus13Choice_
 {
     public required IsoExtended350Code Value { get; init; }
 }

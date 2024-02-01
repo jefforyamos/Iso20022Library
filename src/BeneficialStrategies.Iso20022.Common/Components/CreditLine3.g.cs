@@ -24,7 +24,7 @@ public partial record CreditLine3
     /// <summary>
     /// Type of the credit line provided when multiple credit lines may be provided.
     /// </summary>
-    public ICreditLineType1Choice? Type { get; init; } 
+    public CreditLineType1Choice_? Type { get; init; } 
     /// <summary>
     /// Amount of money of the credit line.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record CreditLine3
     /// <summary>
     /// Date of the credit line provided when multiple credit lines may be provided.
     /// </summary>
-    public IDateAndDateTime2Choice? Date { get; init; } 
+    public DateAndDateTime2Choice_? Date { get; init; } 
     
     #nullable disable
 }

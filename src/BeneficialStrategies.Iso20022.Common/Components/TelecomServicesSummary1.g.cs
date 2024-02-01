@@ -32,11 +32,11 @@ public partial record TelecomServicesSummary1
     /// <summary>
     /// Summary of the charges associated with the billing event. 
     /// </summary>
-    public Amount10? BillingEvent { get; init;  } // Warning: Don't know multiplicity.
+    public Amount10[] BillingEvent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total of taxes applicable to the billing amount.
     /// </summary>
-    public Tax33? TotalTax { get; init;  } // Warning: Don't know multiplicity.
+    public Tax33[] TotalTax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional user-defined data pertaining to the shipment.
     /// </summary>

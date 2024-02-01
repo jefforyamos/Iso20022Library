@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.InstrumentOrSubClassIdentificati
 /// <summary>
 /// Identifies the financial instrument to which the result relates and its sub-class among non-equity instruments
 /// </summary>
-public partial record ISINAndSubClass : IInstrumentOrSubClassIdentification2Choice
+public partial record ISINAndSubClass : InstrumentOrSubClassIdentification2Choice_
 {
     #nullable enable
     /// <summary>

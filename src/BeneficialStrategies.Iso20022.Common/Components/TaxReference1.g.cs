@@ -20,7 +20,7 @@ public partial record TaxReference1
     /// <summary>
     /// Type of tax reference.
     /// </summary>
-    public ITaxReferenceType1Choice? TaxType { get; init; } 
+    public TaxReferenceType1Choice_? TaxType { get; init; } 
     /// <summary>
     /// Tax reference.
     /// </summary>
@@ -28,7 +28,7 @@ public partial record TaxReference1
     /// <summary>
     /// Type of reference holder. For example, the transferee's tax reference. The transferee may also be known as the acquiring party.
     /// </summary>
-    public ITaxReferenceParty1Choice? HolderType { get; init; } 
+    public TaxReferenceParty1Choice_? HolderType { get; init; } 
     
     #nullable disable
 }

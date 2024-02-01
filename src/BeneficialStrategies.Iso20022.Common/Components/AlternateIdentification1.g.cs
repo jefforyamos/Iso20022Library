@@ -24,7 +24,7 @@ public partial record AlternateIdentification1
     /// <summary>
     /// Source of the security identification.
     /// </summary>
-    public required IIdentificationSource1Choice IdentificationSource { get; init; } 
+    public required IdentificationSource1Choice_ IdentificationSource { get; init; } 
     
     #nullable disable
 }

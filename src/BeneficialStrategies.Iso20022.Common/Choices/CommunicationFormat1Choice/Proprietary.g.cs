@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.CommunicationFormat1Choice;
 /// <summary>
 /// Unique and unambiguous identification of communication format using a proprietary identification scheme.
 /// </summary>
-public partial record Proprietary : ICommunicationFormat1Choice
+public partial record Proprietary : CommunicationFormat1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

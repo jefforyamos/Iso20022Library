@@ -21,15 +21,15 @@ public partial record Transaction136
     /// Reason or purpose to send the message.
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    public ISO8583MessageReasonCode? MessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public ISO8583MessageReasonCode[] MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Supports message reason codes that are not defined in external code list. 
     /// </summary>
-    public IsoMax256Text? AlternateMessageReason { get; init;  } // Warning: Don't know multiplicity.
+    public IsoMax256Text[] AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data to qualify for incentive or other related programmes.
     /// </summary>
-    public SpecialProgrammeQualification1? SpecialProgrammeQualification { get; init;  } // Warning: Don't know multiplicity.
+    public SpecialProgrammeQualification1[] SpecialProgrammeQualification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
@@ -37,15 +37,15 @@ public partial record Transaction136
     /// <summary>
     /// Data related to the dispute.
     /// </summary>
-    public DisputeData3? DisputeData { get; init;  } // Warning: Don't know multiplicity.
+    public DisputeData3[] DisputeData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fulfilment request instructions for the retrieval.
     /// </summary>
-    public RetrievalFulfilmentInstructions2? RetrievalFulfilmentInstructions { get; init;  } // Warning: Don't know multiplicity.
+    public RetrievalFulfilmentInstructions2[] RetrievalFulfilmentInstructions { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fees not included in the transaction amount.
     /// </summary>
-    public AdditionalFee2? AdditionalFee { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalFee2[] AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Transaction data related to programmes and services, content and format based on bilateral agreements.
     /// </summary>
@@ -53,7 +53,7 @@ public partial record Transaction136
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1? AdditionalData { get; init;  } // Warning: Don't know multiplicity.
+    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

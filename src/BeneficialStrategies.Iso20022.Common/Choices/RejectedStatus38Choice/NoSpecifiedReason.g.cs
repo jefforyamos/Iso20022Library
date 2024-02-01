@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.RejectedStatus38Choice;
 /// <summary>
 /// Reason not specified.
 /// </summary>
-public partial record NoSpecifiedReason : IRejectedStatus38Choice
+public partial record NoSpecifiedReason : RejectedStatus38Choice_
 {
     public required NoReasonCode Value { get; init; }
 }

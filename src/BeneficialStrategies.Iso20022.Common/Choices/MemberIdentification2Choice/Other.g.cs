@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MemberIdentification2Choice;
 /// <summary>
 /// Unique identification of an agent, as assigned by an institution, using an identification scheme.
 /// </summary>
-public partial record Other : IMemberIdentification2Choice
+public partial record Other : MemberIdentification2Choice_
 {
     #nullable enable
     /// <summary>
@@ -22,7 +22,7 @@ public partial record Other : IMemberIdentification2Choice
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
-    public IFinancialIdentificationSchemeName1Choice? SchemeName { get; init; } 
+    public FinancialIdentificationSchemeName1Choice_? SchemeName { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>

@@ -20,11 +20,11 @@ public partial record CorporateActionPrice10
     /// <summary>
     /// Indicates whether the price is an indicative price or a market price.
     /// </summary>
-    public IIndicativeOrMarketPrice1Choice? IndicativeOrMarketPrice { get; init; } 
+    public IndicativeOrMarketPrice1Choice_? IndicativeOrMarketPrice { get; init; } 
     /// <summary>
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
-    public IPriceFormat11Choice? CashInLieuOfSharePrice { get; init; } 
+    public PriceFormat11Choice_? CashInLieuOfSharePrice { get; init; } 
     
     #nullable disable
 }

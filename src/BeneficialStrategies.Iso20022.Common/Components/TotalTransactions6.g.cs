@@ -32,7 +32,7 @@ public partial record TotalTransactions6
     /// <summary>
     /// Specifies the total number and sum of entries per bank transaction code.
     /// </summary>
-    public TotalsPerBankTransactionCode5? TotalEntriesPerBankTransactionCode { get; init;  } // Warning: Don't know multiplicity.
+    public TotalsPerBankTransactionCode5[] TotalEntriesPerBankTransactionCode { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

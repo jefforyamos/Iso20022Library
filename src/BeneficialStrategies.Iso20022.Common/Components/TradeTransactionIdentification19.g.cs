@@ -20,16 +20,16 @@ public partial record TradeTransactionIdentification19
     /// <summary>
     /// Unique code identifying the reporting counterparty.
     /// </summary>
-    public required IOrganisationIdentification15Choice ReportingCounterparty { get; init; } 
+    public required OrganisationIdentification15Choice_ ReportingCounterparty { get; init; } 
     /// <summary>
     /// Unique code identifying the entity with which the reporting counterparty concluded the transaction.
     /// </summary>
-    public required IPartyIdentification236Choice OtherCounterparty { get; init; } 
+    public required PartyIdentification236Choice_ OtherCounterparty { get; init; } 
     /// <summary>
     /// Unique code identifying that the Financial counterparty responsible for reporting on behalf of the other counterparty.
     /// USAGE : In the case where a management company is responsible for reporting on behalf of an Undertaking for Collective Investment in Transferable Securities (UCITS), the unique code identifying that management company. In the case where an Alternative Investment Fund Manager (AIFM) is responsible for reporting on behalf of an Alternative Investment Fund (AIF), the unique code identifying that AIFM.
     /// </summary>
-    public IOrganisationIdentification15Choice? EntityResponsibleForReport { get; init; } 
+    public OrganisationIdentification15Choice_? EntityResponsibleForReport { get; init; } 
     /// <summary>
     /// Unique trade Identifier (UTI) as agreed with the counterparty.
     /// </summary>
@@ -41,11 +41,11 @@ public partial record TradeTransactionIdentification19
     /// <summary>
     /// Identification of the agent lender involved in the securities lending transaction.
     /// </summary>
-    public IOrganisationIdentification15Choice? AgentLender { get; init; } 
+    public OrganisationIdentification15Choice_? AgentLender { get; init; } 
     /// <summary>
     /// Identification of the third party that administers the transaction.
     /// </summary>
-    public IOrganisationIdentification15Choice? TripartyAgent { get; init; } 
+    public OrganisationIdentification15Choice_? TripartyAgent { get; init; } 
     
     #nullable disable
 }

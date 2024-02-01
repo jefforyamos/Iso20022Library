@@ -20,19 +20,19 @@ public partial record Obligation9
     /// <summary>
     /// Defines one of the entities associated with the collateral agreement.
     /// </summary>
-    public required IPartyIdentification178Choice PartyA { get; init; } 
+    public required PartyIdentification178Choice_ PartyA { get; init; } 
     /// <summary>
     /// Specifies the party that is acting on behalf of party A and that offers collateral management services.
     /// </summary>
-    public IPartyIdentification178Choice? ServicingPartyA { get; init; } 
+    public PartyIdentification178Choice_? ServicingPartyA { get; init; } 
     /// <summary>
     /// Defines the other entity associated with the collateral agreement.
     /// </summary>
-    public required IPartyIdentification178Choice PartyB { get; init; } 
+    public required PartyIdentification178Choice_ PartyB { get; init; } 
     /// <summary>
     /// Specifies the party that is acting on behalf of party B and that offers collateral management services.
     /// </summary>
-    public IPartyIdentification178Choice? ServicingPartyB { get; init; } 
+    public PartyIdentification178Choice_? ServicingPartyB { get; init; } 
     /// <summary>
     /// Provides additional information on the collateral account of the party delivering/receiving the collateral.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record Obligation9
     /// <summary>
     /// Indicates the close of business date on which the initiating party is valuing the margin call.
     /// </summary>
-    public required IDateAndDateTime2Choice ValuationDate { get; init; } 
+    public required DateAndDateTime2Choice_ ValuationDate { get; init; } 
     
     #nullable disable
 }

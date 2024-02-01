@@ -66,7 +66,7 @@ public partial record CollateralManagementCancellationRequestV04 : IOuterRecord
     [DataMember(Name="Ref")]
     [XmlElement(ElementName="Ref")]
     [Required]
-    public required IReference2Choice Reference { get; init; }
+    public required Reference2Choice_ Reference { get; init; }
     
     /// <summary>
     /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.

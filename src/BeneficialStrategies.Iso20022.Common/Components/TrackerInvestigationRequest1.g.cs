@@ -20,7 +20,7 @@ public partial record TrackerInvestigationRequest1
     /// <summary>
     /// Type of investigation.
     /// </summary>
-    public required IInvestigationType2Choice InvestigationType { get; init; } 
+    public required InvestigationType2Choice_ InvestigationType { get; init; } 
     /// <summary>
     /// Request status and details of assignment by the tracking facility. 
     /// </summary>
@@ -28,7 +28,7 @@ public partial record TrackerInvestigationRequest1
     /// <summary>
     /// Provides details on the subject to which the investigation refers, for example a payment or statement entry.
     /// </summary>
-    public IUnderlyingData1Choice? Underlying { get; init; } 
+    public UnderlyingData1Choice_? Underlying { get; init; } 
     
     #nullable disable
 }

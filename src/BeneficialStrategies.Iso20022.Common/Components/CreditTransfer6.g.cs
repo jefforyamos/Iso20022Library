@@ -24,7 +24,7 @@ public partial record CreditTransfer6
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor. In the context of the payment model, the debtor is also the debit account owner.
     /// </summary>
-    public IPartyIdentification2Choice? Debtor { get; init; } 
+    public PartyIdentification2Choice_? Debtor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the debtor to which a debit entry will be made as a result of the transaction.
     /// </summary>
@@ -32,7 +32,7 @@ public partial record CreditTransfer6
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
-    public IFinancialInstitutionIdentification3Choice? DebtorAgent { get; init; } 
+    public FinancialInstitutionIdentification3Choice_? DebtorAgent { get; init; } 
     /// <summary>
     /// Identifies the account of the debtor's agent.
     /// </summary>
@@ -40,7 +40,7 @@ public partial record CreditTransfer6
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.
     /// </summary>
-    public IFinancialInstitutionIdentification3Choice? IntermediaryAgent1 { get; init; } 
+    public FinancialInstitutionIdentification3Choice_? IntermediaryAgent1 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the intermediary agent 1 at its servicing agent in the payment chain.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record CreditTransfer6
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.
     /// </summary>
-    public IFinancialInstitutionIdentification3Choice? IntermediaryAgent2 { get; init; } 
+    public FinancialInstitutionIdentification3Choice_? IntermediaryAgent2 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the intermediary agent 2 at its servicing agent in the payment chain.
     /// </summary>
@@ -56,7 +56,7 @@ public partial record CreditTransfer6
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
-    public required IFinancialInstitutionIdentification3Choice CreditorAgent { get; init; } 
+    public required FinancialInstitutionIdentification3Choice_ CreditorAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor agent at its servicing agent to which a credit entry will be made as a result of the payment transaction.
     /// </summary>
@@ -64,7 +64,7 @@ public partial record CreditTransfer6
     /// <summary>
     /// Party that receives an amount of money from the debtor. In the context of the payment model, the creditor is also the credit account owner.
     /// </summary>
-    public IPartyIdentification2Choice? Creditor { get; init; } 
+    public PartyIdentification2Choice_? Creditor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor to which a credit entry will be posted as a result of the payment transaction.
     /// </summary>

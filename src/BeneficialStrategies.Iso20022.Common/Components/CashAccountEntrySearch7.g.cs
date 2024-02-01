@@ -20,15 +20,15 @@ public partial record CashAccountEntrySearch7
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public IAccountIdentificationSearchCriteria2Choice? AccountIdentification { get; init;  } // Warning: Don't know multiplicity.
+    public AccountIdentificationSearchCriteria2Choice_[] AccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the entry amount(s) on which the query is performed.
     /// </summary>
-    public IActiveOrHistoricAmountRange2Choice? EntryAmount { get; init;  } // Warning: Don't know multiplicity.
+    public ActiveOrHistoricAmountRange2Choice_[] EntryAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency of the entry amount.
     /// </summary>
-    public ActiveOrHistoricCurrencyCode? EntryAmountCurrency { get; init;  } // Warning: Don't know multiplicity.
+    public ActiveOrHistoricCurrencyCode[] EntryAmountCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether an entry is a credit or a debit.
     /// </summary>
@@ -36,11 +36,11 @@ public partial record CashAccountEntrySearch7
     /// <summary>
     /// Status of an entry on the books of the account servicer.
     /// </summary>
-    public EntryStatus1Code? EntryStatus { get; init;  } // Warning: Don't know multiplicity.
+    public EntryStatus1Code[] EntryStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date and time at which an entry is posted to an account on the account servicer's books.
     /// </summary>
-    public IDateAndDateTimeSearch3Choice? EntryDate { get; init;  } // Warning: Don't know multiplicity.
+    public DateAndDateTimeSearch3Choice_[] EntryDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>

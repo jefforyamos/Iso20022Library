@@ -28,7 +28,7 @@ public partial record ATMDeviceReport3
     /// <summary>
     /// Result of a maintenance command performed by the ATM.
     /// </summary>
-    public ATMCommand11? CommandResult { get; init;  } // Warning: Don't know multiplicity.
+    public ATMCommand11[] CommandResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maintenance command which has requested the device report.
     /// </summary>

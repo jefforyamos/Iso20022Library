@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ReportingSource1Choice;
 /// <summary>
 /// Reporting source, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IReportingSource1Choice
+public partial record Proprietary : ReportingSource1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

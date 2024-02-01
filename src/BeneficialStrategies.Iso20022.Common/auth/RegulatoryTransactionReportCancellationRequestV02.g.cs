@@ -59,7 +59,7 @@ public partial record RegulatoryTransactionReportCancellationRequestV02 : IOuter
     [DataMember(Name="RptgInstn")]
     [XmlElement(ElementName="RptgInstn")]
     [Required]
-    public required IPartyIdentification23Choice ReportingInstitution { get; init; }
+    public required PartyIdentification23Choice_ ReportingInstitution { get; init; }
     
     /// <summary>
     /// Identifies the intermediary which is reporting on behalf on the reporting institution.
@@ -68,7 +68,7 @@ public partial record RegulatoryTransactionReportCancellationRequestV02 : IOuter
     [Description(@"Identifies the intermediary which is reporting on behalf on the reporting institution.")]
     [DataMember(Name="RptgAgt")]
     [XmlElement(ElementName="RptgAgt")]
-    public IPartyIdentification24Choice? ReportingAgent { get; init; }
+    public PartyIdentification24Choice_? ReportingAgent { get; init; }
     
     /// <summary>
     /// Provides all the details of the transaction report that needs to be cancelled. More than one set of details can be provided.||.

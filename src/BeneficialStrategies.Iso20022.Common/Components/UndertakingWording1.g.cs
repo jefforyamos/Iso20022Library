@@ -28,7 +28,7 @@ public partial record UndertakingWording1
     /// <summary>
     /// Terms and conditions of the undertaking.
     /// </summary>
-    public Narrative1? UndertakingTermsAndConditions { get; init;  } // Warning: Don't know multiplicity.
+    public Narrative1[] UndertakingTermsAndConditions { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

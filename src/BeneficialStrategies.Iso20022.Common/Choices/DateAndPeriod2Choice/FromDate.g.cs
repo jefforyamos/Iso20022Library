@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DateAndPeriod2Choice;
 /// <summary>
 /// Date at which the range starts.
 /// </summary>
-public partial record FromDate : IDateAndPeriod2Choice
+public partial record FromDate : DateAndPeriod2Choice_
 {
     public required IsoISODate Value { get; init; }
 }

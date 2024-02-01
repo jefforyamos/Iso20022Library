@@ -20,7 +20,7 @@ public partial record ClosedStatusReason1
     /// <summary>
     /// Reason for the closed account status.
     /// </summary>
-    public required IClosedStatusReason2Choice Code { get; init; } 
+    public required ClosedStatusReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the closed account status.
     /// </summary>

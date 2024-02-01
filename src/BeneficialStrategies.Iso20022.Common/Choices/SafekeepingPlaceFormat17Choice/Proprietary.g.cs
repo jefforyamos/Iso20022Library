@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SafekeepingPlaceFormat17Choice;
 /// <summary>
 /// Place of safekeeping expressed with a propriety identification scheme.
 /// </summary>
-public partial record Proprietary : ISafekeepingPlaceFormat17Choice
+public partial record Proprietary : SafekeepingPlaceFormat17Choice_
 {
     #nullable enable
     /// <summary>

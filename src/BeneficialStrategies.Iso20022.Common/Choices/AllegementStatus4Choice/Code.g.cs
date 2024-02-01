@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AllegementStatus4Choice;
 /// <summary>
 /// Status of the allegement reported.
 /// </summary>
-public partial record Code : IAllegementStatus4Choice
+public partial record Code : AllegementStatus4Choice_
 {
     public required AllegementStatus1Code Value { get; init; }
 }

@@ -20,11 +20,11 @@ public partial record FundParameters5
     /// <summary>
     /// Financial instrument for which the report is requested.
     /// </summary>
-    public FinancialInstrument71? FinancialInstrumentDetails { get; init;  } // Warning: Don't know multiplicity.
+    public FinancialInstrument71[] FinancialInstrumentDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fund management company for which the report is requested.
     /// </summary>
-    public PartyIdentification139? FundManagementCompany { get; init;  } // Warning: Don't know multiplicity.
+    public PartyIdentification139[] FundManagementCompany { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the date on or after which the information required will have been last updated. Only the most recent versions of the data is required.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record FundParameters5
     /// <summary>
     /// Country where the fund is registered for distribution.
     /// </summary>
-    public CountryCode? RegisteredDistributionCountry { get; init;  } // Warning: Don't know multiplicity.
+    public CountryCode[] RegisteredDistributionCountry { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

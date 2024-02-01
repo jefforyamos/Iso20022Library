@@ -85,7 +85,7 @@ public partial record ResolutionOfInvestigation : IOuterRecord
     [Description(@"Indicates the status of the investigation.")]
     [DataMember(Name="Sts")]
     [XmlElement(ElementName="Sts")]
-    public IInvestigationStatusChoice? Status { get; init; }
+    public InvestigationStatusChoice_? Status { get; init; }
     
     /// <summary>
     /// References a transaction intitiated to fix the case under investigation.

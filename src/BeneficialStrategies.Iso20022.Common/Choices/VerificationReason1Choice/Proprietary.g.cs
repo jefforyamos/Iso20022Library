@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.VerificationReason1Choice;
 /// <summary>
 /// Reason why the verified identification information is incorrect, in a proprietary form.
 /// </summary>
-public partial record Proprietary : IVerificationReason1Choice
+public partial record Proprietary : VerificationReason1Choice_
 {
     public required IsoMax35Text Value { get; init; }
 }

@@ -32,7 +32,7 @@ public partial record Statement32
     /// <summary>
     /// Date and time of the statement.
     /// </summary>
-    public required IDateAndDateTimeChoice StatementDateTime { get; init; } 
+    public required DateAndDateTimeChoice_ StatementDateTime { get; init; } 
     
     #nullable disable
 }

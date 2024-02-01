@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PartyType1Choice;
 /// <summary>
 /// Type of party.
 /// </summary>
-public partial record Code : IPartyType1Choice
+public partial record Code : PartyType1Choice_
 {
     public required ExternalTypeOfParty1Code Value { get; init; }
 }

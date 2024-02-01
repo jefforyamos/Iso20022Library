@@ -20,7 +20,7 @@ public partial record TwoLegTransactionDetails5
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
-    public ITradeDate8Choice? TradeDate { get; init; } 
+    public TradeDate8Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Unambiguous identification of the reference assigned in the first leg of the transaction.
     /// </summary>
@@ -36,7 +36,7 @@ public partial record TwoLegTransactionDetails5
     /// <summary>
     /// Identifies other amounts pertaining to the transaction.
     /// </summary>
-    public OtherAmounts16? OtherAmounts { get; init;  } // Warning: Don't know multiplicity.
+    public OtherAmounts16[] OtherAmounts { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional information about the second leg in narrative form.
     /// </summary>
@@ -48,7 +48,7 @@ public partial record TwoLegTransactionDetails5
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
-    public IClosingDate4Choice? ClosingDate { get; init; } 
+    public ClosingDate4Choice_? ClosingDate { get; init; } 
     /// <summary>
     /// Total amount of money to be paid or received in exchange for the securities. The amount includes the principal with any commissions and fees or accrued interest.
     /// </summary>
@@ -56,11 +56,11 @@ public partial record TwoLegTransactionDetails5
     /// <summary>
     /// Processing date of the trading session.
     /// </summary>
-    public ITradeDate7Choice? ProcessingDate { get; init; } 
+    public TradeDate7Choice_? ProcessingDate { get; init; } 
     /// <summary>
     /// Specifies the type of the second leg transaction.
     /// </summary>
-    public ITwoLegTransactionType4Choice? TwoLegTransactionType { get; init; } 
+    public TwoLegTransactionType4Choice_? TwoLegTransactionType { get; init; } 
     
     #nullable disable
 }

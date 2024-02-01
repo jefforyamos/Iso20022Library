@@ -36,7 +36,7 @@ public partial record CorporateActionUnallocatedCashTransactionDetailsSD1
     /// <summary>
     /// Date/time at which the movement was due to take place (cash and/or securities).
     /// </summary>
-    public IDateFormat22Choice? EarliestPaymentDate { get; init; } 
+    public DateFormat22Choice_? EarliestPaymentDate { get; init; } 
     /// <summary>
     /// Transaction reason.
     /// </summary>

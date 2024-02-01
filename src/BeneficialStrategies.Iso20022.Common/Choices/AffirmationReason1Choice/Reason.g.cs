@@ -12,13 +12,13 @@ namespace BeneficialStrategies.Iso20022.Choices.AffirmationReason1Choice;
 /// <summary>
 /// Specifies the reason of the UnaffirmedStatus.
 /// </summary>
-public partial record Reason : IAffirmationReason1Choice
+public partial record Reason : AffirmationReason1Choice_
 {
     #nullable enable
     /// <summary>
     /// Specifies the reason why the instruction/request has a unaffirmed status.
     /// </summary>
-    public required IUnaffirmedReason2Choice Code { get; init; } 
+    public required UnaffirmedReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional information about the reason in narrative form.
     /// </summary>

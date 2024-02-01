@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SortCriteria1Choice;
 /// <summary>
 /// User-defined way of indicating how the information is broken down.
 /// </summary>
-public partial record UserDefined : ISortCriteria1Choice
+public partial record UserDefined : SortCriteria1Choice_
 {
     #nullable enable
     #nullable disable

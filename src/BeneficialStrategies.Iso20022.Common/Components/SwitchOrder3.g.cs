@@ -68,7 +68,7 @@ public partial record SwitchOrder3
     /// <summary>
     /// Date on which the order expires.
     /// </summary>
-    public IDateAndDateTimeChoice? ExpiryDateTime { get; init; } 
+    public DateAndDateTimeChoice_? ExpiryDateTime { get; init; } 
     /// <summary>
     /// Additional amount of money paid by the investor in addition to the switch redemption amount.
     /// </summary>
@@ -80,7 +80,7 @@ public partial record SwitchOrder3
     /// <summary>
     /// Information about parties related to the transaction.
     /// </summary>
-    public IReadOnlyCollection<Intermediary8> RelatedPartyDetails { get; init; } = [];
+    public Intermediary8[] RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Cancellation right of an investor with respect to an investment fund order.
     /// </summary>
@@ -92,11 +92,11 @@ public partial record SwitchOrder3
     /// <summary>
     /// Part of an investment fund switch order that is a redemption.
     /// </summary>
-    public SwitchRedemptionLegOrder3? RedemptionLegDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SwitchRedemptionLegOrder3[] RedemptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Part of an investment fund switch order that is a subscription.
     /// </summary>
-    public SwitchSubscriptionLegOrder3? SubscriptionLegDetails { get; init;  } // Warning: Don't know multiplicity.
+    public SwitchSubscriptionLegOrder3[] SubscriptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment processes required to transfer cash from the debtor to the creditor.
     /// </summary>

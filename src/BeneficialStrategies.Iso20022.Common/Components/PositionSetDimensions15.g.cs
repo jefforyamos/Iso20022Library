@@ -20,11 +20,11 @@ public partial record PositionSetDimensions15
     /// <summary>
     /// Information describing the reporting counterparty.
     /// </summary>
-    public IOrganisationIdentification15Choice? ReportingCounterparty { get; init; } 
+    public OrganisationIdentification15Choice_? ReportingCounterparty { get; init; } 
     /// <summary>
     /// Data specific to other counterparties and related fields.
     /// </summary>
-    public IOrganisationIdentification15Choice? OtherCounterparty { get; init; } 
+    public OrganisationIdentification15Choice_? OtherCounterparty { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the collateral portfolio.
     /// </summary>

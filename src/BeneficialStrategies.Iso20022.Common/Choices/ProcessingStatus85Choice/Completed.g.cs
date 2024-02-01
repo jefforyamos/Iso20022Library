@@ -12,7 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ProcessingStatus85Choice;
 /// <summary>
 /// Modification request was completed.
 /// </summary>
-public partial record Completed : IProcessingStatus85Choice
+public partial record Completed : ProcessingStatus85Choice_
 {
     #nullable enable
     /// <summary>

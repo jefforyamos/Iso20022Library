@@ -29,11 +29,11 @@ public partial record Package4
     /// <summary>
     /// Indicates the traded price of the entire package in which the reported derivative transaction is a component.
     /// </summary>
-    public ISecuritiesTransactionPrice17Choice? Price { get; init; } 
+    public SecuritiesTransactionPrice17Choice_? Price { get; init; } 
     /// <summary>
     /// Indicates the traded price (expressed as a difference between two reference prices) of the entire package in which the reported derivative transaction is a component.
     /// </summary>
-    public ISecuritiesTransactionPrice20Choice? Spread { get; init; } 
+    public SecuritiesTransactionPrice20Choice_? Spread { get; init; } 
     
     #nullable disable
 }

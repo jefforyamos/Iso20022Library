@@ -20,19 +20,19 @@ public partial record SettlementParties29
     /// <summary>
     /// Financial institution from which cash will be transferred.
     /// </summary>
-    public IPartyIdentification73Choice? DeliveryAgent { get; init; } 
+    public PartyIdentification73Choice_? DeliveryAgent { get; init; } 
     /// <summary>
     /// Party, within the settlement chain, between the delivery and receiving agents.
     /// </summary>
-    public IPartyIdentification73Choice? Intermediary { get; init; } 
+    public PartyIdentification73Choice_? Intermediary { get; init; } 
     /// <summary>
     /// Financial institution where the payee will receive the funds.
     /// </summary>
-    public required IPartyIdentification73Choice ReceivingAgent { get; init; } 
+    public required PartyIdentification73Choice_ ReceivingAgent { get; init; } 
     /// <summary>
     /// Ultimate institution that will receive the funds when different from the trading or counterparty side.
     /// </summary>
-    public IPartyIdentification73Choice? BeneficiaryInstitution { get; init; } 
+    public PartyIdentification73Choice_? BeneficiaryInstitution { get; init; } 
     
     #nullable disable
 }
