@@ -33,6 +33,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="pain/CustomerCreditTransferInitiation.xml" />
+    <EmbeddedResource Include="Components/GroupHeader95_A.xml" />
   </ItemGroup>
 
   <ProjectExtensions>

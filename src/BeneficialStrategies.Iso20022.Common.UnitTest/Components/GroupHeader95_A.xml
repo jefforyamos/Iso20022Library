@@ -1,0 +1,16 @@
+<GrpHdr>
+    <MsgId>ABC/120928/CCT001</MsgId>
+    <CreDtTm>2012-09-28T14:07:00</CreDtTm>
+    <NbOfTxs>3</NbOfTxs>
+    <CtrlSum>11500000</CtrlSum>
+    <InitgPty>
+        <Nm>ABC Corporation</Nm>
+        <PstlAdr>
+            <StrtNm>Times Square</StrtNm>
+            <BldgNb>7</BldgNb>
+            <PstCd>NY 10036</PstCd>
+            <TwnNm>New York</TwnNm>
+            <Ctry>US</Ctry>
+        </PstlAdr>
+    </InitgPty>
+</GrpHdr>
