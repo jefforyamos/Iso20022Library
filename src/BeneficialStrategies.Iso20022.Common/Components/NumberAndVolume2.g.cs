@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detail the number and the volume, defined by currency amount, for use in a transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NumberAndVolume2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NumberAndVolume2
     /// <summary>
     /// Total number of specific transaction types executed on the reporting day.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumberFraction5 Number { get; init; } 
     /// <summary>
     /// Total volume of specific transactions executed on the reporting day.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Volume { get; init; } 
     
     #nullable disable

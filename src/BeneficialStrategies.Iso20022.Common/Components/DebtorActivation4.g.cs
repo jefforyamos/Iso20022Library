@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the attributes for a debtor activation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DebtorActivation4
 {
     #nullable enable
@@ -22,60 +24,74 @@ public partial record DebtorActivation4
     /// Usage:
     /// This element may be used for technical reconciliation purpose.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DebtorActivationIdentification { get; init; } 
     /// <summary>
     /// Name by which the debtor is known, other than legal name, such as the name to be shown to the creditor. 
     /// </summary>
+    [DataMember]
     public IsoMax140Text? DisplayName { get; init; } 
     /// <summary>
     /// Ultimate party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [DataMember]
     public RTPPartyIdentification1? UltimateDebtor { get; init; } 
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [DataMember]
     public RTPPartyIdentification1? Debtor { get; init; } 
     /// <summary>
     /// Organisation servicing the e-invoicing for the debtor (to which the activation status report must be sent).
     /// </summary>
+    [DataMember]
     public RTPPartyIdentification1? DebtorSolutionProvider { get; init; } 
     /// <summary>
     /// Unique identifier of the debtor required by the creditor, for example  the reference number or customer number. Unique identification provided by the web bank or web payment services user, with which the creditor may identify the debtor in its system.
     /// </summary>
-    public Party49Choice_[] CustomerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Party49Choice_> CustomerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Document format type supported to exchange the contracts.
     /// </summary>
-    public DocumentFormat2Choice_[] ContractFormatType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DocumentFormat2Choice_> ContractFormatType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Code choice external/prop
     /// Description
     /// identical to the Instruction for Debtor
     /// </summary>
-    public ContractReference1[] ContractReference { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ContractReference1> ContractReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
+    [DataMember]
     public RTPPartyIdentification1? Creditor { get; init; } 
     /// <summary>
     /// Ultimate party to which an amount of money is due.
     /// </summary>
+    [DataMember]
     public RTPPartyIdentification1? UltimateCreditor { get; init; } 
     /// <summary>
     /// Creditor's service provider address to which the debtor activation has to be delivered.
     /// </summary>
+    [DataMember]
     public RTPPartyIdentification1? ActivationRequestDeliveryParty { get; init; } 
     /// <summary>
     /// Date and time at which the debtor activation will be activated.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? StartDate { get; init; } 
     /// <summary>
     /// Date and time at which the debtor activation will be deactivated.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? EndDate { get; init; } 
     /// <summary>
     /// Unique, one-time code that a creditor may require from a debtor for activation purposes, and which is known only by the creditor and the debtor.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DedicatedActivationCode { get; init; } 
     
     #nullable disable

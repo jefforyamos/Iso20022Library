@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the realisation of benefits taken from a pension.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BenefitCrystallisationEvent1
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record BenefitCrystallisationEvent1
     /// <summary>
     /// Type of crystallisation event.
     /// </summary>
+    [DataMember]
     public DrawdownEventType1Choice_? EventType { get; init; } 
     /// <summary>
     /// Number of the crystallisation event.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? EventNumber { get; init; } 
     /// <summary>
     /// Date on which the crystallisation event was triggered. 
     /// </summary>
+    [DataMember]
     public IsoISODate? EventDate { get; init; } 
     /// <summary>
     /// Amount of the crystallisation event.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? CrystallisationAmount { get; init; } 
     /// <summary>
     /// Percentage of allowance used for the benefit crystallisation event.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? PercentageOfAllowance { get; init; } 
     /// <summary>
     /// Additional information about the benefit crystallisation event.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the documents referred to in the remittance information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReferredDocumentInformation4
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record ReferredDocumentInformation4
     /// <summary>
     /// Specifies the type of referred document.
     /// </summary>
+    [DataMember]
     public ReferredDocumentType2? Type { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the referred document.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Number { get; init; } 
     /// <summary>
     /// Date associated with the referred document.
     /// </summary>
+    [DataMember]
     public IsoISODate? RelatedDate { get; init; } 
     /// <summary>
     /// Set of elements used to provide the content of the referred document line.
     /// </summary>
-    public DocumentLineInformation1[] LineDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DocumentLineInformation1> LineDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

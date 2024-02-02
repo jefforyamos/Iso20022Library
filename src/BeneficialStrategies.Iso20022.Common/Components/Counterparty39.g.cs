@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of information specific to the counterparties of the reported transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Counterparty39
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Counterparty39
     /// <summary>
     /// Unique code identifying the reporting counterparty.
     /// </summary>
+    [DataMember]
     public required OrganisationIdentification15Choice_ ReportingCounterparty { get; init; } 
     /// <summary>
     /// Unique code identifying the entity with which the reporting counterparty concluded the transaction.
     /// </summary>
+    [DataMember]
     public required PartyIdentification236Choice_ OtherCounterparty { get; init; } 
     /// <summary>
     /// Identification of the entity in the case where a financial counterparty is responsible for reporting on behalf of the other counterparty.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification15Choice_? EntityResponsibleForReport { get; init; } 
     /// <summary>
     /// Unique code identifying the entity which submits the report. In the case where submission of the report has been delegated to a third party or to the other counterparty, a unique code identifying that entity.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification15Choice_? ReportSubmittingEntity { get; init; } 
     
     #nullable disable

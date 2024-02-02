@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(LimitIdentification1Choice.Default))]
 [KnownType(typeof(LimitIdentification1Choice.AllCurrent))]
 [KnownType(typeof(LimitIdentification1Choice.AllDefault))]
+[DataContract]
 public abstract partial record LimitIdentification1Choice_
 {
 }

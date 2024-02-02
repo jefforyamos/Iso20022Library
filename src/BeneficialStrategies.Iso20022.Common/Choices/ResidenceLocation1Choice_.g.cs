@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ResidenceLocation1Choice.Country))]
 [KnownType(typeof(ResidenceLocation1Choice.Area))]
+[DataContract]
 public abstract partial record ResidenceLocation1Choice_
 {
 }

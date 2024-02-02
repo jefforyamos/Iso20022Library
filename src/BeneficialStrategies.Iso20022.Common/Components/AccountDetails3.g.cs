@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of a bank account
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountDetails3
 {
     #nullable enable
@@ -20,16 +22,19 @@ public partial record AccountDetails3
     /// <summary>
     /// Name of the account as assigned by the account servicing institution in an agreement with the account owner in order to provide an additional means of identification of the account.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AccountName { get; init; } 
     /// <summary>
     /// Type of cardholder account used for the transaction.
     /// Conforms to ISO 8583, Account type codes, which are maintained by the ISO 8583/MA (Maintenance Agency).
     /// </summary>
+    [DataMember]
     public ISO8583AccountTypeCode? AccountType { get; init; } 
     /// <summary>
     /// Identification of an account.
     /// ISO 8583 bit 102 or bit 103
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AccountIdentification { get; init; } 
     
     #nullable disable

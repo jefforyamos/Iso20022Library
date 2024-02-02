@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the dispute details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Dispute1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Dispute1
     /// <summary>
     /// Unique identification for the margin call request.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MarginCallRequestIdentification { get; init; } 
     /// <summary>
     /// Disputed amount.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount DisputedAmount { get; init; } 
     /// <summary>
     /// Date of dispute.
     /// </summary>
+    [DataMember]
     public required IsoISODate DisputeDate { get; init; } 
     
     #nullable disable

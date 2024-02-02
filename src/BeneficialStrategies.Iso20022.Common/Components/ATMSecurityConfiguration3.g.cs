@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Configuration of the encryption or digital envelope, if the security module is able to perform encryption.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMSecurityConfiguration3
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record ATMSecurityConfiguration3
     /// <summary>
     /// True if the security module is able to perform encryption with an asymmetric key.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? AsymmetricEncryption { get; init; } 
     /// <summary>
     /// True if the security module is able to identify an asymmetric key with certificate issuer X.500 name and certificate serial number. False if a proprietary asymmetric key identifier is required.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? AsymmetricKeyStandardIdentification { get; init; } 
     /// <summary>
     /// Asymmetric encryption algorithm the security module is able to manage.
     /// </summary>
-    public Algorithm7Code[] AsymmetricEncryptionAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Algorithm7Code> AsymmetricEncryptionAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// True if the security module is able to manage a symmetric transport session key to protect cryptographic keys and data. False if only a previously exchanged symmetric key must be used; a proprietary symmetric key identifier is then used.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? SymmetricTransportKey { get; init; } 
     /// <summary>
     /// Symmetric transport session key algorithm the security module is able to manage.
     /// </summary>
-    public Algorithm13Code[] SymmetricTransportKeyAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Algorithm13Code> SymmetricTransportKeyAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Symmetric encryption algorithm the security module is able to manage.
     /// </summary>
-    public Algorithm15Code[] SymmetricEncryptionAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Algorithm15Code> SymmetricEncryptionAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Format of data before encryption, if the format is not plaintext or implicit.
     /// </summary>
-    public EncryptionFormat1Code[] EncryptionFormat { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<EncryptionFormat1Code> EncryptionFormat { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

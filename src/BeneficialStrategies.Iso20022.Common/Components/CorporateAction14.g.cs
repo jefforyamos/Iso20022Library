@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the corporate action event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateAction14
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateAction14
     /// <summary>
     /// Provides information about the dates related to a corporate action event.
     /// </summary>
+    [DataMember]
     public CorporateActionDate30? DateDetails { get; init; } 
     /// <summary>
     /// Specifies the type of lottery announced.
     /// </summary>
+    [DataMember]
     public LotteryTypeFormat1Choice_? LotteryType { get; init; } 
     
     #nullable disable

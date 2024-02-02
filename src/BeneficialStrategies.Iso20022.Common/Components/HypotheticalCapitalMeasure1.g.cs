@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Measure of the total capital requirement all the clearing members are required to hold against their default fund contributions to a central counterparty.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record HypotheticalCapitalMeasure1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record HypotheticalCapitalMeasure1
     /// <summary>
     /// Indicates the amount of the total capital requirement all the clearing members are required to hold against their default fund contributions to a central counterparty.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Unique internal identifier for each default waterfall at the central counterparty.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text DefaultWaterfallIdentification { get; init; } 
     
     #nullable disable

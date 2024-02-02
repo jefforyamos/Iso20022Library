@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money due to a party as compensation for a service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Commission10
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record Commission10
     /// <summary>
     /// Service for which the commission is asked or paid.
     /// </summary>
+    [DataMember]
     public CommissionType6Code? Type { get; init; } 
     /// <summary>
     /// Service for which the commission is asked or paid.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedType { get; init; } 
     /// <summary>
     /// Basis upon which a commission is charged, eg, flat fee.
     /// </summary>
+    [DataMember]
     public TaxationBasis4Code? Basis { get; init; } 
     /// <summary>
     /// Basis upon which a commission is charged, eg, flat fee.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedBasis { get; init; } 
     /// <summary>
     /// Commission expressed as an amount of money.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? Amount { get; init; } 
     /// <summary>
     /// Commission expressed as a percentage.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Party entitled to the amount of money resulting from a commission.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? RecipientIdentification { get; init; } 
     /// <summary>
     /// Reference to the agreement established between the fund and another party. This element, amongst others, defines the conditions of the commissions.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CommercialAgreementReference { get; init; } 
     /// <summary>
     /// Voluntary non-enforcement of the right to all or part of a commission.
     /// </summary>
+    [DataMember]
     public CommissionWaiver3? WaivingDetails { get; init; } 
     
     #nullable disable

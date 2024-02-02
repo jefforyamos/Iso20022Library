@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Entity that has delivered or declined the card payment authorisation (the party may be unidentified).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ApprovalEntity1
 {
     #nullable enable
@@ -21,28 +23,34 @@ public partial record ApprovalEntity1
     /// Identification of the entity.
     /// ISO 8583:93/2003 bit 58
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Type of entity having declined or delivered the card payment authorisation.
     /// </summary>
+    [DataMember]
     public required PartyType26Code Type { get; init; } 
     /// <summary>
     /// Other type of party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Entity in charge of assigning the identification.
     /// </summary>
+    [DataMember]
     public PartyType9Code? Assigner { get; init; } 
     /// <summary>
     /// Country of the entity declining or delivering the authorisation.
     /// ISO 3166-1 alpha-2 or alpha-3.
     /// ISO 8583:93 bit 70
     /// </summary>
+    [DataMember]
     public IsoMin2Max3AlphaText? Country { get; init; } 
     /// <summary>
     /// Short name of the entity delivering or declining the authorisation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     
     #nullable disable

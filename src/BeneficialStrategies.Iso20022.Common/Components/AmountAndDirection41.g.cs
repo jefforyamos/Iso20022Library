@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Signed amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountAndDirection41
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AmountAndDirection41
     /// <summary>
     /// Amount value.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates that the amount value is positive or negative.
     /// </summary>
+    [DataMember]
     public IsoPlusOrMinusIndicator? Sign { get; init; } 
     
     #nullable disable

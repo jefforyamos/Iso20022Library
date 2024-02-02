@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a price report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PriceReport3
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record PriceReport3
     /// <summary>
     /// Information related to the price valuation of a financial instrument.
     /// </summary>
-    public PriceValuation4[] PriceValuationDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PriceValuation4> PriceValuationDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

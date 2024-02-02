@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cash premium made available if the securities holder consents or participates to an event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IncentivePremium5
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record IncentivePremium5
     /// <summary>
     /// Description of the premium.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Description { get; init; } 
     /// <summary>
     /// Cash premium paid per security, per vote or per attendee.
     /// </summary>
+    [DataMember]
     public required PriceRateOrAmount3Choice_ Amount { get; init; } 
     /// <summary>
     /// Specifies which voting related criteria gives rights to an incentive premium.
     /// </summary>
+    [DataMember]
     public required IncentivePremiumType2Choice_ Type { get; init; } 
     /// <summary>
     /// Date/time for the payment of the premium.
     /// </summary>
+    [DataMember]
     public DateFormat3Choice_? PaymentDate { get; init; } 
     
     #nullable disable

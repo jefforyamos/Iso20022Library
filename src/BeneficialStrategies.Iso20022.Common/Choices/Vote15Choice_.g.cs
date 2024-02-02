@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(Vote15Choice.VotePerAgendaResolution))]
 [KnownType(typeof(Vote15Choice.VoteForAllAgendaResolutions))]
+[DataContract]
 public abstract partial record Vote15Choice_
 {
 }

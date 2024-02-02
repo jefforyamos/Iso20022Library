@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters of the RSAES-OAEP encryption algorithm (RSA Encryption Scheme: Optimal Asymmetric Encryption Padding).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Parameter2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Parameter2
     /// <summary>
     /// Digest algorithm used in the RSAES-OAEP encryption algorithm (RSA Encryption Scheme: Optimal Asymmetric Encryption Padding).
     /// </summary>
+    [DataMember]
     public Algorithm5Code? DigestAlgorithm { get; init; } 
     /// <summary>
     /// Mask generator function cryptographic algorithm and parameters.
     /// </summary>
+    [DataMember]
     public AlgorithmIdentification8? MaskGeneratorAlgorithm { get; init; } 
     
     #nullable disable

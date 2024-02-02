@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines a cryptographic digest algorithm and value.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AlgorithmAndDigest1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AlgorithmAndDigest1
     /// <summary>
     /// Digest algorithm used to create the digest.
     /// </summary>
+    [DataMember]
     public required Algorithm5Code DigestAlgorithm { get; init; } 
     /// <summary>
     /// Result of data-digesting process.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Digest { get; init; } 
     
     #nullable disable

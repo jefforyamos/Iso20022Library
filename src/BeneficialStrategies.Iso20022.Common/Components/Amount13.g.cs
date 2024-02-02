@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains the details of the billing amount
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Amount13
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Amount13
     /// <summary>
     /// Describes the amount type. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Additional information about the amount. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Description { get; init; } 
     /// <summary>
     /// Contains the amount.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

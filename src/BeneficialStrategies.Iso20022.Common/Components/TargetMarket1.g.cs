@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Target market criteria.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TargetMarket1
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record TargetMarket1
     /// <summary>
     /// Investor for which the financial instrument is targeted.
     /// </summary>
+    [DataMember]
     public InvestorType1? InvestorType { get; init; } 
     /// <summary>
     /// Knowledge and/or experience of the investor.
     /// </summary>
+    [DataMember]
     public InvestorKnowledge1? KnowledgeAndOrExperience { get; init; } 
     /// <summary>
     /// Investor’s ability to bear losses.
     /// </summary>
+    [DataMember]
     public LossBearing1? AbilityToBearLosses { get; init; } 
     /// <summary>
     /// Investor’s tolerance to risk.
     /// </summary>
+    [DataMember]
     public RiskTolerance1? RiskTolerance { get; init; } 
     /// <summary>
     /// Investor’s investment requirements.
     /// </summary>
+    [DataMember]
     public InvestorRequirements1? ClientObjectivesAndNeeds { get; init; } 
     /// <summary>
     /// Other target market parameter.
     /// </summary>
-    public OtherTargetMarket1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OtherTargetMarket1> Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

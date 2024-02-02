@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account to or from which a securities entry is made.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SubAccountIdentification65
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record SubAccountIdentification65
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification144? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount25? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
+    [DataMember]
     public BlockChainAddressWallet2? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities subaccount.
     /// </summary>
-    public AggregateBalanceInformation40[] BalanceForSubAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AggregateBalanceInformation40> BalanceForSubAccount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

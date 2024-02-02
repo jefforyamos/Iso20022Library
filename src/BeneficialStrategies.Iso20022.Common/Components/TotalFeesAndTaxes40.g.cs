@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money associated with a service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TotalFeesAndTaxes40
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record TotalFeesAndTaxes40
     /// <summary>
     /// Total amount of overhead applied to the transaction that impacts the settlement amount.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalOverheadApplied { get; init; } 
     /// <summary>
     /// Total amount of fees (charge/commissions) applied to the transaction that impacts the settlement amount.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalFees { get; init; } 
     /// <summary>
     /// Total amount of taxes applied to the transaction that impacts the settlement amount.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalTaxes { get; init; } 
     /// <summary>
     /// Reference to the agreement established between the fund and another party. This element, amongst others, defines the conditions of the commissions.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CommercialAgreementReference { get; init; } 
     /// <summary>
     /// Individual fee (charge/commission).
     /// </summary>
-    public Fee2[] IndividualFee { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Fee2> IndividualFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Individual tax.
     /// </summary>
-    public Tax31[] IndividualTax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax31> IndividualTax { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

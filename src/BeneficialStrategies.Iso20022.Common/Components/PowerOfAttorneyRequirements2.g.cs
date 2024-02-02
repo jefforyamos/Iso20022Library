@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the conditions to be filled in to obtain a valid power of attorney.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PowerOfAttorneyRequirements2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PowerOfAttorneyRequirements2
     /// <summary>
     /// Specifies whether the power of attorney needs to be validated by some authority.
     /// </summary>
-    public PowerOfAttorneyLegalisation1Code[] LegalRequirement { get; init; } = [];
+    [DataMember]
+    public ValueList<PowerOfAttorneyLegalisation1Code> LegalRequirement { get; init; } = [];
     /// <summary>
     /// Specifies the documents needed to obtain a valid power of attorney.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? OtherDocumentation { get; init; } 
     
     #nullable disable

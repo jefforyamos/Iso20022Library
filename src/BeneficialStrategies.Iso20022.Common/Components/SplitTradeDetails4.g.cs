@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information describing the high level details of a split trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SplitTradeDetails4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SplitTradeDetails4
     /// <summary>
     /// Provides information on the status of a foreign exchange trade in the system.
     /// </summary>
+    [DataMember]
     public TradeData16? StatusDetails { get; init; } 
     /// <summary>
     /// Amounts of the foreign exchange trade.
     /// </summary>
+    [DataMember]
     public required AmountsAndValueDate6 TradeAmounts { get; init; } 
     /// <summary>
     /// Exchange rate as agreed by the traders.
     /// </summary>
+    [DataMember]
     public AgreedRate3? AgreedRate { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information identifying a case.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Case
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Case
     /// <summary>
     /// Unique id assigned by the case creator.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Party that created the case.
     /// </summary>
+    [DataMember]
     public required IsoAnyBICIdentifier Creator { get; init; } 
     /// <summary>
     /// Set to yes if the case was closed and needs to be re-opened.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ReopenCaseIndication { get; init; } 
     
     #nullable disable

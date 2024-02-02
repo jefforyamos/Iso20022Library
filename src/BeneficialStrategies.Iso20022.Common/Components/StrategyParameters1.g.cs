@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Allows the user to specify the algorithm parameters for the algo strategy.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StrategyParameters1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record StrategyParameters1
     /// <summary>
     /// Name of parameter.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Type of the parameter.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Defines the target strategy of the order, specifies the type of trading or algorithm strategy.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? TargetStrategy { get; init; } 
     
     #nullable disable

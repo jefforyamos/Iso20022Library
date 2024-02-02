@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Message TransactionStatus Request message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MessageStatusRequestData2
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record MessageStatusRequestData2
     /// <summary>
     /// Transaction identification.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ExchangeIdentification { get; init; } 
     /// <summary>
     /// Initiating Party information.
     /// </summary>
+    [DataMember]
     public required GenericIdentification177 InitiatingParty { get; init; } 
     /// <summary>
     /// Request to reprint the POI receipt(s).
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ReceiptReprintFlag { get; init; } 
     /// <summary>
     /// Customer or Cashier Receipt.
     /// </summary>
-    public DocumentType7Code[] DocumentQualifier { get; init; } = [];
+    [DataMember]
+    public ValueList<DocumentType7Code> DocumentQualifier { get; init; } = [];
     
     #nullable disable
 }

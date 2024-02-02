@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the transportation of goods by air.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransportByAir5
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record TransportByAir5
     /// <summary>
     /// Place from where the goods must leave.
     /// </summary>
-    public AirportName1Choice_[] DepartureAirport { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AirportName1Choice_> DepartureAirport { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Place where the goods must arrive.
     /// </summary>
-    public AirportName1Choice_[] DestinationAirport { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AirportName1Choice_> DestinationAirport { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AirCarrierName { get; init; } 
     /// <summary>
     /// Country in which the carrier of the goods, for example, shipping company, is located or registered.
     /// </summary>
+    [DataMember]
     public CountryCode? AirCarrierCountry { get; init; } 
     /// <summary>
     /// Name of the carrier's (for example, shipping company's) agent that acts on behalf of the carrier and may be the issuer of transport documents relating to the underlying shipment.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? CarrierAgentName { get; init; } 
     /// <summary>
     /// Country of registration of the carrier's (for example, shipping company's) agent that acts on behalf of the carrier and may be the issuer of transport documents relating to the underlying shipment.
     /// </summary>
+    [DataMember]
     public CountryCode? CarrierAgentCountry { get; init; } 
     
     #nullable disable

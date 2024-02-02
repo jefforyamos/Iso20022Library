@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// General information about the collateral agreement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Obligation7
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record Obligation7
     /// <summary>
     /// One of the entities associated with the collateral agreement
     /// </summary>
+    [DataMember]
     public required PartyIdentification178Choice_ PartyA { get; init; } 
     /// <summary>
     /// Party that is acting on behalf of party A and that offers collateral management services.
     /// </summary>
+    [DataMember]
     public PartyIdentification178Choice_? ServicingPartyA { get; init; } 
     /// <summary>
     /// Other entity associated with the collateral agreement
     /// </summary>
+    [DataMember]
     public required PartyIdentification178Choice_ PartyB { get; init; } 
     /// <summary>
     /// Party that is acting on behalf of party B and that offers collateral management services.
     /// </summary>
+    [DataMember]
     public PartyIdentification178Choice_? ServicingPartyB { get; init; } 
     /// <summary>
     /// Provides additional information on the collateral account of the party delivering/receiving the collateral.
     /// </summary>
+    [DataMember]
     public CollateralAccount3? CollateralAccountIdentification { get; init; } 
     /// <summary>
     /// Underlying business area or type of trade causing the collateral movement.
     /// </summary>
+    [DataMember]
     public ExposureType5Code? ExposureType { get; init; } 
     /// <summary>
     /// Type of collateral instruction.
     /// </summary>
+    [DataMember]
     public CollateralTransactionType1Choice_? CollateralTransactionType { get; init; } 
     /// <summary>
     /// Specifies whether the client is the collateral taker or giver.
     /// </summary>
+    [DataMember]
     public CollateralRole1Code? CollateralSide { get; init; } 
     /// <summary>
     /// Amount of the principal. 
     /// </summary>
+    [DataMember]
     public AmountAndDirection20? ExposureAmount { get; init; } 
     /// <summary>
     /// Close of business date on which the initiating party is valuing the margin call.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? ValuationDate { get; init; } 
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
+    [DataMember]
     public ClosingDate4Choice_? ClosingDate { get; init; } 
     /// <summary>
     /// Date/time at which the instructing party requests the instruction to be executed. 
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? RequestedExecutionDate { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Variables used to quantify the different calculations for position sets.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PositionSetMetrics11
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PositionSetMetrics11
     /// <summary>
     /// Numeric variables calculated on the number of transactions or on market exposures.
     /// </summary>
+    [DataMember]
     public VolumeMetrics4? VolumeMetrics { get; init; } 
     /// <summary>
     /// Average interest rate received on cash collateral reinvestment by the lender for reinvestment of cash collateral.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? CashReinvestmentRate { get; init; } 
     
     #nullable disable

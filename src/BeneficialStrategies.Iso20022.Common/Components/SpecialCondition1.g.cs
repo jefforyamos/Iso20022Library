@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Special conditions for the loan.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SpecialCondition1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SpecialCondition1
     /// <summary>
     /// Incoming amount on special conditions.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount IncomingAmount { get; init; } 
     /// <summary>
     /// Outgoing amount on special conditions.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount OutgoingAmount { get; init; } 
     /// <summary>
     /// Incoming amount to other account on special conditions.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? IncomingAmountToOtherAccount { get; init; } 
     /// <summary>
     /// Outgoing payment amount from other account on special conditions.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? PaymentFromOtherAccount { get; init; } 
     
     #nullable disable

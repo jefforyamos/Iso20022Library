@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of a card transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Environment32
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record Environment32
     /// <summary>
     /// Party in a contractual relationship with an acceptor to acquire card payment transactions.
     /// </summary>
+    [DataMember]
     public required PartyIdentification263 Acquirer { get; init; } 
     /// <summary>
     /// Identifies the originator of the transaction.
     /// </summary>
+    [DataMember]
     public PartyIdentification263? Originator { get; init; } 
     /// <summary>
     /// Party sending the message to another intermediary agent or to the final destination.
     /// </summary>
+    [DataMember]
     public PartyIdentification263? Sender { get; init; } 
     /// <summary>
     /// Party receiving the message from the origin or from an intermediary agent.
     /// </summary>
+    [DataMember]
     public PartyIdentification263? Receiver { get; init; } 
     /// <summary>
     /// Card acceptor performing the card transaction.
     /// </summary>
+    [DataMember]
     public PartyIdentification258? Acceptor { get; init; } 
     /// <summary>
     /// Identifies the destination of the transaction.
     /// </summary>
+    [DataMember]
     public PartyIdentification263? Destination { get; init; } 
     /// <summary>
     /// Payment terminal or ATM performing the transaction.
     /// </summary>
+    [DataMember]
     public Terminal6? Terminal { get; init; } 
     /// <summary>
     /// Information related to the issuer.
     /// </summary>
+    [DataMember]
     public PartyIdentification263? Issuer { get; init; } 
     /// <summary>
     /// Card or payment token performing the transaction.
     /// </summary>
+    [DataMember]
     public CardData9? Card { get; init; } 
     /// <summary>
     /// Container for tenders used by the customer to perform the payment transaction.
     /// </summary>
+    [DataMember]
     public Wallet2? Wallet { get; init; } 
     /// <summary>
     /// Details of payment token.
     /// </summary>
+    [DataMember]
     public Token3? Token { get; init; } 
     /// <summary>
     /// Cardholder performing the card payment transaction.
     /// </summary>
+    [DataMember]
     public Cardholder19? Cardholder { get; init; } 
     
     #nullable disable

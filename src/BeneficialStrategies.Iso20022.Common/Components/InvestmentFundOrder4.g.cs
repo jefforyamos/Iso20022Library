@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies an order linked to an account opening.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentFundOrder4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InvestmentFundOrder4
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OrderReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual orders, as assigned by the instructing party. This identifier links the individual orders together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     
     #nullable disable

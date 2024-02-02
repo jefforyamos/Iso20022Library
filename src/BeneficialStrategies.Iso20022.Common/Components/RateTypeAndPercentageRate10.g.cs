@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the value expressed as a deemed rate type and a percentage rate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RateTypeAndPercentageRate10
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RateTypeAndPercentageRate10
     /// <summary>
     /// Value expressed as a rate type.
     /// </summary>
+    [DataMember]
     public required DeemedRateType1Choice_ RateType { get; init; } 
     /// <summary>
     /// Value expressed as a rate.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate Rate { get; init; } 
     
     #nullable disable

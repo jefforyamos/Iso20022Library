@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies rates related to a corporate action option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionRate47
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record CorporateActionRate47
     /// <summary>
     /// Rate proposed in a remarketing of variable rate notes.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? ProposedRate { get; init; } 
     /// <summary>
     /// Rate of allowed over-subscription.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat5Choice_? OversubscriptionRate { get; init; } 
     /// <summary>
     /// Requested tax rate in case of breakdown of tax rate, for example, used for adjustment of tax rate. This is the new requested applicable rate.
     /// </summary>
-    public RateAndAmountFormat21Choice_[] RequestedTaxationRate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RateAndAmountFormat21Choice_> RequestedTaxationRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Requested rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.
     /// </summary>
-    public RateAndAmountFormat21Choice_[] RequestedWithholdingOfForeignTax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RateAndAmountFormat21Choice_> RequestedWithholdingOfForeignTax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Requested rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.
     /// </summary>
-    public RateAndAmountFormat21Choice_[] RequestedWithholdingOfLocalTax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RateAndAmountFormat21Choice_> RequestedWithholdingOfLocalTax { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

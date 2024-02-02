@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the securities account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesAccount6
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record SecuritiesAccount6
     /// <summary>
     /// Identification of the financial instrument.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification7 SecurityIdentification { get; init; } 
     /// <summary>
     /// Idenfitication of the account where financial instruments are maintained.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text SecuritiesAccountIdentification { get; init; } 
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Identification of the place of safekeeping.
     /// </summary>
+    [DataMember]
     public required PartyIdentification2Choice_ SafekeepingPlace { get; init; } 
     /// <summary>
     /// Provides information required for the registration of the security.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? RegistrationDetails { get; init; } 
     
     #nullable disable

@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(DocumentNumber1Choice.ShortNumber))]
 [KnownType(typeof(DocumentNumber1Choice.LongNumber))]
 [KnownType(typeof(DocumentNumber1Choice.ProprietaryNumber))]
+[DataContract]
 public abstract partial record DocumentNumber1Choice_
 {
 }

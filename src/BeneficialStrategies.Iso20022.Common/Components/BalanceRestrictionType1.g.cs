@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Type providing further information on balance restrictions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BalanceRestrictionType1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record BalanceRestrictionType1
     /// <summary>
     /// Type of the restriction, for example, selling restriction, buying restriction, placing restriction.
     /// </summary>
+    [DataMember]
     public required GenericIdentification1 Type { get; init; } 
     /// <summary>
     /// Description of the restriction.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     /// <summary>
     /// Classification of the type of processing restriction that the system should apply for the restriction.
     /// </summary>
+    [DataMember]
     public ProcessingType1Choice_? ProcessingType { get; init; } 
     
     #nullable disable

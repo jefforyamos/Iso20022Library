@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about code and number of event of fund transfer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferEvent1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TransferEvent1
     /// <summary>
     /// Code of fund transfer event.
     /// </summary>
+    [DataMember]
     public required IsoMax4Text EventCode { get; init; } 
     /// <summary>
     /// Event number related to the event code.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? EventNumber { get; init; } 
     
     #nullable disable

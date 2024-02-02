@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the identification of a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericIdentification81
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record GenericIdentification81
     /// <summary>
     /// Identification of a party, such as a tax or social security identifier.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Type of identification.
     /// </summary>
+    [DataMember]
     public required OtherIdentification3Choice_ IdentificationType { get; init; } 
     
     #nullable disable

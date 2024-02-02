@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Ability of a financial instrument to be easily traded and converted to cash, at conditions that do not affect its price.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LiquidityAndStatistics1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record LiquidityAndStatistics1
     /// <summary>
     /// Indicates whether an amount is a gross amount (including all charges, commissions and tax), or a net amount.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator GrossIndicator { get; init; } 
     /// <summary>
     /// Type of liquidity measure, of a financial instrument, on a market.
     /// </summary>
+    [DataMember]
     public required LiquidityIndicatorType1Code IndicatorType { get; init; } 
     /// <summary>
     /// Indicates the overall weighted average liquidity expressed as a percentage of average daily volume.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate WeightedAverageLiquidity { get; init; } 
     /// <summary>
     /// Accepted value of stocks composing an index located outside its country of origin.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount OutMainCountryIndex { get; init; } 
     /// <summary>
     /// Percentage of program that crosses in Currency.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? CrossPercent { get; init; } 
     /// <summary>
     /// SideValue1 is used to show the monetary total value in either direction (buy or sell) of the transaction without revealing whether it is the buy-side institutions intention to buy or sell.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? SideValue1 { get; init; } 
     /// <summary>
     /// SideValue2 is used to show the monetary total value in either direction (buy or sell) of the transaction without revealing whether it is the buy-side institutions intention to buy or sell.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? SideValue2 { get; init; } 
     
     #nullable disable

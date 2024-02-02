@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for an accepted status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcceptedStatusReason7
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AcceptedStatusReason7
     /// <summary>
     /// Reason for the accepted status.
     /// </summary>
+    [DataMember]
     public required AcceptedReason8Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the processed instruction.
     /// </summary>
+    [DataMember]
     public IsoMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

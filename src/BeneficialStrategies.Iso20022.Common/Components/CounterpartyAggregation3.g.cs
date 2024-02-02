@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the valuation details per counterparty aggregation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CounterpartyAggregation3
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record CounterpartyAggregation3
     /// <summary>
     /// Specifies whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).
     /// </summary>
+    [DataMember]
     public OptionType6Choice_? OptionType { get; init; } 
     /// <summary>
     /// Indication whether the counterparties to the transaction have agreed to an evergreen or extendable repo.
     /// </summary>
+    [DataMember]
     public RepoTerminationOption1Code? TerminationOption { get; init; } 
     /// <summary>
     /// Provides information on the baskets identification and the Eligiblity Set Profile.
     /// </summary>
+    [DataMember]
     public BasketIdentificationAndEligibilitySetProfile1? BasketIdentificationAndEligibilitySetProfile { get; init; } 
     /// <summary>
     /// Provides  the identification of the party or parties associated with the collateral agreement
     /// </summary>
+    [DataMember]
     public required CollateralParties11 CollateralParties { get; init; } 
     /// <summary>
     /// Provides details on the collateral valuation.
     /// </summary>
-    public CollateralAmount16[] ValuationAmounts { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CollateralAmount16> ValuationAmounts { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// The collateral excess/shortage expressed in the percentage of the collateral required.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? MarginRate { get; init; } 
     /// <summary>
     /// Provides the status after comparing the total collateral required and the total collateral value of all transactions against counterparty.
     /// </summary>
+    [DataMember]
     public CollateralStatus1Code? GlobalCounterpartyStatus { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of a contact person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Contact3
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record Contact3
     /// <summary>
     /// Central phone number for the contact.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? CentralPhoneNumber { get; init; } 
     /// <summary>
     /// Property phone number for the contact.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? PropertyPhoneNumber { get; init; } 
     /// <summary>
     /// Toll-free phone number for the contact.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? TollFreePhoneNumber { get; init; } 
     /// <summary>
     /// Email address of contact.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Email { get; init; } 
     /// <summary>
     /// Fax phone number.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? FaxNumber { get; init; } 
     /// <summary>
     /// Universal Resource Locator (URL) address.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? URLAddress { get; init; } 
     /// <summary>
     /// Language of the contact.
     /// </summary>
+    [DataMember]
     public LanguageCode? Language { get; init; } 
     
     #nullable disable

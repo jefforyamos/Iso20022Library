@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide information on the tax amount(s) of tax record.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxAmount1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record TaxAmount1
     /// <summary>
     /// Rate used to calculate the tax.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Amount of money on which the tax is based.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TaxableBaseAmount { get; init; } 
     /// <summary>
     /// Total amount that is the result of the calculation of the tax for the record.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalAmount { get; init; } 
     /// <summary>
     /// Set of elements used to provide details on the tax period and amount.
     /// </summary>
-    public TaxRecordDetails1[] Details { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TaxRecordDetails1> Details { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

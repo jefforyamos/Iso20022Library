@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements qualifying the interest rate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Rate2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Rate2
     /// <summary>
     /// Indicates the sign of the rate.
     /// </summary>
+    [DataMember]
     public IsoPlusOrMinusIndicator? Sign { get; init; } 
     /// <summary>
     /// Percentage charged for the use of an amount of money, usually expressed at an annual rate. The interest rate is the ratio of the amount of interest paid during a certain period of time compared to the principal amount of the interest bearing financial instrument.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate Rate { get; init; } 
     
     #nullable disable

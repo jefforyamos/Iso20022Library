@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Limit of amounts for the customer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransactionAmounts8
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record ATMTransactionAmounts8
     /// <summary>
     /// Default currency of the limits.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Maximum amount allowed for a transaction in the service.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? MaximumPossibleAmount { get; init; } 
     /// <summary>
     /// Minimum amount allowed for a transaction in the service.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? MinimumPossibleAmount { get; init; } 
     /// <summary>
     /// Additional amount that may be displayed to the customer, for instance the daily limit or the daily balance for the service.
     /// </summary>
-    public ATMTransactionAmounts7[] AdditionalAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMTransactionAmounts7> AdditionalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Limit of deposited media for the customer.
     /// </summary>
-    public ATMTransactionAmounts9[] DepositLimits { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMTransactionAmounts9> DepositLimits { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

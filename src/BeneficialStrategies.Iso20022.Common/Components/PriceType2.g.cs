@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specification of the price type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PriceType2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PriceType2
     /// <summary>
     /// Structured format.
     /// </summary>
+    [DataMember]
     public required TypeOfPrice6Code Structured { get; init; } 
     /// <summary>
     /// Additional information about the type of charge.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

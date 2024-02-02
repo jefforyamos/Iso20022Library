@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Further information related to the processing of the charges instruction that may need to be acted upon by the instructed agent. The instruction may relate to an instruction that has to be executed by the instructed agent, or may be information required by the instructed agent.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InstructionForInstructedAgent1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InstructionForInstructedAgent1
     /// <summary>
     /// Coded information related to the processing of the payment instruction, provided by the initiating party, and intended for the instructed agent.
     /// </summary>
+    [DataMember]
     public ExternalInstructedAgentInstruction1Code? Code { get; init; } 
     /// <summary>
     /// Further information complementing the coded instruction or instruction to the instructed agent that is bilaterally agreed or specific to a user community.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? InstructionInformation { get; init; } 
     
     #nullable disable

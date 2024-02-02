@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to parties in the contract.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeCounterpartyReport9
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record TradeCounterpartyReport9
     /// <summary>
     /// Identification of the reporting counterparty.
     /// </summary>
+    [DataMember]
     public required Counterparty26 ReportingCounterparty { get; init; } 
     /// <summary>
     /// Identification of the other counterparty in the transaction.
     /// </summary>
+    [DataMember]
     public required Counterparty29 OtherCounterparty { get; init; } 
     /// <summary>
     /// Identification of the broker as an intermediary for the reporting counterparty.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification9Choice_? Broker { get; init; } 
     /// <summary>
     /// Identification of the submitting agent in the case where the reporting counterparty has delegated the submission of the report to a third party or to the other counterparty.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification9Choice_? SubmittingAgent { get; init; } 
     /// <summary>
     /// Identification of the clearing member in the case where the trade is cleared.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification9Choice_? ClearingMember { get; init; } 
     /// <summary>
     /// Identification of the beneficiary who is subject to the rights and obligations arising from the contract.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification9Choice_? Beneficiary { get; init; } 
     
     #nullable disable

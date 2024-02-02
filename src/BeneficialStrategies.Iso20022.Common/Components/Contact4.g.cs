@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details of the contact person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Contact4
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record Contact4
     /// <summary>
     /// Specifies the terms used to formally address a person.
     /// </summary>
+    [DataMember]
     public NamePrefix2Code? NamePrefix { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Name { get; init; } 
     /// <summary>
     /// Collection of information that identifies a phone number, as defined by telecom services.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? PhoneNumber { get; init; } 
     /// <summary>
     /// Collection of information that identifies a mobile phone number, as defined by telecom services.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? MobileNumber { get; init; } 
     /// <summary>
     /// Collection of information that identifies a FAX number, as defined by telecom services.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? FaxNumber { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
+    [DataMember]
     public IsoMax2048Text? EmailAddress { get; init; } 
     /// <summary>
     /// Purpose for which an email address may be used.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? EmailPurpose { get; init; } 
     /// <summary>
     /// Title of the function.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? JobTitle { get; init; } 
     /// <summary>
     /// Role of a person in an organisation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Responsibility { get; init; } 
     /// <summary>
     /// Identification of a division of a large organisation or building.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Department { get; init; } 
     /// <summary>
     /// Contact details in another form.
     /// </summary>
-    public OtherContact1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OtherContact1> Other { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Preferred method used to reach the contact.
     /// </summary>
+    [DataMember]
     public PreferredContactMethod1Code? PreferredMethod { get; init; } 
     
     #nullable disable

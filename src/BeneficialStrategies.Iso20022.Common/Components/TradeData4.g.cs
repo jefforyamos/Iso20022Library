@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information on the status of a trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeData4
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record TradeData4
     /// <summary>
     /// Party that assigned the status to the foreign exchange trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? StatusOriginator { get; init; } 
     /// <summary>
     /// Specifies the new status of the trade.
     /// </summary>
+    [DataMember]
     public required Status5Choice_ CurrentStatus { get; init; } 
     /// <summary>
     /// Additional information about the current status of the trade.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? CurrentStatusSubType { get; init; } 
     /// <summary>
     /// Specifies the date and time at which the current status was assigned to all the trades, unless overwritten by a date and time assigned to an individual trade.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CurrentStatusDateTime { get; init; } 
     /// <summary>
     /// Specifies the previous status of a trade.
     /// </summary>
+    [DataMember]
     public Status5Choice_? PreviousStatus { get; init; } 
     /// <summary>
     /// Additional information on the previous status of a trade in a central system.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? PreviousStatusSubType { get; init; } 
     /// <summary>
     /// Specifies the product for which the status of the confirmation is reported, unless overwritten by a product type assigned to an individual trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProductType { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Politically exposed person checks.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PoliticallyExposedPerson1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PoliticallyExposedPerson1
     /// <summary>
     /// Specifies if due diligence checks on the political exposure of the investor have been carried out. (A politically exposed person is someone who has been entrusted with a prominent public function, or an individual who is closely related to such a person.)
     /// </summary>
+    [DataMember]
     public required PoliticalExposureType2Choice_ PoliticallyExposedPersonType { get; init; } 
     /// <summary>
     /// Status of the politically exposed person.
     /// </summary>
+    [DataMember]
     public PoliticallyExposedPersonStatus1Choice_? PoliticallyExposedPersonStatus { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Location information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Location4
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record Location4
     /// <summary>
     /// Contains the location code.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LocationCode { get; init; } 
     /// <summary>
     /// Name (label) of the location.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LocationName { get; init; } 
     /// <summary>
     /// Specific explanation of the location or directions. 
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Description { get; init; } 
     /// <summary>
     /// Contains the address details. 
     /// </summary>
+    [DataMember]
     public Address2? Address { get; init; } 
     /// <summary>
     /// Local time zone.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? LocalTimeZone { get; init; } 
     /// <summary>
     /// Local currency.
     /// </summary>
+    [DataMember]
     public ISO3NumericCurrencyCode? LocalCurrency { get; init; } 
     
     #nullable disable

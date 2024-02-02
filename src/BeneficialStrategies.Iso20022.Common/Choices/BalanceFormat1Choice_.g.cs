@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(BalanceFormat1Choice.Balance))]
 [KnownType(typeof(BalanceFormat1Choice.EligibleBalance))]
 [KnownType(typeof(BalanceFormat1Choice.NotEligibleBalance))]
+[DataContract]
 public abstract partial record BalanceFormat1Choice_
 {
 }

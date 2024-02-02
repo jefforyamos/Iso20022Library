@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(MarginTerms1Choice.MarginDetails))]
 [KnownType(typeof(MarginTerms1Choice.SegregatedIndependentAmountMargin))]
+[DataContract]
 public abstract partial record MarginTerms1Choice_
 {
 }

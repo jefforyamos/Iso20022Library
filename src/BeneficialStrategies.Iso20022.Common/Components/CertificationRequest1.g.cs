@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Certification request PKCS#10 (Public Key Certificate Standard 10) for creation or renewal of an X.509 certificate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CertificationRequest1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CertificationRequest1
     /// <summary>
     /// Information of the certificate to create.
     /// </summary>
+    [DataMember]
     public required CertificationRequest2 CertificateRequestInformation { get; init; } 
     /// <summary>
     /// Identification of the key.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? KeyIdentification { get; init; } 
     /// <summary>
     /// Version of the key.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? KeyVersion { get; init; } 
     
     #nullable disable

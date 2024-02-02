@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Agreement between the parties, stipulating the terms and conditions of the delivery of goods or services.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeContract1
 {
     #nullable enable
@@ -20,51 +22,63 @@ public partial record TradeContract1
     /// <summary>
     /// Contract document referenced from this trade agreement.
     /// </summary>
+    [DataMember]
     public DocumentIdentification22? ContractDocumentIdentification { get; init; } 
     /// <summary>
     /// Amount of the trade contract.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Party that is specified as the buyer for this trade agreement.
     /// </summary>
-    public TradeParty2[] Buyer { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TradeParty2> Buyer { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that is specified as the seller for this trade agreement.
     /// </summary>
-    public TradeParty2[] Seller { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TradeParty2> Seller { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Planned final payment date at the time of issuance.
     /// </summary>
+    [DataMember]
     public required IsoISODate MaturityDate { get; init; } 
     /// <summary>
     /// Indicates whether the contract duration is extended or not.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator ProlongationFlag { get; init; } 
     /// <summary>
     /// Start date of the trade contract.
     /// </summary>
+    [DataMember]
     public required IsoISODate StartDate { get; init; } 
     /// <summary>
     /// Currency in which the trade is being settled.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
     /// <summary>
     /// Provides details on the currency exchange rate and contract.
     /// </summary>
+    [DataMember]
     public ExchangeRate1? ExchangeRateInformation { get; init; } 
     /// <summary>
     /// Schedule of the payments defined for the trade contract.
     /// </summary>
+    [DataMember]
     public InterestPaymentDateRange1? PaymentSchedule { get; init; } 
     /// <summary>
     /// Schedule of the shipment.
     /// </summary>
+    [DataMember]
     public ShipmentSchedule2Choice_? ShipmentSchedule { get; init; } 
     /// <summary>
     /// Documents provided as attachments to the trade contract.
     /// </summary>
-    public DocumentGeneralInformation3[] Attachment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DocumentGeneralInformation3> Attachment { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

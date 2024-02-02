@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the request of certificate management.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CertificateManagementRequest1
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record CertificateManagementRequest1
     /// <summary>
     /// Identification of the terminal or system using the certificate management service.
     /// </summary>
+    [DataMember]
     public required GenericIdentification72 POIIdentification { get; init; } 
     /// <summary>
     /// Identification of the TM or the MTM providing the Certificate Authority service.
     /// </summary>
+    [DataMember]
     public GenericIdentification72? TMIdentification { get; init; } 
     /// <summary>
     /// Requested certificate management service.
     /// </summary>
+    [DataMember]
     public required CardPaymentServiceType10Code CertificateService { get; init; } 
     /// <summary>
     /// Identification of the client and server public key infrastructures containing the certificate. In addition, it may identify specific requirements of the customer.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? SecurityDomain { get; init; } 
     /// <summary>
     /// PKCS#10 (Public Key Certificate Standard 10) certification request coded in base64 ASN.1/DER (Abstract Syntax Notation 1, Distinguished Encoding Rules) or PEM (Privacy Enhanced Message) format.
     /// </summary>
+    [DataMember]
     public IsoMax20000Text? BinaryCertificationRequest { get; init; } 
     /// <summary>
     /// Certification request PKCS#10 (Public Key Certificate Standard 10) for creation or renewal of an X.509 certificate.
     /// </summary>
+    [DataMember]
     public CertificationRequest1? CertificationRequest { get; init; } 
     /// <summary>
     /// Created certificate. The certificate is ASN.1/DER encoded, for renewal or revocation of certificate.
     /// </summary>
+    [DataMember]
     public IsoMax10KBinary? ClientCertificate { get; init; } 
     /// <summary>
     /// Identification of the white list element, for white list addition or removal.
     /// </summary>
+    [DataMember]
     public PointOfInteraction6? WhiteListIdentification { get; init; } 
     
     #nullable disable

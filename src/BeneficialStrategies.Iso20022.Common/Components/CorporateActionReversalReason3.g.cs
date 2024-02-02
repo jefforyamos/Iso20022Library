@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the reason why the corporate action reversal occurs.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionReversalReason3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionReversalReason3
     /// <summary>
     /// Specifies the reason for the reversal.
     /// </summary>
+    [DataMember]
     public required CorporateActionReversalReason3Choice_ Reason { get; init; } 
     /// <summary>
     /// Provides additional information about the processed instruction.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

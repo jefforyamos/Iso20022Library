@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the derivative instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DerivativeInstrument5
 {
     #nullable enable
@@ -20,40 +22,48 @@ public partial record DerivativeInstrument5
     /// <summary>
     /// Expiry date of the financial instrument.
     /// </summary>
+    [DataMember]
     public IsoISODate? ExpiryDate { get; init; } 
     /// <summary>
     /// Number of units of the underlying instrument represented by a single derivative contract. For a future or option on an index, the amount per index point.
     /// </summary>
+    [DataMember]
     public IsoNonNegativeDecimalNumber? PriceMultiplier { get; init; } 
     /// <summary>
     /// Choice to specify the type(s) of underlying instrument(s) that make up the financial instrument.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentIdentification5Choice_? UnderlyingInstrument { get; init; } 
     /// <summary>
     /// Specifies whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// Usage:
     /// Within the scope of MiFIR, RTS 23, the following meanings should be used where a swaption is being detailed, “Put”, in case of receiver swaption, in which the buyer has the right to enter into a swap as a fixed-rate receiver. Call”, in case of payer swaption, in which the buyer has the right to enter into a swap as a fixed-rate payer. Caps and floors shall interpret this field as, "Put”, in case of a Floor, "Call”, in case of a Cap. Field only applies to derivatives that are options or warrants.
     /// </summary>
+    [DataMember]
     public OptionType2Code? OptionType { get; init; } 
     /// <summary>
     /// Attributes to specify the strike price of a derivative.
     /// Usage:
     /// Within the scope of MiFIR RTS 23, these are the fields 31 and 32. This field only applies to options, warrants, spread bet on an option on an equity or contract for difference on an option on an equity. Where price is currently not available but pending, the value shall be ’PNDG’. Where strike price is not applicable it shall not be populated.
     /// </summary>
+    [DataMember]
     public SecuritiesTransactionPrice4Choice_? StrikePrice { get; init; } 
     /// <summary>
     /// Indication as to whether the option may be exercised only at a fixed date (European, and Asian style), a series of pre-specified dates (Bermudan) or at any time during the life of the contract (American style).
     /// Usage:
     /// Within the scope of MiFIR, RTS 23, this field is only applicable for options, warrants and entitlement certificates.
     /// </summary>
+    [DataMember]
     public OptionStyle7Code? OptionExerciseStyle { get; init; } 
     /// <summary>
     /// Indicates whether the transaction is settled physically or in cash.
     /// </summary>
+    [DataMember]
     public PhysicalTransferType4Code? DeliveryType { get; init; } 
     /// <summary>
     /// Specific attributes of the underlying asset class of the financial instrument.
     /// </summary>
+    [DataMember]
     public AssetClass2? AssetClassSpecificAttributes { get; init; } 
     
     #nullable disable

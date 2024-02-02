@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes each adjustment made to the original price.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountDetails2
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record AmountDetails2
     /// <summary>
     /// Code that describes the type of amount or fee.
     /// </summary>
+    [DataMember]
     public TypeOfAmount20Code? Type { get; init; } 
     /// <summary>
     /// Description of other type of amount or fee.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Contains the amount.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// A code to indicate the tax amount is credit or debit
     /// </summary>
+    [DataMember]
     public CreditDebit3Code? CreditDebit { get; init; } 
     /// <summary>
     /// Taxes related to the products or services. 
     /// </summary>
-    public Tax39[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax39> Tax { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

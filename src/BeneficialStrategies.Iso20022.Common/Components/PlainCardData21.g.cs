@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Sensitive data associated with a payment card.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PlainCardData21
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record PlainCardData21
     /// <summary>
     /// Identification of the driver or vehicle.
     /// </summary>
+    [DataMember]
     public IsoMax20Text? DriverOrVehicleIdentification { get; init; } 
     /// <summary>
     /// Additional card specific data.
     /// </summary>
-    public AdditionalData1[] AdditionalCardData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalCardData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

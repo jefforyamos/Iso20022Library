@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data container to exchange data elements defined by another standard.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExternallyDefinedData2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ExternallyDefinedData2
     /// <summary>
     /// Identification of the set of data to exchange.
     /// </summary>
+    [DataMember]
     public required IsoMax1025Text Identification { get; init; } 
     /// <summary>
     /// Data to exchange according to an external standard.
     /// </summary>
+    [DataMember]
     public IsoMax100KBinary? Value { get; init; } 
     /// <summary>
     /// Protection of the values to exchange.
     /// </summary>
+    [DataMember]
     public ContentInformationType26? ProtectedValue { get; init; } 
     /// <summary>
     /// Identification of the standard used to encode the values to exchange.
     /// </summary>
+    [DataMember]
     public IsoMax1025Text? Type { get; init; } 
     
     #nullable disable

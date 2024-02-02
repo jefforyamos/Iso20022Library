@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further means of referencing a payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalItemReference2
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record OriginalItemReference2
     /// <summary>
     /// Identifies the account to be credited with the incoming amount of money.
     /// </summary>
+    [DataMember]
     public CashAccount24? Account { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public Party12Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? AccountServicer { get; init; } 
     /// <summary>
     /// Identifies the parent account of the account to be credited with the incoming amount of money.
     /// </summary>
+    [DataMember]
     public CashAccount24? RelatedAccount { get; init; } 
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [DataMember]
     public Party12Choice_? Debtor { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? DebtorAgent { get; init; } 
     /// <summary>
     /// Payment processes required to transfer cash from the debtor to the creditor.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? IntermediaryAgent { get; init; } 
     /// <summary>
     /// Underlying reason for the payment transaction.
     /// </summary>
+    [DataMember]
     public Purpose2Choice_? Purpose { get; init; } 
     /// <summary>
     /// Provides information related to the handling of the remittance information by any of the agents in the transaction processing chain.
     /// </summary>
+    [DataMember]
     public RemittanceLocation2? RelatedRemittanceInformation { get; init; } 
     /// <summary>
     /// Structured information that enables the matching, that is reconciliation, of a payment with the items that the payment is intended to settle, such as commercial invoices in an account receivable system.
     /// </summary>
+    [DataMember]
     public RemittanceInformation7? RemittanceInformation { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of good and services included in the sale.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Sale2
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record Sale2
     /// <summary>
     /// Sale summary information.
     /// </summary>
+    [DataMember]
     public SaleSummary1? Summary { get; init; } 
     /// <summary>
     /// Sale line item information.
     /// </summary>
-    public SaleItem3[] LineItem { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SaleItem3> LineItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide information on the group of the corrective transaction, to which the resolution message refers.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorrectiveGroupInformation1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CorrectiveGroupInformation1
     /// <summary>
     /// Point to point reference, as assigned by the instructing party, and sent to the next party in the chain to unambiguously identify the message.|Usage: The instructing party has to make sure that 'MessageIdentification' is unique per instructed party for a pre-agreed period.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Specifies the message name identifier to which the message refers.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageNameIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CreationDateTime { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the transportation of goods by road.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransportByRoad1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record TransportByRoad1
     /// <summary>
     /// Identifies the location where the goods are received for transportation.
     /// </summary>
-    public IsoMax35Text[] PlaceOfReceipt { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> PlaceOfReceipt { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the location of delivery of the goods.
     /// </summary>
-    public IsoMax35Text[] PlaceOfDelivery { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> PlaceOfDelivery { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

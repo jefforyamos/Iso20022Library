@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Any party who is related to an investment account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountParties4
 {
     #nullable enable
@@ -20,63 +22,78 @@ public partial record AccountParties4
     /// <summary>
     /// Specifies the type of modification to be applied on a set of information.
     /// </summary>
+    [DataMember]
     public required DataModification1Code ModificationScopeIndication { get; init; } 
     /// <summary>
     /// Single owner of the investment account or, when the ownership is split among several owners, the primary owner is the one giving its address and account details for the registration.
     /// </summary>
+    [DataMember]
     public InvestmentAccountOwnershipInformation4? PrimaryOwner { get; init; } 
     /// <summary>
     /// Legal owners of the property. However, the beneficiary has the equitable or beneficial ownership.
     /// </summary>
-    public InvestmentAccountOwnershipInformation4[] Trustee { get; init; } = [];
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation4> Trustee { get; init; } = [];
     /// <summary>
     /// Entity that holds shares/units on behalf of a legal minor. Although the account is registered under the name of the minor, the custodian retains control of the account.
     /// </summary>
+    [DataMember]
     public InvestmentAccountOwnershipInformation4? CustodianForMinor { get; init; } 
     /// <summary>
     /// Entity named by the beneficial owner to act on its behalf, often to facilitate dealing, or to conceal the identity of the beneficiary.
     /// </summary>
+    [DataMember]
     public InvestmentAccountOwnershipInformation4? Nominee { get; init; } 
     /// <summary>
     /// Co-owner of the investment account when the ownership is assigned to more than one party.
     /// </summary>
-    public InvestmentAccountOwnershipInformation4[] JointOwner { get; init; } = [];
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation4> JointOwner { get; init; } = [];
     /// <summary>
     /// Entity that is not the primary owner when the ownership of the investment account is split among several owners.
     /// </summary>
+    [DataMember]
     public InvestmentAccountOwnershipInformation4? SecondaryOwner { get; init; } 
     /// <summary>
     /// Ultimate party that is entitled to either receive the benefits of the ownership of a financial instrument, or to be paid/credited as a result of a transfer.
     /// </summary>
+    [DataMember]
     public InvestmentAccountOwnershipInformation4? Beneficiary { get; init; } 
     /// <summary>
     /// Entity that was given the authority by another entity to act on its behalf.
     /// </summary>
+    [DataMember]
     public InvestmentAccountOwnershipInformation4? PowerOfAttorney { get; init; } 
     /// <summary>
     /// Entity that has been appointed by a legal authority to act on behalf of a person judged to be incapacitated.
     /// </summary>
+    [DataMember]
     public InvestmentAccountOwnershipInformation4? LegalGuardian { get; init; } 
     /// <summary>
     /// Deceased's estate, or successor, to whom the respective percentage of ownership will be transferred upon the death of one of the owners.
     /// </summary>
+    [DataMember]
     public InvestmentAccountOwnershipInformation4? SuccessorOnDeath { get; init; } 
     /// <summary>
     /// Entity that has been appointed by a legal authorithy to act on behalf of a person or organisation that has gone bankrupt.
     /// </summary>
+    [DataMember]
     public InvestmentAccountOwnershipInformation4? Administrator { get; init; } 
     /// <summary>
     /// Granter role in the hedge funds industry.
     /// </summary>
-    public InvestmentAccountOwnershipInformation4[] Granter { get; init; } = [];
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation4> Granter { get; init; } = [];
     /// <summary>
     /// Settler role in the hedge funds industry.
     /// </summary>
-    public InvestmentAccountOwnershipInformation4[] Settler { get; init; } = [];
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation4> Settler { get; init; } = [];
     /// <summary>
     /// An other type of party.
     /// </summary>
-    public ExtendedParty1[] OtherParty { get; init; } = [];
+    [DataMember]
+    public ValueList<ExtendedParty1> OtherParty { get; init; } = [];
     
     #nullable disable
 }

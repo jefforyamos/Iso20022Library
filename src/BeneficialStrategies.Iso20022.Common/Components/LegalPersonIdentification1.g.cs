@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the identification of the organisation which is a legal person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LegalPersonIdentification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record LegalPersonIdentification1
     /// <summary>
     /// Unique and unambiguous identification of the legal person.
     /// </summary>
+    [DataMember]
     public required OrganisationIdentification15Choice_ Identification { get; init; } 
     /// <summary>
     /// Code of country where the registered office of the organisation is located.
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     
     #nullable disable

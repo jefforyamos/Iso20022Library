@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(AccountIdentificationFormatChoice.SimpleIdentification))]
 [KnownType(typeof(AccountIdentificationFormatChoice.IdentificationAndPurpose))]
 [KnownType(typeof(AccountIdentificationFormatChoice.IdentificationAsDSS))]
+[DataContract]
 public abstract partial record AccountIdentificationFormatChoice_
 {
 }

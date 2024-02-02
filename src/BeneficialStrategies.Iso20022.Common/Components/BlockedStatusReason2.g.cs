@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for a blocked status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BlockedStatusReason2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record BlockedStatusReason2
     /// <summary>
     /// Type of transaction for which the account has a blocked status.
     /// </summary>
+    [DataMember]
     public required TransactionType5Choice_ TransactionType { get; init; } 
     /// <summary>
     /// Indicates whether the account is blocked.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Blocked { get; init; } 
     /// <summary>
     /// Reason for the blocked status.
     /// </summary>
-    public BlockedReason2Choice_[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BlockedReason2Choice_> Reason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the blocked account status.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text AdditionalInformation { get; init; } 
     
     #nullable disable

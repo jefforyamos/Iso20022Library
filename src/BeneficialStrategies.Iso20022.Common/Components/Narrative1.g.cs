@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Narrative information for an undertaking.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Narrative1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record Narrative1
     /// <summary>
     /// Type of term or condition.
     /// </summary>
+    [DataMember]
     public NarrativeType1Choice_? Type { get; init; } 
     /// <summary>
     /// Narrative text.
     /// </summary>
-    public IsoMax20000Text[] Text { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax20000Text> Text { get; init; } = [];
     
     #nullable disable
 }

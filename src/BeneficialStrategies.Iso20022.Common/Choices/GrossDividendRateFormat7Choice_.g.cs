@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(GrossDividendRateFormat7Choice.Amount))]
 [KnownType(typeof(GrossDividendRateFormat7Choice.RateTypeAndAmountAndRateStatus))]
 [KnownType(typeof(GrossDividendRateFormat7Choice.NotSpecifiedRate))]
+[DataContract]
 public abstract partial record GrossDividendRateFormat7Choice_
 {
 }

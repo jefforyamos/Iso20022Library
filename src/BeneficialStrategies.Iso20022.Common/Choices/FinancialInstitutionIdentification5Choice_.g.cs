@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(FinancialInstitutionIdentification5Choice.NameAndAddress))]
 [KnownType(typeof(FinancialInstitutionIdentification5Choice.ProprietaryIdentification))]
 [KnownType(typeof(FinancialInstitutionIdentification5Choice.CombinedIdentification))]
+[DataContract]
 public abstract partial record FinancialInstitutionIdentification5Choice_
 {
 }

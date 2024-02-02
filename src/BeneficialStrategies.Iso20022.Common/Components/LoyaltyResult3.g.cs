@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related to the result of a processed loyalty transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoyaltyResult3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record LoyaltyResult3
     /// <summary>
     /// Account managing the Loyalty.
     /// </summary>
+    [DataMember]
     public required LoyaltyAccount3 Account { get; init; } 
     /// <summary>
     /// Amount.
     /// </summary>
+    [DataMember]
     public LoyaltyAmount1? Amount { get; init; } 
     /// <summary>
     /// Data sent by the Loyalty server.
     /// </summary>
+    [DataMember]
     public LoyaltyServerData1? ServerData { get; init; } 
     /// <summary>
     /// Rebate information.
     /// </summary>
+    [DataMember]
     public LoyaltyRebates1? Rebates { get; init; } 
     
     #nullable disable

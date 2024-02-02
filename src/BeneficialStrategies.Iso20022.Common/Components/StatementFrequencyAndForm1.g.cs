@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a frequency, format and delivery address for statements.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatementFrequencyAndForm1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record StatementFrequencyAndForm1
     /// <summary>
     /// Specifies the frequency for sending statements.
     /// </summary>
+    [DataMember]
     public required Frequency7Code Frequency { get; init; } 
     /// <summary>
     /// Specifies the communication method for statements.
     /// </summary>
+    [DataMember]
     public required CommunicationMethod2Choice_ CommunicationMethod { get; init; } 
     /// <summary>
     /// Specifies the delivery address for statements.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text DeliveryAddress { get; init; } 
     /// <summary>
     /// Specifies the format for statements.
     /// </summary>
+    [DataMember]
     public required CommunicationFormat1Choice_ Format { get; init; } 
     
     #nullable disable

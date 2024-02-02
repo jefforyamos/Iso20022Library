@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification64
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PartyIdentification64
     /// <summary>
     /// Identification of the party expressed as a BIC.
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? AnyBIC { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier, as assigned to the party using a proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public GenericIdentification1? ProprietaryIdentification { get; init; } 
     /// <summary>
     /// Name and address of the party.
     /// </summary>
+    [DataMember]
     public NameAndAddress5? NameAndAddress { get; init; } 
     
     #nullable disable

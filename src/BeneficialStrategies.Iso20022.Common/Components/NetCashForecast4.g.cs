@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Net cash movement to a fund as a result of investment funds transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NetCashForecast4
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record NetCashForecast4
     /// <summary>
     /// Date on which cash is available.
     /// </summary>
+    [DataMember]
     public required IsoISODate CashSettlementDate { get; init; } 
     /// <summary>
     /// Net amount of the cash flow, expressed as an amount of money.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? NetAmount { get; init; } 
     /// <summary>
     /// Net amount, expressed as a number of units.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? NetUnitsNumber { get; init; } 
     /// <summary>
     /// Specifies the direction of the cash flow from the perspective of the fund.
     /// </summary>
+    [DataMember]
     public required FlowDirectionType1Code FlowDirection { get; init; } 
     /// <summary>
     /// Additional balances for cash amounts and number of units. 
     /// In an estimated report, the total cash derived from orders placed as a number of units is an estimated cash amount and the total number of units derived from orders placed as a cash amount is an estimated number of units.
     /// </summary>
+    [DataMember]
     public FundBalance1? AdditionalBalance { get; init; } 
     
     #nullable disable

@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(InterestRateUsedForPaymentFormat1Choice.Amount))]
 [KnownType(typeof(InterestRateUsedForPaymentFormat1Choice.RateTypeAndAmountAndRateStatus))]
 [KnownType(typeof(InterestRateUsedForPaymentFormat1Choice.NotSpecifiedRate))]
+[DataContract]
 public abstract partial record InterestRateUsedForPaymentFormat1Choice_
 {
 }

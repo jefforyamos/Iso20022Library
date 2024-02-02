@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information such as the taxation conditions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionNarrative20
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record CorporateActionNarrative20
     /// <summary>
     /// Provides additional information or specifies in more detail the content of a message. This field may only be used when the information to be transmitted, cannot be coded.
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation3? AdditionalText { get; init; } 
     /// <summary>
     /// Provides information that can be ignored for automated processing; - reiteration of information that has been included within structured fields of this message, - or narrative information not needed for automatic processing.
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation3? NarrativeVersion { get; init; } 
     /// <summary>
     /// Provides conditional information related to the event, for example, an offer is subject to 50 percent acceptance, the offeror allows the securities holder to set some conditions.
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation1? InformationConditions { get; init; } 
     /// <summary>
     /// Provides information conditions to the account owner that are to be complied with, for example, not open to US/Canadian residents, Qualified Institutional Buyers (QIB) or SIL (Sophisticated Investor Letter) to be provided.
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation1? InformationToComplyWith { get; init; } 
     /// <summary>
     /// Provides restriction(s) on securities.
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation1? SecurityRestriction { get; init; } 
     /// <summary>
     /// Provides taxation conditions that cannot be included within the structured fields of this message and has not been mentioned in the Service Level Agreement (SLA).
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation1? TaxationConditions { get; init; } 
     /// <summary>
     /// Provides a disclaimer relative to the information provided in the message. It may be ignored for automated processing.
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation1? Disclaimer { get; init; } 
     /// <summary>
     /// Provides additional information about the type of certification/breakdown required.
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation1? CertificationBreakdown { get; init; } 
     
     #nullable disable

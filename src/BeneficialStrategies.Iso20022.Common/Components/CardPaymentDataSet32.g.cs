@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transaction for whose batch capture has been rejected.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentDataSet32
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CardPaymentDataSet32
     /// <summary>
     /// Sequential counter of the transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax9NumericText TransactionSequenceCounter { get; init; } 
     /// <summary>
     /// Response to the capture of the transaction.
     /// </summary>
+    [DataMember]
     public required ResponseType10 TransactionResponse { get; init; } 
     /// <summary>
     /// Data related to the environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentEnvironment79 Environment { get; init; } 
     /// <summary>
     /// Transaction that has been rejected.
     /// </summary>
+    [DataMember]
     public required CardPaymentTransactionAdviceResponse5 Transaction { get; init; } 
     
     #nullable disable

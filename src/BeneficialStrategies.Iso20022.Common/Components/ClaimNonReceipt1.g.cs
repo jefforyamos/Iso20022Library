@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies details of a claim non receipt status advice.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ClaimNonReceipt1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ClaimNonReceipt1
     /// <summary>
     /// Specifies the date the original payment instruction was processed.
     /// </summary>
+    [DataMember]
     public required IsoISODate DateProcessed { get; init; } 
     /// <summary>
     /// Specifies the next party the original payment instruction was sent to.
     /// </summary>
+    [DataMember]
     public required BranchAndFinancialInstitutionIdentification5 OriginalNextAgent { get; init; } 
     
     #nullable disable

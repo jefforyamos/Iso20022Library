@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status of a transfer cancellation instruction and the reason for the status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CancellationStatusAndReason
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CancellationStatusAndReason
     /// <summary>
     /// Status of the transfer cancellation instruction.
     /// </summary>
+    [DataMember]
     public required TransferCancellationStatus Status { get; init; } 
     /// <summary>
     /// Status of transfer cancellation is rejected.
     /// </summary>
+    [DataMember]
     public required TransferCancellationRejectedStatus1Choice_ Rejected { get; init; } 
     /// <summary>
     /// Status of the transfer cancellation is complete. The cancellation instruction has been accepted and processed, the cancellation is complete.
     /// </summary>
+    [DataMember]
     public required TransferCancellationCompleteStatusChoice_ Complete { get; init; } 
     /// <summary>
     /// Party that initiates the status.
     /// </summary>
+    [DataMember]
     public PartyIdentification1Choice_? StatusInitiator { get; init; } 
     
     #nullable disable

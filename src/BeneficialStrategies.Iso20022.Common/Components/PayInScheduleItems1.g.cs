@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PayInScheduleItems1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PayInScheduleItems1
     /// <summary>
     /// Currency and amount to be paid in.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Time by which the amount must be paid in.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime Deadline { get; init; } 
     
     #nullable disable

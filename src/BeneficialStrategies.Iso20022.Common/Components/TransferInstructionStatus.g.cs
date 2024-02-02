@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Instruction status and the reason for the status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferInstructionStatus
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TransferInstructionStatus
     /// <summary>
     /// Status of the transfer instruction.
     /// </summary>
+    [DataMember]
     public required TransferStatus1Code Status { get; init; } 
     /// <summary>
     /// Additional information about the status in textual form.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

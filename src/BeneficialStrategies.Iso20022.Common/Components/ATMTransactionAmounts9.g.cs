@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Limit of deposited media for the customer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransactionAmounts9
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ATMTransactionAmounts9
     /// <summary>
     /// Type of media.
     /// </summary>
+    [DataMember]
     public required ATMMediaType2Code MediaType { get; init; } 
     /// <summary>
     /// Currency of the media.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Minimum number of media.
     /// </summary>
+    [DataMember]
     public IsoNumber? MinimumNumber { get; init; } 
     /// <summary>
     /// Maximum number of media.
     /// </summary>
+    [DataMember]
     public IsoNumber? MaximumNumber { get; init; } 
     /// <summary>
     /// True if limits may be displayed to the customer on the ATM.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? DisplayFlag { get; init; } 
     
     #nullable disable

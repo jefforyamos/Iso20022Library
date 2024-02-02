@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Extension for mergers.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateAction6SD1
 {
     #nullable enable
@@ -21,10 +23,12 @@ public partial record CorporateAction6SD1
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Provides additional information about mergers.
     /// </summary>
+    [DataMember]
     public MergerDetailsType1? MergerDetails { get; init; } 
     /// <summary>
     /// Agreement of the target company.
@@ -32,11 +36,13 @@ public partial record CorporateAction6SD1
     ///  対象会社の同意の有無
     /// 公開買付のときのみ。（自己株買付のときは無し）.
     /// </summary>
+    [DataMember]
     public TargetCompanyAgreementCode? TargetCompanyAgreement { get; init; } 
     /// <summary>
     /// Total number of new shares to be issued.
     /// 発行新株式数.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity15Choice_? TotalNumberOfNewSharesIssued { get; init; } 
     
     #nullable disable

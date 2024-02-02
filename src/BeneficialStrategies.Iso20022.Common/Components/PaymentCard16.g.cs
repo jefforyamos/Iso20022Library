@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Card performing the withdrawal transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentCard16
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record PaymentCard16
     /// <summary>
     /// Entry mode used to obtain the card data.
     /// </summary>
+    [DataMember]
     public required CardDataReading1Code CardDataEntryMode { get; init; } 
     /// <summary>
     /// Indicates the occurrence of a fall-back on the card entry mode.
     /// </summary>
+    [DataMember]
     public CardFallback1Code? FallbackIndicator { get; init; } 
     /// <summary>
     /// Replacement of the message element PlainCardData by a digital envelope using a cryptographic key.
     /// </summary>
+    [DataMember]
     public ContentInformationType10? ProtectedCardData { get; init; } 
     /// <summary>
     /// Sensitive data associated with the card performing the transaction.
     /// </summary>
+    [DataMember]
     public PlainCardData13? PlainCardData { get; init; } 
     /// <summary>
     /// Country code assigned to the card by the card issuer.
     /// </summary>
+    [DataMember]
     public IsoMax3Text? CardCountryCode { get; init; } 
     /// <summary>
     /// Currency code of the card issuer (ISO 4217 numeric code).
     /// </summary>
+    [DataMember]
     public IsoExact3AlphaNumericText? CardCurrencyCode { get; init; } 
     
     #nullable disable

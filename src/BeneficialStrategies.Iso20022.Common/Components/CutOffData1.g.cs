@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains the new, current and previous cut offs for a netting cut off held at the central system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CutOffData1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record CutOffData1
     /// <summary>
     /// Describes the participant receiving the net report.
     /// </summary>
+    [DataMember]
     public required PartyIdentification73Choice_ ParticipantIdentification { get; init; } 
     /// <summary>
     /// Specifies the information regarding the updated netting cut off.
     /// </summary>
-    public NettingCutOff1[] NettingCutOffDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NettingCutOff1> NettingCutOffDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

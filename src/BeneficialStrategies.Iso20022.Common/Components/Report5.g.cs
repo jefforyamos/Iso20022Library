@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the settlement obligation report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Report5
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record Report5
     /// <summary>
     /// Provides the identification for the non-clearing member. This is mandatory if the clearing member identification equals a general clearing member.
     /// </summary>
-    public PartyIdentificationAndAccount31[] NonClearingMember { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyIdentificationAndAccount31> NonClearingMember { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the settlement obligation details.
     /// </summary>
-    public SettlementObligation8[] SettlementObligationDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SettlementObligation8> SettlementObligationDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

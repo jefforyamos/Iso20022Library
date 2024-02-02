@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements providing the identification of a message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MessageIdentification2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record MessageIdentification2
     /// <summary>
     /// Specifies the message name identifier of the message that will be used to provide additional details.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MessageNameIdentification { get; init; } 
     /// <summary>
     /// Specifies the identification of the message that will be used to provide additional details.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MessageIdentification { get; init; } 
     
     #nullable disable

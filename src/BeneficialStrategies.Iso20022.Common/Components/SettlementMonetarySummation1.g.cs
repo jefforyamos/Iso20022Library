@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a collection of monetary totals for this settlement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementMonetarySummation1
 {
     #nullable enable
@@ -20,43 +22,53 @@ public partial record SettlementMonetarySummation1
     /// <summary>
     /// Monetary value of the line amount total being reported for this settlement.
     /// </summary>
-    public IsoCurrencyAndAmount[] LineTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> LineTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary value of the allowance total being reported for this settlement.
     /// </summary>
-    public IsoCurrencyAndAmount[] AllowanceTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> AllowanceTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary value of the total discount being reported for this settlement.
     /// </summary>
-    public IsoCurrencyAndAmount[] TotalDiscountAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> TotalDiscountAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary value of the charge amount total being reported for this settlement.
     /// </summary>
-    public IsoCurrencyAndAmount[] ChargeTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> ChargeTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary value of the total prepaid amount being reported for this settlement.
     /// </summary>
-    public IsoCurrencyAndAmount[] TotalPrepaidAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> TotalPrepaidAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary value of the total of all tax basis amounts being reported for this settlement.
     /// </summary>
-    public IsoCurrencyAndAmount[] TaxTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> TaxTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary value of the total of all tax basis amounts being reported for this settlement.
     /// </summary>
-    public IsoCurrencyAndAmount[] TaxBasisAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> TaxBasisAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary value of a rounding amount being applied and reported for this settlement.
     /// </summary>
-    public IsoCurrencyAndAmount[] RoundingAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> RoundingAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary value of the grand total being reported for this settlement, to include addition and subtraction of individual summation amounts.
     /// </summary>
-    public IsoCurrencyAndAmount[] GrandTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> GrandTotalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary value of an amount being reported as information for this settlement.
     /// </summary>
-    public IsoCurrencyAndAmount[] InformationAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> InformationAmount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

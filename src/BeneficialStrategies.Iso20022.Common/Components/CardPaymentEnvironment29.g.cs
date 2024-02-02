@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of the diagnostic exchange.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentEnvironment29
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record CardPaymentEnvironment29
     /// <summary>
     /// Acquirer involved in the card payment transaction.
     /// </summary>
+    [DataMember]
     public required Acquirer2 Acquirer { get; init; } 
     /// <summary>
     /// The availability of the acquirer to process transaction must be provided.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? AcquirerAvailabilityRequested { get; init; } 
     /// <summary>
     /// Identification of the merchant requesting the diagnostic.
     /// </summary>
+    [DataMember]
     public GenericIdentification32? MerchantIdentification { get; init; } 
     /// <summary>
     /// Identification of the POI (Point Of Interaction) requesting the diagnostic.
     /// </summary>
+    [DataMember]
     public GenericIdentification32? POIIdentification { get; init; } 
     /// <summary>
     /// Data related to the components of the POI (Point Of Interaction) performing the payment transactions.
     /// </summary>
-    public PointOfInteractionComponent4[] POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PointOfInteractionComponent4> POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

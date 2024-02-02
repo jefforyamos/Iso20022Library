@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Electronic and physical mail address.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MailAddress1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record MailAddress1
     /// <summary>
     /// Physical mail address for correspondance.
     /// </summary>
-    public PostalAddress1[] Correspondence { get; init; } = [];
+    [DataMember]
+    public ValueList<PostalAddress1> Correspondence { get; init; } = [];
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
-    public IsoMax256Text[] EmailAddress { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax256Text> EmailAddress { get; init; } = [];
     
     #nullable disable
 }

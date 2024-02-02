@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the EventNotification message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EventNotificationData1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record EventNotificationData1
     /// <summary>
     /// Content of the Retailer Event message.
     /// </summary>
+    [DataMember]
     public required RetailerEvent1 RetailerEvent { get; init; } 
     /// <summary>
     /// Indicates if the occurred event requires maintenance call or action.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? MaintenanceRequiredFlag { get; init; } 
     /// <summary>
     /// Language of the Customer
     /// </summary>
+    [DataMember]
     public LanguageCode? CustomerLanguage { get; init; } 
     /// <summary>
     /// To display an event message
     /// </summary>
+    [DataMember]
     public ActionMessage6? DisplayOutput { get; init; } 
     
     #nullable disable

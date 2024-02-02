@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Withdrawal transaction for which an authorisation is requested.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransaction1
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record ATMTransaction1
     /// <summary>
     /// True if cash has to be dispensed by the ATM for the transaction.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CashDispensed { get; init; } 
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period assigned by the ATM.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Unprotected account information.
     /// </summary>
+    [DataMember]
     public CardAccount3? AccountData { get; init; } 
     /// <summary>
     /// Encryption of account information.
     /// </summary>
+    [DataMember]
     public ContentInformationType10? ProtectedAccountData { get; init; } 
     /// <summary>
     /// Amount to be authorised by the issuer.
     /// </summary>
+    [DataMember]
     public AmountAndCurrency1? TotalRequestedAmount { get; init; } 
     /// <summary>
     /// Amounts of the withdrawal transaction.
     /// </summary>
+    [DataMember]
     public DetailedAmount12? DetailedRequestedAmount { get; init; } 
     /// <summary>
     /// Currency conversion accepted by the customer, either to convert the amount to dispense in the base currency of the ATM, or to convert the total requested amount in the currency of the customer (so called dynamic currency conversion).
     /// </summary>
+    [DataMember]
     public CurrencyConversion4? CurrencyConversion { get; init; } 
     /// <summary>
     /// Media mix algorithm, the identification of the algorithm is an agreement between the ATM and the ATM manager.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SelectedMixType { get; init; } 
     /// <summary>
     /// Media mix selected.
     /// </summary>
-    public ATMMediaMix1[] SelectedMix { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMMediaMix1> SelectedMix { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// True if a receipt has be requested by the customer.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? RequestedReceipt { get; init; } 
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
+    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     
     #nullable disable

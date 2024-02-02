@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Net position of a segregated holding, in a single security, within the overall position held in a securities account at a specified place of safekeeping.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AggregateBalancePerSafekeepingPlace2
 {
     #nullable enable
@@ -20,43 +22,53 @@ public partial record AggregateBalancePerSafekeepingPlace2
     /// <summary>
     /// Total quantity of financial instrument for the referenced holding.
     /// </summary>
+    [DataMember]
     public required BalanceQuantity1Choice_ AggregateBalance { get; init; } 
     /// <summary>
     /// Specifies the number of days used for calculating the accrued interest amount.
     /// </summary>
+    [DataMember]
     public IsoNumber? DaysAccrued { get; init; } 
     /// <summary>
     /// Total value of a balance of the securities account for a specific financial instrument, expressed in one or more currencies.
     /// </summary>
-    public IsoActiveOrHistoricCurrencyAndAmount[] HoldingValue { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoActiveOrHistoricCurrencyAndAmount> HoldingValue { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Interest amount that has accrued in between coupon payment periods.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? AccruedInterestAmount { get; init; } 
     /// <summary>
     /// Value of a security, as booked in an account. Book value is often different from the current market value of the security.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? BookValue { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Securities Depository (ICSD).
     /// </summary>
+    [DataMember]
     public required SafekeepingPlaceFormatChoice_ SafekeepingPlace { get; init; } 
     /// <summary>
     /// Price of the financial instrument in one or more currencies.
     /// </summary>
-    public PriceInformation1[] PriceDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PriceInformation1> PriceDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency exchange related to a securities order.
     /// </summary>
+    [DataMember]
     public ForeignExchangeTerms3? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Net position of a segregated holding of a single security within the overall position held in a securities account, eg, sub-balance per status.
     /// </summary>
-    public SubBalanceInformation1[] BalanceBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SubBalanceInformation1> BalanceBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
     /// </summary>
-    public AdditionalBalanceInformation[] AdditionalBalanceBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalBalanceInformation> AdditionalBalanceBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

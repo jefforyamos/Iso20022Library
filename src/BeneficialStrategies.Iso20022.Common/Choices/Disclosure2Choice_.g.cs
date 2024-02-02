@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(Disclosure2Choice.NoDisclosure))]
 [KnownType(typeof(Disclosure2Choice.SafekeepingAccountAndHoldings))]
+[DataContract]
 public abstract partial record Disclosure2Choice_
 {
 }

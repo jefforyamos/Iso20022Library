@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money due to a party as compensation for a service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Commission4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Commission4
     /// <summary>
     /// Service for which the commission is asked or paid.
     /// </summary>
+    [DataMember]
     public required CommissionType1 Type { get; init; } 
     /// <summary>
     /// Commission expressed as an amount of money.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     /// <summary>
     /// Commission expressed as a percentage.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate Rate { get; init; } 
     
     #nullable disable

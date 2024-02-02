@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Device Initialisation Card Reader Request message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeviceInitialisationCardReaderRequest3
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record DeviceInitialisationCardReaderRequest3
     /// <summary>
     /// Flag to request a warm reset on a chip.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? WarmResetFlag { get; init; } 
     /// <summary>
     /// Payment instrument entry mode requested by the Sale System.
     /// </summary>
-    public CardDataReading8Code[] ForceEntryMode { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardDataReading8Code> ForceEntryMode { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Flag to indicate the POI System to keep the card in the reader for a smart card.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? LeaveCardFlag { get; init; } 
     /// <summary>
     /// Maximum time in seconds that the POI has to wait for a card response.
     /// </summary>
+    [DataMember]
     public IsoNumber? MaximumWaitingTime { get; init; } 
     /// <summary>
     /// Information to display.
     /// </summary>
+    [DataMember]
     public ActionMessage8? DisplayOutput { get; init; } 
     
     #nullable disable

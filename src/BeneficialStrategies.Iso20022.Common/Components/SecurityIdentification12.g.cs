@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a security.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityIdentification12
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SecurityIdentification12
     /// <summary>
     /// Identification of a security.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification12Choice_ Identification { get; init; } 
     /// <summary>
     /// Textual description of a security instrument.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax140Text? Description { get; init; } 
     
     #nullable disable

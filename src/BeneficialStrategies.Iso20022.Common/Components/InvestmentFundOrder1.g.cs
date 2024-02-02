@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reference of an order, order cancellation and master reference.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentFundOrder1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record InvestmentFundOrder1
     /// <summary>
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Reference of an order and order cancellation.
     /// </summary>
-    public InvestmentFundOrder5[] OrderReferences { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentFundOrder5> OrderReferences { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cancellation advice response from the acquirer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcceptorCancellationAdviceResponse9
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AcceptorCancellationAdviceResponse9
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentEnvironment77 Environment { get; init; } 
     /// <summary>
     /// Cancellation transaction from an acceptor to the acquirer.
     /// </summary>
+    [DataMember]
     public required CardPaymentTransactionAdviceResponse8 Transaction { get; init; } 
     /// <summary>
     /// Instructions for contacting the terminal management host.
     /// </summary>
+    [DataMember]
     public TMSTrigger1? TMSTrigger { get; init; } 
     
     #nullable disable

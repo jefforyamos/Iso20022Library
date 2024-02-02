@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a generic type of identification requested for an organisation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericOrganisationType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record GenericOrganisationType1
     /// <summary>
     /// Type assigned by an institution for the organisation.
     /// </summary>
+    [DataMember]
     public required IsoRequestedIndicator Requested { get; init; } 
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
+    [DataMember]
     public required OrganisationIdentificationSchemeName1Choice_ SchemeName { get; init; } 
     
     #nullable disable

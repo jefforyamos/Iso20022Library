@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the market and purpose for the settlement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MarketIdentification87
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record MarketIdentification87
     /// <summary>
     /// Country in which the financial instrument is to be settled.
     /// </summary>
+    [DataMember]
     public required CountryCode Country { get; init; } 
     /// <summary>
     /// Type of instrument covered by the SSI instruction.
     /// </summary>
+    [DataMember]
     public required ClassificationType1Choice_ ClassificationType { get; init; } 
     /// <summary>
     /// Purpose of the instruction, for example, whether for regular payments, margin payments related to a collateral movement, securities settlements, securities lending.
     /// </summary>
+    [DataMember]
     public Purpose3Choice_? SettlementPurpose { get; init; } 
     
     #nullable disable

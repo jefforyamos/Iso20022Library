@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// The subaccount of the safekeeping account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SubAccount2
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record SubAccount2
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     
     #nullable disable

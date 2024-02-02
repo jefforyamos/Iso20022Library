@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Price with notation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesTransactionPrice4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SecuritiesTransactionPrice4
     /// <summary>
     /// Value of the price.
     /// </summary>
+    [DataMember]
     public IsoLongFraction21DecimalNumber? Value { get; init; } 
     /// <summary>
     /// Notation of the price.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     
     #nullable disable

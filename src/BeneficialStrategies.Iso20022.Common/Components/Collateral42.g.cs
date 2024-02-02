@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details of the security pledged as collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Collateral42
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Collateral42
     /// <summary>
     /// Date on which the counterparties contractually agree the exchange of cash, securities, or commodities versus collateral for the opening leg (spot leg) of the transaction.
     /// </summary>
+    [DataMember]
     public IsoISODate? CollateralValueDate { get; init; } 
     /// <summary>
     /// Indication of the type of collateral component.
     /// </summary>
+    [DataMember]
     public CollateralType16? AssetType { get; init; } 
     /// <summary>
     /// Indicates whether the collateral has been provided for a net exposure, rather than for a single transaction.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? NetExposureCollateralisationIndicator { get; init; } 
     /// <summary>
     /// Identification of the collateral basket.
     /// </summary>
+    [DataMember]
     public SecurityIdentification26Choice_? BasketIdentifier { get; init; } 
     
     #nullable disable

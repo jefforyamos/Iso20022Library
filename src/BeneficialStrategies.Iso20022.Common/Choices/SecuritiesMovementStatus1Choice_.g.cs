@@ -19,6 +19,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SecuritiesMovementStatus1Choice.Eligibility))]
 [KnownType(typeof(SecuritiesMovementStatus1Choice.Tax))]
 [KnownType(typeof(SecuritiesMovementStatus1Choice.Wait))]
+[DataContract]
 public abstract partial record SecuritiesMovementStatus1Choice_
 {
 }

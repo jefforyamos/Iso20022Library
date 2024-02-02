@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies an expected date and a due date for the interest payment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InterestPaymentDateRange1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record InterestPaymentDateRange1
     /// <summary>
     /// Unique and unambiguous identification of the interest payment schedule.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? InterestScheduleIdentification { get; init; } 
     /// <summary>
     /// Expected interest payment date.
     /// </summary>
+    [DataMember]
     public IsoISODate? ExpectedDate { get; init; } 
     /// <summary>
     /// Latest date whereby the interest must be paid.
     /// </summary>
+    [DataMember]
     public IsoISODate? DueDate { get; init; } 
     
     #nullable disable

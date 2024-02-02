@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies an payment schedule, that is an amount that must be paid no sooner than the expected payment date and no later than the due date.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentDateRange2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PaymentDateRange2
     /// <summary>
     /// Unique and unambiguous identification of the payment schedule.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PaymentScheduleIdentification { get; init; } 
     /// <summary>
     /// Amount that must be paid no sooner than the expected payment date and no later than the due date.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Expected date whereby the amount must be paid.
     /// </summary>
+    [DataMember]
     public IsoISODate? ExpectedDate { get; init; } 
     /// <summary>
     /// Latest date whereby the amount of money must be paid.
     /// </summary>
+    [DataMember]
     public required IsoISODate DueDate { get; init; } 
     
     #nullable disable

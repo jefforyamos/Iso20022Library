@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status report of a bulk or multiple or switch order cancellation instruction that was previously received.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OrderStatusAndReason9
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OrderStatusAndReason9
     /// <summary>
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Cancellation status of the order cancellation.
     /// </summary>
+    [DataMember]
     public required CancellationStatus22Choice_ CancellationStatus { get; init; } 
     /// <summary>
     /// Party that initiates the status of the order cancellation.
     /// </summary>
+    [DataMember]
     public PartyIdentification113? StatusInitiator { get; init; } 
     
     #nullable disable

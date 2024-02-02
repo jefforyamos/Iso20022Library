@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Statement information of an account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountStatementData2
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record AccountStatementData2
     /// <summary>
     /// Date the statement is generated.
     /// </summary>
+    [DataMember]
     public IsoISODate? StatementDate { get; init; } 
     /// <summary>
     /// Time the account statement is generated.
     /// </summary>
+    [DataMember]
     public IsoISOTime? StatementTime { get; init; } 
     /// <summary>
     /// Statement information.
     /// </summary>
-    public AccountStatementDetails2[] AccountStatement { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AccountStatementDetails2> AccountStatement { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

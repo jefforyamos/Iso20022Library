@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the status of a trade in a central settlement system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeStatus1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record TradeStatus1
     /// <summary>
     /// Specifies whether a trade is alleged or not.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AllegedTrade { get; init; } 
     /// <summary>
     /// Reference to the unique identification assigned to a trade by a central matching system.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MatchingSystemUniqueReference { get; init; } 
     /// <summary>
     /// Specifies the status of a trade.
     /// </summary>
+    [DataMember]
     public TradeStatus1Code? Status { get; init; } 
     /// <summary>
     /// Description of the status of a trade when no coded form is available.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedStatus { get; init; } 
     /// <summary>
     /// Additional information on the status of a trade in a central system.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? StatusSubType { get; init; } 
     /// <summary>
     /// Specifies the time at which a status was assigned.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? StatusTime { get; init; } 
     /// <summary>
     /// Identifies the party which assigned a status to a treasury trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? StatusOriginator { get; init; } 
     
     #nullable disable

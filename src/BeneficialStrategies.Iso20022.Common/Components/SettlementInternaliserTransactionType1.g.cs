@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the aggregated data per transaction type for a settlement internaliser.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementInternaliserTransactionType1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record SettlementInternaliserTransactionType1
     /// <summary>
     /// Purchase or sale of securities.
     /// </summary>
+    [DataMember]
     public required InternalisationData1 SecuritiesBuyOrSell { get; init; } 
     /// <summary>
     /// Relates to securities transfers aiming to provide or to return collateral.
     /// </summary>
+    [DataMember]
     public required InternalisationData1 CollateralManagementOperation { get; init; } 
     /// <summary>
     /// Relates to a securities lending or borrowing operation.
     /// </summary>
+    [DataMember]
     public required InternalisationData1 SecuritiesLendingOrBorrowing { get; init; } 
     /// <summary>
     /// Repurchase transactions.
     /// </summary>
+    [DataMember]
     public required InternalisationData1 RepurchaseAgreement { get; init; } 
     /// <summary>
     /// Covers any securities transactions type not covered as a dedicated type.
     /// </summary>
+    [DataMember]
     public required InternalisationData1 OtherTransactions { get; init; } 
     
     #nullable disable

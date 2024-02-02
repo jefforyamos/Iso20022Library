@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Particular time span specified between a start time and an end time. The time period cannot exceed 24 hours.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TimePeriod1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TimePeriod1
     /// <summary>
     /// Time at which the time span starts.
     /// </summary>
+    [DataMember]
     public required IsoISOTime FromTime { get; init; } 
     /// <summary>
     /// Time at which the time span ends.
     /// </summary>
+    [DataMember]
     public required IsoISOTime ToTime { get; init; } 
     
     #nullable disable

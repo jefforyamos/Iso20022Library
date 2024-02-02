@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details of the security or cash pledged as collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralType12
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record CollateralType12
     /// <summary>
     /// Provides the details of the security pledged as collateral.
     /// </summary>
-    public SecurityReuseData1[] Security { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecurityReuseData1> Security { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides details on the type and amount of the cash reinvestment in a given currency and the average interest rate received.
     /// </summary>
-    public CashReuseData1[] Cash { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashReuseData1> Cash { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

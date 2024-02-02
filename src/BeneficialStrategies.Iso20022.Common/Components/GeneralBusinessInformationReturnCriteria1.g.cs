@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to report on business information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GeneralBusinessInformationReturnCriteria1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record GeneralBusinessInformationReturnCriteria1
     /// <summary>
     /// Indicates whether the qualifier is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? QualifierIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the subject is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? SubjectIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the subject details are requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? SubjectDetailsIndicator { get; init; } 
     
     #nullable disable

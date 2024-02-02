@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Repurchase agreement where the agreement allows for the sale and repurchase of any of a selection of assets from a pool of eligible assets.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GeneralCollateral2
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record GeneralCollateral2
     /// <summary>
     /// List of the identifiers of the securities eligible for a general collateral repurchase agreement.
     /// </summary>
-    public IsoMax35Text[] EligibleFinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> EligibleFinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

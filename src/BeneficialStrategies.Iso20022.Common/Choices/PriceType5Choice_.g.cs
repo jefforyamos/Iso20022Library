@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(PriceType5Choice.Market))]
 [KnownType(typeof(PriceType5Choice.Indicative))]
+[DataContract]
 public abstract partial record PriceType5Choice_
 {
 }

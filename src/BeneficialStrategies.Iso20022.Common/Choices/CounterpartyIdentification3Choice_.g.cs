@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(CounterpartyIdentification3Choice.LEI))]
 [KnownType(typeof(CounterpartyIdentification3Choice.SectorAndLocation))]
 [KnownType(typeof(CounterpartyIdentification3Choice.NameAndLocation))]
+[DataContract]
 public abstract partial record CounterpartyIdentification3Choice_
 {
 }

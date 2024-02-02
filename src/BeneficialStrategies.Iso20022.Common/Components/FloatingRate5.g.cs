@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Floating rate related information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FloatingRate5
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record FloatingRate5
     /// <summary>
     /// Indication of the floating rate used.
     /// </summary>
+    [DataMember]
     public FloatingRateIdentification3Choice_? Rate { get; init; } 
     /// <summary>
     /// Information related to reference period.
     /// </summary>
+    [DataMember]
     public InterestRateContractTerm3? ReferencePeriod { get; init; } 
     /// <summary>
     /// Spread expressed as a rate.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Spread { get; init; } 
     /// <summary>
     /// Information related to payment frequency.
     /// </summary>
+    [DataMember]
     public InterestRateFrequency2Choice_? PaymentFrequency { get; init; } 
     /// <summary>
     /// Information related to reset of payment frequency.
     /// </summary>
+    [DataMember]
     public InterestRateFrequency2Choice_? ResetFrequency { get; init; } 
     
     #nullable disable

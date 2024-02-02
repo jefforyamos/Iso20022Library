@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies contract that is not confirmed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeNonConfirmation1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record TradeNonConfirmation1
     /// <summary>
     /// Specifies that the contract remains unconfirmed.
     /// </summary>
+    [DataMember]
     public required TradeConfirmationType2Code Type { get; init; } 
     
     #nullable disable

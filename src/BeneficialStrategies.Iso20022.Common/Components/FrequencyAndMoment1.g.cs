@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines a frequency in terms a specific moment within a specified period type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FrequencyAndMoment1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FrequencyAndMoment1
     /// <summary>
     /// Period for which the number of instructions are to be created and processed.
     /// </summary>
+    [DataMember]
     public required Frequency6Code Type { get; init; } 
     /// <summary>
     /// Further information on the exact point in time the event should take place.
     /// </summary>
+    [DataMember]
     public required IsoExact2NumericText PointInTime { get; init; } 
     
     #nullable disable

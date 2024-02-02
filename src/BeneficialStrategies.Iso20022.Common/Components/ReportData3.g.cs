@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Numerical representation of the net increases and decreases in an account at a specific point in time. A cash balance is calculated from a sum of cash credits minus a sum of cash debits.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportData3
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ReportData3
     /// <summary>
     /// Identification of the report as assigned by the sender.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Value date for which the pay-in schedule is generated.
     /// </summary>
+    [DataMember]
     public required IsoISODate ValueDate { get; init; } 
     /// <summary>
     /// Date and time on which the report is generated. The offset with UTC may also be specified.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime DateAndTimeStamp { get; init; } 
     /// <summary>
     /// Type of pay-in schedule.
     /// </summary>
+    [DataMember]
     public required Entry2Code Type { get; init; } 
     /// <summary>
     /// Identifies the settlement session to which the report applies. The first session of the day is 1.
     /// </summary>
+    [DataMember]
     public IsoNumber? SettlementSession { get; init; } 
     
     #nullable disable

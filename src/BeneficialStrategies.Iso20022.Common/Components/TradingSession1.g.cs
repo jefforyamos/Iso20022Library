@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// The details of a specific trading session.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradingSession1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TradingSession1
     /// <summary>
     /// Identification of a specific execution time bracket code through its trading session name or description.
     /// </summary>
+    [DataMember]
     public IsoMax128Text? TradingSessionIdentification { get; init; } 
     /// <summary>
     /// Optional market assigned sub identifier for a trading session. Usage is determined by market or counterparties.
     /// </summary>
+    [DataMember]
     public IsoMax128Text? TradingSessionSubIdentification { get; init; } 
     
     #nullable disable

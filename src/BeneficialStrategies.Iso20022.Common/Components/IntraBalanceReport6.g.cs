@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Characteristics of the report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraBalanceReport6
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record IntraBalanceReport6
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
+    [DataMember]
     public Number3Choice_? ReportNumber { get; init; } 
     /// <summary>
     /// Identification of the query message sent to request this statement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? QueryReference { get; init; } 
     /// <summary>
     /// Reference common to all pages of a statement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReportIdentification { get; init; } 
     /// <summary>
     /// Date and time when the report was created.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? ReportDateTime { get; init; } 
     /// <summary>
     /// Period for the statement.
     /// </summary>
+    [DataMember]
     public Period7Choice_? ReportPeriod { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
+    [DataMember]
     public Frequency22Choice_? Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
+    [DataMember]
     public required UpdateType15Choice_ UpdateType { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     
     #nullable disable

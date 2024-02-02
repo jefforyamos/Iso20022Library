@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a contact person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MeetingContactPerson3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record MeetingContactPerson3
     /// <summary>
     /// Identification of the contact person by its name, given name and address.
     /// </summary>
+    [DataMember]
     public ContactIdentification1? ContactPerson { get; init; } 
     /// <summary>
     /// Identification of the organisation which is represented by the person or for which the person works.
     /// </summary>
+    [DataMember]
     public PartyIdentification129Choice_? EmployingParty { get; init; } 
     /// <summary>
     /// Identification of the financial market, as stipulated in the norm ISO 10383 'Codes for exchanges and market identifications'.
     /// </summary>
+    [DataMember]
     public IsoMICIdentifier? PlaceOfListing { get; init; } 
     
     #nullable disable

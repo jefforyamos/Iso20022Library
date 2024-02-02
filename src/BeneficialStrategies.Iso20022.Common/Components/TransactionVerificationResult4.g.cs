@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Result of performed verifications for the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionVerificationResult4
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record TransactionVerificationResult4
     /// <summary>
     /// Method of verification that has been performed.
     /// </summary>
+    [DataMember]
     public required AuthenticationMethod6Code Method { get; init; } 
     /// <summary>
     /// Entity or device that has performed the verification.
     /// </summary>
+    [DataMember]
     public AuthenticationEntity2Code? VerificationEntity { get; init; } 
     /// <summary>
     /// Result of the verification.
     /// </summary>
+    [DataMember]
     public Verification1Code? Result { get; init; } 
     /// <summary>
     /// Additional result of the verification.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? AdditionalResult { get; init; } 
     
     #nullable disable

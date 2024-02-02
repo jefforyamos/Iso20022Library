@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment transaction with an aggregated amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AggregationTransaction2
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record AggregationTransaction2
     /// <summary>
     /// Date and time of the first payment.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? FirstPaymentDateTime { get; init; } 
     /// <summary>
     /// Date and time of the last payment.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? LastPaymentDateTime { get; init; } 
     /// <summary>
     /// Total number of payments that has been aggregated.
     /// </summary>
+    [DataMember]
     public IsoNumber? NumberOfPayments { get; init; } 
     /// <summary>
     /// Individual payment that has been aggregated.
     /// </summary>
-    public DetailedAmount14[] IndividualPayment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedAmount14> IndividualPayment { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

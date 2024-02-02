@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transfer16
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record Transfer16
     /// <summary>
     /// Date at which the instructing party places the transfer instruction.
     /// </summary>
+    [DataMember]
     public DateFormat1Choice_? TransferDate { get; init; } 
     /// <summary>
     /// Identifies whether or not saving plan or withdrawal or switch plan are included in the holdings.
     /// </summary>
-    public HoldingsPlanType1Code[] HoldingsPlanType { get; init; } = [];
+    [DataMember]
+    public ValueList<HoldingsPlanType1Code> HoldingsPlanType { get; init; } = [];
     /// <summary>
     /// Information related to the financial instrument to be received.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument13 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
     /// <summary>
     /// Indicates whether the transfer results in a change of beneficial owner.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? OwnAccountTransferIndicator { get; init; } 
     /// <summary>
     /// Additional specific settlement information for non-regulated traded funds.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? NonStandardSettlementInformation { get; init; } 
     
     #nullable disable

@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(TrackerParty2Choice.OrganisationIdentification))]
 [KnownType(typeof(TrackerParty2Choice.PrivateIdentification))]
 [KnownType(typeof(TrackerParty2Choice.FinancialInstitutionIdentification))]
+[DataContract]
 public abstract partial record TrackerParty2Choice_
 {
 }

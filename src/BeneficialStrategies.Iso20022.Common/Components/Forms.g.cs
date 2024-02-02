@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Processing characteristics linked to the instrument, ie, not to the market.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Forms
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Forms
     /// <summary>
     /// Physical application form is required.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ApplicationForm { get; init; } 
     /// <summary>
     /// Type of signature.
     /// </summary>
+    [DataMember]
     public required SignatureType1Code SignatureType { get; init; } 
     
     #nullable disable

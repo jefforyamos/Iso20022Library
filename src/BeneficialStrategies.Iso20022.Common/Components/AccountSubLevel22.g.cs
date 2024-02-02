@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides detailed ownership information about the shareholding quantity to be disclosed,  or the shareholding quantity not to be disclosed and the shareholding quantity below threshold.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountSubLevel22
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record AccountSubLevel22
     /// <summary>
     /// Quantity of shares for which shareholding details are not disclosed.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity18Choice_? NonDisclosedShareholdingQuantity { get; init; } 
     /// <summary>
     /// Quantity of shares for which shareholding details are not reported as the quantity of shares owned by the shareholder is under the threshold limit.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity18Choice_? BelowThresholdShareholdingQuantity { get; init; } 
     /// <summary>
     /// Details of the account sub-levels and holdings.
     /// </summary>
-    public AccountSubLevel23[] Disclosure { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AccountSubLevel23> Disclosure { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

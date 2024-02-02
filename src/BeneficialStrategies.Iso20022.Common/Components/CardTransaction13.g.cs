@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Key exchange transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardTransaction13
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CardTransaction13
     /// <summary>
     /// Type of key exchange.
     /// </summary>
+    [DataMember]
     public required CardServiceType3Code KeyExchangeType { get; init; } 
     /// <summary>
     /// Date and time of the transaction.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime InitiatorDateTime { get; init; } 
     /// <summary>
     /// Key that must be created and sent in the response, or that must be verified.
     /// </summary>
-    public KEKIdentifier3[] RequestedKey { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<KEKIdentifier3> RequestedKey { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Created key to be stored.
     /// </summary>
-    public CryptographicKey6[] Key { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CryptographicKey6> Key { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Response to the key exchange request.
     /// </summary>
+    [DataMember]
     public ResponseType2? TransactionResponse { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(PartyOrCurrency1Choice.Depository))]
 [KnownType(typeof(PartyOrCurrency1Choice.SettlementCurrency))]
+[DataContract]
 public abstract partial record PartyOrCurrency1Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Characteristics of the report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Statement58
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Statement58
     /// <summary>
     /// Identification of the SecuritiesStatementQuery message sent to request this statement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? QueryReference { get; init; } 
     /// <summary>
     /// Reference common to all pages of a report.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReportIdentification { get; init; } 
     /// <summary>
     /// Specifies whether the data is either historical (true) or current (false).
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator HistoricData { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the statement reports holdings at subsafekeeping account level.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator SubAccountIndicator { get; init; } 
     
     #nullable disable

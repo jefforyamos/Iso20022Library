@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TransferCancellationRejectedStatus1Choice.Reason))]
 [KnownType(typeof(TransferCancellationRejectedStatus1Choice.DataSourceScheme))]
+[DataContract]
 public abstract partial record TransferCancellationRejectedStatus1Choice_
 {
 }

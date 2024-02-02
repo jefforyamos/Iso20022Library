@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters to communicate with a host.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NetworkParameters7
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record NetworkParameters7
     /// <summary>
     /// Network addresses of the host.
     /// </summary>
-    public NetworkParameters9[] Address { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NetworkParameters9> Address { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// User name identifying the client.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? UserName { get; init; } 
     /// <summary>
     /// Password authenticating the client.
     /// </summary>
+    [DataMember]
     public IsoMax35Binary? AccessCode { get; init; } 
     /// <summary>
     /// X.509 Certificate required to authenticate the server.
     /// </summary>
-    public IsoMax10KBinary[] ServerCertificate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax10KBinary> ServerCertificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the X.509 Certificates required to authenticate the server, for instance a digest of the certificate.
     /// </summary>
-    public IsoMax140Binary[] ServerCertificateIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax140Binary> ServerCertificateIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// X.509 Certificate required to authenticate the client.
     /// </summary>
-    public IsoMax10KBinary[] ClientCertificate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax10KBinary> ClientCertificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the set of security elements to access the host.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SecurityProfile { get; init; } 
     
     #nullable disable

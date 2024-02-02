@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cash movements from or to a fund as a result of investment funds transactions, eg, subscriptions or redemptions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EstimatedFundCashForecast2
 {
     #nullable enable
@@ -20,51 +22,63 @@ public partial record EstimatedFundCashForecast2
     /// <summary>
     /// Date and, if required, the time, at which the price has been applied.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     /// <summary>
     /// Previous date and time at which a price was applied.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ PreviousTradeDateTime { get; init; } 
     /// <summary>
     /// Investment fund class to which a cash flow is related.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument5 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Estimated total value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? EstimatedTotalNAV { get; init; } 
     /// <summary>
     /// Previous estimated value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? PreviousEstimatedTotalNAV { get; init; } 
     /// <summary>
     /// Estimated total number of investment fund class units that have been issued.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? EstimatedTotalUnitsNumber { get; init; } 
     /// <summary>
     /// Previous estimated value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? PreviousEstimatedTotalUnitsNumber { get; init; } 
     /// <summary>
     /// Rate of change of the net asset value.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? EstimatedTotalNAVChangeRate { get; init; } 
     /// <summary>
     /// Currency of the investment fund class.
     /// </summary>
-    public ActiveOrHistoricCurrencyCode[] InvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ActiveOrHistoricCurrencyCode> InvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the estimated net cash flow is exceptional.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ExceptionalNetCashFlowIndicator { get; init; } 
     /// <summary>
     /// Information related to the estimated cash movements reported by pre-defined or user defined criteria.
     /// </summary>
-    public CashSortingCriterion1[] SortingCriteriaDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashSortingCriterion1> SortingCriteriaDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net cash movements per financial instrument.
     /// </summary>
-    public NetCashForecast1[] EstimatedNetCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NetCashForecast1> EstimatedNetCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

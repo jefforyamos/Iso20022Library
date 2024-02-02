@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Investor’s investment requirements.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestorRequirements3
 {
     #nullable enable
@@ -20,49 +22,60 @@ public partial record InvestorRequirements3
     /// <summary>
     /// Specifies whether the product is compatible with a client who is looking for the preservation of capital. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05010.
     /// </summary>
+    [DataMember]
     public TargetMarket1Code? ReturnProfilePreservation { get; init; } 
     /// <summary>
     /// Specifies whether the product is compatible with a client looking for capitalisation growth. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05020.
     /// </summary>
+    [DataMember]
     public TargetMarket1Code? ReturnProfileGrowth { get; init; } 
     /// <summary>
     /// Specifies whether the product is compatible with a client who is looking for income. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05030.
     /// </summary>
+    [DataMember]
     public TargetMarket1Code? ReturnProfileIncome { get; init; } 
     /// <summary>
     /// Level of compatibility of the investor risk profile with the hedging profile of a structured security product.
     /// When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05040. 
     /// </summary>
+    [DataMember]
     public TargetMarket1Code? ReturnProfileHedging { get; init; } 
     /// <summary>
     /// Level of compatibility of the investor risk profile with the option or leveraged return profile of a structured security product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05050.
     /// </summary>
+    [DataMember]
     public TargetMarket1Code? OptionOrLeveragedReturnProfile { get; init; } 
     /// <summary>
     /// Level of compatibility of the investor risk profile with the Return Profile Pension Scheme Germany profile of the product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05070.
     /// </summary>
+    [DataMember]
     public TargetMarket1Code? ReturnProfilePensionSchemeGermany { get; init; } 
     /// <summary>
     /// Minimum recommended holding period (RHP).
     /// When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05080.
     /// </summary>
+    [DataMember]
     public TimeHorizon2Choice_? MinimumHoldingPeriod { get; init; } 
     /// <summary>
     /// Specifies whether the product is compatible with investors that have Environmental, Social and Governance (ESG) preferences. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05105.
     /// </summary>
+    [DataMember]
     public TargetMarket2Code? ESGPreferences { get; init; } 
     /// <summary>
     /// Specifies whether the product is compatible with investors that have sustainability preferences. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 05105.
     /// </summary>
+    [DataMember]
     public SustainabilityPreferences1Code? SustainabilityPreferences { get; init; } 
     /// <summary>
     /// Specifies other specific investment needs. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 05115.
     /// </summary>
+    [DataMember]
     public InvestmentNeed2Choice_? OtherSpecificInvestmentNeed { get; init; } 
     /// <summary>
     /// Other investment need. 
     /// </summary>
-    public OtherInvestmentNeed1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OtherInvestmentNeed1> Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

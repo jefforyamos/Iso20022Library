@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Quantity breakdown information for a specific securities balance.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesSubBalanceTypeAndQuantityBreakdown6
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record SecuritiesSubBalanceTypeAndQuantityBreakdown6
     /// <summary>
     /// Specifies the securities sub balance type indicator (example restriction type for a market infrastructure).
     /// </summary>
+    [DataMember]
     public required SecuritiesBalanceType8Choice_ Type { get; init; } 
     /// <summary>
     /// Breakdown of a quantity into lots such as tax lots, instrument series.
     /// </summary>
-    public QuantityBreakdown65[] QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QuantityBreakdown65> QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

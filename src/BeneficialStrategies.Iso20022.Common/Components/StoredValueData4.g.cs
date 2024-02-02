@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related to the stored value card.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StoredValueData4
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record StoredValueData4
     /// <summary>
     /// Identification of the provider of the stored value account load/reload.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Provider { get; init; } 
     /// <summary>
     /// Identification of operation to proceed on the stored value account or the stored value card.
     /// </summary>
+    [DataMember]
     public required StoredValueTransactionType2Code TransactionType { get; init; } 
     /// <summary>
     /// Identification of the stored value account or the stored value card.
     /// </summary>
+    [DataMember]
     public StoredValueAccount2? AccountIdentification { get; init; } 
     /// <summary>
     /// Identification of a previous POI transaction.
     /// </summary>
+    [DataMember]
     public CardPaymentTransaction110? OriginalPOITransaction { get; init; } 
     /// <summary>
     /// Product code of item purchased with the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProductCode { get; init; } 
     /// <summary>
     /// Standard European Article Number Universal Product Code of item purchased with the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35NumericText? EANUPC { get; init; } 
     /// <summary>
     /// Total amount of the item line.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? ItemAmount { get; init; } 
     /// <summary>
     /// Currency of the monetary amount.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Identification of the transaction by the host in charge of the stored value transaction.
     /// </summary>
+    [DataMember]
     public TransactionIdentifier1? HostTransactionIdentification { get; init; } 
     
     #nullable disable

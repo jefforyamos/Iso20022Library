@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for a benchmark curve name.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareBenchmarkCurveName2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareBenchmarkCurveName2
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public BenchmarkCurveName10Choice_? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public BenchmarkCurveName10Choice_? Value2 { get; init; } 
     
     #nullable disable

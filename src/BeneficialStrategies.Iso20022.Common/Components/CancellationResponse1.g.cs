@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains detailed information from the cancellation response (for example an MT 196 or an MT 199).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CancellationResponse1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CancellationResponse1
     /// <summary>
     /// Provides the status of the execution of an investigation.
     /// </summary>
+    [DataMember]
     public required InvestigationExecutionConfirmation5Code InvestigationExecutionStatus { get; init; } 
     /// <summary>
     /// Provides the reason for a given status on the execution of an investigation.
     /// </summary>
+    [DataMember]
     public InvestigationExecutionStatusReason1? InvestigationExecutionStatusReason { get; init; } 
     
     #nullable disable

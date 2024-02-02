@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Maximum value that the new bank will pay to the old bank when the closing balance on the old bank is negative.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BalanceTransferFundingLimit1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record BalanceTransferFundingLimit1
     /// <summary>
     /// Maximum value and related currency that can be sent by the new account servicer to the old account servicer in case of a negative closing balance.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount CurrencyAmount { get; init; } 
     
     #nullable disable

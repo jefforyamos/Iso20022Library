@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Login Response message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoginResponse1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record LoginResponse1
     /// <summary>
     /// Date and Time of POI Login.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime POIDateTime { get; init; } 
     /// <summary>
     /// Information related to the software of the POI System which manages the Sale to POI protocol.
     /// </summary>
-    public PointOfInteractionComponent9[] POISoftware { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PointOfInteractionComponent9> POISoftware { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Capabilities of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
+    [DataMember]
     public PointOfInteractionCapabilities8? POICapabilities { get; init; } 
     
     #nullable disable

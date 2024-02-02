@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the vote methods to be used.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VoteMethods3
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record VoteMethods3
     /// <summary>
     /// Network address through which a voting party can cast its vote via a structured message.
     /// </summary>
-    public IsoAnyBICDec2014Identifier[] VoteThroughNetwork { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoAnyBICDec2014Identifier> VoteThroughNetwork { get; init; } = [];
     /// <summary>
     /// Address where the voting ballot can be sent.
     /// </summary>
-    public PostalAddress1[] VoteByMail { get; init; } = [];
+    [DataMember]
+    public ValueList<PostalAddress1> VoteByMail { get; init; } = [];
     /// <summary>
     /// Electronic address, e-mail or web site, where a security holder can vote.
     /// </summary>
-    public CommunicationAddress11[] ElectronicVote { get; init; } = [];
+    [DataMember]
+    public ValueList<CommunicationAddress11> ElectronicVote { get; init; } = [];
     /// <summary>
     /// Telephone number providing access to an automated voting system.
     /// </summary>
-    public IsoMax35Text[] VoteByTelephone { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax35Text> VoteByTelephone { get; init; } = [];
     
     #nullable disable
 }

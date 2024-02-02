@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a pricing component, such as a service, promotion, allowance or charge, for this trade settlement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementAllowanceCharge1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SettlementAllowanceCharge1
     /// <summary>
     /// Indication of whether or not this allowance charge is a charge.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AllowanceChargeIndicator { get; init; } 
     /// <summary>
     /// Actual monetary amount specified for the allowance or charge.
     /// </summary>
-    public IsoCurrencyAndAmount[] ActualAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> ActualAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Reason, expressed as text, for this allowance or charge.
     /// </summary>
+    [DataMember]
     public DiscountOrChargeType1Choice_? Reason { get; init; } 
     
     #nullable disable

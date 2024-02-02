@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Originator of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Originator1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Originator1
     /// <summary>
     /// Identification of the originator of the transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Identification of the entity assigning the originator identification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Assigner { get; init; } 
     /// <summary>
     /// Country of the originator.
     /// </summary>
+    [DataMember]
     public ISO3NumericCountryCode? Country { get; init; } 
     /// <summary>
     /// Short name of the originator.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     
     #nullable disable

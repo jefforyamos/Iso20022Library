@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(GeographicLocation1Choice.GeographicCoordinates))]
 [KnownType(typeof(GeographicLocation1Choice.UTMCoordinates))]
+[DataContract]
 public abstract partial record GeographicLocation1Choice_
 {
 }

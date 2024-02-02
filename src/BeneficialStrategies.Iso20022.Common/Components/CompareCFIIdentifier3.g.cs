@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for a CFI (Classification of Financial Instruments-ISO 10962) identifier.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareCFIIdentifier3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareCFIIdentifier3
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public IsoCFIOct2015Identifier? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public IsoCFIOct2015Identifier? Value2 { get; init; } 
     
     #nullable disable

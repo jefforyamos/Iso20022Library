@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(SettlementSystemMethod1Choice.Code))]
 [KnownType(typeof(SettlementSystemMethod1Choice.Proprietary))]
+[DataContract]
 public abstract partial record SettlementSystemMethod1Choice_
 {
 }

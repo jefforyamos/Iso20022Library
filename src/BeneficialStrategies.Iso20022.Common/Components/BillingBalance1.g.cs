@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the balance for the billing services.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BillingBalance1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record BillingBalance1
     /// <summary>
     /// Defines the type of balance.
     /// </summary>
+    [DataMember]
     public required BillingBalanceType1Choice_ Type { get; init; } 
     /// <summary>
     /// Balance value.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection34 Value { get; init; } 
     /// <summary>
     /// Identifies the currency type used to report the balance. This is not the ISO code.
     /// </summary>
+    [DataMember]
     public BillingCurrencyType1Code? CurrencyType { get; init; } 
     
     #nullable disable

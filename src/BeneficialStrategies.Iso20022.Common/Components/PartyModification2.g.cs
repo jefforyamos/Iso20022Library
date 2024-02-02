@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of change to the party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyModification2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PartyModification2
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
+    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Identification of the party.
     /// </summary>
+    [DataMember]
     public required PartyIdentification137 PartyIdentification { get; init; } 
     
     #nullable disable

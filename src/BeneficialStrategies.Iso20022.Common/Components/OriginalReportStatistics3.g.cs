@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Statistical information on the processing of records included in the original report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalReportStatistics3
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record OriginalReportStatistics3
     /// <summary>
     /// Total numbers of records included in the original file.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText TotalNumberOfRecords { get; init; } 
     /// <summary>
     /// Detailed information on the number of records for each records status.
     /// </summary>
-    public NumberOfRecordsPerStatus1[] NumberOfRecordsPerStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NumberOfRecordsPerStatus1> NumberOfRecordsPerStatus { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Addition of a new element.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Addition2
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record Addition2
     /// <summary>
     /// Content of the new element.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? ProposedValue { get; init; } 
     
     #nullable disable

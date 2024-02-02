@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ModificationScope36
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ModificationScope36
     /// <summary>
     /// Type of modification to be applied.
     /// </summary>
+    [DataMember]
     public required DataModification2Code ModificationScopeIndication { get; init; } 
     /// <summary>
     /// Detailed information about the investment fund or security associated to the account.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument56 FinancialInstrumentDetails { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CollateralTransactionType1Choice.Code))]
 [KnownType(typeof(CollateralTransactionType1Choice.Proprietary))]
+[DataContract]
 public abstract partial record CollateralTransactionType1Choice_
 {
 }

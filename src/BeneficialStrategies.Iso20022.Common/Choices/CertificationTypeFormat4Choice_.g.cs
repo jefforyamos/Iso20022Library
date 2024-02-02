@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CertificationTypeFormat4Choice.Code))]
 [KnownType(typeof(CertificationTypeFormat4Choice.Proprietary))]
+[DataContract]
 public abstract partial record CertificationTypeFormat4Choice_
 {
 }

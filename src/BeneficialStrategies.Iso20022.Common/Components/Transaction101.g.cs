@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Error or rejection transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transaction101
 {
     #nullable enable
@@ -20,24 +22,29 @@ public partial record Transaction101
     /// <summary>
     /// Transaction Identification of the Error message.
     /// </summary>
+    [DataMember]
     public required TransactionIdentification12 TransactionIdentification { get; init; } 
     /// <summary>
     /// Contains error details.
     ///  ISO 8583:2003, bit 18
     /// </summary>
-    public ErrorDetails1[] ErrorDetail { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ErrorDetails1> ErrorDetail { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Original request that caused the party to reject it.
     /// </summary>
+    [DataMember]
     public IsoMax100KBinary? OriginalMessage { get; init; } 
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    public AdditionalFee1[] AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalFee1> AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

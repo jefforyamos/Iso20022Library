@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains credential information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Credentials2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Credentials2
     /// <summary>
     /// Identification of the type of credential.
     /// </summary>
+    [DataMember]
     public required Identification3Code IdentificationCode { get; init; } 
     /// <summary>
     /// Used when OtherNational or OtherPrivate value is selected in identification code list. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherIdentificationCode { get; init; } 
     /// <summary>
     /// Value of identification.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text IdentificationValue { get; init; } 
     /// <summary>
     /// Expiration date of the identification.
     /// </summary>
+    [DataMember]
     public IsoISOYearMonth? IdentificationExpiryDate { get; init; } 
     /// <summary>
     /// Entity that assigns and manages this type of identification.
     /// </summary>
+    [DataMember]
     public Authority1? AssignerAuthority { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Card transaction details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardTransaction1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CardTransaction1
     /// <summary>
     /// Electronic money product that provides the cardholder with a portable and specialised computer device, which typically contains a microprocessor.
     /// </summary>
+    [DataMember]
     public PaymentCard4? Card { get; init; } 
     /// <summary>
     /// Physical or logical card payment terminal containing software and hardware components.
     /// </summary>
+    [DataMember]
     public PointOfInteraction1? POI { get; init; } 
     /// <summary>
     /// Card transaction details, which can be either globalised by the acquirer or individual transaction.
     /// </summary>
+    [DataMember]
     public CardTransaction1Choice_? Transaction { get; init; } 
     
     #nullable disable

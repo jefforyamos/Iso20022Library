@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of transaction for a file action.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transaction158
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Transaction158
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
+    [DataMember]
     public TransactionIdentification12? TransactionIdentification { get; init; } 
     /// <summary>
     /// Fees not included in the transaction amount.
     /// </summary>
-    public AdditionalFee2[] AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalFee2> AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details pertaining to the file action.
     /// </summary>
+    [DataMember]
     public required FileActionDetails2 FileActionDetails { get; init; } 
     
     #nullable disable

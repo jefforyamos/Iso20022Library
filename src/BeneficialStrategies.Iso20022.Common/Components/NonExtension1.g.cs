@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Non-extension information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NonExtension1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record NonExtension1
     /// <summary>
     /// Minimum number of days prior to the then current expiry date by which notice of non-extension must be sent.
     /// </summary>
+    [DataMember]
     public IsoNumber? NotificationPeriod { get; init; } 
     /// <summary>
     /// Method by which the notice of non-extension is intended to be delivered.
     /// </summary>
+    [DataMember]
     public CommunicationMethod1Choice_? NotificationMethod { get; init; } 
     /// <summary>
     /// Type of party to whom the notice of non-extension is intended to be delivered.
     /// </summary>
+    [DataMember]
     public PartyType1Choice_? NotificationRecipientType { get; init; } 
     /// <summary>
     /// Name of party to whom the notice of non-extension is intended to be delivered.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? NotificationRecipientName { get; init; } 
     /// <summary>
     /// Address of party to whom the notice of non-extension is intended to be delivered.
     /// </summary>
+    [DataMember]
     public PostalAddress6? NotificationRecipientAddress { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Supplies additional transaction information for fleet transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FleetLineItem4
 {
     #nullable enable
@@ -22,72 +24,89 @@ public partial record FleetLineItem4
     /// True = Fuel item
     /// False = Non-fuel item
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator FuelIndicator { get; init; } 
     /// <summary>
     /// Type of service received at the acceptor location. 
     /// </summary>
+    [DataMember]
     public FleetServiceType1Code? ServiceType { get; init; } 
     /// <summary>
     /// Code that identifies the brand of the fuel purchased. 
     /// </summary>
+    [DataMember]
     public IsoMax4Text? FuelBrandCode { get; init; } 
     /// <summary>
     /// Product code of fleet product or service being purchased.
     /// </summary>
+    [DataMember]
     public IsoMax4Text? FleetProductCode { get; init; } 
     /// <summary>
     /// Contains a code that identifies a category of fleet products or services. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? FleetProductCategory { get; init; } 
     /// <summary>
     /// Contains a code that identifies the product qualifier of the fleet product or service. 
     /// </summary>
+    [DataMember]
     public IsoMax6Text? FleetProductQualifier { get; init; } 
     /// <summary>
     /// Contains a code that identifies the product code assigner.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? FleetProductCodeAssigner { get; init; } 
     /// <summary>
     /// Indicates whether or not tax is included in unit price.
     /// True: includes tax 
     /// False: does not include tax.   
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? UnitPriceTaxIndicator { get; init; } 
     /// <summary>
     /// Unit price of the fleet line item.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? UnitPrice { get; init; } 
     /// <summary>
     /// Unit of measure of the item purchased.
     /// </summary>
+    [DataMember]
     public UnitOfMeasure1Code? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Other unit of measure.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherUnitOfMeasure { get; init; } 
     /// <summary>
     /// Quantity of product or item.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? ProductQuantity { get; init; } 
     /// <summary>
     /// Contains the discount amount applied to the fleet transaction (includes coupons).
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? DiscountAmount { get; init; } 
     /// <summary>
     /// Indicates whether or not amount of fleet purchase is taxable. 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? NonTaxableIndicator { get; init; } 
     /// <summary>
     /// Taxes related to the products or services. 
     /// </summary>
-    public Tax39[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax39> Tax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total amount excluding tax.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalAmountExcludingTax { get; init; } 
     /// <summary>
     /// Total amount including tax.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalAmountIncludingTax { get; init; } 
     
     #nullable disable

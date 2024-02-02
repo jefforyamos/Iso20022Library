@@ -18,6 +18,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(AssetClassCommodityEnergy2Choice.LightEnd))]
 [KnownType(typeof(AssetClassCommodityEnergy2Choice.Distillates))]
 [KnownType(typeof(AssetClassCommodityEnergy2Choice.Other))]
+[DataContract]
 public abstract partial record AssetClassCommodityEnergy2Choice_
 {
 }

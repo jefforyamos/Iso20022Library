@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a financial institution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstitutionIdentification16
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record FinancialInstitutionIdentification16
     /// <summary>
     /// Identification of the financial institution expressed as a BIC.
     /// </summary>
+    [DataMember]
     public IsoBICFIDec2014Identifier? BICFI { get; init; } 
     /// <summary>
     /// Information used to identify a member within a clearing system.
     /// </summary>
+    [DataMember]
     public ClearingSystemMemberIdentification4Choice_? ClearingSystemMemberIdentification { get; init; } 
     /// <summary>
     /// Name and address of the party.
     /// </summary>
+    [DataMember]
     public NameAndAddress5? NameAndAddress { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for the party.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier, as assigned to a financial institution using a proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProprietaryIdentification { get; init; } 
     /// <summary>
     /// Identification of a specific branch of the financial institution.
     /// </summary>
+    [DataMember]
     public BranchData2? BranchIdentification { get; init; } 
     
     #nullable disable

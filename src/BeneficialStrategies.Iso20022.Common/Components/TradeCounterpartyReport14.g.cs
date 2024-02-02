@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to parties in the contract.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeCounterpartyReport14
 {
     #nullable enable
@@ -20,28 +22,34 @@ public partial record TradeCounterpartyReport14
     /// <summary>
     /// Identification of the counterparty to a derivative transaction who is fulfilling its reporting obligation in the present report.
     /// </summary>
+    [DataMember]
     public required Counterparty34 ReportingCounterparty { get; init; } 
     /// <summary>
     /// Identification of the other counterparty to a derivative transaction.
     /// </summary>
+    [DataMember]
     public required Counterparty31 OtherCounterparty { get; init; } 
     /// <summary>
     /// Identification of the broker as an intermediary for the reporting counterparty.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification10Choice_? Broker { get; init; } 
     /// <summary>
     /// Identification of the party that ultimately submits the report to the trade repository.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification10Choice_? SubmittingAgent { get; init; } 
     /// <summary>
     /// Identifies the clearing member through which a derivative transaction is cleared at a central counterparty (CCP).  The element applies to transactions under the agency clearing model and the principal clearing model.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification10Choice_? ClearingMember { get; init; } 
     /// <summary>
     /// Identification of the beneficiary of a derivative transaction, ie a party that is subject to the rights and obligations arising from the contract.
     /// ||Usage: The first iteration must always be the beneficiary 1 of the counterparty 1 and the second iteration is the beneficiary 2 of the counterparty 2.
     /// </summary>
-    public PartyIdentification235Choice_[] Beneficiary { get; init; } = [];
+    [DataMember]
+    public ValueList<PartyIdentification235Choice_> Beneficiary { get; init; } = [];
     
     #nullable disable
 }

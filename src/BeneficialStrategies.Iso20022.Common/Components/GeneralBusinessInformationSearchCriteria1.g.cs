@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to search for business information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GeneralBusinessInformationSearchCriteria1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record GeneralBusinessInformationSearchCriteria1
     /// <summary>
     /// Unique and unambiguous reference assigned to a general business information system.
     /// </summary>
-    public IsoMax35Text[] Reference { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> Reference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Subject line of an item of general business information, summarizing the topic and intended destination of the information.
     /// </summary>
-    public CharacterSearch1Choice_[] Subject { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CharacterSearch1Choice_> Subject { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further information about the criticality or importance of a general business information system.
     /// </summary>
-    public InformationQualifierType1[] Qualifier { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InformationQualifierType1> Qualifier { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

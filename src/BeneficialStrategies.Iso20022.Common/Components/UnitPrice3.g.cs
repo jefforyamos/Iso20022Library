@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UnitPrice3
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record UnitPrice3
     /// <summary>
     /// Type and information about a price.
     /// </summary>
+    [DataMember]
     public required TypeOfPrice2Code PriceType { get; init; } 
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
+    [DataMember]
     public required PriceValue1 Value { get; init; } 
     /// <summary>
     /// Type of pricing calculation method.
     /// </summary>
+    [DataMember]
     public PriceMethod1Code? PriceMethod { get; init; } 
     /// <summary>
     /// Interest that has accumulated between the most recent payment of interest and the sale of the financial instrument.
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? AccruedInterestNAV { get; init; } 
     /// <summary>
     /// Specifies the number of days used for calculating the accrued interest amount.
     /// </summary>
+    [DataMember]
     public IsoNumber? NumberOfDaysAccrued { get; init; } 
     /// <summary>
     /// Amount included in the NAV that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? TaxableIncomePerShare { get; init; } 
     
     #nullable disable

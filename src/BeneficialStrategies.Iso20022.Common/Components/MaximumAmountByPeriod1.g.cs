@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Maximum amount allowed over a specific period of time.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MaximumAmountByPeriod1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record MaximumAmountByPeriod1
     /// <summary>
     /// Maximum amount allowed over a specific period of time.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount MaximumAmount { get; init; } 
     /// <summary>
     /// Period specified as a number of days.
     /// </summary>
+    [DataMember]
     public required IsoMax3NumericText NumberOfDays { get; init; } 
     
     #nullable disable

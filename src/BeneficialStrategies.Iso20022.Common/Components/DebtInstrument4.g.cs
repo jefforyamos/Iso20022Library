@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the debit instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DebtInstrument4
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record DebtInstrument4
     /// <summary>
     /// Maturity date/time at which an interest bearing financial instrument becomes due, that is original date of expiry of the reported financial instrument.
     /// </summary>
+    [DataMember]
     public required IsoISODate MaturityDate { get; init; } 
     
     #nullable disable

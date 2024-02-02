@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional functions or services that have been or are to be performed in conjunction with the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalService2
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record AdditionalService2
     /// <summary>
     /// Type of additional service applied to the transaction.
     /// </summary>
+    [DataMember]
     public required AdditionalServiceType2Code Type { get; init; } 
     /// <summary>
     /// Other additional service applied to the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Result from performing the identified service.
     /// </summary>
+    [DataMember]
     public AdditionalServiceResult1Code? Result { get; init; } 
     /// <summary>
     /// Other nationally or privately defined additional service result code.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherResult { get; init; } 
     /// <summary>
     /// Contains additional information for the execution or results of the service.
     /// </summary>
-    public AdditionalData1[] ServiceDetail { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> ServiceDetail { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

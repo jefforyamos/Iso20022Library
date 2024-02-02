@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details on the reason of the return of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentRejectReturnReason1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record PaymentRejectReturnReason1
     /// <summary>
     /// Specifies the reason for the return.
     /// </summary>
+    [DataMember]
     public ReturnReason5Choice_? Reason { get; init; } 
     /// <summary>
     /// Further details on the return reason.
     /// </summary>
-    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax105Text> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

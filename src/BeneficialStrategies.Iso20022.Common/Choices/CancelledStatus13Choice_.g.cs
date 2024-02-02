@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(CancelledStatus13Choice.Reason))]
 [KnownType(typeof(CancelledStatus13Choice.ExtendedReason))]
 [KnownType(typeof(CancelledStatus13Choice.DataSourceScheme))]
+[DataContract]
 public abstract partial record CancelledStatus13Choice_
 {
 }

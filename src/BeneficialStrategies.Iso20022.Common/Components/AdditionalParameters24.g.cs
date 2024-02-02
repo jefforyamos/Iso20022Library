@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies additional parameters to the message or transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalParameters24
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AdditionalParameters24
     /// <summary>
     /// Specifies whether there exists a pre-confirmation.
     /// </summary>
+    [DataMember]
     public PreConfirmation1Code? PreConfirmation { get; init; } 
     /// <summary>
     /// Specifies partial settlement information.
     /// </summary>
+    [DataMember]
     public PartialSettlement2Code? PartialSettlement { get; init; } 
     /// <summary>
     /// Identification of the confirmation previously sent to confirm the partial settlement of a transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PreviousPartialConfirmationIdentification { get; init; } 
     
     #nullable disable

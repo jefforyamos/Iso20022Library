@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Explains the status of the related request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RequestHandling
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RequestHandling
     /// <summary>
     /// Specifies the status of the request.
     /// </summary>
+    [DataMember]
     public required IsoMax4AlphaNumericText StatusCode { get; init; } 
     /// <summary>
     /// Description of the status, in free format text.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     
     #nullable disable

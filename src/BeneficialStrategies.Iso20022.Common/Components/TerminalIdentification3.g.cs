@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the terminal performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TerminalIdentification3
 {
     #nullable enable
@@ -21,18 +23,22 @@ public partial record TerminalIdentification3
     /// Identification of the terminal.
     /// ISO 8583 bit 41
     /// </summary>
+    [DataMember]
     public required IsoMax16Text Identification { get; init; } 
     /// <summary>
     /// Assignor of the terminal identification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Assigner { get; init; } 
     /// <summary>
     /// Country of the terminal.
     /// </summary>
+    [DataMember]
     public ISOMax3ACountryCode? Country { get; init; } 
     /// <summary>
     /// Short name of the terminal.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     
     #nullable disable

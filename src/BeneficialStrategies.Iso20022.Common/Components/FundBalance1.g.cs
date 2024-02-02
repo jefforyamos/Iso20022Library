@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Balances of units and cash derived from investment fund orders.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FundBalance1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record FundBalance1
     /// <summary>
     /// Total number of units from orders placed in units.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? TotalUnitsFromUnitOrders { get; init; } 
     /// <summary>
     /// Number of units derived from orders placed in cash.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? TotalUnitsFromCashOrders { get; init; } 
     /// <summary>
     /// Total amount of cash derived from orders placed as units.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalCashFromUnitOrders { get; init; } 
     /// <summary>
     /// Total amount of cash from orders placed in cash.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalCashFromCashOrders { get; init; } 
     
     #nullable disable

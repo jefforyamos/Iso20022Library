@@ -17,6 +17,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(InstructionProcessingStatus36Choice.PendingCancellation))]
 [KnownType(typeof(InstructionProcessingStatus36Choice.Covered))]
 [KnownType(typeof(InstructionProcessingStatus36Choice.Uncovered))]
+[DataContract]
 public abstract partial record InstructionProcessingStatus36Choice_
 {
 }

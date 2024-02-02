@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Individual card transaction entry details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardIndividualTransaction1
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record CardIndividualTransaction1
     /// <summary>
     /// Service in addition to the main service.
     /// </summary>
+    [DataMember]
     public CardPaymentServiceType2Code? AdditionalService { get; init; } 
     /// <summary>
     /// Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction.
     /// </summary>
+    [DataMember]
     public ExternalCardTransactionCategory1Code? TransactionCategory { get; init; } 
     /// <summary>
     /// Unique identification of the sales reconciliation period between the acceptor and the acquirer. This identification might be linked to the identification of the settlement for further verification by the merchant.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleReconciliationIdentification { get; init; } 
     /// <summary>
     /// Unique reference of the sales as provided by the merchant.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleReferenceNumber { get; init; } 
     /// <summary>
     /// Sequential number of the card transaction, as assigned by the POI (Point of Interaction). |Usage: The sequential number is increased incrementally for each transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SequenceNumber { get; init; } 
     /// <summary>
     /// Identification of the transaction assigned by the POI (Point Of Interaction).
     /// </summary>
+    [DataMember]
     public TransactionIdentifier1? TransactionIdentification { get; init; } 
     /// <summary>
     /// Product purchased with the transaction.
     /// </summary>
+    [DataMember]
     public Product2? Product { get; init; } 
     /// <summary>
     /// Date when the deposit was validated by the financial institution that collected the cash.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValidationDate { get; init; } 
     /// <summary>
     /// Sequential number of the validation of the cash deposit.
     /// Usage: The sequential number is increased incrementally for each transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ValidationSequenceNumber { get; init; } 
     
     #nullable disable

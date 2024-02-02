@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Vehicle rental rate
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RentalRate1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record RentalRate1
     /// <summary>
     /// Unit of measure used to compute the rental rate.
     /// </summary>
+    [DataMember]
     public PeriodUnit3Code? Period { get; init; } 
     /// <summary>
     /// Other unit of measure used to compute the rental rate.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherPeriod { get; init; } 
     /// <summary>
     /// Rate applied to the vehicle rental for the specified period. 
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? Rate { get; init; } 
     /// <summary>
     /// Duration of the period for which the rental rate is calculated. 
     /// </summary>
+    [DataMember]
     public IsoMax4NumericText? PeriodCount { get; init; } 
     
     #nullable disable

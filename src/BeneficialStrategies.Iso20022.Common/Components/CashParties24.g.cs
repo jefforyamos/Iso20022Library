@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cash settlement chain parties and accounts.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashParties24
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CashParties24
     /// <summary>
     /// Party to which the payment amount must be ultimately delivered. In some cases, this may be a fund.
     /// </summary>
+    [DataMember]
     public required PartyIdentificationAndAccount96 Creditor { get; init; } 
     /// <summary>
     /// Financial institution that services the cash account of the beneficiary (creditor). In some markets, this is also known as receiving agent. The creditor agent is the party where the payment amount must be ultimately delivered on behalf of the beneficiary (creditor), that is, the party where the beneficiary has its account.
     /// </summary>
+    [DataMember]
     public required PartyIdentificationAndAccount97 CreditorAgent { get; init; } 
     /// <summary>
     /// Financial institution through which the transaction must pass to reach the account with institution (creditor agent).
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount97? Intermediary { get; init; } 
     /// <summary>
     /// Financial institution through which the transaction must pass to reach the account with institution (creditor agent).
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount97? Intermediary2 { get; init; } 
     
     #nullable disable

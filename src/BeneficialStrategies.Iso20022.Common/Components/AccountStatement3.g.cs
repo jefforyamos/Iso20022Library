@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details of the account statement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountStatement3
 {
     #nullable enable
@@ -20,63 +22,78 @@ public partial record AccountStatement3
     /// <summary>
     /// Unique identification, as assigned by the account servicer, to unambiguously identify the account statement.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Provides details on the page number of the statement.
     /// Usage: The pagination of the statement is only allowed when agreed between the parties.
     /// </summary>
+    [DataMember]
     public Pagination? StatementPagination { get; init; } 
     /// <summary>
     /// Sequential number of the statement, as assigned by the account servicer.|Usage: The sequential number is increased incrementally for each statement sent electronically.
     /// </summary>
+    [DataMember]
     public IsoNumber? ElectronicSequenceNumber { get; init; } 
     /// <summary>
     /// Legal sequential number of the statement, as assigned by the account servicer. It is increased incrementally for each statement sent.||Usage: Where a paper statement is a legal requirement, it may have a number different from the electronic sequential number. Paper statements could for instance only be sent if movement on the account has taken place, whereas electronic statements could be sent at the end of each reporting period, regardless of whether movements have taken place or not.
     /// </summary>
+    [DataMember]
     public IsoNumber? LegalSequenceNumber { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Range of time between a start date and an end date for which the account statement is issued.
     /// </summary>
+    [DataMember]
     public DateTimePeriodDetails? FromToDate { get; init; } 
     /// <summary>
     /// Indicates whether the document is a copy, a duplicate, or a duplicate of a copy.
     /// </summary>
+    [DataMember]
     public CopyDuplicate1Code? CopyDuplicateIndicator { get; init; } 
     /// <summary>
     /// Specifies the application used to generate the reporting.
     /// </summary>
+    [DataMember]
     public ReportingSource1Choice_? ReportingSource { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account to which credit and debit entries are made.
     /// </summary>
+    [DataMember]
     public required CashAccount25 Account { get; init; } 
     /// <summary>
     /// Identifies the parent account of the account for which the statement has been issued.
     /// </summary>
+    [DataMember]
     public CashAccount24? RelatedAccount { get; init; } 
     /// <summary>
     /// Provides general interest information that applies to the account at a particular moment in time.
     /// </summary>
-    public AccountInterest2[] Interest { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AccountInterest2> Interest { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of elements used to define the balance as a numerical representation of the net increases and decreases in an account at a specific point in time.
     /// </summary>
-    public CashBalance3[] Balance { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashBalance3> Balance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides summary information on entries.
     /// </summary>
+    [DataMember]
     public TotalTransactions2? TransactionsSummary { get; init; } 
     /// <summary>
     /// Set of elements used to specify an entry in the statement.|Usage: At least one reference must be provided to identify the entry and its underlying transaction(s).
     /// </summary>
-    public ReportEntry3[] Entry { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReportEntry3> Entry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further details of the account statement.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? AdditionalStatementInformation { get; init; } 
     
     #nullable disable

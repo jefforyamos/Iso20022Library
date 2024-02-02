@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the competent authority which supervises the reporting counterparty.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompetentAuthority1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompetentAuthority1
     /// <summary>
     /// Identification field for the competent authority.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text Identification { get; init; } 
     /// <summary>
     /// Information on the onboarding status of the competent authority.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator OnboardingStatus { get; init; } 
     
     #nullable disable

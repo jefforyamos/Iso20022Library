@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data on transaction requiring reconciliation or pairing.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReconciliationReport14
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ReconciliationReport14
     /// <summary>
     /// Set of information related to transactions that are subject of reconciliation.
     /// </summary>
+    [DataMember]
     public required TradeTransactionIdentification24 TransactionIdentification { get; init; } 
     /// <summary>
     /// Criteria used to match the sides of the contract.
     /// </summary>
+    [DataMember]
     public required MatchingCriteria16 MatchingCriteria { get; init; } 
     
     #nullable disable

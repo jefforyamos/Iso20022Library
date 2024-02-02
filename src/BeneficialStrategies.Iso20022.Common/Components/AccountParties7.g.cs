@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Party related to an investment account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountParties7
 {
     #nullable enable
@@ -20,47 +22,58 @@ public partial record AccountParties7
     /// <summary>
     /// Specifies the type of modification to be applied on a set of information.
     /// </summary>
+    [DataMember]
     public required DataModification1Code ModificationScopeIndication { get; init; } 
     /// <summary>
     /// Main party associated with the account.
     /// </summary>
+    [DataMember]
     public AccountParties2Choice_? PrincipalAccountParty { get; init; } 
     /// <summary>
     /// Entity that is not the primary owner when the ownership of the investment account is split among several owners.
     /// </summary>
+    [DataMember]
     public InvestmentAccountOwnershipInformation7? SecondaryOwner { get; init; } 
     /// <summary>
     /// Ultimate party that is entitled to either receive the benefits of the ownership of a financial instrument, or to be paid/credited as a result of a transfer.
     /// </summary>
+    [DataMember]
     public InvestmentAccountOwnershipInformation7? Beneficiary { get; init; } 
     /// <summary>
     /// Entity that was given the authority by another entity to act on its behalf.
     /// </summary>
+    [DataMember]
     public InvestmentAccountOwnershipInformation7? PowerOfAttorney { get; init; } 
     /// <summary>
     /// Entity that has been appointed by a legal authority to act on behalf of a person judged to be incapacitated.
     /// </summary>
+    [DataMember]
     public InvestmentAccountOwnershipInformation7? LegalGuardian { get; init; } 
     /// <summary>
     /// Deceased's estate, or successor, to whom the respective percentage of ownership will be transferred upon the death of one of the owners.
     /// </summary>
+    [DataMember]
     public InvestmentAccountOwnershipInformation7? SuccessorOnDeath { get; init; } 
     /// <summary>
     /// Entity that has been appointed by a legal authorithy to act on behalf of a person or organisation that has gone bankrupt.
     /// </summary>
+    [DataMember]
     public InvestmentAccountOwnershipInformation7? Administrator { get; init; } 
     /// <summary>
     /// Granter role in the hedge funds industry.
     /// </summary>
-    public InvestmentAccountOwnershipInformation7[] Granter { get; init; } = [];
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation7> Granter { get; init; } = [];
     /// <summary>
     /// Settler role in the hedge funds industry.
     /// </summary>
-    public InvestmentAccountOwnershipInformation7[] Settler { get; init; } = [];
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation7> Settler { get; init; } = [];
     /// <summary>
     /// An other type of party.
     /// </summary>
-    public ExtendedParty4[] OtherParty { get; init; } = [];
+    [DataMember]
+    public ValueList<ExtendedParty4> OtherParty { get; init; } = [];
     
     #nullable disable
 }

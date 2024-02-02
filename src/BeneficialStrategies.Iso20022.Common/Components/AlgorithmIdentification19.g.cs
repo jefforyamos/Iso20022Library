@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cryptographic algorithms and parameters for the protection of transported keys by an asymmetric key.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AlgorithmIdentification19
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AlgorithmIdentification19
     /// <summary>
     /// Asymmetric encryption algorithm of a transport key.
     /// </summary>
+    [DataMember]
     public required Algorithm7Code Algorithm { get; init; } 
     /// <summary>
     /// Parameters of the encryption algorithm.
     /// </summary>
+    [DataMember]
     public Parameter10? Parameter { get; init; } 
     
     #nullable disable

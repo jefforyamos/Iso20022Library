@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action option securities movement rate details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionRateSD4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionRateSD4
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Corresponding rate of the security disbursed by CSD (for an example in US, DTC The Depository Trust Corporation).
     /// </summary>
+    [DataMember]
     public RatioFormat13Choice_? CSDSecurityRate { get; init; } 
     
     #nullable disable

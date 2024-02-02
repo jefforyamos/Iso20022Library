@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money due to a party as compensation for a service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Commission13
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record Commission13
     /// <summary>
     /// Reference to the agreement established between the fund and another party. This element, amongst others, defines the conditions of the commissions.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CommercialAgreementReference { get; init; } 
     
     #nullable disable

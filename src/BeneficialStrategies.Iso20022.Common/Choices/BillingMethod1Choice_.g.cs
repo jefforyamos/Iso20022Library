@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(BillingMethod1Choice.MethodA))]
 [KnownType(typeof(BillingMethod1Choice.MethodB))]
 [KnownType(typeof(BillingMethod1Choice.MethodD))]
+[DataContract]
 public abstract partial record BillingMethod1Choice_
 {
 }

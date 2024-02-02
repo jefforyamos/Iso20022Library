@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information for tax reporting.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxReporting2
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record TaxReporting2
     /// <summary>
     /// Country of taxation of the organisation or individual person.
     /// </summary>
+    [DataMember]
     public required CountryCode TaxationCountry { get; init; } 
     /// <summary>
     /// Tax rate to be applied.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? TaxRate { get; init; } 
     /// <summary>
     /// Party that pays the tax.
     /// </summary>
+    [DataMember]
     public PartyIdentification70Choice_? TaxPayer { get; init; } 
     /// <summary>
     /// Party that receives the tax.
     /// </summary>
+    [DataMember]
     public PartyIdentification70Choice_? TaxRecipient { get; init; } 
     /// <summary>
     /// Cash account information for the payment of tax.
     /// </summary>
+    [DataMember]
     public CashAccount33? CashAccountDetails { get; init; } 
     /// <summary>
     /// Additional information for the reporting of tax.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Description { get; init; } 
     
     #nullable disable

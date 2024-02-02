@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action instructed balance details at option level.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionInstructedBalanceOptionBalanceDetailsSD1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CorporateActionInstructedBalanceOptionBalanceDetailsSD1
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Balance of uncovered protect transactions at an option level.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? OptionUncoveredProtectBalance { get; init; } 
     /// <summary>
     /// Daily total of instructions for a given option. Balance will include only made instructions.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? OptionDailyInstructedBalance { get; init; } 
     /// <summary>
     /// For rights subscription events, total number of oversubscribed units. When there is an oversubscription priviledge, this quantity will be included within the Instructed quantityin the core message.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? OptionOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// For election merger events, the balance that is being moved into another option number for payment due to the proration of the original option.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? OptionUnacceptedBalance { get; init; } 
     
     #nullable disable

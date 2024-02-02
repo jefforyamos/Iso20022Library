@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Limit for a quantity range.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record QuantityRangeBoundary1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record QuantityRangeBoundary1
     /// <summary>
     /// Quantity value of the range limit.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber Boundary { get; init; } 
     /// <summary>
     /// Indicates whether the boundary quantity is included in the range of quantity values.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Included { get; init; } 
     
     #nullable disable

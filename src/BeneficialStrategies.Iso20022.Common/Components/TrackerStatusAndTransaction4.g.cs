@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides detailed information on the transaction and it's status as updated in the tracker.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerStatusAndTransaction4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TrackerStatusAndTransaction4
     /// <summary>
     /// Provides detailed information on the alert notification in the tracker.
     /// </summary>
+    [DataMember]
     public required TrackerAlertNotificationStatus2 AlertStatus { get; init; } 
     /// <summary>
     /// Key elements used to identify the original transaction(s) that is being referred to.
     /// </summary>
+    [DataMember]
     public required TrackerPaymentTransaction4 Transaction { get; init; } 
     
     #nullable disable

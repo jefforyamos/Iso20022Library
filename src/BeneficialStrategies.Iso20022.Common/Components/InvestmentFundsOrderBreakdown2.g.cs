@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// An investor's instruction to either subscribe or redeem an amount of money or its equivalent, for example, other assets, into or out of an investment fund.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentFundsOrderBreakdown2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InvestmentFundsOrderBreakdown2
     /// <summary>
     /// Type of order breakdown.
     /// </summary>
+    [DataMember]
     public required OrderBreakdownType1Choice_ OrderBreakdownType { get; init; } 
     /// <summary>
     /// Portion of the net amount that is attributed to an order type.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

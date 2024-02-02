@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Completion of a securities settlement instruction, wherein securities are delivered/debited from a securities account and received/credited to the designated securities account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transfer2
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record Transfer2
     /// <summary>
     /// Unique and unambiguous identifier for a transfer execution, as assigned by a confirming party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferConfirmationReference { get; init; } 
     /// <summary>
     /// Reference that identifies the whole transfer out transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Date and optionally time at which a transaction is completed and cleared, ie, securities are delivered.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ EffectiveTransferDate { get; init; } 
     /// <summary>
     /// Date when the transfer was received and processed.
     /// </summary>
+    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Total quantity of securities settled.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
     /// <summary>
     /// Information about the units to be transferred.
     /// </summary>
-    public Unit1[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Unit1> UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total quantity of securities settled.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? PortfolioTransferOutRate { get; init; } 
     /// <summary>
     /// Indicates whether the transfer results in a change of beneficial owner.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator OwnAccountTransferIndicator { get; init; } 
     /// <summary>
     /// Value of a security, as booked in an account. Book value is often different from the current market value of the security.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; init; } 
     
     #nullable disable

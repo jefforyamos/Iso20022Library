@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Entity who has signed the data and its digital signature.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Signer2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Signer2
     /// <summary>
     /// Version of the Cryptographic Message Syntax (CMS) data structure.
     /// </summary>
+    [DataMember]
     public IsoNumber? Version { get; init; } 
     /// <summary>
     /// Identification of the entity who has signed the data.
     /// </summary>
+    [DataMember]
     public required CertificateIdentifier1 SignerIdentification { get; init; } 
     /// <summary>
     /// Identification of a digest algorithm to apply before signature.
     /// </summary>
+    [DataMember]
     public required AlgorithmIdentification5 DigestAlgorithm { get; init; } 
     /// <summary>
     /// Cryptographic digital signature algorithm.
     /// </summary>
+    [DataMember]
     public required AlgorithmIdentification4 SignatureAlgorithm { get; init; } 
     /// <summary>
     /// Digital signature.
     /// </summary>
+    [DataMember]
     public required IsoMax500Binary Signature { get; init; } 
     
     #nullable disable

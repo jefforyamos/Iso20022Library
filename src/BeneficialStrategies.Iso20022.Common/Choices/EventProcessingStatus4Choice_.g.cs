@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(EventProcessingStatus4Choice.Reconciled))]
 [KnownType(typeof(EventProcessingStatus4Choice.Pending))]
 [KnownType(typeof(EventProcessingStatus4Choice.ProprietaryStatus))]
+[DataContract]
 public abstract partial record EventProcessingStatus4Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details on the reason of the reversal of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentReversalReason8
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record PaymentReversalReason8
     /// <summary>
     /// Party that issues the reversal.
     /// </summary>
+    [DataMember]
     public PartyIdentification125? Originator { get; init; } 
     /// <summary>
     /// Specifies the reason for the reversal.
     /// </summary>
+    [DataMember]
     public ReversalReason4Choice_? Reason { get; init; } 
     /// <summary>
     /// Further details on the reversal reason.
     /// </summary>
-    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax105Text> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

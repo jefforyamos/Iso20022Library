@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Change amount and rate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountAndRate2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AmountAndRate2
     /// <summary>
     /// Amount expressed as an amount of money.
     /// </summary>
+    [DataMember]
     public AmountAndDirection30? Amount { get; init; } 
     /// <summary>
     /// Amount expressed as a rate.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     
     #nullable disable

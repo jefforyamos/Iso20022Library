@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information that locates and identifies a specific address, as defined by postal services.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PostalAddress19
 {
     #nullable enable
@@ -20,51 +22,63 @@ public partial record PostalAddress19
     /// <summary>
     /// Identifies the nature of the postal address.
     /// </summary>
+    [DataMember]
     public AddressType2Code? AddressType { get; init; } 
     /// <summary>
     /// Identification of a division of a large organisation or building.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Department { get; init; } 
     /// <summary>
     /// Identification of a sub-division of a large organisation or building.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? SubDepartment { get; init; } 
     /// <summary>
     /// Name of a street or thoroughfare.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? StreetName { get; init; } 
     /// <summary>
     /// Number that identifies the position of a building on a street.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? BuildingNumber { get; init; } 
     /// <summary>
     /// Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? PostCode { get; init; } 
     /// <summary>
     /// Name of a built-up area, with defined boundaries, and a local government.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TownName { get; init; } 
     /// <summary>
     /// Specific location name within the town.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TownLocationName { get; init; } 
     /// <summary>
     /// Identifies a subdivision within a country sub-division.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DistrictName { get; init; } 
     /// <summary>
     /// Identifies a subdivision of a country such as state, region, county.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CountrySubDivision { get; init; } 
     /// <summary>
     /// Nation with its own government.
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, presented in free format text.
     /// </summary>
-    public IsoMax70Text[] AddressLine { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax70Text> AddressLine { get; init; } = [];
     
     #nullable disable
 }

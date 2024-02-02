@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unprotected sensitive detailed information about the cardholder.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Cardholder15
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record Cardholder15
     /// <summary>
     /// Contains the registered cardholder name that issuer knows to be correct.
     /// </summary>
+    [DataMember]
     public CardholderName1? CardholderName { get; init; } 
     /// <summary>
     /// Identification of the cardholder.
@@ -27,10 +30,12 @@ public partial record Cardholder15
     /// ISO 8583:93 bit 112 (TLV tag 03/dataset 73)
     /// ISO 8583:2003 bit 51 (TLV tag 03/dataset 73)
     /// </summary>
-    public Credentials1[] Identification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Credentials1> Identification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Complete address of the cardholder.
     /// </summary>
+    [DataMember]
     public Address1? Address { get; init; } 
     /// <summary>
     /// Contact information.
@@ -38,10 +43,12 @@ public partial record Cardholder15
     /// ISO 8583:93 bit 112 (TLV tag 02/dataset 72)
     /// ISO 8583:2003 bit 51 (TLV tag 02/dataset 72)
     /// </summary>
+    [DataMember]
     public Contact1? ContactInformation { get; init; } 
     /// <summary>
     /// Date of birth of the party.
     /// </summary>
+    [DataMember]
     public IsoISODate? DateOfBirth { get; init; } 
     
     #nullable disable

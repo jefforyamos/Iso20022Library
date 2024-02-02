@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Allows to specify other collateral type by providing a description and the quantity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherTypeOfCollateral2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record OtherTypeOfCollateral2
     /// <summary>
     /// Provides details about the collateral.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Description { get; init; } 
     /// <summary>
     /// Quantity of other collateral.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? Quantity { get; init; } 
     
     #nullable disable

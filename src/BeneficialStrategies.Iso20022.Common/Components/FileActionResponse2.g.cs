@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the file action.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FileActionResponse2
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record FileActionResponse2
     /// <summary>
     /// Environment of the file action transaction.
     /// </summary>
+    [DataMember]
     public required Environment22 Environment { get; init; } 
     /// <summary>
     /// Contains or describes conditions and characteristics of the transaction.
     /// </summary>
+    [DataMember]
     public Context17? Context { get; init; } 
     /// <summary>
     /// File action transaction details.
     /// </summary>
+    [DataMember]
     public required Transaction158 Transaction { get; init; } 
     /// <summary>
     /// Results of the file action processing.
     /// </summary>
+    [DataMember]
     public required ResultData9 ProcessingResult { get; init; } 
     /// <summary>
     /// Contains protected data and the attributes used to protect the data.
     /// </summary>
-    public ProtectedData1[] ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProtectedData1> ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

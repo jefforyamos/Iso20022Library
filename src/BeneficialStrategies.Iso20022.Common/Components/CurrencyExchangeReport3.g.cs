@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reports either on currency exchange information or on a business error.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyExchangeReport3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CurrencyExchangeReport3
     /// <summary>
     /// Source and target currencies for which information is request.
     /// </summary>
+    [DataMember]
     public required CurrencySourceTarget1 CurrencyReference { get; init; } 
     /// <summary>
     /// Reports either on currency exchange information or on a business error.
     /// </summary>
+    [DataMember]
     public required ExchangeRateReportOrError2Choice_ CurrencyExchangeOrError { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details on the margin report per margin account, and optionally per non-clearing member.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MarginReport2
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record MarginReport2
     /// <summary>
     /// Specifies if the margin is related to equities or fixed income.
     /// </summary>
-    public MarginProductType1Choice_[] MarginProduct { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MarginProductType1Choice_> MarginProduct { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the clearing member's account.
     /// </summary>
+    [DataMember]
     public required SecuritiesAccount18 MarginAccount { get; init; } 
     /// <summary>
     /// Used to indicate whether the reported margin account is collateralised or not. If not collateralised, the account is configured for informational reporting.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CollateralisedMarginAccountIndicator { get; init; } 
     /// <summary>
     /// Provides details about the non clearing member identification and account.
     /// </summary>
-    public PartyIdentificationAndAccount31[] NonClearingMember { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyIdentificationAndAccount31> NonClearingMember { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the margin calculation summary per margin account.
     /// </summary>
+    [DataMember]
     public MarginCalculation1? MarginCalculationSummary { get; init; } 
     /// <summary>
     /// Provides the margin details such as the exposure amount and the initial margin.
     /// </summary>
-    public MarginCalculation2[] MarginCalculation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MarginCalculation2> MarginCalculation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

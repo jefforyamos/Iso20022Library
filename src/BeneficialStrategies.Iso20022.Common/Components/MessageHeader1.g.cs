@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of characteristics, such as the identification or the creation date and time, specific to the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MessageHeader1
 {
     #nullable enable
@@ -21,10 +23,12 @@ public partial record MessageHeader1
     /// Point to point reference, as assigned by the sender, to unambiguously identify the message.
     /// Usage: The sender has to make sure that MessageIdentification is unique for a pre-agreed period.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CreationDateTime { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information needed to process a currency exchange or conversion.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ForeignExchangeTerms4
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record ForeignExchangeTerms4
     /// <summary>
     /// Currency and amount bought in a foreign exchange trade. The buy amount is received by the buyer.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? BuyAmount { get; init; } 
     /// <summary>
     /// Currency and amount sold in a foreign exchange trade. The sold amount is delivered by the buyer.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? SellAmount { get; init; } 
     /// <summary>
     /// Currency in which the rate of exchange is expressed in a currency exchange. In the example 1GBP = xxxCUR, the unit currency is GBP.
     /// </summary>
+    [DataMember]
     public required CurrencyCode UnitCurrency { get; init; } 
     /// <summary>
     /// Currency into which the base currency is converted, in a currency exchange.
     /// </summary>
+    [DataMember]
     public required CurrencyCode QuotedCurrency { get; init; } 
     /// <summary>
     /// The value of one currency expressed in relation to another currency. ExchangeRate expresses the ratio between UnitCurrency and QuotedCurrency (ExchangeRate = UnitCurrency/QuotedCurrency).
     /// </summary>
+    [DataMember]
     public required IsoBaseOneRate ExchangeRate { get; init; } 
     /// <summary>
     /// Date and time at which an exchange rate is quoted.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? QuotationDate { get; init; } 
     /// <summary>
     /// Party that proposes a foreign exchange rate.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? QuotingInstitution { get; init; } 
     
     #nullable disable

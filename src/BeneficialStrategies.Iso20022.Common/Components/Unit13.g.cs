@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about units to transfer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Unit13
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record Unit13
     /// <summary>
     /// Quantity of units.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber UnitsNumber { get; init; } 
     /// <summary>
     /// Date the investor or its agent placed the original order.
     /// </summary>
+    [DataMember]
     public IsoISODate? OrderDate { get; init; } 
     /// <summary>
     /// Date the investor purchased the financial instrument.
     /// </summary>
+    [DataMember]
     public IsoISODate? AcquisitionDate { get; init; } 
     /// <summary>
     /// Certificate representing the security.
     /// </summary>
-    public IsoMax35Text[] CertificateNumber { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> CertificateNumber { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax group to which the purchased investment fund units belong. The investor indicates to the intermediary operating pooled nominees, which type of unit is to be sold.
     /// </summary>
+    [DataMember]
     public UKTaxGroupUnit1Code? Group1Or2Units { get; init; } 
     /// <summary>
     /// Reference to the units number. This may be the order reference of the original acquisition, the identification of a lot, a client reference, a sub-position reference or other related reference.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Reference { get; init; } 
     
     #nullable disable

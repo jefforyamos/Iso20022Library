@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Execution of the redemption part, in a switch between investment funds or investment fund classes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SwitchRedemptionLegExecution4
 {
     #nullable enable
@@ -20,104 +22,129 @@ public partial record SwitchRedemptionLegExecution4
     /// <summary>
     /// Unique technical identifier for the instance of the leg within a switch.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LegIdentification { get; init; } 
     /// <summary>
     /// Unique identifier for the instance of the leg execution within a switch confirmation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LegExecutionIdentification { get; init; } 
     /// <summary>
     /// Investment fund class to which the redemption leg of the investment fund order execution is related.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument57 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Number of investment funds units redeemed.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber UnitsNumber { get; init; } 
     /// <summary>
     /// Portion of the investor's holdings redeemed.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? HoldingsRedemptionRate { get; init; } 
     /// <summary>
     /// Amount of money paid to the investor when redeeming fund units. 
     /// Net amount = (Quantity * Price) – (Fees + Taxes).
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? NetAmount { get; init; } 
     /// <summary>
     /// Amount of money redeemed from the fund. 
     /// Gross Amount = Quantity * Price.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? GrossAmount { get; init; } 
     /// <summary>
     /// Account impacted by the investment fund order execution.
     /// </summary>
+    [DataMember]
     public InvestmentAccount58? InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Date and time at which a price is applied, according to the terms stated in the prospectus.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     /// <summary>
     /// Price at which the order was executed.
     /// </summary>
+    [DataMember]
     public required UnitPrice22 PriceDetails { get; init; } 
     /// <summary>
     /// Other quoted price than the one at which the order was executed.
     /// </summary>
-    public UnitPrice22[] InformativePriceDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<UnitPrice22> InformativePriceDetails { get; init; } = [];
     /// <summary>
     /// Indicates whether the dividend is included, that is, cum-dividend, in the executed price. When the dividend is not included, the price will be ex-dividend.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator CumDividendIndicator { get; init; } 
     /// <summary>
     /// Part of the price deemed as accrued income or profit rather than capital. The interim profit amount is used for tax purposes.
     /// </summary>
+    [DataMember]
     public ProfitAndLoss2Choice_? InterimProfitAmount { get; init; } 
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
+    [DataMember]
     public IncomePreference1Code? IncomePreference { get; init; } 
     /// <summary>
     /// Tax group to which the purchased investment fund units belong. The investor indicates to the intermediary operating pooled nominees, which type of unit is to be sold.
     /// </summary>
+    [DataMember]
     public UKTaxGroupUnit1Code? Group1Or2Units { get; init; } 
     /// <summary>
     /// Currency requested for settlement of cash proceeds.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? RequestedSettlementCurrency { get; init; } 
     /// <summary>
     /// Currency to be used for pricing the fund. This currency must be among the set of currencies in which the price may be expressed, as stated in the prospectus.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? RequestedNAVCurrency { get; init; } 
     /// <summary>
     /// Fees (charges/commission) and taxes that are taken into consideration for the transaction, so that the total difference between the net amount and gross amount is known, without taking into account equalisation.
     /// </summary>
+    [DataMember]
     public TotalFeesAndTaxes40? TransactionOverhead { get; init; } 
     /// <summary>
     /// Additional information about tax that does not have an impact on the transaction overhead.
     /// </summary>
+    [DataMember]
     public InformativeTax1? InformativeTaxDetails { get; init; } 
     /// <summary>
     /// Parameters used to execute the settlement of an investment fund order.
     /// </summary>
+    [DataMember]
     public FundSettlementParameters11? SettlementAndCustodyDetails { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator PhysicalDeliveryIndicator { get; init; } 
     /// <summary>
     /// Information related to the physical delivery of the securities.
     /// </summary>
+    [DataMember]
     public DeliveryParameters3? PhysicalDeliveryDetails { get; init; } 
     /// <summary>
     /// Additional specific settlement information for non-regulated traded funds.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? NonStandardSettlementInformation { get; init; } 
     /// <summary>
     /// Part of an investor's subscription amount that was held by the fund in order to pay incentive/performance fees at the end of the fiscal year, and is returned due to the redemption.
     /// </summary>
+    [DataMember]
     public Equalisation1? Equalisation { get; init; } 
     /// <summary>
     /// Information about gating and hold back of redemption proceeds.
     /// </summary>
+    [DataMember]
     public HoldBackInformation2? GatingOrHoldBackDetails { get; init; } 
     
     #nullable disable

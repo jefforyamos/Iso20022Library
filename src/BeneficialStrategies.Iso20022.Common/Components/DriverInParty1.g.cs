@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Driver in a car rental party
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DriverInParty1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record DriverInParty1
     /// <summary>
     /// Name of vehicle rental driver.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Address of driver in party.
     /// </summary>
+    [DataMember]
     public Address1? Address { get; init; } 
     /// <summary>
     /// Contact details of driver in party.
     /// </summary>
+    [DataMember]
     public Contact6? Contact { get; init; } 
     /// <summary>
     /// Date of birth of vehicle rental driver.
     /// </summary>
+    [DataMember]
     public IsoISODate? DateOfBirth { get; init; } 
     /// <summary>
     /// Age of driver.
     /// </summary>
+    [DataMember]
     public IsoMax2NumericText? Age { get; init; } 
     /// <summary>
     /// Credential used by the driver for identification.
     /// </summary>
-    public TravelDocument1[] DriverCredential { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TravelDocument1> DriverCredential { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Driving license details.
     /// </summary>
+    [DataMember]
     public DrivingLicense1? DrivingLicense { get; init; } 
     
     #nullable disable

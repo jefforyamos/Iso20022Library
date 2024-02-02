@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide reference information to the original message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalTransactionReference14
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record OriginalTransactionReference14
     /// <summary>
     /// Point to point reference, as assigned by the original instructing party, to unambiguously identify the original message.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MessageIdentification { get; init; } 
     /// <summary>
     /// Specifies the original message name identifier to which the message refers.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MessageNameIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the original message was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CreationDateTime { get; init; } 
     /// <summary>
     /// Provides reference information to the original transaction.
     /// </summary>
-    public PaymentIdentification3[] OriginalTransaction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentIdentification3> OriginalTransaction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

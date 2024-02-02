@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the message and individual instruction(s) for which the cancellation was requested.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MeetingInstructionIdentification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record MeetingInstructionIdentification1
     /// <summary>
     /// Identification of the previous meeting instruction message containing the individual instruction(s) for which the cancellation was requested.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MeetingInstructionIdentification { get; init; } 
     /// <summary>
     /// Identification of the individual instruction for which the cancellation was requested.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text SingleInstructionIdentification { get; init; } 
     
     #nullable disable

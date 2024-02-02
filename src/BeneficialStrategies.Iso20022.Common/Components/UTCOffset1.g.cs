@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the parameters to calculate the local reporting time.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UTCOffset1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record UTCOffset1
     /// <summary>
     /// Indicates whether the offset is before or after 00: 00 hour UTC.
     /// </summary>
+    [DataMember]
     public required IsoPlusOrMinusIndicator Sign { get; init; } 
     /// <summary>
     /// Offset of the reporting time, in hours, before or after 00: 00 hour UTC.
     /// </summary>
+    [DataMember]
     public required IsoISOTime NumberOfHours { get; init; } 
     
     #nullable disable

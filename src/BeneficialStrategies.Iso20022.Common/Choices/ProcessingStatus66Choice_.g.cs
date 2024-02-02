@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ProcessingStatus66Choice.Repair))]
 [KnownType(typeof(ProcessingStatus66Choice.Cancelled))]
 [KnownType(typeof(ProcessingStatus66Choice.Proprietary))]
+[DataContract]
 public abstract partial record ProcessingStatus66Choice_
 {
 }

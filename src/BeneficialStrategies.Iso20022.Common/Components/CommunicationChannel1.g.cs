@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Communication channel information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CommunicationChannel1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CommunicationChannel1
     /// <summary>
     /// Method by which the original undertaking or proposed amendment is to be made available.
     /// </summary>
+    [DataMember]
     public required ExternalChannel1Code Method { get; init; } 
     /// <summary>
     /// Type of party to whom the original undertaking or proposed amendment is intended to be delivered.
     /// </summary>
+    [DataMember]
     public required PartyType1Choice_ DeliverToPartyType { get; init; } 
     /// <summary>
     /// Name of party to whom the original undertaking or proposed amendment is intended to be delivered.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? DeliverToName { get; init; } 
     /// <summary>
     /// Address of party to whom the original undertaking or proposed amendment is intended to be delivered.
     /// </summary>
+    [DataMember]
     public PostalAddress6? DeliverToAddress { get; init; } 
     
     #nullable disable

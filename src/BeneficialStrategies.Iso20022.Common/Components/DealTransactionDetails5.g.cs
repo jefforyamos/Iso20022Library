@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the triparty collateral transaction deal.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DealTransactionDetails5
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record DealTransactionDetails5
     /// <summary>
     /// Place at which the instrument was traded.
     /// </summary>
+    [DataMember]
     public PlaceOfTradeIdentification1? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Indicates whether a concentration limit applies to the transaction; if no limit applies, there is no constraint on how much of the collateral basket can be made up of one security.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ConcentrationLimit { get; init; } 
     /// <summary>
     /// Identifies the number of days in which the cash investor and dealer can agree to revisit the terms of an agreement.
     /// </summary>
+    [DataMember]
     public IsoExact3NumericText? MinimumNoticePeriod { get; init; } 
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
+    [DataMember]
     public required ClosingDate4Choice_ ClosingDate { get; init; } 
     /// <summary>
     /// Specifies the details for the deal amounts.
     /// </summary>
+    [DataMember]
     public CollateralAmount18? DealDetailsAmount { get; init; } 
     /// <summary>
     /// Interest rate to be paid on the transaction amount as agreed between the counterparties and the tenor of the interest rate index.
     /// </summary>
+    [DataMember]
     public RateOrName4Choice_? PricingRateAndIndex { get; init; } 
     /// <summary>
     /// Indicates for a floating rate transaction if an overnight frequency  rate fixing should be applied.  If not present, a periodic fixing frequency will be applied (default is N).
     /// </summary>
+    [DataMember]
     public FrequencyRateFixing1Choice_? OvernightFrequencyRateFixing { get; init; } 
     /// <summary>
     /// Premium or discount applied on a given rate.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Spread { get; init; } 
     /// <summary>
     /// Specifies the computation method of (accrued) interest of the financial instrument.
     /// </summary>
+    [DataMember]
     public InterestComputationMethodFormat4Choice_? DayCountBasis { get; init; } 
     /// <summary>
     /// Specifies whether the instruction is free or against payment.
     /// </summary>
+    [DataMember]
     public DeliveryReceiptType2Code? Payment { get; init; } 
     /// <summary>
     /// Specifies whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// </summary>
+    [DataMember]
     public OptionType6Choice_? OptionType { get; init; } 
     /// <summary>
     /// Indication whether the counterparties to the transaction have agreed to an evergreen or extendable repo.
     /// </summary>
+    [DataMember]
     public RepoTerminationOption1Code? TerminationOption { get; init; } 
     
     #nullable disable

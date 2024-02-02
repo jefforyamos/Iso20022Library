@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Customer account information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardAccount10
 {
     #nullable enable
@@ -20,55 +22,68 @@ public partial record CardAccount10
     /// <summary>
     /// Sequence number of the account data for multi-account deposit.
     /// </summary>
+    [DataMember]
     public IsoNumber? AccountSequenceNumber { get; init; } 
     /// <summary>
     /// Method used by the cardholder and the terminal for the choice of the account.
     /// </summary>
+    [DataMember]
     public AccountChoiceMethod1Code? SelectionMethod { get; init; } 
     /// <summary>
     /// Type of cardholder account used for the transaction.
     /// </summary>
+    [DataMember]
     public CardAccountType3Code? SelectedAccountType { get; init; } 
     /// <summary>
     /// Name of the account, as assigned by the account servicing institution, in agreement with the account owner in order to provide an additional means of identification of the account.
     /// Usage: The account name is different from the account owner name. The account name is used in certain user communities to provide a means of identifying the account, in addition to the account owner's identity and the account number.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AccountName { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public NameAndAddress3? AccountOwner { get; init; } 
     /// <summary>
     /// Identification of the currency in which the account is held.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Unique identifier of the account, as assigned by the account servicer.
     /// </summary>
+    [DataMember]
     public AccountIdentification31Choice_? AccountIdentifier { get; init; } 
     /// <summary>
     /// Internal account reference in case of credit account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CreditReference { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification72Choice_? Servicer { get; init; } 
     /// <summary>
     /// Balance of the account.
     /// </summary>
+    [DataMember]
     public AmountAndDirection43? Balance { get; init; } 
     /// <summary>
     /// Indicates if the balance must be displayed to the customer on the ATM.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? BalanceDisplayFlag { get; init; } 
     /// <summary>
     /// Indicates if this is the default account.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? DefaultAccountIndicator { get; init; } 
     /// <summary>
     /// Limit of amounts for the customer.
     /// </summary>
+    [DataMember]
     public ATMTransactionAmounts8? Limits { get; init; } 
     
     #nullable disable

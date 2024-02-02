@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Physical and logical characteristics of a POI component (Point of Interaction).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PointOfInteractionComponentCharacteristics4
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record PointOfInteractionComponentCharacteristics4
     /// <summary>
     /// Memory characteristics of the component.
     /// </summary>
-    public MemoryCharacteristics1[] Memory { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MemoryCharacteristics1> Memory { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Low level communication of the hardware or software component toward another component or an external entity.
     /// </summary>
-    public CommunicationCharacteristics3[] Communication { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CommunicationCharacteristics3> Communication { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number of security access modules (SAM).
     /// </summary>
+    [DataMember]
     public IsoNumber? SecurityAccessModules { get; init; } 
     /// <summary>
     /// Number of subscriber identity modules (SIM).
     /// </summary>
+    [DataMember]
     public IsoNumber? SubscriberIdentityModules { get; init; } 
     /// <summary>
     /// Security characteristics of the component.
     /// </summary>
-    public CryptographicKey13[] SecurityElement { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CryptographicKey13> SecurityElement { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

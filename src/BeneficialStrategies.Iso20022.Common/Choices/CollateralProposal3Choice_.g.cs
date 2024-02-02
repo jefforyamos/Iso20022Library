@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CollateralProposal3Choice.CollateralProposalDetails))]
 [KnownType(typeof(CollateralProposal3Choice.SegregatedIndependentAmount))]
+[DataContract]
 public abstract partial record CollateralProposal3Choice_
 {
 }

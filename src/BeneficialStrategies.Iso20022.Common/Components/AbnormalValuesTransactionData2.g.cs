@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed information about derivatives that were received on the day of generation of the report with action type ‘New’, ‘Position component’, ‘Modification’ or ‘Correction’ whose notional amount is greater than a threshold for that class of derivatives.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AbnormalValuesTransactionData2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AbnormalValuesTransactionData2
     /// <summary>
     /// Identification of a transaction.
     /// </summary>
+    [DataMember]
     public required TradeTransactionIdentification24 TransactionIdentification { get; init; } 
     /// <summary>
     /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
     /// </summary>
+    [DataMember]
     public NotionalAmountLegs5? NotionalAmount { get; init; } 
     /// <summary>
     /// Indicates for each leg of the transaction the total notional quantity of the underlying asset for the term of the transaction.
     /// </summary>
+    [DataMember]
     public NotionalQuantityLegs5? NotionalQuantity { get; init; } 
     
     #nullable disable

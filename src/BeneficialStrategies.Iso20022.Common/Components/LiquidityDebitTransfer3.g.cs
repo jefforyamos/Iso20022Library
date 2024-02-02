@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details specific to the liquidity debit transfer, used to transfer an amount of money from the debtor to the creditor, where both are financial institutions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LiquidityDebitTransfer3
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record LiquidityDebitTransfer3
     /// <summary>
     /// Used to uniquely identify the liquidity transfer.
     /// </summary>
+    [DataMember]
     public PaymentIdentification8? LiquidityTransferIdentification { get; init; } 
     /// <summary>
     /// Owner of the account to be credited.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? Creditor { get; init; } 
     /// <summary>
     /// Account to be credited as a result of a transfer of liquidity.
     /// </summary>
+    [DataMember]
     public CashAccount40? CreditorAccount { get; init; } 
     /// <summary>
     /// Amount of money that the transaction administrator transfers from one account to another.
     /// </summary>
+    [DataMember]
     public required Amount2Choice_ TransferredAmount { get; init; } 
     /// <summary>
     /// Owner of the account to be debited.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? Debtor { get; init; } 
     /// <summary>
     /// Account to be debited as a result of a transfer of liquidity.
     /// </summary>
+    [DataMember]
     public CashAccount40? DebtorAccount { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
+    [DataMember]
     public IsoISODate? SettlementDate { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides detailed information on the transaction status to be updated in the tracker.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerStatus2
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record TrackerStatus2
     /// <summary>
     /// Specifies the status of a transaction, in a coded form.
     /// </summary>
+    [DataMember]
     public required ExternalPaymentTransactionStatus1Code Status { get; init; } 
     /// <summary>
     /// Date for the status.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? Date { get; init; } 
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    public TrackerAlertStatusReason1Choice_[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TrackerAlertStatusReason1Choice_> Reason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further details on the status reason.||Usage: Additional information can be used for several purposes such as the reporting of repaired information.
     /// </summary>
-    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax105Text> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

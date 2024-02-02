@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide information on the underlying statement entry.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UnderlyingStatementEntry1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record UnderlyingStatementEntry1
     /// <summary>
     /// Set of elements used to provide information on the original message.
     /// </summary>
+    [DataMember]
     public OriginalGroupInformation3? OriginalGroupInformation { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the account servicer, to unambiguously identify the original statement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalStatementIdentification { get; init; } 
     /// <summary>
     /// Original unique identification, as assigned by the account servicer, to unambiguously identify the original entry.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalEntryIdentification { get; init; } 
     
     #nullable disable

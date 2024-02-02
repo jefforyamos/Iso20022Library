@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status advising on the processing of the instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InstructionProcessingStatus1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InstructionProcessingStatus1
     /// <summary>
     /// Status on the processing of the instructions.
     /// </summary>
+    [DataMember]
     public required Status3Code Status { get; init; } 
     /// <summary>
     /// Additional information about the status.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

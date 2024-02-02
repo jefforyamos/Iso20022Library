@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Currency control document supporting the contract registration.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SupportingDocument1
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record SupportingDocument1
     /// <summary>
     /// Unique and unambiguous identification of the supporting document.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text SupportingDocumentIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the original query message.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalRequestIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the certificate for which the supporting document is provided.
     /// </summary>
+    [DataMember]
     public required DocumentIdentification28 Certificate { get; init; } 
     /// <summary>
     /// Party that legally owns the cash account.
     /// </summary>
+    [DataMember]
     public required PartyIdentification77 AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [DataMember]
     public required BranchAndFinancialInstitutionIdentification5 AccountServicer { get; init; } 
     /// <summary>
     /// Amendment indicator details.
     /// </summary>
+    [DataMember]
     public DocumentAmendment1? Amendment { get; init; } 
     /// <summary>
     /// Reference of the registered contract or the underlying contract for the supporting documents.
     /// </summary>
+    [DataMember]
     public required ContractRegistrationReference1Choice_ ContractReference { get; init; } 
     /// <summary>
     /// Individual entry of the supporting document.
     /// </summary>
-    public SupportingDocumentEntry1[] Entry { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupportingDocumentEntry1> Entry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

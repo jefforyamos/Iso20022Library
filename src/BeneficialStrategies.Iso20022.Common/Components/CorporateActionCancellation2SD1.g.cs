@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Extension to corporate action event cancellation status and reason.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionCancellation2SD1
 {
     #nullable enable
@@ -21,10 +23,12 @@ public partial record CorporateActionCancellation2SD1
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Cancellation reason information in the local language.
     /// </summary>
+    [DataMember]
     public required IsoMax450Text LocalLanguageCancellationReason { get; init; } 
     
     #nullable disable

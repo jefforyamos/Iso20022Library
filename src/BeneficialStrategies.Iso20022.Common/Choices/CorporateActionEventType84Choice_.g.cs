@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CorporateActionEventType84Choice.Code))]
 [KnownType(typeof(CorporateActionEventType84Choice.Proprietary))]
+[DataContract]
 public abstract partial record CorporateActionEventType84Choice_
 {
 }

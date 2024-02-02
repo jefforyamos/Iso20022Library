@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a payment instruction by its relative position in a queue of payment transactions managed by the clearing agent.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record QueueTransactionIdentification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record QueueTransactionIdentification1
     /// <summary>
     /// Identification of the payment queue where the payment instruction resides.
     /// </summary>
+    [DataMember]
     public required IsoMax16Text QueueIdentification { get; init; } 
     /// <summary>
     /// Position of the payment instruction within the identified queue.
     /// </summary>
+    [DataMember]
     public required IsoMax16Text PositionInQueue { get; init; } 
     
     #nullable disable

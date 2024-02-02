@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Risk factor, financial instrument or set of financial instruments that is stressed under a hypothetical stress scenario.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StressItem1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record StressItem1
     /// <summary>
     /// Set of information relating to major representative product being stressed under the stress scenario.
     /// </summary>
+    [DataMember]
     public required StressItem1Choice_ StressProduct { get; init; } 
     
     #nullable disable

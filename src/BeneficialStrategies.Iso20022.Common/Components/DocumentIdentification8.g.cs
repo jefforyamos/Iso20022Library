@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the document by providing a unique identification and optionally the date/time of the creation of the document.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentIdentification8
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DocumentIdentification8
     /// <summary>
     /// Unique identification of the document.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Date/time of the creation of the document.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CreationDateTime { get; init; } 
     
     #nullable disable

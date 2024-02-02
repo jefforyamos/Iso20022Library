@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of change to the address.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AddressModification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AddressModification1
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
+    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Postal address.
     /// </summary>
+    [DataMember]
     public required PostalAddress6 Address { get; init; } 
     
     #nullable disable

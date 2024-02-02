@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies elements related to the notification (or warn) sent by the central counterparty to the clearing member in the context of the buy in process.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BuyIn4
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record BuyIn4
     /// <summary>
     /// Indicates whether the message is a warning only or a notification.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? WarningIndicator { get; init; } 
     /// <summary>
     /// Provides the date at which the buy-in will occur.
     /// </summary>
+    [DataMember]
     public required DateFormat15Choice_ ExpectedBuyInDate { get; init; } 
     /// <summary>
     /// Identifies the latest date by which the buy-in operation can be cancelled.
     /// </summary>
+    [DataMember]
     public IsoISODate? CancellationLimitDate { get; init; } 
     /// <summary>
     /// Identifies the date by which the buy-in operation is reversed by the CCP.
     /// </summary>
+    [DataMember]
     public IsoISODate? BuyInReversionDate { get; init; } 
     
     #nullable disable

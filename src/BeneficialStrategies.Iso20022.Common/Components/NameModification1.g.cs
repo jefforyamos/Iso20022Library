@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of change to name.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NameModification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NameModification1
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
+    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Name of the account.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text Name { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides for the segregated independent amount, the dispute details like the dispute amount or the dispute date and the resolution type details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SegregatedIndependentAmountDispute1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record SegregatedIndependentAmountDispute1
     /// <summary>
     /// Details of the disputed instruction.
     /// </summary>
+    [DataMember]
     public required Dispute1 DisputeDetails { get; init; } 
     /// <summary>
     /// Specifies the type of dispute that is to be resolved regarding the disputed collateral amount.
     /// </summary>
-    public DisputeResolutionType1Choice_[] DisputeResolutionType1Choice { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DisputeResolutionType1Choice_> DisputeResolutionType1Choice { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

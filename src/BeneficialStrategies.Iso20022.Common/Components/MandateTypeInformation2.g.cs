@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to further detail the information related to the type of payment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MandateTypeInformation2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record MandateTypeInformation2
     /// <summary>
     /// Agreement under which or rules under which the mandate resides.
     /// </summary>
+    [DataMember]
     public ServiceLevel8Choice_? ServiceLevel { get; init; } 
     /// <summary>
     /// User community specific instrument.|Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.
     /// </summary>
+    [DataMember]
     public LocalInstrument2Choice_? LocalInstrument { get; init; } 
     /// <summary>
     /// Specifies the high level purpose of the mandate based on a set of pre-defined categories.
     /// </summary>
+    [DataMember]
     public CategoryPurpose1Choice_? CategoryPurpose { get; init; } 
     /// <summary>
     /// Type of direct debit instruction.
     /// </summary>
+    [DataMember]
     public MandateClassification1Choice_? Classification { get; init; } 
     
     #nullable disable

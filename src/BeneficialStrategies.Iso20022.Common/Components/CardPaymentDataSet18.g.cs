@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Result of the captured set of transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentDataSet18
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record CardPaymentDataSet18
     /// <summary>
     /// Identification of the data set.
     /// </summary>
+    [DataMember]
     public required DataSetIdentification5 DataSetIdentification { get; init; } 
     /// <summary>
     /// Result of the data set capture.
     /// </summary>
+    [DataMember]
     public required ResponseType5 DataSetResult { get; init; } 
     /// <summary>
     /// Indicates if the data set must be removed from the POI (Point Of Interaction).
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator RemoveDataSet { get; init; } 
     /// <summary>
     /// Initiator of the data set.
     /// </summary>
+    [DataMember]
     public GenericIdentification53? DataSetInitiator { get; init; } 
     /// <summary>
     /// Transaction totals of the batch.
     /// </summary>
-    public TransactionTotals7[] TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionTotals7> TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Transaction in the batch, whose capture has been rejected.
     /// </summary>
-    public CardPaymentDataSet17[] RejectedTransaction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardPaymentDataSet17> RejectedTransaction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

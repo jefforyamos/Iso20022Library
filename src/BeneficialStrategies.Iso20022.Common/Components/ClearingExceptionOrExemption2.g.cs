@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Further details on clearing exceptions or exemptions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ClearingExceptionOrExemption2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ClearingExceptionOrExemption2
     /// <summary>
     /// Identifies the type of clearing exemption or exception that the reporting counterparty has elected.
     /// </summary>
+    [DataMember]
     public required NonClearingReason2 ReportingCounterparty { get; init; } 
     /// <summary>
     /// Identifies the type of clearing exemption or exception that the other counterparty has elected.
     /// </summary>
+    [DataMember]
     public NonClearingReason2? OtherCounterparty { get; init; } 
     
     #nullable disable

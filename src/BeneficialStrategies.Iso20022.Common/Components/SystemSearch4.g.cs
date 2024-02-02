@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Search for a system and a member of a system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemSearch4
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SystemSearch4
     /// <summary>
     /// Identification of a particular cash clearing system.
     /// </summary>
-    public ClearingSystemIdentification3Choice_[] SystemIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ClearingSystemIdentification3Choice_> SystemIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identification of a member within a system, assigned using the member identification scheme of the system.
     /// </summary>
-    public BranchAndFinancialInstitutionIdentification6[] MemberIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BranchAndFinancialInstitutionIdentification6> MemberIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Country in which the system is located.
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     
     #nullable disable

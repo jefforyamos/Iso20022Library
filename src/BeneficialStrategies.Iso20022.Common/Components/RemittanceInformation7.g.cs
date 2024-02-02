@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RemittanceInformation7
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record RemittanceInformation7
     /// <summary>
     /// Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in an unstructured form.
     /// </summary>
-    public IsoMax140Text[] Unstructured { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax140Text> Unstructured { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in a structured form.
     /// </summary>
-    public StructuredRemittanceInformation9[] Structured { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StructuredRemittanceInformation9> Structured { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

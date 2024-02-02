@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to search for business information and to report on the business information. A name may be given to the new query.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BusinessInformationCriteria1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record BusinessInformationCriteria1
     /// <summary>
     /// Name of the query defined by the search criteria and return criteria.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NewQueryName { get; init; } 
     /// <summary>
     /// Defines the criteria based on which the information is extracted.
     /// </summary>
-    public GeneralBusinessInformationSearchCriteria1[] SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GeneralBusinessInformationSearchCriteria1> SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines the expected report.
     /// </summary>
+    [DataMember]
     public GeneralBusinessInformationReturnCriteria1? ReturnCriteria { get; init; } 
     
     #nullable disable

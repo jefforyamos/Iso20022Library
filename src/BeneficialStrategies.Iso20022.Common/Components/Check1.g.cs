@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of check as payment instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Check1
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record Check1
     /// <summary>
     /// Identification of the institution (bank) issuing the check.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? BankIdentification { get; init; } 
     /// <summary>
     /// Identification of the account linked to the check.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountNumber { get; init; } 
     /// <summary>
     /// Identification of the check.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CheckNumber { get; init; } 
     /// <summary>
     /// Check guarantee card number.
     /// The human readable number from the Check Guarantee Card that is presented during the check tendering process.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CheckCardNumber { get; init; } 
     /// <summary>
     /// Track Data of the check to digitally identify the data.
     /// </summary>
+    [DataMember]
     public TrackData2? CheckTrackData2 { get; init; } 
     /// <summary>
     /// Type of the check (personal or professional).
     /// </summary>
+    [DataMember]
     public CheckType1Code? CheckType { get; init; } 
     /// <summary>
     /// Country of the check.
     /// </summary>
+    [DataMember]
     public IsoMax3Text? Country { get; init; } 
     
     #nullable disable

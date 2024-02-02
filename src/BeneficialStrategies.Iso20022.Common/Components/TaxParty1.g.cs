@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details about the entity involved in the tax paid or to be paid.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxParty1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TaxParty1
     /// <summary>
     /// Tax identification number of the creditor.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TaxIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by an organisation, to unambiguously identify a party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RegistrationIdentification { get; init; } 
     /// <summary>
     /// Type of tax payer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TaxType { get; init; } 
     
     #nullable disable

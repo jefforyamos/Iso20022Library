@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Derivative instrument that gives the buyer the right but not the obligation to purchase a set of quantity of a financial instrument at a future date.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Option14
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Option14
     /// <summary>
     /// Expiration style of the option.
     /// </summary>
-    public OptionStyle5Code[] ExpirationStyle { get; init; } = [];
+    [DataMember]
+    public ValueList<OptionStyle5Code> ExpirationStyle { get; init; } = [];
     /// <summary>
     /// Specifies how the option can be exercised.
     /// </summary>
+    [DataMember]
     public ExoticOptionStyle1Code? OptionStyle { get; init; } 
     /// <summary>
     /// Specifies whether the option is a call or a put.
     /// </summary>
+    [DataMember]
     public OptionType1Code? OptionType { get; init; } 
     /// <summary>
     /// Indicates whether the option has a barrier.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? BarrierIndicator { get; init; } 
     /// <summary>
     /// Specifies the event in the life of the option.
     /// </summary>
+    [DataMember]
     public OptionEvent2? EventType { get; init; } 
     
     #nullable disable

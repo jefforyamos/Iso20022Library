@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Net position of a segregated holding of a single security within the overall position held in the securities account, eg, sub-balance per status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SubBalanceInformation1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record SubBalanceInformation1
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
+    [DataMember]
     public required SubBalanceQuantity1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Reason for the sub-balance.
     /// </summary>
+    [DataMember]
     public required SecuritiesBalanceType1Choice_ SubBalanceType { get; init; } 
     /// <summary>
     /// Net position of a segregated holding of a single security within the overall position held in a securities account, eg, sub-balance per status.
     /// </summary>
-    public AdditionalBalanceInformation[] AdditionalBalanceBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalBalanceInformation> AdditionalBalanceBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies a document by a unique identification and a date of issue.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvoiceIdentification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InvoiceIdentification1
     /// <summary>
     /// Identifies the document.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text InvoiceNumber { get; init; } 
     /// <summary>
     /// Date of issuance of the document.
     /// </summary>
+    [DataMember]
     public required IsoISODate IssueDate { get; init; } 
     
     #nullable disable

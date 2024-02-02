@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of or reference to the content of a message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Content1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Content1
     /// <summary>
     /// Value of the content of or the reference to the message.
     /// </summary>
+    [DataMember]
     public required IsoMax20KText Value { get; init; } 
     /// <summary>
     /// Digital signature of the content of or the reference to the message.
     /// </summary>
+    [DataMember]
     public IsoMax140Binary? Signature { get; init; } 
     /// <summary>
     /// Signing certificate identification.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? CertificateIdentification { get; init; } 
     
     #nullable disable

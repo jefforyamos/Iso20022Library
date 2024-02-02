@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides detailed information concerning non financial counterparties.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NonFinancialInstitutionSector4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NonFinancialInstitutionSector4
     /// <summary>
     /// Indicates that reporting party is a central counterparty.
     /// </summary>
+    [DataMember]
     public required NoReasonCode NonFinancialInstitution { get; init; } 
     /// <summary>
     /// Identifies the non-financial institution.
     /// </summary>
+    [DataMember]
     public NonFinancialInstitutionSector2? NonFinancialInstitutionIdentifier { get; init; } 
     
     #nullable disable

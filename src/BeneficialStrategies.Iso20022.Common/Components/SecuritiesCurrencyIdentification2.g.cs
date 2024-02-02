@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details an individual currency including details on which country trades the currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesCurrencyIdentification2
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record SecuritiesCurrencyIdentification2
     /// <summary>
     /// Details the currency name and ISO 4217 currency code.
     /// </summary>
+    [DataMember]
     public required CurrencyCodeAndName1 Currency { get; init; } 
     /// <summary>
     /// Fractional digit for the currency, that is, the number of decimals to use.
     /// </summary>
+    [DataMember]
     public IsoMax1Number? FractionalDigit { get; init; } 
     /// <summary>
     /// Details the country name and ISO 3166 country code.
     /// </summary>
+    [DataMember]
     public required CountryCodeAndName3 CountryDetails { get; init; } 
     /// <summary>
     /// Specifies if a currency is a pre Euro currency or not.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator PreEuro { get; init; } 
     /// <summary>
     /// Modification status for the record compared to the previous report.
     /// </summary>
+    [DataMember]
     public Modification1Code? Modification { get; init; } 
     /// <summary>
     /// Details the validity of the specific record.
     /// </summary>
+    [DataMember]
     public required Period4Choice_ ValidityPeriod { get; init; } 
     /// <summary>
     /// Date when this record was last modified.
     /// </summary>
+    [DataMember]
     public IsoISODate? LastUpdated { get; init; } 
     
     #nullable disable

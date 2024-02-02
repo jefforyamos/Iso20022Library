@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the request of an inquiry from an ATM.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMInquiryRequest2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ATMInquiryRequest2
     /// <summary>
     /// Environment in which the inquiry is performed.
     /// </summary>
+    [DataMember]
     public required ATMEnvironment14 Environment { get; init; } 
     /// <summary>
     /// Context in which the inquiry is performed.
     /// </summary>
+    [DataMember]
     public required ATMContext14 Context { get; init; } 
     /// <summary>
     /// Inquiry information for the transaction.
     /// </summary>
+    [DataMember]
     public required ATMTransaction29 Transaction { get; init; } 
     
     #nullable disable

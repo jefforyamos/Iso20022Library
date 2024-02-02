@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information on the status of a trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeData7
 {
     #nullable enable
@@ -20,62 +22,77 @@ public partial record TradeData7
     /// <summary>
     /// Identification of the present message assigned by the party issuing the message. This identification must be unique amongst all messages of same type sent by the same party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Represents the original reference of the instruction for which the status is given, as assigned by the participant that submitted the foreign exchange trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginatorReference { get; init; } 
     /// <summary>
     /// Reference to the unique system identification assigned to the trade by the central matching system.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MatchingSystemUniqueReference { get; init; } 
     /// <summary>
     /// Unique matching identification assigned to the trade and to the matching trade from the counterparty by the central matching system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MatchingSystemMatchingReference { get; init; } 
     /// <summary>
     /// Identification to the unique reference from the central settlement system that allows the removal of alleged trades once the matched status notification for the matching side has been received.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MatchingSystemMatchedSideReference { get; init; } 
     /// <summary>
     /// Party that assigned the status to the foreign exchange or derivative trade.
     /// </summary>
+    [DataMember]
     public IsoMax20Text? StatusOriginator { get; init; } 
     /// <summary>
     /// Specifies the new status of a trade.
     /// </summary>
+    [DataMember]
     public required StatusAndSubStatus1 CurrentStatus { get; init; } 
     /// <summary>
     /// Additional information on the current status of a trade in a central system.
     /// </summary>
+    [DataMember]
     public StatusSubType1Code? CurrentStatusSubType { get; init; } 
     /// <summary>
     /// Specifies the date and time at which the current status was assigned.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CurrentStatusDateTime { get; init; } 
     /// <summary>
     /// Specifies the previous status of a trade.
     /// </summary>
+    [DataMember]
     public Status6Choice_? PreviousStatus { get; init; } 
     /// <summary>
     /// Additional information on the previous status of a trade in a central system.
     /// </summary>
+    [DataMember]
     public StatusSubType1Code? PreviousStatusSubType { get; init; } 
     /// <summary>
     /// Specifies the date and time at which the previous status was assigned.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? PreviousStatusDateTime { get; init; } 
     /// <summary>
     /// Specifies the product for which the status of the confirmation is reported.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProductType { get; init; } 
     /// <summary>
     /// To indicate the requested CLS Settlement Session that the related trade is part of.
     /// </summary>
+    [DataMember]
     public IsoExact4AlphaNumericText? SettlementSessionIdentifier { get; init; } 
     /// <summary>
     /// To indicate if the trade is split.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? SplitTradeIndicator { get; init; } 
     
     #nullable disable

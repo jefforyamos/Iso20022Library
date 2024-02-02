@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of the diagnostic exchange.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentEnvironment31
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CardPaymentEnvironment31
     /// <summary>
     /// Acquirer involved in the card payment transaction.
     /// </summary>
+    [DataMember]
     public required Acquirer2 Acquirer { get; init; } 
     /// <summary>
     /// Indicates if the acquirer is available to perform payment transactions.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? AcquirerAvailable { get; init; } 
     /// <summary>
     /// Identification of the merchant requesting the diagnostic.
     /// </summary>
+    [DataMember]
     public GenericIdentification32? MerchantIdentification { get; init; } 
     /// <summary>
     /// Identification of the POI (Point Of Interaction) requesting the diagnostic.
     /// </summary>
+    [DataMember]
     public GenericIdentification32? POIIdentification { get; init; } 
     
     #nullable disable

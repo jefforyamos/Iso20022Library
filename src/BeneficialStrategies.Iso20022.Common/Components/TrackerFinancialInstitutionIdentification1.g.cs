@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique and unambiguous identification of a financial institution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerFinancialInstitutionIdentification1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record TrackerFinancialInstitutionIdentification1
     /// <summary>
     /// Unique and unambiguous identification of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public required FinancialInstitutionIdentification20 FinancialInstitutionIdentification { get; init; } 
     
     #nullable disable

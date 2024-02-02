@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Telecom services line item carries detail level telephony billing data. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TelecomServicesLineItem1
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record TelecomServicesLineItem1
     /// <summary>
     /// Contains the start date and time of the phone call.
     /// </summary>
+    [DataMember]
     public IsoISODate? StartDateTime { get; init; } 
     /// <summary>
     /// Describes the period (such as peak or off peak) of the phone call.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TimePeriod { get; init; } 
     /// <summary>
     /// Duration of phone call expressed in HHMMSS format. 
     /// </summary>
+    [DataMember]
     public IsoISOTime? Duration { get; init; } 
     /// <summary>
     /// Contains the location description for the originator of the telephone call and the number from which the call was made.
     /// </summary>
+    [DataMember]
     public TelecomCallDetails1? CallFrom { get; init; } 
     /// <summary>
     /// Contains the location description for the destination of the telephone call and the number to which the call was made.
     /// </summary>
+    [DataMember]
     public TelecomCallDetails1? CallTo { get; init; } 
     /// <summary>
     /// Contains the amount pertaining to the telephony billing event.
     /// </summary>
-    public Amount11[] Charge { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Amount11> Charge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total of taxes applicable to the billing amount
     /// </summary>
-    public Tax33[] TotalTax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax33> TotalTax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total amount applicable to the billing event. 
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     /// <summary>
     /// Description of the telecommunications services line item details
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Description { get; init; } 
     /// <summary>
     /// Additional user-defined data pertaining to the telecommunications services.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable

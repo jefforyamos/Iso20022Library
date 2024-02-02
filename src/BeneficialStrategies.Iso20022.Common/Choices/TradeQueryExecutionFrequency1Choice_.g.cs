@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(TradeQueryExecutionFrequency1Choice.Daily))]
 [KnownType(typeof(TradeQueryExecutionFrequency1Choice.Weekly))]
 [KnownType(typeof(TradeQueryExecutionFrequency1Choice.Monthly))]
+[DataContract]
 public abstract partial record TradeQueryExecutionFrequency1Choice_
 {
 }

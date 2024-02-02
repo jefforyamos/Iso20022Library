@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to an identification of a person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericPersonIdentification1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record GenericPersonIdentification1
     /// <summary>
     /// Unique and unambiguous identification of a person.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
+    [DataMember]
     public PersonIdentificationSchemeName1Choice_? SchemeName { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     
     #nullable disable

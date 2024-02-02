@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transfer of a security on a securities account servicer after the receipt of a securities settlement instruction, or the transfer of cash on an account servicer after the receipt of a payment instruction. The transfer consists of a debit/credit operation in the books of the account servicer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferReference4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TransferReference4
     /// <summary>
     /// Identification assigned by the new plan manager to each transfer of asset.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     
     #nullable disable

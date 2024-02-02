@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Number used to sequence pages when it is not possible for data to be conveyed in a single message and the data has to be split across several pages (messages).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Pagination
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Pagination
     /// <summary>
     /// Page number.
     /// </summary>
+    [DataMember]
     public required IsoMax5NumericText PageNumber { get; init; } 
     /// <summary>
     /// Indicates the last page.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator LastPageIndicator { get; init; } 
     
     #nullable disable

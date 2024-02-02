@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Network management transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transaction99
 {
     #nullable enable
@@ -22,45 +24,55 @@ public partial record Transaction99
     /// ISO 8583:87/93 bit 24
     /// ISO 8583:2003 bit 70
     /// </summary>
+    [DataMember]
     public NetworkManagementType1Code? NetworkManagementType { get; init; } 
     /// <summary>
     /// Other type of network management in free text.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherNetworkManagementType { get; init; } 
     /// <summary>
     /// Reason to send the message.
     /// ISO 8583:93/2003 bit 25
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    public IsoExact4NumericText[] MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoExact4NumericText> MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Supports message reason codes that are not defined in external code list. 
     /// </summary>
-    public IsoMax35Text[] AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
+    [DataMember]
     public required TransactionIdentification12 TransactionIdentification { get; init; } 
     /// <summary>
     /// Number of messages in the store and forward queue.
     /// </summary>
+    [DataMember]
     public IsoNumber? NumberOfMessages { get; init; } 
     /// <summary>
     /// Maximum number of messages in the store and forward queue.
     /// </summary>
+    [DataMember]
     public IsoNumber? MaximumNumberOfMessages { get; init; } 
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    public AdditionalFee1[] AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalFee1> AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information pertaining to the network management type or function being performed.
     /// </summary>
+    [DataMember]
     public IsoMax1000Text? TransactionDescription { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

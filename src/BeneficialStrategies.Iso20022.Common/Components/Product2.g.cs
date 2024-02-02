@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Product purchased to be paid.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Product2
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record Product2
     /// <summary>
     /// Product code of the item purchased.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text ProductCode { get; init; } 
     /// <summary>
     /// Unit of measure of the item purchased.
     /// </summary>
+    [DataMember]
     public UnitOfMeasure1Code? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Product quantity.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? ProductQuantity { get; init; } 
     /// <summary>
     /// Price per unit of product.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? UnitPrice { get; init; } 
     /// <summary>
     /// Monetary value of purchased product.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? ProductAmount { get; init; } 
     /// <summary>
     /// Information on tax paid on the product.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TaxType { get; init; } 
     /// <summary>
     /// Additional information related to the product.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AdditionalProductInformation { get; init; } 
     
     #nullable disable

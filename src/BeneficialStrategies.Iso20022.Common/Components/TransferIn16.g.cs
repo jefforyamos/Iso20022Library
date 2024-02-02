@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a transfer in transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferIn16
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record TransferIn16
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// General information related to the transfer of a financial instrument.
     /// </summary>
-    public Transfer32[] TransferDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Transfer32> TransferDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

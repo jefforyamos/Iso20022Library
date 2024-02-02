@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(PaymentOrigin1Choice.XMLMessageName))]
 [KnownType(typeof(PaymentOrigin1Choice.Proprietary))]
 [KnownType(typeof(PaymentOrigin1Choice.Instrument))]
+[DataContract]
 public abstract partial record PaymentOrigin1Choice_
 {
 }

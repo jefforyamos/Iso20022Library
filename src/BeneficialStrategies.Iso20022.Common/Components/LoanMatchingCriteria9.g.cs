@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Compares information related to both sides of a loan.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoanMatchingCriteria9
 {
     #nullable enable
@@ -20,198 +22,247 @@ public partial record LoanMatchingCriteria9
     /// <summary>
     /// Specifies whether the values for the Unique Trade Identifier (UTI) are matching or not.
     /// </summary>
+    [DataMember]
     public CompareText2? UniqueTradeIdentifier { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as ISO date are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDate3? TerminationDate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as exposure type are matching or not.
     /// </summary>
+    [DataMember]
     public CompareExposureType3? ContractType { get; init; } 
     /// <summary>
     /// Specifies whether the information on contract clearing are matching or not.
     /// </summary>
+    [DataMember]
     public CompareClearingStatus3? ClearingStatus { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as ISO date and time are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDateTime3? ClearingDateTime { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as LEI identifier are matching or not.
     /// </summary>
+    [DataMember]
     public CompareOrganisationIdentification6? CCP { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as MIC (Market Identifier Code-ISO10383) identifier are matching or not.
     /// </summary>
+    [DataMember]
     public CompareMICIdentifier3? TradingVenue { get; init; } 
     /// <summary>
     /// Specifies whether the information on master agreement type is matching or not.
     /// </summary>
+    [DataMember]
     public CompareAgreementType2? MasterAgreementType { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as ISO date and time are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDateTime3? ExecutionDateTime { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as ISO date are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDate3? ValueDate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as ISO date are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDate3? MaturityDate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber5? MinimumNoticePeriod { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as ISO date are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDate3? EarliestCallBackDate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as type of collateral agreement are matching or not.
     /// </summary>
+    [DataMember]
     public CompareSpecialCollateral3? GeneralCollateral { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
+    [DataMember]
     public CompareTrueFalseIndicator3? DeliveryByValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as collateral delivery method are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDeliveryMethod3? CollateralDeliveryMethod { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
+    [DataMember]
     public CompareTrueFalseIndicator3? OpenTerm { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as repo termination option are matching or not.
     /// </summary>
+    [DataMember]
     public CompareTerminationOption3? TerminationOption { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as percentage rate are matching or not.
     /// </summary>
+    [DataMember]
     public ComparePercentageRate3? FixedInterestRate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 5 characters are matching or not.
     /// </summary>
+    [DataMember]
     public CompareInterestComputationMethod3? DayCountBasis { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as benchmark curve name are matching or not.
     /// </summary>
+    [DataMember]
     public CompareBenchmarkCurveName3? FloatingInterestReferenceRate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
+    [DataMember]
     public CompareRateBasis3? FloatingInterestRateTermUnit { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber5? FloatingInterestRateTermValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
+    [DataMember]
     public CompareRateBasis3? FloatingInterestRatePaymentFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber5? FloatingInterestRatePaymentFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
+    [DataMember]
     public CompareRateBasis3? FloatingInterestRateResetFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber6? FloatingInterestRateResetFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 5 characters are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDecimalNumber3? BasisPointSpread { get; init; } 
     /// <summary>
     /// Data on amount and interest rates of the transaction.
     /// </summary>
-    public CompareInterestRate1[] MarginLoanAttribute { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareInterestRate1> MarginLoanAttribute { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
+    [DataMember]
     public CompareActiveOrHistoricCurrencyAndAmount3? PrincipalAmountValueDateAmount { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
+    [DataMember]
     public CompareActiveOrHistoricCurrencyAndAmount3? PrincipalAmountMaturityDateAmount { get; init; } 
     /// <summary>
     /// Specifies whether the information on the asset type is matching or not.
     /// </summary>
+    [DataMember]
     public SecurityCommodity7Choice_? AssetType { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
+    [DataMember]
     public CompareActiveOrHistoricCurrencyAndAmount3? LoanValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as percentage rate are matching or not.
     /// </summary>
+    [DataMember]
     public ComparePercentageRate3? FixedRebateReferenceRate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as benchmark curve name are matching or not.
     /// </summary>
+    [DataMember]
     public CompareBenchmarkCurveName3? FloatingRebateReferenceRate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
+    [DataMember]
     public CompareRateBasis3? FloatingRebateRateTermUnit { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber6? FloatingRebateRateTermValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
+    [DataMember]
     public CompareRateBasis3? FloatingRebateRatePaymentFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber6? FloatingRebateRatePaymentFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
+    [DataMember]
     public CompareRateBasis3? FloatingRebateRateResetFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber6? FloatingRebateRateResetFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 5 characters are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDecimalNumber3? RebateRateBasisPointSpread { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as the adjusted rate are matching or not.
     /// </summary>
-    public ComparePercentageRate3[] FloatingRateAdjustment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ComparePercentageRate3> FloatingRateAdjustment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the values defined as the Rate Date are matching or not.
     /// </summary>
-    public CompareDate3[] FloatingRateAdjustmentDate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareDate3> FloatingRateAdjustmentDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the values defined as percentage rate are matching or not.
     /// </summary>
+    [DataMember]
     public ComparePercentageRate3? LendingFee { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
+    [DataMember]
     public CompareActiveOrHistoricCurrencyAndAmount3? OutstandingMarginLoanAmount { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
+    [DataMember]
     public CompareActiveOrHistoricCurrencyAndAmount3? ShortMarketValueAmount { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as transaction/position indicator are matching or not.
     /// </summary>
+    [DataMember]
     public CompareReportingLevelType3? LevelType { get; init; } 
     /// <summary>
     /// Unit of measure in which the quantity is expressed.
     /// </summary>
+    [DataMember]
     public CompareUnitOfMeasure3? UnitOfMeasure { get; init; } 
     
     #nullable disable

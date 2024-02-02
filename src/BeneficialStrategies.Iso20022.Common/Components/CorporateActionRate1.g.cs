@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies rates.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionRate1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record CorporateActionRate1
     /// <summary>
     /// Annual rate of a financial instrument.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat1Choice_? Interest { get; init; } 
     /// <summary>
     /// Index rate related to the interest rate of the forthcoming interest payment.
     /// </summary>
+    [DataMember]
     public RateFormat1Choice_? RelatedIndex { get; init; } 
     /// <summary>
     /// Percentage of securities the offeror/issuer will purchase or redeem under the terms of the event. This can be a number or the term "any and all".
     /// </summary>
+    [DataMember]
     public RateFormat1Choice_? PercentageSought { get; init; } 
     /// <summary>
     /// Rate of discount for securities purchased through a reinvestment scheme as compared to the current market price of security.
     /// </summary>
+    [DataMember]
     public RateFormat1Choice_? ReinvestmentDiscountToMarket { get; init; } 
     /// <summary>
     /// Margin allowed over or under a given rate.
     /// </summary>
+    [DataMember]
     public RateFormat1Choice_? Spread { get; init; } 
     /// <summary>
     /// Acceptable price increment used for submitting a bid.
     /// </summary>
+    [DataMember]
     public AmountAndRateFormat3Choice_? BidInterval { get; init; } 
     /// <summary>
     /// Rate used to calculate the amount of the charges/fees that cannot be categorised.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat1Choice_? Charges { get; init; } 
     
     #nullable disable

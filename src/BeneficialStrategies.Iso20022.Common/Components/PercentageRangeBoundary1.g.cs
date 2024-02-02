@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Limit for a percentage rate range.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PercentageRangeBoundary1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PercentageRangeBoundary1
     /// <summary>
     /// Percentage rate of the range limit.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate BoundaryRate { get; init; } 
     /// <summary>
     /// Indicates whether the boundary percentage rate is included in the range of percentage rates.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Included { get; init; } 
     
     #nullable disable

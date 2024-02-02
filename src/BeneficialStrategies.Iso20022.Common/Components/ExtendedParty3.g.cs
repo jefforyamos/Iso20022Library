@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Other type of party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExtendedParty3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ExtendedParty3
     /// <summary>
     /// Other type of party's role.
     /// </summary>
+    [DataMember]
     public required IsoExtended350Code ExtendedPartyRole { get; init; } 
     /// <summary>
     /// Detailed ownership information about a party.
     /// </summary>
+    [DataMember]
     public required InvestmentAccountOwnershipInformation6 OtherPartyDetails { get; init; } 
     
     #nullable disable

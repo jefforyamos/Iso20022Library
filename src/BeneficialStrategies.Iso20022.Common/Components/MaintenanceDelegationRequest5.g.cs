@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the request of maintenance delegations.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MaintenanceDelegationRequest5
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record MaintenanceDelegationRequest5
     /// <summary>
     /// Terminal manager identification.
     /// </summary>
+    [DataMember]
     public required GenericIdentification72 TMIdentification { get; init; } 
     /// <summary>
     /// Master terminal manager identification.
     /// </summary>
+    [DataMember]
     public GenericIdentification72? MasterTMIdentification { get; init; } 
     /// <summary>
     /// Information on the delegation of a maintenance action.
     /// </summary>
-    public MaintenanceDelegation8[] RequestedDelegation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MaintenanceDelegation8> RequestedDelegation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

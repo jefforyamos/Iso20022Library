@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Criteria for a query about securities reference data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesSearchCriteria4
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record SecuritiesSearchCriteria4
     /// <summary>
     /// Way(s) of identifying the security.
     /// </summary>
+    [DataMember]
     public SecurityIdentification39? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, for example, common share with voting rights, fully paid, or registered.
     /// </summary>
+    [DataMember]
     public IsoCFIOct2015Identifier? ClassificationFinancialInstrument { get; init; } 
     /// <summary>
     /// Planned final repayment date at the time of issuance.
     /// </summary>
+    [DataMember]
     public DatePeriodSearch1Choice_? MaturityDate { get; init; } 
     /// <summary>
     /// Date/time at which the security was made available.
     /// </summary>
+    [DataMember]
     public DatePeriodSearch1Choice_? IssueDate { get; init; } 
     /// <summary>
     /// Currency in which a security is issued or redenominated.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? IssueCurrency { get; init; } 
     /// <summary>
     /// Primary market or country where a security is issued by the issuer or its agent.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryOfIssue { get; init; } 
     /// <summary>
     /// Specifies the status of the security within its lifecycle.
     /// </summary>
+    [DataMember]
     public SecurityStatus3Choice_? SecurityStatus { get; init; } 
     /// <summary>
     /// Entity involved in an activity.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification2Choice_? MaintainingCSD { get; init; } 
     /// <summary>
     /// Entity involved in an activity.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification2Choice_? InvestorCSD { get; init; } 
     /// <summary>
     /// Entity involved in an activity.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification2Choice_? IssuerCSD { get; init; } 
     /// <summary>
     /// Technical issuer of a security.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification2Choice_? TechnicalIssuerCSD { get; init; } 
     /// <summary>
     /// CSD of a security.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification2Choice_? CSD { get; init; } 
     
     #nullable disable

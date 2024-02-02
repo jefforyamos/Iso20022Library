@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the customer device.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CustomerDevice2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CustomerDevice2
     /// <summary>
     /// Information about the customer device.
     /// </summary>
+    [DataMember]
     public Device1? Device { get; init; } 
     /// <summary>
     /// Identification of the customer device.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Identification { get; init; } 
     /// <summary>
     /// Provider of the customer device.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Provider { get; init; } 
     
     #nullable disable

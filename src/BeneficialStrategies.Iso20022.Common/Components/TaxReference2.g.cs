@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Pension scheme tax reference.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxReference2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TaxReference2
     /// <summary>
     /// Type of tax reference.
     /// </summary>
+    [DataMember]
     public TaxReferenceType1Choice_? Type { get; init; } 
     /// <summary>
     /// Pension scheme tax reference issued to the pension plan by a central organisation.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Reference { get; init; } 
     
     #nullable disable

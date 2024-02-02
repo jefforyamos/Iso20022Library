@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details for the tax calculation method D.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BillingMethod3
 {
     #nullable enable
@@ -20,12 +22,14 @@ public partial record BillingMethod3
     /// <summary>
     /// Equivalent amount to the service tax host amount but allows the sender to optionally express the value in the pricing currency.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection34 ServiceTaxPriceAmount { get; init; } 
     /// <summary>
     /// Provides for the specific tax identification within the same tax region. 
     /// Usage: This element allows for a maximum of three regional taxes on the same service.
     /// </summary>
-    public BillingServicesTax2[] TaxIdentification { get; init; } = [];
+    [DataMember]
+    public ValueList<BillingServicesTax2> TaxIdentification { get; init; } = [];
     
     #nullable disable
 }

@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ImpliedCurrencyAmountRangeChoice.FromToAmount))]
 [KnownType(typeof(ImpliedCurrencyAmountRangeChoice.EqualAmount))]
 [KnownType(typeof(ImpliedCurrencyAmountRangeChoice.NotEqualAmount))]
+[DataContract]
 public abstract partial record ImpliedCurrencyAmountRangeChoice_
 {
 }

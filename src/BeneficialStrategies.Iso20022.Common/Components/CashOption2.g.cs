@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the cash option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashOption2
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record CashOption2
     /// <summary>
     /// Indicates whether the value is a debit or credit.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the cash payment occurs or will occur in advance of receipt of proceeds from the issuer and based on a contractual agreement established with the account servicer or upon receipt of proceeds from the issuer.
     /// </summary>
+    [DataMember]
     public Payment1Code? ContractualPaymentIndicator { get; init; } 
     /// <summary>
     /// Specifies the type of income.|The lists of income type codes to be used, are available on the SMPG website at www.smpg.info.
     /// </summary>
+    [DataMember]
     public GenericIdentification20? IncomeType { get; init; } 
     /// <summary>
     /// Choice between a cash account, a charges account or a tax account.
     /// </summary>
+    [DataMember]
     public Account8Choice_? Account { get; init; } 
     /// <summary>
     /// Provides information about cash parties.
     /// </summary>
+    [DataMember]
     public CashParties2? CashParties { get; init; } 
     /// <summary>
     /// Provides information about the amounts related to a cash movement.
     /// </summary>
+    [DataMember]
     public required CorporateActionAmounts2 AmountDetails { get; init; } 
     /// <summary>
     /// Provides information about the dates related to a cash movement.
     /// </summary>
+    [DataMember]
     public required CorporateActionDate7 DateDetails { get; init; } 
     /// <summary>
     /// Exchange rate between the amount and the resulting amount.
     /// </summary>
+    [DataMember]
     public ForeignExchangeTerms11? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, for example, redemption price.
     /// </summary>
+    [DataMember]
     public PriceFormat7Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
     /// <summary>
     /// Provides information about the tax voucher related to a cash movement.
     /// </summary>
+    [DataMember]
     public TaxVoucher2? TaxVoucherDetails { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the transaction in the cancellation inside a batch transfer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentTransactionDetails50
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CardPaymentTransactionDetails50
     /// <summary>
     /// Currency associated with the transaction.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Total amount of the transaction.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount TotalAmount { get; init; } 
     /// <summary>
     /// Transaction authorisation deadline to complete the related payment.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValidityDate { get; init; } 
     /// <summary>
     /// Data related to an integrated circuit card application.
     /// </summary>
+    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     /// <summary>
     /// This transaction is cancelled but the authorisation is not reversed.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? KeepAuthorisationOpen { get; init; } 
     
     #nullable disable

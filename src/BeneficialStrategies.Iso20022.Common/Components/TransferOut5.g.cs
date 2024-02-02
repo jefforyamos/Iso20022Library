@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a transfer out transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferOut5
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record TransferOut5
     /// <summary>
     /// General information related to the transfer of a financial instrument.
     /// </summary>
+    [DataMember]
     public required Transfer9 TransferDetails { get; init; } 
     /// <summary>
     /// Information related to the financial instrument to be withdrawn.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument13 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Information related to the account from which the financial instrument is to be withdrawn.
     /// </summary>
+    [DataMember]
     public required InvestmentAccount22 AccountDetails { get; init; } 
     /// <summary>
     /// Information related to the receiving side of the transfer.
     /// </summary>
+    [DataMember]
     public required ReceiveInformation3 SettlementDetails { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Extension1> Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(AuthenticationChannel1Choice.Code))]
 [KnownType(typeof(AuthenticationChannel1Choice.Proprietary))]
+[DataContract]
 public abstract partial record AuthenticationChannel1Choice_
 {
 }

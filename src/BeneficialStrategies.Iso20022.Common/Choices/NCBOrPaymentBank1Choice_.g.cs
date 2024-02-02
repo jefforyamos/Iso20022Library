@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(NCBOrPaymentBank1Choice.NCBIdentification))]
 [KnownType(typeof(NCBOrPaymentBank1Choice.PaymentBankIdentification))]
+[DataContract]
 public abstract partial record NCBOrPaymentBank1Choice_
 {
 }

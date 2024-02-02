@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(StressItem1Choice.Product))]
 [KnownType(typeof(StressItem1Choice.Strategy))]
 [KnownType(typeof(StressItem1Choice.RiskFactor))]
+[DataContract]
 public abstract partial record StressItem1Choice_
 {
 }

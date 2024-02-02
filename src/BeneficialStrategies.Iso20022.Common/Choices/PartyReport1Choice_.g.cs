@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(PartyReport1Choice.Update))]
 [KnownType(typeof(PartyReport1Choice.Cancellation))]
+[DataContract]
 public abstract partial record PartyReport1Choice_
 {
 }

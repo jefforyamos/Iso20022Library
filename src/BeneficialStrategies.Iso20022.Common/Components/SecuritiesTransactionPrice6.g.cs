@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Descriptive fields capturing where no strike price is known.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesTransactionPrice6
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record SecuritiesTransactionPrice6
     /// <summary>
     /// Price is currently not available, but pending.
     /// </summary>
+    [DataMember]
     public required PriceStatus1Code Pending { get; init; } 
     /// <summary>
     /// Currency that will be used but for which no price is yet known.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Specifies the digital token when the number of units may not be known.
     /// </summary>
-    public DigitalTokenAmount2[] DigitalToken { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DigitalTokenAmount2> DigitalToken { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the different types of freight charges associated with goods.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Charge24
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record Charge24
     /// <summary>
     /// Identifies whether the freight charges associated with the goods are "prepaid" or "collect".
     /// </summary>
+    [DataMember]
     public required FreightCharges1Code Type { get; init; } 
     /// <summary>
     /// Amount of money associated with a service.
     /// </summary>
-    public ChargesDetails3[] Charges { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ChargesDetails3> Charges { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the acknowledgement of an ATM completion from the ATM manager.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMCompletionAcknowledgement2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ATMCompletionAcknowledgement2
     /// <summary>
     /// ATM information.
     /// </summary>
+    [DataMember]
     public required AutomatedTellerMachine3 ATM { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed.
     /// </summary>
+    [DataMember]
     public required ATMContext13 Context { get; init; } 
     /// <summary>
     /// Acknowledgement of the completion advice.
     /// </summary>
+    [DataMember]
     public required ATMTransaction18 Transaction { get; init; } 
     
     #nullable disable

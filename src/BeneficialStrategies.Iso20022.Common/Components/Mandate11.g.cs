@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information that serves as a basis to debit an account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Mandate11
 {
     #nullable enable
@@ -20,91 +22,113 @@ public partial record Mandate11
     /// <summary>
     /// Unique identification, as assigned by the responsible party (such as the creditor) or agent (such as the debtor agent), to unambiguously identify the mandate.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MandateIdentification { get; init; } 
     /// <summary>
     /// Identification for the mandate request, as assigned by the initiating party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MandateRequestIdentification { get; init; } 
     /// <summary>
     /// Specifies the transport authentication details related to the mandate.
     /// </summary>
+    [DataMember]
     public MandateAuthentication1? Authentication { get; init; } 
     /// <summary>
     /// Specifies the type of mandate, such as paper, electronic or scheme.
     /// </summary>
+    [DataMember]
     public MandateTypeInformation2? Type { get; init; } 
     /// <summary>
     /// Provides details of the duration of the mandate and occurrence of the underlying transactions.
     /// </summary>
+    [DataMember]
     public MandateOccurrences4? Occurrences { get; init; } 
     /// <summary>
     /// Specifies whether the direct debit instructions should be automatically re-submitted periodically when bilaterally agreed.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator TrackingIndicator { get; init; } 
     /// <summary>
     /// Amount different from the collection amount, as it includes the costs associated with the first debited amount.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? FirstCollectionAmount { get; init; } 
     /// <summary>
     /// Fixed amount to be collected from the debtor's account.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? CollectionAmount { get; init; } 
     /// <summary>
     /// Maximum amount that may be collected from the debtor's account, per instruction.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? MaximumAmount { get; init; } 
     /// <summary>
     /// Specifies the characteristics of the adjustment applied to the collection amount of a direct debit instruction.
     /// </summary>
+    [DataMember]
     public MandateAdjustment1? Adjustment { get; init; } 
     /// <summary>
     /// Provides the reason for the setup of the mandate.
     /// </summary>
+    [DataMember]
     public MandateSetupReason1Choice_? Reason { get; init; } 
     /// <summary>
     /// Credit party that signs the mandate.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? CreditorSchemeIdentification { get; init; } 
     /// <summary>
     /// Party that signs the mandate and to whom an amount of money is due.
     /// </summary>
+    [DataMember]
     public required PartyIdentification43 Creditor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor to which a credit entry will be posted as a result of the payment transaction.
     /// </summary>
+    [DataMember]
     public CashAccount24? CreditorAccount { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? CreditorAgent { get; init; } 
     /// <summary>
     /// Ultimate party to which an amount of money is due.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? UltimateCreditor { get; init; } 
     /// <summary>
     /// Party that signs the mandate and owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [DataMember]
     public required PartyIdentification43 Debtor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the debtor, to which a debit entry will be made as a result of the transaction.
     /// </summary>
+    [DataMember]
     public CashAccount24? DebtorAccount { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
+    [DataMember]
     public required BranchAndFinancialInstitutionIdentification5 DebtorAgent { get; init; } 
     /// <summary>
     /// Ultimate party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? UltimateDebtor { get; init; } 
     /// <summary>
     /// Reference assigned by a creditor or ultimate creditor for internal usage for the mandate.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MandateReference { get; init; } 
     /// <summary>
     /// Provides information to identify the underlying documents associated with the mandate.
     /// </summary>
-    public ReferredMandateDocument1[] ReferredDocument { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReferredMandateDocument1> ReferredDocument { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

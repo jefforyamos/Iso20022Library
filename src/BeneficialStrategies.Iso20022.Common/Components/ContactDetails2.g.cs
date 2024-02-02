@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Communication device number or electronic address used for communication.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContactDetails2
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record ContactDetails2
     /// <summary>
     /// Specifies the terms used to formally address a person.
     /// </summary>
+    [DataMember]
     public NamePrefix1Code? NamePrefix { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Name { get; init; } 
     /// <summary>
     /// Collection of information that identifies a phone number, as defined by telecom services.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? PhoneNumber { get; init; } 
     /// <summary>
     /// Collection of information that identifies a mobile phone number, as defined by telecom services.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? MobileNumber { get; init; } 
     /// <summary>
     /// Collection of information that identifies a FAX number, as defined by telecom services.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? FaxNumber { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
+    [DataMember]
     public IsoMax2048Text? EmailAddress { get; init; } 
     /// <summary>
     /// Contact details in another form.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Other { get; init; } 
     
     #nullable disable

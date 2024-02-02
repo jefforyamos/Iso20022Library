@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the corporate action option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionOption120
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CorporateActionOption120
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [DataMember]
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
+    [DataMember]
     public required CorporateActionOption20Choice_ OptionType { get; init; } 
     /// <summary>
     /// Quantity of securities to which this instruction applies.
     /// </summary>
+    [DataMember]
     public required Quantity20Choice_ InstructedQuantity { get; init; } 
     
     #nullable disable

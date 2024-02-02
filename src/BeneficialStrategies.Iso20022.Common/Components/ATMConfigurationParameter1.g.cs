@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Configuration parameter version of the ATM.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMConfigurationParameter1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ATMConfigurationParameter1
     /// <summary>
     /// Type of the ATM configuration.
     /// </summary>
+    [DataMember]
     public required DataSetCategory7Code Type { get; init; } 
     /// <summary>
     /// Active version of the configuration.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Version { get; init; } 
     
     #nullable disable

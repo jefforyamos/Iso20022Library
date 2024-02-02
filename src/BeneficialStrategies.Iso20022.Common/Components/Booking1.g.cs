@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information used to book the executions of a trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Booking1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Booking1
     /// <summary>
     /// Indicates whether or not automatic booking can occur.
     /// </summary>
+    [DataMember]
     public DayBookingInstruction1Code? DayBooking { get; init; } 
     /// <summary>
     /// Indicates what constitutes a bookable unit, ie, a partial execution, or an aggregated execution.
     /// </summary>
+    [DataMember]
     public BookingUnit1Choice_? BookingUnit { get; init; } 
     /// <summary>
     /// Indicates the method of preallocation.
     /// </summary>
+    [DataMember]
     public PreAllocationMethod1Code? PreAllocationMethod { get; init; } 
     /// <summary>
     /// Method for booking out an order.
     /// </summary>
+    [DataMember]
     public BookingType1Code? BookingType { get; init; } 
     
     #nullable disable

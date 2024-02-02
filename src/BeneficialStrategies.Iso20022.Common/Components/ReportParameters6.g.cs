@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters of the report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportParameters6
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ReportParameters6
     /// <summary>
     /// Unique identification of the report.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ReportIdentification { get; init; } 
     /// <summary>
     /// Date (and time) at which the report was created.
     /// </summary>
+    [DataMember]
     public required DateAndDateTime2Choice_ ReportDateAndTime { get; init; } 
     /// <summary>
     /// Frequency of the report.
     /// </summary>
+    [DataMember]
     public required EventFrequency6Code Frequency { get; init; } 
     /// <summary>
     /// Currency used for the calculation of the guarantee fund.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode ReportCurrency { get; init; } 
     /// <summary>
     /// Date of calculation of the deficit (if any).
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CalculationDate { get; init; } 
     
     #nullable disable

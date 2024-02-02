@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to identify a financial institution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstitutionIdentification9
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FinancialInstitutionIdentification9
     /// <summary>
     /// Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
     /// </summary>
+    [DataMember]
     public IsoBICFIIdentifier? BICFI { get; init; } 
     /// <summary>
     /// Information used to identify a member within a clearing system.
     /// </summary>
+    [DataMember]
     public ClearingSystemMemberIdentification2? ClearingSystemMemberIdentification { get; init; } 
     /// <summary>
     /// Unique identification of an agent, as assigned by an institution, using an identification scheme.
     /// </summary>
+    [DataMember]
     public GenericFinancialIdentification1? Other { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Company in charge of a lodging establishment
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LodgingProperty2
 {
     #nullable enable
@@ -20,45 +22,55 @@ public partial record LodgingProperty2
     /// <summary>
     /// Type of accommodations.
     /// </summary>
+    [DataMember]
     public LodgingActivity1Code? Type { get; init; } 
     /// <summary>
     /// Other type of lodging establishment when Other National or Other Private is selected as a type code. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Identifier that describes the lodging establishment as a prestigious property. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PrestigiousProperty { get; init; } 
     /// <summary>
     /// Name of the property.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Identification of the lodging company.
     /// </summary>
+    [DataMember]
     public required PartyIdentification258 Identification { get; init; } 
     /// <summary>
     /// Address of the property.
     /// </summary>
+    [DataMember]
     public Location4? Location { get; init; } 
     /// <summary>
     /// Party in charge of assigning the identification.
     /// </summary>
+    [DataMember]
     public CompanyAssigner2Code? Assigner { get; init; } 
     /// <summary>
     /// Contact details at property.
     /// </summary>
+    [DataMember]
     public Contact3? Contact { get; init; } 
     /// <summary>
     /// Country of the property.
     /// ISO 3166
     /// </summary>
+    [DataMember]
     public ISOMax3ACountryCode? Country { get; init; } 
     /// <summary>
     /// Indicates whether or not the lodging facility complies with the US Hotel and Motel Fire Safety Act of 1990 (PL101-391) or similar legislation.
     /// True = in compliance
     /// False = not in compliance
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? FireSafetyActIndicator { get; init; } 
     
     #nullable disable

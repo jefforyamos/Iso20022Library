@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the units to settle.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Unit6
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Unit6
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
     /// <summary>
     /// Date upon which the investor purchased the financial instrument.
     /// </summary>
+    [DataMember]
     public IsoISODate? AcquisitionDate { get; init; } 
     /// <summary>
     /// Certificate representing the security that is delivered.
     /// </summary>
-    public IsoMax35Text[] CertificateNumber { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> CertificateNumber { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax group to which the purchased investment fund units belong. The investor indicates to the intermediary operating pooled nominees, which type of unit is to be sold.
     /// </summary>
+    [DataMember]
     public UKTaxGroupUnitCode? Group1Or2Units { get; init; } 
     /// <summary>
     /// Information related to the price of the transferred units.
     /// </summary>
+    [DataMember]
     public UnitPrice21? PriceDetails { get; init; } 
     
     #nullable disable

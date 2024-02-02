@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the intra-position movement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraPositionDetails1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record IntraPositionDetails1
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
+    [DataMember]
     public PriorityNumeric1Choice_? Priority { get; init; } 
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be moved.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ SettlementDate { get; init; } 
     /// <summary>
     /// Balance from which the securities are moving.
     /// </summary>
+    [DataMember]
     public required SecuritiesBalanceType2Choice_ BalanceFrom { get; init; } 
     /// <summary>
     /// Balance to which the securities are moving.
     /// </summary>
+    [DataMember]
     public required SecuritiesBalanceType2Choice_ BalanceTo { get; init; } 
     /// <summary>
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? InstructionProcessingAdditionalDetails { get; init; } 
     
     #nullable disable

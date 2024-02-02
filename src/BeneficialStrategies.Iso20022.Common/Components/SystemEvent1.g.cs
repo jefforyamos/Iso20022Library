@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed information about an event occurring on a system, whether planned, eg, cut-off time for a specific type of eligible transfer, or unplanned, eg, an unsolicited failure, as stipulated in the specifications of the system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemEvent1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SystemEvent1
     /// <summary>
     /// Nature of the event that has occurred.
     /// </summary>
+    [DataMember]
     public required SystemEventType1Choice_ Type { get; init; } 
     /// <summary>
     /// Date and time at which the event is foreseen to occur.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime ScheduledTime { get; init; } 
     /// <summary>
     /// Date and time at which the event effectively takes place.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? EffectiveTime { get; init; } 
     
     #nullable disable

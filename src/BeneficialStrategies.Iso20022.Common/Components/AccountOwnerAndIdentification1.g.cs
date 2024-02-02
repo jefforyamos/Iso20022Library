@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifiers of account and account owner.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountOwnerAndIdentification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AccountOwnerAndIdentification1
     /// <summary>
     /// Account identifier.
     /// </summary>
+    [DataMember]
     public required CashAccount24 Account { get; init; } 
     /// <summary>
     /// Account owner identification.
     /// </summary>
+    [DataMember]
     public required FinancialInstitutionIdentification9 AccountOwner { get; init; } 
     
     #nullable disable

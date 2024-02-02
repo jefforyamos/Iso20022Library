@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment instrument for a type of order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentInstrument16
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record PaymentInstrument16
     /// <summary>
     /// Type of order to which the payment instrument applies.
     /// </summary>
+    [DataMember]
     public required FundOrderType5Choice_ OrderType { get; init; } 
     /// <summary>
     /// Payment instrument for the order type.
     /// </summary>
+    [DataMember]
     public required FundPaymentType1Choice_ InstrumentType { get; init; } 
     /// <summary>
     /// Additional information about the payment.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

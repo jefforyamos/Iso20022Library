@@ -20,6 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(TradeReport32Choice.PortOut))]
 [KnownType(typeof(TradeReport32Choice.Revive))]
 [KnownType(typeof(TradeReport32Choice.Other))]
+[DataContract]
 public abstract partial record TradeReport32Choice_
 {
 }

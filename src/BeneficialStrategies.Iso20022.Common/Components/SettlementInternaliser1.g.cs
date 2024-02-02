@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the submitting entity and Settlement Internaliser of the report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementInternaliser1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record SettlementInternaliser1
     /// <summary>
     /// Identifies the submitting entity and settlement Internaliser of the report.
     /// </summary>
+    [DataMember]
     public required SettlementInternaliserIdentification1 Identification { get; init; } 
     /// <summary>
     /// Overall aggregated total value and volume of 
@@ -27,22 +30,27 @@ public partial record SettlementInternaliser1
     /// - failed rate of internalised settlement instructions
     /// performed during the period covered by the report, for all financial instruments, types of transactions, types of clients and cash transfers.
     /// </summary>
+    [DataMember]
     public required InternalisationData1 OverallTotal { get; init; } 
     /// <summary>
     /// Classification of a financial instrument according to the categories defined in the relevant legislation.
     /// </summary>
+    [DataMember]
     public required SettlementInternaliserFinancialInstrument1 FinancialInstrument { get; init; } 
     /// <summary>
     /// Classification of securities movements according to the categories defined in the relevant legislation.
     /// </summary>
+    [DataMember]
     public required SettlementInternaliserTransactionType1 TransactionType { get; init; } 
     /// <summary>
     /// Classification of a settlement internaliser's clients as referred to in the relevant legislation.
     /// </summary>
+    [DataMember]
     public required SettlementInternaliserClientType1 ClientType { get; init; } 
     /// <summary>
     /// Covers cash payments related to securities transactions.
     /// </summary>
+    [DataMember]
     public required InternalisationData1 TotalCashTransfer { get; init; } 
     
     #nullable disable

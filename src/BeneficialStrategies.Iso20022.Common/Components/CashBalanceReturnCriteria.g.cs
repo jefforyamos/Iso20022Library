@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to report on the cash balance.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashBalanceReturnCriteria
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CashBalanceReturnCriteria
     /// <summary>
     /// Indicates whether the balance type is requested.
     /// </summary>
+    [DataMember]
     public required IsoRequestedIndicator TypeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the balance status is requested.
     /// </summary>
+    [DataMember]
     public required IsoRequestedIndicator StatusIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the value date is requested.
     /// </summary>
+    [DataMember]
     public required IsoRequestedIndicator ValueDateIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the number of payment is requested.
     /// </summary>
+    [DataMember]
     public required IsoRequestedIndicator NumberOfPaymentsIndicator { get; init; } 
     
     #nullable disable

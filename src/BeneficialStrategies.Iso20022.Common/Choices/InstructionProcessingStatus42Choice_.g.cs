@@ -17,6 +17,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(InstructionProcessingStatus42Choice.Repair))]
 [KnownType(typeof(InstructionProcessingStatus42Choice.PendingCancellation))]
 [KnownType(typeof(InstructionProcessingStatus42Choice.ModificationRequested))]
+[DataContract]
 public abstract partial record InstructionProcessingStatus42Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details on the original group, to which the message refers.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalGroupHeader14
 {
     #nullable enable
@@ -20,43 +22,53 @@ public partial record OriginalGroupHeader14
     /// <summary>
     /// Unique identification, as assigned by the original assigner, to unambiguously identify the original group cancellation request.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalGroupCancellationIdentification { get; init; } 
     /// <summary>
     /// Identifies the case.
     /// </summary>
+    [DataMember]
     public Case5? ResolvedCase { get; init; } 
     /// <summary>
     /// Point to point reference, as assigned by the original instructing party, to unambiguously identify the original message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalMessageIdentification { get; init; } 
     /// <summary>
     /// Specifies the original message name identifier to which the message refers.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalMessageNameIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the original message was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OriginalCreationDateTime { get; init; } 
     /// <summary>
     /// Number of individual transactions contained in the original message.
     /// </summary>
+    [DataMember]
     public IsoMax15NumericText? OriginalNumberOfTransactions { get; init; } 
     /// <summary>
     /// Total of all individual amounts included in the original message, irrespective of currencies.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? OriginalControlSum { get; init; } 
     /// <summary>
     /// Specifies the status of a group cancellation request.
     /// </summary>
+    [DataMember]
     public GroupCancellationStatus1Code? GroupCancellationStatus { get; init; } 
     /// <summary>
     /// Provides detailed information on the cancellation status reason.
     /// </summary>
-    public CancellationStatusReason4[] CancellationStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CancellationStatusReason4> CancellationStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Detailed information on the number of transactions for each identical cancellation status.
     /// </summary>
-    public NumberOfTransactionsPerStatus1[] NumberOfTransactionsPerCancellationStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NumberOfTransactionsPerStatus1> NumberOfTransactionsPerCancellationStatus { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

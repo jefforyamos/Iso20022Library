@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique and unambiguous way to identify an organisation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OrganisationIdentification33
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record OrganisationIdentification33
     /// <summary>
     /// Business identification code of the organisation.
     /// </summary>
+    [DataMember]
     public required IsoAnyBICDec2014Identifier AnyBIC { get; init; } 
     
     #nullable disable

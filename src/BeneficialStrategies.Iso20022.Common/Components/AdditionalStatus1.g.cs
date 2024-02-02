@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status advising on the rejection of the instruction or cancellation request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalStatus1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AdditionalStatus1
     /// <summary>
     /// Reason advising the rejection of the instruction.
     /// </summary>
+    [DataMember]
     public required InstructionRejectionStatus1Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the reason.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

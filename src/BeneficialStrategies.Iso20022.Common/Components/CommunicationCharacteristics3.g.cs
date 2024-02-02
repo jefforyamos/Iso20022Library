@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Low level communication of the hardware or software component toward another component or an external entity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CommunicationCharacteristics3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CommunicationCharacteristics3
     /// <summary>
     /// Type of low level communication.
     /// </summary>
+    [DataMember]
     public required POICommunicationType2Code CommunicationType { get; init; } 
     /// <summary>
     /// Entity that communicate with the current component, using this communication device.
     /// </summary>
-    public PartyType7Code[] RemoteParty { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyType7Code> RemoteParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Communication hardware is activated.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator Active { get; init; } 
     
     #nullable disable

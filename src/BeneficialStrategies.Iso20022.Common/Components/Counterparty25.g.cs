@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details of the counterparty identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Counterparty25
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Counterparty25
     /// <summary>
     /// Unique identification of the reporting counterparty of the contract.
     /// </summary>
+    [DataMember]
     public required OrganisationIdentification7Choice_ Identification { get; init; } 
     /// <summary>
     /// Identifies the nature of thereporting counterparty in accordance with regulation.
     /// </summary>
+    [DataMember]
     public required CounterpartyTradeNature5Choice_ Nature { get; init; } 
     /// <summary>
     /// Identifies the trading capacity of the seller.
     /// </summary>
+    [DataMember]
     public TradingCapacity7Code? TradingCapacity { get; init; } 
     /// <summary>
     /// Identifies whether the reporting counterparty is a buyer or a seller.
     /// </summary>
+    [DataMember]
     public OptionParty1Code? CounterpartySide { get; init; } 
     
     #nullable disable

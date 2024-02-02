@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Date parameters.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DateInformation1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DateInformation1
     /// <summary>
     /// Date on which a recurrent date will commence.
     /// </summary>
+    [DataMember]
     public required IsoISODate StartDate { get; init; } 
     /// <summary>
     /// Specifies the regularity of the trigger date.
     /// </summary>
+    [DataMember]
     public required ExternalDateFrequency1Code Frequency { get; init; } 
     /// <summary>
     /// Maximum number of trigger date occurrence cycles.
     /// </summary>
+    [DataMember]
     public required IsoNumber Number { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Characteristics of the statement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Statement32
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Statement32
     /// <summary>
     /// Reference common to all pages of a statement.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text StatementIdentification { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
+    [DataMember]
     public required Frequency1Code Frequency { get; init; } 
     /// <summary>
     /// Date and time of the statement.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ StatementDateTime { get; init; } 
     
     #nullable disable

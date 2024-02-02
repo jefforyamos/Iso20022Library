@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to search for a member and to report on the member. A name may be given to the new query.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MemberCriteria3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record MemberCriteria3
     /// <summary>
     /// Name of the query defined by the search criteria and return criteria.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NewQueryName { get; init; } 
     /// <summary>
     /// Defines the criteria based on which the information is extracted.
     /// </summary>
-    public MemberSearchCriteria2[] SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MemberSearchCriteria2> SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines the expected report.
     /// </summary>
+    [DataMember]
     public MemberReturnCriteria1? ReturnCriteria { get; init; } 
     
     #nullable disable

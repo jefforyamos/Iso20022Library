@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to report on the cash entry.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountCashEntryReturnCriteria3
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record AccountCashEntryReturnCriteria3
     /// <summary>
     /// Indicates whether the entry reference is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? EntryReferenceIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account type is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? AccountTypeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the entry amount is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? EntryAmountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account currency is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? AccountCurrencyIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the entry status is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? EntryStatusIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the entry date is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? EntryDateIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account servicer is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? AccountServicerIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account owner is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? AccountOwnerIndicator { get; init; } 
     
     #nullable disable

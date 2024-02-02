@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the identification of a person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PersonalInformation1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PersonalInformation1
     /// <summary>
     /// Name of the father of the individual person.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NameOfFather { get; init; } 
     /// <summary>
     /// Maiden (unmarried) name of the mother of the individual person.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MaidenNameOfMother { get; init; } 
     /// <summary>
     /// Name of the partner of the individual person.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NameOfPartner { get; init; } 
     
     #nullable disable

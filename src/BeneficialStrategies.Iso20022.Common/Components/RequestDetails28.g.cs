@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the financial instrument removal request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RequestDetails28
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record RequestDetails28
     /// <summary>
     /// Specifies the  removal processing change requested.
     /// </summary>
+    [DataMember]
     public required RemovalTypeAndReason1 Removal { get; init; } 
     /// <summary>
     /// Specifies the financial instruments to be removed  (identification or attributes). 
     /// </summary>
-    public RemovalProcessing2Choice_[] FinancialInstrumentAndAttributes { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RemovalProcessing2Choice_> FinancialInstrumentAndAttributes { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the collateral parties of a contract.
     /// </summary>
+    [DataMember]
     public CollateralParties4? Counterparty { get; init; } 
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
+    [DataMember]
     public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// References of the transaction for which the financial instrument removal request is required.
     /// </summary>
+    [DataMember]
     public Reference21? Reference { get; init; } 
     
     #nullable disable

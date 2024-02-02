@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unencrypted sensitive data of a token.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Token4
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record Token4
     /// <summary>
     /// Surrogate value of the PAN.
     /// </summary>
+    [DataMember]
     public IsoMax19NumericText? PaymentToken { get; init; } 
     /// <summary>
     /// Expiry date of the payment token.
     /// ISO 8583 bit 14.
     /// </summary>
+    [DataMember]
     public IsoISOYearMonth? TokenExpiryDate { get; init; } 
     /// <summary>
     /// Identification of a party requesting a token.
     /// </summary>
+    [DataMember]
     public IsoMax11NumericText? TokenRequestorIdentification { get; init; } 
     /// <summary>
     /// Supporting information for the Token Assurance Method.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? TokenAssuranceData { get; init; } 
     /// <summary>
     /// Value that allows a Token Service Provider to indicate the identification and verification performed representing the binding of the payment token to the underlying PAN and cardholder.
     /// </summary>
+    [DataMember]
     public IsoMax2NumericText? TokenAssuranceMethod { get; init; } 
     /// <summary>
     /// A reference to the token.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TokenReferenceIdentification { get; init; } 
     
     #nullable disable

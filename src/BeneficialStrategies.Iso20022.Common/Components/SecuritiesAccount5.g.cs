@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account to or from which a securities entry is made.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesAccount5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SecuritiesAccount5
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     
     #nullable disable

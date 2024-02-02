@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a payment against a commercial invoice.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportLine4
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record ReportLine4
     /// <summary>
     /// Reference to the identification of the underlying commercial document.
     /// </summary>
+    [DataMember]
     public required InvoiceIdentification1 CommercialDocumentReference { get; init; } 
     /// <summary>
     /// Specifies the adjustments applied to obtain the net amount.
     /// </summary>
-    public Adjustment4[] Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Adjustment4> Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net amount, after adjustments, intended to be paid.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount NetAmount { get; init; } 
     /// <summary>
     /// Specifies how the net amount to be paid is related to different purchase orders.
     /// </summary>
-    public ReportLine2[] BreakdownByPurchaseOrder { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReportLine2> BreakdownByPurchaseOrder { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

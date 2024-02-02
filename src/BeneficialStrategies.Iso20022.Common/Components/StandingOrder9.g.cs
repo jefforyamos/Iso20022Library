@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the detailed attributes of a standing order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StandingOrder9
 {
     #nullable enable
@@ -20,82 +22,102 @@ public partial record StandingOrder9
     /// <summary>
     /// Amount of money and currency to be transferred when a payment instruction is created as a result of a standing order.
     /// </summary>
+    [DataMember]
     public required Amount2Choice_ Amount { get; init; } 
     /// <summary>
     /// Specifies if the account is debited or credited by the standing order.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for a standing order, as assigned by the account servicer or the account owner.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Type of the standing order.
     /// </summary>
+    [DataMember]
     public StandingOrderType1Choice_? Type { get; init; } 
     /// <summary>
     /// Liquidity transfer origin or destination account within the pool of accounts under management of the requestor.
     /// </summary>
+    [DataMember]
     public AccountIdentification4Choice_? AssociatedPoolAccount { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for a standing order, as assigned by the account servicer or the account owner.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Reference { get; init; } 
     /// <summary>
     /// Regularity with which payment instructions are to be created and processed as a result of the standing order, such as daily, weekly, or monthly.
     /// </summary>
+    [DataMember]
     public Frequency2Code? Frequency { get; init; } 
     /// <summary>
     /// Dates during which the standing order is in effect.
     /// </summary>
+    [DataMember]
     public DatePeriod3? ValidityPeriod { get; init; } 
     /// <summary>
     /// Specifies if the account is debited or credited by the standing order.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? SystemMember { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? ResponsibleParty { get; init; } 
     /// <summary>
     /// Unique identification to unambiguously identify the link set in which the standing order is defined. The link set is a collection of standing order defined in a specific sequence.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LinkSetIdentification { get; init; } 
     /// <summary>
     /// Unique identification to unambiguously identify liquidity transfer standing order within the link set.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LinkSetOrderIdentification { get; init; } 
     /// <summary>
     /// Specifies the sequence in which the system will execute the liquidity transfers standing order within the link set when additional liquidity is required.
     /// </summary>
+    [DataMember]
     public IsoNumber? LinkSetOrderSequence { get; init; } 
     /// <summary>
     /// Defines whether the standing order is executed through a time-based or an event-based trigger.
     /// </summary>
+    [DataMember]
     public ExecutionType1Choice_? ExecutionType { get; init; } 
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? Creditor { get; init; } 
     /// <summary>
     /// Cash account credited from a standing order mechanism.
     /// </summary>
+    [DataMember]
     public CashAccount40? CreditorAccount { get; init; } 
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? Debtor { get; init; } 
     /// <summary>
     /// Cash account debited from a standing order mechanism.
     /// </summary>
+    [DataMember]
     public CashAccount40? DebtorAccount { get; init; } 
     /// <summary>
     /// Overall amount of "not yet executed" predefined liquidity transfer orders or "defined" by a system participant in its sphere of responsibility within the system.
     /// </summary>
+    [DataMember]
     public StandingOrderTotalAmount1? TotalsPerStandingOrder { get; init; } 
     /// <summary>
     /// Indicates whether the liquidity transfer standing order is defined as a zero sweeping order. When true, the liquidity transfer standing order will transfer all amount of money out of the account so the resulting balance is zero.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ZeroSweepIndicator { get; init; } 
     
     #nullable disable

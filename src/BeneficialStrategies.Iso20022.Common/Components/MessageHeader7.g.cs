@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of characteristics, such as the identification or the creation date and time, specific to the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MessageHeader7
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record MessageHeader7
     /// <summary>
     /// Point to point reference, as assigned by the sender, to unambiguously identify the message.|Usage: The sender has to make sure that MessageIdentification is unique for a pre-agreed period.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CreationDateTime { get; init; } 
     /// <summary>
     /// Specific actions to be executed through the request.
     /// </summary>
+    [DataMember]
     public RequestType4Choice_? RequestType { get; init; } 
     /// <summary>
     /// Unique identification of the original query message.
     /// </summary>
+    [DataMember]
     public OriginalBusinessQuery1? OriginalBusinessQuery { get; init; } 
     /// <summary>
     /// Recalls the criteria (search and return criteria) defined in a preceding query.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? QueryName { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides detailed information on the number of transactions that are reported with a specific transaction status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NumberOfRecordsPerStatus1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NumberOfRecordsPerStatus1
     /// <summary>
     /// Number of individual records contained in the message, detailed per status.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText DetailedNumberOfRecords { get; init; } 
     /// <summary>
     /// Common transaction status for all individual records reported.
     /// </summary>
+    [DataMember]
     public required ReportingRecordStatus1Code DetailedStatus { get; init; } 
     
     #nullable disable

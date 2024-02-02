@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the collateral that will be either delivered, returned or both.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Collateral11
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record Collateral11
     /// <summary>
     /// Specifies the reference to the unambiguous identification of the margin call request.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MarginCallRequestIdentification { get; init; } 
     /// <summary>
     /// Specifies the reference to the unambiguous identification of the margin call response.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MarginCallResponseIdentification { get; init; } 
     /// <summary>
     /// Specifies the standard settlement instructions.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? StandardSettlementInstructions { get; init; } 
     /// <summary>
     /// Specifies the reference to the unambiguous identification of the collateral proposal response (in case of counter proposal).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CollateralProposalResponseIdentification { get; init; } 
     /// <summary>
     /// Collateral type is securities.
     /// </summary>
-    public SecuritiesCollateral5[] SecuritiesCollateral { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecuritiesCollateral5> SecuritiesCollateral { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Collateral type is cash.
     /// </summary>
-    public CashCollateral2[] CashCollateral { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashCollateral2> CashCollateral { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Collateral type is other than securities or cash for example letter of credit.
     /// </summary>
-    public OtherCollateral5[] OtherCollateral { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OtherCollateral5> OtherCollateral { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information such as the taxation conditions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionNarrative50
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CorporateActionNarrative50
     /// <summary>
     /// Provides the entity making the offer and is different from the issuing company.
     /// </summary>
-    public UpdatedAdditionalInformation3[] Offeror { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<UpdatedAdditionalInformation3> Offeror { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the new name of a company following a name change.
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation3? NewCompanyName { get; init; } 
     /// <summary>
     /// Provides the web address published for the event, that is, the address for the Universal Resource Locator (URL), for example, used over the www (HTTP) service.
     /// </summary>
-    public UpdatedURLlnformation4[] URLAddress { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<UpdatedURLlnformation4> URLAddress { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides web address of an account servicer (or of a service provider) that contains information solely intended for the immediate account holder to enable or facilitate event processing between parties.
     /// </summary>
+    [DataMember]
     public IsoMax2048Text? EventProcessingWebSiteAddress { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a person, or a non-financial institution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentificationAndContactInformation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PartyIdentificationAndContactInformation1
     /// <summary>
     /// Identification of the party.
     /// </summary>
+    [DataMember]
     public required PartyIdentification8 PartyIdentification { get; init; } 
     /// <summary>
     /// Information needed to contact a physical person related to the party, such as name, phone number, email address.
     /// </summary>
+    [DataMember]
     public ContactIdentification1? ContactInformation { get; init; } 
     
     #nullable disable

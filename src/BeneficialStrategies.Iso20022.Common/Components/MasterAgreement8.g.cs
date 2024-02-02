@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to a master agreement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MasterAgreement8
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record MasterAgreement8
     /// <summary>
     /// Reference to any master agreement, if existent (such as ISDA Master Agreement; Master Power Purchase and Sale Agreement; International ForEx Master Agreement; European Master Agreement or any local Master Agreements).
     /// </summary>
+    [DataMember]
     public AgreementType2Choice_? Type { get; init; } 
     /// <summary>
     /// Reference to the year of the master agreement version used for the reported trade, if applicable (such as 1992, 2002, etc).
     /// </summary>
+    [DataMember]
     public IsoMax50Text? Version { get; init; } 
     /// <summary>
     /// Additional information specifying the other type of the master agreement.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? OtherMasterAgreementDetails { get; init; } 
     
     #nullable disable

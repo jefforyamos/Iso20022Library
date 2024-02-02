@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Configuration of the digital signatures if the security module is able to perform digital signatures with an asymmetric key.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMSecurityConfiguration4
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record ATMSecurityConfiguration4
     /// <summary>
     /// Maximum number of certificates in a certificate path, the security module is able to manage.
     /// </summary>
+    [DataMember]
     public IsoNumber? MaximumCertificates { get; init; } 
     /// <summary>
     /// Maximum number of cosigners, the security module is able to manage in a digital signature.
     /// </summary>
+    [DataMember]
     public IsoNumber? MaximumSignatures { get; init; } 
     /// <summary>
     /// Digital signature algorithm the security module is able to manage.
     /// </summary>
-    public Algorithm14Code[] DigitalSignatureAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Algorithm14Code> DigitalSignatureAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

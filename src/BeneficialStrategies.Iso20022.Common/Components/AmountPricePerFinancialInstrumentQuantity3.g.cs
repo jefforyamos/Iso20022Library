@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a ratio: amount price per financial instrument quantity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountPricePerFinancialInstrumentQuantity3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AmountPricePerFinancialInstrumentQuantity3
     /// <summary>
     /// Type of amount price.
     /// </summary>
+    [DataMember]
     public required AmountPriceType1Code AmountPriceType { get; init; } 
     /// <summary>
     /// Value of the price.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAnd13DecimalAmount PriceValue { get; init; } 
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ FinancialInstrumentQuantity { get; init; } 
     
     #nullable disable

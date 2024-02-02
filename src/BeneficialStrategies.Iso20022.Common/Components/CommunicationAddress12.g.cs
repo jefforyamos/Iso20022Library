@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Communication device number or electronic address used for communication.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CommunicationAddress12
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record CommunicationAddress12
     /// <summary>
     /// Address for the Universal Resource Locator (URL), for example used over the www (HTTP) service.
     /// </summary>
+    [DataMember]
     public IsoMax2048Text? URLAddress { get; init; } 
     
     #nullable disable

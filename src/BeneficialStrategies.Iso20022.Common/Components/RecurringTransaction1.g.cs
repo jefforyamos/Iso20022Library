@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Financial loan (instalment) or a recurring transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RecurringTransaction1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record RecurringTransaction1
     /// <summary>
     /// Indicates the recurring/instalment occurrence of the transaction (1 = 1st instalment, 2 = 2nd instalment, etc.).
     /// </summary>
+    [DataMember]
     public required IsoMax2NumericText SequenceNumber { get; init; } 
     /// <summary>
     /// Period unit between consecutive payments (for example day, month, year).
     /// </summary>
+    [DataMember]
     public required Frequency4Code PeriodUnit { get; init; } 
     /// <summary>
     /// Number of period units between consecutive payments.
     /// </summary>
+    [DataMember]
     public required IsoNumber InstalmentPeriod { get; init; } 
     /// <summary>
     /// Total number of instalment payments.
     /// </summary>
+    [DataMember]
     public required IsoNumber TotalNumberOfPayments { get; init; } 
     /// <summary>
     /// Interest charged in percentage for the total amount of payments.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? InterestCharges { get; init; } 
     
     #nullable disable

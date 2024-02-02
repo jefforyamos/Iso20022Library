@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to report on the payment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentReturnCriteria3
 {
     #nullable enable
@@ -20,100 +22,124 @@ public partial record PaymentReturnCriteria3
     /// <summary>
     /// Indicates whether the original payment transaction message identification is requested.|Usage: this is the former TransactionReference.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? MessageIdentificationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the requested execution date is requested.|Usage: this is the former TransferValueDate.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? RequestedExecutionDateIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the instruction is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? InstructionIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the instruction status is requested.
     /// </summary>
+    [DataMember]
     public InstructionStatusReturnCriteria? InstructionStatusReturnCriteria { get; init; } 
     /// <summary>
     /// Indicates whether the instructed amount is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? InstructedAmountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the credit debit indicator is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the interbank settlement amount is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? InterbankSettlementAmountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the payment priority is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? PriorityIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the processing validity time is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? ProcessingValidityTimeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the transfer reason is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? PurposeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the instruction copy is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? InstructionCopyIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the payment message type is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? PaymentMessageTypeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the payment type is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? PaymentTypeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the transaction identification is requested.|Usage: this is the former PaymentInstructionReference.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? TransactionIdentificationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the interbank settlement date is requested.|Usage: this is the former InterbankValueDate.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? InterbankSettlementDateIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the end-to-end identification is requested.|Usage: this is the former RelatedReference.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? EndToEndIdentificationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the payment method is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? PaymentMethodIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the debtor is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? DebtorIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the debtor agent is requested.|Usage: this is the former FirstAgent.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? DebtorAgentIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the instructing reimbursement agent is requested.
     /// Usage: this is the former InstructingAgentCorrespondent.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? InstructingReimbursementAgentIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the instructed reimbursement agent is requested.
     /// Usage: this is the former InstructedAgentCorrespondent.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? InstructedReimbursementAgentIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the intermediary is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? IntermediaryIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the creditor agent is requested.|Usage: this is the former FinalAgent.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? CreditorAgentIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the creditor is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? CreditorIndicator { get; init; } 
     
     #nullable disable

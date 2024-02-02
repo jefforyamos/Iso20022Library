@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the event that require an action from one of the parties to the trade transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PendingActivity1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PendingActivity1
     /// <summary>
     /// Code which specifies the next course of action that the receiver of the message must take.
     /// </summary>
+    [DataMember]
     public required Action1Code Type { get; init; } 
     /// <summary>
     /// Further information on the course of action that the receiver of the message must take.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     
     #nullable disable

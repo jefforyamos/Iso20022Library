@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details specific to a market including which market identification and average number of transactions on the venue.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MarketDetail2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record MarketDetail2
     /// <summary>
     /// Most relevant market in terms of liquidity as defined in the local regulation.
     /// </summary>
+    [DataMember]
     public required IsoMICIdentifier Identification { get; init; } 
     /// <summary>
     /// Average daily number of transactions that have been performed on the most relevant market in terms of liquidity.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? AverageDailyNumberOfTransactions { get; init; } 
     
     #nullable disable

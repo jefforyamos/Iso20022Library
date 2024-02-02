@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Investment that is not characterised by any other financial instrument provided.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherInvestment1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record OtherInvestment1
     /// <summary>
     /// Text description of the investment.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Description { get; init; } 
     /// <summary>
     /// Value of the other investment.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

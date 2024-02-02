@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the identification of the reported party through the sector and the location.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SectorAndLocation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SectorAndLocation1
     /// <summary>
     /// Represents the counterparty institutional section (such as non-financial corporation, central bank.).
     /// </summary>
+    [DataMember]
     public required IsoSNA2008SectorIdentifier Sector { get; init; } 
     /// <summary>
     /// Location of the country in which the counterparty is incorporated.
     /// </summary>
+    [DataMember]
     public required CountryCode Location { get; init; } 
     
     #nullable disable

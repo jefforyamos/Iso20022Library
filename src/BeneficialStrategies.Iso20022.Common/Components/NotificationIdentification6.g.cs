@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the identification and the creation date of a notification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NotificationIdentification6
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NotificationIdentification6
     /// <summary>
     /// Unique identifier of the last notification document (message) assigned by the sender of the document.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax16Text Identification { get; init; } 
     /// <summary>
     /// Date and time at which the last notification document (message) was created by the sender.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? CreationDateTime { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the protocol management on a segment of the path from the ATM to the acquirer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Header20
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record Header20
     /// <summary>
     /// Identifies the type of process related to the message.
     /// </summary>
+    [DataMember]
     public required ATMMessageFunction1 MessageFunction { get; init; } 
     /// <summary>
     /// Version of the ATM protocol specifications.
     /// </summary>
+    [DataMember]
     public required IsoMax6Text ProtocolVersion { get; init; } 
     /// <summary>
     /// Unique identification of an exchange occurrence.
     /// </summary>
+    [DataMember]
     public required IsoMax3NumericText ExchangeIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Unique identification of the partner that has initiated the exchange.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text InitiatingParty { get; init; } 
     /// <summary>
     /// Unique identification of the partner that is the recipient of the message exchange.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RecipientParty { get; init; } 
     /// <summary>
     /// State of the sender of the message inside the process flow.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProcessState { get; init; } 
     /// <summary>
     /// Identification of partners involved in exchange from the merchant to the issuer, with the relative timestamp of their exchanges.
     /// </summary>
-    public Traceability4[] Traceability { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Traceability4> Traceability { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

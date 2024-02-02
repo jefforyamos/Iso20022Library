@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount, currency, exchange rate and quotation date, sign and label.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FeeAmount3
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record FeeAmount3
     /// <summary>
     /// Amount exclusive of currency.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Contains code list for a credit or debit transaction
     /// </summary>
+    [DataMember]
     public CreditDebit3Code? CreditDebit { get; init; } 
     /// <summary>
     /// Currency for the type of amount.
     /// </summary>
+    [DataMember]
     public ISO3NumericCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Exchange rate of the currency code associated with the amount. 
     /// </summary>
+    [DataMember]
     public IsoBaseOne25Rate? EffectiveExchangeRate { get; init; } 
     /// <summary>
     /// Date at which the exchange rate effective.
     /// </summary>
+    [DataMember]
     public IsoISODate? ConversionDate { get; init; } 
     /// <summary>
     /// Time at which the exchange rate effective.
     /// </summary>
+    [DataMember]
     public IsoISOTime? ConversionTime { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(UnmatchedReason3Choice.Code))]
 [KnownType(typeof(UnmatchedReason3Choice.Proprietary))]
+[DataContract]
 public abstract partial record UnmatchedReason3Choice_
 {
 }

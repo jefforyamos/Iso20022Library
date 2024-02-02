@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about an investment fund.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Fund3
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record Fund3
     /// <summary>
     /// Name of the fund/sub fund.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Identification of the fund/sub fund with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the fund/sub fund, assigned under a formal or proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public OtherIdentification4? Identification { get; init; } 
     /// <summary>
     /// Currency of the fund/sub fund.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Estimated total value of all the holdings, less the fund's liabilities, of the fund/sub fund.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? EstimatedTotalNAV { get; init; } 
     /// <summary>
     /// Previous total value of all the holdings, less the fund's liabilities, of the fund/sub fund.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? PreviousTotalNAV { get; init; } 
     /// <summary>
     /// Estimated total number of units of the fund/sub fund.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? EstimatedTotalUnitsNumber { get; init; } 
     /// <summary>
     /// Previous total number of units of the fund/sub fund.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? PreviousTotalUnitsNumber { get; init; } 
     /// <summary>
     /// Estimated consolidated net cash flow expressed as a percentage of the previous total NAV for the fund/sub fund.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? EstimatedPercentageOfFundTotalNAV { get; init; } 
     
     #nullable disable

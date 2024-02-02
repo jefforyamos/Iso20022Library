@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a document as well as the document number.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentIdentification33
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DocumentIdentification33
     /// <summary>
     /// Unique identifier of the document (message) assigned either by the account servicer or the account owner.
     /// </summary>
+    [DataMember]
     public required DocumentIdentification3Choice_ Identification { get; init; } 
     /// <summary>
     /// Identification of the type of document.
     /// </summary>
+    [DataMember]
     public DocumentNumber5Choice_? DocumentNumber { get; init; } 
     
     #nullable disable

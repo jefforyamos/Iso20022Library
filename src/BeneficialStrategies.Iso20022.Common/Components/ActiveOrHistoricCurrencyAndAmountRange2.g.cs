@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Range of amount values.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ActiveOrHistoricCurrencyAndAmountRange2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ActiveOrHistoricCurrencyAndAmountRange2
     /// <summary>
     /// Specified amount or amount range.
     /// </summary>
+    [DataMember]
     public required ImpliedCurrencyAmountRange1Choice_ Amount { get; init; } 
     /// <summary>
     /// Indicates whether the amount is a credited or debited amount.
     /// </summary>
+    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Medium of exchange of value, used to qualify an amount.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode Currency { get; init; } 
     
     #nullable disable

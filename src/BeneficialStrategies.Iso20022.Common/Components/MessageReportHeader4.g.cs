@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details of many status advice reports where many received reports are reported at once.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MessageReportHeader4
 {
     #nullable enable
@@ -22,19 +24,23 @@ public partial record MessageReportHeader4
     /// Usage:
     /// When required, this field will be populated with the BAH Business Message Identifier field. Where only a single message report header is used, this field is not used and relies solely on the BAH Business Message Identifier field.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? MessageReportIdentifier { get; init; } 
     /// <summary>
     /// Details the status of the whole message that has been received.
     /// </summary>
+    [DataMember]
     public StatusAdviceReport3? MessageStatus { get; init; } 
     /// <summary>
     /// Provides per record status on the report that has been received.
     /// </summary>
-    public StatusReportRecord3[] RecordStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StatusReportRecord3> RecordStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the status of a debtor activation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ActivationStatus2
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record ActivationStatus2
     /// <summary>
     /// Unique identification of the original instruction.
     /// </summary>
+    [DataMember]
     public OriginalBusinessInstruction1? OriginalBusinessInstruction { get; init; } 
     /// <summary>
     /// Provides detailed information on the status of the request.
     /// </summary>
+    [DataMember]
     public required ServiceStatus1Choice_ Status { get; init; } 
     /// <summary>
     /// Specifies the reason for the status of the debtor activation request.
     /// </summary>
+    [DataMember]
     public DebtorActivationStatusReason2? StatusReason { get; init; } 
     /// <summary>
     /// Provides the reference of the original activation request.
     /// </summary>
+    [DataMember]
     public OriginalActivation2Choice_? OriginalActivationReference { get; init; } 
     /// <summary>
     /// Effective date when the debtor has been activated.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? EffectiveActivationDate { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

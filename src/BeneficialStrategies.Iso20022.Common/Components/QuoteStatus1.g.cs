@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the status of a quote and the rejection reason if required.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record QuoteStatus1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record QuoteStatus1
     /// <summary>
     /// Provides information related to the status of a quote.
     /// </summary>
+    [DataMember]
     public required QuoteStatus1Code QuoteStatus { get; init; } 
     /// <summary>
     /// Provides information related to the rejection of the quote.
     /// </summary>
+    [DataMember]
     public RejectionReason3Code? RejectionReason { get; init; } 
     
     #nullable disable

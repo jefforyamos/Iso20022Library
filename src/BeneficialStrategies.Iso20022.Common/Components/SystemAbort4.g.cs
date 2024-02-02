@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// This component define the type of system service to be used with this message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemAbort4
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record SystemAbort4
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentEnvironment77 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
+    [DataMember]
     public required CardPaymentContext28 Context { get; init; } 
     /// <summary>
     /// Body of the Abort Request message.
     /// </summary>
+    [DataMember]
     public required AbortData3 SystemAbort { get; init; } 
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

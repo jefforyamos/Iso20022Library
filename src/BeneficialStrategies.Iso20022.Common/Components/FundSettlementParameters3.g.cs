@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FundSettlementParameters3
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record FundSettlementParameters3
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
+    [DataMember]
     public IsoISODate? SettlementDate { get; init; } 
     /// <summary>
     /// Place where the settlement of transaction will take place. In the context of the investment funds, the place of settlement is the transfer agent, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [DataMember]
     public required PartyIdentification2Choice_ SettlementPlace { get; init; } 
     /// <summary>
     /// Place requested as the place of safekeeping.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Identifies the securities settlement system to be used.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SecuritiesSettlementSystemIdentification { get; init; } 
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction resulting in the movement of a security from one account to another.
     /// </summary>
+    [DataMember]
     public ReceivingPartiesAndAccount3? ReceivingSideDetails { get; init; } 
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction resulting in the movement of a security from one account to another.
     /// </summary>
+    [DataMember]
     public required DeliveringPartiesAndAccount3 DeliveringSideDetails { get; init; } 
     
     #nullable disable

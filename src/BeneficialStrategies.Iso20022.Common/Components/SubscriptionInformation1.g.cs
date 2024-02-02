@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Execution of a subscription order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SubscriptionInformation1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SubscriptionInformation1
     /// <summary>
     /// Date the investment plan starts.
     /// </summary>
+    [DataMember]
     public required IsoISODate DateOfFirstSubscription { get; init; } 
     /// <summary>
     /// Amount subscribed in the current tax year into equity (not including dividends).
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? EquityComponent { get; init; } 
     /// <summary>
     /// Amount subscribed in the current tax year into cash.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? CashComponent { get; init; } 
     /// <summary>
     /// Total amount subscribed in the current tax year.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalAmountYearToDate { get; init; } 
     
     #nullable disable

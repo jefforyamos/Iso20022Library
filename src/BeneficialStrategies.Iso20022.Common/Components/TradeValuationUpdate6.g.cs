@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates an update to the valuations of a previously reported position, but not a correction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeValuationUpdate6
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record TradeValuationUpdate6
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
+    [DataMember]
     public required CounterpartyData76 CounterpartyData { get; init; } 
     /// <summary>
     /// Details of the loan used for financing the transaction.
     /// </summary>
+    [DataMember]
     public required LoanData85 LoanData { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies whether the status is provided with a reason or not.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Reason4
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record Reason4
     /// <summary>
     /// Specifies the reason of the Status.
     /// </summary>
-    public ProprietaryReason4[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProprietaryReason4> Reason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

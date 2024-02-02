@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Execution of a redemption order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RedemptionBulkExecution3
 {
     #nullable enable
@@ -20,54 +22,67 @@ public partial record RedemptionBulkExecution3
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual orders, as assigned by the instructing party. This identifier links the individual orders together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
+    [DataMember]
     public PlaceOfTradeIdentification1Choice_? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Date and time at which the order was placed by the investor.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OrderDateTime { get; init; } 
     /// <summary>
     /// Future date at which the investor requests the order to be executed.|The specification of a requested future trade date is not allowed in some markets. The date must be a date in the future.
     /// </summary>
+    [DataMember]
     public IsoISODate? RequestedFutureTradeDate { get; init; } 
     /// <summary>
     /// Cancellation right of an investor with respect to an investment fund order.
     /// </summary>
+    [DataMember]
     public CancellationRight1Code? CancellationRight { get; init; } 
     /// <summary>
     /// Cancellation right of an investor with respect to an investment fund order.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedCancellationRight { get; init; } 
     /// <summary>
     /// Investment fund class to which an investment fund order execution is related.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument10 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Execution of a redemption order.
     /// </summary>
-    public RedemptionExecution5[] IndividualExecutionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RedemptionExecution5> IndividualExecutionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency requested for settlement of cash proceeds.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? RequestedSettlementCurrency { get; init; } 
     /// <summary>
     /// Currency to be used for pricing the fund. This currency must be among the set of currencies in which the price may be expressed, as stated in the prospectus.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? RequestedNAVCurrency { get; init; } 
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the multiple order.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalSettlementAmount { get; init; } 
     /// <summary>
     /// Date on which cash is available.
     /// </summary>
+    [DataMember]
     public IsoISODate? CashSettlementDate { get; init; } 
     /// <summary>
     /// Payment processes required to transfer cash from the debtor to the creditor.
     /// </summary>
+    [DataMember]
     public PaymentTransaction22? BulkCashSettlementDetails { get; init; } 
     
     #nullable disable

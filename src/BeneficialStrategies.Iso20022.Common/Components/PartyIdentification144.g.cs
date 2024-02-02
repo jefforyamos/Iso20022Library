@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification144
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PartyIdentification144
     /// <summary>
     /// Unique identification of the party.
     /// </summary>
+    [DataMember]
     public required PartyIdentification127Choice_ Identification { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a party.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     
     #nullable disable

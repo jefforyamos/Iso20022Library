@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides detailed information on the transaction status to be updated in the tracker.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerStatus3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TrackerStatus3
     /// <summary>
     /// Specifies the status of a transaction, in a coded form.
     /// </summary>
+    [DataMember]
     public required TrackerPaymentStatus1Code Status { get; init; } 
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
+    [DataMember]
     public PaymentStatusReason2? StatusReason { get; init; } 
     /// <summary>
     /// Provides detailed information on the reject or return reason.
     /// </summary>
+    [DataMember]
     public PaymentRejectReturnReason2? RejectReturnReason { get; init; } 
     
     #nullable disable

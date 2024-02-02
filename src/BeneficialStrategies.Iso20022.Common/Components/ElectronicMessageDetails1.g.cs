@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Summary of electronic message details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ElectronicMessageDetails1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ElectronicMessageDetails1
     /// <summary>
     /// Information about separate electronic system information message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ElectronicSystemInformationMessageIdentifier { get; init; } 
     /// <summary>
     /// Information about packet of electronic system messages.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ElectronicSystemInformationMessagePacketIdentifier { get; init; } 
     
     #nullable disable

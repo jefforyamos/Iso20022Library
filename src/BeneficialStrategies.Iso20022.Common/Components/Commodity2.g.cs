@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Financial instrument representing ownership of an amount of a commodity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Commodity2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Commodity2
     /// <summary>
     /// Mark-to-market pre-haircut value.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAnd24Amount MarketValue { get; init; } 
     /// <summary>
     /// Specifies the type of commodity.
     /// </summary>
+    [DataMember]
     public required AssetClassDetailedSubProductType1Choice_ CommodityType { get; init; } 
     
     #nullable disable

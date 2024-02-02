@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Party that provides services relating to financial products to investors, eg, advice on products and placement of orders for the investment fund.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Intermediary7
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Intermediary7
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution, eg, Dun & Bradstreet Identification.
     /// </summary>
+    [DataMember]
     public required PartyIdentification2Choice_ Identification { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>
+    [DataMember]
     public Account2? Account { get; init; } 
     
     #nullable disable

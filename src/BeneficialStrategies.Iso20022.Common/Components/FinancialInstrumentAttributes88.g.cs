@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Elements characterising a financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentAttributes88
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FinancialInstrumentAttributes88
     /// <summary>
     /// Specifies fixed contract term, or the maximum contract term cleared.
     /// </summary>
+    [DataMember]
     public InterestRateContractTerm1? ContractTerm { get; init; } 
     /// <summary>
     /// Indicates whether certain terms of the derivative are defined purely according to exchange specifications or can be user defined.
     /// </summary>
-    public Standardisation1Code[] Standardisation { get; init; } = [];
+    [DataMember]
+    public ValueList<Standardisation1Code> Standardisation { get; init; } = [];
     /// <summary>
     /// Schedule for leg payments.
     /// </summary>
+    [DataMember]
     public required Frequency11Code PaymentFrequency { get; init; } 
     
     #nullable disable

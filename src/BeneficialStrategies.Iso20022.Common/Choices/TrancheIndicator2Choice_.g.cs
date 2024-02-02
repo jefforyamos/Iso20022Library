@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TrancheIndicator2Choice.Tranched))]
 [KnownType(typeof(TrancheIndicator2Choice.Untranched))]
+[DataContract]
 public abstract partial record TrancheIndicator2Choice_
 {
 }

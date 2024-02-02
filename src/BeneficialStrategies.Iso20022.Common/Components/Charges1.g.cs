@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of charge and the amont.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Charges1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Charges1
     /// <summary>
     /// Type of charges.
     /// </summary>
+    [DataMember]
     public ChargeType2FormatChoice_? Type { get; init; } 
     /// <summary>
     /// Amount of charges.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

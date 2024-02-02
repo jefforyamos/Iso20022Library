@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains additional data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalData1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AdditionalData1
     /// <summary>
     /// Type of information.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Value of a specific type of data.
     /// </summary>
+    [DataMember]
     public IsoMax2048Text? Value { get; init; } 
     
     #nullable disable

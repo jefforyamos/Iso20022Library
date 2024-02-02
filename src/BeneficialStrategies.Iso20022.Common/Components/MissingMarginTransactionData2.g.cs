@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed information about the outstanding derivatives for which no margin or outdated margin information has been reported.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MissingMarginTransactionData2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record MissingMarginTransactionData2
     /// <summary>
     /// Identification of a transaction.
     /// </summary>
+    [DataMember]
     public required TradeTransactionIdentification24 TransactionIdentification { get; init; } 
     /// <summary>
     /// Indicates the date and time of the last collateral amount determination or calculation.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CollateralTimeStamp { get; init; } 
     
     #nullable disable

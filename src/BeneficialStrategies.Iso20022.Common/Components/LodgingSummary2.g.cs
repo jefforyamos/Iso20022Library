@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data pertaining to a lodging transaction. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LodgingSummary2
 {
     #nullable enable
@@ -20,70 +22,87 @@ public partial record LodgingSummary2
     /// <summary>
     /// Contains the lodging company's invoice or billing ID reference number, referred to as a folio number. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? FolioNumber { get; init; } 
     /// <summary>
     /// Details of the lodging property. 
     /// </summary>
+    [DataMember]
     public LodgingProperty2? Property { get; init; } 
     /// <summary>
     /// Contains customer details.
     /// </summary>
+    [DataMember]
     public Customer8? Customer { get; init; } 
     /// <summary>
     /// Number of rooms within the reservation. 
     /// </summary>
+    [DataMember]
     public IsoMax4NumericText? NumberOfRooms { get; init; } 
     /// <summary>
     /// Contains the room details. 
     /// </summary>
-    public LodgingRoom1[] Room { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LodgingRoom1> Room { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Duration of stay in days.
     /// </summary>
+    [DataMember]
     public IsoMax4NumericText? Duration { get; init; } 
     /// <summary>
     /// Lodging transaction details.
     /// </summary>
+    [DataMember]
     public DepartureOrArrival2? Arrival { get; init; } 
     /// <summary>
     /// Contains departure details. 
     /// </summary>
+    [DataMember]
     public DepartureOrArrival1? Departure { get; init; } 
     /// <summary>
     /// Indicates that the cardholder failed to arrive at the property and was therefore charged a no-show fee; property was not actually rented. 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? NoShowIndicator { get; init; } 
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
     /// <summary>
     /// Amount of insurance.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? InsuranceAmount { get; init; } 
     /// <summary>
     /// Taxes related to the products or services. 
     /// </summary>
-    public Tax39[] TotalTax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax39> TotalTax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains the total amount of lodging expenses.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     /// <summary>
     /// Contains Authorised amount details.
     /// </summary>
-    public AuthorisedAmount1[] AuthorisedAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AuthorisedAmount1> AuthorisedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     /// <summary>
     /// Loyalty programme details. 
     /// </summary>
-    public LoyaltyProgramme2[] LoyaltyProgramme { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LoyaltyProgramme2> LoyaltyProgramme { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional user-defined data pertaining to the lodging. 
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable

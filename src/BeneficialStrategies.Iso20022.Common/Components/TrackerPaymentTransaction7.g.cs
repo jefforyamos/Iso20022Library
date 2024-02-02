@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Key elements used to identify the original transaction(s) that is being referred to.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerPaymentTransaction7
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record TrackerPaymentTransaction7
     /// <summary>
     /// Provides information on the original tracked message that contained the transaction.
     /// </summary>
+    [DataMember]
     public OriginalBusinessInstruction4? TrackedMessageIdentification { get; init; } 
     /// <summary>
     /// Party that provides information on the alert status and related details.
     /// </summary>
+    [DataMember]
     public TrackerPartyIdentification2? TrackerInformingParty { get; init; } 
     /// <summary>
     /// Party that is updated on the alert status and related details.
     /// </summary>
+    [DataMember]
     public TrackerPartyIdentification2? TrackerInformedParty { get; init; } 
     /// <summary>
     /// Set of elements used to reference a payment instruction.
     /// </summary>
+    [DataMember]
     public PaymentIdentification10? PaymentIdentification { get; init; } 
     /// <summary>
     /// Agreement under which or rules under which the payment transaction should be processed.
     /// </summary>
+    [DataMember]
     public ServiceLevel8Choice_? ServiceLevel { get; init; } 
     
     #nullable disable

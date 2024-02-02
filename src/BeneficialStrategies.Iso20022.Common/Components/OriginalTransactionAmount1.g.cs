@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount related to the original transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalTransactionAmount1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record OriginalTransactionAmount1
     /// <summary>
     /// Qualifies the amount of the transaction.
     /// </summary>
+    [DataMember]
     public TypeOfAmount11Code? AmountQualifier { get; init; } 
     /// <summary>
     /// Actual amount of the transaction.
     /// </summary>
+    [DataMember]
     public required TransactionAmount1 TransactionAmount { get; init; } 
     /// <summary>
     /// Amount to be billed to cardholder.
     /// </summary>
+    [DataMember]
     public Amount4? CardholderBillingAmount { get; init; } 
     /// <summary>
     /// Amount used for reconciliation.
     /// </summary>
+    [DataMember]
     public Amount4? ReconciliationAmount { get; init; } 
     
     #nullable disable

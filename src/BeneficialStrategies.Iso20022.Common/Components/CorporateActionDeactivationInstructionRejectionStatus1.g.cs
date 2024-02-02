@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides reason of the rejection of a deactivation instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionDeactivationInstructionRejectionStatus1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionDeactivationInstructionRejectionStatus1
     /// <summary>
     /// The rejection reason.
     /// </summary>
-    public RejectionReason12FormatChoice_[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RejectionReason12FormatChoice_> Reason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the status.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

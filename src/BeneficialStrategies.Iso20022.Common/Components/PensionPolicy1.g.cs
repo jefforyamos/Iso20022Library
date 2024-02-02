@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a pension policy.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PensionPolicy1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PensionPolicy1
     /// <summary>
     /// Reference number of the pension policy, plan or scheme.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identifier { get; init; } 
     /// <summary>
     /// Sub-identification of the pension policy, plan or scheme, such as a member reference.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SubIdentifier { get; init; } 
     /// <summary>
     /// Additional information about the identification of the pension policy, plan or scheme.
     /// </summary>
+    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable

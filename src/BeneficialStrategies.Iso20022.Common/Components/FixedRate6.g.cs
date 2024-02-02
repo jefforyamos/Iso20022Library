@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Fixed rate related information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FixedRate6
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FixedRate6
     /// <summary>
     /// An indication of the fixed rate used.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Actual number of days in the relevant fixed rate calculation period.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DayCount { get; init; } 
     /// <summary>
     /// Information related to payment frequency.
     /// </summary>
+    [DataMember]
     public InterestRateFrequency2Choice_? PaymentFrequency { get; init; } 
     
     #nullable disable

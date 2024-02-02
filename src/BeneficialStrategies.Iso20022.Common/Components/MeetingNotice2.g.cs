@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the shareholders meeting, specifying the participation requirements and the voting procedures. Alternatively, it may indicate where such information may be obtained.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MeetingNotice2
 {
     #nullable enable
@@ -20,94 +22,117 @@ public partial record MeetingNotice2
     /// <summary>
     /// Identification assigned to a general meeting by the party notifying the meeting. It must be unique for the party notifying the meeting.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MeetingIdentification { get; init; } 
     /// <summary>
     /// Identification assigned to a meeting by the issuer. It must be unique for the issuer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? IssuerMeetingIdentification { get; init; } 
     /// <summary>
     /// Specifies the type of security holders meeting.
     /// </summary>
+    [DataMember]
     public required MeetingType2Code Type { get; init; } 
     /// <summary>
     /// Classifies the type of meeting.
     /// </summary>
+    [DataMember]
     public MeetingTypeClassification1Code? Classification { get; init; } 
     /// <summary>
     /// This code can be used in case another meeting classifications is required.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedClassification { get; init; } 
     /// <summary>
     /// Official meeting announcement date.
     /// </summary>
+    [DataMember]
     public IsoISODate? AnnouncementDate { get; init; } 
     /// <summary>
     /// Indicates whether physical participation to a meeting is required in order to be allowed to vote.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator AttendanceRequired { get; init; } 
     /// <summary>
     /// Indicates how to order the attendance card or to give notice of attendance.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AttendanceConfirmationInformation { get; init; } 
     /// <summary>
     /// Date and time by which the beneficial owner or agent must notify of their intention to participate in a meeting. This deadline is set by an intermediary.
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? AttendanceConfirmationDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the beneficial owner or agent must notify of their intention to participate in a meeting (STP mode). This deadline is set by an intermediary.
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? AttendanceConfirmationSTPDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the attendance to the meeting should be confirmed. This deadline is set by the issuer.
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? AttendanceConfirmationMarketDeadline { get; init; } 
     /// <summary>
     /// Address to use over the www (HTTP) service where addtional information on the meeting may be found.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? AdditionalDocumentationURLAddress { get; init; } 
     /// <summary>
     /// Date and time by which security holders can propose amendments or new resolutions. This deadline is set by an intermediary.
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? ResolutionProposalDeadline { get; init; } 
     /// <summary>
     /// Date and time by which security holders can propose amendments or new resolutions. This deadline is set by the issuer.
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? ResolutionProposalMarketDeadline { get; init; } 
     /// <summary>
     /// Specifies the minimum stake in share capital or cash value or number of security holders required to table resolutions.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? ResolutionProposalThreshold { get; init; } 
     /// <summary>
     /// Specifies the minimum stake in share capital or cash value or number of security holders required to table resolutions. This minimum is expressed as a percentage.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? ResolutionProposalThresholdPercentage { get; init; } 
     /// <summary>
     /// Number of securities admitted to the vote, expressed as an amount and a currency.
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? TotalNumberOfSecuritiesOutstanding { get; init; } 
     /// <summary>
     /// Number of rights admitted to the vote.
     /// </summary>
+    [DataMember]
     public IsoNumber? TotalNumberOfVotingRights { get; init; } 
     /// <summary>
     /// Address where the information on the proxy should be sent.
     /// </summary>
+    [DataMember]
     public PostalAddress1? ProxyAppointmentNotificationAddress { get; init; } 
     /// <summary>
     /// Indicates that no proxy is allowed for a meeting.
     /// </summary>
+    [DataMember]
     public ProxyNotAllowedCode? ProxyNotAllowed { get; init; } 
     /// <summary>
     /// Specifies the elements required to assign a proxy.
     /// </summary>
+    [DataMember]
     public ProxyAppointmentInformation1? Proxy { get; init; } 
     /// <summary>
     /// Contact person at the party organising the meeting, at the issuer or at an intermediary.
     /// </summary>
-    public MeetingContactPerson1[] ContactPersonDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<MeetingContactPerson1> ContactPersonDetails { get; init; } = [];
     /// <summary>
     /// Date on which a company publishes the results of its meeting.
     /// </summary>
+    [DataMember]
     public DateFormat3Choice_? ResultPublicationDate { get; init; } 
     
     #nullable disable

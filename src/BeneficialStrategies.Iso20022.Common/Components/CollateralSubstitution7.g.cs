@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details about the collateral that will be substituted.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralSubstitution7
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record CollateralSubstitution7
     /// <summary>
     /// Indicates whether the collateral substitution request is new or updated.
     /// </summary>
+    [DataMember]
     public required CollateralSubstitutionSequence1Code CollateralSubstitutionSequence { get; init; } 
     /// <summary>
     /// Cash value of the requested collateral substitution transfer in the base currency.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount SubstitutionRequirement { get; init; } 
     /// <summary>
     /// Specifies if the collateral that is substituted was posted against the variation margin or the independent amount.
     /// </summary>
+    [DataMember]
     public required CollateralSubstitutionType1Code CollateralSubstitutionType { get; init; } 
     /// <summary>
     /// Identifies the standard settlement instructions.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? StandardSettlementInstructions { get; init; } 
     /// <summary>
     /// Collateral type is securities.
     /// </summary>
-    public SecuritiesCollateral11[] SecuritiesCollateral { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecuritiesCollateral11> SecuritiesCollateral { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Collateral type is cash.
     /// </summary>
-    public CashCollateral5[] CashCollateral { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashCollateral5> CashCollateral { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Collateral type is other than securities or cash for example letter of credit.
     /// </summary>
-    public OtherCollateral11[] OtherCollateral { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OtherCollateral11> OtherCollateral { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides details on the identification of previously sent and/or received message(s), in case of updated substitution request.
     /// </summary>
+    [DataMember]
     public Reference17? LinkedReferences { get; init; } 
     
     #nullable disable

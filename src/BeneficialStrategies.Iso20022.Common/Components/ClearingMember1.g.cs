@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Legal counterpart to trades cleared through a central counterparty.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ClearingMember1
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record ClearingMember1
     /// <summary>
     /// Identification of the clearing member.
     /// </summary>
+    [DataMember]
     public required PartyIdentification118Choice_ Identification { get; init; } 
     /// <summary>
     /// Credit quality for the clearing member.
     /// </summary>
+    [DataMember]
     public required CreditQuality1Code CreditQuality { get; init; } 
     /// <summary>
     /// Identification of the ultimate parent of a clearing member if it is not the parent company itself.
     /// </summary>
+    [DataMember]
     public PartyIdentification118Choice_? UltimateParentIdentification { get; init; } 
     /// <summary>
     /// Identifies whether the clearing member is registered under the Commodity Exchange Act.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator FuturesCommissionMerchantIndicator { get; init; } 
     /// <summary>
     /// Date on which the entity becomes a clearing member contractually subject to the CCP’s Rulebook.
     /// </summary>
+    [DataMember]
     public required IsoISODate MembershipValidFrom { get; init; } 
     /// <summary>
     /// Date on which the clearing member is no longer a member in any clearing services protected by the default waterfall as defined by the CCP’s rules. Typically this will be the day the clearing member’s default fund contribution is repaid or they are no longer contractually subject to rights of assessment.
     /// </summary>
+    [DataMember]
     public IsoISODate? MembershipValidTo { get; init; } 
     /// <summary>
     /// Identification of another clearing member or institution that acts as sponsor to the clearing member, undertaking certain of its obligations at the central counterparty on its behalf. These obligations typically include, but are not limited to, making default fund contributions and participating in default auctions.
     /// </summary>
+    [DataMember]
     public PartyIdentification118Choice_? SponsoringClearingMemberIdentification { get; init; } 
     /// <summary>
     /// Operational construct of a central counterparty that defines the relationship between collateral, margin and position accounts and upon default of a clearing member defines the segregation of losses on positions and assets held in that account.
     /// </summary>
-    public ClearingAccount1[] ClearingAccountOwner { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ClearingAccount1> ClearingAccountOwner { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

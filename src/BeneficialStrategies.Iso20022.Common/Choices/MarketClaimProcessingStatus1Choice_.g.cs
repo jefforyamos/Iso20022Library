@@ -15,6 +15,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(MarketClaimProcessingStatus1Choice.Pending))]
 [KnownType(typeof(MarketClaimProcessingStatus1Choice.MatchingStatus))]
 [KnownType(typeof(MarketClaimProcessingStatus1Choice.ProprietaryStatus))]
+[DataContract]
 public abstract partial record MarketClaimProcessingStatus1Choice_
 {
 }

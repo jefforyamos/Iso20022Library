@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the customer device.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Device1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record Device1
     /// <summary>
     /// Type of customer device.
     /// </summary>
+    [DataMember]
     public required CustomerDeviceType1Code Type { get; init; } 
     /// <summary>
     /// Other type of customer device in free text.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Preferred language set on the device
     /// </summary>
+    [DataMember]
     public LanguageCode? Language { get; init; } 
     /// <summary>
     /// Phone number associated with the device.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? PhoneNumber { get; init; } 
     /// <summary>
     /// Geographical location of the device.
     /// </summary>
+    [DataMember]
     public GeographicCoordinates1? Location { get; init; } 
     /// <summary>
     /// Internet Protocol address associated with the device.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? IPAddress { get; init; } 
     /// <summary>
     /// Electronic mail address associated with the device.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Email { get; init; } 
     
     #nullable disable

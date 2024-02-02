@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the request of maintenance delegations.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MaintenanceDelegationRequest9
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record MaintenanceDelegationRequest9
     /// <summary>
     /// Terminal manager identification.
     /// </summary>
+    [DataMember]
     public required GenericIdentification176 TMIdentification { get; init; } 
     /// <summary>
     /// Master terminal manager identification.
     /// </summary>
+    [DataMember]
     public GenericIdentification176? MasterTMIdentification { get; init; } 
     /// <summary>
     /// Date and Time of the TMS.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime TMDateTime { get; init; } 
     /// <summary>
     /// Challenge value sends by the POI to be received back in a message response.
     /// </summary>
+    [DataMember]
     public required IsoMax140Binary TMChallengeValue { get; init; } 
     /// <summary>
     /// Information on the delegation of a maintenance action.
     /// </summary>
-    public MaintenanceDelegation15[] RequestedDelegation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MaintenanceDelegation15> RequestedDelegation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

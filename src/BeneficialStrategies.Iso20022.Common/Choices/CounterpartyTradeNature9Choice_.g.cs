@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(CounterpartyTradeNature9Choice.NonFinancialInstitution))]
 [KnownType(typeof(CounterpartyTradeNature9Choice.CentralCounterParty))]
 [KnownType(typeof(CounterpartyTradeNature9Choice.Other))]
+[DataContract]
 public abstract partial record CounterpartyTradeNature9Choice_
 {
 }

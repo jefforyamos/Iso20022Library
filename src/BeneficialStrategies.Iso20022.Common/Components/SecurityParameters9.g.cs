@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Security parameters of the ATM for the initiated key download.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityParameters9
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record SecurityParameters9
     /// <summary>
     /// Cryptographic key used to protect the key download.
     /// </summary>
+    [DataMember]
     public CryptographicKey12? Key { get; init; } 
     /// <summary>
     /// Element containing the signature.
     /// </summary>
+    [DataMember]
     public ATMSignature2Choice_? SignatureChoice { get; init; } 
     /// <summary>
     /// Ordered certificate chain of the asymmetric key encryption key, starting with the ATM certificate.
     /// </summary>
-    public IsoMax5000Binary[] Certificate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax5000Binary> Certificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Random value from the ATM to avoid message replay.
     /// </summary>
+    [DataMember]
     public IsoMax140Binary? ATMChallenge { get; init; } 
     /// <summary>
     /// Requested key for downloading, depending on the key hierarchy used by the host.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RequestedKey { get; init; } 
     
     #nullable disable

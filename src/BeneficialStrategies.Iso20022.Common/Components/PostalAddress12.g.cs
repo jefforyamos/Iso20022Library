@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Address of a party expressed in a formal structure.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PostalAddress12
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PostalAddress12
     /// <summary>
     /// Name of a built-up area, with defined boundaries, and a local government.|.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TownName { get; init; } 
     /// <summary>
     /// Identifies a subdivision of a country eg, state, region, county.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CountrySubDivision { get; init; } 
     /// <summary>
     /// Nation with its own government.
     /// </summary>
+    [DataMember]
     public required CountryCode Country { get; init; } 
     
     #nullable disable

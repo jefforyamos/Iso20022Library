@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional specific modification criteria.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalInformation26
 {
     #nullable enable
@@ -20,54 +22,67 @@ public partial record AdditionalInformation26
     /// <summary>
     /// Identification of the transaction as known by the account owner. Will be used in a unilateral split to provide the executing party with the account owner identification of each split transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountOwnerTransactionIdentification { get; init; } 
     /// <summary>
     /// Type of instrument involved in the transactions on which the modification request should apply.
     /// </summary>
+    [DataMember]
     public ClassificationType32Choice_? ClassificationType { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
+    [DataMember]
     public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// Identification of the financial instrument to which the modification request applied.
     /// </summary>
+    [DataMember]
     public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Quantity of financial instrument concerned by the settlement condition modification request.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity33Choice_? Quantity { get; init; } 
     /// <summary>
     /// Date/time when the request should take effect.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? EffectiveDate { get; init; } 
     /// <summary>
     /// Date/time when the request should cease to be in effect.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? ExpiryDate { get; init; } 
     /// <summary>
     /// Date/time of the release.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? CutOffDate { get; init; } 
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
     /// </summary>
+    [DataMember]
     public PartyIdentification136? Investor { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain, interacts with the depository.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount195? DeliveringParty1 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain, interacts with the depository.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount195? ReceivingParty1 { get; init; } 
     /// <summary>
     /// The transaction relates to a buy-in by the market following a delivery transaction failure.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? TransactionSubjectToBuyIn { get; init; } 
     
     #nullable disable

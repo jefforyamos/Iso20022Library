@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Settlement transaction numbering information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TotalNumber1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TotalNumber1
     /// <summary>
     /// Sequential number of the instruction in a range of linked settlement instructions.
     /// </summary>
+    [DataMember]
     public required IsoExact3NumericText CurrentInstructionNumber { get; init; } 
     /// <summary>
     /// Total number of settlement instructions that are linked together.
     /// </summary>
+    [DataMember]
     public required IsoExact3NumericText TotalOfLinkedInstructions { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transaction for which the exception is sent.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransaction27
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ATMTransaction27
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
+    [DataMember]
     public TransactionIdentifier1? TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Exception occurring outside the service.
     /// </summary>
-    public FailureReason8Code[] Exception { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FailureReason8Code> Exception { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Explanation of the exception.
     /// </summary>
-    public IsoMax70Text[] ExceptionDetail { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax70Text> ExceptionDetail { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Balance of the captured card or epurse if available.
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? ElectronicPurseBalance { get; init; } 
     
     #nullable disable

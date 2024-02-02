@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status report of the individual orders of a bulk or multiple order that was previously received.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IndividualOrderStatusAndReason1
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record IndividualOrderStatusAndReason1
     /// <summary>
     /// Status of the order is accepted or already executed or sent to next party or received. There is no reason attached.
     /// </summary>
+    [DataMember]
     public required OrderStatus2Code Status { get; init; } 
     /// <summary>
     /// Status of the individual order details is cancelled.
     /// </summary>
+    [DataMember]
     public required CancelledStatus1 Cancelled { get; init; } 
     /// <summary>
     /// Status of the individual order details is conditionally accepted.
     /// </summary>
+    [DataMember]
     public required ConditionallyAcceptedStatus1 ConditionallyAccepted { get; init; } 
     /// <summary>
     /// Status of the individual order details is in repair.
     /// </summary>
+    [DataMember]
     public required InRepairStatus1 InRepair { get; init; } 
     /// <summary>
     /// Status of the individual order details is rejected.
     /// </summary>
+    [DataMember]
     public required RejectedStatus3 Rejected { get; init; } 
     /// <summary>
     /// Status of the individual order details is suspended.
     /// </summary>
+    [DataMember]
     public required SuspendedStatus1 Suspended { get; init; } 
     /// <summary>
     /// Elements from the original individual order details that have been repaired so that the order can be accepted.
     /// </summary>
+    [DataMember]
     public required RepairedConditions2 RepairedConditions { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     /// <summary>
     /// Choice between the investment account and the financial instrument.
     /// </summary>
+    [DataMember]
     public InvestmentAccountOrFinancialInstrument1Choice_? InvestmentAccountOrFinancialInstrument { get; init; } 
     /// <summary>
     /// Information that has been added to the original order.
     /// </summary>
+    [DataMember]
     public ExpectedExecutionDetails1? NewDetails { get; init; } 
     
     #nullable disable

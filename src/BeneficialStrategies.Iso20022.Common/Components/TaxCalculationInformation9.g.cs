@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information used to calculate the tax.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxCalculationInformation9
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record TaxCalculationInformation9
     /// <summary>
     /// Form of the rebate, for example, cash.
     /// </summary>
+    [DataMember]
     public required TaxBasis1Choice_ Basis { get; init; } 
     
     #nullable disable

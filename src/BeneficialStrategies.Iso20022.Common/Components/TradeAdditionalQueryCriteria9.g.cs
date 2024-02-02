@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Query criteria regarding action type, product classification, venue of execution, asset class, corporate sector nature of counterparty.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeAdditionalQueryCriteria9
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record TradeAdditionalQueryCriteria9
     /// <summary>
     /// Code list of the action types allowed as query criteria.
     /// </summary>
-    public TransactionOperationType8Code[] ActionType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionOperationType8Code> ActionType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the execution venue of the reported transaction.
     /// </summary>
+    [DataMember]
     public SecuritiesTradeVenueCriteria1Choice_? ExecutionVenue { get; init; } 
     /// <summary>
     /// Indicates the nature of the reporting counterparty (if is a CCP, a financial, non-financial counterparty or other type of counterparty).
     /// </summary>
+    [DataMember]
     public PartyNatureType1Code? NatureOfCounterparty { get; init; } 
     /// <summary>
     /// Specifies the corporate sector of the reporting counterparty.
     /// </summary>
+    [DataMember]
     public CorporateSectorCriteria6? CorporateSector { get; init; } 
     /// <summary>
     /// Code list of available values for asset class criteria.
     /// </summary>
-    public ProductType4Code[] AssetClass { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProductType4Code> AssetClass { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the product classification of the reported transaction.
     /// </summary>
+    [DataMember]
     public ProductClassificationCriteria1? ProductClassification { get; init; } 
     /// <summary>
     /// Information concerning the reported transaction level type.
     /// </summary>
+    [DataMember]
     public ModificationLevel1Code? Level { get; init; } 
     /// <summary>
     /// Classification of derivative event type.
     /// </summary>
-    public DerivativeEventType3Code[] EventType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DerivativeEventType3Code> EventType { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

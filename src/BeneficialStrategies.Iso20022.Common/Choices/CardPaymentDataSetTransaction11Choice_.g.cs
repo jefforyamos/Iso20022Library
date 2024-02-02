@@ -15,6 +15,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(CardPaymentDataSetTransaction11Choice.AuthorisationResponse))]
 [KnownType(typeof(CardPaymentDataSetTransaction11Choice.TokenRequest))]
 [KnownType(typeof(CardPaymentDataSetTransaction11Choice.TokenResponse))]
+[DataContract]
 public abstract partial record CardPaymentDataSetTransaction11Choice_
 {
 }

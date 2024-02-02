@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the account to or from which a securities entry is made and the usage type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IssuanceAccount2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record IssuanceAccount2
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public required SecuritiesAccount19 IssuanceAccount { get; init; } 
     /// <summary>
     /// Defines if the related issuance account is the primary account or not.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator PrimaryAccountIndicator { get; init; } 
     
     #nullable disable

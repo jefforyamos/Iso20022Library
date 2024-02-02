@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment funds transfer instructions from intraday queue.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record QueuedTransactionsReport1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record QueuedTransactionsReport1
     /// <summary>
     /// List of queue names/ identifiers.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text QueueType { get; init; } 
     /// <summary>
     /// Number of transactions in the queue.
     /// </summary>
+    [DataMember]
     public IsoNumber? NumberOfTransactions { get; init; } 
     /// <summary>
     /// Total amount of transactions in a given queue.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalAmount { get; init; } 
     /// <summary>
     /// Transaction details sorted by counterparty account.
     /// </summary>
-    public QueueTransaction1[] BreakdownByCounterparty { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QueueTransaction1> BreakdownByCounterparty { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

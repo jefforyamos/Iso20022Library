@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Choice of formats to express the type of cash balance.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashBalanceType1FormatType
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CashBalanceType1FormatType
     /// <summary>
     /// Standard code to specify the type of cash balance.
     /// </summary>
+    [DataMember]
     public required CashBalanceType1Code Code { get; init; } 
     /// <summary>
     /// Proprietary code to express the type of cash balance.
     /// </summary>
+    [DataMember]
     public required GenericIdentification13 Proprietary { get; init; } 
     
     #nullable disable

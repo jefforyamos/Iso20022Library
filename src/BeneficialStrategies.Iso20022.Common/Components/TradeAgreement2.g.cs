@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Date and identification of a trade together with references to previous events in its life.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeAgreement2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record TradeAgreement2
     /// <summary>
     /// Date at which the trading parties have agreed to amend or cancel a treasury trade.
     /// </summary>
+    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Identification of a notification.This identification must be unique amongst all notifications of same type confirmed by the same party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text NotificationIdentification { get; init; } 
     /// <summary>
     /// Reference common to the parties of a trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CommonReference { get; init; } 
     /// <summary>
     /// Describes the reason for the cancellation or the amendment.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AmendOrCancelReason { get; init; } 
     /// <summary>
     /// Refers to the identification of a previous event in the life of a trade which is amended or cancelled.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text RelatedReference { get; init; } 
     
     #nullable disable

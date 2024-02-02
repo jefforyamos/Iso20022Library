@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Merchant performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Organisation26
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Organisation26
     /// <summary>
     /// Name of the merchant.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text CommonName { get; init; } 
     /// <summary>
     /// Location of the merchant.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Address { get; init; } 
     /// <summary>
     /// Country of the merchant.
     /// </summary>
+    [DataMember]
     public required ISO3NumericCountryCode CountryCode { get; init; } 
     /// <summary>
     /// Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction.
     /// </summary>
+    [DataMember]
     public required IsoMin3Max4Text MerchantCategoryCode { get; init; } 
     /// <summary>
     /// Identifier of the sponsored merchant assigned by the payment facilitator of their acquirer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text RegisteredIdentifier { get; init; } 
     
     #nullable disable

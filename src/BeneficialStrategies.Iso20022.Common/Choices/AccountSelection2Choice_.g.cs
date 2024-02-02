@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(AccountSelection2Choice.AccountIdentification))]
 [KnownType(typeof(AccountSelection2Choice.OtherAccountSelectionData))]
+[DataContract]
 public abstract partial record AccountSelection2Choice_
 {
 }

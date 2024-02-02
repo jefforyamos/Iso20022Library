@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money associated with a service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ChargesDetails3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ChargesDetails3
     /// <summary>
     /// Specifies the type of charges as a code or free text.
     /// </summary>
+    [DataMember]
     public required ChargesType1Choice_ Type { get; init; } 
     /// <summary>
     /// Specifies if it is a fixed amount or a percentage.
     /// </summary>
+    [DataMember]
     public required AmountOrPercentage2Choice_ AmountOrPercentage { get; init; } 
     
     #nullable disable

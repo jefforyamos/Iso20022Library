@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the cash-in and cash-out flows by country.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BreakdownByCountry2
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record BreakdownByCountry2
     /// <summary>
     /// Country for which the cash flow is being reported.
     /// </summary>
+    [DataMember]
     public required CountryCode Country { get; init; } 
     /// <summary>
     /// Cash movement into the fund as a result of transactions in shares in an investment fund, for example, subscriptions or switch-ins.
     /// </summary>
-    public CashInForecast5[] CashInForecast { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashInForecast5> CashInForecast { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash movement out of the fund as a result of transactions in shares in an investment fund, for example, redemptions or switch-outs.
     /// </summary>
-    public CashOutForecast5[] CashOutForecast { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashOutForecast5> CashOutForecast { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net cash as a result of the cash-in and cash-out flows specified for the country.
     /// </summary>
-    public NetCashForecast4[] NetCashForecast { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NetCashForecast4> NetCashForecast { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

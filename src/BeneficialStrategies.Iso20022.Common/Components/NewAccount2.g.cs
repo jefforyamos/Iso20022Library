@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the new account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NewAccount2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record NewAccount2
     /// <summary>
     /// Details of the new account.
     /// </summary>
+    [DataMember]
     public required CashAccount39 Account { get; init; } 
     /// <summary>
     /// Party or parties to be identified in the context of account operations.
     /// </summary>
-    public IndividualPerson36[] AccountParty { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IndividualPerson36> AccountParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.
     /// </summary>
+    [DataMember]
     public Organisation35? Organisation { get; init; } 
     
     #nullable disable

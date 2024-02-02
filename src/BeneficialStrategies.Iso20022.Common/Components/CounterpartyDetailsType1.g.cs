@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information of the counterparty in case of [sankaku] gappei (a third party is involved as one of the counterparties in the merger but there is no security movement from the third party).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CounterpartyDetailsType1
 {
     #nullable enable
@@ -20,18 +22,21 @@ public partial record CounterpartyDetailsType1
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification15 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Classification of the Issuer or the Counterparty institution in case of a merger.
     /// 存続/消滅/親会社/子会社/未定の区分
     /// ※イベントタイプがMRGRの場合に、存続会社or消滅会社、親会社or子会社の通知を見分けるために必要。.
     /// </summary>
+    [DataMember]
     public InstitutionalClassificationCode? PostEffectiveDateClassification { get; init; } 
     /// <summary>
     /// Abbreviated name of underlying securities in the local language.
     /// Note that in case of non-listed securities, it will be a full local language security name.
     /// 銘柄名（銘柄略称）.
     /// </summary>
+    [DataMember]
     public required IsoMax240Text AbbreviatedLocalLanguageSecurityName { get; init; } 
     
     #nullable disable

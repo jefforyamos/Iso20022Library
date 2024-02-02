@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the cash account elements of a parent cash account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ParentCashAccount4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ParentCashAccount4
     /// <summary>
     /// Defines the parent account level within a hierarchy.
     /// </summary>
+    [DataMember]
     public AccountLevel1Code? Level { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the parent account between the parent account owner and the parent account servicer.
     /// </summary>
+    [DataMember]
     public required CashAccount40 Identification { get; init; } 
     /// <summary>
     /// Financial institution in which the parent account resides.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? Servicer { get; init; } 
     
     #nullable disable

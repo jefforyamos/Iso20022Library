@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the billing price of a service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BillingPrice1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record BillingPrice1
     /// <summary>
     /// Currency code in which the unit price and original charge price are expressed.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Price per item or unit used to calculate the charge expressed in the pricing currency.
     /// </summary>
+    [DataMember]
     public AmountAndDirection34? UnitPrice { get; init; } 
     /// <summary>
     /// Identifies how the charge was calculated. ||Usage: The absence of this code assumes that the charge is calculated as the product of (volume x unit price).
     /// </summary>
+    [DataMember]
     public BillingChargeMethod1Code? Method { get; init; } 
     /// <summary>
     /// Indicates that the charge calculation is based on a particular rule. The rule name is carried here and is defined by the trading partners.
     /// </summary>
+    [DataMember]
     public IsoMax20Text? Rule { get; init; } 
     
     #nullable disable

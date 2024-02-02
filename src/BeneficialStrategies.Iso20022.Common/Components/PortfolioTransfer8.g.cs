@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Type of product and assets to be transferred.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PortfolioTransfer8
 {
     #nullable enable
@@ -20,47 +22,58 @@ public partial record PortfolioTransfer8
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Identification assigned to the transfer of assets.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferIdentification { get; init; } 
     /// <summary>
     /// Identification of the confirmation assigned by the transferor to the transfer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TransferConfirmationIdentification { get; init; } 
     /// <summary>
     /// Date for which the instructing party requests the transfer of the portfolio as a whole.
     /// </summary>
+    [DataMember]
     public IsoISODate? RequestedTransferDate { get; init; } 
     /// <summary>
     /// Choice of tax efficient product, general investment or pension.
     /// </summary>
+    [DataMember]
     public FundPortfolio6Choice_? Portfolio { get; init; } 
     /// <summary>
     /// Specifies whether all remaining assets in the portfolio not listed for transfer should be liquidated and transferred as cash. 
     /// </summary>
-    public AllOtherCash1[] AllOtherCash { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AllOtherCash1> AllOtherCash { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether all assets in the portfolio are to be liquidated and transferred as cash.
     /// </summary>
-    public CashAll1[] CashAll { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashAll1> CashAll { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies how the cash in the account that is awaiting investment is to be dealt with.
     /// </summary>
-    public ResidualCash2[] ResidualCash { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ResidualCash2> ResidualCash { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment process for the transfer of cash from the debtor to the creditor.
     /// </summary>
+    [DataMember]
     public PaymentInstrument14? PaymentDetails { get; init; } 
     /// <summary>
     /// Asset to be transferred.
     /// </summary>
-    public FinancialInstrument86[] FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FinancialInstrument86> FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the product transfer.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

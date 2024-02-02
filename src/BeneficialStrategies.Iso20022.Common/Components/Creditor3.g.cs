@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the creditor.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Creditor3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Creditor3
     /// <summary>
     /// Party that receives an amount of money from the debtor. In the context of the payment model, the creditor is also the credit account owner.
     /// </summary>
+    [DataMember]
     public required PartyIdentification100Choice_ Creditor { get; init; } 
     /// <summary>
     /// Reference assigned to a creditor by its financial institution, or relevant authority, authorising the creditor to take part in a direct debit scheme.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RegistrationIdentification { get; init; } 
     
     #nullable disable

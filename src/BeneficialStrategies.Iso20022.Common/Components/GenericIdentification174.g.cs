@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to an identification, for example, party identification or account identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericIdentification174
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record GenericIdentification174
     /// <summary>
     /// Proprietary information, often a code, issued by the data source scheme issuer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Indicates the source of the identifier that represent the constituents of a custom basket.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Source { get; init; } 
     
     #nullable disable

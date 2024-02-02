@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the applicable Incoterm and associated location.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Incoterms2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Incoterms2
     /// <summary>
     /// Specifies the applicable Incoterm by means of a code.
     /// </summary>
+    [DataMember]
     public required Incoterms1Code Code { get; init; } 
     /// <summary>
     /// Specifies Incoterm not present in code list.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Other { get; init; } 
     /// <summary>
     /// Location where the Incoterms are actioned.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Location { get; init; } 
     
     #nullable disable

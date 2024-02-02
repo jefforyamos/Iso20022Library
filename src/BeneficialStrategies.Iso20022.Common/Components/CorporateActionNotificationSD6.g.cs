@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding notification general information details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionNotificationSD6
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record CorporateActionNotificationSD6
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Workflow status of the event.
     /// </summary>
+    [DataMember]
     public EventWorkflowStatus1Code? EventStatus { get; init; } 
     /// <summary>
     /// Date by which the announcement is set to approve event status.
     /// </summary>
+    [DataMember]
     public IsoISODate? ApprovedDate { get; init; } 
     /// <summary>
     /// Date used to match records from multiple vendors to the same event. It is typically the first key date on the event.
     /// </summary>
+    [DataMember]
     public IsoISODate? MatchDate { get; init; } 
     /// <summary>
     /// Date until which the event will remain in an active status on DTCC (The Depository Trust and Clearing Corporation) system.
     /// </summary>
+    [DataMember]
     public IsoISODate? ActiveUntilDate { get; init; } 
     /// <summary>
     /// Start date and end date of the service level agreement.
     /// </summary>
+    [DataMember]
     public Period3? ServiceLevelAgreementPeriod { get; init; } 
     /// <summary>
     /// Specifies a reason why a corporate action will not be supported by the validation service. This is usually due to the event type or the product (security) type. The list of values will be provided externally to the schema.
     /// </summary>
+    [DataMember]
     public IsoMax4AlphaNumericText? ValidationNotSupportedReason { get; init; } 
     
     #nullable disable

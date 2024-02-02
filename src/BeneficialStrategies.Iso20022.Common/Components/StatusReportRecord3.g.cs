@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the per record status details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatusReportRecord3
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record StatusReportRecord3
     /// <summary>
     /// Unique and unambiguous technical identification of the original data for which the status is provided.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text OriginalRecordIdentification { get; init; } 
     /// <summary>
     /// Defines status of the reported transaction.
     /// </summary>
+    [DataMember]
     public required ReportingRecordStatus1Code Status { get; init; } 
     /// <summary>
     /// Provides the details of the rule which could not be validated.
     /// </summary>
-    public GenericValidationRuleIdentification1[] ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericValidationRuleIdentification1> ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

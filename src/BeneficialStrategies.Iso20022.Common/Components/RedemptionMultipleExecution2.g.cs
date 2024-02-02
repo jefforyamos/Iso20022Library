@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Execution of a redemption order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RedemptionMultipleExecution2
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record RedemptionMultipleExecution2
     /// <summary>
     /// Additional information about the investor.
     /// </summary>
+    [DataMember]
     public IndividualPerson2? BeneficiaryDetails { get; init; } 
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
+    [DataMember]
     public CountryCode? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Date and time at which the order was placed by the investor.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OrderDateTime { get; init; } 
     /// <summary>
     /// Cancellation right of an investor with respect to an investment fund order.
     /// </summary>
+    [DataMember]
     public CancellationRight1? CancellationRight { get; init; } 
     /// <summary>
     /// Account impacted by an investment fund order.
     /// </summary>
+    [DataMember]
     public required InvestmentAccount13 InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Execution of a redemption order.
     /// </summary>
-    public RedemptionExecution4[] IndividualExecutionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RedemptionExecution4> IndividualExecutionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment transaction resulting from the investment fund order execution.
     /// </summary>
+    [DataMember]
     public PaymentTransaction15? BulkCashSettlementDetails { get; init; } 
     
     #nullable disable

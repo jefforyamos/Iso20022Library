@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements that identify the underlying transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionReferences1
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record TransactionReferences1
     /// <summary>
     /// Point to point reference assigned by the instructing party of the underlying message.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MessageIdentification { get; init; } 
     /// <summary>
     /// The account servicing institution's reference for the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountServicerReference { get; init; } 
     /// <summary>
     /// Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the instruction.||Usage: the instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? InstructionIdentification { get; init; } 
     /// <summary>
     /// Unique identification assigned by the initiating party to unumbiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.||Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction. It can be included in several messages related to the transaction.||Usage: In case there are technical limitations to carry on multiple references, the end-to-end identification must be carried on throughout the entire end-to-end chain.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? EndToEndIdentification { get; init; } 
     /// <summary>
     /// Unique identification assigned by the first instructing agent to unambiguously identify the transaction and passed on, unchanged, throughout the entire interbank chain. ||Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. |Usage: The instructing agent has to make sure the transaction identification is unique for a pre-agreed period.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TransactionIdentification { get; init; } 
     /// <summary>
     /// Reference of the direct debit mandate that has been signed between by the debtor and the creditor.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MandateIdentification { get; init; } 
     /// <summary>
     /// Identifies the cheque number.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ChequeNumber { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a payment instruction, assigned by the clearing system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClearingSystemReference { get; init; } 
     /// <summary>
     /// Proprietary reference of an underlying transaction.
     /// </summary>
+    [DataMember]
     public ProprietaryReference1? Proprietary { get; init; } 
     
     #nullable disable

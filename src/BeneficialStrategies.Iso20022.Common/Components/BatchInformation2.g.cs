@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to identify the underlying batches.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BatchInformation2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record BatchInformation2
     /// <summary>
     /// Point to point reference, as assigned by the sending party, to unambiguously identify the batch of transactions.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MessageIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by a sending party, to unambiguously identify the payment information group within the message.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PaymentInformationIdentification { get; init; } 
     /// <summary>
     /// Number of individual transactions included in the batch.
     /// </summary>
+    [DataMember]
     public IsoMax15NumericText? NumberOfTransactions { get; init; } 
     /// <summary>
     /// Total amount of money reported in the batch entry.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalAmount { get; init; } 
     /// <summary>
     /// Indicates whether the batch entry is a credit or a debit entry.
     /// </summary>
+    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     
     #nullable disable

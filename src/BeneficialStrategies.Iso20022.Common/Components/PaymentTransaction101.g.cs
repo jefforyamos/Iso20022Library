@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains the details on the payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTransaction101
 {
     #nullable enable
@@ -20,33 +22,40 @@ public partial record PaymentTransaction101
     /// <summary>
     /// Contains the unique end to end transaction reference of a payment.
     /// </summary>
+    [DataMember]
     public required IsoUUIDv4Identifier UETR { get; init; } 
     /// <summary>
     /// Specifies the status of a transaction, in a coded form.
     /// </summary>
+    [DataMember]
     public required PaymentStatus5 TransactionStatus { get; init; } 
     /// <summary>
     /// Provides details on the status of the cancellation of a payment transaction.
     /// </summary>
+    [DataMember]
     public PaymentTransactionCancellationStatus1? CancellationStatus { get; init; } 
     /// <summary>
     /// Specifies date and time at which the message enters the tracking system (for example gpi).
     /// </summary>
+    [DataMember]
     public required IsoISODateTime InitiationTime { get; init; } 
     /// <summary>
     /// Specifies the time at which the instructed bank reports that the transaction has been completed. 
     /// Usage:
     /// Date and time based on the creation date of the status confirmation containing a final status ACSC
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CompletionTime { get; init; } 
     /// <summary>
     /// Specifies last date and time at which the status of this transaction was updated.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime LastUpdateTime { get; init; } 
     /// <summary>
     /// Groups the information of an event, namely of a payment message or status confirmation update. It is repeated as many times as there are events to be returned.
     /// </summary>
-    public PaymentEvent7[] PaymentEvent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentEvent7> PaymentEvent { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

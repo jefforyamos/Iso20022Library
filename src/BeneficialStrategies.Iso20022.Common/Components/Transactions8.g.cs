@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reports on transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transactions8
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record Transactions8
     /// <summary>
     /// Common detailed payment instruction information.
     /// </summary>
+    [DataMember]
     public PaymentCommon4? PaymentCommonInformation { get; init; } 
     /// <summary>
     /// Indicates the total number and sum of the transactions.
     /// </summary>
+    [DataMember]
     public NumberAndSumOfTransactions2? TransactionsSummary { get; init; } 
     /// <summary>
     /// Reports either on the transaction information or on a business error.
     /// </summary>
-    public TransactionReport5[] TransactionReport { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionReport5> TransactionReport { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

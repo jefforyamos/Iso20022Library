@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Variable, index, benchmark or other price used in the valuation of a financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RiskFactor1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RiskFactor1
     /// <summary>
     /// Unique identifier for the risk factor.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Assumed stress move of the associated stress item under the scenario.
     /// </summary>
+    [DataMember]
     public required StressSize1Choice_ StressSize { get; init; } 
     
     #nullable disable

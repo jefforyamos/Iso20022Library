@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoanData113
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record LoanData113
     /// <summary>
     /// Unique reference assigned to the transaction to identify the trade.
     /// </summary>
+    [DataMember]
     public required IsoMax52Text UniqueTradeIdentifier { get; init; } 
     /// <summary>
     /// Date on which the reportable event pertaining to the transaction and captured by the report took place. In the case of action types valuation update, collateral update, reuse update, margin update, the date for which the information contained in the report is provided.
     /// </summary>
+    [DataMember]
     public required IsoISODate EventDate { get; init; } 
     /// <summary>
     /// Market value of the securities or commodities on loan or borrowed.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection53 MarketValue { get; init; } 
     
     #nullable disable

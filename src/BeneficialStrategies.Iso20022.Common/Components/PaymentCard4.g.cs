@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Electronic money product that provides the cardholder with a portable and specialised computer device, which typically contains a microprocessor.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentCard4
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PaymentCard4
     /// <summary>
     /// Sensitive data associated with the card performing the transaction.
     /// </summary>
+    [DataMember]
     public PlainCardData1? PlainCardData { get; init; } 
     /// <summary>
     /// Country code assigned to the card by the card issuer.
     /// </summary>
+    [DataMember]
     public IsoExact3NumericText? CardCountryCode { get; init; } 
     /// <summary>
     /// Brand name of the card.
     /// </summary>
+    [DataMember]
     public GenericIdentification1? CardBrand { get; init; } 
     /// <summary>
     /// Additional card issuer specific data.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AdditionalCardData { get; init; } 
     
     #nullable disable

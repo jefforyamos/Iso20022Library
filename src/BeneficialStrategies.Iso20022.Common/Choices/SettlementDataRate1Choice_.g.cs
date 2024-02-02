@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(SettlementDataRate1Choice.NumberOfInstructions))]
 [KnownType(typeof(SettlementDataRate1Choice.ValueOfInstructions))]
+[DataContract]
 public abstract partial record SettlementDataRate1Choice_
 {
 }

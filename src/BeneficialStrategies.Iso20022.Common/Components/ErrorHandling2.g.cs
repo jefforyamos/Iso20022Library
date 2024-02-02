@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the error resulting from the processing of a request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ErrorHandling2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ErrorHandling2
     /// <summary>
     /// Specification of the error, in coded form.
     /// </summary>
+    [DataMember]
     public required IsoMax4AlphaNumericText ErrorCode { get; init; } 
     /// <summary>
     /// Specification of the error, in free format.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     
     #nullable disable

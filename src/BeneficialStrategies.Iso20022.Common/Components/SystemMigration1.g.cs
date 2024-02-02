@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data about participant migration to new payment system process.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemMigration1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record SystemMigration1
     /// <summary>
     /// Indicates whether the participant is a member of a new payment system.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? NPSParticipantIndicator { get; init; } 
     /// <summary>
     /// Planned migration date.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? PlannedMigrationDate { get; init; } 
     /// <summary>
     /// Indicates whether the balance was received.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? BalanceReceivedIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the participant was migrated.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Migrated { get; init; } 
     /// <summary>
     /// Date of the latest RABIS service.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? LastDate { get; init; } 
     
     #nullable disable

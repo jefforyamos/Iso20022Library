@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data exclusively related to a card issuer financial loan of the payment transaction, or instalment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Instalment4
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record Instalment4
     /// <summary>
     /// Indicates the occurrence of a single instalment payment within a series of instalment payments. 
     /// </summary>
+    [DataMember]
     public IsoNumber? PaymentSequenceNumber { get; init; } 
     /// <summary>
     /// Attributes of the instalment plan.
     /// </summary>
-    public Plan2[] Plan { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Plan2> Plan { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

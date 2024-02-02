@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the quantity of a product in a trade transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Quantity4
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Quantity4
     /// <summary>
     /// Specifies the unit of measurement. For example, kilo, tons.
     /// </summary>
+    [DataMember]
     public required UnitOfMeasure4Code UnitOfMeasureCode { get; init; } 
     /// <summary>
     /// Identifies the unit of measure not present in the code list.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OtherUnitOfMeasure { get; init; } 
     /// <summary>
     /// Quantity of a product on a line specified by a number. For example, 100 (kgs), 50 (pieces).
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber Value { get; init; } 
     /// <summary>
     /// Multiplication factor of measurement values. For example: goods that can be ordered by 36 pieces.
     /// </summary>
+    [DataMember]
     public IsoMax15NumericText? Factor { get; init; } 
     
     #nullable disable

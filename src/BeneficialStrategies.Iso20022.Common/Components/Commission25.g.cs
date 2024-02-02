@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money due to a party as compensation for a service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Commission25
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record Commission25
     /// <summary>
     /// Specification of the commission type.
     /// </summary>
+    [DataMember]
     public required CommissionType6Choice_ Type { get; init; } 
     /// <summary>
     /// Amount of money due to a party as compensation for a service.
     /// </summary>
+    [DataMember]
     public required AmountOrRate2Choice_ Commission { get; init; } 
     /// <summary>
     /// Information related to an identification, eg, party identification or account identification.
     /// </summary>
+    [DataMember]
     public PartyIdentification267? RecipientIdentification { get; init; } 
     /// <summary>
     /// Date at which an operation is triggered to calculate, for instance, a commission, fee, asset values, etc.
     /// </summary>
+    [DataMember]
     public IsoISODate? CalculationDate { get; init; } 
     /// <summary>
     /// Total value of the commissions for a specific trade.
     /// </summary>
+    [DataMember]
     public AmountAndDirection29? TotalCommission { get; init; } 
     /// <summary>
     /// Amount that results of the calculation of VAT on net fees, according to the transaction current tariffs.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalVATAmount { get; init; } 
     /// <summary>
     /// Specifies the VAT rate.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? VATRate { get; init; } 
     
     #nullable disable

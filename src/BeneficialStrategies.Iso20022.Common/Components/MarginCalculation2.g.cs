@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details on the margin calculation per financial instrument or per currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MarginCalculation2
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record MarginCalculation2
     /// <summary>
     /// Provides details about the security identification.
     /// </summary>
+    [DataMember]
     public SecurityIdentification14? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Net total of the transaction exposure of all outstanding deals.
     /// </summary>
+    [DataMember]
     public Amount2? ExposureAmount { get; init; } 
     /// <summary>
     /// Provides the total margin amount.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection20 TotalMarginAmount { get; init; } 
     /// <summary>
     /// Provides details on the valuation of the collateral on deposit.
     /// </summary>
-    public Collateral6[] CollateralOnDeposit { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Collateral6> CollateralOnDeposit { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Minimum requirement (expressed in the reporting currency) for a participant if their requirement falls below a specific amount set by the central counterparty.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumRequirementDeposit { get; init; } 
     /// <summary>
     /// Provide details on the margin result taking into consideration the total margin amount and the minimum requirements deposit.
     /// </summary>
+    [DataMember]
     public MarginResult1Choice_? MarginResult { get; init; } 
     /// <summary>
     /// Provides margin calculation details such as the initial margin amount, the variation margin amount or other margin type amounts.
     /// </summary>
+    [DataMember]
     public Margin3? MarginTypeAmount { get; init; } 
     
     #nullable disable

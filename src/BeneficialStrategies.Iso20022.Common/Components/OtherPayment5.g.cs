@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment related to elements not reported in dedicated fields.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherPayment5
 {
     #nullable enable
@@ -21,22 +23,27 @@ public partial record OtherPayment5
     /// Amount of money of any payment the reporting counterparty made or received.
     /// Usage: The negative symbol to be used to indicate that the payment was made, not received.
     /// </summary>
+    [DataMember]
     public AmountAndDirection106? PaymentAmount { get; init; } 
     /// <summary>
     /// Indicates the type of other payment.
     /// </summary>
+    [DataMember]
     public PaymentType5Choice_? PaymentType { get; init; } 
     /// <summary>
     /// Indicates the unadjusted date on which the other payment is paid.
     /// </summary>
+    [DataMember]
     public IsoISODate? PaymentDate { get; init; } 
     /// <summary>
     /// Identifies the payer of the other payment amount.
     /// </summary>
+    [DataMember]
     public PartyIdentification236Choice_? PaymentPayer { get; init; } 
     /// <summary>
     /// Identifies the receiver of the other payment amount.
     /// </summary>
+    [DataMember]
     public PartyIdentification236Choice_? PaymentReceiver { get; init; } 
     
     #nullable disable

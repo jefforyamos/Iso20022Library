@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a ratio: Amount price per amount.|Example:|ISIN US629377AS17. Repurchase USD1087.17 cash for every USD1000 stock (NRG Energy Inc 8% Senior Notes 15/12/13).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountPricePerAmount2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AmountPricePerAmount2
     /// <summary>
     /// Type of amount price.
     /// </summary>
+    [DataMember]
     public required AmountPriceType1Code AmountPriceType { get; init; } 
     /// <summary>
     /// Value of the price.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAnd13DecimalAmount PriceValue { get; init; } 
     /// <summary>
     /// The amount on which the price is based.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     
     #nullable disable

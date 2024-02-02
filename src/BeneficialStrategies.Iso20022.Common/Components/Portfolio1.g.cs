@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the characteristics of a portfolio.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Portfolio1
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record Portfolio1
     /// <summary>
     /// Additional information related to the portfolio.
     /// </summary>
-    public IsoMax350Text[] PortfolioInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax350Text> PortfolioInformation { get; init; } = [];
     
     #nullable disable
 }

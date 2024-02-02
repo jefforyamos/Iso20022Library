@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies cash parties in the framework of a corporate action event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashParties2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CashParties2
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount17? Creditor { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount18? CreditorAgent { get; init; } 
     /// <summary>
     /// Party that has reimbursed the account owner with funds to which they were legally entitled.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount17? MarketClaimCounterparty { get; init; } 
     
     #nullable disable

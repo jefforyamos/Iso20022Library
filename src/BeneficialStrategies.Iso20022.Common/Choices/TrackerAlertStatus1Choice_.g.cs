@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TrackerAlertStatus1Choice.Code))]
 [KnownType(typeof(TrackerAlertStatus1Choice.Proprietary))]
+[DataContract]
 public abstract partial record TrackerAlertStatus1Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information on the type of tax.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxType
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record TaxType
     /// <summary>
     /// Description of the tax that is being paid, including specific representation required by taxing authority.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CategoryDescription { get; init; } 
     /// <summary>
     /// Rate used to calculate the tax.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Amount of money on which the tax is based.
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? TaxableBaseAmount { get; init; } 
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? Amount { get; init; } 
     
     #nullable disable

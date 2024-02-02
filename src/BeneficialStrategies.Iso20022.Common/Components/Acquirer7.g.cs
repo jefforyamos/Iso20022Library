@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Acquirer of the withdrawal transaction, in charge of the funds settlement with the issuer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Acquirer7
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Acquirer7
     /// <summary>
     /// Identification of the acquirer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AcquiringInstitution { get; init; } 
     /// <summary>
     /// Identification of the acquirer branch.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Branch { get; init; } 
     
     #nullable disable

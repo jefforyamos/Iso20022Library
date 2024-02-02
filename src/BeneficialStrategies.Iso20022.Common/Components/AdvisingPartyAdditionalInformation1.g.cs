@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional information related to the advising party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdvisingPartyAdditionalInformation1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record AdvisingPartyAdditionalInformation1
     /// <summary>
     /// Unique and unambiguous identifier assigned as a reference.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReferenceNumber { get; init; } 
     /// <summary>
     /// Additional information specific to the bank-to-beneficiary communication.
     /// </summary>
-    public IsoMax2000Text[] BankToBeneficiaryInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> BankToBeneficiaryInformation { get; init; } = [];
     
     #nullable disable
 }

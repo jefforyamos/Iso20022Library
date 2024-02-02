@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Type and information about a price.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Price11
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Price11
     /// <summary>
     /// Specification of the price type.
     /// </summary>
+    [DataMember]
     public required YieldedOrValueType2Choice_ Type { get; init; } 
     /// <summary>
     /// Value of the price, for example, as a currency and value.
     /// </summary>
+    [DataMember]
     public required PriceRateOrAmount1Choice_ Value { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Obligations of a clearing member with respect to a central counterparty that are calculated based on end of day positions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EndOfDayRequirement1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record EndOfDayRequirement1
     /// <summary>
     /// Specifies the initial margin requirement for position.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? InitialMarginRequirement { get; init; } 
     /// <summary>
     /// Daily change in mark-to-market for the associated position. Indicates whether variation margin paid to clearing members (true) or received from clearing members (false).
     /// </summary>
+    [DataMember]
     public AmountAndDirection102? VariationMarginRequirement { get; init; } 
     
     #nullable disable

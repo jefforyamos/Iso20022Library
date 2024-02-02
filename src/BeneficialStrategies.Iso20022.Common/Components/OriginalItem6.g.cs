@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the original notification item, to which the cancellation advice refers.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalItem6
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record OriginalItem6
     /// <summary>
     /// Identification of the original notification item.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalItemIdentification { get; init; } 
     /// <summary>
     /// Unique identification as assigned by the debtor to unambiguously identify the original underlying transaction to the creditor.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalEndToEndIdentification { get; init; } 
     /// <summary>
     /// Universally unique identifier to provide an end-to-end reference of a payment transaction.
     /// </summary>
+    [DataMember]
     public IsoUUIDv4Identifier? UETR { get; init; } 
     /// <summary>
     /// Amount of money expected to be credited to the account, as per the original notification to receive.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Value date on which the account was expected to be credited.
     /// </summary>
+    [DataMember]
     public IsoISODate? ExpectedValueDate { get; init; } 
     /// <summary>
     /// Provides further information in order to identify a previous payment notification.
     /// </summary>
+    [DataMember]
     public OriginalItemReference5? OriginalItemReference { get; init; } 
     
     #nullable disable

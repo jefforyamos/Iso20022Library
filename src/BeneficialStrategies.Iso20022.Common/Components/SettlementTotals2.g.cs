@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Settlement totals or the report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementTotals2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SettlementTotals2
     /// <summary>
     /// Settlement totals for the acquirer.
     /// </summary>
+    [DataMember]
     public SettlementCategoryTotal2? AcquirerTotals { get; init; } 
     /// <summary>
     /// Settlement totals for the issuer.
     /// </summary>
+    [DataMember]
     public SettlementCategoryTotal2? IssuerTotals { get; init; } 
     /// <summary>
     /// Other settlement totals.
     /// </summary>
+    [DataMember]
     public SettlementCategoryTotal2? OtherTotals { get; init; } 
     /// <summary>
     /// Total amount settled.
     /// </summary>
+    [DataMember]
     public SettlementCategoryTotal2? TotalSettlementAmount { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ChequeDeliveryMethod1Choice.Code))]
 [KnownType(typeof(ChequeDeliveryMethod1Choice.Proprietary))]
+[DataContract]
 public abstract partial record ChequeDeliveryMethod1Choice_
 {
 }

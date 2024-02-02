@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details about a system and about a member of a system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemMember3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SystemMember3
     /// <summary>
     /// Identification of a particular cash clearing system.
     /// </summary>
+    [DataMember]
     public SystemIdentification2Choice_? SystemIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of a member within a system, assigned using the member identification scheme of the system.
     /// </summary>
+    [DataMember]
     public required MemberIdentification3Choice_ MemberIdentification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about tax.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Tax36
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record Tax36
     /// <summary>
     /// Date or quarter of the tax year on which tax for the financial instrument is based or calculated.
     /// </summary>
+    [DataMember]
     public required DateQuarter1Choice_ DateOrPeriod { get; init; } 
     /// <summary>
     /// Additional information about tax.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

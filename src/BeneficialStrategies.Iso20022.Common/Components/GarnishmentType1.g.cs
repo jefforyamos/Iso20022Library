@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of garnishment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GarnishmentType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record GarnishmentType1
     /// <summary>
     /// Provides the type details of the garnishment.
     /// </summary>
+    [DataMember]
     public required GarnishmentType1Choice_ CodeOrProprietary { get; init; } 
     /// <summary>
     /// Identification of the issuer of the garnishment type.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     
     #nullable disable

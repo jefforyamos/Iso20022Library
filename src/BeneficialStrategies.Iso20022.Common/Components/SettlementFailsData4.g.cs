@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the aggregated data of settlement fails instructions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementFailsData4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SettlementFailsData4
     /// <summary>
     /// Total of all types of settlement transactions.
     /// </summary>
+    [DataMember]
     public required SettlementTotalData1 Total { get; init; } 
     /// <summary>
     /// Further details on the reason for the settlement fails.
     /// </summary>
+    [DataMember]
     public required SettlementFailureReason3 FailureReason { get; init; } 
     /// <summary>
     /// Eligible for derogation under the local regulation on settlement discipline, including the justification.
     /// </summary>
+    [DataMember]
     public required SettlementFailsDerogation1 EligibleForDerogation { get; init; } 
     
     #nullable disable

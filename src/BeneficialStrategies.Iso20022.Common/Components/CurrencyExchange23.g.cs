@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the details of the currency exchange.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyExchange23
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CurrencyExchange23
     /// <summary>
     /// Indicates the currency.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Indicates the exchange rate between the two currencies specified in the derivative transaction agreed by the counterparties at the inception of the transaction, expressed as the rate of exchange from converting the unit currency into the quoted currency.
     /// </summary>
+    [DataMember]
     public IsoBaseOne18Rate? ExchangeRate { get; init; } 
     /// <summary>
     /// Forward exchange rate as agreed between the counterparties in the contractual agreement, expressed as a price of base currency in the quoted currency.
     /// </summary>
+    [DataMember]
     public IsoBaseOne18Rate? ForwardExchangeRate { get; init; } 
     /// <summary>
     /// Indicates, for equity options, commodity options and similar products, the currency in which the strike price is denominated.  In case of foreign exchange options, indicates the currency pair and order in which the strike price is expressed as unit currency and quoted currency.
     /// </summary>
+    [DataMember]
     public ExchangeRateBasis1Choice_? ExchangeRateBasis { get; init; } 
     /// <summary>
     /// Specifies the date when a derivative will fix against an interest rate or an exchange rate that will be used to compute the cash settlement.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? FixingDate { get; init; } 
     
     #nullable disable

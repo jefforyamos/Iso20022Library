@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related to the loyalty server during a loyalty transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoyaltyServerData1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record LoyaltyServerData1
     /// <summary>
     /// Identification of the loyalty Server.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LoyaltyServerIdentification { get; init; } 
     /// <summary>
     /// Approval code assigned to a loyalty transaction by the Server.
     /// </summary>
+    [DataMember]
     public IsoMin6Max8Text? ApprovalCode { get; init; } 
     /// <summary>
     /// Identification of the Loyalty transaction in an unambiguous way.
     /// </summary>
+    [DataMember]
     public TransactionIdentifier1? LoyaltyTransactionIdentification { get; init; } 
     /// <summary>
     /// Identifier of a reconciliation period with a payment or loyalty host.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? HostReconciliationIdentification { get; init; } 
     
     #nullable disable

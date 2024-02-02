@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Other amount in clearing record data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherAmount4
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record OtherAmount4
     /// <summary>
     /// Number of other amounts involved in clearing.
     /// </summary>
+    [DataMember]
     public required IsoNumber ClearingCount { get; init; } 
     /// <summary>
     /// Amount of clearing.
     /// </summary>
+    [DataMember]
     public required Amount17 ClearingAmount { get; init; } 
     /// <summary>
     /// Interchange fee.
     /// </summary>
+    [DataMember]
     public Amount17? InterchangeFee { get; init; } 
     /// <summary>
     /// Agent fee.
     /// </summary>
+    [DataMember]
     public Amount17? AgentFee { get; init; } 
     
     #nullable disable

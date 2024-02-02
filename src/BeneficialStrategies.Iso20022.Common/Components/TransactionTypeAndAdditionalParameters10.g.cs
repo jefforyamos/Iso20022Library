@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the conditions under which the order/trade is to be settled.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionTypeAndAdditionalParameters10
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record TransactionTypeAndAdditionalParameters10
     /// <summary>
     /// Unambiguous identification of the transaction (unique per piece of collateral) as known by the account owner (or the instructing party managing the account).
     /// </summary>
+    [DataMember]
     public required IsoMax35Text AccountOwnerTransactionIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction (unique per piece of collateral) as known by the account servicer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountServicerTransactionIdentification { get; init; } 
     /// <summary>
     /// Specifies the type of securities financing transaction, that is, repurchase agreement, reverse repurchase agreement, securities lending or securities borrowing.
     /// </summary>
+    [DataMember]
     public required SecuritiesFinancingTransactionType1Code SecuritiesFinancingTransactionType { get; init; } 
     /// <summary>
     /// Specifies if the movement on a securities account results from a deliver or a receive instruction.
     /// </summary>
+    [DataMember]
     public required ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
     /// <summary>
     /// Specifies how the transaction is to be settled, for example, against payment.
     /// </summary>
+    [DataMember]
     public required DeliveryReceiptType2Code Payment { get; init; } 
     /// <summary>
     /// Unique reference agreed upon by the two trade counterparties to identify the trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CommonIdentification { get; init; } 
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PoolIdentification { get; init; } 
     /// <summary>
     /// Identification assigned by the account servicer to unambiguously identify a corporate action event.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CorporateActionEventIdentification { get; init; } 
     
     #nullable disable

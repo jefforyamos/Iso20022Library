@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed information on statistics per combination of counterparties.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedStatisticsPerCounterparty6
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record DetailedStatisticsPerCounterparty6
     /// <summary>
     /// Reference period for statistics collection.
     /// </summary>
+    [DataMember]
     public required Period2 ReportingPeriod { get; init; } 
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
+    [DataMember]
     public required CounterpartyData36 CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass validations.
     /// </summary>
+    [DataMember]
     public required RejectionStatistics3 RejectionStatistics { get; init; } 
     /// <summary>
     /// Identification of the competent authority which supervises the reporting counterparty.
     /// </summary>
-    public CompetentAuthority1[] CompetentAuthority { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompetentAuthority1> CompetentAuthority { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

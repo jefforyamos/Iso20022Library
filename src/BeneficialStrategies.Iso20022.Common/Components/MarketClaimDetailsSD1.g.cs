@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification information expressed as a country of fiscal domicile and a reference.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MarketClaimDetailsSD1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record MarketClaimDetailsSD1
     /// <summary>
     /// Country in which the account owner has one's fiscal domicile.
     /// </summary>
+    [DataMember]
     public required CountryCode FiscalDomicile { get; init; } 
     /// <summary>
     /// Identification of the document assigned by the account servicer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountServicerIdentification { get; init; } 
     /// <summary>
     /// Identification of the document assigned by the account owner.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Percentage of a cash distribution that will be withheld by the tax authorities of the jurisdiction of the issuer, for which a relief at source and/or reclaim may be possible.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? TaxRate { get; init; } 
     /// <summary>
     /// Quantity of securities that do not impact the taxable record date entitlement.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity18Choice_? CashCompensation { get; init; } 
     /// <summary>
     /// Quantity of securities that impact the taxable record date entitlement.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity18Choice_? DividendCorrection { get; init; } 
     
     #nullable disable

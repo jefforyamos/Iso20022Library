@@ -14,6 +14,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains customer reference values provided for this transaction and used for various reference processing at the
 /// customer site. These values represent information most prevalently provided by travel agencies for transactions booked against a lodged account or central travel account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CustomerReference1
 {
     #nullable enable
@@ -21,10 +23,12 @@ public partial record CustomerReference1
     /// <summary>
     /// Defines the content of the value provided in the Customer Reference detail.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Subfield is a free-form text field containing customer reference value details about the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Detail { get; init; } 
     
     #nullable disable

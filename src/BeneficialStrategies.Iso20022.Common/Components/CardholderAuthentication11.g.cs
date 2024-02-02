@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related to the authentication of the cardholder.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardholderAuthentication11
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record CardholderAuthentication11
     /// <summary>
     /// Method and data intended to be used for this transaction to authenticate the cardholder or its card.
     /// </summary>
+    [DataMember]
     public required AuthenticationMethod5Code AuthenticationMethod { get; init; } 
     /// <summary>
     /// Value used to authenticate the cardholder.
     /// </summary>
+    [DataMember]
     public IsoMax5000Binary? AuthenticationValue { get; init; } 
     /// <summary>
     /// Protection of the authentication value.
     /// </summary>
+    [DataMember]
     public ContentInformationType17? ProtectedAuthenticationValue { get; init; } 
     /// <summary>
     /// Encrypted personal identification number (PIN) and related information.
     /// </summary>
+    [DataMember]
     public OnLinePIN6? CardholderOnLinePIN { get; init; } 
     /// <summary>
     /// Identification of the cardholder to verify.
     /// </summary>
+    [DataMember]
     public PersonIdentification15? CardholderIdentification { get; init; } 
     /// <summary>
     /// Numeric characters of the cardholder's billing or shipping address for verification.
     /// </summary>
+    [DataMember]
     public AddressVerification1? AddressVerification { get; init; } 
     /// <summary>
     /// Type of authentication for a given method - e.g. three-domain authentication, scheme-proprietary authentication, etc.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AuthenticationType { get; init; } 
     /// <summary>
     /// Level of authentication for a given type – e.g. value assigned by scheme rules or by bilateral agreements.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AuthenticationLevel { get; init; } 
     /// <summary>
     /// Result of authentication.
     /// </summary>
+    [DataMember]
     public AuthenticationResult1Code? AuthenticationResult { get; init; } 
     /// <summary>
     /// Additional information related to the result of the authentication.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AuthenticationAdditionalInformation { get; init; } 
     
     #nullable disable

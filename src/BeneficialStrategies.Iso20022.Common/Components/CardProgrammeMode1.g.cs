@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Programme or brand of the card for the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardProgrammeMode1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CardProgrammeMode1
     /// <summary>
     /// Type of card programme or brand.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Identification of the card programme or brand.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     
     #nullable disable

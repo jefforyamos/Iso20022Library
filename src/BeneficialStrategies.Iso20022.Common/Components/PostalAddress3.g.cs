@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information that locates and identifies a specific address, as defined by postal services.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PostalAddress3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PostalAddress3
     /// <summary>
     /// Type of address.
     /// </summary>
+    [DataMember]
     public required AddressType1Code AddressType { get; init; } 
     /// <summary>
     /// Indicates whether mail should be sent to an address.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator MailingIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the address is the official address of the party.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator RegistrationAddressIndicator { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
+    [DataMember]
     public required NameAndAddress4 NameAndAddress { get; init; } 
     
     #nullable disable

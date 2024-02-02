@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(SecuritiesAuditTrailOrOperationalError4Choice.SecuritiesAuditTrailReport))]
 [KnownType(typeof(SecuritiesAuditTrailOrOperationalError4Choice.OperationalError))]
+[DataContract]
 public abstract partial record SecuritiesAuditTrailOrOperationalError4Choice_
 {
 }

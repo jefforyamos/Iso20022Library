@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Characteristics shared by all individual items included in the currency control message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyControlHeader5
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CurrencyControlHeader5
     /// <summary>
     /// Point to point reference, as assigned by the instructing party, and sent to the next party in the chain to unambiguously identify the message.|Usage: The instructing party has to make sure that MessageIdentification is unique per instructed party for a pre-agreed period.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Number of individual items contained in the message.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText NumberOfItems { get; init; } 
     /// <summary>
     /// Party that initiates the instruction.
     /// </summary>
+    [DataMember]
     public required Party40Choice_ InitiatingParty { get; init; } 
     /// <summary>
     /// Agent which forwards the message.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? ForwardingAgent { get; init; } 
     
     #nullable disable

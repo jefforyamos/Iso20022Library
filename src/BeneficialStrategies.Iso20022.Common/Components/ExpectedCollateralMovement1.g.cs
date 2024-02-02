@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the expected collateral type and direction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExpectedCollateralMovement1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record ExpectedCollateralMovement1
     /// <summary>
     /// Type of collateral that will be delivered.
     /// </summary>
-    public CollateralType1Code[] Delivery { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CollateralType1Code> Delivery { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of collateral that will be returned.
     /// </summary>
-    public CollateralType1Code[] Return { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CollateralType1Code> Return { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Proprietary or domestic identification scheme that uniquely identifies a security.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AlternateSecurityIdentification3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AlternateSecurityIdentification3
     /// <summary>
     /// Unique and unambiguous identifier of a security.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text Identification { get; init; } 
     /// <summary>
     /// Country of the proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public required CountryCode DomesticIdentificationSource { get; init; } 
     /// <summary>
     /// Entity that issues the proprietary identification.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ProprietaryIdentificationSource { get; init; } 
     
     #nullable disable

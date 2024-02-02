@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies all the parties involved in a cover payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditTransferTransactionParties1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CreditTransferTransactionParties1
     /// <summary>
     /// Identifies the financial institution that owes an amount of money to the (ultimate) financial institutional creditor.
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? Debtor { get; init; } 
     /// <summary>
     /// Identifies the financial institution servicing an account for the debtor.
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? DebtorAgent { get; init; } 
     /// <summary>
     /// Identifies the agent between the debtor's agent and the creditor's agent.
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? IntermediaryAgent1 { get; init; } 
     /// <summary>
     /// Identifies the financial institution servicing an account for the creditor.
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? CreditorAgent { get; init; } 
     /// <summary>
     /// Identifies the financial institution that receives an amount of money from the financial institutional debtor.
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? Creditor { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Room details
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LodgingRoom1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record LodgingRoom1
     /// <summary>
     /// Type of room (for example, club/lounge level room). 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RoomType { get; init; } 
     /// <summary>
     /// Contains the room location information (for example,ocean view, lake view, level, etc.) 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RoomLocation { get; init; } 
     /// <summary>
     /// Contain the type of bed in room (for example, single, double, king, etc.) 
     /// </summary>
+    [DataMember]
     public IsoMax70Text? BedType { get; init; } 
     /// <summary>
     /// Contains the number of guests in the room. 
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? GuestsPerRoom { get; init; } 
     /// <summary>
     /// Contains the number of adult guests in the room. 
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? AdultsInRoom { get; init; } 
     /// <summary>
     /// Contains the number of child guests in the room. 
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? ChildrenInRoom { get; init; } 
     /// <summary>
     /// Daily rate being charged for the room.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? DailyRoomRate { get; init; } 
     
     #nullable disable

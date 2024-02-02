@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Totals for the value of the holdings reported in the statement or page.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TotalValueInPageAndStatement3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record TotalValueInPageAndStatement3
     /// <summary>
     /// Total value of positions reported in this message.
     /// </summary>
+    [DataMember]
     public AmountAndDirection14? TotalHoldingsValueOfPage { get; init; } 
     /// <summary>
     /// Total value of positions reported in this statement (a statement may comprise one or more messages).
     /// </summary>
+    [DataMember]
     public required AmountAndDirection14 TotalHoldingsValueOfStatement { get; init; } 
     /// <summary>
     /// Total book value of positions reported in this statement (a statement may comprise one or more messages).
     /// </summary>
+    [DataMember]
     public AmountAndDirection14? TotalBookValueOfStatement { get; init; } 
     /// <summary>
     /// Total value of the holdings eligible for collateral purposes reported in this statement (a statement may comprise one or more messages).
     /// </summary>
+    [DataMember]
     public AmountAndDirection14? TotalEligibleCollateralValue { get; init; } 
     
     #nullable disable

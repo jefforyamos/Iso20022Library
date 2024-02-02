@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the standing instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionStandingInstructionGeneralInformation1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CorporateActionStandingInstructionGeneralInformation1
     /// <summary>
     /// Type of standing instruction.
     /// </summary>
+    [DataMember]
     public required StandingInstructionType1Code StandingInstructionType { get; init; } 
     /// <summary>
     /// Type of coporpate action event.
     /// </summary>
-    public CorporateActionEventType2FormatChoice_[] EventType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CorporateActionEventType2FormatChoice_> EventType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the instructing party, ie, the CSD client.
     /// </summary>
+    [DataMember]
     public required PartyIdentification2Choice_ InstructingPartyIdentification { get; init; } 
     /// <summary>
     /// Reference of the standing instruction assigned by the client.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ClientStandingInstructionIdentification { get; init; } 
     /// <summary>
     /// Provides information about the account to which the standing instruction can apply.
     /// </summary>
-    public IncludedAccount1[] AccountDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IncludedAccount1> AccountDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the underlying financial instrument, ie, the financial instrument affected by the corporate action event.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentDescription3? UnderlyingSecurity { get; init; } 
     
     #nullable disable

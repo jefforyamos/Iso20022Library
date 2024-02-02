@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding linkage details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionCancellationSD3
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CorporateActionCancellationSD3
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Reference assigned by the account servicer to unambiguously identify a related corporate action event.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text LinkedCorporateActionIdentification { get; init; } 
     /// <summary>
     /// Indicates the reason why two or more events are related.
     /// </summary>
+    [DataMember]
     public required DTCCLinkType1Code LinkageType { get; init; } 
     /// <summary>
     /// Events can be linked together. This date represents the date on which the link was established.
     /// </summary>
+    [DataMember]
     public required IsoISODate LinkAddedDate { get; init; } 
     /// <summary>
     /// Events can be linked together. This date represents the date on which the link was modified.
     /// </summary>
+    [DataMember]
     public IsoISODate? LinkModifiedDate { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Alternate identification of a security.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AlternateIdentification2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AlternateIdentification2
     /// <summary>
     /// Unique and unambiguous identifier of a security.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax31Text Identification { get; init; } 
     /// <summary>
     /// Source of the security identification.
     /// </summary>
+    [DataMember]
     public required IdentificationSource2Choice_ IdentificationSource { get; init; } 
     
     #nullable disable

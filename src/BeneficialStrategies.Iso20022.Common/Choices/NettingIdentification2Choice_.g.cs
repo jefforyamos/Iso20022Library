@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(NettingIdentification2Choice.TradeParty))]
 [KnownType(typeof(NettingIdentification2Choice.NettingGroupIdentification))]
+[DataContract]
 public abstract partial record NettingIdentification2Choice_
 {
 }

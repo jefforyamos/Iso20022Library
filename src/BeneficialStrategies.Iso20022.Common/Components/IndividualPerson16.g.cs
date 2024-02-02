@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IndividualPerson16
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record IndividualPerson16
     /// <summary>
     /// Name received at birth, eg, maiden name.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text BirthName { get; init; } 
     /// <summary>
     /// First name of a person.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? GivenName { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of a person, eg, passport.
     /// </summary>
+    [DataMember]
     public PersonIdentification6? Identification { get; init; } 
     /// <summary>
     /// Postal address of a party.
     /// </summary>
+    [DataMember]
     public LongPostalAddress2Choice_? Address { get; init; } 
     /// <summary>
     /// Organisation represented by a person, or for which a person works.
     /// </summary>
+    [DataMember]
     public PartyIdentification9Choice_? EmployingParty { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Complete name of the cardholder.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardholderName3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CardholderName3
     /// <summary>
     /// Name of the cardholder, which is usually the full name.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// First name of the cardholder.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? GivenName { get; init; } 
     /// <summary>
     /// Middle name or initials present in the name of a person.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MiddleName { get; init; } 
     /// <summary>
     /// Family name of the cardholder.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LastName { get; init; } 
     
     #nullable disable

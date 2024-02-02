@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Floating rate related information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FloatingRate7
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record FloatingRate7
     /// <summary>
     /// Indication of the floating rate used.
     /// </summary>
+    [DataMember]
     public FloatingRateIdentification4Choice_? Rate { get; init; } 
     /// <summary>
     /// Information related to reference period.
     /// </summary>
+    [DataMember]
     public InterestRateContractTerm4? ReferencePeriod { get; init; } 
     /// <summary>
     /// Indicates a margin, over or under an index, which determines a price or a rate for each leg of a derivative transaction with periodic payments; or a difference between two floating leg indexes.
     /// </summary>
+    [DataMember]
     public SecuritiesTransactionPrice13Choice_? Spread { get; init; } 
     /// <summary>
     /// Identifies the computation method that determines how interest payments are calculated. It is used to compute the year fraction of the calculation period, and indicates the number of days in the calculation period divided by the number of days in the year.
     /// </summary>
+    [DataMember]
     public InterestComputationMethodFormat7? DayCount { get; init; } 
     /// <summary>
     /// Specifies the time unit associated with the frequency of payments.
     /// </summary>
+    [DataMember]
     public InterestRateFrequency3Choice_? PaymentFrequency { get; init; } 
     /// <summary>
     /// Information related to reset of payment frequency.
     /// </summary>
+    [DataMember]
     public InterestRateFrequency3Choice_? ResetFrequency { get; init; } 
     
     #nullable disable

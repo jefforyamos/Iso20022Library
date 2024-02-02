@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the the status of a legally recognized subject or national of a particular country.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CitizenshipInformation1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CitizenshipInformation1
     /// <summary>
     /// Specifies the country where a person was born or is legally accepted as belonging to the country.
     /// </summary>
+    [DataMember]
     public required NationalityCode Nationality { get; init; } 
     /// <summary>
     /// Indicates whether the person is a legal minor. It may depend on the nationality, the domicile country or the transaction in which the person is involved.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? MinorIndicator { get; init; } 
     /// <summary>
     /// Date of the commencement of citizenship.
     /// </summary>
+    [DataMember]
     public IsoISODate? StartDate { get; init; } 
     /// <summary>
     /// Date of the end of citizenship.
     /// </summary>
+    [DataMember]
     public IsoISODate? EndDate { get; init; } 
     
     #nullable disable

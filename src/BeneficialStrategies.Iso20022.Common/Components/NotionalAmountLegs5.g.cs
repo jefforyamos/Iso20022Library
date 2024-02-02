@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates the monetary or converted amount for the derivatives transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NotionalAmountLegs5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NotionalAmountLegs5
     /// <summary>
     /// Notional amount of leg 1 which indicates monetary or converted amount for the derivatives transaction.
     /// </summary>
+    [DataMember]
     public NotionalAmount5? FirstLeg { get; init; } 
     /// <summary>
     /// Notional amount of leg 2 which indicates monetary or converted amount for the derivatives transaction.
     /// </summary>
+    [DataMember]
     public NotionalAmount6? SecondLeg { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data specific to commodities and related fields used as a collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Commodity21
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Commodity21
     /// <summary>
     /// Specifies whether the values defined asset class commodity are matching or not.
     /// </summary>
+    [DataMember]
     public CompareCommodityAssetClass2? Classification { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as decimal number are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDecimalNumber2? Quantity { get; init; } 
     /// <summary>
     /// Specifies whether the the unit prices are matching or not.
     /// </summary>
+    [DataMember]
     public CompareUnitPrice3? UnitPrice { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
+    [DataMember]
     public CompareActiveOrHistoricCurrencyAndAmount2? MarketValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as unit of measure code are matching or not.
     /// </summary>
+    [DataMember]
     public CompareUnitOfMeasure2? UnitOfMeasure { get; init; } 
     
     #nullable disable

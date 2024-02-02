@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique identifier for a list as assigned by institution, used to associate multiple individual orders. Uniqueness must be guaranteed within a single trading day. Institutions which generate multi-day orders should consider embedding a date to assure uniqueness across days.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ListIdentification1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record ListIdentification1
     /// <summary>
     /// Unique identifier for a list, as assigned by the trading party. The identifier must be unique within a single trading day.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ListIdentification { get; init; } 
     
     #nullable disable

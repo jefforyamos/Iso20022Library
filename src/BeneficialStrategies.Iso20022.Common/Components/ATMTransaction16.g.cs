@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Response to the deposit request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransaction16
 {
     #nullable enable
@@ -20,51 +22,63 @@ public partial record ATMTransaction16
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period assigned by the ATM.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// True if a completion advice has to be sent after the end of the transaction.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CompletionRequired { get; init; } 
     /// <summary>
     /// Unprotected account information.
     /// </summary>
+    [DataMember]
     public CardAccount10? AccountData { get; init; } 
     /// <summary>
     /// Encryption of account information.
     /// </summary>
+    [DataMember]
     public ContentInformationType10? ProtectedAccountData { get; init; } 
     /// <summary>
     /// Total authorised amount of the deposit transaction.
     /// </summary>
+    [DataMember]
     public required AmountAndCurrency1 TotalAuthorisedAmount { get; init; } 
     /// <summary>
     /// Total requested amount.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalRequestedAmount { get; init; } 
     /// <summary>
     /// Detail of the requested amounts for the deposit transaction.
     /// </summary>
-    public DetailedAmount16[] DetailedRequestedAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedAmount16> DetailedRequestedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional charge (for instance tax or fee).
     /// </summary>
-    public DetailedAmount13[] AdditionalCharge { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedAmount13> AdditionalCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Outcome of the deposit authorisation.
     /// </summary>
+    [DataMember]
     public AuthorisationResult13? AuthorisationResult { get; init; } 
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
+    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    public ATMCommand7[] Command { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCommand7> Command { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

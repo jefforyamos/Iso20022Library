@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Context of the card payment transaction
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionContext3
 {
     #nullable enable
@@ -22,23 +24,28 @@ public partial record TransactionContext3
     /// ISO 8583:87 bit 18, ISO 8583:93 bit 18 & 26, ISO 8583:2003 bit 26
     /// ISO 18245
     /// </summary>
+    [DataMember]
     public IsoExact4NumericText? MerchantCategoryCode { get; init; } 
     /// <summary>
     /// Identifies the transaction initiator.
     /// </summary>
+    [DataMember]
     public TransactionInitiator1Code? TransactionInitiator { get; init; } 
     /// <summary>
     /// Card programme or brand related to the transaction.
     /// ISO 8583:87 bit 24
     /// </summary>
+    [DataMember]
     public CardProgrammeMode1? CardProgrammeApplied { get; init; } 
     /// <summary>
     /// Type of settlement service for specific services requiring settlement.
     /// </summary>
+    [DataMember]
     public SettlementService2? SettlementService { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period between the acquirer and the issuer or their respective agents.
     /// </summary>
+    [DataMember]
     public Reconciliation3? Reconciliation { get; init; } 
     
     #nullable disable

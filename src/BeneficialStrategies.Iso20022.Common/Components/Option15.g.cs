@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contracts which grant to the holder either the privilege to purchase or the privilege to sell the assets specified at a predetermined price or formula at or within a time in the future.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Option15
 {
     #nullable enable
@@ -20,67 +22,83 @@ public partial record Option15
     /// <summary>
     /// Specifies whether the option contract settles at the open or close of the market.
     /// </summary>
+    [DataMember]
     public SettleStyle2Choice_? OptionSettlementStyle { get; init; } 
     /// <summary>
     /// Deadline by which a convertible security must be converted according to the terms of the issue.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ConversionDate { get; init; } 
     /// <summary>
     /// Amount of money for which goods, services or assets are offered, sold, or bought.
     /// </summary>
+    [DataMember]
     public Price8? StrikePrice { get; init; } 
     /// <summary>
     /// Minimum quantity of securities that must be exercised.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? MinimumExercisableQuantity { get; init; } 
     /// <summary>
     /// Period during which a convertible security may be converted according to the terms of the issue.
     /// </summary>
+    [DataMember]
     public DateTimePeriod1Choice_? ConversionPeriod { get; init; } 
     /// <summary>
     /// Specifies how an option can be exercised (American, European, Bermudan).
     /// </summary>
+    [DataMember]
     public OptionStyle1Choice_? OptionStyle { get; init; } 
     /// <summary>
     /// Specifies whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).
     /// </summary>
+    [DataMember]
     public OptionType8Choice_? OptionType { get; init; } 
     /// <summary>
     /// Used for derivatives. The number of shares/units for the financial instrument involved in the option trade.
     /// </summary>
+    [DataMember]
     public IsoNumber? StrikeValue { get; init; } 
     /// <summary>
     /// Used for derivatives. Multiplier applied to the strike price for the purpose of calculating the settlement value.
     /// </summary>
+    [DataMember]
     public IsoNumber? StrikeMultiplier { get; init; } 
     /// <summary>
     /// Method under which assignment was conducted.
     /// </summary>
+    [DataMember]
     public AssignmentMethod2Choice_? InstrumentAssignmentMethod { get; init; } 
     /// <summary>
     /// Number allocated by options exchanges to record that an option has undergone a change in its contract specifications (particularly adjustment of the strike price).
     /// </summary>
+    [DataMember]
     public IsoNumber? VersionNumber { get; init; } 
     /// <summary>
     /// Financial center where option expires.
     /// </summary>
+    [DataMember]
     public IsoMax4AlphaNumericText? ExpiryLocation { get; init; } 
     /// <summary>
     /// Specifies whether the terms of the security (underlying instruments, expiration date, contract size) are defined according to the exchange specifications or whether they can be user defined.
     /// </summary>
+    [DataMember]
     public Standardisation3Choice_? Standardisation { get; init; } 
     /// <summary>
     /// Specifies the party which is the buyer or the seller.
     /// </summary>
+    [DataMember]
     public OptionParty3Choice_? TradingPartyRole { get; init; } 
     /// <summary>
     /// Ratio or multiplying factor used to convert one contract into a quantity.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? ContractSize { get; init; } 
     /// <summary>
     /// Provides more information about the underlying instrument.
     /// </summary>
-    public UnderlyingAttributes4[] AdditionalUnderlyingAttributes { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<UnderlyingAttributes4> AdditionalUnderlyingAttributes { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

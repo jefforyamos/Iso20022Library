@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the mandate, which is being accepted.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MandateAcceptance1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record MandateAcceptance1
     /// <summary>
     /// Set of elements used to provide information on the original messsage.
     /// </summary>
+    [DataMember]
     public OriginalMessageInformation1? OriginalMessageInformation { get; init; } 
     /// <summary>
     /// Set of elements used to provide detailed information on the acceptance result.
     /// </summary>
+    [DataMember]
     public required AcceptanceResult6 AcceptanceResult { get; init; } 
     /// <summary>
     /// Set of elements used to provide the original mandate data.
     /// </summary>
+    [DataMember]
     public required OriginalMandate1Choice_ OriginalMandate { get; init; } 
     
     #nullable disable

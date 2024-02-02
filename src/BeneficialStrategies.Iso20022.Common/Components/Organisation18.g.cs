@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Card acceptor performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Organisation18
 {
     #nullable enable
@@ -20,24 +22,29 @@ public partial record Organisation18
     /// <summary>
     /// Identification of the card acceptor.
     /// </summary>
+    [DataMember]
     public required GenericIdentification32 Identification { get; init; } 
     /// <summary>
     /// Name of the card acceptor as appearing on the receipt or the statement of account of the cardholder.
     /// It correspond to the ISO 8583 field number 43.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text CommonName { get; init; } 
     /// <summary>
     /// Location of the card acceptor. 
     /// It correspond to the ISO 8583 field number 43.
     /// </summary>
+    [DataMember]
     public required CommunicationAddress5 Location { get; init; } 
     /// <summary>
     /// Selected language of the card acceptor. Reference ISO 639-1 (alpha-2) andISO 639-2 (alpha-3).
     /// </summary>
+    [DataMember]
     public LanguageCode? SelectedLanguage { get; init; } 
     /// <summary>
     /// Additional card acceptor data required by a card scheme.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? SchemeData { get; init; } 
     
     #nullable disable

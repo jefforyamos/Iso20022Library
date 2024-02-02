@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account information and detailed account holdings information report for corporate action events.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountIdentification16
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record AccountIdentification16
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text SafekeepingAccount { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification36Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
+    [DataMember]
     public SafekeepingPlaceFormat2Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Detailed account holdings information report for a corporate action event.
     /// </summary>
-    public CorporateActionEventAndBalance3[] CorporateActionEventAndBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CorporateActionEventAndBalance3> CorporateActionEventAndBalance { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

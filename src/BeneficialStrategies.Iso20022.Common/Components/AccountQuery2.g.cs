@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specification of the query criteria.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountQuery2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AccountQuery2
     /// <summary>
     /// Specifies the type of matching items to be returned in the response to the query.
     /// </summary>
+    [DataMember]
     public QueryType2Code? QueryType { get; init; } 
     /// <summary>
     /// Defines the account query criteria.
     /// </summary>
+    [DataMember]
     public AccountCriteria2Choice_? AccountCriteria { get; init; } 
     
     #nullable disable

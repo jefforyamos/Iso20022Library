@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Merchant performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Organisation9
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record Organisation9
     /// <summary>
     /// Identification of the merchant.
     /// </summary>
+    [DataMember]
     public required GenericIdentification32 Identification { get; init; } 
     /// <summary>
     /// Name of the merchant as appearing on the receipt.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? CommonName { get; init; } 
     /// <summary>
     /// Location category of the place where the merchant actually performed the transaction.
     /// </summary>
+    [DataMember]
     public LocationCategory1Code? LocationCategory { get; init; } 
     /// <summary>
     /// Location of the merchant where the transaction took place, as appearing on the receipt.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Address { get; init; } 
     /// <summary>
     /// Country of the merchant where the transaction took place.
     /// </summary>
+    [DataMember]
     public ISO3NumericCountryCode? CountryCode { get; init; } 
     /// <summary>
     /// Additional merchant data required by a card scheme.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? SchemeData { get; init; } 
     
     #nullable disable

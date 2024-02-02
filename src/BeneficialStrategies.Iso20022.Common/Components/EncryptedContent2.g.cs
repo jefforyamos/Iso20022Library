@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Encrypted data with an encryption key.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EncryptedContent2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record EncryptedContent2
     /// <summary>
     /// Type of data which have been encrypted.
     /// </summary>
+    [DataMember]
     public required ContentType1Code ContentType { get; init; } 
     /// <summary>
     /// Algorithm used to encrypt the data.
     /// </summary>
+    [DataMember]
     public required AlgorithmIdentification6 ContentEncryptionAlgorithm { get; init; } 
     /// <summary>
     /// Encrypted data, result of the content encryption.
     /// </summary>
+    [DataMember]
     public required IsoMax10000Binary EncryptedData { get; init; } 
     
     #nullable disable

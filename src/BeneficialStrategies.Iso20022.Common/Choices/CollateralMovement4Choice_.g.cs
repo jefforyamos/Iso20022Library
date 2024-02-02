@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CollateralMovement4Choice.CollateralMovementDirection))]
 [KnownType(typeof(CollateralMovement4Choice.Return))]
+[DataContract]
 public abstract partial record CollateralMovement4Choice_
 {
 }

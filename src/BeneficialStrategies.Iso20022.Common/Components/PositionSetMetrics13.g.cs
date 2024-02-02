@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Variables used to quantify the different calculations for position sets.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PositionSetMetrics13
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PositionSetMetrics13
     /// <summary>
     /// Numeric variables calculated on the number of transactions or on market exposures.
     /// </summary>
+    [DataMember]
     public required VolumeMetrics5 VolumeMetrics { get; init; } 
     /// <summary>
     /// Numeric variables consisting in interest rates, lending fees or haircuts, calculated as weighted averages.
     /// </summary>
+    [DataMember]
     public PriceMetrics3? PriceMetrics { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Outcome of the application of a hypothetical scenario on the valuation of a set of portfolios of financial instruments.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ScenarioStressTestResult1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record ScenarioStressTestResult1
     /// <summary>
     /// Identification of the stressed account.
     /// </summary>
+    [DataMember]
     public required GenericIdentification168 Identification { get; init; } 
     /// <summary>
     /// Result from the application of a stress test scenario to the positions in a cleared portfolio.
     /// </summary>
-    public PortfolioStressTestResult1[] PortfolioStressTestResult { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PortfolioStressTestResult1> PortfolioStressTestResult { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

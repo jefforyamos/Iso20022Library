@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters required to request a fund reference data report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FundParameters5
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record FundParameters5
     /// <summary>
     /// Financial instrument for which the report is requested.
     /// </summary>
-    public FinancialInstrument71[] FinancialInstrumentDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FinancialInstrument71> FinancialInstrumentDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fund management company for which the report is requested.
     /// </summary>
-    public PartyIdentification139[] FundManagementCompany { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyIdentification139> FundManagementCompany { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the date on or after which the information required will have been last updated. Only the most recent versions of the data is required.
     /// </summary>
+    [DataMember]
     public IsoISODate? DateFrom { get; init; } 
     /// <summary>
     /// Country where the fund has legal domicile.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryOfDomicile { get; init; } 
     /// <summary>
     /// Country where the fund is registered for distribution.
     /// </summary>
-    public CountryCode[] RegisteredDistributionCountry { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CountryCode> RegisteredDistributionCountry { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

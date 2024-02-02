@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the minimum value of entries to be reported in the requested message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Limit2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Limit2
     /// <summary>
     /// Minimum transaction amount to be reported in the requested message.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether the floor limit applies to credit, to debit or to both credit and debit entries.
     /// </summary>
+    [DataMember]
     public required FloorLimitType1Code CreditDebitIndicator { get; init; } 
     
     #nullable disable

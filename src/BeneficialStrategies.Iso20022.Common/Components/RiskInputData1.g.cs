@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional data to be considered for risk assessment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RiskInputData1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record RiskInputData1
     /// <summary>
     /// Entity providing the information required for a risk assessment.
     /// </summary>
+    [DataMember]
     public RiskAssessmentDataEntityProvider1? Entity { get; init; } 
     /// <summary>
     /// Identifies the type of risk assessment associated with the input data in the message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Value of input data for risk assessment.
     /// </summary>
+    [DataMember]
     public required IsoMax10KText Value { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Intra-balance type used to specify pairs of from/to balances.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraBalanceType2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record IntraBalanceType2
     /// <summary>
     /// Balance from which the amount of money is moved.
     /// </summary>
+    [DataMember]
     public CashSubBalanceTypeAndQuantityBreakdown2? BalanceFrom { get; init; } 
     /// <summary>
     /// Balance to which the amount of money is moved.
     /// </summary>
+    [DataMember]
     public CashSubBalanceTypeAndQuantityBreakdown2? BalanceTo { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details of the foreign exchange.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ForeignExchange1
 {
     #nullable enable
@@ -20,16 +22,19 @@ public partial record ForeignExchange1
     /// <summary>
     /// Currency into which an amount is to be converted in a currency conversion.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode ForeignCurrency { get; init; } 
     /// <summary>
     /// Foreign exchange rate between the source and the foreign currency applicable to the first leg of the FX swap transaction. The foreign exchange spot rate will be reported as the number of foreign currency units per one unit of the source currency.
     /// </summary>
+    [DataMember]
     public required IsoBaseOneRate ExchangeSpotRate { get; init; } 
     /// <summary>
     /// Difference between the foreign exchange spot rate and the foreign exchange forward rate expressed in basis points quoted in accordance with the prevailing market conventions for the currency pair. 
     /// Usage:
     /// This value can be either positive or negative.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber ExchangeForwardPoint { get; init; } 
     
     #nullable disable

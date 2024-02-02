@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ExecutionType1Choice.Time))]
 [KnownType(typeof(ExecutionType1Choice.Event))]
+[DataContract]
 public abstract partial record ExecutionType1Choice_
 {
 }

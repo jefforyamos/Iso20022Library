@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details about the proposal for the variation margin and optionaly the segregated independent amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralProposal5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CollateralProposal5
     /// <summary>
     /// Provides details about the proposal for the variation margin.
     /// </summary>
+    [DataMember]
     public required CollateralMovement7 VariationMargin { get; init; } 
     /// <summary>
     /// Provides details about the proposal for the segregated independent amount.
     /// </summary>
+    [DataMember]
     public CollateralMovement7? SegregatedIndependentAmount { get; init; } 
     
     #nullable disable

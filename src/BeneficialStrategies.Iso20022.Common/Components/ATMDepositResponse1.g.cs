@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Response to a deposit request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMDepositResponse1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ATMDepositResponse1
     /// <summary>
     /// Environment of the deposit transaction.
     /// </summary>
+    [DataMember]
     public required ATMEnvironment12 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed.
     /// </summary>
+    [DataMember]
     public required ATMContext11 Context { get; init; } 
     /// <summary>
     /// Response to the deposit request.
     /// </summary>
+    [DataMember]
     public required ATMTransaction16 Transaction { get; init; } 
     
     #nullable disable

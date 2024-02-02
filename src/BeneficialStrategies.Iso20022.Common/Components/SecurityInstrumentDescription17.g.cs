@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the security instrument by its name and typical characteristics.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityInstrumentDescription17
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record SecurityInstrumentDescription17
     /// <summary>
     /// Code used to identify the financial instrument.
     /// </summary>
+    [DataMember]
     public required IsoISINOct2015Identifier Identification { get; init; } 
     /// <summary>
     /// Full name of the financial instrument.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? FullName { get; init; } 
     /// <summary>
     /// Short name of financial instrument in accordance with ISO 18774.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification.
     /// </summary>
+    [DataMember]
     public IsoCFIOct2015Identifier? ClassificationType { get; init; } 
     /// <summary>
     /// Currency in which the notional is denominated.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? NotionalCurrency { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument falls within the definition of commodities derivative under the local regulation.
     /// Usage: when not present, the indicator in not applicable.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CommodityDerivativeIndicator { get; init; } 
     
     #nullable disable

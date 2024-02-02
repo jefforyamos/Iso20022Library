@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification210
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PartyIdentification210
     /// <summary>
     /// Contains the personal ID associated with the individual working in a temporary capacity.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PersonalIdentification { get; init; } 
     /// <summary>
     /// Contains the company-provided ID associated with the individual working in a temporary capacity.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? EmployeeIdentification { get; init; } 
     /// <summary>
     /// Contains the name of the individual working in a temporary capacity.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Contains the professional level of the individual working in a temporary capacity.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProfessionalLevel { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Extension to identify a security by proprietary or domestic identification scheme.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityIdentification14SD1
 {
     #nullable enable
@@ -21,12 +23,14 @@ public partial record SecurityIdentification14SD1
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Abbreviated name of the underlying securities in the local language.
     /// Note that in case of non-listed securities, it will be a full local language securities name.
     /// 銘柄名（銘柄略称）.
     /// </summary>
+    [DataMember]
     public required IsoMax240Text AbbreviatedLocalLanguageSecurityName { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(UnitOfMeasure5Choice.Code))]
 [KnownType(typeof(UnitOfMeasure5Choice.Proprietary))]
+[DataContract]
 public abstract partial record UnitOfMeasure5Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about a movement that failed the settlement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FailedMovement1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record FailedMovement1
     /// <summary>
     /// Amount of cash.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount CashAmount { get; init; } 
     /// <summary>
     /// Quantity of the financial instrument.
     /// </summary>
+    [DataMember]
     public required UnitOrFaceAmount1Choice_ SecuritiesQuantity { get; init; } 
     /// <summary>
     /// Identification of the financial instrument.
     /// </summary>
+    [DataMember]
     public SecurityIdentification7? SecurityIdentification { get; init; } 
     /// <summary>
     /// The reason for the settlement failure.
     /// </summary>
+    [DataMember]
     public required FailedSettlementReason1FormatChoice_ Reason { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the account as the search criteria for the financial institution to do the investigation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountAndParties1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record AccountAndParties1
     /// <summary>
     /// Specifies the account for the investigation.
     /// </summary>
+    [DataMember]
     public required CashAccount25 Identification { get; init; } 
     /// <summary>
     /// Specifies the investigated parties related to the account such as the owner, beneficiary, signatory or any party playing a role in that account for which the investigation needs to be done.
     /// </summary>
+    [DataMember]
     public required InvestigatedParties1Choice_ InvestigatedParties { get; init; } 
     /// <summary>
     /// Identifies the authority request type as a code.
     /// </summary>
-    public AuthorityRequestType1[] AuthorityRequestType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AuthorityRequestType1> AuthorityRequestType { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

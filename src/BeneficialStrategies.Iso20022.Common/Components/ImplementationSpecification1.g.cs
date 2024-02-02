@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the implementation specification to which the ISO 20022 message conforms.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ImplementationSpecification1
 {
     #nullable enable
@@ -21,11 +23,13 @@ public partial record ImplementationSpecification1
     /// Name of the implementation specification registry in which the implementation specification of the ISO 20022 message is maintained.
     /// For example, "MyStandards".
     /// </summary>
+    [DataMember]
     public required IsoMax350Text Registry { get; init; } 
     /// <summary>
     /// Identifier which unambiguously identifies, within the implementation specification registry, the implementation specification to which the ISO 20022 message is compliant. This can be done via a URN. It can also contain a version number or date.
     /// For instance, "2018-01-01 – Version 2" or "urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66".
     /// </summary>
+    [DataMember]
     public required IsoMax2048Text Identification { get; init; } 
     
     #nullable disable

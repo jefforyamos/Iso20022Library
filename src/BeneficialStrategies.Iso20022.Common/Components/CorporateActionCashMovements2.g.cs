@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the cash movement resulting from the election instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionCashMovements2
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record CorporateActionCashMovements2
     /// <summary>
     /// Posting identification of the cash movement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PostingIdentification { get; init; } 
     /// <summary>
     /// Posting date of the cash movement.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? PostingDateTime { get; init; } 
     /// <summary>
     /// Amount posted as a result of the cash movement.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount PostingAmount { get; init; } 
     /// <summary>
     /// Provides information about the account which is debited/credited as a result of the movement.
     /// </summary>
-    public CashAccount19[] AccountDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<CashAccount19> AccountDetails { get; init; } = [];
     
     #nullable disable
 }

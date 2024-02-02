@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data on transaction requiring reconciliation or pairing.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReconciliationReport5
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ReconciliationReport5
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Information related to transactions that are subject of reconciliation.
     /// </summary>
+    [DataMember]
     public required TradeTransactionIdentification4 TransactionIdentification { get; init; } 
     /// <summary>
     /// Indication whether information was modified.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator Modified { get; init; } 
     /// <summary>
     /// Indication whether the reconciliation is required.
     /// </summary>
+    [DataMember]
     public required ReconciliationStatus5Choice_ ReconciliationStatus { get; init; } 
     
     #nullable disable

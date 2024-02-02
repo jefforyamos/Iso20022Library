@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the calculation of the margin.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Margin3
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record Margin3
     /// <summary>
     /// Margin required for absorbing future market price fluctuations (market risks) occurring between the default of a member and close-out of unsettled securities positions by the central counterparty.
     /// </summary>
+    [DataMember]
     public Amount2? InitialMargin { get; init; } 
     /// <summary>
     /// Provides details on the calculation of the variation margin.
     /// </summary>
-    public VariationMargin3[] VariationMargin { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<VariationMargin3> VariationMargin { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides details on the margin type and amount.
     /// </summary>
-    public Margin4[] OtherMargin { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Margin4> OtherMargin { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

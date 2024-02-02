@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a cash asset.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashAsset3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CashAsset3
     /// <summary>
     /// Type of cash asset.
     /// </summary>
+    [DataMember]
     public required CashAssetType1Choice_ CashAssetType { get; init; } 
     /// <summary>
     /// Currency of the asset in the holding.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode HoldingCurrency { get; init; } 
     /// <summary>
     /// Currency of the asset in another currency.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? TransferCurrency { get; init; } 
     /// <summary>
     /// Additional information about the cash asset.
     /// </summary>
+    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable

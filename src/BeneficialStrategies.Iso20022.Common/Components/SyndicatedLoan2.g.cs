@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Loan offered by a group of lenders (called a syndicate) who work together to lend an amount of money to a single borrower.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SyndicatedLoan2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record SyndicatedLoan2
     /// <summary>
     /// Party which obtains the loan.
     /// </summary>
+    [DataMember]
     public required TradeParty5 Borrower { get; init; } 
     /// <summary>
     /// Party which provides an amount of money available to others to borrow.
     /// </summary>
+    [DataMember]
     public TradeParty5? Lender { get; init; } 
     /// <summary>
     /// Amount of the part in the syndicated loan.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Share of the part in the syndicated loan.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Share { get; init; } 
     /// <summary>
     /// Provides details on the currency exchange rate and contract.
     /// </summary>
+    [DataMember]
     public ExchangeRate1? ExchangeRateInformation { get; init; } 
     
     #nullable disable

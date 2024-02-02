@@ -14,6 +14,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// The Custom Report message can be initiated by any party and received by any party (acquirer, agent, issuer or other party) connected to a network.
 /// This message provides the capability to convey customized reports that are defined by bi-lateral agreement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CustomReport1
 {
     #nullable enable
@@ -21,19 +23,23 @@ public partial record CustomReport1
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required Environment33 Environment { get; init; } 
     /// <summary>
     /// Contains or describes conditions and characteristics of the transaction.
     /// </summary>
+    [DataMember]
     public Context17? Context { get; init; } 
     /// <summary>
     /// Specifies the attributes of a report and its content.
     /// </summary>
+    [DataMember]
     public required ReportData6 Report { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of expected margin required by any of the parties of the margin calculation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MarginRequirement1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record MarginRequirement1
     /// <summary>
     /// Amount of new margin that will be delivered to one party by the other party after rounding, threshold and minimum transfer amount are taken into account.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? DeliverMarginAmount { get; init; } 
     /// <summary>
     /// Amount of new margin that will be recalled to one party from the other party after rounding, threshold and minimum transfer amount are taken into account.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ReturnMarginAmount { get; init; } 
     
     #nullable disable

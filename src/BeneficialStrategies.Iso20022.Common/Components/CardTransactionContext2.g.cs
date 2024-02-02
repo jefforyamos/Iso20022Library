@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Context of the card transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardTransactionContext2
 {
     #nullable enable
@@ -21,57 +23,69 @@ public partial record CardTransactionContext2
     /// Indicates whether the transaction has been initiated by a card physically present or not. 
     /// It correspond to the ISO 8583: 1993 field number 22-6.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CardPresent { get; init; } 
     /// <summary>
     /// Indicates whether the transaction has been initiated in presence of the cardholder or not. 
     /// It correspond to the ISO 8583: 1993 field number 22-5.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CardholderPresent { get; init; } 
     /// <summary>
     /// Location category of the place where the transaction is actually performed. 
     /// It correspond partially to the ISO 8583: 1993 field number 22-4.
     /// </summary>
+    [DataMember]
     public LocationCategory2Code? LocationCategory { get; init; } 
     /// <summary>
     /// Human attendance at the terminal location during the transaction. 
     /// It correspond partially to the ISO 8583: 1993 field number 22-4.
     /// </summary>
+    [DataMember]
     public AttendanceContext1Code? AttendanceContext { get; init; } 
     /// <summary>
     /// Indicates the environment of the transaction.
     /// </summary>
+    [DataMember]
     public TransactionEnvironment2Code? TransactionEnvironment { get; init; } 
     /// <summary>
     /// Indicates the entity hosting the terminal performing the transaction. 
     /// It correspond partially to the ISO 8583: 1993 field number 22-4.
     /// </summary>
+    [DataMember]
     public TransactionEnvironment3Code? HostingCategory { get; init; } 
     /// <summary>
     /// Identifies the type of the communication channels used by the cardholder to the acceptor system. 
     /// It correspond to the ISO 8583: 1993 field number 22-5.
     /// </summary>
+    [DataMember]
     public TransactionChannel3Code? TransactionChannel { get; init; } 
     /// <summary>
     /// Entry mode of the card data. 
     /// It correspond to the ISO 8583 field number 25 for the version 87 (partially), field number 22-7 for the version 93, and field number 22-1 for the version 2003.
     /// </summary>
+    [DataMember]
     public required CardDataReading2Code CardDataEntryMode { get; init; } 
     /// <summary>
     /// Indicator of a card entry mode fall-back. It correspond to the ISO 8583: 2003 field number 22-1.
     /// </summary>
+    [DataMember]
     public CardFallback1Code? FallbackIndicator { get; init; } 
     /// <summary>
     /// Payment options the card acceptor can support.
     /// </summary>
-    public SupportedPaymentOption1Code[] SupportedOption { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupportedPaymentOption1Code> SupportedOption { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data used to assign specific condition such as liability shift or preferential interchange fees.
     /// </summary>
-    public CardTransactionCondition1[] SpecialConditions { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardTransactionCondition1> SpecialConditions { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates to the issuer the level of risk of the transaction.
     /// </summary>
-    public CardTransactionRiskIndicator1[] RiskIndicator { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardTransactionRiskIndicator1> RiskIndicator { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

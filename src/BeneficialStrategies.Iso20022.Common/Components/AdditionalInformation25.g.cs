@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalInformation25
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record AdditionalInformation25
     /// <summary>
     /// Type of query.
     /// </summary>
+    [DataMember]
     public GenericIdentification36? QueryType { get; init; } 
     /// <summary>
     /// Description of the query.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text Query { get; init; } 
     /// <summary>
     /// Reason for the query.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? QueryReason { get; init; } 
     /// <summary>
     /// Reason the instruction was rejected.
     /// </summary>
+    [DataMember]
     public RejectedReason33Choice_? RejectionReason { get; init; } 
     
     #nullable disable

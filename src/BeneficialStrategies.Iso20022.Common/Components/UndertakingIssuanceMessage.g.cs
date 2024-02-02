@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contents of the related UndertakingIssuance message or of the related issuance document.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UndertakingIssuanceMessage
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record UndertakingIssuanceMessage
     /// <summary>
     /// Independent undertaking, such as a demand guarantee or standby letter of credit, that provides financial assurance, to be collected on the presentation of documents that comply with its terms and conditions.
     /// </summary>
+    [DataMember]
     public required Undertaking3 UndertakingDetails { get; init; } 
     /// <summary>
     /// Digital signature of the issued undertaking.
     /// </summary>
+    [DataMember]
     public PartyAndSignature2? DigitalSignature { get; init; } 
     
     #nullable disable

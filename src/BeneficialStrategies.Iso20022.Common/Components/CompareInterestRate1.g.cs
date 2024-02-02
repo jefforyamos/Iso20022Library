@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies whether the values defined as part of the Margin Loan Attribute are matching or not.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareInterestRate1
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record CompareInterestRate1
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
+    [DataMember]
     public CompareAmountAndDirection1? MarginLoanAmount { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as percentage rate are matching or not.
     /// </summary>
+    [DataMember]
     public ComparePercentageRate3? FixedInterestRate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 5 characters are matching or not.
     /// </summary>
+    [DataMember]
     public CompareInterestComputationMethod3? DayCountBasis { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as benchmark curve name are matching or not.
     /// </summary>
+    [DataMember]
     public CompareBenchmarkCurveName3? FloatingInterestReferenceRate { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
+    [DataMember]
     public CompareRateBasis3? FloatingInterestRateTermUnit { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber5? FloatingInterestRateTermValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
+    [DataMember]
     public CompareRateBasis3? FloatingInterestRatePaymentFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber5? FloatingInterestRatePaymentFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as rate basis code are matching or not.
     /// </summary>
+    [DataMember]
     public CompareRateBasis3? FloatingInterestRateResetFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 3 characters are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber6? FloatingInterestRateResetFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as number with max 5 characters are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDecimalNumber3? BasisPointSpread { get; init; } 
     
     #nullable disable

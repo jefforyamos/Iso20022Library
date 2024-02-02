@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains dispute reference details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DisputeReference1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record DisputeReference1
     /// <summary>
     /// Name of the entity assigning the dispute reference.
     /// </summary>
+    [DataMember]
     public PartyType32Code? AssignerEntity { get; init; } 
     /// <summary>
     /// Other assigner entity.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherAssignerEntity { get; init; } 
     /// <summary>
     /// Identification of the dispute.
     /// </summary>
-    public DisputeIdentification1[] DisputeIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DisputeIdentification1> DisputeIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

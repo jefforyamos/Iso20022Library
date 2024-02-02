@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Entity providing data for risk assessment
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RiskAssessmentDataEntityProvider1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RiskAssessmentDataEntityProvider1
     /// <summary>
     /// Type of entity providing data for risk assessment.
     /// </summary>
+    [DataMember]
     public PartyType28Code? Type { get; init; } 
     /// <summary>
     /// Other type of entity providing risk assessment data.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     
     #nullable disable

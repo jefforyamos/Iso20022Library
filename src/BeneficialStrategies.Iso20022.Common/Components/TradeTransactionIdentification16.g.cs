@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on transaction and conducting counterparty.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeTransactionIdentification16
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record TradeTransactionIdentification16
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Unique code identifying the reporting counterparty.
     /// </summary>
+    [DataMember]
     public required OrganisationIdentification15Choice_ ReportingCounterparty { get; init; } 
     /// <summary>
     /// Unique code identifying the entity with which the reporting counterparty concluded the transaction.
     /// </summary>
+    [DataMember]
     public required PartyIdentification236Choice_ OtherCounterparty { get; init; } 
     /// <summary>
     /// Unique code identifying that the Financial counterparty responsible for reporting on behalf of the other counterparty.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification15Choice_? EntityResponsibleForReport { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the collateral portfolio.
     /// </summary>
+    [DataMember]
     public IsoMax52Text? CollateralPortfolioIdentification { get; init; } 
     
     #nullable disable

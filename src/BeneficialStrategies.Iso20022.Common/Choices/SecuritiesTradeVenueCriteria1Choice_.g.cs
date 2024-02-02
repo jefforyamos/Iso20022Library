@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(SecuritiesTradeVenueCriteria1Choice.MIC))]
 [KnownType(typeof(SecuritiesTradeVenueCriteria1Choice.AnyMIC))]
+[DataContract]
 public abstract partial record SecuritiesTradeVenueCriteria1Choice_
 {
 }

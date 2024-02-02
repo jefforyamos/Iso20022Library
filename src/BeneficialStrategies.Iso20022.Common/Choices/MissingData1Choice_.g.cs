@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(MissingData1Choice.Code))]
 [KnownType(typeof(MissingData1Choice.Proprietary))]
+[DataContract]
 public abstract partial record MissingData1Choice_
 {
 }

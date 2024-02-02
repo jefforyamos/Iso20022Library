@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transaction information in the cancellation advice.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentTransaction7
 {
     #nullable enable
@@ -20,54 +22,67 @@ public partial record CardPaymentTransaction7
     /// <summary>
     /// Flag indicating whether the transaction data must be captured or not in addition to the message process.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? TransactionCapture { get; init; } 
     /// <summary>
     /// Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction.
     /// </summary>
+    [DataMember]
     public required IsoMin3Max4Text MerchantCategoryCode { get; init; } 
     /// <summary>
     /// Unique identification of the transaction assigned by the POI (Point Of Interaction).
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the original transaction.
     /// </summary>
+    [DataMember]
     public CardPaymentTransaction8? OriginalTransaction { get; init; } 
     /// <summary>
     /// Outcome of the transaction at the acceptor.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator TransactionSuccess { get; init; } 
     /// <summary>
     /// Notify that a previous transaction has to be reversed if this original transaction has been approved by the acquirer.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? Reversal { get; init; } 
     /// <summary>
     /// List of incidents during the transaction.
     /// </summary>
-    public FailureReason1Code[] FailureReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FailureReason1Code> FailureReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction assigned by the recipient party for the initiating party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RecipientTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the reconciliation period between the acceptor and the acquirer. This identification might be linked to the identification of the settlement for further verification by the merchant.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Interchange information related to the card scheme.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? InterchangeData { get; init; } 
     /// <summary>
     /// Details of the transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentTransactionDetails7 TransactionDetails { get; init; } 
     /// <summary>
     /// Outcome of the authorisation.
     /// </summary>
+    [DataMember]
     public AuthorisationResult2? AuthorisationResult { get; init; } 
     /// <summary>
     /// Additional information related to the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AdditionalTransactionData { get; init; } 
     
     #nullable disable

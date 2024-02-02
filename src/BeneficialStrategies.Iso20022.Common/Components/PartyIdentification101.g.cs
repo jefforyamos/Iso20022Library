@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the beneficial owner of the securities.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification101
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record PartyIdentification101
     /// <summary>
     /// Party that is the beneficial owner of the specified quantity of securities.
     /// </summary>
+    [DataMember]
     public required PartyIdentification104Choice_ OwnerIdentification { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
-    public AlternatePartyIdentification9[] AlternateIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AlternatePartyIdentification9> AlternateIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Country in which a person is permanently domiciled (the place of a persons permanent home).
     /// </summary>
+    [DataMember]
     public CountryCode? DomicileCountry { get; init; } 
     /// <summary>
     /// Holder of the security certifies, in line with the terms of the corporate action, that it is not domiciled in the country indicated.
     /// </summary>
-    public CountryCode[] NonDomicileCountry { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CountryCode> NonDomicileCountry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity of securities belonging to the beneficial owner specified.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity15Choice_ OwnedSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Type of certification which is required.
     /// </summary>
-    public BeneficiaryCertificationType11Choice_[] CertificationType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BeneficiaryCertificationType11Choice_> CertificationType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional information about the type of certification/breakdown required.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax350Text? CertificationBreakdown { get; init; } 
     
     #nullable disable

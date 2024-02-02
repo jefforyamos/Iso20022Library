@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ProductIdentifier2Choice.StructuredProductIdentifier))]
 [KnownType(typeof(ProductIdentifier2Choice.OtherProductIdentifier))]
+[DataContract]
 public abstract partial record ProductIdentifier2Choice_
 {
 }

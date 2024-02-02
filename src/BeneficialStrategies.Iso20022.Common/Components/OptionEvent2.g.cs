@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Events specified in the contract terms of an option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OptionEvent2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record OptionEvent2
     /// <summary>
     /// Type of event in the life of the option.
     /// </summary>
+    [DataMember]
     public required OptionEventType1Choice_ Type { get; init; } 
     /// <summary>
     /// Description of the event.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Description { get; init; } 
     
     #nullable disable

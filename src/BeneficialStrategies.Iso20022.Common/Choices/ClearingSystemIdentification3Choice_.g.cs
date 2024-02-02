@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ClearingSystemIdentification3Choice.Code))]
 [KnownType(typeof(ClearingSystemIdentification3Choice.Proprietary))]
+[DataContract]
 public abstract partial record ClearingSystemIdentification3Choice_
 {
 }

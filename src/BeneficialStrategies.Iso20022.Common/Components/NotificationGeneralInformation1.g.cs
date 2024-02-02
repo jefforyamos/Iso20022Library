@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Event notification type and status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NotificationGeneralInformation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NotificationGeneralInformation1
     /// <summary>
     /// Type of notification.
     /// </summary>
+    [DataMember]
     public required NotificationType3Code NotificationType { get; init; } 
     /// <summary>
     /// Status of the details of the event.
     /// </summary>
+    [DataMember]
     public required EventStatus1 NotificationStatus { get; init; } 
     
     #nullable disable

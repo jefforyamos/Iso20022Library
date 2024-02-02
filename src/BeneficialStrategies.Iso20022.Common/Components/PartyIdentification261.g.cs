@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification261
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record PartyIdentification261
     /// <summary>
     /// Contains an agency code or name.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Code { get; init; } 
     /// <summary>
     /// Assigner of the code.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Assigner { get; init; } 
     /// <summary>
     /// Contains the International Air Transport Association (IATA) code identifying the company that purchased the ticket. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? IATACode { get; init; } 
     /// <summary>
     /// Name of the company.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Short name of the company.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     /// <summary>
     /// Address of the customer.
     /// </summary>
+    [DataMember]
     public Address2? Address { get; init; } 
     /// <summary>
     /// Contact information related to the customer.
     /// </summary>
+    [DataMember]
     public Contact6? Contact { get; init; } 
     
     #nullable disable

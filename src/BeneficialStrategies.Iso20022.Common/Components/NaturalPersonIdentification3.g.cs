@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies a natural person through identification number, name and domicile.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NaturalPersonIdentification3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NaturalPersonIdentification3
     /// <summary>
     /// Unique and unambiguous identification of the natural person.
     /// </summary>
+    [DataMember]
     public required NaturalPersonIdentification2 Identification { get; init; } 
     /// <summary>
     /// Code of country of residence of a natural person.
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     
     #nullable disable

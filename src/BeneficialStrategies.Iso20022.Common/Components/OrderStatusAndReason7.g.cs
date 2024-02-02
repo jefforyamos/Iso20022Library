@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status report of a bulk or multiple or switch order that was previously received.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OrderStatusAndReason7
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record OrderStatusAndReason7
     /// <summary>
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Status of all the orders in the order message. There is no reason attached.
     /// </summary>
+    [DataMember]
     public required OrderStatus4Code Status { get; init; } 
     /// <summary>
     /// Status of all the orders in the order message is cancelled. This status is used for orders that have been accepted or that have been entered in an order book but that can not be executed.
     /// </summary>
+    [DataMember]
     public required CancelledStatus2 Cancelled { get; init; } 
     /// <summary>
     /// Status of all the orders in the order message is conditionally accepted.
     /// </summary>
+    [DataMember]
     public required ConditionallyAcceptedStatus2 ConditionallyAccepted { get; init; } 
     /// <summary>
     /// Status of all the orders in the order message is rejected. This status is used for orders that have not been accepted or entered in an order book.
     /// </summary>
-    public RejectedStatus6[] Rejected { get; init; } = [];
+    [DataMember]
+    public ValueList<RejectedStatus6> Rejected { get; init; } = [];
     /// <summary>
     /// Status of all the orders in the order message is suspended.
     /// </summary>
+    [DataMember]
     public required SuspendedStatus2 Suspended { get; init; } 
     /// <summary>
     /// Status of all the orders in the order message is partially settled.
     /// </summary>
+    [DataMember]
     public required PartiallySettledStatus1 PartiallySettled { get; init; } 
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     
     #nullable disable

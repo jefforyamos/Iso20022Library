@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ReuseDataReport3Choice.Error))]
 [KnownType(typeof(ReuseDataReport3Choice.Correction))]
 [KnownType(typeof(ReuseDataReport3Choice.CollateralReuseUpdate))]
+[DataContract]
 public abstract partial record ReuseDataReport3Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Choice between selected investment plans issued during previous years or the entirety of the investment plans.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PreviousYear1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PreviousYear1
     /// <summary>
     /// Selection ot the entirety of the investment plans.
     /// </summary>
+    [DataMember]
     public required IsoPreviousAll AllPreviousYears { get; init; } 
     /// <summary>
     /// Selection of investment plans issued during previous years.
     /// </summary>
-    public IsoISOYear[] SpecificPreviousYears { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoISOYear> SpecificPreviousYears { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the ISA contains a cash component asset for transfer.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator CashComponentIndicator { get; init; } 
     
     #nullable disable

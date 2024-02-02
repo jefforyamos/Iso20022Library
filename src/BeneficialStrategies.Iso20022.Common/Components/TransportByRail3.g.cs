@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the transportation of goods by rail.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransportByRail3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TransportByRail3
     /// <summary>
     /// Identifies the location where the goods are received for transportation.
     /// </summary>
-    public IsoMax35Text[] PlaceOfReceipt { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> PlaceOfReceipt { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the location of delivery of the goods.
     /// </summary>
-    public IsoMax35Text[] PlaceOfDelivery { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> PlaceOfDelivery { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RailCarrierName { get; init; } 
     
     #nullable disable

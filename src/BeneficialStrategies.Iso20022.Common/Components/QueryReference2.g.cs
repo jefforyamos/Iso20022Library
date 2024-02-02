@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Gives the name and the reference of the query.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record QueryReference2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record QueryReference2
     /// <summary>
     /// Unique and unambiguous identification of the query.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text QueryReference { get; init; } 
     /// <summary>
     /// Name of the query.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? QueryName { get; init; } 
     
     #nullable disable

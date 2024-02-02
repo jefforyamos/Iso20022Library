@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Digital account where digital assets or digital tokens can be stored and where an entry is made.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BlockChainAddressWallet2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record BlockChainAddressWallet2
     /// <summary>
     /// Unambiguous identification for the account between the account owner and the account servicer.”.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Identification { get; init; } 
     /// <summary>
     /// Specifies the type of securities account.
     /// </summary>
+    [DataMember]
     public PurposeCode7Choice_? Type { get; init; } 
     /// <summary>
     /// Description of the account.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     
     #nullable disable

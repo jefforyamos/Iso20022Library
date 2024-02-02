@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Total of credit or debit transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionTotals5
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record TransactionTotals5
     /// <summary>
     /// Cumulative amount of all financial transactions.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Number of all financial transactions.
     /// </summary>
+    [DataMember]
     public required IsoNumber Number { get; init; } 
     /// <summary>
     /// Cumulative amount of all chargeback transactions exclusive of any fees.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount ChargeBackAmount { get; init; } 
     /// <summary>
     /// Total number of chargeback transactions.
     /// </summary>
+    [DataMember]
     public required IsoNumber ChargeBackNumber { get; init; } 
     /// <summary>
     /// Cumulative amount of all reversal transactions exclusive of any fees.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount ReversalAmount { get; init; } 
     /// <summary>
     /// Total number of reversal transactions.
     /// </summary>
+    [DataMember]
     public required IsoNumber ReversalNumber { get; init; } 
     /// <summary>
     /// Sum amount of all fees.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? FeeAmounts { get; init; } 
     
     #nullable disable

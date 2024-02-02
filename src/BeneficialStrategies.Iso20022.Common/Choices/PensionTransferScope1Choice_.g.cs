@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(PensionTransferScope1Choice.Code))]
 [KnownType(typeof(PensionTransferScope1Choice.Proprietary))]
+[DataContract]
 public abstract partial record PensionTransferScope1Choice_
 {
 }

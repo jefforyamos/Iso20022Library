@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the message reference of the account management instruction message for which the status is requested.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountManagementMessageReference2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record AccountManagementMessageReference2
     /// <summary>
     /// Reference to a linked message.
     /// </summary>
+    [DataMember]
     public LinkedMessage2Choice_? LinkedReference { get; init; } 
     /// <summary>
     /// Specifies if the status request refers to an earlier account opening or modification instruction message.
     /// </summary>
+    [DataMember]
     public required AccountManagementType1Code StatusRequestType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the account opening or account modification instruction at application level.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
     /// <summary>
     /// Account information for which the status of an account management instruction is requested.
     /// </summary>
+    [DataMember]
     public InvestmentAccount45? InvestmentAccount { get; init; } 
     
     #nullable disable

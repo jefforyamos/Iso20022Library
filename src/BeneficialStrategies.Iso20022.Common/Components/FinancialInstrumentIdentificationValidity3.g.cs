@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the date from which the financial instrument identification is valid.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentIdentificationValidity3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FinancialInstrumentIdentificationValidity3
     /// <summary>
     /// Way(s) of identifying the security.
     /// </summary>
+    [DataMember]
     public SecurityIdentification39? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Defines the date from which the instrument code is valid. This date can be before the actual issue date of an instrument for 'when-issued' securities, but may not be a date in the future for a new security.
     /// </summary>
+    [DataMember]
     public IsoISODate? ISINValidFrom { get; init; } 
     
     #nullable disable

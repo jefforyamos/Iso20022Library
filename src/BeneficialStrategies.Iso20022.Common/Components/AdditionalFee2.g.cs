@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Fees not included in the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalFee2
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record AdditionalFee2
     /// <summary>
     /// Type or class of fee.
     /// </summary>
+    [DataMember]
     public required TypeOfAmount21Code Type { get; init; } 
     /// <summary>
     /// Additional information to specify the type of amount of fee.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Identification of fee program.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? FeeProgram { get; init; } 
     /// <summary>
     /// Identification of specific fee.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? FeeDescriptor { get; init; } 
     /// <summary>
     /// Amount of one occurrence of the fee amount.
     /// </summary>
+    [DataMember]
     public required FeeAmount3 FeeAmount { get; init; } 
     /// <summary>
     /// Contains the fee amount in reconciliation currency.
     /// </summary>
+    [DataMember]
     public FeeAmount3? FeeReconciliationAmount { get; init; } 
     /// <summary>
     /// Short description of the fee amount.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

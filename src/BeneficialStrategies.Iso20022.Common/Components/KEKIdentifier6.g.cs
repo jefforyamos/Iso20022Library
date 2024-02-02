@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a key encryption key (KEK), using previously distributed symmetric key.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record KEKIdentifier6
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record KEKIdentifier6
     /// <summary>
     /// Identification of the cryptographic key.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text KeyIdentification { get; init; } 
     /// <summary>
     /// Version of the cryptographic key.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? KeyVersion { get; init; } 
     /// <summary>
     /// Number of usages of the cryptographic key.
     /// </summary>
+    [DataMember]
     public IsoNumber? SequenceNumber { get; init; } 
     /// <summary>
     /// Identification used for derivation of a unique key from a master key provided for the data protection.
     /// </summary>
+    [DataMember]
     public IsoMin5Max16Binary? DerivationIdentification { get; init; } 
     
     #nullable disable

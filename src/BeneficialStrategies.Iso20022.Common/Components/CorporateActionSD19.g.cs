@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionSD19
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CorporateActionSD19
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Date at which positions are stuck at the end of the day to note which parties will receive the relevant amount of entitlement, due to be distributed on payment date. DTC (The Depository Trust Corporation) and its Participants may use this as a reference.
     /// </summary>
+    [DataMember]
     public IsoISODate? RecordDate { get; init; } 
     /// <summary>
     /// Date/time at which the movement was due to take place (cash and/or securities).
     /// </summary>
+    [DataMember]
     public DateFormat48Choice_? PaymentDate { get; init; } 
     /// <summary>
     /// Date/time on which the lottery is run and applied to the holder's positions. This is also applicable to partial calls.
     /// </summary>
+    [DataMember]
     public IsoISODate? LotteryDate { get; init; } 
     /// <summary>
     /// Specifies the type of lottery announced.
     /// </summary>
+    [DataMember]
     public LotteryType1Code? LotteryType { get; init; } 
     
     #nullable disable

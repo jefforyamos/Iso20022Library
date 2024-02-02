@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TransportMeans1Choice.IndividualTransport))]
 [KnownType(typeof(TransportMeans1Choice.MultimodalTransport))]
+[DataContract]
 public abstract partial record TransportMeans1Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies details of the electronic invoice.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ElectronicInvoice1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record ElectronicInvoice1
     /// <summary>
     /// Type of elements to be presented in the electronic invoice (e-invoice).
     /// </summary>
+    [DataMember]
     public required PresentmentType1Code PresentmentType { get; init; } 
     
     #nullable disable

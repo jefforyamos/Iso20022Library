@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a multi-leg interest derivative.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DerivativeInterest2
 {
     #nullable enable
@@ -21,6 +23,7 @@ public partial record DerivativeInterest2
     /// Currency in which leg 2 of the contract is denominated, in case of multi-currency or cross-currency swaps.
     /// Currency in which leg 2 of the swap is denominated, in case of swaptions where the underlying swap is multi-currency.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode OtherNotionalCurrency { get; init; } 
     
     #nullable disable

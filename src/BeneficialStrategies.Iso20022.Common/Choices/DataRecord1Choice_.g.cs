@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(DataRecord1Choice.Binary))]
 [KnownType(typeof(DataRecord1Choice.Text))]
+[DataContract]
 public abstract partial record DataRecord1Choice_
 {
 }

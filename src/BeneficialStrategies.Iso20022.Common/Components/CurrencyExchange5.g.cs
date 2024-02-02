@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide details of the currency exchange.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyExchange5
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CurrencyExchange5
     /// <summary>
     /// Currency from which an amount is to be converted in a currency conversion.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode SourceCurrency { get; init; } 
     /// <summary>
     /// Currency into which an amount is to be converted in a currency conversion.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? TargetCurrency { get; init; } 
     /// <summary>
     /// Currency in which the rate of exchange is expressed in a currency exchange. In the example 1GBP = xxxCUR, the unit currency is GBP.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? UnitCurrency { get; init; } 
     /// <summary>
     /// Factor used to convert an amount from one currency into another. This reflects the price at which one currency was bought with another currency.||Usage: ExchangeRate expresses the ratio between UnitCurrency and QuotedCurrency (ExchangeRate = UnitCurrency/QuotedCurrency).
     /// </summary>
+    [DataMember]
     public required IsoBaseOneRate ExchangeRate { get; init; } 
     /// <summary>
     /// Unique identification to unambiguously identify the foreign exchange contract.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ContractIdentification { get; init; } 
     /// <summary>
     /// Date and time at which an exchange rate is quoted.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? QuotationDate { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Card Reader Application Protocol Data Unit Request message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeviceSendApplicationProtocolDataUnitCardReaderRequest1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record DeviceSendApplicationProtocolDataUnitCardReaderRequest1
     /// <summary>
     /// Class field of the Application Protocol Data Unit command (CLA).
     /// </summary>
+    [DataMember]
     public required IsoMin1Max256Binary Class { get; init; } 
     /// <summary>
     /// Instruction field of the Application Protocol Data Unit command (INS).
     /// </summary>
+    [DataMember]
     public required IsoMin1Max256Binary Instruction { get; init; } 
     /// <summary>
     /// Parameter 1 field of the Application Protocol Data Unit command
     /// </summary>
+    [DataMember]
     public required IsoMin1Max256Binary Parameter1 { get; init; } 
     /// <summary>
     /// Parameter 2 field of the Application Protocol Data Unit command
     /// </summary>
+    [DataMember]
     public required IsoMin1Max256Binary Parameter2 { get; init; } 
     /// <summary>
     /// Data field of the Application Protocol Data Unit command to send including the length.
     /// </summary>
+    [DataMember]
     public IsoMin1Max256Binary? Data { get; init; } 
     /// <summary>
     /// Expected length of the data field of the Application Protocol Data Unit response to the command.
     /// </summary>
+    [DataMember]
     public IsoMin1Max256Binary? ExpectedLength { get; init; } 
     
     #nullable disable

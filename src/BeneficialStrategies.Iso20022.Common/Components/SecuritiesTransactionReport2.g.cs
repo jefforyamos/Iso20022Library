@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the securities transaction report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesTransactionReport2
 {
     #nullable enable
@@ -20,25 +22,30 @@ public partial record SecuritiesTransactionReport2
     /// <summary>
     /// Unique and unambiguous identification of the transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax52Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the entity executing the transaction. 
     /// Usage:
     /// For legal entities, use the legal entity identifier. For non-legal entities, this field shall be populated with an identifier as specified in the local regulation.
     /// </summary>
+    [DataMember]
     public required IsoLEIIdentifier ExecutingParty { get; init; } 
     /// <summary>
     /// Entity submitting the transaction report to the competent authority.
     /// </summary>
+    [DataMember]
     public required IsoLEIIdentifier SubmittingParty { get; init; } 
     /// <summary>
     /// Data used for exchanges between national competent authorities, not to be used by reporting entities.
     /// </summary>
+    [DataMember]
     public RecordTechnicalData2? TechnicalAttributes { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

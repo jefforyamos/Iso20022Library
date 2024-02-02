@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CurrencyCriteriaDefinition1Choice.QueryName))]
 [KnownType(typeof(CurrencyCriteriaDefinition1Choice.NewCriteria))]
+[DataContract]
 public abstract partial record CurrencyCriteriaDefinition1Choice_
 {
 }

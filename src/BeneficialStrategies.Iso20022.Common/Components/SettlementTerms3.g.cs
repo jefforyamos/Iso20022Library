@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the beneficiary's account information for the settlement of a purchase of goods or services.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementTerms3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SettlementTerms3
     /// <summary>
     /// Financial institution that receives the payment transaction on behalf of an account owner, and posts the transaction into the account.
     /// </summary>
+    [DataMember]
     public FinancialInstitutionIdentification4Choice_? CreditorAgent { get; init; } 
     /// <summary>
     /// Account to be credited as a result of an instruction.
     /// </summary>
+    [DataMember]
     public required CashAccount24 CreditorAccount { get; init; } 
     
     #nullable disable

@@ -23,6 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(AssetClassCommodity3Choice.MultiCommodityExotic))]
 [KnownType(typeof(AssetClassCommodity3Choice.OfficialEconomicStatistics))]
 [KnownType(typeof(AssetClassCommodity3Choice.Other))]
+[DataContract]
 public abstract partial record AssetClassCommodity3Choice_
 {
 }

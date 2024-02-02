@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification204
 {
     #nullable enable
@@ -21,27 +23,33 @@ public partial record PartyIdentification204
     /// Identification of the acceptor.
     /// ISO 8583 bit 42
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Entity in charge of assigning an identification to a party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Assigner { get; init; } 
     /// <summary>
     /// Country of the party.
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Short name of the party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     /// <summary>
     /// Additional identification assigned to the party.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AdditionalIdentification { get; init; } 
     /// <summary>
     /// Name and location of the card acceptor as appearing on the receipt or the statement of account of the cardholder. May contain location information relevant to the cardholder.
     /// ISO 8583 bit 43.
     /// </summary>
+    [DataMember]
     public required IsoMax99Text NameAndLocation { get; init; } 
     
     #nullable disable

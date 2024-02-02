@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Event notification type and status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NotificationGeneralInformation2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record NotificationGeneralInformation2
     /// <summary>
     /// Type of notification.
     /// </summary>
+    [DataMember]
     public required NotificationType3Code NotificationType { get; init; } 
     /// <summary>
     /// Status of the details of the event.
     /// </summary>
+    [DataMember]
     public required EventStatus1 NotificationStatus { get; init; } 
     /// <summary>
     /// Indicates whether the announcement was initiated by the first intermediary in the custody chain in accordance with SRD II.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ShareholderRightsDirectiveIndicator { get; init; } 
     
     #nullable disable

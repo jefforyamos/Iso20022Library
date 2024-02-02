@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the identification of an individual person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AlternateIdentification4
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record AlternateIdentification4
     /// <summary>
     /// Name or number assigned by an entity to enable recognition of that entity, for example, account identifier.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Specifies the nature of the identification.
     /// </summary>
+    [DataMember]
     public required OtherIdentification4Choice_ Type { get; init; } 
     /// <summary>
     /// Entity that assigns the identifier.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     /// <summary>
     /// Date at which the identification was issued.
     /// </summary>
+    [DataMember]
     public IsoISODate? IssueDate { get; init; } 
     /// <summary>
     /// Date at which the identification expires.
     /// </summary>
+    [DataMember]
     public IsoISODate? ExpiryDate { get; init; } 
     /// <summary>
     /// Country that issued the identification document.
     /// </summary>
+    [DataMember]
     public CountryCode? IssuerCountry { get; init; } 
     
     #nullable disable

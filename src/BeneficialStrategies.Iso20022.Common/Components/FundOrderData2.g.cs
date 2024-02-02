@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Extract of trade data for an investment fund switch order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FundOrderData2
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record FundOrderData2
     /// <summary>
     /// Amount of money used to derive the quantity of investment fund units to be redeemed.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalRedemptionAmount { get; init; } 
     /// <summary>
     /// Amount of money used to derive the quantity of investment fund units to be subscribed.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalSubscriptionAmount { get; init; } 
     /// <summary>
     /// Amount of money to be transferred between the debtor and creditor before bank transaction charges.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     /// <summary>
     /// Method by which the transaction is settled.
     /// </summary>
+    [DataMember]
     public DeliveryReceiptType2Code? SettlementMethod { get; init; } 
     /// <summary>
     /// Additional amount of money paid by the investor in addition to the switch redemption amount.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? AdditionalCashIn { get; init; } 
     /// <summary>
     /// Amount of money that results from a switch-out, that is not reinvested in another investment fund, and is repaid to the investor.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ResultingCashOut { get; init; } 
     /// <summary>
     /// Currency in which the rate of exchange is expressed in a currency exchange. In the example 1GBP = xxxCUR, the unit currency is GBP.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? UnitCurrency { get; init; } 
     /// <summary>
     /// Currency into which the base currency is converted, in a currency exchange.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? QuotedCurrency { get; init; } 
     
     #nullable disable

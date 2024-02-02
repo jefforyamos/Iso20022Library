@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Part of an investor's subscription amount that is held by the fund in order to pay incentive / performances fess at the end of a performance period.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Equalisation2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Equalisation2
     /// <summary>
     /// Amount of money resulting from the calculation of the equalisation.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Rate used for calculation of the equalisation.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Specifies if the amount is a debit (negative) or credit (positive) amount.
     /// </summary>
+    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     
     #nullable disable

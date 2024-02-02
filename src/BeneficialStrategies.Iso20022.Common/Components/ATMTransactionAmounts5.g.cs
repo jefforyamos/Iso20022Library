@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Deposit limits for the account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransactionAmounts5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ATMTransactionAmounts5
     /// <summary>
     /// True if limits may be displayed on the ATM to the customer.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? DisplayFlag { get; init; } 
     /// <summary>
     /// Maximum amount allowed for deposit on the account.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? MaximumAmount { get; init; } 
     
     #nullable disable

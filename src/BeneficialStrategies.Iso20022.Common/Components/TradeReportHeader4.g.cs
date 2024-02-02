@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details of the header for a trade transaction query message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeReportHeader4
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record TradeReportHeader4
     /// <summary>
     /// Indicates the as-at day for which the report was produced.
     /// </summary>
+    [DataMember]
     public IsoISODate? ReportExecutionDate { get; init; } 
     /// <summary>
     /// Page number of the message (within the report) and continuation indicator to indicate that the report is to continue or that the message is the last page of the report.
     /// </summary>
+    [DataMember]
     public Pagination1? MessagePagination { get; init; } 
     /// <summary>
     /// Indicates the number of records in the page.
     /// </summary>
+    [DataMember]
     public required IsoNumber NumberRecords { get; init; } 
     /// <summary>
     /// Specifies the competent authority that requires reporting of the transaction.
     /// </summary>
-    public IsoMax100Text[] CompetentAuthority { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax100Text> CompetentAuthority { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the new trade repository to which the derivative is transfered to.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification15Choice_? NewTradeRepositoryIdentifier { get; init; } 
     /// <summary>
     /// Underlying reason for reporting the derivative transaction.
     /// </summary>
-    public IsoMax100Text[] ReportingPurpose { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax100Text> ReportingPurpose { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

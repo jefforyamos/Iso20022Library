@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Conversion between the currency of a card acceptor and the currency of a card issuer, provided by a dedicated service provider.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyConversion25
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record CurrencyConversion25
     /// <summary>
     /// Result of a requested currency conversion.
     /// </summary>
+    [DataMember]
     public required CurrencyConversionResponse3Code Result { get; init; } 
     /// <summary>
     /// Plain text explaining the result of the currency conversion request.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ResultReason { get; init; } 
     /// <summary>
     /// Information about the conversion of currency.
     /// </summary>
-    public CurrencyConversion23[] ConversionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CurrencyConversion23> ConversionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

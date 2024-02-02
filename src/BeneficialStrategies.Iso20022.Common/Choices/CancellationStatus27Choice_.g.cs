@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CancellationStatus27Choice.GlobalCancellationStatus))]
 [KnownType(typeof(CancellationStatus27Choice.DetailedCancellationStatus))]
+[DataContract]
 public abstract partial record CancellationStatus27Choice_
 {
 }

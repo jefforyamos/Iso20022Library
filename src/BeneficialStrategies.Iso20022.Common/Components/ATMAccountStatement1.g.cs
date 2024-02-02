@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Statement information of an account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMAccountStatement1
 {
     #nullable enable
@@ -20,16 +22,19 @@ public partial record ATMAccountStatement1
     /// <summary>
     /// Unique identifier of the account, as assigned by the account servicer.
     /// </summary>
+    [DataMember]
     public required AccountIdentification31Choice_ AccountIdentifier { get; init; } 
     /// <summary>
     /// Name of the account, as assigned by the account servicing institution, in agreement with the account owner in order to provide an additional means of identification of the account.
     /// Usage: The account name is different from the account owner name. The account name is used in certain user communities to provide a means of identifying the account, in addition to the account owner's identity and the account number.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AccountName { get; init; } 
     /// <summary>
     /// Statement information.
     /// </summary>
-    public ATMAccountStatement2[] AccountStatement { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMAccountStatement2> AccountStatement { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

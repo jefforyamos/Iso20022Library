@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Party and related security certificate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyAndCertificate4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PartyAndCertificate4
     /// <summary>
     /// Entity involved in an activity.
     /// </summary>
+    [DataMember]
     public required PartyIdentification135 Party { get; init; } 
     /// <summary>
     /// Security certificate used to sign electronically.
     /// </summary>
+    [DataMember]
     public IsoMax10KBinary? Certificate { get; init; } 
     
     #nullable disable

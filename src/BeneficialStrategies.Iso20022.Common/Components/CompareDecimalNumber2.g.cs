@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for a decimal number.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareDecimalNumber2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareDecimalNumber2
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? Value2 { get; init; } 
     
     #nullable disable

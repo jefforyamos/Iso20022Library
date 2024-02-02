@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the mandate, which is being accepted.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MandateAcceptance7
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record MandateAcceptance7
     /// <summary>
     /// Provides information on the original message.
     /// </summary>
+    [DataMember]
     public OriginalMessageInformation1? OriginalMessageInformation { get; init; } 
     /// <summary>
     /// Provides detailed information on the acceptance result.
     /// </summary>
+    [DataMember]
     public required AcceptanceResult6 AcceptanceResult { get; init; } 
     /// <summary>
     /// Provides the original mandate data.
     /// </summary>
+    [DataMember]
     public OriginalMandate8Choice_? OriginalMandate { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

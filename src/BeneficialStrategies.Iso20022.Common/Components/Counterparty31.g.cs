@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to counterparty identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Counterparty31
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Counterparty31
     /// <summary>
     /// The code of country where the registered office of the other counterparty is located or country of residence in case that the other counterparty is a natural person.
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Indicates if the counterparty is a legal entity or a natural person.
     /// </summary>
+    [DataMember]
     public required PartyIdentification235Choice_ IdentificationType { get; init; } 
     
     #nullable disable

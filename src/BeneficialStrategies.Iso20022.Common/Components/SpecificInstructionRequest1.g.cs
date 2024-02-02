@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Request to execute specific instructions, such as participation registration, securities registration or blocking of securities.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SpecificInstructionRequest1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SpecificInstructionRequest1
     /// <summary>
     /// Request to register for participation to the meeting.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ParticipationRegistration { get; init; } 
     /// <summary>
     /// Request to block the securities.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? BlockingSecurities { get; init; } 
     /// <summary>
     /// Request to register the securities for the meeting.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? SecuritiesRegistration { get; init; } 
     
     #nullable disable

@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(AllocationStatus1Choice.FullyAllocated))]
 [KnownType(typeof(AllocationStatus1Choice.PartiallyAllocated))]
 [KnownType(typeof(AllocationStatus1Choice.Proprietary))]
+[DataContract]
 public abstract partial record AllocationStatus1Choice_
 {
 }

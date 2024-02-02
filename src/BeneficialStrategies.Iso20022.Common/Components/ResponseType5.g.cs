@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Response of a requested service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ResponseType5
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ResponseType5
     /// <summary>
     /// Result of the transaction.
     /// </summary>
+    [DataMember]
     public required Response4Code Response { get; init; } 
     /// <summary>
     /// Detailed result of the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ResponseReason { get; init; } 
     /// <summary>
     /// Additional information on the response for further examination.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? AdditionalResponseInformation { get; init; } 
     
     #nullable disable

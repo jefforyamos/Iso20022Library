@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details about the investment fund class.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentFund1
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record InvestmentFund1
     /// <summary>
     /// Identification of the investment fund or investment fund class.
     /// </summary>
+    [DataMember]
     public SecurityIdentification14? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Features of units offered by a fund. For example, a unit may have a specific load structure, eg, front end or back end, an income policy, eg, pay out or accumulate, or a trailer policy, eg, with or without. Fund classes are typically denoted by a single character, for example, 'Class A', 'Class 2'.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClassType { get; init; } 
     /// <summary>
     /// Number of shares outstanding for the investment fund or investment fund share class.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? TotalUnitsOutstanding { get; init; } 
     /// <summary>
     /// Total transactional units (subscriptions and redemptions) which are applied to the investment fund or investment fund share class for the report period.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? TransactionalUnits { get; init; } 
     /// <summary>
     /// Total value of the investment fund or investment fund share class units.
     /// </summary>
+    [DataMember]
     public AmountAndDirection30? TotalValue { get; init; } 
     /// <summary>
     /// Amount of money for which goods or services are offered, sold, or bought.
     /// </summary>
-    public PriceInformation10[] Price { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PriceInformation10> Price { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

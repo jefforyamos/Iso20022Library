@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of information specific to the counterparty.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CounterpartyData89
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CounterpartyData89
     /// <summary>
     /// Set of information identifying the reporting counterparty.
     /// </summary>
+    [DataMember]
     public required CounterpartyIdentification11 ReportingCounterparty { get; init; } 
     /// <summary>
     /// Data specific to other counterparties and related fields.
     /// </summary>
+    [DataMember]
     public required CounterpartyIdentification12 OtherCounterparty { get; init; } 
     /// <summary>
     /// In the case where a financial counterparty is responsible for reporting on behalf of the other counterparty, the unique code identifying that counterparty. In the case where a management company is responsible for reporting on behalf of an Undertaking for Collective Investment in Transferable Securities (UCITS), the unique code identifying that management company. In the case where an Alternative Investment Fund Manager (AIFM) is responsible for reporting on behalf of an Alternative Investment Fund (AIF), the unique code identifying that AIFM.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification15Choice_? EntityResponsibleForReport { get; init; } 
     /// <summary>
     /// Information on the other parties.
     /// </summary>
+    [DataMember]
     public TransactionCounterpartyData11? OtherPartyData { get; init; } 
     
     #nullable disable

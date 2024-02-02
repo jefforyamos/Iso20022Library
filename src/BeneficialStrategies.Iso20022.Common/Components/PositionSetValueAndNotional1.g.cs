@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Variables used to quantify the different calculations for position sets and currency position sets reports.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PositionSetValueAndNotional1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PositionSetValueAndNotional1
     /// <summary>
     /// Aggregations of all notional values of the derivatives pertaining to a position set.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd20Amount? Notional { get; init; } 
     /// <summary>
     /// Aggregations of all values of the derivatives pertaining to a position set.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd20Amount? Value { get; init; } 
     
     #nullable disable

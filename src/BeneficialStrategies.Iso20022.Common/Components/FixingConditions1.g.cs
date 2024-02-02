@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the additional information for an NDF as supplied on a fixing instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FixingConditions1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record FixingConditions1
     /// <summary>
     /// The date on which the trade was executed.
     /// </summary>
+    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Represents the original reference of the instruction for which the status is given, as assigned by the participant that submitted the foreign exchange trade.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginatorReference { get; init; } 
     /// <summary>
     /// Reference common to both parties of the trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CommonReference { get; init; } 
     /// <summary>
     /// Reference to the identification of a previous event in the life of a trade which is amended or cancelled.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RelatedReference { get; init; } 
     /// <summary>
     /// Currency and amount bought in a foreign exchange trade.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount TradingSideBuyAmount { get; init; } 
     /// <summary>
     /// Currency and amount sold in a foreign exchange trade.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount TradingSideSellAmount { get; init; } 
     /// <summary>
     /// The value of one currency expressed in relation to another currency. ExchangeRate expresses the ratio between UnitCurrency and QuotedCurrency (ExchangeRate = UnitCurrency/QuotedCurrency).
     /// </summary>
+    [DataMember]
     public required IsoBaseOneRate ExchangeRate { get; init; } 
     
     #nullable disable

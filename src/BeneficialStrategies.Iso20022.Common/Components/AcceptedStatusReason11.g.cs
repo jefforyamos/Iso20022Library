@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies reasons for the accepted status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcceptedStatusReason11
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AcceptedStatusReason11
     /// <summary>
     /// Specifies the reason why the instruction has been accepted.
     /// </summary>
+    [DataMember]
     public required AcceptedReason12Choice_ ReasonCode { get; init; } 
     /// <summary>
     /// Provides additional information about the processed instruction.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

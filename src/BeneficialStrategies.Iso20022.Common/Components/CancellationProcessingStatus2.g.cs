@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status advising on the processing of the cancellation request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CancellationProcessingStatus2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CancellationProcessingStatus2
     /// <summary>
     /// Status code.
     /// </summary>
+    [DataMember]
     public required CancellationStatus6Code Status { get; init; } 
     /// <summary>
     /// Additional information about the status.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

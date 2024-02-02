@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Nature of the amount and currency on a document referred to in the remittance section, typically either the original amount due/payable or the amount actually remitted for the referenced document.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RemittanceAmount1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record RemittanceAmount1
     /// <summary>
     /// Amount specified is the exact amount due and payable to the creditor.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? DuePayableAmount { get; init; } 
     /// <summary>
     /// Amount of money that results from the application of an agreed discount to the amount due and payable to the creditor.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? DiscountAppliedAmount { get; init; } 
     /// <summary>
     /// Amount specified for the referred document is the amount of a credit note.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? CreditNoteAmount { get; init; } 
     /// <summary>
     /// Quantity of cash resulting from the calculation of the tax.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TaxAmount { get; init; } 
     /// <summary>
     /// Set of elements used to provide information on the amount and reason of the document adjustment.
     /// </summary>
-    public DocumentAdjustment1[] AdjustmentAmountAndReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DocumentAdjustment1> AdjustmentAmountAndReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of money remitted for the referred document.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? RemittedAmount { get; init; } 
     
     #nullable disable

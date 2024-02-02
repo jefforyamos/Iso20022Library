@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of the withdrawal transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMEnvironment2
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record ATMEnvironment2
     /// <summary>
     /// Acquirer of the withdrawal transaction, in charge of the funds settlement with the issuer.
     /// </summary>
+    [DataMember]
     public Acquirer7? Acquirer { get; init; } 
     /// <summary>
     /// Institution in charge of managing the ATM.
     /// </summary>
+    [DataMember]
     public Acquirer8? ATMManager { get; init; } 
     /// <summary>
     /// Entity hosting the ATM terminal.
     /// </summary>
+    [DataMember]
     public TerminalHosting1? HostingEntity { get; init; } 
     /// <summary>
     /// ATM information.
     /// </summary>
+    [DataMember]
     public required AutomatedTellerMachine2 ATM { get; init; } 
     /// <summary>
     /// Customer involved in the withdrawal transaction.
     /// </summary>
+    [DataMember]
     public required ATMCustomer2 Customer { get; init; } 
     /// <summary>
     /// Encryption of the sensitive card data.
     /// </summary>
+    [DataMember]
     public ContentInformationType10? ProtectedCardData { get; init; } 
     /// <summary>
     /// Sensitive data associated with the card performing the transaction.
     /// </summary>
+    [DataMember]
     public PlainCardData14? PlainCardData { get; init; } 
     
     #nullable disable

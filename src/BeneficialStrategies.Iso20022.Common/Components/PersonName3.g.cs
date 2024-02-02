@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies a person via its first name and surname.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PersonName3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PersonName3
     /// <summary>
     /// Prefix, as a title before a person's name.
     /// </summary>
+    [DataMember]
     public NamePrefix2Code? NamePrefix { get; init; } 
     /// <summary>
     /// First name(s) by which a natural person is known.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text FirstName { get; init; } 
     /// <summary>
     /// Name (s) by which a natural person is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text Surname { get; init; } 
     /// <summary>
     /// Postal address of the party.
     /// </summary>
+    [DataMember]
     public PostalAddress26? Address { get; init; } 
     
     #nullable disable

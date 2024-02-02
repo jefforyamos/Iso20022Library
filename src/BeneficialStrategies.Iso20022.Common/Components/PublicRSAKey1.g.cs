@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Value of the public component of a RSA key.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PublicRSAKey1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PublicRSAKey1
     /// <summary>
     /// Modulus of the RSA key.
     /// </summary>
+    [DataMember]
     public required IsoMax5000Binary Modulus { get; init; } 
     /// <summary>
     /// Public exponent of the RSA key.
     /// </summary>
+    [DataMember]
     public required IsoMax5000Binary Exponent { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of customer identification requested.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CustomerTypeRequest2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CustomerTypeRequest2
     /// <summary>
     /// Indicates whether the customer identification is required by the creditor or not.
     /// </summary>
+    [DataMember]
     public required IsoRequestedIndicator Requested { get; init; } 
     /// <summary>
     /// Specifies which type of customer identification is requested for an organisation.
     /// </summary>
+    [DataMember]
     public OrganisationType2? OrganisationType { get; init; } 
     /// <summary>
     /// Specifies which type of customer identification is requested for a person.
     /// </summary>
+    [DataMember]
     public PersonType2? PrivateType { get; init; } 
     
     #nullable disable

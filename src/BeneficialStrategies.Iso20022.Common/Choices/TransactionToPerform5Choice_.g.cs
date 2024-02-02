@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(TransactionToPerform5Choice.PaymentRequest))]
 [KnownType(typeof(TransactionToPerform5Choice.LoyaltyRequest))]
 [KnownType(typeof(TransactionToPerform5Choice.ReversalRequest))]
+[DataContract]
 public abstract partial record TransactionToPerform5Choice_
 {
 }

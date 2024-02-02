@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Collateral and settlement related amounts.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralAmount5
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record CollateralAmount5
     /// <summary>
     /// Margin amount needed when the instruction reported creates an exposure.
     /// </summary>
+    [DataMember]
     public AmountAndDirection44? RequiredMargin { get; init; } 
     /// <summary>
     /// Amount which is collateralised.
     /// Feedback 
     /// </summary>
+    [DataMember]
     public AmountAndDirection44? Collateralised { get; init; } 
     /// <summary>
     /// Outstanding amount to be covered, collateralised.
     /// </summary>
+    [DataMember]
     public AmountAndDirection44? RemainingCollateralised { get; init; } 
     /// <summary>
     /// Amount effectively settled and which will be credited to/debited from the account owner's position.
     /// </summary>
+    [DataMember]
     public AmountAndDirection44? Settled { get; init; } 
     /// <summary>
     /// Amount due to be settled.    
     /// </summary>
+    [DataMember]
     public AmountAndDirection44? RemainingSettlement { get; init; } 
     
     #nullable disable

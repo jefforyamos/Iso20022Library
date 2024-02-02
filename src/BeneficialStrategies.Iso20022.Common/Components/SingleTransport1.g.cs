@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies individually each leg of a transport of goods.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SingleTransport1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record SingleTransport1
     /// <summary>
     /// Moving of goods or people from one place to another by vehicle.
     /// </summary>
-    public TransportByAir1[] TransportByAir { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransportByAir1> TransportByAir { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related for the transportation of goods by sea.
     /// </summary>
-    public TransportBySea1[] TransportBySea { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransportBySea1> TransportBySea { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to the transportation of goods by road.
     /// </summary>
-    public TransportByRoad1[] TransportByRoad { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransportByRoad1> TransportByRoad { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to the transportation of goods by rail.
     /// </summary>
-    public TransportByRail1[] TransportByRail { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransportByRail1> TransportByRail { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

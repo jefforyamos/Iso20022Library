@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains additional information about the fuel location, such as hours of operation and Interstate Access/Exit Number, etc.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LocalAmenity1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record LocalAmenity1
     /// <summary>
     /// Type of additional service available.
     /// </summary>
+    [DataMember]
     public required LocationAmenity1Code Type { get; init; } 
     /// <summary>
     /// Other additional service available at the location. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Indicates whether or not a specific type of amenity is available at this location.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? AvailableIndicator { get; init; } 
     
     #nullable disable

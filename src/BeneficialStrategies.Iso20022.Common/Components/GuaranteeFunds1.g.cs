@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Guarantee funds details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GuaranteeFunds1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record GuaranteeFunds1
     /// <summary>
     /// Type for the guarantee funds used.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text GuaranteeFundsUsageType { get; init; } 
     /// <summary>
     /// Owner and account number of the guarantee fund.
     /// </summary>
+    [DataMember]
     public GuaranteeFundInformation1? GuaranteeFundInformation { get; init; } 
     
     #nullable disable

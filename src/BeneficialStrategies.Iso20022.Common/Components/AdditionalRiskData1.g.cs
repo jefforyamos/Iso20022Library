@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional data related to risk assessment of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalRiskData1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AdditionalRiskData1
     /// <summary>
     /// Identification of the additional risk data type related to the transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Data value of the additional risk data associated with the transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax10KText Value { get; init; } 
     
     #nullable disable

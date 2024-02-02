@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information on the requested settlement time(s) of the payment instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementTimeRequest2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SettlementTimeRequest2
     /// <summary>
     /// Time by which the amount of money must be credited, with confirmation, to the CLS Bank's account at the central bank.|Usage: Time must be expressed in Central European Time (CET).
     /// </summary>
+    [DataMember]
     public IsoISOTime? CLSTime { get; init; } 
     /// <summary>
     /// Time until when the payment may be settled.
     /// </summary>
+    [DataMember]
     public IsoISOTime? TillTime { get; init; } 
     /// <summary>
     /// Time as from when the payment may be settled.
     /// </summary>
+    [DataMember]
     public IsoISOTime? FromTime { get; init; } 
     /// <summary>
     /// Time by when the payment must be settled to avoid rejection.
     /// </summary>
+    [DataMember]
     public IsoISOTime? RejectTime { get; init; } 
     
     #nullable disable

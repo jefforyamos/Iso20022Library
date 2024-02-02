@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Return provided by a financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record YieldCalculation2
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record YieldCalculation2
     /// <summary>
     /// Result of the yield calculation.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate Value { get; init; } 
     /// <summary>
     /// Specifies the type of calculation.
     /// </summary>
+    [DataMember]
     public required CalculationType1Code CalculationType { get; init; } 
     /// <summary>
     /// Price to which the yield has been calculated.
     /// </summary>
+    [DataMember]
     public Price4? RedemptionPrice { get; init; } 
     /// <summary>
     /// Date/time on which the calculation is based, for example, valuation on October 1 (price date) based on price of September 19 ( value date).
     /// </summary>
+    [DataMember]
     public IsoISODate? ValueDate { get; init; } 
     /// <summary>
     /// Period on which the calculation is based.
     /// </summary>
+    [DataMember]
     public DateTimePeriodChoice_? ValuePeriod { get; init; } 
     /// <summary>
     /// Included as needed to clarify yield irregularities associated with date, e.g. when it falls on a non-business day.
     /// </summary>
+    [DataMember]
     public IsoISODate? CalculationDate { get; init; } 
     
     #nullable disable

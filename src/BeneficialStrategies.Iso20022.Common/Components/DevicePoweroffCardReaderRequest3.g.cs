@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Power-Off Card Reader Request message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DevicePoweroffCardReaderRequest3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DevicePoweroffCardReaderRequest3
     /// <summary>
     /// Maximum time to wait for the request processing in seconds.
     /// </summary>
+    [DataMember]
     public IsoNumber? PowerOffMaximumWaitingTime { get; init; } 
     /// <summary>
     /// Optional message before Power-Off.
     /// </summary>
+    [DataMember]
     public ActionMessage8? DisplayOutput { get; init; } 
     
     #nullable disable

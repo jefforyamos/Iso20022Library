@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about investment plans issued during previous years.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PreviousYear4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PreviousYear4
     /// <summary>
     /// Investment plans issued during previous years.
     /// </summary>
+    [DataMember]
     public required PreviousYear1Choice_ PreviousYears { get; init; } 
     /// <summary>
     /// Indicates whether the product contains a cash asset for transfer from previous years.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CashComponentIndicator { get; init; } 
     
     #nullable disable

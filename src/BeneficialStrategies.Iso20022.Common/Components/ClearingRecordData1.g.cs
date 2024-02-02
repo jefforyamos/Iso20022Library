@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information used with financial types of messages when third-party clearing is involved.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ClearingRecordData1
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record ClearingRecordData1
     /// <summary>
     /// Originator of the batch.
     /// </summary>
+    [DataMember]
     public Originator1? Originator { get; init; } 
     /// <summary>
     /// Institution, final destination of the batch.
     /// </summary>
+    [DataMember]
     public Destination1? Destination { get; init; } 
     /// <summary>
     /// Type of clearing of the transaction.
     /// </summary>
+    [DataMember]
     public required ClearingMethod2Code ClearingMethod { get; init; } 
     /// <summary>
     /// Other type of clearing method.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherClearingMethod { get; init; } 
     /// <summary>
     /// Level of priority of clearing.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClearingPriority { get; init; } 
     /// <summary>
     /// Date of clearing.
     /// </summary>
+    [DataMember]
     public IsoISODate? ClearingDate { get; init; } 
     /// <summary>
     /// Net amount of clearing.
     /// </summary>
+    [DataMember]
     public Amount14? ClearingAmount { get; init; } 
     /// <summary>
     /// Interchange reimbursement fee.
     /// </summary>
+    [DataMember]
     public Amount14? InterchangeFee { get; init; } 
     /// <summary>
     /// Fee pertaining to the agent.
     /// </summary>
+    [DataMember]
     public Amount14? AgentFee { get; init; } 
     /// <summary>
     /// Other amounts involved in clearing.
     /// </summary>
+    [DataMember]
     public OtherAmount2? OtherAmount { get; init; } 
     
     #nullable disable

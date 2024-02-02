@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for a master agreement type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareMasterAgreementType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareMasterAgreementType1
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public AgreementType2Choice_? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public AgreementType2Choice_? Value2 { get; init; } 
     
     #nullable disable

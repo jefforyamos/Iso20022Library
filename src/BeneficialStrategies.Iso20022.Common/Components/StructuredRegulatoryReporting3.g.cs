@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information needed due to regulatory and statutory requirements.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StructuredRegulatoryReporting3
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record StructuredRegulatoryReporting3
     /// <summary>
     /// Specifies the type of the information supplied in the regulatory reporting details.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Date related to the specified type of regulatory reporting details.
     /// </summary>
+    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Country related to the specified type of regulatory reporting details.
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Specifies the nature, purpose, and reason for the transaction to be reported for regulatory and statutory requirements in a coded form.
     /// </summary>
+    [DataMember]
     public IsoMax10Text? Code { get; init; } 
     /// <summary>
     /// Amount of money to be reported for regulatory and statutory requirements.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Additional details that cater for specific domestic regulatory requirements.
     /// </summary>
-    public IsoMax35Text[] Information { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> Information { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

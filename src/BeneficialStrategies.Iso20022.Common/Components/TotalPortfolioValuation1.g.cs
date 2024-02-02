@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Valuation information of the portfolio.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TotalPortfolioValuation1
 {
     #nullable enable
@@ -20,59 +22,73 @@ public partial record TotalPortfolioValuation1
     /// <summary>
     /// Total value of the portfolio (sum of the assets, liabilities and unrealised gain/loss) calculated according to the accounting rules.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection30 TotalPortfolioValue { get; init; } 
     /// <summary>
     /// Previous total value of the portfolio.
     /// </summary>
+    [DataMember]
     public AmountAndDirection30? PreviousTotalPortfolioValue { get; init; } 
     /// <summary>
     /// Difference or change between the previous total portfolio value and the current total portfolio value.
     /// </summary>
+    [DataMember]
     public AmountAndRate2? TotalPortfolioValueChange { get; init; } 
     /// <summary>
     /// Net asset on balance sheet - total portfolio value minus or plus the unrealised gain or loss.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection30 TotalBookValue { get; init; } 
     /// <summary>
     /// Previous net asset on balance sheet.
     /// </summary>
+    [DataMember]
     public AmountAndDirection30? PreviousTotalBookValue { get; init; } 
     /// <summary>
     /// Difference or change between the previous net asset on balance sheet and the current net asset on balance sheet.
     /// </summary>
+    [DataMember]
     public AmountAndRate2? TotalBookValueChange { get; init; } 
     /// <summary>
     /// Total receipts attributable to the portfolio.
     /// </summary>
+    [DataMember]
     public AmountAndDirection30? TotalReceipts { get; init; } 
     /// <summary>
     /// Total disbursements attributable to the portfolio.
     /// </summary>
+    [DataMember]
     public AmountAndDirection30? TotalDisbursements { get; init; } 
     /// <summary>
     /// Income attributable to the portfolio.
     /// </summary>
+    [DataMember]
     public AmountAndDirection30? IncomeReceived { get; init; } 
     /// <summary>
     /// Expenses attributable to the portfolio.
     /// </summary>
+    [DataMember]
     public AmountAndDirection30? ExpensesPaid { get; init; } 
     /// <summary>
     /// Difference between the holding value and the book value of the portfolio.
     /// </summary>
+    [DataMember]
     public AmountAndDirection31? UnrealisedGainOrLoss { get; init; } 
     /// <summary>
     /// Difference between the realised value caused by the actual trade/re-evaluation and the book value of the portfolio.
     /// </summary>
+    [DataMember]
     public AmountAndDirection31? RealisedGainOrLoss { get; init; } 
     /// <summary>
     /// Accrued income.
     /// </summary>
+    [DataMember]
     public AmountAndDirection30? AccruedIncome { get; init; } 
     /// <summary>
     /// Valuation information of the investment fund or investment fund share class.
     /// </summary>
-    public InvestmentFund1[] InvestmentFundDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentFund1> InvestmentFundDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

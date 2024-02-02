@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the response of a financial authorisation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcquirerFinancialResponse1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AcquirerFinancialResponse1
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardTransactionEnvironment2 Environment { get; init; } 
     /// <summary>
     /// Context in which the card transaction is performed.
     /// </summary>
+    [DataMember]
     public CardTransactionContext3? Context { get; init; } 
     /// <summary>
     /// Card transaction for which the financial authorisation has been requested.
     /// </summary>
+    [DataMember]
     public required CardTransaction6 Transaction { get; init; } 
     
     #nullable disable

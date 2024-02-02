@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides detailed information on the suspension reason.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MandateSuspensionReason2
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record MandateSuspensionReason2
     /// <summary>
     /// Party that issues the suspension request.
     /// </summary>
+    [DataMember]
     public PartyIdentification135? Originator { get; init; } 
     /// <summary>
     /// Specifies the reason for the suspension request.
     /// </summary>
+    [DataMember]
     public required MandateSuspensionReason1Choice_ Reason { get; init; } 
     /// <summary>
     /// Further details on the suspension request reason.
     /// </summary>
-    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax105Text> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

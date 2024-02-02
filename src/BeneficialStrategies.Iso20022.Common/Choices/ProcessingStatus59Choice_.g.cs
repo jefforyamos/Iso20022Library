@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ProcessingStatus59Choice.Rejected))]
 [KnownType(typeof(ProcessingStatus59Choice.Cancelled))]
 [KnownType(typeof(ProcessingStatus59Choice.Accepted))]
+[DataContract]
 public abstract partial record ProcessingStatus59Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Characteristics and values set for a bilateral limit, including the counterparty upon which the limit applies.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BilateralLimit2
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record BilateralLimit2
     /// <summary>
     /// Unique and unambiguous identification of a member within a system, assigned using the member identification scheme of the system.
     /// </summary>
+    [DataMember]
     public required BranchAndFinancialInstitutionIdentification5 CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
+    [DataMember]
     public required Amount2Choice_ LimitAmount { get; init; } 
     /// <summary>
     /// Specifies if a limit is a debit limit or a credit limit.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Balance calculated with regard to one member in the system.
     /// </summary>
-    public CashBalance11[] BilateralBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashBalance11> BilateralBalance { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

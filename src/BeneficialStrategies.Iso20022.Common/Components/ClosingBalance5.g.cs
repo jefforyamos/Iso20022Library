@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Closing balance for the statement period (final closing balance) or of this page (intermediary closing balance).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ClosingBalance5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ClosingBalance5
     /// <summary>
     /// Indication that the position is short or long.
     /// </summary>
+    [DataMember]
     public required ShortLong1Code ShortLongIndicator { get; init; } 
     /// <summary>
     /// Closing balance for the statement period (final closing balance) or of this page (intermediary closing balance).
     /// </summary>
+    [DataMember]
     public required ClosingBalance6Choice_ ClosingBalance { get; init; } 
     
     #nullable disable

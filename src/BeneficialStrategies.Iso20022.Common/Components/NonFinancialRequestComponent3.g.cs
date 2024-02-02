@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the non financial request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NonFinancialRequestComponent3
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record NonFinancialRequestComponent3
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentEnvironment79 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
+    [DataMember]
     public required CardPaymentContext30 Context { get; init; } 
     /// <summary>
     /// Aim of the non financial request.
     /// </summary>
+    [DataMember]
     public required NonFinancialRequestContentComponent3 NonFinancialRequestContent { get; init; } 
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

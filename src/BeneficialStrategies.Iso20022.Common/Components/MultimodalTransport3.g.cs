@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to multimodal transportation of goods.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MultimodalTransport3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record MultimodalTransport3
     /// <summary>
     /// Identifies the location where the goods are take in charge for transportation.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TakingInCharge { get; init; } 
     /// <summary>
     /// Identifies the location of the final destination of the goods.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text PlaceOfFinalDestination { get; init; } 
     
     #nullable disable

@@ -24,6 +24,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SecurityIdentification25Choice.Belgian))]
 [KnownType(typeof(SecurityIdentification25Choice.Common))]
 [KnownType(typeof(SecurityIdentification25Choice.OtherProprietaryIdentification))]
+[DataContract]
 public abstract partial record SecurityIdentification25Choice_
 {
 }

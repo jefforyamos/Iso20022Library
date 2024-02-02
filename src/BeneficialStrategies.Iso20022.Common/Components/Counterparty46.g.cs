@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to counterparty identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Counterparty46
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record Counterparty46
     /// <summary>
     /// Indicates if the counterparty is a legal entity or a natural person.
     /// </summary>
+    [DataMember]
     public PartyIdentification248Choice_? IdentificationType { get; init; } 
     /// <summary>
     /// Indicates if the counterparty is a central counterparty, a financial, non-financial counterparty or other type of counterparty in accordance with regulation.
     /// </summary>
+    [DataMember]
     public CounterpartyTradeNature15Choice_? Nature { get; init; } 
     /// <summary>
     /// Indicator of whether the counterparty 2 has the reporting obligation (irrespective of who is responsible and legally liable for its reporting).
     /// Usage: If the element is not present, the ReportingObligation is False.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ReportingObligation { get; init; } 
     
     #nullable disable

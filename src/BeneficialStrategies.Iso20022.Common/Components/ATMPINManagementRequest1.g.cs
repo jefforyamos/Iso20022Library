@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the request of a PIN management from an ATM.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMPINManagementRequest1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ATMPINManagementRequest1
     /// <summary>
     /// Environment in which the transaction is performed.
     /// </summary>
+    [DataMember]
     public required ATMEnvironment1 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed.
     /// </summary>
+    [DataMember]
     public required ATMContext7 Context { get; init; } 
     /// <summary>
     /// Transaction for which the service is requested.
     /// </summary>
+    [DataMember]
     public required ATMTransaction9 Transaction { get; init; } 
     
     #nullable disable

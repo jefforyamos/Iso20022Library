@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related to an original transaction
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalTransaction1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record OriginalTransaction1
     /// <summary>
     /// Details of the original message for which a retrieval is being requested.
     /// </summary>
+    [DataMember]
     public Environment6? Environment { get; init; } 
     /// <summary>
     /// Details of the original message for which a retrieval is being requested.
     /// </summary>
+    [DataMember]
     public Context3? Context { get; init; } 
     /// <summary>
     /// Contains the original transaction details.
     /// </summary>
+    [DataMember]
     public Transaction85? Transaction { get; init; } 
     /// <summary>
     /// Contains the processing results of the transaction to be retrieved.
     /// </summary>
+    [DataMember]
     public ProcessingResult2? ProcessingResult { get; init; } 
     
     #nullable disable

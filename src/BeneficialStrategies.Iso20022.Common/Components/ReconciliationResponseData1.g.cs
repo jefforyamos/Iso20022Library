@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Reconciliation Response message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReconciliationResponseData1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record ReconciliationResponseData1
     /// <summary>
     /// Type of Reconciliation requested by the Sale to the POI.
     /// </summary>
+    [DataMember]
     public required ReconciliationType1Code ReconciliationType { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period between Sale and POI.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? POIReconciliationIdentification { get; init; } 
     /// <summary>
     /// Result of the Sale to POI Reconciliation processing.
     /// </summary>
-    public TransactionTotalsSet1[] TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionTotalsSet1> TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

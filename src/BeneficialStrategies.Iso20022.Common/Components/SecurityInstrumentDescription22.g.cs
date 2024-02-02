@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the security instrument by its name and typical characteristics.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityInstrumentDescription22
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SecurityInstrumentDescription22
     /// <summary>
     /// Attributes and characteristics of the financial instrument.
     /// </summary>
+    [DataMember]
     public required SecurityInstrumentDescription23 FinancialInstrumentGeneralAttributes { get; init; } 
     /// <summary>
     /// Attributes specific to debt instruments.
     /// </summary>
+    [DataMember]
     public DebtInstrument4? DebtInstrumentAttributes { get; init; } 
     /// <summary>
     /// Attributes specific to derivative instruments.
     /// </summary>
+    [DataMember]
     public required DerivativeInstrument6 DerivativeInstrumentAttributes { get; init; } 
     
     #nullable disable

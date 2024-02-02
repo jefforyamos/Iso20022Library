@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(CreditDefaultSwapsDerivative3Choice.CreditDefaultSwapIndex))]
 [KnownType(typeof(CreditDefaultSwapsDerivative3Choice.SingleNameCreditDefaultSwapDerivative))]
 [KnownType(typeof(CreditDefaultSwapsDerivative3Choice.CreditDefaultSwapIndexDerivative))]
+[DataContract]
 public abstract partial record CreditDefaultSwapsDerivative3Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the status of a transfer instruction and its reason.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferStatusAndReason2
 {
     #nullable enable
@@ -20,66 +22,82 @@ public partial record TransferStatusAndReason2
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of a transfer, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of a transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Status of the transfer is accepted, sent to next party, matched, already executed, or settled.
     /// </summary>
+    [DataMember]
     public required TransferInstructionStatus2 Status { get; init; } 
     /// <summary>
     /// Status of the transfer is pending settlement.
     /// </summary>
+    [DataMember]
     public required PendingSettlementStatus2 PendingSettlement { get; init; } 
     /// <summary>
     /// Status of the transfer is unmatched.
     /// </summary>
+    [DataMember]
     public required TransferUnmatchedStatus2 Unmatched { get; init; } 
     /// <summary>
     /// Status of the transfer is in repair.
     /// </summary>
+    [DataMember]
     public required InRepairStatus3 InRepair { get; init; } 
     /// <summary>
     /// Status of the transfer is rejected.
     /// </summary>
+    [DataMember]
     public required RejectedStatus8Choice_ Rejected { get; init; } 
     /// <summary>
     /// Status of the transfer is failed settlement, ie, settlement in the International Central Securities Depository (ICSD) or Central Securities Depository (CSD) failed.
     /// </summary>
+    [DataMember]
     public required FailedSettlementStatus1 FailedSettlement { get; init; } 
     /// <summary>
     /// Status of the transfer is cancelled.
     /// </summary>
+    [DataMember]
     public required CancelledStatus3 Cancelled { get; init; } 
     /// <summary>
     /// Status of the transfer is reversed.
     /// </summary>
+    [DataMember]
     public required ReversedStatus1 Reversed { get; init; } 
     /// <summary>
     /// Status of the transfer is cancellation pending.
     /// </summary>
+    [DataMember]
     public required CancellationPendingStatus1 CancellationPending { get; init; } 
     /// <summary>
     /// Date and time at which the transfer was executed.
     /// </summary>
+    [DataMember]
     public IsoISODate? TradeDate { get; init; } 
     /// <summary>
     /// Date on which the document, for example, the application form, was sent.
     /// </summary>
+    [DataMember]
     public IsoISODate? SendOutDate { get; init; } 
     /// <summary>
     /// Party that initiates the status.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     
     #nullable disable

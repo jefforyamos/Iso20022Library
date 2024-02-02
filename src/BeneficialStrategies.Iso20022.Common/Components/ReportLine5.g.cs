@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a payment against a purchase order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportLine5
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ReportLine5
     /// <summary>
     /// Unique identification of the purchase order, assigned by the buyer.
     /// </summary>
+    [DataMember]
     public required DocumentIdentification7 PurchaseOrderReference { get; init; } 
     /// <summary>
     /// Specifies the adjustments applied to obtain the net amount.
     /// </summary>
-    public Adjustment6[] Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Adjustment6> Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net amount, after adjustments, intended to be paid.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount NetAmount { get; init; } 
     
     #nullable disable

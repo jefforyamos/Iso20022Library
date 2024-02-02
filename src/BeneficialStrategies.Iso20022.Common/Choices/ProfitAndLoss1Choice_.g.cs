@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ProfitAndLoss1Choice.Profit))]
 [KnownType(typeof(ProfitAndLoss1Choice.Loss))]
+[DataContract]
 public abstract partial record ProfitAndLoss1Choice_
 {
 }

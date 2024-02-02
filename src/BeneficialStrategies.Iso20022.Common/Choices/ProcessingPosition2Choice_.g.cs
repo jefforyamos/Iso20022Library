@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ProcessingPosition2Choice.Code))]
 [KnownType(typeof(ProcessingPosition2Choice.Proprietary))]
+[DataContract]
 public abstract partial record ProcessingPosition2Choice_
 {
 }

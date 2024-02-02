@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action option details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionOptionSD1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CorporateActionOptionSD1
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Used for options that have particular proprietary feature that cannot be represented in standard ISO message.
     /// </summary>
+    [DataMember]
     public ExtendedOptionFeature1Code? ExtendedOptionFeatures { get; init; } 
     /// <summary>
     /// Identifies whether the option will be processed as default by DTC (The Depository Trust Corporation) when no election is made.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? DTCDefaultOptionFlag { get; init; } 
     /// <summary>
     /// Certain tax authorities provide control numbers to investors to instruct on Foreign Tax Relief service at DTC (The Depository Trust Corporation). This flag notes which events have these requirements and requires the DTC participant to input the control numbers.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? DTCTaxControlNumberRequiredFlag { get; init; } 
     
     #nullable disable

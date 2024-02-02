@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// General information about the corporate action event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionGeneralInformation144
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CorporateActionGeneralInformation144
     /// <summary>
     /// Reference assigned by the account servicer to unambiguously identify a corporate action event.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax16Text CorporateActionEventIdentification { get; init; } 
     /// <summary>
     /// Official and unique reference assigned by the official central body/entity within each market at the beginning of a corporate action event.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? OfficialCorporateActionEventIdentification { get; init; } 
     /// <summary>
     /// Reference assigned by a court to a class action.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? ClassActionNumber { get; init; } 
     /// <summary>
     /// Type of corporate action event.
     /// </summary>
+    [DataMember]
     public required CorporateActionEventType90Choice_ EventType { get; init; } 
     
     #nullable disable

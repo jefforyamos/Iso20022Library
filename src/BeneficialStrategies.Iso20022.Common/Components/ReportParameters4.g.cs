@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the parameters of the report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportParameters4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ReportParameters4
     /// <summary>
     /// Unique identification of the report.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ReportIdentification { get; init; } 
     /// <summary>
     /// Date and time of the report.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ ReportDateAndTime { get; init; } 
     
     #nullable disable

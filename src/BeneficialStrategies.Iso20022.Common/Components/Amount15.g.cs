@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount, currency, exchange rate and quotation date.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Amount15
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Amount15
     /// <summary>
     /// Amount exclusive of currency.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Currency code associated with the applicable type of amount.  ISO 4217 "Codes for the representation of currencies and funds".
     /// </summary>
+    [DataMember]
     public ISO3NumericCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// The factor used in the conversion from one amount to another amount.
     /// </summary>
+    [DataMember]
     public IsoBaseOne25Rate? EffectiveExchangeRate { get; init; } 
     /// <summary>
     /// Date at which the exchange rate effective.
     /// </summary>
+    [DataMember]
     public IsoISODate? ConversionDate { get; init; } 
     /// <summary>
     /// Time at which the exchange rate effective.
     /// </summary>
+    [DataMember]
     public IsoISOTime? ConversionTime { get; init; } 
     
     #nullable disable

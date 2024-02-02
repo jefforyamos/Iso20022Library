@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the loan data details in case of a securities lending transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoanData134
 {
     #nullable enable
@@ -20,54 +22,67 @@ public partial record LoanData134
     /// <summary>
     /// Identification of the type of the transaction.
     /// </summary>
+    [DataMember]
     public ExposureType10Code? ContractType { get; init; } 
     /// <summary>
     /// Indicates that the contract has been cleared.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? Cleared { get; init; } 
     /// <summary>
     /// Unique code determined by the reporting counterparty identifying the portfolio.
     /// </summary>
+    [DataMember]
     public IsoMax52Text? PortfolioCode { get; init; } 
     /// <summary>
     /// Identification of the trading venue where the transaction was executed.
     /// </summary>
+    [DataMember]
     public TradingVenueType1Choice_? TradingVenue { get; init; } 
     /// <summary>
     /// Type of agreement expressed as a code set. Reference to the master agreement under which the counterparties concluded a documented transaction.
     /// </summary>
+    [DataMember]
     public ExternalAgreementType1Code? MasterAgreementType { get; init; } 
     /// <summary>
     /// Date on which the counterparties contractually agree the exchange of securities or commodities versus collateral for the closing leg (forward leg) of the secured financing transaction. This information shall not be reported for open term agreements.
     /// </summary>
+    [DataMember]
     public IsoISODate? MaturityDate { get; init; } 
     /// <summary>
     /// Indication whether the secured financing transaction is subject to a general or special collateral arrangement.
     /// </summary>
+    [DataMember]
     public SpecialCollateral1Code? GeneralCollateral { get; init; } 
     /// <summary>
     /// Period before or at the end of which the loan should be repaid or renegotiated for another term. 
     /// </summary>
+    [DataMember]
     public ContractTerm6Choice_? Term { get; init; } 
     /// <summary>
     /// Interest rate of the loan.
     /// </summary>
+    [DataMember]
     public Rates1Choice_? Rates { get; init; } 
     /// <summary>
     /// Medium of exchange of currency.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? PrincipalAmountCurrency { get; init; } 
     /// <summary>
     /// Currency in which the the security or commodity price is denominated.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? PriceCurrency { get; init; } 
     /// <summary>
     /// Data specific to securities being subject to the transaction.
     /// </summary>
+    [DataMember]
     public Security49? Security { get; init; } 
     /// <summary>
     /// Margin loans in base currency.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? OutstandingMarginLoanCurrency { get; init; } 
     
     #nullable disable

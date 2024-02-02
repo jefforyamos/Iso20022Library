@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies information about the letter of intent.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LetterIntent1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record LetterIntent1
     /// <summary>
     /// Reference of a letter of intent program, in which sales commissions are reduced based on the aggregate of a customer's actual purchase and anticipated purchases, over a specific period of time, and as agreed by the customer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text LetterIntentReference { get; init; } 
     /// <summary>
     /// Amount stated on the letter of intent.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? Amount { get; init; } 
     /// <summary>
     /// Start date stated on the letter of intent.
     /// </summary>
+    [DataMember]
     public IsoISODate? StartDate { get; init; } 
     /// <summary>
     /// End date stated on the letter of intent.
     /// </summary>
+    [DataMember]
     public IsoISODate? EndDate { get; init; } 
     
     #nullable disable

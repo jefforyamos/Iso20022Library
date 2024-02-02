@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the account switch, including its status and any response codes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountSwitchDetails1
 {
     #nullable enable
@@ -20,37 +22,45 @@ public partial record AccountSwitchDetails1
     /// <summary>
     /// Unique number that provides unique and unambiguous identification of the account switch. 
     /// </summary>
+    [DataMember]
     public required IsoMax35Text UniqueReferenceNumber { get; init; } 
     /// <summary>
     /// Unique number that provides unique and unambiguous identification of the account switch. 
     /// Usage: Where one or more account switches have taken place since the original account switch this field contains the unique number that relates to the switch that transferred the account to the latest new account servicer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text RoutingUniqueReferenceNumber { get; init; } 
     /// <summary>
     /// Date and time that the request was received by the central switch service, populated by the central switch service only.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? SwitchReceivedDateTime { get; init; } 
     /// <summary>
     /// Date on which the account switch is expected to have completed. The value is the same as the targeted switch date if the switch completes in the expected timeline.
     /// </summary>
+    [DataMember]
     public IsoISODate? SwitchDate { get; init; } 
     /// <summary>
     /// Indicates whether the account switch is a full switch or a partial switch.
     /// Usage: A full switch indicates the transfer of the full balance of the account and associated payment mandates. A partial switch indicates the transfer of certain payment mandates to a new account.
     /// </summary>
+    [DataMember]
     public required SwitchType1Code SwitchType { get; init; } 
     /// <summary>
     /// State of the account switch at the time the message is sent.
     /// </summary>
+    [DataMember]
     public SwitchStatus1Code? SwitchStatus { get; init; } 
     /// <summary>
     /// Identifies the processing window in which the balance transfer will be processed on the day of the account switch.
     /// </summary>
+    [DataMember]
     public BalanceTransferWindow1Code? BalanceTransferWindow { get; init; } 
     /// <summary>
     /// Response code and additional information.
     /// </summary>
-    public ResponseDetails1[] Response { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ResponseDetails1> Response { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

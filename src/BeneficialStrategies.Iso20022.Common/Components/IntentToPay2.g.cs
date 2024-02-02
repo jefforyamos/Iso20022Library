@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details of an intention to pay based on purchase orders or commercial invoice.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntentToPay2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record IntentToPay2
     /// <summary>
     /// Specifies if breakdown is by purchase order or commercial invoice.
     /// </summary>
+    [DataMember]
     public required BreakDown1Choice_ Breakdown { get; init; } 
     /// <summary>
     /// Date at which the payment would be effected.
     /// </summary>
+    [DataMember]
     public required IsoISODate ExpectedPaymentDate { get; init; } 
     /// <summary>
     /// Specifies the beneficiary's account information.
     /// </summary>
+    [DataMember]
     public SettlementTerms3? SettlementTerms { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria which are used to search for a payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionSearchCriteria8
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record TransactionSearchCriteria8
     /// <summary>
     /// Defines the criteria which are used to search for the destination of the payment.
     /// </summary>
-    public SystemSearch4[] PaymentTo { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SystemSearch4> PaymentTo { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines the criteria which are used to search for the origin of the payment.
     /// </summary>
-    public SystemSearch4[] PaymentFrom { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SystemSearch4> PaymentFrom { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines the criteria which are used to search for a payment.
     /// </summary>
+    [DataMember]
     public PaymentSearch8? PaymentSearch { get; init; } 
     /// <summary>
     /// Defines the criteria which are used to search for a cash entry.
     /// </summary>
+    [DataMember]
     public CashAccountEntrySearch6? AccountEntrySearch { get; init; } 
     
     #nullable disable

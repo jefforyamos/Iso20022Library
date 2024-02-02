@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cash movements into a fund as a result of investment funds transactions, eg, subscriptions or switch-in.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashInForecast3
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record CashInForecast3
     /// <summary>
     /// Date on which cash is available.
     /// </summary>
+    [DataMember]
     public required IsoISODate CashSettlementDate { get; init; } 
     /// <summary>
     /// Sub-total amount of the cash flow in, expressed as an amount of money.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? SubTotalAmount { get; init; } 
     /// <summary>
     /// Sub-total amount of the cash flow in, expressed as a number of units.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? SubTotalUnitsNumber { get; init; } 
     /// <summary>
     /// Indicates whether the estimated cash flow in is exceptional.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ExceptionalCashFlowIndicator { get; init; } 
     /// <summary>
     /// Breakdown of cash in amounts, eg, by transaction and order type.
     /// </summary>
-    public FundCashInBreakdown2[] CashInBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FundCashInBreakdown2> CashInBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

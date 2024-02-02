@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed amounts associated with the total amount of transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedAmount8
 {
     #nullable enable
@@ -21,19 +23,23 @@ public partial record DetailedAmount8
     /// Amount after the currency exchange.
     /// It corresponds to ISO 8583 field number 6, completed by the field number 51 for the versions 87 and 93.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Exchange rate to the currency of the amount.
     /// It corresponds to ISO 8583 field number 10.
     /// </summary>
+    [DataMember]
     public required IsoBaseOneRate ExchangeRate { get; init; } 
     /// <summary>
     /// Date and time at which the exchange rate has been quoted.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? QuotationDate { get; init; } 
     /// <summary>
     /// Text to display on the cardholder or to print on the cardholder bank statement.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Label { get; init; } 
     
     #nullable disable

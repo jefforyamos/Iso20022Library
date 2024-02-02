@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Costs and charges associated with the distribution or selling of a financial instrument. These may be one-off or recurring charges. These may be intended (ex ante) or actual (ex post).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CostsAndCharges1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CostsAndCharges1
     /// <summary>
     /// Reference date applicable to all ex ante cost and charge disclosures. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 07160.
     /// </summary>
+    [DataMember]
     public IsoISODate? ExAnteReferenceDate { get; init; } 
     /// <summary>
     /// Reference date applicable to all ex post cost and charge disclosures. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 08120.
     /// </summary>
+    [DataMember]
     public IsoISODate? ExPostReferenceDate { get; init; } 
     /// <summary>
     /// Individual cost or charge associated with the distribution of selling of the financial instrument. This may be one-off or recurring. This may be ex ante (intended) or post ante (actual).
     /// </summary>
-    public IndividualCostOrCharge1[] IndividualCostOrCharge { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IndividualCostOrCharge1> IndividualCostOrCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about costs and charges.
     /// </summary>
+    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable

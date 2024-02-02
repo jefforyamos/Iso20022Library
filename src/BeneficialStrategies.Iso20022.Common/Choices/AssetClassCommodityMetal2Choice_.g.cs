@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(AssetClassCommodityMetal2Choice.NonPrecious))]
 [KnownType(typeof(AssetClassCommodityMetal2Choice.Precious))]
+[DataContract]
 public abstract partial record AssetClassCommodityMetal2Choice_
 {
 }

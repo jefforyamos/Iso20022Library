@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the status of a transfer instruction and its reason.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferStatusAndReason6
 {
     #nullable enable
@@ -20,79 +22,98 @@ public partial record TransferStatusAndReason6
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the transfer, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public AdditionalReference10? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Type of event for which the message is sent.
     /// </summary>
-    public TransferStatusType1Choice_[] TransferEventType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransferStatusType1Choice_> TransferEventType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Status of the transfer instruction.
     /// </summary>
+    [DataMember]
     public required TransferStatus3Choice_ TransferStatus { get; init; } 
     /// <summary>
     /// Date on which the transfer was executed.
     /// In some scenarios, this is the date and time to be used as the trade date when securities are settled through an International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
+    [DataMember]
     public IsoISODate? TradeDate { get; init; } 
     /// <summary>
     /// Date at which the securities are to be exchanged or were exchanged at the International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
+    [DataMember]
     public IsoISODate? SettlementDate { get; init; } 
     /// <summary>
     /// Date on which the document, for example, the application form, was sent.
     /// </summary>
+    [DataMember]
     public IsoISODate? SendOutDate { get; init; } 
     /// <summary>
     /// Number of units to be transferred.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? TotalUnitsNumber { get; init; } 
     /// <summary>
     /// Weighted average price of the units in the account. The average price may also be known as the average acquisition price.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; init; } 
     /// <summary>
     /// Breakdown of units to be transferred.
     /// </summary>
-    public Unit11[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Unit11> UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total transfer value.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? TotalTransferValue { get; init; } 
     /// <summary>
     /// Details of a payment that will result from or resulting from the liquation of an asset and transfer of cash or for the transfer of cash that was not invested.
     /// </summary>
-    public PaymentInstrument15[] PaymentDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentInstrument15> PaymentDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information about the realisation of benefits taken from a pension.
     /// </summary>
-    public BenefitCrystallisationEvent1[] BenefitCrystallisationEvent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BenefitCrystallisationEvent1> BenefitCrystallisationEvent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details of a drawdown tranche.
     /// </summary>
-    public Drawdown1[] DrawdownTranche { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Drawdown1> DrawdownTranche { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that initiates the status.
     /// </summary>
+    [DataMember]
     public PartyIdentification139? StatusInitiator { get; init; } 
     /// <summary>
     /// Party that issues the status message.
     /// </summary>
+    [DataMember]
     public PartyIdentification139? StatusIssuer { get; init; } 
     /// <summary>
     /// Party that receives the status message.
     /// </summary>
+    [DataMember]
     public PartyIdentification139? StatusRecipient { get; init; } 
     
     #nullable disable

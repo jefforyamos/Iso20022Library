@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Valuation dealing processing characteristics linked to the instrument, ie, not to the market.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ValuationDealingProcessingCharacteristics2
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record ValuationDealingProcessingCharacteristics2
     /// <summary>
     /// Frequency of the valuation.
     /// </summary>
+    [DataMember]
     public required EventFrequency5Code ValuationFrequency { get; init; } 
     /// <summary>
     /// Further details regarding the dealing frequency, eg, Tuesday (for weekly dealing) or last business day of the month.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text ValuationFrequencyDescription { get; init; } 
     /// <summary>
     /// Number of decimal places to which quantities of units/shares are rounded.
     /// </summary>
+    [DataMember]
     public required IsoNumber DecimalisationUnits { get; init; } 
     /// <summary>
     /// Number of decimal places to which quantities of units/shares are rounded.
     /// </summary>
+    [DataMember]
     public required IsoNumber DecimalisationPrice { get; init; } 
     /// <summary>
     /// Indicates whether the fund has two prices.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator DualFundIndicator { get; init; } 
     /// <summary>
     /// Type of pricing calculation method.
     /// </summary>
+    [DataMember]
     public required PriceMethod1Code PriceMethod { get; init; } 
     /// <summary>
     /// Currencies in which the prices for the investment fund class are published by the fund management company.
     /// </summary>
-    public ActiveCurrencyCode[] PriceCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ActiveCurrencyCode> PriceCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

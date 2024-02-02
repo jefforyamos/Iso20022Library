@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(AirportName1Choice.AirportCode))]
 [KnownType(typeof(AirportName1Choice.OtherAirportDescription))]
+[DataContract]
 public abstract partial record AirportName1Choice_
 {
 }

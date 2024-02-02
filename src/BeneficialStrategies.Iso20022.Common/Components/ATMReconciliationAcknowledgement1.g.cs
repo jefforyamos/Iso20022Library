@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the acknowledgement of an ATM reconciliation from the ATM. manager.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMReconciliationAcknowledgement1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ATMReconciliationAcknowledgement1
     /// <summary>
     /// ATM information.
     /// </summary>
+    [DataMember]
     public required AutomatedTellerMachine3 ATM { get; init; } 
     /// <summary>
     /// Information about the reconciliation response.
     /// </summary>
+    [DataMember]
     public required ATMTransaction12 Transaction { get; init; } 
     
     #nullable disable

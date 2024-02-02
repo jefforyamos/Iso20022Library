@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines how the CSD is linked to the security.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityCSDLink7
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record SecurityCSDLink7
     /// <summary>
     /// Defines the date since when the CSD is linked to the security.
     /// </summary>
+    [DataMember]
     public required DateAndDateTime2Choice_ ValidFrom { get; init; } 
     /// <summary>
     /// Defines the date until when the CSD is linked to the security.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? ValidTo { get; init; } 
     /// <summary>
     /// Specify if the involved CSD (issuer/technical issuer/investor) is also the maintainer of related reference data.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? SecurityMaintenance { get; init; } 
     /// <summary>
     /// CSD Issuer of a security.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification2Choice_? IssuerCSD { get; init; } 
     /// <summary>
     /// CSD Investor of a security.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification2Choice_? InvestorCSD { get; init; } 
     /// <summary>
     /// Technical issuer of a security.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification2Choice_? TechnicalIssuerCSD { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
-    public IssuanceAccount2[] IssuanceAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IssuanceAccount2> IssuanceAccount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

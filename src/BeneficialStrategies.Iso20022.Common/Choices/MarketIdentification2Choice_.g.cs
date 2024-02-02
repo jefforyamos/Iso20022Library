@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(MarketIdentification2Choice.MarketIdentifierCode))]
 [KnownType(typeof(MarketIdentification2Choice.Description))]
+[DataContract]
 public abstract partial record MarketIdentification2Choice_
 {
 }

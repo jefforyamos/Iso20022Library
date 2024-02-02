@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(DetailedMissingMarginInformationStatistics4Choice.DataSetAction))]
 [KnownType(typeof(DetailedMissingMarginInformationStatistics4Choice.Report))]
+[DataContract]
 public abstract partial record DetailedMissingMarginInformationStatistics4Choice_
 {
 }

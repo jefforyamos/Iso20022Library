@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the corporate action security option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesOption13
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record SecuritiesOption13
     /// <summary>
     /// Provides description of the financial instrument related to securities movement.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentAttributes16 SecurityDetails { get; init; } 
     /// <summary>
     /// Specifies whether the value is a debit or credit.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Specifies that the security identified is a temporary security identification used for processing reasons, for example, contra security used in the US.
     /// </summary>
+    [DataMember]
     public TemporaryFinancialInstrumentIndicator1Choice_? TemporaryFinancialInstrumentIndicator { get; init; } 
     /// <summary>
     /// Specifies information regarding outturn resources that cannot be processed by the Central Securities Depository (CSD). Special delivery instruction is required from the account owner for the corporate action outcome to be credited.
     /// </summary>
+    [DataMember]
     public NonEligibleProceedsIndicator1Choice_? NonEligibleProceedsIndicator { get; init; } 
     /// <summary>
     /// Quantity of securities based on the terms of the corporate action event and balance of underlying securities entitled to the account owner. (This quantity can be positive or negative).
     /// </summary>
+    [DataMember]
     public Quantity6Choice_? EntitledQuantity { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [DataMember]
     public SafekeepingPlaceFormat2Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
+    [DataMember]
     public FractionDispositionType1Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Currency in which the cash disbursed from an interest or dividend payment is offered.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? CurrencyOption { get; init; } 
     /// <summary>
     /// Period during which intermediate or outturn securities are tradable in a secondary market.
     /// </summary>
+    [DataMember]
     public Period3Choice_? TradingPeriod { get; init; } 
     /// <summary>
     /// Provides information about the dates related to securities movement.
     /// </summary>
+    [DataMember]
     public required SecurityDate5 DateDetails { get; init; } 
     /// <summary>
     /// Provides information about the rates related to securities movement.
     /// </summary>
+    [DataMember]
     public CorporateActionRate17? RateDetails { get; init; } 
     /// <summary>
     /// Provides information about the prices related to securities movement.
     /// </summary>
+    [DataMember]
     public CorporateActionPrice18? PriceDetails { get; init; } 
     
     #nullable disable

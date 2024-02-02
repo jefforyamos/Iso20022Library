@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data to request a Reversal.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReversalRequest1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ReversalRequest1
     /// <summary>
     /// Original transaction to reverse.
     /// </summary>
+    [DataMember]
     public CardPaymentTransaction91? OriginalPaymentTransaction { get; init; } 
     /// <summary>
     /// Reason for this reversal.
     /// </summary>
+    [DataMember]
     public required ReversalReason1Code ReversalReason { get; init; } 
     /// <summary>
     /// Amount to reverse (total or partial).
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? ReversedAmount { get; init; } 
     /// <summary>
     /// Specific Customer Order linked with the reversal.
     /// </summary>
+    [DataMember]
     public CustomerOrder1? CustomerOrder { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the header information for the creditor enrolment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EnrolmentHeader2
 {
     #nullable enable
@@ -21,22 +23,27 @@ public partial record EnrolmentHeader2
     /// Point to point reference assigned by the instructing party and sent to the next party in the chain to unambiguously identify the message.
     /// Usage: The instructing party has to make sure that 'MessageIdentification' is unique per instructed party for a pre-agreed period.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Party that sends the message.
     /// </summary>
+    [DataMember]
     public RTPPartyIdentification1? MessageOriginator { get; init; } 
     /// <summary>
     /// Party that receives the message.
     /// </summary>
+    [DataMember]
     public RTPPartyIdentification1? MessageRecipient { get; init; } 
     /// <summary>
     /// Party that initiates the message. This can either be the creditor himself or the party that initiates the request on behalf of the creditor.
     /// </summary>
+    [DataMember]
     public required RTPPartyIdentification1 InitiatingParty { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Number of crystallised units.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Crystallisation2
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record Crystallisation2
     /// <summary>
     /// Identification of the tranche.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TrancheIdentification { get; init; } 
     /// <summary>
     /// Number of units crystallised.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? CrystallisedUnitsNumber { get; init; } 
     /// <summary>
     /// Number of units uncrystallised.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? UncrystallisedUnitsNumber { get; init; } 
     /// <summary>
     /// Sum representing the crystallised amount.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? CrystallisedAmount { get; init; } 
     /// <summary>
     /// Sum representing the uncrystallised amount.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? UncrystallisedAmount { get; init; } 
     /// <summary>
     /// Additional information about the crystallisation.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

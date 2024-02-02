@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides account identification information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountIdentification18
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record AccountIdentification18
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text SafekeepingAccount { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification36Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
+    [DataMember]
     public SafekeepingPlaceFormat2Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Balance to which the payment applies (less or equal to the total eligible balance).
     /// </summary>
+    [DataMember]
     public required BalanceFormat1Choice_ ConfirmedBalance { get; init; } 
     
     #nullable disable

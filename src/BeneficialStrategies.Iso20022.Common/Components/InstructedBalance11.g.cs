@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about total instructed balance.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InstructedBalance11
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record InstructedBalance11
     /// <summary>
     /// Provides information about the total instructed balance.
     /// </summary>
+    [DataMember]
     public required BalanceFormat5Choice_ TotalInstructedBalance { get; init; } 
     /// <summary>
     /// Daily total of all accepted instructions for given day.  Cover protect instructions will be included in this total balance.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat6? TotalAcceptedInstructionBalance { get; init; } 
     /// <summary>
     /// Daily total of cancelled instructions for a given day.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat6? TotalCancelledInstructionBalance { get; init; } 
     /// <summary>
     /// Daily total of pending instructions in pending status.  It includes cancel pending instructions.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat6? TotalPendingInstructionBalance { get; init; } 
     /// <summary>
     /// Daily total of rejected instructions.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat6? TotalRejectedInstructionBalance { get; init; } 
     /// <summary>
     /// Daily total of all protect instructions sent in a given day.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat6? TotalProtectInstructionBalance { get; init; } 
     /// <summary>
     /// Provide instructed balance breakdown information per option.
     /// </summary>
-    public InstructedCorporateActionOption12[] OptionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InstructedCorporateActionOption12> OptionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

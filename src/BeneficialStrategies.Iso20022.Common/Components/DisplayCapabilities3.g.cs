@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Capabilities of the display components performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DisplayCapabilities3
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record DisplayCapabilities3
     /// <summary>
     /// Destination of the message to present.
     /// </summary>
+    [DataMember]
     public required UserInterface1Code Destination { get; init; } 
     /// <summary>
     /// Available message format.
     /// </summary>
-    public OutputFormat1Code[] AvailableFormat { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OutputFormat1Code> AvailableFormat { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number of lines of the display.
     /// </summary>
+    [DataMember]
     public IsoNumber? NumberOfLines { get; init; } 
     /// <summary>
     /// Number of columns of the display or printer.
     /// </summary>
+    [DataMember]
     public IsoNumber? LineWidth { get; init; } 
     /// <summary>
     /// Available language for the message. Reference ISO 639-1 (alpha-2) et ISO 639-2 (alpha-3).
     /// </summary>
-    public LanguageCode[] AvailableLanguage { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LanguageCode> AvailableLanguage { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of characteristics related to the protocol.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Header10
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record Header10
     /// <summary>
     /// Identifies the type of process related to the message.
     /// </summary>
+    [DataMember]
     public required MessageFunction4Code MessageFunction { get; init; } 
     /// <summary>
     /// Version of the acquirer protocol specifications.
     /// </summary>
+    [DataMember]
     public required IsoMax6Text ProtocolVersion { get; init; } 
     /// <summary>
     /// Unique identification of an exchange occurrence.
     /// </summary>
+    [DataMember]
     public required IsoMax3NumericText ExchangeIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Unique identification of the partner that has initiated the exchange.
     /// </summary>
+    [DataMember]
     public required GenericIdentification53 InitiatingParty { get; init; } 
     /// <summary>
     /// Unique identification of the partner that is the recipient of the message exchange.
     /// </summary>
+    [DataMember]
     public GenericIdentification53? RecipientParty { get; init; } 
     /// <summary>
     /// Identification of partners involved in exchange from the merchant to the issuer, with the relative timestamp of their exchanges.
     /// </summary>
-    public Traceability2[] Traceability { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Traceability2> Traceability { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

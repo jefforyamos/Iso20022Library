@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the events that occurred for one transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ActivityReportItems2
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record ActivityReportItems2
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Reference to the transaction for each financial institution which is a party to the transaction.
     /// </summary>
-    public DocumentIdentification5[] UserTransactionReference { get; init; } = [];
+    [DataMember]
+    public ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = [];
     /// <summary>
     /// Entity for which the activity is reported.
     /// </summary>
+    [DataMember]
     public required BICIdentification1 ReportedEntity { get; init; } 
     /// <summary>
     /// Describes an activity that took place during a period.
     /// </summary>
-    public ActivityDetails1[] ReportedItem { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ActivityDetails1> ReportedItem { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Next processing step required.
     /// </summary>
-    public PendingActivity2[] PendingRequestForAction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PendingActivity2> PendingRequestForAction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

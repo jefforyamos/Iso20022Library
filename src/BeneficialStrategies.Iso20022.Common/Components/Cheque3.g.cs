@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of characteristics related to a cheque instruction, such as cheque type or cheque number.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Cheque3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Cheque3
     /// <summary>
     /// Unique and unambiguous identifier for a cheque as assigned by the financial institution.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Number { get; init; } 
     /// <summary>
     /// Party to which a cheque is made payable.
     /// </summary>
+    [DataMember]
     public required PartyIdentification2Choice_ PayeeIdentification { get; init; } 
     /// <summary>
     /// Financial institution on which a cheque is drawn, ie, the financial institution that services the account of the entity that issued the cheque.
     /// </summary>
+    [DataMember]
     public FinancialInstitutionIdentification3Choice_? DraweeIdentification { get; init; } 
     /// <summary>
     /// Account owner that issues a cheque ordering the drawee bank to pay a specific amount, upon demand, to the payee.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? DrawerIdentification { get; init; } 
     
     #nullable disable

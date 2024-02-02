@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a proxy appointed to represent a party authorised to vote at a shareholders meeting.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Proxy9
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Proxy9
     /// <summary>
     /// Type of proxy.
     /// </summary>
+    [DataMember]
     public required ProxyType2Code ProxyType { get; init; } 
     /// <summary>
     /// Person, other than the chairman of the meeting, assigned by the security holder as the proxy.
     /// </summary>
+    [DataMember]
     public IndividualPerson43? PersonDetails { get; init; } 
     
     #nullable disable

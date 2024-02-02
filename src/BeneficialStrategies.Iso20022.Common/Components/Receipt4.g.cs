@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Receipt4
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record Receipt4
     /// <summary>
     /// Identification of the original request message.
     /// </summary>
+    [DataMember]
     public required OriginalMessageAndIssuer1 OriginalMessageIdentification { get; init; } 
     /// <summary>
     /// Identification of the original transaction identification, when the request for which the receipt is generated is a payment transaction.
     /// </summary>
+    [DataMember]
     public PaymentIdentification7Choice_? OriginalPaymentIdentification { get; init; } 
     /// <summary>
     /// Gives the status of the request.
     /// </summary>
-    public RequestHandling1[] RequestHandling { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RequestHandling1> RequestHandling { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

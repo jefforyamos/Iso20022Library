@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data to request a stored value service (prepaid card or account).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StoredValueRequest6
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record StoredValueRequest6
     /// <summary>
     /// Sale System identification of the transaction in an unambiguous way.
     /// </summary>
+    [DataMember]
     public TransactionIdentifier1? SaleTransactionIdentification { get; init; } 
     /// <summary>
     /// Data related to the stored value card.
     /// </summary>
-    public StoredValueData6[] Data { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StoredValueData6> Data { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

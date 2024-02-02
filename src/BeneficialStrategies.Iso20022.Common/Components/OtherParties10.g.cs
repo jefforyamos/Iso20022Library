@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Other parties information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherParties10
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OtherParties10
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
     /// </summary>
+    [DataMember]
     public PartyIdentification37Choice_? Investor { get; init; } 
     /// <summary>
     /// Identification of the stock exchange to which transaction reporting will be done.
     /// </summary>
+    [DataMember]
     public PartyIdentification49Choice_? StockExchange { get; init; } 
     /// <summary>
     /// Institution to which a trade must be reported.
     /// </summary>
+    [DataMember]
     public PartyIdentification49Choice_? TradeRegulator { get; init; } 
     
     #nullable disable

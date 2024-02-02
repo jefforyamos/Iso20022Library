@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides transaction type and identification information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionIdentifications35
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TransactionIdentifications35
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account owner (or the instructing party managing the account).
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax16Text AccountOwnerTransactionIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account servicer.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? AccountServicerTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique reference agreed upon by the two trade counterparties to identify the trade.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? CommonIdentification { get; init; } 
     
     #nullable disable

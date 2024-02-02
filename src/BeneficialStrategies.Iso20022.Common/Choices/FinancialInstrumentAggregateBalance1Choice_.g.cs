@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(FinancialInstrumentAggregateBalance1Choice.HoldingsIndicator))]
 [KnownType(typeof(FinancialInstrumentAggregateBalance1Choice.HoldingBalance))]
+[DataContract]
 public abstract partial record FinancialInstrumentAggregateBalance1Choice_
 {
 }

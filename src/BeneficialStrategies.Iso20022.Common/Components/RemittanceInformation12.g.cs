@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RemittanceInformation12
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record RemittanceInformation12
     /// <summary>
     /// Unique identification, assigned by the originator, to unambiguously identify the remittance information within the message.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RemittanceIdentification { get; init; } 
     /// <summary>
     /// Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in an unstructured form.
     /// </summary>
-    public IsoMax140Text[] Unstructured { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax140Text> Unstructured { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in a structured form.
     /// </summary>
-    public StructuredRemittanceInformation13[] Structured { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StructuredRemittanceInformation13> Structured { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of elements used to provide information on the original transactions, to which the remittance message refers.
     /// </summary>
+    [DataMember]
     public required OriginalPaymentInformation6 OriginalPaymentInformation { get; init; } 
     
     #nullable disable

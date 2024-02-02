@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Tax23
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Tax23
     /// <summary>
     /// Specifies the type of tax.
     /// </summary>
+    [DataMember]
     public required TaxType2Choice_ Type { get; init; } 
     /// <summary>
     /// Specifies the tax as an amount or percentage.
     /// </summary>
+    [DataMember]
     public required AmountOrPercentage2Choice_ AmountOrPercentage { get; init; } 
     
     #nullable disable

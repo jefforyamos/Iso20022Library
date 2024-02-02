@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Numeric variables calculated on the number of transactions or on market exposures.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VolumeMetrics5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record VolumeMetrics5
     /// <summary>
     /// Count of the number of Unique Trade Identifiers. 
     /// </summary>
+    [DataMember]
     public IsoMax15NumericText? NumberOfTransactions { get; init; } 
     /// <summary>
     /// Sum for each exposure variable and currency.
     /// </summary>
+    [DataMember]
     public ExposureMetrics4? Exposure { get; init; } 
     
     #nullable disable

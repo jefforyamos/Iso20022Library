@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to contract valuation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContractValuationData3
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record ContractValuationData3
     /// <summary>
     /// Mark to market valuation of the contract, or mark to model valuation. The CCP’s valuation to be used for a cleared trade.
     /// </summary>
+    [DataMember]
     public AmountAndDirection54? ContractValue { get; init; } 
     /// <summary>
     /// Date and time of the last valuation.
     /// Usage: For mark-to-market valuation the date and time of publishing of reference prices shall be reported.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? TimeStamp { get; init; } 
     /// <summary>
     /// Indicate whether valuation was performed mark to market, mark to model or provided by the CCP.
     /// </summary>
+    [DataMember]
     public ValuationType1Code? Type { get; init; } 
     
     #nullable disable

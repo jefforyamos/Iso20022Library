@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the status report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatusReportContent10
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record StatusReportContent10
     /// <summary>
     /// Capabilities of the POI (Point Of Interaction) performing the status report.
     /// </summary>
+    [DataMember]
     public PointOfInteractionCapabilities9? POICapabilities { get; init; } 
     /// <summary>
     /// Data related to a component of the POI (Point Of Interaction) performing the status report.
     /// </summary>
-    public PointOfInteractionComponent11[] POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PointOfInteractionComponent11> POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifier assigned to a set of POI terminals performing some categories of transactions.
     /// </summary>
-    public IsoMax35Text[] POIGroupIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> POIGroupIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Human attendance at the POI (Point Of Interaction) location during transactions.
     /// </summary>
+    [DataMember]
     public AttendanceContext1Code? AttendanceContext { get; init; } 
     /// <summary>
     /// System date time of the point of interaction (POI) sending the status report.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime POIDateTime { get; init; } 
     /// <summary>
     /// Request the terminal management system to answer with the identified data set.
     /// </summary>
-    public DataSetRequest2[] DataSetRequired { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DataSetRequest2> DataSetRequired { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Result of an individual terminal management action by the point of interaction.
     /// </summary>
-    public TMSEvent8[] Event { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TMSEvent8> Event { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Error log of the point of interaction since the last status report.
     /// </summary>
-    public IsoMax140Text[] Errors { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax140Text> Errors { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

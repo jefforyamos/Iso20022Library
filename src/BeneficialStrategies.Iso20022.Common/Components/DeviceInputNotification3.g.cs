@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Input notification message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeviceInputNotification3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DeviceInputNotification3
     /// <summary>
     /// Message main identifier.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ExchangeIdentification { get; init; } 
     /// <summary>
     /// Updated content of the message to display before input.
     /// </summary>
+    [DataMember]
     public required ActionMessage8 OutputContent { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Statement of the financial performance of a legal entity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IncomeStatement1
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record IncomeStatement1
     /// <summary>
     /// Specifies the clearing fees recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount ClearingFees { get; init; } 
     /// <summary>
     /// Other operating revenue recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount OtherOperatingRevenue { get; init; } 
     /// <summary>
     /// Operating expenses recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount OperatingExpenses { get; init; } 
     /// <summary>
     /// Indicates the operating profit (true) or loss (false) recorded in the month-end management reporting for the financial year-to-date.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection102 OperatingProfitOrLoss { get; init; } 
     /// <summary>
     /// Net interest income recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount NetInterestIncome { get; init; } 
     /// <summary>
     /// Other non-operating revenue recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount OtherNonOperatingRevenue { get; init; } 
     /// <summary>
     /// Non-operating expenses recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount NonOperatingExpenses { get; init; } 
     /// <summary>
     /// Indicates the pre-tax profit (true) or loss (false) recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection102 PreTaxProfitOrLoss { get; init; } 
     /// <summary>
     /// Indicates the post-tax profit (true) or loss (false) recorded in month-end management reporting for the financial year-to-date.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection102 PostTaxProfitOrLoss { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional cover details for the claim non receipt.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MissingCover5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record MissingCover5
     /// <summary>
     /// Indicates whether or not the claim is related to a missing cover.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator MissingCoverIndicator { get; init; } 
     /// <summary>
     /// Set of elements provided to update incorrect settlement information for the cover related to the received payment instruction.
     /// </summary>
+    [DataMember]
     public SettlementInstruction13? CoverCorrection { get; init; } 
     
     #nullable disable

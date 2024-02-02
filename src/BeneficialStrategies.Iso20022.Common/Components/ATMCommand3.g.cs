@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Maintenance command which has requested the device report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMCommand3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ATMCommand3
     /// <summary>
     /// Type of command to be performed by the ATM.
     /// </summary>
+    [DataMember]
     public required ATMCommand2Code Type { get; init; } 
     /// <summary>
     /// Identification of the entity issuing the command.
     /// </summary>
+    [DataMember]
     public ATMCommandIdentification1? CommandIdentification { get; init; } 
     
     #nullable disable

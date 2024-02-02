@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Original and corrected price information of an investment fund.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PriceCorrection2
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record PriceCorrection2
     /// <summary>
     /// Information related to the price valuation of a financial instrument sent in a previous price report.
     /// </summary>
+    [DataMember]
     public required PriceValuation2 PreviouslySentPriceDetails { get; init; } 
     /// <summary>
     /// Information related to the new price valuation of a financial instrument, which overrides previously sent information.
     /// </summary>
+    [DataMember]
     public PriceValuation2? CorrectedPriceDetails { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Extension1> Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

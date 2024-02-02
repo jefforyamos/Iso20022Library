@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(NetDividendRateFormat28Choice.AmountAndRateStatus))]
 [KnownType(typeof(NetDividendRateFormat28Choice.RateTypeAndAmountAndRateStatus))]
 [KnownType(typeof(NetDividendRateFormat28Choice.NotSpecifiedRate))]
+[DataContract]
 public abstract partial record NetDividendRateFormat28Choice_
 {
 }

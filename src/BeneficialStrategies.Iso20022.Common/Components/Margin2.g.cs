@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the calculation of the margin.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Margin2
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record Margin2
     /// <summary>
     /// Provides details about the security identification.
     /// </summary>
+    [DataMember]
     public SecurityIdentification14? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Net total of the transaction exposure of all outstanding deals.
     /// </summary>
+    [DataMember]
     public Amount2? ExposureAmount { get; init; } 
     /// <summary>
     /// Total margin requirement (expressed in the reporting currency) that must be provided by the clearing member to the central counterparty. This is the total requirement calculated to cover the initial margin and the variation margin.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalMarginAmount { get; init; } 
     /// <summary>
     /// Provides details on the calculation of the variation margin.
     /// </summary>
+    [DataMember]
     public required VariationMargin2 VariationMargin { get; init; } 
     /// <summary>
     /// Margin required for absorbing future market price fluctuations (market risks) occurring between the default of a member and close-out of unsettled securities positions by the central counterparty.
     /// </summary>
+    [DataMember]
     public required Amount2 InitialMargin { get; init; } 
     /// <summary>
     /// Additional amount (expressed in the reporting currency) that the clearing member will have to provide to cover a risk increase. This results from a risk management decision depending on Central counterparty specific criteria.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? IncreaseCoverage { get; init; } 
     /// <summary>
     /// Minimum requirement (expressed in the reporting currency) for a participant if their requirement falls below a specific amount set by the Central counterparty.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumRequirementDeposit { get; init; } 
     /// <summary>
     /// Provides details on the valuation of the collateral on deposit.
     /// </summary>
+    [DataMember]
     public Collateral3? CollateralOnDeposit { get; init; } 
     /// <summary>
     /// Provides details on the margin result.
     /// </summary>
+    [DataMember]
     public MarginResult1Choice_? MarginResult { get; init; } 
     
     #nullable disable

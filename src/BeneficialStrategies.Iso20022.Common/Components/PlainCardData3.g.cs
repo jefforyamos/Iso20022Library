@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Sensible data associated with the payment card performing the transaction provided for verification in response.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PlainCardData3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PlainCardData3
     /// <summary>
     /// Primary Account Number (PAN) of the card, or card number.
     /// </summary>
+    [DataMember]
     public required IsoMin8Max28NumericText PAN { get; init; } 
     /// <summary>
     /// Identify a card inside a set of cards with the same card number (PAN).
     /// </summary>
+    [DataMember]
     public IsoMin2Max3NumericText? CardSequenceNumber { get; init; } 
     /// <summary>
     /// Date as from which the card can be used.
     /// </summary>
+    [DataMember]
     public IsoISOYearMonth? EffectiveDate { get; init; } 
     /// <summary>
     /// Expiry date of the card.
     /// </summary>
+    [DataMember]
     public required IsoISOYearMonth ExpiryDate { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cash management feature limiting the maximum risk a party accepts to take with respect to a counterparty or a set of counterparties. A risk management limit is either bilateral, ie, for a counterparty, or multilateral, ie, for a set of counterparties or all other members in a system.The limit may also apply to sponsored members, ie, indirect members. In principle, a risk management limit is calculated on the net position between two members and is expressed as a credit or debit limit, from the point of view of the party setting the limit.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LimitIdentification4
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record LimitIdentification4
     /// <summary>
     /// Unique identification as assigned by the account servicer to unambiguously identify the account.
     /// </summary>
+    [DataMember]
     public required AccountIdentification4Choice_ AccountIdentification { get; init; } 
     /// <summary>
     /// Nature of the risk management limit.
     /// </summary>
+    [DataMember]
     public required LimitType4Code Type { get; init; } 
     /// <summary>
     /// Currency unit used to specify the limit amount.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? LimitCurrency { get; init; } 
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>
+    [DataMember]
     public required IsoBICFIIdentifier AccountOwner { get; init; } 
     /// <summary>
     /// Identification of the system member for which the limit is established.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification4? BilateralLimitCounterpartyIdentification { get; init; } 
     
     #nullable disable

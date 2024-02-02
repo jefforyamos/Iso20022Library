@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Attributes of a settlement service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementService3
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record SettlementService3
     /// <summary>
     /// Type of settlement service proposed.
     /// </summary>
+    [DataMember]
     public SettlementServiceMode1? SettlementServiceProposed { get; init; } 
     /// <summary>
     /// Settlement service actually applied to the transaction.
     /// </summary>
+    [DataMember]
     public SettlementServiceMode1? SettlementServiceApplied { get; init; } 
     /// <summary>
     /// Dates related to the settlement service related to the transaction.
     /// </summary>
+    [DataMember]
     public SettlementServiceDate2? SettlementServiceDates { get; init; } 
     /// <summary>
     /// Entity in charge of the settlement reporting service.
     /// </summary>
+    [DataMember]
     public SettlementReportingEntity1? SettlementReportingEntity { get; init; } 
     /// <summary>
     /// Additional Settlement Information.
     /// </summary>
-    public AdditionalData1[] AdditionalSettlementInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalSettlementInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies details related to the attendance card.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AttendanceCard2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AttendanceCard2
     /// <summary>
     /// Information to be indicated on the attendance card.
     /// </summary>
+    [DataMember]
     public IsoMax105Text? AttendanceCardLabelling { get; init; } 
     /// <summary>
     /// Specifies where the attendance card must be delivered.
     /// </summary>
+    [DataMember]
     public required DeliveryPlace1Code DeliveryMethod { get; init; } 
     /// <summary>
     /// Name and address of a party.
     /// </summary>
+    [DataMember]
     public NameAndAddress9? OtherAddress { get; init; } 
     
     #nullable disable

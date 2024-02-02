@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria based on which information is included.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraBalanceQueryCriteria8
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record IntraBalanceQueryCriteria8
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
-    public IsoMax35Text[] ModificationRequestIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> ModificationRequestIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the status of settlement of a transaction.
     /// </summary>
-    public ModificationProcessingStatus9Choice_[] ProcessingStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ModificationProcessingStatus9Choice_> ProcessingStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Account in which cash is maintained.
     /// </summary>
-    public AccountIdentificationSearchCriteria2Choice_[] CashAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AccountIdentificationSearchCriteria2Choice_> CashAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that owns the account.
     /// </summary>
-    public SystemPartyIdentification8[] CashAccountOwner { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SystemPartyIdentification8> CashAccountOwner { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
     /// <summary>
     /// Party that originated the message, if other than the sender.
     /// </summary>
-    public SystemPartyIdentification8[] MessageOriginator { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SystemPartyIdentification8> MessageOriginator { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the creation date/time of the intra-balance movement.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeSearch5Choice_? CreationDateTime { get; init; } 
     
     #nullable disable

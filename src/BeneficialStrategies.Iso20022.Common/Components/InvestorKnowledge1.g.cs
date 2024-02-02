@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Knowledge and/or experience of an investor.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestorKnowledge1
 {
     #nullable enable
@@ -23,6 +25,7 @@ public partial record InvestorKnowledge1
     /// - no financial industry experience, that is, suited to a first time investor.
     /// When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 02010.
     /// </summary>
+    [DataMember]
     public TargetMarket1Code? BasicInvestor { get; init; } 
     /// <summary>
     /// Specifies whether the investor is an informed investor. An informed investor has one, or more, of the following characteristics:
@@ -30,22 +33,26 @@ public partial record InvestorKnowledge1
     /// - some financial industry experience.
     /// When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 02020.
     /// </summary>
+    [DataMember]
     public TargetMarket1Code? InformedInvestor { get; init; } 
     /// <summary>
     /// Specifies whether the investor is an advanced investor. An advanced investor has one, or more, of the following characteristics:
     /// - good knowledge of relevant financial products and transactions, financial industry experience or accompanied by professional investment advice or included in a - discretionary portfolio service.
     /// When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 02030.
     /// </summary>
+    [DataMember]
     public TargetMarket1Code? AdvancedInvestor { get; init; } 
     /// <summary>
     /// Specifies whether the investor is an expert investor. An expert investor has expert knowledge of and/or experience with highly specialised financial products. (Specific to Germany.) 
     /// When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 02040.
     /// </summary>
+    [DataMember]
     public TargetMarket1Code? ExpertInvestorGermany { get; init; } 
     /// <summary>
     /// Type of investor knowledge and experience for which the financial instrument is targeted.
     /// </summary>
-    public OtherTargetMarketInvestorKnowledge1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OtherTargetMarketInvestorKnowledge1> Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

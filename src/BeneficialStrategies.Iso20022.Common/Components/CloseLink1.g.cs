@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details of the close links as defined in the collateral reference data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CloseLink1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CloseLink1
     /// <summary>
     /// Identification of a security by an ISIN.
     /// </summary>
+    [DataMember]
     public required IsoISINIdentifier SecurityIdentification { get; init; } 
     /// <summary>
     /// Identifies the party for which the close link is defined.
     /// </summary>
+    [DataMember]
     public required SystemPartyIdentification1Choice_ PartyIdentification { get; init; } 
     
     #nullable disable

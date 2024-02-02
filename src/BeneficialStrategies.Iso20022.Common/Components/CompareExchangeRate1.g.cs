@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for a exchange rate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareExchangeRate1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareExchangeRate1
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public IsoBaseOne18Rate? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public IsoBaseOne18Rate? Value2 { get; init; } 
     
     #nullable disable

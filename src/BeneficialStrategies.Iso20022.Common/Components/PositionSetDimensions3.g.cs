@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Variables related to derivatives that are used to group derivatives together into positions for position sets and currency position sets reports. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PositionSetDimensions3
 {
     #nullable enable
@@ -20,89 +22,110 @@ public partial record PositionSetDimensions3
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
+    [DataMember]
     public TradeCounterpartyReport9? CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Currency used for the valuation of the contract.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? ValueCurrency { get; init; } 
     /// <summary>
     /// Type of collateral agreement existing between counterparties.
     /// </summary>
+    [DataMember]
     public CollateralisationType1Code? Collateralisation { get; init; } 
     /// <summary>
     /// Identifies the portfolio if collateral is reported on a portfolio basis, as defined by the reporting counterparty.
     /// </summary>
+    [DataMember]
     public IsoMax52Text? Portfolio { get; init; } 
     /// <summary>
     /// Classification according to the contract type.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentContractType2Code? ContractType { get; init; } 
     /// <summary>
     /// Classification according to the asset class of the contract.
     /// </summary>
+    [DataMember]
     public ProductType4Code? AssetClass { get; init; } 
     /// <summary>
     /// Unique identification of the direct underlying instrument based on its type.
     /// </summary>
+    [DataMember]
     public SecurityIdentification34Choice_? UnderlyingInstrument { get; init; } 
     /// <summary>
     /// Currency of the notional amount. 
     /// Usage: In the case of an interest rate or currency derivative contract, this will be the notional currency of first leg.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? FirstLegNotionalCurrency { get; init; } 
     /// <summary>
     /// Other currency of the notional amount. 
     /// Usage: In the case of an interest rate or currency derivative contract, this will be the notional currency of the second leg.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? SecondLegNotionalCurrency { get; init; } 
     /// <summary>
     /// Specifies the currency of delivery.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? DeliverableCurrency { get; init; } 
     /// <summary>
     /// Indicates the cross currency, if different from the currency of delivery.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? DeliverableCrossCurrency { get; init; } 
     /// <summary>
     /// Details related to the master agreement.
     /// </summary>
+    [DataMember]
     public MasterAgreement2? MasterAgreement { get; init; } 
     /// <summary>
     /// Indicates whether clearing of contract has taken place.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ClearingStatus { get; init; } 
     /// <summary>
     /// Indicates whether the contract was entered into as an intragroup transaction.
     /// Usage: When absent, default value is false.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? IntraGroup { get; init; } 
     /// <summary>
     /// Indicates the quote base for the exchange rate.
     /// </summary>
+    [DataMember]
     public ExchangeRateBasis1Choice_? ExchangeRateBasis { get; init; } 
     /// <summary>
     /// Specifies the type of the option whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// </summary>
+    [DataMember]
     public OptionType2Code? OptionType { get; init; } 
     /// <summary>
     /// Difference between a maturity date of a derivative and the reference date, based on a Gregorian calendar.
     /// </summary>
+    [DataMember]
     public TimeToMaturity1Choice_? TimeToMaturity { get; init; } 
     /// <summary>
     /// Groups of IRS (Internal Revenue Service) derivatives with reference to whether leg 1 and leg 2 are fixed or floating.
     /// </summary>
+    [DataMember]
     public IsoMax52Text? IRSType { get; init; } 
     /// <summary>
     /// Classification of seniority in case of contract on index or on a single name entity.
     /// </summary>
+    [DataMember]
     public DebtInstrumentSeniorityType2Code? Seniority { get; init; } 
     /// <summary>
     /// Indicates whether the derivative contract is tranched or not.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? Tranche { get; init; } 
     /// <summary>
     /// Details on the commodity asset class type.
     /// </summary>
+    [DataMember]
     public IsoMax52Text? Commodity { get; init; } 
     
     #nullable disable

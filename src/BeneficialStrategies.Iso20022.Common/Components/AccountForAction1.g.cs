@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account to or from which a cash entry is made.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountForAction1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AccountForAction1
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required AccountIdentification4Choice_ Identification { get; init; } 
     /// <summary>
     /// Medium of exchange of value.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     
     #nullable disable

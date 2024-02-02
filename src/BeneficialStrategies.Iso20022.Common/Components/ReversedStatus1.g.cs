@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for the reversed status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReversedStatus1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ReversedStatus1
     /// <summary>
     /// Reason for the reversal status.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text Reason { get; init; } 
     /// <summary>
     /// Proprietary identification of the reason for the reversed status.
     /// </summary>
+    [DataMember]
     public required GenericIdentification1 DataSourceScheme { get; init; } 
     /// <summary>
     /// Indicates that there is no reason available or to report.
     /// </summary>
+    [DataMember]
     public required NoReasonCode NoSpecifiedReason { get; init; } 
     
     #nullable disable

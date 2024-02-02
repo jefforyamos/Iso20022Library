@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(UnmatchedStatus12Choice.NoSpecifiedReason))]
 [KnownType(typeof(UnmatchedStatus12Choice.Reason))]
+[DataContract]
 public abstract partial record UnmatchedStatus12Choice_
 {
 }

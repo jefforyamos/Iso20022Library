@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(FloatingRateIdentification4Choice.Code))]
 [KnownType(typeof(FloatingRateIdentification4Choice.Proprietary))]
+[DataContract]
 public abstract partial record FloatingRateIdentification4Choice_
 {
 }

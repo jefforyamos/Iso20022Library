@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a related settlement instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RelatedSettlementInstruction1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RelatedSettlementInstruction1
     /// <summary>
     /// Unambiguous identification of the related settlement instruction assigned by the account holder.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text RelatedSettlementInstructionIdentification { get; init; } 
     /// <summary>
     /// Quantity of securities for which the market claim has been raised.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity18Choice_? RelatedSettlementQuantity { get; init; } 
     
     #nullable disable

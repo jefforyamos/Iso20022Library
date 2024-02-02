@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Loyalty programme information
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoyaltyProgramme2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record LoyaltyProgramme2
     /// <summary>
     /// Type of loyalty programme (for example, airline, lodging, vehicle and rail etc.).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProgrammeType { get; init; } 
     /// <summary>
     /// Loyalty programme identification value.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? ProgramIdentification { get; init; } 
     /// <summary>
     /// Loyalty programme participant identification value.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? ParticipantIdentification { get; init; } 
     
     #nullable disable

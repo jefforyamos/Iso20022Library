@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the deactivation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionDeactivationInstruction1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record CorporateActionDeactivationInstruction1
     /// <summary>
     /// Date and time at which the CSD must deactivate the corporate action event or the option.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime DeactivationDateAndTime { get; init; } 
     /// <summary>
     /// Provides information about the option, when the deactivation instruction applies at the level of a corporate action option.
     /// </summary>
-    public CorporateActionOption2[] OptionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CorporateActionOption2> OptionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

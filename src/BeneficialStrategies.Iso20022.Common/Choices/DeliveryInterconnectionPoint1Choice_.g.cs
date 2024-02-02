@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(DeliveryInterconnectionPoint1Choice.Code))]
 [KnownType(typeof(DeliveryInterconnectionPoint1Choice.Proprietary))]
+[DataContract]
 public abstract partial record DeliveryInterconnectionPoint1Choice_
 {
 }

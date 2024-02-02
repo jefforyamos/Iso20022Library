@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(FrequencyRateFixing1Choice.Code))]
 [KnownType(typeof(FrequencyRateFixing1Choice.NumberOfDays))]
+[DataContract]
 public abstract partial record FrequencyRateFixing1Choice_
 {
 }

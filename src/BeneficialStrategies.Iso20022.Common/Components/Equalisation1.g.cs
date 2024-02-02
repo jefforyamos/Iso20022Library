@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Part of an investor's subscription amount that is held by the fund in order to pay incentive / performance fees at the end of the fiscal year.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Equalisation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Equalisation1
     /// <summary>
     /// Amount of money resulting from the calculation of the equalisation.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Rate used for calculation of the equalisation.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     
     #nullable disable

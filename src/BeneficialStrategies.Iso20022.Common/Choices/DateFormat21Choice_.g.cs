@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(DateFormat21Choice.Date))]
 [KnownType(typeof(DateFormat21Choice.NotSpecifiedDate))]
+[DataContract]
 public abstract partial record DateFormat21Choice_
 {
 }

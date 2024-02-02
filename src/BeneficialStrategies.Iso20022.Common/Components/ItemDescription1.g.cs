@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Language, title and textual description in the specified language of an item.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ItemDescription1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ItemDescription1
     /// <summary>
     /// Language used to provide a description of the item and specified in the ISO 639-1 language code standard.
     /// </summary>
+    [DataMember]
     public required ISO2ALanguageCode Language { get; init; } 
     /// <summary>
     /// Abbreviated description of the item.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Title { get; init; } 
     /// <summary>
     /// Free textual description of the item in the specified language.
     /// </summary>
+    [DataMember]
     public IsoMax1025Text? Description { get; init; } 
     
     #nullable disable

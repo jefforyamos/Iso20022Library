@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TransactionReportOrError3Choice.BusinessReport))]
 [KnownType(typeof(TransactionReportOrError3Choice.OperationalError))]
+[DataContract]
 public abstract partial record TransactionReportOrError3Choice_
 {
 }

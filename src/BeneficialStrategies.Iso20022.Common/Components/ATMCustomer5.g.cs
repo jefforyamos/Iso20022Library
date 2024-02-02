@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Customer involved in a transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMCustomer5
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record ATMCustomer5
     /// <summary>
     /// Profile of the customer selected to perform the transaction.
     /// </summary>
+    [DataMember]
     public ATMCustomerProfile2? Profile { get; init; } 
     /// <summary>
     /// Result of the customer authentication for this transaction.
     /// </summary>
-    public TransactionVerificationResult5[] AuthenticationResult { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionVerificationResult5> AuthenticationResult { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ReservationCriteria2Choice.QueryName))]
 [KnownType(typeof(ReservationCriteria2Choice.NewCriteria))]
+[DataContract]
 public abstract partial record ReservationCriteria2Choice_
 {
 }

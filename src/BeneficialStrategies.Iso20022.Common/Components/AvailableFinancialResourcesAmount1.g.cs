@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Construct used by a central counterparty to define the size of the aggregate quantum of resources available from a clearing member.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AvailableFinancialResourcesAmount1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record AvailableFinancialResourcesAmount1
     /// <summary>
     /// Total value of the initial margin (IM) requirement for all members at the last business day of the month.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalInitialMargin { get; init; } 
     /// <summary>
     /// Total value of the clearing member pre-funded default fund, excluding pre-funded contributions to the default fund from the CCP.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalPrefundedDefaultFund { get; init; } 
     /// <summary>
     /// Value of the CCP’s own contribution to the default waterfall junior to the pre-funded default fund contributions of the non-defaulting clearing members.
     /// </summary>
-    public ReportingAssetBreakdown1[] CCPSkinInTheGame { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReportingAssetBreakdown1> CCPSkinInTheGame { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total value of other contributions to the pre-funded default fund, not received from clearing members, including any contribution from the CCP that is pari-passu with the default fund contributions of the non-defaulting clearing members.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount OtherDefaultFundContribution { get; init; } 
     /// <summary>
     /// Total value of all legally‐bound commitments for members to provide additional resources to available to mutualise losses on exhaustion of the default fund.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount UnfundedMemberCommitment { get; init; } 
     /// <summary>
     /// Total value of any third‐party commitments to provide additional resources to absorb losses, for example, from insurers.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount UnfundedThirdPartyCommitment { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Consideration, such as amount of money, paid or received in exchange for an amount of money that has been invested, loaned or borrowed for a certain period.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InterestCalculation1
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record InterestCalculation1
     /// <summary>
     /// Calculation date of the interest amount.
     /// </summary>
+    [DataMember]
     public required IsoISODate CalculationDate { get; init; } 
     /// <summary>
     /// Provides the collateral amount used to calculate the interest amount.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount EffectivePrincipalAmount { get; init; } 
     /// <summary>
     /// Provides the collateral amount posted before taking into account the collateral movement amount.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? PrincipalAmount { get; init; } 
     /// <summary>
     /// Provides the additional amount of collateral posted between two calculation dates.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? MovementAmount { get; init; } 
     /// <summary>
     /// Indicates if the movement in the collateral posted is a debit or a credit amount.
     /// </summary>
+    [DataMember]
     public CreditDebitCode? MovementDirection { get; init; } 
     /// <summary>
     /// Percentage charged for the use of an amount of money, usually expressed at an annual rate. The interest rate is the ratio of the amount of interest paid during a certain period of time compared to the principal amount of the interest bearing financial instrument.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate EffectiveRate { get; init; } 
     /// <summary>
     /// Percentage charged for the use of an amount of money, usually expressed at an annual rate. The interest rate is the ratio of the amount of interest paid during a certain period of time compared to the principal amount of the interest bearing financial instrument.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? InterestRate { get; init; } 
     /// <summary>
     /// Used to express differences in interest rates.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Spread { get; init; } 
     /// <summary>
     /// Amount of money representing an interest payment.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount AccruedInterestAmount { get; init; } 
     /// <summary>
     /// Amount of money representing an interest payment.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? AggregatedInterestAmount { get; init; } 
     
     #nullable disable

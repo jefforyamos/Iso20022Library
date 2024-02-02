@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(PercentageRange1Choice.FromTo))]
 [KnownType(typeof(PercentageRange1Choice.Equal))]
 [KnownType(typeof(PercentageRange1Choice.NotEqual))]
+[DataContract]
 public abstract partial record PercentageRange1Choice_
 {
 }

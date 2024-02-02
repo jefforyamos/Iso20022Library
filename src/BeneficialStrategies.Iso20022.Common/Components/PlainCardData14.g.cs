@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Sensible data associated with the payment card performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PlainCardData14
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record PlainCardData14
     /// <summary>
     /// Primary Account Number (PAN) of the card.
     /// </summary>
+    [DataMember]
     public IsoMin8Max28NumericText? PAN { get; init; } 
     /// <summary>
     /// Identify a card or a payment token inside a set of cards with the same PAN.
     /// </summary>
+    [DataMember]
     public IsoMin2Max3NumericText? CardSequenceNumber { get; init; } 
     /// <summary>
     /// Date from which the card can be used, expressed either in the YYYY-MM format, or in the YYYY-MM-DD format.
     /// </summary>
+    [DataMember]
     public IsoMax10Text? EffectiveDate { get; init; } 
     /// <summary>
     /// Expiry date of the card expressed either in the YYYY-MM format, or in the YYYY-MM-DD format.
     /// </summary>
+    [DataMember]
     public IsoMax10Text? ExpiryDate { get; init; } 
     /// <summary>
     /// Track number 1 from magnetic stripe card.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Track1 { get; init; } 
     /// <summary>
     /// Track number 2 without control characters (start /end and LRC).
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Track2 { get; init; } 
     /// <summary>
     /// Track number 3 from magnetic stripe card.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Track3 { get; init; } 
     
     #nullable disable

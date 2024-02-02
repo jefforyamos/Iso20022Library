@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Value given to a price.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PriceValue2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PriceValue2
     /// <summary>
     /// Price expressed as a currency and value.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? Amount { get; init; } 
     /// <summary>
     /// Price expressed as a rate, ie, percentage.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     
     #nullable disable

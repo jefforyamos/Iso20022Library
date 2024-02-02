@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding underlying security details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentAttributesSD14
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record FinancialInstrumentAttributesSD14
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Country of source income for the security.
     /// </summary>
+    [DataMember]
     public CountryCode? IncomeSourceCountry { get; init; } 
     /// <summary>
     /// Classification of instruments into asset classes at DTC (The Depository Trust Corporation).
     /// </summary>
+    [DataMember]
     public AssetClass1Code? DTCAssetClass { get; init; } 
     /// <summary>
     /// Further classification of instruments into (issue) asset types at DTC (The Depository Trust Corporation).
     /// </summary>
+    [DataMember]
     public DTCAssetType2Code? DTCAssetType { get; init; } 
     /// <summary>
     /// Indicates whether the security is eligible for holding at DTC.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? SecurityEligibilityIndicator { get; init; } 
     /// <summary>
     /// Ticket symbol for the event security (underlying security).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TickerSymbol { get; init; } 
     /// <summary>
     /// Security whose characteristics mirror the event security for purposes of FCP eligibility and tax relief. Certain derivative securities like HOLDR may have certain events where the source of payments are from an underlying security.
     /// </summary>
+    [DataMember]
     public SecurityIdentification15? LinkedSecurity { get; init; } 
     /// <summary>
     /// Represents the 'original' security identifier of the event. It is used in the scenarios like "partial call" where there are 2 events. The first event distributes into the Contra CUSIP, a temporary security; and on the second event that temporary security becomes the underlying security of the event. This element is used in the second event to point to the original CUSIP.
     /// </summary>
+    [DataMember]
     public OtherIdentification2? OriginatingSecurityIdentification { get; init; } 
     /// <summary>
     /// Security description associated with DIVANN legacy system which contains additional values such as NTL for interest only notional.
     /// </summary>
+    [DataMember]
     public IsoMax50Text? DIVANNSecurityDescription { get; init; } 
     /// <summary>
     /// Indicates whether the event security is a foreign issue. This field will be initially used for CD Early Redemptions AC63.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ForeignIssueFlag { get; init; } 
     
     #nullable disable

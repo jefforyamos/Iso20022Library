@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the transaction for network management.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionIdentification12
 {
     #nullable enable
@@ -21,21 +23,25 @@ public partial record TransactionIdentification12
     /// Number assigned by a transaction originator to assist in identifying a transaction uniquely. The trace number remains unchanged for all messages within a two-message exchange (for example, request/repeat and response)
     /// ISO 8583 bit 11.
     /// </summary>
+    [DataMember]
     public required IsoMax12NumericText SystemTraceAuditNumber { get; init; } 
     /// <summary>
     /// Date and time expressed in UTC of the message as sent by the initiator.
     /// ISO 8583 bit 7
     /// </summary>
+    [DataMember]
     public required IsoISODateTime TransmissionDateTime { get; init; } 
     /// <summary>
     /// A reference supplied by the system retaining the original source information and used to assist in locating that information or a copy thereof.
     /// ISO 8583 bit 37
     /// </summary>
+    [DataMember]
     public IsoExact12Text? RetrievalReferenceNumber { get; init; } 
     /// <summary>
     /// Unique global identification structure used to match transactions throughout their lifecycle.
     /// ISO 8583:2003 bit 21
     /// </summary>
+    [DataMember]
     public TransactionLifeCycleIdentification2? LifeCycleTraceIdentificationData { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the comparison between the currently established baseline elements and the proposed ones.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyReferenceDataChange2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PartyReferenceDataChange2
     /// <summary>
     /// Identifies the party for which the changes are listed in the advice.
     /// </summary>
+    [DataMember]
     public required SystemPartyIdentification8 PartyIdentification { get; init; } 
     /// <summary>
     /// Provides the party data record for which details of the change are provided.
     /// </summary>
-    public UpdateLogPartyRecord1Choice_[] Record { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<UpdateLogPartyRecord1Choice_> Record { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the timestamp of the operation.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime OperationTimeStamp { get; init; } 
     
     #nullable disable

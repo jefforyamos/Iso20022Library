@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Assessments for the component of the point of interaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PointOfInteractionComponentAssessment1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record PointOfInteractionComponentAssessment1
     /// <summary>
     /// Type of assessment of the component.
     /// </summary>
+    [DataMember]
     public required POIComponentAssessment1Code Type { get; init; } 
     /// <summary>
     /// Body which has delivered the assessment.
     /// </summary>
-    public IsoMax35Text[] Assigner { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> Assigner { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date when the assessment has been delivered.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? DeliveryDate { get; init; } 
     /// <summary>
     /// Date when the assessment will expire.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ExpirationDate { get; init; } 
     /// <summary>
     /// Unique assessment number for the component.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Number { get; init; } 
     
     #nullable disable

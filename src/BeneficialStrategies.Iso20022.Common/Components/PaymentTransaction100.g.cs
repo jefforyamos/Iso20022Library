@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains the details on the payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTransaction100
 {
     #nullable enable
@@ -20,32 +22,39 @@ public partial record PaymentTransaction100
     /// <summary>
     /// Contains the unique end to end transaction reference of a payment, issued by the originator.
     /// </summary>
+    [DataMember]
     public required IsoUUIDv4Identifier UETR { get; init; } 
     /// <summary>
     /// Specifies the status of a transaction, in a coded form.
     /// </summary>
+    [DataMember]
     public required PaymentStatus4 TransactionStatus { get; init; } 
     /// <summary>
     /// Specifies the time when the related status was reached.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime EventTime { get; init; } 
     /// <summary>
     /// Specifies the party that issues the status.
     /// </summary>
+    [DataMember]
     public required IsoAnyBICIdentifier Originator { get; init; } 
     /// <summary>
     /// Specifies the amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// Usage: This amount has to be transported unchanged through the transaction chain.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; init; } 
     /// <summary>
     /// Specifies the actual amount that has been paid to the ultimate beneficiary, after all charges etc... have been deducted.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ConfirmedAmount { get; init; } 
     /// <summary>
     /// This groups the information of an event which is a payment message or status confirmation update. It is repeated as many times as there are events to be returned.
     /// </summary>
-    public PaymentEvent6[] PaymentEvent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentEvent6> PaymentEvent { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

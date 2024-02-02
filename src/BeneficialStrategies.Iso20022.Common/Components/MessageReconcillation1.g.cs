@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains message reconciliation data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MessageReconcillation1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record MessageReconcillation1
     /// <summary>
     /// Contains the reconciliation message type.
     /// </summary>
+    [DataMember]
     public required ReconciliationMessageType1Code Type { get; init; } 
     /// <summary>
     /// Other reconciliation message type defined at national or private level.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Number of transactions.
     /// </summary>
+    [DataMember]
     public required IsoNumber Count { get; init; } 
     
     #nullable disable

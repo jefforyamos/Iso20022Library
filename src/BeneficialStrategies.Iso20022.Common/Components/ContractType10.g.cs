@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to contract attributes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContractType10
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record ContractType10
     /// <summary>
     /// Classification of information according to contract type.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentContractType2Code? ContractType { get; init; } 
     /// <summary>
     /// Specifies the classification according to the asset class of the contract.
     /// </summary>
+    [DataMember]
     public ProductType4Code? AssetClass { get; init; } 
     /// <summary>
     /// Specifies the classification of the derivative product.
     /// </summary>
+    [DataMember]
     public IsoCFIOct2015Identifier? ProductClassification { get; init; } 
     /// <summary>
     /// Specifies the identification of the derivative product.
     /// </summary>
+    [DataMember]
     public SecurityIdentification22? ProductIdentification { get; init; } 
     /// <summary>
     /// Unique identification to identify the direct underlying instrument based on its type.
     /// </summary>
+    [DataMember]
     public SecurityIdentification36Choice_? UnderlyingInstrument { get; init; } 
     /// <summary>
     /// Currency of the notional amount. 
     /// Usage: In the case of an interest rate or currency derivative contract, this will be the notional currency of first leg.
     /// </summary>
+    [DataMember]
     public LegCurrency2? NotionalCurrency { get; init; } 
     /// <summary>
     /// Specifies the currency to be used for cash settlement of the transaction. For multicurrency transactions that do not net, specify the currency to be delivered for each leg.
     /// </summary>
+    [DataMember]
     public LegCurrency2? SettlementCurrency { get; init; } 
     /// <summary>
     /// Specifies the place where settlement of the transaction occurs as stipulated in the contract.
     /// </summary>
+    [DataMember]
     public CountryCode? PlaceOfSettlement { get; init; } 
     
     #nullable disable

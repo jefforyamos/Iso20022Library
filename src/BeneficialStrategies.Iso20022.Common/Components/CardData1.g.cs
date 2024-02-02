@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Non-protected sensitive data associated with the card or payment token performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardData1
 {
     #nullable enable
@@ -21,6 +23,7 @@ public partial record CardData1
     /// Primary Account Number (PAN) of the card or a surrogate of the PAN such as a payment token.
     /// ISO 8583 bit 2
     /// </summary>
+    [DataMember]
     public required IsoMax19NumericText PAN { get; init; } 
     /// <summary>
     /// To indicate whether the PAN is using ProtectedData for encryption or not.
@@ -28,41 +31,49 @@ public partial record CardData1
     /// True: The PAN is encrypted by using ProtectedData
     /// Default: False
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ProtectedPANIndicator { get; init; } 
     /// <summary>
     /// Distinguishes between instances of the same payment card.
     /// ISO 8583 bit 23
     /// </summary>
+    [DataMember]
     public IsoMin2Max3NumericText? CardSequenceNumber { get; init; } 
     /// <summary>
     /// Date as from which the card can be used, expressed in one of the following formats: YYYY-MM-DD, YYYY-MM, YY-MM-DD.
     /// ISO 8583:93 & ISO 8583:2003-1 bit 13
     /// </summary>
+    [DataMember]
     public IsoMax10Text? EffectiveDate { get; init; } 
     /// <summary>
     /// Expiry date of the card or payment token.
     /// ISO 8583 bit 14.
     /// </summary>
+    [DataMember]
     public IsoExact4NumericText? ExpiryDate { get; init; } 
     /// <summary>
     /// Service attached to the card as defined in ISO 7813.
     /// ISO 8583 bit 40.
     /// </summary>
+    [DataMember]
     public IsoExact3NumericText? ServiceCode { get; init; } 
     /// <summary>
     /// ISO track 1 issued from the magnetic stripe card or from the ICC if the magnetic stripe was not read. The format conforms to ISO 7813, removing beginning and ending sentinels and longitudinal redundancy check characters.
     /// ISO 8583 bit 45
     /// </summary>
+    [DataMember]
     public IsoMax76Text? Track1 { get; init; } 
     /// <summary>
     /// ISO track 2 issued from the magnetic stripe card or from the ICC if the magnetic stripe was not read. The format  conforms to ISO 7813, removing beginning and ending sentinels and longitudinal redundancy check characters.
     /// ISO 8583 bit 35
     /// </summary>
+    [DataMember]
     public Track2Data1Choice_? Track2 { get; init; } 
     /// <summary>
     /// ISO track 3 issued from the magnetic stripe card or from the ICC if the magnetic stripe was not read. The content conforms to ISO 4909, removing beginning and ending sentinels and longitudinal redundancy check characters.
     /// ISO 8583 bit 36
     /// </summary>
+    [DataMember]
     public IsoMax104Text? Track3 { get; init; } 
     /// <summary>
     /// Unique non-financial reference assigned to a given PAN. May be used to link the transaction activity to that PAN.
@@ -70,27 +81,33 @@ public partial record CardData1
     /// ISO 8583:93 bit 112 (TLV tag 01/dataset 71)
     /// ISO 8583:2003 bit 51 (TLV tag 01/dataset 71)
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PaymentAccountReference { get; init; } 
     /// <summary>
     /// Country code assigned to the card by the card issuer.
     /// ISO 8583 bit 20
     /// </summary>
+    [DataMember]
     public ISO3NumericCountryCode? CardCountryCode { get; init; } 
     /// <summary>
     /// Type of card product.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CardProductType { get; init; } 
     /// <summary>
     /// Subtype of card product.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CardProductSubType { get; init; } 
     /// <summary>
     /// Identifies the card portfolio. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CardPortfolioIdentifier { get; init; } 
     /// <summary>
     /// Additional card issuer specific data.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AdditionalCardData { get; init; } 
     
     #nullable disable

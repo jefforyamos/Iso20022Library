@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the securities account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesAccount9
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record SecuritiesAccount9
     /// <summary>
     /// Specifies whether the value is a debit or credit.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Idenfitication of the account.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text AccountIdentification { get; init; } 
     /// <summary>
     /// Type of balance.
     /// </summary>
+    [DataMember]
     public SecuritiesBalanceType10FormatChoice_? BalanceType { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
+    [DataMember]
     public CorporateActionOption1FormatChoice_? OptionType { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [DataMember]
     public IsoExact3NumericText? OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the form of the financial instrument.
     /// </summary>
+    [DataMember]
     public FormOfSecurity1Code? SecurityHoldingForm { get; init; } 
     
     #nullable disable

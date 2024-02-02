@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Instruction from an investor to sell investment fund units back to the fund.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RedemptionMultipleOrder4
 {
     #nullable enable
@@ -20,54 +22,67 @@ public partial record RedemptionMultipleOrder4
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual orders, as assigned by the instructing party. This identifier links the individual orders together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
+    [DataMember]
     public PlaceOfTradeIdentification1Choice_? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Date and time at which the order was placed by the investor.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OrderDateTime { get; init; } 
     /// <summary>
     /// Date on which the order expires.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? ExpiryDateTime { get; init; } 
     /// <summary>
     /// Future date at which the investor requests the order to be executed.|The specification of a requested future trade date is not allowed in some markets. The date must be a date in the future.
     /// </summary>
+    [DataMember]
     public IsoISODate? RequestedFutureTradeDate { get; init; } 
     /// <summary>
     /// Cancellation right of an investor with respect to an investment fund order.
     /// </summary>
+    [DataMember]
     public CancellationRight1Code? CancellationRight { get; init; } 
     /// <summary>
     /// Cancellation right of an investor with respect to an investment fund order.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedCancellationRight { get; init; } 
     /// <summary>
     /// Account impacted by an investment fund order.
     /// </summary>
+    [DataMember]
     public required InvestmentAccount21 InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Additional information about the investor.
     /// </summary>
+    [DataMember]
     public IndividualPerson12? BeneficiaryDetails { get; init; } 
     /// <summary>
     /// Instruction from an investor to sell investment fund units back to the fund.
     /// </summary>
-    public RedemptionOrder8[] IndividualOrderDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RedemptionOrder8> IndividualOrderDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment processes required to transfer cash from the debtor to the creditor.
     /// </summary>
+    [DataMember]
     public PaymentTransaction21? BulkCashSettlementDetails { get; init; } 
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the multiple order.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalSettlementAmount { get; init; } 
     /// <summary>
     /// Date on which cash is available.
     /// </summary>
+    [DataMember]
     public IsoISODate? CashSettlementDate { get; init; } 
     
     #nullable disable

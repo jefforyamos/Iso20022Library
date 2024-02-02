@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the corporate action security option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesOption76
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SecuritiesOption76
     /// <summary>
     /// Identification of the financial instrument.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Specifies whether the value is a debit or credit.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Quantity of securities based on the terms of the corporate action event and balance of underlying securities entitled to the account owner. (This quantity can be positive or negative).
     /// </summary>
+    [DataMember]
     public required Quantity6Choice_ EntitledQuantity { get; init; } 
     /// <summary>
     /// Date/time at which the movement is due to take place (cash and/or securities).
     /// </summary>
+    [DataMember]
     public required DateFormat58Choice_ PaymentDate { get; init; } 
     
     #nullable disable

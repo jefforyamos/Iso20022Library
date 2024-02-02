@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reporting per financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentDetails40
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record FinancialInstrumentDetails40
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Elements characterising a financial instrument.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentAttributes112? FinancialInstrumentAttributes { get; init; } 
     /// <summary>
     /// Identification of the sub-balance.
     /// </summary>
-    public IntraPositionDetails57[] SubBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IntraPositionDetails57> SubBalance { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

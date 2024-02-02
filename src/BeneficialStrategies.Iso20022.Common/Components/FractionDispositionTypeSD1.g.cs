@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action securities movement fraction disposition details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FractionDispositionTypeSD1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FractionDispositionTypeSD1
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Used for the fractional rule that cannot be classified in ISO (fractional disposition) in the event that fractional disposition is calculated specific to the beneficial owner positions. Identifies a scenario where the issuer / market announced fractional security rounding at beneficial holder level. Used in conjunction with a rounding factor. For an example if rounding factor is 0.6, this means that fractional units greater than or equal to 6 will be rounded up and less than 6 will be rounded down.
     /// </summary>
+    [DataMember]
     public FractionalSecurityRule1Code? FractionalSecurityRule { get; init; } 
     /// <summary>
     /// Decimal above which numbers are rounded. For an example if rounding factor is 0.6 this means that fractional units greater than or equal to 6 will be rounded up and less than 6 will be rounded down.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? RoundingFactor { get; init; } 
     
     #nullable disable

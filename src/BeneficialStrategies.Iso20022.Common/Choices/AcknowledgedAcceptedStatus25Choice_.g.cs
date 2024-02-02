@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(AcknowledgedAcceptedStatus25Choice.NoSpecifiedReason))]
 [KnownType(typeof(AcknowledgedAcceptedStatus25Choice.Reason))]
+[DataContract]
 public abstract partial record AcknowledgedAcceptedStatus25Choice_
 {
 }

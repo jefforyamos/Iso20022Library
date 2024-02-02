@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the cash movement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashMovement1
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record CashMovement1
     /// <summary>
     /// Identification of the movement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MovementIdentification { get; init; } 
     /// <summary>
     /// Cash amount.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Amount of taxes.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TaxAmount { get; init; } 
     /// <summary>
     /// Specifies the charges.
     /// </summary>
-    public Charges1[] Charges { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Charges1> Charges { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the account which is debited/credited.
     /// </summary>
-    public CashAccount18[] AccountDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<CashAccount18> AccountDetails { get; init; } = [];
     
     #nullable disable
 }

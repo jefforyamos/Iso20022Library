@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data to authenticate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EncapsulatedContent1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record EncapsulatedContent1
     /// <summary>
     /// Type of data which have been authenticated.
     /// </summary>
+    [DataMember]
     public required ContentType1Code ContentType { get; init; } 
     /// <summary>
     /// Actual data to authenticate.
     /// </summary>
+    [DataMember]
     public IsoMax10000Binary? Content { get; init; } 
     
     #nullable disable

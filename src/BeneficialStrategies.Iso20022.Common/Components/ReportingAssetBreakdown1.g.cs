@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the breakdown of a reported amount that can be split across a range of assets: bonds, cash, equities, or another asset class.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportingAssetBreakdown1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ReportingAssetBreakdown1
     /// <summary>
     /// Class of the asset which is a component of the breakdown.
     /// </summary>
+    [DataMember]
     public required ProductType6Code ReportingAssetType { get; init; } 
     /// <summary>
     /// Identifies the reporting asset.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Identification { get; init; } 
     /// <summary>
     /// Value of the reporting asset.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

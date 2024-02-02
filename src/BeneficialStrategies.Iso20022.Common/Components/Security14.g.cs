@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of security used as collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Security14
 {
     #nullable enable
@@ -20,48 +22,59 @@ public partial record Security14
     /// <summary>
     /// Identification of a financial instrument used as a collateral.
     /// </summary>
+    [DataMember]
     public IsoISINOct2015Identifier? Identification { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, that is common share with voting rights, fully paid, or registered.
     /// </summary>
+    [DataMember]
     public IsoCFIOct2015Identifier? ClassificationType { get; init; } 
     /// <summary>
     /// Information on the securities quantity or bonds nominal amount.
     /// </summary>
+    [DataMember]
     public QuantityNominalValue1Choice_? QuantityOrNominalValue { get; init; } 
     /// <summary>
     /// Price of unit of collateral component, including accrued interest for interest-bearing securities, used to value the security.
     /// </summary>
+    [DataMember]
     public SecuritiesTransactionPrice2Choice_? UnitPrice { get; init; } 
     /// <summary>
     /// Fair value of the individual collateral component expressed in price currency.
     /// </summary>
+    [DataMember]
     public AmountAndDirection53? MarketValue { get; init; } 
     /// <summary>
     /// Collateral haircut, a risk control measure applied to underlying collateral whereby the value of that underlying collateral is calculated as the market value of the assets reduced by a certain percentage. 
     /// In the case of margin lending, collateral haircut or margin requirement, a risk control measure applied to the entire collateral portfolio whereby the value of that underlying collateral is calculated as the market value of the assets reduced by a certain percentage. 
     /// Only actual values, as opposed to estimated or default values are to be reported for this attribute.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? HaircutOrMargin { get; init; } 
     /// <summary>
     /// Risk classification of the security used as collateral.
     /// </summary>
+    [DataMember]
     public CollateralQualityType1Code? Quality { get; init; } 
     /// <summary>
     /// Maturity date of the security used as collateral.
     /// </summary>
+    [DataMember]
     public IsoISODate? Maturity { get; init; } 
     /// <summary>
     /// Data on the securities issuer.
     /// </summary>
+    [DataMember]
     public SecurityIssuer2? Issuer { get; init; } 
     /// <summary>
     /// Type of a security used as collateral.
     /// </summary>
+    [DataMember]
     public SecuritiesLendingType3Choice_? Type { get; init; } 
     /// <summary>
     /// Indication whether the collateral taker can reuse the securities provided as a collateral.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? AvailableForCollateralReuse { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Structured postal address in the local language.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Address3
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record Address3
     /// <summary>
     /// First line of information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
+    [DataMember]
     public IsoMax200Text? AddressLine1 { get; init; } 
     /// <summary>
     /// Second line of information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
+    [DataMember]
     public IsoMax200Text? AddressLine2 { get; init; } 
     /// <summary>
     /// Name of a street or thoroughfare.
     /// </summary>
+    [DataMember]
     public IsoMax200Text? StreetName { get; init; } 
     /// <summary>
     /// Number that identifies the position of a building on a street.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? BuildingNumber { get; init; } 
     /// <summary>
     /// Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PostalCode { get; init; } 
     /// <summary>
     /// Name of a built-up area, with defined boundaries, and a local government.
     /// </summary>
+    [DataMember]
     public IsoMax100Text? TownName { get; init; } 
     /// <summary>
     /// Name of the country sub division minor.
     /// </summary>
+    [DataMember]
     public IsoMax100Text? CountrySubDivisionMinorName { get; init; } 
     /// <summary>
     /// Name of the country sub division major.
     /// </summary>
+    [DataMember]
     public IsoMax100Text? CountrySubDivisionMajorName { get; init; } 
     /// <summary>
     /// Nation with its own government occupying a particular territory.
     /// In accordance with ISO 3166-1.
     /// </summary>
+    [DataMember]
     public ISOMax3ACountryCode? Country { get; init; } 
     
     #nullable disable

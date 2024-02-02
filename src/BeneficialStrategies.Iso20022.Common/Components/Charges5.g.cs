@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Charges related to a payment obligation contracted between two financial institutions related to the financing of a commercial transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Charges5
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Charges5
     /// <summary>
     /// Bank which will pay the charges.
     /// </summary>
+    [DataMember]
     public required BankRole1Code ChargesPayer { get; init; } 
     /// <summary>
     /// Bank which will receive the charges.
     /// </summary>
+    [DataMember]
     public required BankRole1Code ChargesPayee { get; init; } 
     /// <summary>
     /// Amount of the charges taken by the payer.
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Amount of the charges expressed as a percentage of the amount paid by the obligor bank.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Percentage { get; init; } 
     /// <summary>
     /// Type of charges. For example: transaction charges, financing charges, deferred payment, interests.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     
     #nullable disable

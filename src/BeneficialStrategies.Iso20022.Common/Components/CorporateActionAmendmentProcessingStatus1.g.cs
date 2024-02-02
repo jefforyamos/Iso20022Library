@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provide processing status information of an election amendment request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionAmendmentProcessingStatus1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionAmendmentProcessingStatus1
     /// <summary>
     /// The processing status.
     /// </summary>
+    [DataMember]
     public required ProcessedStatus5FormatChoice_ Status { get; init; } 
     /// <summary>
     /// Additional information about the status.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

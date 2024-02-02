@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Element to define an equity instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EquityDerivative2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record EquityDerivative2
     /// <summary>
     /// Underlying type of the equity derivative.
     /// </summary>
+    [DataMember]
     public required EquityDerivative3Choice_ UnderlyingType { get; init; } 
     /// <summary>
     /// Return parameter for the equity derivative.
     /// </summary>
+    [DataMember]
     public EquityReturnParameter1Code? Parameter { get; init; } 
     
     #nullable disable

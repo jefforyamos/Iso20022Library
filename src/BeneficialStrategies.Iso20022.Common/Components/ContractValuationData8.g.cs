@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to contract valuation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContractValuationData8
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ContractValuationData8
     /// <summary>
     /// Specifies the current value of the outstanding contract.
     /// </summary>
+    [DataMember]
     public AmountAndDirection109? ContractValue { get; init; } 
     /// <summary>
     /// Indicates the date and time of the last valuation marked to market provided by the central counterparty (CCP) or calculated using the current or last available market price of the inputs.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? TimeStamp { get; init; } 
     /// <summary>
     /// Indicates the source and method used for the valuation of the transaction by the reporting counterparty.
@@ -31,10 +35,12 @@ public partial record ContractValuationData8
     /// If at least one valuation input is used that is classified as mark-to-model, the whole valuation is classified as mark-to-model.
     /// If only inputs are used that are classified as mark-to-market; the whole valuation is classified as mark-to-market.|
     /// </summary>
+    [DataMember]
     public ValuationType1Code? Type { get; init; } 
     /// <summary>
     /// Specifies the ratio of the absolute change in price of a derivative transaction to the change in price of the underlier, at the time a new transaction is reported or when a change in the notional amount is reported.
     /// </summary>
+    [DataMember]
     public IsoLongFraction19DecimalNumber? Delta { get; init; } 
     
     #nullable disable

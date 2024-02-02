@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the original transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentTransaction52
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record CardPaymentTransaction52
     /// <summary>
     /// Global reference of the sale transaction for the sale system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleReferenceIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the transaction assigned by the POI (Point Of Interaction).
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
+    [DataMember]
     public GenericIdentification32? POIIdentification { get; init; } 
     /// <summary>
     /// Identification of the transaction assigned by the initiating party for the recipient party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? InitiatorTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the transaction assigned by the recipient party for the initiating party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RecipientTransactionIdentification { get; init; } 
     /// <summary>
     /// Type of transaction being undertaken for the main service.
     /// </summary>
+    [DataMember]
     public required CardPaymentServiceType5Code TransactionType { get; init; } 
     /// <summary>
     /// Service in addition to the main service.
     /// </summary>
-    public CardPaymentServiceType9Code[] AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardPaymentServiceType9Code> AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional attribute of the service type.
     /// </summary>
+    [DataMember]
     public CardPaymentServiceType3Code? ServiceAttribute { get; init; } 
     /// <summary>
     /// Entry mode of the card information.
     /// </summary>
+    [DataMember]
     public CardDataReading5Code? CardDataEntryMode { get; init; } 
     /// <summary>
     /// Result of the original transaction.
     /// </summary>
+    [DataMember]
     public CardPaymentTransactionResult3? TransactionResult { get; init; } 
     
     #nullable disable

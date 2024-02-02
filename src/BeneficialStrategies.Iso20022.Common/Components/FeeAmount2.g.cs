@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount, currency, exchange rate and quotation date, sign and label.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FeeAmount2
 {
     #nullable enable
@@ -22,26 +24,31 @@ public partial record FeeAmount2
     /// ISO 8583:87 bit 8, 28, 29, 30 & 31
     /// ISO 8583:93/2003 bit 8 & 46
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Currency for the type of amount.
     /// </summary>
+    [DataMember]
     public ISO3NumericCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Exchange rate of the currency code associated with the amount. 
     /// ISO 8583 bit 9 (for use with reconciliation/settlement amount)
     /// ISO 8583 bit 10 (for use with cardholder billing amount)
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? ExchangeRate { get; init; } 
     /// <summary>
     /// Date and time at which the exchange rate has been quoted.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? QuotationDate { get; init; } 
     /// <summary>
     /// Indicates whether the amount value is positive or negative.
     /// Negative: the receiver of the message owes the fee to the sender.
     /// Positive: the sender of the message owes the fee to the receiver.
     /// </summary>
+    [DataMember]
     public IsoPlusOrMinusIndicator? Sign { get; init; } 
     
     #nullable disable

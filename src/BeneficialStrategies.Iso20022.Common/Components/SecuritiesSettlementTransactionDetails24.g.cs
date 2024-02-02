@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details of the update(s) for the settlement transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesSettlementTransactionDetails24
 {
     #nullable enable
@@ -20,63 +22,78 @@ public partial record SecuritiesSettlementTransactionDetails24
     /// <summary>
     /// Provides settlement type and identification information.
     /// </summary>
+    [DataMember]
     public SettlementTypeAndAdditionalParameters17? SettlementTypeAndAdditionalParameters { get; init; } 
     /// <summary>
     /// Link to another transaction that must be processed after, before or at the same time.
     /// </summary>
-    public Linkages49[] Linkages { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Linkages49> Linkages { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details of the trade.
     /// </summary>
+    [DataMember]
     public SecuritiesTradeDetails65? TradeDetails { get; init; } 
     /// <summary>
     /// Attributes defining a financial instrument.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentAttributes78? FinancialInstrumentAttributes { get; init; } 
     /// <summary>
     /// Details related to the account and quantity involved in the transaction.
     /// </summary>
+    [DataMember]
     public QuantityAndAccount54? QuantityAndAccountDetails { get; init; } 
     /// <summary>
     /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
     /// </summary>
+    [DataMember]
     public SettlementDetails113? SettlementParameters { get; init; } 
     /// <summary>
     /// Specifies what settlement standing instruction database is to be used to derive the settlement parties involved in the transaction.
     /// </summary>
+    [DataMember]
     public StandingSettlementInstruction12? StandingSettlementInstructionDetails { get; init; } 
     /// <summary>
     /// Identifies the chain of delivering settlement parties.
     /// </summary>
+    [DataMember]
     public SettlementParties58? DeliveringSettlementParties { get; init; } 
     /// <summary>
     /// Identifies the chain of receiving settlement parties.
     /// </summary>
+    [DataMember]
     public SettlementParties58? ReceivingSettlementParties { get; init; } 
     /// <summary>
     /// Cash parties involved in the transaction if different for the securities settlement parties.
     /// </summary>
+    [DataMember]
     public CashParties30? CashParties { get; init; } 
     /// <summary>
     /// Total amount of money to be paid or received in exchange for the securities.
     /// </summary>
+    [DataMember]
     public AmountAndDirection85? SettlementAmount { get; init; } 
     /// <summary>
     /// Other amounts than the settlement amount.
     /// </summary>
+    [DataMember]
     public OtherAmounts35? OtherAmounts { get; init; } 
     /// <summary>
     /// Other business parties relevant to the transaction.
     /// </summary>
+    [DataMember]
     public OtherParties29? OtherBusinessParties { get; init; } 
     /// <summary>
     /// Provides information required for the registration or physical settlement.
     /// </summary>
+    [DataMember]
     public RegistrationParameters5? AdditionalPhysicalOrRegistrationDetails { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

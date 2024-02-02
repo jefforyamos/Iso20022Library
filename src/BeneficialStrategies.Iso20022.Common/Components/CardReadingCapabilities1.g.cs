@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Card reading capability of the terminal performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardReadingCapabilities1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CardReadingCapabilities1
     /// <summary>
     /// Card reading capability of the terminal performing the transaction.
     /// </summary>
+    [DataMember]
     public required CardDataReading10Code Capability { get; init; } 
     /// <summary>
     /// Other types of card data reading capabilities.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherCapability { get; init; } 
     
     #nullable disable

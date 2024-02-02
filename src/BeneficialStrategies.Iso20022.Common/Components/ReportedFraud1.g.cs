@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Fraud reporting type information
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportedFraud1
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record ReportedFraud1
     /// <summary>
     /// Type of fraud for which a report is established.
     /// </summary>
+    [DataMember]
     public required FraudType1Code FraudType { get; init; } 
     /// <summary>
     /// Other type of fraud.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherFraudType { get; init; } 
     /// <summary>
     /// Identifies the type of reported fraudulent transaction.
     /// </summary>
+    [DataMember]
     public required FraudReportingAction1Code FraudReportingAction { get; init; } 
     /// <summary>
     /// Other fraud reporting action.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherFraudReportingAction { get; init; } 
     /// <summary>
     /// Type of fraud reporting entity.
     /// </summary>
+    [DataMember]
     public required PartyType26Code ReportingEntity { get; init; } 
     /// <summary>
     /// Other type of fraud reporting entity.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherReportingEntity { get; init; } 
     /// <summary>
     /// Identifies the type of cardholder credential that was compromised.
     /// </summary>
-    public AuthenticationMethod11Code[] CompromisedCredential { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AuthenticationMethod11Code> CompromisedCredential { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date of fraud as reported by the cardholder
     /// </summary>
+    [DataMember]
     public IsoISODate? CardholderReportingDate { get; init; } 
     /// <summary>
     /// Date fraud was confirmed by the cardholder.
     /// </summary>
+    [DataMember]
     public IsoISODate? ConfirmationReportingDate { get; init; } 
     /// <summary>
     /// Reference to the case as provided by the submitter.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SubmitterCaseReference { get; init; } 
     /// <summary>
     /// Details of fraudulent case.
     /// </summary>
+    [DataMember]
     public FraudCaseDetails1? FraudCaseDetails { get; init; } 
     /// <summary>
     /// Status of submitter investigation at time of submission.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? FraudInvestigationStatus { get; init; } 
     
     #nullable disable

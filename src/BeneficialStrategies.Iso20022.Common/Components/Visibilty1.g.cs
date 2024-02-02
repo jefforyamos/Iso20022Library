@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details of the visibility of the creditor enrolment as shown to the debtors.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Visibilty1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record Visibilty1
     /// <summary>
     /// Start date when the information will be shown to the debtors.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? StartDate { get; init; } 
     /// <summary>
     /// End date when the information will be shown to the debtors.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? EndDate { get; init; } 
     /// <summary>
     /// Indicates whether the information is shown to the debtors or not.
     /// Usage: when absent, the default value is no limited visibility (false).
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? LimitedVisibility { get; init; } 
     
     #nullable disable

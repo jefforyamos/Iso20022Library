@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides constrains on a range of business values.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountOrPercentageRange1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record AmountOrPercentageRange1
     /// <summary>
     /// Indication of the relationship between two variables.
     /// </summary>
+    [DataMember]
     public Operation1Code? Operation { get; init; } 
     /// <summary>
     /// Indicates one of the constraints of a range of business values.
     /// </summary>
-    public Term1[] Term { get; init; } = [];
+    [DataMember]
+    public ValueList<Term1> Term { get; init; } = [];
     
     #nullable disable
 }

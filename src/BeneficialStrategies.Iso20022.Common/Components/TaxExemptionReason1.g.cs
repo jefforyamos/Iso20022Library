@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specification of the tax exemption reason.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxExemptionReason1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TaxExemptionReason1
     /// <summary>
     /// Structured format.
     /// </summary>
+    [DataMember]
     public required TaxExemptReason2Code Structured { get; init; } 
     /// <summary>
     /// Additional information about the type of tax.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

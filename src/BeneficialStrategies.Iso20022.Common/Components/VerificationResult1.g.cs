@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Result of verifications performed prior or after the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VerificationResult1
 {
     #nullable enable
@@ -20,29 +22,35 @@ public partial record VerificationResult1
     /// <summary>
     /// Type of the verification or authentication.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Entity who actually performed the verification.
     /// ISO 8583:93 bit 22-9
     /// </summary>
+    [DataMember]
     public VerificationEntity1Code? Entity { get; init; } 
     /// <summary>
     /// Other national or private entity in charge of the verification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherEntity { get; init; } 
     /// <summary>
     /// Result of the verification.
     /// ISO 8583 : 2003 bit 49 dataset 72
     /// </summary>
+    [DataMember]
     public Verification2Code? Result { get; init; } 
     /// <summary>
     /// Additional result of the verification, for instance for electronic commerce.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? OtherResult { get; init; } 
     /// <summary>
     /// Details of the result.
     /// </summary>
-    public AdditionalData1[] ResultDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> ResultDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

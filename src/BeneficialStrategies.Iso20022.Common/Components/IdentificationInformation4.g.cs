@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details of the identification information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IdentificationInformation4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record IdentificationInformation4
     /// <summary>
     /// Account owner that owes an amount of money or to whom an amount of money is due.
     /// </summary>
+    [DataMember]
     public PartyIdentification135? Party { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of a party.
     /// </summary>
+    [DataMember]
     public CashAccount40? Account { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for a party.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? Agent { get; init; } 
     
     #nullable disable

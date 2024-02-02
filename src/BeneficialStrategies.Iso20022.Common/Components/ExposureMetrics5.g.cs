@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Numeric variables calculated on market exposures.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExposureMetrics5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ExposureMetrics5
     /// <summary>
     /// Amount of funds provided as collateral for borrowing the securities or commodities.
     /// </summary>
+    [DataMember]
     public AmountAndDirection53? CashCollateralAmount { get; init; } 
     /// <summary>
     /// Market value of asset or collateral component.
     /// </summary>
+    [DataMember]
     public AmountAndDirection53? CollateralMarketValue { get; init; } 
     
     #nullable disable

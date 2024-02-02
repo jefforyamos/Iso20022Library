@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action option details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionOptionSD5
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CorporateActionOptionSD5
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Workflow status of the specified option based on the consistency of the issuer declared data elements (excluding DTC data elements).
     /// </summary>
+    [DataMember]
     public WorkflowStatus1Code? OptionStatus { get; init; } 
     /// <summary>
     /// Indicates whether or not the offeror will select random lots if the offer has been prorated. The offeror may accept or reject conditional tenders on a random basis. Holders must indicate their willingness to have their rejected conditional tender accepted by random lot (if necessary). The holder must surrender all shares held in order to be eligible for this preference.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? RandomLotPreferenceFlag { get; init; } 
     /// <summary>
     /// Date on which the new shares to be issued will be distributed, as opposed to the "declared payable date." This date is typically used in some Asian markets.
     /// </summary>
+    [DataMember]
     public IsoISODate? NewShareDispatchedDate { get; init; } 
     
     #nullable disable

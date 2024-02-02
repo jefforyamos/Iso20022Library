@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the transactions reported.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transaction124
 {
     #nullable enable
@@ -20,84 +22,104 @@ public partial record Transaction124
     /// <summary>
     /// Unique reference identifying the triparty collateral management transaction from the client's point of view.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientTripartyCollateralTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique reference identifying the triparty-agent/service-provider collateral management transaction from the triparty-agent's/service-provider's point of view.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TripartyAgentServiceProviderCollateralTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique collateral transaction reference assigned by counterparty.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CounterpartyCollateralTransactionReference { get; init; } 
     /// <summary>
     /// Unique identification (UTI) agreed upon by the two trade counterparties to identify the trade.
     /// </summary>
+    [DataMember]
     public IsoMax52Text? CommonTransactionIdentification { get; init; } 
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the exposure.
     /// </summary>
+    [DataMember]
     public required ExposureType23Choice_ ExposureType { get; init; } 
     /// <summary>
     /// Specifies whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).
     /// </summary>
+    [DataMember]
     public OptionType6Choice_? OptionType { get; init; } 
     /// <summary>
     /// Indication whether the counterparties to the transaction have agreed to an evergreen or extendable repo.
     /// </summary>
+    [DataMember]
     public RepoTerminationOption1Code? TerminationOption { get; init; } 
     /// <summary>
     /// Provides information on the baskets identification and the Eligiblity Set Profile.
     /// </summary>
+    [DataMember]
     public BasketIdentificationAndEligibilitySetProfile1? BasketIdentificationAndEligibilitySetProfile { get; init; } 
     /// <summary>
     /// Identifies the chain of collateral parties.
     /// </summary>
+    [DataMember]
     public required CollateralParties11 CollateralParties { get; init; } 
     /// <summary>
     /// Date/time at which the party requested the initiation instruction to be executed.
     /// </summary>
+    [DataMember]
     public required ClosingDate4Choice_ ExecutionRequestedDate { get; init; } 
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
+    [DataMember]
     public required ClosingDate4Choice_ ClosingDate { get; init; } 
     /// <summary>
     /// Provides details on the collateral valuation.
     /// </summary>
+    [DataMember]
     public required CollateralAmount17 ValuationAmounts { get; init; } 
     /// <summary>
     /// Interest rate to be paid on the transaction amount, as agreed between the counterparties.
     /// </summary>
+    [DataMember]
     public RateOrName4Choice_? PricingRate { get; init; } 
     /// <summary>
     /// The collateral excess/shortage expressed in the percentage of the collateral required.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? MarginRate { get; init; } 
     /// <summary>
     /// Margin rate over or under an index.
     /// Feedback 
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? SpreadRate { get; init; } 
     /// <summary>
     /// Specifies the computation method of (accrued) interest of the financial instrument.
     /// </summary>
+    [DataMember]
     public InterestComputationMethodFormat4Choice_? DayCountBasis { get; init; } 
     /// <summary>
     /// Specifies whether the allocation of the collateral is manual or automatic.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AutomaticAllocation { get; init; } 
     /// <summary>
     /// Provides the status of a  transaction.
     /// </summary>
-    public TransactionStatus6[] TransactionStatus { get; init; } = [];
+    [DataMember]
+    public ValueList<TransactionStatus6> TransactionStatus { get; init; } = [];
     /// <summary>
     /// Quantity of securities assigned as collateral position.
     /// </summary>
-    public SecuritiesBalance3[] SecuritiesBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecuritiesBalance3> SecuritiesBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of cash assigned as collateral position.
     /// </summary>
-    public CashBalance15[] CashBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashBalance15> CashBalance { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

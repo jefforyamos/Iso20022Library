@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Card payment transaction to be authorised in a batch.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentDataSetTransaction12
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CardPaymentDataSetTransaction12
     /// <summary>
     /// Sequential counter of the transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax9NumericText TransactionSequenceCounter { get; init; } 
     /// <summary>
     /// Identification of partners involved in the exchange from the merchant to the issuer, with the corresponding timestamp of their exchanges.
     /// </summary>
-    public Traceability2[] Traceability { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Traceability2> Traceability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data related to the environment of the card payment transaction to authorise.
     /// </summary>
+    [DataMember]
     public required CardPaymentEnvironment32 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
+    [DataMember]
     public CardPaymentContext12? Context { get; init; } 
     /// <summary>
     /// Card payment transaction to authorise.
     /// </summary>
+    [DataMember]
     public required CardPaymentTransaction47 Transaction { get; init; } 
     
     #nullable disable

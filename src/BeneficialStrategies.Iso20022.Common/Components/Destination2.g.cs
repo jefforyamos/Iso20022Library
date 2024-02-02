@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains the details of the destination. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Destination2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Destination2
     /// <summary>
     /// Name and location of the destination.
     /// </summary>
+    [DataMember]
     public IsoMax99Text? NameAndLocation { get; init; } 
     /// <summary>
     /// Specific address of the destination.
     /// </summary>
+    [DataMember]
     public Address1? Address { get; init; } 
     
     #nullable disable

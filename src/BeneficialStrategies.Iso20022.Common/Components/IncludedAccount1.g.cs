@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the account that is impacted or not by the standing instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IncludedAccount1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record IncludedAccount1
     /// <summary>
     /// Identification of the securities account.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text SecuritiesAccountIdentification { get; init; } 
     /// <summary>
     /// Indicates whether the account is impacted or not by the standing instruction.||Yes = The account is impacted by the standing instruction.|No = The account is not impacted by the standing instruction.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator IncludedIndicator { get; init; } 
     
     #nullable disable

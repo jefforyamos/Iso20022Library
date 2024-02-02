@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details about the collateral held, in transit or that still needs to be agreed by both parties.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MarginCollateral1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record MarginCollateral1
     /// <summary>
     /// Post haircut market value of all margin collateral held by party A.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? HeldByPartyA { get; init; } 
     /// <summary>
     /// Post haircut market value of all margin collateral held by party B.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? HeldByPartyB { get; init; } 
     /// <summary>
     /// Sum of all margin agreed amounts due to party A from prior days’ collateral calls where collateral movements have not yet been agreed.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? PriorAgreedToPartyA { get; init; } 
     /// <summary>
     /// Sum of all margin agreed amounts due to party B from prior days’ collateral calls where collateral movements have not yet been agreed.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? PriorAgreedToPartyB { get; init; } 
     /// <summary>
     /// Sum of all margin collateral movements due to party A in progress but not yet settled.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? InTransitToPartyA { get; init; } 
     /// <summary>
     /// Sum of all margin collateral movements due to party B in progress but not yet settled.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? InTransitToPartyB { get; init; } 
     
     #nullable disable

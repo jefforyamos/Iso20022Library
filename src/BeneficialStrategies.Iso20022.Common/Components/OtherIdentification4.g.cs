@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a financial instrument using an accepted format other than an ISIN.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherIdentification4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record OtherIdentification4
     /// <summary>
     /// Identification of the fund/sub fund.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Identification source.
     /// </summary>
+    [DataMember]
     public required IdentificationSource5Choice_ Type { get; init; } 
     
     #nullable disable

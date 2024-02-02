@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Sale context in which the transaction is performed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SaleContext1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record SaleContext1
     /// <summary>
     /// Identification of the sale terminal (electronic cash register) or the sale system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleIdentification { get; init; } 
     /// <summary>
     /// Identify a sale transaction assigned by the sale system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleReferenceNumber { get; init; } 
     /// <summary>
     /// Identifier of the reconciliation between the Sale system and the POI system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleReconciliationIdentification { get; init; } 
     /// <summary>
     /// Identification of the cashier who carried out the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CashierIdentification { get; init; } 
     /// <summary>
     /// Identifies the shift of the cashier.
     /// </summary>
+    [DataMember]
     public IsoMax2NumericText? ShiftNumber { get; init; } 
     /// <summary>
     /// Additional information associated with the sale transaction.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AdditionalSaleData { get; init; } 
     
     #nullable disable

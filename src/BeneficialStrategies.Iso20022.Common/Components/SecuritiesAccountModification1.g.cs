@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the kind of modification request for securities account reference data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesAccountModification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SecuritiesAccountModification1
     /// <summary>
     /// Specifies the type of requested modification.
     /// </summary>
+    [DataMember]
     public required DataModification1Code ScopeIndication { get; init; } 
     /// <summary>
     /// Specifies the elements to be modified for the securities account reference data.
     /// </summary>
+    [DataMember]
     public required SecuritiesAccountModification1Choice_ RequestedModification { get; init; } 
     
     #nullable disable

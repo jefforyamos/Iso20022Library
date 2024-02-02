@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Characteristics of the statement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Statement42
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Statement42
     /// <summary>
     /// Date or period of the statement.
     /// </summary>
+    [DataMember]
     public DateAndPeriod1Choice_? StatementDateOrPeriod { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
+    [DataMember]
     public Frequency25Choice_? Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
+    [DataMember]
     public UpdateType15Choice_? UpdateType { get; init; } 
     /// <summary>
     /// Type of balance on which the statement is prepared.
     /// </summary>
+    [DataMember]
     public StatementBasis7Choice_? StatementBasis { get; init; } 
     /// <summary>
     /// Type of balance on which the statement is prepared.
     /// </summary>
+    [DataMember]
     public StatementType5Choice_? StatementType { get; init; } 
     
     #nullable disable

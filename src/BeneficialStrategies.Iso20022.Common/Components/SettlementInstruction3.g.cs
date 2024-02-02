@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details on the settlement of the instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementInstruction3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SettlementInstruction3
     /// <summary>
     /// Agent through which the instructing agent will reimburse the instructed agent.|Usage: If InstructingAgent and InstructedAgent have the same reimbursement agent, then only InstructingReimbursementAgent must be used.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? InstructingReimbursementAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the instructing reimbursement agent account at its servicing agent in the payment chain.
     /// </summary>
+    [DataMember]
     public CashAccount24? InstructingReimbursementAgentAccount { get; init; } 
     /// <summary>
     /// Agent at which the instructed agent will be reimbursed.|Usage: If InstructedReimbursementAgent contains a branch of the InstructedAgent, then the party in InstructedAgent will claim reimbursement from that branch/will be paid by that branch.|Usage: If InstructingAgent and InstructedAgent have the same reimbursement agent, then only InstructingReimbursementAgent must be used.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? InstructedReimbursementAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the instructed reimbursement agent account at its servicing agent in the payment chain.
     /// </summary>
+    [DataMember]
     public CashAccount24? InstructedReimbursementAgentAccount { get; init; } 
     
     #nullable disable

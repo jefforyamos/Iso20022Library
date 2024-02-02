@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates how the amount of the investment plan is split amongst the funds.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Repartition1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Repartition1
     /// <summary>
     /// Percentage of amount invested in a funds.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate Percentage { get; init; } 
     /// <summary>
     /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, eg, dividend option or valuation currency.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument10 FinancialInstrument { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the derivative instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DerivativeInstrument6
 {
     #nullable enable
@@ -22,35 +24,43 @@ public partial record DerivativeInstrument6
     /// Usage:
     /// Field applies to derivatives with defined expiry date.
     /// </summary>
+    [DataMember]
     public IsoISODate? ExpiryDate { get; init; } 
     /// <summary>
     /// Number of units of the underlying instrument represented by a single derivative contract.
     /// For a future or option on an index, the amount per index point.
     /// </summary>
+    [DataMember]
     public required IsoNonNegativeDecimalNumber PriceMultiplier { get; init; } 
     /// <summary>
     /// Choice to specify the type(s) of underlying instrument(s) that make up the financial instrument.
     /// </summary>
+    [DataMember]
     public required UnderlyingIdentification2Choice_ UnderlyingInstrument { get; init; } 
     /// <summary>
     /// Specifies whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// </summary>
+    [DataMember]
     public OptionType2Code? OptionType { get; init; } 
     /// <summary>
     /// Predetermined price at which the holder will have to buy or sell the underlying instrument.
     /// </summary>
+    [DataMember]
     public SecuritiesTransactionPrice4Choice_? StrikePrice { get; init; } 
     /// <summary>
     /// Indication as to whether the option may be exercised only at a fixed date (European, and Asian style), a series of pre-specified dates (Bermudan) or at any time during the life of the contract (American style). This field does not have to be populated for ISIN instruments.
     /// </summary>
+    [DataMember]
     public OptionStyle7Code? OptionExerciseStyle { get; init; } 
     /// <summary>
     /// Indicates whether the transaction is settled physically or in cash.
     /// </summary>
+    [DataMember]
     public required PhysicalTransferType4Code DeliveryType { get; init; } 
     /// <summary>
     /// Specific attributes of the underlying asset class of the financial instrument.
     /// </summary>
+    [DataMember]
     public AssetClassAttributes1Choice_? AssetClassSpecificAttributes { get; init; } 
     
     #nullable disable

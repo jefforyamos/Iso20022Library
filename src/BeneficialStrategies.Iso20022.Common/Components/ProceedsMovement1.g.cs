@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the proceeds movements.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProceedsMovement1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ProceedsMovement1
     /// <summary>
     /// Provides information about the movement of the cash proceeds.
     /// </summary>
-    public CashProceeds1[] CashProceedsMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashProceeds1> CashProceedsMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the movement of the securities proceeds.
     /// </summary>
-    public SecuritiesProceeds1[] SecuritiesProceedsMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecuritiesProceeds1> SecuritiesProceedsMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the tax voucher.
     /// </summary>
+    [DataMember]
     public TaxVoucher1? TaxDetails { get; init; } 
     
     #nullable disable

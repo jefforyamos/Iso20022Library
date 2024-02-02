@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Determine the type of document and the type of communication method to be used to notify a Party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentToSend2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DocumentToSend2
     /// <summary>
     /// Type of document.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Type { get; init; } 
     /// <summary>
     /// Party that should receive the document.
     /// </summary>
+    [DataMember]
     public required PartyIdentification2Choice_ Recipient { get; init; } 
     /// <summary>
     /// Communication method to be used.
     /// </summary>
+    [DataMember]
     public required CommunicationMethod3Choice_ MethodOfTransmission { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// This component includes the exchanged ISO20022 documents.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExchangePayload1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record ExchangePayload1
     /// <summary>
     /// The respective ISO 20022 standard document.
     /// </summary>
+    [DataMember]
     public required LaxProcessing Any { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the agent specific tracking system information of a payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerRecord3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TrackerRecord3
     /// <summary>
     /// Transaction charges to be paid by the charge bearer.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINActiveCurrencyAndAmount? ChargesAmount { get; init; } 
     /// <summary>
     /// Provides details of the rate and the currencies used in the foreign exchange.
     /// </summary>
+    [DataMember]
     public CurrencyExchange16? ExchangeRateData { get; init; } 
     
     #nullable disable

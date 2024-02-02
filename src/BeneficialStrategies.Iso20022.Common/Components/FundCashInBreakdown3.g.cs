@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Breakdown of cash movements into a fund as a result of investment funds transactions, eg, subscriptions or switch-in.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FundCashInBreakdown3
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record FundCashInBreakdown3
     /// <summary>
     /// Amount of cash flow in, expressed as an amount of money.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Amount of the cash flow in, expressed as a number of units.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? UnitsNumber { get; init; } 
     /// <summary>
     /// Indicates whether the cash flow is an item that did not appear on the previously sent report, for example, because it was received close to cut-off time.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? NewAmountIndicator { get; init; } 
     /// <summary>
     /// Type of transaction that resulted in the cash-in movement, for example, subscription, switch-in.
     /// </summary>
+    [DataMember]
     public required InvestmentFundTransactionInType1Choice_ InvestmentFundTransactionInType { get; init; } 
     /// <summary>
     /// Specifies how the original order was expressed that resulted in the cash-in movement, that is cash or units.
     /// </summary>
+    [DataMember]
     public required QuantityType1Choice_ OriginalOrderQuantityType { get; init; } 
     /// <summary>
     /// Charge for the placement of an order.
     /// </summary>
-    public Charge26[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Charge26> ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to the commission applied to an order, for example, back-end or front-end commission.
     /// </summary>
-    public Commission21[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Commission21> CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Settlement currency for the transaction.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? SettlementCurrency { get; init; } 
     
     #nullable disable

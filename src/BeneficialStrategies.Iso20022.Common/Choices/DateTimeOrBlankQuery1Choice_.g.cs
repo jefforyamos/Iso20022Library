@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(DateTimeOrBlankQuery1Choice.Range))]
 [KnownType(typeof(DateTimeOrBlankQuery1Choice.NotReported))]
+[DataContract]
 public abstract partial record DateTimeOrBlankQuery1Choice_
 {
 }

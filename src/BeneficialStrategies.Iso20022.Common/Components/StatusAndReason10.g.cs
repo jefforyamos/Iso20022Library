@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details related to the status of the order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatusAndReason10
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record StatusAndReason10
     /// <summary>
     /// Status of affirmation of a trade.
     /// </summary>
+    [DataMember]
     public required AffirmationStatus7Choice_ AffirmationStatus { get; init; } 
     /// <summary>
     /// Specifies the reason why the instruction has an unaffirmed status.
     /// </summary>
+    [DataMember]
     public UnaffirmedReason2Choice_? UnaffirmedReason { get; init; } 
     /// <summary>
     /// Provides additional information about the reason in narrative form.
     /// </summary>
+    [DataMember]
     public IsoMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

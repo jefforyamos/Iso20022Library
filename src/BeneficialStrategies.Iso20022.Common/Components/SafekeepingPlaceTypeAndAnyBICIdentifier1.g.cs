@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Place identification of the place of safekeeping expressed as a code and a BIC.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SafekeepingPlaceTypeAndAnyBICIdentifier1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SafekeepingPlaceTypeAndAnyBICIdentifier1
     /// <summary>
     /// Place of safekeeping as a code.
     /// </summary>
+    [DataMember]
     public required SafekeepingPlace1Code SafekeepingPlaceType { get; init; } 
     /// <summary>
     /// Place of safekeeping.
     /// </summary>
+    [DataMember]
     public required IsoAnyBICIdentifier Identification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Balance types related to an unallocated redemption payment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionUnallocatedBalanceSD4
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CorporateActionUnallocatedBalanceSD4
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Total balance of securities eligible for this corporate action event. The entitlement calculation is based on this balance.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? TotalEligibleBalance { get; init; } 
     /// <summary>
     /// Position held in DTC Segregated account. This position is ineligible for payment until released from pledgee.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? PledgedBalance { get; init; } 
     /// <summary>
     /// Position held in DTC Segregated account also called account 18. This position is not eligible for instruction processing but will be eligible for payment on mandatory events.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? InvestmentPledgedBalance { get; init; } 
     /// <summary>
     /// Position held in DTC Segregated account also called account 22. This position is not eligible for instruction processing but will be eligible for payment on mandatory events. 
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? InvestmentUnpledgedBalance { get; init; } 
     /// <summary>
     /// Position held in DTC Segregated account. This position is eligible for payment.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? MemoSegregationBalance { get; init; } 
     
     #nullable disable

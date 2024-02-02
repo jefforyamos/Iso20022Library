@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details of the account and the role of the party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountAndParties2
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record AccountAndParties2
     /// <summary>
     /// Description of the account.
     /// </summary>
+    [DataMember]
     public required CustomerAccount1 Account { get; init; } 
     /// <summary>
     /// Specifies the role related to the account.
     /// </summary>
-    public AccountRole1[] Role { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AccountRole1> Role { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information.
     /// </summary>
-    public IsoMax256Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax256Text> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

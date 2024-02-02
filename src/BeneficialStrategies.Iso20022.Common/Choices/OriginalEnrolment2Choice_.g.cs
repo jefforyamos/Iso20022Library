@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(OriginalEnrolment2Choice.OriginalCreditorIdentification))]
 [KnownType(typeof(OriginalEnrolment2Choice.OriginalEnrolmentData))]
+[DataContract]
 public abstract partial record OriginalEnrolment2Choice_
 {
 }

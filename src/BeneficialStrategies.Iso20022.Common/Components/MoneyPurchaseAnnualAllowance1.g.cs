@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a Money Purchase Annual Allowance (MPAA).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MoneyPurchaseAnnualAllowance1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record MoneyPurchaseAnnualAllowance1
     /// <summary>
     /// Indicates whether the annual allowance has been triggered.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Triggered { get; init; } 
     /// <summary>
     /// Date the annual allowance is taken.
     /// </summary>
+    [DataMember]
     public IsoISODate? TriggeredDate { get; init; } 
     
     #nullable disable

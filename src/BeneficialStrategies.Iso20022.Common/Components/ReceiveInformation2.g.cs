@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Completion of a securities settlement instruction, wherein securities are delivered/debited from a securities account and received/credited to the designated securities account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReceiveInformation2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ReceiveInformation2
     /// <summary>
     /// Charge related to the transfer of a financial instrument.
     /// </summary>
-    public Charge4[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Charge4> ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax related to the transfer of a financial instrument.
     /// </summary>
-    public Tax3[] TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax3> TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction.
     /// </summary>
+    [DataMember]
     public required ReceivingPartiesAndAccount1 SettlementPartiesDetails { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator PhysicalTransferIndicator { get; init; } 
     /// <summary>
     /// Parameters of a physical delivery.
     /// </summary>
+    [DataMember]
     public DeliveryParameters2? PhysicalTransferDetails { get; init; } 
     
     #nullable disable

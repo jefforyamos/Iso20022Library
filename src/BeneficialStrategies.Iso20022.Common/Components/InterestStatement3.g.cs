@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the interest statement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InterestStatement3
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record InterestStatement3
     /// <summary>
     /// Provides the period during which the interest rate has been applied.
     /// </summary>
+    [DataMember]
     public required DatePeriodDetails InterestPeriod { get; init; } 
     /// <summary>
     /// Provides the total amount of interest that is due to partyA.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalInterestAmountDueToA { get; init; } 
     /// <summary>
     /// Provides the total amount of interest that is due to partyB.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalInterestAmountDueToB { get; init; } 
     /// <summary>
     /// Indicates the value date of the interest statement.
     /// </summary>
+    [DataMember]
     public required IsoISODate ValueDate { get; init; } 
     /// <summary>
     /// Provides the reference to the interest payment request.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? InterestPaymentRequestIdentification { get; init; } 
     /// <summary>
     /// Provides the details of the interest calculation.
     /// </summary>
-    public InterestCalculation3[] InterestCalculation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InterestCalculation3> InterestCalculation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

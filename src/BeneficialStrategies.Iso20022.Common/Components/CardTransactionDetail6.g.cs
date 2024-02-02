@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the card transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardTransactionDetail6
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record CardTransactionDetail6
     /// <summary>
     /// Amounts of the transaction expressed within the terminal currency.
     /// </summary>
+    [DataMember]
     public required CardTransactionAmount5 TransactionAmounts { get; init; } 
     /// <summary>
     /// Fees between acquirer and issuer exclusive of the transaction amount, and expressed in the currency of the reconciliation.
     /// </summary>
-    public DetailedAmount11[] TransactionFees { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedAmount11> TransactionFees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional amounts from the processor or the issuer without financial impacts on the transaction amount.
     /// </summary>
-    public DetailedAmount10[] AdditionalAmounts { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedAmount10> AdditionalAmounts { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data related to an integrated circuit card application.
     /// It corresponds to ISO 8583, field number 55 for the versions 93 and 2003.
     /// </summary>
+    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     
     #nullable disable

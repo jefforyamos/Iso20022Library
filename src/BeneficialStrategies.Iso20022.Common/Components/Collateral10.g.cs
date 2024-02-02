@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details of the security pledge as collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Collateral10
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record Collateral10
     /// <summary>
     /// Provides the values of the security pledged as collateral.
     /// </summary>
+    [DataMember]
     public required SecuredCollateral1Choice_ Valuation { get; init; } 
     /// <summary>
     /// Risk control measure applied to underlying collateral whereby the value of that underlying collateral is calculated as the market value of the assets reduced by a certain percentage. 
@@ -27,6 +30,7 @@ public partial record Collateral10
     /// In the case of multi-collateral repos the haircut will be based on the ratio between the cash borrowed/lent and the market value, including accrued interest of each of the individual collateral pledged. 
     /// Only actual values, as opposed to estimated or default values will be reported for this variable.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Haircut { get; init; } 
     /// <summary>
     /// Identifies all repurchase agreements conducted against general collateral and those conducted against special collateral. 
@@ -35,6 +39,7 @@ public partial record Collateral10
     /// Usage:
     /// This field is optional and it should be provided only in case it is feasible for the reporting agent.
     /// </summary>
+    [DataMember]
     public SpecialCollateral1Code? SpecialCollateralIndicator { get; init; } 
     
     #nullable disable

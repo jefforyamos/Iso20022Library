@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to a financial institution required by business or regulation (for example, in money or funds transfer).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstitution5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FinancialInstitution5
     /// <summary>
     /// Identification of the financial institution.
     /// </summary>
+    [DataMember]
     public required PartyIdentification197 Identification { get; init; } 
     /// <summary>
     /// Account number from which the funds get debited or credited.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountNumber { get; init; } 
     
     #nullable disable

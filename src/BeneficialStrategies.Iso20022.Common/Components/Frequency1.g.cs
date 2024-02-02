@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details to specify the frequency, pattern and other items to allow for the communication of a series of payments to be made to the same recipient over a period of time.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Frequency1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Frequency1
     /// <summary>
     /// Technical identifier of a Credit Transfer as part of a series of Credit Transfers within a single Payment Instruction. Assists the transfer of complex variable future payment schedules, associated with a single act of customer consent, within a single Payment Instruction.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? Sequence { get; init; } 
     /// <summary>
     /// The date of the first payment to be made for this payment schedule.
     /// </summary>
+    [DataMember]
     public required IsoISODate StartDate { get; init; } 
     /// <summary>
     /// Information about when the payment arrangement will end.
     /// </summary>
+    [DataMember]
     public required EndPoint1Choice_ EndPointChoice { get; init; } 
     /// <summary>
     /// Payment schedule frequency pattern which indicates how frequently a payment is made.
     /// </summary>
+    [DataMember]
     public Frequency37Choice_? RequestedFrequencyPattern { get; init; } 
     /// <summary>
     /// Adjustment indicator for a non-working day to enable payment to be made on the next working day.
     /// </summary>
+    [DataMember]
     public BusinessDayConvention1Code? NonWorkingDayAdjustment { get; init; } 
     
     #nullable disable

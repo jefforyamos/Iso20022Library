@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CashInOrOut6Choice.CashInPaymentInstrument))]
 [KnownType(typeof(CashInOrOut6Choice.CashOutPaymentInstrument))]
+[DataContract]
 public abstract partial record CashInOrOut6Choice_
 {
 }

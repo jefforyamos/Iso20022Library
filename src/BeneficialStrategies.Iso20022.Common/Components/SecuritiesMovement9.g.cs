@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Movements of securities.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesMovement9
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record SecuritiesMovement9
     /// <summary>
     /// Specifies whether the quantity of financial instrument is to be delivered or received.
     /// </summary>
+    [DataMember]
     public required CollateralEntryType1Code SecuritiesMovementType { get; init; } 
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity33Choice_ Quantity { get; init; } 
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
+    [DataMember]
     public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is delivered/received as collateral or as a loan.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator CollateralMovement { get; init; } 
     /// <summary>
     /// Reference assigned by the party A to the financial instrument movement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientSecuritiesMovementIdentification { get; init; } 
     /// <summary>
     /// Reference assigned by the triparty agent to the financial instrument movement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TripartyAgentServiceProviderSecuritiesMovementIdentification { get; init; } 
     
     #nullable disable

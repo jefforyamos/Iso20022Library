@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains transaction details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transaction154
 {
     #nullable enable
@@ -21,35 +23,43 @@ public partial record Transaction154
     /// Reason or purpose to send the message.
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    public ISO8583MessageReasonCode[] MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ISO8583MessageReasonCode> MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Supports message reason codes that are not defined  in external code list. 
     /// </summary>
-    public IsoMax256Text[] AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax256Text> AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
+    [DataMember]
     public required TransactionIdentification17 TransactionIdentification { get; init; } 
     /// <summary>
     /// Transaction amounts.
     /// </summary>
+    [DataMember]
     public required TransactionAmounts2 TransactionAmounts { get; init; } 
     /// <summary>
     /// Data related to the dispute.
     /// </summary>
+    [DataMember]
     public required DisputeData3 DisputeData { get; init; } 
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    public AdditionalFee2[] AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalFee2> AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the chargeback.
     /// </summary>
+    [DataMember]
     public AdditionalInformation20? AdditionalInformation { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

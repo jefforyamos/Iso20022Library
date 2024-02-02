@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Lodging line item details
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LodgingLineItem2
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record LodgingLineItem2
     /// <summary>
     /// Date of the charge for the product or service associated with the line item. 
     /// </summary>
+    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Time of the charge for the product or service associated with the line item. 
     /// </summary>
+    [DataMember]
     public IsoISOTime? Time { get; init; } 
     /// <summary>
     /// Type of product or service associated with the line item. 
     /// </summary>
+    [DataMember]
     public LodgingService1Code? Type { get; init; } 
     /// <summary>
     /// Other type of product or service associated with the line item. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Indicates whether or not the charge originated following the checkout. 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? PostCheckOutIndicator { get; init; } 
     /// <summary>
     /// A code to indicate the tax amount is credit or debit
     /// </summary>
+    [DataMember]
     public CreditDebit3Code? CreditDebit { get; init; } 
     /// <summary>
     /// Contains the cost for one unit of the product or service.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? UnitAmount { get; init; } 
     /// <summary>
     /// Duration of the trip.
     /// </summary>
+    [DataMember]
     public IsoMax4NumericText? Duration { get; init; } 
     /// <summary>
     /// Subtotal amount of line item.  (e.g. total nightly rate, etc.)
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? SubTotalAmount { get; init; } 
     /// <summary>
     /// Taxes related to the products or services. 
     /// </summary>
-    public Tax39[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax39> Tax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional data.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable

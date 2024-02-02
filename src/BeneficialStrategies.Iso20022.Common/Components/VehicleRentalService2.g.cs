@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Vehicle rental service provides detailed vehicle rental information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VehicleRentalService2
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record VehicleRentalService2
     /// <summary>
     /// Company in charge of a vehicle rental service.
     /// </summary>
+    [DataMember]
     public VehicleRentalCompany2? VehicleRentalCompany { get; init; } 
     /// <summary>
     /// Customer renting a vehicle.
     /// </summary>
+    [DataMember]
     public VehicleRentalCustomer2? Customer { get; init; } 
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     /// <summary>
     /// Agreement (contract) related to a vehicle rental service.
     /// </summary>
+    [DataMember]
     public VehicleRentalAgreement2? RentalAgreement { get; init; } 
     /// <summary>
     /// Invoice related to a vehicle rental service.
     /// </summary>
+    [DataMember]
     public VehicleRentalInvoice2? RentalInvoice { get; init; } 
     /// <summary>
     /// Additional user-defined data pertaining to the vehicle rental. 
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable

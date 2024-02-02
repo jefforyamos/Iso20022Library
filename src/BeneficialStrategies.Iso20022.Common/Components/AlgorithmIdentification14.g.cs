@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cryptographic algorithm and parameters for encryptions with a symmetric cryptographic key.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AlgorithmIdentification14
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AlgorithmIdentification14
     /// <summary>
     /// Identification of the encryption algorithm.
     /// </summary>
+    [DataMember]
     public required Algorithm15Code Algorithm { get; init; } 
     /// <summary>
     /// Parameters associated with the CBC (Chain Block Chaining) encryption algorithm.
     /// </summary>
+    [DataMember]
     public Parameter6? Parameter { get; init; } 
     
     #nullable disable

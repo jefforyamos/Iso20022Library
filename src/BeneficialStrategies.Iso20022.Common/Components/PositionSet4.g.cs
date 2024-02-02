@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Values either taken directly from the reporting fields as defined in the local regulation or derived from those fields that will be used by trade repositories to calculate positions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PositionSet4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PositionSet4
     /// <summary>
     /// Variables related to derivatives that are used to group derivatives together into positions.
     /// </summary>
+    [DataMember]
     public required PositionSetCollateralDimensions2 Dimensions { get; init; } 
     /// <summary>
     /// Variables used to quantify the different calculations.
     /// </summary>
+    [DataMember]
     public required PositionSetCollateralMetrics1 Metrics { get; init; } 
     
     #nullable disable

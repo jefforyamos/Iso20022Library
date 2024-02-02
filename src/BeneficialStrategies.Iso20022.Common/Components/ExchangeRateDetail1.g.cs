@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the exchange rate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExchangeRateDetail1
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record ExchangeRateDetail1
     /// <summary>
     /// Identifies the party to which this detail applies.
     /// </summary>
+    [DataMember]
     public Endpoint1Code? EndPoint { get; init; } 
     /// <summary>
     /// Other nationally or privately defined endpoint.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherEndPoint { get; init; } 
     /// <summary>
     /// Identifies the counter currency used for currency conversion for the transaction party.
     /// </summary>
+    [DataMember]
     public ISO3NumericCurrencyCode? CounterCurrencyCode { get; init; } 
     /// <summary>
     /// Identifies the base currency used for currency conversion for the transaction party.
     /// </summary>
+    [DataMember]
     public ISO3NumericCurrencyCode? BaseCurrencyCode { get; init; } 
     /// <summary>
     /// Contains the exchange rate.
     /// </summary>
+    [DataMember]
     public IsoBaseOne25Rate? Rate { get; init; } 
     /// <summary>
     /// Identifies the type of rate.
     /// </summary>
+    [DataMember]
     public ExchangeRateType2Code? RateType { get; init; } 
     /// <summary>
     /// Other type of rate defined privately or at national level.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherRateType { get; init; } 
     /// <summary>
     /// Type of exchange rate agreement.
     /// </summary>
+    [DataMember]
     public ExchangeRateAgreementType1Code? AgreementType { get; init; } 
     /// <summary>
     /// Other type of exchange rate agreement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherAgreementType { get; init; } 
     
     #nullable disable

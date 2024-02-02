@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates on an order that the trader wishes to display one price in the market but will accept trades at another price.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DiscretionInstructions1
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record DiscretionInstructions1
     /// <summary>
     /// Information for the executing party about the price to be obtained for an order. It is expressed as an offset from a reference price such as the market price or last trade price.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Offset { get; init; } 
     /// <summary>
     /// Indicates whether the offset should be added or subtracted from the related price.
     /// </summary>
+    [DataMember]
     public required IsoPlusOrMinusIndicator OffsetSign { get; init; } 
     /// <summary>
     /// Identify the type of price an offset is related to. The offset can either be added or subtracted.
     /// </summary>
+    [DataMember]
     public required TypeOfDiscretionPrice1Code RelatedPriceType { get; init; } 
     /// <summary>
     /// Describes whether discretion price is static/fixed or floats.
     /// </summary>
+    [DataMember]
     public required MoveType1Code MoveType { get; init; } 
     /// <summary>
     /// Specifies the nature of the resulting discretion price (e.g. or better limit, strict limit etc).
     /// </summary>
+    [DataMember]
     public required IsoMax35Text LimitType { get; init; } 
     /// <summary>
     /// If the calculated discretion price is not a valid tick price, specifies how to round the price (e.g. to be more or less aggressive).
     /// </summary>
+    [DataMember]
     public required IsoMax35Text RoundDirection { get; init; } 
     /// <summary>
     /// The scope of "related to" price of the discretion (e.g. local, global etc).
     /// </summary>
+    [DataMember]
     public required PriceProtectionScope2Code Scope { get; init; } 
     /// <summary>
     /// Describes the type of Discretion Offset.
     /// </summary>
+    [DataMember]
     public required OffsetType1Code OffsetType { get; init; } 
     
     #nullable disable

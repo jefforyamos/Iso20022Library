@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of a currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyDetails2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CurrencyDetails2
     /// <summary>
     /// Alpha currency code (ISO 4217, 3 alphanumeric characters).
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? AlphaCode { get; init; } 
     /// <summary>
     /// Numeric currency code (ISO 4217, 3 numeric characters).
     /// </summary>
+    [DataMember]
     public IsoExact3NumericText? NumericCode { get; init; } 
     /// <summary>
     /// Maximal number of digits after the decimal separator for the currency.
     /// </summary>
+    [DataMember]
     public IsoNumber? Decimal { get; init; } 
     /// <summary>
     /// Full name of the currency.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     
     #nullable disable

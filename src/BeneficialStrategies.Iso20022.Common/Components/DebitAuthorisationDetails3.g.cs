@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the reason for requesting a debit authorisation as well as the amount of the requested debit.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DebitAuthorisationDetails3
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record DebitAuthorisationDetails3
     /// <summary>
     /// Specifies the reason for the cancellation request.
     /// </summary>
+    [DataMember]
     public required CancellationReason2Choice_ CancellationReason { get; init; } 
     /// <summary>
     /// Amount of money requested for debit authorisation.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? AmountToDebit { get; init; } 
     /// <summary>
     /// Value date for debiting the amount.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValueDateToDebit { get; init; } 
     /// <summary>
     /// Further details on the cancellation request reason.
     /// </summary>
-    public IsoMax105Text[] AdditionalCancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax105Text> AdditionalCancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

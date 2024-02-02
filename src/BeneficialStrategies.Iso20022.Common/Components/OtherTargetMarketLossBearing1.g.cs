@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Loss bearing target market.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherTargetMarketLossBearing1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OtherTargetMarketLossBearing1
     /// <summary>
     /// Type of loss bearing.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AbilityToBearLossesType { get; init; } 
     /// <summary>
     /// Choice of formats for the specification of whether the product is aimed at the type of loss bearing.
     /// </summary>
+    [DataMember]
     public TargetMarket1Choice_? Target { get; init; } 
     /// <summary>
     /// Additional information about the target market and the investor's loss bearing.
     /// </summary>
+    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable

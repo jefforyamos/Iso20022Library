@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the start and end time for the time to maturity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TimeToMaturityPeriod1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TimeToMaturityPeriod1
     /// <summary>
     /// Specifies the start of the maturity period.
     /// </summary>
+    [DataMember]
     public MaturityTerm2? Start { get; init; } 
     /// <summary>
     /// Specifies the end of the maturity period.
     /// </summary>
+    [DataMember]
     public MaturityTerm2? End { get; init; } 
     
     #nullable disable

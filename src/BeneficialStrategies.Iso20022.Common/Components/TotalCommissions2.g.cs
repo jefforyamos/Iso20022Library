@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Total amount of commissions related to a specific order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TotalCommissions2
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record TotalCommissions2
     /// <summary>
     /// Total value of the commissions for a specific order.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? TotalAmountOfCommissions { get; init; } 
     /// <summary>
     /// Information related to a specific commission.
     /// </summary>
-    public Commission6[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Commission6> CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

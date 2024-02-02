@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(RatioFormat4Choice.AmountToAmount))]
 [KnownType(typeof(RatioFormat4Choice.AmountToQuantity))]
 [KnownType(typeof(RatioFormat4Choice.QuantityToAmount))]
+[DataContract]
 public abstract partial record RatioFormat4Choice_
 {
 }

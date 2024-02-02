@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the status report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatusReportContent1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record StatusReportContent1
     /// <summary>
     /// Capabilities of the POI performing the status report.
     /// </summary>
+    [DataMember]
     public PointOfInteractionCapabilities1? POICapabilities { get; init; } 
     /// <summary>
     /// Data related to a component of the POI performing the status report.
     /// </summary>
-    public PointOfInteractionComponent2[] POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PointOfInteractionComponent2> POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Human attendance at the POI location during transactions.
     /// </summary>
+    [DataMember]
     public AttendanceContext1Code? AttendanceContext { get; init; } 
     /// <summary>
     /// System date time of the point of interaction (POI) sending the status report.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime POIDateTime { get; init; } 
     /// <summary>
     /// Request the terminal management system to answer with the identified data set.
     /// </summary>
+    [DataMember]
     public DataSetIdentification2? DataSetRequired { get; init; } 
     /// <summary>
     /// Result of an individual terminal management action by the point of interaction.
     /// </summary>
-    public TMSEvent1[] Event { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TMSEvent1> Event { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Error log of the point of interaction since the last status report.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Errors { get; init; } 
     
     #nullable disable

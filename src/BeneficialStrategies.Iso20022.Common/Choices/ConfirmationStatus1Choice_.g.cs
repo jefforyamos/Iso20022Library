@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ConfirmationStatus1Choice.ConfirmationRejected))]
 [KnownType(typeof(ConfirmationStatus1Choice.AmendmentRejected))]
 [KnownType(typeof(ConfirmationStatus1Choice.Status))]
+[DataContract]
 public abstract partial record ConfirmationStatus1Choice_
 {
 }

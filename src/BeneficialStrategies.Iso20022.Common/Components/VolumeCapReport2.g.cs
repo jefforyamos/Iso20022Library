@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Double volume cap report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VolumeCapReport2
 {
     #nullable enable
@@ -22,26 +24,32 @@ public partial record VolumeCapReport2
     /// Usage:
     /// This identification will be used in the status advice report sent back.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
+    [DataMember]
     public required IsoISINOct2015Identifier Identification { get; init; } 
     /// <summary>
     /// Currency of the transaction.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Total traded volume of the instrument in this specific reporting period.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount TotalTradingVolume { get; init; } 
     /// <summary>
     /// Total volume of trading under reference price waiver as defined under the local regulation.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount TotalReferencePriceTradingVolume { get; init; } 
     /// <summary>
     /// Total volume of trading under negotiated transactions waiver as defined under the local regulation.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount TotalNegotiatedTransactionsTradingVolume { get; init; } 
     
     #nullable disable

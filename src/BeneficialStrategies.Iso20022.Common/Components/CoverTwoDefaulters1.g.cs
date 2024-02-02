@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the two largest assumed defaulting entities under a particular scenario.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CoverTwoDefaulters1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CoverTwoDefaulters1
     /// <summary>
     /// Identifies the member whose default would generate the largest liquidity exposure for the CCP under the scenario and for the relevant currency.
     /// </summary>
+    [DataMember]
     public required IsoLEIIdentifier Cover1Identification { get; init; } 
     /// <summary>
     /// Identifies the member whose default would generate the second largest liquidity exposure for the CCP under the scenario and for the relevant currency.
     /// </summary>
+    [DataMember]
     public required IsoLEIIdentifier Cover2Identification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information on the rejection reason of an individual element.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RejectedElement1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RejectedElement1
     /// <summary>
     /// Sequence number that allows to easily identify the element that is rejected.
     /// </summary>
+    [DataMember]
     public required IsoNumber ElementSequenceNumber { get; init; } 
     /// <summary>
     /// Reason for rejecting an individual element.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text IndividualRejectionReason { get; init; } 
     
     #nullable disable

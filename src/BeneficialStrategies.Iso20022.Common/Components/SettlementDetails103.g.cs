@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of settlement of a transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementDetails103
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record SettlementDetails103
     /// <summary>
     /// Conditions under which the order/trade is to be settled.
     /// </summary>
-    public SettlementTransactionCondition21Choice_[] SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SettlementTransactionCondition21Choice_> SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether registration should occur upon receipt.
     /// </summary>
+    [DataMember]
     public Registration11Choice_? Registration { get; init; } 
     /// <summary>
     /// Regulatory restrictions applicable to a security.
     /// </summary>
+    [DataMember]
     public Restriction6Choice_? LegalRestrictions { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction is to be settled through an RTGS or a non RTGS system.
     /// </summary>
+    [DataMember]
     public SecuritiesRTGS5Choice_? SecuritiesRTGS { get; init; } 
     /// <summary>
     /// Specifies whether the settlement instruction is to be settled through the default or the alternate settlement system.
     /// </summary>
+    [DataMember]
     public SettlementSystemMethod5Choice_? SettlementSystemMethod { get; init; } 
     /// <summary>
     /// Tax role capacity of the instructing party.
     /// </summary>
+    [DataMember]
     public TaxCapacityParty5Choice_? TaxCapacity { get; init; } 
     /// <summary>
     /// Specifies the stamp duty type or exemption reason applicable to the settlement transaction.
     /// </summary>
+    [DataMember]
     public GenericIdentification47? StampDutyTaxBasis { get; init; } 
     
     #nullable disable

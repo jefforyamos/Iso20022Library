@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the type of product and the assets to be transferred.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ISATransfer5
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record ISATransfer5
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Identification assigned by the new plan manager to each transfer of asset.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferIdentification { get; init; } 
     /// <summary>
     /// Specifies portfolio information or government schemes, for example Individual Savings Account (ISA) in the UK.
     /// </summary>
+    [DataMember]
     public required ISAPortfolio3Choice_ Portfolio { get; init; } 
     /// <summary>
     /// Indicator that all remaining assets in a portfolio not listed for transfer should be liquidated and transferred as cash.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator AllOtherCash { get; init; } 
     /// <summary>
     /// Specifies the underlying assets for the ISA or portfolio.
     /// </summary>
-    public FinancialInstrument27[] FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FinancialInstrument27> FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

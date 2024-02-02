@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the security instrument by its name and typical characteristics.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityInstrumentDescription23
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record SecurityInstrumentDescription23
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
+    [DataMember]
     public IsoISINOct2015Identifier? Identification { get; init; } 
     /// <summary>
     /// Identification of a security by proprietary or domestic identification scheme.
     /// </summary>
-    public OtherIdentification1[] OtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OtherIdentification1> OtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Full name or description of the financial instrument.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text FullName { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO classification of financial instrument (CFI) codification, that is common share with voting rights, fully paid, or registered.
     /// </summary>
+    [DataMember]
     public required IsoCFIOct2015Identifier ClassificationType { get; init; } 
     /// <summary>
     /// Currency in which the notional is denominated.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? NotionalCurrency { get; init; } 
     
     #nullable disable

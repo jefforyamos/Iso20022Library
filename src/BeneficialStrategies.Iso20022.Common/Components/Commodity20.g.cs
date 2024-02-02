@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data specific to commodities and related fields used as a collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Commodity20
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Commodity20
     /// <summary>
     /// Details on commodities assignments to sectors.
     /// </summary>
+    [DataMember]
     public AssetClassCommodity5Choice_? Classification { get; init; } 
     /// <summary>
     /// Quantity of the commodity.
     /// </summary>
+    [DataMember]
     public Quantity17? Quantity { get; init; } 
     /// <summary>
     /// Price of unit of asset or collateral component, including accrued interest for interest-bearing securities, used to value the commodity .
     /// </summary>
+    [DataMember]
     public SecuritiesTransactionPrice11Choice_? UnitPrice { get; init; } 
     /// <summary>
     /// Market value of asset or collateral component.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? MarketValue { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the service to be billed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BillingServiceIdentification2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record BillingServiceIdentification2
     /// <summary>
     /// Financial institution's own, internal service identification code, different from the common code.|Usage: The financial institution own code is used to uniquely identify the service within the financial institution.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Defines the financial institution sub-service identification if the financial institution service identification code is used for more than one service.
     /// </summary>
+    [DataMember]
     public BillingSubServiceIdentification1? SubService { get; init; } 
     /// <summary>
     /// Specifies further details to describe the financial institution service description, which is not the standard description related to the common code.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text Description { get; init; } 
     
     #nullable disable

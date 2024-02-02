@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Goods or services that are part of a commercial trade agreement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LineItemDetails14
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record LineItemDetails14
     /// <summary>
     /// Sequential number assigned to a line item.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text LineItemIdentification { get; init; } 
     /// <summary>
     /// Specifies the quantity of a product in a trade transaction.
     /// </summary>
+    [DataMember]
     public required Quantity9 Quantity { get; init; } 
     /// <summary>
     /// Amount of money for which goods or services are offered, sold, or bought.
     /// </summary>
+    [DataMember]
     public UnitPrice18? UnitPrice { get; init; } 
     /// <summary>
     /// Name of the product detailed in the corresponding line item.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? ProductName { get; init; } 
     /// <summary>
     /// Identifies the product of the corresponding line item.
     /// </summary>
-    public ProductIdentifier2Choice_[] ProductIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProductIdentifier2Choice_> ProductIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the characteristics of product.
     /// </summary>
-    public ProductCharacteristics1Choice_[] ProductCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProductCharacteristics1Choice_> ProductCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the category of product.
     /// </summary>
-    public ProductCategory1Choice_[] ProductCategory { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProductCategory1Choice_> ProductCategory { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Country of origin of the goods.
     /// </summary>
+    [DataMember]
     public CountryCode? ProductOrigin { get; init; } 
     /// <summary>
     /// Variance on price for the goods.
     /// </summary>
-    public Adjustment6[] Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Adjustment6> Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Charges related to the conveyance of goods.
     /// </summary>
+    [DataMember]
     public Charge25? FreightCharges { get; init; } 
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters linked to the value of the goods in a trade transaction.
     /// </summary>
-    public Tax22[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax22> Tax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total amount of the line item after adjustments have been applied.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount TotalAmount { get; init; } 
     
     #nullable disable

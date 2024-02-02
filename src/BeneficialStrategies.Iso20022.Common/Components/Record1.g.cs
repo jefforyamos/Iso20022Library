@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Message in file message identified as a batch record.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Record1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Record1
     /// <summary>
     /// Sequence counter of the record from 1 to n
     /// </summary>
+    [DataMember]
     public required IsoNumber SequenceCounter { get; init; } 
     /// <summary>
     /// Value of the record to use for the computation of the checksum of the batch.
     /// </summary>
+    [DataMember]
     public IsoMax140Binary? RecordChecksumInputValue { get; init; } 
     /// <summary>
     /// Information used with financial type of messages when third-party clearing is involved.
     /// </summary>
+    [DataMember]
     public ClearingRecordData1? ClearingRecordData { get; init; } 
     /// <summary>
     /// Message to be sent in a batch transfer as a record.
     /// </summary>
+    [DataMember]
     public required RecordMessage1Choice_ RecordMessage { get; init; } 
     
     #nullable disable

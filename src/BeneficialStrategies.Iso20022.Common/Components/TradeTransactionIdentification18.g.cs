@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on transaction and conducting counterparty.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeTransactionIdentification18
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record TradeTransactionIdentification18
     /// <summary>
     /// Unique code identifying the reporting counterparty.
     /// </summary>
+    [DataMember]
     public required OrganisationIdentification15Choice_ ReportingCounterparty { get; init; } 
     /// <summary>
     /// Unique code identifying the entity with which the reporting counterparty concluded the transaction.
     /// </summary>
+    [DataMember]
     public required PartyIdentification236Choice_ OtherCounterparty { get; init; } 
     /// <summary>
     /// Unique trade Identifier (UTI) as agreed with the counterparty.
     /// </summary>
+    [DataMember]
     public IsoMax52Text? UniqueTradeIdentifier { get; init; } 
     /// <summary>
     /// Details related to the master agreement.
     /// </summary>
+    [DataMember]
     public MasterAgreement7? MasterAgreement { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of fraudulent case.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FraudCaseDetails1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FraudCaseDetails1
     /// <summary>
     /// Type of market segment of confirmed fraud.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MarketSegment { get; init; } 
     /// <summary>
     /// Locator reference.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LocatorNumber { get; init; } 
     /// <summary>
     /// Reference to fraudulent case.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CaseReference { get; init; } 
     /// <summary>
     /// Indicates whether the party that committed fraud was arrested or not.
@@ -35,6 +40,7 @@ public partial record FraudCaseDetails1
     /// True: the party was arrested
     /// Default: False
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ArrestIndicator { get; init; } 
     
     #nullable disable

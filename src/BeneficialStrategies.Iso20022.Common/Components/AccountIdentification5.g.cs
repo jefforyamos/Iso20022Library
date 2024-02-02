@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountIdentification5
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AccountIdentification5
     /// <summary>
     /// Unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Description of the account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Specifies the type of account.
     /// </summary>
+    [DataMember]
     public GenericIdentification30? Type { get; init; } 
     
     #nullable disable

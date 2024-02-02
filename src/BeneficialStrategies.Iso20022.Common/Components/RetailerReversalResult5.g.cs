@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reversal transaction results after a reversal request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RetailerReversalResult5
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record RetailerReversalResult5
     /// <summary>
     /// POI reconciliation identification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? POIReconciliationIdentification { get; init; } 
     /// <summary>
     /// Original Transaction if any linked to this reversal.
     /// </summary>
+    [DataMember]
     public CardPaymentTransaction127? OriginalPaymentTransaction { get; init; } 
     /// <summary>
     /// Updated Customer order list after reversal.
     /// </summary>
-    public CustomerOrder1[] CustomerOrder { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CustomerOrder1> CustomerOrder { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

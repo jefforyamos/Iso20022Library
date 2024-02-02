@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// This component define the type of financial service to be used with this message of Reconciliation. This is only one service : ReconcialiationResponse.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReconciliationResponse5
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record ReconciliationResponse5
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentEnvironment77 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
+    [DataMember]
     public required CardPaymentContext28 Context { get; init; } 
     /// <summary>
     /// Content of the Reconciliation Response message.
     /// </summary>
+    [DataMember]
     public required ReconciliationResponseData1 ReconciliationResponseData { get; init; } 
     /// <summary>
     /// Result of the processing of the request.
     /// </summary>
+    [DataMember]
     public required ResponseType11 Response { get; init; } 
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

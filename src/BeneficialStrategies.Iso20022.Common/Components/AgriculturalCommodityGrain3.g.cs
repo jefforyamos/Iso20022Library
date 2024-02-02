@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines commodity sub-product attributes of an agricultural derivative of type grain.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AgriculturalCommodityGrain3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AgriculturalCommodityGrain3
     /// <summary>
     /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
     /// </summary>
+    [DataMember]
     public required AssetClassProductType1Code BaseProduct { get; init; } 
     /// <summary>
     /// Sub-product for the underlying asset class.
     /// </summary>
+    [DataMember]
     public AssetClassSubProductType5Code? SubProduct { get; init; } 
     /// <summary>
     /// Further subproduct type related to instruments that have a non-financial instrument or commodity as underlying.
     /// </summary>
+    [DataMember]
     public AssetClassDetailedSubProductType30Code? AdditionalSubProduct { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies additional parameters to the message or transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalParameters23
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record AdditionalParameters23
     /// <summary>
     /// Specifies whether there exists a pre-confirmation.
     /// </summary>
+    [DataMember]
     public PreConfirmation1Code? PreConfirmation { get; init; } 
     /// <summary>
     /// Specifies partial settlement information.
     /// </summary>
+    [DataMember]
     public PartialSettlement2Code? PartialSettlement { get; init; } 
     /// <summary>
     /// Unique reference identifying the triparty collateral management transaction from the triparty agent's point of view.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TripartyAgentCollateralTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique reference identifying the triparty collateral management transaction from the client's point of view.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientTripartyCollateralTransactionIdentification { get; init; } 
     
     #nullable disable

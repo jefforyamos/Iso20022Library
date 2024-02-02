@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the amendment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Amendment7
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Amendment7
     /// <summary>
     /// Identification of the proposed amendment.
     /// </summary>
+    [DataMember]
     public required Amendment8 AmendmentIdentification { get; init; } 
     /// <summary>
     /// Proposed undertaking amendment status.
     /// </summary>
+    [DataMember]
     public required UndertakingStatus2Code AmendmentStatus { get; init; } 
     
     #nullable disable

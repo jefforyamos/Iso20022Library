@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(SubBalanceType13Choice.Code))]
 [KnownType(typeof(SubBalanceType13Choice.Proprietary))]
+[DataContract]
 public abstract partial record SubBalanceType13Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Expiry conditions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExpiryTerms1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ExpiryTerms1
     /// <summary>
     /// Date and time when the undertaking will cease to be available.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? DateTime { get; init; } 
     /// <summary>
     /// Details related to the automatic extension of the undertaking.
     /// </summary>
+    [DataMember]
     public AutoExtension1? AutoExtension { get; init; } 
     /// <summary>
     /// Documentary condition that indicates when the undertaking will cease to be available.
     /// </summary>
+    [DataMember]
     public IsoMax2000Text? Condition { get; init; } 
     /// <summary>
     /// Indicates whether the expiry terms are without a fixed expiry date.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? OpenEndedIndicator { get; init; } 
     
     #nullable disable

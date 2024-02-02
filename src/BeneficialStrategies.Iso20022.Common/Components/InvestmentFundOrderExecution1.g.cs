@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reference of an order, deal reference, client reference and master reference.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentFundOrderExecution1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record InvestmentFundOrderExecution1
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual orders, as assigned by the instructing party. This identifier links the individual orders together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Indicates whether a confirmation amendment message will follow the confirmation cancellation instruction or not.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator AmendmentIndicator { get; init; } 
     /// <summary>
     /// Reference of an order, client or deal reference.
     /// </summary>
-    public InvestmentFundOrderExecution2[] OrderReferences { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentFundOrderExecution2> OrderReferences { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

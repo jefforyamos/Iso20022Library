@@ -16,6 +16,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SystemPartyModification1Choice.PartyAddress))]
 [KnownType(typeof(SystemPartyModification1Choice.SystemRestriction))]
 [KnownType(typeof(SystemPartyModification1Choice.MarketSpecificAttribute))]
+[DataContract]
 public abstract partial record SystemPartyModification1Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Entity involved in an activity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyAndCertificate1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PartyAndCertificate1
     /// <summary>
     /// Entity involved in an activity.
     /// </summary>
+    [DataMember]
     public required PartyIdentification41 Party { get; init; } 
     /// <summary>
     /// Security certificate used to sign electronically.
     /// </summary>
+    [DataMember]
     public IsoMax10KBinary? Certificate { get; init; } 
     /// <summary>
     /// Order in which the mandate holder has to sign.
     /// </summary>
+    [DataMember]
     public IsoMax15PlusSignedNumericText? SignatureOrder { get; init; } 
     /// <summary>
     /// Authorisation granted to a mandate holder.
     /// </summary>
+    [DataMember]
     public required Authorisation1 Authorisation { get; init; } 
     
     #nullable disable

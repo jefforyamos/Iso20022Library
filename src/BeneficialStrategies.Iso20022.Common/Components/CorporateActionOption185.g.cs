@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the corporate action option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionOption185
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record CorporateActionOption185
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [DataMember]
     public required IsoExact3NumericText OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
+    [DataMember]
     public required CorporateActionOption30Choice_ OptionType { get; init; } 
     /// <summary>
     /// Provides information about securities movement related to a corporate action option.
     /// </summary>
-    public SecuritiesOption76[] SecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecuritiesOption76> SecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the cash movement linked to the corporate action option.
     /// </summary>
-    public CashOption76[] CashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashOption76> CashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

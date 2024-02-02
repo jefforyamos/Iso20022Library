@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the current and market value of the collateral held.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Collateral3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Collateral3
     /// <summary>
     /// Value of the collateral after deduction of a percentage (the haircut) that reflects the perceived risk associated with holding this collateral.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount PostHaircutValue { get; init; } 
     /// <summary>
     /// Value of the underlying collateral (cash, securities, LoC) based on current market prices.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount MarketValue { get; init; } 
     /// <summary>
     /// Provides the type of collateral, such as securities or cash.
     /// </summary>
+    [DataMember]
     public required CollateralType2Code CollateralType { get; init; } 
     
     #nullable disable

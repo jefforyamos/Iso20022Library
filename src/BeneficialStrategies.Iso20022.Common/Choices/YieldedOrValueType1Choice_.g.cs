@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(YieldedOrValueType1Choice.Yielded))]
 [KnownType(typeof(YieldedOrValueType1Choice.ValueType))]
+[DataContract]
 public abstract partial record YieldedOrValueType1Choice_
 {
 }

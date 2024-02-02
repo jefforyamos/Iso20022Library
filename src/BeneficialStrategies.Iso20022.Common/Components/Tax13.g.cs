@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Tax13
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Tax13
     /// <summary>
     /// Type of tax applied.
     /// </summary>
+    [DataMember]
     public required TaxType9Code Type { get; init; } 
     /// <summary>
     /// Specifies types of tax not present in a code list.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OtherTaxType { get; init; } 
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Rate used to calculate the tax.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate Rate { get; init; } 
     
     #nullable disable

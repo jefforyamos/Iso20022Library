@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the processing status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IndividualMovementStatus1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record IndividualMovementStatus1
     /// <summary>
     /// Identification of the movement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MovementIdentification { get; init; } 
     /// <summary>
     /// Provides information about the processing status of individual movement.
     /// </summary>
+    [DataMember]
     public required MovementProcessingStatus1 ProcessedStatus { get; init; } 
     /// <summary>
     /// Provides information about the rejection status.
     /// </summary>
+    [DataMember]
     public required DistributionRejectionStatus1 RejectedStatus { get; init; } 
     
     #nullable disable

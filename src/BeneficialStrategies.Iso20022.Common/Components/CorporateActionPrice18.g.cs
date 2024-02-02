@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies prices related to a corporate action option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionPrice18
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionPrice18
     /// <summary>
     /// Indicates whether the price is an indicative price or a market price.
     /// </summary>
+    [DataMember]
     public IndicativeOrMarketPrice5Choice_? IndicativeOrMarketPrice { get; init; } 
     /// <summary>
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
+    [DataMember]
     public PriceFormat19Choice_? CashInLieuOfSharePrice { get; init; } 
     
     #nullable disable

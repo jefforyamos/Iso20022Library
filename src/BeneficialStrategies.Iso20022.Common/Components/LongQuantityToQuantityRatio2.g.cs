@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Ratio expressed as a quotient of quantities.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LongQuantityToQuantityRatio2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record LongQuantityToQuantityRatio2
     /// <summary>
     /// High precision numerator of the quotient of quantities.
     /// </summary>
+    [DataMember]
     public required IsoLongDecimalNumber LongQuantity1 { get; init; } 
     /// <summary>
     /// High precision denominator of the quotient of quantities.
     /// </summary>
+    [DataMember]
     public required IsoLongDecimalNumber LongQuantity2 { get; init; } 
     
     #nullable disable

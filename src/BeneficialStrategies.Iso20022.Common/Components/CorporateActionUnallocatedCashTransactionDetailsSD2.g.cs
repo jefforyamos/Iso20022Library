@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Breakdown of unallocated cash transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionUnallocatedCashTransactionDetailsSD2
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CorporateActionUnallocatedCashTransactionDetailsSD2
     /// <summary>
     /// Indicates whether the value is a debit or a credit.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Transaction reason.
     /// </summary>
+    [DataMember]
     public DTCAdjustmentPaymentType1Code? ReasonCode { get; init; } 
     /// <summary>
     /// Resulting cash amount concerned in this transaction.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINActiveCurrencyAndAmount? TransactionAmount { get; init; } 
     /// <summary>
     /// Reason for the unallocation.
     /// </summary>
+    [DataMember]
     public DTCUnallocatedAdjustmentReason1Code? UnallocatedReasonCode { get; init; } 
     /// <summary>
     /// Transaction contra participant identification when shares are distributed / delivered to / from another participant.
     /// </summary>
+    [DataMember]
     public IsoMax8Text? ContraParticipantNumber { get; init; } 
     /// <summary>
     /// Date/time at which the movement was due to take place (cash and/or securities).
     /// </summary>
+    [DataMember]
     public DateFormat28Choice_? EarliestPaymentDate { get; init; } 
     
     #nullable disable

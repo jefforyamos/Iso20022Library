@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(RepurchaseAgreementType3Choice.SpecificCollateral))]
 [KnownType(typeof(RepurchaseAgreementType3Choice.GeneralCollateral))]
+[DataContract]
 public abstract partial record RepurchaseAgreementType3Choice_
 {
 }

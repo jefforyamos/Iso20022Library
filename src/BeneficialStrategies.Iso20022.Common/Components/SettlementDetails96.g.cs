@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of settlement of a transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementDetails96
 {
     #nullable enable
@@ -20,70 +22,87 @@ public partial record SettlementDetails96
     /// <summary>
     /// Specifies whether the transaction was executed with a high priority.
     /// </summary>
+    [DataMember]
     public PriorityNumeric4Choice_? Priority { get; init; } 
     /// <summary>
     /// Conditions under which the order/trade was to be settled.
     /// </summary>
-    public SettlementTransactionCondition18Choice_[] SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SettlementTransactionCondition18Choice_> SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Role of a party in the settlement of the transaction.
     /// </summary>
+    [DataMember]
     public SettlingCapacity7Choice_? SettlingCapacity { get; init; } 
     /// <summary>
     /// Specifies the stamp duty type or exemption reason applicable to the settlement transaction.
     /// </summary>
+    [DataMember]
     public GenericIdentification30? StampDutyTaxBasis { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction was to be settled through an RTGS or a non RTGS system.
     /// </summary>
+    [DataMember]
     public SecuritiesRTGS4Choice_? SecuritiesRTGS { get; init; } 
     /// <summary>
     /// Specifies whether there was change of beneficial ownership.
     /// </summary>
+    [DataMember]
     public BeneficialOwnership4Choice_? BeneficialOwnership { get; init; } 
     /// <summary>
     /// Specifies the category of cash clearing system, for example, cheque clearing.
     /// </summary>
+    [DataMember]
     public CashSettlementSystem4Choice_? CashClearingSystem { get; init; } 
     /// <summary>
     /// Tax role capacity of the instructing party.
     /// </summary>
+    [DataMember]
     public TaxCapacityParty4Choice_? TaxCapacity { get; init; } 
     /// <summary>
     /// Specifies if an instruction was for a market side or a client side transaction.
     /// </summary>
+    [DataMember]
     public MarketClientSide4Choice_? MarketClientSide { get; init; } 
     /// <summary>
     /// Specifies whether the settlement instruction was a block parent or child.
     /// </summary>
+    [DataMember]
     public BlockTrade4Choice_? BlockTrade { get; init; } 
     /// <summary>
     /// Regulatory restrictions applicable to a security.
     /// </summary>
+    [DataMember]
     public Restriction5Choice_? LegalRestrictions { get; init; } 
     /// <summary>
     /// Specifies whether the settlement instruction was to be settled through the default or the alternate settlement system.
     /// </summary>
+    [DataMember]
     public SettlementSystemMethod4Choice_? SettlementSystemMethod { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction was eligible for netting.
     /// </summary>
+    [DataMember]
     public NettingEligibility4Choice_? NettingEligibility { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction was CCP (Central Counterparty) eligible.
     /// </summary>
+    [DataMember]
     public CentralCounterPartyEligibility4Choice_? CCPEligibility { get; init; } 
     /// <summary>
     /// Condition for automatic borrowing.
     /// </summary>
+    [DataMember]
     public AutomaticBorrowing6Choice_? AutomaticBorrowing { get; init; } 
     /// <summary>
     /// Specifies whether partial settlement was allowed.
     /// </summary>
+    [DataMember]
     public SettlementTransactionCondition5Code? PartialSettlementIndicator { get; init; } 
     /// <summary>
     /// Specifies whether securities were requested to be included in the pool of securities eligible for collateral purposes.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? EligibleForCollateral { get; init; } 
     
     #nullable disable

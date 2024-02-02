@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies a correction has occurred.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorrectionIdentification1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CorrectionIdentification1
     /// <summary>
     /// Indicates the message contains an updated version of a message that was previously sent.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? Indicator { get; init; } 
     /// <summary>
     /// Contains the date of the update.
     /// </summary>
+    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Contains the time of the update.
     /// </summary>
+    [DataMember]
     public IsoISOTime? Time { get; init; } 
     
     #nullable disable

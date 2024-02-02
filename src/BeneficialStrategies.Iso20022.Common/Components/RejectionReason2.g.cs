@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// General information about the reason of the rejection.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RejectionReason2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record RejectionReason2
     /// <summary>
     /// Reason of the rejection provided by the rejecting party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text RejectingPartyReason { get; init; } 
     /// <summary>
     /// Date and time at which the rejection was generated.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? RejectionDateTime { get; init; } 
     /// <summary>
     /// Description of the precise location of the potential error in a message.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? ErrorLocation { get; init; } 
     /// <summary>
     /// Detailed description of the rejection reason.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? ReasonDescription { get; init; } 
     /// <summary>
     /// Additional information related to the rejection and meant to allow for the precise identification of the rejection reason. This could include a copy of the rejected message in part or in full.
     /// </summary>
+    [DataMember]
     public IsoMax20000Text? AdditionalData { get; init; } 
     
     #nullable disable

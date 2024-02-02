@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information on the received margin or collateral of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReceivedMarginOrCollateral3
 {
     #nullable enable
@@ -21,15 +23,18 @@ public partial record ReceivedMarginOrCollateral3
     /// Value of the initial margin received by the reporting counterparty from the other counterparty.
     /// Where initial margin is received on a portfolio basis, this field should include the overall value of initial margin received for the portfolio.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? InitialMarginReceived { get; init; } 
     /// <summary>
     /// Value of the variation margin received, including cash settled, by the reporting counterparty from the other counterparty. 
     /// Where variation margin is received on a portfolio basis, this field should include the overall value of variation margin received for the portfolio.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? VariationMarginReceived { get; init; } 
     /// <summary>
     /// Value of collateral received in excess of the required collateral.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ExcessCollateralReceived { get; init; } 
     
     #nullable disable

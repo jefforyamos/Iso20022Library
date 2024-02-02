@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Globalised card transaction entry details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardAggregated1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CardAggregated1
     /// <summary>
     /// Service in addition to the main service.
     /// </summary>
+    [DataMember]
     public CardPaymentServiceType2Code? AdditionalService { get; init; } 
     /// <summary>
     /// Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction.
     /// </summary>
+    [DataMember]
     public ExternalCardTransactionCategory1Code? TransactionCategory { get; init; } 
     /// <summary>
     /// Unique identification of the sales reconciliation period between the acceptor and the acquirer. This identification might be linked to the identification of the settlement for further verification by the merchant.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleReconciliationIdentification { get; init; } 
     /// <summary>
     /// Range of sequence numbers on which the globalisation applies.
     /// </summary>
+    [DataMember]
     public CardSequenceNumberRange1? SequenceNumberRange { get; init; } 
     /// <summary>
     /// Date range on which the globalisation applies.
     /// </summary>
+    [DataMember]
     public DateOrDateTimePeriodChoice_? TransactionDateRange { get; init; } 
     
     #nullable disable

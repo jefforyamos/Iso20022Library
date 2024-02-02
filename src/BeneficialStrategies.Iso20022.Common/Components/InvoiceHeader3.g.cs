@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Collection of data for that is exchanged between two or more parties in written, printed or electronic form.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvoiceHeader3
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record InvoiceHeader3
     /// <summary>
     /// Unique identification of this invoice document.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Specifies the type of the document, for example commercial invoice.
     /// </summary>
+    [DataMember]
     public required ExternalDocumentType1Code TypeCode { get; init; } 
     /// <summary>
     /// Name of invoice document or transaction, for example, tax invoice.
     /// </summary>
-    public IsoMax35Text[] Name { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> Name { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Issue date of the document.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime IssueDateTime { get; init; } 
     /// <summary>
     /// Party that issued this invoice document.
     /// </summary>
+    [DataMember]
     public TradeParty4? Issuer { get; init; } 
     /// <summary>
     /// Unique identifier for a language used in this invoice document.
     /// </summary>
+    [DataMember]
     public LanguageCode? LanguageCode { get; init; } 
     /// <summary>
     /// Indicator that the document is a copy of the|original document.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CopyIndicator { get; init; } 
     /// <summary>
     /// Specifies the function of the document.
     /// </summary>
+    [DataMember]
     public ExternalDocumentPurpose1Code? DocumentPurpose { get; init; } 
     /// <summary>
     /// Note included in this invoice document.
     /// </summary>
-    public AdditionalInformation6[] IncludedNote { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation6> IncludedNote { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

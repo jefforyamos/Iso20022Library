@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the reference for the identification of an underlying contract.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContractReference1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ContractReference1
     /// <summary>
     /// Type of the contract referred to.
     /// </summary>
+    [DataMember]
     public DocumentType1Choice_? Type { get; init; } 
     /// <summary>
     /// Reference of the contract.
     /// </summary>
+    [DataMember]
     public required IsoMax500Text Reference { get; init; } 
     
     #nullable disable

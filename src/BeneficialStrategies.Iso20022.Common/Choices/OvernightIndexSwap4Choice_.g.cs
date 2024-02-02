@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(OvernightIndexSwap4Choice.DataSetAction))]
 [KnownType(typeof(OvernightIndexSwap4Choice.Transaction))]
+[DataContract]
 public abstract partial record OvernightIndexSwap4Choice_
 {
 }

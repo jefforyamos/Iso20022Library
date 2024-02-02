@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies corporate action quantities.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionQuantitySD2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CorporateActionQuantitySD2
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Minimum integral amount of securities that each account owner must have remaining after the called amounts are applied.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity22Choice_? BaseDenomination { get; init; } 
     /// <summary>
     /// Amount used when the called amount is not met by running the lottery with the base denomination.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity22Choice_? IncrementalDenomination { get; init; } 
     
     #nullable disable

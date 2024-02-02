@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies additional parameters to the message or transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalParameters3
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record AdditionalParameters3
     /// <summary>
     /// Specifies partial settlement information.
     /// </summary>
+    [DataMember]
     public PartialSettlement1Code? PartialSettlement { get; init; } 
     /// <summary>
     /// Identification of the confirmation previously sent to confirm the partial settlement of a transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PreviousPartialConfirmationIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account owner (or the instructing party managing the account).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountOwnerTransactionIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account servicer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountServicerTransactionIdentification { get; init; } 
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PoolIdentification { get; init; } 
     /// <summary>
     /// Identification assigned by the account servicer to unambiguously identify a corporate action event.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CorporateActionEventIdentification { get; init; } 
     /// <summary>
     /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MarketInfrastructureTransactionIdentification { get; init; } 
     
     #nullable disable

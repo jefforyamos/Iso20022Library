@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Time span defined by a start date and time, and an end date and time.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Period2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Period2
     /// <summary>
     /// Date and time at which the range starts.
     /// </summary>
+    [DataMember]
     public required IsoISODate FromDate { get; init; } 
     /// <summary>
     /// Date and time at which the range ends.
     /// </summary>
+    [DataMember]
     public required IsoISODate ToDate { get; init; } 
     
     #nullable disable

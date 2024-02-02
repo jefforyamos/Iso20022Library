@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(InterestRateDerivative2Choice.SwapRelated))]
 [KnownType(typeof(InterestRateDerivative2Choice.Other))]
+[DataContract]
 public abstract partial record InterestRateDerivative2Choice_
 {
 }

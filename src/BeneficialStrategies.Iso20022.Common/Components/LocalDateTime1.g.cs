@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Local time offset to UTC (Coordinated Universal Time).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LocalDateTime1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record LocalDateTime1
     /// <summary>
     /// Date time of the beginning of the period (inclusive).
     /// </summary>
+    [DataMember]
     public IsoISODateTime? FromDateTime { get; init; } 
     /// <summary>
     /// Date time of the end of the period (exclusive).
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ToDateTime { get; init; } 
     /// <summary>
     /// UTC offset in minutes, of the local time during the period. For instance, 120 for Central European Time, -720 for Central Standard Time (North America).
     /// </summary>
+    [DataMember]
     public required IsoNumber UTCOffset { get; init; } 
     
     #nullable disable

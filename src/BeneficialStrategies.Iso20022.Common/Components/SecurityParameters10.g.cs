@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Security parameters of the host downloading the key.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityParameters10
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SecurityParameters10
     /// <summary>
     /// Random value from the host.
     /// </summary>
+    [DataMember]
     public IsoMax140Binary? HostChallenge { get; init; } 
     /// <summary>
     /// Cryptographic key used to store in the ATM.
     /// </summary>
-    public CryptographicKey12[] Key { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CryptographicKey12> Key { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Element containing the signature.
     /// </summary>
+    [DataMember]
     public ATMSignature2Choice_? SignatureChoice { get; init; } 
     
     #nullable disable

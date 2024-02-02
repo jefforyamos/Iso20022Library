@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the conditions under which the order/trade is to be settled.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionTypeAndAdditionalParameters20
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record TransactionTypeAndAdditionalParameters20
     /// <summary>
     /// Unambiguous identification of the transaction (unique per piece of collateral) as known by the account owner (or the instructing party managing the account).
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax16Text AccountOwnerTransactionIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction (unique per piece of collateral) as known by the account servicer.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? AccountServicerTransactionIdentification { get; init; } 
     /// <summary>
     /// Specifies the type of securities financing transaction, that is, repurchase agreement, reverse repurchase agreement, securities lending or securities borrowing.
     /// </summary>
+    [DataMember]
     public required SecuritiesFinancingTransactionType2Code SecuritiesFinancingTransactionType { get; init; } 
     /// <summary>
     /// Specifies how the transaction is to be settled, for example, against payment.
     /// </summary>
+    [DataMember]
     public required DeliveryReceiptType2Code Payment { get; init; } 
     /// <summary>
     /// Identifies the type of securities financing modification requested.
     /// </summary>
+    [DataMember]
     public RepurchaseType31Choice_? ModificationType { get; init; } 
     /// <summary>
     /// Unique reference agreed upon by the two trade counterparties to identify the trade.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? CommonIdentification { get; init; } 
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? PoolIdentification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the future status of the transaction by means of a code and a period.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionStatus2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TransactionStatus2
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
+    [DataMember]
     public required BaselineStatus1Code Status { get; init; } 
     /// <summary>
     /// Date and time at which the current status will change.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime ChangeDateTime { get; init; } 
     
     #nullable disable

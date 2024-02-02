@@ -10,6 +10,7 @@ namespace BeneficialStrategies.Iso20022.UserDefined;
 
 /// <summary>
 /// </summary>
+[DataContract]
 public partial record LaxProcessing
 {
     #nullable enable

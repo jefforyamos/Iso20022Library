@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Independent undertaking, such as a demand guarantee or standby letter of credit, that provides financial assurance, to be honoured on the presentation of documents that comply with its terms and conditions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Undertaking2
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record Undertaking2
     /// <summary>
     /// Undertaking name.
     /// </summary>
+    [DataMember]
     public UndertakingName1Code? Name { get; init; } 
     /// <summary>
     /// Party in whose favour the counter-undertaking is issued.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? Beneficiary { get; init; } 
     /// <summary>
     /// Details related to the expiry terms of the counter-undertaking.
     /// </summary>
+    [DataMember]
     public ExpiryDetails2? ExpiryDetails { get; init; } 
     /// <summary>
     /// Details related to the amount of the counter-undertaking.
     /// </summary>
+    [DataMember]
     public UndertakingAmount1? CounterUndertakingAmount { get; init; } 
     /// <summary>
     /// Indicates whether the applicant/obligor or beneficiary is responsible for payment of the confirmation charges.
     /// </summary>
+    [DataMember]
     public ExternalTypeOfParty1Code? ConfirmationChargesPayableBy { get; init; } 
     /// <summary>
     /// Rules and laws governing the counter-undertaking.
     /// </summary>
+    [DataMember]
     public GovernanceRules1? GovernanceRulesAndLaw { get; init; } 
     /// <summary>
     /// Indication as to whether a claim is to utilise a standard claim form of the issuing institution.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? StandardClaimDocumentIndicator { get; init; } 
     /// <summary>
     /// Additional information related to the counter-undertaking.
     /// </summary>
-    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

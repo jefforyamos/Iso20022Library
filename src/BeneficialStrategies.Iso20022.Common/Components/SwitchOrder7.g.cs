@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transfer from one investment fund/fund class to another investment fund or investment fund class by the investor. A switch is composed of one or several subscription legs, and one or several redemption legs.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SwitchOrder7
 {
     #nullable enable
@@ -20,70 +22,87 @@ public partial record SwitchOrder7
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual orders, as assigned by the instructing party. This identifier links the individual orders together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Date and time the order is placed by the investor or its agent.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OrderDateTime { get; init; } 
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
+    [DataMember]
     public PlaceOfTradeIdentification1Choice_? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the order, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Account impacted by the investment fund order.
     /// </summary>
+    [DataMember]
     public InvestmentAccount58? InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Party related to the transaction.
     /// </summary>
-    public Intermediary40[] RelatedPartyDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<Intermediary40> RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Future date at which the investor requests the order to be executed.|The specification of a requested future trade date is not allowed in some markets. The date must be a date in the future.
     /// </summary>
+    [DataMember]
     public IsoISODate? RequestedFutureTradeDate { get; init; } 
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     /// <summary>
     /// Date on which cash is available.
     /// </summary>
+    [DataMember]
     public IsoISODate? CashSettlementDate { get; init; } 
     /// <summary>
     /// Method by which the transaction is settled.
     /// </summary>
+    [DataMember]
     public DeliveryReceiptType2Code? SettlementMethod { get; init; } 
     /// <summary>
     /// Choice between additional cash in or resulting cash out.
     /// </summary>
+    [DataMember]
     public AdditionalAmount1Choice_? AdditionalAmount { get; init; } 
     /// <summary>
     /// Date on which the order expires.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? ExpiryDateTime { get; init; } 
     /// <summary>
     /// Cancellation right of the investor with respect to the investment fund order.
     /// </summary>
+    [DataMember]
     public CancellationRight1Choice_? CancellationRight { get; init; } 
     /// <summary>
     /// Part of the investment fund switch order that is a redemption.
     /// </summary>
-    public SwitchRedemptionLegOrder6[] RedemptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SwitchRedemptionLegOrder6> RedemptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Part of the investment fund switch order that is a subscription.
     /// </summary>
-    public SwitchSubscriptionLegOrder6[] SubscriptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SwitchSubscriptionLegOrder6> SubscriptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment process for the transfer of cash from the debtor to the creditor.
     /// </summary>
+    [DataMember]
     public PaymentTransaction71? CashSettlementDetails { get; init; } 
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
@@ -98,30 +117,37 @@ public partial record SwitchOrder7
     /// QuotedCurrency EUR
     /// ExchangeRate 0.769.
     /// </summary>
+    [DataMember]
     public ForeignExchangeTerms32? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Specifies if advice has been received from an independent financial advisor.
     /// </summary>
+    [DataMember]
     public FinancialAdvice1Code? FinancialAdvice { get; init; } 
     /// <summary>
     /// Specifies whether the trade is negotiated.
     /// </summary>
+    [DataMember]
     public NegotiatedTrade1Code? NegotiatedTrade { get; init; } 
     /// <summary>
     /// Assessment of the customer’s behaviour at the time of the account opening application.
     /// </summary>
+    [DataMember]
     public CustomerConductClassification1Choice_? CustomerConductClassification { get; init; } 
     /// <summary>
     /// Means by which the investor or account owner submits the open account form.
     /// </summary>
+    [DataMember]
     public TransactionChannelType1Choice_? TransactionChannelType { get; init; } 
     /// <summary>
     /// Type of signature.
     /// </summary>
+    [DataMember]
     public SignatureType1Choice_? SignatureType { get; init; } 
     /// <summary>
     /// Information about a non-standard order.
     /// </summary>
+    [DataMember]
     public OrderWaiver1? OrderWaiverDetails { get; init; } 
     
     #nullable disable

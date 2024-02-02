@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status of a transfer cancellation instruction and the reason for the status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CancellationStatusAndReason2
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record CancellationStatusAndReason2
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of a transfer, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of a transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Status of the transfer cancellation is accepted or sent to next party.
     /// </summary>
+    [DataMember]
     public required TransferCancellationStatus2 Status { get; init; } 
     /// <summary>
     /// Status of the transfer cancellation is rejected.
     /// </summary>
+    [DataMember]
     public required TransferCancellationRejectedStatus1 Rejected { get; init; } 
     /// <summary>
     /// Status of the transfer cancellation is complete. The cancellation instruction has been accepted and processed, the cancellation is complete.
     /// </summary>
+    [DataMember]
     public required TransferCancellationCompleteStatusAndReason1 Complete { get; init; } 
     /// <summary>
     /// Status of the transfer cancellation is pending.
     /// </summary>
+    [DataMember]
     public required TransferCancellationPendingStatus1 Pending { get; init; } 
     /// <summary>
     /// Party that initiates the status.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     
     #nullable disable

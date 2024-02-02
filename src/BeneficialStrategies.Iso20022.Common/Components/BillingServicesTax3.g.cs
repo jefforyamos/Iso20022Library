@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides for regional taxes on the service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BillingServicesTax3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record BillingServicesTax3
     /// <summary>
     /// Identification number of the specific region tax used to calculate the tax.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Number { get; init; } 
     /// <summary>
     /// Name used to describe the tax (such as the national value added tax).
     /// </summary>
+    [DataMember]
     public IsoMax40Text? Description { get; init; } 
     /// <summary>
     /// Rate used to calculate the tax.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber Rate { get; init; } 
     /// <summary>
     /// Specifies the tax obligation for taxable services within a tax region for a specific tax identifier (such as national value added tax equals 34,00), and expressed in the tax region’s host currency.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection34 TotalTaxAmount { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Environment5
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record Environment5
     /// <summary>
     /// Party in contract with an Acceptor to acquire card payment transactions.
     /// </summary>
+    [DataMember]
     public PartyIdentification197? Acquirer { get; init; } 
     /// <summary>
     /// Originator of the transaction.
     /// </summary>
+    [DataMember]
     public PartyIdentification197? Originator { get; init; } 
     /// <summary>
     /// Party sending the message to another intermediary agent or to the final destination.
     /// </summary>
+    [DataMember]
     public PartyIdentification197? Sender { get; init; } 
     /// <summary>
     /// Party receiving the message from the origin or from another intermediary agent.
     /// </summary>
+    [DataMember]
     public PartyIdentification197? Receiver { get; init; } 
     /// <summary>
     /// Card acceptor performing the card transaction.
     /// </summary>
+    [DataMember]
     public PartyIdentification203? Acceptor { get; init; } 
     /// <summary>
     /// Destination of the message.
     /// </summary>
+    [DataMember]
     public PartyIdentification197? Destination { get; init; } 
     /// <summary>
     /// Card or payment token performing the transaction.
     /// </summary>
+    [DataMember]
     public CardData2? Card { get; init; } 
     /// <summary>
     /// Details of payment token.
     /// </summary>
+    [DataMember]
     public Token1? Token { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements to fully identify the type of the bank transaction entry.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BankTransactionCodeStructure1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record BankTransactionCodeStructure1
     /// <summary>
     /// Specifies the domain, the family and the sub-family of the bank transaction code, in a structured and hierarchical format.||Usage: If a specific family or subfamily code cannot be provided, the generic family code defined for the domain or the generic subfamily code defined for the family should be provided.
     /// </summary>
+    [DataMember]
     public BankTransactionCodeStructure2? Domain { get; init; } 
     /// <summary>
     /// Proprietary identification of the bank transaction code, as defined by the issuer.
     /// </summary>
+    [DataMember]
     public ProprietaryBankTransactionCodeStructure1? Proprietary { get; init; } 
     
     #nullable disable

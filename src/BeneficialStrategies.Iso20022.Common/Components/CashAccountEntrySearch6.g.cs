@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to search for a cash entry.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashAccountEntrySearch6
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record CashAccountEntrySearch6
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public AccountIdentificationSearchCriteria2Choice_[] AccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AccountIdentificationSearchCriteria2Choice_> AccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the entry amount(s) on which the query is performed.
     /// </summary>
-    public ActiveOrHistoricAmountRange2Choice_[] EntryAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ActiveOrHistoricAmountRange2Choice_> EntryAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency of the entry amount.
     /// </summary>
-    public ActiveOrHistoricCurrencyCode[] EntryAmountCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ActiveOrHistoricCurrencyCode> EntryAmountCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether an entry is a credit or a debit.
     /// </summary>
+    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Status of an entry on the books of the account servicer.
     /// </summary>
-    public EntryStatus1Code[] EntryStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<EntryStatus1Code> EntryStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date and time at which an entry is posted to an account on the account servicer's books.
     /// </summary>
-    public DateAndDateTimeSearch3Choice_[] EntryDate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DateAndDateTimeSearch3Choice_> EntryDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification135? AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.|.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? AccountServicer { get; init; } 
     
     #nullable disable

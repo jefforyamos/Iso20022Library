@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Non-protected sensitive data associated with the card or payment token performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardData2
 {
     #nullable enable
@@ -21,11 +23,13 @@ public partial record CardData2
     /// Primary Account Number (PAN) of the card or a surrogate of the PAN such as a payment token.
     /// ISO 8583 bit 2
     /// </summary>
+    [DataMember]
     public IsoMax19NumericText? PAN { get; init; } 
     /// <summary>
     /// Distinguishes between instances of the same payment card.
     /// ISO 8583 bit 23
     /// </summary>
+    [DataMember]
     public IsoMin2Max3NumericText? CardSequenceNumber { get; init; } 
     /// <summary>
     /// Unique non-financial reference assigned to a given PAN. May be used to link the transaction activity to that PAN.
@@ -33,10 +37,12 @@ public partial record CardData2
     /// ISO 8583:93 bit 112 (TLV tag 01/dataset 71)
     /// ISO 8583:2003 bit 51 (TLV tag 01/dataset 71)
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PaymentAccountReference { get; init; } 
     /// <summary>
     /// Identifies the card portfolio. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CardPortfolioIdentifier { get; init; } 
     
     #nullable disable

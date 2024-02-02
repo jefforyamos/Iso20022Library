@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the securities reference data for the required financial instruments.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesReferenceDataReport5
 {
     #nullable enable
@@ -22,30 +24,37 @@ public partial record SecuritiesReferenceDataReport5
     /// Usage:
     /// This identification will be used in the status advice report sent back.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Attributes and characteristics of the financial instrument.
     /// </summary>
+    [DataMember]
     public required SecurityInstrumentDescription9 FinancialInstrumentGeneralAttributes { get; init; } 
     /// <summary>
     /// LEI of Issuer or trading venue operator.
     /// </summary>
+    [DataMember]
     public required IsoLEIIdentifier Issuer { get; init; } 
     /// <summary>
     /// Traded venue related attributes.
     /// </summary>
-    public TradingVenueAttributes1[] TradingVenueRelatedAttributes { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TradingVenueAttributes1> TradingVenueRelatedAttributes { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Attributes specific to debt instruments.
     /// </summary>
+    [DataMember]
     public DebtInstrument2? DebtInstrumentAttributes { get; init; } 
     /// <summary>
     /// Attributes specific to derivative instruments.
     /// </summary>
+    [DataMember]
     public DerivativeInstrument5? DerivativeInstrumentAttributes { get; init; } 
     /// <summary>
     /// Technical attributes.
     /// </summary>
+    [DataMember]
     public RecordTechnicalData3? TechnicalAttributes { get; init; } 
     
     #nullable disable

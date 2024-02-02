@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amounts of the withdrawal transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedAmount12
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record DetailedAmount12
     /// <summary>
     /// Amount to be dispensed by the ATM after the approval of the withdrawal transaction.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount AmountToDispense { get; init; } 
     /// <summary>
     /// Currency of the amount to dispense when different from the base currency of the ATM.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Withdrawal fees, accepted by the customer.
     /// </summary>
-    public DetailedAmount13[] Fees { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedAmount13> Fees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of the donation.
     /// </summary>
-    public DetailedAmount13[] Donation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedAmount13> Donation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

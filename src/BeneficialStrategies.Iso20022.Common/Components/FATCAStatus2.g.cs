@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Foreign Account Tax Compliance Act (FATCA) status information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FATCAStatus2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FATCAStatus2
     /// <summary>
     /// Foreign Account Tax Compliance Act (FATCA) status.
     /// </summary>
+    [DataMember]
     public required FATCAStatus2Choice_ Type { get; init; } 
     /// <summary>
     /// Source of the Foreign Account Tax Compliance Act (FATCA) status.
     /// </summary>
+    [DataMember]
     public FATCASource1Choice_? Source { get; init; } 
     
     #nullable disable

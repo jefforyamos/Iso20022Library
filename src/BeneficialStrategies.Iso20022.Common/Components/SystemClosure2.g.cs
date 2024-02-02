@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about inactivity of a system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemClosure2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SystemClosure2
     /// <summary>
     /// Period of time when the system is closed/not operating.
     /// </summary>
+    [DataMember]
     public DateTimePeriod1Choice_? Period { get; init; } 
     /// <summary>
     /// Reason the system is closed/not operating.
     /// </summary>
+    [DataMember]
     public required ClosureReason2Choice_ Reason { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(SettlementOrCorporateActionEvent28Choice.SecuritiesTransactionType))]
 [KnownType(typeof(SettlementOrCorporateActionEvent28Choice.CorporateActionEventType))]
+[DataContract]
 public abstract partial record SettlementOrCorporateActionEvent28Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentEnvironment53
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record CardPaymentEnvironment53
     /// <summary>
     /// Acquirer involved in the card payment.
     /// </summary>
+    [DataMember]
     public Acquirer4? Acquirer { get; init; } 
     /// <summary>
     /// Merchant performing the card payment transaction.
     /// Usage: In some cases, merchant and acceptor may be regarded as the same entity.
     /// </summary>
+    [DataMember]
     public Organisation25? Merchant { get; init; } 
     /// <summary>
     /// Point of interaction (POI) performing the transaction.
     /// </summary>
+    [DataMember]
     public PointOfInteraction5? POI { get; init; } 
     /// <summary>
     /// Payment card performing the transaction.
     /// </summary>
+    [DataMember]
     public required PaymentCard21 Card { get; init; } 
     /// <summary>
     /// Device used by the customer to perform the payment transaction.
     /// </summary>
+    [DataMember]
     public CustomerDevice1? CustomerDevice { get; init; } 
     /// <summary>
     /// Container for tenders used by the customer to perform the payment transaction.
     /// </summary>
+    [DataMember]
     public CustomerDevice1? Wallet { get; init; } 
     /// <summary>
     /// Payment token information.
     /// </summary>
+    [DataMember]
     public CardPaymentToken1? PaymentToken { get; init; } 
     /// <summary>
     /// Cardholder involved in the card payment.
     /// </summary>
+    [DataMember]
     public Cardholder10? Cardholder { get; init; } 
     /// <summary>
     /// Replacement of the message element Cardholder by a digital envelope using a cryptographic key.
     /// </summary>
+    [DataMember]
     public ContentInformationType10? ProtectedCardholderData { get; init; } 
     
     #nullable disable

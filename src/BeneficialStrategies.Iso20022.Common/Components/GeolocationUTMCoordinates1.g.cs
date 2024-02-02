@@ -14,6 +14,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Location on the Earth specified by the Universal Transverse Mercator coordinate system.
 /// Identifies the geographic location using the WGS84 ellipsoid spatial reference system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GeolocationUTMCoordinates1
 {
     #nullable enable
@@ -21,16 +23,19 @@ public partial record GeolocationUTMCoordinates1
     /// <summary>
     /// UTM grid zone combination of the longitude zone (1 to 60) and the latitude band (C to X, excluding I and O).
     /// </summary>
+    [DataMember]
     public required IsoMax35Text UTMZone { get; init; } 
     /// <summary>
     /// X-coordinate of the Universal Transverse Mercator 
     /// coordinate system.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text UTMEastward { get; init; } 
     /// <summary>
     /// Y-coordinate of the Universal Transverse Mercator 
     /// coordinate system.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text UTMNorthward { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare related energy derivatives attributes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareEnergyDeliveryAttribute1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record CompareEnergyDeliveryAttribute1
     /// <summary>
     /// Specifies whether the information on the delivery intervals are matching or not.
     /// </summary>
-    public CompareTimePeriod2[] EnergyDeliveryInterval { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareTimePeriod2> EnergyDeliveryInterval { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the delivery start date and end date are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDatePeriod2? EnergyDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the energy durations are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDurationType1? EnergyDuration { get; init; } 
     /// <summary>
     /// Specifies whether the information on the week days are matching or not.
     /// </summary>
-    public CompareWeekDay1[] EnergyWeekDay { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareWeekDay1> EnergyWeekDay { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the delivery capacity are matching or not.
     /// </summary>
+    [DataMember]
     public CompareLongFraction19DecimalNumber1? EnergyDeliveryCapacity { get; init; } 
     /// <summary>
     /// Specifies whether the information on the energy quantity units are matching or not.
     /// </summary>
+    [DataMember]
     public CompareEnergyQuantityUnit1? EnergyQuantityUnit { get; init; } 
     /// <summary>
     /// Specifies whether the information on the price time interval quantity are matching or not.
     /// </summary>
+    [DataMember]
     public CompareAmountAndDirection3? EnergyPriceTimeIntervalQuantity { get; init; } 
     
     #nullable disable

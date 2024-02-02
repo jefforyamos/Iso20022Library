@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the expected collateral type and direction for the variation margin and optionaly the segregated independent amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExpectedCollateral2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ExpectedCollateral2
     /// <summary>
     /// Provides the expected collateral type and direction for the variation margin.
     /// </summary>
+    [DataMember]
     public required ExpectedCollateralMovement2 VariationMargin { get; init; } 
     /// <summary>
     /// Provides the expected collateral type and direction for the segregated independent amount.
     /// </summary>
+    [DataMember]
     public ExpectedCollateralMovement2? SegregatedIndependentAmount { get; init; } 
     
     #nullable disable

@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(PaymentInstrument10Choice.DirectDebitDetails))]
 [KnownType(typeof(PaymentInstrument10Choice.ChequeDetails))]
 [KnownType(typeof(PaymentInstrument10Choice.AccountDetails))]
+[DataContract]
 public abstract partial record PaymentInstrument10Choice_
 {
 }

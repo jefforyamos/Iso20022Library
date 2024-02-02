@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TradeStateReport2Choice.DataSetAction))]
 [KnownType(typeof(TradeStateReport2Choice.State))]
+[DataContract]
 public abstract partial record TradeStateReport2Choice_
 {
 }

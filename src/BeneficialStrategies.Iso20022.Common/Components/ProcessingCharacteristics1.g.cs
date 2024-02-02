@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Processing characteristics linked to the instrument, ie, not to the market.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProcessingCharacteristics1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record ProcessingCharacteristics1
     /// <summary>
     /// Indicates whether a subscription or a redemption can be instructed by amount.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator AmountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether subscriptions or redemptions may be placed as a number of units.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator UnitsIndicator { get; init; } 
     /// <summary>
     /// Currency in which a subscription or redemption is accepted.
     /// </summary>
-    public ActiveCurrencyCode[] DealingCurrencyAccepted { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ActiveCurrencyCode> DealingCurrencyAccepted { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Last date/time at which an order to subscribe or redeem can be given.
     /// </summary>
+    [DataMember]
     public required IsoISOTime DealingCutOffTime { get; init; } 
     /// <summary>
     /// TimeFrame or period concept that allows definition of a period as number of days before or after a defined activity.
     /// </summary>
+    [DataMember]
     public required TimeFrame3Choice_ DealingCutOffTimeFrame { get; init; } 
     /// <summary>
     /// An agreed number of days after the Trade date (T) used to define standard timeframes e.g T+3 settlement period ||Where T = the date the price is applied to a transaction.
     /// </summary>
+    [DataMember]
     public required Timeframe2Choice_ SettlementCycle { get; init; } 
     
     #nullable disable

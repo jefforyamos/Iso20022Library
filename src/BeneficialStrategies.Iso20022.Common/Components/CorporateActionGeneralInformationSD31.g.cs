@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action general information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionGeneralInformationSD31
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record CorporateActionGeneralInformationSD31
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification20 SecurityIdentification { get; init; } 
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax35Text SafekeepingAccount { get; init; } 
     /// <summary>
     /// Additional information about the corporate action event.
     /// </summary>
-    public CorporateActionUnallocatedDetailsSD6[] UnallocatedDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CorporateActionUnallocatedDetailsSD6> UnallocatedDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

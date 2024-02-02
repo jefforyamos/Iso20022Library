@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Customer security identification reference information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionNotificationSD10
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CorporateActionNotificationSD10
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Internal security identification as provided by the customer for the given security on the security of interest (SOI) import file.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? CustomerInternalSecurityIdentification { get; init; } 
     /// <summary>
     /// Security identifier that is used to match the customer's SOI (Security of Interest) to the GCA VS Security Cross Reference.
     /// </summary>
+    [DataMember]
     public SecurityIdentification20? SecurityOfInterestMatchingSecurity { get; init; } 
     
     #nullable disable

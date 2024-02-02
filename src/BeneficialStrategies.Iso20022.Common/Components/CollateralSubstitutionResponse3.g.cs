@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details about the rejected collateral substitution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralSubstitutionResponse3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CollateralSubstitutionResponse3
     /// <summary>
     /// Reference to the collateral substitution request identification.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text CollateralSubstitutionRequestIdentification { get; init; } 
     /// <summary>
     /// Specifies the collateral substitution amount that is rejected.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount RejectedAmount { get; init; } 
     /// <summary>
     /// Specifies the reasons why the collateral substitution is rejected.
     /// </summary>
+    [DataMember]
     public required RejectionReason68Code RejectionReason { get; init; } 
     /// <summary>
     /// Provides additional information about the collateral substitution request rejection.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? RejectionReasonInformation { get; init; } 
     
     #nullable disable

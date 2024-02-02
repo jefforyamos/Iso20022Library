@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies information concerning the technical error that prevented delivery of the referenced messaging by the payment gateway application.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TechnicalError1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record TechnicalError1
     /// <summary>
     /// Indicates the severity of the related error.
     /// </summary>
+    [DataMember]
     public required ErrorSeverity1Code Severity { get; init; } 
     /// <summary>
     /// Specifies the error code.
     /// </summary>
+    [DataMember]
     public required TechnicalError1Choice_ ErrorCode { get; init; } 
     /// <summary>
     /// Specification of the error, in free format.
     /// </summary>
-    public IsoMax140Text[] Description { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax140Text> Description { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

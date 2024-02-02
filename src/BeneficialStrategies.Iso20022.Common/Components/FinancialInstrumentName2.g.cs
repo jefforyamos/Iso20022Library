@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Name of the security.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentName2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FinancialInstrumentName2
     /// <summary>
     /// Short name of the security expressed as ISO 18773/18774.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ISOShortName { get; init; } 
     /// <summary>
     /// Name of the security.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? ISOLongName { get; init; } 
     /// <summary>
     /// Defines the date since when the name of the security is valid.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? ValidFrom { get; init; } 
     
     #nullable disable

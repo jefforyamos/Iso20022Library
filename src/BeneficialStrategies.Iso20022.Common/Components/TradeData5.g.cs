@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information on the status of a trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeData5
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record TradeData5
     /// <summary>
     /// Reference to the unique system identification assigned to the trade by the central matching system.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MatchingSystemUniqueReference { get; init; } 
     /// <summary>
     /// Reference to the identification of the notification for which the status is given, as assigned by the participant that submitted the foreign exchange trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NotificationIdentification { get; init; } 
     /// <summary>
     /// Reference to the unique matching identification assigned to the trade and to the matching trade from the counterparty by the central matching system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MatchingSystemMatchingReference { get; init; } 
     /// <summary>
     /// Specifies the date and time at which the current status was assigned to the individual trade.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CurrentStatusDateTime { get; init; } 
     /// <summary>
     /// Product type of the individual trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProductType { get; init; } 
     
     #nullable disable

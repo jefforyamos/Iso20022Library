@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Value of the public component of a RSA key.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PublicRSAKey2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PublicRSAKey2
     /// <summary>
     /// Asymmetric cryptographic algorithm.
     /// </summary>
+    [DataMember]
     public Algorithm7Code? Algorithm { get; init; } 
     /// <summary>
     /// Public key value.
     /// </summary>
+    [DataMember]
     public required PublicRSAKey1 PublicKeyValue { get; init; } 
     
     #nullable disable

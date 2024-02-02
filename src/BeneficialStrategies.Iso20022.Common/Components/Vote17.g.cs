@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Vote expressed for one resolution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Vote17
 {
     #nullable enable
@@ -20,70 +22,87 @@ public partial record Vote17
     /// <summary>
     /// Number of the resolution as specified by the issuer or its agent.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text IssuerLabel { get; init; } 
     /// <summary>
     /// Language, title and textual description of an agenda resolution. 
     /// </summary>
-    public ItemDescription1[] Description { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ItemDescription1> Description { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the resolution is a new or an amended resolution.
     /// </summary>
+    [DataMember]
     public ResolutionSubStatus1Code? SubStatus { get; init; } 
     /// <summary>
     /// Number of votes in favour of one resolution.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity18Choice_? For { get; init; } 
     /// <summary>
     /// Number of votes against one resolution.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity18Choice_? Against { get; init; } 
     /// <summary>
     /// Number of votes expressed as abstain for one resolution.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity18Choice_? Abstain { get; init; } 
     /// <summary>
     /// Number of votes withheld for one resolution.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity18Choice_? Withhold { get; init; } 
     /// <summary>
     /// Number of votes in line with the votes of the management.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity18Choice_? WithManagement { get; init; } 
     /// <summary>
     /// Number of votes against the voting recommendation of the management.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity18Choice_? AgainstManagement { get; init; } 
     /// <summary>
     /// Number of votes for which decision is left to the party that will exercise the voting right.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity18Choice_? Discretionary { get; init; } 
     /// <summary>
     /// Number of votes in favour for one year for "say on pay" type of resolution.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity18Choice_? OneYear { get; init; } 
     /// <summary>
     /// Number of votes in favour of two years for "say on pay" type of resolution.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity18Choice_? TwoYears { get; init; } 
     /// <summary>
     /// Number of votes in favour of three years for "say on pay" type of resolution.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity18Choice_? ThreeYears { get; init; } 
     /// <summary>
     /// Number of votes for which no action has been taken.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity18Choice_? NoAction { get; init; } 
     /// <summary>
     /// Vote is cast as empty but the vote is counted.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity18Choice_? Blank { get; init; } 
     /// <summary>
     /// Other type of vote expressed as a proprietary code.
     /// </summary>
-    public ProprietaryVote2[] Proprietary { get; init; } = [];
+    [DataMember]
+    public ValueList<ProprietaryVote2> Proprietary { get; init; } = [];
     /// <summary>
     /// Indicates the resolution was withdrawn at the meeting.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Withdrawn { get; init; } 
     
     #nullable disable

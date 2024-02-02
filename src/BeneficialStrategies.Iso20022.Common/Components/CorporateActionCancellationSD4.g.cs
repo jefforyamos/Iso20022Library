@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding additional comments.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionCancellationSD4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionCancellationSD4
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Additional textual information regarding the cancelled event.
     /// </summary>
+    [DataMember]
     public IsoMax8000Text? ExternalComments { get; init; } 
     
     #nullable disable

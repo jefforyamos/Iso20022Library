@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the retrieval of a message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RetrievalInitiation2
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record RetrievalInitiation2
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required Environment21 Environment { get; init; } 
     /// <summary>
     /// Context of the transaction.
     /// </summary>
+    [DataMember]
     public required Context15 Context { get; init; } 
     /// <summary>
     /// Original transaction for which a retrieval is requested.
     /// </summary>
+    [DataMember]
     public Transaction136? Transaction { get; init; } 
     /// <summary>
     /// Contains details of the transaction to be retrieved.
     /// </summary>
+    [DataMember]
     public required OriginalTransaction2 OriginalTransaction { get; init; } 
     /// <summary>
     /// Contains protected data and the attributes used to protect the data.
     /// </summary>
-    public ProtectedData1[] ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProtectedData1> ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Destination ID or routing information of Retrieval fulfilment initiation message. 
     /// </summary>
+    [DataMember]
     public PartyIdentification258? RetrievalFulfilmentDestination { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

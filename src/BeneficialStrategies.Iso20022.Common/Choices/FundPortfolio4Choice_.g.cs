@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(FundPortfolio4Choice.TaxEfficientProduct))]
 [KnownType(typeof(FundPortfolio4Choice.GeneralInvestment))]
 [KnownType(typeof(FundPortfolio4Choice.Pension))]
+[DataContract]
 public abstract partial record FundPortfolio4Choice_
 {
 }

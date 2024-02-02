@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides identification information about the tax category. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxCategory2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record TaxCategory2
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Tax category identification.
     /// </summary>
+    [DataMember]
     public IsoMax2NumericText? Identification { get; init; } 
     /// <summary>
     /// Quantity to be withheld at the tax category level.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity15Choice_? Quantity { get; init; } 
     /// <summary>
     /// Identification of the country in which the tax is withheld.
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     
     #nullable disable

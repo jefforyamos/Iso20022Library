@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a switch order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SwitchOrderInstruction1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record SwitchOrderInstruction1
     /// <summary>
     /// Information related to the switch order.
     /// </summary>
+    [DataMember]
     public required SwitchOrder2 SwitchOrderDetails { get; init; } 
     /// <summary>
     /// Confirmation of the information related to an intermediary.
     /// </summary>
-    public Intermediary4[] IntermediaryDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<Intermediary4> IntermediaryDetails { get; init; } = [];
     /// <summary>
     /// Information provided when the message is a copy of a previous message.
     /// </summary>
+    [DataMember]
     public CopyInformation1? CopyDetails { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Extension1> Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

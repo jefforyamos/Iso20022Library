@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// The discount amount that is attached to an item as a rebate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SaleItemRebate1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SaleItemRebate1
     /// <summary>
     /// Data of the Sale item.
     /// </summary>
+    [DataMember]
     public required Product6 SaleItem { get; init; } 
     /// <summary>
     /// Short text to qualify a rebate on an line item.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RebateLabel { get; init; } 
     
     #nullable disable

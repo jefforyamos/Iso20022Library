@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Vote options for a resolution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VoteInstructionType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record VoteInstructionType1
     /// <summary>
     /// Vote option allowed at the resolution level.
     /// </summary>
+    [DataMember]
     public required VoteInstructionType1Choice_ VoteInstructionTypeCode { get; init; } 
     /// <summary>
     /// Additional information about the vote instruction type code when expressed as a proprietary code.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

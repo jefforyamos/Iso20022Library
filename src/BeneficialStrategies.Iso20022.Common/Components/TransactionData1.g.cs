@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Card transaction information to be transferred.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionData1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record TransactionData1
     /// <summary>
     /// Brand name of the card.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CardBrand { get; init; } 
     /// <summary>
     /// Card data associated with the card performing the transaction.
     /// </summary>
+    [DataMember]
     public PlainCardData3? CardData { get; init; } 
     /// <summary>
     /// Point of interaction (POI) performing the transaction.
     /// </summary>
+    [DataMember]
     public PointOfInteraction1? PointOfInteraction { get; init; } 
     /// <summary>
     /// Details of the transaction.
     /// </summary>
+    [DataMember]
     public CardPaymentTransactionDetails8? TransactionDetails { get; init; } 
     /// <summary>
     /// PrePaid Account for funds transfer or loading.
     /// </summary>
+    [DataMember]
     public CashAccount24? PrePaidAccount { get; init; } 
     
     #nullable disable

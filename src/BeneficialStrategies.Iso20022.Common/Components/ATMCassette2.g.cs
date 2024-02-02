@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information on the cassette of an ATM.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMCassette2
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record ATMCassette2
     /// <summary>
     /// Physical identification of the cassette for the ATM.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PhysicalIdentification { get; init; } 
     /// <summary>
     /// Logical identification of the cassette for the ATM.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text LogicalIdentification { get; init; } 
     /// <summary>
     /// Serial number or unique identification of the cassette hardware.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SerialNumber { get; init; } 
     /// <summary>
     /// Type of cassette.
     /// </summary>
+    [DataMember]
     public required ATMCassetteType1Code Type { get; init; } 
     /// <summary>
     /// Type of items the cash-in takes.
     /// </summary>
-    public ATMNoteType1Code[] SubType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMNoteType1Code> SubType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of media inside the cassette.
     /// </summary>
+    [DataMember]
     public ATMMediaType1Code? MediaType { get; init; } 
     /// <summary>
     /// Counter per unit value or globally.
     /// </summary>
-    public ATMCassetteCounters3[] MediaCounters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCassetteCounters3> MediaCounters { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

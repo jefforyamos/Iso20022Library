@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of actions to be performed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Action13
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record Action13
     /// <summary>
     /// Destination of the action.
     /// </summary>
+    [DataMember]
     public PartyType20Code? Destination { get; init; } 
     /// <summary>
     /// Action type to be performed.
     /// </summary>
+    [DataMember]
     public ActionType11Code? ActionType { get; init; } 
     /// <summary>
     /// Other action type to be performed.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherActionType { get; init; } 
     /// <summary>
     /// Contact information.
     /// </summary>
+    [DataMember]
     public Contact6? Contact { get; init; } 
     /// <summary>
     /// Additional action information.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

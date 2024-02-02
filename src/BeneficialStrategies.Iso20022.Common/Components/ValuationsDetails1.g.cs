@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Valuation details for the securities position.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ValuationsDetails1
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record ValuationsDetails1
     /// <summary>
     /// Last reported/known price of a financial instrument in a market.
     /// </summary>
+    [DataMember]
     public Price7? MarketPrice { get; init; } 
     /// <summary>
     /// Source of the price quotation.
     /// </summary>
+    [DataMember]
     public MarketIdentification89? SourceOfPrice { get; init; } 
     /// <summary>
     /// Date and time at which the financial instruments are to be delivered or received effectively (Effective Settlement Date and Time).
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? SettlementDate { get; init; } 
     /// <summary>
     /// Securities collateral position valuation amounts.
     /// </summary>
+    [DataMember]
     public required CollateralAmount4 ValuationDetailsAmount { get; init; } 
     /// <summary>
     /// Amount of interest that has been accrued in between coupon payment periods for a given financial instrument.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? AccruedInterest { get; init; } 
     /// <summary>
     /// Price amount excluding the accrued interest for a given financial instrument.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? CleanPrice { get; init; } 
     /// <summary>
     /// Valuation factors.
     /// </summary>
+    [DataMember]
     public required ValuationFactorBreakdown1 ValuationFactorBreakdown { get; init; } 
     /// <summary>
     /// Number of days used for calculating the accrued interest amount.
     /// </summary>
+    [DataMember]
     public IsoNumber? NumberOfDaysAccrued { get; init; } 
     /// <summary>
     /// Number of days since the last pricing update.
     /// </summary>
+    [DataMember]
     public IsoNumber? QuotationAge { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the details of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionDetails11
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record TransactionDetails11
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account owner (or the instructing party managing the account).
     /// </summary>
+    [DataMember]
     public required References2Choice_ AccountOwnerTransactionIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account servicer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountServicerTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MarketInfrastructureTransactionIdentification { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification13Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public required SecuritiesAccount13 SafekeepingAccount { get; init; } 
     /// <summary>
     /// Identifies the details of the transaction.
     /// </summary>
+    [DataMember]
     public TransactionDetails10? TransactionDetails { get; init; } 
     /// <summary>
     /// Specifies whether an associated FX should be cancelled.
     /// </summary>
+    [DataMember]
     public FXCancellation1Choice_? FXCancellation { get; init; } 
     
     #nullable disable

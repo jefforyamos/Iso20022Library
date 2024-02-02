@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrument59
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FinancialInstrument59
     /// <summary>
     /// Specifies the ISIN of the collateral.
     /// </summary>
+    [DataMember]
     public required IsoISINOct2015Identifier Identification { get; init; } 
     /// <summary>
     /// Identifies the security issuer.
     /// </summary>
+    [DataMember]
     public required IsoLEIIdentifier Issuer { get; init; } 
     /// <summary>
     /// Sector for the security issuer, for example, 0500.
     /// </summary>
+    [DataMember]
     public IsoSNA2008SectorIdentifier? Sector { get; init; } 
     
     #nullable disable

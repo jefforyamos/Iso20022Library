@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the requested reporting period.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportingPeriod4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ReportingPeriod4
     /// <summary>
     /// Specifies a date range.
     /// </summary>
+    [DataMember]
     public required DatePeriod3 FromToDate { get; init; } 
     /// <summary>
     /// Specifies a time range.
     /// </summary>
+    [DataMember]
     public required TimePeriod2 FromToTime { get; init; } 
     /// <summary>
     /// Specifies whether all matching items need to be reported or only those items that are new or have changed since the last similar request was made.
     /// </summary>
+    [DataMember]
     public required QueryType3Code Type { get; init; } 
     
     #nullable disable

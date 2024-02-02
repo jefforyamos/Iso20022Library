@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides reason for rejection and/or additional information if required.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RejectionReason4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RejectionReason4
     /// <summary>
     /// Detailed description of the rejection reason.
     /// </summary>
+    [DataMember]
     public required RejectionReason3Code ReasonCode { get; init; } 
     /// <summary>
     /// Additional information related to the rejection and meant to allow for the precise identification of the rejection reason.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

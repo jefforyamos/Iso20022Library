@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Entity hosting the ATM terminal.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TerminalHosting1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TerminalHosting1
     /// <summary>
     /// Type of ATM terminal hosting.
     /// </summary>
+    [DataMember]
     public TransactionEnvironment3Code? Category { get; init; } 
     /// <summary>
     /// Identify the entity hosting the ATM.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     
     #nullable disable

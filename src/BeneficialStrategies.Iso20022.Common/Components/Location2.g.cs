@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Location information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Location2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Location2
     /// <summary>
     /// Country of jurisdiction.
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Codified representation of the jurisdiction as published in ISO 3166-2.
     /// </summary>
+    [DataMember]
     public CountrySubdivision1Choice_? CountrySubDivision { get; init; } 
     /// <summary>
     /// Name of jurisdiction, for example, Frankfurt.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Text { get; init; } 
     
     #nullable disable

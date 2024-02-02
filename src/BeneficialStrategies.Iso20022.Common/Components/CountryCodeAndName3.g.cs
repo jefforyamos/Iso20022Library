@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a country by its code and its name.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CountryCodeAndName3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CountryCodeAndName3
     /// <summary>
     /// Country is specified by its code.
     /// </summary>
+    [DataMember]
     public required CountryCode Code { get; init; } 
     /// <summary>
     /// Country is specified by its name.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text Name { get; init; } 
     
     #nullable disable

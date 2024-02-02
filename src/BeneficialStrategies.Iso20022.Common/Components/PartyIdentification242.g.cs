@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification242
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PartyIdentification242
     /// <summary>
     /// Identification of the party.
     /// </summary>
+    [DataMember]
     public required PartyIdentification178Choice_ Identification { get; init; } 
     /// <summary>
     /// Type of membership the collateral provider holds with the CCP.
     /// </summary>
+    [DataMember]
     public CCPMemberType1Code? CCPMemberType { get; init; } 
     
     #nullable disable

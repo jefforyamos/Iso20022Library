@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the cash movement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashMovement3
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record CashMovement3
     /// <summary>
     /// Date and time of the posting.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? PostingDateTime { get; init; } 
     /// <summary>
     /// Value date.
     /// </summary>
+    [DataMember]
     public required IsoISODate ValueDate { get; init; } 
     /// <summary>
     /// Cash amount that is posted.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount PostingAmount { get; init; } 
     /// <summary>
     /// Provides information about the account which is debited/credited.
     /// </summary>
-    public CashAccount18[] AccountDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<CashAccount18> AccountDetails { get; init; } = [];
     
     #nullable disable
 }

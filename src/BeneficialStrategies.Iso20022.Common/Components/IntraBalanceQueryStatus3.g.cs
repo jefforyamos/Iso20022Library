@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the intra-balance movement status query criteria including the status period.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraBalanceQueryStatus3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record IntraBalanceQueryStatus3
     /// <summary>
     /// Defines the status type of query criteria.
     /// </summary>
+    [DataMember]
     public required IntraBalanceStatusType2 Type { get; init; } 
     /// <summary>
     /// Specified date period of the status.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeSearch5Choice_? DatePeriod { get; init; } 
     
     #nullable disable

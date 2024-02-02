@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action securities movement fraction disposition details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FractionDispositionTypeSD2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FractionDispositionTypeSD2
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Decimal above which numbers are rounded. For an example if rounding factor is 0.6 this means that fractional units greater than or equal to 6 will be rounded up and less than 6 will be rounded down.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? RoundingFactor { get; init; } 
     
     #nullable disable

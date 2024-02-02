@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specification of the charge type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ChargeType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ChargeType1
     /// <summary>
     /// Structured format.
     /// </summary>
+    [DataMember]
     public required ChargeType6Code Structured { get; init; } 
     /// <summary>
     /// Additional information about the type of charge.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

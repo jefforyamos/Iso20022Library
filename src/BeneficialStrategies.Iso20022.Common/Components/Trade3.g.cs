@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the foreign exchange trade including Spot\Forward\NDF that is captured.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Trade3
 {
     #nullable enable
@@ -20,63 +22,78 @@ public partial record Trade3
     /// <summary>
     /// Price of the execution of the trade.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAnd13DecimalAmount ExecutionPrice { get; init; } 
     /// <summary>
     /// Amount of trade in trading currency.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount LastQuantity { get; init; } 
     /// <summary>
     /// Specifies the settlment period of the foreign exchange trade.
     /// </summary>
+    [DataMember]
     public required SettlementDateCode SettlementType { get; init; } 
     /// <summary>
     /// Specifies the date on which the trade will be settled.
     /// </summary>
+    [DataMember]
     public required IsoISODate SettlementDate { get; init; } 
     /// <summary>
     /// Specifies the valuation rate used for the trade.
     /// </summary>
+    [DataMember]
     public required AgreedRate3 ValuationRate { get; init; } 
     /// <summary>
     /// Specifies the forward points of the trade if needed.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? ForwardPoints { get; init; } 
     /// <summary>
     /// Amount of trade in corresponding currency.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount CalculatedCounterpartyCurrencyLastQuantity { get; init; } 
     /// <summary>
     /// Specifies the value date of spot transaction.
     /// </summary>
+    [DataMember]
     public required IsoISODate ValueDate { get; init; } 
     /// <summary>
     /// Measurement of the amount of the trade values converted in the US dollars.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount RiskAmount { get; init; } 
     /// <summary>
     /// Security identification of the trade.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification18 SecurityIdentification { get; init; } 
     /// <summary>
     /// Specifies the ISO code of the fixing currency.
     /// </summary>
+    [DataMember]
     public CurrencyCode? FixingCurrency { get; init; } 
     /// <summary>
     /// Date at which the rate determination is made in the NDF trade.
     /// </summary>
+    [DataMember]
     public IsoISODate? FixingDate { get; init; } 
     /// <summary>
     /// Indicates whether the spot trade is produced by the option.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? OptionIndicator { get; init; } 
     /// <summary>
     /// Indicate the trade whether it's exchange delta.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? DeltaIndicator { get; init; } 
     /// <summary>
     /// Some associated trade reference needs to be specified.
     /// </summary>
-    public IsoMax70Text[] AssociatedTradeReference { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax70Text> AssociatedTradeReference { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

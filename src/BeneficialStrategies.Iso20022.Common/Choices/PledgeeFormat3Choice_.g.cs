@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(PledgeeFormat3Choice.TypeAndIdentification))]
 [KnownType(typeof(PledgeeFormat3Choice.Identification))]
 [KnownType(typeof(PledgeeFormat3Choice.Proprietary))]
+[DataContract]
 public abstract partial record PledgeeFormat3Choice_
 {
 }

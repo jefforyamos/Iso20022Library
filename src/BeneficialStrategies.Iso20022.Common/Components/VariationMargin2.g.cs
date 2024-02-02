@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Margin required to cover the risk because of the price fluctuations occurred on the unsettled exposures towards central counterparty.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VariationMargin2
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record VariationMargin2
     /// <summary>
     /// Margin required to cover the risk because of the price fluctuations occurred on the unsettled exposures towards the central counterparty.
     /// </summary>
-    public TotalVariationMargin1[] TotalVariationMargin { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TotalVariationMargin1> TotalVariationMargin { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net unrealised profit or loss on the value of the netted, gross and failing positions.
     /// </summary>
+    [DataMember]
     public required Amount2 TotalMarkToMarket { get; init; } 
     /// <summary>
     /// Unrealised net loss calculated at the participant portfolio level.
     /// </summary>
-    public Amount2[] MarkToMarketNetted { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Amount2> MarkToMarketNetted { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unrealised net loss calculated in that market/boundary.
     /// </summary>
-    public Amount2[] MarkToMarketGross { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Amount2> MarkToMarketGross { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Sum of the unrealised loss without taking profit into consideration.
     /// </summary>
-    public Amount2[] MarkToMarketFails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Amount2> MarkToMarketFails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Haircut applied to the absolute value of the participants net positions. Calculation depends on a participants credit rating.
     /// </summary>
+    [DataMember]
     public required Amount2 FailsHaircut { get; init; } 
     
     #nullable disable

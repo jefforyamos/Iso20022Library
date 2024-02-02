@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a range of securities accounts.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesAccountRange2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SecuritiesAccountRange2
     /// <summary>
     /// Securities account number or code at which the range starts.
     /// </summary>
+    [DataMember]
     public required SecuritiesAccount19 From { get; init; } 
     /// <summary>
     /// Securities account number or code at which the range ends.
     /// </summary>
+    [DataMember]
     public required SecuritiesAccount19 To { get; init; } 
     
     #nullable disable

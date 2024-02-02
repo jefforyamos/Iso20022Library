@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the identification of the relevant supervising authority.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SupervisingAuthorityIdentification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SupervisingAuthorityIdentification1
     /// <summary>
     /// Unique identification of the institution.
     /// </summary>
+    [DataMember]
     public SupervisingAuthorityIdentification1Choice_? Identification { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for an institution.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     
     #nullable disable

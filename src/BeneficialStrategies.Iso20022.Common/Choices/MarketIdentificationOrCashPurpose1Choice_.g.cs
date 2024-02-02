@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(MarketIdentificationOrCashPurpose1Choice.SettlementInstructionMarketIdentification))]
 [KnownType(typeof(MarketIdentificationOrCashPurpose1Choice.CashSSIPurpose))]
+[DataContract]
 public abstract partial record MarketIdentificationOrCashPurpose1Choice_
 {
 }

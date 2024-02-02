@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Obligations of a legal entity or other financial construct that must be met in cash and the resources such legal entity of financial construct has available to meet those obligations.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LiquidityRequiredAndAvailable1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record LiquidityRequiredAndAvailable1
     /// <summary>
     /// Flows of resources that are estimated to be available to the CCP on each day of the reporting horizon. That is, balances as of close‐of‐business on day ‘T‐1’, then flows from day ‘T’ of the default to ‘T+5 onwards’.
     /// </summary>
+    [DataMember]
     public required LiquidResources1 LiquidResources { get; init; } 
     /// <summary>
     /// Period of reporting of liquidity requirements and resources relative to a set date.
     /// </summary>
+    [DataMember]
     public required SettlementDate6Code LiquidityHorizon { get; init; } 
     /// <summary>
     /// Total expected liquidity need under Scenario ID for the relevant currency over each day of the horizon from day T onwards.
     /// </summary>
+    [DataMember]
     public required StressLiquidResourceRequirement1 StressLiquidResourceRequirement { get; init; } 
     
     #nullable disable

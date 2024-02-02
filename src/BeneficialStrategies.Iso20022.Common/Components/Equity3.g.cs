@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Financial instrument which represents a title of ownership in a company, ie, the shareholder is entitled to a part of the company's profit - usually by payment of a dividend - and to voting rights, if any. Each company issues generally different classes of shares, eg, ordinary or common shares, which have no guaranteed amount of dividend but carry voting rights, or preferred shares, which receive dividends before ordinary shares but have no voting right.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Equity3
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Equity3
     /// <summary>
     /// Indicates the level of priority to claim on income and assets of the company in case of the payment of dividends and in the event of a bankruptcy, for example, ordinary/common stocks, preferred stocks, subordinated debt, etc.
     /// </summary>
+    [DataMember]
     public required PreferenceToIncome5Choice_ PreferenceToIncome { get; init; } 
     /// <summary>
     /// Date/time at which the security will no longer exist, for example, redeemable preference shares.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? MaturityDate { get; init; } 
     /// <summary>
     /// Nominal amount which is not paid yet.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? NonPaidAmount { get; init; } 
     /// <summary>
     /// Nominal value of an equity security.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ParValue { get; init; } 
     /// <summary>
     /// Number of voting rights per share.
     /// </summary>
+    [DataMember]
     public IsoNumber? VotingRightsPerShare { get; init; } 
     
     #nullable disable

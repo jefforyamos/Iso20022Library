@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Taxable service charge amount conversions to host currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BillingServicesAmount3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record BillingServicesAmount3
     /// <summary>
     /// Represents the total of all taxable services in a specific tax region for a specific currency. For example, all taxable services for a tax region in Euro would be totalled here in the Euro currency.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection34 SourceAmount { get; init; } 
     /// <summary>
     /// Represents the total of all taxable services in a specific tax region for a specific currency and is a one-to-one relationship with total taxable charge of services, but represented in the host currency after conversion.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection34 HostAmount { get; init; } 
     
     #nullable disable

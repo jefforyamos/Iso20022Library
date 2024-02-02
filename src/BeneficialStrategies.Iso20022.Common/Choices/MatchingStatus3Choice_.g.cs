@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(MatchingStatus3Choice.Matched))]
 [KnownType(typeof(MatchingStatus3Choice.Unmatched))]
 [KnownType(typeof(MatchingStatus3Choice.Proprietary))]
+[DataContract]
 public abstract partial record MatchingStatus3Choice_
 {
 }

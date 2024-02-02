@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes an instance of an intraday margin call being made against a margin account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraDayMarginCall1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record IntraDayMarginCall1
     /// <summary>
     /// Identification of the margin account against which the intraday margin call is being made.
     /// </summary>
+    [DataMember]
     public required GenericIdentification165 MarginAccountIdentification { get; init; } 
     /// <summary>
     /// Value of the call being made.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount IntraDayCall { get; init; } 
     /// <summary>
     /// Time at which the margin call was made.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime TimeStamp { get; init; } 
     
     #nullable disable

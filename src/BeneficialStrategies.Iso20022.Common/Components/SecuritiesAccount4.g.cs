@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account to or from which a securities entry is made.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesAccount4
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record SecuritiesAccount4
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required AccountIdentification1 Identification { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Name { get; init; } 
     /// <summary>
     /// Additional information about a financial instrument to help identify the instrument.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? FinancialInstrumentSupplementaryIdentification { get; init; } 
     /// <summary>
     /// Identification of a security, as assigned under a formal or proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public SecurityIdentification3Choice_? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? FinancialInstrumentName { get; init; } 
     /// <summary>
     /// Specifies the current state of an account, eg, enabled or deleted.
     /// </summary>
+    [DataMember]
     public required AccountStatus1Code Status { get; init; } 
     
     #nullable disable

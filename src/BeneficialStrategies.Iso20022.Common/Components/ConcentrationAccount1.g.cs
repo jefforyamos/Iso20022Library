@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Bank account used by a central counterparty to concentrate cash funds before or after investment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ConcentrationAccount1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record ConcentrationAccount1
     /// <summary>
     /// Indicates inflows into the account.
     /// </summary>
+    [DataMember]
     public required Flows1 InFlow { get; init; } 
     /// <summary>
     /// Indicates outflows out of the account.
     /// </summary>
+    [DataMember]
     public required Flows1 OutFlow { get; init; } 
     /// <summary>
     /// Indicates end of day cash balance on the account.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection102 EndOfDay { get; init; } 
     /// <summary>
     /// Indicates peak credit balance on the account.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount PeakCredit { get; init; } 
     /// <summary>
     /// Indicates peak debit balance on the account.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount PeakDebit { get; init; } 
     /// <summary>
     /// Number of concentration account pay‐ins breaching the allowed time between instruction and confirmation. Usage: nil returns to be included for late payment confirmations in all cleared currencies.
     /// </summary>
+    [DataMember]
     public required IsoMax10NumericText LatePaymentConfirmation { get; init; } 
     
     #nullable disable

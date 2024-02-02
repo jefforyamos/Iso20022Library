@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information specific to an amendment or cancellation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmendInformation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AmendInformation1
     /// <summary>
     /// Identifies the linked message which was previously sent.
     /// </summary>
+    [DataMember]
     public required MessageIdentification PreviousReference { get; init; } 
     /// <summary>
     /// Indicates whether instructions must be resent (in case of modification of the parameters of a meeting for which instructions have already been sent).
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ReconfirmInstructions { get; init; } 
     
     #nullable disable

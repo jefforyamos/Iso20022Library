@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies coprorate action dates.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionDate3
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CorporateActionDate3
     /// <summary>
     /// Date/time at which the distribution is due to take place (cash and/or securities).
     /// </summary>
+    [DataMember]
     public DateFormat4Choice_? PaymentDate { get; init; } 
     /// <summary>
     /// Date/time at which securities become available for sale.
     /// </summary>
+    [DataMember]
     public DateFormat4Choice_? AvailableDate { get; init; } 
     /// <summary>
     /// Date/time at which a security will be entitled to a dividend.
     /// </summary>
+    [DataMember]
     public DateFormat4Choice_? DividendRankingDate { get; init; } 
     /// <summary>
     /// Date on which security will assimilate, become fungible, or have the same rights to dividends as the parent issue.
     /// </summary>
+    [DataMember]
     public DateFormat4Choice_? PariPassuDate { get; init; } 
     /// <summary>
     /// Date/time at which new securities begin trading.
     /// </summary>
+    [DataMember]
     public DateFormat4Choice_? FirstDealingDate { get; init; } 
     /// <summary>
     /// Date/time at which a payment can be made, eg, if payment date is a non-business day or to indicate the first payment date of an offer.
     /// </summary>
+    [DataMember]
     public DateFormat4Choice_? EarliestPaymentDate { get; init; } 
     
     #nullable disable

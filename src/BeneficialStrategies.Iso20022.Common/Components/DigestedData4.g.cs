@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Digest computed on the identified data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DigestedData4
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record DigestedData4
     /// <summary>
     /// Version of the data structure.
     /// </summary>
+    [DataMember]
     public IsoNumber? Version { get; init; } 
     /// <summary>
     /// Identification of the digest algorithm.
     /// </summary>
+    [DataMember]
     public required AlgorithmIdentification16 DigestAlgorithm { get; init; } 
     /// <summary>
     /// Data on which the digest is computed.
     /// </summary>
+    [DataMember]
     public required EncapsulatedContent3 EncapsulatedContent { get; init; } 
     /// <summary>
     /// Result of data-digesting process.
     /// </summary>
+    [DataMember]
     public required IsoMax140Binary Digest { get; init; } 
     
     #nullable disable

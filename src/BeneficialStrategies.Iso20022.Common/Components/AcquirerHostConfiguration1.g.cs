@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Acquirer configuration parameters for a host.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcquirerHostConfiguration1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record AcquirerHostConfiguration1
     /// <summary>
     /// Identification of a host.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text HostIdentification { get; init; } 
     /// <summary>
     /// Types of message to sent to this host.
     /// </summary>
-    public MessageFunction3Code[] MessageToSend { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MessageFunction3Code> MessageToSend { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

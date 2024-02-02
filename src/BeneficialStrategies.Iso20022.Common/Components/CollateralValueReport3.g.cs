@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reports either on the collateral value report or on a business error.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralValueReport3
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record CollateralValueReport3
     /// <summary>
     /// Unique identification, as assigned by the account servicer, to unambiguously identify the account on which information is requested.
     /// </summary>
+    [DataMember]
     public required CashAccount38 CashAccount { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification11? CashAccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the securities account owner.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification8? SecuritiesAccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the securities account on behalf of the account owner.
     /// </summary>
+    [DataMember]
     public PartyIdentification136? SecuritiesAccountServicer { get; init; } 
     /// <summary>
     /// Provides information specific to the report on collateral value positions.
     /// </summary>
-    public CollateralValueReportOrError6Choice_[] CollateralValueReport { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CollateralValueReportOrError6Choice_> CollateralValueReport { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

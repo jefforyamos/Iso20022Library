@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Party that provides services relating to financial products to investors, eg, advice on products and placement of orders for the investment fund.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Intermediary13
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record Intermediary13
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution, eg, Dun & Bradstreet Identification.
     /// </summary>
+    [DataMember]
     public required PartyIdentification4Choice_ Identification { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>
+    [DataMember]
     public Account2? Account { get; init; } 
     /// <summary>
     /// Non-enforcement of the right to all or part of a commission by the party entitled to the commission.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? WaivedTrailerCommissionIndicator { get; init; } 
     /// <summary>
     /// Role or function performed by an intermediary in a given situation.
     /// </summary>
+    [DataMember]
     public InvestmentFundRole3Code? Role { get; init; } 
     /// <summary>
     /// Role or function performed by an intermediary in a given situation.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedRole { get; init; } 
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
+    [DataMember]
     public CommunicationAddress3? PrimaryCommunicationAddress { get; init; } 
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
+    [DataMember]
     public CommunicationAddress3? SecondaryCommunicationAddress { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
+    [DataMember]
     public NameAndAddress4? NameAndAddress { get; init; } 
     
     #nullable disable

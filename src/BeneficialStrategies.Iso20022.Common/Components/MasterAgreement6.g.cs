@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to a master agreement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MasterAgreement6
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record MasterAgreement6
     /// <summary>
     /// Classification of a master agreement.
     /// </summary>
+    [DataMember]
     public required AgreementType1Choice_ Type { get; init; } 
     /// <summary>
     /// Reference to the year of the master agreement version used for the reported trade.
     /// </summary>
+    [DataMember]
     public IsoMax50Text? Version { get; init; } 
     /// <summary>
     /// Additional information specifying the other type of the master agreement.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? OtherMasterAgreementDetails { get; init; } 
     
     #nullable disable

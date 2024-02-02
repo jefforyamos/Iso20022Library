@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to identify a person or an organisation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification129
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record PartyIdentification129
     /// <summary>
     /// Unique identification, as assigned by an organisation, to unambiguously identify a party.
     /// </summary>
+    [DataMember]
     public Party36Choice_? Identification { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address.
     /// </summary>
+    [DataMember]
     public PostalAddress6? PostalAddress { get; init; } 
     /// <summary>
     /// Country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryOfResidence { get; init; } 
     /// <summary>
     /// Contact defined for this party.
     /// </summary>
-    public Contacts3[] ContactDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Contacts3> ContactDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

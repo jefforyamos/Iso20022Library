@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the reversal of an authorisation or financial message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReversalInitiation1
 {
     #nullable enable
@@ -20,32 +22,39 @@ public partial record ReversalInitiation1
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required Environment13 Environment { get; init; } 
     /// <summary>
     /// Context of the reversal transaction.
     /// </summary>
+    [DataMember]
     public Context7? Context { get; init; } 
     /// <summary>
     /// Reversal initiation transaction.
     /// </summary>
+    [DataMember]
     public required Transaction77 Transaction { get; init; } 
     /// <summary>
     /// Outcome of the processing of the authorisation.
     /// </summary>
+    [DataMember]
     public ProcessingResult1? ProcessingResult { get; init; } 
     /// <summary>
     /// Data related to an integrated circuit card application embedded in the payment card of the cardholder.
     /// ISO 8583 bit 55
     /// </summary>
+    [DataMember]
     public IsoMax10KHexBinaryText? ICCRelatedData { get; init; } 
     /// <summary>
     /// Contains protected data and the attributes used to protect the data.
     /// </summary>
-    public ProtectedData1[] ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProtectedData1> ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

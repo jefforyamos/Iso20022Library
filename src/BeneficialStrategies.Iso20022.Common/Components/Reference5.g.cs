@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional references linked to the quote response.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Reference5
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Reference5
     /// <summary>
     /// Unique identifier for quote.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? QuoteIdentification { get; init; } 
     /// <summary>
     /// Unique identifier for quote request.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? QuoteRequestIdentification { get; init; } 
     /// <summary>
     /// Unique identifier of indication of interest message.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? IOIIdentification { get; init; } 
     /// <summary>
     /// Unique identifier for order as assigned by the buy-side ( institution, broker, intermediary.).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientOrderIdentification { get; init; } 
     
     #nullable disable

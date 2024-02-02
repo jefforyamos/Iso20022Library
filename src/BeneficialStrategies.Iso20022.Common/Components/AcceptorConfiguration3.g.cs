@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Acceptor configuration to be downloaded from the terminal management system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcceptorConfiguration3
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record AcceptorConfiguration3
     /// <summary>
     /// Identification of the point of interaction for terminal management.
     /// </summary>
+    [DataMember]
     public GenericIdentification35? POIIdentification { get; init; } 
     /// <summary>
     /// Identification of the terminal management system (TMS) sending the acceptor parameters.
     /// </summary>
+    [DataMember]
     public required GenericIdentification35 TerminalManagerIdentification { get; init; } 
     /// <summary>
     /// Data set containing the acceptor parameters of a point of interaction (POI).
     /// </summary>
-    public TerminalManagementDataSet11[] DataSet { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TerminalManagementDataSet11> DataSet { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the interest rate
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InterestRateDetails2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record InterestRateDetails2
     /// <summary>
     /// Interest rate applicable to the instalment.
     /// </summary>
+    [DataMember]
     public InterestRate1Code? Type { get; init; } 
     /// <summary>
     /// Other type of interest applied to the instalment, when Type is OtherNational or OtherPrivate.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Contains instalment period
     /// </summary>
+    [DataMember]
     public InstalmentPeriod1Code? Period { get; init; } 
     /// <summary>
     /// Rate expressed as a decimal, example, 0.7 is 7/10 and 70%.
     /// </summary>
+    [DataMember]
     public required IsoBaseOneRate Rate { get; init; } 
     
     #nullable disable

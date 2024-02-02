@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to an identification, eg, party identification or account identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RestrictedIdentification2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RestrictedIdentification2
     /// <summary>
     /// Identifier issued to a person for which no specific identifier has been defined.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Specifies the nature of the identifier.|Usage: IdentificationType is used to specify what kind of identifier is used. It should be used in case the identifier is different from the identifiers listed in the pre-defined identifier list.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedSEPACodeText IdentificationType { get; init; } 
     
     #nullable disable

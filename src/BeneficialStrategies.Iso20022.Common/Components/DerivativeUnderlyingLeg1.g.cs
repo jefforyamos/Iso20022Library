@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the obligations of one of the participants to a derivative contract. The obligations may be conceptual or operational only, with settlement of any obligations arising from the derivative contract taking place on a net basis, after the netting of the obligations arising from each leg of the contract.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DerivativeUnderlyingLeg1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DerivativeUnderlyingLeg1
     /// <summary>
     /// Attributes that relate to the financial instrument (contract) being traded that are common across derivatives.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentAttributes88 ContractAttributes { get; init; } 
     /// <summary>
     /// Attributes of a derivative that are specific to whether the derivative is a value defined derivative or quantity defined derivative.
     /// </summary>
+    [DataMember]
     public DefinedAttributes1Choice_? DefinedAttributes { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies whether all remaining assets in a portfolio not listed for transfer should be liquidated and transferred as cash
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AllOtherCash1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AllOtherCash1
     /// <summary>
     /// Indicates whether all remaining assets in a portfolio not listed for transfer should be liquidated and transferred as cash.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Indicator { get; init; } 
     /// <summary>
     /// Currency of the cash.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     
     #nullable disable

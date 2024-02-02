@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies corporate action dates.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionDate66
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionDate66
     /// <summary>
     /// Date/time at which positions are struck at the end of the day to note which parties will receive the relevant amount of entitlement, due to be distributed on payment date.
     /// </summary>
+    [DataMember]
     public DateFormat49Choice_? RecordDate { get; init; } 
     /// <summary>
     /// Date/time as from which trading (including exchange and OTC trading) occurs on the underlying security without the benefit.
     /// </summary>
+    [DataMember]
     public DateFormat49Choice_? ExDividendDate { get; init; } 
     
     #nullable disable

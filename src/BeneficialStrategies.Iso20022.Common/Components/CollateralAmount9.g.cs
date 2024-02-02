@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Securities collateral position valuation amounts.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralAmount9
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CollateralAmount9
     /// <summary>
     /// Actual market value post haircut expressed in the collateral currency. 
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount ActualMarketValuePostHaircut { get; init; } 
     /// <summary>
     /// Actual market value before haircut expressed in the collateral currency.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ActualMarketValueBeforeHaircut { get; init; } 
     /// <summary>
     /// Amount of the exposure/collateral in the exposure/collateral currency.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ExposureCollateralInTransactionCurrency { get; init; } 
     /// <summary>
     /// Amount of the exposure/collateral in the reporting currency.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ExposureCollateralInReportingCurrency { get; init; } 
     /// <summary>
     /// Actual market value post haircut expressed in the transaction currency.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? MarketValueAmountPostHaircut { get; init; } 
     /// <summary>
     /// Actual market value before haircut expressed in the transaction currency. 
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? MarketValueAmountBeforeHaircut { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the parameters for which a transaction report must be generated.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportSpecification4
 {
     #nullable enable
@@ -20,55 +22,68 @@ public partial record ReportSpecification4
     /// <summary>
     /// Unique identification assigned by the matching application to a transaction, for which the matching application must generate a report.
     /// </summary>
-    public IsoMax35Text[] TransactionIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> TransactionIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
-    public TransactionStatus4[] TransactionStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionStatus4> TransactionStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Reference to the identification of a transaction of a user, for which the matching application must generate a report.
     /// </summary>
-    public IsoMax35Text[] SubmitterTransactionReference { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> SubmitterTransactionReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies a list of entities for which the matching application must generate a report.
     /// </summary>
-    public BICIdentification1[] EntitiesToBeReported { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BICIdentification1> EntitiesToBeReported { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Financial institution that is the counterparty to the trade transaction.
     /// </summary>
-    public BICIdentification1[] Correspondent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BICIdentification1> Correspondent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Financial institution that is a data set submitting bank to the transaction.
     /// </summary>
-    public BICIdentification1[] SubmittingBank { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BICIdentification1> SubmittingBank { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Financial institution that is an obligor bank to the transaction.
     /// </summary>
-    public BICIdentification1[] ObligorBank { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BICIdentification1> ObligorBank { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
-    public PartyIdentification28[] Buyer { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyIdentification28> Buyer { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that sells goods or services, or a financial instrument.
     /// </summary>
-    public PartyIdentification28[] Seller { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyIdentification28> Seller { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Country of the buyer.
     /// </summary>
-    public CountryCode[] BuyerCountry { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CountryCode> BuyerCountry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Country of the seller.
     /// </summary>
-    public CountryCode[] SellerCountry { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CountryCode> SellerCountry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Country of the financial institution which is the other party to the trade.
     /// </summary>
-    public CountryCode[] CorrespondentCountry { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CountryCode> CorrespondentCountry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies a pending request for action for which the matching application must generate a report.
     /// </summary>
-    public PendingActivity1[] PendingRequestForAction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PendingActivity1> PendingRequestForAction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

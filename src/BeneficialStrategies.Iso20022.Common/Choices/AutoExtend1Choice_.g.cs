@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(AutoExtend1Choice.Months))]
 [KnownType(typeof(AutoExtend1Choice.Years))]
 [KnownType(typeof(AutoExtend1Choice.Date))]
+[DataContract]
 public abstract partial record AutoExtend1Choice_
 {
 }

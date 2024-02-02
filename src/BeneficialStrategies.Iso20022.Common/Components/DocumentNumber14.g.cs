@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a document.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentNumber14
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record DocumentNumber14
     /// <summary>
     /// Number used to identify a message or document.
     /// </summary>
+    [DataMember]
     public required DocumentNumber6Choice_ Number { get; init; } 
     
     #nullable disable

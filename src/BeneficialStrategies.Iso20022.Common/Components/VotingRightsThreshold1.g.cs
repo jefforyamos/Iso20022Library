@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a threshold level and a threshold basis for passing resolutions at general meetings.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VotingRightsThreshold1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record VotingRightsThreshold1
     /// <summary>
     /// Voting rights threshold required for a resolution to pass in percentage or in quantity.
     /// </summary>
+    [DataMember]
     public required NumberOrPercentage1Choice_ Threshold { get; init; } 
     /// <summary>
     /// Nature of the quantity used as a basis to set a threshold for voting on resolutions at general meetings.
     /// </summary>
+    [DataMember]
     public ThresholdBasis1Choice_? ThresholdBasis { get; init; } 
     
     #nullable disable

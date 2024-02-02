@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Financial instrument where the value of the instrument derives from another financial instrument, benchmark or index.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Derivative3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Derivative3
     /// <summary>
     /// Hierarchy of classification of a derivative.
     /// </summary>
+    [DataMember]
     public required DerivativeClassification1 DerivativeClassification { get; init; } 
     /// <summary>
     /// Rate(s) that determine(s)) the value of the swap during the lifetime of the trade. Where both rates are fixed this does not need to be reported.
     /// </summary>
-    public DerivativeUnderlyingLeg1[] DerivativeUnderlyingLeg { get; init; } = [];
+    [DataMember]
+    public ValueList<DerivativeUnderlyingLeg1> DerivativeUnderlyingLeg { get; init; } = [];
     /// <summary>
     /// Option specific attributes.
     /// </summary>
+    [DataMember]
     public Option14? OptionAttributes { get; init; } 
     
     #nullable disable

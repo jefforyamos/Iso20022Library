@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reports either on the business information or on a business error.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GeneralBusinessReport5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record GeneralBusinessReport5
     /// <summary>
     /// Unique and unambiguous identification of a general business information system, as assigned by the system transaction administrator.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text BusinessInformationReference { get; init; } 
     /// <summary>
     /// Requested business information.
     /// </summary>
+    [DataMember]
     public required GeneralBusinessOrError6Choice_ GeneralBusinessOrError { get; init; } 
     
     #nullable disable

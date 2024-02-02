@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Profile of the customer with the allowed services and restrictions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMCustomerProfile3
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record ATMCustomerProfile3
     /// <summary>
     /// Reference of the customer profile.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProfileReference { get; init; } 
     /// <summary>
     /// Identification of the customer for the bank.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CustomerIdentification { get; init; } 
     /// <summary>
     /// Description of the customer's profile in plaintext.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? ProfileDescription { get; init; } 
     /// <summary>
     /// Services allowed for the customer's profile.
     /// </summary>
-    public ATMService7[] AllowedServices { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMService7> AllowedServices { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

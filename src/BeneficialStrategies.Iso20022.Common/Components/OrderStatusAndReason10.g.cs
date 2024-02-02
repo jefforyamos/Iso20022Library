@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status report of a bulk or multiple or switch order that was previously received.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OrderStatusAndReason10
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OrderStatusAndReason10
     /// <summary>
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Status of a 'bulk' of orders. Can be used if all the individual orders conveyed in a bulk or multiple order message have the same status.
     /// </summary>
+    [DataMember]
     public required OrderStatus3Choice_ OrderStatus { get; init; } 
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>
+    [DataMember]
     public PartyIdentification113? StatusInitiator { get; init; } 
     
     #nullable disable

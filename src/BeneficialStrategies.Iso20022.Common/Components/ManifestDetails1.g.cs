@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the related items or attachments (such as message types and number of messages types) within the file.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ManifestDetails1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ManifestDetails1
     /// <summary>
     /// Specifies the type of items contained in the document set. An initial list of values can be found in the ISO20022 message type catalogue such as admi, camt, pacs, sese, semt etc. ISO messages.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text DocumentType { get; init; } 
     /// <summary>
     /// Gives the number of instances (messages) for each declared type.
     /// </summary>
+    [DataMember]
     public required IsoNumber NumberOfDocuments { get; init; } 
     
     #nullable disable

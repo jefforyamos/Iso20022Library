@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass data validations.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DerivativesStatistics3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record DerivativesStatistics3
     /// <summary>
     /// Total number of derivatives submitted by the report submitting entity for the reporting counterparty.
     /// </summary>
+    [DataMember]
     public required StatisticsPerActionType1 TotalSubmitted { get; init; } 
     /// <summary>
     /// Total number of rejected derivatives submitted by the report submitting entity for the reporting counterparty.
     /// </summary>
+    [DataMember]
     public required StatisticsPerActionType1 TotalRejected { get; init; } 
     /// <summary>
     /// Total number of rejected derivatives submitted by the report submitting entity for the reporting counterparty which were then corrected within ten business days.
     /// </summary>
+    [DataMember]
     public required StatisticsPerActionType1 TotalCorrectedRejections { get; init; } 
     /// <summary>
     /// Identification of the most common data field in reported derivatives that has not passed the validation rule.
     /// </summary>
+    [DataMember]
     public required TopReasonsForRejections2 TopRejectionReasons { get; init; } 
     
     #nullable disable

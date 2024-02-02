@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the agent.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionAgent1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CorporateActionAgent1
     /// <summary>
     /// Identification of the agent.
     /// </summary>
+    [DataMember]
     public required PartyIdentification2Choice_ AgentIdentification { get; init; } 
     /// <summary>
     /// Role played by the agent.
     /// </summary>
+    [DataMember]
     public required AgentRole1FormatChoice_ AgentRole { get; init; } 
     /// <summary>
     /// Contact person at the agent.
     /// </summary>
+    [DataMember]
     public NameAndAddress5? ContactPerson { get; init; } 
     
     #nullable disable

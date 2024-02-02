@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Holding of a financial asset as collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AssetHolding1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AssetHolding1
     /// <summary>
     /// Mark-to-market post-haircut value of the collateral asset holding.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAnd24Amount PostHaircutValue { get; init; } 
     /// <summary>
     /// Specifies financial instrument pledged as collateral.
     /// </summary>
+    [DataMember]
     public required AssetHolding1Choice_ AssetType { get; init; } 
     /// <summary>
     /// Identifies whether collateral relates to default fund requirements or initial margin requirements.
     /// </summary>
+    [DataMember]
     public required CollateralAccountType3Code CollateralRequirement { get; init; } 
     
     #nullable disable

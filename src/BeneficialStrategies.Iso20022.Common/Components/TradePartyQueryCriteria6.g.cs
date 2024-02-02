@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details on the queried trade parties.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradePartyQueryCriteria6
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record TradePartyQueryCriteria6
     /// <summary>
     /// Specifies the AND/OR operators as query criteria.
     /// </summary>
+    [DataMember]
     public required Operation3Code Operator { get; init; } 
     /// <summary>
     /// Identifies the reporting counterparty of the contract.
     /// </summary>
+    [DataMember]
     public TradePartyIdentificationQuery8? ReportingCounterparty { get; init; } 
     /// <summary>
     /// Identifies the other counterparty of the contract.
     /// </summary>
+    [DataMember]
     public TradePartyIdentificationQuery8? OtherCounterparty { get; init; } 
     /// <summary>
     /// Identifies the party subject to the rights and obligations arising from the contract.
     /// </summary>
+    [DataMember]
     public TradePartyIdentificationQuery8? Beneficiary { get; init; } 
     /// <summary>
     /// Identification of the entity in the case where a financial counterparty is responsible for reporting on behalf of the other counterparty.
     /// </summary>
+    [DataMember]
     public TradePartyIdentificationQuery8? EntityResponsibleForReport { get; init; } 
     /// <summary>
     /// Identifies the submitting agent of the reported of the contract.
     /// </summary>
+    [DataMember]
     public TradePartyIdentificationQuery8? SubmittingAgent { get; init; } 
     /// <summary>
     /// Identifies the broker who acts as an intermediary for the reporting counterparty.
     /// </summary>
+    [DataMember]
     public TradePartyIdentificationQuery8? Broker { get; init; } 
     /// <summary>
     /// Unique code for the CCP that has cleared the contract.
     /// </summary>
+    [DataMember]
     public TradePartyIdentificationQuery8? CCP { get; init; } 
     /// <summary>
     /// Identifies the clearing member through which a derivative transaction is cleared at a central counterparty (CCP).  The element applies to transactions under the agency clearing model and the principal clearing model.
     /// </summary>
+    [DataMember]
     public TradePartyIdentificationQuery8? ClearingMember { get; init; } 
     
     #nullable disable

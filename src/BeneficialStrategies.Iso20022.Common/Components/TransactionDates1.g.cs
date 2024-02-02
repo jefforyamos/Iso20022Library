@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements identifying the dates related to the underlying transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionDates1
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record TransactionDates1
     /// <summary>
     /// Point in time when the payment order from the initiating party meets the processing conditions of the account servicing agent (debtor's agent in case of a credit transfer, creditor's agent in case of a direct debit). This means - amongst others - that the account servicing agent has received the payment order and has applied checks as eg, authorisation, availability of funds.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? AcceptanceDateTime { get; init; } 
     /// <summary>
     /// Date on which the trade was executed.
     /// </summary>
+    [DataMember]
     public IsoISODate? TradeDate { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
+    [DataMember]
     public IsoISODate? InterbankSettlementDate { get; init; } 
     /// <summary>
     /// Start date of the underlying transaction, such as a treasury transaction, an investment plan.
     /// </summary>
+    [DataMember]
     public IsoISODate? StartDate { get; init; } 
     /// <summary>
     /// End date of the underlying transaction, such as a treasury transaction, an investment plan.
     /// </summary>
+    [DataMember]
     public IsoISODate? EndDate { get; init; } 
     /// <summary>
     /// Date and time of the underlying transaction.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? TransactionDateTime { get; init; } 
     /// <summary>
     /// Proprietary date related to the underlying transaction.
     /// </summary>
-    public ProprietaryDate1[] Proprietary { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProprietaryDate1> Proprietary { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

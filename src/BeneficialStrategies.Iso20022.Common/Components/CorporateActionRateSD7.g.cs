@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action option securities movement rate details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionRateSD7
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CorporateActionRateSD7
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Corresponding rate of the security disbursed by CSD (for an example in US, DTC The Depository Trust Corporation).
     /// </summary>
+    [DataMember]
     public CorporateActionRateSD6Choice_? CSDSecurityRate { get; init; } 
     /// <summary>
     /// Denotes whether the rate is approximate.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? EstimatedRateFlag { get; init; } 
     /// <summary>
     /// Rate at which a fee will be charged to a DTC (The Depository Trust Corporation) participant.
     /// </summary>
+    [DataMember]
     public PriceFormatSD1Choice_? DTCFeeRate { get; init; } 
     
     #nullable disable

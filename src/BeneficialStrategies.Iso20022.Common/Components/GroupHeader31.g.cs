@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of characteristics shared by all individual transactions included in the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GroupHeader31
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record GroupHeader31
     /// <summary>
     /// Point to point reference, as assigned by the instructing party, and sent to the instructed party, to unambiguously identify the message.|Usage: The instructing party has to make sure that MessageIdentification is unique per instructed party for a pre-agreed period.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// User identification or any user key to be used to check the authority of the initiating party.||Usage: The content is not of a technical nature, but reflects the organisational structure at the initiating side. The authorisation element can typically be used in relay scenarios, payment initiations, payment returns or payment reversals that are initiated on behalf of a party different from the initiating party.
     /// </summary>
-    public Authorisation1Choice_[] Authorisation { get; init; } = [];
+    [DataMember]
+    public ValueList<Authorisation1Choice_> Authorisation { get; init; } = [];
     /// <summary>
     /// Party that initiates the mandate message.
     /// </summary>
+    [DataMember]
     public PartyIdentification32? InitiatingParty { get; init; } 
     /// <summary>
     /// Agent that instructs the next party in the chain to carry out an instruction.||Usage Rule: |In case of amendment and cancellation request messages, the instructing agent is the party sending the amendment and cancellation request message and not the party that sent the original mandate initiation request message.|In case of acceptance report message, the instructing agent is the party sending the acceptance report message and not the party that sent the original mandate request message.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? InstructingAgent { get; init; } 
     /// <summary>
     /// Agent that is instructed by the previous party in the chain to carry out an instruction.||Usage Rule: |In case of amendment and cancellation request messages, the instructed agent is the party receiving the amendment and cancellation request message and not the party that received the original mandate initiation request message.|In case of acceptance report message, the instructed agent is the party receiving the acceptance report message and not the party that received the original mandate request message.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? InstructedAgent { get; init; } 
     
     #nullable disable

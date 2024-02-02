@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ProxyAccountType1Choice.Code))]
 [KnownType(typeof(ProxyAccountType1Choice.Proprietary))]
+[DataContract]
 public abstract partial record ProxyAccountType1Choice_
 {
 }

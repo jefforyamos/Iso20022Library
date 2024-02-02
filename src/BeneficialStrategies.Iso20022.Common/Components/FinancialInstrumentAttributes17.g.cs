@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Description of the financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentAttributes17
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record FinancialInstrumentAttributes17
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification14 SecurityIdentification { get; init; } 
     /// <summary>
     /// Quantity of entitled intermediate securities based on the balance of underlying securities.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? Quantity { get; init; } 
     /// <summary>
     /// Specifies whether terms of the event allow resale of the rights.
     /// </summary>
+    [DataMember]
     public RenounceableEntitlementStatusTypeFormat1Choice_? RenounceableEntitlementStatusType { get; init; } 
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
+    [DataMember]
     public FractionDispositionType9Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Quantity of intermediate securities awarded for a given quantity of underlying security.
     /// </summary>
+    [DataMember]
     public QuantityToQuantityRatio1? IntermediateSecuritiesToUnderlyingRatio { get; init; } 
     /// <summary>
     /// Last reported/known price of a financial instrument in a market.
     /// </summary>
+    [DataMember]
     public AmountPrice2? MarketPrice { get; init; } 
     /// <summary>
     /// Date on which an order expires or at which a privilege or offer terminates.
     /// </summary>
+    [DataMember]
     public required DateFormat16Choice_ ExpiryDate { get; init; } 
     /// <summary>
     /// Date of the posting (credit or debit) to the account.
     /// </summary>
+    [DataMember]
     public required DateFormat16Choice_ PostingDate { get; init; } 
     /// <summary>
     /// Period during which intermediate or outturn securities are tradable in a secondary market.
     /// </summary>
+    [DataMember]
     public Period4? TradingPeriod { get; init; } 
     /// <summary>
     /// Balance of uninstructed position.
     /// </summary>
+    [DataMember]
     public BalanceFormat1Choice_? UninstructedBalance { get; init; } 
     /// <summary>
     /// Balance of instructed position.
     /// </summary>
+    [DataMember]
     public BalanceFormat1Choice_? InstructedBalance { get; init; } 
     
     #nullable disable

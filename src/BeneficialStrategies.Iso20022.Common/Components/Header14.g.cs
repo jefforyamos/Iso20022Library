@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of characteristics related to the transfer of transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Header14
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record Header14
     /// <summary>
     /// Indicates if the file transfer is a download or an upload.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator DownloadTransfer { get; init; } 
     /// <summary>
     /// Version of file format.
     /// </summary>
+    [DataMember]
     public required IsoMax6Text FormatVersion { get; init; } 
     /// <summary>
     /// Unique identification of an exchange occurrence.
     /// </summary>
+    [DataMember]
     public required IsoMax3NumericText ExchangeIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the file or message was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Unique identification of the partner that has initiated the exchange.
     /// </summary>
+    [DataMember]
     public required GenericIdentification71 InitiatingParty { get; init; } 
     /// <summary>
     /// Unique identification of the partner that is the recipient of the exchange.
     /// </summary>
+    [DataMember]
     public GenericIdentification71? RecipientParty { get; init; } 
     
     #nullable disable

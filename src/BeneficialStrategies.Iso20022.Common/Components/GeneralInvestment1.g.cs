@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a general investment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GeneralInvestment1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record GeneralInvestment1
     /// <summary>
     /// Type of investment.
     /// </summary>
+    [DataMember]
     public GeneralInvestmentAccountType1Choice_? Type { get; init; } 
     /// <summary>
     /// Amount of money invested.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? CurrentInvestmentAmount { get; init; } 
     /// <summary>
     /// Estimated value of the assets.
     /// </summary>
+    [DataMember]
     public DateAndAmount2? EstimatedValue { get; init; } 
     /// <summary>
     /// Additional information about the portfolio.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

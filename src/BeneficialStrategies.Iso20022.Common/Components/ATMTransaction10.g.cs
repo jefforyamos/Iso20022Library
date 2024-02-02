@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Response to the PIN management transaction. request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransaction10
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record ATMTransaction10
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period assigned by the ATM.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// True if a completion advice has to be sent after the end of the transaction.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CompletionRequired { get; init; } 
     /// <summary>
     /// Result of the PIN service.
     /// </summary>
+    [DataMember]
     public required ResponseType3 TransactionResponse { get; init; } 
     /// <summary>
     /// Sequence of actions to be performed by the ATM to complete the transaction.
     /// </summary>
-    public Action5[] Action { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Action5> Action { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
+    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    public ATMCommand1[] Command { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCommand1> Command { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Balance of the account involved in the card transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountBalance2
 {
     #nullable enable
@@ -21,11 +23,13 @@ public partial record AccountBalance2
     /// Account for which a balance is sought.
     /// This code list is maintained by the ISO 8583/MA (maintenance agency).
     /// </summary>
+    [DataMember]
     public required ISO8583AccountTypeCode AccountType { get; init; } 
     /// <summary>
     /// Balance of the account.
     /// </summary>
-    public Balance28[] Balance { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Balance28> Balance { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

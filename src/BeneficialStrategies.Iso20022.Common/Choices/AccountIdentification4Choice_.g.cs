@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(AccountIdentification4Choice.IBAN))]
 [KnownType(typeof(AccountIdentification4Choice.Other))]
+[DataContract]
 public abstract partial record AccountIdentification4Choice_
 {
 }

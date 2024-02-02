@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Features of a media resource.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ResourceContent1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ResourceContent1
     /// <summary>
     /// Type of media resource.
     /// </summary>
+    [DataMember]
     public required ResourceType1Code ResourceType { get; init; } 
     /// <summary>
     /// Format of the media resource;
     /// </summary>
+    [DataMember]
     public SoundFormat1Code? ResourceFormat { get; init; } 
     /// <summary>
     /// Language of the media resource.
     /// </summary>
+    [DataMember]
     public LanguageCode? Language { get; init; } 
     /// <summary>
     /// Reference of a media resource.
     /// </summary>
+    [DataMember]
     public IsoMax1025Text? ResourceReference { get; init; } 
     
     #nullable disable

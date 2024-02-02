@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the reason for the status of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerStatusReason1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record TrackerStatusReason1
     /// <summary>
     /// Reason for the status, as published in an external reason code list.
     /// </summary>
+    [DataMember]
     public required TrackerTransactionStatusReason1Code Code { get; init; } 
     
     #nullable disable

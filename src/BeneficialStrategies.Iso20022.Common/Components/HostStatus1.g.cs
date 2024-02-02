@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// State of a Host.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record HostStatus1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record HostStatus1
     /// <summary>
     /// Identification of the Acquirer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text AcquirerIdentification { get; init; } 
     /// <summary>
     /// Indicate if a Host is reachable.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? Reachable { get; init; } 
     
     #nullable disable

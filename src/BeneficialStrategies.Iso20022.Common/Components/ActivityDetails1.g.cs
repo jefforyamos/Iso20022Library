@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the activities that took place during a certain period for one trade transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ActivityDetails1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ActivityDetails1
     /// <summary>
     /// Date and time when the activity occurred.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime DateTime { get; init; } 
     /// <summary>
     /// Description of the reported activities.
     /// </summary>
+    [DataMember]
     public required Activity1 Activity { get; init; } 
     /// <summary>
     /// Financial institution which initiated the activity.
     /// </summary>
+    [DataMember]
     public required BICIdentification1 Initiator { get; init; } 
     
     #nullable disable

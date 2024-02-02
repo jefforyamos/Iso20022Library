@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(UnilateralSplit3Choice.Code))]
 [KnownType(typeof(UnilateralSplit3Choice.Proprietary))]
+[DataContract]
 public abstract partial record UnilateralSplit3Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the securities market transaction report related header details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesMarketReportHeader1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SecuritiesMarketReportHeader1
     /// <summary>
     /// Identification of the venue which generates the report.
     /// </summary>
+    [DataMember]
     public required TradingVenueIdentification1Choice_ ReportingEntity { get; init; } 
     /// <summary>
     /// Date or date range the report relates to.
     /// </summary>
+    [DataMember]
     public required Period4Choice_ ReportingPeriod { get; init; } 
     /// <summary>
     /// Date and time of the report originally submitted by the reporting entity when the file is generated for submission to their reporting authority.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? SubmissionDateTime { get; init; } 
     
     #nullable disable

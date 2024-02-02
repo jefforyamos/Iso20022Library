@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains details about called certificates.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionSD15
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionSD15
     /// <summary>
     /// Unique identification or serial number that is assigned and affixed by an issuer or transfer agent to each securities certificate.
     /// </summary>
+    [DataMember]
     public required IsoMax15AlphaNumericText CertificateNumber { get; init; } 
     /// <summary>
     /// Principal amount (for debt issues) or number of shares (for equity issues) that has been called for redemption for a particular certificate number.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber CertificateCalledAmount { get; init; } 
     
     #nullable disable

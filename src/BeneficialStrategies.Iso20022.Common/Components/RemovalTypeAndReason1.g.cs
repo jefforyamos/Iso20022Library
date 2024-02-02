@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the removal type, the reason, the exclusion period, the extension date and the termination date.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RemovalTypeAndReason1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record RemovalTypeAndReason1
     /// <summary>
     /// Specifies the removal processing change requested.
     /// </summary>
+    [DataMember]
     public required Removal1Choice_ RemovalType { get; init; } 
     /// <summary>
     /// Identifies the reason for the removal, the extension of the removal or the termination of the removal.
     /// </summary>
+    [DataMember]
     public GenericIdentification30? Reason { get; init; } 
     /// <summary>
     /// Identifies the period, the start date or the end date of the exclusion period.
     /// </summary>
+    [DataMember]
     public DateOrDateTimePeriod3Choice_? ExclusionPeriod { get; init; } 
     
     #nullable disable

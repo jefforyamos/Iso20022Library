@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional references linked to the quote request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Reference1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Reference1
     /// <summary>
     /// Reference assigned by a sending party to unambiguously identify the request for quote.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RequestForQuoteRequestIdentification { get; init; } 
     /// <summary>
     /// Unique identifier of the order as assigned by institution or by the intermediary with closest association with the investor.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientOrderIdentification { get; init; } 
     
     #nullable disable

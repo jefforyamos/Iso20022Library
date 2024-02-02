@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains the details of the job or task of the individual working in a temporary capacity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TemporaryServicesJob1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record TemporaryServicesJob1
     /// <summary>
     /// Identifies the job or task being performed by the individual working in a temporary capacity.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? JobCode { get; init; } 
     /// <summary>
     /// Contains the description of the job or task of the individual working in a temporary capacity.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Description { get; init; } 
     /// <summary>
     /// Contains the start date of the job. 
     /// </summary>
+    [DataMember]
     public IsoISODate? StartDate { get; init; } 
     /// <summary>
     /// Duration of the job expressed in number of days. 
     /// </summary>
+    [DataMember]
     public IsoMax5NumericText? Duration { get; init; } 
     /// <summary>
     /// Contains the end date of the job. 
     /// </summary>
+    [DataMember]
     public IsoISODate? EndDate { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a person, a financial institution or a non-financial institution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification12
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record PartyIdentification12
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text Name { get; init; } 
     
     #nullable disable

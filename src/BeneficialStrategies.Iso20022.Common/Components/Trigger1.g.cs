@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Trigger parameters.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Trigger1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record Trigger1
     /// <summary>
     /// Details related to the date on which a variation is effective.
     /// </summary>
+    [DataMember]
     public FixedOrRecurrentDate1Choice_? DateChoice { get; init; } 
     /// <summary>
     /// Details related to the documentary event on which a variation is triggered.
     /// </summary>
-    public Document10[] DocumentaryEvent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Document10> DocumentaryEvent { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

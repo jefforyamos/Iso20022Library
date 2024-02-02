@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the data for the pending intra-balance movements.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraBalancePending5
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record IntraBalancePending5
     /// <summary>
     /// Status and status reason of the transaction.
     /// </summary>
+    [DataMember]
     public PendingStatusAndReason2? StatusAndReason { get; init; } 
     /// <summary>
     /// Further details on the individual intrabalance movement transaction.
     /// </summary>
-    public IntraBalancePending6[] Movement { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IntraBalancePending6> Movement { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the details of an organisation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification58
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record PartyIdentification58
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Name { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? LegalName { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
+    [DataMember]
     public PostalAddress11? PostalAddress { get; init; } 
     /// <summary>
     /// Unique and unambiguous way to identify the party.
     /// </summary>
+    [DataMember]
     public required Party13Choice_ Identification { get; init; } 
     /// <summary>
     /// Country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryOfResidence { get; init; } 
     /// <summary>
     /// Indicate how to contact the party.
     /// </summary>
+    [DataMember]
     public ContactDetails3? ContactDetails { get; init; } 
     
     #nullable disable

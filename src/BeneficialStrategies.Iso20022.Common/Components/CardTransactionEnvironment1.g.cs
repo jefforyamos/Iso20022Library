@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardTransactionEnvironment1
 {
     #nullable enable
@@ -20,43 +22,53 @@ public partial record CardTransactionEnvironment1
     /// <summary>
     /// Acquirer of the card transaction.
     /// </summary>
+    [DataMember]
     public required Acquirer6 Acquirer { get; init; } 
     /// <summary>
     /// Identification of the interconnected card scheme from which the request is coming.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CardSchemeIdentification { get; init; } 
     /// <summary>
     /// Acceptor performing the card transaction.
     /// </summary>
+    [DataMember]
     public Organisation18? Acceptor { get; init; } 
     /// <summary>
     /// Payment terminal or ATM performing the transaction.
     /// </summary>
+    [DataMember]
     public CardAcceptorTerminal1? Terminal { get; init; } 
     /// <summary>
     /// Card performing the transaction.
     /// </summary>
+    [DataMember]
     public required PaymentCard12 Card { get; init; } 
     /// <summary>
     /// Container of tenders used by the customer to perform the payment.
     /// </summary>
+    [DataMember]
     public CustomerDevice1? CustomerDevice { get; init; } 
     /// <summary>
     /// Container of tenders used by the customer to perform the payment.
     /// </summary>
+    [DataMember]
     public CustomerDevice1? Wallet { get; init; } 
     /// <summary>
     /// Payment token information.
     /// </summary>
+    [DataMember]
     public CardPaymentToken4? PaymentToken { get; init; } 
     /// <summary>
     /// Cardholder involved in the card transaction. 
     /// It correspond partially to the ISO 8583: 2003, field number 49-71.
     /// </summary>
+    [DataMember]
     public Cardholder9? Cardholder { get; init; } 
     /// <summary>
     /// Protection of cardholder sensitive data by a digital envelope using a cryptographic key.
     /// </summary>
+    [DataMember]
     public ContentInformationType10? ProtectedCardholderData { get; init; } 
     
     #nullable disable

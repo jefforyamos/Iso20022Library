@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(Track2Data1Choice.TextValue))]
 [KnownType(typeof(Track2Data1Choice.HexadecimalBinaryValue))]
+[DataContract]
 public abstract partial record Track2Data1Choice_
 {
 }

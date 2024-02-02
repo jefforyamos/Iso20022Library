@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specify the ISIN(s) and / or LEI(s) that are present in a basket.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrument53
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record FinancialInstrument53
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
-    public IsoISINOct2015Identifier[] ISIN { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoISINOct2015Identifier> ISIN { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// The LEI code of the issuer where the instrument is referring to an issuer rather than one single instrument.
     /// </summary>
-    public IsoLEIIdentifier[] LEI { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoLEIIdentifier> LEI { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

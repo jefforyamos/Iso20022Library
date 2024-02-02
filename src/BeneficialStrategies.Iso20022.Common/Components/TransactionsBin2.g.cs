@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies aggregated details on transactions within a defined numeric range bin.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionsBin2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TransactionsBin2
     /// <summary>
     /// Total number of transactions executed for that bin. Transactions that have been cancelled should be excluded from the reported figure.
     /// </summary>
+    [DataMember]
     public required IsoNumber NumberOfTransactions { get; init; } 
     /// <summary>
     /// Total notional amount traded represented by all transactions executed on the reporting day which size lies in the bin's range, expressed in the currency as specified in the local regulation (except for emission allowances and emission allowance derivatives: tons of carbon dioxide). Transactions that have been cancelled should be excluded from the reported figure.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber TotalNotionalAmount { get; init; } 
     /// <summary>
     /// Specific range the quantitative data relates to. Only allowed ranges must be used.
     /// </summary>
+    [DataMember]
     public required FromToQuantityRange2 Range { get; init; } 
     
     #nullable disable

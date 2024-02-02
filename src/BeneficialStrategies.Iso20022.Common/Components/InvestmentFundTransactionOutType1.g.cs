@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Investment fund transactions that result in cash movements out of a fund, eg, redemption, switch-out.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentFundTransactionOutType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InvestmentFundTransactionOutType1
     /// <summary>
     /// Type of transaction, expressed as a code.
     /// </summary>
+    [DataMember]
     public required InvestmentFundTransactionOutType4Code Structured { get; init; } 
     /// <summary>
     /// Additional information about the type of transaction.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

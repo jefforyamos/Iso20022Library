@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardTransactionEnvironment5
 {
     #nullable enable
@@ -21,15 +23,18 @@ public partial record CardTransactionEnvironment5
     /// Institution initiator of the reconciliation.
     /// It corresponds to the ISO 8583 field number 94.
     /// </summary>
+    [DataMember]
     public required GenericIdentification73 SendingInstitution { get; init; } 
     /// <summary>
     /// Institution destination of the reconciliation.
     /// It corresponds to the ISO 8583 field number 93.
     /// </summary>
+    [DataMember]
     public required GenericIdentification73 ReceivingInstitution { get; init; } 
     /// <summary>
     /// Institution in charge of the settlement of the transaction.
     /// </summary>
+    [DataMember]
     public required GenericIdentification73 SettlementInstitution { get; init; } 
     
     #nullable disable

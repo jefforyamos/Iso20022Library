@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Variables used to quantify the different calculations for position sets and currency position sets reports.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PositionSetTotal1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PositionSetTotal1
     /// <summary>
     /// Refers to the number of trades contained in the position set.
     /// </summary>
+    [DataMember]
     public IsoMax20PositiveNumber? NumberOfTrades { get; init; } 
     /// <summary>
     /// Aggregations of all positive values of the derivative for all derivatives pertaining to a position set.
     /// </summary>
+    [DataMember]
     public PositionSetValueAndNotional1? Positive { get; init; } 
     /// <summary>
     /// Aggregations of all negative values of the derivative for all derivatives pertaining to a position set.
     /// </summary>
+    [DataMember]
     public PositionSetValueAndNotional1? Negative { get; init; } 
     
     #nullable disable

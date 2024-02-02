@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parties used for acting parties that apply either to the whole message or to individual sides.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ConfirmationPartyDetails15
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record ConfirmationPartyDetails15
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution, eg, Dun & Bradstreet Identification.
     /// </summary>
+    [DataMember]
     public required PartyIdentification240Choice_ Identification { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount35? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>
+    [DataMember]
     public AccountIdentification55Choice_? CashDetails { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
+    [DataMember]
     public AlternatePartyIdentification8? AlternateIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction for the party identified.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProcessingIdentification { get; init; } 
     /// <summary>
     /// Provides additional information to a party identification.
     /// </summary>
+    [DataMember]
     public PartyTextInformation5? AdditionalInformation { get; init; } 
     
     #nullable disable

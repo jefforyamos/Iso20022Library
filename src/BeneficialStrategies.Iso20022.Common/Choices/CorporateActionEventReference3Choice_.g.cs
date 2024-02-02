@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CorporateActionEventReference3Choice.LinkedOfficialCorporateActionEventIdentification))]
 [KnownType(typeof(CorporateActionEventReference3Choice.LinkedCorporateActionIdentification))]
+[DataContract]
 public abstract partial record CorporateActionEventReference3Choice_
 {
 }

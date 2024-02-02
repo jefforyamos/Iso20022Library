@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of data request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RequestDetails3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RequestDetails3
     /// <summary>
     /// Type of data being requested, for example, a sub-member BIC.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Specific report data requested, for example, a BIC.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Key { get; init; } 
     
     #nullable disable

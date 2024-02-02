@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money debited or credited on the books of an account servicer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountAndDirection19
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AmountAndDirection19
     /// <summary>
     /// Amount of money that is debited or credited.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates if the amount is a debited or a credited.
     /// </summary>
+    [DataMember]
     public CreditDebitCode? CreditDebit { get; init; } 
     
     #nullable disable

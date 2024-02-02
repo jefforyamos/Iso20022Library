@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the transaction type as defined in the relevant regulation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementFailsTransactionType2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record SettlementFailsTransactionType2
     /// <summary>
     /// Purchase or sale of securities.
     /// </summary>
+    [DataMember]
     public required SettlementTotalData1Choice_ SecuritiesBuyOrSell { get; init; } 
     /// <summary>
     /// Relates to securities transfers aiming to provide or to return collateral.
     /// </summary>
+    [DataMember]
     public required SettlementTotalData1Choice_ CollateralManagementOperation { get; init; } 
     /// <summary>
     /// Relates to a securities lending or borrowing operation.
     /// </summary>
+    [DataMember]
     public required SettlementTotalData1Choice_ SecuritiesLendingOrBorrowing { get; init; } 
     /// <summary>
     /// Repurchase transactions.
     /// </summary>
+    [DataMember]
     public required SettlementTotalData1Choice_ RepurchaseAgreement { get; init; } 
     /// <summary>
     /// Covers any securities transactions type not covered as a dedicated type.
     /// </summary>
+    [DataMember]
     public required SettlementTotalData1Choice_ Other { get; init; } 
     
     #nullable disable

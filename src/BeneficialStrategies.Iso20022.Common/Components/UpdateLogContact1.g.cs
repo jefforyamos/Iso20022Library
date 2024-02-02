@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the old and new values for the contact details
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UpdateLogContact1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record UpdateLogContact1
     /// <summary>
     /// Old value before change
     /// </summary>
+    [DataMember]
     public required Contact5 Old { get; init; } 
     /// <summary>
     /// New value after change
     /// </summary>
+    [DataMember]
     public required Contact5 New { get; init; } 
     
     #nullable disable

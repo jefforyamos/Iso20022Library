@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Previous employment information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EmploymentDetails1
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record EmploymentDetails1
     /// <summary>
     /// Current tax code.
     /// </summary>
+    [DataMember]
     public GenericIdentification36? TaxCode { get; init; } 
     /// <summary>
     /// Indicates whether or not another tax code exists.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? OtherTaxCodeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether tax is cumulative or non-cumulative. In the UK, this is known as the W1M1 indicator.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CumulativeTaxIndicator { get; init; } 
     /// <summary>
     /// Amount of the previous pay.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? PreviousPay { get; init; } 
     /// <summary>
     /// Amount of the previous tax.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? PreviousTax { get; init; } 
     /// <summary>
     /// Start date of the employment period.
     /// </summary>
+    [DataMember]
     public DateFormat42Choice_? StartDate { get; init; } 
     /// <summary>
     /// End date of the employment period.
     /// </summary>
+    [DataMember]
     public DateFormat42Choice_? EndDate { get; init; } 
     /// <summary>
     /// Additional information about the employment.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

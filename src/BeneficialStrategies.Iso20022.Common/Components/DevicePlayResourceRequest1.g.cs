@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Play Request message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DevicePlayResourceRequest1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record DevicePlayResourceRequest1
     /// <summary>
     /// Message response awaited by the initiator of the Request.
     /// </summary>
+    [DataMember]
     public ResponseMode2Code? ResponseMode { get; init; } 
     /// <summary>
     /// Requested Action: Start to play a media resource, Stop to play a media resource, Set the default volume.
     /// </summary>
+    [DataMember]
     public required ResourceAction1Code ResourceAction { get; init; } 
     /// <summary>
     /// Volume of a sound, either in a percentage of the maximum volume, or 0 to mute.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? SoundVolume { get; init; } 
     /// <summary>
     /// Resolution to use.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DisplayResolution { get; init; } 
     /// <summary>
     /// Identification of the resource to use.
     /// </summary>
+    [DataMember]
     public ResourceContent1? Resource { get; init; } 
     /// <summary>
     /// Identification of the moment to manage the media resource.
     /// </summary>
+    [DataMember]
     public ProcessingPosition2Code? TimingSlot { get; init; } 
     
     #nullable disable

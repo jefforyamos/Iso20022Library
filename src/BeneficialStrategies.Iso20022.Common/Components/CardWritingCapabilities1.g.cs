@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Card writing capability of the terminal performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardWritingCapabilities1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CardWritingCapabilities1
     /// <summary>
     /// Card writing capability of the terminal performing the transaction.
     /// </summary>
+    [DataMember]
     public required CardDataWriting1Code Capability { get; init; } 
     /// <summary>
     /// Other types of card data writing capabilities.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherCapability { get; init; } 
     
     #nullable disable

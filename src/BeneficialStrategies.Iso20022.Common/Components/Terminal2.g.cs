@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment terminal or ATM performing the transaction
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Terminal2
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record Terminal2
     /// <summary>
     /// Identification of the terminal performing the transaction.
     /// </summary>
+    [DataMember]
     public required TerminalIdentification1 TerminalIdentification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Proprietary vote type and quantity voted.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProprietaryVote1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ProprietaryVote1
     /// <summary>
     /// Other type of vote expressed as a proprietary code.
     /// </summary>
+    [DataMember]
     public required GenericIdentification30 Code { get; init; } 
     /// <summary>
     /// Quantity of securities voted.
     /// </summary>
+    [DataMember]
     public required QuantityOrCode1Choice_ Quantity { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Includes data elements that can be used for reporting to trade repositories, it is not to be used on regular trade confirmations. Although some fields, for example, unique transaction identifier and prior unique transaction identifier, might be used on regular confirmations.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RegulatoryReporting1
 {
     #nullable enable
@@ -20,66 +22,82 @@ public partial record RegulatoryReporting1
     /// <summary>
     /// Specifies the supervisory party to which the trade needs to be reported.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReportingJurisdiction { get; init; } 
     /// <summary>
     /// Identifies the party that is responsible for reporting the trade to the trade repository.
     /// </summary>
+    [DataMember]
     public PartyIdentification73Choice_? ReportingParty { get; init; } 
     /// <summary>
     /// Specifies the unique transaction identifier (UTI) to be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction over its life. This identifier can also be known as the Unique Swap Identifier (USI).This is the UTI from the Trading Side party.
     /// </summary>
+    [DataMember]
     public UniqueTransactionIdentifier1? TradingSideUniqueTransactionIdentifier { get; init; } 
     /// <summary>
     /// Specifies the unique transaction identifier (UTI) to be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction over its life. This identifier can also be known as the Unique Swap Identifier (USI).This is the UTI from the Counterparty Side party.
     /// </summary>
+    [DataMember]
     public UniqueTransactionIdentifier1? CounterpartySideUniqueTransactionIdentifier { get; init; } 
     /// <summary>
     /// Identifies the party that is exempt from a clearing obligation.
     /// </summary>
+    [DataMember]
     public PartyIdentification73Choice_? ClearingExceptionParty { get; init; } 
     /// <summary>
     /// Specifies the reference number assigned by the clearing broker. A distinction can be made between the reference for the Central Counterparty (CCP) leg and the reference for the client leg of the transaction.
     /// </summary>
+    [DataMember]
     public ClearingBrokerIdentification1? ClearingBrokerIdentification { get; init; } 
     /// <summary>
     /// Specifies whether the contract is above or below the clearing threshold. Where No indicates the contract is below the clearing threshold and Yes indicates the contract is above the clearing threshold.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ClearingThresholdIndicator { get; init; } 
     /// <summary>
     /// Specifies the reference number assigned by the Central Counterparty (CCP).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClearedProductIdentification { get; init; } 
     /// <summary>
     /// Specifies the underlying product type.
     /// </summary>
+    [DataMember]
     public UnderlyingProductIdentifier1Code? UnderlyingProductIdentifier { get; init; } 
     /// <summary>
     /// Specifies whether the trade is a pre-allocation or a post-allocation trade, or whether the trade is unallocated.
     /// </summary>
+    [DataMember]
     public AllocationIndicator1Code? AllocationIndicator { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is collateralised.
     /// </summary>
+    [DataMember]
     public CollateralisationIndicator1Code? CollateralisationIndicator { get; init; } 
     /// <summary>
     /// Specifies the trading venue of the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ExecutionVenue { get; init; } 
     /// <summary>
     /// Specifies the date and time of the execution of the transaction in Coordinated Universal Time (UTC).
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? ExecutionTimestamp { get; init; } 
     /// <summary>
     /// Specifies whether the reportable transaction has one or more additional terms or provisions, other than those listed in the required real-time data fields, that materially affects the price of the reportable transaction.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? NonStandardFlag { get; init; } 
     /// <summary>
     /// Specifies the common reference or correlation identification for a swap transaction where the near and far leg are confirmed separately.
     /// </summary>
+    [DataMember]
     public IsoExact42Text? LinkSwapIdentification { get; init; } 
     /// <summary>
     /// Specifies additional information that might be required by the regulator.
     /// </summary>
+    [DataMember]
     public IsoMax210Text? AdditionalReportingInformation { get; init; } 
     
     #nullable disable

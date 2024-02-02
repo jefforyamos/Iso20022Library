@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status report of the individual orders of a bulk or multiple order that was previously received.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SwitchOrderStatusAndReason2
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record SwitchOrderStatusAndReason2
     /// <summary>
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the order, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the order execution, as assigned by the confirming party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DealReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the order cancellation, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Status of the switch order.
     /// </summary>
+    [DataMember]
     public required OrderStatus4Choice_ OrderStatus { get; init; } 
     /// <summary>
     /// Information about a switch leg that is rejected or repaired.
     /// </summary>
-    public SwitchLegReferences2[] LegInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SwitchLegReferences2> LegInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>
+    [DataMember]
     public PartyIdentification113? StatusInitiator { get; init; } 
     /// <summary>
     /// Order data.
     /// </summary>
+    [DataMember]
     public FundOrderData6? OrderData { get; init; } 
     /// <summary>
     /// Expected execution information.
     /// </summary>
+    [DataMember]
     public ExpectedExecutionDetails2? NewDetails { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Relates an amount to a period of time.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountAndPeriod1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AmountAndPeriod1
     /// <summary>
     /// Amount of this period.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Start of period or immediate if not specified.
     /// </summary>
+    [DataMember]
     public IsoISODate? StartDate { get; init; } 
     /// <summary>
     /// End of period or indefinite if not specified.
     /// </summary>
+    [DataMember]
     public IsoISODate? EndDate { get; init; } 
     
     #nullable disable

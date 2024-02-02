@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Capabilities of the POI performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PointOfInteractionCapabilities1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record PointOfInteractionCapabilities1
     /// <summary>
     /// Card reading capabilities of the POI performing the transaction.
     /// </summary>
-    public CardDataReading1Code[] CardReadingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardDataReading1Code> CardReadingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cardholder verification capabilities of the POI performing the transaction.
     /// </summary>
-    public CardholderVerificationCapability1Code[] CardholderVerificationCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardholderVerificationCapability1Code> CardholderVerificationCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// On-line and off-line capabilities of the POI.
     /// </summary>
+    [DataMember]
     public OnLineCapability1Code? OnLineCapabilities { get; init; } 
     /// <summary>
     /// Capabilities of the display components performing the transaction.
     /// </summary>
-    public DisplayCapabilities1[] DisplayCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DisplayCapabilities1> DisplayCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number of columns of the printer component.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? PrintLineWidth { get; init; } 
     
     #nullable disable

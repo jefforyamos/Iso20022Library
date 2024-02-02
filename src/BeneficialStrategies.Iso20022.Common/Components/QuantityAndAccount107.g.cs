@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details on a quantity, account and other related information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record QuantityAndAccount107
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record QuantityAndAccount107
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity36Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Denomination of the security to be received or delivered.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax210Text? DenominationChoice { get; init; } 
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
+    [DataMember]
     public CashAccountIdentification6Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Breakdown of a quantity into lots such as tax lots, instrument series.
     /// </summary>
-    public QuantityBreakdown69[] QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QuantityBreakdown69> QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [DataMember]
     public SafeKeepingPlace4? SafekeepingPlace { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for a number field represented as a 19 decimals.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareLongFraction19DecimalNumber1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareLongFraction19DecimalNumber1
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public IsoLongFraction19DecimalNumber? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public IsoLongFraction19DecimalNumber? Value2 { get; init; } 
     
     #nullable disable

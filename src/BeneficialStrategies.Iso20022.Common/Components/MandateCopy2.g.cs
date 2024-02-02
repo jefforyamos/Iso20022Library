@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the mandate, for which a copy of the details is requested.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MandateCopy2
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record MandateCopy2
     /// <summary>
     /// Provides information on the original message.
     /// </summary>
+    [DataMember]
     public OriginalMessageInformation1? OriginalMessageInformation { get; init; } 
     /// <summary>
     /// Provides the original mandate data.
     /// </summary>
+    [DataMember]
     public required OriginalMandate6Choice_ OriginalMandate { get; init; } 
     /// <summary>
     /// Indicates the status of the mandate.
     /// </summary>
+    [DataMember]
     public MandateStatus1Choice_? MandateStatus { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

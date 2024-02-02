@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Party involved in the settlement chain.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentificationAndAccount93
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PartyIdentificationAndAccount93
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? PartyIdentification { get; init; } 
     /// <summary>
     /// Identification of the account owned by the party.
     /// </summary>
+    [DataMember]
     public AccountIdentification1? AccountIdentification { get; init; } 
     /// <summary>
     /// Place where settlement of the securities takes place.
     /// </summary>
+    [DataMember]
     public required PartyIdentification2Choice_ PlaceOfSettlement { get; init; } 
     
     #nullable disable

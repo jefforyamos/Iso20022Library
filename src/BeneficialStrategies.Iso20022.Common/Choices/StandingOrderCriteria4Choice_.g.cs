@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(StandingOrderCriteria4Choice.QueryName))]
 [KnownType(typeof(StandingOrderCriteria4Choice.NewCriteria))]
+[DataContract]
 public abstract partial record StandingOrderCriteria4Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to an identification, eg, party identification or account identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RestrictedIdentification1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record RestrictedIdentification1
     /// <summary>
     /// Name or number assigned by an entity to enable recognition of that entity, eg, account identifier.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedSMNDACodeText Identification { get; init; } 
     
     #nullable disable

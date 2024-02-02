@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the account identification and the account owner.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesAccount7
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SecuritiesAccount7
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Idenfitication of the account where financial instruments are maintained.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text AccountIdentification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Independent undertaking, such as a demand guarantee or standby letter of credit, that provides financial assurance, to be honoured on the presentation of documents that comply with its terms and conditions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Undertaking3
 {
     #nullable enable
@@ -20,122 +22,152 @@ public partial record Undertaking3
     /// <summary>
     /// Unique and unambiguous identifier assigned by the issuer to the undertaking, for example the guarantee or standby number.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Name of undertaking such as, demand guarantee, standby letter of credit.
     /// </summary>
+    [DataMember]
     public required UndertakingIssuanceName1Code Name { get; init; } 
     /// <summary>
     /// Type of undertaking, for example, performance, payment.
     /// </summary>
+    [DataMember]
     public UndertakingType1Choice_? Type { get; init; } 
     /// <summary>
     /// Type of the undertaking issuance.
     /// </summary>
+    [DataMember]
     public required IssuanceType1Code IssuanceType { get; init; } 
     /// <summary>
     /// Party named in the undertaking as the “applicant”.
     /// </summary>
-    public PartyIdentification43[] Applicant { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyIdentification43> Applicant { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that issues the undertaking (or counter-undertaking).
     /// </summary>
+    [DataMember]
     public required PartyIdentification43 Issuer { get; init; } 
     /// <summary>
     /// Party in whose favour the undertaking (or counter-undertaking) is issued.
     /// </summary>
-    public PartyIdentification43[] Beneficiary { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyIdentification43> Beneficiary { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date on which the undertaking is issued.
     /// </summary>
+    [DataMember]
     public required IsoISODate DateOfIssuance { get; init; } 
     /// <summary>
     /// Location which is to be regarded as the place from which the undertaking is issued.
     /// </summary>
+    [DataMember]
     public PostalAddress12? PlaceOfIssue { get; init; } 
     /// <summary>
     /// Party asked to advise the undertaking to the beneficiary or to another advising party at the request of the issuer.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? AdvisingParty { get; init; } 
     /// <summary>
     /// Additional party asked to advise the undertaking.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? SecondAdvisingParty { get; init; } 
     /// <summary>
     /// Details related to the amount of the undertaking.
     /// </summary>
+    [DataMember]
     public required UndertakingAmount1 UndertakingAmount { get; init; } 
     /// <summary>
     /// Details related to the expiry of the undertaking.
     /// </summary>
+    [DataMember]
     public required ExpiryDetails1 ExpiryDetails { get; init; } 
     /// <summary>
     /// Indicates whether or not the advising bank (confirmer) is requested to add its confirmation to the undertaking.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ConfirmationIndicator { get; init; } 
     /// <summary>
     /// Indicates the type of party requested to add its confirmation to the undertaking.
     /// </summary>
+    [DataMember]
     public ExternalTypeOfParty1Code? ConfirmationPartyType { get; init; } 
     /// <summary>
     /// Party, in addition to the other parties specified in the undertaking, that is also related to the undertaking.
     /// </summary>
-    public PartyAndType1[] AdditionalParty { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyAndType1> AdditionalParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rules and laws governing the undertaking.
     /// </summary>
+    [DataMember]
     public required GovernanceRules1 GovernanceRulesAndLaw { get; init; } 
     /// <summary>
     /// Details of the underlying transaction for which the undertaking is issued.
     /// </summary>
-    public UnderlyingTradeTransaction1[] UnderlyingTransaction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<UnderlyingTradeTransaction1> UnderlyingTransaction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Presentation details related to the undertaking.
     /// </summary>
+    [DataMember]
     public Presentation1? PresentationDetails { get; init; } 
     /// <summary>
     /// Terms and conditions of the undertaking.
     /// </summary>
-    public Narrative1[] UndertakingTermsAndConditions { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Narrative1> UndertakingTermsAndConditions { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates that multiple demands are not permitted.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? MultipleDemandIndicator { get; init; } 
     /// <summary>
     /// Indicates that partial demands/drawings are not permitted.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PartialDemandIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the applicant/obligor or beneficiary is responsible for payment of the confirmation charges.
     /// </summary>
+    [DataMember]
     public ExternalTypeOfParty1Code? ConfirmationChargesPayableBy { get; init; } 
     /// <summary>
     /// Indicates whether the applicant/obligor or beneficiary is responsible for payment of the transfer charges.
     /// </summary>
+    [DataMember]
     public ExternalTypeOfParty1Code? TransferChargesPayableBy { get; init; } 
     /// <summary>
     /// Details related to a variation in amount that is automatically applied.
     /// </summary>
-    public AutomaticVariation1[] AutomaticAmountVariation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AutomaticVariation1> AutomaticAmountVariation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details of the communication channel.
     /// </summary>
+    [DataMember]
     public CommunicationChannel1? DeliveryChannel { get; init; } 
     /// <summary>
     /// Indicates whether the undertaking is transferable.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? TransferIndicator { get; init; } 
     /// <summary>
     /// Document or template enclosed in the undertaking directly related to the issued undertaking.
     /// </summary>
-    public Document9[] EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Document9> EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the undertaking.
     /// </summary>
-    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     /// <summary>
     /// Details of the local or ancillary undertaking requested to be issued by a local or other issuing institution.
     /// </summary>
+    [DataMember]
     public Undertaking4? RequestedLocalUndertaking { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional references linked to the quote cancellation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Reference4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Reference4
     /// <summary>
     /// Unique identifier for quote request.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? QuoteRequestIdentification { get; init; } 
     /// <summary>
     /// Unique identifier for quote.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? QuoteIdentification { get; init; } 
     
     #nullable disable

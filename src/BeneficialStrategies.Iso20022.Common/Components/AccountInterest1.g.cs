@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides general interest information that applies to the account at a particular moment in time.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountInterest1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record AccountInterest1
     /// <summary>
     /// Specifies the type of interest.
     /// </summary>
+    [DataMember]
     public InterestType1Choice_? Type { get; init; } 
     /// <summary>
     /// Set of elements qualifying the interest rate.
     /// </summary>
-    public Rate1[] Rate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Rate1> Rate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Range of time between a start date and an end date for the calculation of the interest.
     /// </summary>
+    [DataMember]
     public DateTimePeriodDetails? FromToDate { get; init; } 
     /// <summary>
     /// Underlying reason for the interest, eg, yearly credit interest on a savings account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Reason { get; init; } 
     
     #nullable disable

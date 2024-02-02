@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ClaimNonReceiptRejectReason1Choice.Code))]
 [KnownType(typeof(ClaimNonReceiptRejectReason1Choice.Proprietary))]
+[DataContract]
 public abstract partial record ClaimNonReceiptRejectReason1Choice_
 {
 }

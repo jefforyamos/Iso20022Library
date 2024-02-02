@@ -16,6 +16,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(Derivative3Choice.ContractForDifference))]
 [KnownType(typeof(Derivative3Choice.Credit))]
 [KnownType(typeof(Derivative3Choice.EmissionAllowance))]
+[DataContract]
 public abstract partial record Derivative3Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the beneficial owner.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BeneficiaryInformation1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record BeneficiaryInformation1
     /// <summary>
     /// Identification of the beneficial owner.
     /// </summary>
+    [DataMember]
     public IndividualPerson15? BeneficiaryIdentification { get; init; } 
     /// <summary>
     /// Eligibility to federal Employee Retirement Income Security Act.
     /// </summary>
+    [DataMember]
     public required ERISAEligibility1Code ERISAEligibility { get; init; } 
     /// <summary>
     /// Federal Employee Retirement Income Security Act (ERISA) rate.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? ERISARate { get; init; } 
     /// <summary>
     /// Indicates whether the investor is a benefit plan investor.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator BenefitPlanDeclarationIndicator { get; init; } 
     /// <summary>
     /// Indicates that there has been no change to the beneficiary's details, such as domicile, investor status, etc, as represented in the initial subscription document.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator NoChangeToBeneficiaryDetailsIndicator { get; init; } 
     
     #nullable disable

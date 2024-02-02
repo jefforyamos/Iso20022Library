@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the index used to define the rate and optionally the basis point spread.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FloatingInterestRate8
 {
     #nullable enable
@@ -22,10 +24,12 @@ public partial record FloatingInterestRate8
     /// Usage:
     /// Index or name if the reference rate is not included in the index list.
     /// </summary>
+    [DataMember]
     public required BenchmarkCurveName5Choice_ ReferenceRate { get; init; } 
     /// <summary>
     /// Term of the reference rate.
     /// </summary>
+    [DataMember]
     public InterestRateContractTerm2? Term { get; init; } 
     
     #nullable disable

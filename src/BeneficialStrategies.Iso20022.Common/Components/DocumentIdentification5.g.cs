@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies a document by a unique identification and its issuer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentIdentification5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DocumentIdentification5
     /// <summary>
     /// Identification of a set of data.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Uniquely identifies the financial institution which has issued the identification of the set of data by using a BIC.
     /// </summary>
+    [DataMember]
     public required BICIdentification1 IdentificationIssuer { get; init; } 
     
     #nullable disable

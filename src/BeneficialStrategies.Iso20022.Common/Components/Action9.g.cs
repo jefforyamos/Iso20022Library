@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of actions to be performed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Action9
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Action9
     /// <summary>
     /// Destination of the action.
     /// </summary>
+    [DataMember]
     public PartyType20Code? Destination { get; init; } 
     /// <summary>
     /// Action type to be performed.
     /// </summary>
+    [DataMember]
     public ActionType11Code? ActionType { get; init; } 
     /// <summary>
     /// Other action type to be performed.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherActionType { get; init; } 
     /// <summary>
     /// Additional information to the type of action to be performed (for example, channel to be used for additional verification or authentication).
     /// </summary>
+    [DataMember]
     public IsoMax70Text? ActionInformation { get; init; } 
     
     #nullable disable

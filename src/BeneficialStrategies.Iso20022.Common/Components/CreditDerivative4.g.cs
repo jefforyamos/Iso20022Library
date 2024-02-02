@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related specifically to credit derivatives attributes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditDerivative4
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record CreditDerivative4
     /// <summary>
     /// Classification of seniority in case of contract on index or on a single name entity.
     /// </summary>
+    [DataMember]
     public DebtInstrumentSeniorityType2Code? Seniority { get; init; } 
     /// <summary>
     /// Designation of the underlying reference obligation.
     /// </summary>
+    [DataMember]
     public DerivativePartyIdentification1Choice_? ReferenceParty { get; init; } 
     /// <summary>
     /// Specifies the time unit associated with the frequency of payments.
     /// </summary>
+    [DataMember]
     public Frequency13Code? PaymentFrequency { get; init; } 
     /// <summary>
     /// Calculation basis of the interest rate, such as Act/360.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CalculationBasis { get; init; } 
     /// <summary>
     /// Indicates the series number of the composition of the index if applicable.
     /// </summary>
+    [DataMember]
     public IsoNumber? Series { get; init; } 
     /// <summary>
     /// New version of a series is issued if one of the constituents defaults and the index has to be re-weighted to account for the new number of total constituents within the index.
     /// </summary>
+    [DataMember]
     public IsoNumber? Version { get; init; } 
     /// <summary>
     /// Factor to apply to the actual notional to adjust it to all the previous credit events in the index series. 
     /// Usage: The figure varies between 0 and 100.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? IndexFactor { get; init; } 
     /// <summary>
     /// Indicates whether the derivative contract is tranched or not.
     /// </summary>
+    [DataMember]
     public TrancheIndicator3Choice_? Tranche { get; init; } 
     
     #nullable disable

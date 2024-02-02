@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details of the identification data that is requested to be verified.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IdentificationVerification2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record IdentificationVerification2
     /// <summary>
     /// Unique identification, as assigned by a sending party, to unambiguously identify the party and account identification information group within the message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Party and/or account identification information for which verification is requested.
     /// </summary>
+    [DataMember]
     public required IdentificationInformation2 PartyAndAccountIdentification { get; init; } 
     
     #nullable disable

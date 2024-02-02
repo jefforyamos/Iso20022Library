@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of characteristics shared by all individual transactions included in the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GroupHeader56
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record GroupHeader56
     /// <summary>
     /// Point to point reference, as assigned by the instructing party, and sent to the next party in the chain to unambiguously identify the message.|Usage: The instructing party has to make sure that MessageIdentification is unique per instructed party for a pre-agreed period.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// User identification or any user key to be used to check whether the initiating party is allowed to initiate transactions from the account specified in the message.||Usage: The content is not of a technical nature, but reflects the organisational structure at the initiating side.|The authorisation element can typically be used in relay scenarios, payment initiations, payment returns or payment reversals that are initiated on behalf of a party different from the initiating party.
     /// </summary>
-    public Authorisation1Choice_[] Authorisation { get; init; } = [];
+    [DataMember]
+    public ValueList<Authorisation1Choice_> Authorisation { get; init; } = [];
     /// <summary>
     /// Number of individual transactions contained in the message.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText NumberOfTransactions { get; init; } 
     /// <summary>
     /// Total of all individual amounts included in the message, irrespective of currencies.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? ControlSum { get; init; } 
     /// <summary>
     /// Indicates whether the reversal applies to the whole group of transactions or to individual transactions within the original group.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? GroupReversal { get; init; } 
     /// <summary>
     /// Party that initiates the reversal message. |Usage: This can be either the creditor or a party that initiates the reversal of the direct debit on behalf of the creditor.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? InitiatingParty { get; init; } 
     /// <summary>
     /// Financial institution that receives the instruction from the initiating party and forwards it to the next agent in the payment chain.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? ForwardingAgent { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? DebtorAgent { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? CreditorAgent { get; init; } 
     
     #nullable disable

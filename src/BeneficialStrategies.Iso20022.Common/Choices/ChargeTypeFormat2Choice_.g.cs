@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ChargeTypeFormat2Choice.Unstructured))]
 [KnownType(typeof(ChargeTypeFormat2Choice.Structured))]
+[DataContract]
 public abstract partial record ChargeTypeFormat2Choice_
 {
 }

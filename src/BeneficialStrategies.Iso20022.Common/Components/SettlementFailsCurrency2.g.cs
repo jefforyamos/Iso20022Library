@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details on the settlement fails per currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementFailsCurrency2
 {
     #nullable enable
@@ -21,10 +23,12 @@ public partial record SettlementFailsCurrency2
     /// Currency of the cash counter value specified in a settlement instruction.
     /// Usage: this is the currency in which the aggregate values have to be reported for the settlement fails per currency.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Aggregated data of all settlement transactions per currency.
     /// </summary>
+    [DataMember]
     public required SettlementTotalData1 Data { get; init; } 
     
     #nullable disable

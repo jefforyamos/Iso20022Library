@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the characteristics shared by all individual transactions included in the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GroupHeader74
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record GroupHeader74
     /// <summary>
     /// Point to point reference, as assigned by the instructing party, and sent to the next party in the chain to unambiguously identify the message.|Usage: The instructing party has to make sure that 'MessageIdentification' is unique per instructed party for a pre-agreed period.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Party that initiates the status message.
     /// </summary>
+    [DataMember]
     public PartyIdentification125? InitiatingParty { get; init; } 
     /// <summary>
     /// Financial institution that receives the instruction from the initiating party and forwards it to the next agent in the payment chain.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? ForwardingAgent { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? DebtorAgent { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? CreditorAgent { get; init; } 
     
     #nullable disable

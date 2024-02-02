@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about an undertaking.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Undertaking4
 {
     #nullable enable
@@ -20,95 +22,118 @@ public partial record Undertaking4
     /// <summary>
     /// Name of the requested local undertaking such as, demand guarantee, standby letter of credit, surety.
     /// </summary>
+    [DataMember]
     public required UndertakingName1Code Name { get; init; } 
     /// <summary>
     /// Type of the requested local undertaking such as performance, payment.
     /// </summary>
+    [DataMember]
     public required ExternalUndertakingType1Code Type { get; init; } 
     /// <summary>
     /// Party requested to be named in the local undertaking as the party on whose behalf the undertaking is issued.
     /// </summary>
-    public PartyIdentification43[] Applicant { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyIdentification43> Applicant { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party in whose favour the requested local undertaking is to be issued.
     /// </summary>
-    public PartyIdentification43[] Beneficiary { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyIdentification43> Beneficiary { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date on which the requested local undertaking is to be issued.
     /// </summary>
+    [DataMember]
     public IsoISODate? DateOfIssuance { get; init; } 
     /// <summary>
     /// Party asked to advise the requested local undertaking to the beneficiary or to another advising party at the request of the local undertaking issuer.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? AdvisingParty { get; init; } 
     /// <summary>
     /// Additional party asked to advise the requested local undertaking.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? SecondAdvisingParty { get; init; } 
     /// <summary>
     /// Details related to the amount of the local undertaking.
     /// </summary>
+    [DataMember]
     public required UndertakingAmount1 LocalUndertakingAmount { get; init; } 
     /// <summary>
     /// Details related to the expiry of the requested local undertaking.
     /// </summary>
+    [DataMember]
     public required ExpiryDetails1 ExpiryDetails { get; init; } 
     /// <summary>
     /// Indicates whether or not the advising bank (confirmer) is requested to add its confirmation to the undertaking.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ConfirmationIndicator { get; init; } 
     /// <summary>
     /// Party, in addition to the other parties specified in the requested local undertaking, that is also related to the requested local undertaking.
     /// </summary>
-    public PartyAndType1[] AdditionalParty { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyAndType1> AdditionalParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rules and laws governing the requested local undertaking.
     /// </summary>
+    [DataMember]
     public required GovernanceRules1 GovernanceRulesAndLaw { get; init; } 
     /// <summary>
     /// Details of the underlying transaction for which the undertaking is issued.
     /// </summary>
-    public UnderlyingTradeTransaction1[] UnderlyingTransaction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<UnderlyingTradeTransaction1> UnderlyingTransaction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Presentation details related to the undertaking.
     /// </summary>
+    [DataMember]
     public Presentation1? PresentationDetails { get; init; } 
     /// <summary>
     /// Wording details and text for the requested local undertaking.
     /// </summary>
+    [DataMember]
     public required UndertakingWording1 UndertakingWording { get; init; } 
     /// <summary>
     /// Indicates that multiple demands are not permitted.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? MultipleDemandIndicator { get; init; } 
     /// <summary>
     /// Indicates that partial demands/drawings are not permitted.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PartialDemandIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the applicant/obligor or beneficiary is responsible for payment of the confirmation charges.
     /// </summary>
+    [DataMember]
     public ExternalTypeOfParty1Code? ConfirmationChargesPayableBy { get; init; } 
     /// <summary>
     /// Indicates whether the applicant/obligor or beneficiary is responsible for payment of the transfer charges.
     /// </summary>
+    [DataMember]
     public ExternalTypeOfParty1Code? TransferChargesPayableBy { get; init; } 
     /// <summary>
     /// Details related to a variation in amount that is automatically applied.
     /// </summary>
-    public AutomaticVariation1[] AutomaticAmountVariation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AutomaticVariation1> AutomaticAmountVariation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details of the communication channel.
     /// </summary>
+    [DataMember]
     public CommunicationChannel1? DeliveryChannel { get; init; } 
     /// <summary>
     /// Indicates whether the requested local undertaking is transferable.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? TransferIndicator { get; init; } 
     /// <summary>
     /// Additional information related to the requested local undertaking.
     /// </summary>
-    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

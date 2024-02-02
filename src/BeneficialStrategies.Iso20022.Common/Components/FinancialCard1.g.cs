@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Card used to represent a financial account for the purpose of payment settlement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialCard1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FinancialCard1
     /// <summary>
     /// Monetary value of the credit limit for this financial card.
     /// </summary>
-    public IsoCurrencyAndAmount[] CreditLimitAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> CreditLimitAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary value of the credit available for this financial card.
     /// </summary>
-    public IsoCurrencyAndAmount[] CreditAvailableAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> CreditAvailableAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Interest rate expressed as a percentage for this financial card.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? InterestRatePercent { get; init; } 
     
     #nullable disable

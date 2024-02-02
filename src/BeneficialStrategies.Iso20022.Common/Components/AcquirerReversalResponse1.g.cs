@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the response of a reversal.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcquirerReversalResponse1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AcquirerReversalResponse1
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardTransactionEnvironment4 Environment { get; init; } 
     /// <summary>
     /// Reversal card transaction.
     /// </summary>
+    [DataMember]
     public required CardTransaction8 Transaction { get; init; } 
     
     #nullable disable

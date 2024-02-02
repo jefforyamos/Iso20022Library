@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reporting per financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentDetails31
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record FinancialInstrumentDetails31
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification20 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Information regarding the price of the instrument.
     /// </summary>
+    [DataMember]
     public PriceInformation19? PriceDetails { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [DataMember]
     public SafeKeepingPlace2? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Opening balance for the statement period (first opening balance) or of this page (intermediary opening balance).
     /// </summary>
+    [DataMember]
     public OpeningBalance4? OpeningBalance { get; init; } 
     /// <summary>
     /// Closing balance for the statement period (final closing balance) or of this page (intermediary closing balance).
     /// </summary>
+    [DataMember]
     public ClosingBalance4? ClosingBalance { get; init; } 
     /// <summary>
     /// Transaction details.
     /// </summary>
-    public Transaction65[] Transaction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Transaction65> Transaction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

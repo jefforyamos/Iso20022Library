@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(Proxy5Choice.Proxy))]
 [KnownType(typeof(Proxy5Choice.ProxyNotAllowed))]
+[DataContract]
 public abstract partial record Proxy5Choice_
 {
 }

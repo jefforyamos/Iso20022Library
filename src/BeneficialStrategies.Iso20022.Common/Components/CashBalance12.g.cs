@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Balance details for a cash account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashBalance12
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CashBalance12
     /// <summary>
     /// Specifies the nature of a balance.
     /// </summary>
-    public BalanceType11Choice_[] Type { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BalanceType11Choice_> Type { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the type of counterparty for which the balance is calculated.
     /// </summary>
+    [DataMember]
     public required BalanceCounterparty1Code CounterpartyType { get; init; } 
     /// <summary>
     /// Specifies the counterparty for which the balance is calculated.
     /// </summary>
-    public BranchAndFinancialInstitutionIdentification6[] CounterpartyIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BranchAndFinancialInstitutionIdentification6> CounterpartyIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date and time at which the balance is or will be available.
     /// </summary>
-    public DateAndDateTimeSearch4Choice_[] ValueDate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DateAndDateTimeSearch4Choice_> ValueDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date or date time when the balance was last updated following an entry posted to the account, in the books of the account servicing institution.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeSearch4Choice_? ProcessingDate { get; init; } 
     
     #nullable disable

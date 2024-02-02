@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(NamePrefix2Choice.NamePrefix))]
 [KnownType(typeof(NamePrefix2Choice.ExtendedNamePrefix))]
+[DataContract]
 public abstract partial record NamePrefix2Choice_
 {
 }

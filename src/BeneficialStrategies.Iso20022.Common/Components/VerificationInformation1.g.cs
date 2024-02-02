@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains verification information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VerificationInformation1
 {
     #nullable enable
@@ -21,26 +23,32 @@ public partial record VerificationInformation1
     /// Type of the verification or authentication.
     /// ISO 8583:2003 bit 34
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Value of the data to be verified or authenticated.
     /// </summary>
+    [DataMember]
     public VerificationValue1Choice_? Value { get; init; } 
     /// <summary>
     /// Reason to perform the verification.
     /// </summary>
-    public IsoMax35Text[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> Reason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date and time when the verification was performed.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? DateTime { get; init; } 
     /// <summary>
     /// Contains end date of the verification that has been performed. 
     /// </summary>
+    [DataMember]
     public IsoISODate? ValidityEndDate { get; init; } 
     /// <summary>
     /// Contains end time of the verification that has been performed. 
     /// </summary>
+    [DataMember]
     public IsoISOTime? ValidityEndTime { get; init; } 
     
     #nullable disable

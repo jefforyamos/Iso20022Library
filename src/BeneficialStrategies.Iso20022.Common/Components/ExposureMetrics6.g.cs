@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Numeric variables calculated on market exposures.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExposureMetrics6
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record ExposureMetrics6
     /// <summary>
     /// Information on posted collateral and margin.
     /// </summary>
+    [DataMember]
     public PostedMarginOrCollateral4? PostedMarginOrCollateral { get; init; } 
     
     #nullable disable

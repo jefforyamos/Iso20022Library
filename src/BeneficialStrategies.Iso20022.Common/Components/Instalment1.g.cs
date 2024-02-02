@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information of a single instalment related to an invoice settlement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Instalment1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Instalment1
     /// <summary>
     /// Specifies the progressive number of the single instalment related to an invoice.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text SequenceIdentification { get; init; } 
     /// <summary>
     /// Due date for the payment of the invoice instalment.
     /// </summary>
+    [DataMember]
     public required IsoISODate PaymentDueDate { get; init; } 
     /// <summary>
     /// Amount of a single instalment related to an invoice.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

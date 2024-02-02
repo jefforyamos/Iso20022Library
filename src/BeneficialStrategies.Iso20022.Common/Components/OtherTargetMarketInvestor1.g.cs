@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Investor type target market.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherTargetMarketInvestor1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OtherTargetMarketInvestor1
     /// <summary>
     /// Type of investor.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? InvestorType { get; init; } 
     /// <summary>
     /// Choice of formats for the specification of whether the product is aimed at the type of investor.
     /// </summary>
+    [DataMember]
     public TargetMarket3Choice_? Target { get; init; } 
     /// <summary>
     /// Additional information about the target market and the investor type.
     /// </summary>
+    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable

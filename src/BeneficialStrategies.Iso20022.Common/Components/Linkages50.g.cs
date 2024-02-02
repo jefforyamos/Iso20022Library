@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to a linked transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Linkages50
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Linkages50
     /// <summary>
     /// When the transaction is to be executed relative to a linked transaction - for information only.
     /// </summary>
+    [DataMember]
     public ProcessingPosition23Choice_? ProcessingPosition { get; init; } 
     /// <summary>
     /// Unambiguous identification of a securities settlement transaction as known by the account owner (or instructing party acting on its behalf).
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax16Text SecuritiesSettlementTransactionIdentification { get; init; } 
     
     #nullable disable

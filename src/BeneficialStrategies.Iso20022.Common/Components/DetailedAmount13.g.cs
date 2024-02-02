@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Withdrawal fees, accepted by the customer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedAmount13
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DetailedAmount13
     /// <summary>
     /// Amount value.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Currency of the amount.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Short description of the amount to display or print.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Label { get; init; } 
     
     #nullable disable

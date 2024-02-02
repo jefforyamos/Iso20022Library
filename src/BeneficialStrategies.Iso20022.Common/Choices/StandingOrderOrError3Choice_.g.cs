@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(StandingOrderOrError3Choice.Report))]
 [KnownType(typeof(StandingOrderOrError3Choice.OperationalError))]
+[DataContract]
 public abstract partial record StandingOrderOrError3Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the query criteria related to securities.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeSecurityIdentificationQueryCriteria2
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record TradeSecurityIdentificationQueryCriteria2
     /// <summary>
     /// Specifies the AND/OR operators as query criteria.
     /// </summary>
+    [DataMember]
     public required Operation3Code Operator { get; init; } 
     /// <summary>
     /// Identification of the product through ISIN or AII.
     /// </summary>
-    public SecurityIdentificationQueryCriteria1[] Identification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecurityIdentificationQueryCriteria1> Identification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique identification to identify the direct underlying instrument based on its type. 
     /// </summary>
-    public SecurityIdentificationQuery3Choice_[] UnderlyingInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecurityIdentificationQuery3Choice_> UnderlyingInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

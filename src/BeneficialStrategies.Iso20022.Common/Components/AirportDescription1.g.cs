@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies an airport by its location and by its name.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AirportDescription1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AirportDescription1
     /// <summary>
     /// Identifies the town where the airport is located. For example: London.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Town { get; init; } 
     /// <summary>
     /// Identifies the airport by its name. For example: Heathrow.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AirportName { get; init; } 
     
     #nullable disable

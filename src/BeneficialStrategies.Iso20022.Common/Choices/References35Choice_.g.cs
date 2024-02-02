@@ -17,6 +17,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(References35Choice.CommonIdentification))]
 [KnownType(typeof(References35Choice.TradeIdentification))]
 [KnownType(typeof(References35Choice.CorporateActionEventIdentification))]
+[DataContract]
 public abstract partial record References35Choice_
 {
 }

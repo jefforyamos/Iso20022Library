@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cash details for amount  assigned as collateral position.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashBalance15
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record CashBalance15
     /// <summary>
     /// Amount of money of the cash balance.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// </summary>
+    [DataMember]
     public ForeignExchangeTerms19? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Account in which cash is maintained.
     /// </summary>
+    [DataMember]
     public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Valuation details for the securities position.
     /// </summary>
+    [DataMember]
     public ValuationsDetails2? ValuationDetails { get; init; } 
     /// <summary>
     /// Identification of the underlying market value lots based on the term of the underlying trades. The issuer defines the lot identification.
     /// </summary>
-    public GenericIdentification178[] TransactionLotNumber { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericIdentification178> TransactionLotNumber { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

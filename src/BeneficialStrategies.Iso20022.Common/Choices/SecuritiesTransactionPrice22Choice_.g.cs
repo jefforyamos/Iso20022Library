@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SecuritiesTransactionPrice22Choice.Price))]
 [KnownType(typeof(SecuritiesTransactionPrice22Choice.DigitalTokenPrice))]
 [KnownType(typeof(SecuritiesTransactionPrice22Choice.NoPrice))]
+[DataContract]
 public abstract partial record SecuritiesTransactionPrice22Choice_
 {
 }

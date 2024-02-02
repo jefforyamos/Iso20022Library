@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides input capability for multiple instructions on elective corporate action events via a single instruction message through using Transaction Sequence Number.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InstructionsTransactionsSequence1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record InstructionsTransactionsSequence1
     /// <summary>
     /// Number which further identifies DTC instruction reference number. Not applicable to reorganisation / custody deposits.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? TransactionSequenceNumber { get; init; } 
     /// <summary>
     /// Instruction quantity for a given transaction sequence number.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity31Choice_? InstructionQuantity { get; init; } 
     /// <summary>
     /// For rights subscription events with an oversubscription feature, the quantity of the oversubscription for the given instruction.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity4? OversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Customer identification entered by client upon instruction submission.
     /// </summary>
+    [DataMember]
     public IsoMax30Text? CustomerReferenceIdentification { get; init; } 
     
     #nullable disable

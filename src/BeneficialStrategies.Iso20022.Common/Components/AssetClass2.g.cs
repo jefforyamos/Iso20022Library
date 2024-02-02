@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Structure for defining asset class specific details of a derivative to be declared.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AssetClass2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AssetClass2
     /// <summary>
     /// The fields in this section should only be populated for instruments that have non-financial instrument of type commodity as underlying.
     /// </summary>
+    [DataMember]
     public DerivativeCommodity2? Commodity { get; init; } 
     /// <summary>
     /// The fields in this section should only be populated for instruments that have non-financial instrument of type interest rates as underlying.
     /// </summary>
+    [DataMember]
     public DerivativeInterest3? Interest { get; init; } 
     /// <summary>
     /// The fields in this section should only be populated for instruments that have non-financial instrument of type foreign exchange as underlying.
     /// </summary>
+    [DataMember]
     public DerivativeForeignExchange3? ForeignExchange { get; init; } 
     
     #nullable disable

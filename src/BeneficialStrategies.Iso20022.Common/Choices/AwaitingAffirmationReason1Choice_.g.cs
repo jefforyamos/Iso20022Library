@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(AwaitingAffirmationReason1Choice.Code))]
 [KnownType(typeof(AwaitingAffirmationReason1Choice.Proprietary))]
+[DataContract]
 public abstract partial record AwaitingAffirmationReason1Choice_
 {
 }

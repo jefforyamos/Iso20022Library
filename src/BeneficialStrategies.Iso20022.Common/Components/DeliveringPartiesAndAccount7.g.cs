@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Chain of parties involved in the settlement of a transaction, including receipts and deliveries, book transfers, treasury deals, or other activities, resulting in the movement of a security or amount of money from one account to another.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeliveringPartiesAndAccount7
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record DeliveringPartiesAndAccount7
     /// <summary>
     /// First party in the settlement chain. In a plain vanilla settlement, it is the Central Securities Depository where the counterparty requests to receive the financial instrument or from where the counterparty delivers the financial instruments.
     /// </summary>
+    [DataMember]
     public required PartyIdentification34Choice_ Depository { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain interacts with the depository.
     /// </summary>
+    [DataMember]
     public required PartyIdentificationAndAccount32 Party1 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain interacts with the party 1.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount32? Party2 { get; init; } 
     /// <summary>
     /// Identifies the securities settlement system to be used.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SecuritiesSettlementSystem { get; init; } 
     
     #nullable disable

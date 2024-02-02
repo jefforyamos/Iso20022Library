@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Entity involved in an activity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record PartyIdentification
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Name { get; init; } 
     
     #nullable disable

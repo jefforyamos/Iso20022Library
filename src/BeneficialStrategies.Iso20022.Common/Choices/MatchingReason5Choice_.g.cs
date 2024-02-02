@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(MatchingReason5Choice.Reason))]
 [KnownType(typeof(MatchingReason5Choice.NoSpecifiedReason))]
+[DataContract]
 public abstract partial record MatchingReason5Choice_
 {
 }

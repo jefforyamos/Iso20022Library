@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the details of the currency exchange.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyExchange16
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CurrencyExchange16
     /// <summary>
     /// Currency from which an amount is to be converted in a currency conversion.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode SourceCurrency { get; init; } 
     /// <summary>
     /// Currency into which an amount is to be converted in a currency conversion.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode TargetCurrency { get; init; } 
     /// <summary>
     /// Factor used to convert an amount from one currency into another. This reflects the price at which one currency was bought with another currency.
     /// </summary>
+    [DataMember]
     public required IsoBaseOneRate ExchangeRate { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further individual record details on the charges related to the payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ChargesRecord5
 {
     #nullable enable
@@ -21,50 +23,62 @@ public partial record ChargesRecord5
     /// Unique and unambiguous identification of the charges record for reconciliation purpose.
     /// Usage: this identification shall be used as the end-to-end identification in the resulting message for the payment of the charges, to allow for automated reconciliation. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ChargesRecordIdentification { get; init; } 
     /// <summary>
     /// Identifies the underlying transaction(s) to which the charges apply.
     /// </summary>
-    public TransactionReferences7[] UnderlyingTransaction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionReferences7> UnderlyingTransaction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of transaction charges to be paid by the charge bearer.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether the charges amount is a credit or a debit amount. |Usage: A zero amount is considered to be a credit.
     /// </summary>
+    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Date and time at which the charges are or will be available.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? ValueDate { get; init; } 
     /// <summary>
     /// Specifies the debtor agent of the initial transaction, if different from the charges account owner.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? DebtorAgent { get; init; } 
     /// <summary>
     /// Specifies the account of the debtor agent of the initial transaction, when instructing agent is different from the charges account owner.
     /// </summary>
+    [DataMember]
     public CashAccount40? DebtorAgentAccount { get; init; } 
     /// <summary>
     /// Agent that services the charges account.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? ChargesAccountAgent { get; init; } 
     /// <summary>
     /// Account of the agent that services the charges account.
     /// </summary>
+    [DataMember]
     public CashAccount40? ChargesAccountAgentAccount { get; init; } 
     /// <summary>
     /// Specifies the type of charge.
     /// </summary>
+    [DataMember]
     public ChargeType3Choice_? Type { get; init; } 
     /// <summary>
     /// Further information related to the processing of the payment adjustment instruction that may need to be acted upon by the next agent. 
     /// </summary>
+    [DataMember]
     public InstructionForInstructedAgent1? InstructionForInstructedAgent { get; init; } 
     /// <summary>
     /// Further details on the cancellation request reason.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? AdditionalInformation { get; init; } 
     
     #nullable disable

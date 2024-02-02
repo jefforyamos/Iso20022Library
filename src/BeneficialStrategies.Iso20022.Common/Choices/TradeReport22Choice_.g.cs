@@ -17,6 +17,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(TradeReport22Choice.CollateralUpdate))]
 [KnownType(typeof(TradeReport22Choice.Correction))]
 [KnownType(typeof(TradeReport22Choice.ValuationUpdate))]
+[DataContract]
 public abstract partial record TradeReport22Choice_
 {
 }

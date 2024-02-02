@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the type of notification required.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Notification2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Notification2
     /// <summary>
     /// Type of notification.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text NotificationType { get; init; } 
     /// <summary>
     /// Indicates whether the notification is required.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Required { get; init; } 
     /// <summary>
     /// Specifies how the notification is sent.
     /// </summary>
+    [DataMember]
     public InformationDistribution1Choice_? DistributionType { get; init; } 
     
     #nullable disable

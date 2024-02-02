@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Limit details of one particular limit set by the member and managed by the transaction administrator.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LimitStructure4
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record LimitStructure4
     /// <summary>
     /// Identification of the default limit.
     /// </summary>
+    [DataMember]
     public required LimitIdentification5 LimitIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the limit becomes effective.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? StartDateTime { get; init; } 
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
+    [DataMember]
     public required Amount2Choice_ Amount { get; init; } 
     /// <summary>
     /// Specifies if a limit is a debit limit or a credit limit.
     /// </summary>
+    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     
     #nullable disable

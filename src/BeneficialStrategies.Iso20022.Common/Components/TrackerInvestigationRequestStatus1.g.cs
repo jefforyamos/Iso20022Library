@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides detailed information on the investigation request status from the tracker.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerInvestigationRequestStatus1
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record TrackerInvestigationRequestStatus1
     /// <summary>
     /// Status of request.
     /// </summary>
+    [DataMember]
     public required InvestigationRequestStatus1Choice_ Status { get; init; } 
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    public InvestigationRequestStatusReason1Choice_[] StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestigationRequestStatusReason1Choice_> StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date for the status.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? Date { get; init; } 
     /// <summary>
     /// Further details on the status reason.||Usage: Additional information can be used for several purposes such as the reporting of repaired information.
     /// </summary>
-    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax105Text> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that provides information on the status and related details of the request.
     /// </summary>
+    [DataMember]
     public TrackerPartyIdentification2? TrackerInformingParty { get; init; } 
     /// <summary>
     /// Party that is updated on the status and related details of the request.
     /// </summary>
+    [DataMember]
     public TrackerPartyIdentification2? TrackerInformedParty { get; init; } 
     /// <summary>
     /// Provides information on the original request message.
     /// </summary>
+    [DataMember]
     public OriginalBusinessInstruction4? TrackedMessageIdentification { get; init; } 
     /// <summary>
     /// Includes the entity to which the entity reporting the status has forwarded the case.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? InstructedAgent { get; init; } 
     /// <summary>
     /// Identifies the entity to which the tracking facility has assigned the request.
     /// </summary>
+    [DataMember]
     public Party40Choice_? InvestigationResponder { get; init; } 
     
     #nullable disable

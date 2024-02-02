@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the old and new values for an address.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UpdateLogAddress1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record UpdateLogAddress1
     /// <summary>
     /// Old value before change
     /// </summary>
+    [DataMember]
     public required PostalAddress25 Old { get; init; } 
     /// <summary>
     /// New value after change
     /// </summary>
+    [DataMember]
     public required PostalAddress25 New { get; init; } 
     
     #nullable disable

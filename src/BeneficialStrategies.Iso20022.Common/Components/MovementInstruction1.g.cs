@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the movement instructions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MovementInstruction1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record MovementInstruction1
     /// <summary>
     /// Provides general information about the movement.
     /// </summary>
+    [DataMember]
     public required CorporateActionMovement1 MovementGeneralInformation { get; init; } 
     /// <summary>
     /// Provides information about the underlying securities movement.
     /// </summary>
-    public UnderlyingSecurityMovement1[] UnderlyingSecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<UnderlyingSecurityMovement1> UnderlyingSecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the underlying cash movement.
     /// </summary>
-    public CashMovement2[] UnderlyingCashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashMovement2> UnderlyingCashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the proceeds, ie, outturned resources.
     /// </summary>
-    public ProceedsMovement1[] ProceedsMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProceedsMovement1> ProceedsMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the intra-balance movements in the report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraBalanceMovements3
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record IntraBalanceMovements3
     /// <summary>
     /// Account to or from which an entry is made.
     /// </summary>
+    [DataMember]
     public CashAccount38? CashAccount { get; init; } 
     /// <summary>
     /// Party that owns the account.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification8? CashAccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
     /// <summary>
     /// Status and status reason of the transaction.
     /// </summary>
+    [DataMember]
     public IntraBalanceStatusAndReason2? StatusAndReason { get; init; } 
     /// <summary>
     /// Further details on the individual intrabalance movement transaction.
     /// </summary>
-    public IntraBalanceMovement5[] Movement { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IntraBalanceMovement5> Movement { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

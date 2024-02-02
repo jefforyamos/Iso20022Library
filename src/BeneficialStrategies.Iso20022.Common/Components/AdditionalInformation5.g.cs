@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains additional information related to the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalInformation5
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record AdditionalInformation5
     /// <summary>
     /// Contains additional information related to the message.
     /// </summary>
-    public IsoMax256Text[] Information { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax256Text> Information { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

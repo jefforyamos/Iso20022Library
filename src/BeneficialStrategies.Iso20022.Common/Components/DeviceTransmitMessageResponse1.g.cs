@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Transmit Response message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeviceTransmitMessageResponse1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record DeviceTransmitMessageResponse1
     /// <summary>
     /// Content of a transmitted message.
     /// </summary>
+    [DataMember]
     public IsoMax100KBinary? ReceivedMessage { get; init; } 
     
     #nullable disable

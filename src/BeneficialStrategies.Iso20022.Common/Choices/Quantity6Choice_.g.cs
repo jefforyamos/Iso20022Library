@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(Quantity6Choice.Quantity))]
 [KnownType(typeof(Quantity6Choice.OriginalAndCurrentFace))]
+[DataContract]
 public abstract partial record Quantity6Choice_
 {
 }

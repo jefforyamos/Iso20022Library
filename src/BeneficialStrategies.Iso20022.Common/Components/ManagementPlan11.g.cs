@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Sequence of terminal management actions to be performed by a point of interaction (POI).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ManagementPlan11
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ManagementPlan11
     /// <summary>
     /// Identification of the point of interaction (POI) for terminal management.
     /// </summary>
+    [DataMember]
     public GenericIdentification176? POIIdentification { get; init; } 
     /// <summary>
     /// Identification of the terminal management system (TMS) sending the management plan.
     /// </summary>
+    [DataMember]
     public required GenericIdentification176 TerminalManagerIdentification { get; init; } 
     /// <summary>
     /// Data set related to the sequence of actions to be performed by a point of interaction (POI).
     /// </summary>
+    [DataMember]
     public required TerminalManagementDataSet32 DataSet { get; init; } 
     
     #nullable disable

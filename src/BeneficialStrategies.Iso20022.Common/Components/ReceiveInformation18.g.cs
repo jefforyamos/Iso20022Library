@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReceiveInformation18
 {
     #nullable enable
@@ -20,43 +22,53 @@ public partial record ReceiveInformation18
     /// <summary>
     /// Party that receives (transferee) securities from the delivering agent (transferor).
     /// </summary>
+    [DataMember]
     public PartyIdentification113? Transferee { get; init; } 
     /// <summary>
     /// Account into which the securities are to be received.
     /// </summary>
+    [DataMember]
     public Account24? TransfereeRegisteredAccount { get; init; } 
     /// <summary>
     /// Identification of a related party or intermediary.
     /// </summary>
-    public Intermediary41[] IntermediaryInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Intermediary41> IntermediaryInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date and time at which the securities are to be exchanged at the International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
+    [DataMember]
     public IsoISODate? RequestedSettlementDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities were exchanged at the International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? EffectiveSettlementDate { get; init; } 
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     /// <summary>
     /// Specifies if whether the settlement amount includes the stamp duty amount.
     /// </summary>
+    [DataMember]
     public StampDutyType2Code? StampDuty { get; init; } 
     /// <summary>
     /// Deal amount.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? NetAmount { get; init; } 
     /// <summary>
     /// Fee related to the transfer of the financial instrument.
     /// </summary>
-    public Fees1[] Fees { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Fees1> Fees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax related to the transfer of the financial instrument.
     /// </summary>
-    public Tax34[] IndividualTax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax34> IndividualTax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// How the exchange rate is expressed determines which currency is the Unit Currency and Quoted Currency. If the amounts concerned are EUR 1000 and USD 1300, the exchange rate may be expressed as per either of the following examples:
@@ -69,22 +81,27 @@ public partial record ReceiveInformation18
     /// QuotedCurrency EUR
     /// ExchangeRate 0.769.
     /// </summary>
-    public ForeignExchangeTerms33[] ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ForeignExchangeTerms33> ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Chain of parties involved in the settlement of the transaction.
     /// </summary>
+    [DataMember]
     public ReceivingPartiesAndAccount17? SettlementPartiesDetails { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
+    [DataMember]
     public PhysicalTransferType1Code? PhysicalTransfer { get; init; } 
     /// <summary>
     /// Parameters of a physical delivery.
     /// </summary>
+    [DataMember]
     public DeliveryParameters4? PhysicalTransferDetails { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public AdditionalReference8? ClientReference { get; init; } 
     
     #nullable disable

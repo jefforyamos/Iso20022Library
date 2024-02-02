@@ -146,6 +146,7 @@ public abstract class TestPublishedSample<TMessageType>
         var info = typeof(TMessageType).GetProperty(p.PropertyName) ?? throw new InvalidDataException("No property found");
         var expected = info.GetValue(original);
         var actual = info.GetValue(copy);
+        this.output.WriteLine($"{p.PropertyName} GetHashCode Orig={expected?.GetHashCode()}, Copy={actual?.GetHashCode()}");
         Assert.Equal(expected, actual);
     }
 

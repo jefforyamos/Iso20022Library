@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides detailed information concerning financial counterparties.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstitutionSector1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record FinancialInstitutionSector1
     /// <summary>
     /// Specifies the nature of the counterparty business activities. 
     /// </summary>
-    public FinancialPartyClassification2Choice_[] Sector { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FinancialPartyClassification2Choice_> Sector { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information whether the counterparty is above the clearing threshold.
     /// Usage: If the element is not present, the ClearingThreshold is False.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ClearingThreshold { get; init; } 
     
     #nullable disable

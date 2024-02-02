@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(Status29Choice.InferredMatchingStatus))]
 [KnownType(typeof(Status29Choice.SettlementStatus))]
 [KnownType(typeof(Status29Choice.InstructionProcessingStatus))]
+[DataContract]
 public abstract partial record Status29Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// General properties of the report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportHeader1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ReportHeader1
     /// <summary>
     /// Date and time at which the report was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Identification of the type of report.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ContentsType { get; init; } 
     
     #nullable disable

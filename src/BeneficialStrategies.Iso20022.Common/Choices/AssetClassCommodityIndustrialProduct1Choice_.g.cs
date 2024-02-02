@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(AssetClassCommodityIndustrialProduct1Choice.Construction))]
 [KnownType(typeof(AssetClassCommodityIndustrialProduct1Choice.Manufacturing))]
+[DataContract]
 public abstract partial record AssetClassCommodityIndustrialProduct1Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the cancellation requests data in the report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraBalanceCancellation5
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record IntraBalanceCancellation5
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
+    [DataMember]
     public CashAccount38? CashAccount { get; init; } 
     /// <summary>
     /// Party that owns the account.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification8? CashAccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
     /// <summary>
     /// Status and status reason of the transaction.
     /// </summary>
+    [DataMember]
     public ProcessingStatus69Choice_? ProcessingStatus { get; init; } 
     /// <summary>
     /// Further details of the individual intrabalance cancellation transaction.
     /// </summary>
-    public IntraBalanceCancellation6[] Cancellation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IntraBalanceCancellation6> Cancellation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

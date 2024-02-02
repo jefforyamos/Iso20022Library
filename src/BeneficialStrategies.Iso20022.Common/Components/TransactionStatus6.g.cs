@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the future status of the transaction by means of a code
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionStatus6
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TransactionStatus6
     /// <summary>
     /// Provides the status after comparing the exposure and the collateral required for the transaction.
     /// </summary>
+    [DataMember]
     public CollateralStatus1Code? CoverageStatus { get; init; } 
     /// <summary>
     /// Indicates whether the transaction is pending initiation or has been initiated.
     /// </summary>
+    [DataMember]
     public CollateralStatus2Choice_? ExecutionStatus { get; init; } 
     
     #nullable disable

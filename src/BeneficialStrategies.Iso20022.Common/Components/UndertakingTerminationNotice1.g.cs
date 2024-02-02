@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the notification of the termination of an undertaking.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UndertakingTerminationNotice1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record UndertakingTerminationNotice1
     /// <summary>
     /// Details related to the identification of the undertaking.
     /// </summary>
+    [DataMember]
     public required Undertaking9 UndertakingIdentification { get; init; } 
     /// <summary>
     /// Details related to the termination of the undertaking.
     /// </summary>
+    [DataMember]
     public required UndertakingTermination3 TerminationDetails { get; init; } 
     /// <summary>
     /// Document or template enclosed in the termination notification.
     /// </summary>
-    public Document9[] EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Document9> EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the notification.
     /// </summary>
-    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

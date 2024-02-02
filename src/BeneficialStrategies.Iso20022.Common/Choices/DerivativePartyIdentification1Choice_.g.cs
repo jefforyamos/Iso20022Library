@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(DerivativePartyIdentification1Choice.Country))]
 [KnownType(typeof(DerivativePartyIdentification1Choice.CountrySubDivision))]
 [KnownType(typeof(DerivativePartyIdentification1Choice.LEI))]
+[DataContract]
 public abstract partial record DerivativePartyIdentification1Choice_
 {
 }

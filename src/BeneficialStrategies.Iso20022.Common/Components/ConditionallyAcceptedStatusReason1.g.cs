@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for a conditionally accepted status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ConditionallyAcceptedStatusReason1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ConditionallyAcceptedStatusReason1
     /// <summary>
     /// Reason for a conditionally accepted status in structured form.
     /// </summary>
-    public ConditionallyAcceptedStatusReason1Code[] Structured { get; init; } = [];
+    [DataMember]
+    public ValueList<ConditionallyAcceptedStatusReason1Code> Structured { get; init; } = [];
     /// <summary>
     /// Reason for a conditionally accepted status in free format text.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

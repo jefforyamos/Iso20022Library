@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// EU PSD2 Strong Consumer Authentication data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StrongCustomerAuthentication1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record StrongCustomerAuthentication1
     /// <summary>
     /// Boolean flag indicating whether the transaction is subject to Strong Customer Authentication requirements (True) or not (False).
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? SubjectToSCA { get; init; } 
     /// <summary>
     /// Strong customer authentication exemption detail.
     /// </summary>
-    public Exemption1[] Exemption { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Exemption1> Exemption { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Authentication performed by a delegated authority (for example by a wallet solution).
     /// </summary>
+    [DataMember]
     public AttestationValue1Code? DelegatedAuthority { get; init; } 
     /// <summary>
     /// Waiver claimed for a transaction subject to Strong Customer Authentication.
     /// </summary>
+    [DataMember]
     public AttestationValue1Code? Waiver { get; init; } 
     /// <summary>
     /// Reason why authentication was not performed.
     /// </summary>
+    [DataMember]
     public IsoMax4Text? ReasonAuthenticationNotPerformed { get; init; } 
     
     #nullable disable

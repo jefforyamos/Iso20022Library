@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Tax related to an investment fund order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Tax30
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record Tax30
     /// <summary>
     /// Type of tax.
     /// </summary>
+    [DataMember]
     public required TaxType3Choice_ Type { get; init; } 
     /// <summary>
     /// Tax to be applied.
     /// </summary>
+    [DataMember]
     public TaxAmountOrRate4Choice_? Tax { get; init; } 
     /// <summary>
     /// Country where the tax is due.
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Indicates whether a tax exemption applies.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ExemptionIndicator { get; init; } 
     /// <summary>
     /// Reason for the tax exemption.
     /// </summary>
+    [DataMember]
     public ExemptionReason1Choice_? ExemptionReason { get; init; } 
     /// <summary>
     /// Party that receives the tax. The recipient of, and the party entitled to, the tax may be two different parties.
     /// </summary>
+    [DataMember]
     public PartyIdentification113? RecipientIdentification { get; init; } 
     /// <summary>
     /// Information used to calculate the tax.
     /// </summary>
+    [DataMember]
     public TaxCalculationInformation9? TaxCalculationDetails { get; init; } 
     
     #nullable disable

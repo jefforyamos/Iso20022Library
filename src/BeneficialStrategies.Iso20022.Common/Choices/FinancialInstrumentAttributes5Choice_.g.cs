@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(FinancialInstrumentAttributes5Choice.Identification))]
 [KnownType(typeof(FinancialInstrumentAttributes5Choice.AlternateIdentification))]
 [KnownType(typeof(FinancialInstrumentAttributes5Choice.Other))]
+[DataContract]
 public abstract partial record FinancialInstrumentAttributes5Choice_
 {
 }

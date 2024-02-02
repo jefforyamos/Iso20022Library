@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Currency specific Factors.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyFactors1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CurrencyFactors1
     /// <summary>
     /// Currency of the underlying currency specific amounts and ratios used in the pay-in schedule calculation.
     /// </summary>
+    [DataMember]
     public required CurrencyCode Currency { get; init; } 
     /// <summary>
     /// Maximum allowed short position in the currency during settlement.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount ShortPositionLimit { get; init; } 
     /// <summary>
     /// Minimum amount paid in one payment unless the short position is less than the minimum.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount MinimumPayInAmount { get; init; } 
     /// <summary>
     /// Margin used to decrease long positions and increase short positions during the risk calculation.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate VolatilityMargin { get; init; } 
     /// <summary>
     /// Exchange rate used in the calculation of the pay-in schedule.
     /// </summary>
+    [DataMember]
     public AgreedRate2? Rate { get; init; } 
     
     #nullable disable

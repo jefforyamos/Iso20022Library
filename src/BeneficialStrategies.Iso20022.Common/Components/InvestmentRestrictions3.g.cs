@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Investment restrictions linked to the trading of an investment fund, or an alternative/hedge fund.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentRestrictions3
 {
     #nullable enable
@@ -20,75 +22,93 @@ public partial record InvestmentRestrictions3
     /// <summary>
     /// Minimum initial quantity of securities, expressed as an amount, that must be purchased at subscription.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumInitialSubscriptionAmount { get; init; } 
     /// <summary>
     /// Minimum initial number of units/shares that must be purchased.
     /// </summary>
+    [DataMember]
     public IsoNumber? MinimumInitialSubscriptionUnits { get; init; } 
     /// <summary>
     /// Minimum quantity of securities, expressed as an amount, that must be purchased.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumSubsequentSubscriptionAmount { get; init; } 
     /// <summary>
     /// Minimum quantity of securities, expressed as number of units/shares that must be purchased.
     /// </summary>
+    [DataMember]
     public IsoNumber? MinimumSubsequentSubscriptionUnits { get; init; } 
     /// <summary>
     /// Maximum quantity of securities, expressed as an amount, that can be sold. 
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? MaximumRedemptionAmount { get; init; } 
     /// <summary>
     /// Maximum number of shares/units that may be redeemed on a single dealing day.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? MaximumRedemptionUnits { get; init; } 
     /// <summary>
     /// Minimum percentage of holding that may be redeemed.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? MinimumRedemptionPercentage { get; init; } 
     /// <summary>
     /// Specifies any other restrictions that may limit an investor's ability to redeem.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? OtherRedemptionRestrictions { get; init; } 
     /// <summary>
     /// Minimum quantity of securities, expressed as an amount, that must be purchased.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumSwitchSubscriptionAmount { get; init; } 
     /// <summary>
     /// Minimum quantity of securities, expressed as number of units/shares that must be purchased.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? MinimumSwitchSubscriptionUnits { get; init; } 
     /// <summary>
     /// Maximum quantity of securities, expressed as an amount, that can be sold. 
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? MaximumSwitchRedemptionAmount { get; init; } 
     /// <summary>
     /// Maximum number of shares/units that may be redeemed on a single dealing day.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? MaximumSwitchRedemptionUnits { get; init; } 
     /// <summary>
     /// Specifies any other restrictions that may limit an investor's ability to switch.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? OtherSwitchRestrictions { get; init; } 
     /// <summary>
     /// Minimum value of units that must be maintained to avoid automatic redemption.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumHoldingAmount { get; init; } 
     /// <summary>
     /// Minimum number of units that must be maintained to avoid automatic redemption.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? MinimumHoldingUnits { get; init; } 
     /// <summary>
     /// Description of the period, that may be a number of days or weeks or another way of describing the period, during which the units/shares must be held following their issue before redemption will be permitted.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? MinimumHoldingPeriod { get; init; } 
     /// <summary>
     /// Specifies how registered investors are able to transfer some or all of their holdings to third parties.
     /// </summary>
+    [DataMember]
     public HoldingTransferable1Code? HoldingTransferable { get; init; } 
     /// <summary>
     /// Additional information about the investment restrictions.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details about the system availability and the related system events that might impact the availability.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemAvailabilityAndEvents3
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record SystemAvailabilityAndEvents3
     /// <summary>
     /// Currency which may be processed by the system. A system may process transactions in a single currency or in multiple currencies.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? SystemCurrency { get; init; } 
     /// <summary>
     /// Time window of system activity.
     /// </summary>
+    [DataMember]
     public TimePeriod1? SessionPeriod { get; init; } 
     /// <summary>
     /// Detailed information about an event occurring on a system, whether planned, such as the cut-off time for a specific type of eligible transfer, or unplanned (an unsolicited failure), as stipulated in the specifications of the system.
     /// </summary>
-    public SystemEvent3[] Event { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SystemEvent3> Event { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information regarding the closure time of a system.
     /// </summary>
-    public SystemClosure2[] ClosureInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SystemClosure2> ClosureInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

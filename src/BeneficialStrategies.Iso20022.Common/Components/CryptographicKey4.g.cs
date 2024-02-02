@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cryptographic Key to exchange.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CryptographicKey4
 {
     #nullable enable
@@ -20,36 +22,44 @@ public partial record CryptographicKey4
     /// <summary>
     /// Name of the cryptographic key.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Identification { get; init; } 
     /// <summary>
     /// Additional identification of the key.
     /// Usage
     /// For derived unique key per transaction (DUKPT) keys, the key serial number (KSN) with the 21 bits of the transaction counter set to zero.
     /// </summary>
+    [DataMember]
     public IsoMax35Binary? AdditionalIdentification { get; init; } 
     /// <summary>
     /// Version of the cryptographic key.
     /// </summary>
+    [DataMember]
     public required IsoExact10Text Version { get; init; } 
     /// <summary>
     /// Type of algorithm used by the cryptographic key.
     /// </summary>
+    [DataMember]
     public CryptographicKeyType2Code? Type { get; init; } 
     /// <summary>
     /// Allowed usage of the key.
     /// </summary>
-    public KeyUsage1Code[] Function { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<KeyUsage1Code> Function { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date and time on which the key must be activated.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ActivationDate { get; init; } 
     /// <summary>
     /// Date and time on which the key must be deactivated.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? DeactivationDate { get; init; } 
     /// <summary>
     /// Encrypted cryptographic key.
     /// </summary>
+    [DataMember]
     public required ContentInformationType7 KeyValue { get; init; } 
     
     #nullable disable

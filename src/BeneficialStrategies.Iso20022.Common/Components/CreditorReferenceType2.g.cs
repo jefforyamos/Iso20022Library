@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of creditor reference.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditorReferenceType2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CreditorReferenceType2
     /// <summary>
     /// Coded or proprietary format creditor reference type.
     /// </summary>
+    [DataMember]
     public required CreditorReferenceType1Choice_ CodeOrProprietary { get; init; } 
     /// <summary>
     /// Entity that assigns the credit reference type.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     
     #nullable disable

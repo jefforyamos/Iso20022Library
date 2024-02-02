@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Product to purchase.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Product5
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Product5
     /// <summary>
     /// Product code of the item.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text ProductCode { get; init; } 
     /// <summary>
     /// Additional product code related to the product.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AdditionalProductCode { get; init; } 
     /// <summary>
     /// Amount limit for the product.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? AmountLimit { get; init; } 
     /// <summary>
     /// Quantity limit for the product.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? QuantityLimit { get; init; } 
     /// <summary>
     /// Unit of measure of the item purchased.
     /// </summary>
+    [DataMember]
     public UnitOfMeasure6Code? UnitOfMeasure { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the service details for the creditor enrolment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditorServiceEnrolment1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CreditorServiceEnrolment1
     /// <summary>
     /// Start date when the creditor enrolment becomes effective.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? EnrolmentStartDate { get; init; } 
     /// <summary>
     /// End date when the creditor enrolment becomes effective.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? EnrolmentEndDate { get; init; } 
     /// <summary>
     /// Provides the details of the visibility of the creditor enrolment as shown to the debtors.
     /// </summary>
+    [DataMember]
     public Visibilty1? Visibility { get; init; } 
     /// <summary>
     /// Define the acceptance of activation requests through the scheme. 
@@ -35,14 +40,17 @@ public partial record CreditorServiceEnrolment1
     /// When true, it is possible for the debtor to send activation requests through its payment service provider.
     /// When false, it is not possible for the debtor to send activation request through servicing messages. The creditor only accepts activation through another way(s).
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator ServiceActivationAllowed { get; init; } 
     /// <summary>
     /// Information web page, as provided by the creditor, to which the debtor can be linked for further information (Universal Resource Locator - URL).
     /// </summary>
+    [DataMember]
     public IsoMax2048Text? ServiceDescriptionLink { get; init; } 
     /// <summary>
     /// Web page link provided by the Creditor, intended to the Debtors, to proceed to activation when  servicing messages can not be used.
     /// </summary>
+    [DataMember]
     public IsoMax2048Text? CreditorServiceActivationLink { get; init; } 
     
     #nullable disable

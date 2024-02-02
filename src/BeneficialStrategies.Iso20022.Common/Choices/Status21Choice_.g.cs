@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(Status21Choice.Rejected))]
 [KnownType(typeof(Status21Choice.Complete))]
 [KnownType(typeof(Status21Choice.Pending))]
+[DataContract]
 public abstract partial record Status21Choice_
 {
 }

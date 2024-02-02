@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amendment data of document that a user must file with an authorised servicer for each contract that involves foreign currency transactions with non residents.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RegisteredContract13
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record RegisteredContract13
     /// <summary>
     /// Unique and unambiguous identification of the contract registration amendment.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ContractRegistrationAmendmentIdentification { get; init; } 
     /// <summary>
     /// Party registering the currency control contract.
     /// </summary>
+    [DataMember]
     public required TradeParty5 ReportingParty { get; init; } 
     /// <summary>
     /// Agent which registers the currency control contract.
     /// </summary>
+    [DataMember]
     public required BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
     /// <summary>
     /// Amendment details applied on one or several registered contracts.
     /// </summary>
-    public RegisteredContract14[] RegisteredContractAmendment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RegisteredContract14> RegisteredContractAmendment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the cash option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashOption89
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CashOption89
     /// <summary>
     /// Indicates whether the value is a debit or credit.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Choice between a cash account, a charges account or a tax account.
     /// </summary>
+    [DataMember]
     public Account9Choice_? Account { get; init; } 
     /// <summary>
     /// Date/Time of the posting (credit or debit) to the account.
     /// </summary>
+    [DataMember]
     public required IsoISODate PostingDate { get; init; } 
     /// <summary>
     /// Date/Time of the posting (credit or debit) to the account that was initially communicated in the confirmation.
     /// </summary>
+    [DataMember]
     public IsoISODate? OriginalPostingDate { get; init; } 
     /// <summary>
     /// Date/time when calculating economic benefit for a cash amount.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValueDate { get; init; } 
     /// <summary>
     /// Amount of money that is to be/was posted to the account.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINActiveCurrencyAndAmount PostingAmount { get; init; } 
     
     #nullable disable

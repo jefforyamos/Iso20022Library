@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information on interest rates related to the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InterestRate6
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InterestRate6
     /// <summary>
     /// Amount of the transaction.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection53 Amount { get; init; } 
     /// <summary>
     /// Information on interest rates related to the transaction.
     /// </summary>
+    [DataMember]
     public required InterestRate27Choice_ InterestRate { get; init; } 
     
     #nullable disable

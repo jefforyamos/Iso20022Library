@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Entity involved in an activity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradePartyIdentification4
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record TradePartyIdentification4
     /// <summary>
     /// Identifies the fund which is one of the parties in a treasury trade.
     /// </summary>
+    [DataMember]
     public FundIdentification2? FundInformation { get; init; } 
     /// <summary>
     /// Specifies the party which is the buyer or the seller.
     /// </summary>
+    [DataMember]
     public required OptionParty1Code BuyerOrSellerIndicator { get; init; } 
     /// <summary>
     /// Specifies the party which submits a treasury trade to a matching system or to a settlement system or to a counterparty.
     /// </summary>
+    [DataMember]
     public required PartyIdentification8Choice_ SubmittingParty { get; init; } 
     /// <summary>
     /// Specifies the party which originated a treasury trade. This party may be the same as the submitting party.
     /// </summary>
+    [DataMember]
     public required PartyIdentification8Choice_ TradeParty { get; init; } 
     
     #nullable disable

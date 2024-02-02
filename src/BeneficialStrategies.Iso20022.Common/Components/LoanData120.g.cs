@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the loan data details in case of a repurchase trade transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoanData120
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record LoanData120
     /// <summary>
     /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
     /// </summary>
+    [DataMember]
     public required IsoISODate EventDate { get; init; } 
     /// <summary>
     /// Unique trade Identifier (UTI) as agreed with the other counterparty.
     /// </summary>
+    [DataMember]
     public IsoMax52Text? UniqueTradeIdentifier { get; init; } 
     /// <summary>
     /// Reference to master agreement under which the counterparties concluded a documented transaction.
     /// </summary>
+    [DataMember]
     public MasterAgreement7? MasterAgreement { get; init; } 
     
     #nullable disable

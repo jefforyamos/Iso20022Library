@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of instruction requested by the submitter by means of a code.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InstructionType3
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record InstructionType3
     /// <summary>
     /// Specifies whether the data set has to be matched or pre-matched.
     /// </summary>
+    [DataMember]
     public required InstructionType3Code Type { get; init; } 
     
     #nullable disable

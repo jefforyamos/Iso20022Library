@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Agreement (contract) related to a vehicle rental service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VehicleRentalAgreement2
 {
     #nullable enable
@@ -20,83 +22,103 @@ public partial record VehicleRentalAgreement2
     /// <summary>
     /// Contains the original vehicle rental agreement, invoice or contract number.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AgreementNumber { get; init; } 
     /// <summary>
     /// Indicates that an adjustment was made to a vehicle rental charge (for example, additional charges added). 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? AdjustedIndicator { get; init; } 
     /// <summary>
     /// Contains the vehicle rental location. 
     /// </summary>
+    [DataMember]
     public Address2? RentalLocation { get; init; } 
     /// <summary>
     /// Used when different than rental location
     /// </summary>
-    public Address2[] PickupLocation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Address2> PickupLocation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date the vehicle was picked-up by the customer.  In the case of a no-show transaction or a prepaid transaction, this contains the scheduled pickup date.
     /// </summary>
+    [DataMember]
     public IsoISODate? CheckOutDate { get; init; } 
     /// <summary>
     /// Time the vehicle was picked-up by the customer.  In the case of a no-show transaction or a prepaid transaction, this contains the scheduled pickup time.
     /// </summary>
+    [DataMember]
     public IsoISOTime? CheckOutTime { get; init; } 
     /// <summary>
     /// Location to which vehicle was returned.
     /// </summary>
+    [DataMember]
     public Address2? ReturnLocation { get; init; } 
     /// <summary>
     /// Date when the vehicle was returned to the rental agency.
     /// </summary>
+    [DataMember]
     public IsoISODate? CheckInDate { get; init; } 
     /// <summary>
     /// Time when the vehicle was returned to the rental agency.
     /// </summary>
+    [DataMember]
     public IsoISOTime? CheckInTime { get; init; } 
     /// <summary>
     /// Duration of rental in days.
     /// </summary>
+    [DataMember]
     public IsoMax4NumericText? Duration { get; init; } 
     /// <summary>
     /// Contains the details of the vehicle classification.
     /// </summary>
+    [DataMember]
     public Vehicle4? VehicleClassDetails { get; init; } 
     /// <summary>
     /// Distance travelled during vehicle rental.
     /// </summary>
+    [DataMember]
     public Distance1? TravelDistance { get; init; } 
     /// <summary>
     /// Vehicle rental rate.
     /// </summary>
-    public RentalRate1[] RentalRate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RentalRate1> RentalRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Vehicle rental details.
     /// </summary>
+    [DataMember]
     public RentalDetails2? RentalDetails { get; init; } 
     /// <summary>
     /// Registration number of vehicle.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? VehicleRegistrationNumber { get; init; } 
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
     /// <summary>
     /// Contains the details of additional amount for a specific vehicle rental service type. 
     /// </summary>
-    public Amount18[] AdditionalAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Amount18> AdditionalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Taxes related to the products or services. 
     /// </summary>
-    public Tax39[] EstimatedTax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax39> EstimatedTax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Discount applied to the vehicle rental.
     /// </summary>
-    public Discount3[] DiscountProgramme { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Discount3> DiscountProgramme { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Loyalty programme details.
     /// </summary>
-    public LoyaltyProgramme3[] LoyaltyProgramme { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LoyaltyProgramme3> LoyaltyProgramme { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

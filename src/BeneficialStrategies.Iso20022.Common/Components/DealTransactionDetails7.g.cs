@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the triparty collateral transaction deal.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DealTransactionDetails7
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DealTransactionDetails7
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
+    [DataMember]
     public required ClosingDate4Choice_ ClosingDate { get; init; } 
     /// <summary>
     /// Provide deal amount details.
     /// </summary>
+    [DataMember]
     public CollateralAmount14? DealDetailsAmount { get; init; } 
     
     #nullable disable

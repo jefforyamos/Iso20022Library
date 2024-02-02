@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Characteristics of the statement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Statement21
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record Statement21
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
+    [DataMember]
     public Number3Choice_? ReportNumber { get; init; } 
     /// <summary>
     /// Identification of the SecuritiesStatementQuery message sent to request this statement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? QueryReference { get; init; } 
     /// <summary>
     /// Reference common to all pages of a statement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? StatementIdentification { get; init; } 
     /// <summary>
     /// Date and time of the statement.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
+    [DataMember]
     public required Frequency4Choice_ Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
+    [DataMember]
     public required UpdateType2Choice_ UpdateType { get; init; } 
     /// <summary>
     /// Type of balance on which the statement is prepared.
     /// </summary>
+    [DataMember]
     public required StatementBasis3Choice_ StatementBasis { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the statement reports holdings at subsafekeeping account level.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator SubAccountIndicator { get; init; } 
     
     #nullable disable

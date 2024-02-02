@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Characteristics of a tax efficient product.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxEfficientProduct3
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record TaxEfficientProduct3
     /// <summary>
     /// Type of tax efficient product, for example, an individual savings account (ISA) in the UK.
     /// </summary>
+    [DataMember]
     public required TaxEfficientProductType1Choice_ TaxEfficientProductType { get; init; } 
     /// <summary>
     /// Indicates whether the product contains a cash asset for transfer.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CashComponentIndicator { get; init; } 
     /// <summary>
     /// Investment plans issued during previous years.
     /// </summary>
+    [DataMember]
     public PreviousYear4? PreviousYears { get; init; } 
     /// <summary>
     /// Amounts already subscribed for the current year.
     /// </summary>
+    [DataMember]
     public SubscriptionInformation2? CurrentYearSubscriptionDetails { get; init; } 
     /// <summary>
     /// Additional information about the tax efficient product.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

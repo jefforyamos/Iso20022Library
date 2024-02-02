@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the transportation of goods that are part of a commercial trade agreement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransportDataSet3
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record TransportDataSet3
     /// <summary>
     /// Identifies the submitted transport data set.
     /// </summary>
+    [DataMember]
     public required DocumentIdentification1 DataSetIdentification { get; init; } 
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
+    [DataMember]
     public PartyIdentification26? Buyer { get; init; } 
     /// <summary>
     /// Party that sells goods or services, or a financial instrument.
     /// </summary>
+    [DataMember]
     public PartyIdentification26? Seller { get; init; } 
     /// <summary>
     /// Party responsible for dispatching the goods.
     /// </summary>
+    [DataMember]
     public required PartyIdentification26 Consignor { get; init; } 
     /// <summary>
     /// Party to whom the goods must be delivered.
     /// </summary>
+    [DataMember]
     public PartyIdentification26? Consignee { get; init; } 
     /// <summary>
     /// Party to whom the goods must be delivered in the end.
     /// </summary>
+    [DataMember]
     public PartyIdentification26? ShipTo { get; init; } 
     /// <summary>
     /// Specifies the shipment date, the charges, the routing and the goods that are described in the transport document.
     /// </summary>
+    [DataMember]
     public required TransportDetails2 TransportInformation { get; init; } 
     
     #nullable disable

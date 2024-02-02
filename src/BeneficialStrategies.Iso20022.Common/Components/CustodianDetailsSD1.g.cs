@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information regarding custodian service record.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CustodianDetailsSD1
 {
     #nullable enable
@@ -20,43 +22,53 @@ public partial record CustodianDetailsSD1
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Unique identifier of a custodian corporate action record. Applicable to custodian service only.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text CustodianCorporateActionRecordIdentification { get; init; } 
     /// <summary>
     /// Indicates the state of the agreement of the custodian record when compared to composite record. Applicable to custodian service only.
     /// </summary>
+    [DataMember]
     public required CustodianRecordAgreementType1Code AgreeIndicator { get; init; } 
     /// <summary>
     /// Indicates state of the details of the custodian record on the system. Applicable to custodian service only.
     /// </summary>
+    [DataMember]
     public required CustodianRecordCompletenessType1Code CompletenessIndicator { get; init; } 
     /// <summary>
     /// Represents the status of custodian activity when applicable.
     /// </summary>
+    [DataMember]
     public CustodianAction1Code? CustodianActionIndicator { get; init; } 
     /// <summary>
     /// Indicates what action needs to be taken by the GCA (Global Corporate Action) validation service for this particular record. Applicable to custodian service only.
     /// </summary>
+    [DataMember]
     public GCAActionType1Code? GCAActionIndicator { get; init; } 
     /// <summary>
     /// BIC which is configured as a recipient of the custodian record. Applicable to custodian service only.
     /// </summary>
+    [DataMember]
     public required IsoAnyBICIdentifier ReceivingBIC { get; init; } 
     /// <summary>
     /// BIC which is configured as a sender of the custodian record. Applicable to custodian service only.
     /// </summary>
+    [DataMember]
     public required IsoAnyBICIdentifier OriginatingBIC { get; init; } 
     /// <summary>
     /// Indicates whether the event security of the corresponding composite record is on SOI (security of interest) subscription. Applicable to custodian service only.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator CompositeNotInSubscriptionFlag { get; init; } 
     /// <summary>
     /// Provides selected corporate action events message details extracted from the related custodian messages received. Applicable to custodian service only.
     /// </summary>
-    public RelatedCustodianMessageDetailsSD1[] RelatedCustodianMessageDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RelatedCustodianMessageDetailsSD1> RelatedCustodianMessageDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ConditionallyAcceptedStatusReason1Choice.Reason))]
 [KnownType(typeof(ConditionallyAcceptedStatusReason1Choice.Proprietary))]
 [KnownType(typeof(ConditionallyAcceptedStatusReason1Choice.NoSpecifiedReason))]
+[DataContract]
 public abstract partial record ConditionallyAcceptedStatusReason1Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information regarding the total amount of taxes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TotalTaxes2
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record TotalTaxes2
     /// <summary>
     /// Total value of the taxes for a specific order.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? TotalAmountOfTaxes { get; init; } 
     /// <summary>
     /// Information related to a specific tax.
     /// </summary>
-    public Tax7[] TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax7> TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

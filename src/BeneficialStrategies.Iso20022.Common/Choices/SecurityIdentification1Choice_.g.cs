@@ -16,6 +16,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SecurityIdentification1Choice.Bloomberg))]
 [KnownType(typeof(SecurityIdentification1Choice.CTA))]
 [KnownType(typeof(SecurityIdentification1Choice.Common))]
+[DataContract]
 public abstract partial record SecurityIdentification1Choice_
 {
 }

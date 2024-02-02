@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details for the trading under waiver of the instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradingUnderWaiversPercentage1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TradingUnderWaiversPercentage1
     /// <summary>
     /// Total percentage of trading under waiver of the instrument in this specific reporting period on this trading venue.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate TradingUnderWaiverPercentage { get; init; } 
     /// <summary>
     /// The venue this trading under waiver percentage is in relation to.
     /// </summary>
+    [DataMember]
     public required IsoMICIdentifier TradingVenue { get; init; } 
     /// <summary>
     /// Information for interpreting the result.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Disclaimer { get; init; } 
     
     #nullable disable

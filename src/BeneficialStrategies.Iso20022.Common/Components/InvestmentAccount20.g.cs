@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account between an investor(s) and a fund manager or a fund. The account can contain holdings in any investment fund or investment fund class managed (or distributed) by the fund manager, within the same fund family.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentAccount20
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record InvestmentAccount20
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public AccountIdentification1? AccountIdentification { get; init; } 
     /// <summary>
     /// Account type.
     /// </summary>
+    [DataMember]
     public FundCashAccount2Code? Type { get; init; } 
     /// <summary>
     /// Purpose of the account/source fund type. This is typically linked to an investment product, eg, wrapper, PEP, ISA.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedType { get; init; } 
     
     #nullable disable

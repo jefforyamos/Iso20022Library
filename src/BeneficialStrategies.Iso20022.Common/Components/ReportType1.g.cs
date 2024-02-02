@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportType1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record ReportType1
     /// <summary>
     /// Specifies whether the pushed through baseline is a new one or an amendment or a resubmission.
     /// </summary>
+    [DataMember]
     public required ReportType1Code Type { get; init; } 
     
     #nullable disable

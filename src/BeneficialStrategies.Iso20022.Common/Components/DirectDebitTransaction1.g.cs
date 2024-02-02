@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements providing specific information on the direct debit transaction and the related mandate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DirectDebitTransaction1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record DirectDebitTransaction1
     /// <summary>
     /// Set of elements used to provide further details related to a direct debit mandate signed between the creditor and the debtor.||Usage: Mandate related information is to be used only when the direct debit relates to a mandate signed between the debtor and the creditor.
     /// </summary>
+    [DataMember]
     public MandateRelatedInformation1? MandateRelatedInformation { get; init; } 
     /// <summary>
     /// Credit party that signs the direct debit mandate.
     /// </summary>
+    [DataMember]
     public PartyIdentification8? CreditorSchemeIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the pre-notification which is sent separately from the direct debit instruction.||Usage: The direct debit pre-notification is used to reconcile separately sent collection information with the direct debit transaction information.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PreNotificationIdentification { get; init; } 
     /// <summary>
     /// Date on which the creditor notifies the debtor about the amount and date on which the direct debit instruction will be presented to the debtor's agent.
     /// </summary>
+    [DataMember]
     public IsoISODate? PreNotificationDate { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Mask generator function cryptographic algorithm and parameters.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AlgorithmIdentification18
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AlgorithmIdentification18
     /// <summary>
     /// Mask generator function cryptographic algorithm.
     /// </summary>
+    [DataMember]
     public required Algorithm8Code Algorithm { get; init; } 
     /// <summary>
     /// Parameters associated to the mask generator function cryptographic algorithm.
     /// </summary>
+    [DataMember]
     public Parameter9? Parameter { get; init; } 
     
     #nullable disable

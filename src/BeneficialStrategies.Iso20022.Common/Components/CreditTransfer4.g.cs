@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment instrument between a debtor and a creditor, which flows through one or more financial institutions or systems.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditTransfer4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CreditTransfer4
     /// <summary>
     /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts' receivable system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Reference { get; init; } 
     /// <summary>
     /// Party that receives an amount of money from the debtor. The creditor is also the credit account owner.
     /// </summary>
+    [DataMember]
     public Creditor2? CreditorDetails { get; init; } 
     /// <summary>
     /// Party that owes the cash to the creditor/final party. The debtor is also the debit account owner.
     /// </summary>
+    [DataMember]
     public required Debtor2 DebtorDetails { get; init; } 
     
     #nullable disable

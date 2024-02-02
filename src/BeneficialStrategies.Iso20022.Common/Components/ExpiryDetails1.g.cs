@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Expiry and extension information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExpiryDetails1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record ExpiryDetails1
     /// <summary>
     /// Terms defining when the undertaking will cease to be available.
     /// </summary>
+    [DataMember]
     public ExpiryTerms1? ExpiryTerms { get; init; } 
     /// <summary>
     /// Additional information related to the expiry and expiry extension.
     /// </summary>
-    public IsoMax2000Text[] AdditionalExpiryInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalExpiryInformation { get; init; } = [];
     
     #nullable disable
 }

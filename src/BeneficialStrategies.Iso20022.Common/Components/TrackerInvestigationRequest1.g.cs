@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides detailed information on the investigation status as updated in the tracker or investigation facility.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerInvestigationRequest1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TrackerInvestigationRequest1
     /// <summary>
     /// Type of investigation.
     /// </summary>
+    [DataMember]
     public required InvestigationType2Choice_ InvestigationType { get; init; } 
     /// <summary>
     /// Request status and details of assignment by the tracking facility. 
     /// </summary>
+    [DataMember]
     public required TrackerInvestigationRequestStatus1 StatusAndAssignment { get; init; } 
     /// <summary>
     /// Provides details on the subject to which the investigation refers, for example a payment or statement entry.
     /// </summary>
+    [DataMember]
     public UnderlyingData1Choice_? Underlying { get; init; } 
     
     #nullable disable

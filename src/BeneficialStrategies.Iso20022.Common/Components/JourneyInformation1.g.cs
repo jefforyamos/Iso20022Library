@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the journey before or after the rental.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record JourneyInformation1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record JourneyInformation1
     /// <summary>
     /// Type of journey.
     /// </summary>
+    [DataMember]
     public JourneyType1Code? JourneyType { get; init; } 
     /// <summary>
     /// Data related to the type of journey selected (for example, AF1234 when FlightNumber selected).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? JourneyData { get; init; } 
     /// <summary>
     /// Date and time related to the journey type selected.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? DateAndTime { get; init; } 
     
     #nullable disable

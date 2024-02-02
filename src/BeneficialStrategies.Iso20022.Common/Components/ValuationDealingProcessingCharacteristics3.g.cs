@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Valuation dealing processing characteristics linked to the instrument, that is, not to the market.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ValuationDealingProcessingCharacteristics3
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record ValuationDealingProcessingCharacteristics3
     /// <summary>
     /// Frequency of the valuation.
     /// </summary>
+    [DataMember]
     public EventFrequency5Code? ValuationFrequency { get; init; } 
     /// <summary>
     /// Further details regarding the dealing frequency, for example, Tuesday (for weekly dealing) or last business day of the month.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? ValuationFrequencyDescription { get; init; } 
     /// <summary>
     /// Valuation time of the fund.
     /// </summary>
+    [DataMember]
     public IsoISOTime? ValuationTime { get; init; } 
     /// <summary>
     /// Number of decimal places to which quantities of units/shares are rounded.
     /// </summary>
+    [DataMember]
     public IsoNumber? DecimalisationUnits { get; init; } 
     /// <summary>
     /// Number of decimal places to which the price is rounded.
     /// </summary>
+    [DataMember]
     public IsoNumber? DecimalisationPrice { get; init; } 
     /// <summary>
     /// Indicates whether the fund has two prices.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? DualFundIndicator { get; init; } 
     /// <summary>
     /// Type of pricing calculation method.
     /// </summary>
+    [DataMember]
     public PriceMethod1Code? PriceMethod { get; init; } 
     /// <summary>
     /// Currencies in which the prices for the investment fund class are published by the fund management company.
     /// </summary>
-    public ActiveCurrencyCode[] PriceCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ActiveCurrencyCode> PriceCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the valuation dealing characteristics.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

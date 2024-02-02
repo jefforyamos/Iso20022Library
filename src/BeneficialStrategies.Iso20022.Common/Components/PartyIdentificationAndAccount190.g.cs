@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Party and account details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentificationAndAccount190
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PartyIdentificationAndAccount190
     /// <summary>
     /// Identification of the party.
     /// </summary>
+    [DataMember]
     public required PartyIdentification137Choice_ Identification { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a party.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount30? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction for the party identified.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? ProcessingIdentification { get; init; } 
     
     #nullable disable

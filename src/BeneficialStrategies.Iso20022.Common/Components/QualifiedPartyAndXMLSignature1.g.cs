@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines a signing party and a digital signature made by this party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record QualifiedPartyAndXMLSignature1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record QualifiedPartyAndXMLSignature1
     /// <summary>
     /// Identification of the signing party.
     /// </summary>
+    [DataMember]
     public QualifiedPartyIdentification1? Party { get; init; } 
     /// <summary>
     /// Digital signature in XML-DSIG format and reference to signing party.
     /// </summary>
+    [DataMember]
     public required SignatureEnvelope Signature { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Conditions to be met by the holder.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OptionConditions1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OptionConditions1
     /// <summary>
     /// Number of the condition.
     /// </summary>
+    [DataMember]
     public required IsoMax1Number ConditionNumber { get; init; } 
     /// <summary>
     /// Description of the condition.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax520Text ConditionText { get; init; } 
     /// <summary>
     /// States whether the condition must be acknowledged. Conditions with a No ("false" or "0") do not need acknowledgement.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ConditionRequiredFlag { get; init; } 
     
     #nullable disable

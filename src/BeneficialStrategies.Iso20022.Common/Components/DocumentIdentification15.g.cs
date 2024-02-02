@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a document and type of link.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentIdentification15
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DocumentIdentification15
     /// <summary>
     /// Identifies the document.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Specifies when this document is to be processed relative to an other referred document.
     /// </summary>
+    [DataMember]
     public ProcessingPosition1Choice_? LinkageType { get; init; } 
     
     #nullable disable

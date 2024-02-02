@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details of the collateral margin data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralMarginError4
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record CollateralMarginError4
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Date and time of submission of the report to the trade repository.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime ReportingDateTime { get; init; } 
     /// <summary>
     /// Data specific to counterparties of the reported transaction.
     /// </summary>
+    [DataMember]
     public required Counterparty39 Counterparty { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the collateral portfolio.
     /// </summary>
+    [DataMember]
     public required IsoMax52Text CollateralPortfolioIdentification { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

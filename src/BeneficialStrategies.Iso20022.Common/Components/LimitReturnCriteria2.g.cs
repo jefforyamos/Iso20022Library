@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to report on limit.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LimitReturnCriteria2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record LimitReturnCriteria2
     /// <summary>
     /// Indicates whether the limit start date time is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? StartDateTimeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the limit status is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? StatusIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the limit used amount is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? UsedAmountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the limit used percentage is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? UsedPercentageIndicator { get; init; } 
     
     #nullable disable

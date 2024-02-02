@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the type and amount of the cash reinvestment in a given currency and on the cash reinvestment rate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashReuseData1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CashReuseData1
     /// <summary>
     /// Provides details on the type and amount of the cash reinvestment in a given currency.
     /// </summary>
-    public ReinvestedCashTypeAndAmount1[] ReinvestedCash { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReinvestedCashTypeAndAmount1> ReinvestedCash { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Average interest rate received on cash collateral reinvestment by the lender for reinvestment of cash collateral.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate CashReinvestmentRate { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Fraud reporting transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transaction130
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record Transaction130
     /// <summary>
     /// Identification of the  transaction reporting the fraud.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text FraudTransactionIdentification { get; init; } 
     /// <summary>
     /// Fraud reporting type information.
     /// </summary>
+    [DataMember]
     public required ReportedFraud3 ReportedFraud { get; init; } 
     /// <summary>
     /// Data pertaining to fraudulent reported transaction.
     /// </summary>
+    [DataMember]
     public required FraudulentTransactionData2 FraudulentTransactionData { get; init; } 
     /// <summary>
     /// Details of a not-received card.
     /// </summary>
+    [DataMember]
     public CardNotReceivedDetails2? CardNotReceivedDetails { get; init; } 
     /// <summary>
     /// Cardholder name as it appears on the card.
     /// </summary>
+    [DataMember]
     public CardholderName3? CardholderName { get; init; } 
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    public AdditionalFee2[] AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalFee2> AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information relevant for the settlement report.
     /// </summary>
-    public AdditionalInformation22[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation22> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains text fields in the local language.
     /// </summary>
+    [DataMember]
     public LocalData6? LocalData { get; init; } 
     
     #nullable disable

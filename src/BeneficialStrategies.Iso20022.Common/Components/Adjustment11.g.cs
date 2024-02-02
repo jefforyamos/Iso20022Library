@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes each adjustment made to the original price.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Adjustment11
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Adjustment11
     /// <summary>
     /// Contains the adjusted amount (for example, discounts).
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether or not the line item is a credit amount.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CreditIndicator { get; init; } 
     /// <summary>
     /// Reason for the adjustment.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Reason { get; init; } 
     
     #nullable disable

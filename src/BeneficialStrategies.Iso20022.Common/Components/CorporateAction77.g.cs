@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the corporate action event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateAction77
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CorporateAction77
     /// <summary>
     /// Provides information about the dates related to a corporate action event.
     /// </summary>
+    [DataMember]
     public CorporateActionDate93? DateDetails { get; init; } 
     /// <summary>
     /// Provides information about securities quantity linked to a corporate action.
     /// </summary>
+    [DataMember]
     public CorporateActionQuantity13? SecuritiesQuantity { get; init; } 
     /// <summary>
     /// Stage in the corporate action event life cycle.
     /// </summary>
+    [DataMember]
     public CorporateActionEventStageFormat15Choice_? EventStage { get; init; } 
     /// <summary>
     /// Indicates whether the message is related to a claim on the associated corporate action event.
     /// </summary>
-    public AdditionalBusinessProcessFormat21Choice_[] AdditionalBusinessProcessIndicator { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalBusinessProcessFormat21Choice_> AdditionalBusinessProcessIndicator { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the type of intermediates securities distribution.
     /// </summary>
+    [DataMember]
     public IntermediateSecuritiesDistributionTypeFormat18Choice_? IntermediateSecuritiesDistributionType { get; init; } 
     /// <summary>
     /// Specifies the type of lottery announced.
     /// </summary>
+    [DataMember]
     public LotteryTypeFormat5Choice_? LotteryType { get; init; } 
     
     #nullable disable

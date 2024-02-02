@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the valuation details per exposure type aggregation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExposureTypeAggregation3
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ExposureTypeAggregation3
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the exposure.
     /// </summary>
+    [DataMember]
     public required ExposureType23Choice_ ExposureType { get; init; } 
     /// <summary>
     /// Specifies the settlement process in which the collateral will be settled.
     /// </summary>
+    [DataMember]
     public GenericIdentification30? SettlementProcess { get; init; } 
     /// <summary>
     /// Provides details on the collateral valuation.
     /// </summary>
-    public CollateralAmount16[] ValuationAmounts { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CollateralAmount16> ValuationAmounts { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// The collateral excess/shortage expressed in the percentage of the collateral required.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? MarginRate { get; init; } 
     /// <summary>
     /// Provides the status after comparing the total collateral required and the total collateral value of all transactions of the same exposure type.
     /// </summary>
+    [DataMember]
     public CollateralStatus1Code? GlobalExposureTypeStatus { get; init; } 
     
     #nullable disable

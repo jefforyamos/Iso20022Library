@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Formal document used to record a fact and used as proof of the fact, in the context of a commercial trade transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CertificateDataSet2
 {
     #nullable enable
@@ -20,67 +22,83 @@ public partial record CertificateDataSet2
     /// <summary>
     /// Identifies the certificate data set.
     /// </summary>
+    [DataMember]
     public required DocumentIdentification1 DataSetIdentification { get; init; } 
     /// <summary>
     /// Specifies the type of the certificate.
     /// </summary>
+    [DataMember]
     public required TradeCertificateType1Code CertificateType { get; init; } 
     /// <summary>
     /// Specifies if the certificate data set is required in relation to specific line items, and which line items.
     /// </summary>
-    public LineItemAndPOIdentification1[] LineItem { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LineItemAndPOIdentification1> LineItem { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Characteristics of the goods that are certified, in the context of a commercial trade transaction.
     /// </summary>
+    [DataMember]
     public required CertifiedCharacteristics2Choice_ CertifiedCharacteristics { get; init; } 
     /// <summary>
     /// Issue date of the document.
     /// </summary>
+    [DataMember]
     public required IsoISODate IssueDate { get; init; } 
     /// <summary>
     /// Place where the certificate was issued.
     /// </summary>
+    [DataMember]
     public PostalAddress5? PlaceOfIssue { get; init; } 
     /// <summary>
     /// Issuer of the certificate, typically the inspection company or its agent.
     /// </summary>
+    [DataMember]
     public required PartyIdentification26 Issuer { get; init; } 
     /// <summary>
     /// Date(s) at which inspection of the goods took place.
     /// </summary>
+    [DataMember]
     public DatePeriodDetails? InspectionDate { get; init; } 
     /// <summary>
     /// Indicates that the inspection has been performed by an authorised inspector.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AuthorisedInspectorIndicator { get; init; } 
     /// <summary>
     /// Unique identifier of the document.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text CertificateIdentification { get; init; } 
     /// <summary>
     /// Transport information relative to the goods that are covered by the certificate.
     /// </summary>
+    [DataMember]
     public SingleTransport3? Transport { get; init; } 
     /// <summary>
     /// Information about the goods and/or services of a trade transaction.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? GoodsDescription { get; init; } 
     /// <summary>
     /// Party responsible for dispatching the goods.
     /// </summary>
+    [DataMember]
     public PartyIdentification26? Consignor { get; init; } 
     /// <summary>
     /// Party to whom the goods (which are the subject of the certificate) must be delivered.
     /// </summary>
+    [DataMember]
     public PartyIdentification26? Consignee { get; init; } 
     /// <summary>
     /// Manufacturer of the goods which are the subject of the certificate.
     /// </summary>
+    [DataMember]
     public PartyIdentification26? Manufacturer { get; init; } 
     /// <summary>
     /// Additional and important information that could not be captured by structured fields.
     /// </summary>
-    public IsoMax350Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax350Text> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

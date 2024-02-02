@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information needed to contact a physical person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContactIdentification3
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record ContactIdentification3
     /// <summary>
     /// Business Identifier Code to identify the financial institution that the contact person belongs to.
     /// </summary>
+    [DataMember]
     public required IsoBICIdentifier BIC { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Name { get; init; } 
     /// <summary>
     /// Specifies the terms used to formally address a person.
     /// </summary>
+    [DataMember]
     public NamePrefix1Code? NamePrefix { get; init; } 
     /// <summary>
     /// First name of a person.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? GivenName { get; init; } 
     /// <summary>
     /// Role of the party in the activity.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Role { get; init; } 
     /// <summary>
     /// Collection of information that identifies a phone number, as defined by telecom services.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? PhoneNumber { get; init; } 
     /// <summary>
     /// Collection of information that identifies a FAX number, as defined by telecom services.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? FaxNumber { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
+    [DataMember]
     public IsoMax256Text? EmailAddress { get; init; } 
     
     #nullable disable

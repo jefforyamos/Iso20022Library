@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the LRCI protocol extension details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IsabelLRCIExtension1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record IsabelLRCIExtension1
     /// <summary>
     /// Effective method for calculating the (cryptographic) hash value of each visual representation of a payment file.
     /// </summary>
+    [DataMember]
     public required IsoMax105Text ImageHashAlgorithm { get; init; } 
     /// <summary>
     /// Block of data on which the signature is calculated by the LRCI client.
     /// </summary>
+    [DataMember]
     public required IsabelEpaymentTokenResponse1 TokenResponse { get; init; } 
     /// <summary>
     /// Index of the payment information element containing the hash of the visual representation and the hash of the payment file relevant for this signature.
     /// </summary>
+    [DataMember]
     public required IsoPositiveNumber TokenResponsePaymentInformationIndex { get; init; } 
     
     #nullable disable

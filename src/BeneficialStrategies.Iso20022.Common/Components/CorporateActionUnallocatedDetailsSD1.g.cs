@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding the corporate action event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionUnallocatedDetailsSD1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record CorporateActionUnallocatedDetailsSD1
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax35Text SafekeepingAccount { get; init; } 
     /// <summary>
     /// Type of Participants positions balance concerned in unallocated payment.
     /// </summary>
+    [DataMember]
     public CorporateActionUnallocatedBalanceSD1Choice_? UnallocatedBalance { get; init; } 
     /// <summary>
     /// Details of the securities transactions concerned in unallocated payment.
     /// </summary>
-    public CorporateActionUnallocatedSecuritiesTransactionDetailsSD1[] UnallocatedSecuritiesTransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CorporateActionUnallocatedSecuritiesTransactionDetailsSD1> UnallocatedSecuritiesTransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details of the cash transactions concerned in unallocated payment.
     /// </summary>
-    public CorporateActionUnallocatedCashTransactionDetailsSD1[] UnallocatedCashTransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CorporateActionUnallocatedCashTransactionDetailsSD1> UnallocatedCashTransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

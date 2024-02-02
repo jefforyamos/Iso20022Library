@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(Product1Choice.Derivative))]
 [KnownType(typeof(Product1Choice.SecuritiesFinancingTransaction))]
 [KnownType(typeof(Product1Choice.Security))]
+[DataContract]
 public abstract partial record Product1Choice_
 {
 }

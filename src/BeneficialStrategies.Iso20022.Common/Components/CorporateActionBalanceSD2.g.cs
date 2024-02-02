@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action balance details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionBalanceSD2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionBalanceSD2
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Balance of uncovered protect transactions at an event level.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? TotalUncoveredProtectBalance { get; init; } 
     
     #nullable disable

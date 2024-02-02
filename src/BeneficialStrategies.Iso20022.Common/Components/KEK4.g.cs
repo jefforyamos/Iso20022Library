@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Key encryption key (KEK), using previously distributed symmetric key.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record KEK4
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record KEK4
     /// <summary>
     /// Version of the data structure.
     /// </summary>
+    [DataMember]
     public IsoNumber? Version { get; init; } 
     /// <summary>
     /// Identification of the key encryption key (KEK).
     /// </summary>
+    [DataMember]
     public required KEKIdentifier2 KEKIdentification { get; init; } 
     /// <summary>
     /// Algorithm to encrypt the key encryption key (KEK).
     /// </summary>
+    [DataMember]
     public required AlgorithmIdentification13 KeyEncryptionAlgorithm { get; init; } 
     /// <summary>
     /// Encrypted key encryption key (KEK).
     /// </summary>
+    [DataMember]
     public required IsoMax500Binary EncryptedKey { get; init; } 
     
     #nullable disable

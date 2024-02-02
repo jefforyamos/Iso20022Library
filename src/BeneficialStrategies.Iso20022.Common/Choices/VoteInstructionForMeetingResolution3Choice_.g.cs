@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(VoteInstructionForMeetingResolution3Choice.VoteIndication))]
 [KnownType(typeof(VoteInstructionForMeetingResolution3Choice.Shareholder))]
+[DataContract]
 public abstract partial record VoteInstructionForMeetingResolution3Choice_
 {
 }

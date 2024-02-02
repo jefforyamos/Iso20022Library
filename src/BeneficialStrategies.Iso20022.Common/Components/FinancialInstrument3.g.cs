@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, eg, dividend option or valuation currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrument3
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record FinancialInstrument3
     /// <summary>
     /// Identification of a security by an ISIN.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Additional information about a financial instrument to help identify the instrument.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SupplementaryIdentification { get; init; } 
     /// <summary>
     /// Currency to be used for pricing the fund. This currency must be among the set of currencies in which the price may be expressed, as stated in the prospectus.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? RequestedNAVCurrency { get; init; } 
     /// <summary>
     /// Features of units offered by a fund. For example, a unit may have a specific load structure, eg, front end or back end, an income policy, eg, pay out or accumulate, or a trailer policy, eg, with or without. Fund classes are typically denoted by a single character, eg, 'Class A', 'Class 2'.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClassType { get; init; } 
     /// <summary>
     /// Form, ie, ownership, of the security, eg, registered or bearer.
     /// </summary>
+    [DataMember]
     public FormOfSecurity1Code? SecuritiesForm { get; init; } 
     /// <summary>
     /// Income policy relating to a class type, ie, if income is paid out or retained in the fund.
     /// </summary>
+    [DataMember]
     public DistributionPolicy1Code? DistributionPolicy { get; init; } 
     
     #nullable disable

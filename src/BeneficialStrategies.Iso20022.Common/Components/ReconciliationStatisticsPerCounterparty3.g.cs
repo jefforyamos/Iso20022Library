@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed information on derivatives submitted for reconciliation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReconciliationStatisticsPerCounterparty3
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record ReconciliationStatisticsPerCounterparty3
     /// <summary>
     /// Reference date for statistics collection.
     /// </summary>
+    [DataMember]
     public required IsoISODate ReferenceDate { get; init; } 
     /// <summary>
     /// Different categories of statuses for a derivative.
     /// </summary>
+    [DataMember]
     public required ReportingRequirement2Choice_ ReconciliationCategories { get; init; } 
     /// <summary>
     /// Number of all reports per status on derivatives submitted for reconciliation.
     /// </summary>
+    [DataMember]
     public IsoNumber? TotalNumberOfTransactions { get; init; } 
     /// <summary>
     /// Details of derivatives submitted for reconciliation per counterparty pair.
     /// </summary>
-    public ReconciliationCounterpartyPairStatistics6[] TransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReconciliationCounterpartyPairStatistics6> TransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

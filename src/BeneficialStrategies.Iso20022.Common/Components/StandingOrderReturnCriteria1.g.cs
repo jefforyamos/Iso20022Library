@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to report on standing orders.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StandingOrderReturnCriteria1
 {
     #nullable enable
@@ -20,70 +22,87 @@ public partial record StandingOrderReturnCriteria1
     /// <summary>
     /// Defines the criteria used to report on a multilateral balance.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? StandingOrderIdentificationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the standing order type is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? TypeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the system member identification is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? SystemMemberIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the responsible party identification is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? ResponsiblePartyIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account currency is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? CurrencyIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account type is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? DebtorAccountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the multilateral limit is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? CreditorAccountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the associated pool account is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? AssociatedPoolAccount { get; init; } 
     /// <summary>
     /// Indicates whether the frequency is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? FrequencyIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the execution type is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? ExecutionTypeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account standing order is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? ValidityFromIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account owner information is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? ValidToIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the link set identification is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? LinkSetIdentificationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the identification of a standing order within a link set is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? LinkSetOrderIdentificationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the sequence of a standing order within a link set is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? LinkSetOrderSequenceIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the total amount per standing order type is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? TotalAmountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the zero sweeping indicator is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? ZeroSweepIndicator { get; init; } 
     
     #nullable disable

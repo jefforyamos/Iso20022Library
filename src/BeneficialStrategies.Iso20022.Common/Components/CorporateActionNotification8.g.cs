@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Corporate action event notification status and contents.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionNotification8
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionNotification8
     /// <summary>
     /// Specifies the type of notification.
     /// </summary>
+    [DataMember]
     public required CorporateActionNotificationType1Code NotificationType { get; init; } 
     /// <summary>
     /// Specifies the status of the details of the corporate action event.
     /// </summary>
+    [DataMember]
     public required CorporateActionProcessingStatus6Choice_ ProcessingStatus { get; init; } 
     
     #nullable disable

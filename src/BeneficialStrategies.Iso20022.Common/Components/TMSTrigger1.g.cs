@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Instructs the POI (Point Of Interaction) how to contact the host of the terminal management system (TMS), to initiate the maintenance of the terminal.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TMSTrigger1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TMSTrigger1
     /// <summary>
     /// Level of urgency in contacting the maintenance.
     /// </summary>
+    [DataMember]
     public required TMSContactLevel1Code TMSContactLevel { get; init; } 
     /// <summary>
     /// Identification of the host to contact for the maintenance.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TMSIdentification { get; init; } 
     /// <summary>
     /// Date and time for calling the maintenance.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? TMSContactDateTime { get; init; } 
     
     #nullable disable

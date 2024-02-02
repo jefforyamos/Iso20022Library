@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Numeric characters of the cardholder's address for verification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AddressVerification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AddressVerification1
     /// <summary>
     /// Numeric characters from the cardholder's address excluding the postal code (that is street number).
     /// </summary>
+    [DataMember]
     public IsoMax5NumericText? AddressDigits { get; init; } 
     /// <summary>
     /// Numeric characters from the cardholder's postal code.
     /// </summary>
+    [DataMember]
     public IsoMax5NumericText? PostalCodeDigits { get; init; } 
     
     #nullable disable

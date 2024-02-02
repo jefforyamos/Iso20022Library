@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to counterparty identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CounterpartyIdentification4
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CounterpartyIdentification4
     /// <summary>
     /// Identification of the counterparty in the transaction.
     /// </summary>
+    [DataMember]
     public required OrganisationIdentification9Choice_ Identification { get; init; } 
     /// <summary>
     /// Nature of the reporting counterparty in accordance with the local regulation.
     /// </summary>
+    [DataMember]
     public CounterpartyTradeNature7Choice_? Nature { get; init; } 
     /// <summary>
     /// Identification of the branch of the counterparty, when the transaction concludes a transaction through a branch office.
     /// </summary>
+    [DataMember]
     public Branch2Choice_? Branch { get; init; } 
     /// <summary>
     /// Identifies whether the reporting counterparty is a collateral provider or a collateral taker.
     /// </summary>
+    [DataMember]
     public CollateralRole1Code? Side { get; init; } 
     
     #nullable disable

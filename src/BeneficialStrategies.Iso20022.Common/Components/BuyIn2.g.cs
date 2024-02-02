@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies elements related to the confirmation sent by the central counterparty to the clearing member in the context of the buy in process.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BuyIn2
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record BuyIn2
     /// <summary>
     /// Indicates the reference of the BuyInNotification message.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? BuyInNotificationIdentification { get; init; } 
     /// <summary>
     /// Indicates the reference id of the buy in.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text BuyInIdentification { get; init; } 
     /// <summary>
     /// Provides the date at which the buy occured.
     /// </summary>
+    [DataMember]
     public required IsoISODate Date { get; init; } 
     /// <summary>
     /// Provides the price of the buy-in.
     /// </summary>
+    [DataMember]
     public Price4? Price { get; init; } 
     /// <summary>
     /// Specifies the elements related to the securities that the central counterparty had to buy in the context of the buy-in process.
     /// </summary>
+    [DataMember]
     public SecuritiesCompensation1? SecuritiesBuyIn { get; init; } 
     /// <summary>
     /// Provides details about the cash compensation required, in case the central counterparty could not buy the securities to cover the trade(s) that failed.
     /// </summary>
+    [DataMember]
     public CashCompensation1? RequiredCashCompensation { get; init; } 
     
     #nullable disable

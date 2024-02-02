@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the closing of the securities financing transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesFinancing12
 {
     #nullable enable
@@ -20,162 +22,202 @@ public partial record SecuritiesFinancing12
     /// <summary>
     /// Date/Time at which rate change has taken place.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? RateChangeDate { get; init; } 
     /// <summary>
     /// Specifies whether the rate is fixed or variable.
     /// </summary>
+    [DataMember]
     public RateType35Choice_? RateType { get; init; } 
     /// <summary>
     /// Specifies whether the collateral position should be subject to automatic revaluation by the account servicer.
     /// </summary>
+    [DataMember]
     public Revaluation3Choice_? Revaluation { get; init; } 
     /// <summary>
     /// Legal framework of the transaction.
     /// </summary>
+    [DataMember]
     public LegalFramework1Code? LegalFramework { get; init; } 
     /// <summary>
     /// Identifies the computation method of accrued interest of the related financial instrument.
     /// </summary>
+    [DataMember]
     public InterestComputationMethod3Choice_? InterestComputationMethod { get; init; } 
     /// <summary>
     /// Index or support rate used together with the spread to calculate the repurchase rate.
     /// </summary>
+    [DataMember]
     public RateName1? VariableRateSupport { get; init; } 
     /// <summary>
     /// Repurchase rate used to calculate the repurchase amount.
     /// </summary>
+    [DataMember]
     public Rate2? RepurchaseRate { get; init; } 
     /// <summary>
     /// Percentage mark-up on a loan consideration used to reflect the lender's risk.
     /// </summary>
+    [DataMember]
     public Rate2? StockLoanMargin { get; init; } 
     /// <summary>
     /// Haircut or valuation factor on the security expressed as a percentage.
     /// </summary>
+    [DataMember]
     public Rate2? SecuritiesHaircut { get; init; } 
     /// <summary>
     /// Interest rate to be paid on the transaction amount, as agreed between the counterparties.
     /// </summary>
+    [DataMember]
     public RateOrName1Choice_? PricingRate { get; init; } 
     /// <summary>
     /// Margin over or under an index that determines the repurchase rate, expressed as a rate or an amount.
     /// </summary>
+    [DataMember]
     public SpreadRate1? SpreadRate { get; init; } 
     /// <summary>
     /// Indicates whether or not the trade is callable.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CallableTradeIndicator { get; init; } 
     /// <summary>
     /// Minimum number of days' notice a counterparty needs for terminating the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? TransactionCallDelay { get; init; } 
     /// <summary>
     /// Interest amount that has accrued in between two periods, for example, in between interest payment periods.
     /// </summary>
+    [DataMember]
     public AmountAndDirection5? AccruedInterestAmount { get; init; } 
     /// <summary>
     /// Interest rate that has been accrued in between coupon payment periods.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? AccruedInterestPercentage { get; init; } 
     /// <summary>
     /// Fixed amount of money that has to be paid (instead of interest) in the case of a recall or at the closing date.
     /// </summary>
+    [DataMember]
     public AmountAndDirection5? ForfeitAmount { get; init; } 
     /// <summary>
     /// Difference between the amount of money of the first leg and the amount of the second leg of the transaction.
     /// </summary>
+    [DataMember]
     public AmountAndDirection5? PremiumAmount { get; init; } 
     /// <summary>
     /// Amount of money to be settled per piece of collateral to close the transaction.
     /// </summary>
+    [DataMember]
     public AmountAndDirection5? ClosingAmountPerPiecesOfCollateral { get; init; } 
     /// <summary>
     /// Indicates the total Number of collateral instructions involved in the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? TotalNumberOfCollateralInstructions { get; init; } 
     /// <summary>
     /// Provides details for the securities financing transaction.
     /// </summary>
+    [DataMember]
     public Agreement5? FinancingAgreement { get; init; } 
     /// <summary>
     /// Method applied to a lending transaction.
     /// </summary>
+    [DataMember]
     public LendingTransactionMethod2Choice_? LendingTransactionMethod { get; init; } 
     /// <summary>
     /// Indicates if the contract is with or without an exchange of collateral.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? LendingWithCollateral { get; init; } 
     /// <summary>
     /// Identifies the underlying reason for the borrowing, for instance, sale on my behalf or on behalf of a third party.
     /// </summary>
+    [DataMember]
     public BorrowingReason2Choice_? BorrowingReason { get; init; } 
     /// <summary>
     /// Indicates the type of collateral, for insatnce, security, bond, etc.
     /// </summary>
+    [DataMember]
     public CollateralType4Choice_? CollateralType { get; init; } 
     /// <summary>
     /// Indicates whether or not the contract terms changed.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ContractTermsModificationChanged { get; init; } 
     /// <summary>
     /// Interest rate to be paid as agreed between the counterparties.
     /// </summary>
+    [DataMember]
     public Rate2? InterestRate { get; init; } 
     /// <summary>
     /// Rate to be paid by the Borrower to the Lender for the securities borrowed.
     /// </summary>
+    [DataMember]
     public Rate2? BorrowingRate { get; init; } 
     /// <summary>
     /// Method used to calculate the standard collateral amount.
     /// </summary>
+    [DataMember]
     public Rate2? StandardCollateralRatio { get; init; } 
     /// <summary>
     /// Percentage of earnings paid to shareholders in dividends.
     /// </summary>
+    [DataMember]
     public Rate2? DividendRatio { get; init; } 
     /// <summary>
     /// Number of days the securities are lent or borrowed where the contract has an agreed closing date.
     /// </summary>
+    [DataMember]
     public Number24Choice_? NumberOfDaysLendingBorrowing { get; init; } 
     /// <summary>
     /// Specifies the standard collateral amount.
     /// </summary>
+    [DataMember]
     public AmountAndDirection5? StandardCollateralAmount { get; init; } 
     /// <summary>
     /// Interest rate tax that has been accrued in between coupon payment periods.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AccruedInterestTax { get; init; } 
     /// <summary>
     /// Number of days accrued at the instant of closing trade.
     /// </summary>
+    [DataMember]
     public IsoMax3Number? EndNumberOfDaysAccrued { get; init; } 
     /// <summary>
     /// End ratio of principal outstanding to the original balance.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? EndFactor { get; init; } 
     /// <summary>
     /// Type of securities lending.
     /// </summary>
+    [DataMember]
     public SecuritiesLendingType2Choice_? SecuritiesLendingType { get; init; } 
     /// <summary>
     /// Indicates the possibility to terminate the securitiesc lending contract either by the borrower or lender before the expiration date.
     /// </summary>
+    [DataMember]
     public Reversible2Choice_? Reversible { get; init; } 
     /// <summary>
     /// This is the minimum date at which the Borrower is allowed to give back the securities.
     /// </summary>
+    [DataMember]
     public IsoISODate? MinimumDateForCallBack { get; init; } 
     /// <summary>
     /// Indicates that the contract can be rolled over.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? RollOver { get; init; } 
     /// <summary>
     /// Indicates whether the securities lending fees can be paid periodically or at the end of the contract.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PeriodicPayment { get; init; } 
     /// <summary>
     /// Indicates whether the trade is executed ex coupon.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ExCoupon { get; init; } 
     
     #nullable disable

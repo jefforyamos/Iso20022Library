@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// General characteristics related to a statement which reports information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Statement72
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record Statement72
     /// <summary>
     /// Indicates whether the statement is a balance only notification or if it includes missing instructions only or all instructions.
     /// </summary>
+    [DataMember]
     public required CorporateActionStatementType2Code StatementType { get; init; } 
     /// <summary>
     /// Indicates whether the statement report on account holdings for corporate action events is for single account/multiple events or multiple accounts/single event.
     /// </summary>
+    [DataMember]
     public required CorporateActionStatementReportingType1Code ReportingType { get; init; } 
     /// <summary>
     /// Reference of the statement.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text StatementIdentification { get; init; } 
     /// <summary>
     /// Indicates the period of instruction details within the statement.
     /// </summary>
+    [DataMember]
     public DatePeriod2? InstructionAggregationPeriod { get; init; } 
     /// <summary>
     /// Sequential number of the statement.
     /// </summary>
+    [DataMember]
     public IsoMax5NumericText? ReportNumber { get; init; } 
     /// <summary>
     /// Date of the statement.
     /// </summary>
+    [DataMember]
     public required DateAndDateTime2Choice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
+    [DataMember]
     public required Frequency25Choice_ Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the report is complete or contains changes only.
     /// </summary>
+    [DataMember]
     public required UpdateType15Choice_ UpdateType { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     /// <summary>
     /// Period during which identification deadline has been set.
     /// </summary>
+    [DataMember]
     public DateOrDateTimePeriod1Choice_? NotificationDeadlinePeriod { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a party's account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountParties11
 {
     #nullable enable
@@ -20,47 +22,58 @@ public partial record AccountParties11
     /// <summary>
     /// Specifies the type of modification to be applied on a set of information.
     /// </summary>
+    [DataMember]
     public required DataModification1Code ModificationScopeIndication { get; init; } 
     /// <summary>
     /// Main party associated with the account.
     /// </summary>
+    [DataMember]
     public AccountParties6Choice_? PrincipalAccountParty { get; init; } 
     /// <summary>
     /// Entity that is not the primary owner when the ownership of the investment account is split among several owners.
     /// </summary>
-    public InvestmentAccountOwnershipInformation11[] SecondaryOwner { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation11> SecondaryOwner { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Ultimate party that is entitled to either receive the benefits of the ownership of a financial instrument, or to be paid/credited as a result of a transfer.
     /// </summary>
-    public InvestmentAccountOwnershipInformation11[] Beneficiary { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation11> Beneficiary { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Entity that was given the authority by another entity to act on its behalf.
     /// </summary>
-    public InvestmentAccountOwnershipInformation11[] PowerOfAttorney { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation11> PowerOfAttorney { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Entity that has been appointed by a legal authority to act on behalf of a person judged to be incapacitated.
     /// </summary>
-    public InvestmentAccountOwnershipInformation11[] LegalGuardian { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation11> LegalGuardian { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Deceased's estate, or successor, to whom the respective percentage of ownership will be transferred upon the death of one of the owners.
     /// </summary>
+    [DataMember]
     public InvestmentAccountOwnershipInformation11? SuccessorOnDeath { get; init; } 
     /// <summary>
     /// Entity that has been appointed by a legal authority to act on behalf of a person or organisation that has gone bankrupt.
     /// </summary>
-    public InvestmentAccountOwnershipInformation11[] Administrator { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation11> Administrator { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// An other type of party.
     /// </summary>
-    public ExtendedParty8[] OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ExtendedParty8> OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Granter role in the hedge funds industry.
     /// </summary>
-    public InvestmentAccountOwnershipInformation11[] Granter { get; init; } = [];
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation11> Granter { get; init; } = [];
     /// <summary>
     /// Entity that creates a trust or contributes assets to the trust.
     /// </summary>
-    public InvestmentAccountOwnershipInformation11[] Settlor { get; init; } = [];
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation11> Settlor { get; init; } = [];
     
     #nullable disable
 }

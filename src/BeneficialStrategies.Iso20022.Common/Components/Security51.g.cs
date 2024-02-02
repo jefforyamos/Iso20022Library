@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data specific to securities being subject to the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Security51
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record Security51
     /// <summary>
     /// Identifier of the security subject of the transaction.
     /// </summary>
+    [DataMember]
     public IsoISINOct2015Identifier? Identification { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, that is common share with voting rights, fully paid, or registered.
     /// </summary>
+    [DataMember]
     public IsoCFIOct2015Identifier? ClassificationType { get; init; } 
     /// <summary>
     /// Quantity or nominal amount of the security or commodity subject of the transaction.
     /// </summary>
+    [DataMember]
     public QuantityNominalValue2Choice_? QuantityOrNominalValue { get; init; } 
     /// <summary>
     /// Price of unit of collateral component, including accrued interest for interest-bearing securities, used to value the security.
     /// </summary>
+    [DataMember]
     public SecuritiesTransactionPrice19Choice_? UnitPrice { get; init; } 
     /// <summary>
     /// Market value of asset or collateral component.
     /// </summary>
+    [DataMember]
     public AmountAndDirection53? MarketValue { get; init; } 
     /// <summary>
     /// Code that classifies the risk of the security.
     /// </summary>
+    [DataMember]
     public CollateralQualityType1Code? Quality { get; init; } 
     /// <summary>
     /// Maturity date of the security.
     /// </summary>
+    [DataMember]
     public IsoISODate? Maturity { get; init; } 
     /// <summary>
     /// Data on the securities issuer.
     /// </summary>
+    [DataMember]
     public SecurityIssuer4? Issuer { get; init; } 
     /// <summary>
     /// Classification of the type of the security.
     /// </summary>
-    public SecuritiesLendingType3Choice_[] Type { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecuritiesLendingType3Choice_> Type { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indication whether the borrower has exclusive access to borrow from the lender's securities portfolio.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ExclusiveArrangement { get; init; } 
     /// <summary>
     /// Indication whether the collateral taker can reuse the securities provided as a collateral.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? AvailableForCollateralReuse { get; init; } 
     
     #nullable disable

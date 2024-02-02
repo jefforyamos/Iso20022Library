@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account owned by a customer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CustomerAccount1
 {
     #nullable enable
@@ -20,63 +22,78 @@ public partial record CustomerAccount1
     /// <summary>
     /// Identification of the account.
     /// </summary>
+    [DataMember]
     public required AccountIdentification4Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Specifies the current state of an account, eg, enabled or deleted.
     /// </summary>
+    [DataMember]
     public AccountStatus3Code? Status { get; init; } 
     /// <summary>
     /// Type of the account.
     /// </summary>
+    [DataMember]
     public CashAccountType2? Type { get; init; } 
     /// <summary>
     /// Medium of exchange of value.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Monthly average of the payment amounts (that is, payments going out) over a year.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? MonthlyPaymentValue { get; init; } 
     /// <summary>
     /// Monthly average of the received amounts over a year (that is, payments coming in).
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? MonthlyReceivedValue { get; init; } 
     /// <summary>
     /// Monthly average of the number of payments (coming in and going out) over a year.
     /// </summary>
+    [DataMember]
     public IsoMax5NumericText? MonthlyTransactionNumber { get; init; } 
     /// <summary>
     /// Sum of the end of day balances over a month divided by the number of business days in the month.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? AverageBalance { get; init; } 
     /// <summary>
     /// Specifies the purpose of the account.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? AccountPurpose { get; init; } 
     /// <summary>
     /// Specifies the value of the balance under which a notification will be sent to the account owner.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? FloorNotificationAmount { get; init; } 
     /// <summary>
     /// Specifies the value of the balance above which a notification will be sent to the account owner.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? CeilingNotificationAmount { get; init; } 
     /// <summary>
     /// Specifies how often statements (for audit purposes) will be sent.
     /// </summary>
+    [DataMember]
     public Frequency3Code? StatementCycle { get; init; } 
     /// <summary>
     /// Date when the account will be or was closed.
     /// </summary>
+    [DataMember]
     public IsoISODate? ClosingDate { get; init; } 
     /// <summary>
     /// Restriction on capability or operations allowed.
     /// </summary>
-    public Restriction1[] Restriction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Restriction1> Restriction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

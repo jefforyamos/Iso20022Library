@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transfer11
 {
     #nullable enable
@@ -20,62 +22,77 @@ public partial record Transfer11
     /// <summary>
     /// Unique and unambiguous identifier for a transfer instruction, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of a transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transfer allocated by the counterparty.
     /// </summary>
+    [DataMember]
     public AdditionalReference2? CounterpartyReference { get; init; } 
     /// <summary>
     /// Identifies the business process in which the actors are involved. This is important to trigger the right business process, according to the market business model, which may require matching instructions in a CSD environment (double leg process) or not (single leg process).
     /// </summary>
+    [DataMember]
     public BusinessFlowType1Code? BusinessFlowType { get; init; } 
     /// <summary>
     /// Identifies in which date the investor signed the transfer order form.
     /// </summary>
+    [DataMember]
     public IsoISODate? TransferOrderDateForm { get; init; } 
     /// <summary>
     /// Identifies the transfer reason.
     /// </summary>
+    [DataMember]
     public TransferReason1? TransferReason { get; init; } 
     /// <summary>
     /// Identifies whether or not saving plan or withdrawal or switch plan are included in the holdings.
     /// </summary>
-    public HoldingsPlanType1Code[] HoldingsPlanType { get; init; } = [];
+    [DataMember]
+    public ValueList<HoldingsPlanType1Code> HoldingsPlanType { get; init; } = [];
     /// <summary>
     /// Information related to the financial instrument to be withdrawn.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument13 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Total quantity of securities to be transferred, expressed in a number of units or a percentage rate.
     /// </summary>
+    [DataMember]
     public required Quantity13Choice_ Quantity { get; init; } 
     /// <summary>
     /// Information about the units to be transferred.
     /// </summary>
-    public Unit3[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Unit3> UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the rounding direction applied to nearest unit.
     /// </summary>
+    [DataMember]
     public RoundingDirection2Code? Rounding { get; init; } 
     /// <summary>
     /// Value of a security, as booked in an account. Book value is often different from the current market value of the security.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; init; } 
     /// <summary>
     /// Identifies the currency to be used to transfer the holdings.
     /// </summary>
+    [DataMember]
     public CurrencyCode? TransferCurrency { get; init; } 
     /// <summary>
     /// Indicates whether the transfer results in a change of beneficial owner.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? OwnAccountTransferIndicator { get; init; } 
     /// <summary>
     /// Additional specific settlement information for non-regulated traded funds.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? NonStandardSettlementInformation { get; init; } 
     
     #nullable disable

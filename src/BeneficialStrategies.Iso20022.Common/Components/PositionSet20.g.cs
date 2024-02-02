@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the values used to calculate positions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PositionSet20
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PositionSet20
     /// <summary>
     /// Variables related to derivatives that are used to group derivatives together into positions.
     /// </summary>
+    [DataMember]
     public required PositionSetDimensions15 Dimensions { get; init; } 
     /// <summary>
     /// Variables used to quantify the different calculations.
     /// </summary>
+    [DataMember]
     public required PositionSetMetrics10 Metrics { get; init; } 
     
     #nullable disable

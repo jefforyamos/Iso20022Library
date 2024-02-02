@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action general information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionGeneralInformationSD53
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CorporateActionGeneralInformationSD53
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// DTC processing domain/ category for event types.
     /// </summary>
+    [DataMember]
     public EventGroup3Code? EventGroup { get; init; } 
     /// <summary>
     /// DTCC (The Depository Trust and Clearing Corporation) native corporate action sub event type name further defines the event type.
     /// </summary>
+    [DataMember]
     public DTCCSubEventType10Code? SubEventType { get; init; } 
     
     #nullable disable

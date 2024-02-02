@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details of each individual currency control record.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyControlRecordStatus1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CurrencyControlRecordStatus1
     /// <summary>
     /// Unique and unambiguous identification of each entry/record within the package of transactions.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text RecordIdentification { get; init; } 
     /// <summary>
     /// Defines the status of the reported record.
     /// </summary>
+    [DataMember]
     public required StatisticalReportingStatus1Code Status { get; init; } 
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    public ValidationStatusReason1[] StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ValidationStatusReason1> StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the date and time when the status was issued.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? StatusDateTime { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the document.
     /// </summary>
+    [DataMember]
     public DocumentIdentification28? DocumentIdentification { get; init; } 
     
     #nullable disable

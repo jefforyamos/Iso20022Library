@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(Amount3Choice.AmountWithCurrency))]
 [KnownType(typeof(Amount3Choice.AmountWithoutCurrency))]
+[DataContract]
 public abstract partial record Amount3Choice_
 {
 }

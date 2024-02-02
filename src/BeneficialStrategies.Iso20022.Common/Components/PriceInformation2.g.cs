@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PriceInformation2
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record PriceInformation2
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
+    [DataMember]
     public required PriceRateOrAmountOrUnknownChoice_ Value { get; init; } 
     /// <summary>
     /// Type of value in which the price is expressed.
     /// </summary>
+    [DataMember]
     public PriceValueType2Code? ValueType { get; init; } 
     /// <summary>
     /// Type and information about a price.
     /// </summary>
+    [DataMember]
     public required TypeOfPrice11Code Type { get; init; } 
     /// <summary>
     /// Type and information about a price.
     /// </summary>
+    [DataMember]
     public required IsoExtended350Code ExtendedType { get; init; } 
     /// <summary>
     /// Place from which the price was obtained.
     /// </summary>
+    [DataMember]
     public PriceSourceFormatChoice_? SourceOfPrice { get; init; } 
     /// <summary>
     /// Date on which the price is obtained. With an investment fund, this is as stated in the prospectus.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? QuotationDate { get; init; } 
     /// <summary>
     /// Indicates whether the price is expressed as a yield. The absence of Yielded means it is not applicable.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Yielded { get; init; } 
     
     #nullable disable

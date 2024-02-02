@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// An event determined by a corporation's board of directors, that changes the existing corporate capital structure or financial condition.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateAction1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CorporateAction1
     /// <summary>
     /// Specifies the code of corporate action event, in free-text format.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Code { get; init; } 
     /// <summary>
     /// Reference assigned by the account servicer to unambiguously identify a corporate action event.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Number { get; init; } 
     /// <summary>
     /// Proprietary corporate action event information.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Proprietary { get; init; } 
     
     #nullable disable

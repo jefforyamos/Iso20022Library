@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the reason for rejecting the case assignment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CaseAssignmentRejectionJustification
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record CaseAssignmentRejectionJustification
     /// <summary>
     /// Reason for the rejection of a case assignment, in a coded form.
     /// </summary>
+    [DataMember]
     public required CaseAssignmentRejection1Code RejectionReason { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains additional acceptor data
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalAcceptorData1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record AdditionalAcceptorData1
     /// <summary>
     /// Contains a code that facilitates card acceptor/corporation communication and record keeping.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AdditionalTransactionReferenceNumber { get; init; } 
     /// <summary>
     /// Identification of the company recognized by the taxation authority.  Used for reporting transaction-related taxes.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? TaxRegistrationIdentification { get; init; } 
     /// <summary>
     /// Identification of the company recognized by the taxation authority.  Used for reporting corporate-related taxes.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CorporateTaxIdentification { get; init; } 
     /// <summary>
     /// Indicates the corporate tax identification type.
     /// </summary>
+    [DataMember]
     public CorporateTaxType1Code? CorporateTaxIdentificationType { get; init; } 
     /// <summary>
     /// Contains additional identification information. 
     /// </summary>
-    public AdditionalIdentification1[] AdditionalIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalIdentification1> AdditionalIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains various classifications of business ownership characteristics.
     /// </summary>
+    [DataMember]
     public AdditionalCharacteristics1? Characteristics { get; init; } 
     /// <summary>
     /// Additional information about the card acceptor.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

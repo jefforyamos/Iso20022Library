@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Balance Inquiry Response message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BalanceInquiryResponse1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record BalanceInquiryResponse1
     /// <summary>
     /// Payment account information.
     /// </summary>
+    [DataMember]
     public PaymentAccount2? PaymentAccount { get; init; } 
     /// <summary>
     /// Loyalty account information.
     /// </summary>
+    [DataMember]
     public LoyaltyAccount1? LoyaltyAccount { get; init; } 
     /// <summary>
     /// Stored value account information.
     /// </summary>
-    public StoredValueAccount1[] StoredValueAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StoredValueAccount1> StoredValueAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Receipt to print after a balance inquiry.
     /// </summary>
-    public PaymentReceipt1[] Receipt { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentReceipt1> Receipt { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

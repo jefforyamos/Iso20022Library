@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters associated to a cryptographic algorithm.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Parameter1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record Parameter1
     /// <summary>
     /// Initialisation vector of a cipher block chaining (CBC) mode encryption.
     /// </summary>
+    [DataMember]
     public IsoMax500Binary? InitialisationVector { get; init; } 
     
     #nullable disable

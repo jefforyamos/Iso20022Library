@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details on the underlying statement entry, to which the investigation message refers.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UnderlyingStatementEntry4
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record UnderlyingStatementEntry4
     /// <summary>
     /// Provides details of the account, for which the original statement was generated.
     /// </summary>
+    [DataMember]
     public CashAccount40? OriginalAccount { get; init; } 
     /// <summary>
     /// Provides information on the original message.
     /// </summary>
+    [DataMember]
     public OriginalGroupInformation29? OriginalGroupInformation { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the account servicer, to unambiguously identify the original statement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalStatementIdentification { get; init; } 
     /// <summary>
     /// Original unique identification, as assigned by the account servicer, to unambiguously identify the original entry.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalEntryIdentification { get; init; } 
     /// <summary>
     /// Universally unique identifier to provide the original end-to-end reference of a payment transaction.
     /// </summary>
+    [DataMember]
     public IsoUUIDv4Identifier? OriginalUETR { get; init; } 
     
     #nullable disable

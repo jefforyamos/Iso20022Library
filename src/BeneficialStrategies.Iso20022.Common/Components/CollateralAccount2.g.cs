@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information on the collateral account of the party delivering/receiving the collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralAccount2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CollateralAccount2
     /// <summary>
     /// Unique identification of the collateral account.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Indicates the type of collateral account.
     /// </summary>
+    [DataMember]
     public CollateralAccountIdentificationType2Choice_? Type { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     
     #nullable disable

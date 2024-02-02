@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the message reference of the message for which the status is requested and the business reference of the transfer instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MessageAndBusinessReference13
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record MessageAndBusinessReference13
     /// <summary>
     /// Reference to the message or communication that was previously sent.
     /// </summary>
+    [DataMember]
     public References68Choice_? Reference { get; init; } 
     /// <summary>
     /// Type of request required.
     /// </summary>
+    [DataMember]
     public TypeOfRequest1Choice_? TypeOfRequest { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the transfer, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public AdditionalReference10? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Identification of the asset.
     /// </summary>
+    [DataMember]
     public FinancialInstrument63Choice_? Instrument { get; init; } 
     /// <summary>
     /// Investment account information of the transfer for which the status or information is requested.
     /// </summary>
+    [DataMember]
     public Account33? InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Identification of a related party or intermediary.
     /// </summary>
-    public Intermediary48[] IntermediaryInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Intermediary48> IntermediaryInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information about the query.
     /// </summary>
-    public AdditionalInformation25[] QueryInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation25> QueryInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that issues the request message.
     /// </summary>
+    [DataMember]
     public PartyIdentification139? RequestIssuer { get; init; } 
     /// <summary>
     /// Party that receives the request message.
     /// </summary>
+    [DataMember]
     public PartyIdentification139? RequestRecipient { get; init; } 
     
     #nullable disable

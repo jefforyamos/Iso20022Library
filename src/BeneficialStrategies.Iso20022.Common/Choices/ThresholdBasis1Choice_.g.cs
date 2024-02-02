@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ThresholdBasis1Choice.Code))]
 [KnownType(typeof(ThresholdBasis1Choice.Proprietary))]
+[DataContract]
 public abstract partial record ThresholdBasis1Choice_
 {
 }

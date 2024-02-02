@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information for the presentation of documents.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Presentation2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Presentation2
     /// <summary>
     /// Party, other than beneficiary, forwarding the documents.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? Presenter { get; init; } 
     /// <summary>
     /// Date on which the beneficiary presented the demand.
     /// </summary>
+    [DataMember]
     public IsoISODate? BeneficiaryPresentationDate { get; init; } 
     
     #nullable disable

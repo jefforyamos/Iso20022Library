@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to search for calendar data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CalendarSearchCriteria1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CalendarSearchCriteria1
     /// <summary>
     /// Specifies the year for which the calendar information must be returned.
     /// </summary>
+    [DataMember]
     public IsoISOYear? Year { get; init; } 
     /// <summary>
     /// Specifies the month for which the calendar information must be returned.
     /// </summary>
+    [DataMember]
     public IsoISOMonth? Month { get; init; } 
     /// <summary>
     /// Specifies the service or system for which the calendar information must be returned.
     /// </summary>
+    [DataMember]
     public SystemAndCurrency1? Service { get; init; } 
     
     #nullable disable

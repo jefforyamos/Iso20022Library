@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ModificationScope10
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ModificationScope10
     /// <summary>
     /// Specifies the type of modification to be applied on a set of information.
     /// </summary>
+    [DataMember]
     public required DataModification1Code ModificationScopeIndication { get; init; } 
     /// <summary>
     /// Identification of information which is part of a service level agreement.
     /// </summary>
+    [DataMember]
     public required DocumentToSend1 ServiceLevelAgreement { get; init; } 
     
     #nullable disable

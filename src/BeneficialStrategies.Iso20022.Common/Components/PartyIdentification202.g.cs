@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification202
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PartyIdentification202
     /// <summary>
     /// Name and address of the party.
     /// </summary>
+    [DataMember]
     public required PersonName1 NameAndAddress { get; init; } 
     /// <summary>
     /// CONCAT
     /// </summary>
+    [DataMember]
     public required NaturalPersonIdentification1 Identification { get; init; } 
     
     #nullable disable

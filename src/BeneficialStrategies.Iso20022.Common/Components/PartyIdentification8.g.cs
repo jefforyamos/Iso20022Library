@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a person, a financial institution or a non-financial institution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification8
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PartyIdentification8
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
+    [DataMember]
     public PostalAddress1? PostalAddress { get; init; } 
     /// <summary>
     /// Unique and unambiguous way of identifying an organisation or an individual person.
     /// </summary>
+    [DataMember]
     public Party2Choice_? Identification { get; init; } 
     /// <summary>
     /// Country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryOfResidence { get; init; } 
     
     #nullable disable

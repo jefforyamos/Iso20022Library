@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Balance of a financial instrument for a specific statement page.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaginationBalance1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PaginationBalance1
     /// <summary>
     /// Opening balance of the financial instrument in the statement.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? FirstOpeningBalance { get; init; } 
     /// <summary>
     /// Opening balance of this page only. It must be the interemdiary closing balance of the previous page (part of the same statement).
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? IntermediaryOpeningBalance { get; init; } 
     /// <summary>
     /// Closing balance of the financial instrument in the statement.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? FinalClosingBalance { get; init; } 
     /// <summary>
     /// Closing Balance of this page only. Must be the interemdiary opening balance of the next page (part of the same statement).
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? IntermediaryClosingBalance { get; init; } 
     
     #nullable disable

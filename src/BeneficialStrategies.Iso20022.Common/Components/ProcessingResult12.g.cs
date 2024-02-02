@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Outcome of the verification processing of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProcessingResult12
 {
     #nullable enable
@@ -20,34 +22,41 @@ public partial record ProcessingResult12
     /// <summary>
     /// Data pertaining to the approval of the transaction.
     /// </summary>
+    [DataMember]
     public ApprovalData1? ApprovalData { get; init; } 
     /// <summary>
     /// Result of the processing.
     /// </summary>
+    [DataMember]
     public ResultData11? ResultData { get; init; } 
     /// <summary>
     /// Outcome of a previous processing, for example, in response to a duplicate request.
     /// </summary>
+    [DataMember]
     public ResultData7? OriginalResultData { get; init; } 
     /// <summary>
     /// Action required flag.
     /// Default: False: Action Not Required.
     /// True: Action Required.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ActionRequired { get; init; } 
     /// <summary>
     /// Set of actions to be performed.
     /// </summary>
-    public Action13[] Action { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Action13> Action { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional action to perform.
     /// </summary>
-    public AdditionalAction1[] AdditionalAction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalAction1> AdditionalAction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information relevant for the destination.
     /// ISO 8583 bit 44
     /// </summary>
-    public AdditionalInformation29[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation29> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

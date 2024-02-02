@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money associated with a service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FeeAndTax1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record FeeAndTax1
     /// <summary>
     /// Reference to the agreement established between the fund and another party. This element, amongst others, defines the conditions of the commissions.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CommercialAgreementReference { get; init; } 
     /// <summary>
     /// Individual fee (charge/commission).
     /// </summary>
-    public Fee1[] IndividualFee { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Fee1> IndividualFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Individual tax amount.
     /// </summary>
-    public Tax30[] IndividualTax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax30> IndividualTax { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

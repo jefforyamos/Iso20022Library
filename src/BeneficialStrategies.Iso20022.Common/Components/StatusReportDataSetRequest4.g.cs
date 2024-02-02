@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related to the status report of a point of interaction (POI).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatusReportDataSetRequest4
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record StatusReportDataSetRequest4
     /// <summary>
     /// Identification of the data set containing the status report.
     /// </summary>
+    [DataMember]
     public required DataSetIdentification10 Identification { get; init; } 
     /// <summary>
     /// Counter to identify a single data set within the whole transfer.
     /// </summary>
+    [DataMember]
     public IsoMax9NumericText? SequenceCounter { get; init; } 
     /// <summary>
     /// Indication of the last sequence in case of split messages.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? LastSequence { get; init; } 
     /// <summary>
     /// Content of the status report.
     /// </summary>
+    [DataMember]
     public required StatusReportContent12 Content { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(WaivingInstruction1Choice.Code))]
 [KnownType(typeof(WaivingInstruction1Choice.Proprietary))]
+[DataContract]
 public abstract partial record WaivingInstruction1Choice_
 {
 }

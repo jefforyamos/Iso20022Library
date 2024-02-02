@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action details price details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionPriceSD3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionPriceSD3
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Cost to subscribe to additional share(s) of the underlying security.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? SubscriptionPrice { get; init; } 
     
     #nullable disable

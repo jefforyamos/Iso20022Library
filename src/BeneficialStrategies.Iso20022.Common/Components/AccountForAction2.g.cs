@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account to or from which a cash entry is made.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountForAction2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AccountForAction2
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required AccountIdentification4Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the account. In case of conflict between the Account Identification and the Account Name, it is recommended that the Account Servicer ask for clarification by means of the Request for Additional Information message.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Medium of exchange of value.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     
     #nullable disable

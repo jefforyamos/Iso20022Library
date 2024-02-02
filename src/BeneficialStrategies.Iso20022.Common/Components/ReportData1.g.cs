@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Numerical representation of the net increases and decreases in an account at a specific point in time. A cash balance is calculated from a sum of cash credits minus a sum of cash debits.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportData1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record ReportData1
     /// <summary>
     /// Identification of the report assigned by the central system.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date by which the amount(s) requested must be settled.
     /// </summary>
+    [DataMember]
     public required IsoISODate ValueDate { get; init; } 
     /// <summary>
     /// Date and time on which the report is generated. The offset with UTC may also be specified.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime DateAndTimeStamp { get; init; } 
     /// <summary>
     /// Specifies the type of the Pay In Call.
     /// </summary>
+    [DataMember]
     public required CallIn1Code Type { get; init; } 
     /// <summary>
     /// Specifies the amount requested.
     /// </summary>
-    public PayInCallItem[] PayInCallAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PayInCallItem> PayInCallAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the requested amount in multiple currencies.
     /// </summary>
+    [DataMember]
     public Value? AlternateValue { get; init; } 
     
     #nullable disable

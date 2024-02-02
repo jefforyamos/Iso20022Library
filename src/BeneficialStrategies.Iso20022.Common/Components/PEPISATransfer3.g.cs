@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the type of product and the assets to be transferred.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PEPISATransfer3
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record PEPISATransfer3
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Identification assigned by the new plan manager to each transfer of asset.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferIdentification { get; init; } 
     /// <summary>
     /// Indicates whether there is cash in the account that is awaiting investment.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ResidualCashIndicator { get; init; } 
     /// <summary>
     /// UK government schemes to encourage individuals to invest in securities based unit and investment trusts, offering certain tax benefits. These are not investment in their own right but are tax exempt wrappers in which individuals can hold equities, bonds and funds to shelter them from income and capital gains tax. |The Personal Equity Plan (PEP) and the Individual Savings Account (ISA) are provided only by UK based financial institutions.
     /// </summary>
+    [DataMember]
     public required ISAYearsOfIssue1 ISA { get; init; } 
     /// <summary>
     /// UK government schemes to encourage individuals to invest in securities based unit and investment trusts, offering certain tax benefits. These are not investment in their own right but are tax exempt wrappers in which individuals can hold equities, bonds and funds to shelter them from income and capital gains tax. ||The Personal Equity Plan (PEP) and the Individual Savings Account (ISA) are provided only by UK based financial institutions.
     /// </summary>
+    [DataMember]
     public required PreviousYearChoice_ PEP { get; init; } 
     /// <summary>
     /// Wrapper for a specific product or a specific sub-product owned by a set of beneficial owners.
     /// </summary>
+    [DataMember]
     public required Portfolio1 Portfolio { get; init; } 
     /// <summary>
     /// Specifies the underlying assets for the PEP, ISA or portfolio.
     /// </summary>
-    public FinancialInstrument11[] FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FinancialInstrument11> FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

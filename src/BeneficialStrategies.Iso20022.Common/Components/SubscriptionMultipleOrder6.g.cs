@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Order to invest the investor's principal in an investment fund.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SubscriptionMultipleOrder6
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record SubscriptionMultipleOrder6
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual orders, as assigned by the instructing party. This identifier links the individual orders together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
+    [DataMember]
     public PlaceOfTradeIdentification1Choice_? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Date and time the order is placed by the investor or its agent.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OrderDateTime { get; init; } 
     /// <summary>
     /// Date on which the order expires.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? ExpiryDateTime { get; init; } 
     /// <summary>
     /// Future date at which the investor requests the order to be executed. The specification of a requested future trade date is not allowed in some markets. The date must be a date in the future.
     /// </summary>
+    [DataMember]
     public IsoISODate? RequestedFutureTradeDate { get; init; } 
     /// <summary>
     /// Cancellation right of the investor with respect to the investment fund order.
     /// </summary>
+    [DataMember]
     public CancellationRight1Choice_? CancellationRight { get; init; } 
     /// <summary>
     /// Account impacted by the investment fund order.
     /// </summary>
+    [DataMember]
     public required InvestmentAccount58 InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Additional information about the investor.
     /// </summary>
-    public IndividualPerson31[] BeneficiaryDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IndividualPerson31> BeneficiaryDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Order to invest the investor's principal in an investment fund.
     /// </summary>
-    public SubscriptionOrder14[] IndividualOrderDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SubscriptionOrder14> IndividualOrderDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment process for the transfer of cash from the debtor to the creditor.
     /// </summary>
+    [DataMember]
     public PaymentTransaction70? BulkCashSettlementDetails { get; init; } 
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the multiple order.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalSettlementAmount { get; init; } 
     
     #nullable disable

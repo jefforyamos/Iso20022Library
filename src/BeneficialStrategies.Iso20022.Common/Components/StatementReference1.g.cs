@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the reference of the statment by a unique identifier and the date (and time).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatementReference1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record StatementReference1
     /// <summary>
     /// Reference common to all pages of the statement for which the status advice is sent.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text StatementIdentification { get; init; } 
     /// <summary>
     /// Date and time the statement was created.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Page number of the related message (within the statement) and continuation indicator to indicate that the statement is to continue or that the related message is the last page of the statement.
     /// </summary>
+    [DataMember]
     public Pagination? Pagination { get; init; } 
     
     #nullable disable

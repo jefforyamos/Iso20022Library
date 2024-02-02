@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of a payment instruction. The information contained in this component is sufficient to retrieve a payment instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentInstructionExtract
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PaymentInstructionExtract
     /// <summary>
     /// Identification of the payment instruction (eg, field 20 of an MT 103) when meaningful to the case assigner.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AssignerInstructionIdentification { get; init; } 
     /// <summary>
     /// Identification of the payment instruction (eg, field 20 of an MT 103) when meaningful to the case assignee.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AssigneeInstructionIdentification { get; init; } 
     /// <summary>
     /// Amount of the payment. Depending on the context it can be either the amount settled (UnableToApply) or the instructed amount (RequestToCancel, RequestToModify, ClaimNonReceipt).
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? CurrencyAmount { get; init; } 
     /// <summary>
     /// Value date of the payment.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ValueDate { get; init; } 
     
     #nullable disable

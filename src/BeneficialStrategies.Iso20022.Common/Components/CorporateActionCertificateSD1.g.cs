@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Certificate information provided for a given corporate action instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionCertificateSD1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CorporateActionCertificateSD1
     /// <summary>
     /// Unique identification or serial number that is assigned and affixed by an issuer or transfer agent to each securities certificate.
     /// </summary>
+    [DataMember]
     public required IsoMax15AlphaNumericText CertificateNumber { get; init; } 
     /// <summary>
     /// Additional identifier assigned by DTC.
     /// </summary>
+    [DataMember]
     public IsoMax15AlphaNumericText? CertificateSequenceNumber { get; init; } 
     /// <summary>
     /// Registration name of the beneficial holder.
     /// </summary>
+    [DataMember]
     public IsoMax30Text? CertificateRegistrationName { get; init; } 
     
     #nullable disable

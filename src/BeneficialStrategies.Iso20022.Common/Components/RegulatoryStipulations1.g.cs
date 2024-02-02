@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies regulatory stipulations that financial institutions must be compliant with in the country, region, and/or area they conduct business.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RegulatoryStipulations1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record RegulatoryStipulations1
     /// <summary>
     /// Nation with its own government, occupying a particular territory.
     /// </summary>
+    [DataMember]
     public required CountryCode Country { get; init; } 
     /// <summary>
     /// Specifies regulatory stipulations that financial institutions must be compliant with in the country, region, and/or where they conduct business.
     /// </summary>
-    public IsoMax350Text[] Stipulations { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax350Text> Stipulations { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

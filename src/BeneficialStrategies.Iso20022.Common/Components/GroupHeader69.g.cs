@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of characteristics shared by all individual transactions included in the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GroupHeader69
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record GroupHeader69
     /// <summary>
     /// Report identification, for example invoice number or report number from point of sales system.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Date at which the status report was created.
     /// </summary>
+    [DataMember]
     public required IsoISODate IssuedDate { get; init; } 
     /// <summary>
     /// Specifies if the report is based on debit invoice, credit invoice, card transaction or cash transaction.
     /// </summary>
+    [DataMember]
     public required ExternalDocumentType1Code ReportCategory { get; init; } 
     /// <summary>
     /// Specifies if the TaxReport is new, correction or remove.
     /// </summary>
+    [DataMember]
     public required ExternalDocumentType1Code TaxReportPurpose { get; init; } 
     /// <summary>
     /// Original tax report identification, used for example original invoice number with credit notes.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalIdentification { get; init; } 
     /// <summary>
     /// Details of tax representative. The corporate (seller) is allowed to use a tax representative for value added tax responsibilities in case the seller is not registered in a specific value added tax registry.
     /// </summary>
+    [DataMember]
     public PartyIdentification116? SellerTaxRepresentative { get; init; } 
     /// <summary>
     /// Details of tax representative. The corporate (buyer) is allowed to use a tax representative for value added tax responsibilities in case the buyer is not registered in a specific value added tax registry.
     /// </summary>
+    [DataMember]
     public PartyIdentification116? BuyerTaxRepresentative { get; init; } 
     /// <summary>
     /// Specifies the language used in the message.
     /// </summary>
+    [DataMember]
     public LanguageCode? LanguageCode { get; init; } 
     
     #nullable disable

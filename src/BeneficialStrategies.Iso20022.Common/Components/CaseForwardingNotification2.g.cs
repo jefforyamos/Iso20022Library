@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status of a case resulting from a case assignment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CaseForwardingNotification2
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record CaseForwardingNotification2
     /// <summary>
     /// Justification for the forward action.
     /// </summary>
+    [DataMember]
     public required CaseForwardingNotification2Code Justification { get; init; } 
     
     #nullable disable

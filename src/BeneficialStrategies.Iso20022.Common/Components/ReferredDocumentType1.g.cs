@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of the document referred in the remittance information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReferredDocumentType1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ReferredDocumentType1
     /// <summary>
     /// Document type in a coded form.
     /// </summary>
+    [DataMember]
     public required DocumentType2Code Code { get; init; } 
     /// <summary>
     /// Proprietary identification of the type of the remittance document.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Proprietary { get; init; } 
     /// <summary>
     /// Identification of the issuer of the reference document type.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     
     #nullable disable

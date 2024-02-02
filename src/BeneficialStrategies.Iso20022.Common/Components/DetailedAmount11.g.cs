@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Fees between acquirer and issuer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedAmount11
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record DetailedAmount11
     /// <summary>
     /// Type or class of amount.
     /// </summary>
+    [DataMember]
     public required TypeOfAmount7Code Type { get; init; } 
     /// <summary>
     /// Additional information to specify the type of amount.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AdditionalType { get; init; } 
     /// <summary>
     /// Amount value.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection41 Amount { get; init; } 
     /// <summary>
     /// Original value of the amount.
     /// </summary>
+    [DataMember]
     public AmountAndDirection41? OriginalAmount { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Description of the element that creates the mismatch.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ElementIdentification1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ElementIdentification1
     /// <summary>
     /// Refers to the identification number of the document in which the mismatch was found.
     /// </summary>
+    [DataMember]
     public required IsoMax3NumericText DocumentIndex { get; init; } 
     /// <summary>
     /// Specifies from the root of the message the complete path of the element that violated a rule.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text ElementPath { get; init; } 
     /// <summary>
     /// Name of the element.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ElementName { get; init; } 
     /// <summary>
     /// Content of the element.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? ElementValue { get; init; } 
     
     #nullable disable

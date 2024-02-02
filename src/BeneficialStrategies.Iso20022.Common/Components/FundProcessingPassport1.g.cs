@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Fund Processing Passsport (FPP) is a fully harmonised document with all key operational information that fund promoters should provide on their investment funds in order to facilitate their trading.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FundProcessingPassport1
 {
     #nullable enable
@@ -20,53 +22,65 @@ public partial record FundProcessingPassport1
     /// <summary>
     /// Date of last revision.
     /// </summary>
+    [DataMember]
     public required UpdatedDate UpdatedDate { get; init; } 
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification1 SecurityIdentification { get; init; } 
     /// <summary>
     /// Principal entity appointed by the fund, to which orders should be submitted. Usually located in the country of domicile.
     /// </summary>
+    [DataMember]
     public required ContactAttributes1 MainFundOrderDesk { get; init; } 
     /// <summary>
     /// Company that is responsible for the management and operation of the fund, eg, determines the investment strategy, appoints
     /// the service providers, and makes major decisions for the fund. It is usually responsible for the distribution and marketing
     /// of the fund. For self-managed funds, this wlll often be a separate promoter or sponsor of the fund.
     /// </summary>
+    [DataMember]
     public required ContactAttributes1 FundManagementCompany { get; init; } 
     /// <summary>
     /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, eg, dividend option or valuation currency.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument20 FundDetails { get; init; } 
     /// <summary>
     /// Processing characteristics linked to the instrument, ie, not to the market.
     /// </summary>
+    [DataMember]
     public required ValuationDealingProcessingCharacteristics2 ValuationDealingCharacteristics { get; init; } 
     /// <summary>
     /// Processing characteristics linked to the instrument, ie, not to the market.
     /// </summary>
+    [DataMember]
     public required InvestmentRestrictions2 InvestmentRestrictions { get; init; } 
     /// <summary>
     /// Processing characteristics linked to the instrument, ie, not to the market.
     /// </summary>
+    [DataMember]
     public required ProcessingCharacteristics2 SubscriptionProcessingCharacteristics { get; init; } 
     /// <summary>
     /// Processing characteristics linked to the instrument, ie, not to the market.
     /// </summary>
+    [DataMember]
     public required ProcessingCharacteristics3 RedemptionProcessingCharacteristics { get; init; } 
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
-    public CashAccount22[] SettlementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashAccount22> SettlementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Context, or geographic environment, in which trading parties may meet in order to negotiate and execute trades among themselves.
     /// </summary>
-    public LocalMarketAnnex2[] LocalMarketAnnex { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LocalMarketAnnex2> LocalMarketAnnex { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Extension1> Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

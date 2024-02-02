@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details on the quantity, account and other related information involved in a transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record QuantityAndAccount18
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record QuantityAndAccount18
     /// <summary>
     /// Quantity of financial instrument effectively settled.
     /// </summary>
+    [DataMember]
     public required Quantity6Choice_ SettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument previously settled.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? PreviouslySettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument remaining to be settled.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? RemainingToBeSettledQuantity { get; init; } 
     /// <summary>
     /// Amount of money previously settled.
     /// </summary>
+    [DataMember]
     public AmountAndDirection5? PreviouslySettledAmount { get; init; } 
     /// <summary>
     /// Amount of money remaining to be settled.
     /// </summary>
+    [DataMember]
     public AmountAndDirection5? RemainingToBeSettledAmount { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification36Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public required SecuritiesAccount13 SafekeepingAccount { get; init; } 
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
+    [DataMember]
     public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [DataMember]
     public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; init; } 
     
     #nullable disable

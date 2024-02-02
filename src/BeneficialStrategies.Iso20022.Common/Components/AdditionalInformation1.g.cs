@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional information about a request (e.g. financing request).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalInformation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AdditionalInformation1
     /// <summary>
     /// Specifies the type of additional information.
     /// </summary>
+    [DataMember]
     public required InformationType1Choice_ InformationType { get; init; } 
     /// <summary>
     /// Contents of the additional information.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text InformationValue { get; init; } 
     
     #nullable disable

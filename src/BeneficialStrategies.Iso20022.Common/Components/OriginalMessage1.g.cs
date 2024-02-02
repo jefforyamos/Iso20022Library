@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a message previously sent.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalMessage1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record OriginalMessage1
     /// <summary>
     /// XML schema-instance namespace, for example "tsin.008.001.01".
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageDefinitionIdentifier { get; init; } 
     /// <summary>
     /// Message sender specified in the original message.|
     /// </summary>
+    [DataMember]
     public required Party9Choice_ From { get; init; } 
     /// <summary>
     /// Message recipient specified in the original message.
     /// </summary>
+    [DataMember]
     public required Party9Choice_ To { get; init; } 
     /// <summary>
     /// Message identification specified in the original message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text BusinessMessageIdentifier { get; init; } 
     /// <summary>
     /// Message creation date and time specified in the original message.
     /// </summary>
+    [DataMember]
     public required IsoISONormalisedDateTime CreationDate { get; init; } 
     /// <summary>
     /// Indicates whether the message is a copy, a duplicate or a copy of a duplicate of a previously sent ISO 20022 message.
     /// </summary>
+    [DataMember]
     public CopyDuplicate1Code? CopyDuplicate { get; init; } 
     
     #nullable disable

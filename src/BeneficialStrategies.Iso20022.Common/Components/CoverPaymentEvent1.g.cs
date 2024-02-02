@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the payment transaction related to the underlying cover payment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CoverPaymentEvent1
 {
     #nullable enable
@@ -20,38 +22,46 @@ public partial record CoverPaymentEvent1
     /// <summary>
     /// Specifies the status of a transaction, in a coded form.
     /// </summary>
+    [DataMember]
     public required PaymentStatus5 TransactionStatus { get; init; } 
     /// <summary>
     /// Identifies the party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? Debtor { get; init; } 
     /// <summary>
     /// Identifies the agent(s) currently participating in a transaction.
     /// </summary>
-    public PaymentEvent2[] Agent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentEvent2> Agent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the party to which an amount of money is due.
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? Creditor { get; init; } 
     /// <summary>
     /// Specifies the date and time at which the message enters the Gpi system.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime InitiationTime { get; init; } 
     /// <summary>
     /// Specifies the time at which the instructed bank reports that the transaction has been completed. 
     /// Usage:
     /// Date and time are based on the creation date of the status confirmation containing a final status ACSC.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CompletionTime { get; init; } 
     /// <summary>
     /// Identifies the amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// Usage:
     /// This amount has to be transported unchanged through the transaction chain.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; init; } 
     /// <summary>
     /// Identifies the last date and time at which the status of this transaction was updated.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime LastUpdateTime { get; init; } 
     
     #nullable disable

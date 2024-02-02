@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Encrypted data with an encryption key identified with a name.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NamedKeyEncryptedData2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record NamedKeyEncryptedData2
     /// <summary>
     /// Version of the data structure.
     /// </summary>
+    [DataMember]
     public IsoNumber? Version { get; init; } 
     /// <summary>
     /// Name of the key encryption key (KEK).
     /// </summary>
+    [DataMember]
     public IsoMax140Text? KeyName { get; init; } 
     /// <summary>
     /// Encrypted data with an encryption key.
     /// </summary>
+    [DataMember]
     public required EncryptedContent2 EncryptedContent { get; init; } 
     
     #nullable disable

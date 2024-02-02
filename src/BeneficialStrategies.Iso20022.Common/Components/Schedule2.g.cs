@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates the unadjusted effective and end date of the schedule.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Schedule2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Schedule2
     /// <summary>
     /// Indicates the unadjusted date at which obligations under the  derivative transaction come into effect, as included in the confirmation.
     /// </summary>
+    [DataMember]
     public required IsoISODate UnadjustedEffectiveDate { get; init; } 
     /// <summary>
     /// Indicates the end date agreed in the derivative transaction without adjustment.
     /// </summary>
+    [DataMember]
     public IsoISODate? UnadjustedEndDate { get; init; } 
     /// <summary>
     /// Indicates the price per derivative excluding, where applicable, commission and accrued interest.
     /// </summary>
+    [DataMember]
     public required IsoLongFraction19DecimalNumber Quantity { get; init; } 
     
     #nullable disable

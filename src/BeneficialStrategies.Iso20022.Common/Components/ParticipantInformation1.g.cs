@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Participant profile participant information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ParticipantInformation1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record ParticipantInformation1
     /// <summary>
     /// Date the profile was deleted.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ProfileDeletionDate { get; init; } 
     /// <summary>
     /// National BIC identifiers for authorised and central branches.
     /// </summary>
+    [DataMember]
     public CentralisedAndAuthorisedBranchIdentification1Choice_? BankBranch { get; init; } 
     /// <summary>
     /// CBRF identification of the terminal.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TerminalIdentification { get; init; } 
     /// <summary>
     /// Intraday restrictions details.
     /// </summary>
-    public IsoMax35Text[] Restrictions { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> Restrictions { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// External payment system details.
     /// </summary>
+    [DataMember]
     public ExternalPaymentSystemDetails1? ExternalPaymentSystemInformation { get; init; } 
     /// <summary>
     /// Information related for participant migration process.
     /// </summary>
+    [DataMember]
     public required SystemMigration1 Migration { get; init; } 
     
     #nullable disable

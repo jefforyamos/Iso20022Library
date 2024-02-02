@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information to support the Know Your Customer processes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyProfileInformation1
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record PartyProfileInformation1
     /// <summary>
     /// Indicates whether the certificate type has been obtained and verified.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator CertificationIndicator { get; init; } 
     /// <summary>
     /// Identification of the person who validated the document.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? ValidatingParty { get; init; } 
     /// <summary>
     /// Identification of the person who checked the document.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? CheckingParty { get; init; } 
     /// <summary>
     /// Identification of the person who is responsible for the document.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? ResponsibleParty { get; init; } 
     /// <summary>
     /// Identifies the type of certificate.
     /// </summary>
+    [DataMember]
     public required CertificateType1Code CertificateType { get; init; } 
     /// <summary>
     /// Identifies the type of certificate.
     /// </summary>
+    [DataMember]
     public required IsoExtended350Code ExtendedCertificateType { get; init; } 
     /// <summary>
     /// Date at which the certification check has been performed.
     /// </summary>
+    [DataMember]
     public IsoISODate? CheckingDate { get; init; } 
     /// <summary>
     /// Specifies how frequently the check is performed.
     /// </summary>
+    [DataMember]
     public EventFrequency1Code? CheckingFrequency { get; init; } 
     /// <summary>
     /// Specifies the date at which the next certification check will be performed.
     /// </summary>
+    [DataMember]
     public IsoISODate? NextRevisionDate { get; init; } 
     /// <summary>
     /// Limits between which a person's salary is estimated.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SalaryRange { get; init; } 
     /// <summary>
     /// Indicates the main source of revenue.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? SourceOfWealth { get; init; } 
     
     #nullable disable

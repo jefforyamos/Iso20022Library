@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Risk tolerance of an investor for which a financial instrument is targeted.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RiskTolerance1
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record RiskTolerance1
     /// <summary>
     /// Specifies the Summary Risk Indicator (SRI). When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 04010.
     /// </summary>
+    [DataMember]
     public IsoMax1Number? RiskTolerancePRIIPSMethodology { get; init; } 
     /// <summary>
     /// Specifies the Synthetic Risk and Reward Indicator (SRRI). When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 04020.
     /// </summary>
+    [DataMember]
     public IsoMax1Number? RiskToleranceUCITSMethodology { get; init; } 
     /// <summary>
     /// Specifies the risk tolerance for non-PRIIPs and non-UCITS instructions. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 04030.
     /// </summary>
+    [DataMember]
     public RiskLevel1Code? RiskToleranceInternal { get; init; } 
     /// <summary>
     /// Specifies the Summary Risk Indicator (SRI) for a Spanish product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 04040.
     /// </summary>
+    [DataMember]
     public IsoMax1Number? RiskToleranceForNonPRIIPSAndNonUCITSSpain { get; init; } 
     /// <summary>
     /// Specifies the risk tolerance for a German product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 04050.
     /// </summary>
+    [DataMember]
     public TargetMarket2Code? NotForInvestorsWithTheLowestRiskToleranceGermany { get; init; } 
     /// <summary>
     /// Specifies another type of risk tolerance.
     /// </summary>
-    public OtherTargetMarketRiskTolerance1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OtherTargetMarketRiskTolerance1> Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

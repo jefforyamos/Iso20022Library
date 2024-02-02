@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Corporate action option information for the custodian record.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CustodianOptionDateDetailsSD1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CustodianOptionDateDetailsSD1
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Custodian deadline date for the option instructions. Applicable to custodian service only.
     /// </summary>
+    [DataMember]
     public IsoISODate? AgentDeadlineDate { get; init; } 
     /// <summary>
     /// Custodian deadline time for the option instructions. Applicable to custodian service only.
     /// </summary>
+    [DataMember]
     public IsoISOTime? AgentDeadlineTime { get; init; } 
     
     #nullable disable

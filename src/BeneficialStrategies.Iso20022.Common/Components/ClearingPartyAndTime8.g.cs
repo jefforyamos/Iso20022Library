@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the central counterparty clearing time.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ClearingPartyAndTime8
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ClearingPartyAndTime8
     /// <summary>
     /// In the case of a contract that has been cleared, the unique code for the CCP that has cleared the contract.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification9Choice_? CCP { get; init; } 
     /// <summary>
     /// Time and date when clearing took place.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ClearingDateTime { get; init; } 
     
     #nullable disable

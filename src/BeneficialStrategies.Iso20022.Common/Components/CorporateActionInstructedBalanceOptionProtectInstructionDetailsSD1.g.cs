@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action instructed balance details at option protect level.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionInstructedBalanceOptionProtectInstructionDetailsSD1
 {
     #nullable enable
@@ -20,54 +22,67 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionDe
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Instruction reference number assigned by DTC to the uncovered protect instruction.
     /// </summary>
+    [DataMember]
     public required IsoMax15Text ProtectIdentification { get; init; } 
     /// <summary>
     /// Additional Reference number used to uniquely identify uncovered protect instruction.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? ProtectSequenceNumber { get; init; } 
     /// <summary>
     /// Option number of the protect instruction.
     /// </summary>
+    [DataMember]
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Date and time of the protect instruction.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime ProtectDate { get; init; } 
     /// <summary>
     /// Date and time of the cover protect. Will be the latest cover date if partial cover transaction occurs.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CoverProtectDate { get; init; } 
     /// <summary>
     /// Quantity of the protect instruction. For protects which are partially covered, the quanitity will be reduced by the amount partially covered.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity15Choice_ ProtectIdentificationQuantity { get; init; } 
     /// <summary>
     /// Quantity of the Protect instruction which has not been covered.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity15Choice_? ProtectIdentificationUncoveredQuantity { get; init; } 
     /// <summary>
     /// Protect oversubscription quantity.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity15Choice_? ProtectIdentificationOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Status of the Protect Instruction.
     /// </summary>
+    [DataMember]
     public DTCProtectInstructionStatus1Code? ProtectIdentificationStatus { get; init; } 
     /// <summary>
     /// Conditional Quantity for the Protect Instruction.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity15Choice_? ProtectConditionalQuantity { get; init; } 
     /// <summary>
     /// Tender bid price of the protect instruction.
     /// </summary>
+    [DataMember]
     public PriceFormat57Choice_? ProtectTenderBidPrice { get; init; } 
     /// <summary>
     /// Customer identification entered by client upon instruction submission.
     /// </summary>
+    [DataMember]
     public IsoMax15Text? CustomerReferenceIdentification { get; init; } 
     
     #nullable disable

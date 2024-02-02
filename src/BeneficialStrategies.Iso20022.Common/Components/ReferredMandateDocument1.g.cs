@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the documents referred to in the remittance information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReferredMandateDocument1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ReferredMandateDocument1
     /// <summary>
     /// Specifies the type of referred document.
     /// </summary>
+    [DataMember]
     public ReferredDocumentType4? Type { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the referred document.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Number { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification as assigned by the creditor to the referred document shared with the debtor for its own reference.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CreditorReference { get; init; } 
     /// <summary>
     /// Date associated with the referred document.
     /// </summary>
+    [DataMember]
     public IsoISODate? RelatedDate { get; init; } 
     
     #nullable disable

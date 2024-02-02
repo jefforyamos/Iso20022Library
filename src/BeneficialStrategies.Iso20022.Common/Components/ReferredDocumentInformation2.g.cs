@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Structured information related to the invoice to be financed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReferredDocumentInformation2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ReferredDocumentInformation2
     /// <summary>
     /// Specifies the type of the document, for example commercial invoice.
     /// </summary>
+    [DataMember]
     public ReferredDocumentType1? Type { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification number of the referred document.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DocumentNumber { get; init; } 
     /// <summary>
     /// Date associated with the referred document, eg, date of issue.
     /// </summary>
+    [DataMember]
     public IsoISODate? RelatedDate { get; init; } 
     /// <summary>
     /// Amount of money and currency of a document referred to invoice to be financed.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? DocumentAmount { get; init; } 
     
     #nullable disable

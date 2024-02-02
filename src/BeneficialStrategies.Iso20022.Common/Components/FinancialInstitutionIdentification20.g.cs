@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details to identify a financial institution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstitutionIdentification20
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record FinancialInstitutionIdentification20
     /// <summary>
     /// Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
     /// </summary>
+    [DataMember]
     public required IsoBICFIDec2014Identifier BICFI { get; init; } 
     
     #nullable disable

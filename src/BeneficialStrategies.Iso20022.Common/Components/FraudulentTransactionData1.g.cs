@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related to the confirmed fraudulent transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FraudulentTransactionData1
 {
     #nullable enable
@@ -20,24 +22,29 @@ public partial record FraudulentTransactionData1
     /// <summary>
     /// Status of authorisation of the fraudulent transaction.
     /// </summary>
+    [DataMember]
     public AuthorisationStatus1? AuthorisationStatus { get; init; } 
     /// <summary>
     /// Details of the dispute if and when relevant.
     /// </summary>
+    [DataMember]
     public DisputeData2? DisputeDetails { get; init; } 
     /// <summary>
     /// Reason for sending the message.
     /// ISO 8583:93/2003 bit 25
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    public IsoExact4NumericText[] MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoExact4NumericText> MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Supports message reason codes that are not defined  in external code list. 
     /// </summary>
-    public IsoMax35Text[] AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Complete or partial details of the original message identified as fraudulent.
     /// </summary>
+    [DataMember]
     public IsoMax100KBinary? FraudulentMessage { get; init; } 
     
     #nullable disable

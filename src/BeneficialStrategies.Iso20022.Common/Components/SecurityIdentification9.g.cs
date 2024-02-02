@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique and unambiguous identifier of a security, assigned under a formal or proprietary identification scheme.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityIdentification9
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SecurityIdentification9
     /// <summary>
     /// Security identifier.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification10Choice_ SecurityIdentification { get; init; } 
     /// <summary>
     /// Textual description of a security instrument.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     
     #nullable disable

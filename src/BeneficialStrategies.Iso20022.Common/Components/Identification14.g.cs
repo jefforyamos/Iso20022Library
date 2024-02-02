@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique identifier of a document, message or transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Identification14
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record Identification14
     /// <summary>
     /// Unique identifier of a document, message or transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     
     #nullable disable

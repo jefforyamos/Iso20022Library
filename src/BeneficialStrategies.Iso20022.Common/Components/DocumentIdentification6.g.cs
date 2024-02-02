@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies a document by a unique identification and a version.|Also provides reference to a baseline amendment number.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentIdentification6
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DocumentIdentification6
     /// <summary>
     /// Identification of a set of data.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the version of a set of data. Example: Version 1.
     /// </summary>
+    [DataMember]
     public required IsoNumber Version { get; init; } 
     /// <summary>
     /// Number that is assigned sequentially by the TSU to a baseline amendment.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? AmendmentSequenceNumber { get; init; } 
     
     #nullable disable

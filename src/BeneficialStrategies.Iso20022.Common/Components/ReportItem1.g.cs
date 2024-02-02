@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account details of the report item.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportItem1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ReportItem1
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required SecuritiesAccount19 AccountIdentification { get; init; } 
     /// <summary>
     /// Level of the safekeeping account or sub-account of the report item.
     /// </summary>
+    [DataMember]
     public required HoldingAccountLevel1Code AccountLevel { get; init; } 
     /// <summary>
     /// Financial instrument identification of the report item.
     /// </summary>
+    [DataMember]
     public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Date of the report item.
     /// </summary>
+    [DataMember]
     public IsoISODate? ItemDate { get; init; } 
     
     #nullable disable

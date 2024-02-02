@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies a document by a unique identification and a version.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentIdentification3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DocumentIdentification3
     /// <summary>
     /// Identification of a set of data.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the version of a set of data. Example: Version 1.
     /// </summary>
+    [DataMember]
     public required IsoNumber Version { get; init; } 
     
     #nullable disable

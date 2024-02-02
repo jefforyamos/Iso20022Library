@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Chain of parties involved in the settlement of a transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementParties74
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record SettlementParties74
     /// <summary>
     /// First party in the settlement chain. In a plain vanilla settlement, it is the Central Securities Depository where the counterparty requests to receive the financial instrument or from where the counterparty delivers the financial instruments. This party may be a transfer agent.
     /// </summary>
+    [DataMember]
     public PartyIdentification141? Depository { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain, interacts with the depository.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount161? Party1 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain, interacts with the party 1.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount161? Party2 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain, interacts with the party 2.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount161? Party3 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain, interacts with the party 3.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount161? Party4 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain, interacts with the party 4.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount161? Party5 { get; init; } 
     
     #nullable disable

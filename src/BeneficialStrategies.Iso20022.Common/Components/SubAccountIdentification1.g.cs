@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account to or from which a securities entry is made.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SubAccountIdentification1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record SubAccountIdentification1
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required AccountIdentificationFormatChoice_ Identification { get; init; } 
     /// <summary>
     /// Indicates whether the securities in the account are fungible, ie, interchangeable.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator FungibleIndicator { get; init; } 
     /// <summary>
     /// Indicates whether there is activity reported in the statement.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
     /// </summary>
-    public AggregateBalanceInformation1[] BalanceForSubAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AggregateBalanceInformation1> BalanceForSubAccount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

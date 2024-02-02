@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status is accepted under certain conditions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ConditionallyAcceptedStatus2
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record ConditionallyAcceptedStatus2
     /// <summary>
     /// Indicates that there is no reason available or to report.
     /// </summary>
+    [DataMember]
     public required NoReasonCode NoSpecifiedReason { get; init; } 
     /// <summary>
     /// Reason for the conditionally accepted status.
     /// </summary>
-    public ConditionallyAcceptedStatusReason2[] ReasonDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<ConditionallyAcceptedStatusReason2> ReasonDetails { get; init; } = [];
     
     #nullable disable
 }

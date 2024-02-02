@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(Cancellation8Choice.References))]
 [KnownType(typeof(Cancellation8Choice.TransferOutDetails))]
+[DataContract]
 public abstract partial record Cancellation8Choice_
 {
 }

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(OriginalMandate4Choice.OriginalMandateIdentification))]
 [KnownType(typeof(OriginalMandate4Choice.OriginalMandate))]
+[DataContract]
 public abstract partial record OriginalMandate4Choice_
 {
 }

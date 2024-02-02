@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(OptionFeaturesFormat2Choice.Code))]
 [KnownType(typeof(OptionFeaturesFormat2Choice.Proprietary))]
+[DataContract]
 public abstract partial record OptionFeaturesFormat2Choice_
 {
 }

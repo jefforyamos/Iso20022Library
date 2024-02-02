@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, for example, dividend option or valuation currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrument64
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record FinancialInstrument64
     /// <summary>
     /// Unique and unambiguous identifier of a security, assigned under a formal or proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification25Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Financial Instrument Short Name (FISN) expressed in conformance with the ISO 18774 standard.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     /// <summary>
     /// Account held in the name of the party that is not the name of the beneficial owner of the shares.
     /// </summary>
+    [DataMember]
     public Account24? TransfereeAccount { get; init; } 
     /// <summary>
     /// Sub-account of the master or omnibus account.
     /// </summary>
+    [DataMember]
     public SubAccount5? SubAccountDetails { get; init; } 
     
     #nullable disable

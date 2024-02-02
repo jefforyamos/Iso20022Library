@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of an entity involved in an activity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification55
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PartyIdentification55
     /// <summary>
     /// Unique and unambiguous way to identify an organisation.
     /// </summary>
+    [DataMember]
     public required PartyIdentification68Choice_ Identification { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
+    [DataMember]
     public AlternatePartyIdentification5? AlternateIdentification { get; init; } 
     /// <summary>
     /// Provides additional information to a party identification.
     /// </summary>
+    [DataMember]
     public PartyTextInformation1? AdditionalInformation { get; init; } 
     
     #nullable disable

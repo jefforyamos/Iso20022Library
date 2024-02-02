@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide detailed information on the acceptance result.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcceptanceResult6
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record AcceptanceResult6
     /// <summary>
     /// Indicates whether the mandate request was accepted or rejected.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Accepted { get; init; } 
     /// <summary>
     /// Specifies the reason for the rejection of a mandate request.
     /// </summary>
+    [DataMember]
     public MandateReason1Choice_? RejectReason { get; init; } 
     /// <summary>
     /// Further details on the reject reason.
     /// </summary>
-    public IsoMax105Text[] AdditionalRejectReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax105Text> AdditionalRejectReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

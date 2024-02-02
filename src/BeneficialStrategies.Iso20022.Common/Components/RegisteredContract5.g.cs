@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Document that a user must file with an authorized servicer for each contract that involves foreign currency transactions with non residents.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RegisteredContract5
 {
     #nullable enable
@@ -20,68 +22,83 @@ public partial record RegisteredContract5
     /// <summary>
     /// Unique identification of the contract registration creation, amendment or closure request.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalContractRegistrationRequest { get; init; } 
     /// <summary>
     /// Financial institution of the issuer of the contract.
     /// </summary>
+    [DataMember]
     public required BranchAndFinancialInstitutionIdentification5 IssuerFinancialInstitution { get; init; } 
     /// <summary>
     /// Details of the contract being registered.
     /// </summary>
+    [DataMember]
     public required UnderlyingContract1Choice_ Contract { get; init; } 
     /// <summary>
     /// Contract balance on date of contract registration.
     /// </summary>
-    public ContractBalance1[] ContractBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ContractBalance1> ContractBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of the payment schedule provided in the contract.
     /// </summary>
+    [DataMember]
     public PaymentScheduleType1Choice_? PaymentScheduleType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the registered contract as assigned by the registration agent.
     /// </summary>
+    [DataMember]
     public required DocumentIdentification29 RegisteredContractIdentification { get; init; } 
     /// <summary>
     /// Identification of a previously defined registered contract linked to the same underlying contract.
     /// Usage:
     /// This is the identification of a previous contract registration for the same underlying contract, which was closed. In most cases, this is used when a reporting party moves from one registration agent to another.
     /// </summary>
+    [DataMember]
     public DocumentIdentification22? PreviousRegisteredContractIdentification { get; init; } 
     /// <summary>
     /// Journal of previously closed registered contracts for the same underlying contract, which were requested at the same registration agent.
     /// </summary>
-    public RegisteredContractJournal1[] RegisteredContractJournal { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RegisteredContractJournal1> RegisteredContractJournal { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details on amendments to the registered contract.
     /// </summary>
-    public RegisteredContractAmendment1[] Amendment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RegisteredContractAmendment1> Amendment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the communication method for the submission of the registered contract.
     /// </summary>
+    [DataMember]
     public required RegisteredContractCommunication1 Submission { get; init; } 
     /// <summary>
     /// Provides the communication method for the delivery of the registered contract.
     /// </summary>
+    [DataMember]
     public required RegisteredContractCommunication1 Delivery { get; init; } 
     /// <summary>
     /// Amount of money the borrower pays back to the lender outside of interests and charges.
     /// Usage:
     /// Only applicable for loan contracts.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? LoanPrincipalAmount { get; init; } 
     /// <summary>
     /// Indicates whether the dates provided are estimates or not.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator EstimatedDateIndicator { get; init; } 
     /// <summary>
     /// Indicates whether loan in which both the lender and the borrower are divisions of the same corporation or not.
     /// Usage:
     /// Only applicable for loan contracts.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator InterCompanyLoan { get; init; } 
     /// <summary>
     /// Further information on the registered contract.
     /// </summary>
+    [DataMember]
     public IsoMax1025Text? AdditionalInformation { get; init; } 
     
     #nullable disable

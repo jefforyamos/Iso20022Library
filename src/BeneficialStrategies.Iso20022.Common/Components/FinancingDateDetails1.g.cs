@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Includes a set of dates (e.g. credit date) related to settlement of the financing amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancingDateDetails1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FinancingDateDetails1
     /// <summary>
     /// Date on which the financing transaction has been booked in an account.
     /// </summary>
-    public IsoISODate[] BookDate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoISODate> BookDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date on which a financed amount has been credited.
     /// </summary>
+    [DataMember]
     public required IsoISODate CreditDate { get; init; } 
     /// <summary>
     /// Date on which a financed amount has been debited.
     /// </summary>
+    [DataMember]
     public IsoISODate? DebitDate { get; init; } 
     
     #nullable disable

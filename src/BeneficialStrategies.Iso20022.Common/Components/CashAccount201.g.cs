@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of an account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashAccount201
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CashAccount201
     /// <summary>
     /// Unique and unambiguous identification of the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required AccountIdentificationAndName5 Identification { get; init; } 
     /// <summary>
     /// Institution that maintains the records where the account is held.
     /// </summary>
+    [DataMember]
     public FinancialInstitutionIdentification15? AccountServicer { get; init; } 
     
     #nullable disable

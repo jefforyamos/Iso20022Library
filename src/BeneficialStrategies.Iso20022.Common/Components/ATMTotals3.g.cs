@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Totals of the ATM.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTotals3
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record ATMTotals3
     /// <summary>
     /// Identification of the type of transaction. The following values are predefined: Withdrawal, QuickWithdrawal, WithdrawalForDisabledPerson, CashDeposit, Transfer, InternationalTransfer, PeriodicTransfer, CheckCommand, MobileTopUp, Moneo.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text Identification { get; init; } 
     /// <summary>
     /// Additional identification of the type of transaction. The following values are predefined: Vodaphone, TMobile, Verizon.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AdditionalIdentification { get; init; } 
     /// <summary>
     /// Period of computation for the counters.
     /// </summary>
+    [DataMember]
     public required ATMCounterType2Code Period { get; init; } 
     /// <summary>
     /// Currency of the totals.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Number of transaction with the defined currency.
     /// </summary>
+    [DataMember]
     public required IsoNumber Count { get; init; } 
     /// <summary>
     /// Amount of transaction with the defined currency.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? Amount { get; init; } 
     
     #nullable disable

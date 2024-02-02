@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the identification of the issuer CSD (central securities depository).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IssuerCSDIdentification1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record IssuerCSDIdentification1
     /// <summary>
     /// Identification code of the Issuer CSD, using LEI; Legal Entity Identifier (LEI) is a code allocated to a party as described in ISO 17442 'Financial Services - Legal Entity Identifier (LEI)'.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     /// <summary>
     /// Identifies the jurisdiction relevant for the financial instrument based on the first two characters of its instrument identification code.
     /// </summary>
+    [DataMember]
     public required IsoExact2UpperCaseAlphaText FirstTwoCharactersInstrumentIdentification { get; init; } 
     /// <summary>
     /// Identifies the country code of the Issuer CSD, using ISO 3166 2-character code. 
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     
     #nullable disable

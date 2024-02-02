@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Traded venue related fields.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradingVenueAttributes2
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record TradingVenueAttributes2
     /// <summary>
     /// Segment MIC for the trading venue or systematic internaliser, where applicable, otherwise the operating MIC.
     /// </summary>
+    [DataMember]
     public required IsoMICIdentifier Identification { get; init; } 
     /// <summary>
     /// Indicates whether the issuer of the financial instrument has requested or approved the trading or admission to trading of their financial instruments on a trading venue.
     /// Usage: when not present, the indicator in not applicable.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? IssuerRequest { get; init; } 
     /// <summary>
     /// Date and time the issuer has approved the admission to trading or trading of its financial instruments on the trading venue.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? AdmissionApprovalDateByIssuer { get; init; } 
     /// <summary>
     /// Date and time when the request for admission on the trading venue was made for the instrument.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? RequestForAdmissionDate { get; init; } 
     /// <summary>
     /// Date and time of the admission to trading on the trading venue or the date and time when the instrument was first traded or an order or quote was first received by the trading venue.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? FirstTradeDate { get; init; } 
     /// <summary>
     /// Date and time when the financial instrument ceases to be traded or to be admitted to trading on the trading venue. Where this date and time is unavailable, the field shall not be populated.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? TerminationDate { get; init; } 
     
     #nullable disable

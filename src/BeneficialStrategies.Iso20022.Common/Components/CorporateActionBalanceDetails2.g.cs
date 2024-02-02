@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Eligible and not eligible balance of securities for a corporate action event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionBalanceDetails2
 {
     #nullable enable
@@ -20,70 +22,87 @@ public partial record CorporateActionBalanceDetails2
     /// <summary>
     /// Balance to which the payment applies (less or equal to the total eligible balance).
     /// </summary>
+    [DataMember]
     public required BalanceFormat1Choice_ ConfirmedBalance { get; init; } 
     /// <summary>
     /// Total quantity of financial instruments of the balance.
     /// </summary>
+    [DataMember]
     public Quantity3Choice_? TotalEligibleBalance { get; init; } 
     /// <summary>
     /// Balance of financial instruments that are blocked.
     /// </summary>
+    [DataMember]
     public BalanceFormat1Choice_? BlockedBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
+    [DataMember]
     public BalanceFormat1Choice_? BorrowedBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
+    [DataMember]
     public BalanceFormat1Choice_? CollateralInBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
+    [DataMember]
     public BalanceFormat1Choice_? CollateralOutBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
+    [DataMember]
     public BalanceFormat1Choice_? OnLoanBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public BalanceFormat1Choice_[] PendingDeliveryBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BalanceFormat1Choice_> PendingDeliveryBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public BalanceFormat1Choice_[] PendingReceiptBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BalanceFormat1Choice_> PendingReceiptBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
+    [DataMember]
     public BalanceFormat1Choice_? OutForRegistrationBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
+    [DataMember]
     public BalanceFormat1Choice_? SettlementPositionBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
+    [DataMember]
     public BalanceFormat1Choice_? StreetPositionBalance { get; init; } 
     /// <summary>
     /// Balance of securities based on trade date, for example, includes all pending transactions in addition to the balance of settled transactions.
     /// </summary>
+    [DataMember]
     public BalanceFormat1Choice_? TradeDatePositionBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
+    [DataMember]
     public BalanceFormat1Choice_? InTransshipmentBalance { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
+    [DataMember]
     public BalanceFormat1Choice_? RegisteredBalance { get; init; } 
     /// <summary>
     /// Balance that has been affected by the process run through the event.
     /// </summary>
+    [DataMember]
     public BalanceFormat1Choice_? AffectedBalance { get; init; } 
     /// <summary>
     /// Balance that has not been affected by the process run through the event.
     /// </summary>
+    [DataMember]
     public BalanceFormat1Choice_? UnaffectedBalance { get; init; } 
     
     #nullable disable

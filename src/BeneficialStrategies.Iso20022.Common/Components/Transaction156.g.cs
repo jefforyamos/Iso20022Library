@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Fee transaction type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transaction156
 {
     #nullable enable
@@ -21,55 +23,68 @@ public partial record Transaction156
     /// Type of transaction associated with the main service
     /// For valid values, see "Transaction type codes" in ISO 8583 "Financial transaction card originated messages — Interchange message specifications"
     /// </summary>
+    [DataMember]
     public required ISO8583TransactionTypeCode TransactionType { get; init; } 
     /// <summary>
     /// Further breakdown of the transaction type being performed.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TransactionSubType { get; init; } 
     /// <summary>
     /// Indicates the previous fee collection message is cancelled.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CancellationIndicator { get; init; } 
     /// <summary>
     /// Reason or purpose to send the message.
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    public ISO8583MessageReasonCode[] MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ISO8583MessageReasonCode> MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Alternate message reason to send the message.
     /// </summary>
-    public IsoMax256Text[] AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax256Text> AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data to qualify for incentive or other related programmes.
     /// </summary>
-    public SpecialProgrammeQualification1[] SpecialProgrammeQualification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SpecialProgrammeQualification1> SpecialProgrammeQualification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
+    [DataMember]
     public required TransactionIdentification51 TransactionIdentification { get; init; } 
     /// <summary>
     /// Amounts of the card transaction.
     /// </summary>
+    [DataMember]
     public required TransactionAmounts2 TransactionAmounts { get; init; } 
     /// <summary>
     /// Amounts that are not part of the transaction amount and not included in reconciliation.
     /// </summary>
-    public AdditionalAmounts3[] AdditionalAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalAmounts3> AdditionalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fees not included in the transaction amount.
     /// </summary>
-    public AdditionalFee2[] AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalFee2> AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the Fee Collection cycle.
     /// </summary>
+    [DataMember]
     public IsoExact1NumericText? FeeCollectionCycle { get; init; } 
     /// <summary>
     /// Reference for the Fee Collection.
     /// </summary>
+    [DataMember]
     public FeeCollectionReference1? FeeCollectionReference { get; init; } 
     
     #nullable disable

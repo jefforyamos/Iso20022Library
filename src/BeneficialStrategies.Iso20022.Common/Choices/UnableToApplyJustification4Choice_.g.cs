@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(UnableToApplyJustification4Choice.AnyInformation))]
 [KnownType(typeof(UnableToApplyJustification4Choice.MissingOrIncorrectInformation))]
 [KnownType(typeof(UnableToApplyJustification4Choice.PossibleDuplicateInstruction))]
+[DataContract]
 public abstract partial record UnableToApplyJustification4Choice_
 {
 }

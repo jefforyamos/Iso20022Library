@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(DocumentIdentification4Choice.AccountServicerDocumentIdentification))]
 [KnownType(typeof(DocumentIdentification4Choice.AccountOwnerDocumentIdentification))]
+[DataContract]
 public abstract partial record DocumentIdentification4Choice_
 {
 }

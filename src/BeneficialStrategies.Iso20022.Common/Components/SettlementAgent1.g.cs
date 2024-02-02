@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Bank used by a central counterparty to allow for the convenient settlement of obligations between a central counterparty and a clearing member, typically in commercial bank money.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementAgent1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record SettlementAgent1
     /// <summary>
     /// Identifies the settlement agent.
     /// </summary>
+    [DataMember]
     public required IsoLEIIdentifier Identification { get; init; } 
     /// <summary>
     /// CCP’s account at the settlement agent.
     /// </summary>
-    public PaymentAccount1[] Account { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentAccount1> Account { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

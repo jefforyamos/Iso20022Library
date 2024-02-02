@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the multimodal or the individual transport of goods.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransportMeans3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TransportMeans3
     /// <summary>
     /// Code specifying the transport mode for the delivery of the consignment, such as by air, sea, rail, road or inland waterway. Reference UN/ECE Recommendation 19 - Code for Modes of Transport (www.unece.org/cefact/recommendations).
     /// </summary>
+    [DataMember]
     public IsoMax4Text? ModeCode { get; init; } 
     /// <summary>
     /// Unique identification of the means of transport, such as the International Maritime Organization number of a vessel.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Name, expressed as text, of the means of transport.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     
     #nullable disable

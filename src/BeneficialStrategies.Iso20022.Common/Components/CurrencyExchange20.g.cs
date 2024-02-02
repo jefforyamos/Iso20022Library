@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information needed to process a currency exchange or conversion.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyExchange20
 {
     #nullable enable
@@ -20,24 +22,29 @@ public partial record CurrencyExchange20
     /// <summary>
     /// The value of one currency expressed in relation to another currency. ExchangeRate expresses the ratio between UnitCurrency and QuotedCurrency (ExchangeRate = UnitCurrency/QuotedCurrency).
     /// </summary>
+    [DataMember]
     public required IsoBaseOneRate ExchangeRate { get; init; } 
     /// <summary>
     /// Currency into which the base currency is converted, in a currency exchange.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode QuotedCurrency { get; init; } 
     /// <summary>
     /// Date and time at which an exchange rate is quoted.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime QuotationDate { get; init; } 
     /// <summary>
     /// Lowest limit defined for the exchange rate.
     /// Usage: The currency authority publishes the exchange rate based on the price formed in the foreign exchange market, allowing it to float up and down within the prescribed fluctuation range. It is the lowest exchange rate supported in foreign exchange market transactions.
     /// </summary>
+    [DataMember]
     public ExchangeRateOrPercentage1Choice_? LowLimit { get; init; } 
     /// <summary>
     /// Highest limit defined for the exchange rate.
     /// Usage: The currency authority publishes the exchange rate based on the price formed in the foreign exchange market, allowing it to float up and down within the prescribed fluctuation range. It is the highest exchange rate supported in foreign exchange market transactions.
     /// </summary>
+    [DataMember]
     public ExchangeRateOrPercentage1Choice_? HighLimit { get; init; } 
     
     #nullable disable

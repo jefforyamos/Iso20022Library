@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(EventIdentifier1Choice.EventIdentifier))]
 [KnownType(typeof(EventIdentifier1Choice.PostTradeRiskReductionIdentifier))]
+[DataContract]
 public abstract partial record EventIdentifier1Choice_
 {
 }

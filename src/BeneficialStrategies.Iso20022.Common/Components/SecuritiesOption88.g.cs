@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies securities quantities for corporate action instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesOption88
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SecuritiesOption88
     /// <summary>
     /// Minimum quantity of securities to be accepted (used in the framework of conditional privilege on election). In case of proration, if this minimum quantity is not reached then the instruction is void.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity36Choice_? ConditionalQuantity { get; init; } 
     /// <summary>
     /// Quantity of securities to which this instruction applies.
     /// </summary>
+    [DataMember]
     public required Quantity55Choice_ InstructedQuantity { get; init; } 
     /// <summary>
     /// Quantity of additional shares requested due to the difference of “round-up against payment” practice between the account servicer and the account holder (for instance for French dividend option).
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity36Choice_? AdditionalRoundUpQuantity { get; init; } 
     
     #nullable disable

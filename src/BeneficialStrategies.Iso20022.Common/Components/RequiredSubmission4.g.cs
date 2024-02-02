@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details relative to the submission of the certificate data set.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RequiredSubmission4
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record RequiredSubmission4
     /// <summary>
     /// Specifies with party(ies) is authorised to submit the data set as part of the transaction.
     /// </summary>
-    public BICIdentification1[] Submitter { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BICIdentification1> Submitter { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the type of the certificate.
     /// </summary>
+    [DataMember]
     public required TradeCertificateType1Code CertificateType { get; init; } 
     /// <summary>
     /// Specifies if the issuer must be matched as part of the validation of the data set.
     /// </summary>
+    [DataMember]
     public PartyIdentification27? MatchIssuer { get; init; } 
     /// <summary>
     /// Specifies if the issue date must be matched as part of the validation of the data set.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator MatchIssueDate { get; init; } 
     /// <summary>
     /// Specifies if the inspection date must be matched as part of the validation of the data set.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator MatchInspectionDate { get; init; } 
     /// <summary>
     /// Specifies if the indication of an authorised inspector must be present as part of the validation of the data set.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator AuthorisedInspectorIndicator { get; init; } 
     /// <summary>
     /// Specifies if the consignee must be matched as part of the validation of the data set.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator MatchConsignee { get; init; } 
     /// <summary>
     /// Specifies if the manufacturer must be matched as part of the validation of the data set.
     /// </summary>
+    [DataMember]
     public PartyIdentification27? MatchManufacturer { get; init; } 
     /// <summary>
     /// Specifies if the certificate data set is required in relation to specific line items, and which line items.
     /// </summary>
-    public IsoMax70Text[] LineItemIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax70Text> LineItemIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

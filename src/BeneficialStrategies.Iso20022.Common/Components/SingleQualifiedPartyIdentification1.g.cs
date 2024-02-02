@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Such references can occur in sequence. The last occurrence of RelativeIdentifier is the local identifier at the party recursively defined by the PrefixParty and all preceding occurrences of RelativeIdentifier.
 /// Technical note: The sequence of relative identifiers is used to avoid a recursive definition in the catalogue.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SingleQualifiedPartyIdentification1
 {
     #nullable enable
@@ -23,11 +25,13 @@ public partial record SingleQualifiedPartyIdentification1
     /// <summary>
     /// Party identification recognisable by parties in the trade.
     /// </summary>
+    [DataMember]
     public required TradeParty1 BaseParty { get; init; } 
     /// <summary>
     /// Identifies a party, each identifier is recursively defined relative to the party identified by the base party and the preceding part of the list.
     /// </summary>
-    public IsoMax35Text[] RelativeIdentifier { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax35Text> RelativeIdentifier { get; init; } = [];
     
     #nullable disable
 }

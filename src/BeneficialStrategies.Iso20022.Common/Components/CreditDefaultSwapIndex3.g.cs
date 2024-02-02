@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Credit default swap derivative specific for reporting derivatives on a credit default swap index.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditDefaultSwapIndex3
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record CreditDefaultSwapIndex3
     /// <summary>
     /// Derivative on a credit default swap with the ISIN code of the underlying index.
     /// </summary>
+    [DataMember]
     public IsoISINOct2015Identifier? UnderlyingIndexIdentification { get; init; } 
     /// <summary>
     /// To be populated for derivatives on a CDS index with the standardized name of the index.
     /// </summary>
+    [DataMember]
     public IsoMax25Text? UnderlyingIndexName { get; init; } 
     /// <summary>
     /// Series number of the composition of the index if applicable.
     /// </summary>
+    [DataMember]
     public IsoNumber? Series { get; init; } 
     /// <summary>
     /// New version of a series is issued if one of the constituents defaults and the index has to be re-weighted to account for the new number of total constituents within the index.
     /// </summary>
+    [DataMember]
     public IsoNumber? Version { get; init; } 
     /// <summary>
     /// All months when the roll is expected as established by the index provider for a given year. Field should be repeated for each month in the roll.
     /// </summary>
-    public IsoRestrictedMonthExact2Number[] RollMonth { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoRestrictedMonthExact2Number> RollMonth { get; init; } = [];
     /// <summary>
     /// To be populated in the case of a CDS Index or a derivative CDS Index with the next roll date of the index as established by the index provider.
     /// </summary>
+    [DataMember]
     public IsoISODate? NextRollDate { get; init; } 
     /// <summary>
     /// Currency in which the notional is denominated.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode NotionalCurrency { get; init; } 
     
     #nullable disable

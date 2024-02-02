@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unit of information showing the related provision of products and/or services and monetary summations reported as a discrete line items.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LineItem10
 {
     #nullable enable
@@ -20,127 +22,158 @@ public partial record LineItem10
     /// <summary>
     /// The unique identification of this invoice line item.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Something that is produced and sold as the result of an industrial process.
     /// </summary>
+    [DataMember]
     public TradeProduct1? TradeProduct { get; init; } 
     /// <summary>
     /// Purchase order reference assigned by the buyer related to the provision of products and/or services for this line item.
     /// </summary>
+    [DataMember]
     public DocumentIdentification23? BuyerOrderIdentification { get; init; } 
     /// <summary>
     /// Contract reference related to the provision of products and/or services for this line item.
     /// </summary>
+    [DataMember]
     public DocumentIdentification22? ContractIdentification { get; init; } 
     /// <summary>
     /// Specific purchase account for recording debits and credits for accounting purposes.
     /// </summary>
-    public AccountingAccount1[] PurchaseAccountingAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AccountingAccount1> PurchaseAccountingAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    public IsoCurrencyAndAmount[] NetPrice { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> NetPrice { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity and conversion factor on which the net price is based for this line item product and/or service.
     /// </summary>
+    [DataMember]
     public Quantity4? NetPriceQuantity { get; init; } 
     /// <summary>
     /// Allowance or charge applied to the net price.
     /// </summary>
-    public LineItemAllowanceCharge1[] NetPriceAllowanceCharge { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LineItemAllowanceCharge1> NetPriceAllowanceCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net weight of the product.
     /// </summary>
+    [DataMember]
     public Quantity3? NetWeight { get; init; } 
     /// <summary>
     /// Gross price of the product and/or service.
     /// </summary>
-    public IsoCurrencyAndAmount[] GrossPrice { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> GrossPrice { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity and conversion factor on which the gross price is based for this line item product and/or service.
     /// </summary>
+    [DataMember]
     public Quantity4? GrossPriceQuantity { get; init; } 
     /// <summary>
     /// Gross weight of the product.
     /// </summary>
+    [DataMember]
     public Quantity3? GrossWeight { get; init; } 
     /// <summary>
     /// Logistics service charge for this line item.
     /// </summary>
-    public ChargesDetails2[] LogisticsCharge { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ChargesDetails2> LogisticsCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
     /// </summary>
-    public LineItemTax1[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LineItemTax1> Tax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Allowance or charge specified for this line item.
     /// </summary>
-    public LineItemAllowanceCharge1[] AllowanceCharge { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LineItemAllowanceCharge1> AllowanceCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Modification on the value of goods and / or services. For example: rebate, discount, surcharge.
     /// </summary>
-    public Adjustment4[] FinancialAdjustment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Adjustment4> FinancialAdjustment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity billed for this line item.
     /// </summary>
+    [DataMember]
     public Quantity3? BilledQuantity { get; init; } 
     /// <summary>
     /// Number of product packages delivered.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? PackageQuantity { get; init; } 
     /// <summary>
     /// Number of units per package in this line item for a supply chain trade delivery.
     /// </summary>
+    [DataMember]
     public Quantity3? PerPackageUnitQuantity { get; init; } 
     /// <summary>
     /// Physical packaging of the product.
     /// </summary>
-    public Packaging1[] Packaging { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Packaging1> Packaging { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity that is free of charge for this line item.
     /// </summary>
+    [DataMember]
     public Quantity3? ChargeFreeQuantity { get; init; } 
     /// <summary>
     /// Quantity value on which the quantity measurement started for a line item. For instance the start amount of a meter reading for an electricity supplier.
     /// </summary>
+    [DataMember]
     public Quantity3? MeasureQuantityStart { get; init; } 
     /// <summary>
     /// Quantity value on which the quantity measurement ended for a line item. For instance the end amount of a meter reading for an electricity supplier.
     /// </summary>
+    [DataMember]
     public Quantity3? MeasureQuantityEnd { get; init; } 
     /// <summary>
     /// Date/time on which the clock time measure started for a line item.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? MeasureDateTimeStart { get; init; } 
     /// <summary>
     /// Date/time on which the clock time measure ended for a line item.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? MeasureDateTimeEnd { get; init; } 
     /// <summary>
     /// Party to whom the goods must be delivered in the end.
     /// </summary>
+    [DataMember]
     public TradeParty1? ShipTo { get; init; } 
     /// <summary>
     /// Specifies the applicable Incoterm and associated location.
     /// </summary>
+    [DataMember]
     public Incoterms3? Incoterms { get; init; } 
     /// <summary>
     /// Actual delivery date/time of the products and/or services for this line item.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? DeliveryDateTime { get; init; } 
     /// <summary>
     /// Delivery note related to the delivery of the products and/or services for this line item.
     /// </summary>
+    [DataMember]
     public DocumentIdentification22? DeliveryNoteIdentification { get; init; } 
     /// <summary>
     /// Monetary totals for this line item.
     /// </summary>
+    [DataMember]
     public LineItemMonetarySummation1? MonetarySummation { get; init; } 
     /// <summary>
     /// Note included in this line item.
     /// </summary>
-    public AdditionalInformation1[] IncludedNote { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation1> IncludedNote { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

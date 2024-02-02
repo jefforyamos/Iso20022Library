@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a meeting.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MeetingReference7
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record MeetingReference7
     /// <summary>
     /// Identification assigned to the general meeting by the party notifying the meeting. It must be unique for the party notifying the meeting.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MeetingIdentification { get; init; } 
     /// <summary>
     /// Identification assigned to the meeting by the issuer. It must be unique for the issuer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? IssuerMeetingIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the meeting will take place.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime MeetingDateAndTime { get; init; } 
     /// <summary>
     /// Specifies the type of meeting for which instructions are sent.
     /// </summary>
+    [DataMember]
     public required MeetingType3Code Type { get; init; } 
     /// <summary>
     /// Classifies the type of meeting.
     /// </summary>
+    [DataMember]
     public MeetingTypeClassification1Choice_? Classification { get; init; } 
     /// <summary>
     /// Place of the company meeting for the scheduled meeting date.
     /// </summary>
-    public PostalAddress1[] Location { get; init; } = [];
+    [DataMember]
+    public ValueList<PostalAddress1> Location { get; init; } = [];
     
     #nullable disable
 }

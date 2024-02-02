@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the beneficial owner of the securities.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BeneficialOwner1
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record BeneficialOwner1
     /// <summary>
     /// Identification of the party that is the beneficial owner of the specified securities.
     /// </summary>
+    [DataMember]
     public required PartyIdentification2Choice_ BeneficialOwnerIdentification { get; init; } 
     /// <summary>
     /// Additional identification of the party that is the beneficial owner of the specified securities.
     /// </summary>
+    [DataMember]
     public GenericIdentification16? AdditionalIdentification { get; init; } 
     /// <summary>
     /// Nationality of the beneficial owner.
     /// </summary>
+    [DataMember]
     public CountryCode? Nationality { get; init; } 
     /// <summary>
     /// Country in which a person is permanently domiciled (the place of a persons permanent home).
     /// </summary>
+    [DataMember]
     public CountryCode? DomicileCountry { get; init; } 
     /// <summary>
     /// The holder of the security has to certify, in line with the terms of the corporate action, that it is not domiciled in the country indicated.
     /// </summary>
+    [DataMember]
     public CountryCode? NonDomicileCountry { get; init; } 
     /// <summary>
     /// Whether or not certification is required from the account owner. |Yes: certification required |No: no certification required.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CertificationIndicator { get; init; } 
     /// <summary>
     /// Type of certification which is required.
     /// </summary>
+    [DataMember]
     public BeneficiaryCertificationType1FormatChoice_? CertificationType { get; init; } 
     /// <summary>
     /// Provides declaration details narrative relative to the financial instrument, eg, beneficial ownership.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? DeclarationDetails { get; init; } 
     /// <summary>
     /// Identification of the financial instrument.
     /// </summary>
+    [DataMember]
     public SecurityIdentification7? SecurityIdentification { get; init; } 
     /// <summary>
     /// Quantity of securities elected by to the beneficial owner.
     /// </summary>
+    [DataMember]
     public required UnitOrFaceAmount1Choice_ ElectedSecuritiesQuantity { get; init; } 
     
     #nullable disable

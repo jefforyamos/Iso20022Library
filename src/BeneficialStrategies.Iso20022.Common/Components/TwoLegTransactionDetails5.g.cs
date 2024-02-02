@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details of the first leg in a two leg transaction process.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TwoLegTransactionDetails5
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record TwoLegTransactionDetails5
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
+    [DataMember]
     public TradeDate8Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Unambiguous identification of the reference assigned in the first leg of the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OpeningLegIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the second leg of the transaction as known by the account owner (or the instructing party acting on its behalf).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClosingLegIdentification { get; init; } 
     /// <summary>
     /// Principal amount of a trade (price multiplied by quantity).
     /// </summary>
+    [DataMember]
     public AmountAndDirection29? GrossTradeAmount { get; init; } 
     /// <summary>
     /// Identifies other amounts pertaining to the transaction.
     /// </summary>
-    public OtherAmounts16[] OtherAmounts { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OtherAmounts16> OtherAmounts { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional information about the second leg in narrative form.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? SecondLegNarrative { get; init; } 
     /// <summary>
     /// Negotiated fixed price of the security to buy it back.
     /// </summary>
+    [DataMember]
     public Price14? EndPrice { get; init; } 
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
+    [DataMember]
     public ClosingDate4Choice_? ClosingDate { get; init; } 
     /// <summary>
     /// Total amount of money to be paid or received in exchange for the securities. The amount includes the principal with any commissions and fees or accrued interest.
     /// </summary>
+    [DataMember]
     public AmountAndDirection5? ClosingSettlementAmount { get; init; } 
     /// <summary>
     /// Processing date of the trading session.
     /// </summary>
+    [DataMember]
     public TradeDate7Choice_? ProcessingDate { get; init; } 
     /// <summary>
     /// Specifies the type of the second leg transaction.
     /// </summary>
+    [DataMember]
     public TwoLegTransactionType4Choice_? TwoLegTransactionType { get; init; } 
     
     #nullable disable

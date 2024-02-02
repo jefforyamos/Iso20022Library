@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ReuseValue1Choice.Actual))]
 [KnownType(typeof(ReuseValue1Choice.Estimated))]
+[DataContract]
 public abstract partial record ReuseValue1Choice_
 {
 }

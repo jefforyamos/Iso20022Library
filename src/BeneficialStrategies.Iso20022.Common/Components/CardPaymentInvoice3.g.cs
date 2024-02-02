@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed invoice data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentInvoice3
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record CardPaymentInvoice3
     /// <summary>
     /// General data relevant to the main body of the invoice such as date of issue, currency code and identification number.
     /// </summary>
+    [DataMember]
     public required InvoiceHeader3 InvoiceHeader { get; init; } 
     /// <summary>
     /// Contractual details related to the agreement between parties.
     /// </summary>
+    [DataMember]
     public required TradeAgreement16 TradeAgreement { get; init; } 
     /// <summary>
     /// Supply chain shipping arrangements for delivery of invoiced products and/or services.
     /// </summary>
+    [DataMember]
     public required TradeDelivery3 TradeDelivery { get; init; } 
     /// <summary>
     /// Unit of information showing the related provision of products and/or services and monetary summations reported as a discrete line items.
     /// </summary>
-    public LineItem17[] LineItem { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LineItem17> LineItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

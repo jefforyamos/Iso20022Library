@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(VoteInstructionType1Choice.Type))]
 [KnownType(typeof(VoteInstructionType1Choice.Proprietary))]
+[DataContract]
 public abstract partial record VoteInstructionType1Choice_
 {
 }

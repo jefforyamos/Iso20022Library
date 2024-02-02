@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a blocked account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Blocked2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Blocked2
     /// <summary>
     /// Specifies the order or transaction type for which the account is blocked.
     /// </summary>
-    public OrderType2Choice_[] OrderType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OrderType2Choice_> OrderType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the account is blocked.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Blocked { get; init; } 
     /// <summary>
     /// Specifies the reason the account is blocked.
     /// </summary>
+    [DataMember]
     public BlockedReason1Choice_? Reason { get; init; } 
     
     #nullable disable

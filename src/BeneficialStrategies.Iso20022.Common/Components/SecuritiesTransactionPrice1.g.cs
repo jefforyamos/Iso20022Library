@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Descriptive fields capturing where no strike price is known.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesTransactionPrice1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SecuritiesTransactionPrice1
     /// <summary>
     /// Price is currently not available, but pending.
     /// </summary>
+    [DataMember]
     public required PriceStatus1Code Pending { get; init; } 
     /// <summary>
     /// Currency that will be used but for which no price is yet known.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Outcome of the authorisation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AuthorisationResult7
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record AuthorisationResult7
     /// <summary>
     /// Type of party that has delivered or declined the card payment authorisation (the party is not identified).
     /// </summary>
+    [DataMember]
     public GenericIdentification75? AuthorisationEntity { get; init; } 
     /// <summary>
     /// Response to an authorisation request.
     /// </summary>
+    [DataMember]
     public required ResponseType2 TransactionResponse { get; init; } 
     /// <summary>
     /// Value assigned by the authorising party.
     /// </summary>
+    [DataMember]
     public IsoMin6Max8Text? AuthorisationCode { get; init; } 
     /// <summary>
     /// Additional information relevant for the destination.
     /// </summary>
-    public ActionMessage3[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ActionMessage3> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

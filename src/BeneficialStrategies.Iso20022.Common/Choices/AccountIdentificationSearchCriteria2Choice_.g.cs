@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(AccountIdentificationSearchCriteria2Choice.Equal))]
 [KnownType(typeof(AccountIdentificationSearchCriteria2Choice.ContainText))]
 [KnownType(typeof(AccountIdentificationSearchCriteria2Choice.NotContainText))]
+[DataContract]
 public abstract partial record AccountIdentificationSearchCriteria2Choice_
 {
 }

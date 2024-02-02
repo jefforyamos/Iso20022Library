@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the pledge and pledger.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PledgeInformation1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PledgeInformation1
     /// <summary>
     /// Entity that provide assets to a counterparty as a guarantee.
     /// </summary>
+    [DataMember]
     public required PartyIdentification232Choice_ Pledger { get; init; } 
     /// <summary>
     /// Third party, usually a bank, involved in the pledge.
     /// </summary>
+    [DataMember]
     public ThirdPartyIdentification1? ThirdParty { get; init; } 
     /// <summary>
     /// Identifies the type of pledge.
     /// </summary>
+    [DataMember]
     public required GenericIdentification36 PledgeType { get; init; } 
     /// <summary>
     /// Indicates whether the pledger is entitled to vote, otherwise the right to vote is with the right holder.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ReturnSecuritiesIndicator { get; init; } 
     
     #nullable disable

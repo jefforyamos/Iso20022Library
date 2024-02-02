@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the amendment of the information that serves as a basis to debit an account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DebtorActivationAmendment4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DebtorActivationAmendment4
     /// <summary>
     /// Specific attributes provided the debtor, as requested by the creditor, for the activation request.
     /// </summary>
+    [DataMember]
     public DebtorActivation4? DebtorActivation { get; init; } 
     /// <summary>
     /// Further data related to the electronic invoice (e-invoice).
     /// </summary>
+    [DataMember]
     public ElectronicInvoice1? ElectronicInvoiceData { get; init; } 
     
     #nullable disable

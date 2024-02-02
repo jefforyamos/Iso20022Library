@@ -20,6 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(Reference2Choice.InterestPaymentRequestIdentification))]
 [KnownType(typeof(Reference2Choice.InterestPaymentResponseIdentification))]
 [KnownType(typeof(Reference2Choice.InterestPaymentStatementIdentification))]
+[DataContract]
 public abstract partial record Reference2Choice_
 {
 }

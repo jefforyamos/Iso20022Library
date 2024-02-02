@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reject of an exchange.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcceptorRejection4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AcceptorRejection4
     /// <summary>
     /// Reject reason of the message.
     /// </summary>
+    [DataMember]
     public required RejectReason1Code RejectReason { get; init; } 
     /// <summary>
     /// Detailed description of an error that caused the rejection for further analysis.
     /// </summary>
-    public ErrorReporting1[] ErrorReporting { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ErrorReporting1> ErrorReporting { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Original request that caused the party to reject it.
     /// </summary>
+    [DataMember]
     public IsoMax100KBinary? MessageInError { get; init; } 
     
     #nullable disable

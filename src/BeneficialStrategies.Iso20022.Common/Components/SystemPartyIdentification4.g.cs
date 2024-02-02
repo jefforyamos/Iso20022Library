@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique identification, as assigned by the executing system, to unambiguously identify the party in the system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemPartyIdentification4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SystemPartyIdentification4
     /// <summary>
     /// Unique identification to unambiguously identify the party within the system.
     /// </summary>
+    [DataMember]
     public required IsoBICFIIdentifier Identification { get; init; } 
     /// <summary>
     /// Unique identification of the party responsible (national central bank or central securities depositary) for the party reference data.
     /// </summary>
+    [DataMember]
     public CSDOrNCB1Choice_? ResponsiblePartyIdentification { get; init; } 
     
     #nullable disable

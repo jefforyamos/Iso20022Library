@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// The status of an instruction, advice or request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcknowledgementReason7
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AcknowledgementReason7
     /// <summary>
     /// Choice of format for the acknowledgement reason.
     /// </summary>
+    [DataMember]
     public required AcknowledgementReason9Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>
+    [DataMember]
     public IsoMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

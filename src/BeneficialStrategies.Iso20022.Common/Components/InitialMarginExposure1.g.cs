@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Liability a clearing member has to a central counterparty with respect to potential future exposures.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InitialMarginExposure1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record InitialMarginExposure1
     /// <summary>
     /// Initial margin requirement for margin account.
     /// </summary>
+    [DataMember]
     public required Amount3 Amount { get; init; } 
     /// <summary>
     /// Classification of component used in the calculation of the total initial margin requirement.
     /// </summary>
+    [DataMember]
     public required MarginType2Choice_ Type { get; init; } 
     /// <summary>
     /// Indicates whether the component is considered a core part of the margin model. Usage: In the context of European central counterparties, if the component is included in backtesting procedures in order to assess the performance of the initial margin model as required by EMIR RTS Article (49)(1).
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator CoreIndicator { get; init; } 
     
     #nullable disable

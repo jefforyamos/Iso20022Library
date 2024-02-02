@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amounts of the card transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionAmounts1
 {
     #nullable enable
@@ -21,29 +23,35 @@ public partial record TransactionAmounts1
     /// Qualifier or type of amount.
     /// ISO 8583:93/2003 bit 24
     /// </summary>
+    [DataMember]
     public TypeOfAmount11Code? AmountQualifier { get; init; } 
     /// <summary>
     /// Actual amount of the transaction.
     /// </summary>
+    [DataMember]
     public TransactionAmount1? TransactionAmount { get; init; } 
     /// <summary>
     /// Present when the cardholder billing currency differs from the transaction currency expressed in the amount of the transaction. It may be populated by the card scheme or an intermediary processor as normally the acceptor does not know the billing currency for which the cardholder will be debited.
     /// </summary>
+    [DataMember]
     public Amount4? CardholderBillingAmount { get; init; } 
     /// <summary>
     /// Amount used for reconciliation. 
     /// Calculated based on the transaction amount, except when the transaction amount is absent. When transaction amount is absent, the reconciliation amount is calculated on the detailed amount field 
     /// </summary>
+    [DataMember]
     public Amount4? ReconciliationAmount { get; init; } 
     /// <summary>
     /// Further details of some or all amounts in the transaction amount. 
     /// </summary>
-    public DetailedAmount19[] DetailedAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedAmount19> DetailedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount related to the original transaction.
     /// ISO 8583:87 bit 95
     /// ISO 8583:93/2003 bit 30
     /// </summary>
+    [DataMember]
     public OriginalTransactionAmount1? OriginalTransactionAmounts { get; init; } 
     
     #nullable disable

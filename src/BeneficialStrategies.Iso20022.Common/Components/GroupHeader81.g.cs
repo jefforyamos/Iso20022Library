@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details on the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GroupHeader81
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record GroupHeader81
     /// <summary>
     /// Point to point reference, as assigned by the account servicing institution, and sent to the account owner or the party authorised to receive the message, to unambiguously identify the message.|Usage: The account servicing institution has to make sure that MessageIdentification is unique per account owner for a pre-agreed period.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Party authorised by the account owner to receive information about movements on the account.|Usage: MessageRecipient should only be identified when different from the account owner.
     /// </summary>
+    [DataMember]
     public PartyIdentification135? MessageRecipient { get; init; } 
     /// <summary>
     /// Provides details on the page number of the message.||Usage: The pagination of the message is only allowed when agreed between the parties.
     /// </summary>
+    [DataMember]
     public Pagination1? MessagePagination { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original requestor, to unambiguously identify the business query message.
     /// </summary>
+    [DataMember]
     public OriginalBusinessQuery1? OriginalBusinessQuery { get; init; } 
     /// <summary>
     /// Further details of the message.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? AdditionalInformation { get; init; } 
     
     #nullable disable

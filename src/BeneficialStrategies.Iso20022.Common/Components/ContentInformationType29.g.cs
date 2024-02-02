@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// General cryptographic message syntax (CMS) containing data. protected by a MAC or a digital signature.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContentInformationType29
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ContentInformationType29
     /// <summary>
     /// Type of data protection.
     /// </summary>
+    [DataMember]
     public required ContentType2Code ContentType { get; init; } 
     /// <summary>
     /// Data protection by a message authentication code (MAC).
     /// </summary>
+    [DataMember]
     public AuthenticatedData8? AuthenticatedData { get; init; } 
     /// <summary>
     /// Data protected by a digital signatures.
     /// </summary>
+    [DataMember]
     public SignedData7? SignedData { get; init; } 
     
     #nullable disable

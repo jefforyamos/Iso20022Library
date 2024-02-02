@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the acknowledgement from an ATM to contact the ATM manager.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record HostToATMAcknowledgement1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record HostToATMAcknowledgement1
     /// <summary>
     /// Environment of the ATM.
     /// </summary>
+    [DataMember]
     public required ATMEnvironment9 Environment { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the transaction with a trade reference and provides its status. If the status is rejected, a reason for this status must be given.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeTransactionStatusAndReason1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record TradeTransactionStatusAndReason1
     /// <summary>
     /// Provides the identification of the RegulatoryTransactionReport document that was previously sent by the reporting institution.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text RelatedReference { get; init; } 
     /// <summary>
     /// Unique identification assigned to a trade once it is received or matched by an executing system.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text TradeReference { get; init; } 
     /// <summary>
     /// Indicates the status of a trade transaction.
     /// </summary>
+    [DataMember]
     public required Status2Code Status { get; init; } 
     /// <summary>
     /// Indicates that the report is rejected and provides a reason why.
     /// </summary>
-    public RejectedStatusReason9Choice_[] Rejected { get; init; } = [];
+    [DataMember]
+    public ValueList<RejectedStatusReason9Choice_> Rejected { get; init; } = [];
     
     #nullable disable
 }

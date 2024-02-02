@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the business error details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BusinessError1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record BusinessError1
     /// <summary>
     /// Way(s) of identifying the security.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Provides the business error.
     /// </summary>
-    public ErrorHandling3[] BusinessError { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ErrorHandling3> BusinessError { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

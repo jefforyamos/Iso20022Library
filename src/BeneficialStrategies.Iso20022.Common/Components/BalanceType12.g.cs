@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to define the balance type and sub-type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BalanceType12
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record BalanceType12
     /// <summary>
     /// Coded or proprietary format balance type.
     /// </summary>
+    [DataMember]
     public required BalanceType5Choice_ CodeOrProprietary { get; init; } 
     /// <summary>
     /// Specifies the balance sub-type.
     /// </summary>
+    [DataMember]
     public BalanceSubType1Choice_? SubType { get; init; } 
     
     #nullable disable

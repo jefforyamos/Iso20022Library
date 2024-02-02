@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the old and new values for a proprietary field name.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UpdateLogProprietary1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record UpdateLogProprietary1
     /// <summary>
     /// Name of the field whose value has been changed.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text FieldName { get; init; } 
     /// <summary>
     /// Value of the field before the change.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text OldFieldValue { get; init; } 
     /// <summary>
     /// Value of the field after the change.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text NewFieldValue { get; init; } 
     
     #nullable disable

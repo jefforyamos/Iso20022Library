@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about identification of the party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification47
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record PartyIdentification47
     /// <summary>
     /// Identification of a party.
     /// </summary>
+    [DataMember]
     public required PartyIdentification39Choice_ Identification { get; init; } 
     /// <summary>
     /// Reference meaningful to the party identified.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProcessingIdentification { get; init; } 
     /// <summary>
     /// Provides additional information regarding the party, for example, the contact unit or person responsible for the transaction identified in the message.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Provides alternate identification for a party using an id type, a country code and a text field.
     /// </summary>
-    public AlternatePartyIdentification2[] AlternateIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AlternatePartyIdentification2> AlternateIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies a message by a unique identifier and the date and time when the message was created by the sender.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MessageIdentification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record MessageIdentification1
     /// <summary>
     /// Identification of the message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Date of creation of the message.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Print Response message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DevicePrintResponse1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record DevicePrintResponse1
     /// <summary>
     /// Qualification of the document printed to the Cashier or the Customer.
     /// </summary>
+    [DataMember]
     public required DocumentType7Code DocumentQualifier { get; init; } 
     
     #nullable disable

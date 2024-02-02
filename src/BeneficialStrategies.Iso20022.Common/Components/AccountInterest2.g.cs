@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide details of the interest that applies to the account at a particular moment in time.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountInterest2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record AccountInterest2
     /// <summary>
     /// Specifies the type of interest.
     /// </summary>
+    [DataMember]
     public InterestType1Choice_? Type { get; init; } 
     /// <summary>
     /// Set of elements used to qualify the interest rate.
     /// </summary>
-    public Rate3[] Rate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Rate3> Rate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Range of time between a start date and an end date for the calculation of the interest.
     /// </summary>
+    [DataMember]
     public DateTimePeriodDetails? FromToDate { get; init; } 
     /// <summary>
     /// Specifies the reason for the interest.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Reason { get; init; } 
     
     #nullable disable

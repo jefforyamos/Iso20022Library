@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines commodity sub-product attributes of an energy derivative of type renewable energy.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EnergyCommodityRenewableEnergy2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record EnergyCommodityRenewableEnergy2
     /// <summary>
     /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
     /// </summary>
+    [DataMember]
     public required AssetClassProductType2Code BaseProduct { get; init; } 
     /// <summary>
     /// Sub-product for the underlying asset class.
     /// </summary>
+    [DataMember]
     public AssetClassSubProductType28Code? SubProduct { get; init; } 
     
     #nullable disable

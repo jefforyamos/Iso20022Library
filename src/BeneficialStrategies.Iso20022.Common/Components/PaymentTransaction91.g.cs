@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details on the original transactions, to which the status report message refers.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTransaction91
 {
     #nullable enable
@@ -20,63 +22,78 @@ public partial record PaymentTransaction91
     /// <summary>
     /// Unique identification, as assigned by an instructing party for an instructed party, to unambiguously identify the reported status.|Usage: The instructing party is the party sending the status message and not the party that sent the original instruction that is being reported on.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? StatusIdentification { get; init; } 
     /// <summary>
     /// Point to point reference, as assigned by the original instructing party, to unambiguously identify the original message.
     /// </summary>
+    [DataMember]
     public OriginalGroupInformation29? OriginalGroupInformation { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original instructing party for the original instructed party, to unambiguously identify the original instruction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalInstructionIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original initiating party, to unambiguously identify the original transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalEndToEndIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original first instructing agent, to unambiguously identify the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalTransactionIdentification { get; init; } 
     /// <summary>
     /// Specifies the status of a transaction, in a coded form.
     /// </summary>
+    [DataMember]
     public ExternalPaymentTransactionStatus1Code? TransactionStatus { get; init; } 
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    public StatusReasonInformation11[] StatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StatusReasonInformation11> StatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information on the charges related to the processing of the rejection of the instruction.||Usage: This is passed on for information purposes only. Settlement of the charges will be done separately.
     /// </summary>
-    public Charges2[] ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Charges2> ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Point in time when the payment order from the initiating party meets the processing conditions of the account servicing agent. This means that the account servicing agent has received the payment order and has applied checks such as authorisation, availability of funds.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? AcceptanceDateTime { get; init; } 
     /// <summary>
     /// Unique reference, as assigned by the account servicing institution, to unambiguously identify the instruction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountServicerReference { get; init; } 
     /// <summary>
     /// Unique reference, as assigned by a clearing system, to unambiguously identify the instruction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClearingSystemReference { get; init; } 
     /// <summary>
     /// Agent that instructs the next party in the chain to carry out the (set of) instruction(s).||Usage: The instructing agent is the party sending the status message and not the party that sent the original instruction that is being reported on.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? InstructingAgent { get; init; } 
     /// <summary>
     /// Agent that is instructed by the previous party in the chain to carry out the (set of) instruction(s).||Usage: The instructed agent is the party receiving the status message and not the party that received the original instruction that is being reported on.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? InstructedAgent { get; init; } 
     /// <summary>
     /// Key elements used to identify the original transaction that is being referred to.
     /// </summary>
+    [DataMember]
     public OriginalTransactionReference27? OriginalTransactionReference { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

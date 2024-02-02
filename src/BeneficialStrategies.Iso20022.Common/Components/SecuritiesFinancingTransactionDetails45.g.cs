@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the closing of the securities financing transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesFinancingTransactionDetails45
 {
     #nullable enable
@@ -20,54 +22,67 @@ public partial record SecuritiesFinancingTransactionDetails45
     /// <summary>
     /// Unambiguous identification of the underlying securities financing trade as assigned by the instructing party. The identification is common to all collateral pieces (one or many).
     /// </summary>
+    [DataMember]
     public IsoMax52Text? SecuritiesFinancingTradeIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the second leg of the transaction as known by the account owner (or the instructing party acting on its behalf).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClosingLegIdentification { get; init; } 
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
+    [DataMember]
     public TerminationDate6Choice_? TerminationDate { get; init; } 
     /// <summary>
     /// Specifies whether the rate is fixed or variable.
     /// </summary>
+    [DataMember]
     public RateType35Choice_? RateType { get; init; } 
     /// <summary>
     /// Legal framework of the transaction.
     /// </summary>
+    [DataMember]
     public LegalFramework3Choice_? LegalFramework { get; init; } 
     /// <summary>
     /// Indicates whether the maturity date of the securities financing transaction may be modified.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? MaturityDateModification { get; init; } 
     /// <summary>
     /// Indicates whether the interest is to be paid to the collateral taker. If set to no, the interest is paid to the collateral giver.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? InterestPayment { get; init; } 
     /// <summary>
     /// Index or support rate used together with the spread to calculate the repurchase rate.
     /// </summary>
+    [DataMember]
     public RateName1? VariableRateSupport { get; init; } 
     /// <summary>
     /// Rate to be used to recalculate the repurchase amount.
     /// </summary>
+    [DataMember]
     public Rate2? RepurchaseRate { get; init; } 
     /// <summary>
     /// Minimum number of days' notice a counterparty needs for terminating the transaction.
     /// </summary>
+    [DataMember]
     public IsoExact3NumericText? TransactionCallDelay { get; init; } 
     /// <summary>
     /// Interest amount that has accrued in between coupon payment periods.
     /// </summary>
+    [DataMember]
     public AmountAndDirection21? AccruedInterestAmount { get; init; } 
     /// <summary>
     /// Total amount of money to be settled to terminate the transaction.
     /// </summary>
+    [DataMember]
     public AmountAndDirection21? TerminationTransactionAmount { get; init; } 
     /// <summary>
     /// Provides additional information about the second leg in narrative form.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? SecondLegNarrative { get; init; } 
     
     #nullable disable

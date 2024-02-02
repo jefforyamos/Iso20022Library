@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(TargetMarket3Choice.Type))]
 [KnownType(typeof(TargetMarket3Choice.Other))]
 [KnownType(typeof(TargetMarket3Choice.Proprietary))]
+[DataContract]
 public abstract partial record TargetMarket3Choice_
 {
 }

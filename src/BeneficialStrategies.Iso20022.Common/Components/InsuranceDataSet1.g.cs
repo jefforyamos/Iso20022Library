@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Formal document used to record a fact and used as proof of the fact that goods have been insured under an insurance policy.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InsuranceDataSet1
 {
     #nullable enable
@@ -20,58 +22,72 @@ public partial record InsuranceDataSet1
     /// <summary>
     /// Identifies the insurancedata set.
     /// </summary>
+    [DataMember]
     public required DocumentIdentification1 DataSetIdentification { get; init; } 
     /// <summary>
     /// Issuer of the certificate, typically the insurance company or its agent.
     /// </summary>
+    [DataMember]
     public required PartyIdentification26 Issuer { get; init; } 
     /// <summary>
     /// Issue date of the document.
     /// </summary>
+    [DataMember]
     public required IsoISODate IssueDate { get; init; } 
     /// <summary>
     /// Date upon which cover under an insurance policy becomes effective.
     /// </summary>
+    [DataMember]
     public IsoISODate? EffectiveDate { get; init; } 
     /// <summary>
     /// Place where the insurance certificate was issued.
     /// </summary>
+    [DataMember]
     public PostalAddress5? PlaceOfIssue { get; init; } 
     /// <summary>
     /// Unique identifier of the document.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text InsuranceDocumentIdentification { get; init; } 
     /// <summary>
     /// Transport information relative to the goods that are insured under the insurance policy.
     /// </summary>
+    [DataMember]
     public SingleTransport3? Transport { get; init; } 
     /// <summary>
     /// Value of the goods as insured under the insurance policy.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount InsuredAmount { get; init; } 
     /// <summary>
     /// Information about the goods and/or services of a trade transaction.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? InsuredGoodsDescription { get; init; } 
     /// <summary>
     /// Description of the conditions and exclusion clauses under which insurance is granted.
     /// </summary>
-    public IsoMax350Text[] InsuranceConditions { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax350Text> InsuranceConditions { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Standard insurance clauses defined by the Institute of London Underwriters (or the American Institute of marine Underwriters).
     /// </summary>
-    public InsuranceClauses1Code[] InsuranceClauses { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InsuranceClauses1Code> InsuranceClauses { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that is covered under the assurance policy.
     /// </summary>
+    [DataMember]
     public required PartyIdentification29Choice_ Assured { get; init; } 
     /// <summary>
     /// Place where claims under the insurance policy will be paid.
     /// </summary>
+    [DataMember]
     public required PostalAddress5 ClaimsPayableAt { get; init; } 
     /// <summary>
     /// Currency in which claims, if valid, will be paid.
     /// </summary>
+    [DataMember]
     public CurrencyCode? ClaimsPayableIn { get; init; } 
     
     #nullable disable

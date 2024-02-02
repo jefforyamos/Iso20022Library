@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the customer
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Customer6
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Customer6
     /// <summary>
     /// Customer account number with the service provider.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountNumber { get; init; } 
     /// <summary>
     /// Name of the customer.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Customer's primary contact phone number. 
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? PhoneNumber { get; init; } 
     
     #nullable disable

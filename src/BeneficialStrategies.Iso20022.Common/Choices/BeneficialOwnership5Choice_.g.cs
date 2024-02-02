@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(BeneficialOwnership5Choice.Indicator))]
 [KnownType(typeof(BeneficialOwnership5Choice.Proprietary))]
+[DataContract]
 public abstract partial record BeneficialOwnership5Choice_
 {
 }

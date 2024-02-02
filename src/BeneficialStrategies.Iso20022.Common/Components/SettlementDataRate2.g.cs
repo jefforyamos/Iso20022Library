@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the volume and value percentage rates of settlement instructions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementDataRate2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SettlementDataRate2
     /// <summary>
     /// Specifies the rate, in terms of volume, of the failed settlement instructions compared to the total volume, of settlement instructions performed (settled and failed) during the period covered by the report.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate Volume { get; init; } 
     /// <summary>
     /// Specifies the rate, in terms of value, of the failed settlement instructions compared to the total value of settlement instructions performed (settled and failed) during the period covered by the report.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate Value { get; init; } 
     
     #nullable disable

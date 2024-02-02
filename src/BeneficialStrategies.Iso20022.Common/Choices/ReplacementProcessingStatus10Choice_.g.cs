@@ -20,6 +20,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ReplacementProcessingStatus10Choice.Rejected))]
 [KnownType(typeof(ReplacementProcessingStatus10Choice.ModificationRequested))]
 [KnownType(typeof(ReplacementProcessingStatus10Choice.ProprietaryStatus))]
+[DataContract]
 public abstract partial record ReplacementProcessingStatus10Choice_
 {
 }

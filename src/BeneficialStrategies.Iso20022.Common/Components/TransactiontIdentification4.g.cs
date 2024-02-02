@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transaction identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactiontIdentification4
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record TransactiontIdentification4
     /// <summary>
     /// Unambiguous identification of the transaction as known by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransactionIdentification { get; init; } 
     
     #nullable disable

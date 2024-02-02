@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Description of tax.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Tax33
 {
     #nullable enable
@@ -20,32 +22,39 @@ public partial record Tax33
     /// <summary>
     /// Type of tax.
     /// </summary>
+    [DataMember]
     public required AddendumTaxType1Code Type { get; init; } 
     /// <summary>
     /// Other type of tax. Describes the type of tax when Other, Other National, Other Private or Other Taxes Type is selected. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Description of the tax.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Description { get; init; } 
     /// <summary>
     /// Exemption for this type of tax.
     /// True: Exemption of tax
     /// False: No exemption of tax
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? TaxExemption { get; init; } 
     /// <summary>
     /// Reason for tax exemption.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TaxExemptReason { get; init; } 
     /// <summary>
     /// Tax amount.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Tax rate applied on original amount.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     
     #nullable disable

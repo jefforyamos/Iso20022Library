@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Quantity of securities assigned as collateral position.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesBalance3
 {
     #nullable enable
@@ -20,55 +22,68 @@ public partial record SecuritiesBalance3
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Quantity of financial instrument at the time of the preparation of the statement. It is the resulting balance of securities post movements for delta (reporting on flow).
     /// </summary>
+    [DataMember]
     public required BalanceQuantity13Choice_ Quantity { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is delivered/received as collateral or as loaned  securities.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CollateralIndicator { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [DataMember]
     public SafeKeepingPlace3? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Account from which the collateral is sourced. 
     /// </summary>
+    [DataMember]
     public PartyIdentification232? AccountOwner { get; init; } 
     /// <summary>
     /// Account where financial instruments are maintained. It is the source account.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
+    [DataMember]
     public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// Provides the status of settlement of an instruction.
     /// </summary>
+    [DataMember]
     public SecuritiesSettlementStatus3Code? SettlementStatus { get; init; } 
     /// <summary>
     /// Currency  in which a security is issued or redenominated.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? DenominationCurrency { get; init; } 
     /// <summary>
     /// Rating and source of the rating of the financial instrument.
     /// </summary>
-    public Rating2[] RatingDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Rating2> RatingDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// </summary>
+    [DataMember]
     public ForeignExchangeTerms19? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Valuation details for the securities position.
     /// </summary>
+    [DataMember]
     public ValuationsDetails1? ValuationDetails { get; init; } 
     /// <summary>
     /// Identification of the underlying market value lots based on the term of the underlyning trades. The issuer defines the lot identification.
     /// </summary>
-    public GenericIdentification178[] TransactionLotNumber { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericIdentification178> TransactionLotNumber { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Party that provides services to investors relating to financial products.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Intermediary8
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Intermediary8
     /// <summary>
     /// Unique and unambiguous identifier of the intermediary.
     /// </summary>
+    [DataMember]
     public required PartyIdentification2Choice_ Identification { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>
+    [DataMember]
     public Account7? Account { get; init; } 
     /// <summary>
     /// Counterparties eligibility as defined by article 24 of the EU MiFID Directive applicable to transactions executed by investment firms for eligible counterparties.
     /// </summary>
+    [DataMember]
     public OrderOriginatorEligibility1Code? OrderOriginatorEligibility { get; init; } 
     /// <summary>
     /// Function performed by the intermediary.
     /// </summary>
+    [DataMember]
     public InvestmentFundRole2Code? Role { get; init; } 
     /// <summary>
     /// Function performed by the intermediary.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedRole { get; init; } 
     
     #nullable disable

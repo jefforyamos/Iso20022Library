@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Extension for UnderlyingSecurity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentAttributes23SD1
 {
     #nullable enable
@@ -21,12 +23,14 @@ public partial record FinancialInstrumentAttributes23SD1
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Classification of the Issuer or the Counterparty institution in case of a merger.
     /// 存続/消滅/親会社/子会社/未定の区分
     /// ※イベントタイプがMRGRの場合に、存続会社or消滅会社、親会社or子会社の通知を見分けるために必要。.
     /// </summary>
+    [DataMember]
     public required InstitutionalClassificationCode PostEffectiveDateClassification { get; init; } 
     
     #nullable disable

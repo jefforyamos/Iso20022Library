@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details of incorrect information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UnableToApplyIncorrect1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record UnableToApplyIncorrect1
     /// <summary>
     /// Specifies the missing information in a coded form.
     /// </summary>
+    [DataMember]
     public required UnableToApplyIncorrectInformation4Code Code { get; init; } 
     /// <summary>
     /// Further details about the incorrect information.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? AdditionalIncorrectInformation { get; init; } 
     
     #nullable disable

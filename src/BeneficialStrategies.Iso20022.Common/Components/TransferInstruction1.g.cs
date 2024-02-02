@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further information required for the account switch.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferInstruction1
 {
     #nullable enable
@@ -21,26 +23,32 @@ public partial record TransferInstruction1
     /// Indicates whether a payment arrangement is transferable.
     /// Usage: Default value for TransferIndicator is false.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? TransferIndicator { get; init; } 
     /// <summary>
     /// Specifies an additional parameter to be applied to the requested transaction schedule.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Code { get; init; } 
     /// <summary>
     /// Specifies an additional parameter to be applied to the transaction schedule in a proprietary format.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Proprietary { get; init; } 
     /// <summary>
     /// The date and time at which the event specified by Code commences.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? StartDateTime { get; init; } 
     /// <summary>
     /// The date on which the event specified by Code commences.
     /// </summary>
+    [DataMember]
     public IsoISODate? StartDate { get; init; } 
     /// <summary>
     /// Additional switch parameters in a free text format.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Description { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to report on a payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionReturnCriteria5
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record TransactionReturnCriteria5
     /// <summary>
     /// Destination of the payment (be it a member or a system or both).
     /// </summary>
+    [DataMember]
     public SystemReturnCriteria2? PaymentToReturnCriteria { get; init; } 
     /// <summary>
     /// Origin of the payment (be it a member or a system or both).
     /// </summary>
+    [DataMember]
     public SystemReturnCriteria2? PaymentFromReturnCriteria { get; init; } 
     /// <summary>
     /// Defines the criteria used to report on the cash entry.
     /// </summary>
+    [DataMember]
     public AccountCashEntryReturnCriteria3? AccountCashEntryReturnCriteria { get; init; } 
     /// <summary>
     /// Defines the criteria used to report on the payment.
     /// </summary>
+    [DataMember]
     public PaymentReturnCriteria4? PaymentReturnCriteria { get; init; } 
     
     #nullable disable

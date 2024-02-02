@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides detailed information about an announcement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionNotificationAdvice1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record CorporateActionNotificationAdvice1
     /// <summary>
     /// Provides detailed information about the corporate action event.
     /// </summary>
+    [DataMember]
     public required CorporateAction2 CorporateActionDetails { get; init; } 
     /// <summary>
     /// Provides information about an option of a CA event.
     /// </summary>
-    public CorporateActionOption1[] CorporateActionOptionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CorporateActionOption1> CorporateActionOptionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

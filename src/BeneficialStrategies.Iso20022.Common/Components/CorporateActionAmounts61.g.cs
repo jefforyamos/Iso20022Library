@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies amounts in the framework of a corporate action event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionAmounts61
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionAmounts61
     /// <summary>
     /// Amount of a cash distribution that will be withheld by the tax authorities of the jurisdiction of the issuer, for which a relief at source and/or reclaim may be possible.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINActiveCurrencyAndAmount? WithholdingTaxAmount { get; init; } 
     /// <summary>
     /// Amount of money withheld by the jurisdiction other than the jurisdiction of the issuer’s country of tax incorporation, for which a relief at source and/or reclaim may be possible. It is levied in complement or offset of the withholding tax rate levied by the jurisdiction of the issuer’s tax domicile.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINActiveCurrencyAndAmount? SecondLevelTaxAmount { get; init; } 
     
     #nullable disable

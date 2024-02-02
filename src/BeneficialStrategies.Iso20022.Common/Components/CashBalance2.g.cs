@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements defining the balance details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashBalance2
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record CashBalance2
     /// <summary>
     /// Specifies the nature of a balance, eg, opening booked balance.
     /// </summary>
+    [DataMember]
     public required BalanceType2Choice_ Type { get; init; } 
     /// <summary>
     /// Provides further details on the credit line information.
     /// </summary>
+    [DataMember]
     public CreditLine1? CreditLine { get; init; } 
     /// <summary>
     /// Currency and amount of money of the cash balance.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether the balance is a credit or a debit balance. A zero balance is considered to be a credit balance.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Specifies the date (and time) of the balance.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ Date { get; init; } 
     /// <summary>
     /// Set of elements used to indicate when the booked funds will become available, ie can be accessed and start generating interest. ||Usage: this type of info is eg used in US, and is linked to particular instruments, such as cheques.|Example: When a cheque is deposited, it will be booked on the deposit day, but the funds will only be accessible as of the indicated availability day (according to national banking regulations).
     /// </summary>
-    public CashBalanceAvailability1[] Availability { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashBalanceAvailability1> Availability { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

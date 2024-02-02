@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed description of the items that correspond to the parameters set in a request and for which a report has been generated.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionReportItems3
 {
     #nullable enable
@@ -20,67 +22,83 @@ public partial record TransactionReportItems3
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification assigned by the matching application to the baseline when it is established.
     /// </summary>
+    [DataMember]
     public DocumentIdentification3? EstablishedBaselineIdentification { get; init; } 
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
+    [DataMember]
     public required TransactionStatus4 TransactionStatus { get; init; } 
     /// <summary>
     /// Reference to the transaction for each financial institution which is a party to the transaction.
     /// </summary>
-    public DocumentIdentification5[] UserTransactionReference { get; init; } = [];
+    [DataMember]
+    public ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = [];
     /// <summary>
     /// Reference to the purchase order of the underlying transaction.
     /// </summary>
+    [DataMember]
     public required DocumentIdentification7 PurchaseOrderReference { get; init; } 
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
+    [DataMember]
     public required PartyIdentification26 Buyer { get; init; } 
     /// <summary>
     /// Party that sells goods or services, or a financial instrument.
     /// </summary>
+    [DataMember]
     public required PartyIdentification26 Seller { get; init; } 
     /// <summary>
     /// Financial institution of the buyer.
     /// </summary>
+    [DataMember]
     public required BICIdentification1 BuyerBank { get; init; } 
     /// <summary>
     /// Country of the buyer bank.
     /// </summary>
+    [DataMember]
     public required CountryCode BuyerBankCountry { get; init; } 
     /// <summary>
     /// Financial institution of the seller.
     /// </summary>
+    [DataMember]
     public required BICIdentification1 SellerBank { get; init; } 
     /// <summary>
     /// Country of the seller bank.
     /// </summary>
+    [DataMember]
     public required CountryCode SellerBankCountry { get; init; } 
     /// <summary>
     /// Financial institution that is an obligor bank to the transaction.
     /// </summary>
-    public BICIdentification1[] ObligorBank { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BICIdentification1> ObligorBank { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Financial institution that is a data set submitting bank to the transaction.
     /// </summary>
-    public BICIdentification1[] SubmittingBank { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BICIdentification1> SubmittingBank { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of baseline not yet utilised.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount OutstandingAmount { get; init; } 
     /// <summary>
     /// Total net amount as specified in the baseline.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount TotalNetAmount { get; init; } 
     /// <summary>
     /// Next processing step required.
     /// </summary>
-    public PendingActivity2[] PendingRequestForAction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PendingActivity2> PendingRequestForAction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

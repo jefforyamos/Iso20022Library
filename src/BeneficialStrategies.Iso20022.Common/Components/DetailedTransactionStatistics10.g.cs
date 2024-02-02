@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about number of transactions accepted and rejected and the reasons of the rejections.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedTransactionStatistics10
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record DetailedTransactionStatistics10
     /// <summary>
     /// Total number of reports sent or received.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText TotalNumberOfTransactions { get; init; } 
     /// <summary>
     /// Total number of transactions accepted.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText TotalNumberOfTransactionsAccepted { get; init; } 
     /// <summary>
     /// Total number of transactions rejected.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText TotalNumberOfTransactionsRejected { get; init; } 
     /// <summary>
     /// Number of transactions rejected per error code.
     /// </summary>
-    public RejectionReason47[] NumberOfTransactionsRejected { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RejectionReason47> NumberOfTransactionsRejected { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

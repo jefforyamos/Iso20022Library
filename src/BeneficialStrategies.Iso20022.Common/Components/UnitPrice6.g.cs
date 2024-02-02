@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UnitPrice6
 {
     #nullable enable
@@ -20,55 +22,68 @@ public partial record UnitPrice6
     /// <summary>
     /// Type and information about a price.
     /// </summary>
+    [DataMember]
     public required PriceType2 Type { get; init; } 
     /// <summary>
     /// Type of pricing calculation method.
     /// </summary>
+    [DataMember]
     public PriceMethod1Code? PriceMethod { get; init; } 
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    public PriceValue1[] ValueInInvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PriceValue1> ValueInInvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    public PriceValue1[] ValueInAlternativeCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PriceValue1> ValueInAlternativeCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the price information can be used for the execution of a transaction.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ForExecutionIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the dividend is included, ie, cum-dividend, in the price. When the dividend is not included, the price will be ex-dividend.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator CumDividendIndicator { get; init; } 
     /// <summary>
     /// Ratio applied on the non-adjusted price.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? CalculationBasis { get; init; } 
     /// <summary>
     /// Specifies the number of days from trade date that the counterparty on the other side of the trade should "given up" or divulged.
     /// </summary>
+    [DataMember]
     public IsoNumber? NumberOfDaysAccrued { get; init; } 
     /// <summary>
     /// Amount included in the NAV that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
+    [DataMember]
     public AmountPrice1Choice_? TaxableIncomePerShare { get; init; } 
     /// <summary>
     /// Specifies whether the fund calculates a taxable interest per share (TIS).
     /// </summary>
+    [DataMember]
     public TaxableIncomePerShareCalculated1? TaxableIncomePerShareCalculated { get; init; } 
     /// <summary>
     /// Amount of money associated with a service.
     /// </summary>
-    public Charge9[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Charge9> ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to taxes that are due.
     /// </summary>
-    public Tax8[] TaxLiabilityDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax8> TaxLiabilityDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to taxes that are paid back.
     /// </summary>
-    public Tax8[] TaxRefundDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax8> TaxRefundDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

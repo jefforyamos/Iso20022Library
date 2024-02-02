@@ -15,6 +15,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ATMCommandParameters2Choice.RequiredSecurityScheme))]
 [KnownType(typeof(ATMCommandParameters2Choice.SecurityDevice))]
 [KnownType(typeof(ATMCommandParameters2Choice.Key))]
+[DataContract]
 public abstract partial record ATMCommandParameters2Choice_
 {
 }

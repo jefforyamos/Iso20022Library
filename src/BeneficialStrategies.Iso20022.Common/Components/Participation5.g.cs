@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provide information on the level of participation to a shareholder meeting.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Participation5
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Participation5
     /// <summary>
     /// Number of rights admitted to the vote.
     /// </summary>
+    [DataMember]
     public IsoNumber? TotalNumberOfVotingRights { get; init; } 
     /// <summary>
     /// Percentage of rights participating to the vote versus total voting rights.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? PercentageOfVotingRights { get; init; } 
     /// <summary>
     /// Number of securities admitted to the vote, expressed as a number of units or a face amount.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity18Choice_? TotalNumberOfSecuritiesOutstanding { get; init; } 
     /// <summary>
     /// Date of calculation of the total number of outstanding securities.
     /// </summary>
+    [DataMember]
     public IsoISODate? CalculationDate { get; init; } 
     
     #nullable disable

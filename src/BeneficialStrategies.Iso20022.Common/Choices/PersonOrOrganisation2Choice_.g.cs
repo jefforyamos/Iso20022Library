@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(PersonOrOrganisation2Choice.LEI))]
 [KnownType(typeof(PersonOrOrganisation2Choice.Person))]
+[DataContract]
 public abstract partial record PersonOrOrganisation2Choice_
 {
 }

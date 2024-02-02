@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies an entity involved in a trade activity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeParty3
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record TradeParty3
     /// <summary>
     /// Unique identification, as assigned by an organisation, to unambiguously identify a party.
     /// </summary>
+    [DataMember]
     public required PartyIdentification112 PartyIdentification { get; init; } 
     /// <summary>
     /// Legally constituted organization specified for this trade party.
     /// </summary>
+    [DataMember]
     public LegalOrganisation1? LegalOrganisation { get; init; } 
     /// <summary>
     /// Entity involved in an activity.
     /// </summary>
-    public TaxParty3[] TaxParty { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TaxParty3> TaxParty { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

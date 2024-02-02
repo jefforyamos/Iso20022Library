@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party by fund name, name and address or an LEI.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification60
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PartyIdentification60
     /// <summary>
     /// Identification of a fund.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text FundIdentification { get; init; } 
     /// <summary>
     /// Identification of the party expressed as name and an optional address and an optional alternative identifier.
     /// </summary>
+    [DataMember]
     public NameAndAddress8? NameAndAddress { get; init; } 
     /// <summary>
     /// Identification of the Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
     
     #nullable disable

@@ -15,6 +15,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(Quantity44Choice.AmortisedValue))]
 [KnownType(typeof(Quantity44Choice.CashAmount))]
 [KnownType(typeof(Quantity44Choice.OtherAsset))]
+[DataContract]
 public abstract partial record Quantity44Choice_
 {
 }

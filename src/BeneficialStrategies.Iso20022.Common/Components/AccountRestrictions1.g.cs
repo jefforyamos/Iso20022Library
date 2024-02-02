@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Restrictions that may be applied to an account or investment plan.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountRestrictions1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record AccountRestrictions1
     /// <summary>
     /// Restrictions and/or limitations on the account or account party.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Limitation { get; init; } 
     /// <summary>
     /// Additional information.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Information or instructions for the by-passing of validations in the account registration process.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AccountValidation { get; init; } 
     /// <summary>
     /// Type or identification of the restriction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Regulator that may have to be informed about restrictions or limitations on the account or account party.
     /// </summary>
+    [DataMember]
     public PartyIdentification70Choice_? Regulator { get; init; } 
     /// <summary>
     /// Status of the restriction.
     /// </summary>
+    [DataMember]
     public RestrictionStatus1Choice_? Status { get; init; } 
     /// <summary>
     /// Period of the restriction.
     /// </summary>
+    [DataMember]
     public DateTimePeriodDetails1? Period { get; init; } 
     
     #nullable disable

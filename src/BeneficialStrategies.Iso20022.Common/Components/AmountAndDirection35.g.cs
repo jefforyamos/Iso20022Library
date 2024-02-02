@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Resulting debit or credit amount of the netted amounts for all debit and credit entries.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountAndDirection35
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AmountAndDirection35
     /// <summary>
     /// Resulting amount of the netted amounts for all debit and credit entries.
     /// </summary>
+    [DataMember]
     public required IsoNonNegativeDecimalNumber Amount { get; init; } 
     /// <summary>
     /// Indicates whether the amount is a credit or a debit amount.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     
     #nullable disable

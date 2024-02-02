@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Fixed rate related information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FixedRate8
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FixedRate8
     /// <summary>
     /// Annualised interest rate on the principal amount of the repurchase transaction in accordance with the day count convention.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Method for calculating the accrued interest on the principal amount for a fixed rate.
     /// </summary>
+    [DataMember]
     public InterestComputationMethodFormat6Choice_? DayCountBasis { get; init; } 
     
     #nullable disable

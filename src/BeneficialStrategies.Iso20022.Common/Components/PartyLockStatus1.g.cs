@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Lock status of the party for processing in the system. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyLockStatus1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record PartyLockStatus1
     /// <summary>
     /// Specifies the date from which the lock status is valid.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValidFrom { get; init; } 
     /// <summary>
     /// Lock status of the party.
     /// </summary>
+    [DataMember]
     public required LockStatus1Code Status { get; init; } 
     /// <summary>
     /// Specifies the underlying reason for the locking of the party.
     /// </summary>
-    public IsoMax35Text[] LockReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> LockReason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

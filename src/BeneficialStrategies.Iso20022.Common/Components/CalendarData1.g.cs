@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes information needed to identify a change for a static data, the time when it was performed and the user requesting the change and approving it.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CalendarData1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CalendarData1
     /// <summary>
     /// Date for which the calendar information is provided.
     /// </summary>
+    [DataMember]
     public required IsoISODate SystemDate { get; init; } 
     /// <summary>
     /// Status of the system.
     /// </summary>
+    [DataMember]
     public required SystemStatus3Choice_ SystemStatus { get; init; } 
     
     #nullable disable

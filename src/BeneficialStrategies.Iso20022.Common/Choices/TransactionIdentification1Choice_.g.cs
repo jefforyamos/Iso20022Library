@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(TransactionIdentification1Choice.Transaction))]
 [KnownType(typeof(TransactionIdentification1Choice.MarginReporting))]
 [KnownType(typeof(TransactionIdentification1Choice.CollateralReuse))]
+[DataContract]
 public abstract partial record TransactionIdentification1Choice_
 {
 }

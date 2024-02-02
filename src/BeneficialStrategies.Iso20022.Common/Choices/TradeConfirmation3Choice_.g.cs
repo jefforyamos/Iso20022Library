@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TradeConfirmation3Choice.Confirmed))]
 [KnownType(typeof(TradeConfirmation3Choice.NonConfirmed))]
+[DataContract]
 public abstract partial record TradeConfirmation3Choice_
 {
 }

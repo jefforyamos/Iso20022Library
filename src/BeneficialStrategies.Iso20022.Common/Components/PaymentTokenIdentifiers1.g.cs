@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifier of a token provider requestor.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTokenIdentifiers1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PaymentTokenIdentifiers1
     /// <summary>
     /// Identifier of the token provider.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ProviderIdentification { get; init; } 
     /// <summary>
     /// Identifier of the token requestor.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text RequestorIdentification { get; init; } 
     
     #nullable disable

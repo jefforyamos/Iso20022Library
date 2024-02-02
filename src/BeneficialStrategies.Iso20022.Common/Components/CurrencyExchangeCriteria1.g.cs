@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to search for currency exchange information. A name may be given to the new query.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyExchangeCriteria1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record CurrencyExchangeCriteria1
     /// <summary>
     /// Name of the query defined by the search criteria and return criteria.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NewQueryName { get; init; } 
     /// <summary>
     /// Defines the criteria based on which the information is extracted.
     /// </summary>
-    public CurrencySourceTarget1[] SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CurrencySourceTarget1> SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

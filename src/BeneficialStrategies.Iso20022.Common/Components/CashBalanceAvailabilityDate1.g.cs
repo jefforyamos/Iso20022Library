@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates when the amount of money will become available.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashBalanceAvailabilityDate1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CashBalanceAvailabilityDate1
     /// <summary>
     /// Indicates the number of float days attached to the balance.
     /// </summary>
+    [DataMember]
     public required IsoMax15PlusSignedNumericText NumberOfDays { get; init; } 
     /// <summary>
     /// Identifies the actual availability date.
     /// </summary>
+    [DataMember]
     public required IsoISODate ActualDate { get; init; } 
     
     #nullable disable

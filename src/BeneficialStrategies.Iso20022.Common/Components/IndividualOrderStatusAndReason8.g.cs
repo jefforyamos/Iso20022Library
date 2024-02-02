@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status report of an individual order of a bulk or multiple or switch order cancellation instruction that was previously received.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IndividualOrderStatusAndReason8
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record IndividualOrderStatusAndReason8
     /// <summary>
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the order, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the order cancellation, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Cancellation status of the order cancellation.
     /// </summary>
+    [DataMember]
     public required CancellationStatus22Choice_ CancellationStatus { get; init; } 
     /// <summary>
     /// Party that initiates the status of the individual order cancellation.
     /// </summary>
+    [DataMember]
     public PartyIdentification113? StatusInitiator { get; init; } 
     /// <summary>
     /// Account information of the individual order cancellation for which the status is given.
     /// </summary>
+    [DataMember]
     public InvestmentAccount58? InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Financial instrument information of the individual order cancellation for which the status is given.
     /// </summary>
+    [DataMember]
     public FinancialInstrument57? FinancialInstrumentDetails { get; init; } 
     
     #nullable disable

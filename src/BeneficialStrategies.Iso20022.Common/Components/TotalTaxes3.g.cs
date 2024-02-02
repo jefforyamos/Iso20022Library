@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information regarding the total amount of taxes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TotalTaxes3
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record TotalTaxes3
     /// <summary>
     /// Total value of the taxes for a specific order.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? TotalAmountOfTaxes { get; init; } 
     /// <summary>
     /// Amount included in the dividend that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TaxableIncomePerDividend { get; init; } 
     /// <summary>
     /// Specifies whether capital gain is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
+    [DataMember]
     public EUCapitalGain2Code? EUCapitalGain { get; init; } 
     /// <summary>
     /// Specifies whether capital gain is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedEUCapitalGain { get; init; } 
     /// <summary>
     /// Specifies whether dividend is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
+    [DataMember]
     public EUDividendStatus1Code? EUDividendStatus { get; init; } 
     /// <summary>
     /// Specifies whether dividend is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedEUDividendStatus { get; init; } 
     /// <summary>
     /// Percentage of the underlying assets of the funds that represents a debt and is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June).
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? PercentageOfDebtClaim { get; init; } 
     /// <summary>
     /// Information related to a specific tax.
     /// </summary>
-    public Tax14[] TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax14> TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

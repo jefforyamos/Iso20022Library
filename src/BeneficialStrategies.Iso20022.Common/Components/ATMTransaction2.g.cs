@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Response to the withdrawal transaction request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransaction2
 {
     #nullable enable
@@ -20,67 +22,83 @@ public partial record ATMTransaction2
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period assigned by the ATM.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// True if a withdrawal completion advice has to be sent after the end of the transaction.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CompletionRequired { get; init; } 
     /// <summary>
     /// Unprotected account information.
     /// </summary>
+    [DataMember]
     public CardAccount4? AccountData { get; init; } 
     /// <summary>
     /// Encryption of account information.
     /// </summary>
+    [DataMember]
     public ContentInformationType10? ProtectedAccountData { get; init; } 
     /// <summary>
     /// Total authorised amount.
     /// </summary>
+    [DataMember]
     public required AmountAndCurrency1 TotalAuthorisedAmount { get; init; } 
     /// <summary>
     /// Total requested amount.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalRequestedAmount { get; init; } 
     /// <summary>
     /// Detail of the requested amounts for the withdrawal transaction.
     /// </summary>
+    [DataMember]
     public DetailedAmount12? DetailedRequestedAmount { get; init; } 
     /// <summary>
     /// Currency conversion accepted by the customer, either to convert the amount to dispense in the base currency of the ATM, or to convert the total requested amount in the currency of the customer (so called dynamic currency conversion).
     /// </summary>
+    [DataMember]
     public CurrencyConversion4? CurrencyConversion { get; init; } 
     /// <summary>
     /// Additional charge (for instance tax or fee).
     /// </summary>
-    public DetailedAmount13[] AdditionalCharge { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedAmount13> AdditionalCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Limit of amounts for the customer.
     /// </summary>
+    [DataMember]
     public ATMTransactionAmounts2? Limits { get; init; } 
     /// <summary>
     /// Media mix algorithm requested by the ATM Host, the identification of the algorithm is an agreement between the ATM and the ATM manager.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MixType { get; init; } 
     /// <summary>
     /// Media mix selected requested by the ATM Host.
     /// </summary>
-    public ATMMediaMix1[] Mix { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMMediaMix1> Mix { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Outcome of the withdrawal authorisation.
     /// </summary>
+    [DataMember]
     public required AuthorisationResult9 AuthorisationResult { get; init; } 
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
+    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    public ATMCommand1[] Command { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCommand1> Command { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

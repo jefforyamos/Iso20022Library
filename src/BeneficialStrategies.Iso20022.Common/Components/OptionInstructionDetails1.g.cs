@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Instructions information received for a given option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OptionInstructionDetails1
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record OptionInstructionDetails1
     /// <summary>
     /// Identifies the instruction or protect instruction.
     /// </summary>
+    [DataMember]
     public required IsoMax15Text InstructionIdentification { get; init; } 
     /// <summary>
     /// Provides the sequence number of the instruction.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? InstructionSequenceNumber { get; init; } 
     /// <summary>
     /// Indicates whether the instruction is a protect or a cover protect instruction.
     /// </summary>
+    [DataMember]
     public ProtectTransactionType2Code? ProtectIndicator { get; init; } 
     /// <summary>
     /// Securities quantity instructed in the instruction.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ InstructionQuantity { get; init; } 
     /// <summary>
     /// Date of the instruction.
     /// </summary>
+    [DataMember]
     public required IsoISODate InstructionDate { get; init; } 
     /// <summary>
     /// Date of the client protect instruction.
     /// </summary>
+    [DataMember]
     public IsoISODate? ProtectDate { get; init; } 
     /// <summary>
     /// Date of the cover protect Instruction
     /// </summary>
+    [DataMember]
     public IsoISODate? CoverProtectDate { get; init; } 
     /// <summary>
     /// Bid price of the instruction.
     /// </summary>
+    [DataMember]
     public PriceFormat45Choice_? BidPrice { get; init; } 
     /// <summary>
     /// Conditional quantity of the instruction.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? ConditionalQuantity { get; init; } 
     /// <summary>
     /// Customer related narrative information.
     /// </summary>
+    [DataMember]
     public IsoMax15Text? CustomerReference { get; init; } 
     /// <summary>
     /// Narrative information from the submitted instruction.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? InstructionNarrative { get; init; } 
     /// <summary>
     /// Status of a particular instruction.
     /// </summary>
+    [DataMember]
     public required InstructionProcessingStatus32Choice_ InstructionStatus { get; init; } 
     
     #nullable disable

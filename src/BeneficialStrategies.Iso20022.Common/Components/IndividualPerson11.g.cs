@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IndividualPerson11
 {
     #nullable enable
@@ -20,91 +22,113 @@ public partial record IndividualPerson11
     /// <summary>
     /// Specifies the terms used to formally address a person.
     /// </summary>
+    [DataMember]
     public NamePrefix1Code? NamePrefix { get; init; } 
     /// <summary>
     /// Specifies the terms used to formally address a person.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedNamePrefix { get; init; } 
     /// <summary>
     /// First name of a person.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text GivenName { get; init; } 
     /// <summary>
     /// Second name of a person.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MiddleName { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text Name { get; init; } 
     /// <summary>
     /// Additional information about a person that follows a person's name, eg, qualification such as Doctor of Philosophy (PhD).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NameSuffix { get; init; } 
     /// <summary>
     /// Specifies the gender of the person.
     /// </summary>
+    [DataMember]
     public GenderCode? Gender { get; init; } 
     /// <summary>
     /// Language in which a person communicates.
     /// </summary>
+    [DataMember]
     public LanguageCode? Language { get; init; } 
     /// <summary>
     /// Date on which a person is born.
     /// </summary>
+    [DataMember]
     public required IsoISODate BirthDate { get; init; } 
     /// <summary>
     /// Country where a person was born.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryOfBirth { get; init; } 
     /// <summary>
     /// Province where a person was born.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProvinceOfBirth { get; init; } 
     /// <summary>
     /// City where a person was born.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CityOfBirth { get; init; } 
     /// <summary>
     /// Name of the occupation or job of a person.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Profession { get; init; } 
     /// <summary>
     /// Country of taxation of an individual person or an organisation.
     /// </summary>
+    [DataMember]
     public CountryCode? TaxationCountry { get; init; } 
     /// <summary>
     /// Country and residential status of an individual, for example, non-pernament resident.
     /// </summary>
+    [DataMember]
     public CountryAndResidentialStatusType1? CountryAndResidentialStatus { get; init; } 
     /// <summary>
     /// Title of the function.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? BusinessFunction { get; init; } 
     /// <summary>
     /// Organisation represented by a person, or for which a person works.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? EmployingCompany { get; init; } 
     /// <summary>
     /// Address information to be either inserted, updated or deleted.
     /// </summary>
-    public ModificationScope1[] ModifiedPostalAddress { get; init; } = [];
+    [DataMember]
+    public ValueList<ModificationScope1> ModifiedPostalAddress { get; init; } = [];
     /// <summary>
     /// Citizenship information to be inserted or deleted.
     /// </summary>
-    public ModificationScope3[] ModifiedCitizenship { get; init; } = [];
+    [DataMember]
+    public ValueList<ModificationScope3> ModifiedCitizenship { get; init; } = [];
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
+    [DataMember]
     public CommunicationAddress3? PrimaryCommunicationAddress { get; init; } 
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
+    [DataMember]
     public CommunicationAddress3? SecondaryCommunicationAddress { get; init; } 
     /// <summary>
     /// Identification information to be either inserted or deleted.
     /// </summary>
-    public ModificationScope2[] ModifiedOtherIdentification { get; init; } = [];
+    [DataMember]
+    public ValueList<ModificationScope2> ModifiedOtherIdentification { get; init; } = [];
     
     #nullable disable
 }

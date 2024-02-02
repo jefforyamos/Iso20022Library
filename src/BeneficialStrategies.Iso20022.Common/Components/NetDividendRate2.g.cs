@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cash dividend amount per equity after deductions or allowances have been made.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NetDividendRate2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NetDividendRate2
     /// <summary>
     /// Type of underlying securities to which the rate is related, eg, underlying security for which an interest is paid.
     /// </summary>
+    [DataMember]
     public required NetDividendRateType1FormatChoice_ RateType { get; init; } 
     /// <summary>
     /// Value expressed as an amount.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

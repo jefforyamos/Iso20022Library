@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information such as the taxation conditions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionNarrative35
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record CorporateActionNarrative35
     /// <summary>
     /// Provides additional information or specifies in more detail the content of a message. This field may only be used when the information to be transmitted, cannot be coded.
     /// </summary>
-    public IsoRestrictedFINXMax350Text[] AdditionalText { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoRestrictedFINXMax350Text> AdditionalText { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information that can be ignored for automated processing; - reiteration of information that has been included within structured fields, - or narrative information not needed for automatic processing.
     /// </summary>
-    public IsoRestrictedFINXMax350Text[] NarrativeVersion { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoRestrictedFINXMax350Text> NarrativeVersion { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional information regarding the party, for example, the contact unit or person responsible for the transaction identified in the message.
     /// </summary>
-    public IsoRestrictedFINXMax350Text[] PartyContactNarrative { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoRestrictedFINXMax350Text> PartyContactNarrative { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides taxation conditions that cannot be included within the structured fields of this message and has not been mentioned in the Service Level Agreement (SLA).
     /// </summary>
-    public IsoRestrictedFINXMax350Text[] TaxationConditions { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoRestrictedFINXMax350Text> TaxationConditions { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

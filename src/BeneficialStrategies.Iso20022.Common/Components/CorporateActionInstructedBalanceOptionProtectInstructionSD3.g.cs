@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action instructed balance details at option protect level.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionInstructedBalanceOptionProtectInstructionSD3
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CorporateActionInstructedBalanceOptionProtectInstructionSD
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Option number of the protect instruction.
     /// </summary>
+    [DataMember]
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// For cover protect instructions whereby one safekeeping account is covering on behalf of another safekeeping account. The protect safekeeping account will be the account which submitted the original protect instruction.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINMax35Text? ProtectSafekeepingAccount { get; init; } 
     /// <summary>
     /// Quantity of the protect instruction which has not been covered.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity15Choice_? ProtectIdentificationUncoveredQuantity { get; init; } 
     /// <summary>
     /// Protect oversubscription quantity.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity15Choice_? ProtectIdentificationOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Status of the protect instruction.
     /// </summary>
+    [DataMember]
     public DTCProtectInstructionStatus1Code? ProtectIdentificationStatus { get; init; } 
     
     #nullable disable

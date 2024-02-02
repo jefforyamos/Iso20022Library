@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Choice to define the price of the securities transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesTransactionPrice7
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SecuritiesTransactionPrice7
     /// <summary>
     /// Price expressed as a monetary value.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection61 MonetaryValue { get; init; } 
     /// <summary>
     /// Price expressed as a number of digital tokens.
     /// </summary>
+    [DataMember]
     public required DigitalTokenAmount2 DigitalTokenQuantity { get; init; } 
     
     #nullable disable

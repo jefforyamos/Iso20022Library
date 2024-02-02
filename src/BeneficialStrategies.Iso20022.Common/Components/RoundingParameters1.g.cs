@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters applied to a fractional number.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RoundingParameters1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RoundingParameters1
     /// <summary>
     /// Float value specifying the value to which rounding is required, eg, 10 means round to a multiple of 10 units/shares, 0.5 means round to a multiple of 0.5 units/shares.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? RoundingModulus { get; init; } 
     /// <summary>
     /// Rounding direction applied to fractional numbers, eg, round up.
     /// </summary>
+    [DataMember]
     public required RoundingDirection1Code RoundingDirection { get; init; } 
     
     #nullable disable

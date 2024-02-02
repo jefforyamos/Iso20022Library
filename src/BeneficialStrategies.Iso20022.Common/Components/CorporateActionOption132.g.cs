@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the corporate action option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionOption132
 {
     #nullable enable
@@ -20,51 +22,63 @@ public partial record CorporateActionOption132
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [DataMember]
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
+    [DataMember]
     public required CorporateActionOption19Choice_ OptionType { get; init; } 
     /// <summary>
     /// Specifies the features that may apply to a corporate action option.
     /// </summary>
-    public OptionFeaturesFormat18Choice_[] OptionFeatures { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OptionFeaturesFormat18Choice_> OptionFeatures { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
+    [DataMember]
     public FractionDispositionType27Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Currency in which the cash disbursed from an interest or dividend payment is offered.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? CurrencyOption { get; init; } 
     /// <summary>
     /// Provides information about the dates related to a corporate action option.
     /// </summary>
+    [DataMember]
     public CorporateActionDate46? DateDetails { get; init; } 
     /// <summary>
     /// Provides information about the periods related to a corporate action option.
     /// </summary>
+    [DataMember]
     public CorporateActionPeriod11? PeriodDetails { get; init; } 
     /// <summary>
     /// Provides information about rates and amounts related to a corporate action option.
     /// </summary>
+    [DataMember]
     public CorporateActionRate82? RateAndAmountDetails { get; init; } 
     /// <summary>
     /// Provides information about the prices related to a corporate action option.
     /// </summary>
+    [DataMember]
     public CorporateActionPrice61? PriceDetails { get; init; } 
     /// <summary>
     /// Place where the trade was executed.
     /// </summary>
+    [DataMember]
     public MarketIdentification84? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Provides information about the securities movement linked to the corporate action option.
     /// </summary>
-    public SecuritiesOption60[] SecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecuritiesOption60> SecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the cash movement related to a corporate action option.
     /// </summary>
-    public CashOption52[] CashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashOption52> CashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

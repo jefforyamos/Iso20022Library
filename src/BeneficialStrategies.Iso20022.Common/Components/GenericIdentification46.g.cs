@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to an identification, for example, party identification or account identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericIdentification46
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record GenericIdentification46
     /// <summary>
     /// Name or number assigned by an entity to enable recognition of that entity, for example, national registration identification number.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Specifies the nature of the identifier.
     /// </summary>
+    [DataMember]
     public required OtherIdentification1Choice_ Type { get; init; } 
     
     #nullable disable

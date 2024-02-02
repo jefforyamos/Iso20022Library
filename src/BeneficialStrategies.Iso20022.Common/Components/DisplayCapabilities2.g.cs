@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// The capabilities of the display components performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DisplayCapabilities2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DisplayCapabilities2
     /// <summary>
     /// Type of display (for example merchant or cardholder).
     /// </summary>
+    [DataMember]
     public required UserInterface2Code DisplayType { get; init; } 
     /// <summary>
     /// Number of lines of the display component.
     /// </summary>
+    [DataMember]
     public required IsoNumber NumberOfLines { get; init; } 
     /// <summary>
     /// Number of columns of the display component.
     /// </summary>
+    [DataMember]
     public required IsoNumber LineWidth { get; init; } 
     
     #nullable disable

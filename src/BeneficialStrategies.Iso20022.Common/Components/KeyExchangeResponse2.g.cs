@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to a key exchange activity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record KeyExchangeResponse2
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record KeyExchangeResponse2
     /// <summary>
     /// Contains or describes conditions and characteristics of the transaction.
     /// </summary>
+    [DataMember]
     public Context17? Context { get; init; } 
     /// <summary>
     /// Card transaction for which an authorisation is requested.
     /// </summary>
+    [DataMember]
     public required Transaction133 Transaction { get; init; } 
     /// <summary>
     /// Outcome of the processing of the authorisation.
     /// </summary>
+    [DataMember]
     public required ProcessingResult19 ProcessingResult { get; init; } 
     /// <summary>
     /// Contains protected data and the attributes used to protect the data.
     /// </summary>
-    public ProtectedData1[] ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProtectedData1> ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

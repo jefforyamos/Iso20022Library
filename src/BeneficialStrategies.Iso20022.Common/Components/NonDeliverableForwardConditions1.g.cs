@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the opening and valuation conditions for the non deliverable forward.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NonDeliverableForwardConditions1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NonDeliverableForwardConditions1
     /// <summary>
     /// Specifies whether the instruction is an NDF opening or fixing.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator OpeningIndicator { get; init; } 
     /// <summary>
     /// Specifies either the conditions for an NDF oepning or an NDF fixing confirmation.
     /// </summary>
+    [DataMember]
     public required NDFOpeningFixing1Choice_ OpeningFixingConditions { get; init; } 
     
     #nullable disable

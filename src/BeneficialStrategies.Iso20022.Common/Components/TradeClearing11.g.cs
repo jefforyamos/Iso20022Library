@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the clearing of the contract.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeClearing11
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record TradeClearing11
     /// <summary>
     /// Indicates, whether the reported contract belongs to a class of OTC derivatives that has been declared subject to the clearing obligation and both counterparties to the contract are subject to the clearing obligation, as of the time of execution of the contract.
     /// </summary>
+    [DataMember]
     public ClearingObligationType1Code? ClearingObligation { get; init; } 
     /// <summary>
     /// Indicator of whether the transaction has been cleared, or is intended to be cleared, by a central counterparty.
     /// </summary>
+    [DataMember]
     public Cleared23Choice_? ClearingStatus { get; init; } 
     /// <summary>
     /// Indicates whether the contract was entered into as an intragroup transaction.
     /// Usage: When absent, default value is false.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? IntraGroup { get; init; } 
     
     #nullable disable

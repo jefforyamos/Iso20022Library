@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Restrictions applicable to the security.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityRestriction2
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record SecurityRestriction2
     /// <summary>
     /// Period during which the restriction applies.
     /// </summary>
+    [DataMember]
     public DateTimePeriodDetails1? EffectivePeriod { get; init; } 
     /// <summary>
     /// Type of the restriction, for example, selling restriction, buying restriction, placing restriction.
     /// </summary>
+    [DataMember]
     public SecurityRestrictionType2Choice_? RestrictionType { get; init; } 
     /// <summary>
     /// Specifies the regulatory restrictions applicable to a security.
     /// </summary>
+    [DataMember]
     public LegalRestrictions5Choice_? LegalRestrictionType { get; init; } 
     /// <summary>
     /// Specifies whether the restriction to be applied is relevant for citizen, resident, country.
     /// </summary>
-    public InvestorRestrictionType3Choice_[] InvestorRestrictionType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestorRestrictionType3Choice_> InvestorRestrictionType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of investor that is allowed to hold the security.
     /// </summary>
-    public InvestorType3Choice_[] InvestorType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestorType3Choice_> InvestorType { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

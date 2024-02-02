@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Elements used to calculate the collateral margin call for the segregated independent amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SegregatedIndependentAmountMargin1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SegregatedIndependentAmountMargin1
     /// <summary>
     /// Minimum amount to pay/receive as specified in the agreement in the base currency (to avoid the need to transfer an inconveniently small amount of segregated independent amount).
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount MinimumTransferAmount { get; init; } 
     /// <summary>
     /// Amount specified to avoid the need to transfer uneven amounts of independent amount collateral.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? RoundingAmount { get; init; } 
     /// <summary>
     /// Defines how the rounding amount was applied in the calculation. For example, should the amount of collateral required be rounded up, down, to the closer integral multiple specified or not rounded.
     /// </summary>
+    [DataMember]
     public RoundingMethod1Code? RoundingMethod { get; init; } 
     
     #nullable disable

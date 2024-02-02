@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status applying to individual instructions of a MeetingInstruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedInstructionStatus1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record DetailedInstructionStatus1
     /// <summary>
     /// Identifies the detailed instruction within an instruction message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text InstructionIdentification { get; init; } 
     /// <summary>
     /// Identifies the safekeeping account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountIdentification { get; init; } 
     /// <summary>
     /// Identifies the subaccount of the safekeeping account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SubAccountIdentification { get; init; } 
     /// <summary>
     /// Status applying to individual instructions of a MeetingInstruction.
     /// </summary>
+    [DataMember]
     public required InstructionStatus2Choice_ InstructionStatus { get; init; } 
     
     #nullable disable

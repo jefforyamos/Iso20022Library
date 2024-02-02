@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Net position of a segregated holding of a single security within the overall position held in the securities account, for example, sub-balance per status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SubBalanceInformation24
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record SubBalanceInformation24
     /// <summary>
     /// Reason for the sub-balance.
     /// </summary>
+    [DataMember]
     public required SubBalanceType13Choice_ SubBalanceType { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
+    [DataMember]
     public required Balance27 Quantity { get; init; } 
     /// <summary>
     /// Provides additional subbalance information.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax140Text? SubBalanceAdditionalDetails { get; init; } 
     /// <summary>
     /// Breakdown of the aggregate quantity reported into significant lots, for example, tax lots.
     /// </summary>
-    public QuantityBreakdown71[] QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QuantityBreakdown71> QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional instrument sub-balance information on all or parts of the reported financial instrument (unregistered, tax exempt, etc.).
     /// </summary>
-    public AdditionalBalanceInformation24[] AdditionalBalanceBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalBalanceInformation24> AdditionalBalanceBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

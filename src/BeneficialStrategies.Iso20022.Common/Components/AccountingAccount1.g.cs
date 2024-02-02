@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specific trade account for recording debits and credits to general accounting, cost accounting or budget accounting.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountingAccount1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AccountingAccount1
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Template describing the mask of the structure for the format of the accounting account identifier for example AABBBBCC where AA represents the country, BBBB the service classification, CC the sales area.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CostReferencePattern { get; init; } 
     
     #nullable disable

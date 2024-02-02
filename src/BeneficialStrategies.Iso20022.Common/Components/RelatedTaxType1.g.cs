@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of related tax.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RelatedTaxType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RelatedTaxType1
     /// <summary>
     /// Specifies the type of tax.
     /// </summary>
+    [DataMember]
     public required TaxType3FormatChoice_ TaxType { get; init; } 
     /// <summary>
     /// The value of the related tax expressed as an amount.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

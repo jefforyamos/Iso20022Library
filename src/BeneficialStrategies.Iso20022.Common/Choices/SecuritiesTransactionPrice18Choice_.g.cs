@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SecuritiesTransactionPrice18Choice.Percentage))]
 [KnownType(typeof(SecuritiesTransactionPrice18Choice.Decimal))]
 [KnownType(typeof(SecuritiesTransactionPrice18Choice.BasisPoints))]
+[DataContract]
 public abstract partial record SecuritiesTransactionPrice18Choice_
 {
 }

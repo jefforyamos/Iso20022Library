@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Display Response message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeviceDisplayResponse2
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record DeviceDisplayResponse2
     /// <summary>
     /// Give result for display request.
     /// </summary>
-    public OutputResult2[] OutputResult { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OutputResult2> OutputResult { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

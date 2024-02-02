@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Stock lending deadline assigned to a borrower of the stock.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BorrowerLendingDeadline1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record BorrowerLendingDeadline1
     /// <summary>
     /// Date/time set as the deadline to respond, with instructions, to an outstanding event, for which the underlying security is out on loan.
     /// </summary>
+    [DataMember]
     public required DateFormat31Choice_ StockLendingDeadline { get; init; } 
     /// <summary>
     /// Party who has borrowed stocks on loan.
     /// </summary>
+    [DataMember]
     public required PartyIdentification92Choice_ Borrower { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Option or swaption related attributes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OptionOrSwaption4
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record OptionOrSwaption4
     /// <summary>
     /// Specifies the type of the Option whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// </summary>
+    [DataMember]
     public OptionType2Code? OptionType { get; init; } 
     /// <summary>
     /// Predetermined price at which the holder will have to buy or sell the underlying instrument.
     /// </summary>
+    [DataMember]
     public SecuritiesTransactionPrice3Choice_? StrikePrice { get; init; } 
     /// <summary>
     /// Indication as to whether the option may be exercised only at a fixed date (European, and Asian style), a series of pre-specified dates (Bermudan) or at any time during the life of the contract (American style). This field does not have to be populated for ISIN instruments.
     /// </summary>
-    public OptionStyle6Code[] OptionExerciseStyle { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OptionStyle6Code> OptionExerciseStyle { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// In case of swaptions, maturity date of the underlying swap.
     /// </summary>
+    [DataMember]
     public IsoISODate? MaturityDateOfUnderlying { get; init; } 
     
     #nullable disable

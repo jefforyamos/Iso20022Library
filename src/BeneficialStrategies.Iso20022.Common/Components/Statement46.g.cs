@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Characteristics of the statement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Statement46
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record Statement46
     /// <summary>
     /// Identification assigned by the portfolio transfer counterpart to unambiguously identify a portfolio transfer notification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CounterpartyPortfolioTransferNotificationReference { get; init; } 
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
+    [DataMember]
     public Number3Choice_? ReportNumber { get; init; } 
     /// <summary>
     /// Reference common to all pages of a statement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? StatementIdentification { get; init; } 
     /// <summary>
     /// Date and time of the statement.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
+    [DataMember]
     public UpdateType15Choice_? UpdateType { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     
     #nullable disable

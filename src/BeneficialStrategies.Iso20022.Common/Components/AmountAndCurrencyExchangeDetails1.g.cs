@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements providing information on the original amount and currency information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountAndCurrencyExchangeDetails1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AmountAndCurrencyExchangeDetails1
     /// <summary>
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Reports on currency exchange information.
     /// </summary>
+    [DataMember]
     public CurrencyExchange3? CurrencyExchange { get; init; } 
     
     #nullable disable

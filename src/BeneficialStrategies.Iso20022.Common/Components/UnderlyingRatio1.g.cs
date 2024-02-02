@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Related financial instrument into which the security can be converted.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UnderlyingRatio1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record UnderlyingRatio1
     /// <summary>
     /// Number of held securities for the exercise.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ UnderlyingQuantityDenominator { get; init; } 
     /// <summary>
     /// Number of related securities for the exercise.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ UnderlyingQuantityNumerator { get; init; } 
     /// <summary>
     /// Related security into which the security can be converted.
     /// </summary>
-    public SecurityIdentification14[] RelatedFinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecurityIdentification14> RelatedFinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

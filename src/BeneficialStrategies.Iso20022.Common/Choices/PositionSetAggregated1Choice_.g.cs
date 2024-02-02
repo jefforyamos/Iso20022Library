@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(PositionSetAggregated1Choice.DataSetAction))]
 [KnownType(typeof(PositionSetAggregated1Choice.Report))]
+[DataContract]
 public abstract partial record PositionSetAggregated1Choice_
 {
 }

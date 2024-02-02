@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(References68Choice.PreviousReference))]
 [KnownType(typeof(References68Choice.OtherReference))]
+[DataContract]
 public abstract partial record References68Choice_
 {
 }

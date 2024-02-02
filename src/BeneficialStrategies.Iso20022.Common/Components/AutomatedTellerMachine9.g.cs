@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// ATM information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AutomatedTellerMachine9
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record AutomatedTellerMachine9
     /// <summary>
     /// ATM terminal device identification for the acquirer and the issuer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// ATM terminal device identification for the ATM manager.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AdditionalIdentification { get; init; } 
     /// <summary>
     /// ATM terminal device identification for the branch.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SequenceNumber { get; init; } 
     /// <summary>
     /// Reference currency of the ATM.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode BaseCurrency { get; init; } 
     /// <summary>
     /// Location of the ATM.
     /// </summary>
+    [DataMember]
     public PostalAddress17? Location { get; init; } 
     /// <summary>
     /// Indicates the environment of the transaction.
     /// </summary>
+    [DataMember]
     public TransactionEnvironment2Code? LocationCategory { get; init; } 
     /// <summary>
     /// Capabilities of the ATM terminal performing the transaction.
     /// </summary>
+    [DataMember]
     public PointOfInteractionCapabilities7? Capabilities { get; init; } 
     /// <summary>
     /// ATM terminal equipment.
     /// </summary>
+    [DataMember]
     public ATMEquipment1? Equipment { get; init; } 
     
     #nullable disable

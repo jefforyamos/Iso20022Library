@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parties used for acting parties that apply either to the whole message or to individual sides.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ConfirmationPartyDetails6
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record ConfirmationPartyDetails6
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution, eg, Dun & Bradstreet Identification.
     /// </summary>
+    [DataMember]
     public required PartyIdentification32Choice_ Identification { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount3? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>
+    [DataMember]
     public AccountIdentification3Choice_? CashDetails { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
+    [DataMember]
     public AlternatePartyIdentification5? AlternateIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction for the party identified.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProcessingIdentification { get; init; } 
     /// <summary>
     /// Provides additional information to a party identification.
     /// </summary>
+    [DataMember]
     public PartyTextInformation5? AdditionalInformation { get; init; } 
     /// <summary>
     /// Capacity of customer placing the order. Primarily used by futures exchanges to indicate the CTI code (customer type indicator) as required by the US CFTC (Commodity Futures Trading Commission).
     /// </summary>
+    [DataMember]
     public TradingPartyCapacity2Choice_? PartyCapacity { get; init; } 
     /// <summary>
     /// Indicates whether the confirmation party is a member of the investor protection association required, eg, as per regulation.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? InvestorProtectionAssociationMembership { get; init; } 
     
     #nullable disable

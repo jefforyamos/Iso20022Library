@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the message reference of the message for which the status is requested and the business reference of the order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MessageAndBusinessReference2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record MessageAndBusinessReference2
     /// <summary>
     /// Reference to a linked message sent in a proprietary way or reference of a system.
     /// </summary>
+    [DataMember]
     public required AdditionalReference3 OtherReference { get; init; } 
     /// <summary>
     /// Reference to a linked message that was previously sent.
     /// </summary>
+    [DataMember]
     public required AdditionalReference3 PreviousReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
-    public IsoMax35Text[] IndividualOrderReference { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> IndividualOrderReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Account information of the order message for which the status is requested.
     /// </summary>
+    [DataMember]
     public InvestmentAccount13? InvestmentAccount { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies a payment instruction by a simple set of characteristics which provides an unambiguous indentification of the instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentInstructionReferenceDetails2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PaymentInstructionReferenceDetails2
     /// <summary>
     /// Unique and unambiguous identifier for a payment instruction, as assigned by the clearing agent or the initiating party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text PaymentInstructionReference { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
+    [DataMember]
     public required IsoISODate InterbankValueDate { get; init; } 
     /// <summary>
     /// The identification of the instructing agent that transmitted the payment instruction.
     /// </summary>
+    [DataMember]
     public required IsoBICIdentifier InstructingAgentIdentification { get; init; } 
     
     #nullable disable

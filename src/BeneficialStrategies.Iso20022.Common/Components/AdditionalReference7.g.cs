@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reference to a related message or transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalReference7
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AdditionalReference7
     /// <summary>
     /// Reference issued by a party to identify an instruction, transaction or a message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Reference { get; init; } 
     /// <summary>
     /// Party that issued the reference.
     /// </summary>
+    [DataMember]
     public PartyIdentification97Choice_? ReferenceIssuer { get; init; } 
     /// <summary>
     /// Name of the message.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MessageName { get; init; } 
     
     #nullable disable

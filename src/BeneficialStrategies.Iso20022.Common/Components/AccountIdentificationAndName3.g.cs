@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the account expressed with a name and an account number.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountIdentificationAndName3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AccountIdentificationAndName3
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required CashAccountIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     
     #nullable disable

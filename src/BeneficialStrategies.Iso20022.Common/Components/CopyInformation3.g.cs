@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information provided when the message is a copy of a previous message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CopyInformation3
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record CopyInformation3
     /// <summary>
     /// Indicates whether the message is a copy.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator CopyIndicator { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// This component define the environment, the context and the services to be used with this message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeviceRequest4
 {
     #nullable enable
@@ -20,59 +22,73 @@ public partial record DeviceRequest4
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public CardPaymentEnvironment77? Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
+    [DataMember]
     public CardPaymentContext28? Context { get; init; } 
     /// <summary>
     /// Define the type of service requested.
     /// </summary>
+    [DataMember]
     public required RetailerService8Code ServiceContent { get; init; } 
     /// <summary>
     /// Content of the Display Request message.
     /// </summary>
+    [DataMember]
     public DeviceDisplayRequest3? DisplayRequest { get; init; } 
     /// <summary>
     /// Content of the Input Request message.
     /// </summary>
+    [DataMember]
     public DeviceInputRequest3? InputRequest { get; init; } 
     /// <summary>
     /// Content of the Print Request message.
     /// </summary>
+    [DataMember]
     public DevicePrintRequest3? PrintRequest { get; init; } 
     /// <summary>
     /// Content of the Resource Request message.
     /// </summary>
+    [DataMember]
     public DevicePlayResourceRequest1? PlayResourceRequest { get; init; } 
     /// <summary>
     /// Request a secure input for a PIN.
     /// </summary>
+    [DataMember]
     public DeviceSecureInputRequest3? SecureInputRequest { get; init; } 
     /// <summary>
     /// A service to send parameters to Card Reader to initialize a new communication with a card.
     /// </summary>
+    [DataMember]
     public DeviceInitialisationCardReaderRequest3? InitialisationCardReaderRequest { get; init; } 
     /// <summary>
     /// Content of the APDU (Application Protocol Data Unit) to send to the Card.
     /// </summary>
+    [DataMember]
     public DeviceSendApplicationProtocolDataUnitCardReaderRequest1? CardReaderAPDURequest { get; init; } 
     /// <summary>
     /// Content of the Power Off Card Reader Request message.
     /// </summary>
+    [DataMember]
     public DevicePoweroffCardReaderRequest3? PowerOffCardReaderRequest { get; init; } 
     /// <summary>
     /// Content of the Request message to transmit.
     /// </summary>
+    [DataMember]
     public DeviceTransmitMessageRequest2? TransmissionRequest { get; init; } 
     /// <summary>
     /// Content of the Input notification message.
     /// </summary>
+    [DataMember]
     public DeviceInputNotification3? InputNotification { get; init; } 
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

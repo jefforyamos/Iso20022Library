@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies each issuer CSD (central securities depository) included in the report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IssuerCSDReport1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record IssuerCSDReport1
     /// <summary>
     /// Identification of the issuer CSD (central securities depository) for which data is reported.
     /// </summary>
+    [DataMember]
     public required IssuerCSDIdentification1 Identification { get; init; } 
     /// <summary>
     /// Overall aggregated total value and volume of 
@@ -27,22 +30,27 @@ public partial record IssuerCSDReport1
     /// - failed rate of internalised settlement instructions
     /// performed during the period covered by the report, for all financial instruments, types of transactions, types of clients and cash transfers.
     /// </summary>
+    [DataMember]
     public required InternalisationData1 OverallTotal { get; init; } 
     /// <summary>
     /// Classification of financial instrument covering the types of financial instruments as defined in the relevant regulation.
     /// </summary>
+    [DataMember]
     public required SettlementInternaliserFinancialInstrument1 FinancialInstrument { get; init; } 
     /// <summary>
     /// Classification of securities movements according to the categories defined in the relevant legislation.
     /// </summary>
+    [DataMember]
     public required SettlementInternaliserTransactionType1 TransactionType { get; init; } 
     /// <summary>
     /// Classification of a settlement internaliser's clients as referred to in the relevant legislation.
     /// </summary>
+    [DataMember]
     public required SettlementInternaliserClientType1 ClientType { get; init; } 
     /// <summary>
     /// Covers cash payments related to securities transactions.
     /// </summary>
+    [DataMember]
     public required InternalisationData1 TotalCashTransfer { get; init; } 
     
     #nullable disable

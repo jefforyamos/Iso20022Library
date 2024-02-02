@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Rating and source of the rating of the financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Rating2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Rating2
     /// <summary>
     /// Provides the rating of the financial instrument.
     /// </summary>
+    [DataMember]
     public required IsoMax10Text Rating { get; init; } 
     /// <summary>
     /// Agency, which provides rating services, for example, Moody's and S&P.
     /// </summary>
+    [DataMember]
     public required MarketIdentification89 SourceOfRating { get; init; } 
     
     #nullable disable

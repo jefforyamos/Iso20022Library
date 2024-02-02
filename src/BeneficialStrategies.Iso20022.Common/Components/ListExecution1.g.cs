@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details about of a list that must be executed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ListExecution1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ListExecution1
     /// <summary>
     /// Unique identifier for a list, as assigned by the trading party. The identifier must be unique within a single trading day.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ListIdentification { get; init; } 
     /// <summary>
     /// Identifies a bid made by a client, to which the list is associated.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientBidIdentification { get; init; } 
     /// <summary>
     /// Name or number assigned by an entity to enable recognition of that entity, eg, account identifier.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text BidIdentification { get; init; } 
     
     #nullable disable

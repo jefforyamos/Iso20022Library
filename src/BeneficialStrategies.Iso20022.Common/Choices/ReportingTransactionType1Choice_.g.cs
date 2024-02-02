@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ReportingTransactionType1Choice.New))]
 [KnownType(typeof(ReportingTransactionType1Choice.Cancellation))]
 [KnownType(typeof(ReportingTransactionType1Choice.SupplementaryData))]
+[DataContract]
 public abstract partial record ReportingTransactionType1Choice_
 {
 }

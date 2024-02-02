@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Date related to the settlement of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementServiceDate2
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record SettlementServiceDate2
     /// <summary>
     /// Date requested for settlement.
     /// </summary>
+    [DataMember]
     public IsoISODate? RequestedSettlementDate { get; init; } 
     /// <summary>
     /// Indicate a deferred Settlement date.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? DeferredSettlementIndicator { get; init; } 
     /// <summary>
     /// Actual date of settlement.
     /// </summary>
+    [DataMember]
     public IsoISODate? SettlementDate { get; init; } 
     /// <summary>
     /// Actual time of settlement.
     /// </summary>
+    [DataMember]
     public IsoISOTime? SettlementTime { get; init; } 
     /// <summary>
     /// Identifies the settlement period, cycle or group. May contain settlement frequency or the identification of specific settlement period. For example, daily, monthly or settlementperiod123acd.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SettlementPeriod { get; init; } 
     /// <summary>
     /// Identifies the effective end time of the settlement date and/or period. 
     /// </summary>
+    [DataMember]
     public IsoISODateTime? SettlementCutOffTime { get; init; } 
     
     #nullable disable

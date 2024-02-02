@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details on a quantity, account and other related information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record QuantityAndAccount103
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record QuantityAndAccount103
     /// <summary>
     /// Quantity of financial instrument effectively settled.
     /// </summary>
+    [DataMember]
     public required Quantity54Choice_ SettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument previously settled.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity36Choice_? PreviouslySettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument remaining to be settled.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity36Choice_? RemainingToBeSettledQuantity { get; init; } 
     /// <summary>
     /// Amount of money previously settled.
     /// </summary>
+    [DataMember]
     public AmountAndDirection19? PreviouslySettledAmount { get; init; } 
     /// <summary>
     /// Amount of money remaining to be settled.
     /// </summary>
+    [DataMember]
     public AmountAndDirection19? RemainingToBeSettledAmount { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification156? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount30? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
+    [DataMember]
     public BlockChainAddressWallet7? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
+    [DataMember]
     public CashAccountIdentification6Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [DataMember]
     public SafeKeepingPlace4? SafekeepingPlace { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters which explicitly state the conditions that must be fulfilled before a particular triparty collateral instruction/transaction  can be confirmed. These parameters are defined by the instructing party in compliance with triparty collateral rules in the market the instruction/transaction will take place.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralParameters11
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record CollateralParameters11
     /// <summary>
     /// Specifies the type of collateral instruction.
     /// </summary>
+    [DataMember]
     public required CollateralTransactionType1Choice_ CollateralInstructionType { get; init; } 
     /// <summary>
     /// Specifies the underlying business area/type of trade causing the exposure.
     /// </summary>
+    [DataMember]
     public required ExposureType23Choice_ ExposureType { get; init; } 
     /// <summary>
     /// Specifies whether the alleged side is the collateral taker or giver. So it will be the opposite  side of the instruction.
     /// </summary>
+    [DataMember]
     public required CollateralRole1Code CollateralSide { get; init; } 
     /// <summary>
     /// Percentage by which the collateral value sought is increased, in selecting securities for a collateral basket, to reflect the taker's margin requirements.
     /// </summary>
+    [DataMember]
     public RateOrType1Choice_? ValueSoughtMarginRate { get; init; } 
     /// <summary>
     /// Number identifying the collateral eligibility set profile of the counterparty.
     /// </summary>
+    [DataMember]
     public GenericIdentification1? EligibilitySetProfile { get; init; } 
     /// <summary>
     /// Change of title for the collateral. If N then collateral is pledged.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? TransferTitle { get; init; } 
     /// <summary>
     /// Specifies the settlement process in which the collateral will be settled.
     /// </summary>
+    [DataMember]
     public GenericIdentification30? SettlementProcess { get; init; } 
     
     #nullable disable

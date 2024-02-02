@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Performance factors of the investment fund / fund class.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PerformanceFactors1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PerformanceFactors1
     /// <summary>
     /// Value of the NAV before all corporate events of the valuation date, divided by the value of the NAV after the corporate event.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? CorporateActionFactor { get; init; } 
     /// <summary>
     /// Value of the NAV before a corporate event, divided by the value of the NAV after the corporate event, accumulated for a number of corporate events over the defined period of time.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? CumulativeCorporateActionFactor { get; init; } 
     /// <summary>
     /// Period of time for the calculation of the cumulative corporate action factor.
     /// </summary>
+    [DataMember]
     public DatePeriodDetails? AccumulationPeriod { get; init; } 
     /// <summary>
     /// Normal performance value of the NAV.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? NormalPerformance { get; init; } 
     
     #nullable disable

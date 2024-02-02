@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique and unambiguous identifier of the group of transactions as assigned by the original instructing party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalGroupInformation29
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OriginalGroupInformation29
     /// <summary>
     /// Point to point reference assigned by the original instructing party to unambiguously identify the original message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalMessageIdentification { get; init; } 
     /// <summary>
     /// Specifies the original message name identifier to which the message refers, for example, pacs.003.001.01 or MT103.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalMessageNameIdentification { get; init; } 
     /// <summary>
     /// Original date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OriginalCreationDateTime { get; init; } 
     
     #nullable disable

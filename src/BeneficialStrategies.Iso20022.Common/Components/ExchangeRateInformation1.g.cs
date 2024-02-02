@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Further detailed information on the exchange rate that has been used in the payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExchangeRateInformation1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ExchangeRateInformation1
     /// <summary>
     /// The factor used for conversion of an amount from one currency to another. This reflects the price at which one currency was bought with another currency.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? ExchangeRate { get; init; } 
     /// <summary>
     /// Specifies the type used to complete the currency exchange.
     /// </summary>
+    [DataMember]
     public ExchangeRateType1Code? RateType { get; init; } 
     /// <summary>
     /// Unique and unambiguous reference to the foreign exchange contract agreed between the initiating party/creditor and the debtor agent.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ContractIdentification { get; init; } 
     
     #nullable disable

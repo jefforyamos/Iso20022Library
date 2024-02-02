@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(Status24Choice.OrderDetailsReport))]
 [KnownType(typeof(Status24Choice.IndividualOrderDetailsReport))]
 [KnownType(typeof(Status24Choice.SwitchOrderDetailsReport))]
+[DataContract]
 public abstract partial record Status24Choice_
 {
 }

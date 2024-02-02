@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the amount in the reporting currency and optionally in the original currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Amount2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Amount2
     /// <summary>
     /// Amount expressed in the original currency.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? OriginalCurrencyAmount { get; init; } 
     /// <summary>
     /// Amount expressed in the reporting currency.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount ReportingAmount { get; init; } 
     
     #nullable disable

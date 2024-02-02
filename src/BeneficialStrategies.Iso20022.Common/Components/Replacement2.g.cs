@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Replacement of an existing content by a different one.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Replacement2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Replacement2
     /// <summary>
     /// Content of the current element.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text CurrentValue { get; init; } 
     /// <summary>
     /// Content of the new element.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text ProposedValue { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the completion of a withdrawal on the ATM.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMWithdrawalCompletionAdvice1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ATMWithdrawalCompletionAdvice1
     /// <summary>
     /// Environment of the withdrawal transaction.
     /// </summary>
+    [DataMember]
     public required ATMEnvironment3 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed.
     /// </summary>
+    [DataMember]
     public required ATMContext2 Context { get; init; } 
     /// <summary>
     /// Withdrawal transaction for which the completion is sent.
     /// </summary>
+    [DataMember]
     public required ATMTransaction3 Transaction { get; init; } 
     
     #nullable disable

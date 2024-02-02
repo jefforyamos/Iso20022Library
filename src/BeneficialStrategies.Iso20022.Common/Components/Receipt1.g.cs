@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Receipt1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record Receipt1
     /// <summary>
     /// Identification of the original request message.
     /// </summary>
+    [DataMember]
     public required OriginalMessageAndIssuer1 OriginalMessageIdentification { get; init; } 
     /// <summary>
     /// Gives the status of the request.
     /// </summary>
-    public RequestHandling[] RequestHandling { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RequestHandling> RequestHandling { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

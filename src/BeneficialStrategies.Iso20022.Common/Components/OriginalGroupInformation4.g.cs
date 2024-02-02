@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique and unambiguous identifier of the group of transactions as assigned by the original instructing party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalGroupInformation4
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record OriginalGroupInformation4
     /// <summary>
     /// Point to point reference assigned by the original instructing party to unambiguously identify the original group of individual transactions.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalMessageIdentification { get; init; } 
     /// <summary>
     /// Specifies the original message name identifier to which the message refers, eg, pacs.003.001.01 or MT103.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalMessageNameIdentification { get; init; } 
     /// <summary>
     /// Original date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OriginalCreationDateTime { get; init; } 
     /// <summary>
     /// Detailed information on the cancellation reason.
     /// </summary>
-    public CancellationReasonInformation1[] CancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CancellationReasonInformation1> CancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

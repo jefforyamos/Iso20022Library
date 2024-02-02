@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a series.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Series1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Series1
     /// <summary>
     /// Issue date of the fund series. It is typically applicable to a redemption order, subscription order confirmation or redemption order confirmation, but may be specified in the subscription order, if known.
     /// </summary>
+    [DataMember]
     public DateFormat42Choice_? SeriesDate { get; init; } 
     /// <summary>
     /// Name of the fund series. It is typically applicable to a redemption order, subscription order confirmation or redemption order confirmation, but may be specified in the subscription, if known.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SeriesName { get; init; } 
     
     #nullable disable

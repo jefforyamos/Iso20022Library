@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details of the collateral reference data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralValue2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CollateralValue2
     /// <summary>
     /// Identification of a security by an ISIN.
     /// </summary>
+    [DataMember]
     public required IsoISINOct2015Identifier SecurityIdentification { get; init; } 
     /// <summary>
     /// Valuation date for the price.
     /// </summary>
+    [DataMember]
     public required IsoISODate ValuationDate { get; init; } 
     /// <summary>
     /// Provides details of the currency of the valuation.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? ValuationCurrency { get; init; } 
     /// <summary>
     /// Provides details of the price provided for the security.
     /// </summary>
+    [DataMember]
     public required AmountOrCoefficientPrice1Choice_ ValuationPrice { get; init; } 
     
     #nullable disable

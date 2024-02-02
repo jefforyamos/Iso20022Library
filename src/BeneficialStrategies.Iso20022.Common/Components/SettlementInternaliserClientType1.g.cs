@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Natural or legal person to whom an investment firm provides investment or ancillary services.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementInternaliserClientType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SettlementInternaliserClientType1
     /// <summary>
     /// Professional clients as defined in the relevant legislation.
     /// </summary>
+    [DataMember]
     public required InternalisationData1 Professional { get; init; } 
     /// <summary>
     /// Clients other than professional clients.
     /// </summary>
+    [DataMember]
     public required InternalisationData1 Retail { get; init; } 
     
     #nullable disable

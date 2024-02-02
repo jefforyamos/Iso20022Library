@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the cash account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashAccount17
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CashAccount17
     /// <summary>
     /// Identification of the cash account.
     /// </summary>
+    [DataMember]
     public required CashAccountIdentification1Choice_ AccountIdentification { get; init; } 
     /// <summary>
     /// Currency of the payment.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode PaymentCurrency { get; init; } 
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Identification of the cash correspondent back.
     /// </summary>
+    [DataMember]
     public required IsoBICIdentifier CorrespondentBankIdentification { get; init; } 
     
     #nullable disable

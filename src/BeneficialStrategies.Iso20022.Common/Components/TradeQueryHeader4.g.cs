@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details of the header for a trade transaction query message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeQueryHeader4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TradeQueryHeader4
     /// <summary>
     /// Indicates the day that the query was executed.
     /// </summary>
+    [DataMember]
     public IsoISODate? QueryExecutionDate { get; init; } 
     /// <summary>
     /// Page number of the message (within the report) and continuation indicator to indicate that the report is to continue or that the message is the last page of the report.
     /// </summary>
+    [DataMember]
     public required Pagination1 MessagePagination { get; init; } 
     /// <summary>
     /// Indicates the number of records in the page.
     /// </summary>
+    [DataMember]
     public required IsoNumber NumberRecords { get; init; } 
     
     #nullable disable

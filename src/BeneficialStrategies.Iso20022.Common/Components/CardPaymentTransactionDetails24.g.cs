@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the transaction in the authorisation request in a batch.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentTransactionDetails24
 {
     #nullable enable
@@ -20,54 +22,67 @@ public partial record CardPaymentTransactionDetails24
     /// <summary>
     /// Currency associated with the transaction.
     /// </summary>
+    [DataMember]
     public CurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Total amount of the transaction.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount TotalAmount { get; init; } 
     /// <summary>
     /// Qualifies the amount associated with the transaction.
     /// </summary>
+    [DataMember]
     public TypeOfAmount1Code? AmountQualifier { get; init; } 
     /// <summary>
     /// Detailed amounts associated with the total amount of transaction.
     /// </summary>
+    [DataMember]
     public DetailedAmount7? DetailedAmount { get; init; } 
     /// <summary>
     /// Transaction authorisation deadline to complete the related payment.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValidityDate { get; init; } 
     /// <summary>
     /// Reason to process an online authorisation.
     /// </summary>
+    [DataMember]
     public OnLineReason1Code? OnLineReason { get; init; } 
     /// <summary>
     /// Transaction category level on an unattended POI (Point Of Interaction).
     /// </summary>
+    [DataMember]
     public IsoMax35NumericText? UnattendedLevelCategory { get; init; } 
     /// <summary>
     /// Type of cardholder account used for the transaction.
     /// </summary>
+    [DataMember]
     public CardAccountType2Code? AccountType { get; init; } 
     /// <summary>
     /// Data related to a financial loan (instalment) or to a recurring transaction.
     /// </summary>
+    [DataMember]
     public RecurringTransaction2? Instalment { get; init; } 
     /// <summary>
     /// Payment transaction with an aggregated amount.
     /// </summary>
+    [DataMember]
     public AggregationTransaction1? AggregationTransaction { get; init; } 
     /// <summary>
     /// Product purchased with the transaction.
     /// </summary>
-    public Product1[] Product { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Product1> Product { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Detailed invoice data.
     /// </summary>
+    [DataMember]
     public CardPaymentInvoice1? CardPaymentInvoice { get; init; } 
     /// <summary>
     /// Data related to an integrated circuit card application.
     /// </summary>
+    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     
     #nullable disable

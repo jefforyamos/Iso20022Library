@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about hold back.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record HoldBackInformation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record HoldBackInformation1
     /// <summary>
     /// Value of the redemption amount subject to hold back.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? HoldBackAmount { get; init; } 
     /// <summary>
     /// Date on which the hold back amount is to be released.
     /// </summary>
+    [DataMember]
     public IsoISODate? HoldBackReleaseDate { get; init; } 
     
     #nullable disable

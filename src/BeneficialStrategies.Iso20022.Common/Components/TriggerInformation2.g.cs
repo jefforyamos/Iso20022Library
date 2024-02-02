@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Element containing all information needed to identify who triggered the request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TriggerInformation2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record TriggerInformation2
     /// <summary>
     /// Actor who trigger the request.
     /// </summary>
+    [DataMember]
     public required PartyType5Code TriggerSource { get; init; } 
     /// <summary>
     /// Identification of the trigger source.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text SourceIdentification { get; init; } 
     /// <summary>
     /// Identification of the type of the call.
     /// </summary>
+    [DataMember]
     public required ExchangePolicy2Code TriggerType { get; init; } 
     /// <summary>
     /// Additional information related to request.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AdditionalInformation { get; init; } 
     
     #nullable disable

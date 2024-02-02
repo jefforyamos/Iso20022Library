@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ISAPortfolio4Choice.ISA))]
 [KnownType(typeof(ISAPortfolio4Choice.Portfolio))]
+[DataContract]
 public abstract partial record ISAPortfolio4Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides detailed information on the number of reported items with their respective acceptance status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NumberOfItemsPerStatus1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NumberOfItemsPerStatus1
     /// <summary>
     /// Common status of the report items for which the number of report items is specified in NumberOfItems.
     /// </summary>
+    [DataMember]
     public required ReportItemStatus1Code Status { get; init; } 
     /// <summary>
     /// Number of items for the status.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText NumberOfItems { get; init; } 
     
     #nullable disable

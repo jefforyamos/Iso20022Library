@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details related to the local undertaking.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Undertaking11
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Undertaking11
     /// <summary>
     /// Details related to the requested new amount for the local undertaking.
     /// </summary>
+    [DataMember]
     public UndertakingAmount2? NewUndertakingAmount { get; init; } 
     /// <summary>
     /// Details related to the requested new expiry terms for the local undertaking.
     /// </summary>
+    [DataMember]
     public ExpiryDetails1? NewExpiryDetails { get; init; } 
     /// <summary>
     /// Details related to the requested new beneficiary for the local undertaking.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? NewBeneficiary { get; init; } 
     /// <summary>
     /// Details related to the requested new terms and conditions for the local undertaking.
     /// </summary>
+    [DataMember]
     public Narrative1? NewUndertakingTermsAndConditions { get; init; } 
     /// <summary>
     /// Details related to the delivery channel for the amended local undertaking.
     /// </summary>
+    [DataMember]
     public CommunicationChannel1? DeliveryChannel { get; init; } 
     
     #nullable disable

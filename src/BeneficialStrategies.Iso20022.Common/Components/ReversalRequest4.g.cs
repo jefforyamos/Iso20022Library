@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data to request a Reversal.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReversalRequest4
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ReversalRequest4
     /// <summary>
     /// Transaction to reverse.
     /// </summary>
+    [DataMember]
     public CardPaymentTransaction120? ReversalTransaction { get; init; } 
     /// <summary>
     /// Data linked to card loyalty during payment.
     /// </summary>
-    public LoyaltyRequestData3[] LoyaltyData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LoyaltyRequestData3> LoyaltyData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Reason for this reversal.
     /// </summary>
+    [DataMember]
     public required ReversalReason1Code ReversalReason { get; init; } 
     /// <summary>
     /// Amount to reverse (total or partial).
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? ReversedAmount { get; init; } 
     /// <summary>
     /// Specific Customer Order linked with the reversal.
     /// </summary>
+    [DataMember]
     public CustomerOrder1? CustomerOrder { get; init; } 
     
     #nullable disable

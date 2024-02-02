@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Creation/cancellation of investment units on the books of the fund or its designated agent, as a result of executing an investment fund order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentFundTransaction4
 {
     #nullable enable
@@ -20,82 +22,102 @@ public partial record InvestmentFundTransaction4
     /// <summary>
     /// Underlying transaction or corporate action.
     /// </summary>
+    [DataMember]
     public required TransactionType1Choice_ EventType { get; init; } 
     /// <summary>
     /// Status of an investment fund transaction.
     /// </summary>
+    [DataMember]
     public TransactionStatus1Code? BookingStatus { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual orders, as assigned by the instructing party. This identifier links the individual orders together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OrderReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of an order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order execution, as assigned by a confirming party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DealReference { get; init; } 
     /// <summary>
     /// Unique technical identifier for an instance of a leg within a switch.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LegIdentification { get; init; } 
     /// <summary>
     /// Unique identifier for an instance of a leg execution within a switch confirmation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LegExecutionIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the order was placed by the investor or its agent.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OrderDateTime { get; init; } 
     /// <summary>
     /// Indicates whether the cash payment with respect to the executed order is settled.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator SettledTransactionIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the executed order has a registered status on the books of the transfer agent.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator RegisteredTransactionIndicator { get; init; } 
     /// <summary>
     /// Number of investment funds units.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1 UnitsQuantity { get; init; } 
     /// <summary>
     /// Direction of the transaction being reported, is, securities are received (credited) or delivered (debited).
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebit { get; init; } 
     /// <summary>
     /// Transaction being reported is a reversal of previously reported transaction.
     /// </summary>
+    [DataMember]
     public ReversalCode? Reversal { get; init; } 
     /// <summary>
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     /// <summary>
     /// Date on which the debtor expects the amount of money to be available to the creditor.
     /// </summary>
+    [DataMember]
     public IsoISODate? SettlementDate { get; init; } 
     /// <summary>
     /// Date and time at which a price is applied, according to the terms stated in the prospectus.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     /// <summary>
     /// Indicates whether the dividend is included, that is, cum-dividend, in the executed price. When the dividend is not included, the price will be ex-dividend.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator CumDividendIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the order has been partially executed, that is, the confirmed quantity does not match the ordered quantity for a given financial instrument.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator PartiallyExecutedIndicator { get; init; } 
     /// <summary>
     /// Price at which the order was executed.
     /// </summary>
+    [DataMember]
     public UnitPrice20? PriceDetails { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the legal basis of the request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LegalMandate1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record LegalMandate1
     /// <summary>
     /// Identifies the legal mandate paragraph in law which gives power to the authority's request.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Paragraph { get; init; } 
     /// <summary>
     /// Specifies any additional information describing how or why the paragraph of law should be applied.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Disclaimer { get; init; } 
     
     #nullable disable

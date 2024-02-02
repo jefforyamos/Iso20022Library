@@ -15,6 +15,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Usage:
 /// It is repeated as many times as there are events to be returned.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentEvent6
 {
     #nullable enable
@@ -23,23 +25,28 @@ public partial record PaymentEvent6
     /// Specifies the sending MessagingEndpoint that has created this Business Message for the receiving MessagingEndpoint that will process this Business Message.
     /// Usage: The sending MessagingEndpoint might be different from the sending address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
+    [DataMember]
     public required IsoAnyBICIdentifier From { get; init; } 
     /// <summary>
     /// Specifies the MessagingEndpoint designated by the sending MessagingEndpoint to be the recipient who will ultimately process this Business Message.
     /// Usage: The receiving MessagingEndpoint might be different from the receiving address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? To { get; init; } 
     /// <summary>
     /// Specifies which party/parties will bear the charges associated with the processing of the payment transaction.
     /// </summary>
+    [DataMember]
     public ChargeBearerType3Code? ChargeBearer { get; init; } 
     /// <summary>
     /// Specifies the amount of money asked or paid for the charge.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; init; } 
     /// <summary>
     /// Specifies the exchange rate details between two currencies.
     /// </summary>
+    [DataMember]
     public CurrencyExchange12? ForeignExchangeDetails { get; init; } 
     
     #nullable disable

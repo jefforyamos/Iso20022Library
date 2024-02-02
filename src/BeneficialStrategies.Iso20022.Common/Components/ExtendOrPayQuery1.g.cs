@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Undertaking extend or pay query details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExtendOrPayQuery1
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record ExtendOrPayQuery1
     /// <summary>
     /// Details related to the identification of the undertaking.
     /// </summary>
+    [DataMember]
     public required Undertaking9 UndertakingIdentification { get; init; } 
     /// <summary>
     /// Details related to the demand.
     /// </summary>
+    [DataMember]
     public required Demand2 DemandDetails { get; init; } 
     /// <summary>
     /// Requested new expiry date as an alternative to payment of the demand.
     /// </summary>
+    [DataMember]
     public required IsoISODate RequestedExpiryDate { get; init; } 
     /// <summary>
     /// Details of the instructions from the bank.
     /// </summary>
+    [DataMember]
     public BankInstructions1? BankInstructions { get; init; } 
     /// <summary>
     /// Contact at the issuing bank.
     /// </summary>
-    public Contacts3[] BankContact { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Contacts3> BankContact { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Document or template enclosed in the request.
     /// </summary>
-    public Document9[] EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Document9> EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the request.
     /// </summary>
-    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

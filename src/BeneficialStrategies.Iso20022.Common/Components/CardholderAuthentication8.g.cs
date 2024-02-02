@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related to the authentication of the card and the cardholder.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardholderAuthentication8
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CardholderAuthentication8
     /// <summary>
     /// Method and data intended to be used for this transaction to authenticate the customer or its card.
     /// </summary>
+    [DataMember]
     public required AuthenticationMethod7Code AuthenticationMethod { get; init; } 
     /// <summary>
     /// True if an authentication token is requested to the host. This token will be provided to the ATM for further authentication.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? TokenRequested { get; init; } 
     /// <summary>
     /// Value or token to be used for customer or card authentication.
     /// </summary>
+    [DataMember]
     public IsoMax5000Binary? AuthenticationValue { get; init; } 
     /// <summary>
     /// Protection of the authentication value.
     /// </summary>
+    [DataMember]
     public ContentInformationType10? ProtectedAuthenticationValue { get; init; } 
     /// <summary>
     /// Encrypted personal identification number (PIN) and related information.
     /// </summary>
+    [DataMember]
     public OnLinePIN5? CardholderOnLinePIN { get; init; } 
     
     #nullable disable

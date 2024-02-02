@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Trade settlement details for this invoice which involves the payment of an outstanding debt, account, or charge.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeSettlement2
 {
     #nullable enable
@@ -20,47 +22,58 @@ public partial record TradeSettlement2
     /// <summary>
     /// Payment or creditor reference.
     /// </summary>
+    [DataMember]
     public CreditorReferenceInformation2? PaymentReference { get; init; } 
     /// <summary>
     /// Date when invoice should be paid.
     /// </summary>
+    [DataMember]
     public IsoISODate? DueDate { get; init; } 
     /// <summary>
     /// Payable amount with currency code.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount DuePayableAmount { get; init; } 
     /// <summary>
     /// If invoice currency is different from local tax reporting currency, then applied exchange rate is given in this message structure.
     /// </summary>
+    [DataMember]
     public CurrencyReference3? InvoiceCurrencyExchange { get; init; } 
     /// <summary>
     /// Date when goods/services are delivered to buyer.
     /// </summary>
+    [DataMember]
     public IsoISODate? DeliveryDate { get; init; } 
     /// <summary>
     /// Period during which delivery executed or agreed invoicing period.
     /// </summary>
+    [DataMember]
     public Period2? BillingPeriod { get; init; } 
     /// <summary>
     /// Tax total amount with currency code.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount TaxTotalAmount { get; init; } 
     /// <summary>
     /// Reason for tax exemption expressed as a code, if invoice or card transaction is out of tax processing.
     /// </summary>
+    [DataMember]
     public IsoMax4Text? ExemptionReasonCode { get; init; } 
     /// <summary>
     /// Reason for a tax exemption, if invoice or card transaction is out of tax processing.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? ExemptionReason { get; init; } 
     /// <summary>
     /// Calculated tax subtotal.
     /// </summary>
-    public SettlementSubTotalCalculatedTax2[] SubTotalCalculatedTax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SettlementSubTotalCalculatedTax2> SubTotalCalculatedTax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details of each early payment discount.
     /// </summary>
-    public EarlyPayment1[] EarlyPayments { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<EarlyPayment1> EarlyPayments { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Notification to the acquirer of the completion of the card payment at the acceptor.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcceptorCompletionAdvice7
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record AcceptorCompletionAdvice7
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentEnvironment68 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
+    [DataMember]
     public CardPaymentContext26? Context { get; init; } 
     /// <summary>
     /// Card payment transaction between an acceptor and an acquirer.
     /// </summary>
+    [DataMember]
     public required CardPaymentTransaction81 Transaction { get; init; } 
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

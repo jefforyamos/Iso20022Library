@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide information concerning the identification data that is advised to be modified.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IdentificationModification1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record IdentificationModification1
     /// <summary>
     /// Unique identification, as assigned by a sending party, to unambigiously identify the party and account identification information group within the message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Provides party and/or account identification information as given in the original message.
     /// </summary>
+    [DataMember]
     public IdentificationInformation1? OriginalPartyAndAccountIdentification { get; init; } 
     /// <summary>
     /// Provides updated party and/or account identification information.
     /// </summary>
+    [DataMember]
     public required IdentificationInformation1 UpdatedPartyAndAccountIdentification { get; init; } 
     /// <summary>
     /// Additional information, in free text form, to complement the modification information.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? AdditionalInformation { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Order to invest the investor's principal in an investment fund.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SubscriptionBulkOrder3
 {
     #nullable enable
@@ -20,58 +22,72 @@ public partial record SubscriptionBulkOrder3
     /// <summary>
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
+    [DataMember]
     public PlaceOfTradeIdentification1Choice_? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Date and time at which the order was placed by the investor.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OrderDateTime { get; init; } 
     /// <summary>
     /// Date on which the order expires.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? ExpiryDateTime { get; init; } 
     /// <summary>
     /// Future date at which the investor requests the order to be executed.|The specification of a requested future trade date is not allowed in some markets. The date must be a date in the future.
     /// </summary>
+    [DataMember]
     public IsoISODate? RequestedFutureTradeDate { get; init; } 
     /// <summary>
     /// Cancellation right of an investor with respect to an investment fund order.
     /// </summary>
+    [DataMember]
     public CancellationRight1Code? CancellationRight { get; init; } 
     /// <summary>
     /// Cancellation right of an investor with respect to an investment fund order.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedCancellationRight { get; init; } 
     /// <summary>
     /// Investment fund class related to an order.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument10 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Order to invest the investor's principal in an investment fund.
     /// </summary>
-    public SubscriptionOrder5[] IndividualOrderDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SubscriptionOrder5> IndividualOrderDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency requested for settlement of cash proceeds.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? RequestedSettlementCurrency { get; init; } 
     /// <summary>
     /// Currency to be used for pricing the fund. This currency must be among the set of currencies in which the price may be expressed, as stated in the prospectus.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? RequestedNAVCurrency { get; init; } 
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the multiple order.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalSettlementAmount { get; init; } 
     /// <summary>
     /// Date on which cash is available.
     /// </summary>
+    [DataMember]
     public IsoISODate? CashSettlementDate { get; init; } 
     /// <summary>
     /// Payment processes required to transfer cash from the debtor to the creditor.
     /// </summary>
+    [DataMember]
     public PaymentTransaction23? BulkCashSettlementDetails { get; init; } 
     
     #nullable disable

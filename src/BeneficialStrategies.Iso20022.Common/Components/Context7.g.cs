@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Context in which the card payment transaction is performed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Context7
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Context7
     /// <summary>
     /// Context of the card payment transaction at the point of service.
     /// </summary>
+    [DataMember]
     public PointOfServiceContext2? PointOfServiceContext { get; init; } 
     /// <summary>
     /// Context of the card payment transaction.
     /// </summary>
+    [DataMember]
     public TransactionContext4? TransactionContext { get; init; } 
     
     #nullable disable

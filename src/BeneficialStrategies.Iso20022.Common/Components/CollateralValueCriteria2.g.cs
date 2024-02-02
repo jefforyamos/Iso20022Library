@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria which are used to search for an account and to report on the account. A name may be given to the new query.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralValueCriteria2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CollateralValueCriteria2
     /// <summary>
     /// Name of the query defined by the search criteria and return criteria.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? QueryName { get; init; } 
     /// <summary>
     /// Defines the criteria to be used to extract the account information.
     /// </summary>
+    [DataMember]
     public CollateralValueSearchCriteria2? SearchCriteria { get; init; } 
     /// <summary>
     /// Defines the expected account report.
     /// </summary>
+    [DataMember]
     public CashAccountReturnCriteria2? ReturnCriteria { get; init; } 
     
     #nullable disable

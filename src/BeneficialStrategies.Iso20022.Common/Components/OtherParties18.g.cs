@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details about business parties involved in the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherParties18
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record OtherParties18
     /// <summary>
     /// Party that identifies the underlying investor.
     /// </summary>
-    public PartyIdentificationAndAccount79[] Investor { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyIdentificationAndAccount79> Investor { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that identifies the stock exchange.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount87? StockExchange { get; init; } 
     /// <summary>
     /// Party that identifies the trade regulator.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount87? TradeRegulator { get; init; } 
     /// <summary>
     /// Party that handles tri-party transactions.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount83? TripartyAgent { get; init; } 
     /// <summary>
     /// Foreign Financial Institution which has been authorised by local authorities to act as account management institution in the country.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount77? QualifiedForeignIntermediary { get; init; } 
     
     #nullable disable

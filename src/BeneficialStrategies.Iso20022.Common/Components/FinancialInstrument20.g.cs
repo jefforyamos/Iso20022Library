@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, eg, dividend option or valuation currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrument20
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record FinancialInstrument20
     /// <summary>
     /// Indicate whether or note it is possible to hold bearer units/shares in this class in certified form.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator PhysicalBearerSecurities { get; init; } 
     /// <summary>
     /// Indicate whether or not it is possible to hold bearer units/shares in paperless form.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator DematerialisedBearerSecurities { get; init; } 
     /// <summary>
     /// Indicate whether or not it is possible to hold registered units/shares in this class in paperless form.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator PhysicalRegisteredSecurities { get; init; } 
     /// <summary>
     /// Indicate whether or not it is possible to hold registered units/shares in this class in paperless form.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator DematerialisedRegisteredSecurities { get; init; } 
     /// <summary>
     /// Income policy relating to a class type, ie, if income is paid out or retained in the fund.
     /// </summary>
+    [DataMember]
     public required DistributionPolicy1Code DistributionPolicy { get; init; } 
     /// <summary>
     /// Dividend policy of the fund, eg, cash, units.
     /// </summary>
+    [DataMember]
     public DividendPolicy1Code? DividendPolicy { get; init; } 
     /// <summary>
     /// Frequency with which the income is allocated to investors.
     /// </summary>
+    [DataMember]
     public EventFrequency5Code? DividendFrequency { get; init; } 
     /// <summary>
     /// Frequency with which the reinvestment takes place, This is the same or less than the dividend frequency.
     /// </summary>
+    [DataMember]
     public EventFrequency5Code? ReinvestmentFrequency { get; init; } 
     /// <summary>
     /// Front end charge on subscription orders for this class can be applied.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator FrontEndLoad { get; init; } 
     /// <summary>
     /// Exit charge (eg. CDSC) on redemption orders for this class can be applied.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator BackEndLoad { get; init; } 
     /// <summary>
     /// If a separate fee for switching between sub-funds of the same umbrella can be applied.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator SwitchFee { get; init; } 
     /// <summary>
     /// Indicates whether the investment fund class is subject to the European Union Saving Directive.
     /// </summary>
+    [DataMember]
     public required EUSavingsDirective1Code EUSavingsDirective { get; init; } 
     
     #nullable disable

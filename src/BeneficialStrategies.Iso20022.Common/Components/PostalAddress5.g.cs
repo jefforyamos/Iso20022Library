@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Address of a party expressed in a formal structure, usually according to the country's postal services specifications.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PostalAddress5
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record PostalAddress5
     /// <summary>
     /// Name of a street or thoroughfare.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? StreetName { get; init; } 
     /// <summary>
     /// Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? PostCodeIdentification { get; init; } 
     /// <summary>
     /// Name of a built-up area, with defined boundaries, and a local government.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TownName { get; init; } 
     /// <summary>
     /// Identifies a subdivision of a country eg, state, region, county.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CountrySubDivision { get; init; } 
     /// <summary>
     /// Nation with its own government.
     /// </summary>
+    [DataMember]
     public required CountryCode Country { get; init; } 
     
     #nullable disable

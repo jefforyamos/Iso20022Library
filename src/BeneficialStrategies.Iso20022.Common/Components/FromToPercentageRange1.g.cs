@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Range of percentage rates.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FromToPercentageRange1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FromToPercentageRange1
     /// <summary>
     /// Lower boundary of a range of percentage rates.
     /// </summary>
+    [DataMember]
     public required PercentageRangeBoundary1 From { get; init; } 
     /// <summary>
     /// Upper boundary of a range of percentage rates.
     /// </summary>
+    [DataMember]
     public required PercentageRangeBoundary1 To { get; init; } 
     
     #nullable disable

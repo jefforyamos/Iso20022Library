@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies attributes of a derivative based on Final ISDA Taxonomy v1.0 and Final ISDA Taxonomy v2.0 (https://www.isda.org/2018/02/20/final-isda-taxonomy-v1-0-and-final-isda-taxonomy-v2-0/).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProductClassification1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ProductClassification1
     /// <summary>
     /// Asset class of the underlying of the derivative (e.g. Interest Rate, Commodity, Equity).
     /// </summary>
+    [DataMember]
     public required IsoMax35Text AssetClass { get; init; } 
     /// <summary>
     /// Market of the underlying product (IR Swap, Freight, Precious/Non Precious).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? BaseProduct { get; init; } 
     /// <summary>
     /// Further details of the product type.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SubProduct { get; init; } 
     /// <summary>
     /// Further details if the asset class is commodity.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SubCommodity { get; init; } 
     /// <summary>
     /// Type of the transaction, for example, option, spot forward or exotic.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TransactionType { get; init; } 
     
     #nullable disable

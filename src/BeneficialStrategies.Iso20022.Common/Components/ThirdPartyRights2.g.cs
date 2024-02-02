@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about third party rights.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ThirdPartyRights2
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record ThirdPartyRights2
     /// <summary>
     /// Type of third party right.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Timestamp for the third party right.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? DateTime { get; init; } 
     /// <summary>
     /// Party that holds the third party right.
     /// </summary>
+    [DataMember]
     public PartyIdentification125Choice_? Holder { get; init; } 
     /// <summary>
     /// Identification of the holder with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
     /// <summary>
     /// Amount of the third party right.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Description of the third party right.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Description { get; init; } 
     
     #nullable disable

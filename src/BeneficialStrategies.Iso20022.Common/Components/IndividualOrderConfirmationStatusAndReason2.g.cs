@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status report of the individual orders confirmation that was previously received.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IndividualOrderConfirmationStatusAndReason2
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record IndividualOrderConfirmationStatusAndReason2
     /// <summary>
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the order, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Status of the order confirmation cancellation.
     /// </summary>
+    [DataMember]
     public required ConfirmationStatus1Choice_ Confirmation { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of an order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the order execution, as assigned by the confirming party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DealReference { get; init; } 
     /// <summary>
     /// Party that initiates the status of the order confirmation.
     /// </summary>
+    [DataMember]
     public PartyIdentification113? StatusInitiator { get; init; } 
     /// <summary>
     /// Account information of the individual order confirmation for which the status is given.
     /// </summary>
+    [DataMember]
     public InvestmentAccount58? InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Financial instrument information of the individual order confirmation for which the status is given.
     /// </summary>
+    [DataMember]
     public FinancialInstrument57? FinancialInstrumentDetails { get; init; } 
     
     #nullable disable

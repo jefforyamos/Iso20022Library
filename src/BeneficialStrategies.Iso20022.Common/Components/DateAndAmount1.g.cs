@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Date and amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DateAndAmount1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DateAndAmount1
     /// <summary>
     /// Date on which the amount is declared or registered.
     /// </summary>
+    [DataMember]
     public required IsoISODate Date { get; init; } 
     /// <summary>
     /// Amount of money.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

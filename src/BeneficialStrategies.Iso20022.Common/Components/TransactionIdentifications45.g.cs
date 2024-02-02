@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides unambiguous instruction or transaction identification information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionIdentifications45
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record TransactionIdentifications45
     /// <summary>
     /// Unique reference identifying the collateral management instruction from the client's point of view. Identifies the potential match.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ClientCollateralInstructionIdentification { get; init; } 
     /// <summary>
     /// Unique reference identifying the collateral management transaction from the client's point of view. Present in case of a decrease.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientCollateralTransactionIdentification { get; init; } 
     /// <summary>
     /// Reference assigned to the instruction by the triparty-agent/service-provider.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TripartyAgentServiceProviderCollateralInstructionIdentification { get; init; } 
     /// <summary>
     /// Unique reference identifying the triparty-agent/service-provider collateral management transaction from the triparty-agent's/service-provider's point of view.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TripartyAgentServiceProviderCollateralTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification (UTI) agreed upon by the two trade counterparties to identify the trade.
     /// </summary>
+    [DataMember]
     public IsoMax52Text? CommonTransactionIdentification { get; init; } 
     
     #nullable disable

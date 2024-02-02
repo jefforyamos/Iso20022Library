@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the response of a diagnostic from an ATM manager.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMDiagnosticResponse1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record ATMDiagnosticResponse1
     /// <summary>
     /// Environment of the ATM.
     /// </summary>
+    [DataMember]
     public required ATMEnvironment6 Environment { get; init; } 
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    public ATMCommand1[] Command { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCommand1> Command { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

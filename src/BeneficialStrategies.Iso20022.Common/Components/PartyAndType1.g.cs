@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Party type and party identification information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyAndType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PartyAndType1
     /// <summary>
     /// Type of additional party.
     /// </summary>
+    [DataMember]
     public required PartyType1Choice_ Type { get; init; } 
     /// <summary>
     /// Details related to the additional party.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? Party { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for which the collateral message has been cancelled.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralCancellationReason1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CollateralCancellationReason1
     /// <summary>
     /// Allows to provides additional information on the cancellation reason.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Allows to provide a cancellation reason using a code or proprietary reason.
     /// </summary>
+    [DataMember]
     public required CollateralCancellationType1Choice_ CancellationReasonCode { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// The final result of a single invoice financing request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancingResult1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record FinancingResult1
     /// <summary>
     /// Specifies the status of the financing request (e.g. financed. not financed).
     /// </summary>
+    [DataMember]
     public required RequestStatus1Code FinancingRequestStatus { get; init; } 
     /// <summary>
     /// Indicates the reasons that have determined the result of the single request.
     /// </summary>
+    [DataMember]
     public StatusReason4Choice_? StatusReason { get; init; } 
     /// <summary>
     /// Further details on the status reason.
     /// </summary>
-    public IsoMax105Text[] AdditionalStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax105Text> AdditionalStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates amount financed related to the request.
     /// </summary>
+    [DataMember]
     public FinancingRateOrAmountChoice_? FinancedAmount { get; init; } 
     
     #nullable disable

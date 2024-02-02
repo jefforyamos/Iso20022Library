@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Entity involved in an activity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification27
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PartyIdentification27
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text Name { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned to a party using a proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public GenericIdentification4? ProprietaryIdentification { get; init; } 
     /// <summary>
     /// Specifies the country of the party.
     /// </summary>
+    [DataMember]
     public required CountryCode Country { get; init; } 
     
     #nullable disable

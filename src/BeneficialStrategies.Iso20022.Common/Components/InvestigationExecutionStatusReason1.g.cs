@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the reason for a status on the execution of an investigation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestigationExecutionStatusReason1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InvestigationExecutionStatusReason1
     /// <summary>
     /// Provides the reason why the payment cancellation was rejected.
     /// </summary>
+    [DataMember]
     public PaymentCancellationRejection3Code? Rejected { get; init; } 
     /// <summary>
     /// Provides the reason why the payment cancellation is pending.
     /// </summary>
+    [DataMember]
     public PendingPaymentCancellationReason1Code? Pending { get; init; } 
     
     #nullable disable

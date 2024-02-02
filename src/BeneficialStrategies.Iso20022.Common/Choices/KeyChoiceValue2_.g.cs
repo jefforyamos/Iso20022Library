@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(KeyChoiceValue2.EncryptedKeyValue))]
 [KnownType(typeof(KeyChoiceValue2.TRRelatedData))]
+[DataContract]
 public abstract partial record KeyChoiceValue2_
 {
 }

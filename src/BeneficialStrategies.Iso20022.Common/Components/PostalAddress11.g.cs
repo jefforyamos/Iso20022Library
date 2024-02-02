@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information that locates and identifies a specific address, as defined by postal services.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PostalAddress11
 {
     #nullable enable
@@ -20,58 +22,72 @@ public partial record PostalAddress11
     /// <summary>
     /// Identifies the nature of the postal address.
     /// </summary>
+    [DataMember]
     public AddressType2Code? AddressType { get; init; } 
     /// <summary>
     /// Identification of a division of a large organisation or building.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Department { get; init; } 
     /// <summary>
     /// Identification of a sub-division of a large organisation or building.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? SubDepartment { get; init; } 
     /// <summary>
     /// Name of a street or thoroughfare.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? StreetName { get; init; } 
     /// <summary>
     /// Number that identifies the position of a building on a street.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? BuildingNumber { get; init; } 
     /// <summary>
     /// Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? PostCode { get; init; } 
     /// <summary>
     /// Name of a built-up area, with defined boundaries, and a local government.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TownName { get; init; } 
     /// <summary>
     /// Identifies a subdivision of a country such as state, region, county.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CountrySubDivision { get; init; } 
     /// <summary>
     /// Nation with its own government.
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, presented in free format text.
     /// </summary>
-    public IsoMax70Text[] AddressLine { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax70Text> AddressLine { get; init; } = [];
     /// <summary>
     /// Floor or storey within a building.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Floor { get; init; } 
     /// <summary>
     /// Numbered box in a post office, assigned to a person or organisation, where letters are kept until called for.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? PostBox { get; init; } 
     /// <summary>
     /// Name of the building or house.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? BuildingName { get; init; } 
     /// <summary>
     /// Building room number.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Room { get; init; } 
     
     #nullable disable

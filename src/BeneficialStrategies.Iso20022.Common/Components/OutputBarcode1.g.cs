@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Barcode content to display or print.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OutputBarcode1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record OutputBarcode1
     /// <summary>
     /// Type of Barcode coding.
     /// </summary>
+    [DataMember]
     public required BarcodeType1Code BarcodeType { get; init; } 
     /// <summary>
     /// Value with a Barcode coding.
     /// </summary>
+    [DataMember]
     public IsoMax8000Text? BarcodeValue { get; init; } 
     /// <summary>
     /// Use for binary and Kanji Quick Respone Code.
     /// </summary>
+    [DataMember]
     public IsoMax3000Binary? QRCodeBinaryValue { get; init; } 
     /// <summary>
     /// Version of the Quick Response Code.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? QRCodeVersion { get; init; } 
     /// <summary>
     /// Encoding Mode of Quick Response Code.
     /// </summary>
+    [DataMember]
     public required QRCodeEncodingMode1Code QRCodeEncodingMode { get; init; } 
     /// <summary>
     /// Error Correction mode of Quick Response Code.
     /// </summary>
+    [DataMember]
     public QRCodeErrorCorrection1Code? QRCodeErrorCorrection { get; init; } 
     
     #nullable disable

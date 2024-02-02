@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information used to calculate the tax.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxCalculationInformation10
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TaxCalculationInformation10
     /// <summary>
     /// Form of the rebate, for example, cash.
     /// </summary>
+    [DataMember]
     public TaxBasis1Choice_? Basis { get; init; } 
     /// <summary>
     /// Amount of money on which the tax is charged.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TaxableAmount { get; init; } 
     
     #nullable disable

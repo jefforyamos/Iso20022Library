@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reconciliation transaction
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transaction94
 {
     #nullable enable
@@ -20,36 +22,44 @@ public partial record Transaction94
     /// <summary>
     /// Type of reconciliation.
     /// </summary>
+    [DataMember]
     public required ReconciliationFunction1Code ReconciliationFunction { get; init; } 
     /// <summary>
     /// Type of reconciliation.
     /// </summary>
+    [DataMember]
     public required CardServiceType4Code ReconciliationType { get; init; } 
     /// <summary>
     /// Other type of reconciliation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherReconciliationType { get; init; } 
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
+    [DataMember]
     public TransactionIdentification12? TransactionIdentification { get; init; } 
     /// <summary>
     /// Requested currency by the acceptor.
     /// ISO 4217
     /// </summary>
-    public IsoExact3NumericText[] RequestedCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoExact3NumericText> RequestedCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Totals of the reconciliation.
     /// </summary>
-    public TransactionTotals11[] ReconciliationTotals { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionTotals11> ReconciliationTotals { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    public AdditionalFee1[] AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalFee1> AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

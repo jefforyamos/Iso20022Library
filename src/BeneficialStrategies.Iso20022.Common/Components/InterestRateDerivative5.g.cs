@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the interest rate derivative specific elements for interest rate derivatives as defined in the local regulation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InterestRateDerivative5
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record InterestRateDerivative5
     /// <summary>
     /// Specific details on the underlying type of the interest rate derivative.
     /// </summary>
+    [DataMember]
     public required InterestRateDerivative2Choice_ UnderlyingType { get; init; } 
     /// <summary>
     /// Populated when the underlying type is a bond or a bond future. Details the issuer and maturity date of the bond.
     /// </summary>
+    [DataMember]
     public BondDerivative2? UnderlyingBond { get; init; } 
     /// <summary>
     /// Notional currency of a swaption.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? SwaptionNotionalCurrency { get; init; } 
     /// <summary>
     /// Maturity date of the underlying swap, populated for swaptions, futures on swaps and forwards on a swap only.
     /// </summary>
+    [DataMember]
     public IsoISODate? UnderlyingSwapMaturityDate { get; init; } 
     /// <summary>
     /// Populated to define the inflation index.
     /// </summary>
+    [DataMember]
     public InflationIndex1Choice_? InflationIndex { get; init; } 
     /// <summary>
     /// Provides the interest rate against a reference rate and term in number of days, weeks, months or years.
     /// </summary>
+    [DataMember]
     public required FloatingInterestRate8 InterestRateReference { get; init; } 
     
     #nullable disable

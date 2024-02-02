@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the prices related to a corporate action option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PriceDetails3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PriceDetails3
     /// <summary>
     /// 1. Price at which security will be purchased/sold if warrant is exercised, either as an actual amount or a percentage.|2. Price at which a bond is converted to underlying security either as an actual amount or a percentage.|3. Strike price of an option, represented either as an actual amount, a percentage or a number of points above an index.
     /// </summary>
+    [DataMember]
     public PriceFormat23Choice_? ExercisePrice { get; init; } 
     /// <summary>
     /// Generic cash price paid per product by the underlying security holder either as a percentage or an amount, for example, reinvestment price.
     /// </summary>
+    [DataMember]
     public PriceFormat19Choice_? GenericCashPricePaidPerProduct { get; init; } 
     /// <summary>
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, for example, redemption price.
     /// </summary>
+    [DataMember]
     public PriceFormat22Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
     
     #nullable disable

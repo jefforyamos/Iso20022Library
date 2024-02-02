@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Characteristics of the statement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Statement51
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record Statement51
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
+    [DataMember]
     public Number3Choice_? ReportNumber { get; init; } 
     /// <summary>
     /// Identification of the SecuritiesStatementQuery message sent to request this statement.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? QueryReference { get; init; } 
     /// <summary>
     /// Reference common to all pages of a statement.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? StatementIdentification { get; init; } 
     /// <summary>
     /// Date and time of the statement.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
+    [DataMember]
     public required Frequency26Choice_ Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
+    [DataMember]
     public required UpdateType16Choice_ UpdateType { get; init; } 
     /// <summary>
     /// Type of balance on which the statement is prepared.
     /// </summary>
+    [DataMember]
     public required StatementBasis9Choice_ StatementBasis { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the statement is audited or not.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator AuditedIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the statement reports holdings at subsafekeeping account level.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator SubAccountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the statement contains tax lot details.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? TaxLotIndicator { get; init; } 
     
     #nullable disable

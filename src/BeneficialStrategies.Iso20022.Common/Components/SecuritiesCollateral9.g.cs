@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of a security posted as collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesCollateral9
 {
     #nullable enable
@@ -20,58 +22,72 @@ public partial record SecuritiesCollateral9
     /// <summary>
     /// Register number of the collateral deposit assigned by the central counterparty.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AssetNumber { get; init; } 
     /// <summary>
     /// Identification of the security.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification19 SecurityIdentification { get; init; } 
     /// <summary>
     /// Planned final repayment date at the time of issuance.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? MaturityDate { get; init; } 
     /// <summary>
     /// Indicates whether the collateral is proprietarily owned or client owned.
     /// </summary>
+    [DataMember]
     public CollateralOwnership3? CollateralOwnership { get; init; } 
     /// <summary>
     /// Indicates that the collateral posted in the clearing house covers the margin until a specific timeframe.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? LimitedCoverageIndicator { get; init; } 
     /// <summary>
     /// Quantity of securities collateral.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Quantity blocked by the central counterparty for any reasonable reason ( for example for judicial reasons). In this case the investor can not withdraw or distribute this collateral.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? BlockedQuantity { get; init; } 
     /// <summary>
     /// Price of the security.
     /// </summary>
+    [DataMember]
     public Price7? Price { get; init; } 
     /// <summary>
     /// Value of the collateral based on current market prices.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? MarketValue { get; init; } 
     /// <summary>
     /// Haircut or valuation factor on the security expressed as a percentage.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Haircut { get; init; } 
     /// <summary>
     /// Value of the collateral after taking into account the haircut.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? CollateralValue { get; init; } 
     /// <summary>
     /// Valuation date of the securities taken as collateral.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValueDate { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [DataMember]
     public required SafekeepingPlaceFormat29Choice_ SafekeepingPlace { get; init; } 
     
     #nullable disable

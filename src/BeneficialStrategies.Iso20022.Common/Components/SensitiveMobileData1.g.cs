@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Sensitive information related to the mobile phone.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SensitiveMobileData1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SensitiveMobileData1
     /// <summary>
     /// identifies the mobile - Mobile Subscriber Integrated Service Digital Network (The SIM identifier).
     /// </summary>
+    [DataMember]
     public required IsoMax35NumericText MSISDN { get; init; } 
     /// <summary>
     /// International Mobile Subscriber Identity is a unique number associated with the mobile phone user, containing the Mobile Country Code (MCC), the Mobile Network Code (MNC), and the Mobile Identification Number (MSIN).
     /// </summary>
+    [DataMember]
     public IsoMax35NumericText? IMSI { get; init; } 
     /// <summary>
     /// International Mobile Equipment Identity is a number usually unique to identify a mobile phone.
     /// </summary>
+    [DataMember]
     public IsoMax35NumericText? IMEI { get; init; } 
     
     #nullable disable

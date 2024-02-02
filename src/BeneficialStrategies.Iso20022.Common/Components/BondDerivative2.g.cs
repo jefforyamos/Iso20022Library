@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transparency calculation specific details on a bond derivative.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BondDerivative2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record BondDerivative2
     /// <summary>
     /// Legal Entity Identifier (LEI) code of the issuer of the direct or ultimate underlying bond.
     /// </summary>
+    [DataMember]
     public required IsoLEIIdentifier Issuer { get; init; } 
     /// <summary>
     /// Date of maturity of the underlying bond. This field applies to debt instruments with defined maturity.
     /// </summary>
+    [DataMember]
     public IsoISODate? MaturityDate { get; init; } 
     /// <summary>
     /// Populated with the issuance date of the underlying bond.
     /// </summary>
+    [DataMember]
     public IsoISODate? IssuanceDate { get; init; } 
     
     #nullable disable

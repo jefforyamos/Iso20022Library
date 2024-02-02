@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details of the identification assignment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IdentificationAssignment2
 {
     #nullable enable
@@ -21,26 +23,32 @@ public partial record IdentificationAssignment2
     /// Point to point reference, as assigned by the assigner, and sent to the next party in the chain to unambiguously identify the message.
     /// Usage: The assigner has to make sure that MessageIdentification is unique per assignee for a pre-agreed period.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the identification assignment was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Party that created the identification assignment.
     /// </summary>
+    [DataMember]
     public Party12Choice_? Creator { get; init; } 
     /// <summary>
     /// Identifies the first agent in the identification chain, following the payment initiating party.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? FirstAgent { get; init; } 
     /// <summary>
     /// Party that assigns the identification assignment to another party. This is also the sender of the message.
     /// </summary>
+    [DataMember]
     public required Party12Choice_ Assigner { get; init; } 
     /// <summary>
     /// Party that the identification assignment is assigned to. This is also the receiver of the message.
     /// </summary>
+    [DataMember]
     public required Party12Choice_ Assignee { get; init; } 
     
     #nullable disable

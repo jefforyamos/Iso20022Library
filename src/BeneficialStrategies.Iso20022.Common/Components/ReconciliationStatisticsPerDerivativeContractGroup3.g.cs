@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed statistics on derivatives submitted for reconciliation per group of derivative contract.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReconciliationStatisticsPerDerivativeContractGroup3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ReconciliationStatisticsPerDerivativeContractGroup3
     /// <summary>
     /// Detailed statistics on privately traded over-the-counter derivatives.
     /// </summary>
+    [DataMember]
     public required ReconciliationStatisticsPerDerivativeType3 OTC { get; init; } 
     /// <summary>
     /// Detailed statistics on exchange-traded derivatives.
     /// </summary>
+    [DataMember]
     public required ReconciliationStatisticsPerDerivativeType3 ETD { get; init; } 
     
     #nullable disable

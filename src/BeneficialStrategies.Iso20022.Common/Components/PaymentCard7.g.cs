@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment card performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentCard7
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record PaymentCard7
     /// <summary>
     /// Replacement of the message element PlainCardData by a digital envelope using a cryptographic key.
     /// </summary>
+    [DataMember]
     public ContentInformationType7? ProtectedCardData { get; init; } 
     /// <summary>
     /// Sensitive data associated with the card performing the transaction.
     /// </summary>
+    [DataMember]
     public PlainCardData4? PlainCardData { get; init; } 
     /// <summary>
     /// Country code assigned to the card by the card issuer.
     /// </summary>
+    [DataMember]
     public IsoMax3Text? CardCountryCode { get; init; } 
     /// <summary>
     /// Currency code of the card issuer (ISO 4217 numeric code).
     /// </summary>
+    [DataMember]
     public IsoExact3NumericText? CardCurrencyCode { get; init; } 
     /// <summary>
     /// Defines a category of cards related to the acceptance processing rules defined by the acquirer.
     /// </summary>
+    [DataMember]
     public IsoExact4NumericText? CardProductProfile { get; init; } 
     /// <summary>
     /// Brand name of the card.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CardBrand { get; init; } 
     /// <summary>
     /// Additional card issuer specific data.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AdditionalCardData { get; init; } 
     
     #nullable disable

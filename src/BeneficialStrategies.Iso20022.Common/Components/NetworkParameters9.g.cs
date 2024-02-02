@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters to communicate with a host.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NetworkParameters9
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NetworkParameters9
     /// <summary>
     /// Type of communication network.
     /// </summary>
+    [DataMember]
     public required NetworkType1Code NetworkType { get; init; } 
     /// <summary>
     /// Value of the address. The value of an internet protocol address contains the IP address or the DNS (Domain Name Server) address, followed by the character ': ' and the port number if the default port is not used. The value of a public telephone address contains the phone number with possible prefix and extensions.
     /// </summary>
+    [DataMember]
     public required IsoMax500Text AddressValue { get; init; } 
     
     #nullable disable

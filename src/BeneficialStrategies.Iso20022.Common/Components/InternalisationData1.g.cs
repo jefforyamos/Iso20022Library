@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the aggregated data and failed rate of internalised settlement instructions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InternalisationData1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InternalisationData1
     /// <summary>
     /// Aggregated volume and value of settled,  failed, total of internalised settlement instructions performed during the period covered by the report, for financial instruments, types of transactions, types of clients and cash transfers.
     /// </summary>
+    [DataMember]
     public required InternalisationData2 Aggregate { get; init; } 
     /// <summary>
     /// Rate of failed internalised settlement instructions compared to the total volume and value, of internalised settlement instructions performed (settled and failed) during the period covered by the report.
     /// </summary>
+    [DataMember]
     public required InternalisationDataRate1 FailedRate { get; init; } 
     
     #nullable disable

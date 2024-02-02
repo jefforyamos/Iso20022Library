@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide information on the original group, to which the message refers.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalGroupInformation22
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record OriginalGroupInformation22
     /// <summary>
     /// Point to point reference, as assigned by the original instructing party, to unambiguously identify the original message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalMessageIdentification { get; init; } 
     /// <summary>
     /// Specifies the original message name identifier to which the message refers.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalMessageNameIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the original message was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OriginalCreationDateTime { get; init; } 
     /// <summary>
     /// Set of elements used to provide detailed information on the reversal reason.
     /// </summary>
-    public ReversalReasonInformation6[] ReversalReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReversalReasonInformation6> ReversalReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the future status of the transaction by means of a code and a period.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionStatus5
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TransactionStatus5
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
+    [DataMember]
     public required BaselineStatus3Code Status { get; init; } 
     /// <summary>
     /// Date and time at which the current status will change.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime ChangeDateTime { get; init; } 
     /// <summary>
     /// Additional information on the reason for the time-out.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     
     #nullable disable

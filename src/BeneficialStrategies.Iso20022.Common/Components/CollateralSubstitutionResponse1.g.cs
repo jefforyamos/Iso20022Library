@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details about the accepted collateral substitution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralSubstitutionResponse1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CollateralSubstitutionResponse1
     /// <summary>
     /// Reference to the collateral substitution request identification.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text CollateralSubstitutionRequestIdentification { get; init; } 
     /// <summary>
     /// Provides the accepted collateral substitution amount.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? AcceptedAmount { get; init; } 
     
     #nullable disable

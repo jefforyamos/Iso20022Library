@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters associated to the MAC algorithm.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Parameter7
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Parameter7
     /// <summary>
     /// Initialisation vector of a cipher block chaining (CBC) mode encryption.
     /// </summary>
+    [DataMember]
     public IsoMax500Binary? InitialisationVector { get; init; } 
     /// <summary>
     /// Byte padding for a cypher block chaining mode encryption, if the padding is not implicit.
     /// </summary>
+    [DataMember]
     public BytePadding1Code? BytePadding { get; init; } 
     
     #nullable disable

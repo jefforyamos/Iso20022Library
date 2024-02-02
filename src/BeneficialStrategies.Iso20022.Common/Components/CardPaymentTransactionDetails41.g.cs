@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the transaction in the authorisation request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentTransactionDetails41
 {
     #nullable enable
@@ -20,66 +22,82 @@ public partial record CardPaymentTransactionDetails41
     /// <summary>
     /// Currency associated with the transaction.
     /// </summary>
+    [DataMember]
     public required CurrencyCode Currency { get; init; } 
     /// <summary>
     /// Total amount of the transaction.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount TotalAmount { get; init; } 
     /// <summary>
     /// Qualifies the amount associated with the transaction.
     /// </summary>
+    [DataMember]
     public TypeOfAmount8Code? AmountQualifier { get; init; } 
     /// <summary>
     /// Detailed amounts associated with the total amount of transaction.
     /// </summary>
+    [DataMember]
     public DetailedAmount15? DetailedAmount { get; init; } 
     /// <summary>
     /// Transaction authorisation deadline to complete the related payment.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValidityDate { get; init; } 
     /// <summary>
     /// Reason to process an online authorisation.
     /// </summary>
+    [DataMember]
     public OnLineReason1Code? OnLineReason { get; init; } 
     /// <summary>
     /// Transaction category level on an unattended POI (Point Of Interaction).
     /// </summary>
+    [DataMember]
     public IsoMax35NumericText? UnattendedLevelCategory { get; init; } 
     /// <summary>
     /// Type of cardholder account used for the transaction.
     /// </summary>
+    [DataMember]
     public CardAccountType3Code? AccountType { get; init; } 
     /// <summary>
     /// Result of the currency conversion proposed to the cardholder.
     /// </summary>
+    [DataMember]
     public CurrencyConversion13? CurrencyConversionResult { get; init; } 
     /// <summary>
     /// Data related to a financial loan (instalment) or to a recurring transaction.
     /// </summary>
+    [DataMember]
     public RecurringTransaction2? Instalment { get; init; } 
     /// <summary>
     /// Payment transaction with an aggregated amount.
     /// </summary>
+    [DataMember]
     public AggregationTransaction2? AggregationTransaction { get; init; } 
     /// <summary>
     /// Codification used to identify the products.
     /// </summary>
+    [DataMember]
     public IsoMax10Text? ProductCodeSetIdentification { get; init; } 
     /// <summary>
     /// Item purchased with the transaction.
     /// </summary>
-    public Product3[] SaleItem { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Product3> SaleItem { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Location of the delivery, for instance pump number or parking bay.
     /// </summary>
+    [DataMember]
     public IsoMax10Text? DeliveryLocation { get; init; } 
     /// <summary>
     /// Detailed invoice data.
     /// </summary>
+    [DataMember]
     public CardPaymentInvoice2? CardPaymentInvoice { get; init; } 
     /// <summary>
     /// Data related to an integrated circuit card application.
     /// </summary>
+    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     
     #nullable disable

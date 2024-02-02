@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the creditor enrolment to be cancelled.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditorEnrolmentCancellation2
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record CreditorEnrolmentCancellation2
     /// <summary>
     /// Unique identification of the original instruction.
     /// </summary>
+    [DataMember]
     public OriginalBusinessInstruction1? OriginalBusinessInstruction { get; init; } 
     /// <summary>
     /// Provides detailed information on the cancellation reason.
     /// </summary>
+    [DataMember]
     public CreditorEnrolmentCancellationReason2? CancellationReason { get; init; } 
     /// <summary>
     /// Provides the original creditor enrolment data.
     /// </summary>
+    [DataMember]
     public required OriginalEnrolment2Choice_ OriginalEnrolment { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

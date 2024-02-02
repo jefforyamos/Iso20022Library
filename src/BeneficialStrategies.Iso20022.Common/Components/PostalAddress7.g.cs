@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information that locates and identifies a specific address, as defined by postal services.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PostalAddress7
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PostalAddress7
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, that is presented in free format text.
     /// </summary>
-    public IsoRestrictedFINMax35Text[] AddressLine { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoRestrictedFINMax35Text> AddressLine { get; init; } = [];
     /// <summary>
     /// Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINMax8Text? PostCode { get; init; } 
     /// <summary>
     /// Name of a built-up area, with defined boundaries, and a local government.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINMax23Text? TownName { get; init; } 
     /// <summary>
     /// Nation with its own government.
     /// </summary>
+    [DataMember]
     public required CountryCode Country { get; init; } 
     
     #nullable disable

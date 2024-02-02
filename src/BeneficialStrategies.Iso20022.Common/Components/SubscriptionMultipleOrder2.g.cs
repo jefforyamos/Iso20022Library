@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Order to invest the investor's principal in an investment fund.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SubscriptionMultipleOrder2
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record SubscriptionMultipleOrder2
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
+    [DataMember]
     public CountryCode? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Date the investor places the order.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OrderDateTime { get; init; } 
     /// <summary>
     /// Date on which the order expires.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ExpiryDateTime { get; init; } 
     /// <summary>
     /// Cancellation right of an investor with respect to an investment fund order.
     /// </summary>
+    [DataMember]
     public CancellationRight1? CancellationRight { get; init; } 
     /// <summary>
     /// Account impacted by an investment fund order.
     /// </summary>
+    [DataMember]
     public required InvestmentAccount13 InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Additional information about the beneficial owner.
     /// </summary>
+    [DataMember]
     public IndividualPerson2? BeneficiaryDetails { get; init; } 
     /// <summary>
     /// Order to invest the investor's principal in an investment fund.
     /// </summary>
-    public SubscriptionOrder4[] IndividualOrderDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SubscriptionOrder4> IndividualOrderDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment transaction resulting from the investment fund order execution.
     /// </summary>
+    [DataMember]
     public PaymentTransaction19? BulkCashSettlementDetails { get; init; } 
     
     #nullable disable

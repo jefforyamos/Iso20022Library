@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status of a system and the period of time during which the status is valid.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemStatus3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SystemStatus3
     /// <summary>
     /// Current status of a system.
     /// </summary>
+    [DataMember]
     public required SystemStatus2Choice_ Status { get; init; } 
     /// <summary>
     /// Period of time during which the status of the system is valid.
     /// </summary>
+    [DataMember]
     public DateTimePeriod1Choice_? ValidityTime { get; init; } 
     
     #nullable disable

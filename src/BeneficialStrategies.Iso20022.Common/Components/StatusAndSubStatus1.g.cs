@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the status and optionally the sub status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatusAndSubStatus1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record StatusAndSubStatus1
     /// <summary>
     /// Status expressed as a code.
     /// </summary>
+    [DataMember]
     public required Status13Choice_ StatusCode { get; init; } 
     /// <summary>
     /// Sub status expressed as a code.
     /// </summary>
+    [DataMember]
     public IsoExact4AlphaNumericText? SubStatusCode { get; init; } 
     
     #nullable disable

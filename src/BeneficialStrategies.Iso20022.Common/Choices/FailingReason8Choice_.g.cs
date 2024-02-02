@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(FailingReason8Choice.Code))]
 [KnownType(typeof(FailingReason8Choice.Proprietary))]
+[DataContract]
 public abstract partial record FailingReason8Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information on the system restriction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemRestriction1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SystemRestriction1
     /// <summary>
     /// Specifies the date from which the restriction is valid.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime ValidFrom { get; init; } 
     /// <summary>
     /// Specifies the date until which the restriction is valid.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ValidTo { get; init; } 
     /// <summary>
     /// Specifies the identification of a restriction.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     
     #nullable disable

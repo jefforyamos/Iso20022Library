@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Instrument used to process a payment instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentInstrument13
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record PaymentInstrument13
     /// <summary>
     /// Currency associated with the payment instrument.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
     /// <summary>
     /// Percentage of the dividend payment not to be reinvested, that is, to be paid in cash.
     /// </summary>
+    [DataMember]
     public IsoPercentageBoundedRate? DividendPercentage { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a subscription payment.
     /// </summary>
+    [DataMember]
     public PaymentInstrument18Choice_? SubscriptionPaymentInstrument { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a redemption payment.
     /// </summary>
+    [DataMember]
     public PaymentInstrument19Choice_? RedemptionPaymentInstrument { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a dividend payment.
     /// </summary>
+    [DataMember]
     public PaymentInstrument19Choice_? DividendPaymentInstrument { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a savings plan payment.
     /// </summary>
+    [DataMember]
     public PaymentInstrument18Choice_? SavingsPlanPaymentInstrument { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for an interest payment.
     /// </summary>
+    [DataMember]
     public PaymentInstrument19Choice_? InterestPaymentInstrument { get; init; } 
     
     #nullable disable

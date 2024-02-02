@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria which are used to search for generated report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportQueryCriteria2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ReportQueryCriteria2
     /// <summary>
     /// Name of the query defined by the search criteria and return criteria. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NewQueryName { get; init; } 
     /// <summary>
     /// Defines the criteria to be used to extract the account information.
     /// </summary>
+    [DataMember]
     public required ReportQuerySearchCriteria2 SearchCriteria { get; init; } 
     
     #nullable disable

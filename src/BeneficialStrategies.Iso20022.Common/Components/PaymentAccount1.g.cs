@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Bank account used by a central counterparty to allow for the convenient settlement of obligations between a central counterparty and a clearing member, typically in commercial bank money.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentAccount1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PaymentAccount1
     /// <summary>
     /// Specifies the currency of the account
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Total value of actual flows to and from clearing members via payment banks in the embedded system in each currency.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection86 NetPayment { get; init; } 
     /// <summary>
     /// Number of payment bank account pay‐ins breaching the allowed time between instruction and confirmation. Usage: nil returns to be included for late payment confirmations in all cleared currencies.
     /// </summary>
+    [DataMember]
     public required IsoMax10NumericText LatePaymentConfirmation { get; init; } 
     
     #nullable disable

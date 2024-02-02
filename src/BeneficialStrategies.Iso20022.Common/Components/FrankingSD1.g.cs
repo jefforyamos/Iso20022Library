@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Franking details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FrankingSD1
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record FrankingSD1
     /// <summary>
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Dividend / Distribution kind where the franking information apples to.
     /// </summary>
+    [DataMember]
     public required FrankingClass1Code FrankingClass { get; init; } 
     /// <summary>
     /// Indicator if the dividend is fully franked.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? FullyFrankedIndicator { get; init; } 
     /// <summary>
     /// Percentage of dividend that is franked.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? FrankedPercentage { get; init; } 
     /// <summary>
     /// Percentage of dividend that is unfranked.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? UnfrankedPercentage { get; init; } 
     /// <summary>
     /// The corporate tax rate for the for franking credit of the dividend.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? CorporateTaxRateForFrankingCredit { get; init; } 
     /// <summary>
     /// Cents amount of the dividend which has been franked at 30%.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? FrankedAmountPerSecurity { get; init; } 
     /// <summary>
     /// Amount of the dividend which has been unfranked.|
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? UnfrankedAmountPerSecurity { get; init; } 
     /// <summary>
     /// Conduit foreign income (CFI) amount related to the corporate action.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? ConduitForeignIncomeAmount { get; init; } 
     
     #nullable disable

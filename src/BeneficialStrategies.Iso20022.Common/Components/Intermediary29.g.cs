@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Party that provides services to investors relating to financial products.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Intermediary29
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record Intermediary29
     /// <summary>
     /// Unique and unambiguous identifier of the intermediary.
     /// </summary>
+    [DataMember]
     public required PartyIdentification100 Identification { get; init; } 
     /// <summary>
     /// Function performed by the intermediary.
     /// </summary>
+    [DataMember]
     public required Role5Choice_ Role { get; init; } 
     /// <summary>
     /// Counterparties eligibility as defined by article 24 of the EU MiFID Directive applicable to transactions executed by investment firms for eligible counterparties.
     /// </summary>
+    [DataMember]
     public OrderOriginatorEligibility1Code? OrderOriginatorEligibility { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

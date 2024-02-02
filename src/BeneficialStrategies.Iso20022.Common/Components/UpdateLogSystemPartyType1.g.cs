@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the old and new values for the type of a system party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UpdateLogSystemPartyType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record UpdateLogSystemPartyType1
     /// <summary>
     /// Old value before the update.
     /// </summary>
+    [DataMember]
     public required SystemPartyType1Choice_ Old { get; init; } 
     /// <summary>
     /// New value after the update.
     /// </summary>
+    [DataMember]
     public required SystemPartyType1Choice_ New { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Requirement for a clearing member to post collateral at a central counterparty with respect to a default fund.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DefaultFundRequirement1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DefaultFundRequirement1
     /// <summary>
     /// Identification of the clearing member.
     /// </summary>
+    [DataMember]
     public required GenericIdentification165 ClearingMemberIdentification { get; init; } 
     /// <summary>
     /// Central counterparty's identification of the service where default fund contributions are made at the service level.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ServiceIdentification { get; init; } 
     /// <summary>
     /// Clearing member's pre-funded default fund requirement for the default fund at the central counterparty.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Communication device number or electronic address used for communication.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherContact1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record OtherContact1
     /// <summary>
     /// Method used to contact the financial institution’s contact for the specific tax region.
     /// </summary>
+    [DataMember]
     public required IsoMax4Text ChannelType { get; init; } 
     /// <summary>
     /// Communication value such as phone number or email address.
     /// </summary>
+    [DataMember]
     public IsoMax128Text? Identification { get; init; } 
     
     #nullable disable

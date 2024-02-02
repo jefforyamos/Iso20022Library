@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Structured information supplied to enable the matching, i.e. reconciliation, of a payment with the items that the payment is intended to settle, eg, commercial invoices in an accounts receivable system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StructuredRemittanceInformation6
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record StructuredRemittanceInformation6
     /// <summary>
     /// Reference information to allow the identification of the underlying reference documents.
     /// </summary>
+    [DataMember]
     public ReferredDocumentInformation1? ReferredDocumentInformation { get; init; } 
     /// <summary>
     /// Date associated with the referred document, eg, date of issue.
     /// </summary>
+    [DataMember]
     public IsoISODate? ReferredDocumentRelatedDate { get; init; } 
     /// <summary>
     /// Amount of money and currency of a document referred to in the remittance section. The amount is typically either the original amount due and payable, or the amount actually remitted for the referred document.
     /// </summary>
-    public ReferredDocumentAmount1Choice_[] ReferredDocumentAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReferredDocumentAmount1Choice_> ReferredDocumentAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Reference information provided by the creditor to allow the identification of the underlying documents.
     /// </summary>
+    [DataMember]
     public CreditorReferenceInformation1? CreditorReferenceInformation { get; init; } 
     /// <summary>
     /// Identification of the organization issuing the invoice when different than the creditor or final party.
     /// </summary>
+    [DataMember]
     public PartyIdentification8? Invoicer { get; init; } 
     /// <summary>
     /// Identification of the party to whom an invoice is issued, when different than the originator or debtor.
     /// </summary>
+    [DataMember]
     public PartyIdentification8? Invoicee { get; init; } 
     /// <summary>
     /// Additional information, in free text form, to complement the structured remittance information.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? AdditionalRemittanceInformation { get; init; } 
     
     #nullable disable

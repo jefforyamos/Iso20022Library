@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Execution of a subscription order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SubscriptionMultipleExecution5
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record SubscriptionMultipleExecution5
     /// <summary>
     /// Indicates whether the confirmation is an amendment of a previous confirmation.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AmendmentIndicator { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual orders, as assigned by the instructing party. This identifier links the individual orders together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
+    [DataMember]
     public PlaceOfTradeIdentification1Choice_? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Date and time at which the order was placed by the investor or its agent.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OrderDateTime { get; init; } 
     /// <summary>
     /// Date and time the order was received by the executing party, for example, the transfer agent.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ReceivedDateTime { get; init; } 
     /// <summary>
     /// Future date at which the investor requests the order to be executed.|The specification of a requested future trade date is not allowed in some markets. The date must be a date in the future.
     /// </summary>
+    [DataMember]
     public IsoISODate? RequestedFutureTradeDate { get; init; } 
     /// <summary>
     /// Cancellation right of the investor with respect to the investment fund order.
     /// </summary>
+    [DataMember]
     public CancellationRight1Choice_? CancellationRight { get; init; } 
     /// <summary>
     /// Account impacted by the investment fund order execution.
     /// </summary>
+    [DataMember]
     public required InvestmentAccount58 InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Additional information about the investor.
     /// </summary>
-    public IndividualPerson32[] BeneficiaryDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IndividualPerson32> BeneficiaryDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Execution of a subscription order.
     /// </summary>
-    public SubscriptionExecution13[] IndividualExecutionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SubscriptionExecution13> IndividualExecutionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the multiple order.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalSettlementAmount { get; init; } 
     /// <summary>
     /// Payment process for the transfer of cash from the debtor to the creditor.
     /// </summary>
+    [DataMember]
     public PaymentTransaction70? BulkCashSettlementDetails { get; init; } 
     
     #nullable disable

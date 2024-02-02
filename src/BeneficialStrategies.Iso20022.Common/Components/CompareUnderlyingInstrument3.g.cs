@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for a underlying instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareUnderlyingInstrument3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareUnderlyingInstrument3
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public SecurityIdentification41Choice_? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public SecurityIdentification41Choice_? Value2 { get; init; } 
     
     #nullable disable

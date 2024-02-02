@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// List of centralised branch identifiers.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstitutionIdentificationList1
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record FinancialInstitutionIdentificationList1
     /// <summary>
     /// Repeated identifiers.
     /// </summary>
-    public FinancialInstitutionIdentification9[] List { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FinancialInstitutionIdentification9> List { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

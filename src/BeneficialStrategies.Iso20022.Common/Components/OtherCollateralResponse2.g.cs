@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides more details on the response such as the response type, the collateral identification, and optionally further details in case of rejection.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherCollateralResponse2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record OtherCollateralResponse2
     /// <summary>
     /// Specifies the status of the collateral proposal.
     /// </summary>
+    [DataMember]
     public required Status4Code ResponseType { get; init; } 
     /// <summary>
     /// Provides the identification of the proposed collateral.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CollateralIdentification { get; init; } 
     /// <summary>
     /// Identifies the register number of the collateral deposit assigned by the central counterparty.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AssetNumber { get; init; } 
     /// <summary>
     /// Specifies the reason why the instruction/cancellation request has a rejected status.
     /// </summary>
+    [DataMember]
     public RejectionReasonV021Code? RejectionReason { get; init; } 
     /// <summary>
     /// Additional information regarding why the collateral proposal has a rejected status.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RejectionInformation { get; init; } 
     
     #nullable disable

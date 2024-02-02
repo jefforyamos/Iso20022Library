@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(InRepairStatus2Choice.Reason))]
 [KnownType(typeof(InRepairStatus2Choice.DataSourceScheme))]
 [KnownType(typeof(InRepairStatus2Choice.NoReason))]
+[DataContract]
 public abstract partial record InRepairStatus2Choice_
 {
 }

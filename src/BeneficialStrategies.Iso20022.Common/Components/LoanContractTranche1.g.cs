@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the tranches defined for the loan contract.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoanContractTranche1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record LoanContractTranche1
     /// <summary>
     /// Unique sequence number of the tranche.
     /// </summary>
+    [DataMember]
     public required IsoNumber TrancheNumber { get; init; } 
     /// <summary>
     /// Expected tranche payment date.
     /// </summary>
+    [DataMember]
     public required IsoISODate ExpectedDate { get; init; } 
     /// <summary>
     /// Amount of the tranche as defined in the loan contract.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Loan tranche due date.
     /// </summary>
+    [DataMember]
     public IsoISODate? DueDate { get; init; } 
     /// <summary>
     /// Loan tranche duration in a coded form.
     /// </summary>
+    [DataMember]
     public IsoExact1NumericText? DurationCode { get; init; } 
     /// <summary>
     /// Indicates whether this tranche is the last tranche of the full report.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? LastTrancheIndicator { get; init; } 
     
     #nullable disable

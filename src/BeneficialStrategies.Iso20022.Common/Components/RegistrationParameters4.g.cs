@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to registration of securities.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RegistrationParameters4
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record RegistrationParameters4
     /// <summary>
     /// Identification assigned to a deposit.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CertificationIdentification { get; init; } 
     /// <summary>
     /// Date/time at which the certificates in the deposit were validated by the agent.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? CertificationDateTime { get; init; } 
     /// <summary>
     /// Account at the registrar where financial instruments are registered.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RegistrarAccount { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of a certificate assigned by the issuer.
     /// </summary>
-    public SecuritiesCertificate4[] CertificateNumber { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecuritiesCertificate4> CertificateNumber { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details on the settlement of the instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementInstruction10
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SettlementInstruction10
     /// <summary>
     /// Method used to settle the (batch of) payment instructions.
     /// </summary>
+    [DataMember]
     public required SettlementMethod1Code SettlementMethod { get; init; } 
     /// <summary>
     /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
     /// </summary>
+    [DataMember]
     public TrackerClearingSystemIdentification1? ClearingSystem { get; init; } 
     
     #nullable disable

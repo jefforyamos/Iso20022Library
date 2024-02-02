@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Report information about securities account reference data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesAccountAuditTrailReport3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SecuritiesAccountAuditTrailReport3
     /// <summary>
     /// Provides the returned securities account reference data or error information.
     /// </summary>
+    [DataMember]
     public required AuditTrailOrBusinessError6Choice_ SecuritiesAccountAuditTrailOrError { get; init; } 
     /// <summary>
     /// Period in dates for which the audit trail is provided.
     /// </summary>
+    [DataMember]
     public DatePeriodSearch1Choice_? DatePeriod { get; init; } 
     /// <summary>
     /// Identifies the securities account for which the audit trail is provided.
     /// </summary>
+    [DataMember]
     public required SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
     
     #nullable disable

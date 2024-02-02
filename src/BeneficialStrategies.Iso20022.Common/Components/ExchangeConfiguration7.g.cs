@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Configuration parameters of data exchanges.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExchangeConfiguration7
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record ExchangeConfiguration7
     /// <summary>
     /// Exchange policy between parties.
     /// </summary>
-    public ExchangePolicy1Code[] ExchangePolicy { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ExchangePolicy1Code> ExchangePolicy { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum number of transactions without exchange.
     /// </summary>
+    [DataMember]
     public IsoNumber? MaximumNumber { get; init; } 
     /// <summary>
     /// Maximum cumulative amount of the transactions without exchange.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? MaximumAmount { get; init; } 
     /// <summary>
     /// Definition of retry process if activation of an action fails.
     /// </summary>
+    [DataMember]
     public ProcessRetry2? ReTry { get; init; } 
     /// <summary>
     /// Timing condition for periodic exchanges.
     /// </summary>
+    [DataMember]
     public ProcessTiming4? TimeCondition { get; init; } 
     /// <summary>
     /// Failed transaction must be exchanged.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ExchangeFailed { get; init; } 
     /// <summary>
     /// Indicates that declined transaction must be exchanged.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ExchangeDeclined { get; init; } 
     
     #nullable disable

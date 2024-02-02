@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the terms of the foreign exchange transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ForeignExchangeTerms9
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ForeignExchangeTerms9
     /// <summary>
     /// Currency in which the rate of exchange is expressed in a currency exchange. In the example 1GBP = xxxCUR, the unit currency is GBP.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode UnitCurrency { get; init; } 
     /// <summary>
     /// Currency into which the base currency is converted, in a currency exchange.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode QuotedCurrency { get; init; } 
     /// <summary>
     /// Factor used for the conversion of an amount from one currency into another. This reflects the price at which one currency was bought with another currency.||Usage: ExchangeRate expresses the ratio between UnitCurrency and QuotedCurrency (ExchangeRate = UnitCurrency/QuotedCurrency).
     /// </summary>
+    [DataMember]
     public required IsoBaseOneRate ExchangeRate { get; init; } 
     /// <summary>
     /// Amount of money resulting from a foreign exchange transaction.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount ResultingAmount { get; init; } 
     /// <summary>
     /// Amount in its original currency when conversion from/into another currency has occurred.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? OriginalAmount { get; init; } 
     
     #nullable disable

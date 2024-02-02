@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines an encapsulated form of an ISO 20022 message and, if present, its associated Business Application Header. The encapsulation guarantees uniqueness of ID/IDREFs though the use of the Prefix element. This element can be added during message preparation to ID/IDREFs. In order to verify the signature in the Hdr element or inside the encapsulated message, for each occurrence of an ID orIDREF that possesses the same value as a prefix, the prefix part is removed before signature verification. This is not done for surrounding signatures.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EncapsulatedBusinessMessage1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record EncapsulatedBusinessMessage1
     /// <summary>
     /// The Business Application Header associated to the encapsulated message if it exists.
     /// </summary>
+    [DataMember]
     public BusinessApplicationHeader1? Header { get; init; } 
     /// <summary>
     /// Prefix of ID/IDREFs in the encapsulated message to be removed before signature verification.
     /// </summary>
+    [DataMember]
     public IsoID? Prefix { get; init; } 
     /// <summary>
     /// If yes, the Msg element contains only a subset of the original message.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Partial { get; init; } 
     /// <summary>
     /// The encapsulated ISO 20022 message.
     /// </summary>
+    [DataMember]
     public required StrictPayload Message { get; init; } 
     
     #nullable disable

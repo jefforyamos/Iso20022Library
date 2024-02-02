@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(FinancialInstrumentQuantity18Choice.Unit))]
 [KnownType(typeof(FinancialInstrumentQuantity18Choice.FaceAmount))]
+[DataContract]
 public abstract partial record FinancialInstrumentQuantity18Choice_
 {
 }

@@ -16,6 +16,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(InstructionProcessingStatus30Choice.DefaultAction))]
 [KnownType(typeof(InstructionProcessingStatus30Choice.StandingInstruction))]
 [KnownType(typeof(InstructionProcessingStatus30Choice.ProprietaryStatus))]
+[DataContract]
 public abstract partial record InstructionProcessingStatus30Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies prices of a corporate action.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionPrice57
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionPrice57
     /// <summary>
     /// Maximum or cap price at which a holder can bid, for example, on a Dutch auction offer.
     /// </summary>
+    [DataMember]
     public PriceFormat44Choice_? MaximumPrice { get; init; } 
     /// <summary>
     /// Minimum or floor price at which a holder can bid, for example, on a Dutch auction offer.
     /// </summary>
+    [DataMember]
     public PriceFormat44Choice_? MinimumPrice { get; init; } 
     
     #nullable disable

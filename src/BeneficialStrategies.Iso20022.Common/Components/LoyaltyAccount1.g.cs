@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Loyalty Account description.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoyaltyAccount1
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record LoyaltyAccount1
     /// <summary>
     /// Identification of Loyalty Account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LoyaltyIdentification { get; init; } 
     /// <summary>
     /// Standard or last entry mode to access the Loyalty account or card.
     /// </summary>
+    [DataMember]
     public CardDataReading6Code? EntryMode { get; init; } 
     /// <summary>
     /// Type of identification for this Loyalty Account.
     /// </summary>
+    [DataMember]
     public CardIdentificationType1Code? IdentificationType { get; init; } 
     /// <summary>
     /// Brand to which belong the account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Brand { get; init; } 
     /// <summary>
     /// Provider of the Loyalty Account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Provider { get; init; } 
     /// <summary>
     /// Owner name of an account.
     /// </summary>
+    [DataMember]
     public IsoMax45Text? OwnerName { get; init; } 
     /// <summary>
     /// Unit of a Loyalty Account (Point or Currency).
     /// </summary>
+    [DataMember]
     public AmountUnit1Code? Unit { get; init; } 
     /// <summary>
     /// Currency of a Loyalty Account if any.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Balance of a Loyalty Account.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? Balance { get; init; } 
     
     #nullable disable

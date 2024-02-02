@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the security option of a corporate event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesOption52
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SecuritiesOption52
     /// <summary>
     /// Minimum quantity of securities to be accepted (used in the framework of conditional privilege on election). In case of proration, if this minimum quantity is not reached then the instruction is void.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? ConditionalQuantity { get; init; } 
     /// <summary>
     /// Quantity of securities to which this instruction applies.
     /// </summary>
+    [DataMember]
     public required Quantity20Choice_ InstructedQuantity { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the details of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionDetails12
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TransactionDetails12
     /// <summary>
     /// Reference to the message advised to be cancelled by the account servicer.
     /// </summary>
+    [DataMember]
     public required References3Choice_ Reference { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification13Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public required SecuritiesAccount13 SafekeepingAccount { get; init; } 
     
     #nullable disable

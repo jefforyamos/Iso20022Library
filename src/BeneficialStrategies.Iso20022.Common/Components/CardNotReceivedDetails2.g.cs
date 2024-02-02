@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of a non-received card.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardNotReceivedDetails2
 {
     #nullable enable
@@ -20,33 +22,40 @@ public partial record CardNotReceivedDetails2
     /// <summary>
     /// Date of card when mailed to the cardholder.
     /// </summary>
+    [DataMember]
     public required IsoISODate DateOfCardMailed { get; init; } 
     /// <summary>
     /// Address where card was mailed to.
     /// </summary>
+    [DataMember]
     public Address2? MailingAddress { get; init; } 
     /// <summary>
     /// Unstructured mailing address where card was mailed to.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? MailingAddressUnstructured { get; init; } 
     /// <summary>
     /// Postal code where the card was mailed from.
     /// </summary>
+    [DataMember]
     public required IsoMax16Text MailedFromPostalCode { get; init; } 
     /// <summary>
     /// Date of the beginning of validation of the card.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValidFrom { get; init; } 
     /// <summary>
     /// Indicates whether card provides a Card Security Code.
     /// True: Card provides a Card Security Code.
     /// False: Card does not provide a Card Security Code.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CardSecurityCodeIndicator { get; init; } 
     /// <summary>
     /// Identifies the security capabilities of the card.
     /// </summary>
-    public CardSecurityCapability1[] CardSecurityCapability { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardSecurityCapability1> CardSecurityCapability { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

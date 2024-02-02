@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// List trading by which the buy-side provides details to the sell-side information about the sector, country, index and potential market impact of the financial instrument to be bought or sold. Using this information, the sell-side firms bid for the trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NonDisclosedBid2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record NonDisclosedBid2
     /// <summary>
     /// Identifies a type of bid based on a common characteristic (the currency) of all securities of a list.
     /// </summary>
+    [DataMember]
     public CountryCode? BidByCurrency { get; init; } 
     /// <summary>
     /// Identifies a type of bid based on a common characteristic (the sector) of all securities of a list.
     /// </summary>
+    [DataMember]
     public IsoMax128Text? BidBySector { get; init; } 
     /// <summary>
     /// Identifies a type of bid based on a common characteristic (the index) of all securities of a list.
     /// </summary>
+    [DataMember]
     public IsoMax128Text? BidByIndex { get; init; } 
     /// <summary>
     /// Difference between the value of a future and the value of the underlying equities after allowing for the discounted cash flows associated with the underlying stocks.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? FairValue { get; init; } 
     
     #nullable disable

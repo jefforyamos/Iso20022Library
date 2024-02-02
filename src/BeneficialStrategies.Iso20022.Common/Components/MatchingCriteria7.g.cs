@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on loan and collateral matching criteria.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MatchingCriteria7
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record MatchingCriteria7
     /// <summary>
     /// Compares information related to both sides of a loan.
     /// </summary>
+    [DataMember]
     public CounterpartyMatchingCriteria1? CounterpartyMatchingCriteria { get; init; } 
     /// <summary>
     /// Compares information related to both sides of a loan.
     /// </summary>
+    [DataMember]
     public LoanMatchingCriteria6? LoanMatchingCriteria { get; init; } 
     /// <summary>
     /// Compares information related to both sides of a collateral.
     /// </summary>
+    [DataMember]
     public CollateralMatchingCriteria3? CollateralMatchingCriteria { get; init; } 
     
     #nullable disable

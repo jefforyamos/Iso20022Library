@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status applying to individual instructions of a MeetingInstruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedInstructionStatus2
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record DetailedInstructionStatus2
     /// <summary>
     /// Identifies the detailed instruction with an instruction message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text InstructionIdentification { get; init; } 
     /// <summary>
     /// Identifies the safekeeping account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountIdentification { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification9Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Identifies the subaccount of the safekeeping account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SubAccountIdentification { get; init; } 
     /// <summary>
     /// Owner of the voting rights.
     /// </summary>
-    public PartyIdentification9Choice_[] RightsHolder { get; init; } = [];
+    [DataMember]
+    public ValueList<PartyIdentification9Choice_> RightsHolder { get; init; } = [];
     /// <summary>
     /// Indicates whether standing instructions have been applied or not.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator StandingInstruction { get; init; } 
     /// <summary>
     /// Details of the vote.
     /// </summary>
-    public Vote4[] VotePerResolution { get; init; } = [];
+    [DataMember]
+    public ValueList<Vote4> VotePerResolution { get; init; } = [];
     
     #nullable disable
 }

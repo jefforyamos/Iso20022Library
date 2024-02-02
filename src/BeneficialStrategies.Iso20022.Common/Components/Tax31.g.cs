@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Tax related to an investment fund order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Tax31
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record Tax31
     /// <summary>
     /// Type of tax.
     /// </summary>
+    [DataMember]
     public required TaxType3Choice_ Type { get; init; } 
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount AppliedAmount { get; init; } 
     /// <summary>
     /// Rate used to calculate the tax.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? AppliedRate { get; init; } 
     /// <summary>
     /// Country where the tax is due.
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Party that receives the tax. The recipient of, and the party entitled to, the tax may be two different parties.
     /// </summary>
+    [DataMember]
     public PartyIdentification113? RecipientIdentification { get; init; } 
     /// <summary>
     /// Information used to calculate the tax.
     /// </summary>
+    [DataMember]
     public TaxCalculationInformation10? TaxCalculationDetails { get; init; } 
     
     #nullable disable

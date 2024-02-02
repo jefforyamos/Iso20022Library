@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains all needed party details for tax agency (sender of the TaxReport) and tax authority (receiver of the TaxReport) and the details of the reported sales transaction and calculated tax related that specific business transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxReport1
 {
     #nullable enable
@@ -20,36 +22,44 @@ public partial record TaxReport1
     /// <summary>
     /// Basic report details.
     /// </summary>
+    [DataMember]
     public required GroupHeader69 TaxReportHeader { get; init; } 
     /// <summary>
     /// Tax reporting agent, for example seller.
     /// Responsible to issue tax reporting to tax authority.
     /// </summary>
+    [DataMember]
     public required PartyIdentification72 Seller { get; init; } 
     /// <summary>
     /// Specifies the buyer of goods/service reported in this message.
     /// </summary>
+    [DataMember]
     public PartyIdentification72? Buyer { get; init; } 
     /// <summary>
     /// Contains the details of the business transactions reported in the message.
     /// </summary>
+    [DataMember]
     public required TradeSettlement2 TradeSettlement { get; init; } 
     /// <summary>
     /// Reserved for parties that may be required by a specific tax authority.
     /// </summary>
-    public PartyIdentification72[] OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyIdentification72> OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional reference like site key or identifier.
     /// </summary>
-    public AdditionalInformation1[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation1> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Structure to deliver link to external attachment or deliver base64-coded attachment inside message.
     /// </summary>
-    public DocumentGeneralInformation2[] AdditionalReference { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DocumentGeneralInformation2> AdditionalReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

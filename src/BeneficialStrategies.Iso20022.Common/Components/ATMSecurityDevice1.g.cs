@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Hardware security module of the ATM.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMSecurityDevice1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ATMSecurityDevice1
     /// <summary>
     /// Hardware security module information, so called EPP for Encrypted PIN Pad.
     /// </summary>
+    [DataMember]
     public ATMEquipment2? DeviceProperty { get; init; } 
     /// <summary>
     /// Configuration parameters in use by the security device.
     /// </summary>
+    [DataMember]
     public required ATMSecurityConfiguration1 CurrentConfiguration { get; init; } 
     /// <summary>
     /// Configuration parameters supported by the security device.
     /// </summary>
+    [DataMember]
     public ATMSecurityConfiguration1? SupportedConfiguration { get; init; } 
     /// <summary>
     /// Current status of the security device.
     /// </summary>
+    [DataMember]
     public required ATMStatus2Code CurrentStatus { get; init; } 
     /// <summary>
     /// Incident occurring on the device.
     /// </summary>
+    [DataMember]
     public FailureReason5Code? Incident { get; init; } 
     
     #nullable disable

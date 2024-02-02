@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Group of software packages related to a group of POIComponent of the POI System.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TerminalPackageType4
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record TerminalPackageType4
     /// <summary>
     /// Identification of the POI (Point Of Interaction) component.
     /// </summary>
-    public PointOfInteractionComponentIdentification2[] POIComponentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PointOfInteractionComponentIdentification2> POIComponentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Chunk of a software package.
     /// </summary>
-    public PackageType4[] Package { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PackageType4> Package { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

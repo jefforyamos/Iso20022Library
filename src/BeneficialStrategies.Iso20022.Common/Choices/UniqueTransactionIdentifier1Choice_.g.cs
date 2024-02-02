@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(UniqueTransactionIdentifier1Choice.UniqueTransactionIdentifier))]
 [KnownType(typeof(UniqueTransactionIdentifier1Choice.Proprietary))]
+[DataContract]
 public abstract partial record UniqueTransactionIdentifier1Choice_
 {
 }

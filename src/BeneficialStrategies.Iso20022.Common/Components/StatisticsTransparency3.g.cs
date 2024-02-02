@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Statistics for a financial instrument generated as part of transparency calculations.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatisticsTransparency3
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record StatisticsTransparency3
     /// <summary>
     /// Average Daily Turnover for the instrument in Euros.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? AverageDailyTurnover { get; init; } 
     /// <summary>
     /// Average value of the transactions for the instrument in Euro.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? AverageTransactionValue { get; init; } 
     /// <summary>
     /// Large in scale order in respect of a share, depositary receipt, certificate or other similar financial instrument shall be considered large in scale compared with normal market size if, on the basis of the average daily turnover for that financial instrument, the order is equal to or larger than the minimum size of orders set out in the local regulation.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? LargeInScale { get; init; } 
     /// <summary>
     /// Standard market size for shares, depositary receipts, ETFs, certificates and other similar financial instruments for which there is a liquid market shall be determined on the basis of the average value of transactions for each financial instrument and in accordance with the local regulation.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? StandardMarketSize { get; init; } 
     /// <summary>
     /// Average daily number of transactions that have been performed on this market.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? AverageDailyNumberOfTransactions { get; init; } 
     /// <summary>
     /// Total number of transactions that have been performed on this market.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? TotalNumberOfTransactionsExecuted { get; init; } 
     /// <summary>
     /// Total volume of transactions that have been performed on this market.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? TotalVolumeOfTransactionsExecuted { get; init; } 
     /// <summary>
     /// The total number of trading days for which the data is provided.
     /// </summary>
+    [DataMember]
     public IsoNumber? TotalNumberOfTradingDays { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of a non-extension advice.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UndertakingNonExtensionStatusAdvice1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record UndertakingNonExtensionStatusAdvice1
     /// <summary>
     /// Details related to the notifying party.
     /// </summary>
+    [DataMember]
     public required PartyIdentification43 NotifyingParty { get; init; } 
     /// <summary>
     /// Details related to the identification of the undertaking.
     /// </summary>
+    [DataMember]
     public required Undertaking7 UndertakingIdentification { get; init; } 
     
     #nullable disable

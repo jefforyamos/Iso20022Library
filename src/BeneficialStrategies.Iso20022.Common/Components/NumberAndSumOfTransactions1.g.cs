@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements providing the total sum of entries.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NumberAndSumOfTransactions1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NumberAndSumOfTransactions1
     /// <summary>
     /// Number of individual entries included in the report.
     /// </summary>
+    [DataMember]
     public IsoMax15NumericText? NumberOfEntries { get; init; } 
     /// <summary>
     /// Total of all individual entries included in the report.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? Sum { get; init; } 
     
     #nullable disable

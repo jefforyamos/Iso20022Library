@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Drawdown allowance check. For pensions that have a lifetime allowance, a check is made of the maximum value of benefits that may be taken from the pension without incurring a special tax. (This check or 'event' is known as the benefit crystallisation event in the UK market.)
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DrawdownAllowanceCheck1
 {
     #nullable enable
@@ -22,10 +24,12 @@ public partial record DrawdownAllowanceCheck1
     /// If the Benefit Crystallised Event (BCE ) is other than 1 and 6 then the BCEIndicator must contain the value "true'.
     /// If the Benefit Crystallised Event (BCE ) is 1 or 6 then the BCEIndicator must contain the value false'.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? BCEIndicator { get; init; } 
     /// <summary>
     /// Species information about the drawdown allowance check.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? CheckInformation { get; init; } 
     
     #nullable disable

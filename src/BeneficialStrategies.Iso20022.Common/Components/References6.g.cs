@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements for the identification of the message and related references.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record References6
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record References6
     /// <summary>
     /// Identify the type of rejected request.
     /// </summary>
+    [DataMember]
     public required UseCases1Code RejectedRequestType { get; init; } 
     /// <summary>
     /// Reason of the message rejection.
     /// </summary>
-    public IsoMax350Text[] RejectionReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax350Text> RejectionReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the rejected request message.
     /// </summary>
+    [DataMember]
     public required MessageIdentification1 RejectedRequestIdentification { get; init; } 
     /// <summary>
     /// Identifies a message by a unique identifier and the date and time when the message was created by the sender.
     /// </summary>
+    [DataMember]
     public required MessageIdentification1 MessageIdentification { get; init; } 
     /// <summary>
     /// Identifies a process by a unique identifier and the date and time when the first message belonging to the process was created by the sender. The process identification remains the same in all messages belonging to the same process, from the initial request message to the final account report closing the process.
     /// </summary>
+    [DataMember]
     public required MessageIdentification1 ProcessIdentification { get; init; } 
     /// <summary>
     /// File name of a document logically related to the request.
     /// </summary>
-    public IsoMax70Text[] AttachedDocumentName { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax70Text> AttachedDocumentName { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

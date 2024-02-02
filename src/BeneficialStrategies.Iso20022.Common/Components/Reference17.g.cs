@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to a linked transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Reference17
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Reference17
     /// <summary>
     /// Identification of the collateral substitution request.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text CollateralSubstitutionRequestIdentification { get; init; } 
     /// <summary>
     /// Identification of the collateral substitution response.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CollateralSubstitutionResponseIdentification { get; init; } 
     
     #nullable disable

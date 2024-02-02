@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the source used to initiate the payment (such as an application or a software).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentInitiationSource1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PaymentInitiationSource1
     /// <summary>
     /// Name of the application or software used to initiate the payment.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Name { get; init; } 
     /// <summary>
     /// Provider of the application or software used to initiate the payment.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Provider { get; init; } 
     /// <summary>
     /// Version of the application or software used to initiate the payment.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Version { get; init; } 
     
     #nullable disable

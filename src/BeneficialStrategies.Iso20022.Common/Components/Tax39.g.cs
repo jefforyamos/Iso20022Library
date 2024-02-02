@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Description of tax.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Tax39
 {
     #nullable enable
@@ -20,40 +22,49 @@ public partial record Tax39
     /// <summary>
     /// Type of tax.
     /// </summary>
+    [DataMember]
     public required AddendumTaxType2Code Type { get; init; } 
     /// <summary>
     /// Other type of tax. Describes the type of tax when Other, Other National, Other Private or Other Taxes Type is selected. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Description of the tax.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Description { get; init; } 
     /// <summary>
     /// Exemption for this type of tax.
     /// True: Exemption of tax
     /// False: No exemption of tax
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? TaxExemption { get; init; } 
     /// <summary>
     /// Reason for tax exemption.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TaxExemptReason { get; init; } 
     /// <summary>
     /// Tax amount.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Tax rate applied on original amount.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Indicate whether the Tax amount is included in total transaction amount
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? IncludedInTotalIndicator { get; init; } 
     /// <summary>
     /// A code to indicate the tax amount is credit or debit
     /// </summary>
+    [DataMember]
     public CreditDebit3Code? CreditDebit { get; init; } 
     
     #nullable disable

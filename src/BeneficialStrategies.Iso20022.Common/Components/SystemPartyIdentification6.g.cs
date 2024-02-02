@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique and unambiguous way to identify a system party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemPartyIdentification6
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SystemPartyIdentification6
     /// <summary>
     /// Unique identification of the party referenced by a request.
     /// </summary>
+    [DataMember]
     public required PartyIdentification91 RelatedPartyIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the party responsible for the maintenance of the party reference data.
     /// </summary>
+    [DataMember]
     public FinancialInstitutionIdentification12? ResponsiblePartyIdentification { get; init; } 
     
     #nullable disable

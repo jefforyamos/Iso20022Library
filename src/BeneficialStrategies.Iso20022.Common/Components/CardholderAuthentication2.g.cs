@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related to the authentication of the cardholder.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardholderAuthentication2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CardholderAuthentication2
     /// <summary>
     /// Method used to authenticate the cardholder.
     /// </summary>
+    [DataMember]
     public required AuthenticationMethod1Code AuthenticationMethod { get; init; } 
     /// <summary>
     /// Entity or object in charge of verifying the cardholder authenticity.
     /// </summary>
+    [DataMember]
     public required AuthenticationEntity1Code AuthenticationEntity { get; init; } 
     
     #nullable disable

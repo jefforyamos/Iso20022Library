@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters applied to the settlement of a security.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FundSettlementParameters16
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record FundSettlementParameters16
     /// <summary>
     /// Condition under which the order/trade is to be/was executed. This may be required for settlement through T2S.
     /// </summary>
-    public TradeTransactionCondition8Choice_[] TradeTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TradeTransactionCondition8Choice_> TradeTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Condition under which the order/trade is to be settled. This may be required for settlement through T2S.
     /// </summary>
-    public SettlementTransactionCondition30Choice_[] SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SettlementTransactionCondition30Choice_> SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of a specific system or set of rules and/or processes to be applied at the settlement place.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SecuritiesSettlementSystemIdentification { get; init; } 
     /// <summary>
     /// Chain of receiving settlement parties.
     /// </summary>
+    [DataMember]
     public SettlementParties94? ReceivingSideDetails { get; init; } 
     
     #nullable disable

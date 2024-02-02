@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Aim of the non financial request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NonFinancialRequestContentComponent3
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record NonFinancialRequestContentComponent3
     /// <summary>
     /// Type of non financial request that the Acceptor wants to be processed.
     /// </summary>
-    public NonFinancialRequestType2Code[] NonFinancialRequestType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NonFinancialRequestType2Code> NonFinancialRequestType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Card payment transaction between an acceptor and an acquirer.
     /// </summary>
+    [DataMember]
     public CardPaymentTransaction124? Transaction { get; init; } 
     /// <summary>
     /// Additional elements requested to the ServiceProvider which are not linked to payment.
     /// </summary>
-    public ExternallyDefinedData4[] AdditionalRequest { get; init; } = [];
+    [DataMember]
+    public ValueList<ExternallyDefinedData4> AdditionalRequest { get; init; } = [];
     
     #nullable disable
 }

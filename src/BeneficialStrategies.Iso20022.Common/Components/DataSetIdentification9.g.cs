@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a data set.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DataSetIdentification9
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record DataSetIdentification9
     /// <summary>
     /// Name of the data set.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Name { get; init; } 
     /// <summary>
     /// Category of data set.
     /// </summary>
+    [DataMember]
     public required DataSetCategory17Code Type { get; init; } 
     /// <summary>
     /// Version of the data set.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Version { get; init; } 
     /// <summary>
     /// Date and time of creation of the data set.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CreationDateTime { get; init; } 
     
     #nullable disable

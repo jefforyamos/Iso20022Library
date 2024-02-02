@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TimeToMaturity1Choice.Period))]
 [KnownType(typeof(TimeToMaturity1Choice.Special))]
+[DataContract]
 public abstract partial record TimeToMaturity1Choice_
 {
 }

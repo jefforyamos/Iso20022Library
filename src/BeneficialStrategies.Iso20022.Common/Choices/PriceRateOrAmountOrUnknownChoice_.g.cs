@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(PriceRateOrAmountOrUnknownChoice.Rate))]
 [KnownType(typeof(PriceRateOrAmountOrUnknownChoice.Amount))]
 [KnownType(typeof(PriceRateOrAmountOrUnknownChoice.UnknownIndicator))]
+[DataContract]
 public abstract partial record PriceRateOrAmountOrUnknownChoice_
 {
 }

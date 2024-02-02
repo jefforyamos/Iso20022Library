@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the security instrument by its name and typical characteristics.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityInstrumentDescription2
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record SecurityInstrumentDescription2
     /// <summary>
     /// Description of the security.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Description { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, eg, common share with voting rights, fully paid, or registered.
     /// </summary>
+    [DataMember]
     public SecurityClassificationType1Choice_? ClassificationType { get; init; } 
     /// <summary>
     /// Provides the place of listing using a market identifier code (MIC).
     /// </summary>
+    [DataMember]
     public IsoMICIdentifier? PlaceOfListing { get; init; } 
     /// <summary>
     /// Exercise date/time of a derivative contract.
     /// </summary>
+    [DataMember]
     public IsoISODate? ExerciseDate { get; init; } 
     /// <summary>
     /// Maturity date/time at which an interest bearing security becomes due.
     /// </summary>
+    [DataMember]
     public IsoISODate? MaturityDate { get; init; } 
     /// <summary>
     /// Specifies whether it is a call option (right to purchase a specific underlying asset) or a put option (right to sell a specific underlying asset).
     /// </summary>
+    [DataMember]
     public OptionTypeCode? OptionType { get; init; } 
     /// <summary>
     /// Predetermined price at which the holder will have to buy or sell the underlying instrument.
     /// </summary>
+    [DataMember]
     public PriceRateOrAmountChoice_? StrikePrice { get; init; } 
     /// <summary>
     /// Indicates the ratio or multiplying factor used to convert one contract into a quantity. In the case of an equity or a bond, the price multiplier is 1.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? Multiplier { get; init; } 
     
     #nullable disable

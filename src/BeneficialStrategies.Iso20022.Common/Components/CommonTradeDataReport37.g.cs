@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to contract and transaction details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CommonTradeDataReport37
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CommonTradeDataReport37
     /// <summary>
     /// Data related to a trade contract.
     /// </summary>
+    [DataMember]
     public ContractType8? ContractData { get; init; } 
     /// <summary>
     /// Data related specifically to a trade transaction.
     /// </summary>
+    [DataMember]
     public required TradeTransaction25 TransactionData { get; init; } 
     /// <summary>
     /// Details of the other action type.
     /// </summary>
+    [DataMember]
     public IsoMax50Text? ActionTypeDetails { get; init; } 
     
     #nullable disable

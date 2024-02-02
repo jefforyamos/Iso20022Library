@@ -15,6 +15,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(PriceFormat60Choice.AmountPricePerFinancialInstrumentQuantity))]
 [KnownType(typeof(PriceFormat60Choice.AmountPricePerAmount))]
 [KnownType(typeof(PriceFormat60Choice.IndexPoints))]
+[DataContract]
 public abstract partial record PriceFormat60Choice_
 {
 }

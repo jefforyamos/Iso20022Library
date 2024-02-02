@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains additional identification details of additional card acceptor data. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalIdentification1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AdditionalIdentification1
     /// <summary>
     /// Type of additional identification.
     /// </summary>
+    [DataMember]
     public required AdditionalIdentificationType1Code Type { get; init; } 
     /// <summary>
     /// Other Additional Identification applied to the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Additional identification value.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Value { get; init; } 
     
     #nullable disable

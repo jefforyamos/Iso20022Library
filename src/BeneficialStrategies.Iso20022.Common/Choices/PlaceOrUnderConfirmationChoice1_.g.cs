@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(PlaceOrUnderConfirmationChoice1.PlaceOfPresentation))]
 [KnownType(typeof(PlaceOrUnderConfirmationChoice1.PresentationUnderConfirmation))]
+[DataContract]
 public abstract partial record PlaceOrUnderConfirmationChoice1_
 {
 }

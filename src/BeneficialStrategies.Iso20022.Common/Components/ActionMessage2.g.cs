@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information to display, print or store.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ActionMessage2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ActionMessage2
     /// <summary>
     /// Destination of the message.
     /// </summary>
+    [DataMember]
     public required UserInterface4Code MessageDestination { get; init; } 
     /// <summary>
     /// Message format.
     /// </summary>
+    [DataMember]
     public OutputFormat1Code? Format { get; init; } 
     /// <summary>
     /// Content or reference of the message.
     /// </summary>
+    [DataMember]
     public required IsoMax20000Text MessageContent { get; init; } 
     /// <summary>
     /// Digital signature of the message.
     /// </summary>
+    [DataMember]
     public IsoMax140Binary? MessageContentSignature { get; init; } 
     
     #nullable disable

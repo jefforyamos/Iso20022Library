@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Instrument specific technical data to support identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RecordTechnicalData3
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record RecordTechnicalData3
     /// <summary>
     /// Flag to say if there is an inconsistency across all submitting entities records.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? InconsistencyIndicator { get; init; } 
     /// <summary>
     /// Last date for which data was received for this instrument.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? LastUpdate { get; init; } 
     /// <summary>
     /// Defines the date and time when this instrument was originally received at the submission destination.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? SubmissionDateTime { get; init; } 
     /// <summary>
     /// Country code of the relevant competent authority of the instrument.
     /// </summary>
+    [DataMember]
     public CountryCode? RelevantCompetentAuthority { get; init; } 
     /// <summary>
     /// Period for which the associated instrument has been publically available.
     /// </summary>
+    [DataMember]
     public Period4Choice_? PublicationPeriod { get; init; } 
     /// <summary>
     /// Flag to say if the record has ever been published.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? NeverPublished { get; init; } 
     
     #nullable disable

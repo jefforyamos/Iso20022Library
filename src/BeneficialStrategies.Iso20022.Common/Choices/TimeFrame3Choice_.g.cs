@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TimeFrame3Choice.TradeMinus))]
 [KnownType(typeof(TimeFrame3Choice.RenunciationMinus))]
+[DataContract]
 public abstract partial record TimeFrame3Choice_
 {
 }

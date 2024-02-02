@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(LinkedMessage2Choice.PreviousReference))]
 [KnownType(typeof(LinkedMessage2Choice.OtherReference))]
+[DataContract]
 public abstract partial record LinkedMessage2Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ModificationScope39
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ModificationScope39
     /// <summary>
     /// Specifies the type of modification to be applied on a set of information.
     /// </summary>
+    [DataMember]
     public required DataModification2Code ModificationScopeIndication { get; init; } 
     /// <summary>
     /// Nationality and legal status (minor or major).
     /// </summary>
+    [DataMember]
     public required CitizenshipInformation2 Citizenship { get; init; } 
     
     #nullable disable

@@ -15,6 +15,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SecurityIdentificationQuery3Choice.UniqueProductIdentifier))]
 [KnownType(typeof(SecurityIdentificationQuery3Choice.Index))]
 [KnownType(typeof(SecurityIdentificationQuery3Choice.NotReported))]
+[DataContract]
 public abstract partial record SecurityIdentificationQuery3Choice_
 {
 }

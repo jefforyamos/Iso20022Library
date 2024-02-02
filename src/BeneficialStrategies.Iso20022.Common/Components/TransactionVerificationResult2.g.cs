@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Result of the verifications performed by the issuer to deliver or decline the authorisation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionVerificationResult2
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record TransactionVerificationResult2
     /// <summary>
     /// Result of an e-commerce authentication process.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? ElectronicCommerceAuthenticationResult { get; init; } 
     /// <summary>
     /// Result of the printed card security code (CSC) validation.
     /// </summary>
+    [DataMember]
     public CSCResult1Code? CSCResult { get; init; } 
     /// <summary>
     /// Result of the cardholder verification address checks on the street number and the postal code.
     /// </summary>
-    public CardholderAddressVerificationResult1Code[] CardholderAddressVerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardholderAddressVerificationResult1Code> CardholderAddressVerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Product code for which the authorisation was declined.
     /// </summary>
-    public IsoMax70Text[] DeclinedProductCode { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax70Text> DeclinedProductCode { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

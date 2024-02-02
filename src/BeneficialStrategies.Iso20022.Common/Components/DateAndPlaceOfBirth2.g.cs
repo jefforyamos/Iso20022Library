@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Date and place of birth of a person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DateAndPlaceOfBirth2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record DateAndPlaceOfBirth2
     /// <summary>
     /// Date on which a person is born.
     /// </summary>
+    [DataMember]
     public required IsoISODate BirthDate { get; init; } 
     /// <summary>
     /// Province where a person was born.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProvinceOfBirth { get; init; } 
     /// <summary>
     /// City where a person was born.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CityOfBirth { get; init; } 
     /// <summary>
     /// Country where a person was born.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryOfBirth { get; init; } 
     
     #nullable disable

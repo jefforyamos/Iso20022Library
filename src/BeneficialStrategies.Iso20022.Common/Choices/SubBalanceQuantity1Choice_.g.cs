@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SubBalanceQuantity1Choice.Quantity))]
 [KnownType(typeof(SubBalanceQuantity1Choice.QuantityAsDSS))]
 [KnownType(typeof(SubBalanceQuantity1Choice.QuantityAndAvailability))]
+[DataContract]
 public abstract partial record SubBalanceQuantity1Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional information relevant to the destination.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalInformation20
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record AdditionalInformation20
     /// <summary>
     /// Recipient of the additional information to display, print, send or store.
     /// </summary>
+    [DataMember]
     public PartyType22Code? Recipient { get; init; } 
     /// <summary>
     /// Other type of recipient of action data.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherRecipient { get; init; } 
     /// <summary>
     /// Target of the additional information to print, display, send or store.
     /// </summary>
-    public UserInterface6Code[] Target { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<UserInterface6Code> Target { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Other type of target for action data.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherTarget { get; init; } 
     /// <summary>
     /// Format of the additional information.
     /// </summary>
+    [DataMember]
     public OutputFormat4Code? Format { get; init; } 
     /// <summary>
     /// Other output format.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherFormat { get; init; } 
     /// <summary>
     /// Defines the type of the value.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Content of or reference to the message.
     /// </summary>
+    [DataMember]
     public required IsoMax20KText Value { get; init; } 
     
     #nullable disable

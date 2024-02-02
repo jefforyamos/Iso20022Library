@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the status of a specific message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ValidationStatusInformation1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record ValidationStatusInformation1
     /// <summary>
     /// The result of the technical validation (e.g. Accepted, Reception error) executed on the request message.
     /// </summary>
+    [DataMember]
     public required TechnicalValidationStatus1Code Status { get; init; } 
     /// <summary>
     /// The reason for the validation status.
     /// </summary>
+    [DataMember]
     public StatusReason4Choice_? StatusReason { get; init; } 
     /// <summary>
     /// Further details on the validation status reason.
     /// </summary>
-    public IsoMax105Text[] AdditionalStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax105Text> AdditionalStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

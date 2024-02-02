@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action option cash movement details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashOptionSD5
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CashOptionSD5
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Unique number associated with a payout within an option.
     /// </summary>
+    [DataMember]
     public required IsoExact3NumericText PayoutNumber { get; init; } 
     /// <summary>
     /// Describes the type of payout associated with the event.
     /// </summary>
+    [DataMember]
     public required DTCCPayoutType1Code PayoutType { get; init; } 
     /// <summary>
     /// Workflow status of the payout.
     /// </summary>
+    [DataMember]
     public required WorkflowStatus1Code PayoutStatus { get; init; } 
     /// <summary>
     /// Maximum withholding rate based on the country of the sourced income.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? MaximumWithholdingTaxPercentage { get; init; } 
     
     #nullable disable

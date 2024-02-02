@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details of missing information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UnableToApplyMissing2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record UnableToApplyMissing2
     /// <summary>
     /// Specifies which data type is mising in the transaction.
     /// </summary>
+    [DataMember]
     public required MissingData1Choice_ Type { get; init; } 
     /// <summary>
     /// Further details about the missing information.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? AdditionalMissingInformation { get; init; } 
     
     #nullable disable

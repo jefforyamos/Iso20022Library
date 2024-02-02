@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Expected trade date and expected settlement date of the order execution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExpectedExecutionDetails1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ExpectedExecutionDetails1
     /// <summary>
     /// Expected date or expected date and time at which a price will be applied according to the terms of the prospectus.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? ExpectedTradeDateTime { get; init; } 
     /// <summary>
     /// Expected date at which the financial instruments will be exchanged against cash.
     /// </summary>
+    [DataMember]
     public IsoISODate? ExpectedSettlementDate { get; init; } 
     
     #nullable disable

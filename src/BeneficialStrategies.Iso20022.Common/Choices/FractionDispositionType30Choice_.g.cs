@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(FractionDispositionType30Choice.Code))]
 [KnownType(typeof(FractionDispositionType30Choice.Proprietary))]
+[DataContract]
 public abstract partial record FractionDispositionType30Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details about the securities compensation such as the depository and the total settlement amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesCompensation1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SecuritiesCompensation1
     /// <summary>
     /// Place where settlement of the securities takes place.
     /// </summary>
+    [DataMember]
     public required PartyIdentification34Choice_ Depository { get; init; } 
     /// <summary>
     /// Provides the total amount of money to be settled.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection20 SettlementAmount { get; init; } 
     /// <summary>
     /// Amount of money related to the fees for the securities compensation.
     /// </summary>
+    [DataMember]
     public AmountAndDirection20? Fees { get; init; } 
     
     #nullable disable

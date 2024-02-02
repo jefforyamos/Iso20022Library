@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ForeignExchangeSwap3Choice.DataSetAction))]
 [KnownType(typeof(ForeignExchangeSwap3Choice.Transaction))]
+[DataContract]
 public abstract partial record ForeignExchangeSwap3Choice_
 {
 }

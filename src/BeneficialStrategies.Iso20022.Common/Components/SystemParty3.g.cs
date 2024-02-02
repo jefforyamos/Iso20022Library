@@ -15,6 +15,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// A party shall denote any legal or organisational entity required in the system. 
 /// This entity shall store the parties from the first three levels: the system operator, the central securities depositaries, the participants of the central securities depositaries, the national central banks and payment banks.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemParty3
 {
     #nullable enable
@@ -22,39 +24,48 @@ public partial record SystemParty3
     /// <summary>
     /// Specifies the opening date of the party.
     /// </summary>
+    [DataMember]
     public IsoISODate? OpeningDate { get; init; } 
     /// <summary>
     /// Specifies the closing date of the party.
     /// </summary>
+    [DataMember]
     public IsoISODate? ClosingDate { get; init; } 
     /// <summary>
     /// Specifies the type classification of the party.
     /// </summary>
+    [DataMember]
     public SystemPartyType1Code? Type { get; init; } 
     /// <summary>
     /// Unique technical address to unambiguously identify a party for receiving messages from the executing system.
     /// </summary>
-    public TechnicalIdentification1Choice_[] TechnicalAddress { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TechnicalIdentification1Choice_> TechnicalAddress { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional attributes defined by a central security depositary for a party.
     /// </summary>
-    public MarketSpecificAttribute1[] MarketSpecificAttribute { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MarketSpecificAttribute1> MarketSpecificAttribute { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous way to identify an organisation.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification1? Identification { get; init; } 
     /// <summary>
     /// Name by which an organisation is known and which is usually used to identify that organisation.
     /// </summary>
+    [DataMember]
     public PartyName3? Name { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address.
     /// </summary>
+    [DataMember]
     public PostalAddress10? Address { get; init; } 
     /// <summary>
     /// Defines the specific processing characteristics for a party to ensure configurability of specific requirements, as prescribed by national legal and regulatory requirements and practices.
     /// </summary>
-    public SystemRestriction1[] Restriction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SystemRestriction1> Restriction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

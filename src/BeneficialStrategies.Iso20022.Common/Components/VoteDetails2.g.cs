@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies detailed voting instructions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VoteDetails2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record VoteDetails2
     /// <summary>
     /// Indicates the vote instruction for the resolutions which are announced via the meeting agenda in advance of the meeting.
     /// </summary>
+    [DataMember]
     public required Vote2Choice_ VoteInstructionForAgendaResolution { get; init; } 
     /// <summary>
     /// Indicates the vote instruction for the resolutions that may arise at the meeting but were not previously provided in the agenda.
     /// </summary>
+    [DataMember]
     public VoteInstructionForMeetingResolution1Choice_? VoteInstructionForMeetingResolution { get; init; } 
     
     #nullable disable

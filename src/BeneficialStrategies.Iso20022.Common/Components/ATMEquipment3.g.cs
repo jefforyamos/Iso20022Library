@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Hardware security module information, so called EPP for Encrypted PIN Pad.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMEquipment3
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record ATMEquipment3
     /// <summary>
     /// ATM Manufacturer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Manufacturer { get; init; } 
     /// <summary>
     /// Model of ATM.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Model { get; init; } 
     /// <summary>
     /// Version of the device model.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Version { get; init; } 
     /// <summary>
     /// Serial number of the ATM.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SerialNumber { get; init; } 
     /// <summary>
     /// Signature of the serial number of the device. The signature may contain the serial number with the signature.
     /// </summary>
+    [DataMember]
     public ContentInformationType14? SignedSerialNumber { get; init; } 
     /// <summary>
     /// Provider of the firmware.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? FirmwareProvider { get; init; } 
     /// <summary>
     /// Identification of the firmware.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? FirmwareIdentification { get; init; } 
     /// <summary>
     /// Version of the firmware.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? FirmwareVersion { get; init; } 
     
     #nullable disable

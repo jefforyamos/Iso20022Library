@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the type of margin amounts.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Margin4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Margin4
     /// <summary>
     /// Specifies the type of margin that is calculated.
     /// </summary>
+    [DataMember]
     public required MarginType1Choice_ Type { get; init; } 
     /// <summary>
     /// Provides the margin amount in the reporting currency and optionally in the original currency.
     /// </summary>
+    [DataMember]
     public required Amount2 Amount { get; init; } 
     /// <summary>
     /// Specifies whether the margin type position is short or long, that is, whether the balance is a negative or positive balance.
     /// </summary>
+    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transaction has an origin and a destination in the same country and is made in the currency of that country.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditLine1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CreditLine1
     /// <summary>
     /// Indicates whether the credit line is included or not.||Usage: if not present, credit line is not included in the balance amount.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator Included { get; init; } 
     /// <summary>
     /// Amount of money of the credit line.
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? Amount { get; init; } 
     
     #nullable disable

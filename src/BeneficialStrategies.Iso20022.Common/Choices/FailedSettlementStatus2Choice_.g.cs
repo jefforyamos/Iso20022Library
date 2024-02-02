@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(FailedSettlementStatus2Choice.Reason))]
 [KnownType(typeof(FailedSettlementStatus2Choice.DataSourceScheme))]
 [KnownType(typeof(FailedSettlementStatus2Choice.NoSpecifiedReason))]
+[DataContract]
 public abstract partial record FailedSettlementStatus2Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to a fee collection response message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FeeCollectionResponse2
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record FeeCollectionResponse2
     /// <summary>
     /// Environment of the transaction
     /// </summary>
+    [DataMember]
     public required Environment23 Environment { get; init; } 
     /// <summary>
     /// Contains or describes conditions and characteristics of the transaction.
     /// </summary>
+    [DataMember]
     public Context16? Context { get; init; } 
     /// <summary>
     /// Card transaction for which an authorisation is requested.
     /// </summary>
+    [DataMember]
     public required Transaction156 Transaction { get; init; } 
     /// <summary>
     /// Outcome of the processing of the authorisation
     /// </summary>
+    [DataMember]
     public required ProcessingResult19 ProcessingResult { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

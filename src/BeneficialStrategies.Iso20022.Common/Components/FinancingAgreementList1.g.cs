@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines a list of party management registration and guarantee requests.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancingAgreementList1
 {
     #nullable enable
@@ -20,58 +22,72 @@ public partial record FinancingAgreementList1
     /// <summary>
     /// Identification assigned to unambiguously identify the agreement list.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identifier { get; init; } 
     /// <summary>
     /// Creation date of this list.
     /// </summary>
+    [DataMember]
     public required IsoISODate Date { get; init; } 
     /// <summary>
     /// Reference to related document.
     /// </summary>
-    public QualifiedDocumentInformation1[] RelatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedDocumentInformation1> RelatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Requestor of the agreement(s).
     /// </summary>
+    [DataMember]
     public required QualifiedPartyIdentification1 AgreementRequestor { get; init; } 
     /// <summary>
     /// Party the agreement(s) are (to be) made with.
     /// </summary>
+    [DataMember]
     public required QualifiedPartyIdentification1 AgreementResponder { get; init; } 
     /// <summary>
     /// Applicant of the guarantee.
     /// </summary>
+    [DataMember]
     public required QualifiedPartyIdentification1 GuaranteeApplicant { get; init; } 
     /// <summary>
     /// Beneficiary of the guarantee.
     /// </summary>
+    [DataMember]
     public required QualifiedPartyIdentification1 GuaranteeBeneficiary { get; init; } 
     /// <summary>
     /// Party that issues the guarantee.
     /// </summary>
+    [DataMember]
     public required QualifiedPartyIdentification1 GuaranteeIssuer { get; init; } 
     /// <summary>
     /// Party or parties to notify and to acknowledge the agreement.
     /// </summary>
-    public FinancingNotificationParties1[] NotificationInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FinancingNotificationParties1> NotificationInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// List of agreement items.
     /// </summary>
-    public FinancingAgreementItem1[] Item { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FinancingAgreementItem1> Item { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number of individual items contained in the list.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText ItemCount { get; init; } 
     /// <summary>
     /// Total of all individual amounts included in the list, irrespective of currencies.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? ControlSum { get; init; } 
     /// <summary>
     /// Additional proprietary formal information concerning the list.
     /// </summary>
+    [DataMember]
     public IsoMax2000Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Validation status of the list.
     /// </summary>
+    [DataMember]
     public ValidationStatusInformation1? ValidationStatusInformation { get; init; } 
     
     #nullable disable

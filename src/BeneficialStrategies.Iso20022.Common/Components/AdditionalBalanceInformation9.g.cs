@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Subbalances providing additional information on a specific position but that is not to be accounted for in the building of the aggregate balance, for example, registered.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalBalanceInformation9
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record AdditionalBalanceInformation9
     /// <summary>
     /// Reason for the sub-balance.
     /// </summary>
+    [DataMember]
     public required SubBalanceType6Choice_ SubBalanceType { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
+    [DataMember]
     public required SubBalanceQuantity3Choice_ Quantity { get; init; } 
     /// <summary>
     /// Provides additional subbalance information.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? SubBalanceAdditionalDetails { get; init; } 
     /// <summary>
     /// Breakdown of the aggregate quantity reported into significant lots, for example, tax lots.
     /// </summary>
-    public QuantityBreakdown13[] QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QuantityBreakdown13> QuantityBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

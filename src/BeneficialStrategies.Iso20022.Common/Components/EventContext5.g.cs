@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the context when the event occured.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EventContext5
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record EventContext5
     /// <summary>
     /// Reference to the service and functions related to the event.
     /// </summary>
+    [DataMember]
     public required RetailerService1Code ServiceType { get; init; } 
     /// <summary>
     /// Identification of the Point Of Interaction.
     /// </summary>
+    [DataMember]
     public PointOfInteractionComponent14? ComponentIdentification { get; init; } 
     /// <summary>
     /// Identification of the Sale System.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleIdentification { get; init; } 
     
     #nullable disable

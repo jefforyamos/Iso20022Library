@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Context of the sale involved in a card transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SaleContext7
 {
     #nullable enable
@@ -20,46 +22,56 @@ public partial record SaleContext7
     /// <summary>
     /// Identification of the sale terminal (electronic cash register or point of sale terminal) or the sale system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleIdentification { get; init; } 
     /// <summary>
     /// Global reference of the sale transaction for the sale system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleReferenceIdentification { get; init; } 
     /// <summary>
     /// Identify a sale transaction assigned by the sale system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleReferenceNumber { get; init; } 
     /// <summary>
     /// Type of goods and/or services.
     /// </summary>
+    [DataMember]
     public GoodsAndServices1Code? GoodsAndServicesType { get; init; } 
     /// <summary>
     /// Sub type of goods and/or services.
     /// </summary>
+    [DataMember]
     public GoodsAndServicesSubType1Code? GoodAndServicesSubType { get; init; } 
     /// <summary>
     /// Other goods and services sub type applied to the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? GoodAndServicesOtherSubType { get; init; } 
     /// <summary>
     /// Also referred to as split tender. Indicates whether the payment transaction is a partial payment of the sale transaction.
     /// True: Partial payment of a sale transaction
     /// False: Not a partial payment of a sale transaction.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? SplitPaymentIndicator { get; init; } 
     /// <summary>
     /// Indicates whether a receipt from the goods or services provider was requested.
     /// True: Receipt requested
     /// False: Receipt not requested.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ReceiptRequestIndicator { get; init; } 
     /// <summary>
     /// Type of receipt requested or communication channel used.
     /// </summary>
-    public ReceiptType1Code[] ReceiptType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReceiptType1Code> ReceiptType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Destination of the receipt (for example, e-mail address, SMS number, etc.).
     /// </summary>
+    [DataMember]
     public IsoMax70Text? ReceiptDestination { get; init; } 
     
     #nullable disable

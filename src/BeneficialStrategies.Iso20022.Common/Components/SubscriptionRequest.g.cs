@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Used to subscribe or unsubscribe for the receipt of a certain message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SubscriptionRequest
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record SubscriptionRequest
     /// <summary>
     /// Used to subscribe or unsubscribe for the receipt of a certain message.
     /// </summary>
+    [DataMember]
     public required SubscriptionRequest1Code SubscriptionRequestValue { get; init; } 
     
     #nullable disable

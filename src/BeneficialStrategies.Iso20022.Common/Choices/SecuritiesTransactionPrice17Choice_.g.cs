@@ -16,6 +16,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SecuritiesTransactionPrice17Choice.Decimal))]
 [KnownType(typeof(SecuritiesTransactionPrice17Choice.PendingPrice))]
 [KnownType(typeof(SecuritiesTransactionPrice17Choice.Other))]
+[DataContract]
 public abstract partial record SecuritiesTransactionPrice17Choice_
 {
 }

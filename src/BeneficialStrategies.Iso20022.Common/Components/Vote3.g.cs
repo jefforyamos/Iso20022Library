@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Decision of the voting party for one resolution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Vote3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Vote3
     /// <summary>
     /// Numbering of the resolution as specified by the issuer or its agent.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text IssuerLabel { get; init; } 
     /// <summary>
     /// Specifies the different instructions which can be used to vote.
     /// </summary>
+    [DataMember]
     public required VoteInstruction2Code VoteOption { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide transaction specific interest information that applies to the underlying transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionInterest2
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record TransactionInterest2
     /// <summary>
     /// Amount of interest included in the entry amount.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether the interest amount included in the entry is credit or debit amount.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Specifies the type of interest.
     /// </summary>
+    [DataMember]
     public InterestType1Choice_? Type { get; init; } 
     /// <summary>
     /// Set of elements used to qualify the interest rate.
     /// </summary>
-    public Rate3[] Rate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Rate3> Rate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Range of time between a start date and an end date for the calculation of the interest.
     /// </summary>
+    [DataMember]
     public DateTimePeriodDetails? FromToDate { get; init; } 
     /// <summary>
     /// Specifies the reason for the interest.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Reason { get; init; } 
     
     #nullable disable

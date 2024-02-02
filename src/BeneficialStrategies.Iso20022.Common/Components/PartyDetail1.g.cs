@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies further details of the party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyDetail1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record PartyDetail1
     /// <summary>
     /// Full name of the party.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? FullName { get; init; } 
     /// <summary>
     /// Country of the party as recorded in the registration in its legal jurisdiction.
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Code indicating the type of party as per local regulation.
     /// </summary>
+    [DataMember]
     public required IsoMax10Text PartyType { get; init; } 
     /// <summary>
     /// Information detail about the institution supervising the party under the local regulation.
     /// </summary>
+    [DataMember]
     public required SupervisingAuthorityIdentification1Choice_ SupervisingAuthority { get; init; } 
     /// <summary>
     /// Address used to communicate with the party as recorded in the registration in its legal jurisdiction.
     /// </summary>
+    [DataMember]
     public PostalAddress6? PostalAddress { get; init; } 
     /// <summary>
     /// Communication device number or electronic address used for communicating with the party.
     /// </summary>
+    [DataMember]
     public CommunicationAddress7? Contact { get; init; } 
     /// <summary>
     /// Any other additional information about the party.
     /// </summary>
+    [DataMember]
     public IsoMax20000Text? Comment { get; init; } 
     
     #nullable disable

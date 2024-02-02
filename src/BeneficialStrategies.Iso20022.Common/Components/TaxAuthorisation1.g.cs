@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the authorised tax paying party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxAuthorisation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TaxAuthorisation1
     /// <summary>
     /// Title or position of debtor or the debtor's authorised representative.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Title { get; init; } 
     /// <summary>
     /// Name of the debtor or the debtor's authorised representative.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Name { get; init; } 
     
     #nullable disable

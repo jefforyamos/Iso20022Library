@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Variables used to quantify the different calculations for position sets.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PositionSetMetrics12
 {
     #nullable enable
@@ -20,16 +22,19 @@ public partial record PositionSetMetrics12
     /// <summary>
     /// Numeric variables calculated on the number of transactions or on market exposures.
     /// </summary>
+    [DataMember]
     public VolumeMetrics6? VolumeMetrics { get; init; } 
     /// <summary>
     /// Collateral haircut, a risk control measure applied to underlying collateral whereby the value of that underlying collateral is calculated as the market value of the assets reduced by a certain percentage. 
     /// In the case of margin lending, collateral haircut or margin requirement, a risk control measure applied to the entire collateral portfolio whereby the value of that underlying collateral is calculated as the market value of the assets reduced by a certain percentage. 
     /// Only actual values, as opposed to estimated or default values are to be reported for this attribute.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? HaircutOrMargin { get; init; } 
     /// <summary>
     /// Quantity of the securities other than bonds.
     /// </summary>
+    [DataMember]
     public QuantityNominalValue2Choice_? QuantityOrNominalAmount { get; init; } 
     
     #nullable disable

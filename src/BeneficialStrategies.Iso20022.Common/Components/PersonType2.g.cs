@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of customer identification requested for a person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PersonType2
 {
     #nullable enable
@@ -21,16 +23,19 @@ public partial record PersonType2
     /// Date and place of birth of a person is requested.
     /// Usage: When absent (default value), the identification is not requested. 
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? DateAndPlaceOfBirth { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail) is requested.
     /// Usage: When absent (default value), the identification is not requested. 
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? EmailAddress { get; init; } 
     /// <summary>
     /// Unique identification of a person, as assigned by an institution, using an identification scheme is requested.
     /// </summary>
-    public GenericPersonType1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericPersonType1> Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

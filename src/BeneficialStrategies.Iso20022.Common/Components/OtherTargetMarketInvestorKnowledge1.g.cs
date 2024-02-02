@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Investor knowledge and experience target market.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherTargetMarketInvestorKnowledge1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OtherTargetMarketInvestorKnowledge1
     /// <summary>
     /// Type of investor knowledge and experience.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? InvestorKnowledgeType { get; init; } 
     /// <summary>
     /// Choice of formats for the specification of whether the product is aimed at the type of knowledge or experience of the investor.
     /// </summary>
+    [DataMember]
     public TargetMarket1Choice_? Target { get; init; } 
     /// <summary>
     /// Additional information about the target market and the investor knowledge and experience.
     /// </summary>
+    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable

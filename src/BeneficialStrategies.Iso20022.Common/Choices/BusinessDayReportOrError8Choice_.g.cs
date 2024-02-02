@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(BusinessDayReportOrError8Choice.BusinessDayInformation))]
 [KnownType(typeof(BusinessDayReportOrError8Choice.BusinessError))]
+[DataContract]
 public abstract partial record BusinessDayReportOrError8Choice_
 {
 }

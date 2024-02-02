@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Sound Request message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DevicePlaySoundRequest1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record DevicePlaySoundRequest1
     /// <summary>
     /// Message response awaited by the initiator of the Request.
     /// </summary>
+    [DataMember]
     public ResponseMode1Code? ResponseMode { get; init; } 
     /// <summary>
     /// Requested Action: Start to play a sound, Stop to play a sound, Set the default volume.
     /// </summary>
+    [DataMember]
     public required SoundAction1Code SoundAction { get; init; } 
     /// <summary>
     /// Volume of a sound, either in a pourcentage of the maximum volume, or 0 to mute.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? SoundVolume { get; init; } 
     /// <summary>
     /// Content of a sound to play.
     /// </summary>
+    [DataMember]
     public SoundContent1? SoundContent { get; init; } 
     
     #nullable disable

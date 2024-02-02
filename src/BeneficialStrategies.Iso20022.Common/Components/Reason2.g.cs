@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the reason for an action.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Reason2
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record Reason2
     /// <summary>
     /// Detailed description of the rejection.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Description { get; init; } 
     
     #nullable disable

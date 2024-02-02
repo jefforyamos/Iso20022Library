@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Expresses an amount or an amount range with an explicit debit/credit indicator and where the currency is implied.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ImpliedCurrencyAndAmountRange1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ImpliedCurrencyAndAmountRange1
     /// <summary>
     /// A specified amount or amount range.
     /// </summary>
+    [DataMember]
     public required ImpliedCurrencyAmountRange1Choice_ Amount { get; init; } 
     /// <summary>
     /// Indicates whether the amount is a credited or debited amount.
     /// </summary>
+    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     
     #nullable disable

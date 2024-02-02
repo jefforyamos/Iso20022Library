@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Fixed rate related information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FixedRate10
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FixedRate10
     /// <summary>
     /// Indicates the per annum rate of the fixed leg(s) of an interest rate contract.
     /// </summary>
+    [DataMember]
     public SecuritiesTransactionPrice14Choice_? Rate { get; init; } 
     /// <summary>
     /// Identifies the computation method that determines how interest payments are calculated. It is used to compute the year fraction of the calculation period, and indicates the number of days in the calculation period divided by the number of days in the year.
     /// </summary>
+    [DataMember]
     public InterestComputationMethodFormat7? DayCount { get; init; } 
     /// <summary>
     /// Specifies the time unit associated with the frequency of payments.
     /// </summary>
+    [DataMember]
     public InterestRateFrequency3Choice_? PaymentFrequency { get; init; } 
     
     #nullable disable

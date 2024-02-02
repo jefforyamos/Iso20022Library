@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Single terminal management action to be performed by the point of interaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TMSAction5
 {
     #nullable enable
@@ -20,79 +22,98 @@ public partial record TMSAction5
     /// <summary>
     /// Types of action to be performed by a point of interaction (POI).
     /// </summary>
+    [DataMember]
     public required TerminalManagementAction2Code Type { get; init; } 
     /// <summary>
     /// Host access information.
     /// </summary>
+    [DataMember]
     public NetworkParameters5? RemoteAccess { get; init; } 
     /// <summary>
     /// Identification of the master terminal manager or the terminal manager with which the POI has to perform the action.
     /// </summary>
+    [DataMember]
     public GenericIdentification71? TerminalManagerIdentification { get; init; } 
     /// <summary>
     /// TMS protocol to use for performing the maintenance action.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TMSProtocol { get; init; } 
     /// <summary>
     /// Version of the TMS protocol to use to perform the maintenance action.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TMSProtocolVersion { get; init; } 
     /// <summary>
     /// Data set on which the action has to be performed.
     /// </summary>
+    [DataMember]
     public DataSetIdentification6? DataSetIdentification { get; init; } 
     /// <summary>
     /// Type of POI components to send in a status report.
     /// </summary>
-    public DataSetCategory9Code[] ComponentType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DataSetCategory9Code> ComponentType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the delegation scope assigned by the MTM.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DelegationScopeIdentification { get; init; } 
     /// <summary>
     /// Definition of the delegation scope, for instance inside the payment application parameters the range of application profiles, the RID (Registered application provider Identification).
     /// </summary>
+    [DataMember]
     public IsoMax3000Binary? DelegationScopeDefinition { get; init; } 
     /// <summary>
     /// Proof of delegation to be verified by the POI, when performing the delegated actions.
     /// </summary>
+    [DataMember]
     public IsoMax5000Binary? DelegationProof { get; init; } 
     /// <summary>
     /// Protected proof of delegation.
     /// </summary>
+    [DataMember]
     public ContentInformationType12? ProtectedDelegationProof { get; init; } 
     /// <summary>
     /// Event on which the action has to be activated by the point of interaction (POI).
     /// </summary>
+    [DataMember]
     public required TerminalManagementActionTrigger1Code Trigger { get; init; } 
     /// <summary>
     /// Additional process to perform before starting or after completing the action by the point of interaction (POI).
     /// </summary>
-    public TerminalManagementAdditionalProcess1Code[] AdditionalProcess { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TerminalManagementAdditionalProcess1Code> AdditionalProcess { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Definition of retry process if activation of the action fails.
     /// </summary>
+    [DataMember]
     public ProcessRetry2? ReTry { get; init; } 
     /// <summary>
     /// Date and time the action has to be performed.
     /// </summary>
+    [DataMember]
     public ProcessTiming3? TimeCondition { get; init; } 
     /// <summary>
     /// Terminal manager challenge for cryptographic key injection.
     /// </summary>
+    [DataMember]
     public IsoMax140Binary? TMChallenge { get; init; } 
     /// <summary>
     /// Certificate chain for the encryption of temporary transport key of the key to inject.
     /// </summary>
-    public IsoMax10KBinary[] KeyEnciphermentCertificate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax10KBinary> KeyEnciphermentCertificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Action to perform in case of error on the related action in progress.
     /// </summary>
-    public ErrorAction2[] ErrorAction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ErrorAction2> ErrorAction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the maintenance action.
     /// </summary>
-    public IsoMax3000Binary[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax3000Binary> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

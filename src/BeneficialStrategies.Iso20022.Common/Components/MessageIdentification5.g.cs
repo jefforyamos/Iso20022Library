@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies a message by a unique identifier and the date and time when the message was created by the sender.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MessageIdentification5
 {
     #nullable enable
@@ -21,14 +23,17 @@ public partial record MessageIdentification5
     /// Point to point reference, as assigned by the assigner, and sent to the next party in the chain to unambiguously identify the message.
     /// Usage: The assigner has to make sure that MessageIdentification is unique per assignee for a pre-agreed period.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CreationDateTime { get; init; } 
     /// <summary>
     /// Identifies the first agent in the identification chain, following the payment initiating party.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? FirstAgent { get; init; } 
     
     #nullable disable

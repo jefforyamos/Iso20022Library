@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(Entitlement1Choice.EntitlementRatio))]
 [KnownType(typeof(Entitlement1Choice.EntitlementDescription))]
+[DataContract]
 public abstract partial record Entitlement1Choice_
 {
 }

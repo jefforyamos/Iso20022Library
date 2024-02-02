@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the value date and the amounts traded in a foreign exchange transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountsAndValueDate1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AmountsAndValueDate1
     /// <summary>
     /// Currency and amount bought in a foreign exchange trade.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount TradingSideBuyAmount { get; init; } 
     /// <summary>
     /// Currency and amount sold in a foreign exchange trade.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount TradingSideSellAmount { get; init; } 
     /// <summary>
     /// Date on which the trade is settled, ie, the amounts are due.
     /// </summary>
+    [DataMember]
     public required IsoISODate SettlementDate { get; init; } 
     
     #nullable disable

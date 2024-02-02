@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about securities quantity linked to a corporate action option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesQuantitySD6
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SecuritiesQuantitySD6
     /// <summary>
     /// Quantity not fully covered.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity31Choice_? OpenUncoveredQuantity { get; init; } 
     /// <summary>
     /// Quantity covered but transactions not in "MADE" status.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity31Choice_? InterimCoveredQuantity { get; init; } 
     
     #nullable disable

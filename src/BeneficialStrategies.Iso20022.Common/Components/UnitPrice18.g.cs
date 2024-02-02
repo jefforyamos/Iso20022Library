@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UnitPrice18
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record UnitPrice18
     /// <summary>
     /// Specifies the unit price.
     /// </summary>
+    [DataMember]
     public required UnitOfMeasure3Choice_ UnitPrice { get; init; } 
     /// <summary>
     /// Price expressed as a currency and value.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Multiplication factor of measurement values. For example: goods that can be ordered by 36 pieces.
     /// </summary>
+    [DataMember]
     public IsoMax15NumericText? Factor { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Aggregated position of holdings held in a securities account for a specified financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentAggregateBalance1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record FinancialInstrumentAggregateBalance1
     /// <summary>
     /// Date of the line of holding in the statement.
     /// </summary>
+    [DataMember]
     public required IsoISODate ItemDate { get; init; } 
     /// <summary>
     /// Balances and sub-balances attributed to the holding.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentAggregateBalance1Choice_ Holdings { get; init; } 
     /// <summary>
     /// Details on the price value, type and source.
     /// </summary>
-    public Price6[] Price { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Price6> Price { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

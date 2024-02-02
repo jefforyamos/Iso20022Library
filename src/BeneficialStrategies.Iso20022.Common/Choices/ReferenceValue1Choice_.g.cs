@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ReferenceValue1Choice.UUID))]
 [KnownType(typeof(ReferenceValue1Choice.IRI))]
 [KnownType(typeof(ReferenceValue1Choice.Other))]
+[DataContract]
 public abstract partial record ReferenceValue1Choice_
 {
 }

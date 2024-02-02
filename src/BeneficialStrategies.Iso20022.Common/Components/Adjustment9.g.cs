@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes each adjustment made to the original price.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Adjustment9
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record Adjustment9
     /// <summary>
     /// Type of adjustment.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Additional information to specify the type of adjustment.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AdditionalType { get; init; } 
     /// <summary>
     /// Description of the adjustment.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Description { get; init; } 
     /// <summary>
     /// Reason for the adjustment.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Reason { get; init; } 
     /// <summary>
     /// Promotion or adjustment code.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PromotionCode { get; init; } 
     /// <summary>
     /// Contains the percentage value of the discount (when applicable).
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Percentage { get; init; } 
     /// <summary>
     /// Contains amount of the adjustment, exclusive of tax.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? AdjustmentAmount { get; init; } 
     /// <summary>
     /// Indicates whether or not tax was calculated on the original amount of the transaction. 
     /// Note that false (or not present) indicates applicable taxes are based on adjusted amount.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? TaxCalculatedOnOriginalAmount { get; init; } 
     
     #nullable disable

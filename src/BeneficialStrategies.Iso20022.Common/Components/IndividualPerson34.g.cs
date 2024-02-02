@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IndividualPerson34
 {
     #nullable enable
@@ -20,82 +22,102 @@ public partial record IndividualPerson34
     /// <summary>
     /// Term used to address the person.
     /// </summary>
+    [DataMember]
     public NamePrefix1Choice_? NamePrefix { get; init; } 
     /// <summary>
     /// First name of the person.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? GivenName { get; init; } 
     /// <summary>
     /// Second name of the person.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MiddleName { get; init; } 
     /// <summary>
     /// Name by which the party is known and which is usually used to identify that person.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text Name { get; init; } 
     /// <summary>
     /// Additional information about the person that follows a person's name, for example, qualification such as Doctor of Philosophy (PhD).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NameSuffix { get; init; } 
     /// <summary>
     /// Gender of the person.
     /// </summary>
+    [DataMember]
     public Gender1Code? Gender { get; init; } 
     /// <summary>
     /// Date on which the person was born.
     /// </summary>
+    [DataMember]
     public IsoISODate? BirthDate { get; init; } 
     /// <summary>
     /// Country where the person was born.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryOfBirth { get; init; } 
     /// <summary>
     /// Province where the person was born.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProvinceOfBirth { get; init; } 
     /// <summary>
     /// City where the person was born.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CityOfBirth { get; init; } 
     /// <summary>
     /// Name of the occupation or job of the person.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Profession { get; init; } 
     /// <summary>
     /// Address of the person.
     /// </summary>
-    public PostalAddress21[] PostalAddress { get; init; } = [];
+    [DataMember]
+    public ValueList<PostalAddress21> PostalAddress { get; init; } = [];
     /// <summary>
     /// Nationality and legal status (minor or major).
     /// </summary>
-    public CitizenshipInformation2[] Citizenship { get; init; } = [];
+    [DataMember]
+    public ValueList<CitizenshipInformation2> Citizenship { get; init; } = [];
     /// <summary>
     /// Organisation represented by a person, or for which a person works.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? EmployingCompany { get; init; } 
     /// <summary>
     /// Title of the function.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? BusinessFunction { get; init; } 
     /// <summary>
     /// Specifies if due diligence checks on the political exposure of the investor or account servicer have been carried out and whether these checks are national or foreign. (A politically exposed person is someone who has been entrusted with a prominent public function, or an individual who is closely related to such a person.).
     /// </summary>
+    [DataMember]
     public PoliticalExposureType1Choice_? PoliticallyExposedPersonType { get; init; } 
     /// <summary>
     /// Date of death.
     /// </summary>
+    [DataMember]
     public IsoISODate? DeathDate { get; init; } 
     /// <summary>
     /// Civil status of the individual person.
     /// </summary>
+    [DataMember]
     public CivilStatus1Choice_? CivilStatus { get; init; } 
     /// <summary>
     /// Highest level of education reached by the individual person.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? EducationLevel { get; init; } 
     /// <summary>
     /// Information related to the person.
     /// </summary>
+    [DataMember]
     public PersonalInformation1? FamilyInformation { get; init; } 
     
     #nullable disable

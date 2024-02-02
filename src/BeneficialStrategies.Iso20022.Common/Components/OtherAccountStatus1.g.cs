@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status of an account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherAccountStatus1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record OtherAccountStatus1
     /// <summary>
     /// Status of the account.
     /// </summary>
+    [DataMember]
     public required GenericIdentification36 Status { get; init; } 
     /// <summary>
     /// Reason for the status of the account.
     /// </summary>
+    [DataMember]
     public GenericIdentification36? Reason { get; init; } 
     
     #nullable disable

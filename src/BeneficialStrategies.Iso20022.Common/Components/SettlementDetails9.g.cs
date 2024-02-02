@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementDetails9
 {
     #nullable enable
@@ -20,70 +22,87 @@ public partial record SettlementDetails9
     /// <summary>
     /// Specifies whether the transaction was executed with a high priority.
     /// </summary>
+    [DataMember]
     public PriorityNumeric1Choice_? Priority { get; init; } 
     /// <summary>
     /// Conditions under which the order/trade was to be settled.
     /// </summary>
-    public SettlementTransactionCondition1Choice_[] SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SettlementTransactionCondition1Choice_> SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Role of a party in the settlement of the transaction.
     /// </summary>
+    [DataMember]
     public SettlingCapacity1Choice_? SettlingCapacity { get; init; } 
     /// <summary>
     /// Specifies the stamp duty type or exemption reason applicable to the settlement transaction.
     /// </summary>
+    [DataMember]
     public GenericIdentification20? StampDutyTaxBasis { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction was to be settled through an RTGS or a non RTGS system.
     /// </summary>
+    [DataMember]
     public SecuritiesRTGS1Choice_? SecuritiesRTGS { get; init; } 
     /// <summary>
     /// Specifies whether there was change of beneficial ownership.
     /// </summary>
+    [DataMember]
     public BeneficialOwnership1Choice_? BeneficialOwnership { get; init; } 
     /// <summary>
     /// Specifies the category of cash clearing system, eg, cheque clearing.
     /// </summary>
+    [DataMember]
     public CashSettlementSystem1Choice_? CashClearingSystem { get; init; } 
     /// <summary>
     /// Tax role capacity of the instructing party.
     /// </summary>
+    [DataMember]
     public TaxCapacityParty1Choice_? TaxCapacity { get; init; } 
     /// <summary>
     /// Specifies if an instruction was for a market side or a client side transaction.
     /// </summary>
+    [DataMember]
     public MarketClientSide1Choice_? MarketClientSide { get; init; } 
     /// <summary>
     /// Specifies whether the settlement instruction was a block parent or child.
     /// </summary>
+    [DataMember]
     public BlockTrade1Choice_? BlockTrade { get; init; } 
     /// <summary>
     /// Regulatory restrictions applicable to a security.
     /// </summary>
+    [DataMember]
     public Restriction1Choice_? LegalRestrictions { get; init; } 
     /// <summary>
     /// Specifies whether the settlement instruction was to be settled through the default or the alternate settlement system.
     /// </summary>
+    [DataMember]
     public SettlementSystemMethod1Choice_? SettlementSystemMethod { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction was eligible for netting.
     /// </summary>
+    [DataMember]
     public NettingEligibility1Choice_? NettingEligibility { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction was CCP (Central Counterparty) eligible.
     /// </summary>
+    [DataMember]
     public CentralCounterPartyEligibility1Choice_? CCPEligibility { get; init; } 
     /// <summary>
     /// Condition for automatic borrowing.
     /// </summary>
+    [DataMember]
     public AutomaticBorrowing1Choice_? AutomaticBorrowing { get; init; } 
     /// <summary>
     /// Specifies whether partial settlement was allowed.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PartialSettlementIndicator { get; init; } 
     /// <summary>
     /// Specifies whether securities were requested to be included in the pool of securities eligible for collateral purposes.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? EligibleForCollateral { get; init; } 
     
     #nullable disable

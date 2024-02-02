@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the voting entitlement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EligiblePosition6
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record EligiblePosition6
     /// <summary>
     /// Identification of the securities account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountIdentification { get; init; } 
     /// <summary>
     /// Identifies the party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification71? AccountOwner { get; init; } 
     /// <summary>
     /// Net position of a segregated holding of a single security within the overall position held in a securities account, for example, sub-balance per status.
     /// </summary>
-    public HoldingBalance7[] HoldingBalance { get; init; } = [];
+    [DataMember]
+    public ValueList<HoldingBalance7> HoldingBalance { get; init; } = [];
     /// <summary>
     /// Identifies the owner of the voting rights.
     /// </summary>
-    public PartyIdentification71[] RightsHolder { get; init; } = [];
+    [DataMember]
+    public ValueList<PartyIdentification71> RightsHolder { get; init; } = [];
     
     #nullable disable
 }

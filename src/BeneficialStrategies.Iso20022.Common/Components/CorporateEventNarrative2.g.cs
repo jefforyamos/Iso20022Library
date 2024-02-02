@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional narrative information about the corporate event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateEventNarrative2
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record CorporateEventNarrative2
     /// <summary>
     /// Issuer’s disclaimer notice relative to the meeting announcement information provided. It may be ignored for automated processing.
     /// </summary>
-    public IsoMax350Text[] Disclaimer { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax350Text> Disclaimer { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

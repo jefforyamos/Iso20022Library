@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Document that a user must file with an authorised servicer for each contract that involves foreign currency transactions with non residents.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RegisteredContractJournal1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record RegisteredContractJournal1
     /// <summary>
     /// Agent which registers the currency control contract.
     /// </summary>
+    [DataMember]
     public required BranchAndFinancialInstitutionIdentification5 RegistrationAgent { get; init; } 
     /// <summary>
     /// Unique registered contract identification.
     /// </summary>
+    [DataMember]
     public DocumentIdentification28? UniqueIdentification { get; init; } 
     /// <summary>
     /// Date of closure of the registered contract.
     /// </summary>
+    [DataMember]
     public required IsoISODate ClosureDate { get; init; } 
     /// <summary>
     /// Reason of closure 
     /// TBD - codes to be defined.
     /// </summary>
+    [DataMember]
     public required ContractClosureReason1Choice_ ClosureReason { get; init; } 
     
     #nullable disable

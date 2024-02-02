@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the CA event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateAction2
 {
     #nullable enable
@@ -20,158 +22,197 @@ public partial record CorporateAction2
     /// <summary>
     /// Stage in the corporate action event life cycle.
     /// </summary>
-    public CorporateActionEventStage1FormatChoice_[] EventStage { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CorporateActionEventStage1FormatChoice_> EventStage { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the option that will be selected by default if no instruction is provided by account owner.
     /// </summary>
+    [DataMember]
     public CorporateActionOption1FormatChoice_? DefaultOptionType { get; init; } 
     /// <summary>
     /// Identifies the option number that will be selected by default if no instruction is provided by account owner.
     /// </summary>
+    [DataMember]
     public IsoExact3NumericText? DefaultOptionNumber { get; init; } 
     /// <summary>
     /// The method of calculation of drawings and partial redemptions.
     /// </summary>
+    [DataMember]
     public CorporateActionCalculationMethod1FormatChoice_? CalculationMethod { get; init; } 
     /// <summary>
     /// Represents the presence of a back end odd lot provision and the quantity of equity required after proration to be eligible for this privilege.
     /// </summary>
+    [DataMember]
     public UnitOrFaceAmountOrCode1Choice_? BackEndOddLotSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Specifies that if an order is prorated holders of odd lots who tender their full position will not have tendered position prorated but rather accepted in full.
     /// </summary>
+    [DataMember]
     public UnitOrFaceAmountOrCode1Choice_? FrontEndOddLotSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Minimum quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
+    [DataMember]
     public UnitOrFaceAmount1Choice_? MinimumExercisableSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Minimum multiple quantity of financial instrument or lot of rights/warrants that must be exercised.
     /// </summary>
+    [DataMember]
     public UnitOrFaceAmount1Choice_? MinimumExercisableMultipleSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Amount used when the called amount is not met by running the lottery with the base denomination.
     /// </summary>
+    [DataMember]
     public UnitOrFaceAmount1Choice_? IncrementalDenomination { get; init; } 
     /// <summary>
     /// New Denomination of the equity following, eg, an increase or decrease in nominal value.
     /// </summary>
+    [DataMember]
     public UnitOrFaceAmount1Choice_? NewDenominationSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Quantity of equity that makes up the new board lot.
     /// </summary>
+    [DataMember]
     public UnitOrFaceAmount1Choice_? NewBoardLotSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Quantity of securities the offeror/issuer will purchase or redeem under the terms of the event. This can be a number or the term "any and all".
     /// </summary>
+    [DataMember]
     public UnitOrFaceAmountOrCode1Choice_? SecuritiesQuantitySought { get; init; } 
     /// <summary>
     /// The minimum integral amount of securities that each account owner must have remaining after the called amounts are applied.
     /// </summary>
+    [DataMember]
     public UnitOrFaceAmount1Choice_? BaseDenomination { get; init; } 
     /// <summary>
     /// Specifies the type of change announced.
     /// </summary>
-    public CorporateActionChangeType1FormatChoice_[] ChangeType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CorporateActionChangeType1FormatChoice_> ChangeType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the conditions that apply to the offer.
     /// </summary>
-    public OfferType1FormatChoice_[] OfferType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OfferType1FormatChoice_> OfferType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether there is restrictions apply to the CA event or not.||Yes = There is restrictions.|No = There is no restrictions.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? RestrictionIndicator { get; init; } 
     /// <summary>
     /// Specifies if the issuer will allow the agent to accept partial elections. It is to allow split voting over options. It allows the client to elect more than one option to be selected per designated holding.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PartialElectionIndicator { get; init; } 
     /// <summary>
     /// Specifies the effect on the holdings of electing a Corporate Action option.
     /// </summary>
+    [DataMember]
     public ElectionMovementType1FormatChoice_? ElectionType { get; init; } 
     /// <summary>
     /// Specifies the type of lottery announced.
     /// </summary>
+    [DataMember]
     public LotteryType1FormatChoice_? LotteryType { get; init; } 
     /// <summary>
     /// Specifies the type of income.|The lists of income type codes to be used, are available on the SMPG website at www.smpg.info.
     /// </summary>
+    [DataMember]
     public GenericIdentification13? IncomeType { get; init; } 
     /// <summary>
     /// Specifies the conditions in which a dividend is paid.
     /// </summary>
+    [DataMember]
     public CorporateActionFrequencyType1FormatChoice_? DividendType { get; init; } 
     /// <summary>
     /// Type of intermediates securities distribution, eg, stock dividend, reverse right.
     /// </summary>
+    [DataMember]
     public IntermediateSecurityDistributionType1FormatChoice_? IntermediateSecuritiesDistributionType { get; init; } 
     /// <summary>
     /// Number of the coupon attached/associated with a security.
     /// </summary>
-    public IsoMax3NumericText[] CouponNumber { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax3NumericText> CouponNumber { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number of days used for calculating the accrued interest amount.
     /// </summary>
+    [DataMember]
     public IsoNumber? InterestAccruedNumberOfDays { get; init; } 
     /// <summary>
     /// New denomination currency of the inancial instrument.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? NewDenominationCurrency { get; init; } 
     /// <summary>
     /// Provides information about the dates related to a CA event.
     /// </summary>
+    [DataMember]
     public CorporateActionDate2? DateDetails { get; init; } 
     /// <summary>
     /// Provides information about the prices related to a CA event.
     /// </summary>
-    public CorporateActionPrice2[] PriceDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CorporateActionPrice2> PriceDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the periods related to a CA event.
     /// </summary>
+    [DataMember]
     public CorporateActionPeriod1? PeriodDetails { get; init; } 
     /// <summary>
     /// Provides information about rates and amounts related to a CA event.
     /// </summary>
+    [DataMember]
     public CorporateActionRate1? RateAndAmountDetails { get; init; } 
     /// <summary>
     /// Provides additional information.
     /// </summary>
+    [DataMember]
     public CorporateActionNarrative1? CorporateActionAdditionalInformation { get; init; } 
     /// <summary>
     /// Indicates whether certification is required from the account owner.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CertificationRequiredIndicator { get; init; } 
     /// <summary>
     /// Type of certification which is required.
     /// </summary>
+    [DataMember]
     public BeneficiaryCertificationType1FormatChoice_? CertificationType { get; init; } 
     /// <summary>
     /// Specifies whether the capital gain is in the scope of the EU Savings directive for the income realised upon the sale, refund or redemption of shares and units (.) (Article 6(1d)).
     /// </summary>
+    [DataMember]
     public EUCapitalGain2Code? CapitalGain { get; init; } 
     /// <summary>
     /// Specifies whether the financial instrument calculates the taxable income per dividend/taxable income per share.
     /// </summary>
+    [DataMember]
     public TaxableIncomePerShareCalculated2Code? TaxableIncomePerShareCalculated { get; init; } 
     /// <summary>
     /// New companys place of incorporation.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? NewPlaceOfIncorporation { get; init; } 
     /// <summary>
     /// Specifies whether terms of the event allow resale of the rights.
     /// </summary>
+    [DataMember]
     public RenounceableStatus1FormatChoice_? RenounceableEntitlementStatusType { get; init; } 
     /// <summary>
     /// Specifies the conversion type of an instrument.
     /// </summary>
+    [DataMember]
     public ConversionType1FormatChoice_? ConversionType { get; init; } 
     /// <summary>
     /// Indicates whether redemption charges apply.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? RedemptionChargesAppliedIndicator { get; init; } 
     /// <summary>
     /// Specifies whether the proceeds of the event will be distributed on a rolling basis rather than on a specific date.
     /// </summary>
+    [DataMember]
     public DistributionType1FormatChoice_? DistributionType { get; init; } 
     
     #nullable disable

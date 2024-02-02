@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Numeric variables calculated on the number of transactions or on market exposures.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VolumeMetrics6
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record VolumeMetrics6
     /// <summary>
     /// Aggregations of all positive values of the derivative for all derivatives pertaining to a position set.
     /// </summary>
+    [DataMember]
     public ExposureMetrics5? Positive { get; init; } 
     /// <summary>
     /// Aggregations of all negative values of the derivative for all derivatives pertaining to a position set.
     /// </summary>
+    [DataMember]
     public ExposureMetrics5? Negative { get; init; } 
     
     #nullable disable

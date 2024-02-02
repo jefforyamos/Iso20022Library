@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Consideration, such as amount of money, paid or received in exchange for an amount of money that has been invested, loaned or borrowed for a certain period.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InterestResult1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record InterestResult1
     /// <summary>
     /// Amount of money representing an interest payment.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? InterestDueToA { get; init; } 
     /// <summary>
     /// Amount of money representing an interest payment.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? InterestDueToB { get; init; } 
     /// <summary>
     /// Agreed date for the interest payment.
     /// </summary>
+    [DataMember]
     public required IsoISODate ValueDate { get; init; } 
     /// <summary>
     /// Indicates whether the interest will be settled in cash or rolled in the existing collateral balance.
     /// </summary>
+    [DataMember]
     public required InterestMethod1Code InterestMethod { get; init; } 
     /// <summary>
     /// Provides details about the opening collateral balance.
     /// </summary>
+    [DataMember]
     public CollateralBalance1? OpeningCollateralBalance { get; init; } 
     /// <summary>
     /// Provides details about the closing collateral balance.
     /// </summary>
+    [DataMember]
     public required CollateralBalance1 ClosingCollateralBalance { get; init; } 
     
     #nullable disable

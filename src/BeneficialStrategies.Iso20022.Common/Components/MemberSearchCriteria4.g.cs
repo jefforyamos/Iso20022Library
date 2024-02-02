@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to search for a member.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MemberSearchCriteria4
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record MemberSearchCriteria4
     /// <summary>
     /// Unique and unambiguous identification of a member within a system, assigned using the member identification scheme of the system.
     /// </summary>
-    public MemberIdentification3Choice_[] Identification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MemberIdentification3Choice_> Identification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Nature of the relationship a member has with a system.
     /// </summary>
-    public SystemMemberType1Choice_[] Type { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SystemMemberType1Choice_> Type { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Status of a member in a system, such as enabled or deleted.
     /// </summary>
-    public SystemMemberStatus1Choice_[] Status { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SystemMemberStatus1Choice_> Status { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

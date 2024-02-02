@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Instrument that has or represents monetary value and is used to process a payment instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentInstrument11
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PaymentInstrument11
     /// <summary>
     /// Currency associated with the payment instrument.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
     /// <summary>
     /// Choice of payment instruments.
     /// </summary>
+    [DataMember]
     public required PaymentInstrument17Choice_ PaymentInstrument { get; init; } 
     
     #nullable disable

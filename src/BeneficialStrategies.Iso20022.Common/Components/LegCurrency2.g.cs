@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the currency(ies) for each leg of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LegCurrency2
 {
     #nullable enable
@@ -21,11 +23,13 @@ public partial record LegCurrency2
     /// Currency of the notional amount. 
     /// Usage: In the case of an interest rate or currency derivative contract, this will be the notional currency of the first leg.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? CurrencyFirstLeg { get; init; } 
     /// <summary>
     /// Other currency of the notional amount. 
     /// Usage: In the case of an interest rate or currency derivative contract, this will be the notional currency of the second leg.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? CurrencySecondLeg { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the amount reserved to cover the anticipated charges associated with the lodging stay.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AuthorisedAmount1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AuthorisedAmount1
     /// <summary>
     /// Date and time of the amount authorized
     /// </summary>
+    [DataMember]
     public IsoISODateTime? DateTime { get; init; } 
     /// <summary>
     /// Contains the amount.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Contains additional information about the authorized amount.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable

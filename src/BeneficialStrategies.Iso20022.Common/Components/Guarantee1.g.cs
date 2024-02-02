@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Form of protection where a third party guarantees the performance of a financial obligation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Guarantee1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Guarantee1
     /// <summary>
     /// Identification of guarantee provider.
     /// </summary>
+    [DataMember]
     public required PartyIdentification118Choice_ Provider { get; init; } 
     /// <summary>
     /// Value of the collateral guarantee.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

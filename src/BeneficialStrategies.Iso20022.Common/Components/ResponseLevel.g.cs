@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the level of response requested from the receiver of this message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ResponseLevel
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record ResponseLevel
     /// <summary>
     /// Specifies the level of response requested from the receiver of the message.
     /// </summary>
+    [DataMember]
     public required ResponseLevel1Code ResponseLevelValue { get; init; } 
     
     #nullable disable

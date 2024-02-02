@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Party and account details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentificationAndAccount31
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PartyIdentificationAndAccount31
     /// <summary>
     /// Identification of the party.
     /// </summary>
+    [DataMember]
     public required PartyIdentification33Choice_ Identification { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
+    [DataMember]
     public AlternatePartyIdentification4? AlternateIdentification { get; init; } 
     /// <summary>
     /// Provides additional information to a party identification.
     /// </summary>
+    [DataMember]
     public PartyTextInformation1? AdditionalInformation { get; init; } 
     /// <summary>
     /// Identifies the clearing member account at the Central counterparty through which the trade must be cleared (sometimes called position account).
     /// </summary>
+    [DataMember]
     public SecuritiesAccount18? ClearingAccount { get; init; } 
     
     #nullable disable

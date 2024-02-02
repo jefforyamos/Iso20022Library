@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the stored value account or the stored value card (Prepaid card).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StoredValueAccount2
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record StoredValueAccount2
     /// <summary>
     /// Type of stored value account.
     /// </summary>
+    [DataMember]
     public StoredValueAccountType1Code? AccountType { get; init; } 
     /// <summary>
     /// Type of identification for this Stored Value Account.
     /// </summary>
+    [DataMember]
     public CardIdentificationType1Code? IdentificationType { get; init; } 
     /// <summary>
     /// Identification of Stored Value Account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Brand to which belong the account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Brand { get; init; } 
     /// <summary>
     /// Provider of the Stored Value Account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Provider { get; init; } 
     /// <summary>
     /// Owner name of an account.
     /// </summary>
+    [DataMember]
     public IsoMax45Text? OwnerName { get; init; } 
     /// <summary>
     /// Expiry date of the account of card.
     /// </summary>
+    [DataMember]
     public IsoMax10Text? ExpiryDate { get; init; } 
     /// <summary>
     /// Standard or last entry mode to access the Stored Value account or card.
     /// </summary>
+    [DataMember]
     public CardDataReading8Code? EntryMode { get; init; } 
     /// <summary>
     /// Currency of the Stored Value account.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Current balance of the Stored Value account.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? Balance { get; init; } 
     
     #nullable disable

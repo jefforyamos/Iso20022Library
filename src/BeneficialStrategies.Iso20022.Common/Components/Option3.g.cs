@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// List of elements which provide the parameters of an option trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Option3
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record Option3
     /// <summary>
     /// Specifies the call and the put amount of the underlying foreign exchange trade.
     /// </summary>
+    [DataMember]
     public required AmountsAndValueDate2 OptionAmounts { get; init; } 
     /// <summary>
     /// Specifies the rate of exchange at which the foreign exchange option has been struck.
     /// </summary>
+    [DataMember]
     public required AgreedRate1 StrikePrice { get; init; } 
     /// <summary>
     /// Defines how an option can be exercised.
     /// </summary>
+    [DataMember]
     public required OptionStyle2Code ExerciseStyle { get; init; } 
     /// <summary>
     /// First date on which an american option can be exercised.
     /// </summary>
+    [DataMember]
     public IsoISODate? EarliestExerciseDate { get; init; } 
     /// <summary>
     /// Date on which a privilege (eg, option, right, warrant.) expires. If it is an European option, the option holder can only exercise the right or let it lapse on expiry date. If it is an American option, the option holder can exercise the right up to the expiry date.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime ExpiryDateAndTime { get; init; } 
     /// <summary>
     /// Financial center where option expires.
     /// </summary>
+    [DataMember]
     public required IsoMax4AlphaNumericText ExpiryLocation { get; init; } 
     /// <summary>
     /// Indicates whether the trade is to be settled as principal or netted off against another trade.
     /// </summary>
+    [DataMember]
     public required SettlementType1Code SettlementType { get; init; } 
     /// <summary>
     /// Free format text that may contain information on the option.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? AdditionalOptionInformation { get; init; } 
     /// <summary>
     /// Specifies the amount of the premium of a foreign exchange option trade and its settlement place.
     /// </summary>
+    [DataMember]
     public required PremiumAmount2 Premium { get; init; } 
     
     #nullable disable

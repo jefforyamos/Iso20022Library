@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ATMCommandParameters1Choice.ATMRequiredGlobalStatus))]
 [KnownType(typeof(ATMCommandParameters1Choice.ExpectedMessageFunction))]
 [KnownType(typeof(ATMCommandParameters1Choice.RequiredConfigurationParameter))]
+[DataContract]
 public abstract partial record ATMCommandParameters1Choice_
 {
 }

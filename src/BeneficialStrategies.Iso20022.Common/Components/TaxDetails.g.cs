@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of characteristics defining the type of tax.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxDetails
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TaxDetails
     /// <summary>
     /// Document issued by first agent on behalf of debtor to report withholding tax to taxing authority.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CertificateIdentification { get; init; } 
     /// <summary>
     /// Information on the type of tax.
     /// </summary>
+    [DataMember]
     public TaxType? TaxType { get; init; } 
     
     #nullable disable

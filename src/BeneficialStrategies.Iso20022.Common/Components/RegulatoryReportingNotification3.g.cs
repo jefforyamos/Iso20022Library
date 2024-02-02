@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the regulatory notification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RegulatoryReportingNotification3
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record RegulatoryReportingNotification3
     /// <summary>
     /// Unique and unambiguous identification of the transaction notification.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransactionNotificationIdentification { get; init; } 
     /// <summary>
     /// Party that legally owns the cash account.
     /// </summary>
+    [DataMember]
     public required PartyIdentification135 AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [DataMember]
     public required BranchAndFinancialInstitutionIdentification6 AccountServicer { get; init; } 
     /// <summary>
     /// Certificate against which all currency control transactions are registered.
     /// </summary>
-    public TransactionCertificate4[] TransactionCertificate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionCertificate4> TransactionCertificate { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

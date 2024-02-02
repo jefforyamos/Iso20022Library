@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Description of the mis-matched situation between two baselines or between a baseline and a data set.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MisMatchReport2
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record MisMatchReport2
     /// <summary>
     /// Total number of mismatches between two baselines or between one baseline and one data set.
     /// </summary>
+    [DataMember]
     public required IsoNumber NumberOfMisMatches { get; init; } 
     /// <summary>
     /// Details of each mismatch occurrence.
     /// </summary>
-    public ValidationResult4[] MisMatchInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ValidationResult4> MisMatchInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Diagnosis Request message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DiagnosisRequest1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record DiagnosisRequest1
     /// <summary>
     /// Indicates if Host Diagnosis are required.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? HostDiagnosisFlag { get; init; } 
     /// <summary>
     /// Identification of the Acquirers.
     /// </summary>
-    public IsoMax35Text[] AcquirerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> AcquirerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

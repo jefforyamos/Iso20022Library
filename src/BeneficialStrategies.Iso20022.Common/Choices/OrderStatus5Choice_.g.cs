@@ -16,6 +16,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(OrderStatus5Choice.Suspended))]
 [KnownType(typeof(OrderStatus5Choice.InRepair))]
 [KnownType(typeof(OrderStatus5Choice.PartiallySettled))]
+[DataContract]
 public abstract partial record OrderStatus5Choice_
 {
 }

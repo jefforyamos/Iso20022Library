@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related to the management plan of a point of interaction (POI).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TerminalManagementDataSet5
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TerminalManagementDataSet5
     /// <summary>
     /// Identification of the data set containing the management plan.
     /// </summary>
+    [DataMember]
     public required DataSetIdentification3 Identification { get; init; } 
     /// <summary>
     /// Counter to identify a single data set within the whole transfer.
     /// </summary>
+    [DataMember]
     public IsoMax9NumericText? SequenceCounter { get; init; } 
     /// <summary>
     /// Content of the management plan.
     /// </summary>
+    [DataMember]
     public ManagementPlanContent2? Content { get; init; } 
     
     #nullable disable

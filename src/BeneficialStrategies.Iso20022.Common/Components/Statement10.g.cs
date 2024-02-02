@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// General characteristics related to a statement which reports information for a precise date.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Statement10
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record Statement10
     /// <summary>
     /// Reference of the statement.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identifier { get; init; } 
     /// <summary>
     /// Date of the statement.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
+    [DataMember]
     public required FrequencyCodeAndDSSCode1Choice_ Frequency { get; init; } 
     /// <summary>
     /// Indicates whether the report is complete or contains changes only.
     /// </summary>
+    [DataMember]
     public required StatementUpdateTypeCodeAndDSSCodeChoice_ UpdateType { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     /// <summary>
     /// Type of balance on which the statement is prepared.
     /// </summary>
+    [DataMember]
     public required StatementBasisCodeAndDSSCodeChoice_ StatementBasis { get; init; } 
     /// <summary>
     /// Sequential number of the statement.
     /// </summary>
+    [DataMember]
     public IsoMax5NumericText? ReportNumber { get; init; } 
     
     #nullable disable

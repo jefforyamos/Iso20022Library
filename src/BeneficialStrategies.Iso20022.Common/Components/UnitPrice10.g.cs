@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UnitPrice10
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record UnitPrice10
     /// <summary>
     /// Type and information about a price.
     /// </summary>
+    [DataMember]
     public required TypeOfPrice10Code Type { get; init; } 
     /// <summary>
     /// Type and information about a price.
     /// </summary>
+    [DataMember]
     public required IsoExtended350Code ExtendedType { get; init; } 
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
+    [DataMember]
     public required PriceValue1 Value { get; init; } 
     /// <summary>
     /// Type of pricing calculation method.
     /// </summary>
+    [DataMember]
     public PriceMethod1Code? PriceMethod { get; init; } 
     /// <summary>
     /// Specifies the number of days used for calculating the accrued interest amount.
     /// </summary>
+    [DataMember]
     public IsoNumber? NumberOfDaysAccrued { get; init; } 
     /// <summary>
     /// Amount included in the NAV that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? TaxableIncomePerShare { get; init; } 
     /// <summary>
     /// Specifies whether the fund calculates a taxable interest per share (TIS).
     /// </summary>
+    [DataMember]
     public TaxableIncomePerShareCalculated2Code? TaxableIncomePerShareCalculated { get; init; } 
     /// <summary>
     /// Specifies whether the fund calculates a taxable interest per share (TIS).
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedTaxableIncomePerShareCalculated { get; init; } 
     /// <summary>
     /// Specifies the reason why the price is different from the current market price.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PriceDifferenceReason { get; init; } 
     
     #nullable disable

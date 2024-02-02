@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Compares information related to both sides of a loan.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CounterpartyMatchingCriteria4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CounterpartyMatchingCriteria4
     /// <summary>
     /// Specifies whether the information on the reporting counterparties are matching or not.
     /// </summary>
+    [DataMember]
     public CompareOrganisationIdentification6? ReportingCounterparty { get; init; } 
     /// <summary>
     /// Specifies whether the information on the other counterparties are matching or not.
     /// </summary>
+    [DataMember]
     public CompareOrganisationIdentification7? OtherCounterparty { get; init; } 
     /// <summary>
     /// Specifies whether the information on the counterparty side are matching or not.
     /// </summary>
+    [DataMember]
     public CompareCounterpartySide2? CounterpartySide { get; init; } 
     
     #nullable disable

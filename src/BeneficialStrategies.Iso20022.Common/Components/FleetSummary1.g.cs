@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Supplies additional transaction information for fleet transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FleetSummary1
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record FleetSummary1
     /// <summary>
     /// Contains driver-related information.
     /// </summary>
+    [DataMember]
     public Driver1? Driver { get; init; } 
     /// <summary>
     /// Vehicle belonging to the fleet.
     /// </summary>
+    [DataMember]
     public Vehicle5? Vehicle { get; init; } 
     /// <summary>
     /// Second card presented for the payment transaction.
     /// </summary>
+    [DataMember]
     public PlainCardData20? DriverOrVehicleCard { get; init; } 
     /// <summary>
     /// Indicates whether or not fuel or fleet data prompting should occur. 
     /// </summary>
+    [DataMember]
     public IsoMax1Number? CardFuelPromptCode { get; init; } 
     /// <summary>
     /// Currently known as "TransactionNumber". An identification code assigned by an agent.  This code can be used after applying for and awaiting the appropriate prompt value to be defined.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AgentFuelPromptCode { get; init; } 
     /// <summary>
     /// Contains the details related to an individual trip. 
     /// </summary>
+    [DataMember]
     public TripInformation1? TripInformation { get; init; } 
     /// <summary>
     /// Indicates the amenities available at the location where the merchant actually performed the transaction.
     /// </summary>
-    public LocalAmenity1[] LocalAmenity { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LocalAmenity1> LocalAmenity { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains information related specifically to the transaction.
     /// </summary>
-    public PaymentTransaction117[] TransactionRelatedData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentTransaction117> TransactionRelatedData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional fleet summary data.
     /// </summary>
+    [DataMember]
     public AdditionalInformation19? AdditionalData { get; init; } 
     
     #nullable disable

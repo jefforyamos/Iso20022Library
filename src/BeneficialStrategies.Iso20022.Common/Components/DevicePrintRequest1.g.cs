@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Print Request message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DevicePrintRequest1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record DevicePrintRequest1
     /// <summary>
     /// Qualifies the type of document.
     /// </summary>
+    [DataMember]
     public required DocumentType7Code DocumentQualifier { get; init; } 
     /// <summary>
     /// Type of awaited response (none, immediate, after printing, after sound).
     /// </summary>
+    [DataMember]
     public required ResponseMode1Code ResponseMode { get; init; } 
     /// <summary>
     /// Flag that the print is integrated to other prints.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? IntegratedPrintFlag { get; init; } 
     /// <summary>
     /// Flag to require a physical signature by the Customer.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? RequiredSignatureFlag { get; init; } 
     /// <summary>
     /// Content of the message to print.
     /// </summary>
+    [DataMember]
     public required ActionMessage6 OutputContent { get; init; } 
     
     #nullable disable

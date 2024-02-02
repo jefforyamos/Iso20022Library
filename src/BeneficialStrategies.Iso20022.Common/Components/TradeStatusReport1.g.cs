@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the trade status report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeStatusReport1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record TradeStatusReport1
     /// <summary>
     /// Information concerning the original message to which the TradeStatusReport is sent in response.
     /// </summary>
+    [DataMember]
     public required OriginalMessage1 OriginalMessageDetails { get; init; } 
     /// <summary>
     /// Specifies the processing status of the original message.
     /// </summary>
+    [DataMember]
     public required UndertakingStatus1Code Status { get; init; } 
     /// <summary>
     /// Set of elements used to provide detailed information on the status reason.
     /// </summary>
-    public StatusReasonInformation8[] StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StatusReasonInformation8> StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the report.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AdditionalInformation { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment card performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentCard32
 {
     #nullable enable
@@ -20,66 +22,82 @@ public partial record PaymentCard32
     /// <summary>
     /// Replacement of the message element PlainCardData by a digital envelope using a cryptographic key.
     /// </summary>
+    [DataMember]
     public ContentInformationType32? ProtectedCardData { get; init; } 
     /// <summary>
     /// Replacement of the message element PlainCardData by a private envelope.
     /// </summary>
+    [DataMember]
     public IsoMax100KBinary? PrivateCardData { get; init; } 
     /// <summary>
     /// Sensitive data associated with the card performing the transaction.
     /// </summary>
+    [DataMember]
     public PlainCardData15? PlainCardData { get; init; } 
     /// <summary>
     /// Unique reference to the card, used by both merchants and acquirers to link tokenized and non-tokenized transactions associated to the same underlying card.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? PaymentAccountReference { get; init; } 
     /// <summary>
     /// Masked PAN to be printed on payment receipts or displayed to the cardholder. Masked digits may be absent or replaced by another character as '*'.
     /// </summary>
+    [DataMember]
     public IsoMax30Text? MaskedPAN { get; init; } 
     /// <summary>
     /// Bank identifier number of the issuer for routing purpose.
     /// </summary>
+    [DataMember]
     public IsoMax15NumericText? IssuerBIN { get; init; } 
     /// <summary>
     /// Country code assigned to the card by the card issuer.
     /// </summary>
+    [DataMember]
     public IsoMax3Text? CardCountryCode { get; init; } 
     /// <summary>
     /// Currency code of the card issuer (ISO 4217 numeric code).
     /// </summary>
+    [DataMember]
     public IsoExact3AlphaNumericText? CardCurrencyCode { get; init; } 
     /// <summary>
     /// Defines a category of cards related to the acceptance processing rules defined by the acquirer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CardProductProfile { get; init; } 
     /// <summary>
     /// Brand name of the card.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CardBrand { get; init; } 
     /// <summary>
     /// Type of card product.
     /// </summary>
+    [DataMember]
     public CardProductType1Code? CardProductType { get; init; } 
     /// <summary>
     /// Additional information to identify CardProduct.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CardProductSubType { get; init; } 
     /// <summary>
     /// True if the card may be used abroad.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? InternationalCard { get; init; } 
     /// <summary>
     /// Product that can be purchased with the card.
     /// </summary>
-    public IsoMax70Text[] AllowedProduct { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax70Text> AllowedProduct { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Options to the service provided by the card.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ServiceOption { get; init; } 
     /// <summary>
     /// Additional card issuer specific data.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AdditionalCardData { get; init; } 
     
     #nullable disable

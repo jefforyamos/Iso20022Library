@@ -19,6 +19,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SystemPartyModification2Choice.LockStatus))]
 [KnownType(typeof(SystemPartyModification2Choice.SystemRestriction))]
 [KnownType(typeof(SystemPartyModification2Choice.MarketSpecificAttribute))]
+[DataContract]
 public abstract partial record SystemPartyModification2Choice_
 {
 }

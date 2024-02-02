@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the details of a commodity derivative.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DerivativeCommodity2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DerivativeCommodity2
     /// <summary>
     /// Commodity product attributes.
     /// </summary>
+    [DataMember]
     public required AssetClassCommodity3Choice_ Product { get; init; } 
     /// <summary>
     /// Transaction type as specified by the trading venue.
     /// </summary>
+    [DataMember]
     public AssetClassTransactionType1Code? TransactionType { get; init; } 
     /// <summary>
     /// Final price type as specified by the trading venue.
     /// </summary>
+    [DataMember]
     public AssetPriceType1Code? FinalPriceType { get; init; } 
     
     #nullable disable

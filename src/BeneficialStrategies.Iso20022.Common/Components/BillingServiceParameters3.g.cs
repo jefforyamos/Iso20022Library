@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the detailed parameters a service to be billed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BillingServiceParameters3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record BillingServiceParameters3
     /// <summary>
     /// Specifies the details to fully identify the bank service.
     /// </summary>
+    [DataMember]
     public required BillingServiceIdentification3 BankService { get; init; } 
     /// <summary>
     /// Count or number of items (volume) involved in the charge.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? Volume { get; init; } 
     
     #nullable disable

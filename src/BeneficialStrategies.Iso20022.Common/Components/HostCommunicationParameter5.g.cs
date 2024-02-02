@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Configuration parameters to communicate with a host.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record HostCommunicationParameter5
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record HostCommunicationParameter5
     /// <summary>
     /// Type of action for the configuration parameters.
     /// </summary>
+    [DataMember]
     public required TerminalManagementAction3Code ActionType { get; init; } 
     /// <summary>
     /// Identification of the host.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text HostIdentification { get; init; } 
     /// <summary>
     /// Network parameters of the host.
     /// </summary>
+    [DataMember]
     public NetworkParameters5? Address { get; init; } 
     /// <summary>
     /// Cryptographic key used to communicate with the host.
     /// </summary>
-    public KEKIdentifier5[] Key { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<KEKIdentifier5> Key { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Access information to reach an intermediate network service provider.
     /// </summary>
+    [DataMember]
     public NetworkParameters5? NetworkServiceProvider { get; init; } 
     /// <summary>
     /// Physical Interface where the host is connected.
     /// </summary>
+    [DataMember]
     public PhysicalInterfaceParameter1? PhysicalInterface { get; init; } 
     
     #nullable disable

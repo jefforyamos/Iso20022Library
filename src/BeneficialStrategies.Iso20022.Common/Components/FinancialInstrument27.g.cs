@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, eg, dividend option or valuation currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrument27
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FinancialInstrument27
     /// <summary>
     /// Unique and unambiguous identifier of a security, assigned under a formal or proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification3Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Account held in the name of a party that is not the name of the beneficial owner of the shares.
     /// </summary>
+    [DataMember]
     public Account6? TransfereeAccount { get; init; } 
     
     #nullable disable

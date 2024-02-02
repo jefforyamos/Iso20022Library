@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides account and balance information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountAndBalance37
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record AccountAndBalance37
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax35Text SafekeepingAccount { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification103Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
+    [DataMember]
     public SafekeepingPlaceFormat11Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Provides information about balance related to a corporate action.
     /// </summary>
+    [DataMember]
     public CorporateActionBalanceDetails34? Balance { get; init; } 
     
     #nullable disable

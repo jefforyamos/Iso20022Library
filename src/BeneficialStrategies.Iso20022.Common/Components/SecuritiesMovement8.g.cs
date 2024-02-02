@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Movements of securities.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesMovement8
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record SecuritiesMovement8
     /// <summary>
     /// Specifies whether the quantity of financial instrument are to be delivered or received 
     /// </summary>
+    [DataMember]
     public required ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
+    [DataMember]
     public required Quantity51Choice_ SecuritiesQuantity { get; init; } 
     /// <summary>
     /// Securities movement status.
     /// </summary>
+    [DataMember]
     public SecuritiesMovementStatus1Choice_? MovementStatus { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is delivered/received as collateral.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator CollateralMovement { get; init; } 
     /// <summary>
     /// Indicates whether the proposed securities movements can be accepted.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? SecuritiesMovementsApproved { get; init; } 
     /// <summary>
     /// Indicates whether the position is fixed (post settlement).
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PositionType { get; init; } 
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
+    [DataMember]
     public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// Reference assigned by the party A to the financial instrument movement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientSecuritiesMovementIdentification { get; init; } 
     /// <summary>
     /// Reference assigned by the triparty-agent/service-provider to the financial instrument movement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TripartyAgentServiceProviderSecuritiesMovementIdentification { get; init; } 
     /// <summary>
     /// Value of the collateral position.
     /// </summary>
+    [DataMember]
     public AmountAndDirection44? MarginedValue { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Chain of parties involved in the settlement of a transaction, including receipts and deliveries, book transfers, treasury deals, or other activities, resulting in the movement of a security or amount of money from one account to another.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementParties32
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record SettlementParties32
     /// <summary>
     /// First party in the settlement chain. In a plain vanilla settlement, it is the central securities depository where the counterparty requests to receive the financial instrument or from where the counterparty delivers the financial instruments.
     /// </summary>
+    [DataMember]
     public required PartyIdentification63 Depository { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain, interacts with the depository. This may also be known as the “local agent”, “sub-custodian”, “receiving agent” or “delivering agent”.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount95? Party1 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain, interacts with party 1. This may also be known as the “investment manager” or “custodian”.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount95? Party2 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain, interacts with party 2.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount95? Party3 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain, interacts with party 3.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount95? Party4 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain, interacts with party 4.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount95? Party5 { get; init; } 
     
     #nullable disable

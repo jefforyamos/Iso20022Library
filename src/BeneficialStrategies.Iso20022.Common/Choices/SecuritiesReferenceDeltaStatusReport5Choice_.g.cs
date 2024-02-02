@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SecuritiesReferenceDeltaStatusReport5Choice.NewRecord))]
 [KnownType(typeof(SecuritiesReferenceDeltaStatusReport5Choice.TerminatedRecord))]
 [KnownType(typeof(SecuritiesReferenceDeltaStatusReport5Choice.CancelledRecord))]
+[DataContract]
 public abstract partial record SecuritiesReferenceDeltaStatusReport5Choice_
 {
 }

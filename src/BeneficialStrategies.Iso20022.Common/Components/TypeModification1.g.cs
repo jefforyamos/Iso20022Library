@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of modification to account type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TypeModification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TypeModification1
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
+    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Type of the account.
     /// </summary>
+    [DataMember]
     public required CashAccountType2Choice_ Type { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Chain of parties involved in the settlement of a transaction, including receipts and deliveries, book transfers, treasury deals, or other activities, resulting in the movement of a security or amount of money from one account to another.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeliveringPartiesAndAccount17
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record DeliveringPartiesAndAccount17
     /// <summary>
     /// Party that sells goods or services, or a financial instrument.
     /// </summary>
+    [DataMember]
     public InvestmentAccount65? DelivererDetails { get; init; } 
     /// <summary>
     /// Party that acts on behalf of the seller of securities when the seller does not have a direct relationship with the delivering agent.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount157? DeliverersCustodianDetails { get; init; } 
     /// <summary>
     /// Party that the deliverer's custodian uses to effect the delivery of a security, when the deliverer's custodian does not have a direct relationship with the delivering agent.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount157? DeliverersIntermediary1Details { get; init; } 
     /// <summary>
     /// Party that interacts with the deliverer's intermediary.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount157? DeliverersIntermediary2Details { get; init; } 
     /// <summary>
     /// Party that delivers securities to the receiving agent at the place of settlement, for example, central securities depository.
     /// </summary>
+    [DataMember]
     public required PartyIdentificationAndAccount157 DeliveringAgentDetails { get; init; } 
     /// <summary>
     /// Identifies the securities settlement system to be used.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SecuritiesSettlementSystem { get; init; } 
     /// <summary>
     /// Place where settlement of the securities takes place.
     /// </summary>
+    [DataMember]
     public PartyIdentification123? PlaceOfSettlementDetails { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the notional quantity frequency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record QuantityTerm1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record QuantityTerm1
     /// <summary>
     /// Number of units of the financial instrument, that is, the nominal value.
     /// </summary>
+    [DataMember]
     public IsoLongFraction19DecimalNumber? Quantity { get; init; } 
     /// <summary>
     /// Indicates the unit of measure in which the total notional quantity and notional quantity schedules are expressed.
     /// </summary>
+    [DataMember]
     public UnitOfMeasure8Choice_? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Specifies the number of time units (as expressed by the frequency period) that determines the frequency at which periodic dates occur.
     /// </summary>
+    [DataMember]
     public IsoMax3Number? Value { get; init; } 
     /// <summary>
     /// Unit for the frequency period.
     /// </summary>
+    [DataMember]
     public Frequency19Code? TimeUnit { get; init; } 
     
     #nullable disable

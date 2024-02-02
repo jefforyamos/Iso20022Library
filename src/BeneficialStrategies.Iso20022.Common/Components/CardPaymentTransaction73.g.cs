@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the original transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentTransaction73
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CardPaymentTransaction73
     /// <summary>
     /// Global reference of the sale transaction for the sale system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleReferenceIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the transaction assigned by the POI (Point Of Interaction).
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
+    [DataMember]
     public required GenericIdentification32 POIIdentification { get; init; } 
     /// <summary>
     /// Link to a previous currency conversion.
     /// </summary>
+    [DataMember]
     public required CurrencyConversion11 CurrencyConversion { get; init; } 
     
     #nullable disable

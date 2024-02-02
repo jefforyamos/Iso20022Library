@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Technique whereby a position in the underlying is traded for a futures position in the physical commodity markets.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExchangeForPhysicalTradeParameters1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ExchangeForPhysicalTradeParameters1
     /// <summary>
     /// Unexpected divergence between the price behaviour of an underlying position or portfolio and the price behaviour of a hedging position or benchmark.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? OutsideIndex { get; init; } 
     /// <summary>
     /// Difference between the value of a future and the value of the underlying equities after allowing for the discounted cash flows associated with the underlying stocks.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? FairValue { get; init; } 
     /// <summary>
     /// Value of a futures position involved in an Exchange For Physical trade.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ValueForFutures { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details for a specific date on the daily data on settlement fails instructions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementFailsDailyData3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SettlementFailsDailyData3
     /// <summary>
     /// Date for each reporting day in the month.
     /// </summary>
+    [DataMember]
     public required IsoISODate ReportingDate { get; init; } 
     /// <summary>
     /// Data related to the failed settlement instructions for the reporting date.
     /// </summary>
+    [DataMember]
     public required SettlementFailsDailyInstrument3 DailyRecord { get; init; } 
     
     #nullable disable

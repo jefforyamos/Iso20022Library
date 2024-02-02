@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Fraud reporting type information
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportedFraud2
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record ReportedFraud2
     /// <summary>
     /// Type of fraud for which a report is established.
     /// </summary>
+    [DataMember]
     public required FraudType1Code FraudType { get; init; } 
     /// <summary>
     /// Other type of fraud.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherFraudType { get; init; } 
     /// <summary>
     /// Identifies the type of reported fraudulent transaction.
     /// </summary>
+    [DataMember]
     public required FraudReportingAction1Code FraudReportingAction { get; init; } 
     /// <summary>
     /// Other fraud reporting action.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherFraudReportingAction { get; init; } 
     /// <summary>
     /// Type of fraud reporting entity.
     /// </summary>
+    [DataMember]
     public required PartyType25Code ReportingEntity { get; init; } 
     /// <summary>
     /// Other type of fraud reporting entity.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherReportingEntity { get; init; } 
     /// <summary>
     /// Reference to the case as provided by the submitter.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SubmitterCaseReference { get; init; } 
     /// <summary>
     /// Reference to fraudulent case.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CaseReference { get; init; } 
     
     #nullable disable

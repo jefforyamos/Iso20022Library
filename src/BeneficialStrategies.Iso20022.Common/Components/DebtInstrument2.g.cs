@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the debit instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DebtInstrument2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record DebtInstrument2
     /// <summary>
     /// Total issued nominal amount in monetary value.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount TotalIssuedNominalAmount { get; init; } 
     /// <summary>
     /// Maturity date of the financial instrument.
     /// </summary>
+    [DataMember]
     public IsoISODate? MaturityDate { get; init; } 
     /// <summary>
     /// Nominal value of each instrument. If not available, the minimum traded value should be populated.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount NominalValuePerUnit { get; init; } 
     /// <summary>
     /// Interest rate of the debt instrument.
     /// </summary>
+    [DataMember]
     public required InterestRate6Choice_ InterestRate { get; init; } 
     /// <summary>
     /// Seniority for a specific debt instrument.
     /// </summary>
+    [DataMember]
     public DebtInstrumentSeniorityType1Code? DebtSeniority { get; init; } 
     
     #nullable disable

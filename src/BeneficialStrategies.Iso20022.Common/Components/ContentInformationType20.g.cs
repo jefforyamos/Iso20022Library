@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// General cryptographic message syntax (CMS) containing encrypted data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContentInformationType20
 {
     #nullable enable
@@ -23,12 +25,14 @@ public partial record ContentInformationType20
     /// ISO 8583:93 bit 53 or 111
     /// ISO 8583:2003 bit 53 or 50
     /// </summary>
+    [DataMember]
     public required MACData1 MACData { get; init; } 
     /// <summary>
     /// Message Authentication Code data.
     /// Binary, length of 8
     /// ISO 8583 bit 64 or bit 128
     /// </summary>
+    [DataMember]
     public required IsoMax8HexBinaryText MAC { get; init; } 
     
     #nullable disable

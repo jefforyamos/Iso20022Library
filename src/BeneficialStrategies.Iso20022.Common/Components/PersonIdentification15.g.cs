@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of unique and unambiguous ways to identify a person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PersonIdentification15
 {
     #nullable enable
@@ -20,71 +22,88 @@ public partial record PersonIdentification15
     /// <summary>
     /// Number assigned by a license authority to a driver's license.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DriverLicenseNumber { get; init; } 
     /// <summary>
     /// Country, state or province, issuer of the driver license.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DriverLicenseLocation { get; init; } 
     /// <summary>
     /// Name or title of the driver license.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DriverLicenseName { get; init; } 
     /// <summary>
     /// Identification of the driver in the fleet of vehicle.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DriverIdentification { get; init; } 
     /// <summary>
     /// Number assigned by an agent to identify its customer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CustomerNumber { get; init; } 
     /// <summary>
     /// Number assigned by a social security agency.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SocialSecurityNumber { get; init; } 
     /// <summary>
     /// Number assigned by a government agency to identify foreign nationals.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AlienRegistrationNumber { get; init; } 
     /// <summary>
     /// Number assigned by a passport authority to a passport.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PassportNumber { get; init; } 
     /// <summary>
     /// Number assigned by a tax authority to an entity.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TaxIdentificationNumber { get; init; } 
     /// <summary>
     /// Number assigned by a national authority to an identity card.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? IdentityCardNumber { get; init; } 
     /// <summary>
     /// Number assigned to an employer by a registration authority.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? EmployerIdentificationNumber { get; init; } 
     /// <summary>
     /// Number assigned to an employee by a employer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? EmployeeIdentificationNumber { get; init; } 
     /// <summary>
     /// Identification of the job.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? JobNumber { get; init; } 
     /// <summary>
     /// Identification of the department.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Department { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
+    [DataMember]
     public IsoMax256Text? EmailAddress { get; init; } 
     /// <summary>
     /// Date and place of birth of a person.
     /// </summary>
+    [DataMember]
     public DateAndPlaceOfBirth1? DateAndPlaceOfBirth { get; init; } 
     /// <summary>
     /// Unique identification of a person, as assigned by an institution, using an identification scheme.
     /// </summary>
-    public GenericIdentification4[] Other { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericIdentification4> Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

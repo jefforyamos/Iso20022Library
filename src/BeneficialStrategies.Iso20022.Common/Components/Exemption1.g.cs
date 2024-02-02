@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Strong Customer Authentication exemption details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Exemption1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Exemption1
     /// <summary>
     /// Type of the exemption.
     /// </summary>
+    [DataMember]
     public required Exemption2Code Type { get; init; } 
     /// <summary>
     /// Status of the exemption.
     /// </summary>
+    [DataMember]
     public required AttestationValue1Code Value { get; init; } 
     /// <summary>
     /// Reason why the exemption claimed was not honored.
     /// </summary>
+    [DataMember]
     public IsoMax4Text? ReasonNotHonored { get; init; } 
     
     #nullable disable

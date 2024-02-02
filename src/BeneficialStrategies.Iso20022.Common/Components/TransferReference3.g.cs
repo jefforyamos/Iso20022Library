@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reference of a transfer instruction cancellation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferReference3
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record TransferReference3
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Transfer and cancellation reference.
     /// </summary>
-    public TransferReference4[] TransferReferences { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransferReference4> TransferReferences { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

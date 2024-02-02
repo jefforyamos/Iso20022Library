@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional references linked to the order status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Reference15
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record Reference15
     /// <summary>
     /// Identification assigned by issuer of Mass Status Request to uniquely identify the request.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OrderMassStatusRequestIdentification { get; init; } 
     /// <summary>
     /// Identification assigned by issuer of Order Status Request to uniquely identify the request.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OrderStatusRequestIdentification { get; init; } 
     /// <summary>
     /// Unique identifier for Order as assigned by sell-side.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OrderIdentification { get; init; } 
     /// <summary>
     /// Host assigned entity identification that can be used to reference all components of a cross; sides + strategy + legs. The HostCrossID will be used to link together components of the Cross Order. For example, each individual Notice of Execution associated with the order will carry HostCrossID in order to tie back to the original cross order.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? HostCrossIdentification { get; init; } 
     /// <summary>
     /// Identifier for a cross order. Must be unique during a given trading day.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CrossOrderIdentification { get; init; } 
     /// <summary>
     /// Cross Identification of the previous cross order (not the initial cross order of the day) as assigned by the institution, used to identify the previous cross order in Cross Order Modification Request and Cross Order Cancellation Request.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalCrossOrderIdentification { get; init; } 
     /// <summary>
     /// Unique identifier for Order as assigned by the buy-side.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientOrderIdentification { get; init; } 
     /// <summary>
     /// Identifier assigned by the party which accepts the order.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SecondaryOrderIdentification { get; init; } 
     /// <summary>
     /// Identifier assigned by the party which originates the order.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SecondaryClientOrderIdentification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount and trigger information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountAndTrigger1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record AmountAndTrigger1
     /// <summary>
     /// Identification of the amount and trigger details.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Choice between an amount and a percentage.
     /// </summary>
+    [DataMember]
     public required AmountOrPercentage1Choice_ AmountDetailsChoice { get; init; } 
     /// <summary>
     /// Trigger that causes the variation to come into effect.
     /// </summary>
-    public Trigger1[] Trigger { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Trigger1> Trigger { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

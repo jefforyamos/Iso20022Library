@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides detailed shareholding balance information for an account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ShareholdingBalance1
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record ShareholdingBalance1
     /// <summary>
     /// Identifies the category of shareholding.
     /// </summary>
+    [DataMember]
     public required ShareholdingType1Code ShareholdingType { get; init; } 
     /// <summary>
     /// Number of shares of this type of shareholding or with this date of shareholding held by the account owner.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity18Choice_ Quantity { get; init; } 
     /// <summary>
     /// Date as from when the shares have been held by the shareholder on its account.
     /// </summary>
+    [DataMember]
     public DateFormat57Choice_? InitialDateOfShareholding { get; init; } 
     /// <summary>
     /// Third party who is authorised to take specific actions on behalf of the shareholder.
     /// </summary>
-    public PartyIdentification218[] ThirdParty { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyIdentification218> ThirdParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

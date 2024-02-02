@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Numerical representation of the net increases and decreases in an account at a specific point in time. A cash balance is calculated from a sum of cash credits minus a sum of cash debits.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PayInCallItem
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record PayInCallItem
     /// <summary>
     /// Specifies the currency and amount of the called item.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

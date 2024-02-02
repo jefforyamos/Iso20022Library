@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IndividualPerson9
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record IndividualPerson9
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Date on which a person is born.
     /// </summary>
+    [DataMember]
     public IsoISODate? BirthDate { get; init; } 
     /// <summary>
     /// Country and residential status of an individual, for example, non-pernament resident.
     /// </summary>
+    [DataMember]
     public CountryAndResidentialStatusType1? CountryAndResidentialStatus { get; init; } 
     /// <summary>
     /// Beneficial owner or its designated agent certifies that it complies with any holding or investment restrictions or requirements of the fund.
     /// </summary>
+    [DataMember]
     public BeneficiaryCertificationCompletion1Code? BeneficiaryCertificationCompletion { get; init; } 
     /// <summary>
     /// Alternative identification, for example, national registration identification number, passport number, or an account number used to further identify the beneficial owner, for example, a Central Provident Fund (CFP) account as required for Singapore.
     /// </summary>
-    public GenericIdentification11[] OtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericIdentification11> OtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

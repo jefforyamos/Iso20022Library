@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(RepoCallRequestStatus10Choice.Code))]
 [KnownType(typeof(RepoCallRequestStatus10Choice.Proprietary))]
+[DataContract]
 public abstract partial record RepoCallRequestStatus10Choice_
 {
 }

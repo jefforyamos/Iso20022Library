@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(SettlementFailsDailyInstructionType1Choice.DataSetAction))]
 [KnownType(typeof(SettlementFailsDailyInstructionType1Choice.Data))]
+[DataContract]
 public abstract partial record SettlementFailsDailyInstructionType1Choice_
 {
 }

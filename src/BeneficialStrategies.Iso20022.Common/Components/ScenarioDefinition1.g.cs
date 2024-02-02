@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Characteristics used to describe a hypothetical scenario designed to test the value of a portfolio of financial instruments under such hypothetical scenario.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ScenarioDefinition1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ScenarioDefinition1
     /// <summary>
     /// Identification of the stress scenario.
     /// </summary>
+    [DataMember]
     public required GenericIdentification165 Identification { get; init; } 
     /// <summary>
     /// Indicates whether the scenario is based on a historical event or a hypothetical scenario.
     /// </summary>
+    [DataMember]
     public required ScenarioType1Code ScenarioType { get; init; } 
     /// <summary>
     /// Indicates how the scenario stresses the curve.
     /// </summary>
+    [DataMember]
     public required StrategyStressType1Code StrategyStressType { get; init; } 
     /// <summary>
     /// Information relating to the one / two major representative product(s).
     /// </summary>
-    public StressItem1[] StressItem { get; init; } = [];
+    [DataMember]
+    public ValueList<StressItem1> StressItem { get; init; } = [];
     /// <summary>
     /// Long description of the scenario.
     /// </summary>
+    [DataMember]
     public IsoMax2000Text? Description { get; init; } 
     
     #nullable disable

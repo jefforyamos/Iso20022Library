@@ -14,6 +14,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies the Business Application Header of the Business Message.
 /// Can be used when replying to a query; can also be used when canceling or amending.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BusinessApplicationHeader1
 {
     #nullable enable
@@ -21,41 +23,49 @@ public partial record BusinessApplicationHeader1
     /// <summary>
     /// Contains the character set of the text-based elements used in the Business Message.
     /// </summary>
+    [DataMember]
     public UnicodeChartsCode? CharacterSet { get; init; } 
     /// <summary>
     /// The sending MessagingEndpoint that has created this Business Message for the receiving MessagingEndpoint that will process this Business Message.
     /// Note	the sending MessagingEndpoint might be different from the sending address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
+    [DataMember]
     public required Party9Choice_ From { get; init; } 
     /// <summary>
     /// The MessagingEndpoint designated by the sending MessagingEndpoint to be the recipient who will ultimately process this Business Message.
     /// Note the receiving MessagingEndpoint might be different from the receiving address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
+    [DataMember]
     public required Party9Choice_ To { get; init; } 
     /// <summary>
     /// Unambiguously identifies the Business Message to the MessagingEndpoint that has created the Business Message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text BusinessMessageIdentifier { get; init; } 
     /// <summary>
     /// Contains the MessageIdentifier that defines the BusinessMessage.
     /// It must contain a MessageIdentifier published on the ISO 20022 website.
     /// example	camt.001.001.03.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageDefinitionIdentifier { get; init; } 
     /// <summary>
     /// Specifies the business service agreed between the two MessagingEndpoints under which rules this Business Message is exchanged.
     ///  To be used when there is a choice of processing services or processing service levels.
     /// Example: E&I.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? BusinessService { get; init; } 
     /// <summary>
     /// Date and time when this Business Message (header) was created.
     /// Note Times must be normalized, using the "Z" annotation.
     /// </summary>
+    [DataMember]
     public required IsoISONormalisedDateTime CreationDate { get; init; } 
     /// <summary>
     /// Indicates whether the message is a Copy, a Duplicate or a copy of a duplicate of a previously sent ISO 20022 Message.
     /// </summary>
+    [DataMember]
     public CopyDuplicate1Code? CopyDuplicate { get; init; } 
     /// <summary>
     /// Flag indicating if the Business Message exchanged between the MessagingEndpoints is possibly a duplicate. 
@@ -64,14 +74,17 @@ public partial record BusinessApplicationHeader1
     /// This will guarantee business idempotent behaviour.
     /// NOTE: this is named "PossResend" in FIX - this is an application level resend not a network level retransmission.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PossibleDuplicate { get; init; } 
     /// <summary>
     /// Relative indication of the processing precedence of the message over a (set of) Business Messages with assigned priorities.
     /// </summary>
+    [DataMember]
     public BusinessMessagePriorityCode? Priority { get; init; } 
     /// <summary>
     /// Contains the digital signature of the Business Entity authorised to sign this Business Message.
     /// </summary>
+    [DataMember]
     public SignatureEnvelope? Signature { get; init; } 
     
     #nullable disable

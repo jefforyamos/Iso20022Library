@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Choice between ISIN and an alternative format for the identification of a financial instrument. ISIN is the preferred format.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BasketConstituents3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record BasketConstituents3
     /// <summary>
     /// Proprietary identification of a security assigned by an institution or organisation.
     /// </summary>
+    [DataMember]
     public required InstrumentIdentification6Choice_ InstrumentIdentification { get; init; } 
     /// <summary>
     /// Indicates the number of units of a particular constituent in a custom basket.
     /// </summary>
+    [DataMember]
     public IsoLongFraction19DecimalNumber? Quantity { get; init; } 
     /// <summary>
     /// Specifies the unit of measure in which the number of units of a particular custom basket constituent is expressed.
     /// </summary>
+    [DataMember]
     public UnitOfMeasure8Choice_? UnitOfMeasure { get; init; } 
     
     #nullable disable

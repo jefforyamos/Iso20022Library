@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(FATCAForm1Choice.Code))]
 [KnownType(typeof(FATCAForm1Choice.Proprietary))]
+[DataContract]
 public abstract partial record FATCAForm1Choice_
 {
 }

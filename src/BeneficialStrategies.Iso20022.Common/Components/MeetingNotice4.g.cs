@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the shareholders meeting, specifying the participation requirements and the voting procedures. Alternatively, it may indicate where such information may be obtained.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MeetingNotice4
 {
     #nullable enable
@@ -20,74 +22,92 @@ public partial record MeetingNotice4
     /// <summary>
     /// Identification assigned to the general meeting by the party notifying the meeting. It must be unique for the party notifying the meeting.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MeetingIdentification { get; init; } 
     /// <summary>
     /// Identification assigned to the meeting by the issuer. It must be unique for the issuer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? IssuerMeetingIdentification { get; init; } 
     /// <summary>
     /// Specifies the type of security holders meeting.
     /// </summary>
+    [DataMember]
     public required MeetingType3Code Type { get; init; } 
     /// <summary>
     /// Classifies the type of meeting.
     /// </summary>
+    [DataMember]
     public MeetingTypeClassification1Choice_? Classification { get; init; } 
     /// <summary>
     /// Official meeting announcement date.
     /// </summary>
+    [DataMember]
     public IsoISODate? AnnouncementDate { get; init; } 
     /// <summary>
     /// Indicates whether physical participation to the meeting is required in order to be allowed to vote.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AttendanceRequired { get; init; } 
     /// <summary>
     /// Indicates how to order the attendance card or to give notice of attendance.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AttendanceConfirmationInformation { get; init; } 
     /// <summary>
     /// Date and time by which the beneficial owner or agent must notify of its intention to participate in the meeting. This deadline is set by an intermediary.
     /// </summary>
+    [DataMember]
     public DateFormat29Choice_? AttendanceConfirmationDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the beneficial owner or agent must notify of its intention to participate in the meeting (STP mode). This deadline is set by an intermediary.
     /// </summary>
+    [DataMember]
     public DateFormat29Choice_? AttendanceConfirmationSTPDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the attendance to the meeting should be confirmed. This deadline is set by the issuer.
     /// </summary>
+    [DataMember]
     public DateFormat29Choice_? AttendanceConfirmationMarketDeadline { get; init; } 
     /// <summary>
     /// Address to use over the www (HTTP) service where additional information on the meeting may be found.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? AdditionalDocumentationURLAddress { get; init; } 
     /// <summary>
     /// Additional procedural information about the general meeting, specifying the participation requirements and the voting procedures. Alternatively, this may indicate where such information may be obtained.
     /// </summary>
-    public AdditionalRights2[] AdditionalProcedureDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<AdditionalRights2> AdditionalProcedureDetails { get; init; } = [];
     /// <summary>
     /// Number of securities admitted to the vote, expressed as an amount and a currency.
     /// </summary>
+    [DataMember]
     public UnitOrFaceAmount1Choice_? TotalNumberOfSecuritiesOutstanding { get; init; } 
     /// <summary>
     /// Number of rights admitted to the vote.
     /// </summary>
+    [DataMember]
     public IsoNumber? TotalNumberOfVotingRights { get; init; } 
     /// <summary>
     /// Address where the information on the proxy should be sent.
     /// </summary>
+    [DataMember]
     public PostalAddress1? ProxyAppointmentNotificationAddress { get; init; } 
     /// <summary>
     /// Indicates whether a proxy is allowed.
     /// </summary>
+    [DataMember]
     public Proxy2Choice_? ProxyChoice { get; init; } 
     /// <summary>
     /// Contact person at the party organising the meeting, at the issuer or at an intermediary.
     /// </summary>
-    public MeetingContactPerson2[] ContactPersonDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<MeetingContactPerson2> ContactPersonDetails { get; init; } = [];
     /// <summary>
     /// Date on which the company publishes the results of its meeting.
     /// </summary>
+    [DataMember]
     public DateFormat3Choice_? ResultPublicationDate { get; init; } 
     
     #nullable disable

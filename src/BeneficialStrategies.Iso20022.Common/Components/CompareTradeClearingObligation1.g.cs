@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for a trade clearing obligation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareTradeClearingObligation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareTradeClearingObligation1
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public ClearingObligationType1Code? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public ClearingObligationType1Code? Value2 { get; init; } 
     
     #nullable disable

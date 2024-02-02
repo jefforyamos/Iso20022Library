@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action option securities movement security details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentAttributesSD16
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record FinancialInstrumentAttributesSD16
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Indicates whether or not the newly issued securities are transferable by the agent. This flag is specific to DTC (The Depository Trust Corporation).
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? DTCSecurityTransferableFlag { get; init; } 
     /// <summary>
     /// Details of security that is being distributed as a result of a corporate action as declared by the issuer or offeror on the market.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentAttributesSD18? DeclaredDisbursedSecurityDetails { get; init; } 
     /// <summary>
     /// Further classification of DTC disbursed security instruments into (issue) asset types at DTC (The Depository Trust Corporation).
     /// </summary>
+    [DataMember]
     public DTCAssetType3Code? DTCDisbursedSecurityAssetType { get; init; } 
     /// <summary>
     /// Classification of DTC disbursed security instruments into asset classes at DTC (The Depository Trust Corporation).
     /// </summary>
+    [DataMember]
     public AssetClass1Code? DTCDisbursedSecurityAssetClass { get; init; } 
     /// <summary>
     /// Dollar amount attributed to the bond when the par value is less than 1000.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? BabyBondDenomination { get; init; } 
     
     #nullable disable

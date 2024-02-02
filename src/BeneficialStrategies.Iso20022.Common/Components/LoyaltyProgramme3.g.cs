@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Loyalty programme used for partial payment in loyalty value (debit) and computation of loyalty value gained on the monetary value paid by the customer (credit).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoyaltyProgramme3
 {
     #nullable enable
@@ -23,14 +25,17 @@ public partial record LoyaltyProgramme3
     /// False: Not eligible for loyalty
     /// Default: False.
     /// </summary>
-    public IsoTrueFalseIndicator[] ProgrammeEligibilityIndicator { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoTrueFalseIndicator> ProgrammeEligibilityIndicator { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Entity issuing the loyalty programme.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProgrammeIssuer { get; init; } 
     /// <summary>
     /// Details about the member of the loyalty programme
     /// </summary>
+    [DataMember]
     public LoyaltyMember2? LoyaltyMember { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Statistical data related to the price change of a security.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ValuationStatistics2
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record ValuationStatistics2
     /// <summary>
     /// Currency of the valuation statistics.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Type of price from which the change is calculated, eg, bid, offer, or single.
     /// </summary>
+    [DataMember]
     public required PriceType2 PriceTypeChangeBasis { get; init; } 
     /// <summary>
     /// Change in price since the last valuation.
     /// </summary>
+    [DataMember]
     public required PriceValue2 PriceChange { get; init; } 
     /// <summary>
     /// Rate of income from the financial instrument, usually calculated as total dividends or coupon interest available to investors in the last year,divided by the current price.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Yield { get; init; } 
     /// <summary>
     /// Information related to price variations, expressed using pre-defined periods.
     /// </summary>
+    [DataMember]
     public StatisticsByPredefinedTimePeriods1? ByPredefinedTimePeriods { get; init; } 
     /// <summary>
     /// Information related to price variations, expressed using user-defined periods.
     /// </summary>
-    public StatisticsByUserDefinedTimePeriod1[] ByUserDefinedTimePeriod { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StatisticsByUserDefinedTimePeriod1> ByUserDefinedTimePeriod { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

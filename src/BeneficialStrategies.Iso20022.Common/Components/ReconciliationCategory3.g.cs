@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies categories of statuses of a derivative when there is a reporting requirement for both counterparties.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReconciliationCategory3
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record ReconciliationCategory3
     /// <summary>
     /// Indicator of receiving only one side or both sides of the derivatives.
     /// </summary>
+    [DataMember]
     public required TradeRepositoryReportingType1Code ReportingType { get; init; } 
     /// <summary>
     /// Indicator of side identification of the same derivative.
     /// </summary>
+    [DataMember]
     public required PairingStatus1Code Pairing { get; init; } 
     /// <summary>
     /// Indicator if reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.
     /// </summary>
+    [DataMember]
     public required ReconciliationStatus1Code Reconciliation { get; init; } 
     /// <summary>
     /// Indicator if reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.
     /// </summary>
+    [DataMember]
     public required ReconciliationStatus2Code ValuationReconciliation { get; init; } 
     /// <summary>
     /// Indicator of derivative reopening, terminated or cancelled by mistake.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Revived { get; init; } 
     /// <summary>
     /// Indicator of modification to the terms or details of a previously reported derivative, at a trade or position level, but not a correction of a report.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator FurtherModification { get; init; } 
     
     #nullable disable

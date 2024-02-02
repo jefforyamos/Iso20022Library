@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Context in which the transaction is performed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMService8
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ATMService8
     /// <summary>
     /// Unique identification of the withdrawal service provided by the ATM inside the session.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ServiceReference { get; init; } 
     /// <summary>
     /// Codification of the type of service for the ATM.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ATMServiceCode { get; init; } 
     /// <summary>
     /// Describes the type of inquiry selected by the customer or the ATM.
     /// </summary>
+    [DataMember]
     public required ATMServiceType5Code ServiceType { get; init; } 
     
     #nullable disable

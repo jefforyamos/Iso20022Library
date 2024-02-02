@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Document that contains the information of the contract agreed between both parties.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContractDocument1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ContractDocument1
     /// <summary>
     /// Account contract established between the organisation or the group to which the organisation belongs, and the account servicer. This contract has to be applied for the new account to be opened and maintained.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Reference { get; init; } 
     /// <summary>
     /// Signoff date of the document.
     /// </summary>
+    [DataMember]
     public IsoISODate? SignOffDate { get; init; } 
     /// <summary>
     /// Identification of the version of the contract.
     /// </summary>
+    [DataMember]
     public IsoMax6Text? Version { get; init; } 
     
     #nullable disable

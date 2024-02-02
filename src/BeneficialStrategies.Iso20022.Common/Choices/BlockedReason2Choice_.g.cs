@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(BlockedReason2Choice.Code))]
 [KnownType(typeof(BlockedReason2Choice.Proprietary))]
+[DataContract]
 public abstract partial record BlockedReason2Choice_
 {
 }

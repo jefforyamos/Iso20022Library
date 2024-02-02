@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(Direction2Choice.DirectionOfTheFirstLeg))]
 [KnownType(typeof(Direction2Choice.CounterpartySide))]
+[DataContract]
 public abstract partial record Direction2Choice_
 {
 }

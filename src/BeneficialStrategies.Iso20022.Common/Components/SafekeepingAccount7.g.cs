@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account on which a securities entry is made.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SafekeepingAccount7
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record SafekeepingAccount7
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required SecuritiesAccount19 AccountIdentification { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public required PartyIdentification100 AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [DataMember]
     public required PartyIdentification100 AccountServicer { get; init; } 
     /// <summary>
     /// Individual or entity that is ultimately entitled to the benefit of income and rights in a financial instrument, as opposed to a nominal or legal owner.
     /// </summary>
-    public BeneficialOwner2[] BeneficialOwner { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BeneficialOwner2> BeneficialOwner { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Report on the net position of a financial instrument on the account, for a certain date. The agent, for example, a trade intermediary, may also be specified.
     /// </summary>
-    public AggregateHoldingBalance3[] BalanceDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AggregateHoldingBalance3> BalanceDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Holdings of level 1.
     /// </summary>
-    public AccountSubLevel11[] AccountSubLevel1 { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AccountSubLevel11> AccountSubLevel1 { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Difference in holdings between the safekeeping account and the sub-accounts of level 1.
     /// </summary>
-    public AggregateHoldingBalance2[] AccountSubLevel1Difference { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AggregateHoldingBalance2> AccountSubLevel1Difference { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

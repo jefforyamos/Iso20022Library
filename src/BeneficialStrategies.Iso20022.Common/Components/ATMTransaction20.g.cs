@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Withdrawal transaction for which the completion is sent.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransaction20
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record ATMTransaction20
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Outcome of the financial transaction for the customer.
     /// </summary>
+    [DataMember]
     public required ATMTransactionStatus1Code TransactionStatus { get; init; } 
     /// <summary>
     /// Incident occurring during the processing of the transaction.
     /// </summary>
-    public FailureReason7Code[] Incident { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FailureReason7Code> Incident { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Explanation of the incident.
     /// </summary>
-    public IsoMax70Text[] IncidentDetail { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax70Text> IncidentDetail { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the reconciliation period assigned by the ATM.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// True if the customer has requested a receipt.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? RequestedReceipt { get; init; } 
     /// <summary>
     /// True if a receipt has been printed and presented to the customer.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ReceiptPrinted { get; init; } 
     /// <summary>
     /// Explicit consent expressed by a customer on a card-related service proposed by an acquirer or an issuer or any agent acting on behalf of one of them.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CustomerConsent { get; init; } 
     /// <summary>
     /// Outcome of the withdrawal authorisation.
     /// </summary>
+    [DataMember]
     public AuthorisationResult13? AuthorisationResult { get; init; } 
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
+    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     
     #nullable disable

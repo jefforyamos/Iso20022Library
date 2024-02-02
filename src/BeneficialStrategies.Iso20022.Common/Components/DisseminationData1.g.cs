@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information regarding the dissemination of data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DisseminationData1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record DisseminationData1
     /// <summary>
     /// Trade repository generated unique and random identifier for each publicly disseminated message.
     /// </summary>
+    [DataMember]
     public required IsoMax52Text DisseminationIdentifier { get; init; } 
     /// <summary>
     /// Trade repository generated unique and random identifier of the original, publicly-disseminated swap transaction and pricing data.
     /// Usage: OriginalDisseminationIdentifier is applicable only for action types other than New.
     /// </summary>
+    [DataMember]
     public IsoMax52Text? OriginalDisseminationIdentifier { get; init; } 
     /// <summary>
     /// Date and time, to the nearest second, that a trade repository publicly disseminates trade data.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime TimeStamp { get; init; } 
     
     #nullable disable

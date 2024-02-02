@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the demand.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Demand1
 {
     #nullable enable
@@ -20,51 +22,63 @@ public partial record Demand1
     /// <summary>
     /// Unique and unambiguous identifier assigned by the presenting party to the demand.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Type of demand.
     /// </summary>
+    [DataMember]
     public required DemandType1Code Type { get; init; } 
     /// <summary>
     /// Details related to the undertaking.
     /// </summary>
+    [DataMember]
     public required Undertaking6 UndertakingIdentification { get; init; } 
     /// <summary>
     /// Details related to the demand amount.
     /// </summary>
+    [DataMember]
     public required UndertakingAmount3 DemandAmount { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the advising party to the undertaking.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AdvisingPartyReferenceNumber { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the second advising party to the undertaking.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SecondAdvisingPartyReferenceNumber { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the confirmer to the undertaking.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ConfirmerReferenceNumber { get; init; } 
     /// <summary>
     /// Details related to the settlement account.
     /// </summary>
-    public CashAccount27[] SettlementAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashAccount27> SettlementAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details of the beneficiary's presentation of documents.
     /// </summary>
+    [DataMember]
     public Presentation2? PresentationDetails { get; init; } 
     /// <summary>
     /// Requested new expiry date as an alternative to payment of the demand.
     /// </summary>
+    [DataMember]
     public IsoISODate? RequestedExpiryDate { get; init; } 
     /// <summary>
     /// Document(s) presented for examination.
     /// </summary>
+    [DataMember]
     public DemandDocumentation1? DemandDocumentation { get; init; } 
     /// <summary>
     /// Additional information related to the demand.
     /// </summary>
-    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

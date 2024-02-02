@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data block for a TR31 or TR34 key block which contains the key being transported.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TRRelatedData2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TRRelatedData2
     /// <summary>
     /// Specific TR34 command where the TRBlock is a TR34 block.
     /// </summary>
+    [DataMember]
     public TR34Command1Code? TR34Command { get; init; } 
     /// <summary>
     /// TR31 or TR34 data block.
     /// </summary>
+    [DataMember]
     public IsoMax100KBinary? TRBlock { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the overall amount of "not yet executed" predefined liquidity transfer orders or "defined" by a system participant in its sphere of responsibility within the system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StandingOrderTotalAmount1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record StandingOrderTotalAmount1
     /// <summary>
     /// Total defined amount of predefined liquidity transfer orders.
     /// </summary>
+    [DataMember]
     public required TotalAmountAndCurrency1 SetPredefinedOrder { get; init; } 
     /// <summary>
     /// Total amount of not yet executed predefined liquidity transfer orders.
     /// </summary>
+    [DataMember]
     public required TotalAmountAndCurrency1 PendingPredefinedOrder { get; init; } 
     /// <summary>
     /// Total defined amount of standing liquidity transfer orders.
     /// </summary>
+    [DataMember]
     public required TotalAmountAndCurrency1 SetStandingOrder { get; init; } 
     /// <summary>
     /// Total amount of not yet executed standing liquidity transfer orders.
     /// </summary>
+    [DataMember]
     public required TotalAmountAndCurrency1 PendingStandingOrder { get; init; } 
     
     #nullable disable

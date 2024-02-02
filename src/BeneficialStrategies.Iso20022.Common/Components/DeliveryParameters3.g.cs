@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters of a physical delivery.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeliveryParameters3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DeliveryParameters3
     /// <summary>
     /// Address for physical delivery.
     /// </summary>
+    [DataMember]
     public required NameAndAddress4 Address { get; init; } 
     /// <summary>
     /// Certificate representing a security that is delivered.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? IssuedCertificateNumber { get; init; } 
     
     #nullable disable

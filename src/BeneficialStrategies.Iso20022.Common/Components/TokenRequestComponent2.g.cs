@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to a token request or response.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TokenRequestComponent2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TokenRequestComponent2
     /// <summary>
     /// Identification of an element in a sequence.
     /// </summary>
+    [DataMember]
     public required IsoMax9NumericText TransactionSequenceCounter { get; init; } 
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentEnvironment78 Environment { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Full report data or reporting data of a single tranche of the full report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProprietaryReportData
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record ProprietaryReportData
     /// <summary>
     /// IMPLEMENTORS WARNING - This element is replaced by the ANY XML type in the schema. Therefore, the XML tag <Data> does not appear in an actual XML instance.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Data { get; init; } 
     
     #nullable disable

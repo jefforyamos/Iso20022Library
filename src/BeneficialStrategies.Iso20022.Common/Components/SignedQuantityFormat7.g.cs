@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Signed quantity of security formats.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SignedQuantityFormat7
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SignedQuantityFormat7
     /// <summary>
     /// Sign of the quantity of security.
     /// </summary>
+    [DataMember]
     public required ShortLong1Code ShortLongPosition { get; init; } 
     /// <summary>
     /// Choice between different quantity of security formats.
     /// </summary>
+    [DataMember]
     public required Quantity19Choice_ QuantityChoice { get; init; } 
     
     #nullable disable

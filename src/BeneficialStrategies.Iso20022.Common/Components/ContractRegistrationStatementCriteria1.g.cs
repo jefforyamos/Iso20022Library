@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the list of criteria to be returned in the contract registration statement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContractRegistrationStatementCriteria1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ContractRegistrationStatementCriteria1
     /// <summary>
     /// Indicates whether the journal of the transactions recorded under the registered currency control contract must be returned or not.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? TransactionJournal { get; init; } 
     /// <summary>
     /// Indicates whether the journal of the supporting documents recorded under the registered currency control contract must be returned or not.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? SupportingDocumentJournal { get; init; } 
     /// <summary>
     /// Indicates whether the journal of additional supporting documents recorded under the registered currency control contract must be returned or not.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? AdditionalSupportingDocumentJournal { get; init; } 
     /// <summary>
     /// Indicates whether the details on the currency control rule against which has been violated must be returned or not.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? RegulatoryRuleValidation { get; init; } 
     
     #nullable disable

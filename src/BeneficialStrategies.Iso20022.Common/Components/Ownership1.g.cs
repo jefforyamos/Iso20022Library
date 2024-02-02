@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides ownership details  of a person on an asset.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Ownership1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Ownership1
     /// <summary>
     /// Specifies the type of ownership.
     /// </summary>
+    [DataMember]
     public OwnershipType3Choice_? OwnershipType { get; init; } 
     /// <summary>
     /// Percentage of ownership that a person has on an asset.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? OwnershipPercentage { get; init; } 
     /// <summary>
     /// Percentage of usufruct that a person has on an asset.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? UsufructPercentage { get; init; } 
     
     #nullable disable

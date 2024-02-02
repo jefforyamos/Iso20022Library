@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of an entity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericIdentification183
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record GenericIdentification183
     /// <summary>
     /// Identification of the entity.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Type of identified entity.
     /// </summary>
+    [DataMember]
     public PartyType17Code? Type { get; init; } 
     /// <summary>
     /// Other type of identification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Entity type in charge of assigning an identification.
     /// </summary>
+    [DataMember]
     public PartyType18Code? Assigner { get; init; } 
     /// <summary>
     /// Country of the entity (ISO 3166-1 alpha-2 or alpha-3).
     /// </summary>
+    [DataMember]
     public ISOMax3ACountryCode? Country { get; init; } 
     /// <summary>
     /// Name of the entity.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     
     #nullable disable

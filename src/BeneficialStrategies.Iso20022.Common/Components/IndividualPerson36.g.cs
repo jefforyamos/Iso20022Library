@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IndividualPerson36
 {
     #nullable enable
@@ -20,71 +22,88 @@ public partial record IndividualPerson36
     /// <summary>
     /// Current name used.
     /// </summary>
+    [DataMember]
     public required IndividualPersonNameLong2 CurrentName { get; init; } 
     /// <summary>
     /// Previous name used.
     /// </summary>
-    public IndividualPersonNameLong2[] PreviousName { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IndividualPersonNameLong2> PreviousName { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the gender of the person.
     /// </summary>
+    [DataMember]
     public Gender1Code? Gender { get; init; } 
     /// <summary>
     /// Language in which a person communicates.
     /// </summary>
+    [DataMember]
     public LanguageCode? Language { get; init; } 
     /// <summary>
     /// Date on which a person is born.
     /// </summary>
+    [DataMember]
     public IsoISODate? BirthDate { get; init; } 
     /// <summary>
     /// Country where a person was born.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryOfBirth { get; init; } 
     /// <summary>
     /// Province where a person was born.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProvinceOfBirth { get; init; } 
     /// <summary>
     /// City where a person was born.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CityOfBirth { get; init; } 
     /// <summary>
     /// Country of taxation of an individual person.
     /// </summary>
+    [DataMember]
     public CountryCode? TaxationCountry { get; init; } 
     /// <summary>
     /// Country and residential status of an individual, for example, non-permanent resident.
     /// </summary>
+    [DataMember]
     public CountryAndResidentialStatusType1? CountryAndResidentialStatus { get; init; } 
     /// <summary>
     /// Government identification for its citizens.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SocialSecurityNumber { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    public PostalAddress24[] PostalAddress { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PostalAddress24> PostalAddress { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information about a citizen.
     /// </summary>
-    public CitizenshipInformation1[] CitizenshipInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CitizenshipInformation1> CitizenshipInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Address for the primary contact.
     /// </summary>
+    [DataMember]
     public CommunicationAddress3? PrimaryCommunicationAddress { get; init; } 
     /// <summary>
     /// Communication device number or electronic address used for communication to an alternate address.
     /// </summary>
+    [DataMember]
     public CommunicationAddress3? SecondaryCommunicationAddress { get; init; } 
     /// <summary>
     /// Other type of identification.
     /// </summary>
-    public GenericIdentification44[] OtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericIdentification44> OtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information required for the account switch.
     /// </summary>
-    public TransferInstruction1[] OtherDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransferInstruction1> OtherDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

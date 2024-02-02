@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the details of the currency exchange.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyExchange10
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CurrencyExchange10
     /// <summary>
     /// Indicates the cross currency, if different from the currency of delivery.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? DeliverableCrossCurrency { get; init; } 
     /// <summary>
     /// Factor used to convert an amount from one currency into another. This reflects the price at which one currency was bought with another currency.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? ExchangeRate { get; init; } 
     /// <summary>
     /// Forward exchange rate as agreed between the counterparties in the contractual agreement, expressed as a price of base currency in the quoted currency.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? ForwardExchangeRate { get; init; } 
     /// <summary>
     /// Indicates the quote base for the exchange rate.
     /// </summary>
+    [DataMember]
     public ExchangeRateBasis1Choice_? ExchangeRateBasis { get; init; } 
     
     #nullable disable

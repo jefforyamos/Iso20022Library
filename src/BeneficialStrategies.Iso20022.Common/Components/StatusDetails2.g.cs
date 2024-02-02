@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies details on the status of a payment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatusDetails2
 {
     #nullable enable
@@ -20,33 +22,40 @@ public partial record StatusDetails2
     /// <summary>
     /// Identifies the party that issues the status.
     /// </summary>
+    [DataMember]
     public required IsoAnyBICIdentifier Originator { get; init; } 
     /// <summary>
     /// Date and time at which the funds are available,  as reported in the ACSC status update.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? FundsAvailable { get; init; } 
     /// <summary>
     /// Specifies the status of the transaction.
     /// </summary>
+    [DataMember]
     public required PaymentStatus5 TransactionStatus { get; init; } 
     /// <summary>
     /// Identifies the entity to which the entity reporting the status has forwarded the payment transaction.
     /// Usage:
     /// This element can only be used in case the status is ACSP and the reason is G000 or G001.
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? ForwardedToAgent { get; init; } 
     /// <summary>
     /// Specifies the amount confirmed by the Originator. Depending on the Transaction Status, this amount can be the credited amount, pending amount, rejected amount or transferred amount.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount ConfirmedAmount { get; init; } 
     /// <summary>
     /// Specifies the exchange rate details between two currencies.
     /// </summary>
+    [DataMember]
     public CurrencyExchange12? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Amount of money asked or paid for the charge.
     /// </summary>
-    public IsoActiveOrHistoricCurrencyAndAmount[] ChargeAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoActiveOrHistoricCurrencyAndAmount> ChargeAmount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

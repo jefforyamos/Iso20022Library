@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Code of the underlying bank transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BankTransactionCodeStructure2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record BankTransactionCodeStructure2
     /// <summary>
     /// Specifies the business area of the underlying transaction.
     /// </summary>
+    [DataMember]
     public required ExternalBankTransactionDomainCode Code { get; init; } 
     /// <summary>
     /// Specifies the family and the sub-family of the bank transaction code, within a specific domain, in a structured and hierarchical format.
     /// </summary>
+    [DataMember]
     public required BankTransactionCodeStructure3 Family { get; init; } 
     
     #nullable disable

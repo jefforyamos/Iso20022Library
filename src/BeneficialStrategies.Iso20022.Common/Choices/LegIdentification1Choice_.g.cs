@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(LegIdentification1Choice.RedemptionLegIdentification))]
 [KnownType(typeof(LegIdentification1Choice.SubscriptionLegIdentification))]
+[DataContract]
 public abstract partial record LegIdentification1Choice_
 {
 }

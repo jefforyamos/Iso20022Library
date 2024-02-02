@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed amounts associated with the total amount of transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedAmount15
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record DetailedAmount15
     /// <summary>
     /// Amount of purchase goods and services without tax.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? AmountGoodsAndServices { get; init; } 
     /// <summary>
     /// Cash-back amount.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? CashBack { get; init; } 
     /// <summary>
     /// Gratuity amount.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? Gratuity { get; init; } 
     /// <summary>
     /// Fees amount.
     /// </summary>
-    public DetailedAmount4[] Fees { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedAmount4> Fees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Global rebate of the transaction. This amount is counted as a negative amount.
     /// </summary>
-    public DetailedAmount4[] Rebate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedAmount4> Rebate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Value added tax amount.
     /// </summary>
-    public DetailedAmount4[] ValueAddedTax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedAmount4> ValueAddedTax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional charge paid by the cardholder. For example airline credit card surcharge.
     /// </summary>
-    public DetailedAmount4[] Surcharge { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedAmount4> Surcharge { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

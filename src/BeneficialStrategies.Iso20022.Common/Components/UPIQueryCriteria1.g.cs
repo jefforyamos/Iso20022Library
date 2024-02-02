@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification through a unique product identifier.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UPIQueryCriteria1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record UPIQueryCriteria1
     /// <summary>
     /// Identification through a unique product identifier.
     /// </summary>
-    public IsoMax52Text[] Identifier { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax52Text> Identifier { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Field can be queried for not reported value.
     /// </summary>
+    [DataMember]
     public NotReported1Code? NotReported { get; init; } 
     
     #nullable disable

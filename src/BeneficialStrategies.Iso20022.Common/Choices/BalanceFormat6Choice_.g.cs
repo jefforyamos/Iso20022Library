@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(BalanceFormat6Choice.NotEligibleBalance))]
 [KnownType(typeof(BalanceFormat6Choice.FullPeriodUnits))]
 [KnownType(typeof(BalanceFormat6Choice.PartWayPeriodUnits))]
+[DataContract]
 public abstract partial record BalanceFormat6Choice_
 {
 }

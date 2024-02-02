@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies an amount and a rate status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountAndRateStatus1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AmountAndRateStatus1
     /// <summary>
     /// Value expressed as an amount.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     /// <summary>
     /// Value expressed as a rate status.
     /// </summary>
+    [DataMember]
     public required RateStatus1Code RateStatus { get; init; } 
     
     #nullable disable

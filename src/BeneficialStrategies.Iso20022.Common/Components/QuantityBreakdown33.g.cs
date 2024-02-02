@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of breakdown of a quantity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record QuantityBreakdown33
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record QuantityBreakdown33
     /// <summary>
     /// Identification, for tax purposes, of a lot of identical securities that are bought at a certain date and at a certain price.
     /// </summary>
+    [DataMember]
     public required GenericIdentification39 LotNumber { get; init; } 
     /// <summary>
     /// Quantity of financial instruments that is part of the lot described.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity15Choice_? LotQuantity { get; init; } 
     
     #nullable disable

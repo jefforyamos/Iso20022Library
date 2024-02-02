@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additionnal details related to the leg.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InstrumentLeg6
 {
     #nullable enable
@@ -20,58 +22,72 @@ public partial record InstrumentLeg6
     /// <summary>
     /// Coded list to specify the side of the trade leg.
     /// </summary>
+    [DataMember]
     public required Side1Code LegSide { get; init; } 
     /// <summary>
     /// Specifies the date of settlement, in coded form.
     /// </summary>
+    [DataMember]
     public required SettlementDateCode LegSettlementType { get; init; } 
     /// <summary>
     /// Specifies the date and time on which the trade will be settled.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime LegSettlementDate { get; init; } 
     /// <summary>
     /// Execution price of trade leg.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAnd13DecimalAmount LegLastPrice { get; init; } 
     /// <summary>
     /// Settlement currency of trade leg, agreed by both sides of the trade.
     /// </summary>
+    [DataMember]
     public required CurrencyCode LegSettlementCurrency { get; init; } 
     /// <summary>
     /// Amount of trade leg in trading currency.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount LegOrderQuantity { get; init; } 
     /// <summary>
     /// Forward points added to last spot rate. May be a negative value. Expressed in decimal form.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber LegForwardPoints { get; init; } 
     /// <summary>
     /// Used for the calculated quantity of the other side of the currency trade. Can be derived from leg order quantity and leg last price.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount LegCalculatedCounterpartyCurrencyLastQuantity { get; init; } 
     /// <summary>
     /// Measurement of the leg trade values in terms of a currency (for example, the amount of trade in US dollars).
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount LegRiskAmount { get; init; } 
     /// <summary>
     /// Specifies the valuation rate used for the trade leg.
     /// </summary>
+    [DataMember]
     public required AgreedRate3 LegValuationRate { get; init; } 
     /// <summary>
     /// Specifies the value date of leg spot transaction.
     /// </summary>
+    [DataMember]
     public required IsoISODate LegValueDate { get; init; } 
     /// <summary>
     /// Currency trade is conducted.
     /// </summary>
+    [DataMember]
     public required CurrencyCode LegCurrency { get; init; } 
     /// <summary>
     /// Symbol of the leg trade.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text LegSymbol { get; init; } 
     /// <summary>
     /// Security identification of the leg trade.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification18 LegSecurityIdentification { get; init; } 
     
     #nullable disable

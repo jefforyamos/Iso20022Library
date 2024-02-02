@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TemporaryFinancialInstrumentIndicator1Choice.TemporaryIndicator))]
 [KnownType(typeof(TemporaryFinancialInstrumentIndicator1Choice.Proprietary))]
+[DataContract]
 public abstract partial record TemporaryFinancialInstrumentIndicator1Choice_
 {
 }

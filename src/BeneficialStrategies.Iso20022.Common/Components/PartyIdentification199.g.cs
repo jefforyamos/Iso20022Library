@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification199
 {
     #nullable enable
@@ -21,56 +23,69 @@ public partial record PartyIdentification199
     /// Identification of the acceptor.
     /// ISO 8583 bit 42
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Identification of the entity assigning an identification to the acceptor.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Assigner { get; init; } 
     /// <summary>
     /// Country code of the acceptor.
     /// ISO 8583 bit 19
     /// </summary>
+    [DataMember]
     public ISO3NumericCountryCode? Country { get; init; } 
     /// <summary>
     /// Short name of the acceptor.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     /// <summary>
     /// Additional identification assigned by an agent to an acceptor.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AdditionalIdentification { get; init; } 
     /// <summary>
     /// Name and location of acceptor.
     /// ISO 8583:87/93 bit 43 & 8583:2003 bit 43-71 (when used for Acceptor name and location)
     /// </summary>
+    [DataMember]
     public IsoMax99Text? NameAndLocation { get; init; } 
     /// <summary>
     /// Address of the entity.
     /// </summary>
+    [DataMember]
     public Address1? Address { get; init; } 
     /// <summary>
     /// Electronic mail address.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Email { get; init; } 
     /// <summary>
     /// Universal Resource Locator (URL) address.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? URLAddress { get; init; } 
     /// <summary>
     /// Collection of information that identifies  a phone number as defined by telecom services.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PhoneNumber { get; init; } 
     /// <summary>
     /// Phone number of the customer service.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CustomerService { get; init; } 
     /// <summary>
     /// Additional information used to facilitate contact with the card acceptor, for instance sales agent name, dispute manager name.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? AdditionalContactInformation { get; init; } 
     /// <summary>
     /// Identification of a party by its tax registration number.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TaxRegistrationIdentification { get; init; } 
     
     #nullable disable

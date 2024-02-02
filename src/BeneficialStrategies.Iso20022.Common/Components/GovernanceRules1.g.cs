@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Rules governing an undertaking such as a guarantee or standby letter of credit.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GovernanceRules1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record GovernanceRules1
     /// <summary>
     /// Identification of the governance rules.
     /// </summary>
+    [DataMember]
     public required GovernanceIdentification1Choice_ RuleIdentification { get; init; } 
     /// <summary>
     /// Law applicable to the undertaking.
     /// </summary>
+    [DataMember]
     public Location1? ApplicableLaw { get; init; } 
     /// <summary>
     /// Place at or system under which any dispute related to the undertaking is to be resolved, such as court or arbitration. This is also known as 'forum'.
     /// </summary>
-    public Location1[] Jurisdiction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Location1> Jurisdiction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

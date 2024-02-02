@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates the query criteria related to transaction types.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeTypeQueryCriteria2
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record TradeTypeQueryCriteria2
     /// <summary>
     /// Specifies the AND/OR operators as query criteria.
     /// </summary>
+    [DataMember]
     public required Operation3Code Operator { get; init; } 
     /// <summary>
     /// Query criteria related to the type of the securities financing transaction.
     /// </summary>
-    public ExposureType10Code[] SecuritiesFinancingTransactionType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ExposureType10Code> SecuritiesFinancingTransactionType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Query criteria related to the type of the collateral component.
     /// </summary>
-    public CollateralType6Code[] CollateralComponentType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CollateralType6Code> CollateralComponentType { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

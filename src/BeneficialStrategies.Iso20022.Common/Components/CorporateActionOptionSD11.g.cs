@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action option details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionOptionSD11
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record CorporateActionOptionSD11
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Used for options that have particular proprietary feature that cannot be represented in standard ISO message.
     /// </summary>
+    [DataMember]
     public ExtendedOptionFeature1Code? ExtendedOptionFeatures { get; init; } 
     /// <summary>
     /// Identifies whether the option is declared as default by the issuer / offeror, and will be treated as default by the issuer / offeror if no elections is made.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? DefaultOptionFlag { get; init; } 
     /// <summary>
     /// Indicates whether optional dividend supplementary data are required in the ISO 20022 CAIN instructions for this event.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? OptionalDividendSupplementaryDataRequiredFlag { get; init; } 
     /// <summary>
     /// Indicates whether the cash debit for the oversubscription charge is made at the time of instruction submission.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? OversubscriptionChargeFlag { get; init; } 
     /// <summary>
     /// Indicates whether the cash debit for the protect charge is made at the time of instruction submission.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ProtectChargeFlag { get; init; } 
     /// <summary>
     /// Indicates whether the cash debit for the step-up charge is made at the time of instruction submission.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? StepUpChargeFlag { get; init; } 
     /// <summary>
     /// Indicates whether the cash debit for the subscription charge is made at the time of instruction submission.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? SubscriptionChargeFlag { get; init; } 
     /// <summary>
     /// Unique DTCC legacy reference used for matching and reconciling legacy CCF records. The element will be populated to all levels of the message (event details, options, movements) where applicable to indicate how values are sourced from CCF legacy files. For example: event has 2 related activity types 74, and 54. If event details and cash option are sourced from the activity type 74, then activity type 74 will be in RDP reference number in event details, and also on the cash option. The activity type 54 will be "on" the security option. Also, usage rules will specify the different layouts of the RDP reference number based on DTCC event group (reorganization, distribution, or redemption).
     /// </summary>
+    [DataMember]
     public IsoExact32AlphaNumericText? RDPReferenceNumber { get; init; } 
     
     #nullable disable

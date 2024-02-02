@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of modification to be applied on a data set.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ModificationScope23
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ModificationScope23
     /// <summary>
     /// Specifies the type of modification to be applied on a set of information.
     /// </summary>
+    [DataMember]
     public required DataModification2Code ModificationScopeIndication { get; init; } 
     /// <summary>
     /// Alternative identification, for example, national registration identification number, passport number, or an account number used to further identify the beneficial owner, for example, a Central Provident Fund (CFP) account as required for Singapore.
     /// </summary>
+    [DataMember]
     public required GenericIdentification55 OtherIdentification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information that identifies a side pocket in investment fund orders.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SidePocketInformation1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SidePocketInformation1
     /// <summary>
     /// Indicates whether the investor wants to participate in the optional side pocket.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? SidePocketInclusionIndicator { get; init; } 
     /// <summary>
     /// Identification of the side pocket.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SidePocketIdentification { get; init; } 
     /// <summary>
     /// Quantity of the side pocket.
     /// </summary>
+    [DataMember]
     public SidePocketUnitsOrAmountOrRate1Choice_? SidePocketQuantity { get; init; } 
     
     #nullable disable

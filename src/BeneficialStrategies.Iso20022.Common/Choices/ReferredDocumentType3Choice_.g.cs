@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ReferredDocumentType3Choice.Code))]
 [KnownType(typeof(ReferredDocumentType3Choice.Proprietary))]
+[DataContract]
 public abstract partial record ReferredDocumentType3Choice_
 {
 }

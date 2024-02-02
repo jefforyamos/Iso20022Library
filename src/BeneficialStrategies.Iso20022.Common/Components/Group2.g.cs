@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Group of parties with their related security certificate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Group2
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record Group2
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
+    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Specifies the identification of the group.
     /// </summary>
+    [DataMember]
     public required IsoMax4AlphaNumericText GroupIdentification { get; init; } 
     /// <summary>
     /// Specifies a party and related certificate.
     /// </summary>
-    public PartyAndCertificate3[] Party { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyAndCertificate3> Party { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

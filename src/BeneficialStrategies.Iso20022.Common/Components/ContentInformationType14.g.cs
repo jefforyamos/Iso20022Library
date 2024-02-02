@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// General cryptographic message syntax (CMS) containing data. protected by a digital signature.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContentInformationType14
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ContentInformationType14
     /// <summary>
     /// Type of data protection.
     /// </summary>
+    [DataMember]
     public required ContentType2Code ContentType { get; init; } 
     /// <summary>
     /// Data protected by a digital signatures.
     /// </summary>
+    [DataMember]
     public required SignedData4 SignedData { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies additional information as expected by the party that the investigation performs the expected actions for its resolution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ResolutionData4
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record ResolutionData4
     /// <summary>
     /// Unique identification, as assigned by the original initiating party, to unambiguously identify the original transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? EndToEndIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original first instructing agent, to unambiguously identify the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TransactionIdentification { get; init; } 
     /// <summary>
     /// Universally unique identifier to provide an end-to-end reference of a payment transaction.
     /// </summary>
+    [DataMember]
     public IsoUUIDv4Identifier? UETR { get; init; } 
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? InterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
+    [DataMember]
     public IsoISODate? InterbankSettlementDate { get; init; } 
     /// <summary>
     /// Specifies the clearing channel to be used to process the payment instruction.
     /// </summary>
+    [DataMember]
     public ClearingChannel2Code? ClearingChannel { get; init; } 
     /// <summary>
     /// Provides the details of the compensation made due to the modification or cancellation of a previous payment.
     /// </summary>
+    [DataMember]
     public Compensation4? Compensation { get; init; } 
     /// <summary>
     /// Provides information on the charges to be paid by the charge bearer(s) related to the payment transaction.
     /// </summary>
-    public Charges13[] ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Charges13> ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

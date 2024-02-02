@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to identify a person or an organisation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification270
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PartyIdentification270
     /// <summary>
     /// Identification of the party.
     /// </summary>
+    [DataMember]
     public required PartyIdentification246Choice_ Identification { get; init; } 
     /// <summary>
     /// Ancillary identification information about the party.
     /// </summary>
+    [DataMember]
     public PartyAdditionalIdentification2Choice_? AdditionalIdentificationInformation { get; init; } 
     
     #nullable disable

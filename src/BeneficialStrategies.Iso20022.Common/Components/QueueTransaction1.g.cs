@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transaction summmary details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record QueueTransaction1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record QueueTransaction1
     /// <summary>
     /// Account owner identification such as BIC.
     /// </summary>
+    [DataMember]
     public required FinancialInstitutionIdentification8 AccountOwner { get; init; } 
     /// <summary>
     /// Identification of the account such as IBAN or local identifier.
     /// </summary>
+    [DataMember]
     public required AccountIdentification4Choice_ Account { get; init; } 
     /// <summary>
     /// Number of transaction per counterparty.
     /// </summary>
+    [DataMember]
     public IsoNumber? NumberOfTransactions { get; init; } 
     /// <summary>
     /// Aggregated amount of the transactions per counterparty.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalAmount { get; init; } 
     
     #nullable disable

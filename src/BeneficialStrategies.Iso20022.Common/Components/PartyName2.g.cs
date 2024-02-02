@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the party name entity through the valid short and long names of the party within the system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyName2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PartyName2
     /// <summary>
     /// Specifies the date from which the party name is valid.
     /// </summary>
+    [DataMember]
     public required IsoISODate ValidFrom { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Specifies the short name of the organisation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     
     #nullable disable

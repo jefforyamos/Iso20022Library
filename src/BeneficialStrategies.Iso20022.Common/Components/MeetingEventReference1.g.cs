@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a linked meeting event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MeetingEventReference1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record MeetingEventReference1
     /// <summary>
     /// Identification of the linked meeting event.
     /// </summary>
+    [DataMember]
     public required MeetingEventReference1Choice_ EventIdentification { get; init; } 
     /// <summary>
     /// Specifies when the event is to be processed relative to the linked event.
     /// </summary>
+    [DataMember]
     public ProcessingPosition3Code? LinkageType { get; init; } 
     
     #nullable disable

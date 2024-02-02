@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information of the device operating system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeviceOperatingSystem1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record DeviceOperatingSystem1
     /// <summary>
     /// Identification of the operating system.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Identification { get; init; } 
     /// <summary>
     /// Type of device operating system.
     /// </summary>
+    [DataMember]
     public DeviceOperatingSystemType1Code? Type { get; init; } 
     /// <summary>
     /// Other type of operating system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Version of device operating system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Version { get; init; } 
     /// <summary>
     /// Build of the device operating system.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Build { get; init; } 
     
     #nullable disable

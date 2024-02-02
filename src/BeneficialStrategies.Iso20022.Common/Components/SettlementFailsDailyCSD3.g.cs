@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details on the settlement fails split per intra-CSD and cross-CSD instructions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementFailsDailyCSD3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SettlementFailsDailyCSD3
     /// <summary>
     /// Intra-CSD settlement instructions data.
     /// </summary>
+    [DataMember]
     public required SettlementFailsDailyInstructionType1Choice_ IntraCSD { get; init; } 
     /// <summary>
     /// Cross-CSD settlement instructions data.
     /// </summary>
+    [DataMember]
     public required SettlementFailsDailyInstructionType1Choice_ CrossCSD { get; init; } 
     
     #nullable disable

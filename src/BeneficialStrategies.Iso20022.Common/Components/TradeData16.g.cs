@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information on the status of a trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeData16
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record TradeData16
     /// <summary>
     /// Reference to the unique system identification assigned to the trade by the central matching system.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MatchingSystemUniqueReference { get; init; } 
     /// <summary>
     /// Reference to the unique matching identification assigned to the trade and to the matching trade from the counterparty by the central matching system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MatchingSystemMatchingReference { get; init; } 
     /// <summary>
     /// Unique reference from the central settlement system that allows the removal of alleged trades once the matched status notification for the matching side has been received.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MatchingSystemMatchedSideReference { get; init; } 
     /// <summary>
     /// Party that assigned the status to the trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? StatusOriginator { get; init; } 
     /// <summary>
     /// Specifies the new status of a trade.
     /// </summary>
+    [DataMember]
     public required StatusAndSubStatus2 CurrentStatus { get; init; } 
     /// <summary>
     /// Additional information on the current status of a trade in a central system.
     /// </summary>
+    [DataMember]
     public StatusSubType2Code? CurrentStatusSubType { get; init; } 
     /// <summary>
     /// Specifies the date and time at which the current status was assigned.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CurrentStatusDateTime { get; init; } 
     /// <summary>
     /// Specifies the previous status of a trade.
     /// </summary>
+    [DataMember]
     public Status28Choice_? PreviousStatus { get; init; } 
     /// <summary>
     /// Additional information on the previous status of a trade in a central system.
     /// </summary>
+    [DataMember]
     public StatusSubType2Code? PreviousStatusSubType { get; init; } 
     
     #nullable disable

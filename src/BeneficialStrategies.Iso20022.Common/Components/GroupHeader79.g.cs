@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of characteristics shared by all individual transactions included in the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GroupHeader79
 {
     #nullable enable
@@ -21,30 +23,37 @@ public partial record GroupHeader79
     /// Point to point reference, as assigned by the instructing party, and sent to the next party in the chain to unambiguously identify the message.
     /// Usage: The instructing party has to make sure that MessageIdentification is unique per instructed party for a pre-agreed period.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// User identification or any user key to be used to check whether the initiating party is allowed to initiate transactions from the account specified in the message.||Usage: The content is not of a technical nature, but reflects the organisational structure at the initiating side.|The authorisation element can typically be used in relay scenarios, payment initiations, payment returns or payment reversals that are initiated on behalf of a party different from the initiating party.
     /// </summary>
-    public Authorisation1Choice_[] Authorisation { get; init; } = [];
+    [DataMember]
+    public ValueList<Authorisation1Choice_> Authorisation { get; init; } = [];
     /// <summary>
     /// Specifies if this document is a copy, a duplicate, or a duplicate of a copy.
     /// </summary>
+    [DataMember]
     public CopyDuplicate1Code? CopyIndicator { get; init; } 
     /// <summary>
     /// Party that initiates the payment.||Usage: This can either be the debtor or the party that initiates the credit transfer on behalf of the debtor.
     /// </summary>
+    [DataMember]
     public required PartyIdentification135 InitiatingParty { get; init; } 
     /// <summary>
     /// Party authorised by the account owner to receive information about movements on the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification135? MessageRecipient { get; init; } 
     /// <summary>
     /// Financial institution that receives the instruction from the initiating party and forwards it to the next agent in the payment chain for execution.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? ForwardingAgent { get; init; } 
     
     #nullable disable

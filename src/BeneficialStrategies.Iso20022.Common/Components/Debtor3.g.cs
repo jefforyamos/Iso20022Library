@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the debtor.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Debtor3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Debtor3
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor. In the context of the payment model, the debtor is also the debit account owner.
     /// </summary>
+    [DataMember]
     public PartyIdentification100Choice_? Debtor { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public CashAccountIdentification7Choice_? AccountIdentification { get; init; } 
     
     #nullable disable

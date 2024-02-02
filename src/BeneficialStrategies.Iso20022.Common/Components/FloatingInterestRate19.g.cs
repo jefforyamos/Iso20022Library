@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the index used to define the rate and the basis point spread.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FloatingInterestRate19
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record FloatingInterestRate19
     /// <summary>
     /// Identifies the reference index for the debt instrument.
     /// </summary>
+    [DataMember]
     public BenchmarkCurveName10Choice_? ReferenceRate { get; init; } 
     /// <summary>
     /// Term of the reference rate of the floating rate bond. The term shall be expressed in days, weeks, months or years.
     /// </summary>
+    [DataMember]
     public InterestRateContractTerm2? Term { get; init; } 
     /// <summary>
     /// Information related to payment frequency.
     /// </summary>
+    [DataMember]
     public InterestRateContractTerm2? PaymentFrequency { get; init; } 
     /// <summary>
     /// Information related to reset of payment frequency.
     /// </summary>
+    [DataMember]
     public InterestRateContractTerm2? ResetFrequency { get; init; } 
     /// <summary>
     /// Provides the number of basis points added to (if positive) or deducted from (if negative) the underlying reference rate to calculate the actual interest rate applicable for a given period at issuance of the floating rate instrument.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? BasisPointSpread { get; init; } 
     /// <summary>
     /// Specifies the rate adjustments as determined by the rate schedule.
     /// </summary>
-    public RateAdjustment1[] RateAdjustment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RateAdjustment1> RateAdjustment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Method for calculating the accrued interest on the principal amount for a fixed rate.
     /// </summary>
+    [DataMember]
     public InterestComputationMethodFormat6Choice_? DayCountBasis { get; init; } 
     
     #nullable disable

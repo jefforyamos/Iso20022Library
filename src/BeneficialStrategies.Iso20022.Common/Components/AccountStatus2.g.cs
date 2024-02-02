@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status of an account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountStatus2
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record AccountStatus2
     /// <summary>
     /// Account can be used for its intended purpose.
     /// </summary>
+    [DataMember]
     public EnabledStatusReason1Choice_? Enabled { get; init; } 
     /// <summary>
     /// Account cannot temporarily be used for its intended purpose.
     /// </summary>
+    [DataMember]
     public DisabledStatusReason1Choice_? Disabled { get; init; } 
     /// <summary>
     /// Account change is pending approval.
     /// </summary>
+    [DataMember]
     public PendingStatusReason1Choice_? Pending { get; init; } 
     /// <summary>
     /// Account opening is pending.
     /// </summary>
+    [DataMember]
     public PendingOpeningStatusReason1Choice_? PendingOpening { get; init; } 
     /// <summary>
     /// Account is temporary and can be partially used for its intended purpose. The account will be fully available for use when the account servicer has received all relevant documents.
     /// </summary>
+    [DataMember]
     public ProformaStatusReason1Choice_? Proforma { get; init; } 
     /// <summary>
     /// Account is closed.
     /// </summary>
+    [DataMember]
     public ClosedStatusReason1Choice_? Closed { get; init; } 
     /// <summary>
     /// Account closure is pending.
     /// </summary>
+    [DataMember]
     public ClosurePendingStatusReason1Choice_? ClosurePending { get; init; } 
     /// <summary>
     /// Status is a bilaterally agreed status.
     /// </summary>
-    public OtherAccountStatus1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OtherAccountStatus1> Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

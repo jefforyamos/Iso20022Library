@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data to request a Batch service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BatchRequest4
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record BatchRequest4
     /// <summary>
     /// Sale System identification of the batch in an unambiguous way.
     /// </summary>
+    [DataMember]
     public TransactionIdentifier1? SaleBatchIdentification { get; init; } 
     /// <summary>
     /// Flag to remove all the transactions.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? RemoveAllFlag { get; init; } 
     /// <summary>
     /// Content of the Batch Request message.
     /// </summary>
-    public TransactionToPerform4Choice_[] TransactionToPerform { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionToPerform4Choice_> TransactionToPerform { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

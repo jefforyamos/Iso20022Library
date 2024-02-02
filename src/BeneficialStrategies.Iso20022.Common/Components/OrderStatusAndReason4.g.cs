@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status report of a bulk or multiple or switch order cancellation instruction that was previously received.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OrderStatusAndReason4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OrderStatusAndReason4
     /// <summary>
     /// Status of the order.
     /// </summary>
+    [DataMember]
     public required OrderStatus3Code Status { get; init; } 
     /// <summary>
     /// Status of the order is rejected.
     /// </summary>
+    [DataMember]
     public required RejectedStatus4 Rejected { get; init; } 
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     
     #nullable disable

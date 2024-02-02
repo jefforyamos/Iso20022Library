@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details on the statement requested elements.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContractRegistrationStatementRequest2
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record ContractRegistrationStatementRequest2
     /// <summary>
     /// Unique and unambiguous identification of the contract registration statement request.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text StatementRequestIdentification { get; init; } 
     /// <summary>
     /// Specifies the period for which the statement is requested.
     /// </summary>
+    [DataMember]
     public required ReportingPeriod4 ReportingPeriod { get; init; } 
     /// <summary>
     /// Party registering the currency control contract.
     /// </summary>
+    [DataMember]
     public required TradeParty5 ReportingParty { get; init; } 
     /// <summary>
     /// Agent which registers the currency control contract.
     /// </summary>
+    [DataMember]
     public required BranchAndFinancialInstitutionIdentification6 RegistrationAgent { get; init; } 
     /// <summary>
     /// Identifies the requested registered contract.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text RegisteredContractIdentification { get; init; } 
     /// <summary>
     /// Defines the criteria to be returned in the statement in response to the request.
     /// </summary>
+    [DataMember]
     public ContractRegistrationStatementCriteria1? ReturnCriteria { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

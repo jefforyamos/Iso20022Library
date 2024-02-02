@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Authorisation response from the acquirer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentTransaction109
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record CardPaymentTransaction109
     /// <summary>
     /// Outcome of the authorisation, and actions to perform.
     /// </summary>
+    [DataMember]
     public required AuthorisationResult14 AuthorisationResult { get; init; } 
     /// <summary>
     /// Result of the verifications performed by the issuer to deliver or decline the authorisation.
     /// </summary>
-    public TransactionVerificationResult4[] TransactionVerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionVerificationResult4> TransactionVerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Product code which are allowed by the payment card.
     /// </summary>
-    public Product4[] AllowedProductCode { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Product4> AllowedProductCode { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Product code not allowed by the payment card.
     /// </summary>
-    public Product4[] NotAllowedProductCode { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Product4> NotAllowedProductCode { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Products that may be added to the purchase after the authorisation.
     /// </summary>
-    public Product5[] AdditionalAvailableProduct { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Product5> AdditionalAvailableProduct { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Balance and currency code of the account, related to the payment.
     /// </summary>
+    [DataMember]
     public AmountAndDirection93? Balance { get; init; } 
     /// <summary>
     /// Encrypted balance of the account.
     /// </summary>
+    [DataMember]
     public ContentInformationType28? ProtectedBalance { get; init; } 
     /// <summary>
     /// Set of actions to be performed by the POI (Point Of Interaction) system.
     /// </summary>
-    public Action11[] Action { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Action11> Action { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Conversion between the currency of a card acceptor and the currency of a card issuer, provided by a dedicated service provider. The currency conversion has to be proposed to the cardholder.
     /// </summary>
+    [DataMember]
     public CurrencyConversion20? CurrencyConversionEligibility { get; init; } 
     
     #nullable disable

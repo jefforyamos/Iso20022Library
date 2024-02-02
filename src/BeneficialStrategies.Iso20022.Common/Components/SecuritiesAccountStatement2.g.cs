@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides system date for all of the changes occurred for an entity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesAccountStatement2
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record SecuritiesAccountStatement2
     /// <summary>
     /// Date for which the statement is valid.
     /// </summary>
+    [DataMember]
     public required IsoISODate SystemDate { get; init; } 
     /// <summary>
     /// Provides information on the actual change occurred to a securities account.
     /// </summary>
-    public SecuritiesAccountReferenceDataChange2[] Change { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecuritiesAccountReferenceDataChange2> Change { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

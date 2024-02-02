@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about tax relief categories.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DTCTaxReliefSD1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DTCTaxReliefSD1
     /// <summary>
     /// DTC System assigned identification for tax relief category.
     /// </summary>
+    [DataMember]
     public required IsoExact3NumericText CategoryIdentification { get; init; } 
     /// <summary>
     /// Describes tax relief category.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text CategoryDescription { get; init; } 
     
     #nullable disable

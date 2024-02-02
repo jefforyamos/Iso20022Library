@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies corporate action event deadlines.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionEventDeadlines2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CorporateActionEventDeadlines2
     /// <summary>
     /// Date/time that the account servicer has set as the deadline to respond, with instructions, to an outstanding event, giving the holder eligibility to incentives. This time is dependent on the reference time zone of the account servicer as specified in a Service Level Agreement (SLA).
     /// </summary>
+    [DataMember]
     public DateFormat49Choice_? EarlyResponseDeadline { get; init; } 
     /// <summary>
     /// Date/time at which the account servicer has set as the deadline to respond, with instructions, to an outstanding event. This time is dependent on the reference time zone of the account servicer as specified in a Service Level Agreement (SLA).
     /// </summary>
+    [DataMember]
     public DateFormat54Choice_? ResponseDeadline { get; init; } 
     /// <summary>
     /// Issuer or issuer's agent deadline to respond with an instruction to an outstanding offer or privilege.
     /// </summary>
+    [DataMember]
     public DateFormat49Choice_? MarketDeadline { get; init; } 
     
     #nullable disable

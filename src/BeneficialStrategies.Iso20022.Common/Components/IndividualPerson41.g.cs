@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IndividualPerson41
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record IndividualPerson41
     /// <summary>
     /// Unique and unambiguous identification of the proxy.
     /// </summary>
+    [DataMember]
     public PartyIdentification232Choice_? Identification { get; init; } 
     /// <summary>
     /// Method of voting participation to the general meeting.
     /// </summary>
+    [DataMember]
     public VotingParticipationMethod2Code? ParticipationMethod { get; init; } 
     /// <summary>
     /// Organisation represented by the person, or for which the person works.
     /// </summary>
+    [DataMember]
     public PartyIdentification129Choice_? EmployingParty { get; init; } 
     /// <summary>
     /// Details related to the attendance card.
     /// </summary>
+    [DataMember]
     public required AttendanceCard3 AttendanceCardDetails { get; init; } 
     
     #nullable disable

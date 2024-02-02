@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data linked to card loyalty during payment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoyaltyRequestData2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record LoyaltyRequestData2
     /// <summary>
     /// To retrieve Card Acquisition Data.
     /// </summary>
+    [DataMember]
     public CustomerOrder1? CustomerOrder { get; init; } 
     /// <summary>
     /// Identification of a Loyalty account.
     /// </summary>
+    [DataMember]
     public LoyaltyAccount2? Account { get; init; } 
     /// <summary>
     /// Amount of a loyalty account.
     /// </summary>
+    [DataMember]
     public LoyaltyAmount1? Amount { get; init; } 
     
     #nullable disable

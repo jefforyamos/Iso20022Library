@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional functions or services to be performed in conjunction with the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DepositDetails2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DepositDetails2
     /// <summary>
     /// Funding source used for deposit.
     /// </summary>
+    [DataMember]
     public required CardDepositType1Code Type { get; init; } 
     /// <summary>
     /// Other funding source used for deposit.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Amount of the deposit.
     /// </summary>
+    [DataMember]
     public Amount16? Amount { get; init; } 
     
     #nullable disable

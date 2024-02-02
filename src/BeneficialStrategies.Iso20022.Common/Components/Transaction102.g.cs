@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amendment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transaction102
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record Transaction102
     /// <summary>
     /// Detailed description of an error that caused the message to be corrected/amended. Transmitted for further analysis.
     /// </summary>
-    public DetailedError1[] AmendedData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedError1> AmendedData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
+    [DataMember]
     public required TransactionIdentification10 TransactionIdentification { get; init; } 
     /// <summary>
     /// Original message before correction/amendment.
     /// </summary>
+    [DataMember]
     public IsoMax100KBinary? OriginalMessage { get; init; } 
     /// <summary>
     /// Message amended.
     /// </summary>
+    [DataMember]
     public IsoMax100KBinary? MessageAmended { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

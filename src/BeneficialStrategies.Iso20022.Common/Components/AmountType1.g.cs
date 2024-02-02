@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies ranged amounts, for a specific currency and type of amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountType1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record AmountType1
     /// <summary>
     /// Specifies the type of amount.
     /// </summary>
+    [DataMember]
     public required TypeOfAmount9Code Type { get; init; } 
     /// <summary>
     /// Specifies the currency code of the ranged amount.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Specifies the lowest amount value.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount FromAmount { get; init; } 
     /// <summary>
     /// Specifies the highest amount value.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount ToAmount { get; init; } 
     
     #nullable disable

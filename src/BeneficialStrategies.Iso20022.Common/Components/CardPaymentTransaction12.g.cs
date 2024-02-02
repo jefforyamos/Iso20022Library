@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transaction information in the authorisation response.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentTransaction12
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CardPaymentTransaction12
     /// <summary>
     /// Unique identification of the transaction assigned by the POI (Point Of Interaction).
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the transaction assigned by the recipient party for the initiating party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RecipientTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the reconciliation period between the acceptor and the acquirer. This identification might be linked to the identification of the settlement for further verification by the merchant.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Interchange information related to the card scheme.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? InterchangeData { get; init; } 
     /// <summary>
     /// Detail of the transaction transported.
     /// </summary>
+    [DataMember]
     public required CardPaymentTransactionDetails11 TransactionDetails { get; init; } 
     
     #nullable disable

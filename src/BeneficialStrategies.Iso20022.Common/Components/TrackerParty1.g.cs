@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique identification of the party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerParty1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record TrackerParty1
     /// <summary>
     /// Unique and unambiguous way to identify an organisation.
     /// </summary>
+    [DataMember]
     public required OrganisationIdentification33 OrganisationIdentification { get; init; } 
     
     #nullable disable

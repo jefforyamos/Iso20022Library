@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Fleet vehicle driver.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Driver1
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record Driver1
     /// <summary>
     /// Name of fleet driver.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Fleet driver identification.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Identification { get; init; } 
     /// <summary>
     /// Driving license details.
     /// </summary>
+    [DataMember]
     public DrivingLicense1? DrivingLicense { get; init; } 
     /// <summary>
     /// Contains the employer information. 
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Employer { get; init; } 
     /// <summary>
     /// Contains the employee identification number as assigned by the fleet operator. 
     /// </summary>
+    [DataMember]
     public IsoMax70Text? EmployeeIdentification { get; init; } 
     /// <summary>
     /// Contains the fleet driver's department number as assigned by the fleet operator.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DepartmentNumber { get; init; } 
     /// <summary>
     /// Additional identification used for the driver.
     /// </summary>
-    public TravelDocument1[] AdditionalIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TravelDocument1> AdditionalIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date of birth of vehicle rental driver. 
     /// </summary>
+    [DataMember]
     public IsoISODate? DateOfBirth { get; init; } 
     /// <summary>
     /// Additional fleet summary-level information. 
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable

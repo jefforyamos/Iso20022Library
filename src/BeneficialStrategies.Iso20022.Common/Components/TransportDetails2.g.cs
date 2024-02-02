@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information on the shipment date, the charges, the routing and the goods described in the transport document.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransportDetails2
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record TransportDetails2
     /// <summary>
     /// Reference to the identification of the underlying transport document.
     /// </summary>
-    public DocumentIdentification7[] TransportDocumentReference { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DocumentIdentification7> TransportDocumentReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Goods that are transported.
     /// </summary>
-    public TransportedGoods1[] TransportedGoods { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransportedGoods1> TransportedGoods { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Physical packaging of goods for transport.
     /// </summary>
+    [DataMember]
     public Consignment1? Consignment { get; init; } 
     /// <summary>
     /// Information related to the conveyance of goods.
     /// </summary>
+    [DataMember]
     public required TransportMeans2 RoutingSummary { get; init; } 
     /// <summary>
     /// Proposed date on which the goods should be shipped.
     /// </summary>
+    [DataMember]
     public required IsoISODate ProposedShipmentDate { get; init; } 
     /// <summary>
     /// Actual date whereby the goods were shipped.
     /// </summary>
+    [DataMember]
     public required IsoISODate ActualShipmentDate { get; init; } 
     /// <summary>
     /// Specifies the applicable Incoterm and associated location.
     /// </summary>
+    [DataMember]
     public Incoterms2? Incoterms { get; init; } 
     /// <summary>
     /// Charges related to the conveyance of goods.
     /// </summary>
+    [DataMember]
     public Charge13? FreightCharges { get; init; } 
     
     #nullable disable

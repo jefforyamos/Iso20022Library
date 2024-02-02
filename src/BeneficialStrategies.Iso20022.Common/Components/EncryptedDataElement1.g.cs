@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Structure to encrypt data elements.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EncryptedDataElement1
 {
     #nullable enable
@@ -21,22 +23,27 @@ public partial record EncryptedDataElement1
     /// Identifies the element that has been encrypted.
     /// These codes have the same value as the tag assignments shown in ISO 13492 for the data encryption dataset.  The codes are variable in length and conform to ISO/IEC 8825-1.
     /// </summary>
+    [DataMember]
     public ExternalEncryptedElementIdentification1Code? Identification { get; init; } 
     /// <summary>
     /// Other identification scheme for identifying the element that has been encrypted.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherIdentification { get; init; } 
     /// <summary>
     /// Encrypted data element.
     /// </summary>
+    [DataMember]
     public required EncryptedData1Choice_ EncryptedData { get; init; } 
     /// <summary>
     /// Format of the raw data prior to encryption.
     /// </summary>
+    [DataMember]
     public EncryptedDataFormat1Code? ClearTextDataFormat { get; init; } 
     /// <summary>
     /// Other national or private format of the raw data prior to encryption.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherClearTextDataFormat { get; init; } 
     
     #nullable disable

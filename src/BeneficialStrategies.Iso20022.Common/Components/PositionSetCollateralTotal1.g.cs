@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Variables used to quantify the different calculations for position sets and currency position sets reports.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PositionSetCollateralTotal1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PositionSetCollateralTotal1
     /// <summary>
     /// Refers to the number of reports used for calculating the position set.
     /// </summary>
+    [DataMember]
     public IsoMax20PositiveNumber? NumberOfReports { get; init; } 
     /// <summary>
     /// Values of the initial margin for the portfolio.
     /// </summary>
+    [DataMember]
     public PositionSetPostedAndReceived1? InitialMargin { get; init; } 
     /// <summary>
     /// Values of the variation margin for the portfolio.
     /// </summary>
+    [DataMember]
     public PositionSetPostedAndReceived1? VariationMargin { get; init; } 
     /// <summary>
     /// Values of the excess cash for the portfolio.
     /// </summary>
+    [DataMember]
     public PositionSetPostedAndReceived1? ExcessCash { get; init; } 
     
     #nullable disable

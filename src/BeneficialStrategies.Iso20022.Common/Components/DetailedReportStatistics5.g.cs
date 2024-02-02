@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed statistics on reports.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedReportStatistics5
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record DetailedReportStatistics5
     /// <summary>
     /// Total number of reports sent or received.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText TotalNumberOfReports { get; init; } 
     /// <summary>
     /// Total number of reports accepted.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText TotalNumberOfReportsAccepted { get; init; } 
     /// <summary>
     /// Total number of reports rejected.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText TotalNumberOfReportsRejected { get; init; } 
     /// <summary>
     /// Number of reports rejected per error code.
     /// </summary>
-    public NumberOfTransactionsPerValidationRule5[] NumberOfReportsRejectedPerError { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NumberOfTransactionsPerValidationRule5> NumberOfReportsRejectedPerError { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Report entry details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CBRFReportEntry1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record CBRFReportEntry1
     /// <summary>
     /// Name of the message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageName { get; init; } 
     /// <summary>
     /// Total number of entries in the group.
     /// </summary>
+    [DataMember]
     public required IsoMax9NumericText TotalNumberOfEntries { get; init; } 
     /// <summary>
     /// Information identifying electronic messages.
     /// </summary>
-    public ElectronicMessageDetails1[] MessageDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ElectronicMessageDetails1> MessageDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

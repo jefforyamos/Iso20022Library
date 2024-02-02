@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional count which may be utilised for reconciliation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionTotals6
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record TransactionTotals6
     /// <summary>
     /// Sum number of all authorisation transactions.
     /// </summary>
+    [DataMember]
     public IsoNumber? Authorisation { get; init; } 
     /// <summary>
     /// Sum number of all reversed authorisation transactions.
     /// </summary>
+    [DataMember]
     public IsoNumber? AuthorisationReversal { get; init; } 
     /// <summary>
     /// Sum number of all inquiry transactions.
     /// </summary>
+    [DataMember]
     public IsoNumber? Inquiry { get; init; } 
     /// <summary>
     /// Sum number of all reversed inquiry transactions.
     /// </summary>
+    [DataMember]
     public IsoNumber? InquiryReversal { get; init; } 
     /// <summary>
     /// Sum number of all financial presentment payment transactions processed.
     /// </summary>
+    [DataMember]
     public IsoNumber? Payments { get; init; } 
     /// <summary>
     /// Sum number of all financial presentment payment transactions which have been reversed.
     /// </summary>
+    [DataMember]
     public IsoNumber? PaymentReversal { get; init; } 
     /// <summary>
     /// Sum number of all financial presentment transactions processed.
     /// </summary>
+    [DataMember]
     public IsoNumber? Transfer { get; init; } 
     /// <summary>
     /// Sum number of all reversal transactions processed.
     /// </summary>
+    [DataMember]
     public IsoNumber? TransferReversal { get; init; } 
     /// <summary>
     /// Sum number of all fee collection transactions.
     /// </summary>
+    [DataMember]
     public IsoNumber? FeeCollection { get; init; } 
     
     #nullable disable

@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(TradingVenueIdentification1Choice.MarketIdentificationCode))]
 [KnownType(typeof(TradingVenueIdentification1Choice.NationalCompetentAuthority))]
 [KnownType(typeof(TradingVenueIdentification1Choice.Other))]
+[DataContract]
 public abstract partial record TradingVenueIdentification1Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information used to calculate the tax.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxCalculationInformation3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TaxCalculationInformation3
     /// <summary>
     /// Basis used to determine the capital gain or loss, eg, the purchase price.
     /// </summary>
+    [DataMember]
     public TaxationBasis1? Basis { get; init; } 
     /// <summary>
     /// Specifies whether capital gain is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
+    [DataMember]
     public EUCapitalGain1? EUCapitalGain { get; init; } 
     /// <summary>
     /// Amount of money that it is to be taxed.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? TaxableAmount { get; init; } 
     
     #nullable disable

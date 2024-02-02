@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(SupervisingAuthorityIdentification1Choice.ProprietaryIdentification))]
 [KnownType(typeof(SupervisingAuthorityIdentification1Choice.FullName))]
+[DataContract]
 public abstract partial record SupervisingAuthorityIdentification1Choice_
 {
 }

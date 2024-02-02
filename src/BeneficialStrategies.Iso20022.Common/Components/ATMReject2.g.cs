@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the reject of a message from an ATM or an ATM manager.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMReject2
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record ATMReject2
     /// <summary>
     /// Identification of the entity sending the reject message.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RejectInitiatorIdentification { get; init; } 
     /// <summary>
     /// High level information allowing the sender of a request or an advice to know the types of error, and handle them accordingly.
     /// </summary>
+    [DataMember]
     public required RejectReason1Code RejectReason { get; init; } 
     /// <summary>
     /// Additional information related to the sending of a reject message in response to a request or an advice.
     /// For logging purpose, in order to allow further analysis, statistics and deferred processing on the success or the failure of the request processing.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    public ATMCommand7[] Command { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCommand7> Command { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Received message that has been rejected.
     /// </summary>
+    [DataMember]
     public IsoMax100KBinary? MessageInError { get; init; } 
     
     #nullable disable

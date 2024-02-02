@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ModificationCancellationAllowed4Choice.Indicator))]
 [KnownType(typeof(ModificationCancellationAllowed4Choice.Proprietary))]
+[DataContract]
 public abstract partial record ModificationCancellationAllowed4Choice_
 {
 }

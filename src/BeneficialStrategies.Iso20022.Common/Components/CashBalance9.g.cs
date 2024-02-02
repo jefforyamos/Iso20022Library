@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Balance details for a cash account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashBalance9
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record CashBalance9
     /// <summary>
     /// Specifies the nature of a balance.
     /// </summary>
-    public BalanceType8Choice_[] Type { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BalanceType8Choice_> Type { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the type of counterparty for which the balance is calculated.
     /// </summary>
+    [DataMember]
     public required BalanceCounterparty1Code CounterpartyType { get; init; } 
     /// <summary>
     /// Specifies the counterparty for which the balance is calculated.
     /// </summary>
-    public BranchAndFinancialInstitutionIdentification5[] CounterpartyIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BranchAndFinancialInstitutionIdentification5> CounterpartyIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date and time at which the balance is or will be available.
     /// </summary>
-    public DateAndDateTimeSearch3Choice_[] ValueDate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DateAndDateTimeSearch3Choice_> ValueDate { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

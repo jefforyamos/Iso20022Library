@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, eg, dividend option or valuation currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrument18
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record FinancialInstrument18
     /// <summary>
     /// Identification of a security, as assigned under a formal or proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification9 Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Date that identifies the issue of a fund series. It is typically applicable to a redemption order, subscription order confirmation or redemption order confirmation, but may be specified in the subscription order, if known.
     /// </summary>
+    [DataMember]
     public IsoISODate? SeriesIssueIdentificationDate { get; init; } 
     /// <summary>
     /// Identifies the name of a fund series. It is typically applicable to a redemption order, subscription order confirmation or redemption order confirmation, but may be specified in the subscription, if known.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SeriesName { get; init; } 
     /// <summary>
     /// Indicates that the financial instrument and/or series included in the message is a new issue.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? NewIssueIndicator { get; init; } 
     /// <summary>
     /// Additional information about a financial instrument to help identify the instrument.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SupplementaryIdentification { get; init; } 
     
     #nullable disable

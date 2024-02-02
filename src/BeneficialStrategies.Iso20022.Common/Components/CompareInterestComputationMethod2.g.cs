@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for the method used to compute accruing interest of a financial instrument
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareInterestComputationMethod2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareInterestComputationMethod2
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public InterestComputationMethodFormat6Choice_? Value1 { get; init; } 
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public InterestComputationMethodFormat6Choice_? Value2 { get; init; } 
     
     #nullable disable

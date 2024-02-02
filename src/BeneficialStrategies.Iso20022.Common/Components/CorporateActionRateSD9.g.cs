@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action details rates and amounts details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionRateSD9
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CorporateActionRateSD9
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Applicable to structured securities where there is a set schedule of principal and interest payments for the life of the issue. A portion of the scheduled interest payment will not be paid at the time of distribution.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? DeferredInterestRate { get; init; } 
     /// <summary>
     /// American or Global Depository Receipt(s) per ordinary share(s) ratio.
     /// </summary>
+    [DataMember]
     public CorporateActionRateSD2? AmericanOrGlobalDepositReceiptRatio { get; init; } 
     
     #nullable disable

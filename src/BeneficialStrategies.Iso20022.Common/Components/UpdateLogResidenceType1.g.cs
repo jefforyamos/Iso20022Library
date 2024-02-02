@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the old and new values for a residence type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UpdateLogResidenceType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record UpdateLogResidenceType1
     /// <summary>
     /// Old value before the update.
     /// </summary>
+    [DataMember]
     public required ResidenceType1Code Old { get; init; } 
     /// <summary>
     /// New value after the update.
     /// </summary>
+    [DataMember]
     public required ResidenceType1Code New { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the securities for which the meeting is organised.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityPosition5
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record SecurityPosition5
     /// <summary>
     /// Security held in an account on which the balance is calculated.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification3 Identification { get; init; } 
     /// <summary>
     /// Amount of securities that are eligible for the vote.
     /// </summary>
-    public EligiblePosition2[] Position { get; init; } = [];
+    [DataMember]
+    public ValueList<EligiblePosition2> Position { get; init; } = [];
     
     #nullable disable
 }

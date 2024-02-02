@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Variance allowed on a quantity or on a price.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PercentageTolerance1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PercentageTolerance1
     /// <summary>
     /// Variance in percentage allowed over the agreed dimension. For example, plus 10 percent.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate PlusPercent { get; init; } 
     /// <summary>
     /// Variance in percentage allowed below the agreed dimension. For example, minus 10 percent.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate MinusPercent { get; init; } 
     
     #nullable disable

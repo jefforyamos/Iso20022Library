@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(PartyIdentification245Choice.AnyBIC))]
 [KnownType(typeof(PartyIdentification245Choice.ProprietaryIdentification))]
 [KnownType(typeof(PartyIdentification245Choice.NameAndAddress))]
+[DataContract]
 public abstract partial record PartyIdentification245Choice_
 {
 }

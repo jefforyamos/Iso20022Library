@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Fraud reporting transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transaction80
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record Transaction80
     /// <summary>
     /// Identification of the  transaction reporting the fraud.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text FraudTransactionIdentification { get; init; } 
     /// <summary>
     /// Fraud reporting type information.
     /// </summary>
+    [DataMember]
     public required ReportedFraud2 ReportedFraud { get; init; } 
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    public AdditionalFee1[] AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalFee1> AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information relevant for the settlement report.
     /// </summary>
-    public AdditionalInformation22[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation22> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

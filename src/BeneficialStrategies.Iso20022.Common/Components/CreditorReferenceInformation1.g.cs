@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Structured information supplied to enable the matching, i.e. reconciliation, of a payment with the items that the payment is intended to settle, eg, commercial invoices in an accounts receivable system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditorReferenceInformation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CreditorReferenceInformation1
     /// <summary>
     /// Provides the type of the creditor reference.
     /// </summary>
+    [DataMember]
     public CreditorReferenceType1? CreditorReferenceType { get; init; } 
     /// <summary>
     /// Unique and unambiguous reference assigned by the creditor to refer to the payment transaction.||Usage: if available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the cash.||If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor's reference or payment remittance identification should be quoted in the end-to-end transaction identification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CreditorReference { get; init; } 
     
     #nullable disable

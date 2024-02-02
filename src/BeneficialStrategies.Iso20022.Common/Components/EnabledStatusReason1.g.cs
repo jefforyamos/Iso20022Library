@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for an enabled status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EnabledStatusReason1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record EnabledStatusReason1
     /// <summary>
     /// Reason for the enabled account status.
     /// </summary>
+    [DataMember]
     public required EnabledStatusReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the enabled account status.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

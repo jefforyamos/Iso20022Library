@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of travel document used for identification and/or authentication of the customer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TravelDocument2
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record TravelDocument2
     /// <summary>
     /// Type of travel document.
     /// </summary>
+    [DataMember]
     public required OfficialDocumentType1Code Type { get; init; } 
     /// <summary>
     /// Form of travel document.
     /// </summary>
+    [DataMember]
     public PresentationMedium2Code? Form { get; init; } 
     /// <summary>
     /// Identification of travel document (for example, passport number).
     /// </summary>
+    [DataMember]
     public required IsoMax70Text Identification { get; init; } 
     /// <summary>
     /// Party assigning the travel document.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Assigner { get; init; } 
     /// <summary>
     /// Issuance date of travel document.
     /// </summary>
+    [DataMember]
     public IsoISODate? IssuanceDate { get; init; } 
     /// <summary>
     /// Expiration date of travel document (if and when relevant).
     /// </summary>
+    [DataMember]
     public IsoISODate? ExpirationDate { get; init; } 
     /// <summary>
     /// Country issuing the travel document.
     /// </summary>
+    [DataMember]
     public ISOMax3ACountryCode? Country { get; init; } 
     
     #nullable disable

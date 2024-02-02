@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Resolutions at the agenda of a meeting and type of resolution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Resolution4
 {
     #nullable enable
@@ -20,58 +22,72 @@ public partial record Resolution4
     /// <summary>
     /// Number of the resolution as specified by the issuer or its agent.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text IssuerLabel { get; init; } 
     /// <summary>
     /// Free text description of the resolution.
     /// </summary>
+    [DataMember]
     public IsoMax1025Text? Description { get; init; } 
     /// <summary>
     /// Abbreviated description of the resolution.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Title { get; init; } 
     /// <summary>
     /// Type of resolution.
     /// </summary>
+    [DataMember]
     public ResolutionType2Code? Type { get; init; } 
     /// <summary>
     /// Indicates whether the resolution is listed for information or for voting.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ForInformationOnly { get; init; } 
     /// <summary>
     /// Impact of vote results on an agenda resolution.
     /// </summary>
+    [DataMember]
     public VoteType1Code? VoteType { get; init; } 
     /// <summary>
     /// Specifies whether the resolution is active or withdrawn.
     /// </summary>
+    [DataMember]
     public required ResolutionStatus1Code Status { get; init; } 
     /// <summary>
     /// Indicates whether the resolution has been submitted by the security holder.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? SubmittedBySecurityHolder { get; init; } 
     /// <summary>
     /// Vote options allowed at the resolution level. When specified, it supersedes the vote options given for the meeting.
     /// </summary>
-    public VoteInstructionType1[] VoteInstructionType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<VoteInstructionType1> VoteInstructionType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies how the management of the issuing company wishes the security holders to vote.
     /// </summary>
+    [DataMember]
     public VoteInstruction5Code? ManagementRecommendation { get; init; } 
     /// <summary>
     /// Specifies how the notifying party recommends that the security holders vote.
     /// </summary>
+    [DataMember]
     public VoteInstruction5Code? NotifyingPartyRecommendation { get; init; } 
     /// <summary>
     /// Number of votes assigned per resolution to one security.
     /// </summary>
+    [DataMember]
     public Entitlement1Choice_? Entitlement { get; init; } 
     /// <summary>
     /// Voting rights threshold required in percentage or in quantity to have the resolution approved.
     /// </summary>
+    [DataMember]
     public NumberOrPercentage1Choice_? VotingRightsThresholdForApproval { get; init; } 
     /// <summary>
     /// Address to use over the www (HTTP) service where specific additional information on meeting resolutions may be found.
     /// </summary>
+    [DataMember]
     public IsoMax2048Text? URLAddress { get; init; } 
     
     #nullable disable

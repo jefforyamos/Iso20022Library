@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information requested against money laundering for a transfer transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AntiMoneyLaundering1
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record AntiMoneyLaundering1
     /// <summary>
     /// Name of the sender.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? SenderName { get; init; } 
     /// <summary>
     /// Address of the sender.
     /// </summary>
+    [DataMember]
     public PostalAddress18? SenderAddress { get; init; } 
     /// <summary>
     /// National identifier number of the sender.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SenderNationalIdentifier { get; init; } 
     /// <summary>
     /// Country of the national identifier (ISO 3166-1 alpha-2 or alpha-3).
     /// </summary>
+    [DataMember]
     public IsoMin2Max3AlphaText? NationalIdentifierCountry { get; init; } 
     /// <summary>
     /// Passport number of the sender.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SenderPassportNumber { get; init; } 
     /// <summary>
     /// Country issuing the passport (ISO 3166-1 alpha-2 or alpha-3).
     /// </summary>
+    [DataMember]
     public IsoMin2Max3AlphaText? PassportIssuingCountry { get; init; } 
     /// <summary>
     /// Tax identifier of the sender.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SenderTaxIdentifier { get; init; } 
     /// <summary>
     /// Country of the tax (ISO 3166-1 alpha-2 or alpha-3).
     /// </summary>
+    [DataMember]
     public IsoMin2Max3AlphaText? TaxCountry { get; init; } 
     /// <summary>
     /// Customer identifier of the sender.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SenderCustomerIdentifier { get; init; } 
     /// <summary>
     /// Date and place of birth of the sender.
     /// </summary>
+    [DataMember]
     public DateAndPlaceOfBirth? SenderDateAndPlaceOfBirth { get; init; } 
     /// <summary>
     /// Name of the receiver.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? ReceiverName { get; init; } 
     /// <summary>
     /// Unique transaction reference number for sender and the receiver.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TransactionReference { get; init; } 
     
     #nullable disable

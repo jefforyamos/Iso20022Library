@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cancellation advice response from the acquirer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentTransactionAdviceResponse2
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record CardPaymentTransactionAdviceResponse2
     /// <summary>
     /// Unique identification of the transaction by the POI.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     
     #nullable disable

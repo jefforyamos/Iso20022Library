@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed description of an error.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ErrorReporting1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ErrorReporting1
     /// <summary>
     /// Type of error.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Detailed description of the error.
     /// </summary>
+    [DataMember]
     public required IsoMax500Text Description { get; init; } 
     
     #nullable disable

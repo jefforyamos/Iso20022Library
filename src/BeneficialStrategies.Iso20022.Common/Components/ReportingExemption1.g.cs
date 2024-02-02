@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the reporting exemption of a counterparty.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportingExemption1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ReportingExemption1
     /// <summary>
     /// Code specifying exemption applicable to a counterparty.
     /// </summary>
+    [DataMember]
     public required IsoMax4Text Reason { get; init; } 
     /// <summary>
     /// Textual description of applicable exemption.
     /// </summary>
+    [DataMember]
     public IsoMax1000Text? Description { get; init; } 
     
     #nullable disable

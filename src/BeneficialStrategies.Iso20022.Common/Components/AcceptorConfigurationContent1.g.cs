@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the acceptor configuration.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcceptorConfigurationContent1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record AcceptorConfigurationContent1
     /// <summary>
     /// Acceptor parameters dedicated to an acquirer protocol.
     /// </summary>
-    public AcquirerProtocolParameters1[] AcquirerProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AcquirerProtocolParameters1> AcquirerProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to the merchant.
     /// </summary>
-    public IsoMax10000Binary[] MerchantParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax10000Binary> MerchantParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to a payment application of the point of interaction.
     /// </summary>
-    public ApplicationParameters1[] ApplicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ApplicationParameters1> ApplicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to the communication with an acquirer host.
     /// </summary>
-    public HostCommunicationParameter1[] HostCommunicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<HostCommunicationParameter1> HostCommunicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

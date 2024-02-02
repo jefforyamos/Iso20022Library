@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a drawdown.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Drawdown3
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record Drawdown3
     /// <summary>
     /// Previous employment information.
     /// </summary>
+    [DataMember]
     public EmploymentDetails1? EmploymentDetails { get; init; } 
     /// <summary>
     /// Additional information about the drawdown.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

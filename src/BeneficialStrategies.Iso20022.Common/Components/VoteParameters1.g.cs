@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information describing how the voting process is organised.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VoteParameters1
 {
     #nullable enable
@@ -20,78 +22,97 @@ public partial record VoteParameters1
     /// <summary>
     /// Number of holdings required for a vote.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? SecuritiesQuantityRequiredToVote { get; init; } 
     /// <summary>
     /// Specifies whether it is allowed to only vote on a part of the entire holding, leaving part of the position un-voted.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator PartialVoteAllowed { get; init; } 
     /// <summary>
     /// Specifies whether it is allowed to vote in different directions for the entire holding.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator SplitVoteAllowed { get; init; } 
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the intermediary.
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? VoteDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the intermediary (STP mode).
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? VoteSTPDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the issuer.
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? VoteMarketDeadline { get; init; } 
     /// <summary>
     /// Indicates the different methods that can be used to vote.
     /// </summary>
+    [DataMember]
     public VoteMethods? VoteMethods { get; init; } 
     /// <summary>
     /// Electronic location, e-mail or URL address, where the voting ballot can be requested.
     /// </summary>
+    [DataMember]
     public CommunicationAddress4? VotingBallotElectronicAddress { get; init; } 
     /// <summary>
     /// Specifies the postal address where the voting ballot can be requested.
     /// </summary>
+    [DataMember]
     public PostalAddress1? VotingBallotRequestAddress { get; init; } 
     /// <summary>
     /// Date till which the instructing party can revoke, change or withdraw its voting instruction. This deadline is specified by an intermediary.
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? RevocabilityDeadline { get; init; } 
     /// <summary>
     /// Date till which the instructing party can revoke, change or withdraw its voting instruction. This deadline is specified by an intermediary (STP mode).
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? RevocabilitySTPDeadline { get; init; } 
     /// <summary>
     /// Date till which the instructing party can revoke, change or withdraw its voting instruction. This deadline is set by the issuer.
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? RevocabilityMarketDeadline { get; init; } 
     /// <summary>
     /// Indicates whether beneficiary details (eg name and address) must be supplied in order to take part to a meeting.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator BeneficialOwnerDisclosure { get; init; } 
     /// <summary>
     /// Identifies the possible types of voting instructions. When used at the resolution level, it supersedes the value specified in the meeting notice.
     /// </summary>
-    public VoteInstruction2Code[] VoteInstructionType { get; init; } = [];
+    [DataMember]
+    public ValueList<VoteInstruction2Code> VoteInstructionType { get; init; } = [];
     /// <summary>
     /// Cash premium paid to the security holder when voting.
     /// </summary>
+    [DataMember]
     public IncentivePremium2? IncentivePremium { get; init; } 
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the intermediary to take advantage of the premium.
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? VoteWithPremiumDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the intermediary to take advantage of the premium (STP mode).
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? VoteWithPremiumSTPDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the vote instructions should be submitted to the issuer to take advantage of the premium.
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? VoteWithPremiumMarketDeadline { get; init; } 
     /// <summary>
     /// Additional information on specific requirements for allowing a person to vote.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalVotingRequirements { get; init; } 
     
     #nullable disable

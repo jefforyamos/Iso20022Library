@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Attributes of a pension.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Pension1
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record Pension1
     /// <summary>
     /// Identification of the pension policy, plan or scheme.
     /// </summary>
+    [DataMember]
     public PensionPolicy1? Identification { get; init; } 
     /// <summary>
     /// Type of pension policy, plan or scheme.
     /// </summary>
+    [DataMember]
     public PensionSchemeType1Choice_? Type { get; init; } 
     /// <summary>
     /// Scope of the pension policy, plan or scheme transfer.
     /// </summary>
+    [DataMember]
     public PensionTransferScope1Choice_? TransferScope { get; init; } 
     /// <summary>
     /// Tax reference issued to the pension policy, plan or scheme by a central organisation.
     /// </summary>
-    public TaxReference1[] TaxReference { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TaxReference1> TaxReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Reference of the drawdown.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DrawdownTrancheIdentification { get; init; } 
     /// <summary>
     /// Additional information about the pension policy, plan or scheme.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

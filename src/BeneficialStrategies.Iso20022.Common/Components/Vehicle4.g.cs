@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Attributes of vehicle.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Vehicle4
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Vehicle4
     /// <summary>
     /// Contains the classification of the vehicle (for example, economy, intermediate, luxury, etc.)
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Class { get; init; } 
     /// <summary>
     /// Brand or manufacturer of the vehicle.
     /// </summary>
+    [DataMember]
     public IsoMax35NumericText? Make { get; init; } 
     /// <summary>
     /// Product line of vehicle within the make. 
     /// </summary>
+    [DataMember]
     public IsoMax35NumericText? Model { get; init; } 
     /// <summary>
     /// Registration number of vehicle.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RegistrationNumber { get; init; } 
     
     #nullable disable

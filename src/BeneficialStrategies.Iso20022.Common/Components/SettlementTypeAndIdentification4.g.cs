@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides transaction type and identification information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementTypeAndIdentification4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SettlementTypeAndIdentification4
     /// <summary>
     /// Provides unambiguous transaction identification information.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Specifies if the movement on a securities account results from a deliver or a receive instruction.
     /// </summary>
+    [DataMember]
     public ReceiveDelivery1Code? SecuritiesMovementType { get; init; } 
     /// <summary>
     /// Specifies how the transaction is to be settled, for example, against payment.
     /// </summary>
+    [DataMember]
     public DeliveryReceiptType2Code? Payment { get; init; } 
     
     #nullable disable

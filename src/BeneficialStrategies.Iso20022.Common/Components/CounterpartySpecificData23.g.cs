@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related specifically to counterparties.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CounterpartySpecificData23
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CounterpartySpecificData23
     /// <summary>
     /// Counterparty data details.
     /// </summary>
+    [DataMember]
     public required TradeCounterpartyReport9 Counterparty { get; init; } 
     /// <summary>
     /// Data related to contract valuation.
     /// </summary>
+    [DataMember]
     public ContractValuationData2? Valuation { get; init; } 
     /// <summary>
     /// Information related to collateral agreement between counterparties.
     /// </summary>
+    [DataMember]
     public TradeCollateralReport1? Collateral { get; init; } 
     /// <summary>
     /// Date and time of reporting to the trade repository as required by regulation.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime ReportingDateTime { get; init; } 
     
     #nullable disable

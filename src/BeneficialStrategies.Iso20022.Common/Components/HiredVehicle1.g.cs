@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Vehicle for hire for passenger transport - excludes vehicles driven by a renter.  Examples include, but are not limited to, taxi, chauffered limousine, boats.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record HiredVehicle1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record HiredVehicle1
     /// <summary>
     /// Defines the type of company or vehicle being hired (for example, private, taxi, chauffeur service, rideshare).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CompanyType { get; init; } 
     /// <summary>
     /// Contains the name of the company that provided the hired vehicle services. 
     /// </summary>
+    [DataMember]
     public IsoMax70Text? CompanyName { get; init; } 
     /// <summary>
     /// Contains the type of vehicle that was hired (for example, limousine, black, SUV). 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TypeOfVehicle { get; init; } 
     /// <summary>
     /// Contains the identifier assigned to the vehicle.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? VehicleIdentification { get; init; } 
     /// <summary>
     /// Contains the identifier assigned to the driver.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DriverIdentification { get; init; } 
     /// <summary>
     /// Contains the tax identifier assigned to the driver.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DriverTaxIdentification { get; init; } 
     /// <summary>
     /// Destination of the hired vehicle. 
     /// </summary>
+    [DataMember]
     public Destination2? Destination { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the collateral counterparty(ies) of Party A with his eligibility set profile.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralParties4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CollateralParties4
     /// <summary>
     /// Counterparty of party A. 
     /// </summary>
+    [DataMember]
     public required PartyIdentification232 PartyB { get; init; } 
     /// <summary>
     /// Party that instructs party B to settle the instruction on its behalf.
     /// </summary>
+    [DataMember]
     public PartyIdentification232? ClientPartyB { get; init; } 
     /// <summary>
     /// Number identifying the collateral eligibility set profile of the counterparty.
     /// </summary>
+    [DataMember]
     public GenericIdentification37? EligibilitySetProfile { get; init; } 
     
     #nullable disable

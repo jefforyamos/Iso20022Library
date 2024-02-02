@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the corporate action event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateAction51
 {
     #nullable enable
@@ -20,128 +22,159 @@ public partial record CorporateAction51
     /// <summary>
     /// Provides information about the dates related to a corporate action event.
     /// </summary>
+    [DataMember]
     public CorporateActionDate74? DateDetails { get; init; } 
     /// <summary>
     /// Provides information about the periods related to a corporate action event.
     /// </summary>
+    [DataMember]
     public CorporateActionPeriod14? PeriodDetails { get; init; } 
     /// <summary>
     /// Provides information about rates and amounts related to a corporate action event.
     /// </summary>
+    [DataMember]
     public CorporateActionRate96? RateAndAmountDetails { get; init; } 
     /// <summary>
     /// Provides information about the prices related to a corporate action event.
     /// </summary>
+    [DataMember]
     public CorporateActionPrice67? PriceDetails { get; init; } 
     /// <summary>
     /// Provides information about securities quantity linked to a corporate action.
     /// </summary>
+    [DataMember]
     public CorporateActionQuantity8? SecuritiesQuantity { get; init; } 
     /// <summary>
     /// Number of days used for calculating the accrued interest amount.
     /// </summary>
+    [DataMember]
     public IsoMax3Number? InterestAccruedNumberOfDays { get; init; } 
     /// <summary>
     /// Number of the coupon attached/associated with a security.
     /// </summary>
-    public IdentificationFormat4Choice_[] CouponNumber { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IdentificationFormat4Choice_> CouponNumber { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether certification/breakdown is required. 
     /// Yes = certification required.
     /// No = no certification required.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CertificationBreakdownIndicator { get; init; } 
     /// <summary>
     /// Indicates whether charges apply to the holder, for instance redemption charges.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ChargesAppliedIndicator { get; init; } 
     /// <summary>
     /// Indicates whether there is restrictions apply to the corporate action event or not.|Yes = There is restrictions.|No = There is no restrictions.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? RestrictionIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the holder is entitled to accrued interest.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AccruedInterestIndicator { get; init; } 
     /// <summary>
     /// Indicates whether a letter of guaranteed delivery can be submitted in order to participate in the offer on full eligible position. It is not intended for use in situations arising from failed or late trades.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? LetterOfGuaranteedDeliveryIndicator { get; init; } 
     /// <summary>
     /// Specifies the conditions in which a dividend is paid.
     /// </summary>
+    [DataMember]
     public DividendTypeFormat10Choice_? DividendType { get; init; } 
     /// <summary>
     /// Specifies the conversion type of an instrument.
     /// </summary>
+    [DataMember]
     public ConversionTypeFormat4Choice_? ConversionType { get; init; } 
     /// <summary>
     /// Specifies the conditions in which the instructions and/or payment of the proceeds occurs.
     /// </summary>
+    [DataMember]
     public DistributionTypeFormat8Choice_? OccurrenceType { get; init; } 
     /// <summary>
     /// Specifies the conditions that apply to the offer.
     /// </summary>
-    public OfferTypeFormat11Choice_[] OfferType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OfferTypeFormat11Choice_> OfferType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether terms of the event allow resale of the rights.
     /// </summary>
+    [DataMember]
     public RenounceableEntitlementStatusTypeFormat4Choice_? RenounceableEntitlementStatusType { get; init; } 
     /// <summary>
     /// Stage in the corporate action event life cycle.
     /// </summary>
-    public CorporateActionEventStageFormat20Choice_[] EventStage { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CorporateActionEventStageFormat20Choice_> EventStage { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the type of the additional business process linked to a corporate action event such as a claim compensation or tax refund.
     /// </summary>
-    public AdditionalBusinessProcessFormat12Choice_[] AdditionalBusinessProcessIndicator { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalBusinessProcessFormat12Choice_> AdditionalBusinessProcessIndicator { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the type of change announced.
     /// </summary>
-    public CorporateActionChangeTypeFormat8Choice_[] ChangeType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CorporateActionChangeTypeFormat8Choice_> ChangeType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of intermediates securities distribution.
     /// </summary>
+    [DataMember]
     public IntermediateSecuritiesDistributionTypeFormat18Choice_? IntermediateSecuritiesDistributionType { get; init; } 
     /// <summary>
     /// Specifies whether the capital gain is in the scope of the EU Savings directive for the income realised upon the sale, refund or redemption of shares and units (.) (Article 6(1d)).
     /// </summary>
+    [DataMember]
     public CapitalGainFormat4Choice_? CapitalGainInOutIndicator { get; init; } 
     /// <summary>
     /// Specifies whether the financial instrument calculates the taxable income per dividend/taxable income per share.
     /// </summary>
+    [DataMember]
     public TaxableIncomePerShareCalculatedFormat4Choice_? TaxableIncomePerShareCalculated { get; init; } 
     /// <summary>
     /// Specifies the effect on the holdings of electing a corporate action option.
     /// </summary>
+    [DataMember]
     public ElectionTypeFormat4Choice_? ElectionType { get; init; } 
     /// <summary>
     /// Specifies the type of lottery announced.
     /// </summary>
+    [DataMember]
     public LotteryTypeFormat5Choice_? LotteryType { get; init; } 
     /// <summary>
     /// Specifies the certification format required, this is, physical or electronic format.
     /// </summary>
+    [DataMember]
     public CertificationTypeFormat4Choice_? CertificationType { get; init; } 
     /// <summary>
     /// Specifies the type of consent announced.
     /// </summary>
+    [DataMember]
     public ConsentTypeFormat5Choice_? ConsentType { get; init; } 
     /// <summary>
     /// Specifies the type of information event.
     /// </summary>
+    [DataMember]
     public InformationTypeFormat5Choice_? InformationType { get; init; } 
     /// <summary>
     /// Specifies the tax regulation being attributed to the non-distributed proceeds event.
     /// </summary>
+    [DataMember]
     public GenericIdentification47? TaxOnNonDistributedProceedsIndicator { get; init; } 
     /// <summary>
     /// New company's place of incorporation.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax350Text? NewPlaceOfIncorporation { get; init; } 
     /// <summary>
     /// Provides additional information. This field may only be used when the information to be transmitted, cannot be coded.
     /// </summary>
+    [DataMember]
     public CorporateActionNarrative39? AdditionalInformation { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the hash data for the file signature.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IsabelSignatureHash1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record IsabelSignatureHash1
     /// <summary>
     /// Arbitrary block of data defined as a fixed-size bit string, the (cryptographic) hash value, that allows the detection of an accidental or intentional change to the data.
     /// </summary>
+    [DataMember]
     public required IsoMax50Binary Hash { get; init; } 
     /// <summary>
     /// Effective method for calculating the signature hash using a finite sequence of instructions.
     /// </summary>
+    [DataMember]
     public required IsoMax105Text Algorithm { get; init; } 
     
     #nullable disable

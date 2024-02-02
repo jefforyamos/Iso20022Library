@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the status of a creditor enrolment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EnrolmentStatus2
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record EnrolmentStatus2
     /// <summary>
     /// Unique identification of the original instruction.
     /// </summary>
+    [DataMember]
     public OriginalBusinessInstruction1? OriginalBusinessInstruction { get; init; } 
     /// <summary>
     /// Provides detailed information on the status for the request.
     /// </summary>
+    [DataMember]
     public required ServiceStatus1Choice_ Status { get; init; } 
     /// <summary>
     /// Specifies the reason for the status of the enrolment request.
     /// </summary>
+    [DataMember]
     public CreditorEnrolmentStatusReason2? StatusReason { get; init; } 
     /// <summary>
     /// Provides the original creditor enrolment data.
     /// </summary>
+    [DataMember]
     public OriginalEnrolment2Choice_? OriginalEnrolmentReference { get; init; } 
     /// <summary>
     /// Actual date when the creditor enrolment was executed.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? EffectiveEnrolmentDate { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

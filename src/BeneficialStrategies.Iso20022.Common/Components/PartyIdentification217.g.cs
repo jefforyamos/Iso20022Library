@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification217
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record PartyIdentification217
     /// <summary>
     /// Name and address of the party.
     /// </summary>
+    [DataMember]
     public required PersonName3 NameAndAddress { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
+    [DataMember]
     public IsoMax256Text? EmailAddress { get; init; } 
     /// <summary>
     /// Natural person identification details.
     /// </summary>
+    [DataMember]
     public required NaturalPersonIdentification1 Identification { get; init; } 
     /// <summary>
     /// Nationality of the person.
     /// </summary>
+    [DataMember]
     public CountryCode? Nationality { get; init; } 
     /// <summary>
     /// Date on which and place at which a person is born.
     /// </summary>
+    [DataMember]
     public DateAndPlaceOfBirth2? DateAndPlaceOfBirth { get; init; } 
     /// <summary>
     /// Type of investor.
     /// </summary>
+    [DataMember]
     public InvestorType1Choice_? InvestorType { get; init; } 
     /// <summary>
     /// Provides information about the ownership on an asset.
     /// </summary>
+    [DataMember]
     public Ownership1? Ownership { get; init; } 
     
     #nullable disable

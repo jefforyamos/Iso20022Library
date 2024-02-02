@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Sale context in which the transaction is performed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SaleContext4
 {
     #nullable enable
@@ -20,74 +22,92 @@ public partial record SaleContext4
     /// <summary>
     /// Identification of the sale terminal (electronic cash register or point of sale terminal) or the sale system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleIdentification { get; init; } 
     /// <summary>
     /// Identify a sale transaction assigned by the sale system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleReferenceNumber { get; init; } 
     /// <summary>
     /// Identifier of the reconciliation between the Sale system and the POI system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleReconciliationIdentification { get; init; } 
     /// <summary>
     /// Identification of the cashier who carried out the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CashierIdentification { get; init; } 
     /// <summary>
     /// Languages used by the cashier.
     /// </summary>
-    public LanguageCode[] CashierLanguage { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LanguageCode> CashierLanguage { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the shift of the cashier.
     /// </summary>
+    [DataMember]
     public IsoMax2NumericText? ShiftNumber { get; init; } 
     /// <summary>
     /// Flag indicating that list of CustomerOrders should be returned in response.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CustomerOrderRequestFlag { get; init; } 
     /// <summary>
     /// Identification of the purchase order.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PurchaseOrderNumber { get; init; } 
     /// <summary>
     /// Identification of the invoice.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? InvoiceNumber { get; init; } 
     /// <summary>
     /// Identification allocated by the sale system and given to the customer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DeliveryNoteNumber { get; init; } 
     /// <summary>
     /// Merchant using the payment services of a payment facilitator, acting as a card acceptor.
     /// </summary>
-    public Organisation26[] SponsoredMerchant { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Organisation26> SponsoredMerchant { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// True if the payment transaction is a partial payment of the sale transaction.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? SplitPayment { get; init; } 
     /// <summary>
     /// Remaining amount to complete the sale transaction, if a partial payment has been completed for the sale transaction.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? RemainingAmount { get; init; } 
     /// <summary>
     /// Indicates if the Cashier requires POI forces online access to the Acquirer.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ForceOnlineFlag { get; init; } 
     /// <summary>
     /// Indicates if the card data has to be taken from a previous transaction.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ReuseCardDataFlag { get; init; } 
     /// <summary>
     /// Type of card data reading.
     /// </summary>
-    public CardDataReading8Code[] AllowedEntryMode { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardDataReading8Code> AllowedEntryMode { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Scope of the token that identifies the payment mean of the customer.
     /// </summary>
+    [DataMember]
     public SaleTokenScope1Code? SaleTokenScope { get; init; } 
     /// <summary>
     /// Additional information associated with the sale transaction.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AdditionalSaleData { get; init; } 
     
     #nullable disable

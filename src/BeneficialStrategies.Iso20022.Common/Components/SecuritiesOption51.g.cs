@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the security option of a corporate event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesOption51
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record SecuritiesOption51
     /// <summary>
     /// Maximum quantity of financial instrument that may be instructed.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity19Choice_? MaximumQuantityToInstruct { get; init; } 
     /// <summary>
     /// Minimum quantity of financial instrument that may be instructed.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity19Choice_? MinimumQuantityToInstruct { get; init; } 
     /// <summary>
     /// Minimum multiple quantity of financial instrument that may be instructed.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity20Choice_? MinimumMultipleQuantityToInstruct { get; init; } 
     /// <summary>
     /// Quantity of equity that makes up the new board lot.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity20Choice_? NewBoardLotQuantity { get; init; } 
     /// <summary>
     /// New denomination of the equity following, for example, an increase or decrease in nominal value.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity20Choice_? NewDenominationQuantity { get; init; } 
     /// <summary>
     /// Specifies that if an order is prorated holders of odd lots who tender their full position will not have tendered position prorated but rather accepted in full.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity20Choice_? FrontEndOddLotQuantity { get; init; } 
     /// <summary>
     /// Represents the presence of a back end odd lot provision and the quantity of equity required after proration to be eligible for this privilege.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity20Choice_? BackEndOddLotQuantity { get; init; } 
     
     #nullable disable

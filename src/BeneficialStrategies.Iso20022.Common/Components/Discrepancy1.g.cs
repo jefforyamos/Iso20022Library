@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a discrepancy of a demand.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Discrepancy1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Discrepancy1
     /// <summary>
     /// Identification of the discrepancy.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Description of the discrepancy.
     /// </summary>
+    [DataMember]
     public required IsoMax20000Text Narrative { get; init; } 
     
     #nullable disable

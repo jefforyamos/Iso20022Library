@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Ratio expressed as a quotient of quantities.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record QuantityToQuantityRatio2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record QuantityToQuantityRatio2
     /// <summary>
     /// Numerator of the quotient of quantities.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINDecimalNumber Quantity1 { get; init; } 
     /// <summary>
     /// Denominator of the quotient of quantities.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINDecimalNumber Quantity2 { get; init; } 
     
     #nullable disable

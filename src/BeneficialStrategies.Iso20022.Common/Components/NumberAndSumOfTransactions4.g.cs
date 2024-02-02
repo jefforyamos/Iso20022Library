@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements providing the total sum of entries.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NumberAndSumOfTransactions4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record NumberAndSumOfTransactions4
     /// <summary>
     /// Number of individual entries included in the report.
     /// </summary>
+    [DataMember]
     public IsoMax15NumericText? NumberOfEntries { get; init; } 
     /// <summary>
     /// Total of all individual entries included in the report.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? Sum { get; init; } 
     /// <summary>
     /// Resulting debit or credit amount of the netted amounts for all debit and credit entries.
     /// </summary>
+    [DataMember]
     public AmountAndDirection35? TotalNetEntry { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the proprietary status and reason of an instruction or an instruction cancellation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProprietaryStatusAndReason6
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record ProprietaryStatusAndReason6
     /// <summary>
     /// Proprietary identification of the status related to an instruction.
     /// </summary>
+    [DataMember]
     public required GenericIdentification30 ProprietaryStatus { get; init; } 
     /// <summary>
     /// Proprietary identification of the reason related to a proprietary status.
     /// </summary>
-    public ProprietaryReason4[] ProprietaryReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProprietaryReason4> ProprietaryReason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

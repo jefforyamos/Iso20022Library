@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to an identification, for example, party identification or account identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericIdentification184
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record GenericIdentification184
     /// <summary>
     /// Indicates other identifier of an underlier.
     /// </summary>
+    [DataMember]
     public required IsoMax210Text Identification { get; init; } 
     /// <summary>
     /// Indicates the source of the identifier that represent the underlier.
     /// </summary>
+    [DataMember]
     public required IsoMax100Text Source { get; init; } 
     
     #nullable disable

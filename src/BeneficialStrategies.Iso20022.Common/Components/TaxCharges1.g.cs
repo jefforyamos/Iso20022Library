@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxCharges1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TaxCharges1
     /// <summary>
     /// Reference used to identify the nature of tax levied, such as Value Added Tax (VAT).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Rate used to calculate the tax.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? Amount { get; init; } 
     
     #nullable disable

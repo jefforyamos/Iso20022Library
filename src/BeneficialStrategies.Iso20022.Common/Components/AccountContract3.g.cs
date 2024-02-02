@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies target and actual dates dates related to account opening and closing.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountContract3
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record AccountContract3
     /// <summary>
     /// Date on which the account and related basic services are expected to be operational for the account owner.
     /// </summary>
+    [DataMember]
     public IsoISODate? TargetGoLiveDate { get; init; } 
     /// <summary>
     /// Date on which the account and related services are expected to cease to be operational for the account owner.
     /// </summary>
+    [DataMember]
     public IsoISODate? TargetClosingDate { get; init; } 
     /// <summary>
     /// Date on which the account and related basic services are effectively operational for the account owner.
     /// </summary>
+    [DataMember]
     public IsoISODate? GoLiveDate { get; init; } 
     /// <summary>
     /// Date on which the account and related services cease effectively to be operational for the account owner.
     /// </summary>
+    [DataMember]
     public IsoISODate? ClosingDate { get; init; } 
     /// <summary>
     /// Indicator that the account opening/maintenance/closing process needs to be treated urgently, that is, sooner than the terms established by the service level agreed between the account holder customer and the account servicing institution.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? UrgencyFlag { get; init; } 
     /// <summary>
     /// Indicates removal of the account. After removal, an account will not appear anymore in reports.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? RemovalIndicator { get; init; } 
     
     #nullable disable

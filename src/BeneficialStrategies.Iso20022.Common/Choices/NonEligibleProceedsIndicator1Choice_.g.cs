@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(NonEligibleProceedsIndicator1Choice.Code))]
 [KnownType(typeof(NonEligibleProceedsIndicator1Choice.Proprietary))]
+[DataContract]
 public abstract partial record NonEligibleProceedsIndicator1Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional information with update description and date.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UpdatedAdditionalInformation8
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record UpdatedAdditionalInformation8
     /// <summary>
     /// Specifies the amendments made to the narrative since the last message.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? UpdateDescription { get; init; } 
     /// <summary>
     /// Specifies the date at which the narrative has been updated.
     /// </summary>
+    [DataMember]
     public IsoISODate? UpdateDate { get; init; } 
     /// <summary>
     /// Provides additional textual information.
     /// </summary>
-    public IsoMax8000Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax8000Text> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

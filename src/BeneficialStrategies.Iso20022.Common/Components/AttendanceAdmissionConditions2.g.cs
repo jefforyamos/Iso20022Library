@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Physical attendance admission conditions for a meeting.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AttendanceAdmissionConditions2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AttendanceAdmissionConditions2
     /// <summary>
     /// Condition for physical admittance to the general meeting.
     /// </summary>
+    [DataMember]
     public required AttendanceAdmissionConditions2Code Code { get; init; } 
     /// <summary>
     /// Additional information on the conditions for physical admittance to the general meeting.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

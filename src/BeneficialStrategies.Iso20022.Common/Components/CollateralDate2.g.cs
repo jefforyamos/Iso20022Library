@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Dates related to the triparty collateral instruction or transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralDate2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CollateralDate2
     /// <summary>
     /// Date the transaction was agreed between the trading parties.
     /// </summary>
+    [DataMember]
     public IsoISODate? TradeDate { get; init; } 
     /// <summary>
     /// Date/time at which the instructing party requests the instruction to be executed. 
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? RequestedExecutionDate { get; init; } 
     /// <summary>
     /// Date on which the financial instruments are to be delivered or received.
     /// </summary>
+    [DataMember]
     public IsoISODate? SettlementDate { get; init; } 
     
     #nullable disable

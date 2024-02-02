@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the amendment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Amendment2
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record Amendment2
     /// <summary>
     /// Contents of the related Undertaking Amendment message.
     /// </summary>
+    [DataMember]
     public required UndertakingAmendmentMessage1 UndertakingAmendmentMessage { get; init; } 
     /// <summary>
     /// Additional information related to the first advising party.
     /// </summary>
+    [DataMember]
     public AdvisingPartyAdditionalInformation1? FirstAdvisingPartyAdditionalInformation { get; init; } 
     /// <summary>
     /// Additional information related to the second advising party.
     /// </summary>
+    [DataMember]
     public AdvisingPartyAdditionalInformation1? SecondAdvisingPartyAdditionalInformation { get; init; } 
     /// <summary>
     /// Details concerning the confirmation of the proposed amendment.
     /// </summary>
+    [DataMember]
     public UndertakingConfirmation1? ConfirmationDetails { get; init; } 
     /// <summary>
     /// Digital signature of the party providing additional undertaking amendment advice details.
     /// </summary>
-    public PartyAndSignature2[] DigitalSignature { get; init; } = [];
+    [DataMember]
+    public ValueList<PartyAndSignature2> DigitalSignature { get; init; } = [];
     
     #nullable disable
 }

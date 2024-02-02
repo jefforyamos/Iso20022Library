@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Year in which the ISA plan is issued.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ISAYearsOfIssue6
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ISAYearsOfIssue6
     /// <summary>
     /// ISA that was issued during the current fiscal year.
     /// </summary>
+    [DataMember]
     public CurrentYearType2Choice_? CurrentYear { get; init; } 
     /// <summary>
     /// Selection of investment plans issued during previous years.
     /// </summary>
+    [DataMember]
     public PreviousYearChoice_? PreviousYears { get; init; } 
     
     #nullable disable

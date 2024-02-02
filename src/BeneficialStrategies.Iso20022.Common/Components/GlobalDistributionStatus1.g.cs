@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the status of the global movement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GlobalDistributionStatus1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record GlobalDistributionStatus1
     /// <summary>
     /// Provides information about the processing status of the global movement.
     /// </summary>
+    [DataMember]
     public required DistributionProcessingStatus1 ProcessedStatus { get; init; } 
     /// <summary>
     /// Provides information about the rejection status.
     /// </summary>
+    [DataMember]
     public required DistributionRejectionStatus1 RejectedStatus { get; init; } 
     
     #nullable disable

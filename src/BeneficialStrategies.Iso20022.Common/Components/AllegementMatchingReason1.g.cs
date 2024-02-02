@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// The status of an instruction, advice or request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AllegementMatchingReason1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AllegementMatchingReason1
     /// <summary>
     /// Specifies the reason why the instruction has been alleged.
     /// </summary>
+    [DataMember]
     public required AllegementReason1Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional information about the reason in narrative form.
     /// </summary>
+    [DataMember]
     public IsoMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

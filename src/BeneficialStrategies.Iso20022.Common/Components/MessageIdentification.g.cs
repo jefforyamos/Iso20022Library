@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique and unambiguous identifier for a message, as assigned by the Sender. This unique identifier can be used for cross-referencing purposes in subsequent messages.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MessageIdentification
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record MessageIdentification
     /// <summary>
     /// String of characters that uniquely identifies a message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     
     #nullable disable

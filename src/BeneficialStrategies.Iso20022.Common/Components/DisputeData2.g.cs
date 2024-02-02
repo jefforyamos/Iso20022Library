@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data to be present in a dispute.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DisputeData2
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record DisputeData2
     /// <summary>
     /// Indicates the cycle of presentment or of the chargeback  (1= first cycle for chargeback, 2= second cycle of presentment or chargeback, etc.).
     /// </summary>
+    [DataMember]
     public IsoExact1NumericText? PresentmentCycle { get; init; } 
     /// <summary>
     /// Condition of the dispute.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DisputeCondition { get; init; } 
     /// <summary>
     /// Reference for the dispute.
     /// </summary>
-    public DisputeReference1[] DisputeReference { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DisputeReference1> DisputeReference { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

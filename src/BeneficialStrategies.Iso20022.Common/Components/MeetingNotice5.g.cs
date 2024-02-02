@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a meeting, participation requirements and voting procedures.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MeetingNotice5
 {
     #nullable enable
@@ -20,86 +22,107 @@ public partial record MeetingNotice5
     /// <summary>
     /// Identification assigned to the general meeting by the party that provides the meeting notification. It must be unique to the party providing the notification
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MeetingIdentification { get; init; } 
     /// <summary>
     /// Identification assigned to the meeting by the issuer. It must be unique for the issuer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? IssuerMeetingIdentification { get; init; } 
     /// <summary>
     /// Type of security holders meeting.
     /// </summary>
+    [DataMember]
     public required MeetingType4Code Type { get; init; } 
     /// <summary>
     /// Classification of the meeting.
     /// </summary>
+    [DataMember]
     public MeetingTypeClassification2Choice_? Classification { get; init; } 
     /// <summary>
     /// Official meeting announcement date.
     /// </summary>
+    [DataMember]
     public IsoISODate? AnnouncementDate { get; init; } 
     /// <summary>
     /// Method of voting participation to the general meeting and related voting deadline per method of participation.
     /// </summary>
-    public ParticipationMethod1[] Participation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ParticipationMethod1> Participation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information and conditions for physical attendance at the general meeting.
     /// </summary>
+    [DataMember]
     public Attendance1? Attendance { get; init; } 
     /// <summary>
     /// Address to use over the www (HTTP) service where additional information on the meeting may be found.
     /// </summary>
-    public IsoMax2048Text[] AdditionalDocumentationURLAddress { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax2048Text> AdditionalDocumentationURLAddress { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional procedural information about the general meeting, specifying the participation requirements and the voting procedures. Alternatively, this may indicate where such information may be obtained.
     /// </summary>
-    public AdditionalRights3[] AdditionalProcedureDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<AdditionalRights3> AdditionalProcedureDetails { get; init; } = [];
     /// <summary>
     /// Number of securities admitted to the vote, expressed as an amount and a currency.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity18Choice_? TotalNumberOfSecuritiesOutstanding { get; init; } 
     /// <summary>
     /// Number of rights admitted to the vote.
     /// </summary>
+    [DataMember]
     public IsoNumber? TotalNumberOfVotingRights { get; init; } 
     /// <summary>
     /// Address where the information on the proxy should be sent.
     /// </summary>
+    [DataMember]
     public PostalAddress1? ProxyAppointmentNotificationAddress { get; init; } 
     /// <summary>
     /// Specifies the proxy or whether a proxy is not allowed.
     /// </summary>
+    [DataMember]
     public Proxy3Choice_? ProxyChoice { get; init; } 
     /// <summary>
     /// Contact person at the party organising the meeting, at the issuer or at an intermediary.
     /// </summary>
-    public MeetingContactPerson3[] ContactPersonDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<MeetingContactPerson3> ContactPersonDetails { get; init; } = [];
     /// <summary>
     /// Date on which the company publishes the results of its meeting.
     /// </summary>
+    [DataMember]
     public DateFormat3Choice_? ResultPublicationDate { get; init; } 
     /// <summary>
     /// Date by which the blocking period for the securities should end.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? SecuritiesBlockingPeriodEndDate { get; init; } 
     /// <summary>
     /// Date at which the positions are struck to record which parties will receive the entitlement, for example, record date, book close date.
     /// </summary>
+    [DataMember]
     public DateFormat1? EntitlementFixingDate { get; init; } 
     /// <summary>
     /// Date by which the securities have to be registered. This deadline is specified by an intermediary.
     /// </summary>
+    [DataMember]
     public DateFormat58Choice_? RegistrationSecuritiesDeadline { get; init; } 
     /// <summary>
     /// Date by which the securities have to be registered. This deadline is set by the issuer.
     /// </summary>
+    [DataMember]
     public DateFormat58Choice_? RegistrationSecuritiesMarketDeadline { get; init; } 
     /// <summary>
     /// Date by which the holder needs to register its intention to participate in the meeting process in order to be allowed to participate in the meeting event. This deadline is specified by an intermediary.
     /// </summary>
+    [DataMember]
     public DateFormat58Choice_? RegistrationParticipationDeadline { get; init; } 
     /// <summary>
     /// Date by which the holder needs to register its intention to participate in the meeting process in order to be allowed to participate in the meeting event. This deadline is set by the issuer.
     /// </summary>
+    [DataMember]
     public DateFormat58Choice_? RegistrationParticipationMarketDeadline { get; init; } 
     
     #nullable disable

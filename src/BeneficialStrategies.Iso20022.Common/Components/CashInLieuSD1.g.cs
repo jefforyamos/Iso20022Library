@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cash in lieu election details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashInLieuSD1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CashInLieuSD1
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Quantity elected.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
     
     #nullable disable

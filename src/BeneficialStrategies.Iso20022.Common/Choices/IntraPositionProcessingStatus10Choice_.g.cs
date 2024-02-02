@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(IntraPositionProcessingStatus10Choice.Cancelled))]
 [KnownType(typeof(IntraPositionProcessingStatus10Choice.AcknowledgedAccepted))]
 [KnownType(typeof(IntraPositionProcessingStatus10Choice.Proprietary))]
+[DataContract]
 public abstract partial record IntraPositionProcessingStatus10Choice_
 {
 }

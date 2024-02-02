@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transfer cancellation status is in pending.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferCancellationPendingStatus1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record TransferCancellationPendingStatus1
     /// <summary>
     /// Reason for the cancellation pending status.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Reason { get; init; } 
     
     #nullable disable

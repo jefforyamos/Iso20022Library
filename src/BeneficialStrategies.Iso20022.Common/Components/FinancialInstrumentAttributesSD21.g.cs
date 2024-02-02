@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding underlying security details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentAttributesSD21
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FinancialInstrumentAttributesSD21
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Represents the 'original' security identifier of the event. It is used in the scenarios like "partial call" where there are 2 events. The first event distributes into the Contra CUSIP, a temporary security; and on the second event that temporary security becomes the underlying security of the event. This element is used in the second event to point to the original CUSIP.
     /// </summary>
+    [DataMember]
     public OtherIdentification2? OriginatingSecurityIdentification { get; init; } 
     /// <summary>
     /// Indicates that the underlying security is a money market instrument.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? MoneyMarketInstrumentFlag { get; init; } 
     
     #nullable disable

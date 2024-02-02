@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the components of a settlement rate source for a non delvierable trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementRateSource1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SettlementRateSource1
     /// <summary>
     /// Specifies the rate source for the non deliverable trade.
     /// </summary>
+    [DataMember]
     public required IsoRateSourceText RateSource { get; init; } 
     /// <summary>
     /// Specifies the time "HHMM" associated with the rate source.
     /// </summary>
+    [DataMember]
     public IsoExact4NumericText? Time { get; init; } 
     /// <summary>
     /// Specifies the country code for the quoted rate source.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryCode { get; init; } 
     /// <summary>
     /// The location expressed as a 2 character code.
     /// </summary>
+    [DataMember]
     public IsoExact2AlphaNumericText? LocationCode { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Outcome of the processing of the batch.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProcessingResult3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ProcessingResult3
     /// <summary>
     /// Result information related to the processing of the transaction.
     /// </summary>
+    [DataMember]
     public required ResultData2 ResultData { get; init; } 
     /// <summary>
     /// Outcome of a previous processing, for example, in response to a duplicate request.
     /// </summary>
+    [DataMember]
     public ResultData1? OriginalResultData { get; init; } 
     
     #nullable disable

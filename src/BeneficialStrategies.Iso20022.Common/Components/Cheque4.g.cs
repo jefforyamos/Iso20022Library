@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of characteristics related to a cheque instruction, such as cheque type or cheque number.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Cheque4
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record Cheque4
     /// <summary>
     /// Party to which a cheque is made payable.
     /// </summary>
+    [DataMember]
     public required NameAndAddress5 PayeeIdentification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IndividualPerson10
 {
     #nullable enable
@@ -20,91 +22,113 @@ public partial record IndividualPerson10
     /// <summary>
     /// Specifies the terms used to formally address a person.
     /// </summary>
+    [DataMember]
     public NamePrefix1Code? NamePrefix { get; init; } 
     /// <summary>
     /// Specifies the terms used to formally address a person.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedNamePrefix { get; init; } 
     /// <summary>
     /// First name of a person.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text GivenName { get; init; } 
     /// <summary>
     /// Second name of a person.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MiddleName { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text Name { get; init; } 
     /// <summary>
     /// Additional information about a person that follows a person's name, eg, qualification such as Doctor of Philosophy (PhD).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NameSuffix { get; init; } 
     /// <summary>
     /// Specifies the gender of the person.
     /// </summary>
+    [DataMember]
     public GenderCode? Gender { get; init; } 
     /// <summary>
     /// Language in which a person communicates.
     /// </summary>
+    [DataMember]
     public LanguageCode? Language { get; init; } 
     /// <summary>
     /// Date on which a person is born.
     /// </summary>
+    [DataMember]
     public required IsoISODate BirthDate { get; init; } 
     /// <summary>
     /// Country where a person was born.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryOfBirth { get; init; } 
     /// <summary>
     /// Province where a person was born.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProvinceOfBirth { get; init; } 
     /// <summary>
     /// City where a person was born.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CityOfBirth { get; init; } 
     /// <summary>
     /// Name of the occupation or job of a person.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Profession { get; init; } 
     /// <summary>
     /// Country of taxation of an individual person.
     /// </summary>
+    [DataMember]
     public CountryCode? TaxationCountry { get; init; } 
     /// <summary>
     /// Country and residential status of an individual, for example, non-pernament resident.
     /// </summary>
+    [DataMember]
     public CountryAndResidentialStatusType1? CountryAndResidentialStatus { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    public PostalAddress3[] PostalAddress { get; init; } = [];
+    [DataMember]
+    public ValueList<PostalAddress3> PostalAddress { get; init; } = [];
     /// <summary>
     /// Nationality and legal status (minor or major) or rights that an individual may possess.
     /// </summary>
-    public CitizenshipInformation[] Citizenship { get; init; } = [];
+    [DataMember]
+    public ValueList<CitizenshipInformation> Citizenship { get; init; } = [];
     /// <summary>
     /// Organisation represented by a person, or for which a person works.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? EmployingCompany { get; init; } 
     /// <summary>
     /// Title of the function.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? BusinessFunction { get; init; } 
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
+    [DataMember]
     public CommunicationAddress3? PrimaryCommunicationAddress { get; init; } 
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
+    [DataMember]
     public CommunicationAddress3? SecondaryCommunicationAddress { get; init; } 
     /// <summary>
     /// Alternative identification, for example, national registration identification number, passport number, or an account number used to further identify the beneficial owner, for example, a Central Provident Fund (CFP) account as required for Singapore.
     /// </summary>
-    public GenericIdentification9[] OtherIdentification { get; init; } = [];
+    [DataMember]
+    public ValueList<GenericIdentification9> OtherIdentification { get; init; } = [];
     
     #nullable disable
 }

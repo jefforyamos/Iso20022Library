@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment related to the reconciliation of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Environment4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Environment4
     /// <summary>
     /// Originator of the message.
     /// </summary>
+    [DataMember]
     public Originator1? Originator { get; init; } 
     /// <summary>
     /// Destination of the message.
     /// </summary>
+    [DataMember]
     public required Destination1 Destination { get; init; } 
     
     #nullable disable

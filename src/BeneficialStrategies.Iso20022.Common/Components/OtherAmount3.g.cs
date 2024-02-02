@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount pertaining to a transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherAmount3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record OtherAmount3
     /// <summary>
     /// Type of amount.
     /// </summary>
+    [DataMember]
     public required GenericIdentification1 Type { get; init; } 
     /// <summary>
     /// Currency and amount.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

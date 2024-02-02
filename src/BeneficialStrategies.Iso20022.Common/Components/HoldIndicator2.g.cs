@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies whether the transaction is on hold/blocked/frozen.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record HoldIndicator2
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record HoldIndicator2
     /// <summary>
     /// Specifies whether the transaction is on hold/blocked/frozen.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Indicator { get; init; } 
     /// <summary>
     /// Specifies the reason of the registration staus.
     /// </summary>
-    public RegistrationReason1[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RegistrationReason1> Reason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

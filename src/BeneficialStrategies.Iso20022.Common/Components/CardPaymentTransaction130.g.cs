@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cancellation response from the acquirer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentTransaction130
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record CardPaymentTransaction130
     /// <summary>
     /// Outcome of the authorisation, and actions to perform.
     /// </summary>
+    [DataMember]
     public required AuthorisationResult19 AuthorisationResult { get; init; } 
     /// <summary>
     /// Set of actions to be performed by the POI (Point Of Interaction) system.
     /// </summary>
-    public Action14[] Action { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Action14> Action { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

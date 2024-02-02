@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a capped drawdown.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Capped1
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record Capped1
     /// <summary>
     /// Start date of current reference period
     /// </summary>
+    [DataMember]
     public IsoISODate? StartDate { get; init; } 
     /// <summary>
     /// Income limit for the current period.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? IncomeLimitCurrentPeriod { get; init; } 
     /// <summary>
     /// Income taken in the current income year.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? IncomeCurrentPeriod { get; init; } 
     /// <summary>
     /// Income limit for the next income year.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? IncomeLimitNextPeriod { get; init; } 
     /// <summary>
     /// Additional information about the cap.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

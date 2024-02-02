@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the detailed information as provided by a payment tracking system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerData3
 {
     #nullable enable
@@ -22,14 +24,17 @@ public partial record TrackerData3
     /// Usage: 
     /// This date can be the point in time when an agent provides a pending status update to the tracking system or when the creditor has been credited and can use the amount of money (as confirmed to the tracking system by the creditor agent).
     /// </summary>
+    [DataMember]
     public required DateTime1 ConfirmedDate { get; init; } 
     /// <summary>
     /// Amount of money confirmed to the tracking system by the agent.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINActiveCurrencyAndAmount ConfirmedAmount { get; init; } 
     /// <summary>
     /// Provides tracker transaction information for a specific agent involved in the transaction chain. 
     /// </summary>
+    [DataMember]
     public TrackerRecord3? TrackerRecord { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a range of sequences from a start sequence to an end sequence.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SequenceRange1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SequenceRange1
     /// <summary>
     /// Start sequence of the range.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text FromSequence { get; init; } 
     /// <summary>
     /// End sequence of the range.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ToSequence { get; init; } 
     
     #nullable disable

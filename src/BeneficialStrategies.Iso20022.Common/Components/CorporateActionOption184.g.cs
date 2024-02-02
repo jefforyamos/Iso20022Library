@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the corporate action option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionOption184
 {
     #nullable enable
@@ -20,58 +22,72 @@ public partial record CorporateActionOption184
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [DataMember]
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
+    [DataMember]
     public required CorporateActionOption41Choice_ OptionType { get; init; } 
     /// <summary>
     /// Specifies the features that may apply to a corporate action option.
     /// </summary>
+    [DataMember]
     public OptionFeaturesFormat25Choice_? OptionFeatures { get; init; } 
     /// <summary>
     /// Party that owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification127Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Account on which a securities entry is made.
     /// </summary>
+    [DataMember]
     public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
+    [DataMember]
     public SafekeepingPlaceFormat28Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
+    [DataMember]
     public SecurityIdentification19? FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Total balance of securities eligible for this corporate action event. The entitlement calculation is based on this balance.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat7? TotalEligibleBalance { get; init; } 
     /// <summary>
     /// Balance of instructed position.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat7? InstructedBalance { get; init; } 
     /// <summary>
     /// Balance of uninstructed position.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat7? UninstructedBalance { get; init; } 
     /// <summary>
     /// Quantity of securities that has been assigned the status indicated.
     /// </summary>
+    [DataMember]
     public Quantity6Choice_? StatusQuantity { get; init; } 
     /// <summary>
     /// Amount of cash subscribed that has been assigned the status indicated.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? StatusCashAmount { get; init; } 
     /// <summary>
     /// Indicates whether there is a solicitation fee on the event. This fee is paid by the soliciting dealer.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? SolicitationDealerFeeIndicator { get; init; } 
     
     #nullable disable

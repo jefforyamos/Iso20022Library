@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Document presented for examination.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DemandDocumentation1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record DemandDocumentation1
     /// <summary>
     /// Indication as to whether the presentation is complete.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator CompleteIndicator { get; init; } 
     /// <summary>
     /// Information related to an incomplete presentation.
     /// </summary>
+    [DataMember]
     public IsoMax2000Text? CompletionInformation { get; init; } 
     /// <summary>
     /// Document or template enclosed in the demand.
     /// </summary>
-    public Document9[] EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Document9> EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Narrative text constituting the demand.
     /// </summary>
+    [DataMember]
     public IsoMax20000Text? DemandNarrative { get; init; } 
     
     #nullable disable

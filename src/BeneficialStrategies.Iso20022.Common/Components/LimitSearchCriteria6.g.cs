@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to search for a limit.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LimitSearchCriteria6
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record LimitSearchCriteria6
     /// <summary>
     /// Identification of a particular cash clearing system.
     /// </summary>
+    [DataMember]
     public SystemIdentification2Choice_? SystemIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of a member within a system, assigned using the member identification scheme of the system.
     /// </summary>
-    public BranchAndFinancialInstitutionIdentification6[] BilateralLimitCounterpartyIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BranchAndFinancialInstitutionIdentification6> BilateralLimitCounterpartyIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of limit as set by default in the system. The default limit is applicable by the system unless otherwise instructed.
     /// </summary>
-    public LimitType1Choice_[] DefaultLimitType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LimitType1Choice_> DefaultLimitType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of limit applied by the system at the present time.
     /// </summary>
-    public LimitType1Choice_[] CurrentLimitType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LimitType1Choice_> CurrentLimitType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? AccountOwner { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     /// <summary>
     /// Actual usage of the limit expressed as an amount.
     /// </summary>
+    [DataMember]
     public ActiveAmountRange3Choice_? UsedAmount { get; init; } 
     /// <summary>
     /// Actual usage of the limit expressed as a percentage.
     /// </summary>
+    [DataMember]
     public PercentageRange1Choice_? UsedPercentage { get; init; } 
     /// <summary>
     /// Currency unit used to specify the limit amount.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? LimitCurrency { get; init; } 
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
+    [DataMember]
     public ActiveAmountRange3Choice_? LimitAmount { get; init; } 
     /// <summary>
     /// Range of dates when the limit becomes valid.
     /// </summary>
+    [DataMember]
     public DateAndPeriod2Choice_? LimitValidAsOfDate { get; init; } 
     
     #nullable disable

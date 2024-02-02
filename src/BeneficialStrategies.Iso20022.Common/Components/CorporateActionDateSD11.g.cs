@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action options date details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionDateSD11
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record CorporateActionDateSD11
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Actual early expiration time as set by the issuer/offer/agent.
     /// </summary>
+    [DataMember]
     public DateFormat49Choice_? ActualEarlyExpirationDate { get; init; } 
     /// <summary>
     /// Last day protect instructions can be submitted to the issuer / agent.
     /// </summary>
+    [DataMember]
     public DateFormat49Choice_? ActualProtectExpirationDate { get; init; } 
     /// <summary>
     /// Last day protect instructions can be submitted to the issuer / agent for the early expiration.
     /// </summary>
+    [DataMember]
     public DateFormat49Choice_? ActualEarlyProtectExpirationDate { get; init; } 
     /// <summary>
     /// Last day protect instructions can be submitted to DTC for the early expiration.
     /// </summary>
+    [DataMember]
     public DateFormat49Choice_? DTCEarlyProtectExpirationDate { get; init; } 
     /// <summary>
     /// Last day cover early protect instructions can be submitted to the issuer / agent.
     /// </summary>
+    [DataMember]
     public DateFormat49Choice_? ActualEarlyCoverProtectExpirationDate { get; init; } 
     /// <summary>
     /// Last day cover early protect instructions can be submitted to DTC.
     /// </summary>
+    [DataMember]
     public DateFormat49Choice_? DTCEarlyCoverProtectExpirationDate { get; init; } 
     /// <summary>
     /// For Reorganization events, date at which instructions will be accepted by agent for payment.
     /// </summary>
+    [DataMember]
     public DateFormat49Choice_? ProcessToDate { get; init; } 
     /// <summary>
     /// Date on which DTC expects to receive funds for distribution from the issuer / offeror.  It will be used before payout details are available.
     /// </summary>
+    [DataMember]
     public IsoISODate? DTCEarliestPaymentDate { get; init; } 
     
     #nullable disable

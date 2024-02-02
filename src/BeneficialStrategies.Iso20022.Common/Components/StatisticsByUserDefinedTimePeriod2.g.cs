@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Statistical data related to the price change of a security.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatisticsByUserDefinedTimePeriod2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record StatisticsByUserDefinedTimePeriod2
     /// <summary>
     /// Reference period for the valuation.
     /// </summary>
+    [DataMember]
     public required DateOrDateTimePeriodChoice_ Period { get; init; } 
     /// <summary>
     /// Highest price for the referenced period.
     /// </summary>
+    [DataMember]
     public PriceValue5? HighestPriceValue { get; init; } 
     /// <summary>
     /// Lowest price for the referenced period.
     /// </summary>
+    [DataMember]
     public PriceValue5? LowestPriceValue { get; init; } 
     /// <summary>
     /// Change in price since the previous valuation date.
     /// </summary>
+    [DataMember]
     public PriceValueChange1? PriceChange { get; init; } 
     /// <summary>
     /// Rate of income from the financial instrument, usually calculated as total dividends or coupon interest available to investors in the last year,divided by the current price.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Yield { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CommodityDerivative2Choice.Freight))]
 [KnownType(typeof(CommodityDerivative2Choice.Energy))]
+[DataContract]
 public abstract partial record CommodityDerivative2Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the parameters, such as dates, used to calculate the entitlement to vote at a general meeting.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EntitlementAssessment1
 {
     #nullable enable
@@ -20,54 +22,67 @@ public partial record EntitlementAssessment1
     /// <summary>
     /// Date by which the securities should be blocked. This deadline is set by an intermediary.
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? SecuritiesBlockingDeadline { get; init; } 
     /// <summary>
     /// Date by which the securities should be blocked. This deadline is set by the issuer. (STP mode).
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? SecuritiesBlockingSTPDeadline { get; init; } 
     /// <summary>
     /// Date by which the securities should be blocked. This deadline is set by the issuer.
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? SecuritiesBlockingMarketDeadline { get; init; } 
     /// <summary>
     /// Date by which the blocking period for the securities should end.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? SecuritiesBlockingPeriodEndDate { get; init; } 
     /// <summary>
     /// Date at which the positions are struck to note which parties will receive the entitlement, e.g. record date, book close date.
     /// </summary>
+    [DataMember]
     public DateFormat3Choice_? EntitlementFixingDate { get; init; } 
     /// <summary>
     /// Date by which the securities have to be registered. This deadline is specified by an intermediary.
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? RegistrationSecuritiesDeadline { get; init; } 
     /// <summary>
     /// Date by which the securities have to be registered. This deadline is specified by an intermediary (STP mode).
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? RegistrationSecuritiesSTPDeadline { get; init; } 
     /// <summary>
     /// Date by which the securities have to be registered. This deadline is set by the issuer.
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? RegistrationSecuritiesMarketDeadline { get; init; } 
     /// <summary>
     /// Date by which the holder needs to register its intention to participate in the meeting process in order to be allowed to participate in the meeting event. This deadline is specified by an intermediary.
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? RegistrationParticipationDeadline { get; init; } 
     /// <summary>
     /// Date by which the holder needs to register its intention to participate in the meeting process in order to be allowed to participate in the meeting event. This deadline is specified by an intermediary (STP mode).
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? RegistrationParticipationSTPDeadline { get; init; } 
     /// <summary>
     /// Date by which the holder needs to register its intention to participate in the meeting process in order to be allowed to participate in the meeting event. This deadline is set by the issuer.
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? RegistrationParticipationMarketDeadline { get; init; } 
     /// <summary>
     /// Specifies the calculation method of the number of votes assigned to one security. This element should be used when the entitlement calculation rule is complex.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? EntitlementDescription { get; init; } 
     /// <summary>
     /// Number of votes assigned to one security.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? EntitlementRatio { get; init; } 
     
     #nullable disable

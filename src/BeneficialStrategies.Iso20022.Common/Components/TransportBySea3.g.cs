@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related for the transportation of goods by sea.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransportBySea3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TransportBySea3
     /// <summary>
     /// Identifies the port where the goods are loaded on board the ship.
     /// </summary>
-    public IsoMax35Text[] PortOfLoading { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> PortOfLoading { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the port where the goods are discharged.
     /// </summary>
-    public IsoMax35Text[] PortOfDischarge { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> PortOfDischarge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SeaCarrierName { get; init; } 
     
     #nullable disable

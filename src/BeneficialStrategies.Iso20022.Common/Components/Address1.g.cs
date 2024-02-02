@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Structured postal address.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Address1
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record Address1
     /// <summary>
     /// First line of information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AddressLine1 { get; init; } 
     /// <summary>
     /// Second line of information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AddressLine2 { get; init; } 
     /// <summary>
     /// Name of a street or thoroughfare.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? StreetName { get; init; } 
     /// <summary>
     /// Number that identifies the position of a building on a street.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? BuildingNumber { get; init; } 
     /// <summary>
     /// Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? PostalCode { get; init; } 
     /// <summary>
     /// Name of a built-up area, with defined boundaries, and a local government.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TownName { get; init; } 
     /// <summary>
     /// Identifies a minor subdivision of a country, for instance county, prefecture.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CountrySubDivisionMinor { get; init; } 
     /// <summary>
     /// Identifies a major subdivision of a country, for instance state, province.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CountrySubDivisionMajor { get; init; } 
     /// <summary>
     /// Nation with its own government occupying a particular territory.
     /// </summary>
+    [DataMember]
     public IsoMin2Max3AlphaText? Country { get; init; } 
     
     #nullable disable

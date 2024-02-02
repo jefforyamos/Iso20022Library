@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Valuation details of each piece of collateral posted.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralValuation12
 {
     #nullable enable
@@ -20,58 +22,72 @@ public partial record CollateralValuation12
     /// <summary>
     /// Identification of the valued collateral.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CollateralIdentification { get; init; } 
     /// <summary>
     /// Type of collateral used.
     /// </summary>
+    [DataMember]
     public required CollateralType8Code CollateralType { get; init; } 
     /// <summary>
     /// Direction of the collateral being reported.
     /// </summary>
+    [DataMember]
     public CollateralDirection1Code? CollateralDirection { get; init; } 
     /// <summary>
     /// Settlement status of the instruction/financial instrument movement.
     /// </summary>
+    [DataMember]
     public required SettlementStatus3Code SettlementStatus { get; init; } 
     /// <summary>
     /// Indicates if the collateral being reported is applied or in excess.
     /// </summary>
+    [DataMember]
     public CollateralAppliedExcess1Code? AppliedExcessIndicator { get; init; } 
     /// <summary>
     /// Number of days used for interest calculation.
     /// </summary>
+    [DataMember]
     public IsoNumber? NumberOfDaysAccrued { get; init; } 
     /// <summary>
     /// Details of the collateral valuation.
     /// </summary>
+    [DataMember]
     public required CollateralAmount1 ValuationAmounts { get; init; } 
     /// <summary>
     /// Computation method of (accrued) interest of the security.
     /// </summary>
+    [DataMember]
     public InterestComputationMethod2Code? DayCountBasis { get; init; } 
     /// <summary>
     /// Exchange rate between the currency of the collateral and the reporting currency.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? ExchangeRate { get; init; } 
     /// <summary>
     /// Haircut or valuation factor on the currency of the collateral expressed as a percentage.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? CurrencyHaircut { get; init; } 
     /// <summary>
     /// Percentage by which the collateral amount needs to be adjusted.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? AdjustedRate { get; init; } 
     /// <summary>
     /// Provides details on the securities collateral.
     /// </summary>
+    [DataMember]
     public SecuritiesCollateral9? SecuritiesCollateral { get; init; } 
     /// <summary>
     /// Details of the cash collateral valuation.
     /// </summary>
+    [DataMember]
     public CashCollateral4? CashCollateral { get; init; } 
     /// <summary>
     /// Details of other collateral.
     /// </summary>
+    [DataMember]
     public OtherCollateral8? OtherCollateral { get; init; } 
     
     #nullable disable

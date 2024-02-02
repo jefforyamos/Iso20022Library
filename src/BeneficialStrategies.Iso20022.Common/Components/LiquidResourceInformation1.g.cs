@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the liquid resources.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LiquidResourceInformation1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record LiquidResourceInformation1
     /// <summary>
     /// Identification of the facility provider.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CounterPartyIdentification { get; init; } 
     /// <summary>
     /// Amount of liquid resources available to meet liquid requirements.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection102 LiquidResourceValue { get; init; } 
     /// <summary>
     /// The market value of the financial instruments being used to secure the facility.
     /// </summary>
+    [DataMember]
     public AmountAndDirection102? MarketValue { get; init; } 
     /// <summary>
     /// Indicates whether the facility is secured or not.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator Secured { get; init; } 
     /// <summary>
     /// Indicates whether the financial instruments are encumbered or not. This includes where financial instruments must be pledged to secure liquidity facilities.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator AssetEncumbered { get; init; } 
     /// <summary>
     /// Indicates whether the available liquid resource counts towards the liquid requirements in the scenario or not.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator QualifyingResource { get; init; } 
     /// <summary>
     /// Indicates the reliance on third party entities to settle payment obligations for the CCP or a clearing member. The article 32(4) of Commission Delegated Regulated 153/2013 includes a full list of third party entities which a CCP may have a liquidity exposure to. If the value is true, the portion of the liquid resource which is assumed to be unavailable due to a dependency on third party entities. If the value is false, the portion of the liquid resource which is assumed to be available as no dependency on third party entities.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator AgencyArrangements { get; init; } 
     
     #nullable disable

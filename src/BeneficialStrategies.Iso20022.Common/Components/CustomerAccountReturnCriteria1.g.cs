@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates which fields must be present in the response.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CustomerAccountReturnCriteria1
 {
     #nullable enable
@@ -20,79 +22,98 @@ public partial record CustomerAccountReturnCriteria1
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Identification { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Name { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Status { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Type { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Currency { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator MonthlyPaymentValue { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator MonthlyReceivedValue { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator MonthlyTransactionNumber { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator AverageBalance { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator AccountPurpose { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator FloorNotificationAmount { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator CeilingNotificationAmount { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator StatementCycle { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ClosingDate { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Restriction { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator OpeningDate { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator AccountOwner { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ReferenceAccount { get; init; } 
     /// <summary>
     /// Indicates if this field must be present in the response.
     /// </summary>
-    public GenericIdentification42[] Proprietary { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericIdentification42> Proprietary { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about a corporate action election amendment request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionElection2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CorporateActionElection2
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
+    [DataMember]
     public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [DataMember]
     public required IsoExact3NumericText OptionNumber { get; init; } 
     /// <summary>
     /// New instructed securities quantity after the amendment.
     /// </summary>
+    [DataMember]
     public required UnitOrFaceAmount1Choice_ NewInstructedQuantity { get; init; } 
     /// <summary>
     /// The reason for the amendment request.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Reason { get; init; } 
     
     #nullable disable

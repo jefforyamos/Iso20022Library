@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(RemovalProcessing2Choice.FinancialInstrumentIdentification))]
 [KnownType(typeof(RemovalProcessing2Choice.IndexIdentification))]
 [KnownType(typeof(RemovalProcessing2Choice.IssuerCountry))]
+[DataContract]
 public abstract partial record RemovalProcessing2Choice_
 {
 }

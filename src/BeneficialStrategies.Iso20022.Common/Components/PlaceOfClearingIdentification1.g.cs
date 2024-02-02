@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of infrastructure which may be a component of a clearing house and which facilitates clearing and settlement for its members by standing between the buyer and the seller. It may net transactions and it substitutes itself as settlement counterparty for each position.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PlaceOfClearingIdentification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PlaceOfClearingIdentification1
     /// <summary>
     /// Unique identification of the place of clearing.
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? Identification { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a place of clearing.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     
     #nullable disable

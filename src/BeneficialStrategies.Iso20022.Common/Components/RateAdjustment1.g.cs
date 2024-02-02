@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the rate adjustments as determined by the rate schedule.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RateAdjustment1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RateAdjustment1
     /// <summary>
     /// Specifies the rate as determined by the rate schedule.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate Rate { get; init; } 
     /// <summary>
     /// Specifies date as of which the rate is effective.
     /// </summary>
+    [DataMember]
     public required IsoISODate AdjustmentDate { get; init; } 
     
     #nullable disable

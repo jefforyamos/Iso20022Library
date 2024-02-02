@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Entity in charge of the settlement reporting service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementReportingEntity1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SettlementReportingEntity1
     /// <summary>
     /// Identifies the type of settlement reporting entity
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Identification of the settlement reporting entity.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     
     #nullable disable

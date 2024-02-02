@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action general information details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionGeneralInformationSD1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionGeneralInformationSD1
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Date at which positions are stuck at the end of the day to note which parties will receive the relevant amount of entitlement, due to be distributed on payment date. DTC (The Depository Trust Corporation) and its Participants may use this as a reference.
     /// </summary>
+    [DataMember]
     public IsoISODate? RecordDate { get; init; } 
     
     #nullable disable

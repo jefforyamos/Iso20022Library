@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Distance between a start and a return car rental period.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Distance1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record Distance1
     /// <summary>
     /// Unit of measure used to compute the distance.
     /// </summary>
+    [DataMember]
     public UnitOfMeasure10Code? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Odometer reading at start of rental (at the time of vehicle check-out). 
     /// </summary>
+    [DataMember]
     public IsoMax10NumericText? OdometerStart { get; init; } 
     /// <summary>
     /// Odometer reading at return of rental (at the time of vehicle check-in). 
     /// </summary>
+    [DataMember]
     public IsoMax10NumericText? OdometerReturn { get; init; } 
     /// <summary>
     /// Total distance expressed in unit of measure.
     /// </summary>
+    [DataMember]
     public IsoMax10NumericText? TotalDistance { get; init; } 
     /// <summary>
     /// Maximum free miles or kilometres for the car rental period.
     /// </summary>
+    [DataMember]
     public IsoMax10NumericText? FreeDistance { get; init; } 
     /// <summary>
     /// Defines the rate in relation to a specific distance. 
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? Rate { get; init; } 
     
     #nullable disable

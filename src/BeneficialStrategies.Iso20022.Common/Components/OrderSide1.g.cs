@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates in which direction the intention is to transfer the ownership of a financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OrderSide1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record OrderSide1
     /// <summary>
     /// Coded list to specify the side of the order.
     /// </summary>
+    [DataMember]
     public Side1Code? Side { get; init; } 
     /// <summary>
     /// Indicates whether the status request is applicable for all orders.|Yes = all orders|No = status for orders matching certain criteria further specified in this message.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AllOrdersIndicator { get; init; } 
     
     #nullable disable

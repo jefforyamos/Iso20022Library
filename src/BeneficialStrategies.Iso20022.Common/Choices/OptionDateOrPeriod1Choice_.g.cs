@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(OptionDateOrPeriod1Choice.EarliestExerciseDate))]
 [KnownType(typeof(OptionDateOrPeriod1Choice.NoticePeriod))]
+[DataContract]
 public abstract partial record OptionDateOrPeriod1Choice_
 {
 }

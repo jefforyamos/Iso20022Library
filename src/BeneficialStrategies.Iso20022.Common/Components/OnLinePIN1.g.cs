@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Encrypted personal identification number (PIN) and related information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OnLinePIN1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OnLinePIN1
     /// <summary>
     /// Encrypted PIN (Personal Identification Number).
     /// </summary>
+    [DataMember]
     public required ContentInformationType2 EncryptedPINBlock { get; init; } 
     /// <summary>
     /// PIN format before encryption.
     /// </summary>
+    [DataMember]
     public required PINFormat1Code PINFormat { get; init; } 
     /// <summary>
     /// Additional information required to verify the PIN.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AdditionalInput { get; init; } 
     
     #nullable disable

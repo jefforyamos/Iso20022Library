@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// ATM cassette counter per unit value or globally.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMCassetteCounters1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record ATMCassetteCounters1
     /// <summary>
     /// Amount of one media unit, if the media type is valued.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? UnitValue { get; init; } 
     /// <summary>
     /// Currency of the media, if the media type is valued and different from the currency of the requested amount.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Type of notes.
     /// </summary>
+    [DataMember]
     public ATMNoteType2Code? ItemType { get; init; } 
     /// <summary>
     /// Counters of media inside the cassette.
     /// </summary>
-    public ATMCassetteCounters2[] Counter { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCassetteCounters2> Counter { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Current number of media present in the cassette.
     /// </summary>
+    [DataMember]
     public required IsoNumber CurrentNumber { get; init; } 
     /// <summary>
     /// Current amount in the cassette.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? CurrentAmount { get; init; } 
     
     #nullable disable

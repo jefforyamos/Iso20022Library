@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// This component defines the service to be called.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ServiceRequest2
 {
     #nullable enable
@@ -20,51 +22,63 @@ public partial record ServiceRequest2
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentEnvironment73 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
+    [DataMember]
     public required CardPaymentContext27 Context { get; init; } 
     /// <summary>
     /// Define the type of service requested.
     /// </summary>
+    [DataMember]
     public required RetailerService2Code ServiceContent { get; init; } 
     /// <summary>
     /// Content of the payment request.
     /// </summary>
+    [DataMember]
     public PaymentRequest1? PaymentRequest { get; init; } 
     /// <summary>
     /// Content of the reversal request.
     /// </summary>
+    [DataMember]
     public ReversalRequest1? ReversalRequest { get; init; } 
     /// <summary>
     /// Content of a Balance Inquiry Request.
     /// </summary>
+    [DataMember]
     public BalanceInquiryRequest2? BalanceInquiryRequest { get; init; } 
     /// <summary>
     /// Content of the Loyalty Request.
     /// </summary>
+    [DataMember]
     public LoyaltyRequest1? LoyaltyRequest { get; init; } 
     /// <summary>
     /// Content of a Stored Value Request.
     /// </summary>
+    [DataMember]
     public StoredValueRequest2? StoredValueRequest { get; init; } 
     /// <summary>
     /// Content of the Batch Request.
     /// </summary>
+    [DataMember]
     public BatchRequest1? BatchRequest { get; init; } 
     /// <summary>
     /// Content of the Enable Service Request.
     /// </summary>
+    [DataMember]
     public EnableServiceRequest1? EnableServiceRequest { get; init; } 
     /// <summary>
     /// Content of the Card Acquisition Request.
     /// </summary>
+    [DataMember]
     public CardAcquisitionRequest2? CardAcquisitionRequest { get; init; } 
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

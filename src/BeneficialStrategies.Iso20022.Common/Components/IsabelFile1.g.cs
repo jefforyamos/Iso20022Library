@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the parameters for an Isabel payment file.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IsabelFile1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record IsabelFile1
     /// <summary>
     /// Unique identification of the file.	.
     /// </summary>
+    [DataMember]
     public required IsoMax14AlphaNumericText Identification { get; init; } 
     /// <summary>
     /// Unique identification of the originator of the file.
     /// </summary>
+    [DataMember]
     public IsoMax14AlphaNumericText? Originator { get; init; } 
     /// <summary>
     /// Size of the file.
     /// </summary>
+    [DataMember]
     public required IsoNumber Size { get; init; } 
     /// <summary>
     /// Format of the file.
     /// </summary>
+    [DataMember]
     public required IsoMax16Text Format { get; init; } 
     /// <summary>
     /// Version of the format of the file.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? FormatVersion { get; init; } 
     /// <summary>
     /// Length of the individual records in the file.
     /// </summary>
+    [DataMember]
     public IsoMax4NumericText? RecordLength { get; init; } 
     
     #nullable disable

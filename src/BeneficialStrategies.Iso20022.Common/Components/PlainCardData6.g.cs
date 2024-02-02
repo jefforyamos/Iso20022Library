@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Sensible data associated with the payment card performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PlainCardData6
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record PlainCardData6
     /// <summary>
     /// Primary Account Number (PAN) of the card, or card number.
     /// </summary>
+    [DataMember]
     public required IsoMin8Max28NumericText PAN { get; init; } 
     /// <summary>
     /// Identify a card inside a set of cards with the same card number (PAN).
     /// </summary>
+    [DataMember]
     public IsoMin2Max3NumericText? CardSequenceNumber { get; init; } 
     /// <summary>
     /// Date from which the card can be used, expressed either in the YYYY-MM format, or in the YYYY-MM-DD format.
     /// </summary>
+    [DataMember]
     public IsoMax10Text? EffectiveDate { get; init; } 
     /// <summary>
     /// Expiry date of the card expressed either in the YYYY-MM format, or in the YYYY-MM-DD format.
     /// </summary>
+    [DataMember]
     public required IsoMax10Text ExpiryDate { get; init; } 
     /// <summary>
     /// Services attached to the card, as defined in ISO 7813.
     /// </summary>
+    [DataMember]
     public IsoExact3NumericText? ServiceCode { get; init; } 
     /// <summary>
     /// Magnetic track or equivalent payment card data.
     /// </summary>
-    public TrackData1[] TrackData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TrackData1> TrackData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the corporate action event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateAction74
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CorporateAction74
     /// <summary>
     /// Provides information about the dates related to a corporate action event.
     /// </summary>
+    [DataMember]
     public CorporateActionDate89? DateDetails { get; init; } 
     /// <summary>
     /// Stage in the corporate action event life cycle.
     /// </summary>
+    [DataMember]
     public CorporateActionEventStageFormat15Choice_? EventStage { get; init; } 
     /// <summary>
     /// Specifies the type of the additional business process linked to a corporate action event such as a claim compensation or tax refund.
     /// </summary>
-    public AdditionalBusinessProcessFormat16Choice_[] AdditionalBusinessProcessIndicator { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalBusinessProcessFormat16Choice_> AdditionalBusinessProcessIndicator { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the type of lottery announced.
     /// </summary>
+    [DataMember]
     public LotteryTypeFormat5Choice_? LotteryType { get; init; } 
     
     #nullable disable

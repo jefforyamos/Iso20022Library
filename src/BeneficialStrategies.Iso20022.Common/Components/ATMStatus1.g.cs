@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Global status of the ATM.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMStatus1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ATMStatus1
     /// <summary>
     /// Actual status of the ATM.
     /// </summary>
+    [DataMember]
     public required ATMStatus1Code CurrentStatus { get; init; } 
     /// <summary>
     /// Present if the status required by the ATM manager is different from the current status.
     /// </summary>
+    [DataMember]
     public ATMStatus1Code? DemandedStatus { get; init; } 
     
     #nullable disable

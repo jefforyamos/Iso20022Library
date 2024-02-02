@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Relative distinguished name defined by X.500 and X.509.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RelativeDistinguishedName1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RelativeDistinguishedName1
     /// <summary>
     /// Type of attribute of a distinguished name (see X.500).
     /// </summary>
+    [DataMember]
     public required AttributeType1Code AttributeType { get; init; } 
     /// <summary>
     /// Value of the attribute of a distinguished name (see X.500).
     /// </summary>
+    [DataMember]
     public required IsoMax140Text AttributeValue { get; init; } 
     
     #nullable disable

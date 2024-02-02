@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide information concerning the verification of identification data for which verification was requested.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VerificationReport1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record VerificationReport1
     /// <summary>
     /// Unique identification, as assigned by a sending party, to unambiguously identify the party and account identification information group within the original message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalIdentification { get; init; } 
     /// <summary>
     /// Identifies whether the party and/or account information received is correct.
     /// </summary>
+    [DataMember]
     public required IsoIdentificationVerificationIndicator Verification { get; init; } 
     /// <summary>
     /// Specifies the reason why the verified identification information is incorrect.
     /// </summary>
+    [DataMember]
     public VerificationReason1Choice_? Reason { get; init; } 
     /// <summary>
     /// Provides party and/or account identification information as given in the original message.
     /// </summary>
+    [DataMember]
     public IdentificationInformation1? OriginalPartyAndAccountIdentification { get; init; } 
     /// <summary>
     /// Provides party and/or account identification information.
     /// </summary>
+    [DataMember]
     public IdentificationInformation1? UpdatedPartyAndAccountIdentification { get; init; } 
     
     #nullable disable

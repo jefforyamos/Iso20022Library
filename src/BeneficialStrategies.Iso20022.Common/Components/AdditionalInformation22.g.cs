@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional information relevant to the destination.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalInformation22
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record AdditionalInformation22
     /// <summary>
     /// Recipient of the additional information to display, print, send or store.
     /// </summary>
+    [DataMember]
     public PartyType19Code? Recipient { get; init; } 
     /// <summary>
     /// Target of the additional information to print, display, send or store.
     /// </summary>
-    public UserInterface8Code[] Target { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<UserInterface8Code> Target { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Format of the additional information.
     /// </summary>
+    [DataMember]
     public OutputFormat4Code? Format { get; init; } 
     /// <summary>
     /// Defines the type of the value.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Content of or reference to the message.
     /// </summary>
+    [DataMember]
     public required IsoMax20KText Value { get; init; } 
     
     #nullable disable

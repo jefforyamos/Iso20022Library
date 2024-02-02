@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Message reference of relevance to the present message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MessageReference
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record MessageReference
     /// <summary>
     /// Business reference of the present message assigned by the party issuing the message. This reference must be unique amongst all messages of the same name sent by the same party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Reference { get; init; } 
     
     #nullable disable

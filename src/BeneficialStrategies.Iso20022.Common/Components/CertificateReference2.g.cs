@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reference of the transaction, that is the underlying payment instruction or statement entry.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CertificateReference2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CertificateReference2
     /// <summary>
     /// Unique identification of the underlying payment instruction or statement entry.
     /// </summary>
+    [DataMember]
     public required CertificateIdentification1 Identification { get; init; } 
     /// <summary>
     /// Date of the underlying payment instruction or statement entry.
     /// </summary>
+    [DataMember]
     public IsoISODate? Date { get; init; } 
     
     #nullable disable

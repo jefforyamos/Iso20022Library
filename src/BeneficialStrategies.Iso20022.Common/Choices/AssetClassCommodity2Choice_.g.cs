@@ -17,6 +17,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(AssetClassCommodity2Choice.Metal))]
 [KnownType(typeof(AssetClassCommodity2Choice.Exotic))]
 [KnownType(typeof(AssetClassCommodity2Choice.Other))]
+[DataContract]
 public abstract partial record AssetClassCommodity2Choice_
 {
 }

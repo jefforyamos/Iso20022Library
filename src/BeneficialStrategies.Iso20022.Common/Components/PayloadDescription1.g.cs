@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains information about the payload.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PayloadDescription1
 {
     #nullable enable
@@ -20,20 +22,24 @@ public partial record PayloadDescription1
     /// <summary>
     /// This component is used to identify the instance of the document exchanged.
     /// </summary>
+    [DataMember]
     public required PayloadDetails1 PayloadDetails { get; init; } 
     /// <summary>
     /// Contains business information that is considered as necessary by the service provider.
     /// </summary>
+    [DataMember]
     public ApplicationSpecifics1? ApplicationSpecificInformation { get; init; } 
     /// <summary>
     /// Identification of the type of payload.
     /// </summary>
+    [DataMember]
     public required PayloadTypeDetails1 PayloadTypeDetails { get; init; } 
     /// <summary>
     /// Manifest that describes the related items or attachments.
     /// This block is repeated for each different type of item.
     /// </summary>
-    public ManifestDetails1[] ManifestDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ManifestDetails1> ManifestDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

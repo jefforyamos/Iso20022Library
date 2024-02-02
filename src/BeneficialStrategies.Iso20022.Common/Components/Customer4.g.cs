@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to a consumer or a company.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Customer4
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record Customer4
     /// <summary>
     /// Type of customer.
     /// </summary>
+    [DataMember]
     public CustomerType2Code? Type { get; init; } 
     /// <summary>
     /// Reference number provided by a cardholder or customer to card acceptor to facilitate communication and record keeping.  The value may be a reference number, code, or generic number.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReferenceNumber { get; init; } 
     /// <summary>
     /// Identification of the customer recognized by the taxation authority.
     /// </summary>
-    public IsoMax70Text[] TaxRegistrationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax70Text> TaxRegistrationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contact at the company.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AuthorisedContactCompany { get; init; } 
     /// <summary>
     /// Corporate individual or company (cardholder or their company) to be contacted for authorised purchases.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AuthorisedContactName { get; init; } 
     /// <summary>
     /// Phone number of an individual or
     /// company contacted for company authorised purchases.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? AuthorisedContactPhoneNumber { get; init; } 
     /// <summary>
     /// Very Important Person indicator. 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? VIPIndicator { get; init; } 
     /// <summary>
     /// Customer relationship identifier.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CustomerRelationship { get; init; } 
     
     #nullable disable

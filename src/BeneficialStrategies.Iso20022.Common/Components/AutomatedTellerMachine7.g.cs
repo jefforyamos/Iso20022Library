@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// ATM information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AutomatedTellerMachine7
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AutomatedTellerMachine7
     /// <summary>
     /// ATM terminal device identification for the acquirer and the issuer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// ATM terminal device identification for the ATM manager.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AdditionalIdentification { get; init; } 
     /// <summary>
     /// ATM terminal device identification for the branch.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SequenceNumber { get; init; } 
     
     #nullable disable

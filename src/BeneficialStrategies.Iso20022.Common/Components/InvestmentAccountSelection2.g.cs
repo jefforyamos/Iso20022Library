@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Choice between a unique account identification and a set of account selection criteria.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentAccountSelection2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InvestmentAccountSelection2
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required AccountIdentification1 AccountIdentification { get; init; } 
     /// <summary>
     /// Various investment account information used to select a specific account.
     /// </summary>
+    [DataMember]
     public required InvestmentAccount29 OtherAccountSelectionData { get; init; } 
     
     #nullable disable

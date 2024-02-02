@@ -28,6 +28,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ProcessingStatus17Choice.TradingSuspendedByStockExchange))]
 [KnownType(typeof(ProcessingStatus17Choice.Treated))]
 [KnownType(typeof(ProcessingStatus17Choice.ProprietaryStatus))]
+[DataContract]
 public abstract partial record ProcessingStatus17Choice_
 {
 }

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(StatusOrStatement5Choice.StatusAdvice))]
 [KnownType(typeof(StatusOrStatement5Choice.Statement))]
+[DataContract]
 public abstract partial record StatusOrStatement5Choice_
 {
 }

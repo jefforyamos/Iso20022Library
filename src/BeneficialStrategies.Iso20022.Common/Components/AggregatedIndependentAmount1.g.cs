@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Independent amount could be defined at a trade level or portfolio level. It is assumed that their treatment will be based on the exposure convention that is whether netted together or treated on a gross basis.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AggregatedIndependentAmount1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record AggregatedIndependentAmount1
     /// <summary>
     /// Total independent amount defined in the confirmations of individual trades.
     /// </summary>
+    [DataMember]
     public IndependentAmount1? Trade { get; init; } 
     /// <summary>
     /// Portfolio level independent amount that reflects portfolio change over a short time period using statistical techniques such as volatility and risk factor correlations.
     /// </summary>
+    [DataMember]
     public IndependentAmount1? ValueAtRisk { get; init; } 
     /// <summary>
     /// Portfolio level independent amount related to parties net open position. Net open position means the total of the net long FX and the net options in respect of each currency where: net long FX for any currency shall be the net amount (if any) of that currency which the party “A” is long as against party “B” in respect of all FX transactions.
     /// </summary>
+    [DataMember]
     public IndependentAmount1? NetOpenPosition { get; init; } 
     /// <summary>
     /// Any other amount that should be considered to calculate the independent amount.
     /// </summary>
-    public IndependentAmount2[] OtherAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IndependentAmount2> OtherAmount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies a payment instruction by a set of characteristics (as per EBA system requirements) which provides an unambiguous identification of the instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LongPaymentIdentification1
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record LongPaymentIdentification1
     /// <summary>
     /// Unique identification, as assigned by the first instructing agent, to unambiguously identify the transaction that is passed on, unchanged, throughout the entire interbank chain.|Usage: The transaction identification can be used for reconciliation, tracking or to link tasks relating to the transaction on the interbank level. The instructing agent has to make sure that the transaction identification is unique for a pre-agreed period.|Usage: this is the former PaymentInstructionReference element.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount InterBankSettlementAmount { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
+    [DataMember]
     public required IsoISODate InterBankSettlementDate { get; init; } 
     /// <summary>
     /// Message type with which the instruction has been initiated.
     /// </summary>
+    [DataMember]
     public PaymentOrigin1Choice_? PaymentMethod { get; init; } 
     /// <summary>
     /// Agent that instructs the next party in the chain to carry out the (set of) instruction(s).
     /// </summary>
+    [DataMember]
     public required BranchAndFinancialInstitutionIdentification5 InstructingAgent { get; init; } 
     /// <summary>
     /// Agent that is instructed by the previous party in the chain to carry out the (set of) instruction(s).
     /// </summary>
+    [DataMember]
     public required BranchAndFinancialInstitutionIdentification5 InstructedAgent { get; init; } 
     /// <summary>
     /// Optional qualifier providing additional system specific information about the entry.
     /// </summary>
+    [DataMember]
     public IsoEntryTypeIdentifier? EntryType { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the initiating party, to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.|Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction.|It can be included in several messages related to the transaction.|Usage: this is the former RelatedReference.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? EndToEndIdentification { get; init; } 
     
     #nullable disable

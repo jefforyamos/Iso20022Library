@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional references linked to the quote request reject.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Reference2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Reference2
     /// <summary>
     /// Unique identifier for quote request.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text QuoteRequestIdentification { get; init; } 
     /// <summary>
     /// Identifier used to identify a request for quote request.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RequestForQuoteRequestIdentification { get; init; } 
     
     #nullable disable

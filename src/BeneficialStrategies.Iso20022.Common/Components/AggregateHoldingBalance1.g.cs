@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Overall holding position, in a single financial instrument, held in a securities account at a specified place of safekeeping.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AggregateHoldingBalance1
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record AggregateHoldingBalance1
     /// <summary>
     /// Identification of the financial instrument for which the balance information is specified.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Form of ownership of the holding.
     /// </summary>
+    [DataMember]
     public FormOfSecurity1Code? HoldingForm { get; init; } 
     /// <summary>
     /// Specifies whether the holding is physically delivered or is a book entry only.
     /// </summary>
+    [DataMember]
     public PhysicalTransferType1Code? HoldingPhysicalType { get; init; } 
     /// <summary>
     /// Balance breakdown on the net position of the financial instrument.
     /// </summary>
-    public FinancialInstrumentAggregateBalance1[] BalanceForFinancialInstrument { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FinancialInstrumentAggregateBalance1> BalanceForFinancialInstrument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

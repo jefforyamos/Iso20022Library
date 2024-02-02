@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Electronic presentation information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Presentation3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Presentation3
     /// <summary>
     /// Format for presentation documents that are submitted electronically.
     /// </summary>
+    [DataMember]
     public DocumentFormat1Choice_? Format { get; init; } 
     /// <summary>
     /// Channel through which presentation documents are submitted electronically, such as SWIFT, Web upload, or secure email.
     /// </summary>
+    [DataMember]
     public Channel1Choice_? Channel { get; init; } 
     /// <summary>
     /// Uniform Resource Identifier (URI), such as a web or an email address, specifying where the presentation can be addressed.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Address { get; init; } 
     
     #nullable disable

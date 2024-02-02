@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Party that provides services to investors relating to financial products (Investment Funds).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Intermediary28
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Intermediary28
     /// <summary>
     /// Unique and unambiguous identifier of the intermediary.
     /// </summary>
+    [DataMember]
     public required PartyIdentification100 Identification { get; init; } 
     /// <summary>
     /// Function performed by the intermediary.
     /// </summary>
+    [DataMember]
     public required Role5Choice_ Role { get; init; } 
     
     #nullable disable

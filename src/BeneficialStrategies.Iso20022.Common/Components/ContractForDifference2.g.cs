@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transparency calculation specific details on a contract for difference, spread betting derivatives.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContractForDifference2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ContractForDifference2
     /// <summary>
     /// Underlying type of the contract for difference.
     /// </summary>
+    [DataMember]
     public required UnderlyingContractForDifferenceType3Code UnderlyingType { get; init; } 
     /// <summary>
     /// Currency 1 of the underlying currency pair.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? NotionalCurrency1 { get; init; } 
     /// <summary>
     /// Currency 2 of the underlying currency pair.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? NotionalCurrency2 { get; init; } 
     
     #nullable disable

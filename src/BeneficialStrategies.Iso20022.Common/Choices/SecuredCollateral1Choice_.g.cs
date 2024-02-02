@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SecuredCollateral1Choice.MultipleCollateral))]
 [KnownType(typeof(SecuredCollateral1Choice.PoolCollateral))]
 [KnownType(typeof(SecuredCollateral1Choice.OtherCollateral))]
+[DataContract]
 public abstract partial record SecuredCollateral1Choice_
 {
 }

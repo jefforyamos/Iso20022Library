@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the attributes for the cancellation of the benchmark.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BenchmarkCancellation1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record BenchmarkCancellation1
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice messages.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Identification of the benchmark to be cancelled.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification19 Identification { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Goods or services that are part of a commercial trade agreement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LineItemDetails7
 {
     #nullable enable
@@ -20,70 +22,87 @@ public partial record LineItemDetails7
     /// <summary>
     /// Identification assigned to a line item.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text LineItemIdentification { get; init; } 
     /// <summary>
     /// Specifies the quantity of goods on a line in a trade transaction.
     /// </summary>
+    [DataMember]
     public required Quantity4 Quantity { get; init; } 
     /// <summary>
     /// Variance allowed in the quantity of goods.
     /// </summary>
+    [DataMember]
     public PercentageTolerance1? QuantityTolerance { get; init; } 
     /// <summary>
     /// Amount of money for which goods or services are offered, sold, or bought.
     /// </summary>
+    [DataMember]
     public UnitPrice9? UnitPrice { get; init; } 
     /// <summary>
     /// Variance allowed on a price.
     /// </summary>
+    [DataMember]
     public PercentageTolerance1? PriceTolerance { get; init; } 
     /// <summary>
     /// Name of the product detailed in the corresponding line item.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? ProductName { get; init; } 
     /// <summary>
     /// Identifies the product of the corresponding line item.
     /// </summary>
-    public ProductIdentifier2Choice_[] ProductIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProductIdentifier2Choice_> ProductIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the characteristics of a product.
     /// </summary>
-    public ProductCharacteristics1Choice_[] ProductCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProductCharacteristics1Choice_> ProductCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the category of product.
     /// </summary>
-    public ProductCategory1Choice_[] ProductCategory { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProductCategory1Choice_> ProductCategory { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Country from which the product originates.
     /// </summary>
-    public CountryCode[] ProductOrigin { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CountryCode> ProductOrigin { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the shipment schedule for the goods.
     /// </summary>
+    [DataMember]
     public ShipmentSchedule1Choice_? ShipmentSchedule { get; init; } 
     /// <summary>
     /// Information related to the conveyance of goods.
     /// </summary>
+    [DataMember]
     public TransportMeans1? RoutingSummary { get; init; } 
     /// <summary>
     /// Specifies the applicable Incoterms and associated location. Latest version of Incoterms in effect at the date of message creation.
     /// </summary>
-    public Incoterms1[] Incoterms { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Incoterms1> Incoterms { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Variance on price for the goods.
     /// </summary>
-    public Adjustment3[] Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Adjustment3> Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum charges related to the conveyance of goods.
     /// </summary>
+    [DataMember]
     public Charge12? FreightCharges { get; init; } 
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters linked to the value of the goods in a trade transaction.
     /// </summary>
-    public Tax13[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax13> Tax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total amount of the line item after adjustments have been applied.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount TotalAmount { get; init; } 
     
     #nullable disable

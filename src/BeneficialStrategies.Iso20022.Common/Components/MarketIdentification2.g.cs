@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about market identification and market type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MarketIdentification2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record MarketIdentification2
     /// <summary>
     /// Specifies the type of market.
     /// </summary>
+    [DataMember]
     public required MarketTypeFormat1Choice_ Type { get; init; } 
     /// <summary>
     /// Identifies the market.
     /// </summary>
+    [DataMember]
     public MarketIdentification1Choice_? Identification { get; init; } 
     
     #nullable disable

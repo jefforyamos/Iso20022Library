@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Price expressed as a percentage price.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PercentagePrice1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PercentagePrice1
     /// <summary>
     /// Specifies the type of percentage price.
     /// </summary>
+    [DataMember]
     public required PriceRateType3Code PercentagePriceType { get; init; } 
     /// <summary>
     /// Specifies the value of price.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate PriceValue { get; init; } 
     
     #nullable disable

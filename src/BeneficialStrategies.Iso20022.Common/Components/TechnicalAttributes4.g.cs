@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies technical attributes of the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TechnicalAttributes4
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record TechnicalAttributes4
     /// <summary>
     /// List of possible values for TRs reconciliation purposes.
     /// </summary>
+    [DataMember]
     public Reconciliation2Code? ReconciliationFlag { get; init; } 
     
     #nullable disable

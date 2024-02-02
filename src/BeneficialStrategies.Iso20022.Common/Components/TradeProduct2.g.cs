@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Tangible output or service produced by human or mechanical effort, or by a natural process for purposes of specifying a product.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeProduct2
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record TradeProduct2
     /// <summary>
     /// Identification of the product.
     /// </summary>
-    public ProductIdentifier2Choice_[] Identification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProductIdentifier2Choice_> Identification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Name of a product.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Information about the goods and/or services of a trade transaction.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     /// <summary>
     /// Country of origin of the product.
     /// </summary>
-    public CountryCodeAndName1[] CountryOfOrigin { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CountryCodeAndName1> CountryOfOrigin { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the characteristic of a product.
     /// </summary>
-    public ProductCharacteristics3[] ProductCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProductCharacteristics3> ProductCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Category of the product.
     /// </summary>
-    public ProductCategory1Choice_[] ProductCategory { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProductCategory1Choice_> ProductCategory { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique global serial identifier for this product instance.
     /// </summary>
-    public IsoMax35Text[] GlobalSerialIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> GlobalSerialIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

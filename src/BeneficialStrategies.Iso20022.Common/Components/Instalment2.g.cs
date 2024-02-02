@@ -14,6 +14,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Specifies a single instalment related to an invoice settlement and optional reconciliation information.
 /// Reconciliation information is used to indicate the amount to be allocated to a particular instalment of a financial document.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Instalment2
 {
     #nullable enable
@@ -21,18 +23,22 @@ public partial record Instalment2
     /// <summary>
     /// Specifies the progressive number of the single instalment related to an invoice.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text SequenceIdentification { get; init; } 
     /// <summary>
     /// Due date for the payment of the financing item instalment.
     /// </summary>
+    [DataMember]
     public required IsoISODate PaymentDueDate { get; init; } 
     /// <summary>
     /// Amount of a single instalment related to an invoice.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Desired payment instrument to be used for the instalment.
     /// </summary>
+    [DataMember]
     public PaymentMeans1? PaymentInstrument { get; init; } 
     
     #nullable disable

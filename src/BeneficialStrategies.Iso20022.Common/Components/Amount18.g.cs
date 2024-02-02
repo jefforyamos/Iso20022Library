@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes each adjustment made to the original price.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Amount18
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Amount18
     /// <summary>
     /// Code that describes the type of amount or fee.
     /// </summary>
+    [DataMember]
     public CarRentalServiceType2Code? Type { get; init; } 
     /// <summary>
     /// Description of other type of amount or fee.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Contains the amount.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Indicates whether or not the amount is a credit or debit. 
     /// </summary>
+    [DataMember]
     public CreditDebit3Code? CreditDebit { get; init; } 
     /// <summary>
     /// Indicates whether or not the customer was notified about additional amounts. 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CustomerNotifiedIndicator { get; init; } 
     
     #nullable disable

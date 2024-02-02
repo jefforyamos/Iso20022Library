@@ -15,6 +15,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(Reference1Choice.CollateralProposalResponseIdentification))]
 [KnownType(typeof(Reference1Choice.DisputeNotificationIdentification))]
 [KnownType(typeof(Reference1Choice.CollateralSubstitutionRequestIdentification))]
+[DataContract]
 public abstract partial record Reference1Choice_
 {
 }

@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(Cleared12Choice.Cleared))]
 [KnownType(typeof(Cleared12Choice.IntendToClear))]
 [KnownType(typeof(Cleared12Choice.NonCleared))]
+[DataContract]
 public abstract partial record Cleared12Choice_
 {
 }

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(MatchingSystemReference1Choice.MatchingSystemUniqueReference))]
 [KnownType(typeof(MatchingSystemReference1Choice.RelatedReference))]
+[DataContract]
 public abstract partial record MatchingSystemReference1Choice_
 {
 }

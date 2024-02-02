@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Tax related to an investment fund order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InformativeTax1
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record InformativeTax1
     /// <summary>
     /// Amount included in the dividend that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TaxableIncomePerDividend { get; init; } 
     /// <summary>
     /// Specifies whether capital gain is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
+    [DataMember]
     public EUCapitalGain3Choice_? EUCapitalGain { get; init; } 
     /// <summary>
     /// Specifies whether dividend is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
+    [DataMember]
     public EUDividendStatusType2Choice_? EUDividendStatus { get; init; } 
     /// <summary>
     /// Percentage of the underlying assets of the funds that represents a debt and is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June).
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? PercentageOfDebtClaim { get; init; } 
     /// <summary>
     /// Information related to a specific tax that is provided for information purposes.
     /// </summary>
-    public Tax32[] IndividualTax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax32> IndividualTax { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

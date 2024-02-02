@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of an organisation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IssuerInformation3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record IssuerInformation3
     /// <summary>
     /// Unique and unambiguous way to identify the organisation.
     /// </summary>
+    [DataMember]
     public required PartyIdentification129Choice_ Identification { get; init; } 
     /// <summary>
     /// Address for the Universal Resource Locator (URL), for example, used over the www (HTTP) service.
     /// </summary>
+    [DataMember]
     public IsoMax2048Text? URLAddress { get; init; } 
     
     #nullable disable

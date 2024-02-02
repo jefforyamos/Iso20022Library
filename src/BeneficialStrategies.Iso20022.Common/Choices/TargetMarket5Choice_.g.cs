@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TargetMarket5Choice.Type))]
 [KnownType(typeof(TargetMarket5Choice.Other))]
+[DataContract]
 public abstract partial record TargetMarket5Choice_
 {
 }

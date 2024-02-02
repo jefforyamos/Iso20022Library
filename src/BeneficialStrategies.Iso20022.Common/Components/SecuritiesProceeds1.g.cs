@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides securities proceeds information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesProceeds1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SecuritiesProceeds1
     /// <summary>
     /// Identification of the financial instrument.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification7 SecurityIdentification { get; init; } 
     /// <summary>
     /// The quantity of financial instruments that is posted.
     /// </summary>
+    [DataMember]
     public required UnitOrFaceAmount1Choice_ PostingQuantity { get; init; } 
     /// <summary>
     /// Provides information about the account that is debited/credited.
     /// </summary>
-    public SecuritiesAccount10[] AccountDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<SecuritiesAccount10> AccountDetails { get; init; } = [];
     /// <summary>
     /// Provides reconciliation information.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? ReconciliationDetails { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the status of the tracker alert.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerAlertStatus1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record TrackerAlertStatus1
     /// <summary>
     /// Status of the tracker alert, as published in an external code set.
     /// </summary>
+    [DataMember]
     public required TrackerAlertStatus1Code Code { get; init; } 
     
     #nullable disable

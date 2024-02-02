@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the compensation data of an incorrect billing.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BillingCompensation1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record BillingCompensation1
     /// <summary>
     /// Defines the type of billing compensation.
     /// </summary>
+    [DataMember]
     public required BillingCompensationType1Choice_ Type { get; init; } 
     /// <summary>
     /// Defines the value of compensation.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection34 Value { get; init; } 
     /// <summary>
     /// Identifies the currency type used to report the value or total, in a coded form, such as Settlement (STLM).
     /// </summary>
+    [DataMember]
     public BillingCurrencyType2Code? CurrencyType { get; init; } 
     
     #nullable disable

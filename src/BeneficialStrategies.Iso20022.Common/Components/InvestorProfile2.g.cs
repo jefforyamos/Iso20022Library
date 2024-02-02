@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about actions that may be taken on an account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestorProfile2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record InvestorProfile2
     /// <summary>
     /// Type of profile.
     /// </summary>
+    [DataMember]
     public ProfileType1Choice_? Type { get; init; } 
     /// <summary>
     /// Status of the profile.
     /// </summary>
+    [DataMember]
     public InvestorProfileStatus1Choice_? Status { get; init; } 
     /// <summary>
     /// Information about the profile for treasury trading.
     /// </summary>
+    [DataMember]
     public TreasuryProfile1? Treasury { get; init; } 
     /// <summary>
     /// Information about the profile for high frequency trading.
     /// </summary>
+    [DataMember]
     public HighFrequencyTradingProfile1? HighFrequencyTrading { get; init; } 
     /// <summary>
     /// Information about the profile for a market marker.
     /// </summary>
+    [DataMember]
     public MarketMakerProfile2? MarketMaker { get; init; } 
     
     #nullable disable

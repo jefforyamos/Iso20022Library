@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(SettlementParties34Choice.CentralSecuritiesDepositoryParticipant))]
 [KnownType(typeof(SettlementParties34Choice.IndirectParticipant))]
+[DataContract]
 public abstract partial record SettlementParties34Choice_
 {
 }

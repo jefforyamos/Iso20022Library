@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the central counterparty clearing time.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ClearingPartyAndTime9
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ClearingPartyAndTime9
     /// <summary>
     /// In the case of a contract that has been cleared, the unique code for the clearing counterparty that has cleared the contract.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification9Choice_? CCP { get; init; } 
     /// <summary>
     /// Time and date when clearing took place.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ClearingDateTime { get; init; } 
     /// <summary>
     /// Unique number to indicate a group of reports which relate to the same execution.
     /// </summary>
+    [DataMember]
     public IsoMax52Text? ReportTrackingNumber { get; init; } 
     /// <summary>
     /// If the transaction is cleared and is included in a portfolio of transactions for which margins are exchanged, this portfolio should be identified by a unique code determined by the reporting counterparty.
     /// </summary>
+    [DataMember]
     public IsoMax52Text? PortfolioCode { get; init; } 
     
     #nullable disable

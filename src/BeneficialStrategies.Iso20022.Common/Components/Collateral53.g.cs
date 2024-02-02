@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides for each collateral account the report summary and the valuation of each piece of collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Collateral53
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record Collateral53
     /// <summary>
     /// Provides information about the collateral account, that is the identification, the type and optionally the name.
     /// </summary>
+    [DataMember]
     public CollateralAccount3? AccountIdentification { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of collateral account for digital assets.
     /// </summary>
+    [DataMember]
     public BlockChainAddressWallet5? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// Summary of the collateral valuation.
     /// </summary>
+    [DataMember]
     public required Summary3 ReportSummary { get; init; } 
     /// <summary>
     /// Additional information about the collateral valuation that has been posted.
     /// </summary>
-    public CollateralValuation13[] CollateralValuation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CollateralValuation13> CollateralValuation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

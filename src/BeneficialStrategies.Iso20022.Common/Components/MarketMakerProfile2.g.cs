@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Market maker profile.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MarketMakerProfile2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record MarketMakerProfile2
     /// <summary>
     /// Period of the contract.
     /// </summary>
+    [DataMember]
     public DateTimePeriod2? ContractPeriod { get; init; } 
     /// <summary>
     /// Indicates whether the market maker is obligated to comply with the requirements of the contract it holds with the exchange or is exempt from these obligations.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Compliance { get; init; } 
     /// <summary>
     /// Percentage of the variation between the maximum accepted minimum and maximum value of an action.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? MaximumSpread { get; init; } 
     /// <summary>
     /// Rate of discount.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Discount { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the originator. It is present only if required by the key management algorithm.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginatorInformation1
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record OriginatorInformation1
     /// <summary>
     /// It may contain originator certificates associated with several different key management algorithms.
     /// </summary>
-    public IsoMax5000Binary[] Certificate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax5000Binary> Certificate { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Global collateral status of all transactions covered in the message, in the reporting currency, that is, the total of the exposure amount, of the posted collateral, of the margin amounts, of the accrued interest, of the fees or commissions and of the principals. In addition, it provides collateral-specific information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OverallCollateralDetails2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record OverallCollateralDetails2
     /// <summary>
     /// Provides details on the collateral valuation.
     /// </summary>
+    [DataMember]
     public required CollateralAmount15 ValuationAmounts { get; init; } 
     /// <summary>
     /// The collateral excess/shortage expressed in the percentage of the collateral required.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? MarginRate { get; init; } 
     /// <summary>
     /// Provides the status after comparing the total collateral required and the total collateral value of all transactions covered in the message.
     /// </summary>
+    [DataMember]
     public CollateralStatus1Code? GlobalCollateralStatus { get; init; } 
     /// <summary>
     /// Valuation date/time of both the collateral and the exposure.
     /// </summary>
+    [DataMember]
     public required DateAndDateTime2Choice_ ValuationDate { get; init; } 
     /// <summary>
     /// Provides additional information on the collateral.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? CollateralAdditionalDetails { get; init; } 
     
     #nullable disable

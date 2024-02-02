@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional specific query criteria.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalQueryParameters11
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record AdditionalQueryParameters11
     /// <summary>
     /// Request to obtain a Securities Transaction Pending Report for transactions with the specified status.
     /// </summary>
+    [DataMember]
     public Status19Choice_? Status { get; init; } 
     /// <summary>
     /// Request to obtain a Securities Transaction Pending Report for transactions with the specified status reason.
     /// </summary>
-    public Reason16Choice_[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Reason16Choice_> Reason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
-    public SecurityIdentification19[] FinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecurityIdentification19> FinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

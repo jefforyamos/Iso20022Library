@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the reconciliation period between an acquirer and an issuer or their respective agents.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Reconciliation3
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record Reconciliation3
     /// <summary>
     /// Identification of the reconciliation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Date of the reconciliation.
     /// ISO 8583:93/2003 bit 28
     /// </summary>
+    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// A value used to allow a period within a reconciliation date.  Refer to ISO8583:2003 Field 29
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CheckpointReference { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides corporate action option details about total instructed balance.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InstructedCorporateActionOption13
 {
     #nullable enable
@@ -20,47 +22,58 @@ public partial record InstructedCorporateActionOption13
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [DataMember]
     public IsoExact3NumericText? OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
+    [DataMember]
     public required CorporateActionOption36Choice_ OptionType { get; init; } 
     /// <summary>
     /// Balance of instructed position.
     /// </summary>
+    [DataMember]
     public required BalanceFormat7Choice_ InstructedBalance { get; init; } 
     /// <summary>
     /// Indicates the default action related to a corporate action event.
     /// </summary>
+    [DataMember]
     public DefaultProcessingOrStandingInstruction1Choice_? DefaultAction { get; init; } 
     /// <summary>
     /// Daily total of accepted instructions received for a given option.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? OptionAcceptedInstructedBalance { get; init; } 
     /// <summary>
     /// Daily total of cancelled instructions for a given option.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? OptionCancelledInstructionBalance { get; init; } 
     /// <summary>
     /// Daily total of pending instructions in pending status for a given option.  It includes cancel pending instructions. 
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? OptionPendingInstructionBalance { get; init; } 
     /// <summary>
     /// Daily total of rejected instructions for a given option.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? OptionRejectedInstructionBalance { get; init; } 
     /// <summary>
     /// Daily total of all protect instructions for a given option.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? OptionProtectInstructionBalance { get; init; } 
     /// <summary>
     /// Provides information about the deadlines related to a corporate action option.
     /// </summary>
+    [DataMember]
     public required CorporateActionEventDeadlines4 EventDeadlines { get; init; } 
     /// <summary>
     /// Instructions details received for the given option.
     /// </summary>
-    public OptionInstructionDetails4[] OptionInstructionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OptionInstructionDetails4> OptionInstructionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

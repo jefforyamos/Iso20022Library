@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(PendingProcessingStatus3Choice.NoSpecifiedReason))]
 [KnownType(typeof(PendingProcessingStatus3Choice.Reason))]
+[DataContract]
 public abstract partial record PendingProcessingStatus3Choice_
 {
 }

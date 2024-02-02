@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Input Request message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeviceInputRequest3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DeviceInputRequest3
     /// <summary>
     /// Information to display before input.
     /// </summary>
+    [DataMember]
     public ActionMessage8? DisplayOutput { get; init; } 
     /// <summary>
     /// Information related to an Input request.
     /// </summary>
+    [DataMember]
     public required InputData3 InputData { get; init; } 
     
     #nullable disable

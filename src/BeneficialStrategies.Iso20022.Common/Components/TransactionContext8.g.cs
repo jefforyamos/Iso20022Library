@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Context of the card payment transaction
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionContext8
 {
     #nullable enable
@@ -20,60 +22,74 @@ public partial record TransactionContext8
     /// <summary>
     /// Category code related to the type of services or goods the merchant provides for the transaction in accordance with ISO 18245.
     /// </summary>
+    [DataMember]
     public ISO18245MerchantCategoryCode? MerchantCategoryCode { get; init; } 
     /// <summary>
     /// Further details about the merchant that is used in with the merchant category code (MCC) for the particular purchase.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MerchantCategorySpecificData { get; init; } 
     /// <summary>
     /// Specifies the initiator of the fee collection message. 
     /// </summary>
+    [DataMember]
     public FeeCollectionInitiator1Code? FeeCollectionInitiator { get; init; } 
     /// <summary>
     /// Identifies the transaction initiator.
     /// </summary>
+    [DataMember]
     public TransactionInitiator1Code? TransactionInitiator { get; init; } 
     /// <summary>
     /// Indicates the partial shipment.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? PartialShipmentIndicator { get; init; } 
     /// <summary>
     /// Indicates a delayed charge.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? DelayedChargesIndicator { get; init; } 
     /// <summary>
     /// Indicates that the cardholder failed to arrive at the property and was therefore charged a no-show fee; property was not actually rented. 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? NoShowIndicator { get; init; } 
     /// <summary>
     /// Indicates a reauthorisation.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ReauthorisationIndicator { get; init; } 
     /// <summary>
     /// Indicates a resubmission. 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ReSubmissionIndicator { get; init; } 
     /// <summary>
     /// Card programme or brand related to the transaction.
     /// ISO 8583:87 bit 24
     /// </summary>
+    [DataMember]
     public CardProgrammeMode3? CardProgrammeApplied { get; init; } 
     /// <summary>
     /// Contains information that identifies or is specific to a transaction jurisdiction.
     /// </summary>
+    [DataMember]
     public Jurisdiction2? Jurisdiction { get; init; } 
     /// <summary>
     /// Type of settlement service for specific services requiring settlement.
     /// </summary>
+    [DataMember]
     public SettlementService4? SettlementService { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period between the acquirer and the issuer or their respective agents.
     /// </summary>
+    [DataMember]
     public Reconciliation3? Reconciliation { get; init; } 
     /// <summary>
     /// Additional transaction context data.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

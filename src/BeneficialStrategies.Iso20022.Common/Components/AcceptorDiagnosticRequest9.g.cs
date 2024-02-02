@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Diagnostic request from an acceptor.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcceptorDiagnosticRequest9
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AcceptorDiagnosticRequest9
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentEnvironment77 Environment { get; init; } 
     /// <summary>
     /// Indicates if the availability of the acquirer must be tested.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? AcquirerAvailabilityRequested { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the instructions from the bank.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BankInstructions1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record BankInstructions1
     /// <summary>
     /// Instructions from the bank.
     /// </summary>
-    public IsoMax2000Text[] Text { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> Text { get; init; } = [];
     /// <summary>
     /// Last date for a response to the bank instructions.
     /// </summary>
+    [DataMember]
     public IsoISODate? LastDateForResponse { get; init; } 
     
     #nullable disable

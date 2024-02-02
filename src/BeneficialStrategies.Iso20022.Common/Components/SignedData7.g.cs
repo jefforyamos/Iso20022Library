@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Digital signatures of data from one or several signers.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SignedData7
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record SignedData7
     /// <summary>
     /// Version of the data structure.
     /// </summary>
+    [DataMember]
     public IsoNumber? Version { get; init; } 
     /// <summary>
     /// Identification of digest algorithm applied before signature.
     /// </summary>
-    public AlgorithmIdentification21[] DigestAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AlgorithmIdentification21> DigestAlgorithm { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data to sign.
     /// </summary>
+    [DataMember]
     public EncapsulatedContent3? EncapsulatedContent { get; init; } 
     /// <summary>
     /// Chain of X.509 certificates.
     /// </summary>
-    public IsoMax5000Binary[] Certificate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax5000Binary> Certificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Digital signature and identification of a signer.
     /// </summary>
-    public Signer6[] Signer { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Signer6> Signer { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

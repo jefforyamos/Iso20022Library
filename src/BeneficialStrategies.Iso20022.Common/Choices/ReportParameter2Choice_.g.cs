@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ReportParameter2Choice.Country))]
 [KnownType(typeof(ReportParameter2Choice.Currency))]
 [KnownType(typeof(ReportParameter2Choice.UserDefined))]
+[DataContract]
 public abstract partial record ReportParameter2Choice_
 {
 }

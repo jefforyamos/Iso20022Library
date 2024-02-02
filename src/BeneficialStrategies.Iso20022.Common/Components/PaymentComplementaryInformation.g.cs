@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional information from the underlying payment instruction which cannot be transferred in a regular statement message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentComplementaryInformation
 {
     #nullable enable
@@ -20,55 +22,68 @@ public partial record PaymentComplementaryInformation
     /// <summary>
     /// Remittance information.
     /// </summary>
+    [DataMember]
     public RemittanceInformation3Choice_? RemittanceChoice { get; init; } 
     /// <summary>
     /// Debtor or Ordering customer of the payment instruction.
     /// </summary>
+    [DataMember]
     public PartyIdentification1? Debtor { get; init; } 
     /// <summary>
     /// Debtor account or Ordering customer account.
     /// </summary>
+    [DataMember]
     public CashAccount3? DebtorAccount { get; init; } 
     /// <summary>
     /// First Agent or Field 52 in Fin messages.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification? FirstAgent { get; init; } 
     /// <summary>
     /// Instructed amount of the payment instruction (Field 33B).
     /// </summary>
+    [DataMember]
     public AmountType1Choice_? Amount { get; init; } 
     /// <summary>
     /// Indicates the account used to cover a payment.
     /// </summary>
+    [DataMember]
     public CashAccount3? NostroVostroAccount { get; init; } 
     /// <summary>
     /// Intermediary bank.
     /// </summary>
+    [DataMember]
     public Intermediary1? Intermediary { get; init; } 
     /// <summary>
     /// Correspondent of the first agent (Field 53 in MT202).
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification? FirstSettlementAgent { get; init; } 
     /// <summary>
     /// Correspondent of the Final agent (Field 54 of Mt 202).
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification? LastSettlementAgent { get; init; } 
     /// <summary>
     /// Equivalent to Field 55 in MT202.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification? IntermediarySettlementAgent { get; init; } 
     /// <summary>
     /// Creditor or Beneficiary customer of the payment instruction.
     /// </summary>
+    [DataMember]
     public PartyIdentification1? Creditor { get; init; } 
     /// <summary>
     /// Creditor account or Beneficiary customer account.
     /// </summary>
+    [DataMember]
     public CashAccount3? CreditorAccount { get; init; } 
     /// <summary>
     /// Unformatted information from the sender to the receiver.
     /// </summary>
-    public IsoMax35Text[] SenderToReceiverInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax35Text> SenderToReceiverInformation { get; init; } = [];
     
     #nullable disable
 }

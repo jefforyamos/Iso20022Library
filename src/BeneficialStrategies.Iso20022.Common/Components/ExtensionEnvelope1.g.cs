@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Technical component that contains the validated extension information. This technical envelope allows to segregate the extension information from any other information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExtensionEnvelope1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record ExtensionEnvelope1
     /// <summary>
     /// Technical element that specifies the extension.
     /// </summary>
+    [DataMember]
     public required ExtensionContents1 ExtensionContents { get; init; } 
     
     #nullable disable

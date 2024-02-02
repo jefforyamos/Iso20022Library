@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique identifier of a document, message or transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionIdentifications37
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record TransactionIdentifications37
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account owner (or the instructing party managing the account).
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax16Text AccountOwnerTransactionIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction as known by the account servicer.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? AccountServicerTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? MarketInfrastructureTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the transaction assigned by the processor of the instruction other than the account owner the account servicer and the market infrastructure.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? ProcessorTransactionIdentification { get; init; } 
     /// <summary>
     /// Reference to a transaction that cannot be identified using a standard reference element present in the message.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? OtherIdentification { get; init; } 
     
     #nullable disable

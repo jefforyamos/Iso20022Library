@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Ability of a financial instrument to be easily traded and converted to cash, at conditions that do not affect its price.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Liquidity1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Liquidity1
     /// <summary>
     /// Market value of the securities position for which liquidity details are provided.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? Value { get; init; } 
     /// <summary>
     /// Number of securities for which liquidity range details are provided.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? NumberOfSecurities { get; init; } 
     /// <summary>
     /// Upper liquidity indicator, represented as a percentage of the average trade daily volume.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Upper { get; init; } 
     /// <summary>
     /// Lower liquidity indicator, represented as a percentage of the average trade daily volume.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Lower { get; init; } 
     
     #nullable disable

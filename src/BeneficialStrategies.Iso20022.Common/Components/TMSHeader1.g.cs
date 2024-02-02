@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of characteristics related to the transfer of transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TMSHeader1
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record TMSHeader1
     /// <summary>
     /// Indicates if the file transfer is a download or an upload.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator DownloadTransfer { get; init; } 
     /// <summary>
     /// Version of file format.
     /// </summary>
+    [DataMember]
     public required IsoMax6Text FormatVersion { get; init; } 
     /// <summary>
     /// Unique identification of an exchange occurrence.
     /// </summary>
+    [DataMember]
     public required IsoNumber ExchangeIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the file or message was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Unique identification of the partner that has initiated the exchange.
     /// </summary>
+    [DataMember]
     public required GenericIdentification176 InitiatingParty { get; init; } 
     /// <summary>
     /// Unique identification of the partner that is the recipient of the exchange.
     /// </summary>
+    [DataMember]
     public GenericIdentification177? RecipientParty { get; init; } 
     /// <summary>
     /// Identification of partners involved in exchange from the merchant to the issuer, with the relative timestamp of their exchanges.
     /// </summary>
-    public Traceability8[] Traceability { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Traceability8> Traceability { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

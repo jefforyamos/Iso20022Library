@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for the pending settlement status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PendingSettlementStatus2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PendingSettlementStatus2
     /// <summary>
     /// Reason for the settlement pending status.
     /// </summary>
+    [DataMember]
     public required PendingSettlementStatusReason2Code Reason { get; init; } 
     /// <summary>
     /// Reason for the settlement pending status.
     /// </summary>
+    [DataMember]
     public required IsoExtended350Code ExtendedReason { get; init; } 
     /// <summary>
     /// Proprietary identification of the reason for the pending settlement status.
     /// </summary>
+    [DataMember]
     public required GenericIdentification1 DataSourceScheme { get; init; } 
     /// <summary>
     /// Indicates that there is no reason available or to report.
     /// </summary>
+    [DataMember]
     public required NoReasonCode NoSpecifiedReason { get; init; } 
     
     #nullable disable

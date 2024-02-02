@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Signed amount in a given numeric currency
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Amount5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Amount5
     /// <summary>
     /// Amount value.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Sign of the amount.
     /// </summary>
+    [DataMember]
     public IsoPlusOrMinusIndicator? Sign { get; init; } 
     
     #nullable disable

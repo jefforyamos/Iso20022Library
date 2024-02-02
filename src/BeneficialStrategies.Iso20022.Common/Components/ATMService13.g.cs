@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Deposit service provided by the ATM inside the session.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMService13
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record ATMService13
     /// <summary>
     /// Unique identification of the deposit service provided by the ATM inside the session.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ServiceReference { get; init; } 
     /// <summary>
     /// Codification of the type of service for the ATM.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ATMServiceCode { get; init; } 
     /// <summary>
     /// Codification of the type of service for the host.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? HostServiceCode { get; init; } 
     /// <summary>
     /// Describes the type of deposit service selected by the customer.
     /// </summary>
+    [DataMember]
     public required ATMServiceType6Code ServiceType { get; init; } 
     /// <summary>
     /// Identification of the variant of the service.
     /// </summary>
-    public IsoMax35Text[] ServiceVariantIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> ServiceVariantIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// True if deposit with cash back transaction.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CashBack { get; init; } 
     /// <summary>
     /// True if the deposit transaction is split in multiple accounts.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? MultiAccount { get; init; } 
     /// <summary>
     /// True if this is not the final deposit.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? PartialDeposit { get; init; } 
     
     #nullable disable

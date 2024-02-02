@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the payment terms by means of a code and a period.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentPeriod2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PaymentPeriod2
     /// <summary>
     /// Code for the payment.
     /// </summary>
+    [DataMember]
     public required PaymentTime2Code Code { get; init; } 
     /// <summary>
     /// Number of days after which the payment must be effected.
     /// </summary>
+    [DataMember]
     public IsoNumber? NumberOfDays { get; init; } 
     
     #nullable disable

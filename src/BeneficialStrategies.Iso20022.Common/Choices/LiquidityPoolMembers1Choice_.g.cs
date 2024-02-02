@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(LiquidityPoolMembers1Choice.HeadMemberDetails))]
 [KnownType(typeof(LiquidityPoolMembers1Choice.SubordinateMemberDetails))]
+[DataContract]
 public abstract partial record LiquidityPoolMembers1Choice_
 {
 }

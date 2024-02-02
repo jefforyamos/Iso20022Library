@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the error that is the cause of the rejection.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ValidationResult3
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record ValidationResult3
     /// <summary>
     /// Sequential number assigned to the error.
     /// </summary>
+    [DataMember]
     public required IsoNumber SequenceNumber { get; init; } 
     /// <summary>
     /// Coded identification of the rule that is violated by the rejected message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text RuleIdentification { get; init; } 
     /// <summary>
     /// Detailed description of the rule.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text RuleDescription { get; init; } 
     /// <summary>
     /// Description of the elements that violated the rule.
     /// </summary>
-    public ElementIdentification3[] Element { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ElementIdentification3> Element { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

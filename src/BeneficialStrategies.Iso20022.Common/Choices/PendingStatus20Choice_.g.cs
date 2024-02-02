@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(PendingStatus20Choice.Forwarded))]
 [KnownType(typeof(PendingStatus20Choice.UnderInvestigation))]
+[DataContract]
 public abstract partial record PendingStatus20Choice_
 {
 }

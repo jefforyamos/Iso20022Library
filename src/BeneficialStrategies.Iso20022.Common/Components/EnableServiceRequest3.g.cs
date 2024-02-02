@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data to request to enable a service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EnableServiceRequest3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record EnableServiceRequest3
     /// <summary>
     /// Action to realise on a transaction.
     /// </summary>
+    [DataMember]
     public required TransactionAction1Code TransactionAction { get; init; } 
     /// <summary>
     /// Services enabled before the start-up of a transaction.
     /// </summary>
+    [DataMember]
     public RetailerService2Code? ServicesEnabled { get; init; } 
     /// <summary>
     /// Prompt or welcome message.
     /// </summary>
+    [DataMember]
     public ActionMessage8? DisplayOutput { get; init; } 
     
     #nullable disable

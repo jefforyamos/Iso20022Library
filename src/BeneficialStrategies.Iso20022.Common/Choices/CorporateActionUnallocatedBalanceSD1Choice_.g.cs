@@ -16,6 +16,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(CorporateActionUnallocatedBalanceSD1Choice.OnLoanBalance))]
 [KnownType(typeof(CorporateActionUnallocatedBalanceSD1Choice.PendingDeliveryBalance))]
 [KnownType(typeof(CorporateActionUnallocatedBalanceSD1Choice.PendingReceiptBalance))]
+[DataContract]
 public abstract partial record CorporateActionUnallocatedBalanceSD1Choice_
 {
 }

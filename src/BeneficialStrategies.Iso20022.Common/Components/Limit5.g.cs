@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details on the limits.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Limit5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Limit5
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
+    [DataMember]
     public required Amount2Choice_ Amount { get; init; } 
     /// <summary>
     /// Specifies if a limit is a debit limit or a credit limit.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     
     #nullable disable

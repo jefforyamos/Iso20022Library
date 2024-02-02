@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the original transactions, to which the status report message refers.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalPaymentInstruction9
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record OriginalPaymentInstruction9
     /// <summary>
     /// Unique identification, as assigned by the original sending party, to unambiguously identify the original payment information group.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalPaymentInformationIdentification { get; init; } 
     /// <summary>
     /// Number of individual transactions contained in the original payment information group.
     /// </summary>
+    [DataMember]
     public IsoMax15NumericText? OriginalNumberOfTransactions { get; init; } 
     /// <summary>
     /// Total of all individual amounts included in the original payment information group, irrespective of currencies.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? OriginalControlSum { get; init; } 
     /// <summary>
     /// Specifies the status of the payment information group.
     /// </summary>
+    [DataMember]
     public TransactionGroupStatus3Code? PaymentInformationStatus { get; init; } 
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    public StatusReasonInformation9[] StatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StatusReasonInformation9> StatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Detailed information on the number of transactions for each identical transaction status.
     /// </summary>
-    public NumberOfTransactionsPerStatus3[] NumberOfTransactionsPerStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NumberOfTransactionsPerStatus3> NumberOfTransactionsPerStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information on the original transactions to which the status report message refers.
     /// </summary>
-    public PaymentTransaction49[] TransactionInformationAndStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentTransaction49> TransactionInformationAndStatus { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

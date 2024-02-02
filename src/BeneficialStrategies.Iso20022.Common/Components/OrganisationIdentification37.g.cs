@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique and unambiguous way to identify an organisation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OrganisationIdentification37
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record OrganisationIdentification37
     /// <summary>
     /// Business identification code of the organisation.
     /// </summary>
+    [DataMember]
     public IsoAnyBICDec2014Identifier? AnyBIC { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a party.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
+    [DataMember]
     public IsoMax256Text? EmailAddress { get; init; } 
     /// <summary>
     /// Unique identification of an organisation, as assigned by an institution, using an identification scheme.
     /// </summary>
-    public GenericOrganisationIdentification1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericOrganisationIdentification1> Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

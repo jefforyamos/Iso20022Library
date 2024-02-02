@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the trade leg details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeLeg10
 {
     #nullable enable
@@ -20,102 +22,127 @@ public partial record TradeLeg10
     /// <summary>
     /// Unambiguous identification of the transaction (that is the trade leg) as know by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TradeLegIdentification { get; init; } 
     /// <summary>
     /// Reference allocated by the broker dealer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TradeIdentification { get; init; } 
     /// <summary>
     /// Unique reference assigned by the trading venue when the trade is executed.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TradeExecutionIdentification { get; init; } 
     /// <summary>
     /// Identifies the order sent by the final investor to an intermediary in order to initiate a trade in the former's name. This identification is then matched with the equivalent trade by the clearing.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OrderIdentification { get; init; } 
     /// <summary>
     /// Identifies the portion of assets within a determined trade that shall be allocated to different clients.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AllocationIdentification { get; init; } 
     /// <summary>
     /// Provides the date and time of trade transaction.
     /// </summary>
+    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Date and time used to determine the price applicable to a trade. If the trade is registered "after market" hours, the trading price will the price of the day but the actual trade date will be the next working day.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? TransactionDateAndTime { get; init; } 
     /// <summary>
     /// Provides the contractual settlement date.
     /// </summary>
+    [DataMember]
     public required DateFormat15Choice_ SettlementDate { get; init; } 
     /// <summary>
     /// Specifies the ISO code of the trade currency.
     /// </summary>
+    [DataMember]
     public CurrencyCode? TradingCurrency { get; init; } 
     /// <summary>
     /// Identifies the trade leg indicator which gives the trade side (buy or sell).
     /// </summary>
+    [DataMember]
     public required Side1Code BuySellIndicator { get; init; } 
     /// <summary>
     /// Identifies the quantity of the trade leg.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ TradeQuantity { get; init; } 
     /// <summary>
     /// Specifies the price of the traded financial instrument.
     /// </summary>
+    [DataMember]
     public required Price4 DealPrice { get; init; } 
     /// <summary>
     /// Principal amount of a trade (price multiplied by quantity).
     /// </summary>
+    [DataMember]
     public AmountAndDirection21? GrossAmount { get; init; } 
     /// <summary>
     /// Place at which the security is traded.
     /// </summary>
+    [DataMember]
     public required MarketIdentification84 PlaceOfTrade { get; init; } 
     /// <summary>
     /// Place where the referenced financial instrument is listed.
     /// </summary>
+    [DataMember]
     public MarketIdentification85? PlaceOfListing { get; init; } 
     /// <summary>
     /// Identifies the type of trade transaction.
     /// </summary>
+    [DataMember]
     public required TradeType1Code TradeType { get; init; } 
     /// <summary>
     /// Indicates that the trade is for settlement of an exercised derivatives contract.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? DerivativeRelatedTrade { get; init; } 
     /// <summary>
     /// Party that identifies a broker when required (for example, authorised broker or prime broker).
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount100? Broker { get; init; } 
     /// <summary>
     /// Provides the identification of the trading party.
     /// </summary>
+    [DataMember]
     public required PartyIdentification35Choice_ TradingParty { get; init; } 
     /// <summary>
     /// Indicates in which session the transaction/operation was executed by the final investor or an intermediary.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TradeRegistrationOrigin { get; init; } 
     /// <summary>
     /// Identifier of the trading participant's account at the trading venue using the venue's coding system.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount19? TradingPartyAccount { get; init; } 
     /// <summary>
     /// Specifies the role of the trading party in the transaction.
     /// </summary>
+    [DataMember]
     public required TradingCapacity5Code TradingCapacity { get; init; } 
     /// <summary>
     /// Indicates how a trade is maintained in the clearing account.
     /// </summary>
+    [DataMember]
     public TradePosting1Code? TradePostingCode { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [DataMember]
     public SafekeepingPlaceFormat7Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     
     #nullable disable

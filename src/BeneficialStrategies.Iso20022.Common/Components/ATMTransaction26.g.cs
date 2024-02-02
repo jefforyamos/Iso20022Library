@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the reconciliation response.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransaction26
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record ATMTransaction26
     /// <summary>
     /// Type of logical or physical operation on the ATM for which the counters are computed.
     /// </summary>
+    [DataMember]
     public ATMOperation1Code? TypeOfOperation { get; init; } 
     /// <summary>
     /// Identification of the reconciliation transaction.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period assigned by the ATM.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Result of the reconciliation.
     /// </summary>
+    [DataMember]
     public required ResponseType7 TransactionResponse { get; init; } 
     /// <summary>
     /// Current totals of the ATM.
     /// </summary>
-    public ATMTotals1[] ATMTotals { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMTotals1> ATMTotals { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information on the cassettes of the ATM.
     /// </summary>
-    public ATMCassette2[] Cassette { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCassette2> Cassette { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    public ATMCommand7[] Command { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCommand7> Command { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

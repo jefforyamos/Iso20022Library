@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TransactionCriteria6Choice.QueryName))]
 [KnownType(typeof(TransactionCriteria6Choice.NewCriteria))]
+[DataContract]
 public abstract partial record TransactionCriteria6Choice_
 {
 }

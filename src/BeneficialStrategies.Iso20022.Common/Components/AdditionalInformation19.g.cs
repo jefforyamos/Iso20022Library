@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional information relevant to the destination.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalInformation19
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AdditionalInformation19
     /// <summary>
     /// Key-entered numeric data.
     /// </summary>
+    [DataMember]
     public IsoMax35NumericText? EnteredDataNumeric { get; init; } 
     /// <summary>
     /// Key-entered alphanumeric data.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? EnteredDataAlphaNumeric { get; init; } 
     /// <summary>
     /// Additional fleet summary data. 
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable

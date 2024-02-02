@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information needed to process a currency exchange or conversion.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ForeignExchangeTerms33
 {
     #nullable enable
@@ -20,20 +22,24 @@ public partial record ForeignExchangeTerms33
     /// <summary>
     /// Cash amount resulting from a foreign exchange trade.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ToAmount { get; init; } 
     /// <summary>
     /// Cash amount for which a foreign exchange is required.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? FromAmount { get; init; } 
     /// <summary>
     /// Currency from which the quoted currency is converted in an exchange rate calculation.
     /// 1 x <UnitCcy> = <XchgRate> x <QtdCcy>.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode UnitCurrency { get; init; } 
     /// <summary>
     /// Currency into which the unit currency is converted in an exchange rate calculation.
     /// 1 x <UnitCcy> = <XchgRate> x <QtdCcy>.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode QuotedCurrency { get; init; } 
     /// <summary>
     /// Factor used for the conversion of an amount from one currency into another. This reflects that amount of the quoted currency that can be purchased with one unit of the unit currency, as follows: 
@@ -44,14 +50,17 @@ public partial record ForeignExchangeTerms33
     /// nnn is the exchange rate.
     /// 1 x <UnitCcy> = <XchgRate> x <QtdCcy>.
     /// </summary>
+    [DataMember]
     public required IsoBaseOneRate ExchangeRate { get; init; } 
     /// <summary>
     /// Date and time at which an exchange rate is quoted.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? QuotationDate { get; init; } 
     /// <summary>
     /// Party that proposes the foreign exchange rate.
     /// </summary>
+    [DataMember]
     public PartyIdentification113? QuotingInstitution { get; init; } 
     
     #nullable disable

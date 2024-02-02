@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of change to the trading name.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradingNameModification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TradingNameModification1
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
+    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Name used by a business for commercial purposes, although its registered legal name, used for contracts and other formal situations, may be another.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text TradingName { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information specifying the Mandate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OperationMandate1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record OperationMandate1
     /// <summary>
     /// Unique and unambiguous identification of the mandate.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Number of required and necessary signatures by the mandate.
     /// </summary>
+    [DataMember]
     public required IsoMax15PlusSignedNumericText RequiredSignatureNumber { get; init; } 
     /// <summary>
     /// Indicator whether a certain order of signatures has to be respected or not.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator SignatureOrderIndicator { get; init; } 
     /// <summary>
     /// Holder of the mandate.
     /// </summary>
-    public PartyAndCertificate1[] MandateHolder { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyAndCertificate1> MandateHolder { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Bank operation allowed by a mandate.
     /// </summary>
-    public BankTransactionCodeStructure4[] BankOperation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BankTransactionCodeStructure4> BankOperation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Is the date when the mandate becomes valid.
     /// </summary>
+    [DataMember]
     public IsoISODate? StartDate { get; init; } 
     /// <summary>
     /// Is the date when the mandate stops to be valid.
     /// </summary>
+    [DataMember]
     public IsoISODate? EndDate { get; init; } 
     
     #nullable disable

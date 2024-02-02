@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria which are used to search for the status of the payment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InstructionStatusSearch5
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record InstructionStatusSearch5
     /// <summary>
     /// Status of a transfer.
     /// </summary>
+    [DataMember]
     public PaymentStatusCodeSearch2Choice_? PaymentInstructionStatus { get; init; } 
     /// <summary>
     /// Date and time at which the status was assigned to the transfer.
     /// </summary>
+    [DataMember]
     public DateTimePeriod1Choice_? PaymentInstructionStatusDateTime { get; init; } 
     /// <summary>
     /// Defines the reason that has been used by the system to reject the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax4AlphaNumericText? ProprietaryStatusReason { get; init; } 
     
     #nullable disable

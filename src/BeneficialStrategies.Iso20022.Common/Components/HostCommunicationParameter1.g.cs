@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Configuration parameters to communicate with a host.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record HostCommunicationParameter1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record HostCommunicationParameter1
     /// <summary>
     /// Identification of the host.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text HostIdentification { get; init; } 
     /// <summary>
     /// Network parameters of the host.
     /// </summary>
+    [DataMember]
     public NetworkParameters1? Address { get; init; } 
     /// <summary>
     /// Cryptographic key used to communicate with the host.
     /// </summary>
-    public CryptographicKey1[] Key { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CryptographicKey1> Key { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

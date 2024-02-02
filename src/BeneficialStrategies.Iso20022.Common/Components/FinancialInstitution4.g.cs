@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to a financial institution required by business or regulation (for example, in money or funds transfer).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstitution4
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record FinancialInstitution4
     /// <summary>
     /// Identification of the financial institution.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Name of the financial institution.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Address of the financial institution.
     /// </summary>
+    [DataMember]
     public Address1? Address { get; init; } 
     /// <summary>
     /// Electronic mail address of the financial institution.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Email { get; init; } 
     /// <summary>
     /// Universal Resource Locator (URL) address of the financial institution.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? URLAddress { get; init; } 
     /// <summary>
     /// Collection of information that identifies a phone number, as defined by telecom services.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PhoneNumber { get; init; } 
     /// <summary>
     /// Phone number of the customer services.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CustomerService { get; init; } 
     /// <summary>
     /// Additional information used to facilitate contact with the financial institution, for instance dispute manager name.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? AdditionalContactInformation { get; init; } 
     
     #nullable disable

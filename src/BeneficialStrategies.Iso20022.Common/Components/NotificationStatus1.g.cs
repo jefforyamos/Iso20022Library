@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies if the occurrence of the event contained in the notification is confirmed or unconfirmed. Details of the event can be complete or incomplete.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NotificationStatus1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record NotificationStatus1
     /// <summary>
     /// Status to define if the occurrence of the event contained in the notification is confirmed or unconfirmed.
     /// </summary>
+    [DataMember]
     public required NotificationStatus2Code Status { get; init; } 
     
     #nullable disable

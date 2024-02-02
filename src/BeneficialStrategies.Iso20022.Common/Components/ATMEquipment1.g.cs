@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// ATM terminal equipment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMEquipment1
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record ATMEquipment1
     /// <summary>
     /// ATM Manufacturer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Manufacturer { get; init; } 
     /// <summary>
     /// Model of ATM.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Model { get; init; } 
     /// <summary>
     /// Serial number of the ATM.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SerialNumber { get; init; } 
     /// <summary>
     /// Provider of the ATM application software.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ApplicationProvider { get; init; } 
     /// <summary>
     /// Name of the software product.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ApplicationName { get; init; } 
     /// <summary>
     /// Current version of the software that might include the release number.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ApplicationVersion { get; init; } 
     /// <summary>
     /// Unique assessment number for the component.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ApprovalNumber { get; init; } 
     /// <summary>
     /// Configuration parameter version.
     /// </summary>
-    public ATMConfigurationParameter1[] ConfigurationParameter { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMConfigurationParameter1> ConfigurationParameter { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

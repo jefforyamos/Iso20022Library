@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Calculation of the current situation of a baseline as a result of the submission of a commercial data set.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LineItem14
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record LineItem14
     /// <summary>
     /// Calculated information about the goods of the underlying transaction.
     /// </summary>
-    public LineItemDetails12[] LineItemDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LineItemDetails12> LineItemDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Line items total amount as indicated in the baseline.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount OrderedLineItemsTotalAmount { get; init; } 
     /// <summary>
     /// Line items total amount accepted by a data set submission(s).
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount AcceptedLineItemsTotalAmount { get; init; } 
     /// <summary>
     /// Difference between the ordered and the accepted line items total amount.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount OutstandingLineItemsTotalAmount { get; init; } 
     /// <summary>
     /// Line item total amount for which a mismatched data set has been submitted and has not yet been accepted or rejected.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount PendingLineItemsTotalAmount { get; init; } 
     /// <summary>
     /// Total net amount as indicated in the baseline.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount OrderedTotalNetAmount { get; init; } 
     /// <summary>
     /// Total net amount accepted by a data set submission.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount AcceptedTotalNetAmount { get; init; } 
     /// <summary>
     /// Total net amount for which a mismatched data set has been submitted and has not yet been accepted or rejected.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount OutstandingTotalNetAmount { get; init; } 
     /// <summary>
     /// Difference between the ordered and the accepted total net amount.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount PendingTotalNetAmount { get; init; } 
     
     #nullable disable

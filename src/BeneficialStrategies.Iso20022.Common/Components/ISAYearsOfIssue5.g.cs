@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Year in which the ISA plan is issued.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ISAYearsOfIssue5
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ISAYearsOfIssue5
     /// <summary>
     /// ISA that was issued during the current fiscal year.
     /// </summary>
+    [DataMember]
     public CurrentYearType1Choice_? CurrentYear { get; init; } 
     /// <summary>
     /// Indicates whether the ISA contains a cash component asset for transfer.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator CashComponentIndicator { get; init; } 
     /// <summary>
     /// Selection of investment plans issued during previous years.
     /// </summary>
+    [DataMember]
     public PreviousYear3? PreviousYears { get; init; } 
     /// <summary>
     /// Specifies the amounts already subscribed for the current year.
     /// </summary>
+    [DataMember]
     public required SubscriptionInformation1 CurrentYearSubscriptionDetails { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides extra tax details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxSD1
 {
     #nullable enable
@@ -21,46 +23,57 @@ public partial record TaxSD1
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Amount of foreign tax credit per security.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINActiveCurrencyAndAmount? ForeignTaxCreditAmount { get; init; } 
     /// <summary>
     /// Percent of foreign tax credit per security|.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? ForeignTaxCreditRate { get; init; } 
     /// <summary>
     /// Amount of the dividend that is being paid out of income earned in a foreign jurisdiction.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINActiveCurrencyAndAmount? ForeignSourceAmount { get; init; } 
     /// <summary>
     /// Percentage of the dividend that is being paid out of income earned in a foreign jurisdiction.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? ForeignSourceRate { get; init; } 
     /// <summary>
     /// Form of tax advantage on the dividend.
     /// </summary>
+    [DataMember]
     public TaxAdvantageType1Code? TaxAdvantageType { get; init; } 
     /// <summary>
     /// Amount of the tax advantage on the dividend.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINActiveCurrencyAndAmount? TaxAdvantageAmount { get; init; } 
     /// <summary>
     /// Percent of the tax advantage on the dividend.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? TaxAdvantageRate { get; init; } 
     /// <summary>
     /// Percentage of the amount of money related to taxable income that cannot be categorised.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? SundryOrOtherRate { get; init; } 
     /// <summary>
     /// Percentage of the amount of income eligible for deferred taxation.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? TaxDeferredRate { get; init; } 
     /// <summary>
     /// Percentage of the amount of money that has not been subject to taxation.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? TaxFreeRate { get; init; } 
     
     #nullable disable

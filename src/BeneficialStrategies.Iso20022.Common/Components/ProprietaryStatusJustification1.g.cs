@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines proprietary reason to reject a transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProprietaryStatusJustification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ProprietaryStatusJustification1
     /// <summary>
     /// Defines the reason why the Target2 SSP system has rejected the transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax4AlphaNumericText ProprietaryStatusReason { get; init; } 
     /// <summary>
     /// Provides detailed information about the reason why the Target2 SSP system has rejected the transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax256Text Reason { get; init; } 
     
     #nullable disable

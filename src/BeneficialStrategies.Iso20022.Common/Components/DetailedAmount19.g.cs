@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Breakdown of the transaction amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedAmount19
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record DetailedAmount19
     /// <summary>
     /// Type or class of amount.
     /// </summary>
+    [DataMember]
     public required DetailAmount1Code Type { get; init; } 
     /// <summary>
     /// Additional information to specify the type of amount.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Detailed amount expressed in the transaction currency.
     /// </summary>
+    [DataMember]
     public required Amount5 Amount { get; init; } 
     /// <summary>
     /// Detailed amount expressed in the cardholder billing currency.
     /// </summary>
+    [DataMember]
     public Amount5? CardholderBillingAmount { get; init; } 
     /// <summary>
     /// Detailed amount expressed in the reconciliation currency. 
     /// </summary>
+    [DataMember]
     public Amount5? ReconciliationAmount { get; init; } 
     /// <summary>
     /// Short description of the detailed amount.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Label { get; init; } 
     
     #nullable disable

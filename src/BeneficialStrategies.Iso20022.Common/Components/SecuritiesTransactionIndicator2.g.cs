@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional indicators on the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesTransactionIndicator2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record SecuritiesTransactionIndicator2
     /// <summary>
     /// Indicates whether the transaction was executed under a pre-trade waiver.
     /// </summary>
-    public ReportingWaiverType1Code[] WaiverIndicator { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReportingWaiverType1Code> WaiverIndicator { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates a short sell concluded by the investment agent on its own accounts or on behalf of a client, as described in the local regulation.
     /// </summary>
+    [DataMember]
     public Side5Code? ShortSellingIndicator { get; init; } 
     /// <summary>
     /// Indicates the type of transaction in accordance with the local regulation.
     /// </summary>
-    public ReportingWaiverType3Code[] OTCPostTradeIndicator { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReportingWaiverType3Code> OTCPostTradeIndicator { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the transaction is objectively measurable as reducing risks directly relating to the commercial activity of the entity executing the transaction.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? RiskReducingTransaction { get; init; } 
     /// <summary>
     /// Indicates whether the transaction falls within the scope of activity to be reported under the Securities Financing Transactions Regulation.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator SecuritiesFinancingTransactionIndicator { get; init; } 
     
     #nullable disable

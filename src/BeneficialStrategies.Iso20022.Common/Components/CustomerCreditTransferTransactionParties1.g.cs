@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies all the parties involved in a serial payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CustomerCreditTransferTransactionParties1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CustomerCreditTransferTransactionParties1
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? DebtorAgent { get; init; } 
     /// <summary>
     /// Agent through which the instructing agent (identified in the "From" element) will reimburse the instructed agent (identified in the "To" element).
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? InstructingReimbursementAgent { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? CreditorAgent { get; init; } 
     
     #nullable disable

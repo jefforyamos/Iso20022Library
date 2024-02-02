@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cryptographic Key.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CryptographicKey16
 {
     #nullable enable
@@ -20,57 +22,70 @@ public partial record CryptographicKey16
     /// <summary>
     /// Name of the cryptographic key.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text Identification { get; init; } 
     /// <summary>
     /// Additional identification of the key.
     /// Usage
     /// For derived unique key per transaction (DUKPT) keys, the key serial number (KSN) with the 21 bits of the transaction counter set to zero.
     /// </summary>
+    [DataMember]
     public IsoMax35Binary? AdditionalIdentification { get; init; } 
     /// <summary>
     /// Name of the Cryptographic Element.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Name { get; init; } 
     /// <summary>
     /// Identification of the set of security elements to which this element belongs.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SecurityProfile { get; init; } 
     /// <summary>
     /// Hierarchical identification of a key inside all the key system. It is composed of all item numbers of the upper level components, separated by the '.' character, ended by the item number of the current component.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ItemNumber { get; init; } 
     /// <summary>
     /// Version of the cryptographic key.
     /// </summary>
+    [DataMember]
     public required IsoMax256Text Version { get; init; } 
     /// <summary>
     /// Type of algorithm used by the cryptographic key.
     /// </summary>
+    [DataMember]
     public CryptographicKeyType3Code? Type { get; init; } 
     /// <summary>
     /// Allowed usage of the key.
     /// </summary>
-    public KeyUsage1Code[] Function { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<KeyUsage1Code> Function { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date and time on which the key must be activated.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ActivationDate { get; init; } 
     /// <summary>
     /// Date and time on which the key must be deactivated.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? DeactivationDate { get; init; } 
     /// <summary>
     /// Encrypted cryptographic key.
     /// </summary>
+    [DataMember]
     public ContentInformationType30? KeyValue { get; init; } 
     /// <summary>
     /// Value for checking a cryptographic key security parameter.
     /// </summary>
+    [DataMember]
     public IsoMax35Binary? KeyCheckValue { get; init; } 
     /// <summary>
     /// Additional Information needed by the receiver to securely process the management of the security element.
     /// </summary>
-    public GenericInformation1[] AdditionalManagementInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericInformation1> AdditionalManagementInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

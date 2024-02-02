@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates the notional quantity of the underlying assets.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NotionalQuantityLegs5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NotionalQuantityLegs5
     /// <summary>
     /// Aggregate notional quantity of the underlying asset of leg 1 for the term of the transaction. Where the total notional quantity is not known when a new transaction is reported, the total notional quantity is updated as it becomes available. 
     /// </summary>
+    [DataMember]
     public NotionalQuantity9? FirstLeg { get; init; } 
     /// <summary>
     /// Aggregate notional quantity of the underlying asset of leg 2 for the term of the transaction. Where the total notional quantity is not known when a new transaction is reported, the total notional quantity is updated as it becomes available. 
     /// </summary>
+    [DataMember]
     public NotionalQuantity9? SecondLeg { get; init; } 
     
     #nullable disable

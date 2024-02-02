@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reference of the trade transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionDetails2
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record TransactionDetails2
     /// <summary>
     /// Unique identification assigned to a trade once it is received or matched by an executing system.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text TradeReference { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Tax related to an investment fund order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Tax20
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Tax20
     /// <summary>
     /// Type of tax applied.
     /// </summary>
+    [DataMember]
     public required TaxType14Code Type { get; init; } 
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether a tax exemption applies.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ExemptionIndicator { get; init; } 
     
     #nullable disable

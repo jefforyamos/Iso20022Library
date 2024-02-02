@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Type of product and assets to be transferred.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PortfolioTransfer2
 {
     #nullable enable
@@ -20,43 +22,53 @@ public partial record PortfolioTransfer2
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Identification assigned to the transfer of assets.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferIdentification { get; init; } 
     /// <summary>
     /// Identification of the confirmation assigned by the transferor to the transfer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TransferConfirmationIdentification { get; init; } 
     /// <summary>
     /// Choice of tax efficient product, general investment or pension.
     /// </summary>
+    [DataMember]
     public FundPortfolio2Choice_? Portfolio { get; init; } 
     /// <summary>
     /// Specifies whether all remaining assets in the portfolio not listed for transfer should be liquidated and transferred as cash. 
     /// </summary>
+    [DataMember]
     public AllOtherCash1Code? AllOtherCash { get; init; } 
     /// <summary>
     /// Specifies whether all assets in the portfolio should be liquidated and transferred as cash.
     /// </summary>
+    [DataMember]
     public CashAll1Code? CashAll { get; init; } 
     /// <summary>
     /// Specifies what must be done with cash in the account that is awaiting investment.
     /// </summary>
+    [DataMember]
     public ResidualCash1Code? ResidualCash { get; init; } 
     /// <summary>
     /// Tax date applicable to all the assets.
     /// </summary>
+    [DataMember]
     public IsoISODate? TaxDate { get; init; } 
     /// <summary>
     /// Asset to be transferred.
     /// </summary>
-    public FinancialInstrument68[] FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FinancialInstrument68> FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the product transfer.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

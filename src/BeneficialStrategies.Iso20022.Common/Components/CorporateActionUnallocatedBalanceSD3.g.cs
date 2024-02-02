@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Balance types related to an unallocated redemption payment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionUnallocatedBalanceSD3
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record CorporateActionUnallocatedBalanceSD3
     /// <summary>
     /// Total quantity of financial instruments of the balance.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? TotalEligibleBalance { get; init; } 
     /// <summary>
     /// The quantity that has been determined to be redeemed if the participant had
     /// position in a redemption security.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? AffectedBalance { get; init; } 
     /// <summary>
     /// Positions balance remaining after lottery is run.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? UnaffectedBalance { get; init; } 
     /// <summary>
     /// Position that account holders should return to the account servicer to participate in the event or to fulfil their obligation for the event to be complete, for example, return of securities for late announced drawing.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? ObligatedBalance { get; init; } 
     /// <summary>
     /// Position held in a security as of the day prior to publication date. This position is subject to a redemption lottery call when this is the first lottery. This balance will not be adjusted for the supplemental or concurrent lotteries and will remain constant to report the original position.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? OriginalBalance { get; init; } 
     /// <summary>
     /// Portion of the original balance position held in DTC general free account as of day prior to publication date. Position held in this account is subject to redemption lottery call.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? PledgedBalance { get; init; } 
     /// <summary>
     /// Portion of the original balance position held in DTC general free account as of day prior to publication date. Position held in this account is subject to redemption lottery call.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? UnpledgedBalance { get; init; } 
     /// <summary>
     /// Portion of the original balance position held in DTC investment account as of day prior to publication date. Position held in this account is subject to redemption lottery call and must be released to allow allocation.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? InvestmentPledgedBalance { get; init; } 
     /// <summary>
     /// Portion of the original balance position held in DTC segregated account as of day prior to publication date. Position held in this account is subject to redemption lottery call and must be released to allow allocation.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? InvestmentUnpledgedBalance { get; init; } 
     
     #nullable disable

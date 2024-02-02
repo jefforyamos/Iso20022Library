@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the elements used to uniquely identify a standing order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StandingOrderIdentification5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record StandingOrderIdentification5
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.|.
     /// </summary>
+    [DataMember]
     public required CashAccount38 Account { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? AccountOwner { get; init; } 
     
     #nullable disable

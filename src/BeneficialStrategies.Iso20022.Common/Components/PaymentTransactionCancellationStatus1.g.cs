@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the status of the cancellation of a payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTransactionCancellationStatus1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record PaymentTransactionCancellationStatus1
     /// <summary>
     /// Specifies the status of a cancellation request.
     /// </summary>
+    [DataMember]
     public required CancellationIndividualStatus2Code TransactionCancellationStatus { get; init; } 
     
     #nullable disable

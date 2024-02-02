@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about reported derivatives and reported derivatives with outliers.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedTransactionStatistics28
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record DetailedTransactionStatistics28
     /// <summary>
     /// Number of reported derivatives.
     /// </summary>
+    [DataMember]
     public required IsoNumber NumberOfDerivativesReported { get; init; } 
     /// <summary>
     /// Number of reported derivatives with outliers.
     /// </summary>
+    [DataMember]
     public required IsoNumber NumberOfDerivativesReportedWithOutliers { get; init; } 
     /// <summary>
     /// Details of abnormal values.
     /// </summary>
-    public AbnormalValuesData4[] Warnings { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AbnormalValuesData4> Warnings { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

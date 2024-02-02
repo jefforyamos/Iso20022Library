@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(PortfolioTransferStatus2Choice.PendingProcessing))]
 [KnownType(typeof(PortfolioTransferStatus2Choice.Rejected))]
 [KnownType(typeof(PortfolioTransferStatus2Choice.Proprietary))]
+[DataContract]
 public abstract partial record PortfolioTransferStatus2Choice_
 {
 }

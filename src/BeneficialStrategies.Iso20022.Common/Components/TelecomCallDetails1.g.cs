@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Structured call details with address.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TelecomCallDetails1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record TelecomCallDetails1
     /// <summary>
     /// Contains call type values.
     /// </summary>
+    [DataMember]
     public TelephonyCallType1Code? Type { get; init; } 
     /// <summary>
     /// Contains other call type values.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? OtherType { get; init; } 
     /// <summary>
     /// Origination or destination phone number.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? PhoneNumber { get; init; } 
     /// <summary>
     /// City from which or to which the call was made.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? City { get; init; } 
     /// <summary>
     /// State from which or to which the call was made.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? State { get; init; } 
     /// <summary>
     /// Province from which or to which the call was made.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Province { get; init; } 
     /// <summary>
     /// Country from which or to which the call was made.
     /// </summary>
+    [DataMember]
     public IsoMin2Max3AlphaText? Country { get; init; } 
     
     #nullable disable

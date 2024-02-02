@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CollateralFlag10Choice.Collateralised))]
 [KnownType(typeof(CollateralFlag10Choice.Uncollateralised))]
+[DataContract]
 public abstract partial record CollateralFlag10Choice_
 {
 }

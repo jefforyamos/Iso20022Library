@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Alternate identification for a party using an id type, a country code and an text field.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AlternatePartyIdentification10
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AlternatePartyIdentification10
     /// <summary>
     /// Specifies the type of alternate identification which can be used to give an alternate identification of the party identified.
     /// </summary>
+    [DataMember]
     public required IdentificationType42Choice_ TypeOfIdentification { get; init; } 
     /// <summary>
     /// Country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
     /// </summary>
+    [DataMember]
     public required CountryCode Country { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text AlternateIdentification { get; init; } 
     
     #nullable disable

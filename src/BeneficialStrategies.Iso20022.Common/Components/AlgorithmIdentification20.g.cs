@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a cryptographic algorithm and parameters for digital signatures.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AlgorithmIdentification20
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AlgorithmIdentification20
     /// <summary>
     /// Identification of the algorithm.
     /// </summary>
+    [DataMember]
     public required Algorithm19Code Algorithm { get; init; } 
     /// <summary>
     /// Parameters of the RSASSA-PSS digital signature algorithm (RSA signature algorithm with appendix: Probabilistic Signature Scheme).
     /// </summary>
+    [DataMember]
     public Parameter11? Parameter { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Plan that allows investors to schedule periodical investments or divestments, according to pre-defined criteria.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentPlan5
 {
     #nullable enable
@@ -20,51 +22,63 @@ public partial record InvestmentPlan5
     /// <summary>
     /// Frequency of the investment or divestment.
     /// </summary>
+    [DataMember]
     public required EventFrequency1Code Frequency { get; init; } 
     /// <summary>
     /// Frequency of the investment or divestment.
     /// </summary>
+    [DataMember]
     public required IsoExtended350Code ExtendedFrequency { get; init; } 
     /// <summary>
     /// Date the investment plan starts.
     /// </summary>
+    [DataMember]
     public required IsoISODate StartDate { get; init; } 
     /// <summary>
     /// Date the investment plan stops.
     /// </summary>
+    [DataMember]
     public IsoISODate? EndDate { get; init; } 
     /// <summary>
     /// Currency and amount of the periodical payments.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether an ordered amount is a gross amount (including all charges, commissions, tax). If it is not a gross amount, the ordered amount is a net amount (amount to be invested or redeemed from the fund to which other elements will be added).
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? GrossAmountIndicator { get; init; } 
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
+    [DataMember]
     public IncomePreference1Code? IncomePreference { get; init; } 
     /// <summary>
     /// Number of pre-paid instalment periods at the time the investment plan is created.
     /// </summary>
+    [DataMember]
     public IsoNumber? InitialNumberOfInstalment { get; init; } 
     /// <summary>
     /// Total number of times the amount must be invested at the predefined frequency as of the start date of the investment plan.
     /// </summary>
+    [DataMember]
     public IsoNumber? TotalNumberOfInstalment { get; init; } 
     /// <summary>
     /// Indicates the rounding direction when an amount is to be spread over several funds.
     /// </summary>
+    [DataMember]
     public RoundingDirection1Code? RoundingDirection { get; init; } 
     /// <summary>
     /// Security that an investment plan invests in, or from which the investment plan divests.
     /// </summary>
-    public Repartition1[] SecurityDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<Repartition1> SecurityDetails { get; init; } = [];
     /// <summary>
     /// Cash settlement standing instruction associated to the investment plan and to be either inserted or deleted.
     /// </summary>
-    public InvestmentFundCashSettlementInformation4[] ModifiedCashSettlement { get; init; } = [];
+    [DataMember]
+    public ValueList<InvestmentFundCashSettlementInformation4> ModifiedCashSettlement { get; init; } = [];
     
     #nullable disable
 }

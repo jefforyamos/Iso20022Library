@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the transportation of goods by rail.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransportByRail4
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record TransportByRail4
     /// <summary>
     /// Identifies the location where the goods are received for transportation.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text PlaceOfReceipt { get; init; } 
     /// <summary>
     /// Identifies the location of delivery of the goods.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text PlaceOfDelivery { get; init; } 
     /// <summary>
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? RailCarrierName { get; init; } 
     /// <summary>
     /// Country in which the carrier of the goods, for example, shipping company, is located or registered.
     /// </summary>
+    [DataMember]
     public CountryCode? RailCarrierCountry { get; init; } 
     /// <summary>
     /// Name of the carrier's (for example, shipping company's) agent that acts on behalf of the carrier and may be the issuer of transport documents relating to the underlying shipment.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? CarrierAgentName { get; init; } 
     /// <summary>
     /// Country of registration of the carrier's (for example, shipping company's) agent that acts on behalf of the carrier and may be the issuer of transport documents relating to the underlying shipment.
     /// </summary>
+    [DataMember]
     public CountryCode? CarrierAgentCountry { get; init; } 
     
     #nullable disable

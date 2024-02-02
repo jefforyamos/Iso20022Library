@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Instrument specific technical data to support identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RecordTechnicalData2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RecordTechnicalData2
     /// <summary>
     /// Defines the date and time when the report was originally received by the national competent authority.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime ReceiptDateTime { get; init; } 
     /// <summary>
     /// Specifies the reason for the cancellation the transaction.
     /// </summary>
+    [DataMember]
     public required CancelledStatusReason15Code CancellationReason { get; init; } 
     
     #nullable disable

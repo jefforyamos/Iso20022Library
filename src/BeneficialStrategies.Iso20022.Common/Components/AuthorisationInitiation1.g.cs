@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the authorisation initiation message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AuthorisationInitiation1
 {
     #nullable enable
@@ -20,36 +22,44 @@ public partial record AuthorisationInitiation1
     /// <summary>
     /// Contains or describes the information pertaining to the actors interacting with the transaction.
     /// </summary>
+    [DataMember]
     public required Environment1 Environment { get; init; } 
     /// <summary>
     /// Contains or describes conditions and characteristics of the transaction.
     /// </summary>
+    [DataMember]
     public required Context1 Context { get; init; } 
     /// <summary>
     /// Card transaction for which an authorisation is requested.
     /// </summary>
+    [DataMember]
     public required Transaction77 Transaction { get; init; } 
     /// <summary>
     /// Component contains data structures applicable to certain industries that require specific data within transaction messages.
     /// </summary>
+    [DataMember]
     public AddendumData1? AddendumData { get; init; } 
     /// <summary>
     /// Outcome of the processing of the authorisation.
     /// </summary>
+    [DataMember]
     public ProcessingResult1? ProcessingResult { get; init; } 
     /// <summary>
     /// Data related to an integrated circuit card application embedded in the payment card of the cardholder.
     /// ISO 8583 bit 55
     /// </summary>
+    [DataMember]
     public IsoMax10KHexBinaryText? ICCRelatedData { get; init; } 
     /// <summary>
     /// Contains protected data and the attributes used to protect the data.
     /// </summary>
-    public ProtectedData1[] ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProtectedData1> ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

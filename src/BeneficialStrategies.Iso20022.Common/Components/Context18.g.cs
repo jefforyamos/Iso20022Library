@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Context in which the card payment transaction is performed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Context18
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record Context18
     /// <summary>
     /// Contains point of interaction information specific to a given transaction that may change from transaction to transaction.
     /// </summary>
+    [DataMember]
     public PointOfServiceContext3? PointOfServiceContext { get; init; } 
     /// <summary>
     /// Context of the card payment transaction.
     /// </summary>
+    [DataMember]
     public TransactionContext7? TransactionContext { get; init; } 
     /// <summary>
     /// Contain validation result and/or data to be validated.
     /// </summary>
-    public Verification5[] Verification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Verification5> Verification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Context of risk associated with the transaction.
     /// </summary>
-    public RiskContext2[] RiskContext { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RiskContext2> RiskContext { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Context of the sale associated with the card payment transaction.
     /// </summary>
+    [DataMember]
     public SaleContext8? SaleContext { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData2[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData2> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

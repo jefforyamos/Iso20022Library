@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the billing rate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BillingRate1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record BillingRate1
     /// <summary>
     /// Defines the type of rate or factor.
     /// </summary>
+    [DataMember]
     public required BillingRateIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Value of the rate or factor identified in the rate identification.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate Value { get; init; } 
     /// <summary>
     /// Number of days in the statement period. ||Usage: Used along with DaysInYear for time dependent per annum rate value.
     /// </summary>
+    [DataMember]
     public IsoNumber? DaysInPeriod { get; init; } 
     /// <summary>
     /// Number of days in the year.||Usage: Used along with DaysInPeriod for time dependent per annum rate value.
     /// </summary>
+    [DataMember]
     public IsoNumber? DaysInYear { get; init; } 
     
     #nullable disable

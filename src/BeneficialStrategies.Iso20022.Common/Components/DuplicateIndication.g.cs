@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reference to another message indicating that the containing message is a	duplicate of the referenced message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DuplicateIndication
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DuplicateIndication
     /// <summary>
     /// Reference of the original message, in case this is a duplicate.
     /// </summary>
+    [DataMember]
     public required IsoMax30Text Reference { get; init; } 
     /// <summary>
     /// Information about the duplicate.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Justification { get; init; } 
     
     #nullable disable

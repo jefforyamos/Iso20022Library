@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Choice of format for the transfer reason.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferReason1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TransferReason1
     /// <summary>
     /// Transfer reason expressed as an ISO 20022 code.
     /// </summary>
+    [DataMember]
     public required TransferReason1Code Code { get; init; } 
     /// <summary>
     /// Transfer reason expressed as a proprietary code.
     /// </summary>
+    [DataMember]
     public required GenericIdentification27 Proprietary { get; init; } 
     
     #nullable disable

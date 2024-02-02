@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data to respond to a Payment request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentResponse3
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record PaymentResponse3
     /// <summary>
     /// Sale System identification of the transaction in an unambiguous way.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 SaleTransactionIdentification { get; init; } 
     /// <summary>
     /// Global reference of the sale transaction for the sale system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleReferenceIdentification { get; init; } 
     /// <summary>
     /// POI identification of the transaction in an unambiguous way.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 POITransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the reconciliation period between the acceptor and the acquirer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? POIReconciliationIdentification { get; init; } 
     /// <summary>
     /// Identification of the transaction given by the Issuer.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? IssuerReferenceData { get; init; } 
     /// <summary>
     /// Data related to the result of a processed payment transaction.
     /// </summary>
+    [DataMember]
     public required RetailerPaymentResult3 RetailerPaymentResult { get; init; } 
     /// <summary>
     /// Customer or Merchant payment receipt.
     /// </summary>
-    public PaymentReceipt3[] PaymentReceipt { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentReceipt3> PaymentReceipt { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data related to the result of a processed loyalty transaction.
     /// </summary>
-    public LoyaltyResult2[] LoyaltyResult { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LoyaltyResult2> LoyaltyResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Customer order attached to a customer, recorded in the POI system.
     /// </summary>
-    public CustomerOrder1[] CustomerOrder { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CustomerOrder1> CustomerOrder { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

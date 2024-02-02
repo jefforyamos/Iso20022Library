@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(MoneyLaunderingCheck1Choice.Code))]
 [KnownType(typeof(MoneyLaunderingCheck1Choice.Proprietary))]
+[DataContract]
 public abstract partial record MoneyLaunderingCheck1Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Securitised right for entitlement, for example, equity or bond.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UnderlyingSecurity2
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record UnderlyingSecurity2
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification12 SecurityIdentification { get; init; } 
     
     #nullable disable

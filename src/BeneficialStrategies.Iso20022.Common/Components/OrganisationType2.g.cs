@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a type of identification requested for an organisation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OrganisationType2
 {
     #nullable enable
@@ -21,21 +23,25 @@ public partial record OrganisationType2
     /// Business identification code of the organisation is requested.
     /// Usage: When absent (default value), the identification is not requested. 
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? AnyBIC { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a party is requested.
     /// Usage: When absent (default value), the identification is not requested. 
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? LEI { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail) is requested.
     /// Usage: When absent (default value), the identification is not requested. 
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? EmailAddress { get; init; } 
     /// <summary>
     /// Unique identification of an organisation, as assigned by an institution, using an identification scheme is requested.
     /// </summary>
-    public GenericOrganisationType1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericOrganisationType1> Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

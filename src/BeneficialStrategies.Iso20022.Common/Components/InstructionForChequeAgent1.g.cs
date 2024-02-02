@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Further information related to the processing of the cheque instruction that may need to be acted upon by the receiving agent.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InstructionForChequeAgent1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InstructionForChequeAgent1
     /// <summary>
     /// Coded information related to the processing of the cheque, intended for the receiving agent.
     /// </summary>
+    [DataMember]
     public ExternalChequeAgentInstruction1Code? Code { get; init; } 
     /// <summary>
     /// Further information complementing the coded instruction or instruction to the cheque agent that is bilaterally agreed or specific to a user community.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? InstructionInformation { get; init; } 
     
     #nullable disable

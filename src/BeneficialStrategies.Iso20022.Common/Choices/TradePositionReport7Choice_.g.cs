@@ -16,6 +16,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(TradePositionReport7Choice.ValuationUpdate))]
 [KnownType(typeof(TradePositionReport7Choice.Error))]
 [KnownType(typeof(TradePositionReport7Choice.Other))]
+[DataContract]
 public abstract partial record TradePositionReport7Choice_
 {
 }

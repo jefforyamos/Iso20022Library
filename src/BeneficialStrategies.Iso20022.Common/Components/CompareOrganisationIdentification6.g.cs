@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for an organisation identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareOrganisationIdentification6
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareOrganisationIdentification6
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification15Choice_? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification15Choice_? Value2 { get; init; } 
     
     #nullable disable

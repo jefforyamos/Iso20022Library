@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about cash entitlements.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashEntitlement1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record CashEntitlement1
     /// <summary>
     /// Entitled cash amount.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount CashAmount { get; init; } 
     
     #nullable disable

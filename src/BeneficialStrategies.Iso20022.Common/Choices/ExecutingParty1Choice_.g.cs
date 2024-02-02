@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ExecutingParty1Choice.Person))]
 [KnownType(typeof(ExecutingParty1Choice.Algorithm))]
 [KnownType(typeof(ExecutingParty1Choice.Client))]
+[DataContract]
 public abstract partial record ExecutingParty1Choice_
 {
 }

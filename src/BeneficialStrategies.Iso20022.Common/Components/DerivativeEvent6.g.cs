@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to derivative details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DerivativeEvent6
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record DerivativeEvent6
     /// <summary>
     /// Classification of derivative event type.
     /// </summary>
+    [DataMember]
     public DerivativeEventType3Code? Type { get; init; } 
     /// <summary>
     /// Indicates means of identification of a derivative event.
     /// </summary>
+    [DataMember]
     public EventIdentifier1Choice_? Identification { get; init; } 
     /// <summary>
     /// Indicates the time stamp of a derivative event.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? TimeStamp { get; init; } 
     /// <summary>
     /// Indicator of whether the modification of the swap transaction reflects newly agreed upon term(s) from the previously negotiated terms resulting in price forming event.
     /// Usage: When absent, meaning of AmendmentIndicator is False.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? AmendmentIndicator { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Extension for updated additional information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UpdatedAdditionalInformation5SD1
 {
     #nullable enable
@@ -21,30 +23,36 @@ public partial record UpdatedAdditionalInformation5SD1
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Total distribution fund rate per share.
     /// 一株あたりの交付金先等の額.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat2Choice_? DistributionAmountPerShare { get; init; } 
     /// <summary>
     /// Rate information of how much net asset decrease happens as a result of the fund distribution.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? NetAssetDecreaseRatio { get; init; } 
     /// <summary>
     /// Distribution amount of accumulated profit per share.
     /// 一株あたり利益剰余金の額.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat2Choice_? AccumulatedProfitPerShare { get; init; } 
     /// <summary>
     /// Taxable distribution amount of dividend.
     /// 一株あたりみなし配当の額.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat2Choice_? DeemedDividendPerShare { get; init; } 
     /// <summary>
     /// Tax exempted distribution amount of dividend. 
     /// 一株あたりみなし譲渡収入の額.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat2Choice_? ResidualDistributionAmountPerShare { get; init; } 
     
     #nullable disable

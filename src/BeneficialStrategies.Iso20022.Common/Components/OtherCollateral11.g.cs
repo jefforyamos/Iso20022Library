@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details about the letter of credit or bank guarantee, or other collateral, posted as collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherCollateral11
 {
     #nullable enable
@@ -20,74 +22,92 @@ public partial record OtherCollateral11
     /// <summary>
     /// Provides the identification of the proposed collateral.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CollateralIdentification { get; init; } 
     /// <summary>
     /// Identifies the register number of the collateral deposit assigned by the central counterparty.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AssetNumber { get; init; } 
     /// <summary>
     /// Provides the unique identification of the letter of credit.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LetterOfCreditIdentification { get; init; } 
     /// <summary>
     /// Amount of the letter/documentary credit.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? LetterOfCreditAmount { get; init; } 
     /// <summary>
     /// Amount of the bank guarantee.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? GuaranteeAmount { get; init; } 
     /// <summary>
     /// Provides a description and an amount of another type of collateral.
     /// </summary>
+    [DataMember]
     public OtherTypeOfCollateral3? OtherTypeOfCollateral { get; init; } 
     /// <summary>
     /// Date on which the other collateral was issued.
     /// </summary>
+    [DataMember]
     public DateFormat14Choice_? IssueDate { get; init; } 
     /// <summary>
     /// Date on which the other collateral expires.
     /// </summary>
+    [DataMember]
     public DateFormat14Choice_? ExpiryDate { get; init; } 
     /// <summary>
     /// Indicates that the collateral deposited in the clearing house covers the margin until a specific timeframe.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? LimitedCoverageIndicator { get; init; } 
     /// <summary>
     /// Party that issues the bank guarantee or letter of / documentary credit.
     /// </summary>
+    [DataMember]
     public PartyIdentification178Choice_? Issuer { get; init; } 
     /// <summary>
     /// Valuation date of the other collateral when it was taken as collateral.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValueDate { get; init; } 
     /// <summary>
     /// Exchange rate.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? ExchangeRate { get; init; } 
     /// <summary>
     /// Value of the collateral based on current market prices.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? MarketValue { get; init; } 
     /// <summary>
     /// Haircut or valuation factor on the collateral expressed as a percentage.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Haircut { get; init; } 
     /// <summary>
     /// Value of the collateral after taking into account the haircut, if any.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount CollateralValue { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [DataMember]
     public SafekeepingPlaceFormat29Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
+    [DataMember]
     public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; } 
     
     #nullable disable

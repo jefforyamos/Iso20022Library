@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Report information about party reference data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyAuditTrailReport3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PartyAuditTrailReport3
     /// <summary>
     /// Identifies the returned party reference data or error information.
     /// </summary>
+    [DataMember]
     public required PartyAuditTrailOrError2Choice_ PartyAuditTrailOrError { get; init; } 
     /// <summary>
     /// Period in dates for which the audit trail is provided.
     /// </summary>
+    [DataMember]
     public DatePeriod3Choice_? DatePeriod { get; init; } 
     /// <summary>
     /// Identifies the party for which the audit trail is provided.
     /// </summary>
+    [DataMember]
     public required SystemPartyIdentification8 PartyIdentification { get; init; } 
     
     #nullable disable

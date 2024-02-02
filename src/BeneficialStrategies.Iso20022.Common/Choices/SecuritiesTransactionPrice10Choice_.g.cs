@@ -15,6 +15,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SecuritiesTransactionPrice10Choice.Yield))]
 [KnownType(typeof(SecuritiesTransactionPrice10Choice.PendingPrice))]
 [KnownType(typeof(SecuritiesTransactionPrice10Choice.Other))]
+[DataContract]
 public abstract partial record SecuritiesTransactionPrice10Choice_
 {
 }

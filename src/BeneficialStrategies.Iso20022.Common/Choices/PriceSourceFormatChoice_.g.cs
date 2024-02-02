@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(PriceSourceFormatChoice.LocalMarketPlace))]
 [KnownType(typeof(PriceSourceFormatChoice.NonLocalMarketPlace))]
 [KnownType(typeof(PriceSourceFormatChoice.PlaceAsDSS))]
+[DataContract]
 public abstract partial record PriceSourceFormatChoice_
 {
 }

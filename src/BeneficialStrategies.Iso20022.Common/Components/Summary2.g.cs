@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Summary of a collateral valuation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Summary2
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record Summary2
     /// <summary>
     /// Sum of the exposures of all transactions which are in the favour of party A. That is, all transactions which would have an amount payable by party B to party A if they were being terminated.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ExposedAmountPartyA { get; init; } 
     /// <summary>
     /// Sum of the exposures of all transactions which are in the favour of party B. That is, all transactions which would have an amount payable by party A to party B if they were being terminated.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ExposedAmountPartyB { get; init; } 
     /// <summary>
     /// Underlying business area/type of trade that triggered the posting of collateral.
     /// </summary>
+    [DataMember]
     public required ExposureType8Code ExposureType { get; init; } 
     /// <summary>
     /// Total value of the collateral (post-haircut) held by the exposed party.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalValueOfCollateral { get; init; } 
     /// <summary>
     /// Amount of collateral in excess or deficit compared to the exposure.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? NetExcessDeficit { get; init; } 
     /// <summary>
     /// Indicates whether the collateral actually posted is a long or a short position.
     /// </summary>
+    [DataMember]
     public ShortLong1Code? NetExcessDeficitIndicator { get; init; } 
     /// <summary>
     /// Date/time at which the collateral was valued.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime ValuationDateTime { get; init; } 
     /// <summary>
     /// Date on which the instructing party requests settlement of the collateral to take place.
     /// </summary>
+    [DataMember]
     public IsoISODate? RequestedSettlementDate { get; init; } 
     /// <summary>
     /// Additional details on the valuation of the collateral that is posted.
     /// </summary>
+    [DataMember]
     public SummaryAmounts2? SummaryDetails { get; init; } 
     
     #nullable disable

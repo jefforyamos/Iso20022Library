@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Measure of the current stock of a financial instrument that has been traded on an exchange or cleared via a central counterparty.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OpenInterest1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record OpenInterest1
     /// <summary>
     /// Gross notional of product cleared, if applicable.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAnd24Amount GrossNotionalAmount { get; init; } 
     /// <summary>
     /// Open interest in number of lots, if applicable.
     /// </summary>
+    [DataMember]
     public IsoPositiveNumber? NumberOfLots { get; init; } 
     
     #nullable disable

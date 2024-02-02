@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provide information about the type of request or instruction which triggered this confirmation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountManagementConfirmation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AccountManagementConfirmation1
     /// <summary>
     /// Specifies if the confirmation message applies to an account opening, an account modification request or to a get account details.
     /// </summary>
+    [DataMember]
     public required AccountManagementType2Code ConfirmationType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the account opening or modification instruction at application level.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indetification of a cryptographic Key to use.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CryptographicKey3
 {
     #nullable enable
@@ -20,16 +22,19 @@ public partial record CryptographicKey3
     /// <summary>
     /// Name of the cryptographic key.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Identification { get; init; } 
     /// <summary>
     /// Additional identification of the key.
     /// Usage
     /// For derived unique key per transaction (DUKPT) keys, the key serial number (KSN) with the 21 bits of the transaction counter set to zero.
     /// </summary>
+    [DataMember]
     public IsoMax35Binary? AdditionalIdentification { get; init; } 
     /// <summary>
     /// Version of the cryptographic key.
     /// </summary>
+    [DataMember]
     public required IsoExact10Text Version { get; init; } 
     
     #nullable disable

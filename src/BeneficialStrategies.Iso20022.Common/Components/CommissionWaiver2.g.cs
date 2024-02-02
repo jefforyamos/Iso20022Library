@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Non-enforcement of the right to all or part of a commission by the party entitled to the commission.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CommissionWaiver2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CommissionWaiver2
     /// <summary>
     /// Form of the rebate, eg, cash.
     /// </summary>
+    [DataMember]
     public required WaivingType1 InstructionBasis { get; init; } 
     /// <summary>
     /// Proportion of the commission that is waived, ie, if the commission is 5% and half is waived, 2.5% should be stated in this field.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate WaivedRate { get; init; } 
     
     #nullable disable

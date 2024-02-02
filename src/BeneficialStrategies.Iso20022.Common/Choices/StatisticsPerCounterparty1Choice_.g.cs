@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(StatisticsPerCounterparty1Choice.DataSetAction))]
 [KnownType(typeof(StatisticsPerCounterparty1Choice.Report))]
+[DataContract]
 public abstract partial record StatisticsPerCounterparty1Choice_
 {
 }

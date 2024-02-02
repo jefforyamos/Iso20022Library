@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines commodity attributes of a derivative where the type is other C10.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AssetClassCommodityC10Other1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record AssetClassCommodityC10Other1
     /// <summary>
     /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
     /// </summary>
+    [DataMember]
     public required AssetClassProductType11Code BaseProduct { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide information on the return or reversal expected by the party that initiated the initial payment instruction after a cancellation or modification request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ResolutionInformation2
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record ResolutionInformation2
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? InterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
+    [DataMember]
     public IsoISODate? InterbankSettlementDate { get; init; } 
     /// <summary>
     /// Specifies the clearing channel to be used to process the payment instruction.
     /// </summary>
+    [DataMember]
     public ClearingChannel2Code? ClearingChannel { get; init; } 
     /// <summary>
     /// Provides the details of the compensation made due to the modification or cancellation of a previous payment.
     /// </summary>
+    [DataMember]
     public Compensation1? Compensation { get; init; } 
     /// <summary>
     /// Provides information on the charges to be paid by the charge bearer(s) related to the payment transaction.
     /// </summary>
-    public Charges2[] Charges { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Charges2> Charges { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

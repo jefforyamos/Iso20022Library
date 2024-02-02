@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of characteristics that unambiguously identify the original global invoice financing request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalRequestInformation1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record OriginalRequestInformation1
     /// <summary>
     /// Unique and unambiguous identifier of the original request message as assigned by the original sending party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Date and time at which the original request message was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Party that requests the invoice financing, on behalf of a creditor, as indicated in the original request message.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount6? FinancingRequestor { get; init; } 
     /// <summary>
     /// Financial institution that receives the request from the financing requestor and forwards it to the first agent for execution, as indicated in the original request message.
     /// </summary>
+    [DataMember]
     public FinancialInstitutionIdentification6? IntermediaryAgent { get; init; } 
     /// <summary>
     /// Financial institution of financing requestor to which an invoice financing request is addressed, as indicated in the original request message.
     /// </summary>
+    [DataMember]
     public FinancialInstitutionIdentification6? FirstAgent { get; init; } 
     /// <summary>
     /// Information about the validation status of the request message.
     /// </summary>
+    [DataMember]
     public required ValidationStatusInformation1 ValidationStatusInformation { get; init; } 
     /// <summary>
     /// Information on the business status of the cancellation.
     /// </summary>
+    [DataMember]
     public CancellationStatusInformation1? CancellationStatusInformation { get; init; } 
     
     #nullable disable

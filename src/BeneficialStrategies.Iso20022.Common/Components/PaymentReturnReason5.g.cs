@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details on the reason of the return of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentReturnReason5
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record PaymentReturnReason5
     /// <summary>
     /// Bank transaction code included in the original entry for the transaction.
     /// </summary>
+    [DataMember]
     public BankTransactionCodeStructure4? OriginalBankTransactionCode { get; init; } 
     /// <summary>
     /// Party that issues the return.
     /// </summary>
+    [DataMember]
     public PartyIdentification135? Originator { get; init; } 
     /// <summary>
     /// Specifies the reason for the return.
     /// </summary>
+    [DataMember]
     public ReturnReason5Choice_? Reason { get; init; } 
     /// <summary>
     /// Further details on the return reason.
     /// </summary>
-    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax105Text> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

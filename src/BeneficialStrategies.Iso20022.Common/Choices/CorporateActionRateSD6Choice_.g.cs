@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CorporateActionRateSD6Choice.AdditionalQuantityForExistingSecurities))]
 [KnownType(typeof(CorporateActionRateSD6Choice.NewToOld))]
+[DataContract]
 public abstract partial record CorporateActionRateSD6Choice_
 {
 }

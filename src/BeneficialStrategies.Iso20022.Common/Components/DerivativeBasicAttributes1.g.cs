@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the derivative contract not included in the general financial instrument attributes component.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DerivativeBasicAttributes1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DerivativeBasicAttributes1
     /// <summary>
     /// Amount underlying a financial derivatives contract necessary for calculating payments or receipts.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount NotionalCurrencyAndAmount { get; init; } 
     /// <summary>
     /// Indicates whether the given derivative price includes a prorated accrued interest component.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? InterestIncludedInPrice { get; init; } 
     
     #nullable disable

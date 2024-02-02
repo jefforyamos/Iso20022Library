@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the collateral valuation such as the collateral amount, the market value.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralAmount1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CollateralAmount1
     /// <summary>
     /// Specifies the total amount of the collateral in the collateral currency.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount CollateralAmount { get; init; } 
     /// <summary>
     /// Specifies the total amount of the collateral in the reporting currency.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount ReportedCurrencyAndAmount { get; init; } 
     /// <summary>
     /// Specifies the total market to market value of the collateral in the reporting currency. It is the dirty price, that is, the accrued interest is included if any.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount MarketValueAmount { get; init; } 
     /// <summary>
     /// Specifies the accrued interest on the value of the collateral in the currency of the collateral.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? AccruedInterestAmount { get; init; } 
     /// <summary>
     /// Specifies the amount of money paid for the provision of financial services.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? FeesAndCommissions { get; init; } 
     
     #nullable disable

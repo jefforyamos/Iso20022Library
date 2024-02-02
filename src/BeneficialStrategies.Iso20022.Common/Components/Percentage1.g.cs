@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Rate information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Percentage1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Percentage1
     /// <summary>
     /// Percentage of an amount.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate Rate { get; init; } 
     /// <summary>
     /// Indication of what the percentage is relative to.
     /// </summary>
+    [DataMember]
     public required ExternalRelativeTo1Code RelativeTo { get; init; } 
     
     #nullable disable

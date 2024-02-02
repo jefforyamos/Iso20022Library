@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reference of an order and of an order cancellation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentFundOrder2
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record InvestmentFundOrder2
     /// <summary>
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of an order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order cancellation, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order execution, as assigned by a confirming party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DealReference { get; init; } 
     /// <summary>
     /// Account information of the individual order instruction or individual order cancellation request for which the status is requested.
     /// </summary>
+    [DataMember]
     public InvestmentAccount13? InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Financial instrument information of the individual order or individual order cancellation request for which the status is requested.
     /// </summary>
+    [DataMember]
     public FinancialInstrument10? FinancialInstrumentDetails { get; init; } 
     
     #nullable disable

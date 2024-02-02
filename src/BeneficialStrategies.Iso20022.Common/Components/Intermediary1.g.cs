@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Organised structure that is set up for a particular purpose, eg, a business, government body, department, charity, or financial institution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Intermediary1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Intermediary1
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution, eg, Dun & Bradstreet Identification.
     /// </summary>
+    [DataMember]
     public required PartyIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>
+    [DataMember]
     public Account1? Account { get; init; } 
     /// <summary>
     /// Set of functions performed by an intermediary in a given situation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Role { get; init; } 
     
     #nullable disable

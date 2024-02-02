@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(LocalInstrument1Choice.Code))]
 [KnownType(typeof(LocalInstrument1Choice.Proprietary))]
+[DataContract]
 public abstract partial record LocalInstrument1Choice_
 {
 }

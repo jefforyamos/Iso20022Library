@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Report information about securities reference data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesAuditTrailReport4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SecuritiesAuditTrailReport4
     /// <summary>
     /// Identifies the returned securities reference data or error information.
     /// </summary>
+    [DataMember]
     public required AuditTrailOrBusinessError6Choice_ SecuritiesAuditTrailOrError { get; init; } 
     /// <summary>
     /// Period in dates for which the audit trail is provided.
     /// </summary>
+    [DataMember]
     public DatePeriodSearch1Choice_? DatePeriod { get; init; } 
     /// <summary>
     /// Identifies the securities for which the audit trail is provided.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification39 FinancialInstrumentIdentification { get; init; } 
     
     #nullable disable

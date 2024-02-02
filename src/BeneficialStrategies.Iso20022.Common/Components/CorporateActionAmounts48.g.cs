@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies amounts in the framework of a corporate action event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionAmounts48
 {
     #nullable enable
@@ -20,194 +22,242 @@ public partial record CorporateActionAmounts48
     /// <summary>
     /// Amount of money before any deductions and allowances have been made.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? GrossCashAmount { get; init; } 
     /// <summary>
     /// Amount of money after deductions and allowances have been made, if any, that is, the total amount +/- charges/fees.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? NetCashAmount { get; init; } 
     /// <summary>
     /// Cash premium made available if the securities holder consents or participates to an event, for example consent fees or solicitation fees.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? SolicitationFees { get; init; } 
     /// <summary>
     /// Cash disbursement in lieu of a fractional quantity of, for example, equity.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? CashInLieuOfShare { get; init; } 
     /// <summary>
     /// Amount of money distributed as the result of a capital gain.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? CapitalGain { get; init; } 
     /// <summary>
     /// Amount of money representing a coupon payment.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? InterestAmount { get; init; } 
     /// <summary>
     /// Amount due to a buyer of securities dealt prior to ex date which may be subject to different rate of taxation. Used mainly in France. 
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? IndemnityAmount { get; init; } 
     /// <summary>
     /// Amount of money that the borrower pays to the lender as a compensation. It does not entitle the lender to reclaim any tax credit and is sometimes treated differently by the local tax authorities of the lender. Also covers compensation/indemnity of missed dividend concerning early/late settlements if applicable to a market.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ManufacturedDividendPaymentAmount { get; init; } 
     /// <summary>
     /// Amount of money reinvested in additional securities.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ReinvestmentAmount { get; init; } 
     /// <summary>
     /// Amount resulting from a fully franked dividend paid by a company; amount includes tax credit for companies that have made sufficient tax payments during the fiscal period.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? FullyFrankedAmount { get; init; } 
     /// <summary>
     /// Amount resulting from an unfranked dividend paid by a company; the amount does not include tax credit and is subject to withholding tax.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? UnfrankedAmount { get; init; } 
     /// <summary>
     /// Amount of money related to taxable income that cannot be categorised.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? SundryOrOtherAmount { get; init; } 
     /// <summary>
     /// Amount of money that has not been subject to taxation.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TaxFreeAmount { get; init; } 
     /// <summary>
     /// Amount of income eligible for deferred taxation.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TaxDeferredAmount { get; init; } 
     /// <summary>
     /// Amount of value added tax.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ValueAddedTaxAmount { get; init; } 
     /// <summary>
     /// Amount of stamp duty.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? StampDutyAmount { get; init; } 
     /// <summary>
     /// Amount that was paid in excess of actual tax obligation and was reclaimed.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TaxReclaimAmount { get; init; } 
     /// <summary>
     /// Amount of taxes that have been previously paid in relation to the taxable event.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TaxCreditAmount { get; init; } 
     /// <summary>
     /// Amount of additional taxes that cannot be categorised.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? AdditionalTaxAmount { get; init; } 
     /// <summary>
     /// Amount of a cash distribution that will be withheld by the tax authorities of the jurisdiction of the issuer, for which a relief at source and/or reclaim may be possible.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? WithholdingTaxAmount { get; init; } 
     /// <summary>
     /// Amount of money withheld by the jurisdiction other than the jurisdiction of the issuer’s country of tax incorporation, for which a relief at source and/or reclaim may be possible. It is levied in complement or offset of the withholding tax rate levied by the jurisdiction of the issuer’s tax domicile.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? SecondLevelTaxAmount { get; init; } 
     /// <summary>
     /// Amount of fiscal tax to apply.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? FiscalStampAmount { get; init; } 
     /// <summary>
     /// Amount of money paid to an executing broker as a commission.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ExecutingBrokerAmount { get; init; } 
     /// <summary>
     /// Amount of paying/sub-paying agent commission.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? PayingAgentCommissionAmount { get; init; } 
     /// <summary>
     /// Local broker's commission.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? LocalBrokerCommissionAmount { get; init; } 
     /// <summary>
     /// Amount of money charged by a regulatory authority, for example, securities and exchange fees.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? RegulatoryFeesAmount { get; init; } 
     /// <summary>
     /// All costs related to the physical delivery of documents such as stamps, postage, carrier fees, insurances or messenger services.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ShippingFeesAmount { get; init; } 
     /// <summary>
     /// Amount of money paid for the provision of financial services that cannot be categorised by another qualifier.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ChargesAmount { get; init; } 
     /// <summary>
     /// Cash amount based on the terms of the corporate action event and balance of underlying securities, entitled to/from account owner (which may be positive or negative).
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? EntitledAmount { get; init; } 
     /// <summary>
     /// Posting/settlement amount in its original currency when conversion from/into another currency has occurred.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? OriginalAmount { get; init; } 
     /// <summary>
     /// Amount of money representing a distribution of a bond's principal, for example, repayment of outstanding debt.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? PrincipalOrCorpus { get; init; } 
     /// <summary>
     /// Amount of money (not interest) in addition to the principal at the redemption of a bond.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? RedemptionPremiumAmount { get; init; } 
     /// <summary>
     /// Amount relating to the underlying security for which income is distributed.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? IncomePortion { get; init; } 
     /// <summary>
     /// Amount of stock exchange tax.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? StockExchangeTax { get; init; } 
     /// <summary>
     /// Total amount of tax withheld at source in conformance with the EU Savings Directive.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? EUTaxRetentionAmount { get; init; } 
     /// <summary>
     /// Amount of interest that has been accrued in between coupon payment periods.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? AccruedInterestAmount { get; init; } 
     /// <summary>
     /// Portion of the fund distribution amount which represents the average accrued income included in the purchase price for units bought during the account period.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? EqualisationAmount { get; init; } 
     /// <summary>
     /// FATCA (Foreign Account Tax Compliance Act) related tax amount.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? FATCATaxAmount { get; init; } 
     /// <summary>
     /// Amount of tax related income subject to NRA (Non Resident Alien).
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? NRATaxAmount { get; init; } 
     /// <summary>
     /// Amount of tax related to back up withholding.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? BackUpWithholdingTaxAmount { get; init; } 
     /// <summary>
     /// Amount of overall tax withheld at source by fund managers prior to considering the tax obligation of each unit holder.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TaxOnIncomeAmount { get; init; } 
     /// <summary>
     /// Amount of transaction tax.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TransactionTax { get; init; } 
     /// <summary>
     /// Amount of proceeds which is not actually paid to the security holder but on which withholding tax is applicable.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? DeemedAmount { get; init; } 
     /// <summary>
     /// Amount relating to a conduit foreign income.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ConduitForeignIncomeAmount { get; init; } 
     /// <summary>
     /// Deemed amount resulting from the difference between the rate of dividend proceeds attributed to the security holder for the taxable year and the rate of dividend proceeds previously notified to the security holder in relation to cash distributions for the year.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? DeemedDividendAmount { get; init; } 
     /// <summary>
     /// Deemed amount resulting from the difference between the rate of the proceeds components comprising a fund payment attributed to the security holder for the taxable year and the rate of the fund proceeds previously notified to the security holder in relation to cash distributions for the year.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? DeemedFundAmount { get; init; } 
     /// <summary>
     /// Deemed amount resulting from the difference between the rate of interest proceeds attributed to the security holder for the taxable year and the rate of interest proceeds previously notified to the security holder in relation to cash distributions for the year.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? DeemedInterestAmount { get; init; } 
     /// <summary>
     /// Deemed amount resulting from the difference between the rate of royalty proceeds attributed to the security holder for the taxable year and the rate of royalty proceeds previously notified to the security holder in relation to cash distributions for the year.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? DeemedRoyaltiesAmount { get; init; } 
     
     #nullable disable

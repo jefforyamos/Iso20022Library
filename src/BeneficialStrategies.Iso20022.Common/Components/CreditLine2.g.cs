@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide details of the credit line.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditLine2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CreditLine2
     /// <summary>
     /// Indicates whether or not the credit line is included in the balance.||Usage: If not present, credit line is not included in the balance amount.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator Included { get; init; } 
     /// <summary>
     /// Amount of money of the credit line.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? Amount { get; init; } 
     
     #nullable disable

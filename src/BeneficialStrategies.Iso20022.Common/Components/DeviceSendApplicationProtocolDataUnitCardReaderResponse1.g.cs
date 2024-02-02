@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Card Reader Application Protocol Data Unit Response message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeviceSendApplicationProtocolDataUnitCardReaderResponse1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DeviceSendApplicationProtocolDataUnitCardReaderResponse1
     /// <summary>
     /// Class field of the Application Protocol Data Unit command (CLA).
     /// </summary>
+    [DataMember]
     public IsoMin1Max256Binary? Data { get; init; } 
     /// <summary>
     /// Status of a smartcard response to a command (SW1-SW2). Reference: ISO 7816-4.
     /// </summary>
+    [DataMember]
     public required IsoMin1Max256Binary CardStatus { get; init; } 
     
     #nullable disable

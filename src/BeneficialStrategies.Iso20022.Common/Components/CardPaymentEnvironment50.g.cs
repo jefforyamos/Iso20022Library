@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentEnvironment50
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record CardPaymentEnvironment50
     /// <summary>
     /// Acquirer involved in the card payment reconciliation.
     /// </summary>
+    [DataMember]
     public required Acquirer4 Acquirer { get; init; } 
     /// <summary>
     /// Identification of the merchant requesting the reconciliation.
     /// </summary>
+    [DataMember]
     public GenericIdentification53? MerchantIdentification { get; init; } 
     /// <summary>
     /// Identification of the POI (Point Of Interaction) requesting the reconciliation.
     /// </summary>
+    [DataMember]
     public GenericIdentification53? POIIdentification { get; init; } 
     /// <summary>
     /// Data related to the components of the POI (Point Of Interaction) that have been performed the payment transactions.
     /// </summary>
-    public PointOfInteractionComponent6[] POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PointOfInteractionComponent6> POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

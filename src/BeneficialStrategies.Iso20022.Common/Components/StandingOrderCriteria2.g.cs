@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria which are used to search for a standing order and to report on standing orders. A name may be given to the new query.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StandingOrderCriteria2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record StandingOrderCriteria2
     /// <summary>
     /// Name of the query defined by the search criteria and return criteria.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NewQueryName { get; init; } 
     /// <summary>
     /// Defines the criteria to be used to extract the standing order information.
     /// </summary>
-    public StandingOrderSearchCriteria2[] SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StandingOrderSearchCriteria2> SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines the expected standing order report.
     /// </summary>
+    [DataMember]
     public StandingOrderReturnCriteria1? ReturnCriteria { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details on the list of direct debit mandate elements that have been modified when the amendment indicator has been set.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmendmentInformationDetails9
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record AmendmentInformationDetails9
     /// <summary>
     /// Unique identification, as assigned by the creditor, to unambiguously identify the original mandate.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalMandateIdentification { get; init; } 
     /// <summary>
     /// Original creditor scheme identification that has been modified.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? OriginalCreditorSchemeIdentification { get; init; } 
     /// <summary>
     /// Original creditor agent that has been modified.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? OriginalCreditorAgent { get; init; } 
     /// <summary>
     /// Original debtor that has been modified.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? OriginalDebtor { get; init; } 
     /// <summary>
     /// Original debtor account that has been modified.
     /// </summary>
+    [DataMember]
     public CashAccount24? OriginalDebtorAccount { get; init; } 
     /// <summary>
     /// Original debtor agent that has been modified.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? OriginalDebtorAgent { get; init; } 
     /// <summary>
     /// Original final collection date that has been modified.
     /// </summary>
+    [DataMember]
     public IsoISODate? OriginalFinalCollectionDate { get; init; } 
     /// <summary>
     /// Original frequency that has been modified.
     /// </summary>
+    [DataMember]
     public Frequency6Code? OriginalFrequency { get; init; } 
     
     #nullable disable

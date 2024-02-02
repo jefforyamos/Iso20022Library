@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the transaction in the authorisation response.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentTransactionDetails13
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CardPaymentTransactionDetails13
     /// <summary>
     /// Currency associated with the transaction.
     /// </summary>
+    [DataMember]
     public required CurrencyCode Currency { get; init; } 
     /// <summary>
     /// Total amount of the transaction.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount TotalAmount { get; init; } 
     /// <summary>
     /// Detailed amounts associated with the total amount of transaction.
     /// </summary>
+    [DataMember]
     public DetailedAmount5? DetailedAmount { get; init; } 
     /// <summary>
     /// Transaction authorisation deadline to complete the related payment.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValidityDate { get; init; } 
     /// <summary>
     /// Type of cardholder account used for the transaction.
     /// </summary>
+    [DataMember]
     public CardAccountType1Code? AccountType { get; init; } 
     /// <summary>
     /// Data related to an integrated circuit card application.
     /// </summary>
+    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     
     #nullable disable

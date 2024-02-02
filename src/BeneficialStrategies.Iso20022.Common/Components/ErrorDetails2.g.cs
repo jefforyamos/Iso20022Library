@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the error
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ErrorDetails2
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record ErrorDetails2
     /// <summary>
     /// Code list containing a code that identifies the error condition.
     /// </summary>
+    [DataMember]
     public required MessageError1Code MessageErrorType { get; init; } 
     /// <summary>
     /// Other message error type defined at national or private level.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherMessageErrorType { get; init; } 
     /// <summary>
     /// Code that identifies the specific error found.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ErrorCode { get; init; } 
     /// <summary>
     /// Description of the error found.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? ErrorDescription { get; init; } 
     /// <summary>
     /// Data element in error. 
     /// </summary>
-    public IsoMax4000Text[] DataElementInError { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax4000Text> DataElementInError { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

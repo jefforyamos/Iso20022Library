@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates the reason for the UnableToApply. It can be missing and/or incorrect information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MissingOrIncorrectInformation
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record MissingOrIncorrectInformation
     /// <summary>
     /// Indicates the missing information.
     /// </summary>
-    public UnableToApplyMissingInfo1Code[] MissingInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<UnableToApplyMissingInfo1Code> MissingInformation { get; init; } = [];
     /// <summary>
     /// Indicates the incorrect information.
     /// </summary>
-    public UnableToApplyIncorrectInfo1Code[] IncorrectInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<UnableToApplyIncorrectInfo1Code> IncorrectInformation { get; init; } = [];
     
     #nullable disable
 }

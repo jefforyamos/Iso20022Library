@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Container for proprietary information. Business content of this element is not specified.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProprietaryData5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ProprietaryData5
     /// <summary>
     /// Type of the proprietary document.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Technical element wrapping the proprietary message.
     /// </summary>
+    [DataMember]
     public required SupplementaryDataEnvelope1 Data { get; init; } 
     
     #nullable disable

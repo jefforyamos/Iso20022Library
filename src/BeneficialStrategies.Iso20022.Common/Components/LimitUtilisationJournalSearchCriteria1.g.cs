@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to search for a limit.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LimitUtilisationJournalSearchCriteria1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record LimitUtilisationJournalSearchCriteria1
     /// <summary>
     /// Type of limit applied by the system at the present time.
     /// </summary>
-    public LimitType4Code[] LimitType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LimitType4Code> LimitType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date upon which journal activity takes place.
     /// </summary>
+    [DataMember]
     public required IsoISODate JournalActivityDate { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     /// <summary>
     /// Currency unit used to specify the limit amount.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? LimitCurrency { get; init; } 
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>
+    [DataMember]
     public IsoBICFIIdentifier? AccountOwner { get; init; } 
     /// <summary>
     /// Identification of the system member for which the limit is established.
     /// </summary>
+    [DataMember]
     public required SystemPartyIdentification4 BilateralLimitCounterpartyIdentification { get; init; } 
     
     #nullable disable

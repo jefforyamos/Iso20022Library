@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the response to a key exchange.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcquirerKeyExchangeResponse1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AcquirerKeyExchangeResponse1
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardTransactionEnvironment6 Environment { get; init; } 
     /// <summary>
     /// Key exchange transaction.
     /// </summary>
+    [DataMember]
     public required CardTransaction14 Transaction { get; init; } 
     
     #nullable disable

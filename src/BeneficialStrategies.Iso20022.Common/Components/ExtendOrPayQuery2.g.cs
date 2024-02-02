@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Undertaking extend or pay query details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExtendOrPayQuery2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ExtendOrPayQuery2
     /// <summary>
     /// Details related to the identification of the undertaking.
     /// </summary>
+    [DataMember]
     public required Undertaking9 UndertakingIdentification { get; init; } 
     /// <summary>
     /// Details related to the demand.
     /// </summary>
+    [DataMember]
     public required Demand4 DemandDetails { get; init; } 
     /// <summary>
     /// Processing status reported by the applicant.
     /// </summary>
+    [DataMember]
     public required DemandStatus1Code Status { get; init; } 
     
     #nullable disable

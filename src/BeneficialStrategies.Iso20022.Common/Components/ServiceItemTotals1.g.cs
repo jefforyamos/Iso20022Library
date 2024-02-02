@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies totals related to the invoice.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ServiceItemTotals1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record ServiceItemTotals1
     /// <summary>
     /// Specifies a classification for the service items such as query, report, securities account, etc….
     /// </summary>
+    [DataMember]
     public required IsoMax4AlphaNumericText ItemType { get; init; } 
     /// <summary>
     /// Sum of total number units per service item.
     /// </summary>
+    [DataMember]
     public required IsoNumber Quantity { get; init; } 
     /// <summary>
     /// Specifies the unit of the service item.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? UnitPrice { get; init; } 
     /// <summary>
     /// Total amount subject to tax.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalTaxableAmount { get; init; } 
     /// <summary>
     /// Sum of all tax amounts related to the invoice.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalTaxAmount { get; init; } 
     /// <summary>
     /// Total amount of the invoice, being the sum of total invoice lines amounts, total invoice adjustment amount (discounts, allowances and charges) and total tax amounts.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalInvoiceAmount { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the modification of an account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentAccountModification4
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record InvestmentAccountModification4
     /// <summary>
     /// Reason for the modification to the investment account information.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? ModificationReason { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the account modification request.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of a transfer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction, for example, a transfer, as allocated by the counterparty.
     /// </summary>
+    [DataMember]
     public AdditionalReference13? CounterpartyReference { get; init; } 
     /// <summary>
     /// Account to which the account opening is related.
     /// </summary>
-    public Account23[] ExistingAccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Account23> ExistingAccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

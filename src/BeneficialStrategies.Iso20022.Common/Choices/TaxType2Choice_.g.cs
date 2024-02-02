@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TaxType2Choice.Type))]
 [KnownType(typeof(TaxType2Choice.OtherTaxType))]
+[DataContract]
 public abstract partial record TaxType2Choice_
 {
 }

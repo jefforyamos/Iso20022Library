@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the query criteria.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionQuery5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TransactionQuery5
     /// <summary>
     /// Specifies the type of matching items to be returned in the response to the query.
     /// </summary>
+    [DataMember]
     public QueryType2Code? QueryType { get; init; } 
     /// <summary>
     /// Defines the payment transaction query criteria.
     /// </summary>
+    [DataMember]
     public TransactionCriteria5Choice_? TransactionCriteria { get; init; } 
     
     #nullable disable

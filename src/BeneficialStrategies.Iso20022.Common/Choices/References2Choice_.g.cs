@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(References2Choice.SecuritiesFinancingTransactionIdentification))]
 [KnownType(typeof(References2Choice.IntraPositionMovementIdentification))]
 [KnownType(typeof(References2Choice.OtherTransactionIdentification))]
+[DataContract]
 public abstract partial record References2Choice_
 {
 }

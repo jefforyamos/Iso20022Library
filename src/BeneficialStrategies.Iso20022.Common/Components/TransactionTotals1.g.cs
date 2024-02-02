@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transaction totals during the reconciliation period, for a certain type of transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionTotals1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record TransactionTotals1
     /// <summary>
     /// Identifier assigned by the merchant identifying a set of POI terminals performing some categories of transactions.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? POIGroupIdentification { get; init; } 
     /// <summary>
     /// Category of cards related the acceptance processing rules defined by the acquirer.
     /// </summary>
+    [DataMember]
     public IsoExact4NumericText? CardProductProfile { get; init; } 
     /// <summary>
     /// Currency associated with the transaction totals.
     /// </summary>
+    [DataMember]
     public CurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Identification of the type of transaction.
     /// </summary>
+    [DataMember]
     public required TypeTransactionTotals1Code Type { get; init; } 
     /// <summary>
     /// Total number of transactions during a reconciliation period.
     /// </summary>
+    [DataMember]
     public required IsoMax35NumericText TotalNumber { get; init; } 
     /// <summary>
     /// Total amount of a collection of transactions.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount CumulativeAmount { get; init; } 
     
     #nullable disable

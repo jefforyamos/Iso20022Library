@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Supplies additional transaction information for travel transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TripLeg1
 {
     #nullable enable
@@ -20,90 +22,112 @@ public partial record TripLeg1
     /// <summary>
     /// Identifies the specific occurrence of trip leg data. 
     /// </summary>
+    [DataMember]
     public IsoMax35NumericText? SequenceNumber { get; init; } 
     /// <summary>
     /// Details of the ticket.
     /// </summary>
+    [DataMember]
     public Ticket1? Ticket { get; init; } 
     /// <summary>
     /// Provides the document type and reference information.
     /// </summary>
-    public DocumentReference1[] Document { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DocumentReference1> Document { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains identification of the rail server procedure or the order in which service was booked or cancellation was done.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProcedureReference { get; init; } 
     /// <summary>
     /// Type of transportation.
     /// </summary>
+    [DataMember]
     public TransportType1Code? TransportType { get; init; } 
     /// <summary>
     /// Other type of transportation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherTransportType { get; init; } 
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
+    [DataMember]
     public IsoMax4Text? CommodityCode { get; init; } 
     /// <summary>
     /// Identification of transportation carrier.
     /// </summary>
+    [DataMember]
     public CarrierIdentification1? Carrier { get; init; } 
     /// <summary>
     /// Route number as specified by the transportation carrier (for example, flight number, bus number, train route or number, etc.)
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RouteNumber { get; init; } 
     /// <summary>
     /// Indicates the service class (for example, coach or first class).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ServiceClass { get; init; } 
     /// <summary>
     /// Contains departure location, date and time. 
     /// </summary>
+    [DataMember]
     public DepartureOrArrival1? Departure { get; init; } 
     /// <summary>
     /// Contains arrival location, date and time. 
     /// </summary>
+    [DataMember]
     public DepartureOrArrival1? Arrival { get; init; } 
     /// <summary>
     /// Duration of the trip.
     /// </summary>
+    [DataMember]
     public IsoMax4NumericText? Duration { get; init; } 
     /// <summary>
     /// Indicator that specifies whether the mode of transportation was a direct or non-direct route on the same ticket number.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? StopOverIndicator { get; init; } 
     /// <summary>
     /// Indicates a non-direct route between the origin and the destination. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NonDirectRouteCode { get; init; } 
     /// <summary>
     /// Code that transportation companies assign to a particular ticket type, such as business class or discounted or non-refundable tickets. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? FairBasisCode { get; init; } 
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
     /// <summary>
     /// Contains trip leg amount information. 
     /// </summary>
-    public AmountDetails1[] TripLegAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AmountDetails1> TripLegAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates reason for the credit to the cardholder.  Includes: ancillary purchase cancelled, passenger transport ticket and related ancillary purchase cancelled, etc.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CreditReasonCode { get; init; } 
     /// <summary>
     /// Contains identification of the rail server procedure or the order in which the service was booked or a cancellation was completed. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProcedureIdentification { get; init; } 
     /// <summary>
     /// Loyalty programme details. 
     /// </summary>
+    [DataMember]
     public LoyaltyProgramme2? LoyaltyProgramme { get; init; } 
     /// <summary>
     /// Additional user-defined data pertaining to the transportation.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable

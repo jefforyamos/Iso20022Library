@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(GarnishmentType1Choice.Code))]
 [KnownType(typeof(GarnishmentType1Choice.Proprietary))]
+[DataContract]
 public abstract partial record GarnishmentType1Choice_
 {
 }

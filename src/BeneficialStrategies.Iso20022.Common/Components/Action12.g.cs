@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of actions to be performed by the POI (Point Of Interaction) system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Action12
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Action12
     /// <summary>
     /// Type of action to be performed by the POI (Point Of Interaction) system.
     /// </summary>
+    [DataMember]
     public required ActionType12Code ActionType { get; init; } 
     /// <summary>
     /// Message to be displayed to the cardholder or the cashier.
     /// </summary>
+    [DataMember]
     public ActionMessage9? MessageToPresent { get; init; } 
     
     #nullable disable

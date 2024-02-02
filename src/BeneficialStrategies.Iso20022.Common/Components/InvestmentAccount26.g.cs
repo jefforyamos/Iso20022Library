@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account between an investor(s) and a fund manager or a fund. The account can contain holdings in any investment fund or investment fund class managed (or distributed) by the fund manager, within the same fund family.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentAccount26
 {
     #nullable enable
@@ -20,90 +22,112 @@ public partial record InvestmentAccount26
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public AccountIdentification1? Identification { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Supplementary registration information applying to a specific block of units for dealing and reporting purposes. The supplementary registration information may be used when all the units are registered, for example, to a funds supermarket, but holdings for each investor have to reconciled individually.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Designation { get; init; } 
     /// <summary>
     /// Purpose of the account/source fund type. This is typically linked to an investment product, eg, wrapper, PEP, ISA.
     /// </summary>
+    [DataMember]
     public FundCashAccount3Code? Type { get; init; } 
     /// <summary>
     /// Purpose of the account/source fund type. This is typically linked to an investment product, eg, wrapper, PEP, ISA.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedType { get; init; } 
     /// <summary>
     /// Ownership status of the account, eg, joint owners.
     /// </summary>
+    [DataMember]
     public required AccountOwnershipType3Code OwnershipType { get; init; } 
     /// <summary>
     /// Ownership status of the account, eg, joint owners.
     /// </summary>
+    [DataMember]
     public required IsoExtended350Code ExtendedOwnershipType { get; init; } 
     /// <summary>
     /// Tax advantage specific to the account.
     /// </summary>
+    [DataMember]
     public TaxExemptReason1Code? TaxExemptionReason { get; init; } 
     /// <summary>
     /// Tax advantage specific to the account.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedTaxExemptionReason { get; init; } 
     /// <summary>
     /// Regularity at which a statement is issued.
     /// </summary>
+    [DataMember]
     public EventFrequency1Code? StatementFrequency { get; init; } 
     /// <summary>
     /// Regularity at which a statement is issued.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedStatementFrequency { get; init; } 
     /// <summary>
     /// Currency chosen for reporting purposes by the account owner in agreement with the account servicer.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? ReferenceCurrency { get; init; } 
     /// <summary>
     /// Language for all communication concerning the account.
     /// </summary>
+    [DataMember]
     public LanguageCode? Language { get; init; } 
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
+    [DataMember]
     public IncomePreference1Code? IncomePreference { get; init; } 
     /// <summary>
     /// Method by which the tax (withholding tax) is to be processed i.e. either withheld at source or tax information reported to tax authorities or tax information is reported due to the provision of a tax certificate.
     /// </summary>
+    [DataMember]
     public TaxWithholdingMethod1Code? TaxWithholdingMethod { get; init; } 
     /// <summary>
     /// Reference of a letter of intent program, in which sales commissions are reduced based on the aggregate of a customer's actual purchase and anticipated purchases, over a specific period of time, and as agreed by the customer. A letter of intent program is mainly used in the US market.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LetterIntentReference { get; init; } 
     /// <summary>
     /// Reference of an accumulation rights program, in which sales commissions are based on a customer's present purchases of shares and the aggregate quantity previously purchased by the customer. An accumulation rights program is mainly used in the US market.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccumulationRightReference { get; init; } 
     /// <summary>
     /// Number of account owners or related parties required to authorise transactions on the account.
     /// </summary>
+    [DataMember]
     public IsoNumber? RequiredSignatoriesNumber { get; init; } 
     /// <summary>
     /// Name of the investment fund family.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? FundFamilyName { get; init; } 
     /// <summary>
     /// Detailed information about the investment fund associated to the account.
     /// </summary>
-    public FinancialInstrument10[] FundDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FinancialInstrument10> FundDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Parameters to be applied on deal amount for orders when the amount is a fractional number.
     /// </summary>
+    [DataMember]
     public RoundingParameters1? RoundingDetails { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? AccountServicer { get; init; } 
     
     #nullable disable

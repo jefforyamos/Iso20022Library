@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for a number of maximum 5 digits.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareNumber6
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareNumber6
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax5Number? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax5Number? Value2 { get; init; } 
     
     #nullable disable

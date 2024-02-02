@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the terms of the contract in case of fixed interest rates.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FixedTermContract2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FixedTermContract2
     /// <summary>
     /// Date on which the counterparties contractually agree the exchange of securities or commodities versus collateral for the closing leg (forward leg) of the secured financing transaction. This information shall not be reported for open term agreements.
     /// </summary>
+    [DataMember]
     public IsoISODate? MaturityDate { get; init; } 
     /// <summary>
     /// Indication whether the counterparties to the transaction have agreed to an evergreen or extendable agreement.
     /// </summary>
+    [DataMember]
     public RepoTerminationOption2Code? TerminationOption { get; init; } 
     
     #nullable disable

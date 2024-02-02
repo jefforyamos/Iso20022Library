@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unambiguous identification for the account between the account owner and the account servicer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesAccount21
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record SecuritiesAccount21
     /// <summary>
     /// Account identification.
     /// </summary>
+    [DataMember]
     public required AccountIdentification5 Account { get; init; } 
     /// <summary>
     /// Sub-account identification.
     /// </summary>
+    [DataMember]
     public AccountIdentification5? SubAccount { get; init; } 
     /// <summary>
     /// Base currency for the account.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? BaseCurrency { get; init; } 
     /// <summary>
     /// Currency chosen for reporting purposes by the account owner in agreement with the account servicer.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? ReportingCurrency { get; init; } 
     /// <summary>
     /// Foreign exchange rate applied between the reporting and base currencies. It is assumed the valuation date is the same as the report date.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? ForeignExchangeRate { get; init; } 
     
     #nullable disable

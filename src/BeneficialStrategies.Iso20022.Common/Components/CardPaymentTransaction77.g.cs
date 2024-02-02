@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transaction information in the authorisation response.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentTransaction77
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record CardPaymentTransaction77
     /// <summary>
     /// Global reference of the sale transaction for the sale system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleReferenceIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the transaction assigned by the POI (Point Of Interaction).
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the transaction assigned by the initiating party for the recipient party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? InitiatorTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the transaction assigned by the recipient party for the initiating party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RecipientTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the reconciliation period between the acceptor and the acquirer. This identification might be linked to the identification of the settlement for further verification by the merchant.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Interchange information related to the card scheme.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? InterchangeData { get; init; } 
     /// <summary>
     /// Detail of the transaction transported.
     /// </summary>
+    [DataMember]
     public required CardPaymentTransactionDetails28 TransactionDetails { get; init; } 
     /// <summary>
     /// Merchant related information provided in the request.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? MerchantReferenceData { get; init; } 
     
     #nullable disable

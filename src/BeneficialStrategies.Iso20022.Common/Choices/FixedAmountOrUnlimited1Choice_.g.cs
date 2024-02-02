@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(FixedAmountOrUnlimited1Choice.Amount))]
 [KnownType(typeof(FixedAmountOrUnlimited1Choice.NotLimited))]
+[DataContract]
 public abstract partial record FixedAmountOrUnlimited1Choice_
 {
 }

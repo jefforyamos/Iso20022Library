@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Number of individual reports or transactions received / sent, detailed per validation rule.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NumberOfTransactionsPerValidationRule6
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record NumberOfTransactionsPerValidationRule6
     /// <summary>
     /// Number of individual reports or transactions sent / received, detailed per status.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText DetailedNumber { get; init; } 
     /// <summary>
     /// Common validation rule for all individual reports received.
     /// </summary>
-    public RejectionReason70[] ReportStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RejectionReason70> ReportStatus { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment token information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentToken3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CardPaymentToken3
     /// <summary>
     /// Additional payment token information.
     /// </summary>
-    public IsoMax35Text[] TokenCharacteristic { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> TokenCharacteristic { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifier of a token provider requestor.
     /// </summary>
+    [DataMember]
     public PaymentTokenIdentifiers1? TokenRequestor { get; init; } 
     /// <summary>
     /// Level of confidence resulting of the identification and authentication of the cardholder performed and the entity that performed it.
     /// </summary>
+    [DataMember]
     public IsoNumber? TokenAssuranceLevel { get; init; } 
     
     #nullable disable

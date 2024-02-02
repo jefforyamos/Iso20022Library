@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Summation of the call amounts either due to A or due to B.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Result1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Result1
     /// <summary>
     /// Amount payable by party B to party A.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? DueToPartyA { get; init; } 
     /// <summary>
     /// Amount payable by party A to party B.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? DueToPartyB { get; init; } 
     /// <summary>
     /// Provides additional information related to the collateral that may be requested.
     /// </summary>
+    [DataMember]
     public IsoMax210Text? AdditionalInformation { get; init; } 
     
     #nullable disable

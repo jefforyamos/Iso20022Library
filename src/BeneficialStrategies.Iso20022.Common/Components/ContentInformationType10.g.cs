@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// General cryptographic message syntax (CMS) containing encrypted data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContentInformationType10
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ContentInformationType10
     /// <summary>
     /// Type of data protection.
     /// </summary>
+    [DataMember]
     public required ContentType2Code ContentType { get; init; } 
     /// <summary>
     /// Data protection by encryption or by a digital envelope, with an encryption key.
     /// </summary>
+    [DataMember]
     public required EnvelopedData4 EnvelopedData { get; init; } 
     
     #nullable disable

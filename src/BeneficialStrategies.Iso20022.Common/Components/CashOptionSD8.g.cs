@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action option cash movement details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashOptionSD8
 {
     #nullable enable
@@ -20,62 +22,77 @@ public partial record CashOptionSD8
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Specifies the type of payout associated with the event (for example: principal, long term capital gain).
     /// </summary>
+    [DataMember]
     public required DTCCPayoutType3Code PayoutType { get; init; } 
     /// <summary>
     /// Indicates the type of payment. Used in stock dividends processing at DTC (The Depository Trust Corporation). Valid values list will be maintained separately from the schema.
     /// </summary>
+    [DataMember]
     public IsoMax3Text? DTCPayMethod { get; init; } 
     /// <summary>
     /// Indicates the payment order. Used in stock dividends processing at DTC (The Depository Trust Corporation). Valid values list will be maintained separately from the schema.
     /// </summary>
+    [DataMember]
     public IsoMax3Text? DTCPayOrder { get; init; } 
     /// <summary>
     /// Indicates how the entitlements were calculated optional dividends.
     /// </summary>
+    [DataMember]
     public DTCEntitlementCalculationMethod1Code? EntitlementCalculationMethod { get; init; } 
     /// <summary>
     /// Denotes whether the rate is approximate.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? EstimatedRateFlag { get; init; } 
     /// <summary>
     /// Identifies the income events which are subject to withholding tax if paid to a non-U.S. resident alien (NRA).
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? NRATaxReportableFlag { get; init; } 
     /// <summary>
     /// Non resident alien (NRA) tax code. Each U.S. tax withholding eligible distribution must have a determination of the tax liability. This code is relevant to tax withholding and U.S. IRS reporting. Foreign securities also have an applicable tax code, but all foreign issues have one standard code.
     /// </summary>
+    [DataMember]
     public required NRATax2Code NRATaxCode { get; init; } 
     /// <summary>
     /// Indicates whether a charge is levied on the protect instructions at the time when the protect is submitted or at the time of the cover. Applies to warrants or rights exercise scenario where the holder must put up money with rights or warrants execution. When this flag is set to yes - charges are due at the time of the protect, when it is set to "no" changes are due when protect is covered.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ProtectChargeFlag { get; init; } 
     /// <summary>
     /// Cash rate associated to the payout as declared on the market by the issuer or offeror.
     /// </summary>
+    [DataMember]
     public PriceFormatSD2Choice_? DeclaredCashRate { get; init; } 
     /// <summary>
     /// Gross cash rate associated to the payout as declared on the market by the issuer or offeror.
     /// </summary>
+    [DataMember]
     public PriceFormatSD2Choice_? DeclaredGrossRate { get; init; } 
     /// <summary>
     /// Net cash rate associated to the payout as declared on the market by the issuer or offeror.
     /// </summary>
+    [DataMember]
     public PriceFormatSD2Choice_? DeclaredNetRate { get; init; } 
     /// <summary>
     /// Rate at which the fee will be charged to a DTC participant.
     /// </summary>
+    [DataMember]
     public PriceFormatSD2Choice_? DeclaredFeeRate { get; init; } 
     /// <summary>
     /// Indicates the period during which the instructions for DTC (The Depository Trust Corporation) US Tax service will be accepted.
     /// </summary>
+    [DataMember]
     public Period3? DTCUSTaxInstructionPeriod { get; init; } 
     /// <summary>
     /// Unique DTCC legacy reference used for matching and reconciling legacy CCF records. The element will be populated to all levels of the message (Event Details, Options, Movements) where applicable to indicate how values are sourced from CCF legacy files. For example: event has 2 related Activity Types 74, and 54. If event details and cash option are sourced from the Activity Type 74, then Activity Type 74 will be in RDP Reference Number in event details, and also on the cash option. The activity type 54 will be "on" the security option. Also, usage rules will specify the different layouts of the RDP Reference Number based on DTCC event group (reorganization, distribution, or redemption).
     /// </summary>
+    [DataMember]
     public IsoExact32AlphaNumericText? RDPReferenceNumber { get; init; } 
     
     #nullable disable

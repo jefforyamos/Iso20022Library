@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains detailed information from the cancellation request (for example an MT 192 or an MT 199).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CancellationRequest1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CancellationRequest1
     /// <summary>
     /// Contains information on the reason for the cancellation.
     /// </summary>
+    [DataMember]
     public required CancellationReason7Code CancellationReasonInformation { get; init; } 
     /// <summary>
     /// Specifies a contractual obligation of one party (indemnifier) to compensate for any loss occurred to the other party (indemnity holder). 
     /// </summary>
+    [DataMember]
     public PendingPaymentCancellationReason2Code? IndemnityAgreement { get; init; } 
     
     #nullable disable

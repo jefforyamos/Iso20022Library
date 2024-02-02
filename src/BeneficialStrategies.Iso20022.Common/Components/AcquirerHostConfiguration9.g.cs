@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Acquirer configuration parameters for a host.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcquirerHostConfiguration9
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record AcquirerHostConfiguration9
     /// <summary>
     /// Identification of a host.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text HostIdentification { get; init; } 
     /// <summary>
     /// Types of message to sent to this host.
     /// </summary>
-    public MessageFunction43Code[] MessageToSend { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MessageFunction43Code> MessageToSend { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Protocol version to use when using these parameters.
     /// </summary>
+    [DataMember]
     public IsoMax8Text? ProtocolVersion { get; init; } 
     /// <summary>
     /// List of types that the receiver supports and that the sender could use as type of an ExternallyDefinedData message component.
     /// </summary>
-    public IsoMax1025Text[] ExternallyTypeSupported { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax1025Text> ExternallyTypeSupported { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

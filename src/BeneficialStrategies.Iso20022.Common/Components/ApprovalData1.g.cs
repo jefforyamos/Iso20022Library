@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data pertaining to the approval of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ApprovalData1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record ApprovalData1
     /// <summary>
     /// Entity that has delivered or declined the card payment authorisation (the party may be unidentified).
     /// </summary>
+    [DataMember]
     public ApprovalEntity1? ApprovalEntity { get; init; } 
     /// <summary>
     /// Value assigned by the approval entity indicating approval.
     /// ISO 8583:93/2003 bit 38
     /// </summary>
+    [DataMember]
     public IsoExact6AlphaNumericText? ApprovalCode { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique and unambiguous way to identify a person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PersonIdentification4
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record PersonIdentification4
     /// <summary>
     /// Identifier issued to a person for which no specific identifier has been defined.
     /// </summary>
+    [DataMember]
     public required RestrictedIdentification2 OtherIdentification { get; init; } 
     
     #nullable disable

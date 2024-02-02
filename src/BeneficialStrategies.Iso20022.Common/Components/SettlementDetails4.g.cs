@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters which explicitly state the conditions that must be fulfilled before a particular transaction of a financial instrument can be settled. These parameters are defined by the instructing party in compliance with settlement rules in the market the transaction will settle in.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementDetails4
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record SettlementDetails4
     /// <summary>
     /// Conditions under which the order/trade is to be settled.
     /// </summary>
-    public SettlementTransactionCondition2Choice_[] SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SettlementTransactionCondition2Choice_> SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether registration should occur upon receipt.
     /// </summary>
+    [DataMember]
     public Registration1Choice_? Registration { get; init; } 
     /// <summary>
     /// Regulatory restrictions applicable to a security.
     /// </summary>
+    [DataMember]
     public Restriction1Choice_? LegalRestrictions { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction is to be settled through an RTGS or a non RTGS system.
     /// </summary>
+    [DataMember]
     public SecuritiesRTGS1Choice_? SecuritiesRTGS { get; init; } 
     /// <summary>
     /// Specifies whether the settlement instruction is to be settled through the default or the alternate settlement system.
     /// </summary>
+    [DataMember]
     public SettlementSystemMethod1Choice_? SettlementSystemMethod { get; init; } 
     /// <summary>
     /// Tax role capacity of the instructing party.
     /// </summary>
+    [DataMember]
     public TaxCapacityParty1Choice_? TaxCapacity { get; init; } 
     /// <summary>
     /// Specifies the stamp duty type or exemption reason applicable to the settlement transaction.
     /// </summary>
+    [DataMember]
     public GenericIdentification20? StampDutyTaxBasis { get; init; } 
     
     #nullable disable

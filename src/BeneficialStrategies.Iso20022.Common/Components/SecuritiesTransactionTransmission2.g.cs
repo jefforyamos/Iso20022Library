@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the securities order transmission attributes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesTransactionTransmission2
 {
     #nullable enable
@@ -21,16 +23,19 @@ public partial record SecuritiesTransactionTransmission2
     /// Indication as to whether the transaction results from an order transmitted by the reporting of a client to a third party.
     /// Usage: Only applicable when the conditions for transmission are not satisfied.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator TransmissionIndicator { get; init; } 
     /// <summary>
     /// Identifies the buyer transmitting the order to the reporting firm. 
     /// Usage: Only required for reporting firms reporting transactions on behalf of order transmitting firm.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? TransmittingBuyer { get; init; } 
     /// <summary>
     /// Identifies the seller transmitting the order to the reporting firm. 
     /// Usage: Only required for reporting firms reporting transactions on behalf of order transmitting firm.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? TransmittingSeller { get; init; } 
     
     #nullable disable

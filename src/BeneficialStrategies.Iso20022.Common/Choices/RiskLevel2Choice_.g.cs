@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(RiskLevel2Choice.Code))]
 [KnownType(typeof(RiskLevel2Choice.Proprietary))]
+[DataContract]
 public abstract partial record RiskLevel2Choice_
 {
 }

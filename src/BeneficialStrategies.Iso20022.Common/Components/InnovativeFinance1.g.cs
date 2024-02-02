@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about an innovative finance product.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InnovativeFinance1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InnovativeFinance1
     /// <summary>
     /// Type of innovative finance product.
     /// </summary>
+    [DataMember]
     public required GenericIdentification36 Type { get; init; } 
     /// <summary>
     /// Details of an innovative finance product.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text Information { get; init; } 
     
     #nullable disable

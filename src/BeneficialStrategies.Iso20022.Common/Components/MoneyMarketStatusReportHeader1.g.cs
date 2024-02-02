@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the money market statistical status report header details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MoneyMarketStatusReportHeader1
 {
     #nullable enable
@@ -20,20 +22,24 @@ public partial record MoneyMarketStatusReportHeader1
     /// <summary>
     /// Agent which is subject to reporting requirements.
     /// </summary>
+    [DataMember]
     public required IsoLEIIdentifier ReportingAgent { get; init; } 
     /// <summary>
     /// For daily reporting this is the day to which the transaction data in the status message refers (trade date or amendment date if there are corrections).
     /// For periodic reporting this is the first and the last day to which the transaction data in the status message refers (trade date or amendment date in case of corrections).
     /// </summary>
+    [DataMember]
     public required DateTimePeriod1 ReportingPeriod { get; init; } 
     /// <summary>
     /// Provides the status for the full report.
     /// </summary>
+    [DataMember]
     public required StatisticalReportingStatus1Code ReportStatus { get; init; } 
     /// <summary>
     /// Provides the details of the rule which could not be validated.
     /// </summary>
-    public GenericValidationRuleIdentification1[] ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericValidationRuleIdentification1> ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TimeHorizon2Choice.NumberOfYears))]
 [KnownType(typeof(TimeHorizon2Choice.TimeFrame))]
+[DataContract]
 public abstract partial record TimeHorizon2Choice_
 {
 }

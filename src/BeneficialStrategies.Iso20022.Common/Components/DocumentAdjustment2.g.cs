@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide information on the amount and reason of the document adjustment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentAdjustment2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record DocumentAdjustment2
     /// <summary>
     /// Amount of money of the document adjustment.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Specifies whether the adjustment must be substracted or added to the total amount.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Specifies the reason for the adjustment.
     /// </summary>
+    [DataMember]
     public IsoMax4Text? Reason { get; init; } 
     /// <summary>
     /// Provides further details on the document adjustment.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? AdditionalInformation { get; init; } 
     
     #nullable disable

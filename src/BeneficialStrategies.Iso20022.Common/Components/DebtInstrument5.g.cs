@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the debit instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DebtInstrument5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DebtInstrument5
     /// <summary>
     /// Specifies the type of bond type.
     /// </summary>
+    [DataMember]
     public required BondType1Code Type { get; init; } 
     /// <summary>
     /// Date on which a bond is issued and begins to accrue interest.
     /// </summary>
+    [DataMember]
     public required IsoISODate IssuanceDate { get; init; } 
     
     #nullable disable

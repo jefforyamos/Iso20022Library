@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the pricing expressed as a rate type or a rate name complemented with lookback and crystallization days.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RateTypeAndLookback2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record RateTypeAndLookback2
     /// <summary>
     /// Specifies the rate type as an index type or by its name.
     /// </summary>
+    [DataMember]
     public required BenchmarkCurveName13Choice_ Type { get; init; } 
     /// <summary>
     /// Number of days prior to the current day to source the rate.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? LookBackDays { get; init; } 
     /// <summary>
     /// Identifies the penultimate accrual date of the transaction to the final (repurchase) date. Crystallising the penultimate fixing into a fixed rate for the final business day. This will allow for parties to send timely settlement instructions for the repurchase leg of the transaction. Default value is 1 day.
     /// </summary>
+    [DataMember]
     public CrystallisationDay1? CrystallisationDate { get; init; } 
     /// <summary>
     /// Specifies the tenor of the interest rate index (when the interest rate is calculated).
     /// </summary>
+    [DataMember]
     public InterestRateIndexTenor2Code? Tenor { get; init; } 
     /// <summary>
     /// Rate Index currency.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
     
     #nullable disable

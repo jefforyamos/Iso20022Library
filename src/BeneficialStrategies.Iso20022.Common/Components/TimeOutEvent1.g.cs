@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the time-out reason.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TimeOutEvent1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TimeOutEvent1
     /// <summary>
     /// Specifies in coded form the reason for the time-out notification.
     /// </summary>
+    [DataMember]
     public required TimeOut1Code Type { get; init; } 
     /// <summary>
     /// Additional information on the reason for the time-out.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     
     #nullable disable

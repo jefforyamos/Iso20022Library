@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the device.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeviceIdentification1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record DeviceIdentification1
     /// <summary>
     /// Type of device.
     /// </summary>
+    [DataMember]
     public DeviceIdentificationType1Code? Type { get; init; } 
     /// <summary>
     /// Other type of identification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Identifier of the device.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Identification { get; init; } 
     /// <summary>
     /// Entity that assigned the identification.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Assigner { get; init; } 
     
     #nullable disable

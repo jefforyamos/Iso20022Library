@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique identification, as assigned by the original requestor, to unambiguously identify the business query message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalBusinessQuery1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OriginalBusinessQuery1
     /// <summary>
     /// Point to point reference, as assigned by the original initiating party, to unambiguously identify the original query message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Specifies the query message name identifier to which the message refers.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MessageNameIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CreationDateTime { get; init; } 
     
     #nullable disable

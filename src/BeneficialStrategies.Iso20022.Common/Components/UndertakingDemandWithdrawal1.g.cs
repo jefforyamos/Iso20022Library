@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the demand withdrawal notification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UndertakingDemandWithdrawal1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record UndertakingDemandWithdrawal1
     /// <summary>
     /// Details related to the identification of the undertaking.
     /// </summary>
+    [DataMember]
     public required Undertaking6 UndertakingIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the advising party to the undertaking.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AdvisingPartyReferenceNumber { get; init; } 
     /// <summary>
     /// Details related to the demand.
     /// </summary>
+    [DataMember]
     public required Demand3 DemandDetails { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the confirmer to the undertaking.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ConfirmerReferenceNumber { get; init; } 
     
     #nullable disable

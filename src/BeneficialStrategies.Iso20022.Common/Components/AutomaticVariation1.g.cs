@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Variation parameters and triggers.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AutomaticVariation1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record AutomaticVariation1
     /// <summary>
     /// Identification of the automatic variation.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Type of variation.
     /// </summary>
+    [DataMember]
     public required VariationType1Code Type { get; init; } 
     /// <summary>
     /// Details related to the variation amount and its trigger.
     /// </summary>
-    public AmountAndTrigger1[] AmountAndTrigger { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AmountAndTrigger1> AmountAndTrigger { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the variation.
     /// </summary>
-    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

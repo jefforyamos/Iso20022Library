@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reports on business day information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BusinessDay8
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record BusinessDay8
     /// <summary>
     /// Identification of a particular market infrastructure.
     /// </summary>
-    public SystemIdentification2Choice_[] SystemIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SystemIdentification2Choice_> SystemIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Requested information on the system availability for a specific business day or business error when information has not been found.
     /// </summary>
+    [DataMember]
     public required BusinessDayReportOrError10Choice_ BusinessDayOrError { get; init; } 
     
     #nullable disable

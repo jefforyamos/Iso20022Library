@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(EquityDerivative3Choice.Index))]
 [KnownType(typeof(EquityDerivative3Choice.SingleName))]
 [KnownType(typeof(EquityDerivative3Choice.Other))]
+[DataContract]
 public abstract partial record EquityDerivative3Choice_
 {
 }

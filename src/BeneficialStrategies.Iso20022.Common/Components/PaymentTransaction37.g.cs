@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide reference and status information on the original transactions, included in the original instruction, to which the cancellation request message applies.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTransaction37
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record PaymentTransaction37
     /// <summary>
     /// Unique identification, as assigned by the assigner, to unambiguously identify a cancellation request.||Usage: The cancellation request identification can be used for reconciliation or to link tasks relating to the cancellation request.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CancellationIdentification { get; init; } 
     /// <summary>
     /// Set of elements to uniquely and unambiguously identify an exception or an investigation workflow.
     /// </summary>
+    [DataMember]
     public Case3? Case { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original instructing party for the original instructed party, to unambiguously identify the original instruction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalInstructionIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original initiating party, to unambiguously identify the original transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalEndToEndIdentification { get; init; } 
     /// <summary>
     /// Amount of money, as provided in the original transaction, to be moved between the debtor and the creditor, before deduction of charges, expressed in the currency, as ordered by the original initiating party.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? OriginalInstructedAmount { get; init; } 
     /// <summary>
     /// Date at which the initiating party originally requested the clearing agent to process the payment.
     /// </summary>
+    [DataMember]
     public IsoISODate? OriginalRequestedExecutionDate { get; init; } 
     /// <summary>
     /// Date at which the creditor originally requested the collection of the amount of money from the debtor.
     /// </summary>
+    [DataMember]
     public IsoISODate? OriginalRequestedCollectionDate { get; init; } 
     /// <summary>
     /// Provides detailed information on the cancellation reason.
     /// </summary>
-    public PaymentCancellationReason2[] CancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentCancellationReason2> CancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Key elements used to identify the original transaction that is being referred to.
     /// </summary>
+    [DataMember]
     public OriginalTransactionReference16? OriginalTransactionReference { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Common identification of a service to be billed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BillingServiceCommonIdentification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record BillingServiceCommonIdentification1
     /// <summary>
     /// Defines the issuer of the common code, such as "AFP".
     /// </summary>
+    [DataMember]
     public required IsoMax6Text Issuer { get; init; } 
     /// <summary>
     /// Standard reference code used to uniquely identify this service across financial institutions. This is not the financial institution’s internal bank service identification.
     /// </summary>
+    [DataMember]
     public required IsoMax8Text Identification { get; init; } 
     
     #nullable disable

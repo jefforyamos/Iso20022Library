@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the conditions for the execution of the payment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentCondition1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record PaymentCondition1
     /// <summary>
     /// Indicates if the debtor is allowed to pay a different amount then the requested amount.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator AmountModificationAllowed { get; init; } 
     /// <summary>
     /// Indicates if the debtor is allowed to pay before the requested execution date.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator EarlyPaymentAllowed { get; init; } 
     /// <summary>
     /// Penalty to be applied for a delayed payment, that is when the payment is made after the requested execution date.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? DelayPenalty { get; init; } 
     /// <summary>
     /// Discount rate applied for immediate payment upon receipt of the request.
     /// </summary>
+    [DataMember]
     public AmountOrRate1Choice_? ImmediatePaymentRebate { get; init; } 
     /// <summary>
     /// Indicates if a payment guarantee is requested, assuming a payment guarantee contract exists between the different actors.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator GuaranteedPaymentRequested { get; init; } 
     
     #nullable disable

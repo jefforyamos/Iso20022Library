@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(FiscalYear1Choice.StartDate))]
 [KnownType(typeof(FiscalYear1Choice.EndDate))]
+[DataContract]
 public abstract partial record FiscalYear1Choice_
 {
 }

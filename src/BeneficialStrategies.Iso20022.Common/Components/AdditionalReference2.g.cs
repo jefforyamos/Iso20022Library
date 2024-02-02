@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// References a related message or provides another reference, such as a pool reference, linking a set of messages. The party which issued the related reference may be the Sender of the referenced message or a party other than the Sender.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalReference2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AdditionalReference2
     /// <summary>
     /// Business reference of a message assigned by the party issuing the message. This reference must be unique amongst all messages of the same name sent by the same party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Reference { get; init; } 
     /// <summary>
     /// Issuer of the reference.
     /// </summary>
+    [DataMember]
     public PartyIdentification1Choice_? ReferenceIssuer { get; init; } 
     /// <summary>
     /// Name of a message.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MessageName { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique identification, as assigned by the first instructing agent, to unambiguously identify the group of transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UnderlyingGroupInformation1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record UnderlyingGroupInformation1
     /// <summary>
     /// Point to point reference, as assigned by the original instructing party, to unambiguously identify the original message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalMessageIdentification { get; init; } 
     /// <summary>
     /// Specifies the original message name identifier to which the message refers.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalMessageNameIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the original message was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OriginalCreationDateTime { get; init; } 
     /// <summary>
     /// Original channel used for the delivery of the message, to allow the receiver of the request to locate the payment with greater ease.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalMessageDeliveryChannel { get; init; } 
     
     #nullable disable

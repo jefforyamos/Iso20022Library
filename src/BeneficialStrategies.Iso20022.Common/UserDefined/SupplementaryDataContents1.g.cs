@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.UserDefined;
 /// Technical supplementary data structure that allows to specify any valid XML Structure (e.g. through an XML Schema). The property namespace is set to 'any'. 
 /// The content of the supplementary data MUST NOT be validated by the receiver (processContent=lax).
 /// </summary>
+[DataContract]
 public partial record SupplementaryDataContents1
 {
     #nullable enable

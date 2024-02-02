@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the issuer, as required by ASX.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IssuerAttributesSD1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record IssuerAttributesSD1
     /// <summary>
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. ||In the case of XML, this is expressed by a valid XPath.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax140Text Name { get; init; } 
     /// <summary>
     /// Registered number type of the entity.
     /// </summary>
+    [DataMember]
     public RegisteredNumberType1Code? RegisteredNumberType { get; init; } 
     /// <summary>
     /// Other type of Registered Number.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherRegisteredNumberType { get; init; } 
     /// <summary>
     /// Equivalent, unique number of the entity for the Registered Number Type.
     /// </summary>
+    [DataMember]
     public required IsoMax16Text RegistrationNumber { get; init; } 
     /// <summary>
     /// ASX Issuer Code.
     /// </summary>
+    [DataMember]
     public required IsoExact3UpperCaseAlphaNumericText IssuerIdentification { get; init; } 
     
     #nullable disable

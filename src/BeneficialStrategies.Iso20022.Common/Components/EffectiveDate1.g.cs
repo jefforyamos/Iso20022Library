@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Date and date parameters.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EffectiveDate1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record EffectiveDate1
     /// <summary>
     /// Date on which the SSI is effective. If the SSI is effective on a future date, then the date must be provided.
     /// </summary>
+    [DataMember]
     public required IsoISODate EffectiveDate { get; init; } 
     /// <summary>
     /// Specifies how the SSI update effective date is to be applied.
     /// </summary>
+    [DataMember]
     public ExternalEffectiveDateParameter1Code? EffectiveDateParameter { get; init; } 
     
     #nullable disable

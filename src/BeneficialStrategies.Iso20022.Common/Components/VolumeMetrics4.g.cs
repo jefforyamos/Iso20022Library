@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Numeric variables calculated on the number of transactions or on market exposures.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VolumeMetrics4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record VolumeMetrics4
     /// <summary>
     /// Indication whether reused value is actual or estimated.
     /// </summary>
+    [DataMember]
     public ReuseValue1Choice_? ReuseValue { get; init; } 
     /// <summary>
     /// Provides details on the amount of the cash reinvestment in a given currency.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ReinvestedCashAmount { get; init; } 
     
     #nullable disable

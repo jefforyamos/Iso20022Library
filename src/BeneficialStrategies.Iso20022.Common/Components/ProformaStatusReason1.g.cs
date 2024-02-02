@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for an proforma status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProformaStatusReason1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ProformaStatusReason1
     /// <summary>
     /// Reason for the proforma account status.
     /// </summary>
+    [DataMember]
     public required ProformaStatusReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the proforma account status.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

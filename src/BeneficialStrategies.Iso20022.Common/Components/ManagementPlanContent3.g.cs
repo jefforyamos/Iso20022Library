@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the management plan.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ManagementPlanContent3
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record ManagementPlanContent3
     /// <summary>
     /// Terminal management action to be performed by the point of interaction (POI).
     /// </summary>
-    public TMSAction3[] Action { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TMSAction3> Action { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

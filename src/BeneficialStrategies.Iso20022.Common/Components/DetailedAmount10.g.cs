@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional amounts from the processor or the issuer without financial impacts on the transaction amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedAmount10
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record DetailedAmount10
     /// <summary>
     /// Type or class of amount.
     /// </summary>
+    [DataMember]
     public required TypeOfAmount6Code Type { get; init; } 
     /// <summary>
     /// Additional information to specify the type of amount.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AdditionalType { get; init; } 
     /// <summary>
     /// Amount value.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Short description of the amount to provide to the cardholder.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Label { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details on the agents specific to the individual transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionAgents5
 {
     #nullable enable
@@ -20,51 +22,63 @@ public partial record TransactionAgents5
     /// <summary>
     /// Agent that instructs the next party in the chain to carry out the (set of) instruction(s).
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? InstructingAgent { get; init; } 
     /// <summary>
     /// Agent that is instructed by the previous party in the chain to carry out the (set of) instruction(s).
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? InstructedAgent { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? DebtorAgent { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? CreditorAgent { get; init; } 
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If more than one intermediary agent is present, then IntermediaryAgent1 identifies the agent between the DebtorAgent and the IntermediaryAgent2.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? IntermediaryAgent1 { get; init; } 
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If more than two intermediary agents are present, then IntermediaryAgent2 identifies the agent between the IntermediaryAgent1 and the IntermediaryAgent3.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? IntermediaryAgent2 { get; init; } 
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If IntermediaryAgent3 is present, then it identifies the agent between the IntermediaryAgent 2 and the CreditorAgent.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? IntermediaryAgent3 { get; init; } 
     /// <summary>
     /// Party that receives securities from the delivering agent at the place of settlement, such as central securities depository.|Can also be used in the context of treasury operations.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? ReceivingAgent { get; init; } 
     /// <summary>
     /// Party that delivers securities to the receiving agent at the place of settlement, such as a central securities depository.|Can also be used in the context of treasury operations.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? DeliveringAgent { get; init; } 
     /// <summary>
     /// Legal entity that has the right to issue securities.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? IssuingAgent { get; init; } 
     /// <summary>
     /// Place where settlement of the securities takes place.|Usage: This is typed by a financial institution identification as this is the standard way to identify a securities settlement agent/central system.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? SettlementPlace { get; init; } 
     /// <summary>
     /// Proprietary agent related to the underlying transaction.
     /// </summary>
-    public ProprietaryAgent4[] Proprietary { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProprietaryAgent4> Proprietary { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

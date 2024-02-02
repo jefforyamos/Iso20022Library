@@ -24,6 +24,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(AssetClassCommodity6Choice.OtherC10))]
 [KnownType(typeof(AssetClassCommodity6Choice.Paper))]
 [KnownType(typeof(AssetClassCommodity6Choice.Polypropylene))]
+[DataContract]
 public abstract partial record AssetClassCommodity6Choice_
 {
 }

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(InterestRate20Choice.Fixed))]
 [KnownType(typeof(InterestRate20Choice.Floating))]
+[DataContract]
 public abstract partial record InterestRate20Choice_
 {
 }

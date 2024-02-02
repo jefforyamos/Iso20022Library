@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about total instructed balance.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InstructedBalanceDetails8
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record InstructedBalanceDetails8
     /// <summary>
     /// Provides information about the total instructed balance.
     /// </summary>
+    [DataMember]
     public required BalanceFormat7Choice_ TotalInstructedBalance { get; init; } 
     /// <summary>
     /// Provide instructed balance breakdown information per option.
     /// </summary>
-    public InstructedCorporateActionOption9[] OptionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InstructedCorporateActionOption9> OptionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

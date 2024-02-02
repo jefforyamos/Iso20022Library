@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(SuspendedStatusReason5Choice.Code))]
 [KnownType(typeof(SuspendedStatusReason5Choice.Proprietary))]
+[DataContract]
 public abstract partial record SuspendedStatusReason5Choice_
 {
 }

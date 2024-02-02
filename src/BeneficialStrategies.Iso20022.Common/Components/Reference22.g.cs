@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reference of the business message envelope.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Reference22
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record Reference22
     /// <summary>
     /// Name of the reference.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Issuer of the reference.
     /// </summary>
+    [DataMember]
     public required PartyIdentification135 Issuer { get; init; } 
     /// <summary>
     /// Value of the reference.
     /// </summary>
+    [DataMember]
     public required ReferenceValue1Choice_ Value { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

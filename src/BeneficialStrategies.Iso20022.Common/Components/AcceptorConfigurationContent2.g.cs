@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the acceptor configuration.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcceptorConfigurationContent2
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record AcceptorConfigurationContent2
     /// <summary>
     /// Acceptor parameters dedicated to an acquirer protocol.
     /// </summary>
-    public AcquirerProtocolParameters3[] AcquirerProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AcquirerProtocolParameters3> AcquirerProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to the merchant.
     /// </summary>
-    public IsoMax10000Binary[] MerchantParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax10000Binary> MerchantParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Manufacturer configuration parameters of the point of interaction.
     /// </summary>
-    public IsoMax10000Binary[] TerminalParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax10000Binary> TerminalParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to a payment application of the point of interaction.
     /// </summary>
-    public ApplicationParameters2[] ApplicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ApplicationParameters2> ApplicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to the communication with an acquirer host.
     /// </summary>
-    public HostCommunicationParameter2[] HostCommunicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<HostCommunicationParameter2> HostCommunicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Point of interaction parameters related to the security of software application and application protocol.
     /// </summary>
-    public SecurityParameters1[] SecurityParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecurityParameters1> SecurityParameters { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

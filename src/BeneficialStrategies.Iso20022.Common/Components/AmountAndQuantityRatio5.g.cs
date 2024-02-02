@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Ratio expressed as amount per quantity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountAndQuantityRatio5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AmountAndQuantityRatio5
     /// <summary>
     /// Cash amount.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     /// <summary>
     /// Quantity expressed as number.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINDecimalNumber Quantity { get; init; } 
     
     #nullable disable

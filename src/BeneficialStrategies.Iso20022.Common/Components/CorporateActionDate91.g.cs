@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies corporate action date.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionDate91
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionDate91
     /// <summary>
     /// Last day a holder can deliver the securities that it had elected on and/or previously protected.
     /// </summary>
+    [DataMember]
     public DateFormat43Choice_? CoverExpirationDeadline { get; init; } 
     /// <summary>
     /// Date/time at which the deal (rights) was agreed.
     /// </summary>
+    [DataMember]
     public DateFormat49Choice_? TradingDate { get; init; } 
     
     #nullable disable

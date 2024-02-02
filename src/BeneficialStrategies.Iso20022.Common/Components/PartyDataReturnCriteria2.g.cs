@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Return criteria for information to be returned in the report deriving from a query about party reference data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyDataReturnCriteria2
 {
     #nullable enable
@@ -20,62 +22,77 @@ public partial record PartyDataReturnCriteria2
     /// <summary>
     /// Indicates whether the opening date of the party is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? OpeningDate { get; init; } 
     /// <summary>
     /// Indicates whether the closing date of the party is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? ClosingDate { get; init; } 
     /// <summary>
     /// Indicates whether the type is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? Type { get; init; } 
     /// <summary>
     /// Indicates whether the unique identification to unambiguously identify the party within the system is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? PartyIdentification { get; init; } 
     /// <summary>
     /// Indicates whether the responsible party who initially created the party reference data is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? ResponsiblePartyIdentification { get; init; } 
     /// <summary>
     /// Indicates whether the identification of the restriction is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? RestrictionIdentification { get; init; } 
     /// <summary>
     /// Indicates whether the date at which a restriction for party has been issued is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? RestrictedOnDate { get; init; } 
     /// <summary>
     /// Indicates whether the name for the party is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? Name { get; init; } 
     /// <summary>
     /// Indicates whether the short name for the party is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? ShortName { get; init; } 
     /// <summary>
     /// Indicates whether the address for the party is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? Address { get; init; } 
     /// <summary>
     /// Indicates whether the technical addresses for the party are requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? TechnicalAddress { get; init; } 
     /// <summary>
     /// Indicates whether the party contact details are requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? ContactDetails { get; init; } 
     /// <summary>
     /// Indicates whether the residence type is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? ResidenceType { get; init; } 
     /// <summary>
     /// Indicates whether the lock status is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? LockStatus { get; init; } 
     /// <summary>
     /// Indicates whether the market specific attributes for the party are requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? MarketSpecificAttribute { get; init; } 
     
     #nullable disable

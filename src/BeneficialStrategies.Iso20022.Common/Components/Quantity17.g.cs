@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Quantity of the commodity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Quantity17
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Quantity17
     /// <summary>
     /// Fair value of the individual collateral component expressed in price currency.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber Value { get; init; } 
     /// <summary>
     /// Unit of measure in which the quantity is expressed.
     /// </summary>
+    [DataMember]
     public required UnitOfMeasure11Code UnitOfMeasure { get; init; } 
     
     #nullable disable

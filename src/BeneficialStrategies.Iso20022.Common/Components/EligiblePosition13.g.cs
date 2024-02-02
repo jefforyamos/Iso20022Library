@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a securities position and rights holders.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EligiblePosition13
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record EligiblePosition13
     /// <summary>
     /// Identification of the securities account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountIdentification { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification231Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Net position of a segregated holding of a single security within the overall position held in a securities account, for example, sub-balance per status.
     /// </summary>
-    public HoldingBalance11[] HoldingBalance { get; init; } = [];
+    [DataMember]
+    public ValueList<HoldingBalance11> HoldingBalance { get; init; } = [];
     /// <summary>
     /// Owner of the voting rights.
     /// </summary>
-    public PartyIdentification246Choice_[] RightsHolder { get; init; } = [];
+    [DataMember]
+    public ValueList<PartyIdentification246Choice_> RightsHolder { get; init; } = [];
     
     #nullable disable
 }

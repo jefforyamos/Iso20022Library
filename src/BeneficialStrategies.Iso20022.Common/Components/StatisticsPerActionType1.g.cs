@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed statistics for submitted derivatives per action type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatisticsPerActionType1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record StatisticsPerActionType1
     /// <summary>
     /// Total number of derivatives which have been reported.
     /// </summary>
+    [DataMember]
     public required IsoMax20PositiveNumber All { get; init; } 
     /// <summary>
     /// Number of derivatives which have been reported as new.
     /// </summary>
+    [DataMember]
     public required IsoMax20PositiveNumber New { get; init; } 
     /// <summary>
     /// Number of derivatives which have been reported as modified.
     /// </summary>
+    [DataMember]
     public required IsoMax20PositiveNumber Modification { get; init; } 
     
     #nullable disable

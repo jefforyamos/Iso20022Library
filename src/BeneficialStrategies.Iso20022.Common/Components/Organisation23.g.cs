@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Organisation23
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record Organisation23
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text Name { get; init; } 
     /// <summary>
     /// Name of the organisation in short form.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
-    public PostalAddress21[] PostalAddress { get; init; } = [];
+    [DataMember]
+    public ValueList<PostalAddress21> PostalAddress { get; init; } = [];
     
     #nullable disable
 }

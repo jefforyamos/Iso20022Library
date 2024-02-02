@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data to request a loyalty service. A Loyalty request contents : the loyalty transaction request and the loyalty data if any.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoyaltyRequest3
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record LoyaltyRequest3
     /// <summary>
     /// To retrieve Card Acquisition Data.
     /// </summary>
+    [DataMember]
     public CustomerOrder1? CustomerOrder { get; init; } 
     /// <summary>
     /// Data related to the loyalty transaction.
     /// </summary>
+    [DataMember]
     public required LoyaltyTransaction3 Transaction { get; init; } 
     /// <summary>
     /// Data related to a Loyalty program or account.
     /// </summary>
-    public LoyaltyRequestData2[] Data { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LoyaltyRequestData2> Data { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

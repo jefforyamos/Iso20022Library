@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification243
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record PartyIdentification243
     /// <summary>
     /// Legal entity.
     /// </summary>
-    public PartyIdentification237[] LegalPerson { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyIdentification237> LegalPerson { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Private person.
     /// </summary>
-    public PartyIdentification217[] NaturalPerson { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyIdentification217> NaturalPerson { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

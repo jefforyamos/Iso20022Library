@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Get Totals Response message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportGetTotalsResponse1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record ReportGetTotalsResponse1
     /// <summary>
     /// Identification of the reconciliation period between Sale and POI.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text POIReconciliationIdentification { get; init; } 
     /// <summary>
     /// Result of the Sale to POI Totals processing.
     /// </summary>
-    public TransactionTotalsSet1[] TransactionTotalsSet { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionTotalsSet1> TransactionTotalsSet { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

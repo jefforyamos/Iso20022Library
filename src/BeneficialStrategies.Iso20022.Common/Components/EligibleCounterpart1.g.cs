@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Represents a party to be identified as eligible for the instructing party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EligibleCounterpart1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record EligibleCounterpart1
     /// <summary>
     /// Unique business identifier code used to identify the party providing the eligible counterpart information.
     /// </summary>
+    [DataMember]
     public required SystemPartyIdentification1Choice_ IssuerIdentification { get; init; } 
     /// <summary>
     /// Unique business identifier code used to identify the central securities depository to be defined as eligible.
     /// </summary>
+    [DataMember]
     public required SystemPartyIdentification1Choice_ EligibleCounterpartIdentification { get; init; } 
     /// <summary>
     /// Date from when the eligible counterpart is valid.
     /// </summary>
+    [DataMember]
     public required IsoISODate ValidFrom { get; init; } 
     /// <summary>
     /// Date until when the eligible counterpart is valid.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValidTo { get; init; } 
     /// <summary>
     /// Defines the type of eligibility.
     /// </summary>
+    [DataMember]
     public required EligibilityType1Code EligibilityType { get; init; } 
     /// <summary>
     /// Unique identification of the eligible counterpart party.
     /// </summary>
+    [DataMember]
     public required EligibilityIdentification1Choice_ EligibilityIdentification { get; init; } 
     
     #nullable disable

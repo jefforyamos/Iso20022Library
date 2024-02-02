@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the identification of an individual person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericIdentification44
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record GenericIdentification44
     /// <summary>
     /// Name or number assigned by an entity to enable recognition of that entity, eg, account identifier.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Specifies the nature of the identification.
     /// </summary>
+    [DataMember]
     public required OtherIdentification1Choice_ Type { get; init; } 
     /// <summary>
     /// Entity that assigns the identifier.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     /// <summary>
     /// Date at which the identification was issued.
     /// </summary>
+    [DataMember]
     public IsoISODate? IssueDate { get; init; } 
     /// <summary>
     /// Date at which the identification expires.
     /// </summary>
+    [DataMember]
     public IsoISODate? ExpiryDate { get; init; } 
     
     #nullable disable

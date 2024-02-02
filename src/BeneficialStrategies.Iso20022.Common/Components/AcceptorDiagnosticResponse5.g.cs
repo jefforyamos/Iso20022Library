@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Diagnostic response from the acquirer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcceptorDiagnosticResponse5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AcceptorDiagnosticResponse5
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentEnvironment71 Environment { get; init; } 
     /// <summary>
     /// Instructions for contacting the terminal management host.
     /// </summary>
+    [DataMember]
     public TMSTrigger1? TMSTrigger { get; init; } 
     
     #nullable disable

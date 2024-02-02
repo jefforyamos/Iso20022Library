@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the management plan.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ManagementPlanContent8
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record ManagementPlanContent8
     /// <summary>
     /// Terminal manager challenge for cryptographic key injection.
     /// </summary>
+    [DataMember]
     public IsoMax140Binary? TMChallenge { get; init; } 
     /// <summary>
     /// Certificate chain of an asymmetric encryption keys for the encryption of temporary transport key of the key to inject.
     /// </summary>
-    public IsoMax10KBinary[] KeyEnciphermentCertificate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax10KBinary> KeyEnciphermentCertificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Terminal management action to be performed by the point of interaction (POI).
     /// </summary>
-    public TMSAction8[] Action { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TMSAction8> Action { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

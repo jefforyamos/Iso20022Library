@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about an undertaking.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Undertaking7
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Undertaking7
     /// <summary>
     /// Unique and unambiguous identifier assigned by the issuer to the undertaking, for example the guarantee or standby number.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Party that issues the undertaking.
     /// </summary>
+    [DataMember]
     public required PartyIdentification43 Issuer { get; init; } 
     
     #nullable disable

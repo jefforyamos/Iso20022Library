@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of information related to the cancellation request, such as actors involved and identification of the original multiple invoice financing request to which the cancellation request is referring.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CancellationRequestInformation1
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record CancellationRequestInformation1
     /// <summary>
     /// Unique and unambiguous identifier of the original financing request message as assigned by the original sending party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalGroupIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the original financing request message was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime OriginalCreationDateTime { get; init; } 
     /// <summary>
     /// Specifies the number of single invoice financing requests included in the original financing request message.
     /// </summary>
+    [DataMember]
     public IsoMax15NumericText? NumberOfInvoiceRequests { get; init; } 
     /// <summary>
     /// Total amount of the bulk invoice financing request. It is composed by the sum of the total amounts of all invoices included in the original financing request message.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalBulkInvoiceAmount { get; init; } 
     /// <summary>
     /// Further details on the cancellation request information, in an uncoded form.
     /// </summary>
+    [DataMember]
     public required IsoMax105Text CancellationReason { get; init; } 
     /// <summary>
     /// Party that requests the cancellation of a financing request previously sent.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount6? FinancingRequestor { get; init; } 
     /// <summary>
     /// Financial institution that receives the request from the financing requestor and forwards it to the first agent for execution.
     /// </summary>
+    [DataMember]
     public FinancialInstitutionIdentification6? IntermediaryAgent { get; init; } 
     /// <summary>
     /// Financial institution of financing requestor to which an invoice financing cancellation request is addressed.
     /// </summary>
+    [DataMember]
     public FinancialInstitutionIdentification6? FirstAgent { get; init; } 
     
     #nullable disable

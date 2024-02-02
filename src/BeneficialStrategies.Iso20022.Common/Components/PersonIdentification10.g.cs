@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique and unambiguous way to identify a person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PersonIdentification10
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PersonIdentification10
     /// <summary>
     /// First name of a person (also known as given name).
     /// </summary>
+    [DataMember]
     public required IsoMax140Text FirstName { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Name { get; init; } 
     /// <summary>
     /// Date on which a person is born.
     /// </summary>
+    [DataMember]
     public required IsoISODate BirthDate { get; init; } 
     /// <summary>
     /// Unique identification of a person, as assigned by an institution, using an identification scheme.
     /// </summary>
+    [DataMember]
     public required GenericPersonIdentification1 Other { get; init; } 
     
     #nullable disable

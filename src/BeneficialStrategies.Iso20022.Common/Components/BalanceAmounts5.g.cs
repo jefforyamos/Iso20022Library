@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BalanceAmounts5
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record BalanceAmounts5
     /// <summary>
     /// Value of an individual financial instrument holding within a safekeeping account.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection14 HoldingValue { get; init; } 
     /// <summary>
     /// Previous value of an individual financial instrument holding within a safekeeping account.
     /// </summary>
+    [DataMember]
     public AmountAndDirection14? PreviousHoldingValue { get; init; } 
     /// <summary>
     /// Value of a financial instrument, as booked/acquired in an account. It may be used to establish capital gain tax liability.
     /// </summary>
+    [DataMember]
     public AmountAndDirection14? BookValue { get; init; } 
     /// <summary>
     /// Difference between holding value and the book value.
     /// </summary>
+    [DataMember]
     public AmountAndDirection14? UnrealisedGainLoss { get; init; } 
     /// <summary>
     /// Interest amount that has accrued in between coupon payment periods.
     /// </summary>
+    [DataMember]
     public AmountAndDirection14? AccruedInterestAmount { get; init; } 
     
     #nullable disable

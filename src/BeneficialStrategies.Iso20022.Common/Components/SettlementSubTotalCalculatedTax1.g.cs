@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the subtotal calculated tax applicable for this settlement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementSubTotalCalculatedTax1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record SettlementSubTotalCalculatedTax1
     /// <summary>
     /// Type of tax applied.
     /// </summary>
+    [DataMember]
     public IsoMax4Text? TypeCode { get; init; } 
     /// <summary>
     /// Reference used to identify the nature of tax levied, such as Value Added Tax (VAT).
     /// </summary>
+    [DataMember]
     public IsoMax4Text? CategoryCode { get; init; } 
     /// <summary>
     /// Monetary value resulting from the calculation of this tax, levy or duty.
     /// </summary>
-    public IsoCurrencyAndAmount[] CalculatedAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> CalculatedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary value used as the basis on which this tax, levy or duty is calculated.
     /// </summary>
-    public IsoCurrencyAndAmount[] BasisAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> BasisAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rate used to calculate the amount of this tax, levy or duty.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? CalculatedRate { get; init; } 
     /// <summary>
     /// Reason for a tax exemption.
     /// </summary>
+    [DataMember]
     public TaxExemptionReason1? ExemptionReason { get; init; } 
     
     #nullable disable

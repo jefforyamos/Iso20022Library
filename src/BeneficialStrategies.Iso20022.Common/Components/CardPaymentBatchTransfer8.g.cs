@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Card payment transactions from one or several data set of transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentBatchTransfer8
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record CardPaymentBatchTransfer8
     /// <summary>
     /// Totals of transactions of all the data sets.
     /// </summary>
-    public TransactionTotals7[] TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionTotals7> TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Card payment transactions from one data set of transactions.
     /// </summary>
-    public CardPaymentDataSet23[] DataSet { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardPaymentDataSet23> DataSet { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

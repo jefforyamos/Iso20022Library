@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Capabilities of the ATM terminal.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PointOfInteractionCapabilities5
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record PointOfInteractionCapabilities5
     /// <summary>
     /// Card reading capabilities of the ATM performing the transaction.
     /// </summary>
-    public CardDataReading4Code[] CardReadData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardDataReading4Code> CardReadData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Card writing capabilities of the terminal performing the transaction.
     /// </summary>
-    public CardDataReading4Code[] CardWriteData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardDataReading4Code> CardWriteData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Customer and card authentication capabilities available at the ATM.
     /// </summary>
-    public CardholderVerificationCapability3Code[] Authentication { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardholderVerificationCapability3Code> Authentication { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum number of digits the ATM is able to accept when the cardholder enters its PIN.
     /// </summary>
+    [DataMember]
     public IsoNumber? PINLengthCapabilities { get; init; } 
     /// <summary>
     /// Maximum number of characters of the approval code the ATM is able to manage.
     /// </summary>
+    [DataMember]
     public IsoNumber? ApprovalCodeLength { get; init; } 
     /// <summary>
     /// Maximum data length in bytes that a card issuer can return to the ICC at the terminal.
     /// </summary>
+    [DataMember]
     public IsoNumber? MaxScriptLength { get; init; } 
     /// <summary>
     /// True if the ATM is able to capture card.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CardCaptureCapable { get; init; } 
     
     #nullable disable

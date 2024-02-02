@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Chunk of a software package.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PackageType4
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record PackageType4
     /// <summary>
     /// Identification of the software packages of which the chunk belongs.
     /// </summary>
+    [DataMember]
     public GenericIdentification176? PackageIdentification { get; init; } 
     /// <summary>
     /// Full length of software package identified through PackageIdentification.
     /// </summary>
+    [DataMember]
     public IsoPositiveNumber? PackageLength { get; init; } 
     /// <summary>
     /// Place of the first following PackageBlock, beginning with 0, in the full software package identified through PackageIdentification.
     /// </summary>
+    [DataMember]
     public IsoPositiveNumber? OffsetStart { get; init; } 
     /// <summary>
     /// Following place of the last following PackageBlock in the full software package identified through PackageIdentification.
     /// </summary>
+    [DataMember]
     public IsoPositiveNumber? OffsetEnd { get; init; } 
     /// <summary>
     /// Consecutive slices of the full software package identified through PackageIdentification starting with first slice at the place identified with OffsetStart and ending with the last slice at the previous place identified with OffsetEnd.
     /// </summary>
-    public ExternallyDefinedData4[] PackageBlock { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ExternallyDefinedData4> PackageBlock { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

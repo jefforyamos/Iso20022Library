@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to a proxy  identification of the account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProxyAccountIdentification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ProxyAccountIdentification1
     /// <summary>
     /// Type of the proxy identification.
     /// </summary>
+    [DataMember]
     public ProxyAccountType1Choice_? Type { get; init; } 
     /// <summary>
     /// Identification used to indicate the account identification under another specified name.
     /// </summary>
+    [DataMember]
     public required IsoMax2048Text Identification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Container for tenders used by the customer to perform the payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Wallet2
 {
     #nullable enable
@@ -20,79 +22,98 @@ public partial record Wallet2
     /// <summary>
     /// Identification of the provider of the wallet.
     /// </summary>
+    [DataMember]
     public PartyIdentification258? Provider { get; init; } 
     /// <summary>
     /// Number of days that the user’s PAN has been on file for the user.
     /// </summary>
+    [DataMember]
     public IsoMax5PositiveNumber? PANAge { get; init; } 
     /// <summary>
     /// Number of days since the user wallet account for this user exists.
     /// </summary>
+    [DataMember]
     public IsoMax5PositiveNumber? UserAccountAge { get; init; } 
     /// <summary>
     /// Number of days since the user created the wallet account or started using the wallet.
     /// </summary>
+    [DataMember]
     public IsoMax5PositiveNumber? WalletAccountAge { get; init; } 
     /// <summary>
     /// Number of days since the last activity on the wallet.
     /// </summary>
+    [DataMember]
     public IsoMax5PositiveNumber? DaysSinceLastActivity { get; init; } 
     /// <summary>
     /// Number of transactions on this wallet within an interval.
     /// </summary>
+    [DataMember]
     public IsoMax10PositiveNumber? Activity { get; init; } 
     /// <summary>
     /// Identifies the interval of the activity.
     /// </summary>
+    [DataMember]
     public Frequency12Code? ActivityInterval { get; init; } 
     /// <summary>
     /// Number of days since wallet settings were changed.
     /// </summary>
+    [DataMember]
     public IsoMax5PositiveNumber? LastWalletChange { get; init; } 
     /// <summary>
     /// Number of cards suspended in the wallet.
     /// </summary>
+    [DataMember]
     public IsoMax5PositiveNumber? SuspendedCards { get; init; } 
     /// <summary>
     /// Country of the wallet account.
     /// </summary>
+    [DataMember]
     public ISOMax3ACountryCode? WalletAccountCountry { get; init; } 
     /// <summary>
     /// Method used to capture the card details for the wallet.
     /// </summary>
+    [DataMember]
     public CardDataReading9Code? CardDataEntryMode { get; init; } 
     /// <summary>
     /// Other method used to capture the card details.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherCardDataEntryMode { get; init; } 
     /// <summary>
     /// Number of days the email address has been in the wallet.
     /// </summary>
+    [DataMember]
     public IsoMax5PositiveNumber? WalletAccountEmailAge { get; init; } 
     /// <summary>
     /// Wallet Provider Risk Assessment.
     /// </summary>
+    [DataMember]
     public RiskAssessment1Code? WalletProviderRiskAssessment { get; init; } 
     /// <summary>
     /// Wallet Provider Risk Assessment Model Version used to create scores.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? WalletProviderRiskAssessmentModelVersion { get; init; } 
     /// <summary>
     /// A value to determine trust level of the phone number.
     /// </summary>
+    [DataMember]
     public IsoMax5PositiveNumber? WalletProviderPhoneScore { get; init; } 
     /// <summary>
     /// A value to determine trust level of the device.
     /// </summary>
+    [DataMember]
     public IsoMax5PositiveNumber? WalletProviderDeviceScore { get; init; } 
     /// <summary>
     /// A value to determine trust level of the account.
     /// </summary>
+    [DataMember]
     public IsoMax5PositiveNumber? WalletProviderAccountScore { get; init; } 
     /// <summary>
     /// Additional data associated with wallet.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

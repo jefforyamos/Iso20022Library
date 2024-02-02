@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information to display, print or log.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ActionMessage4
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ActionMessage4
     /// <summary>
     /// Information format.
     /// </summary>
+    [DataMember]
     public OutputFormat2Code? Format { get; init; } 
     /// <summary>
     /// Content of the message.
     /// </summary>
+    [DataMember]
     public IsoMax20000Text? Message { get; init; } 
     /// <summary>
     /// Message content if this is a message reference or screen reference.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Reference { get; init; } 
     /// <summary>
     /// Device to be used.
     /// </summary>
+    [DataMember]
     public ATMDevice1Code? Device { get; init; } 
     /// <summary>
     /// Electronic signature of the message to display or print.
     /// </summary>
+    [DataMember]
     public IsoMax35Binary? MessageContentSignature { get; init; } 
     
     #nullable disable

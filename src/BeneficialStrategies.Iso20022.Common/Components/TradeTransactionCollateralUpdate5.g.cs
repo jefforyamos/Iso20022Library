@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the loan used for financing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeTransactionCollateralUpdate5
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record TradeTransactionCollateralUpdate5
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
+    [DataMember]
     public required CounterpartyData76 CounterpartyData { get; init; } 
     /// <summary>
     /// Data specifically related to transaction.
     /// </summary>
+    [DataMember]
     public required TransactionLoanData9Choice_ LoanData { get; init; } 
     /// <summary>
     /// Information on collateral used in the transaction.
     /// </summary>
+    [DataMember]
     public required TransactionCollateralData14Choice_ CollateralData { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

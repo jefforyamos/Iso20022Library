@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the investment account ownership with respect to new issue allocation for a hedge fund.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NewIssueAllocation2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record NewIssueAllocation2
     /// <summary>
     /// Indicates whether the investor is eligible to participate in the profits and losses from a new issue.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Restricted { get; init; } 
     /// <summary>
     /// Reason for exemption.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? ExemptPersonReason { get; init; } 
     /// <summary>
     /// Conditions applicable when the investor is covered by the "de minimis" exemption.
     /// </summary>
+    [DataMember]
     public DeMinimus1Choice_? DeMinimus { get; init; } 
     
     #nullable disable

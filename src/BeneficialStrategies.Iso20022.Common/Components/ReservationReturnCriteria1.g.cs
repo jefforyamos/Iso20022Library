@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to report on reservation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReservationReturnCriteria1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ReservationReturnCriteria1
     /// <summary>
     /// Indicates whether the reservation start date time is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? StartDateTimeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the reservation status is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? StatusIndicator { get; init; } 
     
     #nullable disable

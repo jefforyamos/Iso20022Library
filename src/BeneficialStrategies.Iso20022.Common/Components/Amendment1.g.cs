@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the amendment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Amendment1
 {
     #nullable enable
@@ -20,63 +22,78 @@ public partial record Amendment1
     /// <summary>
     /// Sequence number assigned by the issuer to each proposed amendment of the undertaking.
     /// </summary>
+    [DataMember]
     public required IsoMax4AlphaNumericText SequenceNumber { get; init; } 
     /// <summary>
     /// Date on which the proposed amendment is issued.
     /// </summary>
+    [DataMember]
     public required IsoISODate DateOfIssuance { get; init; } 
     /// <summary>
     /// Identification of the undertaking.
     /// </summary>
+    [DataMember]
     public required Undertaking7 UndertakingIdentification { get; init; } 
     /// <summary>
     /// Party asked to advise the proposed amendment to the beneficiary or to another advising party at the request of the issuer.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? AdvisingParty { get; init; } 
     /// <summary>
     /// Additional party asked to advise the proposed amendment.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? SecondAdvisingParty { get; init; } 
     /// <summary>
     /// Details concerning the requested termination of the undertaking.
     /// </summary>
+    [DataMember]
     public UndertakingTermination3? TerminationDetails { get; init; } 
     /// <summary>
     /// Requested increase or decrease to the amount of for the undertaking.
     /// </summary>
+    [DataMember]
     public UndertakingAmount2? UndertakingAmountAdjustment { get; init; } 
     /// <summary>
     /// Requested new expiry terms for the undertaking.
     /// </summary>
+    [DataMember]
     public ExpiryDetails1? NewExpiryDetails { get; init; } 
     /// <summary>
     /// Requested new beneficiary of the undertaking.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? NewBeneficiary { get; init; } 
     /// <summary>
     /// Requested new terms and conditions of the undertaking.
     /// </summary>
-    public Narrative1[] NewUndertakingTermsAndConditions { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Narrative1> NewUndertakingTermsAndConditions { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amendment details related to the local undertaking.
     /// </summary>
+    [DataMember]
     public Undertaking11? LocalUndertaking { get; init; } 
     /// <summary>
     /// Indicates whether or not consent is requested from the beneficiary.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? BeneficiaryConsentRequestIndicator { get; init; } 
     /// <summary>
     /// Communication channel for delivery of the proposed amendment.
     /// </summary>
+    [DataMember]
     public CommunicationChannel1? DeliveryChannel { get; init; } 
     /// <summary>
     /// Document or template enclosed in the proposed amendment.
     /// </summary>
-    public Document9[] EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Document9> EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the proposed amendment.
     /// </summary>
-    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

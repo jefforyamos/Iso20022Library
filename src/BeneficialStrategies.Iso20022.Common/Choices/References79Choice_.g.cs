@@ -26,6 +26,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(References79Choice.TripartyCollateralTransactionInstructionProcessingStatusAdviceIdentification))]
 [KnownType(typeof(References79Choice.TripartyCollateralStatusAdviceIdentification))]
 [KnownType(typeof(References79Choice.TripartyCollateralAndExposureReportIdentification))]
+[DataContract]
 public abstract partial record References79Choice_
 {
 }

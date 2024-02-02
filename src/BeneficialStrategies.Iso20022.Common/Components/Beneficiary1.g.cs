@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details related to the beneficiary.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Beneficiary1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record Beneficiary1
     /// <summary>
     /// New beneficiary address, or new beneficiary name and address.
     /// </summary>
+    [DataMember]
     public required AddressOrParty1Choice_ NewAddressOrNewBeneficiary { get; init; } 
     /// <summary>
     /// Additional information concerning the amended beneficiary details.
     /// </summary>
-    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

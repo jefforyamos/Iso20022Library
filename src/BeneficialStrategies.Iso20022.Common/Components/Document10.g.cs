@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a document.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Document10
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Document10
     /// <summary>
     /// Type of document.
     /// </summary>
+    [DataMember]
     public required UndertakingDocumentType2Choice_ DocumentType { get; init; } 
     /// <summary>
     /// Channel through which the document should be presented.
     /// </summary>
+    [DataMember]
     public Channel1Choice_? PresentationChannel { get; init; } 
     /// <summary>
     /// Format of the document.
     /// </summary>
+    [DataMember]
     public DocumentFormat1Choice_? DocumentFormat { get; init; } 
     /// <summary>
     /// Indication whether the document may be a copy of the original document.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CopyIndicator { get; init; } 
     /// <summary>
     /// Indication whether the document must be signed.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? SignedIndicator { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details about the cash compensation such as the fees and the total settlement amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashCompensation1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CashCompensation1
     /// <summary>
     /// Provides the original amount to be settled.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection20 SettlementAmount { get; init; } 
     /// <summary>
     /// Amount of fees linked to the cash compensation process.
     /// </summary>
+    [DataMember]
     public AmountAndDirection20? Fees { get; init; } 
     /// <summary>
     /// Indicates the value date of the cash compensation.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValueDate { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the dispute notification details for the variation margin and optionaly the segregated independent amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DisputeNotification2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DisputeNotification2
     /// <summary>
     /// Provides the dispute notification details for the variation margin.
     /// </summary>
+    [DataMember]
     public required VariationMarginDispute1 VariationMarginDispute { get; init; } 
     /// <summary>
     /// Provides the dispute notification details for the segregated independent amount.
     /// </summary>
+    [DataMember]
     public SegregatedIndependentAmountDispute2? SegregatedIndependentAmountDispute { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Party and account information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentificationAndAccount3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PartyIdentificationAndAccount3
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public required PartyIdentification2Choice_ PartyIdentification { get; init; } 
     /// <summary>
     /// Identification of the account owned by the party.
     /// </summary>
+    [DataMember]
     public AccountIdentification1? AccountIdentification { get; init; } 
     
     #nullable disable

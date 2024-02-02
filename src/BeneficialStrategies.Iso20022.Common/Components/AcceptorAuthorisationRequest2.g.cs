@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Authorisation request from an acceptor.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcceptorAuthorisationRequest2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AcceptorAuthorisationRequest2
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentEnvironment9 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
+    [DataMember]
     public required CardPaymentContext1 Context { get; init; } 
     /// <summary>
     /// Card payment transaction for which the authorisation is requested.
     /// </summary>
+    [DataMember]
     public required CardPaymentTransaction11 Transaction { get; init; } 
     
     #nullable disable

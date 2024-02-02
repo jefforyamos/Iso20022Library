@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to search for an account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashAccountSearchCriteria7
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CashAccountSearchCriteria7
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
-    public AccountIdentificationSearchCriteria2Choice_[] AccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AccountIdentificationSearchCriteria2Choice_> AccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the nature, or use, of the cash account.
     /// </summary>
-    public CashAccountType2Choice_[] Type { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashAccountType2Choice_> Type { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the currency of the cash account.
     /// </summary>
-    public ActiveOrHistoricCurrencyCode[] Currency { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ActiveOrHistoricCurrencyCode> Currency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Balance of the account which is being queried.
     /// </summary>
-    public CashBalance12[] Balance { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashBalance12> Balance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>
+    [DataMember]
     public PartyIdentification135? AccountOwner { get; init; } 
     /// <summary>
     /// Servicer of the account which is being queried.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? AccountServicer { get; init; } 
     
     #nullable disable

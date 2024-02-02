@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding the new agent component.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentificationSD1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record PartyIdentificationSD1
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Function the agent is performing.
     /// </summary>
+    [DataMember]
     public required AgentType1Code AgentType { get; init; } 
     /// <summary>
     /// DTC agent identification number.
     /// </summary>
+    [DataMember]
     public IsoMax8Text? AgentIdentification { get; init; } 
     /// <summary>
     /// Name and address of the agent.
     /// </summary>
+    [DataMember]
     public required NameAndAddress5 AgentNameAndAddress { get; init; } 
     /// <summary>
     /// Telephone number of the agent.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? AgentTelephoneNumber { get; init; } 
     /// <summary>
     /// Email address of the event agent.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? AgentEmailAddress { get; init; } 
     /// <summary>
     /// Agent designated contact Information details.
     /// </summary>
+    [DataMember]
     public PartyIdentificationSD4? ContactInformation { get; init; } 
     
     #nullable disable

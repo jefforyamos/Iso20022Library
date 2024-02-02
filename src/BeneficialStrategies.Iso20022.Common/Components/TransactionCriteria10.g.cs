@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria which are used to search for a transaction and to report on the transaction. A name may be given to the new query.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionCriteria10
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record TransactionCriteria10
     /// <summary>
     /// Name of the query defined by the search criteria and return criteria.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NewQueryName { get; init; } 
     /// <summary>
     /// Defines the criteria on which the information is extracted.
     /// </summary>
-    public TransactionSearchCriteria10[] SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionSearchCriteria10> SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the format of the requested report.
     /// </summary>
+    [DataMember]
     public ReportIndicator1Code? StatementReport { get; init; } 
     /// <summary>
     /// Defines the expected payment transaction report.
     /// </summary>
+    [DataMember]
     public TransactionReturnCriteria5? ReturnCriteria { get; init; } 
     
     #nullable disable

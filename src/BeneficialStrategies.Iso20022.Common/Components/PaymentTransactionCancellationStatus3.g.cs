@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the status of the cancellation of a payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTransactionCancellationStatus3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PaymentTransactionCancellationStatus3
     /// <summary>
     /// Specifies the status of a cancellation request.
     /// </summary>
+    [DataMember]
     public required CancellationIndividualStatus2Code TransactionCancellationStatus { get; init; } 
     /// <summary>
     /// Provides status reason with regards to the cancellation of the payment.
     /// </summary>
+    [DataMember]
     public PaymentCancellationStatusReason3Code? CancellationStatusReasonInformation { get; init; } 
     /// <summary>
     /// Identifies the party that the case is assigned to. This is also the receiver of the message.
     /// </summary>
+    [DataMember]
     public required IsoAnyBICIdentifier Assignee { get; init; } 
     /// <summary>
     /// Specifies the date and time at which the cancellation response message enters the tracking system and thus on which the status is provided.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CancellationEventDateTime { get; init; } 
     
     #nullable disable

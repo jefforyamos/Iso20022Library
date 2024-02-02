@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Net position of a segregated holding of a single security within the overall position held in the securities account, for example, sub-balance per status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record HoldingBalance13
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record HoldingBalance13
     /// <summary>
     /// Total quantity of financial instrument for the referenced holding.
     /// </summary>
+    [DataMember]
     public required SignedQuantityFormat14 Balance { get; init; } 
     /// <summary>
     /// Reason a security is not available or additional information about the financial instrument for which the balance is given, for example, unregistered, registered in nominee name.
     /// </summary>
+    [DataMember]
     public required SecuritiesEntryType3Code BalanceType { get; init; } 
     
     #nullable disable

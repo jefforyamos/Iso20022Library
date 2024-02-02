@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates how the amount of the investment plan is split amongst the funds.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Repartition4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Repartition4
     /// <summary>
     /// Amount, units or percentage of financial instrument invested or withdrawn.
     /// </summary>
+    [DataMember]
     public required UnitsOrAmountOrPercentage1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Detailed information about the security or investment fund.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument51 FinancialInstrument { get; init; } 
     /// <summary>
     /// When a fund has multiple currencies within same ISIN, this indicates the currency of the savings or withdrawal plan.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? CurrencyOfPlan { get; init; } 
     
     #nullable disable

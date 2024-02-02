@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(OriginalActivation2Choice.OriginalDebtorIdentification))]
 [KnownType(typeof(OriginalActivation2Choice.OriginalActivationData))]
+[DataContract]
 public abstract partial record OriginalActivation2Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of constituents for a basket of indexes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BasketQuery1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record BasketQuery1
     /// <summary>
     /// Legal entity identifier code used to recognise the counterparty of the reporting agent for the reported transaction.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? Structurer { get; init; } 
     /// <summary>
     /// Identifier of the custom basket assigned by the structurer allowing to link the constituents of the basket of indexes.
     /// </summary>
+    [DataMember]
     public IsoMax52Text? Identifier { get; init; } 
     /// <summary>
     /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation's International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
     /// </summary>
+    [DataMember]
     public IsoISINOct2015Identifier? ISIN { get; init; } 
     
     #nullable disable

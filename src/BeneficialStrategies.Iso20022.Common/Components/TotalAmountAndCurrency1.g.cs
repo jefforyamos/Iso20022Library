@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements providing the total amount of all operations.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TotalAmountAndCurrency1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TotalAmountAndCurrency1
     /// <summary>
     /// Total net amount for all operations taken into account in the report.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount TotalAmount { get; init; } 
     /// <summary>
     /// Indicates whether the total amount is a credit or a debit amount.
     /// </summary>
+    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Currency in which the total amount is expressed.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     
     #nullable disable

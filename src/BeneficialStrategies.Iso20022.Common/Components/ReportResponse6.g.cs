@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the environment, the context and the services to be used with this message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportResponse6
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record ReportResponse6
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentEnvironment79 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
+    [DataMember]
     public required CardPaymentContext30 Context { get; init; } 
     /// <summary>
     /// Define the type of service requested.
     /// </summary>
+    [DataMember]
     public required RetailerService7Code ServiceContent { get; init; } 
     /// <summary>
     /// Content of the Transaction Report Response message.
     /// </summary>
+    [DataMember]
     public ReportTransactionResponse5? ReportTransactionResponse { get; init; } 
     /// <summary>
     /// Content of the Get Totals Response message.
     /// </summary>
+    [DataMember]
     public ReportGetTotalsResponse1? ReportGetTotalsResponse { get; init; } 
     /// <summary>
     /// Result of the processing of the request.
     /// </summary>
+    [DataMember]
     public required ResponseType11 Response { get; init; } 
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

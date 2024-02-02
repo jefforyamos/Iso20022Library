@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the customer in a transfer of money.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Customer3
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record Customer3
     /// <summary>
     /// Identification of the customer assigned by a party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CustomerIdentification { get; init; } 
     /// <summary>
     /// Name of the financial customer.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Address of the financial customer.
     /// </summary>
+    [DataMember]
     public Address1? Address { get; init; } 
     /// <summary>
     /// Credentials of the financial customer.
     /// </summary>
-    public Credentials1[] Credentials { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Credentials1> Credentials { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the customer.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Date of birth of the party.
     /// </summary>
+    [DataMember]
     public IsoISODate? DateOfBirth { get; init; } 
     
     #nullable disable

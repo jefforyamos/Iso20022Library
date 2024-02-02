@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies settlement parties (delivering/receiving).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementParties4
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SettlementParties4
     /// <summary>
     /// First receiving party in the settlement chain. In a plain vanilla settlement, it is the Central Securities Depository where the receiving side of the transaction requests to receive the financial instrument.
     /// </summary>
+    [DataMember]
     public required PartyIdentification35 Depository { get; init; } 
     /// <summary>
     /// Party that interacts with the Depository.
     /// </summary>
+    [DataMember]
     public required PartyIdentificationAndAccount14 Party1 { get; init; } 
     /// <summary>
     /// Party that interacts with the Party1.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount14? Party2 { get; init; } 
     /// <summary>
     /// Party that interacts with the Party2.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount14? Party3 { get; init; } 
     
     #nullable disable

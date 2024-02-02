@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type and rate of prepayment speed of the fixed income instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PrePaymentSpeed1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PrePaymentSpeed1
     /// <summary>
     /// Specifies the type of prepayment speed of the fixed income instrument in coded form.
     /// </summary>
+    [DataMember]
     public required PrePaymentSpeed1Code Type { get; init; } 
     /// <summary>
     /// Rate of prepayment speed of the fixed income instrument.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate Rate { get; init; } 
     
     #nullable disable

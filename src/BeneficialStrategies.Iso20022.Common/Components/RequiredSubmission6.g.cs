@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details relative to the submission of the certificate data set.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RequiredSubmission6
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record RequiredSubmission6
     /// <summary>
     /// Specifies with party(ies) is authorised to submit the data set as part of the transaction.
     /// </summary>
-    public BICIdentification1[] Submitter { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BICIdentification1> Submitter { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the type of the certificate, in 4 letters, for example BENE for beneficiary certificate, SHIP for shipping line certifcate.
     /// </summary>
+    [DataMember]
     public required IsoExact4AlphaNumericText CertificateType { get; init; } 
     /// <summary>
     /// Description of the certificate type required.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text CertificateTypeDescription { get; init; } 
     
     #nullable disable

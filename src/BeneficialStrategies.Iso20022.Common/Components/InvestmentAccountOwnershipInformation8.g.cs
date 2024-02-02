@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Characteristics of the ownership of an investment account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentAccountOwnershipInformation8
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record InvestmentAccountOwnershipInformation8
     /// <summary>
     /// Information about the organisation or individual person.
     /// </summary>
+    [DataMember]
     public required Party15Choice_ Party { get; init; } 
     /// <summary>
     /// Status of an identity check to prevent money laundering. This includes the counter-terrorism check.
     /// </summary>
+    [DataMember]
     public MoneyLaunderingCheck1Choice_? MoneyLaunderingCheck { get; init; } 
     /// <summary>
     /// Percentage of ownership or beneficiary ownership of the shares/units in the account. All subsequent subscriptions and or redemptions will be allocated using the same percentage.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? OwnershipBeneficiaryRate { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by an organisation, to unambiguously identify a party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientIdentification { get; init; } 
     /// <summary>
     /// Indicates whether an owner of an investment account may benefit from a fiscal exemption or amnesty for instance for declaring overseas investments.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? FiscalExemption { get; init; } 
     /// <summary>
     /// Indicates whether the account owner signature is required to authorise transactions on the account.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? SignatoryRightIndicator { get; init; } 
     /// <summary>
     /// Information related to the party profile to be inserted or deleted.
     /// </summary>
-    public ModificationScope19[] ModifiedInvestorProfileValidation { get; init; } = [];
+    [DataMember]
+    public ValueList<ModificationScope19> ModifiedInvestorProfileValidation { get; init; } = [];
     /// <summary>
     /// Details about the MiFID classification of the account owner.
     /// </summary>
+    [DataMember]
     public MiFIDClassification1? MiFIDClassification { get; init; } 
     /// <summary>
     /// Specifies how information is sent to the account holder.
     /// </summary>
+    [DataMember]
     public InformationDistribution1Code? InformationDistribution { get; init; } 
     
     #nullable disable

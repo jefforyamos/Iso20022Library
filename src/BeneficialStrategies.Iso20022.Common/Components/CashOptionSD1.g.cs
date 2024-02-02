@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action option cash movement details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashOptionSD1
 {
     #nullable enable
@@ -20,54 +22,67 @@ public partial record CashOptionSD1
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Income classification of the cash proceeds for dividend reinvestment.
     /// </summary>
+    [DataMember]
     public ReinvestmentIncomeClassification1Code? ReinvestmentIncomeClassification { get; init; } 
     /// <summary>
     /// Indicates the type of payment. Used in stock dividends processing at DTC (The Depository Trust Corporation). Valid values list will be maintained separately from the schema.
     /// </summary>
+    [DataMember]
     public IsoMax3Text? DTCPayMethod { get; init; } 
     /// <summary>
     /// Indicates the payment order. Used in stock dividends processing at DTC (The Depository Trust Corporation). Valid values list will be maintained separately from the schema.
     /// </summary>
+    [DataMember]
     public IsoMax3Text? DTCPayOrder { get; init; } 
     /// <summary>
     /// Indicates how the entitlements were calculated optional dividends.
     /// </summary>
+    [DataMember]
     public DTCEntitlementCalculationMethod1Code? EntitlementCalculationMethod { get; init; } 
     /// <summary>
     /// Denotes whether the rate is approximate.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? EstimatedRateFlag { get; init; } 
     /// <summary>
     /// Identifies the income events which are subject to withholding tax if paid to a non-U.S. resident alien (NRA).
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? NRATaxReportableFlag { get; init; } 
     /// <summary>
     /// Indicates whether a charge is levied on the protect instructions at the time when the protect is submitted or at the time of the cover. Applies to warrants or rights exercise scenario where the holder must put up money with rights or warrants execution. When this flag is set to yes - charges are due at the time of the protect, when it is set to "no" changes are due when protect is covered.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ProtectChargeFlag { get; init; } 
     /// <summary>
     /// Cash rate associated to the payout as declared on the market by the issuer or offeror.
     /// </summary>
+    [DataMember]
     public PriceFormatSD1Choice_? DeclaredCashRate { get; init; } 
     /// <summary>
     /// Gross cash rate associated to the payout as declared on the market by the issuer or offeror.
     /// </summary>
+    [DataMember]
     public PriceFormatSD1Choice_? DeclaredGrossRate { get; init; } 
     /// <summary>
     /// Net cash rate associated to the payout as declared on the market by the issuer or offeror.
     /// </summary>
+    [DataMember]
     public PriceFormatSD1Choice_? DeclaredNetRate { get; init; } 
     /// <summary>
     /// Rate at which the fee will be charged to a DTC participant.
     /// </summary>
+    [DataMember]
     public PriceFormatSD1Choice_? DeclaredFeeRate { get; init; } 
     /// <summary>
     /// Indicates the period during which the instructions for DTC (The Depository Trust Corporation) US Tax service will be accepted.
     /// </summary>
+    [DataMember]
     public Period3? DTCUSTaxInstructionPeriod { get; init; } 
     
     #nullable disable

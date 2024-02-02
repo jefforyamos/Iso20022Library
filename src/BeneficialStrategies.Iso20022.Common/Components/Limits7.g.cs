@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reports on limits.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Limits7
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record Limits7
     /// <summary>
     /// Report is given for a current risk management type limit.
     /// </summary>
-    public LimitReport7[] CurrentLimit { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LimitReport7> CurrentLimit { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Report is given for a default risk management type limit.
     /// </summary>
-    public LimitReport7[] DefaultLimit { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LimitReport7> DefaultLimit { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

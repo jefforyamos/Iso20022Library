@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes information needed to identify a change in the party related static data, the time when it was performed and the user requesting the change and approving it.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyAuditTrail1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PartyAuditTrail1
     /// <summary>
     /// Individual record of the party audit trail.
     /// </summary>
-    public UpdateLogPartyRecord1Choice_[] Record { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<UpdateLogPartyRecord1Choice_> Record { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Timestamp of the change.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime OperationTimeStamp { get; init; } 
     /// <summary>
     /// User who instructed the change.
     /// </summary>
+    [DataMember]
     public required IsoMax256Text InstructingUser { get; init; } 
     /// <summary>
     /// User who approved the change instructed by the instructing user.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? ApprovingUser { get; init; } 
     
     #nullable disable

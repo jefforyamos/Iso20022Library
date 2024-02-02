@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Customer renting a vehicle.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VehicleRentalCustomer1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record VehicleRentalCustomer1
     /// <summary>
     /// Name of the vehicle rental customer.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text RenterName { get; init; } 
     /// <summary>
     /// Corporate name of the vehicle rental customer.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? CorporateName { get; init; } 
     /// <summary>
     /// Corporate identifier of the vehicle rental customer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text CorporateIdentifier { get; init; } 
     /// <summary>
     /// Party assigning an identification to a vehicle rental customer.
     /// </summary>
+    [DataMember]
     public CustomerAssigner1Code? Assigner { get; init; } 
     /// <summary>
     /// Vehicle rental driver.
     /// </summary>
-    public DriverInParty1[] PrimaryDriver { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DriverInParty1> PrimaryDriver { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of identification of the additional vehicle rental customer.
     /// </summary>
-    public DriverInParty1[] AdditionalDriver { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DriverInParty1> AdditionalDriver { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Loyalty programme details. 
     /// </summary>
+    [DataMember]
     public LoyaltyProgramme2? LoyaltyProgramme { get; init; } 
     
     #nullable disable

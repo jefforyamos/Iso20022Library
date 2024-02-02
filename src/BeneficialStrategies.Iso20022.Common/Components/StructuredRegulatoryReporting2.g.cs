@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information needed due to regulatory and statutory requirements.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StructuredRegulatoryReporting2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record StructuredRegulatoryReporting2
     /// <summary>
     /// Specifies the nature, purpose, and reason for the transaction to be reported for regulatory and statutory requirements in a coded form.
     /// </summary>
+    [DataMember]
     public IsoMax3Text? Code { get; init; } 
     /// <summary>
     /// Amount of money to be reported for regulatory and statutory requirements.
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Additional details that cater for specific domestic regulatory requirements.||Usage: Information is used to provide details that are not catered for in the Code or/and Amount elements.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Information { get; init; } 
     
     #nullable disable

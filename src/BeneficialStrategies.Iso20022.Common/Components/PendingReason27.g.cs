@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the reason why a cancellation request sent for the related instruction is pending.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PendingReason27
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PendingReason27
     /// <summary>
     /// Specifies the reason of the pending status expressed as a code.
     /// </summary>
+    [DataMember]
     public required PendingReason52Choice_ Code { get; init; } 
     /// <summary>
     /// Indicates that there is no reason available or to report.
     /// </summary>
+    [DataMember]
     public IsoMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

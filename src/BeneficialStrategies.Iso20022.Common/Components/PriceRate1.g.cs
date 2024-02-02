@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a price expressed as a rate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PriceRate1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PriceRate1
     /// <summary>
     /// Type of rate, eg, yield.
     /// </summary>
+    [DataMember]
     public required PriceRateType3FormatChoice_ RateType { get; init; } 
     /// <summary>
     /// Price expressed as a rate, ie, percentage.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate Rate { get; init; } 
     
     #nullable disable

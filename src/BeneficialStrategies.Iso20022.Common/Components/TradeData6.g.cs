@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information on the status of a trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeData6
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record TradeData6
     /// <summary>
     /// Reference to the identification of the notification for which the status is given, as assigned by the participant that submitted the foreign exchange or derivative trade.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text NotificationIdentification { get; init; } 
     /// <summary>
     /// Reference to the unique system identification assigned to the trade by the central matching system.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MatchingSystemUniqueReference { get; init; } 
     /// <summary>
     /// Reference to the unique matching identification assigned to the trade and to the matching trade from the counterparty by the central matching system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MatchingSystemMatchingReference { get; init; } 
     /// <summary>
     /// Party that assigned the status to the foreign exchange or derivative trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? StatusOriginator { get; init; } 
     /// <summary>
     /// Specifies the new status of a trade.
     /// </summary>
+    [DataMember]
     public required Status6Choice_ CurrentStatus { get; init; } 
     /// <summary>
     /// Additional information on the current status of a trade in a central system.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? CurrentStatusSubType { get; init; } 
     /// <summary>
     /// Specifies the date and time at which the current status was assigned.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CurrentStatusDateTime { get; init; } 
     /// <summary>
     /// Specifies the previous status of a trade.
     /// </summary>
+    [DataMember]
     public Status6Choice_? PreviousStatus { get; init; } 
     /// <summary>
     /// Additional information on the previous status of a trade in a central system.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? PreviousStatusSubType { get; init; } 
     /// <summary>
     /// Specifies the date and time at which the previous status was assigned.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? PreviousStatusDateTime { get; init; } 
     /// <summary>
     /// Specifies the product for which the status of the confirmation is reported.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProductType { get; init; } 
     
     #nullable disable

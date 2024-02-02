@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification214
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PartyIdentification214
     /// <summary>
     /// Identification of the party to which the disclosure response must be sent.
     /// </summary>
+    [DataMember]
     public required PartyIdentification203Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the party to which the disclosure response must be sent.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text RecipientName { get; init; } 
     /// <summary>
     /// Address of the party to which the disclosure response must be sent.
     /// </summary>
+    [DataMember]
     public required PartyAddress1 ResponseRecipientAddress { get; init; } 
     
     #nullable disable

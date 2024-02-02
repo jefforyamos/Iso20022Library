@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Statistical data related to the price change of a security.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatisticsByPredefinedTimePeriods1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record StatisticsByPredefinedTimePeriods1
     /// <summary>
     /// Highest price for the referenced period.
     /// </summary>
+    [DataMember]
     public PriceValue1? HighestPriceValue12Months { get; init; } 
     /// <summary>
     /// Lowest price for the referenced period.
     /// </summary>
+    [DataMember]
     public PriceValue1? LowestPriceValue12Months { get; init; } 
     /// <summary>
     /// Change in price over a one year period.
     /// </summary>
+    [DataMember]
     public PriceValue2? OneYearPriceChange { get; init; } 
     /// <summary>
     /// Change in price over a three year period.
     /// </summary>
+    [DataMember]
     public PriceValue2? ThreeYearPriceChange { get; init; } 
     /// <summary>
     /// Change in price over a five year period.
     /// </summary>
+    [DataMember]
     public PriceValue2? FiveYearPriceChange { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the entity issuing the command.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMCommandIdentification1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ATMCommandIdentification1
     /// <summary>
     /// Identification of the entity issuing the command.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Origin { get; init; } 
     /// <summary>
     /// Unique identification of the command for the issuer of the command.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Reference { get; init; } 
     /// <summary>
     /// Identification or address of the host performing the command.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Processor { get; init; } 
     
     #nullable disable

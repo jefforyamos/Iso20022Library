@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related to the cardholder.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Cardholder14
 {
     #nullable enable
@@ -20,48 +22,59 @@ public partial record Cardholder14
     /// <summary>
     /// Identification of the cardholder involved in a transaction.
     /// </summary>
+    [DataMember]
     public PersonIdentification15? Identification { get; init; } 
     /// <summary>
     /// Cardholder name associated with the card.
     /// </summary>
+    [DataMember]
     public IsoMax45Text? Name { get; init; } 
     /// <summary>
     /// Language selected for the cardholder interface during the transaction.
     /// Reference ISO 639-1 (alpha-2) et ISO 639-2 (alpha-3).
     /// </summary>
+    [DataMember]
     public LanguageCode? Language { get; init; } 
     /// <summary>
     /// Postal address of the owner of the payment card.
     /// </summary>
+    [DataMember]
     public PostalAddress22? BillingAddress { get; init; } 
     /// <summary>
     /// Postal address for delivery of goods or services.
     /// </summary>
+    [DataMember]
     public PostalAddress22? ShippingAddress { get; init; } 
     /// <summary>
     /// Identification of the trip.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TripNumber { get; init; } 
     /// <summary>
     /// Information related to the vehicle used for the transaction.
     /// </summary>
+    [DataMember]
     public Vehicle1? Vehicle { get; init; } 
     /// <summary>
     /// Method and data intended to be used for this transaction to authenticate the cardholder and its card.
     /// </summary>
-    public CardholderAuthentication12[] Authentication { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardholderAuthentication12> Authentication { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Result of performed verifications for the transaction.
     /// </summary>
-    public TransactionVerificationResult4[] TransactionVerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionVerificationResult4> TransactionVerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies personal data related to the cardholder.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? PersonalData { get; init; } 
     /// <summary>
     /// Data related to the mobile of stakeholder.
     /// </summary>
-    public MobileData1[] MobileData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MobileData1> MobileData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

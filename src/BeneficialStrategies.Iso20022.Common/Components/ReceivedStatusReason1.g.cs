@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for a received status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReceivedStatusReason1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ReceivedStatusReason1
     /// <summary>
     /// Reason for the received status.
     /// </summary>
+    [DataMember]
     public required ReceivedReason1Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the processed instruction.
     /// </summary>
+    [DataMember]
     public IsoMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

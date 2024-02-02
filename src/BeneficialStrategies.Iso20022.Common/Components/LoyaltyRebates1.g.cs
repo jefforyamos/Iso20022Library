@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Rebate form to an award.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoyaltyRebates1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record LoyaltyRebates1
     /// <summary>
     /// The global awarded amount that is not attached to an item.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalRebate { get; init; } 
     /// <summary>
     /// Short text to qualify a rebate on an line item.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RebateLabel { get; init; } 
     /// <summary>
     /// Amount of the payment transaction related to the Loyalty.
     /// </summary>
-    public SaleItemRebate1[] SaleItemRebate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SaleItemRebate1> SaleItemRebate { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

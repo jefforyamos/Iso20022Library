@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(TaxCreditRateFormat5Choice.Amount))]
 [KnownType(typeof(TaxCreditRateFormat5Choice.RateTypeAndAmountAndRateStatus))]
 [KnownType(typeof(TaxCreditRateFormat5Choice.NotSpecifiedRate))]
+[DataContract]
 public abstract partial record TaxCreditRateFormat5Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Quantity expressed as a number and its details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Unit5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Unit5
     /// <summary>
     /// Quantity expressed as a number, for example, a number of shares.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
     /// <summary>
     /// Tax group to which the purchased investment fund units belong. The investor indicates to the intermediary operating pooled nominees, which type of unit is to be sold.
     /// </summary>
+    [DataMember]
     public required UKTaxGroupUnitCode Group1Or2Units { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money associated with a service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Fee3
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record Fee3
     /// <summary>
     /// Type of fee (charge/commission).
     /// </summary>
+    [DataMember]
     public ChargeType5Choice_? Type { get; init; } 
     /// <summary>
     /// Modified value of the standard fee (charge/commission) amount applied on the order (the standard fee (charge/commission) amount in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? RepairedStandardAmount { get; init; } 
     /// <summary>
     /// Modified value of the standard fee (charge/commission) rate applied on the order (the standard fee (charge/commission) rate in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? RepairedStandardRate { get; init; } 
     /// <summary>
     /// Modified value of the discount amount applied on the order (the discount amount in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? RepairedDiscountAmount { get; init; } 
     /// <summary>
     /// Modified value of the discount rate applied on the order (the discount rate in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? RepairedDiscountRate { get; init; } 
     /// <summary>
     /// Modified value of the requested fee (charge/commission) amount applied on the order (the requested fee (charge/commission) amount in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? RepairedRequestedAmount { get; init; } 
     /// <summary>
     /// Modified value of the requested fee (charge/commission) rate applied on the order (the requested fee (charge/commission) rate in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? RepairedRequestedRate { get; init; } 
     /// <summary>
     /// Reference to the agreement established between the fund and another party. This element, amongst others, defines the conditions of the commissions.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CommercialAgreementReference { get; init; } 
     /// <summary>
     /// Indicates if the CommercialAgreementReference is a new reference or not.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? NewCommercialAgreementReferenceIndicator { get; init; } 
     
     #nullable disable

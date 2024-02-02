@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Conditions applicable when the investor is covered by the "de minimis" exemption.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeMinimusApplicable1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DeMinimusApplicable1
     /// <summary>
     /// Indicates whether the investor permits its beneficial owners that are restricted persons, if any, to participate in profits and losses allocated to the investor that are attribute to new issue securities.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator NewIssuePermission { get; init; } 
     /// <summary>
     /// Percentage of the new issue profits and losses that it receives to beneficial owners that are restricted persons.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Percentage { get; init; } 
     
     #nullable disable

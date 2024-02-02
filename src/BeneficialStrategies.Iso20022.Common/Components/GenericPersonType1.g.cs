@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a generic type of identification requested for a person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericPersonType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record GenericPersonType1
     /// <summary>
     /// Specifies whether the private type for the customer identification is requested or not.
     /// </summary>
+    [DataMember]
     public required IsoRequestedIndicator Requested { get; init; } 
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
+    [DataMember]
     public required PersonIdentificationSchemeName1Choice_ SchemeName { get; init; } 
     
     #nullable disable

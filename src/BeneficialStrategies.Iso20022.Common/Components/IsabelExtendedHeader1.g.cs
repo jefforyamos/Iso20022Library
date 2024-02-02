@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the extended parameters for an Isabel payment file.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IsabelExtendedHeader1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record IsabelExtendedHeader1
     /// <summary>
     /// SEPA related information for a payment file.
     /// </summary>
+    [DataMember]
     public IsabelSEPAFile1? SEPA { get; init; } 
     /// <summary>
     /// Belgian bank protocol number (BPN) of the receiving bank.
     /// </summary>
+    [DataMember]
     public IsoMax3Text? BPNFinancialInstitution { get; init; } 
     /// <summary>
     /// Business identification code of the receiving bank.
     /// </summary>
+    [DataMember]
     public IsoBICFIIdentifier? BICFinancialInstitution { get; init; } 
     
     #nullable disable

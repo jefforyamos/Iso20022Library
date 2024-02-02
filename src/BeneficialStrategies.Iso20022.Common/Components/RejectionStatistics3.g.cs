@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass validations.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RejectionStatistics3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RejectionStatistics3
     /// <summary>
     /// Total number of derivatives submitted by the report submitting entity for the reporting counterparty which failed to pass technical schema validations.
     /// </summary>
+    [DataMember]
     public required IsoMax20PositiveNumber TotalNumberOfTechnicalRejections { get; init; } 
     /// <summary>
     /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass data validations.
     /// </summary>
+    [DataMember]
     public required DerivativesStatistics3 DerivativesStatistics { get; init; } 
     
     #nullable disable

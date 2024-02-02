@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Passenger ticket information for the cardholder. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PassengerTransport2
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record PassengerTransport2
     /// <summary>
     /// Component supports ticketing transactions for airline, railway, and travel agency transactions to provide passenger ticket information for the cardholder. Acquirers can submit one occurrence of this component for each airline, railway, or travel agency transaction to provide general ticket information.
     /// </summary>
+    [DataMember]
     public PassengerTransportSummary2? Summary { get; init; } 
     /// <summary>
     /// Component supports ticketing transactions for airline, railway, and travel agency transactions to provide passenger ticket information for the cardholder. Acquirers can submit multiple occurrences of this component for each airline, railway, or travel agency transaction to provide general ticket information.
     /// </summary>
-    public TripLeg2[] TripLeg { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TripLeg2> TripLeg { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional charges related to or during transit (for example, baggage fee, in-flight purchase). These are separate from the original ticket purchase.
     /// </summary>
-    public AncillaryPurchase2[] AncillaryPurchase { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AncillaryPurchase2> AncillaryPurchase { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Vehicle for hire for passenger transport - excludes vehicles driven by a renter.  Examples include, but are not limited to, taxi, chauffeured limousine, boats.
     /// </summary>
-    public HiredVehicle2[] HiredVehicleDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<HiredVehicle2> HiredVehicleDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

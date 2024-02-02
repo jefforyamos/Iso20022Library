@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Communication device number or electronic address used for communication.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CommunicationAddress10
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CommunicationAddress10
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
+    [DataMember]
     public required LongPostalAddress1Choice_ PostalAddress { get; init; } 
     /// <summary>
     /// Collection of information that identifies a phone number, as defined by telecom services.
     /// </summary>
+    [DataMember]
     public required IsoPhoneNumber PhoneNumber { get; init; } 
     /// <summary>
     /// Collection of information that identifies a FAX number, as defined by telecom services.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? FaxNumber { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
+    [DataMember]
     public IsoMax2048Text? EmailAddress { get; init; } 
     
     #nullable disable

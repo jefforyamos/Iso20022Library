@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Attributes of the instalment plan.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Plan1
 {
     #nullable enable
@@ -20,63 +22,78 @@ public partial record Plan1
     /// <summary>
     /// Identification of the instalment plan.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PlanIdentification { get; init; } 
     /// <summary>
     /// List of plan owners.
     /// </summary>
+    [DataMember]
     public PlanOwner1Code? PlanOwner { get; init; } 
     /// <summary>
     /// Other plan owner, used when PlanOwner is OtherNational or OtherPrivate.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherPlanOwner { get; init; } 
     /// <summary>
     /// Instalment payment type.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? InstalmentPaymentType { get; init; } 
     /// <summary>
     /// Period unit between consecutive payments.
     /// </summary>
+    [DataMember]
     public Frequency12Code? PeriodUnit { get; init; } 
     /// <summary>
     /// Number of period units between consecutive payments.
     /// </summary>
+    [DataMember]
     public IsoNumber? NumberOfPeriods { get; init; } 
     /// <summary>
     /// Details of the interest rate.
     /// </summary>
-    public InterestRateDetails1[] InterestRate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InterestRateDetails1> InterestRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date of the first payment.
     /// </summary>
+    [DataMember]
     public IsoISODate? FirstPaymentDate { get; init; } 
     /// <summary>
     /// Amount of the first payment when different from the subsequent payments.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? FirstAmount { get; init; } 
     /// <summary>
     /// Amount of subsequent payments.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? SubsequentAmount { get; init; } 
     /// <summary>
     /// Total number of instalment payments.
     /// ISO 8583 bit 59
     /// </summary>
+    [DataMember]
     public IsoNumber? TotalNumberOfPayments { get; init; } 
     /// <summary>
     /// Currency code associated with the instalment amount.  ISO 4217 "Codes for the representation of currencies and funds".
     /// </summary>
+    [DataMember]
     public ISO3NumericCurrencyCode? InstalmentCurrency { get; init; } 
     /// <summary>
     /// Contains grace period details.
     /// </summary>
+    [DataMember]
     public GracePeriod1? GracePeriod { get; init; } 
     /// <summary>
     /// Contains the amount details of an instalment plan.
     /// </summary>
-    public InstalmentAmountDetails1[] AmountDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InstalmentAmountDetails1> AmountDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total amount of the instalment including charges, insurance and taxes in addition to the funded amount.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? GrandTotalAmount { get; init; } 
     
     #nullable disable

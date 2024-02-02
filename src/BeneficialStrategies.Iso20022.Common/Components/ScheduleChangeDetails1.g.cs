@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Changes in the schedule.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ScheduleChangeDetails1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record ScheduleChangeDetails1
     /// <summary>
     /// Date on which the schedule changes became effective.
     /// </summary>
+    [DataMember]
     public required IsoISODate ScheduleChangeEffectiveDate { get; init; } 
     /// <summary>
     /// Information about schedule.
     /// </summary>
-    public ScheduleChangeEntry1[] ScheduleEntry { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ScheduleChangeEntry1> ScheduleEntry { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

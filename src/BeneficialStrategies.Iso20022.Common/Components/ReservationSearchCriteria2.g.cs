@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to search for a reservation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReservationSearchCriteria2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ReservationSearchCriteria2
     /// <summary>
     /// Identification of a particular cash clearing system.
     /// </summary>
+    [DataMember]
     public SystemIdentification2Choice_? SystemIdentification { get; init; } 
     /// <summary>
     /// Type of reservation as set by default in the system. The default reservation is applicable by the system unless otherwise instructed.
     /// </summary>
-    public ReservationType1Code[] DefaultReservationType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReservationType1Code> DefaultReservationType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of reservation applied by the system at the present time.
     /// </summary>
-    public ReservationType1Code[] CurrentReservationType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReservationType1Code> CurrentReservationType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? AccountOwner { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to search for an account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralValueSearchCriteria3
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record CollateralValueSearchCriteria3
     /// <summary>
     /// Unique and unambiguous identification for the cash account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public AccountIdentification4Choice_? CashAccountIdentification { get; init; } 
     /// <summary>
     /// Medium of exchange of value.
     /// </summary>
-    public ActiveOrHistoricCurrencyCode[] Currency { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ActiveOrHistoricCurrencyCode> Currency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that legally owns the account being queried.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification8? CashAccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, which is being queried.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
     /// <summary>
     /// ISIN identification of the related financial instrument into which this security can be converted.
     /// </summary>
-    public SecurityIdentification19[] FinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecurityIdentification19> FinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identification of the securities account owner.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification8? SecuritiesAccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the securities account on behalf of the account owner.
     /// </summary>
+    [DataMember]
     public PartyIdentification136? SecuritiesAccountServicer { get; init; } 
     
     #nullable disable

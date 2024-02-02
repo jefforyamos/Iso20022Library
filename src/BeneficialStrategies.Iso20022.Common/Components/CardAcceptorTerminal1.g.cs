@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment terminal or ATM performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardAcceptorTerminal1
 {
     #nullable enable
@@ -21,14 +23,17 @@ public partial record CardAcceptorTerminal1
     /// Identification of the terminal. 
     /// It correspond to the ISO 8583 field number 41.
     /// </summary>
+    [DataMember]
     public required GenericIdentification32 Identification { get; init; } 
     /// <summary>
     /// Location of the terminal.
     /// </summary>
+    [DataMember]
     public PostalAddress18? Location { get; init; } 
     /// <summary>
     /// Capabilities of the terminal performing the transaction.
     /// </summary>
+    [DataMember]
     public required PointOfInteractionCapabilities4 Capabilities { get; init; } 
     
     #nullable disable

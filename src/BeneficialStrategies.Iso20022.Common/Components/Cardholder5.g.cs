@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related to the cardholder.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Cardholder5
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record Cardholder5
     /// <summary>
     /// Identification of the cardholder involved in a transaction.
     /// </summary>
+    [DataMember]
     public PersonIdentification7? Identification { get; init; } 
     /// <summary>
     /// Cardholder name associated with the card.
     /// </summary>
+    [DataMember]
     public IsoMax45Text? Name { get; init; } 
     /// <summary>
     /// Language selected for the cardholder interface during the transaction.
     /// </summary>
+    [DataMember]
     public ISO2ALanguageCode? Language { get; init; } 
     /// <summary>
     /// Postal address of the owner of the payment card.
     /// </summary>
+    [DataMember]
     public PostalAddress13? BillingAddress { get; init; } 
     /// <summary>
     /// Postal address for delivery of goods or services.
     /// </summary>
+    [DataMember]
     public PostalAddress13? ShippingAddress { get; init; } 
     /// <summary>
     /// Data related to the authentication of the cardholder.
     /// </summary>
-    public CardholderAuthentication5[] Authentication { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardholderAuthentication5> Authentication { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Numeric characters of the cardholder's address for verification.
     /// </summary>
+    [DataMember]
     public AddressVerification1? AddressVerification { get; init; } 
     /// <summary>
     /// Identifies personal data related to the cardholder.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? PersonalData { get; init; } 
     
     #nullable disable

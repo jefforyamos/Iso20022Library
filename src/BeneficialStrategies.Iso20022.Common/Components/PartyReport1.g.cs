@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Report information about party reference data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyReport1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PartyReport1
     /// <summary>
     /// Unique identification to unambiguously identify the party within the system.
     /// </summary>
+    [DataMember]
     public required SystemPartyIdentification3 PartyIdentification { get; init; } 
     /// <summary>
     /// Identifies the returned party reference data or error information.
     /// </summary>
+    [DataMember]
     public required PartyOrBusinessError1Choice_ PartyOrError { get; init; } 
     
     #nullable disable

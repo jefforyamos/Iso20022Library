@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Service provided by the ATM inside the session.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMService18
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ATMService18
     /// <summary>
     /// Identification of the service variant.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Label of the service variant.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Label { get; init; } 
     
     #nullable disable

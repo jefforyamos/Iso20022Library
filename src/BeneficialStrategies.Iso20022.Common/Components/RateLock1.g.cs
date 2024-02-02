@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicators about rate lock.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RateLock1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record RateLock1
     /// <summary>
     /// Indicates if a rate lock is or was requested.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? RequestedIndicator { get; init; } 
     /// <summary>
     /// Indicates if the transaction is rate lock eligible.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? EligibleIndicator { get; init; } 
     /// <summary>
     /// Indicates if a rate lock was applied.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? AppliedIndicator { get; init; } 
     
     #nullable disable

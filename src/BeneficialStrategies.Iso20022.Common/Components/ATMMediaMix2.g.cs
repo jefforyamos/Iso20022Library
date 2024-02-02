@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Media mix selected.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMMediaMix2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ATMMediaMix2
     /// <summary>
     /// Number of notes or coins.
     /// </summary>
+    [DataMember]
     public required IsoNumber Number { get; init; } 
     /// <summary>
     /// Unit value.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount UnitValue { get; init; } 
     
     #nullable disable

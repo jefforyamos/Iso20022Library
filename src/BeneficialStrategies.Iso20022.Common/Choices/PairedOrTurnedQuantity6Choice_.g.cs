@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(PairedOrTurnedQuantity6Choice.PairedOffQuantity))]
 [KnownType(typeof(PairedOrTurnedQuantity6Choice.TurnedQuantity))]
+[DataContract]
 public abstract partial record PairedOrTurnedQuantity6Choice_
 {
 }

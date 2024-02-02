@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(AdjustedBalanceTypeSD3Choice.StockLoan))]
 [KnownType(typeof(AdjustedBalanceTypeSD3Choice.Repo))]
+[DataContract]
 public abstract partial record AdjustedBalanceTypeSD3Choice_
 {
 }

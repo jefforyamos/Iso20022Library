@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides reasons of rejecting transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RejectionReason47
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record RejectionReason47
     /// <summary>
     /// Identification of a transaction.
     /// </summary>
+    [DataMember]
     public required TransactionIdentification1Choice_ TransactionIdentification { get; init; } 
     /// <summary>
     /// Information on status of submitted transactions.
     /// </summary>
+    [DataMember]
     public required ReportingMessageStatus1Code Status { get; init; } 
     /// <summary>
     /// Acceptance criteria of the transaction.
     /// </summary>
+    [DataMember]
     public GenericValidationRuleIdentification1? DetailedValidationRule { get; init; } 
     
     #nullable disable

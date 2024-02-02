@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Taxable service charge amount conversions to host currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BillingServicesAmount2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record BillingServicesAmount2
     /// <summary>
     /// Sum of the original charge host amount and the service tax host amount values. It represents the total charge for a service (including taxes) expressed in the host currency.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection34 HostAmount { get; init; } 
     /// <summary>
     /// Sum of the original charge host amount and the service tax host amount values but expressed in the settlement currency.
     /// </summary>
+    [DataMember]
     public AmountAndDirection34? SettlementAmount { get; init; } 
     /// <summary>
     /// Sum of the original charge host amount and the service tax host amount values but expressed in the pricing currency.
     /// </summary>
+    [DataMember]
     public AmountAndDirection34? PricingAmount { get; init; } 
     
     #nullable disable

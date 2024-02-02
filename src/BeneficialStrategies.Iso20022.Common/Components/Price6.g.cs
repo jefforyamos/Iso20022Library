@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the value, type and source of price.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Price6
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Price6
     /// <summary>
     /// Value of the price expressed as a currency and value or as a rate.
     /// </summary>
+    [DataMember]
     public required PriceRateOrAmountChoice_ RateOrAmount { get; init; } 
     /// <summary>
     /// Specification of the price type.
     /// </summary>
+    [DataMember]
     public required TypeOfPrice13Code Type { get; init; } 
     /// <summary>
     /// Source for the price valuation.
     /// </summary>
+    [DataMember]
     public required PriceSource2Code Source { get; init; } 
     
     #nullable disable

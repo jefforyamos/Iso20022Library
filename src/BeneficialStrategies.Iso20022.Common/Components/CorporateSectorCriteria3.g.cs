@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Taxonomy for financial and non financial counterparties.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateSectorCriteria3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CorporateSectorCriteria3
     /// <summary>
     /// Indicates that reporting counterparty is a financial institution.
     /// </summary>
-    public FinancialPartySectorType1Code[] FinancialInstitutionSector { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FinancialPartySectorType1Code> FinancialInstitutionSector { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates that reporting counterparty is a non financial institution.
     /// </summary>
-    public NonFinancialPartySector1Code[] NonFinancialInstitutionSector { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NonFinancialPartySector1Code> NonFinancialInstitutionSector { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates that reporting counterparty is another type of counterparty as defined by specific regulations (e.g. a CCP) and the detailed sector is not reported.
     /// </summary>
+    [DataMember]
     public NotReported1Code? NotReported { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ClassificationType33Choice.ClassificationFinancialInstrument))]
 [KnownType(typeof(ClassificationType33Choice.AlternateClassification))]
+[DataContract]
 public abstract partial record ClassificationType33Choice_
 {
 }

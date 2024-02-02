@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters associated to a cryptographic encryption algorithm.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Parameter6
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Parameter6
     /// <summary>
     /// Format of data before encryption, if the format is not plaintext or implicit.
     /// </summary>
+    [DataMember]
     public EncryptionFormat1Code? EncryptionFormat { get; init; } 
     /// <summary>
     /// Initialisation vector of a cipher block chaining (CBC) mode encryption.
     /// </summary>
+    [DataMember]
     public IsoMax500Binary? InitialisationVector { get; init; } 
     /// <summary>
     /// Byte padding for a cypher block chaining mode encryption, if the padding is not implicit.
     /// </summary>
+    [DataMember]
     public BytePadding1Code? BytePadding { get; init; } 
     
     #nullable disable

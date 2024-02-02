@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Liability and assets that arise for a clearing member with respect to a central counterparty.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InitialMarginRequirement1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InitialMarginRequirement1
     /// <summary>
     /// Liability a clearing member has to a central counterparty with respect to potential future exposures.
     /// </summary>
-    public InitialMarginExposure1[] InitialMarginExposure { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InitialMarginExposure1> InitialMarginExposure { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total value of any credits offsetable against initial margin requirements at the end of day. For example, net liquidating value of option positions, contingent variation margin, delivery credits.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Credit { get; init; } 
     
     #nullable disable

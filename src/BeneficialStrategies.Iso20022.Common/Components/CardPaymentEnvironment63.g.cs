@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentEnvironment63
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record CardPaymentEnvironment63
     /// <summary>
     /// Acquirer involved in the card payment transaction.
     /// </summary>
+    [DataMember]
     public GenericIdentification53? AcquirerIdentification { get; init; } 
     /// <summary>
     /// Merchant involved in the card payment transaction.
     /// </summary>
+    [DataMember]
     public GenericIdentification53? MerchantIdentification { get; init; } 
     /// <summary>
     /// Point of interaction (POI) performing the transaction.
     /// </summary>
+    [DataMember]
     public required PointOfInteraction7 POI { get; init; } 
     /// <summary>
     /// Payment card performing the transaction.
     /// </summary>
+    [DataMember]
     public required PaymentCard21 Card { get; init; } 
     /// <summary>
     /// Language selected for the cardholder interface during the transaction.
     /// Reference: ISO 639-1 (alpha-2) et ISO 639-2 (alpha-3).
     /// </summary>
+    [DataMember]
     public LanguageCode? CardholderLanguage { get; init; } 
     
     #nullable disable

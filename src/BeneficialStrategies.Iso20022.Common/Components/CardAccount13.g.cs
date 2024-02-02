@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Customer account information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardAccount13
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record CardAccount13
     /// <summary>
     /// Type of account used for the transaction.
     /// </summary>
+    [DataMember]
     public CardAccountType3Code? AccountType { get; init; } 
     /// <summary>
     /// Name of the account, as assigned by the account servicing institution, in agreement with the account owner in order to provide an additional means of identification of the account.
     /// Usage: The account name is different from the account owner name. The account name is used in certain user communities to provide a means of identifying the account, in addition to the account owner's identity and the account number.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AccountName { get; init; } 
     /// <summary>
     /// Identification of the currency in which the account is held.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Unique identifier of the account, as assigned by the account servicer.
     /// </summary>
+    [DataMember]
     public AccountIdentification31Choice_? AccountIdentifier { get; init; } 
     /// <summary>
     /// Internal account reference in case of credit account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CreditReference { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification72Choice_? Servicer { get; init; } 
     /// <summary>
     /// Balance of the account before the transfer.
     /// </summary>
+    [DataMember]
     public AmountAndDirection43? BalanceBefore { get; init; } 
     /// <summary>
     /// Balance of the account after the transfer.
     /// </summary>
+    [DataMember]
     public AmountAndDirection43? BalanceAfter { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies parameters of the report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementFailsReportHeader2
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record SettlementFailsReportHeader2
     /// <summary>
     /// Provides the reporting timestamp, when the report was submitted from the CSD to the Competent Authority.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Period covered by the report.
     /// </summary>
+    [DataMember]
     public required DatePeriod2 ReportingPeriod { get; init; } 
     /// <summary>
     /// Specifies the currency used to report the aggregated values of the transactions.
     /// Usage: this is the currency in which the values have to be reported, when no explicit currency is provided.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Provides the status of the report.
     /// </summary>
+    [DataMember]
     public required TransactionOperationType4Code ReportStatus { get; init; } 
     /// <summary>
     /// Specifies the securities settlement system used in a settlement process.
     /// </summary>
+    [DataMember]
     public required SecuritiesSettlementSystemIdentification2 SecuritiesSettlementSystem { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details for the adjustment of the mandate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MandateAdjustment1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record MandateAdjustment1
     /// <summary>
     /// Specifies whether an adjustment is to be applied on pre-agreed collection date or not.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator DateAdjustmentRuleIndicator { get; init; } 
     /// <summary>
     /// Defines the category of adjustment.
     /// </summary>
+    [DataMember]
     public Frequency37Choice_? Category { get; init; } 
     /// <summary>
     /// Pre-agreed amount to increase or decrease the mandate amount as justified per information in the category.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Pre-agreed increase or decrease rate that will be applied to the collection amount.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     
     #nullable disable

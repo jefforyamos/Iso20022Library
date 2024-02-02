@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account to or from which a securities entry is made.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesAccount40
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SecuritiesAccount40
     /// <summary>
     /// Unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax35Text Identification { get; init; } 
     /// <summary>
     /// Specifies the type of securities account.
     /// </summary>
+    [DataMember]
     public GenericIdentification47? Type { get; init; } 
     /// <summary>
     /// Description of the account.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Supplementary registration information applying to a specific block of units for dealing and reporting purposes. The supplementary registration information may be used when all the units are registered, for example, to a funds supermarket, but holdings for each investor have to be reconciled individually.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax35Text? Designation { get; init; } 
     
     #nullable disable

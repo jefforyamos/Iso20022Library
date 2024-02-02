@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountAndDirection57
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AmountAndDirection57
     /// <summary>
     /// Amount of money in the cash entry.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether an entry is a credit or a debit.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     
     #nullable disable

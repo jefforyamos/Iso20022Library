@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of change to statement frequency and form.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatementFrequencyAndFormModification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record StatementFrequencyAndFormModification1
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
+    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Specifies the statement frequency, format, delivery address.
     /// </summary>
+    [DataMember]
     public required StatementFrequencyAndForm1 StatementFrequencyAndForm { get; init; } 
     
     #nullable disable

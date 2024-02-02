@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains the details of the package
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ShippingPackage2
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record ShippingPackage2
     /// <summary>
     /// Contains the identification number for the packages being shipped and is also used for pickup number. 
     /// </summary>
+    [DataMember]
     public IsoMax70Text? TrackingNumber { get; init; } 
     /// <summary>
     /// Supplier or provider of the delivery services.
     /// </summary>
+    [DataMember]
     public PartyIdentification260? Supplier { get; init; } 
     /// <summary>
     /// Contains the date the package is picked up.
     /// </summary>
+    [DataMember]
     public IsoISODate? PickupDate { get; init; } 
     /// <summary>
     /// Contains the time the package is picked up.
     /// </summary>
+    [DataMember]
     public IsoISOTime? PickupTime { get; init; } 
     /// <summary>
     /// Delivery information. 
     /// </summary>
+    [DataMember]
     public DeliveryInformation4? Delivery { get; init; } 
     /// <summary>
     /// Weight details.
     /// </summary>
+    [DataMember]
     public UnitOfMeasure2? Weight { get; init; } 
     /// <summary>
     /// Contains the product details.
     /// </summary>
-    public Product7[] Product { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Product7> Product { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
     /// <summary>
     /// Amount of insurance.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? InsuranceAmount { get; init; } 
     
     #nullable disable

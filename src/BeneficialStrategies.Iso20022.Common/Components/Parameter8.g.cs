@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters of the RSASSA-PSS digital signature algorithm (RSA signature algorithm with appendix: Probabilistic Signature Scheme).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Parameter8
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Parameter8
     /// <summary>
     /// Identification of the digest algorithm.
     /// </summary>
+    [DataMember]
     public required Algorithm11Code DigestAlgorithm { get; init; } 
     /// <summary>
     /// Mask generator function cryptographic algorithm and parameters.
     /// </summary>
+    [DataMember]
     public required AlgorithmIdentification12 MaskGeneratorAlgorithm { get; init; } 
     /// <summary>
     /// Length of the salt to include in the signature.
     /// </summary>
+    [DataMember]
     public required IsoNumber SaltLength { get; init; } 
     /// <summary>
     /// Trailer field number.
     /// </summary>
+    [DataMember]
     public IsoNumber? TrailerField { get; init; } 
     
     #nullable disable

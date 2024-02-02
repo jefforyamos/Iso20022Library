@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes information needed to identify a change for a static data, the time when it was performed and the user requesting the change and approving it.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AuditTrail1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record AuditTrail1
     /// <summary>
     /// Name of the field whose value has been changed.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text FieldName { get; init; } 
     /// <summary>
     /// Value of the field before the change.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text OldFieldValue { get; init; } 
     /// <summary>
     /// Value of the field after the change.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text NewFieldValue { get; init; } 
     /// <summary>
     /// Timestamp of the change.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime OperationTimeStamp { get; init; } 
     /// <summary>
     /// User who instructed the change.
     /// </summary>
+    [DataMember]
     public required IsoMax256Text InstructingUser { get; init; } 
     /// <summary>
     /// User who approved the change instructed by the instructing user.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? ApprovingUser { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Basic valuation details of a collateral position.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BasicCollateralValuation1Details
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record BasicCollateralValuation1Details
     /// <summary>
     /// Haircut percentage applied to the market value of underlying assets used as collateral as a risk control measure. The institution valuating the collateral calculates the value of underlying assets based on its market value less a certain percentage (the haircut).
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate ValuationHaircut { get; init; } 
     /// <summary>
     /// Place where the valuation haircut was calculated.
     /// </summary>
+    [DataMember]
     public PartyIdentification15? HaircutSource { get; init; } 
     
     #nullable disable

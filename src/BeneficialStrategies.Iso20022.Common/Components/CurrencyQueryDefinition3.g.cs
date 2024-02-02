@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the query criteria.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyQueryDefinition3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CurrencyQueryDefinition3
     /// <summary>
     /// Specifies the type of matching items to be returned in the response to the query.
     /// </summary>
+    [DataMember]
     public QueryType2Code? QueryType { get; init; } 
     /// <summary>
     /// Defines of the currency query criteria.
     /// </summary>
+    [DataMember]
     public CurrencyCriteriaDefinition1Choice_? CurrencyCriteria { get; init; } 
     
     #nullable disable

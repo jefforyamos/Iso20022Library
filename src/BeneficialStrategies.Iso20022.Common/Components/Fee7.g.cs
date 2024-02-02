@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money associated with a service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Fee7
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record Fee7
     /// <summary>
     /// Type of fee.
     /// </summary>
+    [DataMember]
     public required ChargeType6Choice_ Type { get; init; } 
     /// <summary>
     /// Method used to calculate the fee.
     /// </summary>
+    [DataMember]
     public ChargeBasis2Choice_? Basis { get; init; } 
     /// <summary>
     /// Fee amount.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Discount or waiver applied to the fee.
     /// </summary>
+    [DataMember]
     public ChargeOrCommissionDiscount2? DiscountDetails { get; init; } 
     /// <summary>
     /// Party that bears the fee.
     /// </summary>
+    [DataMember]
     public ChargeBearer1Code? ChargeBearer { get; init; } 
     /// <summary>
     /// Party entitled to the amount of money resulting from the fee.
     /// </summary>
+    [DataMember]
     public PartyIdentification139? RecipientIdentification { get; init; } 
     
     #nullable disable

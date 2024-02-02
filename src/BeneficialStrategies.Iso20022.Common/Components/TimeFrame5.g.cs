@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Time frame elements that define a period as number of days before or after a activity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TimeFrame5
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record TimeFrame5
     /// <summary>
     /// Description of the timeframe.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? OtherTimeFrameDescription { get; init; } 
     /// <summary>
     /// Number of days after the trade date (T) used for the standard timeframe for the issue of a deal confirmation.
     /// </summary>
+    [DataMember]
     public IsoNumber? TradePlus { get; init; } 
     /// <summary>
     /// Convention used for adjusting a date when it is not a business day.
     /// </summary>
+    [DataMember]
     public BusinessDayConvention1Code? NonWorkingDayAdjustment { get; init; } 
     /// <summary>
     /// For the time of the issuance of the deal confirmation, the order desk must be contacted.
     /// </summary>
+    [DataMember]
     public ReferToFundOrderDesk1Code? ReferToOrderDesk { get; init; } 
     
     #nullable disable

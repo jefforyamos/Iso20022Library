@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details an individuation of the classification type of the financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesInstrumentClassification2
 {
     #nullable enable
@@ -20,20 +22,24 @@ public partial record SecuritiesInstrumentClassification2
     /// <summary>
     /// Identifier of the financial instrument classification type code.
     /// </summary>
+    [DataMember]
     public required IsoCFIOct2015Identifier Identifier { get; init; } 
     /// <summary>
     /// Modification status for the record compared to the previous report.
     /// </summary>
+    [DataMember]
     public Modification1Code? Modification { get; init; } 
     /// <summary>
     /// Details the validity of the specific record.
     /// Usage:
     /// Within MiFIR, the FromDate is populated while the instrument is valid. From Date To Date is only populated when the record is being invalidated.
     /// </summary>
+    [DataMember]
     public required Period4Choice_ ValidityPeriod { get; init; } 
     /// <summary>
     /// Date when this record was last modified.
     /// </summary>
+    [DataMember]
     public IsoISODate? LastUpdated { get; init; } 
     
     #nullable disable

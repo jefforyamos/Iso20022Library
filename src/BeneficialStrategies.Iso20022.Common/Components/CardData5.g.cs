@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Non-protected sensitive data associated with the card or payment token performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardData5
 {
     #nullable enable
@@ -21,6 +23,7 @@ public partial record CardData5
     /// Primary Account Number (PAN) of the card or a surrogate of the PAN such as a payment token.
     /// ISO 8583 bit 2
     /// </summary>
+    [DataMember]
     public IsoMax19NumericText? PAN { get; init; } 
     /// <summary>
     /// To indicate whether the PAN is using ProtectedData for encryption or not.
@@ -28,11 +31,13 @@ public partial record CardData5
     /// True: The PAN is encrypted by using ProtectedData
     /// Default: False
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ProtectedPANIndicator { get; init; } 
     /// <summary>
     /// Distinguishes between instances of the same payment card.
     /// ISO 8583 bit 23
     /// </summary>
+    [DataMember]
     public IsoMin2Max3NumericText? CardSequenceNumber { get; init; } 
     /// <summary>
     /// A unique non-financial reference assigned to a given payment account. May be used to link all transaction activity associated with the same payment account. 
@@ -40,18 +45,22 @@ public partial record CardData5
     /// ISO 8583:93 bit 112 (TLV tag 01/dataset 71)
     /// ISO 8583:2003 bit 51 (TLV tag 01/dataset 71)
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PaymentAccountReference { get; init; } 
     /// <summary>
     /// Leading digits of the PAN that identifies the card portfolio (for example, Issuer Identification Number). This data should not to be presented to the card acceptor or its environment. (for example, acquirer should not to send or make available to merchant).
     /// </summary>
+    [DataMember]
     public IsoMax19NumericText? PANAccountRange { get; init; } 
     /// <summary>
     /// Identifies the card portfolio. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CardPortfolioIdentifier { get; init; } 
     /// <summary>
     /// Additional card issuer specific data.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AdditionalCardData { get; init; } 
     
     #nullable disable

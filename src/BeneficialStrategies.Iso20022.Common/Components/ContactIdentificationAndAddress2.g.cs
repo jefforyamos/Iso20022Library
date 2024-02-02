@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContactIdentificationAndAddress2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ContactIdentificationAndAddress2
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Role of the party in the payment.
     /// </summary>
+    [DataMember]
     public required PaymentRole1Choice_ Role { get; init; } 
     /// <summary>
     /// Number, or virtual address, used for communication.
     /// </summary>
+    [DataMember]
     public required CommunicationAddress10 CommunicationAddress { get; init; } 
     
     #nullable disable

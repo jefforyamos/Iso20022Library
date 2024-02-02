@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(AddressOrParty1Choice.NewAddress))]
 [KnownType(typeof(AddressOrParty1Choice.NewBeneficiary))]
+[DataContract]
 public abstract partial record AddressOrParty1Choice_
 {
 }

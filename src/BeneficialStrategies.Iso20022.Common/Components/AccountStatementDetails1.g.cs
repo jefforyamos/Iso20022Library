@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Statement information of an account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountStatementDetails1
 {
     #nullable enable
@@ -20,42 +22,51 @@ public partial record AccountStatementDetails1
     /// <summary>
     /// Date of the transaction.
     /// </summary>
+    [DataMember]
     public required IsoISODate TransactionDate { get; init; } 
     /// <summary>
     /// True indicates transaction is pending. 
     /// False indicates transaction has already posted.
     /// No default value.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? PendingIndicator { get; init; } 
     /// <summary>
     /// Posting date of the transaction.
     /// </summary>
+    [DataMember]
     public IsoISODate? TransactionPostingDate { get; init; } 
     /// <summary>
     /// Amount of the transaction.
     /// </summary>
+    [DataMember]
     public Amount7? TransactionAmount { get; init; } 
     /// <summary>
     /// Cardholder billing amount of the transaction.
     /// </summary>
+    [DataMember]
     public Amount7? CardholderBillingAmount { get; init; } 
     /// <summary>
     /// Indicates whether the transaction is a credit or debit.
     /// True indicates the transaction is a credit.
     /// False indicates the transaction is a debit.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CreditIndicator { get; init; } 
     /// <summary>
     /// Currency of the amount.
     /// </summary>
+    [DataMember]
     public IsoMax99Text? AcceptorNameAndLocation { get; init; } 
     /// <summary>
     /// Short transaction description to print or display.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? ShortTransactionDescription { get; init; } 
     /// <summary>
     /// Long transaction description to print or display.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? LongTransactionDescription { get; init; } 
     
     #nullable disable

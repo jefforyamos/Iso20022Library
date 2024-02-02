@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria to extract the limit information and the expected limit report. A name may be given to the new query.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LimitCriteria5
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record LimitCriteria5
     /// <summary>
     /// Name of the query defined by the search criteria and return criteria.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NewQueryName { get; init; } 
     /// <summary>
     /// Defines the criteria to extract the limit information.
     /// </summary>
-    public LimitSearchCriteria5[] SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LimitSearchCriteria5> SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines the expected limit report.
     /// </summary>
+    [DataMember]
     public LimitReturnCriteria2? ReturnCriteria { get; init; } 
     
     #nullable disable

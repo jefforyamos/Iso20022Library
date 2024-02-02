@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies underlying instruments or index a derivative has.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrument98
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FinancialInstrument98
     /// <summary>
     /// Identification of the index on which the financial instrument is based.
     /// </summary>
+    [DataMember]
     public IsoISIN2021Identifier? ISIN { get; init; } 
     /// <summary>
     /// Name of the index on which the financial instrument is based.
     /// </summary>
+    [DataMember]
     public required FloatingInterestRate8 Name { get; init; } 
     
     #nullable disable

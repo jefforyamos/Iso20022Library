@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to a linked transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Linkages72
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Linkages72
     /// <summary>
     /// Message type number/message identifier of the message referenced in the linkage sequence.
     /// </summary>
+    [DataMember]
     public DocumentNumber17Choice_? MessageNumber { get; init; } 
     /// <summary>
     /// Reference to the linked transaction.
     /// </summary>
+    [DataMember]
     public required IdentificationReference11Choice_ Reference { get; init; } 
     
     #nullable disable

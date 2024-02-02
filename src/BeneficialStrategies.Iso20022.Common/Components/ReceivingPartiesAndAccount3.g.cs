@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReceivingPartiesAndAccount3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ReceivingPartiesAndAccount3
     /// <summary>
     /// Party that acts on behalf of the buyer of securities when the buyer does not have a direct relationship with the receiving agent.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount3? ReceiversCustodianDetails { get; init; } 
     /// <summary>
     /// Party that the Receiver's custodian uses to effect the receipt of a security, when the Receiver's custodian does not have a direct relationship with the Receiver agent.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount3? ReceiversIntermediaryDetails { get; init; } 
     /// <summary>
     /// Party that receives securities from the delivering agent at the place of settlement, eg, central securities depository.
     /// </summary>
+    [DataMember]
     public required PartyIdentificationAndAccount3 ReceivingAgentDetails { get; init; } 
     
     #nullable disable

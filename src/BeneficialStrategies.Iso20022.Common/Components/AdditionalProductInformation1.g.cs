@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional information required for distribution in the German market.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalProductInformation1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record AdditionalProductInformation1
     /// <summary>
     /// Category of fund product.  When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 09000.
     /// </summary>
+    [DataMember]
     public ESGCategoryGermanFundMarket1Code? ESGCategoryGermanFundMarket { get; init; } 
     /// <summary>
     /// Category of structured securities product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 09000.
     /// </summary>
+    [DataMember]
     public ESGCategoryGermanStructuredSecuritiesMarket1Code? ESGCategoryGermanStructuredSecuritiesMarket { get; init; } 
     /// <summary>
     /// Specifies if the focus will be Environmental, Social or Governance.  When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 09010.
     /// </summary>
+    [DataMember]
     public ESGFocus1Code? ESGFocus { get; init; } 
     /// <summary>
     /// ESG label or standard of a product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 09020.
     /// </summary>
-    public ESGLabelOrStandard1Code[] ESGLabelOrStandard { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ESGLabelOrStandard1Code> ESGLabelOrStandard { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

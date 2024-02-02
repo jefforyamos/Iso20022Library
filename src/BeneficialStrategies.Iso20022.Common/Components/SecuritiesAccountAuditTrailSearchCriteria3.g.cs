@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes search criteria for securities account audit trail query.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesAccountAuditTrailSearchCriteria3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SecuritiesAccountAuditTrailSearchCriteria3
     /// <summary>
     /// Unique identification of the securities account to be queried.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount19? SecuritiesAccountIdentification { get; init; } 
     /// <summary>
     /// Specifies the period for querying information.
     /// </summary>
+    [DataMember]
     public DatePeriodSearch1Choice_? DatePeriod { get; init; } 
     
     #nullable disable

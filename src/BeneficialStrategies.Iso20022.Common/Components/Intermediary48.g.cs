@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Party that provides services to investors relating to financial products.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Intermediary48
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Intermediary48
     /// <summary>
     /// Unique and unambiguous identifier of the intermediary or a party related to the transfer.
     /// </summary>
+    [DataMember]
     public required PartyIdentification132 Identification { get; init; } 
     /// <summary>
     /// Identification of the account.
     /// </summary>
+    [DataMember]
     public Account34? Account { get; init; } 
     /// <summary>
     /// Function performed by the intermediary or related party.
     /// </summary>
+    [DataMember]
     public Role8Choice_? Role { get; init; } 
     /// <summary>
     /// Contact person and contact information.
     /// </summary>
+    [DataMember]
     public ContactIdentification2? ContactPerson { get; init; } 
     
     #nullable disable

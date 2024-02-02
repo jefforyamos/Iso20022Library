@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Restriction on capability or operations allowed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Restriction1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Restriction1
     /// <summary>
     /// Type of the restriction.
     /// </summary>
+    [DataMember]
     public required CodeOrProprietary1Choice_ RestrictionType { get; init; } 
     /// <summary>
     /// Date from when the restriction is valid.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime ValidFrom { get; init; } 
     /// <summary>
     /// Date until when the restriction is valid.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ValidUntil { get; init; } 
     
     #nullable disable

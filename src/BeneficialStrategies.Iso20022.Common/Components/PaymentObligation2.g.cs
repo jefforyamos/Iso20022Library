@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment obligation contracted between two financial institutions related to the financing of a commercial transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentObligation2
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record PaymentObligation2
     /// <summary>
     /// Bank that has to pay under the obligation.
     /// </summary>
+    [DataMember]
     public required BICIdentification1 ObligorBank { get; init; } 
     /// <summary>
     /// Bank that will be paid under the obligation.
     /// </summary>
+    [DataMember]
     public required BICIdentification1 RecipientBank { get; init; } 
     /// <summary>
     /// Payment obligation amount specified as an amount or percentage.
     /// </summary>
+    [DataMember]
     public required AmountOrPercentage2Choice_ PaymentObligationAmount { get; init; } 
     /// <summary>
     /// Charges related to the payment obligation.
     /// </summary>
-    public Charges5[] Charges { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Charges5> Charges { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date at which the obligation will expire.
     /// </summary>
+    [DataMember]
     public required IsoISODate ExpiryDate { get; init; } 
     /// <summary>
     /// Rules which apply to the BPO (Bank Payment Obligation).
     /// </summary>
+    [DataMember]
     public BPOApplicableRules1Choice_? ApplicableRules { get; init; } 
     /// <summary>
     /// Country of which the law governs the bank payment obligation.
     /// </summary>
+    [DataMember]
     public CountryCode? ApplicableLaw { get; init; } 
     /// <summary>
     /// Location and forum for dispute resolution.
     /// </summary>
+    [DataMember]
     public Location2? PlaceOfJurisdiction { get; init; } 
     /// <summary>
     /// Payment processes required to transfer cash from the debtor to the creditor.
     /// </summary>
-    public PaymentTerms4[] PaymentTerms { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentTerms4> PaymentTerms { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Instruction between two clearing agents stipulating the cash transfer characteristics between the two parties.
     /// </summary>
+    [DataMember]
     public SettlementTerms3? SettlementTerms { get; init; } 
     
     #nullable disable

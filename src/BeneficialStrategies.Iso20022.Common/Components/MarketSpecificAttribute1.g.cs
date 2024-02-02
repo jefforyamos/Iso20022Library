@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines additional attributes for party reference data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MarketSpecificAttribute1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record MarketSpecificAttribute1
     /// <summary>
     /// Specifies the name of the market-specific attribute.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Name { get; init; } 
     /// <summary>
     /// Specifies the value of the market-specific attribute.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text Value { get; init; } 
     
     #nullable disable

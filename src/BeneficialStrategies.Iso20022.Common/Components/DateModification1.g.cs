@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of change to a date.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DateModification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DateModification1
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
+    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Date.
     /// </summary>
+    [DataMember]
     public required IsoISODate Date { get; init; } 
     
     #nullable disable

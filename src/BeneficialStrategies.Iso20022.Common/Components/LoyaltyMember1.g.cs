@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details about a member of a loyalty programme.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoyaltyMember1
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record LoyaltyMember1
     /// <summary>
     /// Name of the member of the loyalty programme.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Address of the loyalty member.
     /// </summary>
+    [DataMember]
     public Address1? Address { get; init; } 
     /// <summary>
     /// Identification of the member of the loyalty programme.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Status of the loyalty programme member for the programme.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MemberStatus { get; init; } 
     /// <summary>
     /// Expiration date of the loyalty programme.
     /// </summary>
+    [DataMember]
     public IsoISODate? ExpirationDate { get; init; } 
     /// <summary>
     /// Value expressed in type of value for the loyalty programme.
     /// </summary>
+    [DataMember]
     public IsoMax10NumericText? LoyaltyValue { get; init; } 
     /// <summary>
     /// Type of value used for the loyalty programme.
     /// </summary>
+    [DataMember]
     public LoyaltyValueType1Code? LoyaltyValueType { get; init; } 
     /// <summary>
     /// Other type of loyalty value used for the programme.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherLoyaltyValueType { get; init; } 
     /// <summary>
     /// Value to be credited on the account of the loyalty programme member. Computed on the monetary part actually paid by the customer for the service.
     /// </summary>
+    [DataMember]
     public IsoMax10NumericText? ValueToCredit { get; init; } 
     /// <summary>
     /// Value to be debited from the account of the loyalty programme member. Computed on the monetary part actually redeemed by the customer for the service.
     /// </summary>
+    [DataMember]
     public IsoMax10NumericText? ValueToDebit { get; init; } 
     /// <summary>
     /// Value on the account of the loyalty programme member after credit (computation on actual payment in monetary value) and debit (redemption in loyalty value).
     /// </summary>
+    [DataMember]
     public IsoMax10NumericText? Balance { get; init; } 
     
     #nullable disable

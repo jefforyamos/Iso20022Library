@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Repurchase agreement where a single, pre defined, financial instrument is sold and repurchased.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SpecificCollateral2
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record SpecificCollateral2
     /// <summary>
     /// Identification of collateral placed as security for repo.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument59 FinancialInstrumentIdentification { get; init; } 
     
     #nullable disable

@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(FinancialInstrument62Choice.Security))]
 [KnownType(typeof(FinancialInstrument62Choice.CashAsset))]
 [KnownType(typeof(FinancialInstrument62Choice.OtherAsset))]
+[DataContract]
 public abstract partial record FinancialInstrument62Choice_
 {
 }

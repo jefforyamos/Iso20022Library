@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of change to an amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountModification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AmountModification1
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
+    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Amount.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

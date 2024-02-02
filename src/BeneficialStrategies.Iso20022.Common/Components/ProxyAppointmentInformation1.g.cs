@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates how to register a proxy.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProxyAppointmentInformation1
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record ProxyAppointmentInformation1
     /// <summary>
     /// Indicates how to register a proxy.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? RegistrationMethod { get; init; } 
     /// <summary>
     /// Date by which the information on proxy assignment must be received by the intermediary.
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? Deadline { get; init; } 
     /// <summary>
     /// Date by which the information on proxy assignment must be received by the intermediary (STP mode).
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? STPDeadline { get; init; } 
     /// <summary>
     /// Date by which the information on proxy assignment must be received by the issuer.
     /// </summary>
+    [DataMember]
     public DateFormat2Choice_? MarketDeadline { get; init; } 
     /// <summary>
     /// Specifies the proxy persons which are authorised by the issuer.
     /// </summary>
-    public Proxy1[] AuthorisedProxy { get; init; } = [];
+    [DataMember]
+    public ValueList<Proxy1> AuthorisedProxy { get; init; } = [];
     
     #nullable disable
 }

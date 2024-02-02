@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of characteristics related to a cheque instruction, such as cheque type or cheque number.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Cheque5
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record Cheque5
     /// <summary>
     /// Specifies the type of cheque to be issued by the first agent.
     /// </summary>
+    [DataMember]
     public ChequeType2Code? ChequeType { get; init; } 
     /// <summary>
     /// Identifies the cheque number.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ChequeNumber { get; init; } 
     /// <summary>
     /// Identifies the party that ordered the issuance of the cheque.
     /// </summary>
+    [DataMember]
     public NameAndAddress3? ChequeFrom { get; init; } 
     /// <summary>
     /// Specifies the delivery method of the cheque by the debtor's agent.
     /// </summary>
+    [DataMember]
     public ChequeDeliveryMethod1Choice_? DeliveryMethod { get; init; } 
     /// <summary>
     /// Identifies the party to whom the debtor's agent should send the cheque.
     /// </summary>
+    [DataMember]
     public NameAndAddress3? DeliverTo { get; init; } 
     /// <summary>
     /// Urgency or order of importance that the originator would like the recipient of the payment instruction to apply to the processing of the payment instruction.
     /// </summary>
+    [DataMember]
     public Priority2Code? InstructionPriority { get; init; } 
     /// <summary>
     /// Date when the draft becomes payable and the debtor's account is debited.
     /// </summary>
+    [DataMember]
     public IsoISODate? ChequeMaturityDate { get; init; } 
     /// <summary>
     /// Code agreed between the initiating party and the debtor's agent, that specifies the cheque layout, company logo and digitised signature to be used to print the cheque.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? FormsCode { get; init; } 
     /// <summary>
     /// Information that needs to be printed on a cheque, used by the payer to add miscellaneous information.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MemoField { get; init; } 
     /// <summary>
     /// Regional area in which the cheque can be cleared, when a country has no nation-wide cheque clearing organisation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RegionalClearingZone { get; init; } 
     /// <summary>
     /// Specifies the print location of the cheque.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PrintLocation { get; init; } 
     
     #nullable disable

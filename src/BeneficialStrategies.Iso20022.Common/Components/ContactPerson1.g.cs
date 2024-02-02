@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains information about the contact responsible for the transaction identified in the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContactPerson1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ContactPerson1
     /// <summary>
     /// Provides additional information regarding the party, eg, the contact unit or person responsible for the transaction identified in the message.
     /// </summary>
+    [DataMember]
     public required ContactIdentification4 ContactPerson { get; init; } 
     /// <summary>
     /// Identification of the institution that the contact person represents.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? InstitutionIdentification { get; init; } 
     
     #nullable disable

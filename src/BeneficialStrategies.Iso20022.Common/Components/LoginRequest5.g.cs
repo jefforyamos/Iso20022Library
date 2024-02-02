@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the login request message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoginRequest5
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record LoginRequest5
     /// <summary>
     /// Date and Time of Login.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime LoginDateTime { get; init; } 
     /// <summary>
     /// Information related to the software of the Sale System which manages the Sale to POI protocol.
     /// </summary>
-    public PointOfInteractionComponent14[] SaleSoftware { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PointOfInteractionComponent14> SaleSoftware { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to the software and hardware feature of the Sale Terminal.
     /// </summary>
+    [DataMember]
     public SaleTerminalData1? SaleTerminalData { get; init; } 
     /// <summary>
     /// Training mode.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? TrainingModeFlag { get; init; } 
     /// <summary>
     /// Identification of the cashier.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CashierIdentification { get; init; } 
     /// <summary>
     /// Language of the cashier.
     /// </summary>
+    [DataMember]
     public required LanguageCode CashierLanguage { get; init; } 
     /// <summary>
     /// Shift number of the cashier.
     /// </summary>
+    [DataMember]
     public IsoMax2NumericText? ShiftNumber { get; init; } 
     /// <summary>
     /// Type of token replacing the PAN of a payment card to identify the payment mean of the customer.
     /// </summary>
+    [DataMember]
     public SaleTokenScope1Code? TokenRequestedType { get; init; } 
     /// <summary>
     /// Type of customer orders that must be sent in response message.
     /// </summary>
+    [DataMember]
     public CustomerOrderRequest1Code? CustomerOrderRequest { get; init; } 
     /// <summary>
     /// POI Terminal identification.
     /// </summary>
+    [DataMember]
     public PointOfInteractionComponentIdentification2? POIIdentification { get; init; } 
     /// <summary>
     /// Default group identification for transaction consolidation (Totals).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TotalsGroupIdentification { get; init; } 
     /// <summary>
     /// Message to be displayed.
     /// </summary>
+    [DataMember]
     public ActionMessage10? OutputDisplay { get; init; } 
     
     #nullable disable

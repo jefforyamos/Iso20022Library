@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Discounts or waivers to charges and commissions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ChargeOrCommissionDiscount2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ChargeOrCommissionDiscount2
     /// <summary>
     /// Amount of discount or waiver.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Rate of discount or waiver.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Form of the discount or rebate.
     /// </summary>
+    [DataMember]
     public WaivingInstruction2Choice_? Basis { get; init; } 
     
     #nullable disable

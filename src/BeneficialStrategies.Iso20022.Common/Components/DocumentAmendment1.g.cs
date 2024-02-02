@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates whether the supporting document is amending an original document or not, and the reference of the original supporting document, when applicable.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentAmendment1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DocumentAmendment1
     /// <summary>
     /// Provides the correction sequence number used to identify the amendment.
     /// </summary>
+    [DataMember]
     public required IsoNumber CorrectionIdentification { get; init; } 
     /// <summary>
     /// Identification of the original document being amended.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalDocumentIdentification { get; init; } 
     
     #nullable disable

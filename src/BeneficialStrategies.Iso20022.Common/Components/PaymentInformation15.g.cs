@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment terms and conditions related to a single invoice to be financed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentInformation15
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PaymentInformation15
     /// <summary>
     /// Payment method that will be used for invoice payment to transfer the funds to the creditor.
     /// </summary>
+    [DataMember]
     public required PaymentMethod4Code PaymentMethod { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account used for payment settlement.
     /// </summary>
+    [DataMember]
     public CashAccount7? PaymentAccount { get; init; } 
     
     #nullable disable

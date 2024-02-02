@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Component contains data structures applicable to certain merchant verticals that require industry-specific data within transaction messages. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AddendumData1
 {
     #nullable enable
@@ -20,71 +22,88 @@ public partial record AddendumData1
     /// <summary>
     /// Specifies the type of identifier present in the message.
     /// </summary>
+    [DataMember]
     public PurchaseIdentifierType1Code? PurchaseIdentifierType { get; init; } 
     /// <summary>
     /// Used when Purchase Identifier Type is Other National or Other Private. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherPurchaseIdentifierType { get; init; } 
     /// <summary>
     /// Contains a value identifying Invoice Data or Purchase Request Data.
     /// </summary>
+    [DataMember]
     public IsoMax99Text? PurchaseIdentifier { get; init; } 
     /// <summary>
     /// Contains additional card acceptor data. 
     /// </summary>
+    [DataMember]
     public AdditionalAcceptorData1? AdditionalAcceptorData { get; init; } 
     /// <summary>
     /// Information about the customer.
     /// </summary>
+    [DataMember]
     public Customer4? Customer { get; init; } 
     /// <summary>
     /// Details of good and services included in the sale.
     /// </summary>
+    [DataMember]
     public Sale1? Sale { get; init; } 
     /// <summary>
     /// Fleet data pertaining to the payment transaction.
     /// </summary>
+    [DataMember]
     public FleetData2? Fleet { get; init; } 
     /// <summary>
     /// Invoice data pertaining to the payment transaction.
     /// </summary>
+    [DataMember]
     public Invoice1? Invoice { get; init; } 
     /// <summary>
     /// Component supports corporate transactions for travel agency, airline, or railway transactions. Acquirers may submit multiple occurrences of this component. Each occurrence provides detailed travel agency fee data associated with a travel agency, airline, or railway transaction.
     /// </summary>
+    [DataMember]
     public TravelAgency2? TravelAgency { get; init; } 
     /// <summary>
     /// Component supports ticketing transactions for airline, railway, and travel agency transactions to provide passenger ticket information for the cardholder. 
     /// </summary>
+    [DataMember]
     public PassengerTransport1? PassengerTransport { get; init; } 
     /// <summary>
     /// Component provides detailed vehicle rental information. One occurrence of this component provides rental agreement data reporting for a single vehicle rental transaction.
     /// </summary>
-    public VehicleRentalService1[] VehicleRental { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<VehicleRentalService1> VehicleRental { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Component provides detailed information about lodging accommodations and related expenses for the cardholder. Acquirers can submit multiple occurrences of this component for each lodging transaction, to provide details of one or more folios.
     /// </summary>
-    public Lodging2[] Lodging { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Lodging2> Lodging { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Shipping or Courier Service detail component provides detailed information regarding delivery or courier services. 
     /// </summary>
+    [DataMember]
     public ShippingData1? ShippingData { get; init; } 
     /// <summary>
     /// Telecommunication services component is designed to carry telephony billing data and to enable issuers to supply more transaction information to their consumer and corporate clients pertaining to telecommunications services and related billing information. 
     /// </summary>
+    [DataMember]
     public TelecomServices1? TelecommunicationServices { get; init; } 
     /// <summary>
     /// Temporary Services component provides detailed information regarding the billing for services rendered on a temporary or contract basis. The component provides information such as the employee job performed, timekeeping, and billing rates.
     /// </summary>
-    public TemporaryServices1[] TemporaryServices { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TemporaryServices1> TemporaryServices { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data exclusively related to a card issuer financial loan of the payment transaction, or instalment.
     /// </summary>
+    [DataMember]
     public Instalment3? Instalment { get; init; } 
     /// <summary>
     /// Contains additional data for the addendum.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

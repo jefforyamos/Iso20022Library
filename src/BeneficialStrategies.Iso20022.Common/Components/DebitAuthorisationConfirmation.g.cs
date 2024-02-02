@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates if the debit authorisation is granted or not.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DebitAuthorisationConfirmation
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record DebitAuthorisationConfirmation
     /// <summary>
     /// Code expressing the decision taken by the account owner relative to the request for debit authorization.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator DebitAuthorisation { get; init; } 
     /// <summary>
     /// Amount authorised for debit. The party providing the debit authority may want to authorise the amount less charges and they may only be prepared to approve the debit for value today rather than the original value date.
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? AmountToDebit { get; init; } 
     /// <summary>
     /// Value date for debiting the amount.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValueDateToDebit { get; init; } 
     /// <summary>
     /// Justification of the (partial) debit authorisation.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Reason { get; init; } 
     
     #nullable disable

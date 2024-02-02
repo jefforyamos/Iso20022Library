@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// No specified reason available for the status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NoSpecifiedReason1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record NoSpecifiedReason1
     /// <summary>
     /// Indicates that there is no reason available or to report.
     /// </summary>
+    [DataMember]
     public required NoReasonCode NoSpecifiedReason { get; init; } 
     
     #nullable disable

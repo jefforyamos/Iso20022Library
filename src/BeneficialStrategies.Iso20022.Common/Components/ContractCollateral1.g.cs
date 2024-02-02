@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Further details on the contract collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContractCollateral1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ContractCollateral1
     /// <summary>
     /// Total amount of the collateral as defined in the contract.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalAmount { get; init; } 
     /// <summary>
     /// Detailed description of the collateral.
     /// </summary>
-    public CashCollateral5[] CollateralDescription { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashCollateral5> CollateralDescription { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further information on the contract collateral.
     /// </summary>
+    [DataMember]
     public IsoMax1025Text? AdditionalInformation { get; init; } 
     
     #nullable disable

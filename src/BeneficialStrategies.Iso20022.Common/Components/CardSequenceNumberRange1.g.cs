@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Range of sequence numbers related to card transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardSequenceNumberRange1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CardSequenceNumberRange1
     /// <summary>
     /// CardSequenceNumberRange1: FirstTransactionSequenceNumberMessage element to be finalised once feedback from Card SEG has been received.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? FirstTransaction { get; init; } 
     /// <summary>
     /// CardSequenceNumberRange1: LastTransactionSequenceNumberMessage element to be finalised once feedback from Card SEG has been received.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LastTransaction { get; init; } 
     
     #nullable disable

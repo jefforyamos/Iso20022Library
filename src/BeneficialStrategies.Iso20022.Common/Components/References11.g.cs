@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reference to the transaction identifier issued by the counterparty. Building block may also be used to reference a previous transaction, or tie a set of messages together.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record References11
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record References11
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
+    [DataMember]
     public AdditionalReference2? PoolReference { get; init; } 
     /// <summary>
     /// Reference of the linked message that was previously sent.
     /// </summary>
+    [DataMember]
     public AdditionalReference2? PreviousReference { get; init; } 
     /// <summary>
     /// Reference to a linked message that was previously received.
     /// </summary>
+    [DataMember]
     public AdditionalReference2? RelatedReference { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transfer allocated by the counterparty.
     /// </summary>
+    [DataMember]
     public AdditionalReference2? CounterpartyReference { get; init; } 
     
     #nullable disable

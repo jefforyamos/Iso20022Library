@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information on the collateral proposal(s), that is either in cash, securities or other types.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralResponse2
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record CollateralResponse2
     /// <summary>
     /// Provides details on the securities collateral proposal.
     /// </summary>
-    public SecuritiesCollateralResponse1[] SecuritiesCollateralResponse { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecuritiesCollateralResponse1> SecuritiesCollateralResponse { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides details on the cash collateral proposal.
     /// </summary>
-    public CashCollateralResponse2[] CashCollateralResponse { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashCollateralResponse2> CashCollateralResponse { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides details on other collateral proposal.
     /// </summary>
-    public OtherCollateralResponse2[] OtherCollateralResponse { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OtherCollateralResponse2> OtherCollateralResponse { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

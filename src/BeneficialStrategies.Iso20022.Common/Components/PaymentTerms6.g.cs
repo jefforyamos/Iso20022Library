@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the payment terms of the underlying transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTerms6
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record PaymentTerms6
     /// <summary>
     /// Due date specified for the payment terms.
     /// </summary>
+    [DataMember]
     public IsoISODate? DueDate { get; init; } 
     /// <summary>
     /// Payment period specified for these payment terms.
     /// </summary>
+    [DataMember]
     public PaymentPeriod1? PaymentPeriod { get; init; } 
     /// <summary>
     /// Textual description of these payment terms.
     /// </summary>
-    public IsoMax140Text[] Description { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax140Text> Description { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Partial payment, expressed as a percentage, for the payment terms.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? PartialPaymentPercent { get; init; } 
     /// <summary>
     /// Direct debit mandate identification specified for these payment terms.
     /// </summary>
-    public IsoMax35Text[] DirectDebitMandateIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> DirectDebitMandateIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount used as a basis to calculate the discount amount for these payment terms.
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? BasisAmount { get; init; } 
     /// <summary>
     /// Amount of money that results from the application of an agreed discount percentage to the basis amount and payable to the creditor.
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? DiscountAmount { get; init; } 
     /// <summary>
     /// Percent rate used to calculate the discount for these payment terms.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? DiscountPercentRate { get; init; } 
     /// <summary>
     /// Amount of money that results from the application of an agreed penalty percentage to the basis amount and payable by the creditor.
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? PenaltyAmount { get; init; } 
     /// <summary>
     /// Percent rate used to calculate the penalty for these payment terms.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? PenaltyPercentRate { get; init; } 
     
     #nullable disable

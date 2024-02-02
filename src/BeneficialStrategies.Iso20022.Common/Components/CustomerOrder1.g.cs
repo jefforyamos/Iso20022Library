@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Customer order attached to a customer, recorded in the POI system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CustomerOrder1
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record CustomerOrder1
     /// <summary>
     /// Identification of a customer order.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text CustomerOrderIdentification { get; init; } 
     /// <summary>
     /// Identification of a Sale transaction for a sequence of related POI transactions.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text SaleReferenceIdentification { get; init; } 
     /// <summary>
     /// Specifies if a customer order is currently open.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? OpenOrderState { get; init; } 
     /// <summary>
     /// Date time of the beginning of an operation.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime StartDate { get; init; } 
     /// <summary>
     /// Date time of the end of an operation.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? EndDate { get; init; } 
     /// <summary>
     /// Unit of amount.
     /// </summary>
+    [DataMember]
     public AmountUnit1Code? Unit { get; init; } 
     /// <summary>
     /// Initial or global amount of the order.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount ForecastedAmount { get; init; } 
     /// <summary>
     /// Total amount of all completed transactions of a customer order.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? CurrentAmount { get; init; } 
     /// <summary>
     /// Currency of monetary amount.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Identification of an entity accessing data to perform an operation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccessedBy { get; init; } 
     /// <summary>
     /// Unqualified information related to customer order.
     /// </summary>
+    [DataMember]
     public IsoMax1025Text? AdditionalInformation { get; init; } 
     
     #nullable disable

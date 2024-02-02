@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information on an event that happened in a system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Event1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Event1
     /// <summary>
     /// Proprietary code used to specify an event that occurred in a system.
     /// </summary>
+    [DataMember]
     public required IsoMax4AlphaNumericText EventCode { get; init; } 
     /// <summary>
     /// Describes the parameters of an event which occurred in a system.
     /// </summary>
-    public IsoMax35Text[] EventParameter { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> EventParameter { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Free text used to describe an event which occurred in a system.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? EventDescription { get; init; } 
     /// <summary>
     /// Date and time at which the event occurred.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? EventTime { get; init; } 
     
     #nullable disable

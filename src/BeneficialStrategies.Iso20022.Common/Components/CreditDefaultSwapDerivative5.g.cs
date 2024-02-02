@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Credit default swap derivative specific for reporting derivatives on a credit default swap index.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditDefaultSwapDerivative5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CreditDefaultSwapDerivative5
     /// <summary>
     /// Derivative on a credit default swap with the ISIN code of the underlying swap.
     /// </summary>
+    [DataMember]
     public IsoISINOct2015Identifier? UnderlyingCreditDefaultSwapIdentification { get; init; } 
     /// <summary>
     /// Describes the Credit Default Swap Index specific details the derivative is being made on.
     /// </summary>
+    [DataMember]
     public required CreditDefaultSwapIndex3 UnderlyingCreditDefaultSwapIndex { get; init; } 
     
     #nullable disable

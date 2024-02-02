@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of driving license.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DrivingLicense1
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record DrivingLicense1
     /// <summary>
     /// Type of driving license.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Type { get; init; } 
     /// <summary>
     /// Form of driving license.
     /// </summary>
+    [DataMember]
     public PresentationMedium2Code? Form { get; init; } 
     /// <summary>
     /// Identification of the driver license (for example, driver license number).
     /// </summary>
+    [DataMember]
     public required IsoMax70Text Identification { get; init; } 
     /// <summary>
     /// Authority assigning an identification to a driver license.
     /// </summary>
+    [DataMember]
     public LegalStructure1Code? Assigner { get; init; } 
     /// <summary>
     /// Date of issuance of the driving license.
     /// </summary>
+    [DataMember]
     public IsoISODate? IssuanceDate { get; init; } 
     /// <summary>
     /// Expiration date of the driving license (if and when relevant).
     /// </summary>
+    [DataMember]
     public IsoISODate? ExpirationDate { get; init; } 
     /// <summary>
     /// Country issuing the driver license.
     /// </summary>
+    [DataMember]
     public IsoMin2Max3AlphaText? Country { get; init; } 
     /// <summary>
     /// State issuing the driver license (if and when relevant).
     /// </summary>
+    [DataMember]
     public IsoMax16Text? State { get; init; } 
     /// <summary>
     /// Province issuing the driver license (if and when relevant).
     /// </summary>
+    [DataMember]
     public IsoMax16Text? Province { get; init; } 
     /// <summary>
     /// Other authority issuing a driver license.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? OtherAuthority { get; init; } 
     
     #nullable disable

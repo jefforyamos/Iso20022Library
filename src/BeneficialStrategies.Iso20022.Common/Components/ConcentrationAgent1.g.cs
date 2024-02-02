@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Deposit taking institution with which a central counterparty has accounts used to concentrate cash funds before or after investment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ConcentrationAgent1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record ConcentrationAgent1
     /// <summary>
     /// Identifies the concentration agent.
     /// </summary>
+    [DataMember]
     public required IsoLEIIdentifier Identification { get; init; } 
     /// <summary>
     /// Inflows and outflows to and from the CCP’s concentration accounts aggregated across all business lines / waterfalls. 
     /// </summary>
-    public ConcentrationAccount1[] Account { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ConcentrationAccount1> Account { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

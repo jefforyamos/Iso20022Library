@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(PriceFormat52Choice.PercentagePrice))]
 [KnownType(typeof(PriceFormat52Choice.AmountPrice))]
+[DataContract]
 public abstract partial record PriceFormat52Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account owned by a customer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CustomerAccountModification1
 {
     #nullable enable
@@ -20,63 +22,78 @@ public partial record CustomerAccountModification1
     /// <summary>
     /// Identification of the account.
     /// </summary>
-    public AccountIdentification4Choice_[] Identification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AccountIdentification4Choice_> Identification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
+    [DataMember]
     public NameModification1? Name { get; init; } 
     /// <summary>
     /// Specifies the current state of an account, eg, enabled or deleted.
     /// </summary>
+    [DataMember]
     public AccountStatusModification1? Status { get; init; } 
     /// <summary>
     /// Type of the account.
     /// </summary>
+    [DataMember]
     public TypeModification1? Type { get; init; } 
     /// <summary>
     /// Medium of exchange of value.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Monthly average of the payment amounts (that is, payments going out) over a year.
     /// </summary>
+    [DataMember]
     public AmountModification1? MonthlyPaymentValue { get; init; } 
     /// <summary>
     /// Monthly average of the received amounts over a year (that is, payments coming in).
     /// </summary>
+    [DataMember]
     public AmountModification1? MonthlyReceivedValue { get; init; } 
     /// <summary>
     /// Monthly average of the number of payments (coming in and going out) over a year.
     /// </summary>
+    [DataMember]
     public NumberModification1? MonthlyTransactionNumber { get; init; } 
     /// <summary>
     /// Sum of the end of day balances over a month divided by the number of business days in the month.
     /// </summary>
+    [DataMember]
     public AmountModification1? AverageBalance { get; init; } 
     /// <summary>
     /// Specifies the purpose of the account.
     /// </summary>
+    [DataMember]
     public PurposeModification1? AccountPurpose { get; init; } 
     /// <summary>
     /// Specifies the value of the balance under which a notification will be sent to the account owner.
     /// </summary>
+    [DataMember]
     public AmountModification1? FloorNotificationAmount { get; init; } 
     /// <summary>
     /// Specifies the value of the balance above which a notification will be sent to the account owner.
     /// </summary>
+    [DataMember]
     public AmountModification1? CeilingNotificationAmount { get; init; } 
     /// <summary>
     /// Specifies how often statements (for audit purposes) will be sent, in which format, to which address.
     /// </summary>
-    public StatementFrequencyAndFormModification1[] StatementFrequencyAndFormat { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StatementFrequencyAndFormModification1> StatementFrequencyAndFormat { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date when the account will be or was closed.
     /// </summary>
+    [DataMember]
     public DateModification1? ClosingDate { get; init; } 
     /// <summary>
     /// Restriction on capability or operations allowed.
     /// </summary>
-    public RestrictionModification1[] Restriction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RestrictionModification1> Restriction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

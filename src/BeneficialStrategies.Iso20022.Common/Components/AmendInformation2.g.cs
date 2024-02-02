@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information specific to an amendment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmendInformation2
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record AmendInformation2
     /// <summary>
     /// Identifies the MeetingResultDissemination essage to be amended.
     /// </summary>
+    [DataMember]
     public required MessageIdentification PreviousReference { get; init; } 
     
     #nullable disable

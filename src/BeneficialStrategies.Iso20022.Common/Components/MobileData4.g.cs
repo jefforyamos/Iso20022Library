@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related to the mobile of stakeholder.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MobileData4
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record MobileData4
     /// <summary>
     /// Identifies the country of a mobile phone operator.
     /// </summary>
+    [DataMember]
     public IsoMin2Max3AlphaText? MobileCountryCode { get; init; } 
     /// <summary>
     /// Identifies the mobile phone operator inside a country.
     /// </summary>
+    [DataMember]
     public IsoMin2Max3NumericText? MobileNetworkCode { get; init; } 
     /// <summary>
     /// Masked Mobile Subscriber Integrated Service Digital Network.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MobileMaskedMSISDN { get; init; } 
     /// <summary>
     /// Geographic location specified by geographic or UTM coordinates.
     /// </summary>
+    [DataMember]
     public Geolocation1? Geolocation { get; init; } 
     /// <summary>
     /// Sensitive information related to the mobile phone.
     /// </summary>
+    [DataMember]
     public SensitiveMobileData1? SensitiveMobileData { get; init; } 
     /// <summary>
     /// Sensitive information related to the mobile phone, protected by CMS.
     /// </summary>
+    [DataMember]
     public ContentInformationType32? ProtectedMobileData { get; init; } 
     
     #nullable disable

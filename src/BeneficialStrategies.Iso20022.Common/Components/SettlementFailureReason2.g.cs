@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the reason for the settlement fails as defined in the relevant regulation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementFailureReason2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SettlementFailureReason2
     /// <summary>
     /// Main reasons for settlement fails during the reporting period.
     /// </summary>
+    [DataMember]
     public required IsoMax2048Text MainReasons { get; init; } 
     /// <summary>
     /// Measures to improve settlement efficiency.
     /// </summary>
+    [DataMember]
     public required IsoMax2048Text EfficiencyImprovement { get; init; } 
     
     #nullable disable

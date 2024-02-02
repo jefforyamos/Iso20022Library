@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(FinancialInstrumentQuantity10Choice.UnitsNumber))]
 [KnownType(typeof(FinancialInstrumentQuantity10Choice.OrderedAmount))]
 [KnownType(typeof(FinancialInstrumentQuantity10Choice.HoldingsRate))]
+[DataContract]
 public abstract partial record FinancialInstrumentQuantity10Choice_
 {
 }

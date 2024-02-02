@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details about business information related to a system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GeneralBusinessInformation1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record GeneralBusinessInformation1
     /// <summary>
     /// Further information about the criticality or importance of a general business information system.
     /// </summary>
+    [DataMember]
     public InformationQualifierType1? Qualifier { get; init; } 
     /// <summary>
     /// Subject line of an item of general business information, summarizing the topic and intended destination of the information.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Subject { get; init; } 
     /// <summary>
     /// General business information, in unstructured form.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? SubjectDetails { get; init; } 
     
     #nullable disable

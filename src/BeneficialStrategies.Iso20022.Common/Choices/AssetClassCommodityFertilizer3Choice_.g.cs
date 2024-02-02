@@ -16,6 +16,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(AssetClassCommodityFertilizer3Choice.Urea))]
 [KnownType(typeof(AssetClassCommodityFertilizer3Choice.UreaAndAmmoniumNitrate))]
 [KnownType(typeof(AssetClassCommodityFertilizer3Choice.Other))]
+[DataContract]
 public abstract partial record AssetClassCommodityFertilizer3Choice_
 {
 }

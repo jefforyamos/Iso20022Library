@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Other option to express a reference.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherReference1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record OtherReference1
     /// <summary>
     /// Type of reference
     /// </summary>
+    [DataMember]
     public required ReferenceType1Choice_ Type { get; init; } 
     /// <summary>
     /// Value of the reference
     /// </summary>
+    [DataMember]
     public required IsoMax256Text Value { get; init; } 
     
     #nullable disable

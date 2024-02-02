@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Type of movement preliminary advice document.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionPreliminaryAdviceType3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionPreliminaryAdviceType3
     /// <summary>
     /// Type of movement preliminary advice, for example. new or replacement.
     /// </summary>
+    [DataMember]
     public required CorporateActionPreliminaryAdviceType1Code Type { get; init; } 
     /// <summary>
     /// Specifies whether the message advises about the final eligible balance and entitlements or about an upcoming posting or reversal of securities and/or cash postings.
     /// </summary>
+    [DataMember]
     public required CorporateActionMovementPreliminaryAdviceFunction1Code Function { get; init; } 
     
     #nullable disable

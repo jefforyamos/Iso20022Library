@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Party that provides services to investors relating to financial products.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Intermediary24
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record Intermediary24
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution, eg, Dun & Bradstreet Identification.
     /// </summary>
+    [DataMember]
     public required PartyIdentification4Choice_ Identification { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>
+    [DataMember]
     public Account2? Account { get; init; } 
     /// <summary>
     /// Non-enforcement of the right to all or part of a commission by the party entitled to the commission.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? WaivedTrailerCommissionIndicator { get; init; } 
     /// <summary>
     /// Role or function performed by the intermediary.
     /// </summary>
+    [DataMember]
     public PartyRole2Choice_? Role { get; init; } 
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
+    [DataMember]
     public CommunicationAddress3? PrimaryCommunicationAddress { get; init; } 
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
+    [DataMember]
     public CommunicationAddress3? SecondaryCommunicationAddress { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
+    [DataMember]
     public NameAndAddress4? NameAndAddress { get; init; } 
     
     #nullable disable

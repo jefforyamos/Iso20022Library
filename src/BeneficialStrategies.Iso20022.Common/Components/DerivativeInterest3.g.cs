@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a multi-leg interest derivative.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DerivativeInterest3
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record DerivativeInterest3
     /// <summary>
     /// Provides the interest rate in number of days, weeks, months or years.
     /// </summary>
+    [DataMember]
     public required FloatingInterestRate8 InterestRate { get; init; } 
     /// <summary>
     /// Interest rate of the notional currency.
     /// </summary>
+    [DataMember]
     public InterestRate8Choice_? FirstLegInterestRate { get; init; } 
     /// <summary>
     /// Notional currency in which leg 2 of the contract is denominated, in case of multi-currency or cross-currency swaps.
     /// Notional currency in which leg 2 of the swap is denominated, in case of swaptions where the underlying swap is multi-currency.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? OtherNotionalCurrency { get; init; } 
     /// <summary>
     /// Indication of the interest rate used for leg 2, if applicable.
     /// </summary>
+    [DataMember]
     public InterestRate8Choice_? OtherLegInterestRate { get; init; } 
     
     #nullable disable

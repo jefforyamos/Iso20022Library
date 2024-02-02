@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(CashAccountIdentification1Choice.BBAN))]
 [KnownType(typeof(CashAccountIdentification1Choice.UPIC))]
 [KnownType(typeof(CashAccountIdentification1Choice.DomesticAccount))]
+[DataContract]
 public abstract partial record CashAccountIdentification1Choice_
 {
 }

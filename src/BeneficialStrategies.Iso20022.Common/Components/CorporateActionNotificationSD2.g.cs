@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action notification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionNotificationSD2
 {
     #nullable enable
@@ -20,62 +22,77 @@ public partial record CorporateActionNotificationSD2
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Status of a notice of change.
     /// </summary>
+    [DataMember]
     public required DerivativeWorkflowStatus1Code DerivativeWorkflowStatus { get; init; } 
     /// <summary>
     /// Exchange where the derivative is traded.
     /// </summary>
+    [DataMember]
     public required IsoMax4AlphaNumericText DerivativeExchange { get; init; } 
     /// <summary>
     /// Date when the notice of change to the derivative is published by the exchange.
     /// </summary>
+    [DataMember]
     public IsoISODate? DerivativePublicationDate { get; init; } 
     /// <summary>
     /// Effective date of the adjustment to the derivative contract.
     /// </summary>
+    [DataMember]
     public required IsoISODate DerivativeAdjustmentDate { get; init; } 
     /// <summary>
     /// Method (usually a formula) that will be used to calculate the adjustment factor that will be applied to the derivative to account for the impact of a corporate action event on the underlying equity.
     /// </summary>
+    [DataMember]
     public IsoMax1025Text? DerivativeCalculationMethod { get; init; } 
     /// <summary>
     /// Adjustment factor to be applied to the derivative contract to account for the impact of a corporate action event on the underlying equity. Derived by using the calculation method.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? DerivativeFactor { get; init; } 
     /// <summary>
     /// Indicates whether the deliverable stock amount on the derivative contract will be changed.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? LotSizeChangeFlag { get; init; } 
     /// <summary>
     /// Method that is used to calculate the new stock deliverable on the derivative contract. Usually multiplication or division by a stated figure but may include explanatory text and examples.
     /// </summary>
+    [DataMember]
     public IsoMax1025Text? LotAdjustmentMethod { get; init; } 
     /// <summary>
     /// Indicates whether there is a new strike price for the change of the derivative contract as a result of the corporate action.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? StrikePriceChangeFlag { get; init; } 
     /// <summary>
     /// Method that will be used to adjust the strike price. May include the number of decimal places and rounding rules, example up or down.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? StrikePriceRoundingMethod { get; init; } 
     /// <summary>
     /// Indicates whether a residual cash is paid on the derivative contract. For example, this may be a cash element that is included in the terms of a takeover that the underlying equity is subject to.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ResidualCashFlag { get; init; } 
     /// <summary>
     /// Price of the security to be used in factor calculations. Usually the closing price of the underlying equity on the effective date of the contract adjustment.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? ReferencePrice { get; init; } 
     /// <summary>
     /// Currency associated with the reference price.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? ReferencePriceCurrency { get; init; } 
     /// <summary>
     /// Indicates whether the derivative data has/hasn't been approved by a validation service.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ApprovedFlag { get; init; } 
     
     #nullable disable

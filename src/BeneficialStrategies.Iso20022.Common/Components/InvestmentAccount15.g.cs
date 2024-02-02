@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account between an investor(s) and a fund manager or a fund. The account can contain holdings in any investment fund or investment fund class managed (or distributed) by the fund manager, within the same fund family.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentAccount15
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InvestmentAccount15
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public AccountIdentification1? AccountIdentification { get; init; } 
     /// <summary>
     /// Account type.
     /// </summary>
+    [DataMember]
     public CashAccountType1? Type { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transfer cancellation status is accepted or sent to next party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferCancellationStatus3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TransferCancellationStatus3
     /// <summary>
     /// Status of the transfer cancellation is accepted or sent to next party.
     /// </summary>
+    [DataMember]
     public required CancellationStatus5Code Status { get; init; } 
     /// <summary>
     /// Reason for the status.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Reason { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Other accepted financial instrument's identification than ISIN.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherIdentification1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OtherIdentification1
     /// <summary>
     /// Identification of a security.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Identifies the suffix of the security identification.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? Suffix { get; init; } 
     /// <summary>
     /// Type of the identification.
     /// </summary>
+    [DataMember]
     public required IdentificationSource3Choice_ Type { get; init; } 
     
     #nullable disable

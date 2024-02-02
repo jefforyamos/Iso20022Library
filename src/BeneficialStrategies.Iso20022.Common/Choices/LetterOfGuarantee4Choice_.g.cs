@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(LetterOfGuarantee4Choice.Indicator))]
 [KnownType(typeof(LetterOfGuarantee4Choice.Proprietary))]
+[DataContract]
 public abstract partial record LetterOfGuarantee4Choice_
 {
 }

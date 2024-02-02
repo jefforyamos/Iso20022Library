@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(Cleared4Choice.Cleared))]
 [KnownType(typeof(Cleared4Choice.NonCleared))]
+[DataContract]
 public abstract partial record Cleared4Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Restriction information details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RestrictionDetailsSD1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record RestrictionDetailsSD1
     /// <summary>
     /// Type of restriction.
     /// </summary>
+    [DataMember]
     public required GenericIdentification36 RestrictionType { get; init; } 
     /// <summary>
     /// Country in which the account owner has one's fiscal domicile.
     /// </summary>
+    [DataMember]
     public required CountryCode FiscalDomicile { get; init; } 
     /// <summary>
     /// Reference to the applicable restriction.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     
     #nullable disable

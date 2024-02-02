@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reference to the collateral management transaction (exposure) or the contract identification of  the sender (collateral taker) or the receiver (triparty agent)
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Reference21
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Reference21
     /// <summary>
     /// Unique reference identifying the collateral management transaction (exposure) from the collateral taker's or the collateral giver point of view.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SenderCollateralTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique reference identifying the collateral management transaction (exposure)  from the triparty agent's point of view.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReceiverCollateralTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique reference identifying the collateral management contract from the collateral taker's or the collateral giver's point of view.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SenderCollateralContractIdentification { get; init; } 
     /// <summary>
     /// Unique reference identifying the collateral management contract from the triparty agent's point of view.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReceiverCollateralContractIdentification { get; init; } 
     /// <summary>
     /// Unique identification (UTI) agreed upon by the two trade counterparties to identify the transaction/exposure or the contract.
     /// </summary>
+    [DataMember]
     public IsoMax52Text? CommonTransactionIdentification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Extension to capture new to old ratio with extra digits.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionRate19SD1
 {
     #nullable enable
@@ -21,10 +23,12 @@ public partial record CorporateActionRate19SD1
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Ratio expressed as a quotient of high precision quantities.
     /// </summary>
+    [DataMember]
     public required LongQuantityToQuantityRatio2 LongQuantityToQuantity { get; init; } 
     
     #nullable disable

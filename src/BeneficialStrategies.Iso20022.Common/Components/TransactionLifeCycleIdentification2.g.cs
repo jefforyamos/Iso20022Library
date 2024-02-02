@@ -15,6 +15,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// It shall contain the same value in all messages throughout a transaction's lifecycle.
 /// ISO 8583:2003 bit 21
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionLifeCycleIdentification2
 {
     #nullable enable
@@ -23,6 +25,7 @@ public partial record TransactionLifeCycleIdentification2
     /// Unique transaction identifier.
     /// ISO 8583:2003 bit 21-2
     /// </summary>
+    [DataMember]
     public required IsoExact15Text Identification { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TechnicalInputChannel1Choice.Code))]
 [KnownType(typeof(TechnicalInputChannel1Choice.Proprietary))]
+[DataContract]
 public abstract partial record TechnicalInputChannel1Choice_
 {
 }

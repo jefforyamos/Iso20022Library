@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates to the issuer the level of risk of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardTransactionRiskIndicator1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record CardTransactionRiskIndicator1
     /// <summary>
     /// Reason to indicate a certain level of risk for the transaction.
     /// </summary>
-    public CardTransactionRiskReason1Code[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardTransactionRiskReason1Code> Reason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Level of risk, from 1 to 99.
     /// </summary>
+    [DataMember]
     public required IsoNumber Level { get; init; } 
     /// <summary>
     /// Recommended action for the issuer.
     /// </summary>
-    public ActionType4Code[] RecommendedAction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ActionType4Code> RecommendedAction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

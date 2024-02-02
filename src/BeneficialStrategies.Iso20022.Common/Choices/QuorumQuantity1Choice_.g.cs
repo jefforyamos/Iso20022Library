@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(QuorumQuantity1Choice.QuorumQuantity))]
 [KnownType(typeof(QuorumQuantity1Choice.QuorumQuantityPercentage))]
+[DataContract]
 public abstract partial record QuorumQuantity1Choice_
 {
 }

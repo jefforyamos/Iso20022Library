@@ -15,6 +15,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(References75Choice.MarketInfrastructureTransactionIdentification))]
 [KnownType(typeof(References75Choice.CounterpartyMarketInfrastructureTransactionIdentification))]
 [KnownType(typeof(References75Choice.ProcessorTransactionIdentification))]
+[DataContract]
 public abstract partial record References75Choice_
 {
 }

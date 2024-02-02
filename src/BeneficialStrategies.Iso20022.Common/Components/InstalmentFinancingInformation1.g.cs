@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about result of a single instalment (financed or not) within an invoice.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InstalmentFinancingInformation1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record InstalmentFinancingInformation1
     /// <summary>
     /// Progressive number of the single instalment related to an invoice.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text InstalmentSequenceIdentification { get; init; } 
     /// <summary>
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount InstalmentTotalAmount { get; init; } 
     /// <summary>
     /// Information about the financing result of one instalment.
     /// </summary>
+    [DataMember]
     public required FinancingResult1 InstalmentFinancingResult { get; init; } 
     
     #nullable disable

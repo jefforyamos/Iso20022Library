@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the characteristics of the cash account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashAccountCharacteristics2
 {
     #nullable enable
@@ -20,54 +22,67 @@ public partial record CashAccountCharacteristics2
     /// <summary>
     /// Defines the account level within an account hierarchy.
     /// </summary>
+    [DataMember]
     public required AccountLevel2Code AccountLevel { get; init; } 
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
+    [DataMember]
     public required CashAccount24 CashAccount { get; init; } 
     /// <summary>
     /// Usage: the account servicer is the domicile agent servicing the local account.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? AccountServicer { get; init; } 
     /// <summary>
     /// Defines a parent account to which the cash account is related to.
     /// </summary>
+    [DataMember]
     public ParentCashAccount2? ParentAccount { get; init; } 
     /// <summary>
     /// Defines if and how charges and taxes due are paid to the financial institution.
     /// </summary>
+    [DataMember]
     public required CompensationMethod1Code CompensationMethod { get; init; } 
     /// <summary>
     /// Defines the account debited for charges and taxes due on the cash account, if different from the cash account.
     /// </summary>
+    [DataMember]
     public AccountIdentification4Choice_? DebitAccount { get; init; } 
     /// <summary>
     /// Future date on which the account will be automatically debited for charges and taxes due.
     /// </summary>
+    [DataMember]
     public IsoISODate? DelayedDebitDate { get; init; } 
     /// <summary>
     /// Free form message advising the customer about the settlement of charges and taxes due.
     /// </summary>
+    [DataMember]
     public IsoMax105Text? SettlementAdvice { get; init; } 
     /// <summary>
     /// Currency used to specify the account's balance currency.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode AccountBalanceCurrencyCode { get; init; } 
     /// <summary>
     /// Currency used to specify the account's settlement currency.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? SettlementCurrencyCode { get; init; } 
     /// <summary>
     /// Currency used to specify the account's taxing host currency.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? HostCurrencyCode { get; init; } 
     /// <summary>
     /// Describes account taxing parameters.
     /// </summary>
+    [DataMember]
     public AccountTax1? Tax { get; init; } 
     /// <summary>
     /// Individual to contact at the financial institution's location regarding problems of a business nature.
     /// </summary>
+    [DataMember]
     public required ContactDetails3 AccountServicerContact { get; init; } 
     
     #nullable disable

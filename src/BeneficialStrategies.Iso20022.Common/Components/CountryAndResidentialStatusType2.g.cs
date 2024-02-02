@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Country and residential status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CountryAndResidentialStatusType2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CountryAndResidentialStatusType2
     /// <summary>
     /// Country to which the residential status is applicable.
     /// </summary>
+    [DataMember]
     public required CountryCode Country { get; init; } 
     /// <summary>
     /// Residential status of the organisation or individual, for example, non-permanent resident.
     /// </summary>
+    [DataMember]
     public required ResidentialStatus1Code ResidentialStatus { get; init; } 
     
     #nullable disable

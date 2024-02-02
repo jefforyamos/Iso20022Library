@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the transportation of goods by air.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransportByAir2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TransportByAir2
     /// <summary>
     /// Place from where the goods must leave.
     /// </summary>
+    [DataMember]
     public required AirportName1Choice_ DepartureAirport { get; init; } 
     /// <summary>
     /// Place where the goods must arrive.
     /// </summary>
+    [DataMember]
     public required AirportName1Choice_ DestinationAirport { get; init; } 
     /// <summary>
     /// Identifies the party that is responsible for the conveyance of the goods from one place to another.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AirCarrierName { get; init; } 
     
     #nullable disable

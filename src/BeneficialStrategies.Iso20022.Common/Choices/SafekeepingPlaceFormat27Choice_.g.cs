@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SafekeepingPlaceFormat27Choice.Country))]
 [KnownType(typeof(SafekeepingPlaceFormat27Choice.TypeAndIdentification))]
 [KnownType(typeof(SafekeepingPlaceFormat27Choice.Proprietary))]
+[DataContract]
 public abstract partial record SafekeepingPlaceFormat27Choice_
 {
 }

@@ -22,6 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(Reason12Choice.RepairReason))]
 [KnownType(typeof(Reason12Choice.PendingModificationReason))]
 [KnownType(typeof(Reason12Choice.UnmatchedReason))]
+[DataContract]
 public abstract partial record Reason12Choice_
 {
 }

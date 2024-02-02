@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Physical representation of a security.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesCertificate1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SecuritiesCertificate1
     /// <summary>
     /// Unique and unambiguous identifier of a certificate assigned by the issuer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Number { get; init; } 
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     /// <summary>
     /// Short textual description of the scheme.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SchemeName { get; init; } 
     
     #nullable disable

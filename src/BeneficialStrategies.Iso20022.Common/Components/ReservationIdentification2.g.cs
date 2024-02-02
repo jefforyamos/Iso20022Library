@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Liquidity set aside by the account owner for specific purposes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReservationIdentification2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ReservationIdentification2
     /// <summary>
     /// Unique identification of the reservation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReservationIdentification { get; init; } 
     /// <summary>
     /// Identification of a particular cash clearing system.
     /// </summary>
+    [DataMember]
     public SystemIdentification2Choice_? SystemIdentification { get; init; } 
     /// <summary>
     /// Nature of the reservation.
     /// </summary>
+    [DataMember]
     public required ReservationType1Choice_ Type { get; init; } 
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? AccountOwner { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     
     #nullable disable

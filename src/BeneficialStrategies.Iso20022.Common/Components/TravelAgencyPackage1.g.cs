@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides detailed information about the travel package, excluding specific itinerary data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TravelAgencyPackage1
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record TravelAgencyPackage1
     /// <summary>
     /// Reservation number or identifier. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReservationNumber { get; init; } 
     /// <summary>
     /// Describes the type of travel offering provided by the travel agency or partner.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? TravelPackageType { get; init; } 
     /// <summary>
     /// Number of people included in the travel arrangements. 
     /// </summary>
+    [DataMember]
     public IsoMax10NumericText? NumberInParty { get; init; } 
     /// <summary>
     /// Contains Customer Reference Values provided for this transaction and used for various reference processing at the customer site. These values represent information most prevalently provided by travel agencies for transactions booked against a lodged account or central travel account.
     /// </summary>
-    public CustomerReference1[] CustomerReference { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CustomerReference1> CustomerReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the source of enhanced data that is matched to the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DataSource { get; init; } 
     /// <summary>
     /// Contains a customer invoice number for a rail sale to a corporate account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DeliveryOrderNumber { get; init; } 
     /// <summary>
     /// Contains a slip number from the credit card slip.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CreditCardSlipNumber { get; init; } 
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
     /// <summary>
     /// Cost of the insurance purchased.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? InsuranceAmount { get; init; } 
     /// <summary>
     /// Travel agency fee amount.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? Fee { get; init; } 
     
     #nullable disable

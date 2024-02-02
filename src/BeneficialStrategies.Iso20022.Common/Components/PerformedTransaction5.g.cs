@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Result of performed transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PerformedTransaction5
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record PerformedTransaction5
     /// <summary>
     /// Response for this performed transaction.
     /// </summary>
+    [DataMember]
     public required ResponseType11 Response { get; init; } 
     /// <summary>
     /// Unique identification of a sale transaction.
     /// </summary>
+    [DataMember]
     public TransactionIdentifier1? SaleTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification of a POI transaction.
     /// </summary>
+    [DataMember]
     public TransactionIdentifier1? POITransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the POI reconciliation period.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? POIReconciliationIdentification { get; init; } 
     /// <summary>
     /// Data related to the result of a processed payment transaction.
     /// </summary>
+    [DataMember]
     public RetailerPaymentResult5? PaymentResult { get; init; } 
     /// <summary>
     /// Data related to the result of a processed Loyalty transaction.
     /// </summary>
-    public LoyaltyResult3[] LoyaltyResult { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LoyaltyResult3> LoyaltyResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of the payment or loyalty to reverse.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? ReversedAmount { get; init; } 
     
     #nullable disable

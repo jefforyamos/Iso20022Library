@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains the details of the labour performed and associated duration and billing rate. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TemporaryServicesLabor1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record TemporaryServicesLabor1
     /// <summary>
     /// Contains the time sheet identification number.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TimeSheetNumber { get; init; } 
     /// <summary>
     /// Contains the date of the end of the billing cycle. 
     /// </summary>
+    [DataMember]
     public IsoMax10NumericText? WeekEnding { get; init; } 
     /// <summary>
     /// Contains details of the amount charged. 
     /// </summary>
-    public Amount12[] Charge { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Amount12> Charge { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

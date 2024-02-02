@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Modification on the value of goods and / or services. For example: rebate, discount, surcharge.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Adjustment3
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Adjustment3
     /// <summary>
     /// Specifies the type of adjustment applied to the amount of goods/services by means of a code.
     /// </summary>
+    [DataMember]
     public required AdjustmentType2Code Type { get; init; } 
     /// <summary>
     /// Specifies a type of adjustment not present in the code list.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OtherAdjustmentType { get; init; } 
     /// <summary>
     /// Specifies the monetary amount of the adjustment.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Specifies the percentage rate of the adjustment.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate Rate { get; init; } 
     /// <summary>
     /// Specifies whether the adjustment must be subtracted or added to the total amount.
     /// </summary>
+    [DataMember]
     public required AdjustmentDirection1Code Direction { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Attributes of energy related derivatives.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EnergySpecificAttribute6
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record EnergySpecificAttribute6
     /// <summary>
     /// Indicates the delivery point(s) of market area(s) for energy derivative contracts.
     /// </summary>
-    public DeliveryInterconnectionPoint1Choice_[] DeliveryPointOrZone { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DeliveryInterconnectionPoint1Choice_> DeliveryPointOrZone { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the border(s) or border point(s) of a transportation contract.
     /// </summary>
+    [DataMember]
     public DeliveryInterconnectionPoint1Choice_? InterConnectionPoint { get; init; } 
     /// <summary>
     /// Identification of the delivery profile.
     /// </summary>
+    [DataMember]
     public EnergyLoadType1Code? LoadType { get; init; } 
     /// <summary>
     /// Attributes related to delivery of derivative contracts.
     /// </summary>
-    public EnergyDeliveryAttribute5[] DeliveryAttribute { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<EnergyDeliveryAttribute5> DeliveryAttribute { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

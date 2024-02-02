@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a sequence number or a total.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Count1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record Count1
     /// <summary>
     /// Sequence or total number.
     /// </summary>
+    [DataMember]
     public required IsoNumber Number { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Current totals of the ATM.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTotals1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record ATMTotals1
     /// <summary>
     /// Type of media inside the cassette.
     /// </summary>
+    [DataMember]
     public ATMMediaType1Code? MediaType { get; init; } 
     /// <summary>
     /// Currency of the totals.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Total balance of the ATM including reject cassette, but excluding the retract cassette.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? ATMBalance { get; init; } 
     /// <summary>
     /// Available amount for dispense in the ATM.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? ATMCurrent { get; init; } 
     /// <summary>
     /// Total number of units for non-valued media, including reject cassette.
     /// </summary>
+    [DataMember]
     public IsoNumber? ATMBalanceNumber { get; init; } 
     /// <summary>
     /// Total number of units for non-valued media, excluding reject cassette.
     /// </summary>
+    [DataMember]
     public IsoNumber? ATMCurrentNumber { get; init; } 
     
     #nullable disable

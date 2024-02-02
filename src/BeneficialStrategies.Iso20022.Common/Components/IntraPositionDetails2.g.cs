@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the intra-position movement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraPositionDetails2
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record IntraPositionDetails2
     /// <summary>
     /// Quantity of financial instrument effectively settled.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ SettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument previously settled.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? PreviouslySettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument remaining to be settled.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? RemainingToBeSettledQuantity { get; init; } 
     /// <summary>
     /// Date and time at which the securities were moved.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ SettlementDate { get; init; } 
     /// <summary>
     /// Date/time securities become available for sale (if securities become unavailable, this specifies the date/time at which they will become available again).
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? AvailableDate { get; init; } 
     /// <summary>
     /// Specifies the type of corporate event.
     /// </summary>
+    [DataMember]
     public CorporateActionEventType3Choice_? CorporateActionEventType { get; init; } 
     /// <summary>
     /// Balance from which the securities were moved.
     /// </summary>
+    [DataMember]
     public required SecuritiesBalanceType3Choice_ BalanceFrom { get; init; } 
     /// <summary>
     /// Balance to which the securities were moved.
     /// </summary>
+    [DataMember]
     public required SecuritiesBalanceType3Choice_ BalanceTo { get; init; } 
     /// <summary>
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? InstructionProcessingAdditionalDetails { get; init; } 
     
     #nullable disable

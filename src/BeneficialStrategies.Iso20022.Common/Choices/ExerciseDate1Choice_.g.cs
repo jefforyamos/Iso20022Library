@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ExerciseDate1Choice.FirstExerciseDate))]
 [KnownType(typeof(ExerciseDate1Choice.PendingDateApplicable))]
+[DataContract]
 public abstract partial record ExerciseDate1Choice_
 {
 }

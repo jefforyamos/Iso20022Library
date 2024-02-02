@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Movements of cash.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashMovement7
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record CashMovement7
     /// <summary>
     /// Specifies whether the cash amount is to be delivered or received.
     /// </summary>
+    [DataMember]
     public required CreditDebit3Code CashMovement { get; init; } 
     /// <summary>
     /// Amount of the cash movement.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount CashAmount { get; init; } 
     /// <summary>
     /// Account in which cash is maintained.
     /// </summary>
+    [DataMember]
     public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Cash movement status
     /// </summary>
+    [DataMember]
     public ProprietaryStatusAndReason6? MovementStatus { get; init; } 
     /// <summary>
     /// Specifies whether the amount is delivered/received as part of collateral or not.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator CollateralMovement { get; init; } 
     /// <summary>
     /// Indicates whether the proposed cash movements can be accepted.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CashMovementApproved { get; init; } 
     /// <summary>
     /// Indicates whether the position is fixed (post settlement).
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PositionType { get; init; } 
     /// <summary>
     /// Reference assigned by party A to the cash movement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientCashMovementIdentification { get; init; } 
     /// <summary>
     /// Identification assigned by the triparty-agent/service-provider to the cash movement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TripartyAgentServiceProviderCashMovementIdentification { get; init; } 
     
     #nullable disable

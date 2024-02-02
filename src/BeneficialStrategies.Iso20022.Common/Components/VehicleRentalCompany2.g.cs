@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Company in charge of a vehicle rental service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VehicleRentalCompany2
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record VehicleRentalCompany2
     /// <summary>
     /// Name of the vehicle rental company.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Identification of the vehicle rental company.
     /// </summary>
+    [DataMember]
     public PartyIdentification258? Identification { get; init; } 
     /// <summary>
     /// Address of the vehicle rental company.
     /// </summary>
+    [DataMember]
     public Address2? Address { get; init; } 
     /// <summary>
     /// Contact details at vehicle rental company location.
     /// </summary>
+    [DataMember]
     public Contact3? Contact { get; init; } 
     /// <summary>
     /// Country of the vehicle rental company.
     /// ISO 3166
     /// </summary>
+    [DataMember]
     public ISOMax3ACountryCode? Country { get; init; } 
     /// <summary>
     /// Type of vehicle rental activity.
     /// </summary>
+    [DataMember]
     public CarRentalActivity1Code? Type { get; init; } 
     /// <summary>
     /// Other type of vehicle rental activity. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     
     #nullable disable

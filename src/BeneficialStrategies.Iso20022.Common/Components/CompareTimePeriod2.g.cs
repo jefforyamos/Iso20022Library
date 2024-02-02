@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for a time period.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareTimePeriod2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareTimePeriod2
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public TimePeriod3? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public TimePeriod3? Value2 { get; init; } 
     
     #nullable disable

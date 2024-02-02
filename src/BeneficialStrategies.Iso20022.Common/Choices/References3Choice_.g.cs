@@ -22,6 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(References3Choice.PortfolioTransferNotificationIdentification))]
 [KnownType(typeof(References3Choice.SecuritiesSettlementTransactionGenerationNotificationIdentification))]
 [KnownType(typeof(References3Choice.OtherMessageIdentification))]
+[DataContract]
 public abstract partial record References3Choice_
 {
 }

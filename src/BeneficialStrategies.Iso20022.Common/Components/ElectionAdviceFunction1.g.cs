@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the type of election advice and linked messages.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ElectionAdviceFunction1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ElectionAdviceFunction1
     /// <summary>
     /// Type of election advice.
     /// </summary>
+    [DataMember]
     public required ElectionType1Code ElectionType { get; init; } 
     /// <summary>
     /// Identification of the previous Agent Corporate Action Election Advice that is being amended.
     /// </summary>
+    [DataMember]
     public DocumentIdentification8? PreviousAgentCAElectionAdviceIdentification { get; init; } 
     /// <summary>
     /// Identification of the Agent Corporate Action Election Status Advice by which the issuer (agent) accepts the election amendment request.
     /// </summary>
+    [DataMember]
     public DocumentIdentification8? AgentCAElectionStatusAdviceIdentification { get; init; } 
     /// <summary>
     /// Identification of the Agent Corporate Action Election Amendment Request by which the CSD request the authorisation to amend an election.
     /// </summary>
+    [DataMember]
     public DocumentIdentification8? AgentCAElectionAmendmentRequestIdentification { get; init; } 
     
     #nullable disable

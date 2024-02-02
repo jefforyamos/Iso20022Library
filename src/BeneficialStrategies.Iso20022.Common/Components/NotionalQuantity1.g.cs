@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates the reference quantity of the transaction and the schedule applicable to the quantity computation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NotionalQuantity1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record NotionalQuantity1
     /// <summary>
     /// Number of units of the financial instrument, that is, the nominal value.
     /// </summary>
+    [DataMember]
     public required IsoLongFraction19DecimalNumber Quantity { get; init; } 
     /// <summary>
     /// Specifies the effective date and end date of the schedule for derivative transactions negotiated in non-monetary amounts with a notional quantity varying throughout the life of the transaction.
     /// </summary>
-    public Schedule2[] Schedule { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Schedule2> Schedule { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the unit of measure in which the total notional quantity and notional quantity schedules are expressed.
     /// </summary>
+    [DataMember]
     public required UnitOfMeasure12Code UnitOfMeasure { get; init; } 
     
     #nullable disable

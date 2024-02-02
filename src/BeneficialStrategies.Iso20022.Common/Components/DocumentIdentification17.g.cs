@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies a document by a unique identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentIdentification17
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record DocumentIdentification17
     /// <summary>
     /// Identifies the document.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax16Text Identification { get; init; } 
     
     #nullable disable

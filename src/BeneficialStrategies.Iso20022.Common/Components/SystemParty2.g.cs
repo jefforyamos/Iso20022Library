@@ -15,6 +15,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// A party shall denote any legal or organisational entity required in the system. 
 /// This entity shall store the parties from the first three levels: the system operator, the central securities depositaries, the participants of the central securities depositaries, the national central banks and payment banks.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemParty2
 {
     #nullable enable
@@ -22,10 +24,12 @@ public partial record SystemParty2
     /// <summary>
     /// Specifies the opening date of the party.
     /// </summary>
+    [DataMember]
     public IsoISODate? OpeningDate { get; init; } 
     /// <summary>
     /// Specifies the closing date of the party.
     /// </summary>
+    [DataMember]
     public IsoISODate? ClosingDate { get; init; } 
     
     #nullable disable

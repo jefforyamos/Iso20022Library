@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of actions to be performed by the card acceptor.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Action4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Action4
     /// <summary>
     /// Type of action to be performed by the card acceptor.
     /// </summary>
+    [DataMember]
     public required ActionType5Code ActionType { get; init; } 
     /// <summary>
     /// Message to be displayed to the cardholder or the cashier.
     /// </summary>
+    [DataMember]
     public ActionMessage2? MessageToPresent { get; init; } 
     
     #nullable disable

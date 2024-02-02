@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification257
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PartyIdentification257
     /// <summary>
     /// Financial institution-related data required by business and/or regulation (for example, money or funds transfer).
     /// </summary>
+    [DataMember]
     public FinancialInstitution7? FinancialInstitution { get; init; } 
     /// <summary>
     /// Customer-related data required by business and/or regulation (for example, money or funds transfer).
     /// </summary>
+    [DataMember]
     public Customer7? Customer { get; init; } 
     
     #nullable disable

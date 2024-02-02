@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of an order desk.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OrderDesk1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record OrderDesk1
     /// <summary>
     /// Contact information for the order desk.
     /// </summary>
+    [DataMember]
     public ContactAttributes5? OrderDesk { get; init; } 
     /// <summary>
     /// Days on which the order desk is closed.
     /// </summary>
-    public IsoISODate[] ClosureDates { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoISODate> ClosureDates { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the main order desk.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

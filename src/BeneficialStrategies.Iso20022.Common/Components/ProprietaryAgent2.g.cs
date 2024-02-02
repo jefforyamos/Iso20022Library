@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to identify a proprietary party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProprietaryAgent2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ProprietaryAgent2
     /// <summary>
     /// Specifies the type of proprietary agent.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Organisation established primarily to provide financial services.
     /// </summary>
+    [DataMember]
     public required BranchAndFinancialInstitutionIdentification4 Agent { get; init; } 
     
     #nullable disable

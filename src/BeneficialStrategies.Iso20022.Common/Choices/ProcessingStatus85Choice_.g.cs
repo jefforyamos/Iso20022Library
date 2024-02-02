@@ -15,6 +15,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ProcessingStatus85Choice.Denied))]
 [KnownType(typeof(ProcessingStatus85Choice.Pending))]
 [KnownType(typeof(ProcessingStatus85Choice.Proprietary))]
+[DataContract]
 public abstract partial record ProcessingStatus85Choice_
 {
 }

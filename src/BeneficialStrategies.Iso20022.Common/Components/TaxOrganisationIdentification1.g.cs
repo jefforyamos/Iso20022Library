@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Party to which the TaxReport is delivered. This message block contains party details for a specific tax authority.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxOrganisationIdentification1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TaxOrganisationIdentification1
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Name { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
+    [DataMember]
     public PostalAddress6? PostalAddress { get; init; } 
     /// <summary>
     /// Set of elements used to indicate how to contact the party.
     /// </summary>
+    [DataMember]
     public ContactDetails2? ContactDetails { get; init; } 
     
     #nullable disable

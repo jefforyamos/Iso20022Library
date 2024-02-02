@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Range of quantities.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FromToQuantityRange2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FromToQuantityRange2
     /// <summary>
     /// Lower boundary of a range of quantity values.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber FromQuantity { get; init; } 
     /// <summary>
     /// Upper boundary of a range of quantity values.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber ToQuantity { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the agreed amount and the collateral movement direction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralMovement5
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record CollateralMovement5
     /// <summary>
     /// Provides the call amount that is agreed and that will result in a collateral movement.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount AgreedAmount { get; init; } 
     /// <summary>
     /// Provides the collateral movement direction that is a delivery and optionaly a return, or a return only.
     /// </summary>
-    public CollateralMovement3Choice_[] MovementDirection { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CollateralMovement3Choice_> MovementDirection { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the tax identification related to a service to be billed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BillingTaxIdentification2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record BillingTaxIdentification2
     /// <summary>
     /// Value added tax (VAT) registration number as provided by the region’s local taxing authority.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? VATRegistrationNumber { get; init; } 
     /// <summary>
     /// Tax registration number (TRN) as provided by the tax region’s local taxing authority.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TaxRegistrationNumber { get; init; } 
     /// <summary>
     /// Specifies financial institution's contact details for the tax region. This contact works for the financial institution, not the tax region.
     /// </summary>
+    [DataMember]
     public Contact4? TaxContact { get; init; } 
     
     #nullable disable

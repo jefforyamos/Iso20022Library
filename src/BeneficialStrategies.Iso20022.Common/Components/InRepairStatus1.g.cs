@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status is in repair.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InRepairStatus1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record InRepairStatus1
     /// <summary>
     /// Indicates that there is no reason available or to report.
     /// </summary>
+    [DataMember]
     public required NoReasonCode NoReason { get; init; } 
     /// <summary>
     /// Reason of an in repair status in the report.
     /// </summary>
+    [DataMember]
     public required InRepairStatusReason1 Reason { get; init; } 
     /// <summary>
     /// Proprietary identification for a reason of a specific status in the report.
     /// </summary>
+    [DataMember]
     public required GenericIdentification1 DataSourceScheme { get; init; } 
     
     #nullable disable

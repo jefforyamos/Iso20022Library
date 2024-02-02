@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of session management service to be used with this message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SessionManagementRequest6
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record SessionManagementRequest6
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentEnvironment79 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
+    [DataMember]
     public required CardPaymentContext30 Context { get; init; } 
     /// <summary>
     /// Define the type of service requested.
     /// </summary>
+    [DataMember]
     public required RetailerService4Code ServiceContent { get; init; } 
     /// <summary>
     /// Content of the Login Request message.
     /// </summary>
+    [DataMember]
     public LoginRequest5? LoginRequest { get; init; } 
     /// <summary>
     /// Content of the Logout Request message.
     /// </summary>
+    [DataMember]
     public LogoutRequest1? LogoutRequest { get; init; } 
     /// <summary>
     /// Content of the Diagnosis Request message.
     /// </summary>
+    [DataMember]
     public DiagnosisRequest1? DiagnosisRequest { get; init; } 
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

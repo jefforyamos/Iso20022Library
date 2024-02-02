@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the payment transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionReport6
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TransactionReport6
     /// <summary>
     /// Reference to the instruction related to the payment for which information is requested.
     /// </summary>
+    [DataMember]
     public required PaymentIdentification6Choice_ PaymentIdentification { get; init; } 
     /// <summary>
     /// Requested information on the payment transaction when information has not been found.
     /// </summary>
+    [DataMember]
     public required TransactionOrError5Choice_ TransactionOrError { get; init; } 
     
     #nullable disable

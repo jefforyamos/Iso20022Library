@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Environment27
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record Environment27
     /// <summary>
     /// financial institution (or its agent) at which the accounts are held by the parties settling. This institution, acting on information provided by the parties, transfers the appropriate funds between the accounts.
     /// </summary>
+    [DataMember]
     public PartyIdentification263? SettlementInstitution { get; init; } 
     /// <summary>
     /// Identifies the originator of the transaction.
     /// </summary>
+    [DataMember]
     public PartyIdentification263? Originator { get; init; } 
     /// <summary>
     /// Party sending the message to another intermediary agent or to the destination.
     /// </summary>
+    [DataMember]
     public PartyIdentification263? Sender { get; init; } 
     /// <summary>
     /// Party receiving the message from the origin or from an intermediary agent.
     /// ISO 8583 bit 100.
     /// </summary>
+    [DataMember]
     public PartyIdentification263? Receiver { get; init; } 
     /// <summary>
     /// Identifies the destination of the transaction.
     /// </summary>
+    [DataMember]
     public PartyIdentification263? Destination { get; init; } 
     /// <summary>
     /// Financial Institution to which the settlement totals apply.
     /// </summary>
+    [DataMember]
     public FinancialInstitution6? FinancialInstitution { get; init; } 
     /// <summary>
     /// Additional institution involved in settlement. For example, the other party involved in bilateral settlement agreement.
     /// </summary>
+    [DataMember]
     public PartyIdentification258? OtherInstitution { get; init; } 
     
     #nullable disable

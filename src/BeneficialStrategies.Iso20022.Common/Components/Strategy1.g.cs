@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Assumed stress move for a set of financial instruments defined by a common trading strategy.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Strategy1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Strategy1
     /// <summary>
     /// Unique identifier for the strategy.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Assumed stress move of the associated stress item under the scenario.
     /// </summary>
+    [DataMember]
     public required StressSize1Choice_ StressSize { get; init; } 
     
     #nullable disable

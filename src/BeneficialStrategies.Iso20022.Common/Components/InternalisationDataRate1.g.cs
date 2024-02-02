@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the volume and value percentage rates of internalised settlement instructions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InternalisationDataRate1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InternalisationDataRate1
     /// <summary>
     /// Specifies the rate, in terms of volume, of the failed internalised settlement instructions compared to the total volume, of internalised settlement instructions performed (settled and failed) during the period covered by the report.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate VolumePercentage { get; init; } 
     /// <summary>
     /// Specifies the rate, in terms of value, of the failed internalised settlement instructions compared to the total value of internalised settlement instructions performed (settled and failed) during the period covered by the report.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate Value { get; init; } 
     
     #nullable disable

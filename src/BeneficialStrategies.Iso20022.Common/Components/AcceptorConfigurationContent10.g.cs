@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the acceptor configuration.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcceptorConfigurationContent10
 {
     #nullable enable
@@ -20,47 +22,58 @@ public partial record AcceptorConfigurationContent10
     /// <summary>
     /// True if the whole configuration related to the terminal manager has to be replaced by the configuration included in the message content.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ReplaceConfiguration { get; init; } 
     /// <summary>
     /// Configuration parameters of the TMS protocol between a POI and a terminal manager.
     /// </summary>
-    public TMSProtocolParameters5[] TMSProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TMSProtocolParameters5> TMSProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to an acquirer protocol.
     /// </summary>
-    public AcquirerProtocolParameters14[] AcquirerProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AcquirerProtocolParameters14> AcquirerProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to a service provider.
     /// </summary>
-    public ServiceProviderParameters1[] ServiceProviderParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ServiceProviderParameters1> ServiceProviderParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to the merchant.
     /// </summary>
-    public MerchantConfigurationParameters6[] MerchantParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MerchantConfigurationParameters6> MerchantParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Manufacturer configuration parameters of the point of interaction.
     /// </summary>
-    public PaymentTerminalParameters8[] TerminalParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentTerminalParameters8> TerminalParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to a payment application of the point of interaction.
     /// </summary>
-    public ApplicationParameters10[] ApplicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ApplicationParameters10> ApplicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to the communication with an acquirer host or a terminal manager host.
     /// </summary>
-    public HostCommunicationParameter6[] HostCommunicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<HostCommunicationParameter6> HostCommunicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Point of interaction parameters related to the security of software application and application protocol.
     /// </summary>
-    public SecurityParameters13[] SecurityParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecurityParameters13> SecurityParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Parameters dedicated to protocols between a sale system and the POI.
     /// </summary>
-    public SaleToPOIProtocolParameter1[] SaleToPOIParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SaleToPOIProtocolParameter1> SaleToPOIParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Group of software packages to transfer to a group of POIComponent of the POI System.
     /// </summary>
-    public TerminalPackageType2[] TerminalPackage { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TerminalPackageType2> TerminalPackage { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

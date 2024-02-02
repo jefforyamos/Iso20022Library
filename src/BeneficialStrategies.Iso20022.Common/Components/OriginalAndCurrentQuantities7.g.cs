@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Signed face amount and amortised value.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalAndCurrentQuantities7
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OriginalAndCurrentQuantities7
     /// <summary>
     /// Sign of the quantity of security.
     /// </summary>
+    [DataMember]
     public required ShortLong1Code ShortLongPosition { get; init; } 
     /// <summary>
     /// Quantity expressed as an amount representing the face amount, that is, the principal, of a debt instrument.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINImpliedCurrencyAndAmount FaceAmount { get; init; } 
     /// <summary>
     /// Quantity expressed as an amount representing the current amortised face amount of a bond, for example, a periodic reduction/increase of a bond's principal amount.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINImpliedCurrencyAndAmount AmortisedValue { get; init; } 
     
     #nullable disable

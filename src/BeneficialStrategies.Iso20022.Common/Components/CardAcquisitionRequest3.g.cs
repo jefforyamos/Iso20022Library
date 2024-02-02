@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data to request to card data acquisition.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardAcquisitionRequest3
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record CardAcquisitionRequest3
     /// <summary>
     /// Sale System identification of the transaction in an unambiguous way.
     /// </summary>
+    [DataMember]
     public TransactionIdentifier1? SaleTransactionIdentification { get; init; } 
     /// <summary>
     /// Card payment brands allowed by the Sale System for the payment transaction.
     /// </summary>
-    public IsoMax35Text[] AllowedPaymentBrand { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> AllowedPaymentBrand { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Loyalty brands or programs allowed by the Sale System for the loyalty transaction.
     /// </summary>
-    public IsoMax35Text[] AllowedLoyaltyBrand { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> AllowedLoyaltyBrand { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates if the Customer realises the selection of the card application.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ForceCustomerSelectionFlag { get; init; } 
     /// <summary>
     /// Amount of the transaction. It allows the processing of a contactless card.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     /// <summary>
     /// Type of payment transaction.
     /// </summary>
+    [DataMember]
     public CardPaymentServiceType13Code? PaymentType { get; init; } 
     /// <summary>
     /// Indicates if Cashback is allowed
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CashBackFlag { get; init; } 
     /// <summary>
     /// The POI System receives this information.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? SaleToPOIData { get; init; } 
     /// <summary>
     /// Sale information intended for the Acquirer.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? SaleToAcquirerData { get; init; } 
     /// <summary>
     /// Sale information intended for the Issuer.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? SaleToIssuerData { get; init; } 
     
     #nullable disable

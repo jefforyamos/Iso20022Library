@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Address of a party expressed in a formal structure, usually according to the country's postal services specifications.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StructuredLongPostalAddress1
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record StructuredLongPostalAddress1
     /// <summary>
     /// Name of the building or house.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? BuildingName { get; init; } 
     /// <summary>
     /// Name of a street or thoroughfare.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? StreetName { get; init; } 
     /// <summary>
     /// Number that identifies the position of a building on a street.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? StreetBuildingIdentification { get; init; } 
     /// <summary>
     /// Floor or storey within a building.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? Floor { get; init; } 
     /// <summary>
     /// Name of a built-up area, with defined boundaries, and a local government.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TownName { get; init; } 
     /// <summary>
     /// Name of a district, that is, a part of a town or region.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DistrictName { get; init; } 
     /// <summary>
     /// Identification of an administrative division of a country, state, or territory.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RegionIdentification { get; init; } 
     /// <summary>
     /// Organised political community or area forming a part of a federation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? State { get; init; } 
     /// <summary>
     /// Identifier of a county.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CountyIdentification { get; init; } 
     /// <summary>
     /// Nation with its own government.
     /// </summary>
+    [DataMember]
     public required CountryCode Country { get; init; } 
     /// <summary>
     /// Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail.
     /// </summary>
+    [DataMember]
     public required IsoMax16Text PostCodeIdentification { get; init; } 
     /// <summary>
     /// Numbered box in a post office, assigned to a person or organisation, where letters are kept until called for.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? PostOfficeBox { get; init; } 
     
     #nullable disable

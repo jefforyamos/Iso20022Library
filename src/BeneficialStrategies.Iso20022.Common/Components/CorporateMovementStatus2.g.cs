@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides status of the movement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateMovementStatus2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateMovementStatus2
     /// <summary>
     /// Provides information about the processing status of the cancellation request.
     /// </summary>
+    [DataMember]
     public required CorporationActionMovementProcessingStatus2 ProcessedStatus { get; init; } 
     /// <summary>
     /// Provides information about the rejection status.
     /// </summary>
+    [DataMember]
     public required CorporateActionMovementRejectionStatus2 RejectedStatus { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for a closed status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ClosedStatusReason1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ClosedStatusReason1
     /// <summary>
     /// Reason for the closed account status.
     /// </summary>
+    [DataMember]
     public required ClosedStatusReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the closed account status.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

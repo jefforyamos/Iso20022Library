@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters associated to a mask generator cryptographic function.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Parameter5
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record Parameter5
     /// <summary>
     /// Digest algorithm used in the mask generator function.
     /// </summary>
+    [DataMember]
     public Algorithm11Code? DigestAlgorithm { get; init; } 
     
     #nullable disable

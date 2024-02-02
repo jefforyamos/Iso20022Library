@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details of a payment compensation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Compensation1
 {
     #nullable enable
@@ -20,20 +22,24 @@ public partial record Compensation1
     /// <summary>
     /// Amount of money to be paid in compensation.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// Usage: The debtor agent is the payer of the compensation amount.
     /// </summary>
+    [DataMember]
     public required BranchAndFinancialInstitutionIdentification5 DebtorAgent { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// Usage: The creditor agent is the payee of the compensation amount.
     /// </summary>
+    [DataMember]
     public required BranchAndFinancialInstitutionIdentification5 CreditorAgent { get; init; } 
     /// <summary>
     /// Reason for the payment compensation.
     /// </summary>
+    [DataMember]
     public required CompensationReason1Choice_ Reason { get; init; } 
     
     #nullable disable

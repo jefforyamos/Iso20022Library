@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// List of criteria following the AND logic.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SearchAnd1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SearchAnd1
     /// <summary>
     /// Identifier of target element.
     /// </summary>
+    [DataMember]
     public required IsoMax500Text Target { get; init; } 
     /// <summary>
     /// Comparison operator used to evaluate matching transactions vs criteria.
     /// </summary>
+    [DataMember]
     public required Operator1Code Operator { get; init; } 
     /// <summary>
     /// Reference value to be used when evaluating against the target element value using the criteria operator.
     /// </summary>
+    [DataMember]
     public required IsoMax500Text Value { get; init; } 
     
     #nullable disable

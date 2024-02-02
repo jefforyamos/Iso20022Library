@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(BenchmarkCurveName10Choice.Index))]
 [KnownType(typeof(BenchmarkCurveName10Choice.Name))]
+[DataContract]
 public abstract partial record BenchmarkCurveName10Choice_
 {
 }

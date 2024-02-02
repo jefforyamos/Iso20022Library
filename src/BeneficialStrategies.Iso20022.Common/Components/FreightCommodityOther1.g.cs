@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Other freight commodity derivative.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FreightCommodityOther1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FreightCommodityOther1
     /// <summary>
     /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
     /// </summary>
+    [DataMember]
     public required AssetClassProductType4Code BaseProduct { get; init; } 
     /// <summary>
     /// Sub-product for the underlying asset class.
     /// </summary>
+    [DataMember]
     public required AssetClassSubProductType49Code SubProduct { get; init; } 
     
     #nullable disable

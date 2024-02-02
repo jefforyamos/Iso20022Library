@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Acceptor parameters dedicated to the merchant.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MerchantConfigurationParameters4
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record MerchantConfigurationParameters4
     /// <summary>
     /// Type of action for the configuration parameters.
     /// </summary>
+    [DataMember]
     public required TerminalManagementAction3Code ActionType { get; init; } 
     /// <summary>
     /// Identification of the merchant for the MTM, if the POI manages several merchants.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MerchantIdentification { get; init; } 
     /// <summary>
     /// Version of the merchant parameters.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Version { get; init; } 
     /// <summary>
     /// Version of the parameters' format.
     /// </summary>
+    [DataMember]
     public IsoMax8Text? ParameterFormatIdentifier { get; init; } 
     /// <summary>
     /// Local proxy configuration.
     /// </summary>
+    [DataMember]
     public NetworkParameters6? Proxy { get; init; } 
     /// <summary>
     /// Other merchant parameters.
     /// </summary>
+    [DataMember]
     public IsoMax10000Binary? OtherParameters { get; init; } 
     
     #nullable disable

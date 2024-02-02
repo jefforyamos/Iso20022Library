@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(Investment1Choice.RepurchaseAgreement))]
 [KnownType(typeof(Investment1Choice.OtherInvestments))]
 [KnownType(typeof(Investment1Choice.OutrightInvestment))]
+[DataContract]
 public abstract partial record Investment1Choice_
 {
 }

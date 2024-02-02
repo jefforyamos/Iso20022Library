@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Statistics for a financial instrument generated as part of transparency calculations.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatisticsTransparency2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record StatisticsTransparency2
     /// <summary>
     /// Total number of transactions that have been performed on this market.
     /// </summary>
+    [DataMember]
     public required IsoNumber TotalNumberOfTransactionsExecuted { get; init; } 
     /// <summary>
     /// Total volume of transactions that have been performed on this market.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber TotalVolumeOfTransactionsExecuted { get; init; } 
     
     #nullable disable

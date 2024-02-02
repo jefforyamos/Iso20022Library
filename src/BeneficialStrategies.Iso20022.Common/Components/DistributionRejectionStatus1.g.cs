@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the rejection status of a global movement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DistributionRejectionStatus1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DistributionRejectionStatus1
     /// <summary>
     /// The rejection reason.
     /// </summary>
-    public RejectionReason19FormatChoice_[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RejectionReason19FormatChoice_> Reason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the status.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

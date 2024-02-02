@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the instructions for order handling.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesExecutionInstructions1
 {
     #nullable enable
@@ -20,122 +22,152 @@ public partial record SecuritiesExecutionInstructions1
     /// <summary>
     /// Round-lot market or limit-price order that must be executed in its entirety or not at all; unlike Fill or Kill orders, AON orders are not treated as canceled if they are not executed as soon as represented in the Trading Crowd.
     /// </summary>
+    [DataMember]
     public IsoAllOrNoneIndicator? AllOrNone { get; init; } 
     /// <summary>
     /// Refers to the client before trading in order to catch all verbal instructions on trading strategy usually because the strategy is too complex or cannot be represented in the trading application.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CallFirst { get; init; } 
     /// <summary>
     /// Allow crossing of an order.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Cross { get; init; } 
     /// <summary>
     /// Exchange or ECN required by the SEC to display limit orders in the public order book. A customer can choose not to have his limit order displayed to the public.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CustomerDisplay { get; init; } 
     /// <summary>
     /// Indicates whether the firm executing the order is held to best execution requirements and may be able to make some discretionary decisions.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Hold { get; init; } 
     /// <summary>
     /// Indicates whether the order is to be increased in shares on the ex-dividend date as a result of a stock dividend or distribution.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Increase { get; init; } 
     /// <summary>
     /// Identifies that the broker is restricted to dealing with other buy side firms.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? InstitutionsOnly { get; init; } 
     /// <summary>
     /// Qualifies an asset (usually a payment instrument) of which rights cannot be transferred to a party other then the original debtor and creditor.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? NonNegotiable { get; init; } 
     /// <summary>
     /// Indicates whether to execute parts of the order over the course of the day. Usually done with large block orders.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? OverTheDay { get; init; } 
     /// <summary>
     /// An order that may participate in a transaction initiated by another party, but may not initiate a transaction.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ParticipateDontInitiate { get; init; } 
     /// <summary>
     /// Indicates that the Sender does not want all of the volume on the floor.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PercentOfVolume { get; init; } 
     /// <summary>
     /// An order to buy (or sell) a financial instrument which specifies the total amount to be bought (or sold) and the amount to be bought (or sold) at specified price variations.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Scale { get; init; } 
     /// <summary>
     /// Specifies the order limit based on the offer/bid at the time of the order submission.
     /// </summary>
+    [DataMember]
     public StayOnSideType1Code? StayOnSide { get; init; } 
     /// <summary>
     /// Make the order active until notified.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Work { get; init; } 
     /// <summary>
     /// Used for listed equity securities. Buy or sell at prices that randomly occur on the floor, participating in what|trades the specialist and other players will allow.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? GoAlong { get; init; } 
     /// <summary>
     /// Order to buy (sell) a security that specifies the total amount to be bought (sold) and the amount to be bought (sold) at successively decreasing (increasing) price intervals; often placed in order to average the price.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? TryScale { get; init; } 
     /// <summary>
     /// Indicates whether to buy, to stop order to sell, or to stop limit order to sell that is not to be reduced in price by the amount of an ordinary cash dividend on the ex-dividend date. A "do not reduce" order applies only to ordinary cash dividends; it should be reduced for other distributions - such as when a stock goes ex stock dividend or ex rights.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? DoNotReduce { get; init; } 
     /// <summary>
     /// If a system failure interrupts trading or order routing, attempt to cancel this order and attempt to reinstate this order, subject to time in force limitations. Note that depending on the type and severity of the failure, this might not be possible.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CancelOnSystemFailure { get; init; } 
     /// <summary>
     /// If trading in this instrument is halted, cancel this order and reinstate this order when/if trading resumes, subject to time in force limitations.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CancelOnTradingHalt { get; init; } 
     /// <summary>
     /// Indicates whether the broker has permission to handle and place the order in the market even if the broker already has its own proprietary orders for the same financial instrument placed in the market.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? TradeAlong { get; init; } 
     /// <summary>
     /// Limit order that must be traded at the exact limit price specified without any price improvement.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? StrictLimit { get; init; } 
     /// <summary>
     /// Disables validity checking of price fields for an order or change request.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? IgnorePriceValidityChecks { get; init; } 
     /// <summary>
     /// If a system failure interrupts trading or order routing, attempt to reinstate this order, subject to time in force limitations. Depending on the type and severity of the failure, this might not be possible.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ReinstateOnSystemFailure { get; init; } 
     /// <summary>
     /// If trading in this instrument is halted, reinstate this order when/if trading resumes, subject to time in force limitations.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ReinstateOnTradingHalt { get; init; } 
     /// <summary>
     /// Indicates that an order should be cancelled if it is no longer the best bid if buying, or the best offer if selling.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CancelIfNotBest { get; init; } 
     /// <summary>
     /// Indicates that an order sent to one market may be routed by that market to other external markets, especially in cases where the order locks or crosses the market and it can be executed against another markets superior price. The absence of this instruction does not imply that an order should not be routed externally; rather, the order receivers default will apply.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ExternalRoutingAllowed { get; init; } 
     /// <summary>
     /// Indicates that an order sent to one market may never be routed by that market to other external markets. Should the order lock or cross the market but be unable to execute due to price protection reasons, a market may have to take alternate action, which might include rejecting the order, depending on the markets rules.The absence of this instruction does not imply that an order should be routed externally; rather, the order receivers default will apply.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ExternalRoutingNotAllowed { get; init; } 
     /// <summary>
     /// Indicates that the order can only hit the imbalance during a call auction. The imbalance is the remaining quantity when other buy and sell orders are matched at the auction clearing price.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ImbalanceOnly { get; init; } 
     /// <summary>
     /// Indicates that the party sending the order has taken responsibility for price protection, and the recipient of the order should execute it, if possible, without regard to protection of other markets prices. While the term "Intermarket sweep" is specific to the United States, it may be used in other markets, where appropriate, to indicate an order that should be executed without regard to price protection.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? IntermarketSweep { get; init; } 
     /// <summary>
     /// Used when sending multiple orders indicating that you would be 'netting' the F/X later.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Netting { get; init; } 
     
     #nullable disable

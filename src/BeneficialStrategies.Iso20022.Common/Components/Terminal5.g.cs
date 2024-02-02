@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment terminal or ATM performing the transaction
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Terminal5
 {
     #nullable enable
@@ -20,32 +22,39 @@ public partial record Terminal5
     /// <summary>
     /// Identification of the terminal performing the transaction.
     /// </summary>
+    [DataMember]
     public TerminalIdentification3? TerminalIdentification { get; init; } 
     /// <summary>
     /// Type of terminal.
     /// </summary>
+    [DataMember]
     public TerminalType1Code? Type { get; init; } 
     /// <summary>
     /// Other type of terminal.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Capabilities of the terminal.
     /// </summary>
+    [DataMember]
     public Capabilities2? Capabilities { get; init; } 
     /// <summary>
     /// Type of terminal integration at a point of service location.
     /// </summary>
+    [DataMember]
     public TerminalIntegrationCategory1Code? TerminalIntegration { get; init; } 
     /// <summary>
     /// Geographic location of the terminal.
     /// </summary>
+    [DataMember]
     public IsoGeographicPointInDecimalDegrees? GeographicLocation { get; init; } 
     /// <summary>
     /// Indicates whether the terminal is operated outdoor or indoor at the point of service.
     /// True: The terminal is operated outdoor.
     /// False: The terminal is operated indoor.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? OutdoorIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the terminal is operated on- or off-premises at the point of service.
@@ -53,17 +62,20 @@ public partial record Terminal5
     /// False: The terminal is operated on premises.
     /// ISO 8583:93 bit 22-4, ISO 8583:2003 bit 22-3.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? OffPremisesIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the transaction was performed on board.
     /// True: The terminal is located on board.
     /// False: The terminal is not located on board.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? OnBoardIndicator { get; init; } 
     /// <summary>
     /// Data related to the components of the POI (Point Of Interaction) performing the transactions.
     /// </summary>
-    public PointOfInteractionComponent13[] POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PointOfInteractionComponent13> POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

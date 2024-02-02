@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for a securities identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareSecurityIdentification4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareSecurityIdentification4
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public SecurityIdentification26Choice_? Value1 { get; init; } 
     /// <summary>
     /// Information for the second of the transaction.
     /// </summary>
+    [DataMember]
     public SecurityIdentification26Choice_? Value2 { get; init; } 
     
     #nullable disable

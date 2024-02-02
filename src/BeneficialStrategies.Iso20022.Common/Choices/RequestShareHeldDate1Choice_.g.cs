@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(RequestShareHeldDate1Choice.DateCalculationMethod))]
 [KnownType(typeof(RequestShareHeldDate1Choice.DateCalculationDescription))]
+[DataContract]
 public abstract partial record RequestShareHeldDate1Choice_
 {
 }

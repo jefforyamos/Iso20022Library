@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportType3
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record ReportType3
     /// <summary>
     /// Specifies whether the report is for a matched or pre-matched data set.
     /// </summary>
+    [DataMember]
     public required InstructionType3Code Type { get; init; } 
     
     #nullable disable

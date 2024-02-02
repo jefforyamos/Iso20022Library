@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the refusal of a demand.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DemandRefusal1
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record DemandRefusal1
     /// <summary>
     /// Details related to the identification of the undertaking.
     /// </summary>
+    [DataMember]
     public required Undertaking9 UndertakingIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the advising party to the undertaking.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AdvisingPartyReferenceNumber { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the second advising party to the undertaking.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SecondAdvisingPartyReferenceNumber { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the confirmer to the undertaking.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ConfirmerReferenceNumber { get; init; } 
     /// <summary>
     /// Details related to the demand.
     /// </summary>
+    [DataMember]
     public required Demand2 DemandDetails { get; init; } 
     /// <summary>
     /// Expicit indication of 'REFUSED' as the processing status reported by the issuer.
     /// </summary>
+    [DataMember]
     public required IsoRefused7Text Status { get; init; } 
     /// <summary>
     /// Details related to the discrepancies.
     /// </summary>
-    public Discrepancy1[] Discrepancy { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Discrepancy1> Discrepancy { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indication of how the demand presentation documents will be handled as a consequence of the demand refusal.
     /// </summary>
-    public IsoMax2000Text[] DispositionOfDocuments { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> DispositionOfDocuments { get; init; } = [];
     /// <summary>
     /// Additional information related to the notification.
     /// </summary>
-    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

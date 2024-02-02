@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides detailed information on the transaction status to be updated in the tracker.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerStatus4
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record TrackerStatus4
     /// <summary>
     /// Specifies the status of a transaction, in a coded form.
     /// </summary>
+    [DataMember]
     public required ExternalPaymentTransactionStatus1Code Status { get; init; } 
     /// <summary>
     /// Date for the status.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? Date { get; init; } 
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    public PaymentStatusReason1[] StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentStatusReason1> StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides detailed information on the return reason.
     /// </summary>
-    public PaymentRejectReturnReason1[] RejectReturnReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentRejectReturnReason1> RejectReturnReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the amount information matches the tracker record reference data or not.
     /// </summary>
+    [DataMember]
     public AmountConsistencyType1Code? AmountInconsistency { get; init; } 
     
     #nullable disable

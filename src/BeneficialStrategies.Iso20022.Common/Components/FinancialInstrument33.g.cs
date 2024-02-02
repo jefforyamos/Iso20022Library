@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, eg, dividend option or valuation currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrument33
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record FinancialInstrument33
     /// <summary>
     /// Unique and unambiguous identifier of a security, assigned under a formal or proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification3Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Specifies whether the financial instrument is transferred as an asset or as cash.
     /// </summary>
+    [DataMember]
     public required TransferType1Code TransferType { get; init; } 
     /// <summary>
     /// Specifies the quantity of assets to be transferred in units or in a percentage rate.
     /// </summary>
+    [DataMember]
     public required Quantity14Choice_ Quantity { get; init; } 
     /// <summary>
     /// Average cost per share of a security, including all charges and commissions.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? AverageAcquisitionPrice { get; init; } 
     /// <summary>
     /// Net asset on balance sheet - total portfolio value minus or plus the unrealised gain or loss.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalBookValue { get; init; } 
     /// <summary>
     /// Account held in the name of a party that is not the name of the beneficial owner of the shares.
     /// </summary>
+    [DataMember]
     public Account6? TransfereeAccount { get; init; } 
     /// <summary>
     /// Party that receives securities from the delivering agent via the place of settlement, for example, securities central depository.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount93? ReceivingAgentDetails { get; init; } 
     /// <summary>
     /// Party that delivers securities to the receiving agent at the place of settlement, for example, a central securities depository.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount93? DeliveringAgentDetails { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be exchanged at the International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
+    [DataMember]
     public IsoISODate? RequestedSettlementDate { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details for the tax calculation method C.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BillingMethod4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record BillingMethod4
     /// <summary>
     /// Specifies the details of the taxable services using tax calculation method C.
     /// </summary>
-    public BillingServiceParameters2[] ServiceDetail { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BillingServiceParameters2> ServiceDetail { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total amount of service charge to be taxed in the tax region’s host currency along with the supporting tax calculations. ||Usage: Used for tax calculation method C only, and only one per tax region may be specified.
     /// </summary>
+    [DataMember]
     public required TaxCalculation1 TaxCalculation { get; init; } 
     
     #nullable disable

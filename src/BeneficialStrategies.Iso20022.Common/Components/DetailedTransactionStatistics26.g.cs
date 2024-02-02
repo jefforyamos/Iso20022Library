@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about outstanding derivatives, outstanding derivatives with no margin and outstanding derivatives with outdated margin.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedTransactionStatistics26
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record DetailedTransactionStatistics26
     /// <summary>
     /// Number of outstanding derivatives. 
     /// </summary>
+    [DataMember]
     public required IsoNumber NumberOfOutstandingDerivatives { get; init; } 
     /// <summary>
     /// Number of outstanding derivatives with no margin information.
     /// </summary>
+    [DataMember]
     public required IsoNumber NumberOfOutstandingDerivativesWithNoMarginInformation { get; init; } 
     /// <summary>
     /// Number of outstanding derivatives with outdated margin information.
     /// </summary>
+    [DataMember]
     public required IsoNumber NumberOfOutstandingDerivativesWithOutdatedMarginInformation { get; init; } 
     /// <summary>
     /// Details of the outstanding derivatives for which no margin information has been reported, or the margin information that was reported is dated more than fourteen calendar days earlier than the day.
     /// </summary>
-    public MissingMarginData2[] Warnings { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MissingMarginData2> Warnings { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

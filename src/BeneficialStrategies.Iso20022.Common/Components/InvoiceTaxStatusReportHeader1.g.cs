@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the Invoice tax status report header details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvoiceTaxStatusReportHeader1
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record InvoiceTaxStatusReportHeader1
     /// <summary>
     /// Party to which the TaxReport is delivered. This message block contains party details for a specific tax authority.
     /// </summary>
+    [DataMember]
     public TaxOrganisationIdentification1? TaxAuthority { get; init; } 
     /// <summary>
     /// Identifies the InvoiceTaxReportStatusAdvice message.
     /// </summary>
+    [DataMember]
     public required MessageIdentification1 MessageIdentification { get; init; } 
     /// <summary>
     /// Reference to the identification of the InvoiceTaxReport message.
     /// </summary>
+    [DataMember]
     public required MessageIdentification1 OriginalMessageIdentification { get; init; } 
     /// <summary>
     /// Provides the status for the full report.
     /// </summary>
+    [DataMember]
     public required TaxReportingStatus1Code ReportStatus { get; init; } 
     /// <summary>
     /// Provides the details of the rule which could not be validated.
     /// </summary>
-    public GenericValidationRuleIdentification1[] ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericValidationRuleIdentification1> ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

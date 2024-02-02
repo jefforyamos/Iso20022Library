@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cryptographic algorithm and parameters for digests.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AlgorithmIdentification5
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record AlgorithmIdentification5
     /// <summary>
     /// Identification of the algorithm.
     /// </summary>
+    [DataMember]
     public required Algorithm5Code Algorithm { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies periods related to a corporate action option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionPeriod12
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record CorporateActionPeriod12
     /// <summary>
     /// Period during which the price of a security is determined.
     /// </summary>
+    [DataMember]
     public Period6Choice_? PriceCalculationPeriod { get; init; } 
     /// <summary>
     /// Period during which both old and new equity may be traded simultaneously, for example, consolidation of equity or splitting of equity.
     /// </summary>
+    [DataMember]
     public Period6Choice_? ParallelTradingPeriod { get; init; } 
     /// <summary>
     /// Period during which the specified option, or all options of the event, remains valid, for example, offer period.
     /// </summary>
+    [DataMember]
     public Period6Choice_? ActionPeriod { get; init; } 
     /// <summary>
     /// Period during which the shareholder can revoke, change or withdraw its instruction.
     /// </summary>
+    [DataMember]
     public Period6Choice_? RevocabilityPeriod { get; init; } 
     /// <summary>
     /// Period during which the privilege is not available, for example, this can happen whenever a meeting takes place or whenever a coupon payment is due.
     /// </summary>
+    [DataMember]
     public Period6Choice_? PrivilegeSuspensionPeriod { get; init; } 
     /// <summary>
     /// Period during which the participant of the account servicer can revoke change or withdraw its instructions.
     /// </summary>
+    [DataMember]
     public Period6Choice_? AccountServicerRevocabilityPeriod { get; init; } 
     /// <summary>
     /// Period defining the last date on which withdrawal in street name requests on the outturn security will be accepted and the date on which the suspension will be released and withdrawal by transfer processing on the outturn security will resume.
     /// </summary>
+    [DataMember]
     public Period6Choice_? DepositorySuspensionPeriodForWithdrawal { get; init; } 
     
     #nullable disable

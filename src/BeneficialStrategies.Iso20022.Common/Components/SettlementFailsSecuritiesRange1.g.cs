@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the highest volume and value of settlement fails with a ranking by financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementFailsSecuritiesRange1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record SettlementFailsSecuritiesRange1
     /// <summary>
     /// Securities with the highest volume of settlement fails.
     /// </summary>
-    public SettlementFailsSecurities1[] HighestInVolume { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SettlementFailsSecurities1> HighestInVolume { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Securities with the highest value of settlement fails.
     /// </summary>
-    public SettlementFailsSecurities1[] HighestInValue { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SettlementFailsSecurities1> HighestInValue { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

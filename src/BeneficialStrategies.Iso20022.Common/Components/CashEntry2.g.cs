@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashEntry2
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record CashEntry2
     /// <summary>
     /// Amount of money in the cash entry.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Date at which an entry is posted to an account on the account servicer's books.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? Date { get; init; } 
     /// <summary>
     /// Status of an entry on the books of the account servicer.
     /// </summary>
+    [DataMember]
     public EntryStatus1Code? Status { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an entry, as assigned by the account servicer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the account servicer, to unambiguously identify the account statement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? StatementIdentification { get; init; } 
     /// <summary>
     /// Sequential number of the statement, as assigned by the account servicer.|Usage: The sequential number is increased incrementally for each statement sent electronically.
     /// </summary>
+    [DataMember]
     public IsoNumber? AccountServicerReference { get; init; } 
     /// <summary>
     /// Further details of the entry.
     /// </summary>
-    public IsoMax140Text[] AdditionalEntryInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax140Text> AdditionalEntryInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

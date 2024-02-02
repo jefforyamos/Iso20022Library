@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the characteristics for a SEPA formatted payment initiation file.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IsabelSEPAFile1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record IsabelSEPAFile1
     /// <summary>
     /// Specifies whether the SEPA formatted file is compliant to the SEPA rulebook.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator SEPAIndicator { get; init; } 
     /// <summary>
     /// High level category purpose of the payment initiation messages in the file, based on the SEPA rulebook.
     /// </summary>
+    [DataMember]
     public required IsoMax6Text CategoryPurpose { get; init; } 
     /// <summary>
     /// Local market practices applicable to the SEPA file.
     /// </summary>
-    public IsoMax35Text[] MarketPractices { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax35Text> MarketPractices { get; init; } = [];
     
     #nullable disable
 }

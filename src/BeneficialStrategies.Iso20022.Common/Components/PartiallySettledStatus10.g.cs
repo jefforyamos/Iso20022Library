@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for a partially settled status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartiallySettledStatus10
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PartiallySettledStatus10
     /// <summary>
     /// Reason for the partially settled status.
     /// </summary>
+    [DataMember]
     public required PartiallySettled21Choice_ Reason { get; init; } 
     /// <summary>
     /// Additional information about the partially settled reason.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

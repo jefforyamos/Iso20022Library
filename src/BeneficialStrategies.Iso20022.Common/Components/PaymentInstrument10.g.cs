@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Instrument that has or represents monetary value and is used to process a payment instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentInstrument10
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PaymentInstrument10
     /// <summary>
     /// Currency associated with the payment instrument.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
     /// <summary>
     /// Choice of payment instruments.
     /// </summary>
+    [DataMember]
     public required PaymentInstrument16Choice_ PaymentInstrument { get; init; } 
     /// <summary>
     /// Percentage of the dividend payment not to be reinvested.
     /// </summary>
+    [DataMember]
     public IsoPercentageBoundedRate? DividendPercentage { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the type of product and the assets to be transferred.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ISATransfer17
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record ISATransfer17
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Provides information related to the asset(s) transferred.
     /// </summary>
-    public ISATransfer16[] ProductTransfer { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ISATransfer16> ProductTransfer { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

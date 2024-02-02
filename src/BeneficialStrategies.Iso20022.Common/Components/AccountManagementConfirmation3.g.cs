@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the type of request or instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountManagementConfirmation3
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record AccountManagementConfirmation3
     /// <summary>
     /// Specifies if the confirmation message applies to an account opening, an account modification request or to a get account details.
     /// </summary>
+    [DataMember]
     public required AccountManagementType2Code ConfirmationType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the account opening or modification instruction at application level.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of a transaction, for example, a transfer, as assigned by the investor or account owner.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction, for example, a transfer, as allocated by the counterparty.
     /// </summary>
+    [DataMember]
     public AdditionalReference6? CounterpartyReference { get; init; } 
     /// <summary>
     /// Account to which the account opening is related.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ExistingAccountIdentification { get; init; } 
     
     #nullable disable

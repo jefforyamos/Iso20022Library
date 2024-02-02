@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies prices related to a corporate action option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionPrice69
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CorporateActionPrice69
     /// <summary>
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
+    [DataMember]
     public PriceFormat57Choice_? CashInLieuOfSharePrice { get; init; } 
     /// <summary>
     /// Amount of money required per over-subscribed equity as defined by the issuer.
     /// </summary>
+    [DataMember]
     public PriceFormat57Choice_? OverSubscriptionDepositPrice { get; init; } 
     /// <summary>
     /// Maximum cash amount that may be instructed.
     /// </summary>
+    [DataMember]
     public PriceFormat62Choice_? MaximumCashToInstruct { get; init; } 
     /// <summary>
     /// Minimum cash amount that may be instructed.
     /// </summary>
+    [DataMember]
     public PriceFormat62Choice_? MinimumCashToInstruct { get; init; } 
     /// <summary>
     /// Minimum multiple of a cash amount that may be instructed.
     /// </summary>
+    [DataMember]
     public PriceFormat62Choice_? MinimumMultipleCashToInstruct { get; init; } 
     
     #nullable disable

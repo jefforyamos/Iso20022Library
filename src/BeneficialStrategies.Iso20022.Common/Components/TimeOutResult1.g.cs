@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the time-out consequences.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TimeOutResult1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TimeOutResult1
     /// <summary>
     /// Specifies the status of the transaction if no action is taken by the user.
     /// </summary>
+    [DataMember]
     public required TransactionStatus2 TransactionFutureStatus { get; init; } 
     /// <summary>
     /// Describes the time-out reason.
     /// </summary>
+    [DataMember]
     public TimeOutEvent1? TimeOutEvent { get; init; } 
     
     #nullable disable

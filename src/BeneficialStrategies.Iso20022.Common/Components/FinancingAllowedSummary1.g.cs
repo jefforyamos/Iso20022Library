@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Summary information about amount financed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancingAllowedSummary1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record FinancingAllowedSummary1
     /// <summary>
     /// Number of invoices/instalments financed.
     /// </summary>
+    [DataMember]
     public required IsoNumber FinancedItemNumber { get; init; } 
     /// <summary>
     /// Sum of the original total amounts of the invoices accepted for financing.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalAcceptedItemsAmount { get; init; } 
     /// <summary>
     /// Percentage rate applied to calculate the total amount financed related to the total amounts of the invoices accepted for financing. It represents the average percentage rate applied to all single invoice requests financed. It can be calculated as result of "TotalFinancedAmount" divided by "TotalAcceptedItemsAmount".
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? AppliedPercentage { get; init; } 
     /// <summary>
     /// Total amount financed, defined as the entire financed amount of the requests.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalFinancedAmount { get; init; } 
     /// <summary>
     /// Set of dates (eg book date, credit date) related to the crediting of the financed amount.
     /// </summary>
+    [DataMember]
     public FinancingDateDetails1? FinancingDateDetails { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account, held by Financing Requestor, actually used for crediting the amount financed.
     /// </summary>
+    [DataMember]
     public CashAccount7? CreditAccount { get; init; } 
     /// <summary>
     /// Unambiguous identification of the internal bank account actually used by First Agent to manage the line of credit granted to Financing Requestor.
     /// </summary>
+    [DataMember]
     public CashAccount7? FinancingAccount { get; init; } 
     
     #nullable disable

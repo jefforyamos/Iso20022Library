@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters applied to the settlement of a security.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FundSettlementParameters4
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record FundSettlementParameters4
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
+    [DataMember]
     public IsoISODate? SettlementDate { get; init; } 
     /// <summary>
     /// Place where the settlement of transaction will take place. In the context of the investment funds, the place of settlement is the transfer agent, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [DataMember]
     public required PartyIdentification2Choice_ SettlementPlace { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository or an International Central Securities Depository.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Identification of a specific system or set of rules and/or processes to be applied at the settlement place.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SecuritiesSettlementSystemIdentification { get; init; } 
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction resulting in the movement of a security from one account to another.
     /// </summary>
+    [DataMember]
     public required ReceivingPartiesAndAccount3 ReceivingSideDetails { get; init; } 
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction resulting in the movement of a security from one account to another.
     /// </summary>
+    [DataMember]
     public DeliveringPartiesAndAccount3? DeliveringSideDetails { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account to or from which a cash entry is made.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashAccount33
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record CashAccount33
     /// <summary>
     /// Currency associated with the payment instrument.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required AccountIdentificationAndName5 Identification { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification70Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [DataMember]
     public FinancialInstitutionIdentification7Choice_? AccountServicer { get; init; } 
     /// <summary>
     /// Information identifying a specific branch of a financial institution.||Usage: this component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
     /// </summary>
+    [DataMember]
     public BranchData? AccountServicerBranch { get; init; } 
     /// <summary>
     /// Alternative identification, for example, national registration identification number, passport number, tax identification number. This may be an account number used to further identify the beneficial owner, for example, a Central Provident Fund (CFP) account as required for Singapore.
     /// </summary>
-    public GenericIdentification82[] AccountOwnerOtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericIdentification82> AccountOwnerOtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of account.
     /// </summary>
+    [DataMember]
     public AccountType2Choice_? InvestmentAccountType { get; init; } 
     /// <summary>
     /// Specifies if the account is for credits or debits.
     /// </summary>
+    [DataMember]
     public CreditDebit3Code? CreditDebit { get; init; } 
     /// <summary>
     /// Type of transaction for which the cash account is specified.
     /// </summary>
+    [DataMember]
     public SettlementInstructionReason1Choice_? SettlementInstructionReason { get; init; } 
     /// <summary>
     /// Purpose of the cash account.
     /// </summary>
+    [DataMember]
     public CashAccountType3Choice_? CashAccountPurpose { get; init; } 
     /// <summary>
     /// Specifies whether the account is the primary or secondary account if there are two accounts for the same purpose.
     /// </summary>
+    [DataMember]
     public AccountDesignation1Choice_? CashAccountDesignation { get; init; } 
     /// <summary>
     /// Percentage of the dividend payment not to be reinvested, that is, to be paid in cash.
     /// </summary>
+    [DataMember]
     public IsoPercentageBoundedRate? DividendPercentage { get; init; } 
     
     #nullable disable

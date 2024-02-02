@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Context of the card payment transaction
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionContext5
 {
     #nullable enable
@@ -21,6 +23,7 @@ public partial record TransactionContext5
     /// Card programme or brand related to the transaction.
     /// ISO 8583:87 bit 24
     /// </summary>
+    [DataMember]
     public CardProgrammeMode1? CardProgrammeApplied { get; init; } 
     
     #nullable disable

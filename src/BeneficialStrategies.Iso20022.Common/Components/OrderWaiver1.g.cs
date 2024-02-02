@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about how an order is to be processed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OrderWaiver1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record OrderWaiver1
     /// <summary>
     /// Reason why the order has to be handled differently, probably in a manual fashion, because, for example, the investment manager has agreed a waiver to the terms.
     /// </summary>
-    public OrderWaiverReason3Choice_[] OrderWaiverReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OrderWaiverReason3Choice_> OrderWaiverReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the order waiver.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? InformationValue { get; init; } 
     
     #nullable disable

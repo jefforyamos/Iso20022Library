@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the details of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionDetails13
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record TransactionDetails13
     /// <summary>
     /// Provides transaction type and identification information.
     /// </summary>
+    [DataMember]
     public required SettlementTypeAndIdentification3 AccountServicerTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
     /// </summary>
+    [DataMember]
     public Identification1? MarketInfrastructureTransactionIdentification { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification13Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public required SecuritiesAccount13 SafekeepingAccount { get; init; } 
     /// <summary>
     /// Identifies the details of the transaction.
     /// </summary>
+    [DataMember]
     public TransactionDetails10? TransactionDetails { get; init; } 
     
     #nullable disable

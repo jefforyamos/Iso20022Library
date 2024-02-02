@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Preferred withdrawal transaction chosen by the the customer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransaction8
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record ATMTransaction8
     /// <summary>
     /// Amount to dispense.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Currency.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// True if a receipt has to be printed by the ATM for the customer.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ReceiptFlag { get; init; } 
     /// <summary>
     /// True if a balance has to be printed by the ATM on the customer receipt.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? BalancePrintFlag { get; init; } 
     /// <summary>
     /// Media mix algorithm, the identification of the algorithm is an agreement between the ATM and the ATM manager.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MixType { get; init; } 
     /// <summary>
     /// Media mix to select.
     /// </summary>
-    public ATMMediaMix2[] Mix { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMMediaMix2> Mix { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

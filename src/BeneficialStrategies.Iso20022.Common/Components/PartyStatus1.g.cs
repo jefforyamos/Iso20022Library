@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Business status of the party for processing in the system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyStatus1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PartyStatus1
     /// <summary>
     /// Status of the party maintenance instruction.
     /// </summary>
+    [DataMember]
     public required Status6Code Status { get; init; } 
     /// <summary>
     /// Specifies the underlying reason for the status of an object.
     /// </summary>
-    public StatusReasonInformation10[] StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StatusReasonInformation10> StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifications of a party defined within a system.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification3? SystemPartyIdentification { get; init; } 
     
     #nullable disable

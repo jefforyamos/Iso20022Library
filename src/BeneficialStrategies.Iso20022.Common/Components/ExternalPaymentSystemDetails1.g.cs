@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about external payment system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExternalPaymentSystemDetails1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record ExternalPaymentSystemDetails1
     /// <summary>
     /// Indicates whether the participant can send Register of Clearing Positions.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ClearingPositionsRegisterAllowedIndicator { get; init; } 
     /// <summary>
     /// List of the clearing schemes.
     /// </summary>
-    public ClearingCircuits1[] ClearingCircuits { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ClearingCircuits1> ClearingCircuits { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

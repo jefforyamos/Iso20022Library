@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Get Totals Request message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportGetTotalsRequest1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ReportGetTotalsRequest1
     /// <summary>
     /// Indicates the hierarchical structure of the report.
     /// </summary>
+    [DataMember]
     public TotalDetails1Code? TotalDetails { get; init; } 
     /// <summary>
     /// Filter to compute the totals.
     /// </summary>
+    [DataMember]
     public TotalFilter1? TotalFilter { get; init; } 
     
     #nullable disable

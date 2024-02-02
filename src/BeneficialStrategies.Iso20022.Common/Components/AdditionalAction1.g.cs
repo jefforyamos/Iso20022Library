@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional action to perform.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalAction1
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record AdditionalAction1
     /// <summary>
     /// Type of additional action to perform.
     /// </summary>
+    [DataMember]
     public ActionType10Code? Type { get; init; } 
     /// <summary>
     /// Destination of the additional action to perform.
     /// </summary>
+    [DataMember]
     public PartyType21Code? Destination { get; init; } 
     /// <summary>
     /// Other destination of action.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherDestination { get; init; } 
     /// <summary>
     /// Type of destination of the additional action to perform.
     /// </summary>
+    [DataMember]
     public ActionDestination1Code? DestinationType { get; init; } 
     /// <summary>
     /// Other type of destination.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherDestinationType { get; init; } 
     /// <summary>
     /// Physical destination address of the additional action to perform (for example, URL, mobile phone number, IP address, file name, etc.).
     /// </summary>
+    [DataMember]
     public IsoMax70Text? DestinationAddress { get; init; } 
     /// <summary>
     /// Format of the message associated with the additional action to perform.
     /// </summary>
+    [DataMember]
     public OutputFormat4Code? Format { get; init; } 
     /// <summary>
     /// Other type of format for action data.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherFormat { get; init; } 
     /// <summary>
     /// Content of or reference to the message.
     /// </summary>
+    [DataMember]
     public Content1? Content { get; init; } 
     
     #nullable disable

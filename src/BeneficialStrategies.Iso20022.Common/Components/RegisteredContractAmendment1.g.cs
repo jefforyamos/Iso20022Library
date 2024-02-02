@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amendment details and reason related to the registered contract.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RegisteredContractAmendment1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record RegisteredContractAmendment1
     /// <summary>
     /// Date of the amendment of the registered contract.
     /// </summary>
+    [DataMember]
     public required IsoISODate AmendmentDate { get; init; } 
     /// <summary>
     /// Reference of the amendment document.
     /// </summary>
+    [DataMember]
     public required DocumentIdentification28 Document { get; init; } 
     /// <summary>
     /// Date from which the amendment is applicable.
     /// </summary>
+    [DataMember]
     public IsoISODate? StartDate { get; init; } 
     /// <summary>
     /// Reason for the amendment.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AmendmentReason { get; init; } 
     /// <summary>
     /// Further details on the amendment.
     /// </summary>
+    [DataMember]
     public IsoMax1025Text? AdditionalInformation { get; init; } 
     
     #nullable disable

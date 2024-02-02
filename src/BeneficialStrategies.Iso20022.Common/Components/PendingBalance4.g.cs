@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about pending balance and pending transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PendingBalance4
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record PendingBalance4
     /// <summary>
     /// Signed quantity of balance.
     /// </summary>
+    [DataMember]
     public required SignedQuantityFormat9 Balance { get; init; } 
     /// <summary>
     /// Overall process covering the trade and settlement transactions of financial instruments.
     /// </summary>
-    public SettlementTypeAndIdentification21[] PendingTransactions { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SettlementTypeAndIdentification21> PendingTransactions { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the intra-position movement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraPositionMovementDetails13
 {
     #nullable enable
@@ -20,55 +22,68 @@ public partial record IntraPositionMovementDetails13
     /// <summary>
     /// Identifications (account owner and/or account servicer) of the intra-position movement.
     /// </summary>
+    [DataMember]
     public References42Choice_? Identification { get; init; } 
     /// <summary>
     /// Quantity of financial instrument effectively settled.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ SettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument previously settled.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? PreviouslySettledQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument remaining to be settled.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? RemainingToBeSettledQuantity { get; init; } 
     /// <summary>
     /// Number identifying a securities sub-balance type (example restriction identification etc…).
     /// </summary>
+    [DataMember]
     public GenericIdentification37? SecuritiesSubBalanceIdentification { get; init; } 
     /// <summary>
     /// Balance to which the securities were moved.
     /// </summary>
+    [DataMember]
     public required SecuritiesBalanceType6Choice_ BalanceTo { get; init; } 
     /// <summary>
     /// Date and time at which the securities were moved.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ SettlementDate { get; init; } 
     /// <summary>
     /// Date/time securities become available for sale (if securities become unavailable, this specifies the date/time at which they will become available again).
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? AvailableDate { get; init; } 
     /// <summary>
     /// Time stamp on when the transaction is acknowledged.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? AcknowledgedStatusTimeStamp { get; init; } 
     /// <summary>
     /// Specifies the type of corporate event.
     /// </summary>
+    [DataMember]
     public CorporateActionEventType56Choice_? CorporateActionEventType { get; init; } 
     /// <summary>
     /// Value of the collateral available for the delivery settlement process at the account level.
     /// </summary>
+    [DataMember]
     public AmountAndDirection44? CollateralMonitorAmount { get; init; } 
     /// <summary>
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? InstructionProcessingAdditionalDetails { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

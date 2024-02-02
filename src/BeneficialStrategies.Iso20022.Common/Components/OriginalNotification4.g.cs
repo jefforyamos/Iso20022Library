@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identify the original notification, to which the cancellation advice refers.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalNotification4
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record OriginalNotification4
     /// <summary>
     /// Point to point reference, as assigned by the original sender, to unambiguously identify the original notification to receive message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalMessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the original message was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OriginalCreationDateTime { get; init; } 
     /// <summary>
     /// Identification of the original notification.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalNotificationIdentification { get; init; } 
     /// <summary>
     /// Indicates whether the cancellation applies to the complete original notification or to individual items within the original notification.
     /// </summary>
+    [DataMember]
     public IsoGroupCancellationIndicator? NotificationCancellation { get; init; } 
     /// <summary>
     /// Identifies the original notification item, to which the cancellation advice refers.
     /// </summary>
-    public OriginalNotificationReference1[] OriginalNotificationReference { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OriginalNotificationReference1> OriginalNotificationReference { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

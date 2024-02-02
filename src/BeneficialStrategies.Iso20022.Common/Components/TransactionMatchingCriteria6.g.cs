@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Compares information related to both sides of a transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionMatchingCriteria6
 {
     #nullable enable
@@ -20,390 +22,487 @@ public partial record TransactionMatchingCriteria6
     /// <summary>
     /// Specifies whether the information on the reporting tracking numbers are matching or not.
     /// </summary>
+    [DataMember]
     public CompareText2? ReportTrackingNumber { get; init; } 
     /// <summary>
     /// Specifies whether the information on the Unique Transaction Identifiers are matching or not.
     /// </summary>
+    [DataMember]
     public CompareUniqueTransactionIdentifier2? UniqueTransactionIdentifier { get; init; } 
     /// <summary>
     /// Specifies whether the information on the Prior Unique Transaction Identifiers are matching or not.
     /// </summary>
+    [DataMember]
     public CompareUniqueTransactionIdentifier2? PriorUniqueTransactionIdentifier { get; init; } 
     /// <summary>
     /// Specifies whether the information on the Subsequent Position Unique Transaction Identifiers are matching or not.
     /// </summary>
+    [DataMember]
     public CompareUniqueTransactionIdentifier2? SubsequentPositionUniqueTransactionIdentifier { get; init; } 
     /// <summary>
     /// Specifies whether the information on the delta are matching or not.
     /// </summary>
+    [DataMember]
     public CompareLongFraction19DecimalNumber1? Delta { get; init; } 
     /// <summary>
     /// Specifies whether the information on the trade confirmations are matching or not.
     /// </summary>
+    [DataMember]
     public CompareTradeConfirmation2? TradeConfirmation { get; init; } 
     /// <summary>
     /// Specifies whether the information on the trade clearing obligations are matching or not.
     /// </summary>
+    [DataMember]
     public CompareTradeClearingObligation1? TradeClearingObligation { get; init; } 
     /// <summary>
     /// Specifies whether the information on the trade clearing statuses are matching or not.
     /// </summary>
+    [DataMember]
     public CompareTradeClearingStatus3? TradeClearingStatus { get; init; } 
     /// <summary>
     /// Specifies whether the information on the master agreement types are matching or not.
     /// </summary>
+    [DataMember]
     public CompareMasterAgreementType1? MasterAgreementType { get; init; } 
     /// <summary>
     /// Specifies whether the information on the master agreement versions are matching or not.
     /// </summary>
+    [DataMember]
     public CompareMax50Text1? MasterAgreementVersion { get; init; } 
     /// <summary>
     /// Specifies whether the information on the intra groups are matching or not.
     /// </summary>
+    [DataMember]
     public CompareTrueFalseIndicator3? IntraGroup { get; init; } 
     /// <summary>
     /// Specifies whether the information on the post trade risk reductions are matching or not.
     /// </summary>
+    [DataMember]
     public ComparePostTradeRiskReduction2? PostTradeRiskReduction { get; init; } 
     /// <summary>
     /// Specifies whether the information on the derivative event are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDerivativeEvent1? DerivativeEvent { get; init; } 
     /// <summary>
     /// Specifies whether the information on the platform identifiers are matching or not.
     /// </summary>
+    [DataMember]
     public CompareMICIdentifier3? PlatformIdentifier { get; init; } 
     /// <summary>
     /// Specifies whether the information on the execution time stamps are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDateTime3? ExecutionTimeStamp { get; init; } 
     /// <summary>
     /// Specifies whether the information on the effective dates are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDate3? EffectiveDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the expiration dates are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDate3? ExpirationDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the early termination dates are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDate3? EarlyTerminationDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the settlement dates are matching or not.
     /// </summary>
-    public CompareDate3[] SettlementDate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareDate3> SettlementDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the delivery types are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDeliveryType1? DeliveryType { get; init; } 
     /// <summary>
     /// Specifies whether the the transaction prices are matching or not.
     /// </summary>
+    [DataMember]
     public CompareUnitPrice5? TransactionPrice { get; init; } 
     /// <summary>
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
-    public CompareDate3[] PriceScheduleUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareDate3> PriceScheduleUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
-    public CompareDate3[] PriceScheduleUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareDate3> PriceScheduleUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the transaction price in effect between the unadjusted effective and end date are matching or not.
     /// </summary>
-    public CompareUnitPrice5[] TransactionSchedulePrice { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareUnitPrice5> TransactionSchedulePrice { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the package prices are matching or not.
     /// </summary>
+    [DataMember]
     public CompareUnitPrice5? PackagePrice { get; init; } 
     /// <summary>
     /// Specifies whether the information on the notional amount first legs are matching or not.
     /// </summary>
+    [DataMember]
     public CompareAmountAndDirection3? NotionalAmountFirstLeg { get; init; } 
     /// <summary>
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
-    public CompareDate3[] NotionalAmountFirstLegUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareDate3> NotionalAmountFirstLegUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
-    public CompareDate3[] NotionalAmountFirstLegUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareDate3> NotionalAmountFirstLegUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the notional amount in effect on associated effective date of first legs are matching or not.
     /// </summary>
-    public CompareAmountAndDirection3[] NotionalAmountFirstLegScheduleAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareAmountAndDirection3> NotionalAmountFirstLegScheduleAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the notional quantity first legs are matching or not.
     /// </summary>
+    [DataMember]
     public CompareLongFraction19DecimalNumber1? NotionalQuantityFirstLeg { get; init; } 
     /// <summary>
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
-    public CompareDate3[] NotionalQuantityFirstLegUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareDate3> NotionalQuantityFirstLegUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
-    public CompareDate3[] NotionalQuantityFirstLegUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareDate3> NotionalQuantityFirstLegUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the notional quantity in effect on associated effective date of first legs are matching or not.
     /// </summary>
-    public CompareLongFraction19DecimalNumber1[] NotionalQuantityFirstLegScheduleQuantity { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareLongFraction19DecimalNumber1> NotionalQuantityFirstLegScheduleQuantity { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the notional amount second legs are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNotionalAmount1? NotionalAmountSecondLeg { get; init; } 
     /// <summary>
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
-    public CompareDate3[] NotionalAmountSecondLegUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareDate3> NotionalAmountSecondLegUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
-    public CompareDate3[] NotionalAmountSecondLegUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareDate3> NotionalAmountSecondLegUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the notional amount in effect on associated effective date of second legs are matching or not.
     /// </summary>
-    public CompareAmountAndDirection3[] NotionalAmountSecondLegScheduleAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareAmountAndDirection3> NotionalAmountSecondLegScheduleAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the notional quantity second legs are matching or not.
     /// </summary>
+    [DataMember]
     public CompareLongFraction19DecimalNumber1? NotionalQuantitySecondLeg { get; init; } 
     /// <summary>
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
-    public CompareDate3[] NotionalQuantitySecondLegUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareDate3> NotionalQuantitySecondLegUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
-    public CompareDate3[] NotionalQuantitySecondLegUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareDate3> NotionalQuantitySecondLegUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the notional quantity in effect on associated effective date of second legs are matching or not.
     /// </summary>
-    public CompareLongFraction19DecimalNumber1[] NotionalQuantitySecondLegScheduleQuantity { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareLongFraction19DecimalNumber1> NotionalQuantitySecondLegScheduleQuantity { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment related to elements not reported in dedicated fields.
     /// </summary>
-    public CompareOtherPayment1[] OtherPayment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareOtherPayment1> OtherPayment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the interest fixed rate legs are matching or not.
     /// </summary>
+    [DataMember]
     public CompareUnitPrice7? InterestFixedRateFirstLeg { get; init; } 
     /// <summary>
     /// Specifies whether the information on the day counts are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDayCount1? InterestFixedRateFirstLegDayCount { get; init; } 
     /// <summary>
     /// Specifies whether the information on the payment frequency units are matching or not.
     /// </summary>
+    [DataMember]
     public CompareFrequencyUnit1? InterestFixedRateFirstLegPaymentFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the information on the payment frequency values are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber5? InterestFixedRateFirstLegPaymentFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the information on the interest floating rate identifiers are matching or not.
     /// </summary>
+    [DataMember]
     public CompareISINIdentifier4? InterestFloatingRateFirstLegIdentification { get; init; } 
     /// <summary>
     /// Specifies whether the information on the interest floating rate codes are matching or not.
     /// </summary>
+    [DataMember]
     public CompareBenchmarkCode1? InterestFloatingRateFirstLegCode { get; init; } 
     /// <summary>
     /// Specifies whether the information on the interest floating rate names are matching or not.
     /// </summary>
+    [DataMember]
     public CompareMax350Text1? InterestFloatingRateFirstLegName { get; init; } 
     /// <summary>
     /// Specifies whether the information on the day counts are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDayCount1? InterestFloatingRateFirstLegDayCount { get; init; } 
     /// <summary>
     /// Specifies whether the information on the payment frequency units are matching or not.
     /// </summary>
+    [DataMember]
     public CompareFrequencyUnit1? InterestFloatingRateFirstLegPaymentFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the information on the payment frequency values are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber5? InterestFloatingRateFirstLegPaymentFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the information on the reference period units are matching or not.
     /// </summary>
+    [DataMember]
     public CompareFrequencyUnit1? InterestFloatingRateFirstLegReferencePeriodUnit { get; init; } 
     /// <summary>
     /// Specifies whether the information on the reference period values are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber5? InterestFloatingRateFirstLegReferencePeriodValue { get; init; } 
     /// <summary>
     /// Specifies whether the information on the reset frequency units are matching or not.
     /// </summary>
+    [DataMember]
     public CompareFrequencyUnit1? InterestFloatingRateFirstLegResetFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the information on the reset frequency values are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber5? InterestFloatingRateFirstLegResetFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the information on the spreads are matching or not.
     /// </summary>
+    [DataMember]
     public CompareUnitPrice8? InterestFloatingRateFirstLegSpread { get; init; } 
     /// <summary>
     /// Specifies whether the information on the interest fixed rate legs are matching or not.
     /// </summary>
+    [DataMember]
     public CompareUnitPrice7? InterestRateFixedSecondLeg { get; init; } 
     /// <summary>
     /// Specifies whether the information on the day counts are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDayCount1? InterestFixedRateSecondLegDayCount { get; init; } 
     /// <summary>
     /// Specifies whether the information on the payment frequency units are matching or not.
     /// </summary>
+    [DataMember]
     public CompareFrequencyUnit1? InterestFixedRateSecondLegPaymentFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the information on the payment frequency values are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber5? InterestFixedRateSecondLegPaymentFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the information on the interest floating rate identifiers are matching or not.
     /// </summary>
+    [DataMember]
     public CompareISINIdentifier4? InterestFloatingRateSecondLegIdentification { get; init; } 
     /// <summary>
     /// Specifies whether the information on the interest floating rate codes are matching or not.
     /// </summary>
+    [DataMember]
     public CompareBenchmarkCode1? InterestFloatingRateSecondLegCode { get; init; } 
     /// <summary>
     /// Specifies whether the information on the interest floating rate names are matching or not.
     /// </summary>
+    [DataMember]
     public CompareMax350Text1? InterestFloatingRateSecondLegName { get; init; } 
     /// <summary>
     /// Specifies whether the information on the day counts are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDayCount1? InterestFloatingRateSecondLegDayCount { get; init; } 
     /// <summary>
     /// Specifies whether the information on the payment frequency units are matching or not.
     /// </summary>
+    [DataMember]
     public CompareFrequencyUnit1? InterestFloatingRateSecondLegPaymentFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the information on the payment frequency values are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber5? InterestFloatingRateSecondLegPaymentFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the information on the reference period units are matching or not.
     /// </summary>
+    [DataMember]
     public CompareFrequencyUnit1? InterestFloatingRateSecondLegReferencePeriodUnit { get; init; } 
     /// <summary>
     /// Specifies whether the information on the reference period values are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber5? InterestFloatingRateSecondLegReferencePeriodValue { get; init; } 
     /// <summary>
     /// Specifies whether the information on the reset frequency units are matching or not.
     /// </summary>
+    [DataMember]
     public CompareFrequencyUnit1? InterestFloatingRateSecondLegResetFrequencyUnit { get; init; } 
     /// <summary>
     /// Specifies whether the information on the reset frequency values are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber5? InterestFloatingRateSecondLegResetFrequencyValue { get; init; } 
     /// <summary>
     /// Specifies whether the information on the spreads are matching or not.
     /// </summary>
+    [DataMember]
     public CompareUnitPrice8? InterestFloatingRateSecondLegSpread { get; init; } 
     /// <summary>
     /// Specifies whether the information on the package spreads are matching or not.
     /// </summary>
+    [DataMember]
     public CompareUnitPrice8? PackageSpread { get; init; } 
     /// <summary>
     /// Specifies whether the information on the currency exchange rates are matching or not.
     /// </summary>
+    [DataMember]
     public CompareExchangeRate1? CurrencyExchangeRate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the forward currency exchange rates are matching or not.
     /// </summary>
+    [DataMember]
     public CompareExchangeRate1? CurrencyForwardExchangeRate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the currency exchange rate basis are matching or not.
     /// </summary>
+    [DataMember]
     public CompareExchangeRateBasis1? CurrencyExchangeRateBasis { get; init; } 
     /// <summary>
     /// Specifies whether the information on the commodities are matching or not.
     /// </summary>
+    [DataMember]
     public CompareCommodityAssetClass4? Commodity { get; init; } 
     /// <summary>
     /// Specifies whether the information on the delivery points or zones are matching or not.
     /// </summary>
-    public CompareDeliveryInterconnectionPoint1[] EnergyDeliveryPointOrZone { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareDeliveryInterconnectionPoint1> EnergyDeliveryPointOrZone { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the interconnection points are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDeliveryInterconnectionPoint1? EnergyInterConnectionPoint { get; init; } 
     /// <summary>
     /// Specifies whether the information on the load types are matching or not.
     /// </summary>
+    [DataMember]
     public CompareEnergyLoadType1? EnergyLoadType { get; init; } 
     /// <summary>
     /// Attributes related to delivery of derivative contracts.
     /// </summary>
-    public CompareEnergyDeliveryAttribute1[] DeliveryAttribute { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareEnergyDeliveryAttribute1> DeliveryAttribute { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the option types are matching or not.
     /// </summary>
+    [DataMember]
     public CompareOptionType1? OptionType { get; init; } 
     /// <summary>
     /// Specifies whether the information on the exercise styles are matching or not.
     /// </summary>
-    public CompareOptionStyle1[] OptionExerciseStyle { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareOptionStyle1> OptionExerciseStyle { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the strike prices are matching or not.
     /// </summary>
+    [DataMember]
     public CompareUnitPrice4? OptionStrikePrice { get; init; } 
     /// <summary>
     /// Specifies whether the information on the unadjusted effective dates are matching or not.
     /// </summary>
-    public CompareDate3[] OptionStrikePriceScheduleUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareDate3> OptionStrikePriceScheduleUnadjustedEffectiveDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the unadjusted end dates are matching or not.
     /// </summary>
-    public CompareDate3[] OptionStrikePriceScheduleUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareDate3> OptionStrikePriceScheduleUnadjustedEndDate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the strike price in effect on associated effective dates are matching or not.
     /// </summary>
-    public CompareUnitPrice4[] OptionStrikePriceScheduleAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareUnitPrice4> OptionStrikePriceScheduleAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the information on the premium amounts are matching or not.
     /// </summary>
+    [DataMember]
     public CompareActiveOrHistoricCurrencyAndAmount4? OptionPremiumAmount { get; init; } 
     /// <summary>
     /// Specifies whether the information on the premium payment dates are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDate3? OptionPremiumPaymentDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the maturity date of the underlying are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDate3? OptionMaturityDateOfUnderlying { get; init; } 
     /// <summary>
     /// Specifies whether the information on the credity seniority are matching or not.
     /// </summary>
+    [DataMember]
     public CompareSeniorityType1? CreditSeniority { get; init; } 
     /// <summary>
     /// Specifies whether the information on the credit reference parties are matching or not.
     /// </summary>
+    [DataMember]
     public CompareReferenceParty1? CreditReferenceParty { get; init; } 
     /// <summary>
     /// Specifies whether the information on the credit series are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber7? CreditSeries { get; init; } 
     /// <summary>
     /// Specifies whether the information on the credit versions are matching or not.
     /// </summary>
+    [DataMember]
     public CompareNumber7? CreditVersion { get; init; } 
     /// <summary>
     /// Specifies whether the information on the index factors are matching or not.
     /// </summary>
+    [DataMember]
     public ComparePercentageRate3? CreditIndexFactor { get; init; } 
     /// <summary>
     /// Specifies whether the information on the credit tranches are matching or not.
     /// </summary>
+    [DataMember]
     public CompareTrancheIndicator1? CreditTranche { get; init; } 
     /// <summary>
     /// Specifies whether the information on the levels are matching or not.
     /// </summary>
+    [DataMember]
     public CompareReportingLevelType2? Level { get; init; } 
     
     #nullable disable

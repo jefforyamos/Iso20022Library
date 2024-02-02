@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines commodity sub-product attributes of a fertilizer derivative of type ammonia.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FertilizerCommodityAmmonia2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FertilizerCommodityAmmonia2
     /// <summary>
     /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
     /// </summary>
+    [DataMember]
     public required AssetClassProductType5Code BaseProduct { get; init; } 
     /// <summary>
     /// Sub-product for the underlying asset class.
     /// </summary>
+    [DataMember]
     public AssetClassSubProductType39Code? SubProduct { get; init; } 
     
     #nullable disable

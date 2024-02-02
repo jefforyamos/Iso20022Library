@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Factors used in the calculation of the pay in schedule.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PayInFactors1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record PayInFactors1
     /// <summary>
     /// Maximum allowed sum of short positions in all currencies, converted to base currency, during settlement.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount AggregateShortPositionLimit { get; init; } 
     /// <summary>
     /// Currency specific pay-in factors.
     /// </summary>
-    public CurrencyFactors1[] CurrencyFactors { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CurrencyFactors1> CurrencyFactors { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

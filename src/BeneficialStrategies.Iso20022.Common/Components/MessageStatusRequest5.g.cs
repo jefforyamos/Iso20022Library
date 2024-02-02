@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contents information to identify a previous exchange. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MessageStatusRequest5
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record MessageStatusRequest5
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentEnvironment78 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
+    [DataMember]
     public required CardPaymentContext29 Context { get; init; } 
     /// <summary>
     /// Identification of the previous exchange.
     /// </summary>
+    [DataMember]
     public required MessageStatusRequestData2 MessageStatusRequestData { get; init; } 
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

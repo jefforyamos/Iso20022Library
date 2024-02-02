@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account to or from which a cash entry is made.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashAccount12
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CashAccount12
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required CashAccountIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Name { get; init; } 
     /// <summary>
     /// Specifies the nature, or use, of the cash account.
     /// </summary>
+    [DataMember]
     public CashAccountType1Code? Type { get; init; } 
     /// <summary>
     /// Specifies the nature, or use, of the cash account.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedType { get; init; } 
     /// <summary>
     /// Medium of exchange of value.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Specifies the current state of an account, eg, enabled or deleted.
     /// </summary>
+    [DataMember]
     public required AccountStatus1Code Status { get; init; } 
     
     #nullable disable

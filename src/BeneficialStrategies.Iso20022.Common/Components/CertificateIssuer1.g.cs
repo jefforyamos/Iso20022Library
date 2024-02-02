@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Certificate issuer name (see X.509).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CertificateIssuer1
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record CertificateIssuer1
     /// <summary>
     /// Relative distinguished name inside a X.509 certificate.
     /// </summary>
-    public RelativeDistinguishedName1[] RelativeDistinguishedName { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RelativeDistinguishedName1> RelativeDistinguishedName { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

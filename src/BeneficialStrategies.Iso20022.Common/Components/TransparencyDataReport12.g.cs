@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides for reporting calculation results of equity instruments as part of transparency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransparencyDataReport12
 {
     #nullable enable
@@ -22,40 +24,49 @@ public partial record TransparencyDataReport12
     /// Usage:
     /// This identification will be used in the status advice report sent back.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
+    [DataMember]
     public required IsoISINOct2015Identifier Identification { get; init; } 
     /// <summary>
     /// Full name of the reporting entity.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? FullName { get; init; } 
     /// <summary>
     /// Segment MIC for the trading venue where applicable, otherwise the operational MIC.
     /// </summary>
+    [DataMember]
     public IsoMICIdentifier? TradingVenue { get; init; } 
     /// <summary>
     /// Period to which the quantitative data fields relate.
     /// </summary>
+    [DataMember]
     public Period4Choice_? ReportingPeriod { get; init; } 
     /// <summary>
     /// Flag to say if this ISIN is liquid or not post calculations.
     /// Usage:
     /// When not present, this field should be treated as not applicable.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? Liquidity { get; init; } 
     /// <summary>
     /// Methodology that has been used to calculate the result.
     /// </summary>
+    [DataMember]
     public TransparencyMethodology2Code? Methodology { get; init; } 
     /// <summary>
     /// Statistics for a financial instrument generated as part of transparency calculations.
     /// </summary>
+    [DataMember]
     public StatisticsTransparency3? Statistics { get; init; } 
     /// <summary>
     /// Specific market details related to the most relevant market in terms of liquidity.
     /// </summary>
+    [DataMember]
     public MarketDetail2? RelevantMarket { get; init; } 
     
     #nullable disable

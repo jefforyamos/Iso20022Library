@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CashSettlementSystem3Choice.Code))]
 [KnownType(typeof(CashSettlementSystem3Choice.Proprietary))]
+[DataContract]
 public abstract partial record CashSettlementSystem3Choice_
 {
 }

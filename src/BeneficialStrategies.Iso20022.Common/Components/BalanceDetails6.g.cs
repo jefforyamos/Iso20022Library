@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Balance related details for a portfolio.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BalanceDetails6
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record BalanceDetails6
     /// <summary>
     /// Category of the financial asset balance type.
     /// </summary>
+    [DataMember]
     public FinancialAssetTypeCategory1Code? Category { get; init; } 
     /// <summary>
     /// Balance type.
     /// </summary>
+    [DataMember]
     public BalanceType7Choice_? Type { get; init; } 
     /// <summary>
     /// Unrealised gain or loss.
     /// </summary>
+    [DataMember]
     public Unrealised1Code? Unrealised { get; init; } 
     /// <summary>
     /// Balance amount.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection31 Amount { get; init; } 
     
     #nullable disable

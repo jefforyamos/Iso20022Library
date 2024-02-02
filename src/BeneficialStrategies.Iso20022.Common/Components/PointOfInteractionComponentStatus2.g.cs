@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status of a POI component (Point of Interaction).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PointOfInteractionComponentStatus2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PointOfInteractionComponentStatus2
     /// <summary>
     /// Current version of the component that might include the release number.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? VersionNumber { get; init; } 
     /// <summary>
     /// Current status of the component.
     /// </summary>
+    [DataMember]
     public POIComponentStatus1Code? Status { get; init; } 
     
     #nullable disable

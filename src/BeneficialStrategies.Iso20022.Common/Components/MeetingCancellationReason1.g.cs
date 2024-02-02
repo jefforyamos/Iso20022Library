@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the reason for cancelling a meeting.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MeetingCancellationReason1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record MeetingCancellationReason1
     /// <summary>
     /// Specifies the reason for cancelling a meeting in coded form.
     /// </summary>
+    [DataMember]
     public required MeetingCancellationReason2Code Code { get; init; } 
     /// <summary>
     /// Specifies the reason for cancelling a meeting in free text form.
     /// </summary>
+    [DataMember]
     public required IsoExtended350Code ExtendedCode { get; init; } 
     /// <summary>
     /// Provides more information on the reason for cancelling a meeting in free format form.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? CancellationReason { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of additional elements to provide detailed information on the number of transactions that are reported with a specific transaction status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NumberOfTransactionsPerStatus1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record NumberOfTransactionsPerStatus1
     /// <summary>
     /// Number of individual transactions contained in the message, detailed per status.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText DetailedNumberOfTransactions { get; init; } 
     /// <summary>
     /// Common transaction status for all individual transactions reported with the same status.
     /// </summary>
+    [DataMember]
     public required TransactionIndividualStatus1Code DetailedStatus { get; init; } 
     /// <summary>
     /// Total of all individual amounts included in the message, irrespective of currencies, detailed per status.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? DetailedControlSum { get; init; } 
     
     #nullable disable

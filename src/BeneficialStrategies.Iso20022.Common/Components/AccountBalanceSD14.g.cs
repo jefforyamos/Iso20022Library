@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding account balance. Contains transaction details of the stock loans, repurchase agreements (REPOs) and undelivered trades (FAILs).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountBalanceSD14
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record AccountBalanceSD14
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Position held in a security as of the day prior to publication date. This position is subject to a redemption lottery call when this is the first lottery. This balance will not be adjusted for the supplemental or concurrent lotteries and will remain constant to report the original position.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? OriginalBalance { get; init; } 
     /// <summary>
     /// Portion of the original balance position held in DTC general free account as of day prior to publication date. Position held in this account is subject to redemption lottery call.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? UnpledgedBalance { get; init; } 
     /// <summary>
     /// Portion of the original balance position held in DTC segregated account as of day prior to publication date. Position held in this account is subject to redemption lottery call and must be released to allow allocation.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? InvestmentUnpledgedBalance { get; init; } 
     /// <summary>
     /// Portion of the original balance position held in DTC investment account as of day prior to publication date. Position held in this account is subject to redemption lottery call and must be released to allow allocation.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? InvestmentPledgedBalance { get; init; } 
     /// <summary>
     /// For rights subscription events, total number of oversubscribed units applicable to the payment or the subscription charge.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat9? OversubscriptionBalance { get; init; } 
     
     #nullable disable

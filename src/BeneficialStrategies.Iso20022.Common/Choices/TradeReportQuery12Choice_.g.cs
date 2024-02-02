@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TradeReportQuery12Choice.AdHocQuery))]
 [KnownType(typeof(TradeReportQuery12Choice.RecurrentQuery))]
+[DataContract]
 public abstract partial record TradeReportQuery12Choice_
 {
 }

@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(AccountParties6Choice.CustodianForMinor))]
 [KnownType(typeof(AccountParties6Choice.Nominee))]
 [KnownType(typeof(AccountParties6Choice.JointOwner))]
+[DataContract]
 public abstract partial record AccountParties6Choice_
 {
 }

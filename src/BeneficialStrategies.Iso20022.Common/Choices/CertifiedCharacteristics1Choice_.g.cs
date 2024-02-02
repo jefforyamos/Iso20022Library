@@ -16,6 +16,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(CertifiedCharacteristics1Choice.Quantity))]
 [KnownType(typeof(CertifiedCharacteristics1Choice.HealthIndication))]
 [KnownType(typeof(CertifiedCharacteristics1Choice.PhytosanitaryIndication))]
+[DataContract]
 public abstract partial record CertifiedCharacteristics1Choice_
 {
 }

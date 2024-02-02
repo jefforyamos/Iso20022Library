@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CorrectiveTransaction4Choice.Initiation))]
 [KnownType(typeof(CorrectiveTransaction4Choice.Interbank))]
+[DataContract]
 public abstract partial record CorrectiveTransaction4Choice_
 {
 }

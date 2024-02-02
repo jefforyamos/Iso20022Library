@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification number and identification type of a natural person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NaturalPersonIdentification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NaturalPersonIdentification1
     /// <summary>
     /// Natural person local identification.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Type of local identification for a natural person.
     /// </summary>
+    [DataMember]
     public IdentificationType45Choice_? IdentificationType { get; init; } 
     
     #nullable disable

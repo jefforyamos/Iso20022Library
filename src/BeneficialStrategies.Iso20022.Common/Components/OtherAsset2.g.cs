@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of an asset.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherAsset2
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record OtherAsset2
     /// <summary>
     /// Type of asset.
     /// </summary>
+    [DataMember]
     public required OtherAsset2Choice_ OtherAssetType { get; init; } 
     /// <summary>
     /// Technical identification of the asset.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Name of the asset.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Description of the asset.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Description { get; init; } 
     /// <summary>
     /// Additional identification of the asset.
     /// </summary>
-    public IsoMax35Text[] OtherIdentification { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax35Text> OtherIdentification { get; init; } = [];
     /// <summary>
     /// Additional information about the other asset.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the cash option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashOption1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CashOption1
     /// <summary>
     /// Indicates wether it is a debit or a credit.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Currency of the option.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Provides information about the dates related to a cash movement.
     /// </summary>
+    [DataMember]
     public CorporateActionDate5? DateDetails { get; init; } 
     /// <summary>
     /// Provides information about the amounts related to a cash movement.
     /// </summary>
+    [DataMember]
     public CorporateActionAmounts1? AmountDetails { get; init; } 
     /// <summary>
     /// Provides information about a foreign exchange.
     /// </summary>
+    [DataMember]
     public ForeignExchangeTerms8? ExchangeRate { get; init; } 
     
     #nullable disable

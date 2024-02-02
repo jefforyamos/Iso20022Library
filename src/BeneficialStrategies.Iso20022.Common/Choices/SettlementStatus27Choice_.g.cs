@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SettlementStatus27Choice.Settled))]
 [KnownType(typeof(SettlementStatus27Choice.Unsettled))]
 [KnownType(typeof(SettlementStatus27Choice.Proprietary))]
+[DataContract]
 public abstract partial record SettlementStatus27Choice_
 {
 }

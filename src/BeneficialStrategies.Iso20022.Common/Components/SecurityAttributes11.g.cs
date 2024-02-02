@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Tangible items of value to a business.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityAttributes11
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record SecurityAttributes11
     /// <summary>
     /// Way(s) of identifying the security.
     /// </summary>
-    public SecurityIdentification39[] FinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecurityIdentification39> FinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional details about the financial instrument.
     /// </summary>
+    [DataMember]
     public FinancialInstrument97? FinancialInstrumentType { get; init; } 
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
-    public CommonFinancialInstrumentAttributes11[] FinancialInstrumentAttributes { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CommonFinancialInstrumentAttributes11> FinancialInstrumentAttributes { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

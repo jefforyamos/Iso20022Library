@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// General information about the collateral agreement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Obligation11
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record Obligation11
     /// <summary>
     /// One of the entities associated with the collateral agreement and type of the CCP membership type where the counterparty is a CCP.
     /// </summary>
+    [DataMember]
     public required PartyIdentification242 PartyA { get; init; } 
     /// <summary>
     /// Party that is acting on behalf of party A and that offers collateral management services.
     /// </summary>
+    [DataMember]
     public PartyIdentification178Choice_? ServicingPartyA { get; init; } 
     /// <summary>
     /// Other entity associated with the collateral agreement and type of the CCP membership type where the counterparty is a CCP.
     /// </summary>
+    [DataMember]
     public required PartyIdentification242 PartyB { get; init; } 
     /// <summary>
     /// Party that is acting on behalf of party B and that offers collateral management services.
     /// </summary>
+    [DataMember]
     public PartyIdentification178Choice_? ServicingPartyB { get; init; } 
     /// <summary>
     /// Provides additional information on the collateral account of the party delivering/receiving the collateral.
     /// </summary>
+    [DataMember]
     public CollateralAccount3? CollateralAccountIdentification { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of collateral account for digital assets.
     /// </summary>
+    [DataMember]
     public BlockChainAddressWallet5? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// Underlying business area or type of trade causing the collateral movement.
     /// </summary>
+    [DataMember]
     public ExposureType11Code? ExposureType { get; init; } 
     /// <summary>
     /// Close of business date on which the initiating party is valuing the margin call.
     /// </summary>
+    [DataMember]
     public required DateAndDateTime2Choice_ ValuationDate { get; init; } 
     
     #nullable disable

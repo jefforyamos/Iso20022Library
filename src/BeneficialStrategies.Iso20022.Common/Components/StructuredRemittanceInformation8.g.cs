@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in a structured form.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StructuredRemittanceInformation8
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record StructuredRemittanceInformation8
     /// <summary>
     /// Set of elements used to identify the documents referred to in the remittance information.
     /// </summary>
-    public ReferredDocumentInformation3[] ReferredDocumentInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReferredDocumentInformation3> ReferredDocumentInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of elements used to provide details on the amounts of the referred document.
     /// </summary>
+    [DataMember]
     public RemittanceAmount1? ReferredDocumentAmount { get; init; } 
     /// <summary>
     /// Reference information provided by the creditor to allow the identification of the underlying documents.
     /// </summary>
+    [DataMember]
     public CreditorReferenceInformation2? CreditorReferenceInformation { get; init; } 
     /// <summary>
     /// Identification of the organisation issuing the invoice, when it is different from the creditor or ultimate creditor.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? Invoicer { get; init; } 
     /// <summary>
     /// Identification of the party to whom an invoice is issued, when it is different from the debtor or ultimate debtor.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? Invoicee { get; init; } 
     /// <summary>
     /// Additional information, in free text form, to complement the structured remittance information.
     /// </summary>
-    public IsoMax140Text[] AdditionalRemittanceInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax140Text> AdditionalRemittanceInformation { get; init; } = [];
     
     #nullable disable
 }

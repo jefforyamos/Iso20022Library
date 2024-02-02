@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Hierarchy of classification of a derivative.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DerivativeClassification1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record DerivativeClassification1
     /// <summary>
     /// Highest level classification of a derivative.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text AssetClass { get; init; } 
     /// <summary>
     /// Second level classification of a derivative.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? BaseProduct { get; init; } 
     /// <summary>
     /// Third level classification of a derivative.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SubProduct { get; init; } 
     /// <summary>
     /// Low level classification of commodity derivatives.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SubCommodity { get; init; } 
     /// <summary>
     /// Low level classification of a derivative.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TransactionType { get; init; } 
     
     #nullable disable

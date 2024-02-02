@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Lodging provides summary information about lodging accommodations and related expenses for the cardholder. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Lodging2
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record Lodging2
     /// <summary>
     /// Component provides summary information about lodging accommodations and related expenses for the cardholder. One occurrence of this component provides lodging accommodation reporting for a single lodging folio, such as a single stay at a lodging facility with one check-in and one check-out.
     /// </summary>
+    [DataMember]
     public LodgingSummary1? Summary { get; init; } 
     /// <summary>
     /// Component provides detailed information about lodging accommodations and related expenses for the cardholder. Acquirers can submit multiple occurrences of this component for each lodging transaction, to provide details of one or more folios. 
     /// </summary>
-    public LodgingLineItem1[] LineItem { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LodgingLineItem1> LineItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

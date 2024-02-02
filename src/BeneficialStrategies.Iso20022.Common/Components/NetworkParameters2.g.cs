@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Configuration parameters to communicate with a host.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NetworkParameters2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record NetworkParameters2
     /// <summary>
     /// IP address or hostname.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Address { get; init; } 
     /// <summary>
     /// Port number of the server, if the default port number is not used.
     /// </summary>
+    [DataMember]
     public IsoNumber? PortNumber { get; init; } 
     /// <summary>
     /// Delay between two contacts of the server.
     /// </summary>
+    [DataMember]
     public IsoISOTime? Delay { get; init; } 
     
     #nullable disable

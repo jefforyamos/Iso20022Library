@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrument15
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FinancialInstrument15
     /// <summary>
     /// Identifies the financial instrument using a choice of either ISIN, local code, or a description of the instrument. ISIN is the preferred format.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification6Choice_ Identification { get; init; } 
     /// <summary>
     /// Provides the ability to describe the instrument through a description and main characteristics.
     /// </summary>
+    [DataMember]
     public SecurityInstrumentDescription2? InstrumentDescription { get; init; } 
     /// <summary>
     /// Provides details of the underlying financial instrument for which the transaction report is being sent. If there is more than one underlying financial instrument then it is the dominant/ultimate instrument that should be identified here.
     /// </summary>
+    [DataMember]
     public SecurityIdentification6Choice_? UnderlyingInstrumentIdentification { get; init; } 
     
     #nullable disable

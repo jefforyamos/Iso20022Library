@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the category of the product.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProductCategory1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ProductCategory1
     /// <summary>
     /// Specifies the type of product category by means of a code.
     /// </summary>
+    [DataMember]
     public required ProductCategory1Code Type { get; init; } 
     /// <summary>
     /// Specifies the category of a product.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Category { get; init; } 
     
     #nullable disable

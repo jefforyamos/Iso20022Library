@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action options date details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionDateSD7
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record CorporateActionDateSD7
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Actual early expiration time as set by the issuer/offer/agent.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ActualEarlyExpirationDate { get; init; } 
     /// <summary>
     /// Last day protect instructions can be submitted to the issuer / agent.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ActualProtectExpirationDate { get; init; } 
     /// <summary>
     /// Last day protect instructions can be submitted to the issuer / agent for the early expiration.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ActualEarlyProtectExpirationDate { get; init; } 
     /// <summary>
     /// Last day protect instructions can be submitted to DTC for the early expiration.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? DTCEarlyProtectExpirationDate { get; init; } 
     /// <summary>
     /// Last day cover early protect instructions can be submitted to the issuer / agent.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ActualEarlyCoverProtectExpirationDate { get; init; } 
     /// <summary>
     /// Last day cover early protect instructions can be submitted to DTC.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? DTCEarlyCoverProtectExpirationDate { get; init; } 
     
     #nullable disable

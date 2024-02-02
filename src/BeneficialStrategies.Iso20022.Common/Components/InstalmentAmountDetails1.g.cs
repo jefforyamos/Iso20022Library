@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Instalment amount details
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InstalmentAmountDetails1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record InstalmentAmountDetails1
     /// <summary>
     /// Grace period unit type.
     /// </summary>
+    [DataMember]
     public InstalmentAmountDetailsType1Code? Type { get; init; } 
     /// <summary>
     /// Grace period other unit type.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Grace period sub type. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SubType { get; init; } 
     /// <summary>
     /// Detailed instalment amount.
     /// </summary>
+    [DataMember]
     public Amount5? Amount { get; init; } 
     /// <summary>
     /// Rate expressed as a percentage, that is, in hundredths, example, 0.7 is 7/10 of a percent, and 7.0 is 7%.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Percentage { get; init; } 
     
     #nullable disable

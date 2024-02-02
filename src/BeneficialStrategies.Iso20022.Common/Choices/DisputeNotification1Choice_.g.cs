@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(DisputeNotification1Choice.DisputeNotificationDetails))]
 [KnownType(typeof(DisputeNotification1Choice.SegregatedIndependentAmountDisputeDetails))]
+[DataContract]
 public abstract partial record DisputeNotification1Choice_
 {
 }

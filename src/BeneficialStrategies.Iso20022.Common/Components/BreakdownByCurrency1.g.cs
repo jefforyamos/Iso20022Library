@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the cash-in and cash-out flows by currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BreakdownByCurrency1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record BreakdownByCurrency1
     /// <summary>
     /// Currency for which the cash flow is being reported.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Cash movement out of the fund as a result of investment funds transactions, eg, redemptions or switch-out.
     /// </summary>
-    public CashOutForecast3[] CashOutForecast { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashOutForecast3> CashOutForecast { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash movement into the fund as a result of investment funds transactions, eg, subscriptions or switch-in.
     /// </summary>
-    public CashInForecast3[] CashInForecast { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashInForecast3> CashInForecast { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net cash as a result of the cash-in and cash-out flows specified for the currency.
     /// </summary>
-    public NetCashForecast2[] NetCashForecast { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NetCashForecast2> NetCashForecast { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

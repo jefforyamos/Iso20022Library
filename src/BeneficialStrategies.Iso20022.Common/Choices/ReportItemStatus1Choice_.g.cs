@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ReportItemStatus1Choice.Accepted))]
 [KnownType(typeof(ReportItemStatus1Choice.AcceptedWithException))]
 [KnownType(typeof(ReportItemStatus1Choice.Rejected))]
+[DataContract]
 public abstract partial record ReportItemStatus1Choice_
 {
 }

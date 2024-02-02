@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Organised structure that is set up for a particular purpose, eg, a business, government body, department, charity, or financial institution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Organisation3
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record Organisation3
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Name { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution, eg, Dun & Bradstreet Identification.
     /// </summary>
+    [DataMember]
     public PartyIdentification4Choice_? Identification { get; init; } 
     /// <summary>
     /// Purpose of the organisation, eg, charity.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Purpose { get; init; } 
     /// <summary>
     /// Country of taxation of an individual person or an organisation.
     /// </summary>
+    [DataMember]
     public CountryCode? TaxationCountry { get; init; } 
     /// <summary>
     /// Country in which the organisation is registered.
     /// </summary>
+    [DataMember]
     public CountryCode? RegistrationCountry { get; init; } 
     /// <summary>
     /// Date and time at which a given organisation was officially registered.
     /// </summary>
+    [DataMember]
     public IsoISODate? RegistrationDate { get; init; } 
     /// <summary>
     /// Number assigned by a tax authority to an entity.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TaxIdentificationNumber { get; init; } 
     /// <summary>
     /// Number assigned by a national registration authority to an entity.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NationalRegistrationNumber { get; init; } 
     /// <summary>
     /// Address information to be either inserted, updated or deleted.
     /// </summary>
-    public ModificationScope1[] ModifiedPostalAddress { get; init; } = [];
+    [DataMember]
+    public ValueList<ModificationScope1> ModifiedPostalAddress { get; init; } = [];
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
+    [DataMember]
     public CommunicationAddress3? PrimaryCommunicationAddress { get; init; } 
     /// <summary>
     /// Communication device number or electronic address used for communication.
     /// </summary>
+    [DataMember]
     public CommunicationAddress3? SecondaryCommunicationAddress { get; init; } 
     
     #nullable disable

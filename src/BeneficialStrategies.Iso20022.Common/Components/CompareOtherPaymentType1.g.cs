@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for a other payment type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareOtherPaymentType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareOtherPaymentType1
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public PaymentType5Choice_? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public PaymentType5Choice_? Value2 { get; init; } 
     
     #nullable disable

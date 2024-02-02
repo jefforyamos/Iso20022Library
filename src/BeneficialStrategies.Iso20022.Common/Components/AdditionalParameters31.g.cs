@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies additional parameters to the message or transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalParameters31
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record AdditionalParameters31
     /// <summary>
     /// Specifies whether there exists a pre-confirmation.
     /// </summary>
+    [DataMember]
     public PreConfirmation1Code? PreConfirmation { get; init; } 
     /// <summary>
     /// Specifies partial settlement information.
     /// </summary>
+    [DataMember]
     public PartialSettlement2Code? PartialSettlement { get; init; } 
     /// <summary>
     /// Identification of the confirmation previously sent to confirm the partial settlement of a transaction.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? PreviousPartialConfirmationIdentification { get; init; } 
     /// <summary>
     /// Unique identification identifying the triparty collateral management transaction from the triparty-agent's/service-provider's point of view.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? TripartyAgentServiceProviderCollateralTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique reference identifying the triparty collateral management transaction from the client's point of view.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? ClientTripartyCollateralTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification assigned to the instruction by the client.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? ClientCollateralInstructionIdentification { get; init; } 
     /// <summary>
     /// Unique identification assigned to the instruction by the triparty-agent/service-provider.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? TripartyAgentServiceProviderCollateralInstructionIdentification { get; init; } 
     
     #nullable disable

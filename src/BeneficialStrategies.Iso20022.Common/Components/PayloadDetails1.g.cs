@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// This component identifies the instance of the document exchanged.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PayloadDetails1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PayloadDetails1
     /// <summary>
     /// String of characters that uniquely identifies the file, which was delivered by the sender.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text PayloadIdentifier { get; init; } 
     /// <summary>
     /// Date and time when the file was created by the sender.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateAndTime { get; init; } 
     /// <summary>
     /// Flag indicating if the file exchanged between the two business applications is possibly a duplicate. If this indicator is not present within the message, please note that the default value would be "False".
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? PossibleDuplicateFlag { get; init; } 
     
     #nullable disable

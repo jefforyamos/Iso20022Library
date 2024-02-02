@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(BenchmarkReport1Choice.Create))]
 [KnownType(typeof(BenchmarkReport1Choice.Update))]
 [KnownType(typeof(BenchmarkReport1Choice.Cancellation))]
+[DataContract]
 public abstract partial record BenchmarkReport1Choice_
 {
 }

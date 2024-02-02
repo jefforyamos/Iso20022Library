@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Structured postal address.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Address2
 {
     #nullable enable
@@ -20,49 +22,60 @@ public partial record Address2
     /// <summary>
     /// First line of information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
+    [DataMember]
     public IsoMax99Text? AddressLine1 { get; init; } 
     /// <summary>
     /// Second line of information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
+    [DataMember]
     public IsoMax99Text? AddressLine2 { get; init; } 
     /// <summary>
     /// Name of a street or thoroughfare.
     /// </summary>
+    [DataMember]
     public IsoMax99Text? StreetName { get; init; } 
     /// <summary>
     /// Number that identifies the position of a building on a street.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? BuildingNumber { get; init; } 
     /// <summary>
     /// Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? PostalCode { get; init; } 
     /// <summary>
     /// Name of a built-up area, with defined boundaries, and a local government.
     /// </summary>
+    [DataMember]
     public IsoMax50Text? TownName { get; init; } 
     /// <summary>
     /// Identifies a minor subdivision of a country, for instance county, prefecture.
     /// In accordance with ISO 3166-2 or the local authority.
     /// </summary>
+    [DataMember]
     public ISOCountrySubDivisionCode? CountrySubDivisionMinor { get; init; } 
     /// <summary>
     /// Identifies a major subdivision of a country, for instance state, province.
     /// In accordance with ISO 3166-2 or the local authority.
     /// </summary>
+    [DataMember]
     public ISOCountrySubDivisionCode? CountrySubDivisionMajor { get; init; } 
     /// <summary>
     /// Name of a major subdivision of a country, for instance county, prefecture.
     /// </summary>
+    [DataMember]
     public IsoMax50Text? CountrySubDivisionMajorName { get; init; } 
     /// <summary>
     /// Name of a minor subdivision of a country, for instance county, prefecture.
     /// </summary>
+    [DataMember]
     public IsoMax50Text? CountrySubDivisionMinorName { get; init; } 
     /// <summary>
     /// Nation with its own government occupying a particular territory.
     /// In accordance with ISO 3166-1.
     /// </summary>
+    [DataMember]
     public ISOMax3ACountryCode? Country { get; init; } 
     
     #nullable disable

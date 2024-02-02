@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason why the service is taxed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxReason1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TaxReason1
     /// <summary>
     /// Reason why the service is taxed, in a coded form.
     /// </summary>
+    [DataMember]
     public required IsoMax10Text Code { get; init; } 
     /// <summary>
     /// Reason why the service is taxed, in a free-text form.
     /// </summary>
+    [DataMember]
     public required IsoMax105Text Explanation { get; init; } 
     
     #nullable disable

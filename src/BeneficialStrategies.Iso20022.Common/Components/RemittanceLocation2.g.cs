@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide information on the remittance advice.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RemittanceLocation2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record RemittanceLocation2
     /// <summary>
     /// Unique identification, as assigned by the initiating party, to unambiguously identify the remittance information sent separately from the payment instruction, such as a remittance advice.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RemittanceIdentification { get; init; } 
     /// <summary>
     /// Method used to deliver the remittance advice information.
     /// </summary>
+    [DataMember]
     public RemittanceLocationMethod2Code? RemittanceLocationMethod { get; init; } 
     /// <summary>
     /// Electronic address to which an agent is to send the remittance information.
     /// </summary>
+    [DataMember]
     public IsoMax2048Text? RemittanceLocationElectronicAddress { get; init; } 
     /// <summary>
     /// Postal address to which an agent is to send the remittance information.
     /// </summary>
+    [DataMember]
     public NameAndAddress10? RemittanceLocationPostalAddress { get; init; } 
     
     #nullable disable

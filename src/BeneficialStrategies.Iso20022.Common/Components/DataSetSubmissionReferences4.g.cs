@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides references to the transactions both for the matching application and for the user.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DataSetSubmissionReferences4
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record DataSetSubmissionReferences4
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Reference to the purchase order of the underlying transaction.
     /// </summary>
+    [DataMember]
     public required DocumentIdentification7 PurchaseOrderReference { get; init; } 
     /// <summary>
     /// Own reference to the transaction for the financial institution.
     /// </summary>
-    public DocumentIdentification5[] UserTransactionReference { get; init; } = [];
+    [DataMember]
+    public ValueList<DocumentIdentification5> UserTransactionReference { get; init; } = [];
     /// <summary>
     /// Specifies that this message should force the matching application to match all data sets it has received so far for the transaction identified by the transaction identification.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ForcedMatch { get; init; } 
     /// <summary>
     /// Unique identification assigned by the matching engine to the baseline when it is established.
     /// </summary>
+    [DataMember]
     public required DocumentIdentification3 EstablishedBaselineIdentification { get; init; } 
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
+    [DataMember]
     public required BaselineStatus3Code TransactionStatus { get; init; } 
     
     #nullable disable

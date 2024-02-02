@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the rates related to securities movement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RateDetails30
 {
     #nullable enable
@@ -20,74 +22,92 @@ public partial record RateDetails30
     /// <summary>
     /// Rate used for additional tax that cannot be categorised.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat43Choice_? AdditionalTax { get; init; } 
     /// <summary>
     /// Rate used to calculate the amount of the charges/fees that cannot be categorised.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat43Choice_? ChargesFees { get; init; } 
     /// <summary>
     /// Percentage of fiscal tax to apply.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? FiscalStamp { get; init; } 
     /// <summary>
     /// Cash dividend amount per equity before deductions or allowances have been made.
     /// </summary>
-    public GrossDividendRateFormat24Choice_[] GrossDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GrossDividendRateFormat24Choice_> GrossDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash rate made available, as an incentive, in addition to the solicitation fee, in order to encourage early participation in an offer.
     /// </summary>
+    [DataMember]
     public SolicitationFeeRateFormat9Choice_? EarlySolicitationFeeRate { get; init; } 
     /// <summary>
     /// Cash rate made available in an event in order to encourage participation in the offer. As information, Payment is made to a third party who has solicited an entity to take part in the offer.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat43Choice_? ThirdPartyIncentiveRate { get; init; } 
     /// <summary>
     /// Actual interest rate used for the payment of the interest for the specified interest period.
     /// </summary>
-    public InterestRateUsedForPaymentFormat9Choice_[] InterestRateUsedForPayment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InterestRateUsedForPaymentFormat9Choice_> InterestRateUsedForPayment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash dividend amount per equity after deductions or allowances have been made.
     /// </summary>
-    public NetDividendRateFormat26Choice_[] NetDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NetDividendRateFormat26Choice_> NetDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rate per share to which a non-resident is entitled.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat43Choice_? NonResidentRate { get; init; } 
     /// <summary>
     /// Rate applicable to the event announced, for example, redemption rate for a redemption event.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? ApplicableRate { get; init; } 
     /// <summary>
     /// Rate of the cash premium made available if the securities holder consents or participates to an event, for example consent fees or solicitation fee.
     /// </summary>
+    [DataMember]
     public SolicitationFeeRateFormat9Choice_? SolicitationFeeRate { get; init; } 
     /// <summary>
     /// Amount of money per equity allocated as the result of a tax credit.
     /// </summary>
-    public TaxCreditRateFormat9Choice_[] TaxCreditRate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TaxCreditRateFormat9Choice_> TaxCreditRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Percentage of a cash distribution that will be withheld by the tax authorities of the jurisdiction of the issuer, for which a relief at source and/or reclaim may be possible.
     /// </summary>
-    public RateAndAmountFormat45Choice_[] WithholdingTaxRate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RateAndAmountFormat45Choice_> WithholdingTaxRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rate at which the income will be withheld by a jurisdiction other than the jurisdiction of the issuer’s country of tax incorporation, for which a relief at source and/or reclaim may be possible. It is levied in complement or offset of the withholding tax rate (TAXR) levied by the jurisdiction of the issuer’s tax domicile.
     /// </summary>
-    public RateAndAmountFormat45Choice_[] SecondLevelTax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RateAndAmountFormat45Choice_> SecondLevelTax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Taxation applied on an amount clearly identified as an income.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat43Choice_? TaxOnIncome { get; init; } 
     /// <summary>
     /// Taxation applied on an amount clearly identified as capital profits, capital gains.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? TaxOnProfits { get; init; } 
     /// <summary>
     /// Percentage of cash that was paid in excess of actual tax obligation and was reclaimed.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? TaxReclaimRate { get; init; } 
     /// <summary>
     /// Portion of the fund distribution which represents the average accrued income included in the purchase price for units bought during the account period.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? EqualisationRate { get; init; } 
     
     #nullable disable

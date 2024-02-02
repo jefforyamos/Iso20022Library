@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the signature of an Isabel file.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IsabelSignature3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record IsabelSignature3
     /// <summary>
     /// Common signature elements applicable to all signature records.
     /// </summary>
+    [DataMember]
     public required IsabelSignatureHash1 Header { get; init; } 
     /// <summary>
     /// Individual record of the file signature.
     /// </summary>
-    public IsabelSignatureRecord2[] Record { get; init; } = [];
+    [DataMember]
+    public ValueList<IsabelSignatureRecord2> Record { get; init; } = [];
     /// <summary>
     /// Random data related to the signature.
     /// </summary>
+    [DataMember]
     public required IsoMax64Text RandomBlock { get; init; } 
     
     #nullable disable

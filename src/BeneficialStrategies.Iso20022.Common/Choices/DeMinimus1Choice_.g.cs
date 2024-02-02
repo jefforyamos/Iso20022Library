@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(DeMinimus1Choice.DeMinimusApplicable))]
 [KnownType(typeof(DeMinimus1Choice.DeMinimusNotApplicable))]
+[DataContract]
 public abstract partial record DeMinimus1Choice_
 {
 }

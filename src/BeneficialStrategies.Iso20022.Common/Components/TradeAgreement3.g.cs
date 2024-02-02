@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Date and identification of a trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeAgreement3
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record TradeAgreement3
     /// <summary>
     /// Date on which the trading parties agree on the trade.
     /// </summary>
+    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Identification of the notification.This identification must be unique amongst all notifications of same type confirmed by the same party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text NotificationIdentification { get; init; } 
     /// <summary>
     /// Reference common to both parties of the trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CommonReference { get; init; } 
     /// <summary>
     /// Specifies the type of underlying transaction, for example, option.
     /// </summary>
+    [DataMember]
     public IsoMax4Text? OperationType { get; init; } 
     /// <summary>
     /// Specifies the business role between the submitter and the trade party, for example Agent (AGNT).
     /// </summary>
+    [DataMember]
     public IsoMax4Text? OperationScope { get; init; } 
     
     #nullable disable

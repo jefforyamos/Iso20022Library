@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide security position details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesPosition1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SecuritiesPosition1
     /// <summary>
     /// Specifies the type of a position or a balance, such as earmarked or delivered.
     /// </summary>
+    [DataMember]
     public required IsoMax4AlphaNumericText Type { get; init; } 
     /// <summary>
     /// Specifies the quantity of a position or a balance.
     /// </summary>
+    [DataMember]
     public required SubBalanceQuantity2Choice_ Quantity { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to report on an account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashAccountReturnCriteria2
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record CashAccountReturnCriteria2
     /// <summary>
     /// Indicates whether the account name is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? NameIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account currency is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? CurrencyIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account type is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? TypeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the multilateral limit is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? MultilateralLimitIndicator { get; init; } 
     /// <summary>
     /// Defines the criteria used to report on a multilateral balance.
     /// </summary>
+    [DataMember]
     public CashBalanceReturnCriteria? MultilateralBalanceReturnCriteria { get; init; } 
     /// <summary>
     /// Indicates whether the bilateral limit is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? BilateralLimitIndicator { get; init; } 
     /// <summary>
     /// Defines the criteria used to report on a bilateral balance.
     /// </summary>
+    [DataMember]
     public CashBalanceReturnCriteria? BilateralBalanceReturnCriteria { get; init; } 
     /// <summary>
     /// Indicates whether the account standing order is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? StandingOrderIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account owner information is requested.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AccountOwnerIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account servicer information is requested.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AccountServicerIndicator { get; init; } 
     
     #nullable disable

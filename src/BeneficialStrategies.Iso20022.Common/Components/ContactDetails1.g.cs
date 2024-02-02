@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Communication device number or electronic address used for communication.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContactDetails1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record ContactDetails1
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text Name { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
+    [DataMember]
     public required PostalAddress1 FundManagerPostalAddress { get; init; } 
     /// <summary>
     /// Collection of information that identifies a phone number, as defined by telecom services.
     /// </summary>
+    [DataMember]
     public required IsoPhoneNumber PhoneNumber { get; init; } 
     /// <summary>
     /// Collection of information that identifies a FAX number, as defined by telecom services.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? FaxNumber { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
+    [DataMember]
     public IsoMax256Text? EmailAddress { get; init; } 
     /// <summary>
     /// Address for the Universal Resource Locator (URL), eg, used over the www (HTTP) service.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? URLAddress { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of a financial institution, as assigned under a globally recognised or proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public required IsoBICIdentifier Identification { get; init; } 
     
     #nullable disable

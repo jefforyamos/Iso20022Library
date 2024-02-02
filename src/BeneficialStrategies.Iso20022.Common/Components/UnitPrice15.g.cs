@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UnitPrice15
 {
     #nullable enable
@@ -20,79 +22,98 @@ public partial record UnitPrice15
     /// <summary>
     /// Type and information about a price.
     /// </summary>
+    [DataMember]
     public required TypeOfPrice9Code Type { get; init; } 
     /// <summary>
     /// Type and information about a price.
     /// </summary>
+    [DataMember]
     public required IsoExtended350Code ExtendedType { get; init; } 
     /// <summary>
     /// Type of pricing calculation method.
     /// </summary>
+    [DataMember]
     public PriceMethod1Code? PriceMethod { get; init; } 
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    public PriceValue1[] ValueInInvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PriceValue1> ValueInInvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
-    public PriceValue1[] ValueInAlternativeCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PriceValue1> ValueInAlternativeCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the price information can be used for the execution of a transaction.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ForExecutionIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the dividend is included, ie, cum-dividend, in the price. When the dividend is not included, the price will be ex-dividend.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator CumDividendIndicator { get; init; } 
     /// <summary>
     /// Ratio applied on the non-adjusted price.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? CalculationBasis { get; init; } 
     /// <summary>
     /// Indicates whether the price is an estimated price.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator EstimatedPriceIndicator { get; init; } 
     /// <summary>
     /// Specifies the number of days from trade date that the counterparty on the other side of the trade should "given up" or divulged.
     /// </summary>
+    [DataMember]
     public IsoNumber? NumberOfDaysAccrued { get; init; } 
     /// <summary>
     /// Amount included in the NAV that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? TaxableIncomePerShare { get; init; } 
     /// <summary>
     /// Specifies whether the fund calculates a taxable interest per share (TIS).
     /// </summary>
+    [DataMember]
     public TaxableIncomePerShareCalculated2Code? TaxableIncomePerShareCalculated { get; init; } 
     /// <summary>
     /// Specifies whether the fund calculates a taxable interest per share (TIS).
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedTaxableIncomePerShareCalculated { get; init; } 
     /// <summary>
     /// Amount included in the dividend that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? TaxableIncomePerDividend { get; init; } 
     /// <summary>
     /// Specifies whether dividend is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
+    [DataMember]
     public EUDividendStatus1Code? EUDividendStatus { get; init; } 
     /// <summary>
     /// Specifies whether dividend is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedEUDividendStatus { get; init; } 
     /// <summary>
     /// Amount of money associated with a service.
     /// </summary>
-    public Charge15[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Charge15> ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to taxes that are due.
     /// </summary>
-    public Tax17[] TaxLiabilityDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax17> TaxLiabilityDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to taxes that are paid back.
     /// </summary>
-    public Tax17[] TaxRefundDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax17> TaxRefundDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

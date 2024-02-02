@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UnitOfMeasure1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record UnitOfMeasure1
     /// <summary>
     /// Unit of measure of the item being shipped.
     /// </summary>
+    [DataMember]
     public UnitOfMeasure1Code? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Other unit of measure.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherUnitOfMeasure { get; init; } 
     /// <summary>
     /// Number of units.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? NumberOfUnits { get; init; } 
     
     #nullable disable

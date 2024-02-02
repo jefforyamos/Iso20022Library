@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(Counterparty3Choice.Seller))]
 [KnownType(typeof(Counterparty3Choice.Buyer))]
+[DataContract]
 public abstract partial record Counterparty3Choice_
 {
 }

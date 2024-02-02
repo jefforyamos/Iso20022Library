@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides all information related to a handwritten signature capture.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CapturedSignature1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CapturedSignature1
     /// <summary>
     /// Format of the image.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ImageFormat { get; init; } 
     /// <summary>
     /// Data of the image.
     /// </summary>
+    [DataMember]
     public IsoMax2MBBinary? ImageData { get; init; } 
     /// <summary>
     /// URL or name of the image.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? ImageReference { get; init; } 
     /// <summary>
     /// Additional information for the image.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? AdditionalInformation { get; init; } 
     
     #nullable disable

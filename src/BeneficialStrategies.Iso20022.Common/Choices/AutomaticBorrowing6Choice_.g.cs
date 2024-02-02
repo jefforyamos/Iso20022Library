@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(AutomaticBorrowing6Choice.Code))]
 [KnownType(typeof(AutomaticBorrowing6Choice.Proprietary))]
+[DataContract]
 public abstract partial record AutomaticBorrowing6Choice_
 {
 }

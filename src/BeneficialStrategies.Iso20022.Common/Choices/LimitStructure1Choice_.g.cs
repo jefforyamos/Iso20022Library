@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(LimitStructure1Choice.CurrentLimitIdentification))]
 [KnownType(typeof(LimitStructure1Choice.AllCurrentLimits))]
+[DataContract]
 public abstract partial record LimitStructure1Choice_
 {
 }

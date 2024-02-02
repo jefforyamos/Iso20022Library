@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information concerning the negotiation process leading to a treasury trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GeneralInformation4
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record GeneralInformation4
     /// <summary>
     /// Indicates whether the trade is a block or single trade.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? BlockIndicator { get; init; } 
     /// <summary>
     /// Reference to a preceding transaction, for example, an option or swap.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RelatedTradeReference { get; init; } 
     /// <summary>
     /// Method used by the trading parties to negotiate and/or execute a deal.
     /// </summary>
+    [DataMember]
     public Trading1MethodCode? DealingMethod { get; init; } 
     /// <summary>
     /// Specifies the broker which arranged the deal between the trading side and the counterparty side or, when two money brokers are involved, between the trading side and the other money broker.
     /// </summary>
+    [DataMember]
     public PartyIdentification73Choice_? BrokerIdentification { get; init; } 
     /// <summary>
     /// Counterparty's reference for the trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CounterpartyReference { get; init; } 
     /// <summary>
     /// Brokerage fee for a broker confirmation.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? BrokersCommission { get; init; } 
     /// <summary>
     /// Specifies additional information for the receiver and applies to the whole message.
     /// </summary>
+    [DataMember]
     public IsoMax210Text? SenderToReceiverInformation { get; init; } 
     /// <summary>
     /// Specifies the branch at the trading side with which the deal was done.
     /// </summary>
+    [DataMember]
     public PartyIdentification73Choice_? DealingBranchTradingSide { get; init; } 
     /// <summary>
     /// Specifies the branch at the counterparty side with which the deal was done.
     /// </summary>
+    [DataMember]
     public PartyIdentification73Choice_? DealingBranchCounterpartySide { get; init; } 
     /// <summary>
     /// Specifies the name and/or electronic address of the receiver of the message who may be contacted for any queries concerning this trade.
     /// </summary>
+    [DataMember]
     public ContactInformation1? ContactInformation { get; init; } 
     
     #nullable disable

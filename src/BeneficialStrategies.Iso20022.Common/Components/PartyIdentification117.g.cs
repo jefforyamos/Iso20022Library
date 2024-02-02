@@ -14,6 +14,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Choice of identification of a party. The party can be identified by providing a BIC or a proprietary code.
 /// Optionally, the client account number can also be provided.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification117
 {
     #nullable enable
@@ -21,14 +23,17 @@ public partial record PartyIdentification117
     /// <summary>
     /// Code allocated to a financial or non-financial institution by the ISO 9362 Registration Authority, as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
     /// </summary>
+    [DataMember]
     public required IsoAnyBICDec2014Identifier AnyBIC { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier, as assigned to a financial institution using a proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public required GenericIdentification36 ProprietaryIdentification { get; init; } 
     /// <summary>
     /// Identification of a party with its name and address in free text.
     /// </summary>
+    [DataMember]
     public NameAndAddress13? NameAndAddress { get; init; } 
     
     #nullable disable

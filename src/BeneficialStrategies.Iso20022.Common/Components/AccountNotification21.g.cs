@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details of the account notification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountNotification21
 {
     #nullable enable
@@ -20,55 +22,68 @@ public partial record AccountNotification21
     /// <summary>
     /// Unique identification, as assigned by the account servicer, to unambiguously identify the account notification.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Provides details on the page number of the notification.
     /// Usage: The pagination of the notification is only allowed when agreed between the parties.
     /// </summary>
+    [DataMember]
     public Pagination1? NotificationPagination { get; init; } 
     /// <summary>
     /// Sequential number of the notification, as assigned by the account servicer. |Usage: The sequential number is increased incrementally for each notification sent electronically.
     /// </summary>
+    [DataMember]
     public IsoNumber? ElectronicSequenceNumber { get; init; } 
     /// <summary>
     /// Specifies the range of identification sequence numbers, as provided in the request.
     /// </summary>
+    [DataMember]
     public SequenceRange1Choice_? ReportingSequence { get; init; } 
     /// <summary>
     /// Legal sequential number of the notification, as assigned by the account servicer. It is increased incrementally for each notification sent.
     /// </summary>
+    [DataMember]
     public IsoNumber? LegalSequenceNumber { get; init; } 
     /// <summary>
     /// Date and time at which the notification was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CreationDateTime { get; init; } 
     /// <summary>
     /// Range of time between a start date and an end date for which the account notification is issued.
     /// </summary>
+    [DataMember]
     public DateTimePeriod1? FromToDate { get; init; } 
     /// <summary>
     /// Indicates whether the document is a copy, a duplicate, or a duplicate of a copy.
     /// </summary>
+    [DataMember]
     public CopyDuplicate1Code? CopyDuplicateIndicator { get; init; } 
     /// <summary>
     /// Specifies the application used to generate the reporting.
     /// </summary>
+    [DataMember]
     public ReportingSource1Choice_? ReportingSource { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account to which credit and debit entries are made.
     /// </summary>
+    [DataMember]
     public required CashAccount41 Account { get; init; } 
     /// <summary>
     /// Identifies the parent account of the account for which the notification has been issued.
     /// </summary>
+    [DataMember]
     public CashAccount40? RelatedAccount { get; init; } 
     /// <summary>
     /// Provides general interest information that applies to the account at a particular moment in time.
     /// </summary>
-    public AccountInterest4[] Interest { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AccountInterest4> Interest { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides summary information on entries.
     /// </summary>
+    [DataMember]
     public TotalTransactions6? TransactionsSummary { get; init; } 
     /// <summary>
     /// Specifies an entry in the debit credit notification.
@@ -77,10 +92,12 @@ public partial record AccountNotification21
     /// Following elements all defined in the TransactionDetails in RelatedParties or RelatedAgents are impacted by this usage rule:
     /// Creditor, UltimateCreditor, CreditorAccount, CreditorAgent, Debtor, UltimateDebtor, DebtorAccount and DebtorAgent.
     /// </summary>
-    public ReportEntry13[] Entry { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReportEntry13> Entry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further details of the account notification.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? AdditionalNotificationInformation { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the original request. Identifies the message being acknowledged and its status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReceiptAcknowledgementReport1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ReceiptAcknowledgementReport1
     /// <summary>
     /// Reference of the request.
     /// </summary>
+    [DataMember]
     public required AdditionalReferences RelatedReference { get; init; } 
     /// <summary>
     /// Gives the status of the request.
     /// </summary>
+    [DataMember]
     public required RequestHandling1 RequestHandling { get; init; } 
     /// <summary>
     /// Identification of the original message for which the acknowledgement is sent.
     /// </summary>
+    [DataMember]
     public MessageIdentification6? OriginalMessageIdentification { get; init; } 
     
     #nullable disable

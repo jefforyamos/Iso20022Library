@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Context, or geographic environment, in which trading parties may meet in order to negotiate and execute trades among themselves.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LocalMarketAnnex4
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record LocalMarketAnnex4
     /// <summary>
     /// Country of the local fund order desk.
     /// </summary>
-    public CountryCode[] Country { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CountryCode> Country { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Local entity appointed by the fund, to which orders should be submitted. 
     /// </summary>
+    [DataMember]
     public required OrderDesk1 LocalOrderDesk { get; init; } 
     /// <summary>
     /// Processing characteristics linked to a subscription to the investment fund or alternative/hedge fund.
     /// </summary>
+    [DataMember]
     public ProcessingCharacteristics8? SubscriptionProcessingCharacteristics { get; init; } 
     /// <summary>
     /// Processing characteristics linked to a redemption to the investment fund or alternative/hedge fund.
     /// </summary>
+    [DataMember]
     public ProcessingCharacteristics5? RedemptionProcessingCharacteristics { get; init; } 
     /// <summary>
     /// Processing characteristics linked to a switch of the investment fund or alternative/hedge fund.
     /// </summary>
+    [DataMember]
     public ProcessingCharacteristics6? SwitchProcessingCharacteristics { get; init; } 
     /// <summary>
     /// Account to be used for cash settlement.
     /// </summary>
-    public CashAccount202[] CashSettlementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashAccount202> CashSettlementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the fund order desk.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

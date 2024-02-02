@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// DTC (The Depository Trust Company) Tax Relief service election details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DTCTaxReliefSD2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DTCTaxReliefSD2
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Provides information about the defined tax relief categories used by DTC (The Depository Trust Corporation).
     /// </summary>
+    [DataMember]
     public required DTCTaxReliefSD1 DTCTaxReliefCategory { get; init; } 
     /// <summary>
     /// Instructed quantity for DTC Tax Relief service elections.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity15Choice_ InstructionQuantity { get; init; } 
     
     #nullable disable

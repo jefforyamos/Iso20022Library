@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the parameters of the report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportParameters3
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record ReportParameters3
     /// <summary>
     /// Unique identification of the report.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ReportIdentification { get; init; } 
     /// <summary>
     /// Date (and time) and time of the report.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ ReportDateAndTime { get; init; } 
     /// <summary>
     /// Currency used for the calculation of the margin.
     /// </summary>
+    [DataMember]
     public required CurrencyCode ReportCurrency { get; init; } 
     /// <summary>
     /// Date of calculation of the margin.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CalculationDateAndTime { get; init; } 
     /// <summary>
     /// Frequency of the report.
     /// </summary>
+    [DataMember]
     public required EventFrequency6Code Frequency { get; init; } 
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
+    [DataMember]
     public IsoExact5NumericText? ReportNumber { get; init; } 
     
     #nullable disable

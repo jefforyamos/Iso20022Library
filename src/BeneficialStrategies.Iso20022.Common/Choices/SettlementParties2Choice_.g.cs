@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(SettlementParties2Choice.DeliveringSettlementParties))]
 [KnownType(typeof(SettlementParties2Choice.ReceivingSettlementParties))]
+[DataContract]
 public abstract partial record SettlementParties2Choice_
 {
 }

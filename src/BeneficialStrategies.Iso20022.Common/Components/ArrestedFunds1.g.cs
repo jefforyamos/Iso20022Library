@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about funds that have been arrested.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ArrestedFunds1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ArrestedFunds1
     /// <summary>
     /// Identification of the arrest order assigned by the account servicer.
     /// </summary>
+    [DataMember]
     public IsoMax10Text? ArrestIdentification { get; init; } 
     /// <summary>
     /// Total amount owed subject to arrest.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalAmount { get; init; } 
     /// <summary>
     /// Remaining unpaid amount out of total amount owed subject to arrest.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount RemainingUnpaidAmount { get; init; } 
     /// <summary>
     /// Funds blocked for settlement of the arrest order.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ArrestedAmount { get; init; } 
     
     #nullable disable

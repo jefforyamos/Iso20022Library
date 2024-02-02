@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed description of an error that caused the message to be corrected/amended. Transmitted for further analysis.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedError1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DetailedError1
     /// <summary>
     /// Type of error corrected or amendment brought to the message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Detailed description of the error or amendment.
     /// </summary>
+    [DataMember]
     public required IsoMax500Text Description { get; init; } 
     /// <summary>
     /// Contains the modified value. 
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Value { get; init; } 
     
     #nullable disable

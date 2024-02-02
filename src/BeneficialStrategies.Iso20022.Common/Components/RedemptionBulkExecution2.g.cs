@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Execution of a redemption order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RedemptionBulkExecution2
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record RedemptionBulkExecution2
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
+    [DataMember]
     public CountryCode? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Date and time at which the order was placed by the investor.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OrderDateTime { get; init; } 
     /// <summary>
     /// Cancellation right of an investor with respect to an investment fund order.
     /// </summary>
+    [DataMember]
     public CancellationRight1? CancellationRight { get; init; } 
     /// <summary>
     /// Investment fund class to which an investment fund order execution is related.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument6 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Execution of a redemption order.
     /// </summary>
-    public RedemptionExecution3[] IndividualExecutionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RedemptionExecution3> IndividualExecutionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency requested for settlement of cash proceeds.
     /// </summary>
+    [DataMember]
     public CurrencyCode? RequestedSettlementCurrency { get; init; } 
     /// <summary>
     /// Currency to be used for pricing the fund. This currency must be among the set of currencies in which the price may be expressed, as stated in the prospectus.
     /// </summary>
+    [DataMember]
     public CurrencyCode? RequestedNAVCurrency { get; init; } 
     /// <summary>
     /// Payment transaction related to the execution of an investment fund transaction.
     /// </summary>
+    [DataMember]
     public PaymentTransaction18? BulkCashSettlementDetails { get; init; } 
     
     #nullable disable

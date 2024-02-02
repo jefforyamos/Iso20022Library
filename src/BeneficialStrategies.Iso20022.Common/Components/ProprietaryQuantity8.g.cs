@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Proprietary quantity format.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProprietaryQuantity8
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ProprietaryQuantity8
     /// <summary>
     /// Provides the proprietary quantity with a decimal number.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber Quantity { get; init; } 
     /// <summary>
     /// Identifies the type of proprietary quantity reported.
     /// </summary>
+    [DataMember]
     public required IsoExact4AlphaNumericText QuantityType { get; init; } 
     /// <summary>
     /// Provides information related to issuer in free format.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Issuer { get; init; } 
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SchemeName { get; init; } 
     
     #nullable disable

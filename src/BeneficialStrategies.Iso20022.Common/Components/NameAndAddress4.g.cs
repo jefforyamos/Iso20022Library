@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information that locates and identifies a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NameAndAddress4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NameAndAddress4
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Postal address of the party.
     /// </summary>
+    [DataMember]
     public required PostalAddress1 Address { get; init; } 
     
     #nullable disable

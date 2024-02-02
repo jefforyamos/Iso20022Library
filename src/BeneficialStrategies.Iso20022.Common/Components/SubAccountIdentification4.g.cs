@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SubAccountIdentification4
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record SubAccountIdentification4
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required AccountIdentificationFormatChoice_ Identification { get; init; } 
     /// <summary>
     /// Indicates whether there is activity reported in the statement.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     /// <summary>
     /// Creation/cancellation of investment units on the books of the fund or its designated agent, as a result of executing an investment fund order.
     /// </summary>
-    public InvestmentFundTransactionsByFund1[] TransactionOnSubAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentFundTransactionsByFund1> TransactionOnSubAccount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

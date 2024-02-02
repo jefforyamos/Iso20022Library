@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Network management transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardTransaction12
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CardTransaction12
     /// <summary>
     /// Type of network management service (correspond to the ISO 8583 field 24).
     /// </summary>
+    [DataMember]
     public required CardServiceType2Code NetworkManagementType { get; init; } 
     /// <summary>
     /// Date and time of the transaction.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? InitiatorDateTime { get; init; } 
     /// <summary>
     /// Number of messages in the store and forward queue.
     /// </summary>
+    [DataMember]
     public IsoNumber? NumberOfMessages { get; init; } 
     /// <summary>
     /// Maximum number of messages in the store and forward queue.
     /// </summary>
+    [DataMember]
     public IsoNumber? MaximumNumberOfMessages { get; init; } 
     /// <summary>
     /// Response to the network management request.
     /// </summary>
+    [DataMember]
     public required ResponseType2 TransactionResponse { get; init; } 
     
     #nullable disable

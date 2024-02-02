@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Definition of absolute price move of a financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Absolute1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Absolute1
     /// <summary>
     /// Unit of measure for the absolute stress.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Unit { get; init; } 
     /// <summary>
     /// Number of units of measure shifted.
     /// </summary>
+    [DataMember]
     public required IsoNumber Quantity { get; init; } 
     
     #nullable disable

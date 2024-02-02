@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party and its role.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Intermediary47
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Intermediary47
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution.
     /// </summary>
+    [DataMember]
     public required PartyIdentification125Choice_ Identification { get; init; } 
     /// <summary>
     /// Identification of the party with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>
+    [DataMember]
     public Account32? Account { get; init; } 
     
     #nullable disable

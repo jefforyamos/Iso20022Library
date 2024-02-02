@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Acquirer involved in the card payment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Acquirer9
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Acquirer9
     /// <summary>
     /// Identification of the acquirer (for example the bank identification number BIN).
     /// </summary>
+    [DataMember]
     public required GenericIdentification171 Identification { get; init; } 
     /// <summary>
     /// Version of the payment acquirer parameters of the POI.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? ParametersVersion { get; init; } 
     
     #nullable disable

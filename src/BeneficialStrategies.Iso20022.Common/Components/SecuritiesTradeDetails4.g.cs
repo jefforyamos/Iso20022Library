@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the securities trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesTradeDetails4
 {
     #nullable enable
@@ -20,135 +22,168 @@ public partial record SecuritiesTradeDetails4
     /// <summary>
     /// Identification of an account owner transaction that could potentially match with the allegement notified.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountOwnerTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the transaction as known by the account servicer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountServicerTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MarketInfrastructureTransactionIdentification { get; init; } 
     /// <summary>
     /// Reference assigned to the trade by the investor or the trading party. This reference will be used throughout the trade life cycle to access/update the trade details.
     /// </summary>
-    public IsoMax35Text[] TradeIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> TradeIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique reference agreed upon by the two trade counterparties to identify the trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CommonIdentification { get; init; } 
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PoolIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of a collateral transaction as assigned by the instructing party.
     /// </summary>
-    public IsoMax35Text[] CollateralTransactionIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> CollateralTransactionIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies if the movement on a securities account results from a deliver or a receive instruction.
     /// </summary>
+    [DataMember]
     public required ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
     /// <summary>
     /// Specifies how the transaction is to be settled, for example, against payment.
     /// </summary>
+    [DataMember]
     public required DeliveryReceiptType2Code Payment { get; init; } 
     /// <summary>
     /// Status of the allegement.
     /// </summary>
+    [DataMember]
     public AllegementStatus1Choice_? Status { get; init; } 
     /// <summary>
     /// Market in which a trade transaction has been executed.
     /// </summary>
+    [DataMember]
     public MarketIdentification4? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Infrastructure which may be a component of a clearing house and wich facilitates clearing and settlement for its members by standing between the buyer and the seller. It may net transactions and it substitutes itself as settlement counterparty for each position.
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? PlaceOfClearing { get; init; } 
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
+    [DataMember]
     public TradeDate1Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
+    [DataMember]
     public required SettlementDate1Choice_ SettlementDate { get; init; } 
     /// <summary>
     /// Date and time after the settlement date specified in the trade, used for pool trades resulting from the original To Be Assigned (TBA) securities.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? LateDeliveryDate { get; init; } 
     /// <summary>
     /// Specifies the price of the traded financial instrument.|This is the deal price of the individual trade transaction. |If there is only one trade transaction for the execution of the trade, then the deal price could equal the executed trade price (unless, for example, the price includes commissions or rounding, or some other factor has been applied to the deal price or the executed trade price, or both).
     /// </summary>
+    [DataMember]
     public Price2? DealPrice { get; init; } 
     /// <summary>
     /// Number of days on which the interest rate accrues (daily accrual note).
     /// </summary>
+    [DataMember]
     public IsoMax3Number? NumberOfDaysAccrued { get; init; } 
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification11 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Elements characterising a financial instrument.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentAttributes8? FinancialInstrumentAttributes { get; init; } 
     /// <summary>
     /// Indicates the conditions under which the order/trade is to be/was executed.
     /// </summary>
-    public TradeTransactionCondition1Choice_[] TradeTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TradeTransactionCondition1Choice_> TradeTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies additional information relative to the processing of the trade.
     /// </summary>
+    [DataMember]
     public OpeningClosing1Choice_? OpeningClosing { get; init; } 
     /// <summary>
     /// Specifies the type of price and information about the price.
     /// </summary>
+    [DataMember]
     public TypeOfPrice3Choice_? TypeOfPrice { get; init; } 
     /// <summary>
     /// Specifies that a trade is to be reported to a third party.
     /// </summary>
-    public Reporting1Choice_[] Reporting { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Reporting1Choice_> Reporting { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details about the financial instrument quantity and the account involved in the transaction.
     /// </summary>
+    [DataMember]
     public required QuantityAndAccount8 QuantityAndAccountDetails { get; init; } 
     /// <summary>
     /// Details of the closing of the securities financing transaction.
     /// </summary>
+    [DataMember]
     public SecuritiesFinancingTransactionDetails1? SecuritiesFinancingDetails { get; init; } 
     /// <summary>
     /// Parameters applied to the settlement of a security transfer.
     /// </summary>
+    [DataMember]
     public required SettlementDetails5 SettlementParameters { get; init; } 
     /// <summary>
     /// Identifies the chain of delivering settlement parties.
     /// </summary>
+    [DataMember]
     public SettlementParties5? DeliveringSettlementParties { get; init; } 
     /// <summary>
     /// Identifies the chain of receiving settlement parties.
     /// </summary>
+    [DataMember]
     public SettlementParties5? ReceivingSettlementParties { get; init; } 
     /// <summary>
     /// Cash parties involved in the transaction if different for the securities settlement parties.
     /// </summary>
+    [DataMember]
     public CashParties3? CashParties { get; init; } 
     /// <summary>
     /// Total amount of money to be paid or received in exchange for the securities.
     /// </summary>
+    [DataMember]
     public AmountAndDirection2? SettlementAmount { get; init; } 
     /// <summary>
     /// Other amounts than the settlement amount.
     /// </summary>
+    [DataMember]
     public OtherAmounts3? OtherAmounts { get; init; } 
     /// <summary>
     /// Other business parties relevant to the transaction.
     /// </summary>
+    [DataMember]
     public OtherParties3? OtherBusinessParties { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension2[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Extension2> Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

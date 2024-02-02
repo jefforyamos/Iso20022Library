@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status of the acceptor system containing the identification of the POI (Point Of Interaction), its components and their installed versions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatusReport8
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record StatusReport8
     /// <summary>
     /// Identification of the point of interaction for terminal management.
     /// </summary>
+    [DataMember]
     public required GenericIdentification71 POIIdentification { get; init; } 
     /// <summary>
     /// Identification of the requestor.
     /// </summary>
+    [DataMember]
     public TriggerInformation1? InitiatingTrigger { get; init; } 
     /// <summary>
     /// Identification of the terminal management system (TMS) to contact for the maintenance.
     /// </summary>
+    [DataMember]
     public required GenericIdentification71 TerminalManagerIdentification { get; init; } 
     /// <summary>
     /// Data related to a status report of a point of interaction (POI).
     /// </summary>
+    [DataMember]
     public required TerminalManagementDataSet28 DataSet { get; init; } 
     
     #nullable disable

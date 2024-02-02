@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Totals of the reconciliation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionTotals4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TransactionTotals4
     /// <summary>
     /// Total of credit transactions.
     /// </summary>
+    [DataMember]
     public required TransactionTotals5 TotalCredit { get; init; } 
     /// <summary>
     /// Total of debit transactions.
     /// </summary>
+    [DataMember]
     public required TransactionTotals5 TotalDebit { get; init; } 
     /// <summary>
     /// Additional count which may be utilised for reconciliation.
     /// </summary>
+    [DataMember]
     public TransactionTotals6? TotalNumber { get; init; } 
     
     #nullable disable

@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(PlaceOfTradeIdentification3Choice.Country))]
 [KnownType(typeof(PlaceOfTradeIdentification3Choice.Exchange))]
 [KnownType(typeof(PlaceOfTradeIdentification3Choice.OverTheCounter))]
+[DataContract]
 public abstract partial record PlaceOfTradeIdentification3Choice_
 {
 }

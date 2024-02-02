@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information such as the taxation conditions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionNarrative53
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record CorporateActionNarrative53
     /// <summary>
     /// Provides additional information or specifies in more detail the content of a message. This field may only be used when the information to be transmitted, cannot be coded.
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation5? AdditionalText { get; init; } 
     /// <summary>
     /// Provides information that can be ignored for automated processing; - reiteration of information that has been included within structured fields of this message, - or narrative information not needed for automatic processing.
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation5? NarrativeVersion { get; init; } 
     /// <summary>
     /// Provides conditional information related to the event, for example, an offer is subject to 50 percent acceptance, the offeror allows the securities holder to set some conditions.
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation5? InformationConditions { get; init; } 
     /// <summary>
     /// Provides information conditions to the account owner that are to be complied with, for example, not open to US/Canadian residents, Qualified Institutional Buyers (QIB) or SIL (Sophisticated Investor Letter) to be provided.
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation5? InformationToComplyWith { get; init; } 
     /// <summary>
     /// Provides taxation conditions that cannot be included within the structured fields of this message and has not been mentioned in the Service Level Agreement (SLA).
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation5? TaxationConditions { get; init; } 
     /// <summary>
     /// Provides a disclaimer relative to the information provided in the message. It may be ignored for automated processing.
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation5? Disclaimer { get; init; } 
     /// <summary>
     /// Provides additional information regarding the party, for example, the contact unit or person responsible for the transaction identified in the message.
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation5? PartyContactNarrative { get; init; } 
     /// <summary>
     /// Provides information required for the registration.
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation5? RegistrationDetails { get; init; } 
     /// <summary>
     /// Provides additional information on the basket or index underlying a security, for example a warrant.
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation5? BasketOrIndexInformation { get; init; } 
     /// <summary>
     /// Provides additional information about the type of certification/breakdown required.
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation5? CertificationBreakdown { get; init; } 
     /// <summary>
     /// Provides additional information from the account servicer or a service provider solely intended for the next immediate account holder to enable or facilitate event processing between parties.
     /// </summary>
+    [DataMember]
     public UpdatedAdditionalInformation1? ProcessingTextForNextIntermediary { get; init; } 
     
     #nullable disable

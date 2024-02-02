@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Order to invest the investor's principal in an investment fund.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SubscriptionOrder4
 {
     #nullable enable
@@ -20,82 +22,102 @@ public partial record SubscriptionOrder4
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Specifies the category of the investment fund order.
     /// </summary>
-    public FundOrderType1[] OrderType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FundOrderType1> OrderType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Investment fund class related to an order.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument6 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Quantity of investment fund units to be subscribed.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
     /// <summary>
     /// Amount of money used to determine the quantity of investment fund units to be subscribed.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount NetAmount { get; init; } 
     /// <summary>
     /// Indicates the rounding direction applied to nearest unit.
     /// </summary>
+    [DataMember]
     public RoundingDirection2Code? Rounding { get; init; } 
     /// <summary>
     /// Amount of money used to determine the quantity of investment fund units to be subscribed, including all charges, commissions, and tax.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? GrossAmount { get; init; } 
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// </summary>
+    [DataMember]
     public ForeignExchangeTerms5? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
+    [DataMember]
     public IncomePreference1Code? IncomePreference { get; init; } 
     /// <summary>
     /// Reference of a letter of intent program, in which sales commissions are reduced based on the aggregate of a customer's actual purchase and anticipated purchases, over a specific period of time, and as agreed by the customer. A letter of intent program is mainly used in the US market.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LetterIntentReference { get; init; } 
     /// <summary>
     /// Reference of an accumulation right program, in which sales commissions are based on a customer's present purchases of shares and the aggregate quantity previously purchased by the customer. An accumulation rights program is mainly used in the US market.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccumulationRightReference { get; init; } 
     /// <summary>
     /// Charge for the placement of an order.
     /// </summary>
-    public Charge8[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Charge8> ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Commission linked to the execution of an investment fund order.
     /// </summary>
-    public Commission6[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Commission6> CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax applicable to an investment fund order.
     /// </summary>
-    public Tax6[] TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax6> TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Parameters used to execute the settlement of an investment fund order.
     /// </summary>
+    [DataMember]
     public FundSettlementParameters4? SettlementAndCustodyDetails { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator PhysicalDeliveryIndicator { get; init; } 
     /// <summary>
     /// Information related to physical delivery of the securities.
     /// </summary>
+    [DataMember]
     public NameAndAddress4? PhysicalDeliveryDetails { get; init; } 
     /// <summary>
     /// Currency requested for settlement of cash proceeds.
     /// </summary>
+    [DataMember]
     public CurrencyCode? RequestedSettlementCurrency { get; init; } 
     /// <summary>
     /// Currency to be used for pricing the fund. This currency must be among the set of currencies in which the price may be expressed, as stated in the prospectus.
     /// </summary>
+    [DataMember]
     public CurrencyCode? RequestedNAVCurrency { get; init; } 
     /// <summary>
     /// Payment transaction resulting from the investment fund order execution.
     /// </summary>
+    [DataMember]
     public PaymentTransaction19? CashSettlementDetails { get; init; } 
     
     #nullable disable

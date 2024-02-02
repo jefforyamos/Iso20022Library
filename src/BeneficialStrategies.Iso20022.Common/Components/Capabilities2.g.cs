@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Capabilities of the terminal.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Capabilities2
 {
     #nullable enable
@@ -20,53 +22,65 @@ public partial record Capabilities2
     /// <summary>
     /// Card reading capability of the terminal performing the transaction.
     /// </summary>
-    public CardReadingCapabilities1[] CardReadingCapability { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardReadingCapabilities1> CardReadingCapability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Card writing or output capabilities of the terminal performing the transaction.
     /// </summary>
-    public CardWritingCapabilities1[] CardWritingCapability { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardWritingCapabilities1> CardWritingCapability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum number of digits that the Point of Interaction is able to accept when the cardholder enters its PIN.
     /// </summary>
+    [DataMember]
     public IsoNumber? PINLengthCapability { get; init; } 
     /// <summary>
     /// Security characteristic of the PIN Entry device solution.
     /// </summary>
+    [DataMember]
     public PINEntrySecurityCharacteristic1Code? PINEntrySecurityCharacteristic { get; init; } 
     /// <summary>
     /// Other privately or nationally assigned code.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherPINEntrySecurityCharacteristic { get; init; } 
     /// <summary>
     /// Maximum number of characters of the approval code that the acquirer is able to manage.
     /// </summary>
+    [DataMember]
     public IsoNumber? ApprovalCodeLength { get; init; } 
     /// <summary>
     /// Maximum data length in bytes that a card issuer can return to the ICC at the terminal.
     /// </summary>
+    [DataMember]
     public IsoNumber? MaxScriptLength { get; init; } 
     /// <summary>
     /// Indicates whether the terminal can capture cards or not.
     /// True: The terminal is able to capture cards
     /// False: The terminal is not able to capture cards.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CardCaptureCapable { get; init; } 
     /// <summary>
     /// Capability of the terminal to go online.
     /// </summary>
+    [DataMember]
     public OnLineCapability2Code? OnLineCapability { get; init; } 
     /// <summary>
     /// Capability of the terminal to display or print messages to the cardholder or the merchant.
     /// </summary>
-    public DisplayCapabilities6[] MessageCapability { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DisplayCapabilities6> MessageCapability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cardholder verification capabilities performing the transaction at the point of service.
     /// </summary>
-    public CardholderVerificationCapabilities1[] CardholderVerificationCapability { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardholderVerificationCapabilities1> CardholderVerificationCapability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Terminal is capable of temporary secure storage of the card details for reuse upon permission of the card issuer.
     /// Default meaning when not present: false.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? TemporarySecureCardDataStorage { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status of the transfer cancellation is complete.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferCancellationCompleteStatusAndReason1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TransferCancellationCompleteStatusAndReason1
     /// <summary>
     /// Reason for the transfer cancellation complete status.
     /// </summary>
+    [DataMember]
     public required CancelledStatusReason1Code Reason { get; init; } 
     /// <summary>
     /// Reason for the transfer cancellation complete status.
     /// </summary>
+    [DataMember]
     public required IsoExtended350Code ExtendedReason { get; init; } 
     /// <summary>
     /// Proprietary identification of the reason for the transfer cancellation complete status.
     /// </summary>
+    [DataMember]
     public required GenericIdentification1 DataSourceScheme { get; init; } 
     
     #nullable disable

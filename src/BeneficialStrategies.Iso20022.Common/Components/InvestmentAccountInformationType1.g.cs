@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Select the type(s) of information to be retrieved about a registered investment account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentAccountInformationType1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record InvestmentAccountInformationType1
     /// <summary>
     /// Indicates if the core investment account information must be selected.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator InvestmentAccount { get; init; } 
     /// <summary>
     /// Indicates if the information about account parties must be selected.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator AccountParties { get; init; } 
     /// <summary>
     /// Indicates if the information about the intermediaries must be selected.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Intermediaries { get; init; } 
     /// <summary>
     /// Indicates if the information about the investment plan(s) must be selected.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator InvestmentPlan { get; init; } 
     /// <summary>
     /// Indicates if the cash settlement information must be selected.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator CashSettlement { get; init; } 
     /// <summary>
     /// Indicates if the Service Level Agreement information must be selected.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ServiceLevelAgreement { get; init; } 
     
     #nullable disable

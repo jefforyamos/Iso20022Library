@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Entity involved in an activity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentificationAndAccount6
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PartyIdentificationAndAccount6
     /// <summary>
     /// Unique identification, as assigned by an organisation, to unambiguously identify a party.
     /// </summary>
+    [DataMember]
     public required PartyIdentification25 PartyIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of an account held by Financing Requestor to First Agent. This account is requested to be used for crediting the amount financed, as a result of the financing process.
     /// </summary>
+    [DataMember]
     public CashAccount7? CreditAccount { get; init; } 
     /// <summary>
     /// Unambiguous identification of an internal bank account used by First Agent to manage the line of credit granted to Financing Requestor. This account is requested to be used for managing the financing process.
     /// </summary>
+    [DataMember]
     public CashAccount7? FinancingAccount { get; init; } 
     
     #nullable disable

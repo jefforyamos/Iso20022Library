@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information used to identify a product.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProductIdentifier2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ProductIdentifier2
     /// <summary>
     /// Specifies the type of product identifier by means of a code.
     /// </summary>
+    [DataMember]
     public required ProductIdentifier2Code Type { get; init; } 
     /// <summary>
     /// Specifies the product identifier.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identifier { get; init; } 
     
     #nullable disable

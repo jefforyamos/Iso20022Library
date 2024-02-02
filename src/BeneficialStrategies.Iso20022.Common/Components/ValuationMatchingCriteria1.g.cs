@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Compares information related to both sides of a contract valuation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ValuationMatchingCriteria1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ValuationMatchingCriteria1
     /// <summary>
     /// Specifies whether the information on the contract values are matching or not.
     /// </summary>
+    [DataMember]
     public CompareAmountAndDirection3? ContractValue { get; init; } 
     /// <summary>
     /// Specifies whether the information on the valuation methods are matching or not.
     /// </summary>
+    [DataMember]
     public CompareValuationType1? Type { get; init; } 
     
     #nullable disable

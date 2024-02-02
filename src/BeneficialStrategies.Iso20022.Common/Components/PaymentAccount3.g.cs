@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related to an account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentAccount3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PaymentAccount3
     /// <summary>
     /// Currency of a Payment Account.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Balance of a Payment Account
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? CurrentBalance { get; init; } 
     /// <summary>
     /// Detail of Acquirer.
     /// </summary>
+    [DataMember]
     public Acquirer10? PaymentAcquirerData { get; init; } 
     
     #nullable disable

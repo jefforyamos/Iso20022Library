@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification information expressed as a country of fiscal domicile and a reference.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericIdentificationSD1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record GenericIdentificationSD1
     /// <summary>
     /// Country in which the account owner has one's fiscal domicile.
     /// </summary>
+    [DataMember]
     public required CountryCode FiscalDomicile { get; init; } 
     /// <summary>
     /// Identification of the document assigned by the account servicer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountServicerIdentification { get; init; } 
     /// <summary>
     /// Identification of the document assigned by the account owner.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountOwnerIdentification { get; init; } 
     
     #nullable disable

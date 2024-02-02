@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Entity involved in an activity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentificationAndAccount34
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PartyIdentificationAndAccount34
     /// <summary>
     /// Identification of a party.
     /// </summary>
+    [DataMember]
     public required PartyIdentification32Choice_ Identification { get; init; } 
     /// <summary>
     /// Provides additional information regarding the party, for example, the contact unit or person responsible for the transaction identified in the message.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
+    [DataMember]
     public AlternatePartyIdentification5? AlternateIdentification { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SafekeepingAccount { get; init; } 
     
     #nullable disable

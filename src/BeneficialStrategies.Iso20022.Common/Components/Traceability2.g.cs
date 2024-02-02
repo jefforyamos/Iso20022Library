@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of partners involved in exchange from the merchant to the issuer, with the relative timestamp of their exchanges.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Traceability2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Traceability2
     /// <summary>
     /// Identification of a partner of a message exchange.
     /// </summary>
+    [DataMember]
     public required GenericIdentification76 RelayIdentification { get; init; } 
     /// <summary>
     /// Date and time of incoming data exchange for relaying or processing.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime TraceDateTimeIn { get; init; } 
     /// <summary>
     /// Date and time of the outgoing exchange for relaying or processing.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime TraceDateTimeOut { get; init; } 
     
     #nullable disable

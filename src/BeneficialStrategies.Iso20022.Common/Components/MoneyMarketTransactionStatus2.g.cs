@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details of each individual secured market transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MoneyMarketTransactionStatus2
 {
     #nullable enable
@@ -20,29 +22,35 @@ public partial record MoneyMarketTransactionStatus2
     /// <summary>
     /// Unique transaction identifier will be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction during its lifetime.
     /// </summary>
+    [DataMember]
     public IsoMax105Text? UniqueTransactionIdentifier { get; init; } 
     /// <summary>
     /// Internal unique transaction identifier used by the reporting agent for each transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax105Text ProprietaryTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous legal entity identification of the branch of the reporting agent in which the transaction has been booked.
     /// Usage: This field must only be provided if the transaction has been conducted and booked by a branch of the reporting agent and only if this branch has its own LEI that the reporting agent can clearly identify. 
     /// Where the transaction has been booked by the head office or the reporting agent cannot be identified by a unique branch-specific LEI, the reporting agent must provide the LEI of the head office.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? BranchIdentification { get; init; } 
     /// <summary>
     /// Defines status of the reported transaction.
     /// </summary>
+    [DataMember]
     public required StatisticalReportingStatus2Code Status { get; init; } 
     /// <summary>
     /// Provides the details of the rule which could not be validated.
     /// </summary>
-    public GenericValidationRuleIdentification1[] ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericValidationRuleIdentification1> ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

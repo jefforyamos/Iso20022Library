@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Configuration parameters to communicate with a host.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NetworkParameters1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record NetworkParameters1
     /// <summary>
     /// IP address or host name of the primary host.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text PrimaryAddress { get; init; } 
     /// <summary>
     /// Port number of the primary host.
     /// </summary>
+    [DataMember]
     public required IsoNumber PrimaryPortNumber { get; init; } 
     /// <summary>
     /// IP address or host name of the secondary host.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SecondaryAddress { get; init; } 
     /// <summary>
     /// Port number of the secondary host.
     /// </summary>
+    [DataMember]
     public IsoNumber? SecondaryPortNumber { get; init; } 
     /// <summary>
     /// User name identifying the client.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? UserName { get; init; } 
     /// <summary>
     /// Password authenticating the client.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccessCode { get; init; } 
     /// <summary>
     /// Client certificate chain.
     /// </summary>
+    [DataMember]
     public IsoMax3000Binary? ClientCertificate { get; init; } 
     
     #nullable disable

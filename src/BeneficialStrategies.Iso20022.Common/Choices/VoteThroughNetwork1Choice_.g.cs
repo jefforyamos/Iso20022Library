@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(VoteThroughNetwork1Choice.VoteChannel))]
 [KnownType(typeof(VoteThroughNetwork1Choice.VoteDirectlyToIssuer))]
+[DataContract]
 public abstract partial record VoteThroughNetwork1Choice_
 {
 }

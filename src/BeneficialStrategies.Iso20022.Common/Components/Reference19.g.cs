@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the references of the underlying trade leg(s) and/or the reference to the related NetPosition report message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Reference19
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Reference19
     /// <summary>
     /// Reference allocated by the central counterparty - central counterpatry trade leg reference identification that uniquely identifies the trade.
     /// </summary>
-    public IsoMax35Text[] TradeLegNotificationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> TradeLegNotificationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// After netting, reference that is common to a net transaction to settle and all its underlying trades.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NetPositionIdentification { get; init; } 
     
     #nullable disable

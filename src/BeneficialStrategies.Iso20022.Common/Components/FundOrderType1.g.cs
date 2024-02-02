@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specification of the fund order type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FundOrderType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FundOrderType1
     /// <summary>
     /// Structured format.
     /// </summary>
+    [DataMember]
     public required FundOrderType2Code Structured { get; init; } 
     /// <summary>
     /// Additional information about the type of identification.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

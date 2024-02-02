@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the return indicators and the investigation result.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReturnIndicator1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ReturnIndicator1
     /// <summary>
     /// Specifies the dates between which period the response results relate to.
     /// </summary>
+    [DataMember]
     public DateOrDateTimePeriodChoice_? ResponsePeriod { get; init; } 
     /// <summary>
     /// Identifies the authority request type as a code.
     /// </summary>
+    [DataMember]
     public required AuthorityRequestType1 AuthorityRequestType { get; init; } 
     /// <summary>
     /// Provides the investigation result.
     /// </summary>
+    [DataMember]
     public required InvestigationResult1Choice_ InvestigationResult { get; init; } 
     /// <summary>
     /// Additional information, in free text form, to complement the investigation result.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? AdditionalInformation { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification208
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PartyIdentification208
     /// <summary>
     /// Type of identification.
     /// </summary>
+    [DataMember]
     public required IsoMax4Text Type { get; init; } 
     /// <summary>
     /// Other type of identification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Identification of the party.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text Identification { get; init; } 
     /// <summary>
     /// Entity in charge of assigning an identification to a party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Assigner { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Digital account where digital assets or digital tokens can be stored and where an entry is made.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BlockChainAddressWallet7
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record BlockChainAddressWallet7
     /// <summary>
     /// Unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax140Text Identification { get; init; } 
     /// <summary>
     /// Specifies the type of securities account.
     /// </summary>
+    [DataMember]
     public GenericIdentification47? Type { get; init; } 
     /// <summary>
     /// Description of the account.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax70Text? Name { get; init; } 
     
     #nullable disable

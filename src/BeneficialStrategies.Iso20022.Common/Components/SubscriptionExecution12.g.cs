@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Execution of a subscription order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SubscriptionExecution12
 {
     #nullable enable
@@ -20,84 +22,104 @@ public partial record SubscriptionExecution12
     /// <summary>
     /// Unique and unambiguous identifier for the order, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the order execution, as assigned by the confirming party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text DealReference { get; init; } 
     /// <summary>
     /// Category of the investment fund order.
     /// </summary>
-    public FundOrderType4Choice_[] OrderType { get; init; } = [];
+    [DataMember]
+    public ValueList<FundOrderType4Choice_> OrderType { get; init; } = [];
     /// <summary>
     /// Account impacted by the investment fund order execution.
     /// </summary>
+    [DataMember]
     public required InvestmentAccount58 InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Additional information about the investor.
     /// </summary>
-    public IndividualPerson31[] BeneficiaryDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IndividualPerson31> BeneficiaryDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number of investment fund units subscribed.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber UnitsNumber { get; init; } 
     /// <summary>
     /// Indicates the rounding direction applied to nearest unit.
     /// </summary>
+    [DataMember]
     public RoundingDirection2Code? Rounding { get; init; } 
     /// <summary>
     /// Amount of money invested in the fund. 
     /// Net Amount = Quantity * Price.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? NetAmount { get; init; } 
     /// <summary>
     /// Amount of money to be paid by the investor when subscribing to fund units.
     /// Gross amount = (Quantity * Price) + (Fees + Taxes).
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? GrossAmount { get; init; } 
     /// <summary>
     /// Date and time at which a price is applied, according to the terms stated in the prospectus.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     /// <summary>
     /// Price at which the order was executed.
     /// </summary>
+    [DataMember]
     public required UnitPrice22 DealingPriceDetails { get; init; } 
     /// <summary>
     /// Other quoted price than the one at which the order was executed.
     /// </summary>
-    public UnitPrice22[] InformativePriceDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<UnitPrice22> InformativePriceDetails { get; init; } = [];
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount SettlementAmount { get; init; } 
     /// <summary>
     /// Date on which cash is available.
     /// </summary>
+    [DataMember]
     public IsoISODate? CashSettlementDate { get; init; } 
     /// <summary>
     /// Method by which the transaction is settled.
     /// </summary>
+    [DataMember]
     public DeliveryReceiptType2Code? SettlementMethod { get; init; } 
     /// <summary>
     /// Indicates whether the order has been partially executed, that is, the confirmed quantity does not match the ordered quantity for a given financial instrument.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator PartiallyExecutedIndicator { get; init; } 
     /// <summary>
     /// Specifies that the execution was subject to best execution rules as defined by MiFID.
     /// </summary>
+    [DataMember]
     public BestExecution1Code? BestExecution { get; init; } 
     /// <summary>
     /// Indicates whether the dividend is included, that is, cum-dividend, in the executed price. When the dividend is not included, the price will be ex-dividend.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator CumDividendIndicator { get; init; } 
     /// <summary>
     /// Part of the price deemed as accrued income or profit rather than capital. The interim profit amount is used for tax purposes.
     /// </summary>
+    [DataMember]
     public ProfitAndLoss2Choice_? InterimProfitAmount { get; init; } 
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
@@ -111,106 +133,132 @@ public partial record SubscriptionExecution12
     /// QuotedCurrency EUR
     /// ExchangeRate 0.769.
     /// </summary>
-    public ForeignExchangeTerms33[] ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ForeignExchangeTerms33> ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
+    [DataMember]
     public IncomePreference1Code? IncomePreference { get; init; } 
     /// <summary>
     /// Reference of a letter of intent program, in which sales commissions are reduced based on the aggregate of a customer's actual purchase and anticipated purchases, over a specific period of time, and as agreed by the customer. A letter of intent program is mainly used in the US market.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LetterIntentReference { get; init; } 
     /// <summary>
     /// Reference of an accumulation right program, in which sales commissions are based on a customer's present purchases of shares and the aggregate quantity previously purchased by the customer. An accumulation rights program is mainly used in the US market.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccumulationRightReference { get; init; } 
     /// <summary>
     /// Fees (charges/commission) and taxes that are taken into consideration for the transaction, so that the total difference between the net amount and gross amount is known, without taking into account equalisation.
     /// </summary>
+    [DataMember]
     public TotalFeesAndTaxes40? TransactionOverhead { get; init; } 
     /// <summary>
     /// Additional information about tax that does not have an impact on the transaction overhead.
     /// </summary>
+    [DataMember]
     public InformativeTax1? InformativeTaxDetails { get; init; } 
     /// <summary>
     /// Parameters used to execute the settlement of an investment fund order.
     /// </summary>
+    [DataMember]
     public FundSettlementParameters12? SettlementAndCustodyDetails { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator PhysicalDeliveryIndicator { get; init; } 
     /// <summary>
     /// Information related to the physical delivery of the securities.
     /// </summary>
+    [DataMember]
     public DeliveryParameters3? PhysicalDeliveryDetails { get; init; } 
     /// <summary>
     /// Breakdown of the net amount per type of order.
     /// </summary>
-    public InvestmentFundsOrderBreakdown2[] StaffClientBreakdown { get; init; } = [];
+    [DataMember]
+    public ValueList<InvestmentFundsOrderBreakdown2> StaffClientBreakdown { get; init; } = [];
     /// <summary>
     /// Return of cash that has been overpaid for a subscription.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? Refund { get; init; } 
     /// <summary>
     /// Interest received when a subscription amount is paid in advance and then invested by the fund.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? SubscriptionInterest { get; init; } 
     /// <summary>
     /// Payment process for the transfer of cash from the debtor to the creditor.
     /// </summary>
+    [DataMember]
     public PaymentTransaction70? CashSettlementDetails { get; init; } 
     /// <summary>
     /// Additional specific settlement information for non-regulated traded funds.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? NonStandardSettlementInformation { get; init; } 
     /// <summary>
     /// Percentage of units partially settled.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? PartialSettlementOfUnits { get; init; } 
     /// <summary>
     /// Specifies if advice has been received from an independent financial advisor.
     /// </summary>
+    [DataMember]
     public FinancialAdvice1Code? FinancialAdvice { get; init; } 
     /// <summary>
     /// Specifies whether the trade is negotiated.
     /// </summary>
+    [DataMember]
     public NegotiatedTrade1Code? NegotiatedTrade { get; init; } 
     /// <summary>
     /// Specifies whether the order execution confirmation is late.
     /// </summary>
+    [DataMember]
     public LateReport1Code? LateReport { get; init; } 
     /// <summary>
     /// Percentage of cash partially settled.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? PartialSettlementOfCash { get; init; } 
     /// <summary>
     /// Party related to the transaction.
     /// </summary>
-    public Intermediary39[] RelatedPartyDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<Intermediary39> RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Part of an investor's subscription amount that is held by the fund in order to pay incentive / performance fees at the end of the fiscal year.
     /// </summary>
+    [DataMember]
     public Equalisation1? Equalisation { get; init; } 
     /// <summary>
     /// Source of cash used for the settlement of the subscription.
     /// </summary>
-    public SourceOfCash1Choice_[] SourceOfCash { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SourceOfCash1Choice_> SourceOfCash { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Assessment of the customer’s behaviour at the time of the account opening application.
     /// </summary>
+    [DataMember]
     public CustomerConductClassification1Choice_? CustomerConductClassification { get; init; } 
     /// <summary>
     /// Means by which the investor or account owner submits the open account form.
     /// </summary>
+    [DataMember]
     public TransactionChannelType1Choice_? TransactionChannelType { get; init; } 
     /// <summary>
     /// Type of signature.
     /// </summary>
+    [DataMember]
     public SignatureType1Choice_? SignatureType { get; init; } 
     /// <summary>
     /// Information about a non-standard order.
     /// </summary>
+    [DataMember]
     public OrderWaiver1? OrderWaiverDetails { get; init; } 
     
     #nullable disable

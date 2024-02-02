@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains information that identifies or is specific to a transaction jurisdiction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Jurisdiction2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Jurisdiction2
     /// <summary>
     /// When true, indicates the transaction is considered to be domestic.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? DomesticIndicator { get; init; } 
     /// <summary>
     /// Identifies the reason the transaction is considered to be domestic or non-domestic.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DomesticQualification { get; init; } 
     
     #nullable disable

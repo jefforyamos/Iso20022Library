@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data specific to securities being subject to the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Security17
 {
     #nullable enable
@@ -20,60 +22,74 @@ public partial record Security17
     /// <summary>
     /// Specifies whether the values defined as ISIN identifier are matching or not.
     /// </summary>
+    [DataMember]
     public CompareISINIdentifier2? Identification { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as CFI identifier are matching or not.
     /// </summary>
+    [DataMember]
     public CompareCFIIdentifier2? ClassificationType { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as decimal number are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDecimalNumber2? Quantity { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
+    [DataMember]
     public CompareAmountAndDirection1? NominalValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as collateral quality type code are matching or not.
     /// </summary>
+    [DataMember]
     public CompareCollateralQualityType2? Quality { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as ISO date are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDate2? Maturity { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as LEI identifier are matching or not.
     /// </summary>
+    [DataMember]
     public CompareOrganisationIdentification1? IssuerIdentifier { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as country code are matching or not.
     /// </summary>
+    [DataMember]
     public CompareCountryCode2? IssuerCountry { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as securities lending type are matching or not.
     /// </summary>
-    public CompareSecuritiesLendingType2[] Type { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CompareSecuritiesLendingType2> Type { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the the unit prices are matching or not.
     /// </summary>
+    [DataMember]
     public CompareUnitPrice3? UnitPrice { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
+    [DataMember]
     public CompareTrueFalseIndicator2? ExclusiveArrangement { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
+    [DataMember]
     public CompareActiveOrHistoricCurrencyAndAmount2? MarketValue { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
+    [DataMember]
     public CompareTrueFalseIndicator2? AvailableForReuse { get; init; } 
     /// <summary>
     /// Collateral haircut, a risk control measure applied to underlying collateral whereby the value of that underlying collateral is calculated as the market value of the assets reduced by a certain percentage. 
     /// In the case of margin lending, collateral haircut or margin requirement, a risk control measure applied to the entire collateral portfolio whereby the value of that underlying collateral is calculated as the market value of the assets reduced by a certain percentage. 
     /// Only actual values, as opposed to estimated or default values are to be reported for this attribute.
     /// </summary>
+    [DataMember]
     public ComparePercentageRate2? HaircutOrMargin { get; init; } 
     
     #nullable disable

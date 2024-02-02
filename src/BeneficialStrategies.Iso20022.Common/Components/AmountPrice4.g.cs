@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Price expressed as an actual amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountPrice4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AmountPrice4
     /// <summary>
     /// Type of amount price.
     /// </summary>
+    [DataMember]
     public required AmountPriceType2Code AmountPriceType { get; init; } 
     /// <summary>
     /// Value of the price.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount PriceValue { get; init; } 
     
     #nullable disable

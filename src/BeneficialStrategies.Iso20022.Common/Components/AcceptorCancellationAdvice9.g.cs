@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cancellation transaction between an acceptor and an acquirer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcceptorCancellationAdvice9
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AcceptorCancellationAdvice9
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentEnvironment74 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
+    [DataMember]
     public CardPaymentContext28? Context { get; init; } 
     /// <summary>
     /// Cancellation transaction between an acceptor and an acquirer.
     /// </summary>
+    [DataMember]
     public required CardPaymentTransaction95 Transaction { get; init; } 
     
     #nullable disable

@@ -21,6 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(UpdateLogPartyRecord1Choice.LockStatus))]
 [KnownType(typeof(UpdateLogPartyRecord1Choice.Restriction))]
 [KnownType(typeof(UpdateLogPartyRecord1Choice.Other))]
+[DataContract]
 public abstract partial record UpdateLogPartyRecord1Choice_
 {
 }

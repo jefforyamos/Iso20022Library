@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies parameters of the report 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementInternaliserReportHeader1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SettlementInternaliserReportHeader1
     /// <summary>
     /// Provides the reporting timestamp, when the report was submitted from the Settlement Internaliser to the Competent Authority.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Last day of the reporting period.
     /// </summary>
+    [DataMember]
     public required IsoISODate ReportingDate { get; init; } 
     /// <summary>
     /// Specifies the currency of the reported transactions.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Provides the status of the report.
     /// </summary>
+    [DataMember]
     public required TransactionOperationType4Code ReportStatus { get; init; } 
     
     #nullable disable

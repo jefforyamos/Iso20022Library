@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates the number of voting rights cast to a resolution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Vote5
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record Vote5
     /// <summary>
     /// Numbering of the resolution as specified by the issuer or its agent.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text IssuerLabel { get; init; } 
     /// <summary>
     /// Specifies whether a resolution is accepted or not.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Accepted { get; init; } 
     /// <summary>
     /// Number of votes in favour of one resolution.
     /// </summary>
+    [DataMember]
     public IsoNumber? For { get; init; } 
     /// <summary>
     /// Number of votes against one resolution.
     /// </summary>
+    [DataMember]
     public IsoNumber? Against { get; init; } 
     /// <summary>
     /// Number of votes expressed as abstain.
     /// </summary>
+    [DataMember]
     public IsoNumber? Abstain { get; init; } 
     /// <summary>
     /// Total votes withheld, eg in the case where a shareholder wishes not to endorse the election of a board member.
     /// </summary>
+    [DataMember]
     public IsoNumber? Withhold { get; init; } 
     /// <summary>
     /// Number of votes for which no action has been taken.
     /// </summary>
+    [DataMember]
     public IsoNumber? NoAction { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Choice between a fixed rate and a floating rate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InterestRate3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InterestRate3
     /// <summary>
     /// Amount of the transaction.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection53 Amount { get; init; } 
     /// <summary>
     /// Information on interest rates related to the transaction.
     /// </summary>
+    [DataMember]
     public required InterestRate20Choice_ InterestRate { get; init; } 
     
     #nullable disable

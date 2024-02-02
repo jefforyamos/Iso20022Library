@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the message number and the query identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentIdentification55
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DocumentIdentification55
     /// <summary>
     /// Message type number/message identifier of the message referenced in the linkage sequence.
     /// </summary>
+    [DataMember]
     public DocumentNumber6Choice_? MessageNumber { get; init; } 
     /// <summary>
     /// Reference to the query identification.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Reference { get; init; } 
     
     #nullable disable

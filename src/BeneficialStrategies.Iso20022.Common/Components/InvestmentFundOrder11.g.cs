@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// References of an order confirmation and an order confirmation cancellation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentFundOrder11
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record InvestmentFundOrder11
     /// <summary>
     /// Unique and unambiguous identifier for the order, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the order execution, as assigned by the confirming party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DealReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the order confirmation cancellation, as assigned by the confirming party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Reason for the cancellation of the confirmation.
     /// </summary>
+    [DataMember]
     public CancellationReason31Choice_? CancellationReason { get; init; } 
     
     #nullable disable

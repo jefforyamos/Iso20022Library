@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Characteristics of an investment plan.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentPlanCharacteristics1
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record InvestmentPlanCharacteristics1
     /// <summary>
     /// Type of investment plan.
     /// </summary>
+    [DataMember]
     public required InvestmentFundPlanType1Choice_ PlanType { get; init; } 
     /// <summary>
     /// Frequency of the investment plan.
     /// </summary>
+    [DataMember]
     public Frequency20Choice_? Frequency { get; init; } 
     /// <summary>
     /// Total number of times the amount must be invested at the predefined frequency as of the start date of the investment plan.
     /// </summary>
+    [DataMember]
     public IsoNumber? TotalNumberOfInstalments { get; init; } 
     /// <summary>
     /// Minimum amount of the periodical payments. (If there is no maximum, then '0' must be specified for the Amount or Units.)
     /// </summary>
+    [DataMember]
     public UnitsOrAmount1Choice_? Quantity { get; init; } 
     /// <summary>
     /// Indicates whether it is possible to continue the savings plan after the end date.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PlanContinuation { get; init; } 
     /// <summary>
     /// Indicates whether it is possible to subscribe to additional instalments over and above that permitted by the savings plan frequency. 
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AdditionalSubscription { get; init; } 
     /// <summary>
     /// Indicates whether any additional instalments will reduce the period of the life of the savings investment plan.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AdditionalSubscriptionFunction { get; init; } 
     /// <summary>
     /// Additional information about the investment plan.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of characteristics shared by all individual transactions included in the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerHeader6
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record TrackerHeader6
     /// <summary>
     /// Point to point reference, as assigned by the tracker informing party and sent to the tracker to unambiguously identify the message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CreationDateTime { get; init; } 
     /// <summary>
     /// Number of individual transactions contained in the message.
     /// </summary>
+    [DataMember]
     public IsoMax15NumericText? NumberOfTransactions { get; init; } 
     /// <summary>
     /// Party that provides information on the status and related details of a transaction.
     /// </summary>
+    [DataMember]
     public TrackerPartyIdentification2? TrackerInformingParty { get; init; } 
     /// <summary>
     /// Party that is updated on the status and related details of a transaction.
     /// </summary>
+    [DataMember]
     public TrackerPartyIdentification2? TrackerInformedParty { get; init; } 
     /// <summary>
     /// Agreement under which or rules under which the tracker update should be processed.
     /// </summary>
+    [DataMember]
     public ServiceLevel8Choice_? ServiceLevel { get; init; } 
     
     #nullable disable

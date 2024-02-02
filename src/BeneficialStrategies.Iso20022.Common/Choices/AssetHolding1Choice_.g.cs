@@ -15,6 +15,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(AssetHolding1Choice.Security))]
 [KnownType(typeof(AssetHolding1Choice.Guarantee))]
 [KnownType(typeof(AssetHolding1Choice.Commodity))]
+[DataContract]
 public abstract partial record AssetHolding1Choice_
 {
 }

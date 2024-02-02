@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action option securities movement price details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionPriceSD2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionPriceSD2
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Price and currency at which cash will be paid for fractional shares (cash-in-lieu rate) by DTC (The Depository Trust Corporation). Used in conjunction with a rounding factor element.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat17Choice_? DTCCashInLieuPrice { get; init; } 
     
     #nullable disable

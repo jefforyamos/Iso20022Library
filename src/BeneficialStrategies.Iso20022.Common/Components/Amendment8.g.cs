@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amendment identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Amendment8
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Amendment8
     /// <summary>
     /// Unique and unambiguous identifier assigned by the issuer to the undertaking, for example the guarantee or standby number.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Sequence number assigned by the issuer to each amendment of the undertaking.
     /// </summary>
+    [DataMember]
     public required IsoMax4AlphaNumericText SequenceNumber { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the beneficiary to the undertaking.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? BeneficiaryReferenceNumber { get; init; } 
     /// <summary>
     /// Party that issues the undertaking.
     /// </summary>
+    [DataMember]
     public required PartyIdentification43 Issuer { get; init; } 
     
     #nullable disable

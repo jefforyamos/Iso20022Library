@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the intra-position movement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraPositionDetails20
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record IntraPositionDetails20
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [DataMember]
     public SafekeepingPlaceFormat3Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Balance from which the securities were moved.
     /// </summary>
+    [DataMember]
     public required SecuritiesBalanceType3Choice_ BalanceFrom { get; init; } 
     /// <summary>
     /// Intra-position movement(s) having been performed.
     /// </summary>
-    public IntraPositionMovementDetails7[] IntraPositionMovement { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IntraPositionMovementDetails7> IntraPositionMovement { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

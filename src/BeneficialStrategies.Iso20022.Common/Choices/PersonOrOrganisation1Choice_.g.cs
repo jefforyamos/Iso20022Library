@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(PersonOrOrganisation1Choice.MIC))]
 [KnownType(typeof(PersonOrOrganisation1Choice.Person))]
 [KnownType(typeof(PersonOrOrganisation1Choice.Internal))]
+[DataContract]
 public abstract partial record PersonOrOrganisation1Choice_
 {
 }

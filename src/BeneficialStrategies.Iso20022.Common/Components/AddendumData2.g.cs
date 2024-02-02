@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Addendum data structure is applicable to certain merchant verticals that require industry-specific data within transaction messages. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AddendumData2
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record AddendumData2
     /// <summary>
     /// Fleet data pertaining to the payment transaction.
     /// </summary>
+    [DataMember]
     public FleetData3? Fleet { get; init; } 
     /// <summary>
     /// Contains additional data for the addendum.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

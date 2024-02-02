@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique identification, as assigned by the original requestor, to unambiguously identify the business instruction message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalBusinessInstruction3
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record OriginalBusinessInstruction3
     /// <summary>
     /// Point to point reference, as assigned by the original initiating party, to unambiguously identify the original instruction message.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax35Text MessageIdentification { get; init; } 
     
     #nullable disable

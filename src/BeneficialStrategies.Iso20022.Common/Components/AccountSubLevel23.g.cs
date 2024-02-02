@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides shareholdings information at account sub level.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountSubLevel23
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record AccountSubLevel23
     /// <summary>
     /// Account where financial instruments are maintained. Account serviced by the responding intermediary for an account holder.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public required PartyIdentification243 AccountHolder { get; init; } 
     /// <summary>
     /// Detailed shareholding balance information for an account.
     /// </summary>
-    public ShareholdingBalance1[] ShareholdingBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ShareholdingBalance1> ShareholdingBalance { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

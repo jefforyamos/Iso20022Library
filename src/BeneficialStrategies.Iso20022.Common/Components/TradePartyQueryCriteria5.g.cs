@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details on the queried trade parties.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradePartyQueryCriteria5
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record TradePartyQueryCriteria5
     /// <summary>
     /// Specifies the AND/OR operators as query criteria.
     /// </summary>
+    [DataMember]
     public required Operation3Code Operator { get; init; } 
     /// <summary>
     /// Identifies the reporting counterparty of the contract.
     /// </summary>
+    [DataMember]
     public TradePartyIdentificationQuery8? ReportingCounterparty { get; init; } 
     /// <summary>
     /// Data specific to branch of the reporting counterparty and related fields.
     /// </summary>
+    [DataMember]
     public TradePartyIdentificationQuery9? ReportingCounterpartyBranch { get; init; } 
     /// <summary>
     /// Identifies the other counterparty of the contract.
     /// </summary>
+    [DataMember]
     public TradePartyIdentificationQuery8? OtherCounterparty { get; init; } 
     /// <summary>
     /// Data specific to branch of the other reporting counterparty and related fields.
     /// </summary>
+    [DataMember]
     public TradePartyIdentificationQuery9? OtherCounterpartyBranch { get; init; } 
     /// <summary>
     /// Identifies the party subject to the rights and obligations arising from the contract.
     /// </summary>
+    [DataMember]
     public TradePartyIdentificationQuery8? Beneficiary { get; init; } 
     /// <summary>
     /// Identifies the submitting agent of the reported of the contract.
     /// </summary>
+    [DataMember]
     public TradePartyIdentificationQuery8? SubmittingAgent { get; init; } 
     /// <summary>
     /// Identifies the broker who acts as an intermediary for the reporting counterparty.
     /// </summary>
+    [DataMember]
     public TradePartyIdentificationQuery8? Broker { get; init; } 
     /// <summary>
     /// Unique code for the CCP that has cleared the contract.
     /// </summary>
+    [DataMember]
     public TradePartyIdentificationQuery8? CCP { get; init; } 
     /// <summary>
     /// Identification of the agent lender involved in the securities lending transaction.
     /// </summary>
+    [DataMember]
     public TradePartyIdentificationQuery8? AgentLender { get; init; } 
     /// <summary>
     /// Identification of the third party that administers the transaction.
     /// </summary>
+    [DataMember]
     public TradePartyIdentificationQuery8? TripartyAgent { get; init; } 
     
     #nullable disable

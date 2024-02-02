@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes a financing relation between two parties, for example invoice, credit, financing request, cash accounts.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancingAgreementItem1
 {
     #nullable enable
@@ -20,47 +22,58 @@ public partial record FinancingAgreementItem1
     /// <summary>
     /// Parameters related to the context of the item.
     /// </summary>
+    [DataMember]
     public required FinancialItemParameters1 ItemContext { get; init; } 
     /// <summary>
     /// Code to indicate the action concerning the item.
     /// </summary>
+    [DataMember]
     public AgreementItemAction1Code? ItemAction { get; init; } 
     /// <summary>
     /// Desired payment instruction to be used by buyer.
     /// </summary>
+    [DataMember]
     public PaymentInstrumentCode? PaymentInstrument { get; init; } 
     /// <summary>
     /// Validation status of the item.
     /// </summary>
+    [DataMember]
     public ValidationStatusInformation1? ValidationStatusInformation { get; init; } 
     /// <summary>
     /// Guarantee is (to be) provided according current rating.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Rating { get; init; } 
     /// <summary>
     /// Set to yes if the agreement was rejected and needs to be re-opened for arbitrage.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ReopenIndication { get; init; } 
     /// <summary>
     /// Issuers, amounts and periods to be guaranteed. At a given date, the sum of all issuers is guaranteed, covered as specified by rank/position and excess. For each period, the maximum value at a given date is used.
     /// </summary>
-    public GuaranteeDetails1[] Guarantee { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GuaranteeDetails1> Guarantee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Status of guarantee if applicable.
     /// </summary>
+    [DataMember]
     public ValidationStatusInformation1? GuaranteeStatus { get; init; } 
     /// <summary>
     /// Reference to the guarantee letter issued by a guarantee provider.
     /// </summary>
+    [DataMember]
     public QualifiedDocumentInformation1? RelatedGuaranteeLetter { get; init; } 
     /// <summary>
     /// Associated free form document.
     /// </summary>
-    public QualifiedDocumentInformation1[] AssociatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedDocumentInformation1> AssociatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Free form textual information related to the agreement.
     /// </summary>
-    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

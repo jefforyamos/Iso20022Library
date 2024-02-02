@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Settlement service for specific settlement types of requirements.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementServiceMode1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SettlementServiceMode1
     /// <summary>
     /// Type of settlement service.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Identification of settlement service.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Short name of the Settlement Service.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     /// <summary>
     /// Priority to process a settlement.
     /// </summary>
+    [DataMember]
     public Priority3Code? SettlementPriority { get; init; } 
     
     #nullable disable

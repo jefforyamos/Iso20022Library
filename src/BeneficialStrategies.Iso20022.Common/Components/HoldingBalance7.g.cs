@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Net position of a segregated holding of a single security within the overall position held in the securities account, for example, sub-balance per status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record HoldingBalance7
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record HoldingBalance7
     /// <summary>
     /// Total quantity of financial instrument for the referenced holding.
     /// </summary>
+    [DataMember]
     public UnitOrFaceAmount1Choice_? Balance { get; init; } 
     /// <summary>
     /// Reason a security is not available or additional information about the financial instrument for which the balance is given, for example, unregistered, registered in nominee name.
     /// </summary>
+    [DataMember]
     public SecuritiesEntryType2Code? BalanceType { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [DataMember]
     public SafekeepingPlaceFormat2Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Date of the entitlement.
     /// </summary>
+    [DataMember]
     public IsoISODate? Date { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the return excess cash type and the collateral currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReturnExcessCash1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ReturnExcessCash1
     /// <summary>
     /// Identifies the return excess cash type.
     /// </summary>
+    [DataMember]
     public required ReturnExcessCash1Choice_ ReturnExcessCashType { get; init; } 
     /// <summary>
     /// Currency of the cash collateral.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode CashCollateralCurrency { get; init; } 
     
     #nullable disable

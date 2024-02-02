@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to identify an account owner and the associated decision maker.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification79
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record PartyIdentification79
     /// <summary>
     /// Identifies the account which is used to acquire or sell financial instruments.
     /// </summary>
-    public PartyIdentification76[] AccountOwner { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyIdentification76> AccountOwner { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the person who makes the decision on the financial instrument, acquire in case the of a buyer or to sell in case of the seller.
     /// </summary>
-    public PersonOrOrganisation2Choice_[] DecisionMaker { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PersonOrOrganisation2Choice_> DecisionMaker { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

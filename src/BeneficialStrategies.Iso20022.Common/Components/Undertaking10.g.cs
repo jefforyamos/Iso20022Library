@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details related to the undertaking.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Undertaking10
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Undertaking10
     /// <summary>
     /// Details related to the requested new amount for the counter-undertaking.
     /// </summary>
+    [DataMember]
     public UndertakingAmount2? NewUndertakingAmount { get; init; } 
     /// <summary>
     /// Details related to the requested new expiry terms for the counter-undertaking.
     /// </summary>
+    [DataMember]
     public ExpiryDetails1? NewExpiryDetails { get; init; } 
     
     #nullable disable

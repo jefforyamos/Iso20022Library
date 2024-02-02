@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(FailedSettlementReason1FormatChoice.Code))]
 [KnownType(typeof(FailedSettlementReason1FormatChoice.Proprietary))]
+[DataContract]
 public abstract partial record FailedSettlementReason1FormatChoice_
 {
 }

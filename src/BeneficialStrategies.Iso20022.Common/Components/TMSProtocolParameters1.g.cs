@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Configuration parameters of the TMS protocol between a POI and a terminal manager.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TMSProtocolParameters1
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record TMSProtocolParameters1
     /// <summary>
     /// Identification of the master terminal manager or the terminal manager.
     /// </summary>
+    [DataMember]
     public required GenericIdentification71 TerminalManagerIdentification { get; init; } 
     /// <summary>
     /// Maintenance services provided by the terminal manager.
     /// </summary>
-    public DataSetCategory5Code[] MaintenanceService { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DataSetCategory5Code> MaintenanceService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Version of the TMS protocol parameters.
     /// </summary>
+    [DataMember]
     public required IsoMax256Text Version { get; init; } 
     /// <summary>
     /// Identification of applications which may be managed by the TM, partially or globally.
     /// </summary>
-    public IsoMax35Text[] ApplicationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> ApplicationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Addresses of the terminal manager host.
     /// </summary>
+    [DataMember]
     public NetworkParameters3? HostAddress { get; init; } 
     /// <summary>
     /// Cryptographic key used to communicate with the terminal manager host.
     /// </summary>
-    public KEKIdentifier2[] HostKey { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<KEKIdentifier2> HostKey { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// New identification of the POI for the terminal manager.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? POIIdentification { get; init; } 
     /// <summary>
     /// New identification of the initiating party to set in TMS messages with this terminal manager.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? InitiatingPartyIdentification { get; init; } 
     /// <summary>
     /// New identification of the recipient party to set in TMS messages with this terminal manager.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RecipientPartyIdentification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Further information on the cancellation reason of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CancellationReasonInformation1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record CancellationReasonInformation1
     /// <summary>
     /// Party issuing the cancellation request.
     /// </summary>
+    [DataMember]
     public PartyIdentification8? CancellationOriginator { get; init; } 
     /// <summary>
     /// Specifies the reason for the cancellation.
     /// </summary>
+    [DataMember]
     public CancellationReason1Choice_? CancellationReason { get; init; } 
     /// <summary>
     /// Further details on the cancellation request reason.||Usage: Additional cancellation reason information can be used to further detail the cancellation request reason.
     /// </summary>
-    public IsoMax105Text[] AdditionalCancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax105Text> AdditionalCancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique and unambiguous identification of a party within a system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemPartyIdentification11
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SystemPartyIdentification11
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Name { get; init; } 
     /// <summary>
     /// Unique identification to unambiguously identify the party within the system.
     /// </summary>
+    [DataMember]
     public required PartyIdentification136 Identification { get; init; } 
     /// <summary>
     /// Unique identification of the party responsible for the maintenance of the party reference data.
     /// </summary>
+    [DataMember]
     public PartyIdentification136? ResponsiblePartyIdentification { get; init; } 
     
     #nullable disable

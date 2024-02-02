@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CentralisedAndAuthorisedBranchIdentification1Choice.AuthorisedBranchIdentifier))]
 [KnownType(typeof(CentralisedAndAuthorisedBranchIdentification1Choice.CentralisedBranchIdentifiers))]
+[DataContract]
 public abstract partial record CentralisedAndAuthorisedBranchIdentification1Choice_
 {
 }

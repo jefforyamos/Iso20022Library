@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the clearing system identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerClearingSystemIdentification1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record TrackerClearingSystemIdentification1
     /// <summary>
     /// Infrastructure through which the payment instruction is processed, as published in an external clearing system identification code list.
     /// </summary>
+    [DataMember]
     public required ExternalCashClearingSystem1Code Code { get; init; } 
     
     #nullable disable

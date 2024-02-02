@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the mandate, which is being suspended.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MandateSuspension1
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record MandateSuspension1
     /// <summary>
     /// Unique identification, as assigned by the initiating party, to unambiguously identify the suspension request.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text SuspensionRequestIdentification { get; init; } 
     /// <summary>
     /// Provides information on the original message.
     /// </summary>
+    [DataMember]
     public OriginalMessageInformation1? OriginalMessageInformation { get; init; } 
     /// <summary>
     /// Provides detailed information on the suspension reason.
     /// </summary>
+    [DataMember]
     public required MandateSuspensionReason1 SuspensionReason { get; init; } 
     /// <summary>
     /// Provides the original mandate data.
     /// </summary>
+    [DataMember]
     public required OriginalMandate4Choice_ OriginalMandate { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

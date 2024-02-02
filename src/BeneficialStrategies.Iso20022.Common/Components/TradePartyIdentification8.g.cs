@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the trade party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradePartyIdentification8
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record TradePartyIdentification8
     /// <summary>
     /// Party that submits the foreign exchange trade to the matching system or to the settlement system or to the counterparty.
     /// </summary>
+    [DataMember]
     public required PartyIdentification242Choice_ SubmittingParty { get; init; } 
     /// <summary>
     /// Party that originated the foreign exchange trade. This party may be the same as the submitting party.
     /// </summary>
+    [DataMember]
     public PartyIdentification242Choice_? TradeParty { get; init; } 
     /// <summary>
     /// Identifies the fund that is one of the parties in the foreign exchange trade.
     /// </summary>
-    public FundIdentification5[] FundIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FundIdentification5> FundIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

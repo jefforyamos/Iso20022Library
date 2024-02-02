@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates date and value at which the floating reference rate was reset.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ResetDateAndValue1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ResetDateAndValue1
     /// <summary>
     /// Indicates the most recent date at which the floating reference rate was reset.
     /// </summary>
+    [DataMember]
     public required IsoISODate Date { get; init; } 
     /// <summary>
     /// Indicates the most recent value at which the floating reference rate was reset.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? Value { get; init; } 
     
     #nullable disable

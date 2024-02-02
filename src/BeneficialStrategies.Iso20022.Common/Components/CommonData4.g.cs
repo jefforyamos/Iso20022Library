@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data common to all transactions of a data set.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CommonData4
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record CommonData4
     /// <summary>
     /// Data related to the environment of the transaction, common to a set of transaction.
     /// </summary>
+    [DataMember]
     public CardPaymentEnvironment39? Environment { get; init; } 
     /// <summary>
     /// Data related to the context of the transaction, common to a set of transaction.
     /// </summary>
+    [DataMember]
     public CardPaymentContext12? Context { get; init; } 
     /// <summary>
     /// Type of transaction being undertaken for the main service, common to a set of transaction.
     /// </summary>
+    [DataMember]
     public CardPaymentServiceType5Code? TransactionType { get; init; } 
     /// <summary>
     /// Service in addition to the main service.
     /// </summary>
-    public CardPaymentServiceType6Code[] AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardPaymentServiceType6Code> AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional attribute of the service type.
     /// </summary>
+    [DataMember]
     public CardPaymentServiceType3Code? ServiceAttribute { get; init; } 
     /// <summary>
     /// Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction.
     /// </summary>
+    [DataMember]
     public IsoMin3Max4Text? MerchantCategoryCode { get; init; } 
     /// <summary>
     /// Unique identification of the reconciliation period between the acceptor and the acquirer. This identification might be linked to the identification of the settlement for further verification by the merchant.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Currency associated with the set of transaction.
     /// </summary>
+    [DataMember]
     public CurrencyCode? Currency { get; init; } 
     
     #nullable disable

@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(AssetClassCommodityPaper3Choice.Pulp))]
 [KnownType(typeof(AssetClassCommodityPaper3Choice.RecoveredPaper))]
 [KnownType(typeof(AssetClassCommodityPaper3Choice.Other))]
+[DataContract]
 public abstract partial record AssetClassCommodityPaper3Choice_
 {
 }

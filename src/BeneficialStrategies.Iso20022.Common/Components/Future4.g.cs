@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters for contracts which obligate the buyer to receive and the seller to deliver in the future the assets specified at an agreed price.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Future4
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record Future4
     /// <summary>
     /// Ratio or multiplying factor used to convert one contract into a quantity.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? ContractSize { get; init; } 
     /// <summary>
     /// Predetermined price at which the holder of a Future will have to buy or sell the underlying instrument.
     /// </summary>
+    [DataMember]
     public Price8? ExercisePrice { get; init; } 
     /// <summary>
     /// Date on which future contracts settle.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? FutureDate { get; init; } 
     /// <summary>
     /// Specifies the minimum ratio or multiply factor used to convert from contracts to shares.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumSize { get; init; } 
     /// <summary>
     /// Used to indicate the measurement unit of the underlying commodity on which the contract is based (for example, 2500 lbs of lean cattle, 1000 barrels of crude oil, 1000 bushels of corn, etc.).
     /// </summary>
+    [DataMember]
     public UnitOfMeasure7Choice_? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Used to indicate a time unit for the contract (for example days, weeks, months, etc.).
     /// </summary>
+    [DataMember]
     public TimeUnit3Choice_? TimeUnit { get; init; } 
     /// <summary>
     /// Provides more information about the underlying instrument.
     /// </summary>
-    public UnderlyingAttributes4[] AdditionalUnderlyingAttributes { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<UnderlyingAttributes4> AdditionalUnderlyingAttributes { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -47,6 +47,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(RecordMessage1Choice.SettlementReportingResponse))]
 [KnownType(typeof(RecordMessage1Choice.VerificationInitiation))]
 [KnownType(typeof(RecordMessage1Choice.VerificationResponse))]
+[DataContract]
 public abstract partial record RecordMessage1Choice_
 {
 }

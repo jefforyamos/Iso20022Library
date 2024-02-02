@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Tangible items of value to a business.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CommonFinancialInstrumentAttributes10
 {
     #nullable enable
@@ -20,210 +22,262 @@ public partial record CommonFinancialInstrumentAttributes10
     /// <summary>
     /// Specifies the status of the security within its lifecycle.
     /// </summary>
+    [DataMember]
     public SecurityStatus3Choice_? SecurityStatus { get; init; } 
     /// <summary>
     /// Name of the security.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? ISOSecurityLongName { get; init; } 
     /// <summary>
     /// Short name of the security expressed as ISO 18773/18774.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ISOSecurityShortName { get; init; } 
     /// <summary>
     /// Defines the date since when the name of the security is valid.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? NameValidFrom { get; init; } 
     /// <summary>
     /// Currency in which a security is issued or redenominated.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode DenominationCurrency { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of a certificate assigned by the issuer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CertificateNumber { get; init; } 
     /// <summary>
     /// Version number assigned to the contract associated with the security.
     /// </summary>
+    [DataMember]
     public IsoNumber? ContractVersionNumber { get; init; } 
     /// <summary>
     /// Number of the coupon attached to the physical security.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? CouponAttachedNumber { get; init; } 
     /// <summary>
     /// Identification, for tax purposes, of a lot of identical securities that are bought at a certain date and at a certain price.
     /// </summary>
+    [DataMember]
     public IsoMax15NumericText? TaxLotNumber { get; init; } 
     /// <summary>
     /// Number identifying a group of underlying assets assigned by the issuer of a factored security.
     /// </summary>
+    [DataMember]
     public IsoMax15NumericText? PoolNumber { get; init; } 
     /// <summary>
     /// Indicates whether the derivative product is covered or not by an underlying financial instrument position.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CoveredIndicator { get; init; } 
     /// <summary>
     /// Specifies the regulatory restrictions applicable to a security.
     /// </summary>
+    [DataMember]
     public LegalRestrictions4Choice_? LegalRestrictions { get; init; } 
     /// <summary>
     /// Position limits are created for the purpose of maintaining stable and fair markets. Contracts held by one individual investor with different brokers may be combined in order to gauge accurately the level of control held by one party. ||Each option and futures contract will have varying position limits.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? PositionLimit { get; init; } 
     /// <summary>
     /// Near-term position limit for the instrument.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? NearTermPositionLimit { get; init; } 
     /// <summary>
     /// Original Date/time at which the security is listed at the specific exchange or trading venue.
     /// </summary>
+    [DataMember]
     public IsoISODate? ListingDate { get; init; } 
     /// <summary>
     /// Date/time at which positions are struck to note which parties are entitled to receive the entitlement to a corporate event or vote at a meeting.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? RecordDate { get; init; } 
     /// <summary>
     /// Date on which a privilege expires.
     /// </summary>
+    [DataMember]
     public IsoISODate? ExpiryDate { get; init; } 
     /// <summary>
     /// Reason for which money is raised through the issuance of a security.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Purpose { get; init; } 
     /// <summary>
     /// Information allowing the classification of a financial instrument, for example, with its ISO CFI (Classification of Financial Instrument) or product type.
     /// </summary>
+    [DataMember]
     public ClassificationType2? ClassificationType { get; init; } 
     /// <summary>
     /// Details regarding the issuance of an asset.
     /// </summary>
+    [DataMember]
     public Issuance5? Issuance { get; init; } 
     /// <summary>
     /// Market(s) on which the security is traded.
     /// </summary>
-    public TradingParameters2[] TradingMarket { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TradingParameters2> TradingMarket { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the spread to benchmark details of an indication of interest.
     /// </summary>
-    public BenchmarkCurve6[] SpreadAndBenchmarkCurve { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BenchmarkCurve6> SpreadAndBenchmarkCurve { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Represents the type of put.
     /// </summary>
+    [DataMember]
     public PutType3Choice_? PutType { get; init; } 
     /// <summary>
     /// Represents the type of call.
     /// </summary>
+    [DataMember]
     public CallType3Choice_? CallType { get; init; } 
     /// <summary>
     /// Indicates whether a security is interchangeable, ie, the security is allowed to be replaced by another security, without loss of value.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? FungibleIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the details of the security are to be made available to the market, or kept private between ICSDs and agency network.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Confidential { get; init; } 
     /// <summary>
     /// The sale of securities directly to private persons, institutional investors, or both outside a public offering. Such non-public deals (often without a publicly available prospectus) closing through the ICSDs are placed directly with investors.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PrivatePlacement { get; init; } 
     /// <summary>
     /// Indicates whether the investor or the issuer has a conversion option.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ConvertibleIndicator { get; init; } 
     /// <summary>
     /// Period during which a convertible security may be converted according to the terms of the issue.
     /// </summary>
+    [DataMember]
     public DateTimePeriod1? ConversionPeriod { get; init; } 
     /// <summary>
     /// Number of target securities for the conversion.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? ConversionRatioNumerator { get; init; } 
     /// <summary>
     /// Number of held securities for the conversion.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? ConversionRatioDenominator { get; init; } 
     /// <summary>
     /// Primary place of deposit.
     /// </summary>
+    [DataMember]
     public PartyIdentification136? PrimaryPlaceOfDeposit { get; init; } 
     /// <summary>
     /// Indicates whether the notional amount value is to be traded in either an amount or in units.
     /// </summary>
+    [DataMember]
     public UnitOrFaceAmount1Choice_? TradingMethod { get; init; } 
     /// <summary>
     /// Indicates the TEFRA rule under which the security is issued.
     /// </summary>
+    [DataMember]
     public TEFRARules3Choice_? TEFRARule { get; init; } 
     /// <summary>
     /// Identifies the series number.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? SerieNumber { get; init; } 
     /// <summary>
     /// Identifier that links multiple security classes.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? Class { get; init; } 
     /// <summary>
     /// Amount or percentage of a cash distribution that will be withheld by a tax authority.
     /// </summary>
-    public SecurityWithHoldingTax1[] WithholdingTaxRegime { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecurityWithHoldingTax1> WithholdingTaxRegime { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Status of payment of a security at a particular time.
     /// </summary>
+    [DataMember]
     public SecuritiesPaymentStatus5Choice_? PaymentStatus { get; init; } 
     /// <summary>
     /// Indicates the physical form of the securities on the closing date.
     /// </summary>
+    [DataMember]
     public InitialPhysicalForm4Choice_? InitialPhysicalForm { get; init; } 
     /// <summary>
     /// Indicates the physical form of the securities after the exchange of the initial certificate issued on the closing date.
     /// </summary>
+    [DataMember]
     public InitialPhysicalForm3Choice_? AfterExchangePhysicalForm { get; init; } 
     /// <summary>
     /// Entity appointed by the ICSDs to provide safekeeping for securities in new global note (NGN) form.
     /// </summary>
+    [DataMember]
     public IsoAnyBICDec2014Identifier? CommonSafekeeper { get; init; } 
     /// <summary>
     /// Indicates the type of redemption at maturity.
     /// </summary>
+    [DataMember]
     public MaturityRedemptionType3Choice_? RedemptionType { get; init; } 
     /// <summary>
     /// ISO currency for the payment of the cash proceeds.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? RedemptionPaymentCurrency { get; init; } 
     /// <summary>
     /// Regulatory restriction(s) linked to the security.
     /// </summary>
-    public SecurityRestriction3[] Restriction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecurityRestriction3> Restriction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Settlement of the securities in a securities transaction, that is, the instruction to deliver or receive securities, involving the payment of an amount of money or not.
     /// </summary>
-    public SettlementInformation17[] SettlementInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SettlementInformation17> SettlementInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the form of the financial Instrument.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentForm2? FinancialInstrumentForm { get; init; } 
     /// <summary>
     /// Details (name, e-mail address and/or telephone number) of the person requesting the allocation of the ISIN used as a point of reference in case further clarifications are required.
     /// </summary>
+    [DataMember]
     public Organisation38? ContactName { get; init; } 
     /// <summary>
     /// Entity appointed by the issuer to structure and lead the placement of a syndicated issue.
     /// </summary>
+    [DataMember]
     public Organisation38? LeadManager { get; init; } 
     /// <summary>
     /// Main party appointed to distribute payment or securities on behalf of the issuer.
     /// </summary>
+    [DataMember]
     public Organisation38? PrincipalPayingAgent { get; init; } 
     /// <summary>
     /// Additional party appointed to distribute payment or securities on behalf of the issuer.
     /// </summary>
+    [DataMember]
     public Organisation38? PayingAgent { get; init; } 
     /// <summary>
     /// Entity appointed by the relevant clearing system as a depository for instruments issued in global or definitive form. The depository keeps the securities for safekeeping purposes on behalf of the clearing system(s).
     /// </summary>
+    [DataMember]
     public Organisation38? Depository { get; init; } 
     /// <summary>
     /// Entity(ies), asset(s) or security(ies) on which the credit responsibility lies as identified in the documentation.
     /// </summary>
+    [DataMember]
     public Organisation38? UnderlyingRisk { get; init; } 
     
     #nullable disable

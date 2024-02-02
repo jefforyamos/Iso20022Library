@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action instructed balance details at option level.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionInstructedBalanceOptionInstructionDetailsSD2
 {
     #nullable enable
@@ -20,62 +22,77 @@ public partial record CorporateActionInstructedBalanceOptionInstructionDetailsSD
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [DataMember]
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Unique number assigned by the depository. Transaction identification will be either the DTC instruction reference number for reorganisation instructions (VOI) or the DAM reference number for custody / reorganisation deposits.
     /// </summary>
+    [DataMember]
     public required IsoMax15Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Number which further identifies DTC instruction reference number. Not applicable to reorganisation / custody deposits.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? TransactionSequenceNumber { get; init; } 
     /// <summary>
     /// Instruction date and time for reorganisation instructions or the deposit date for reorganisation / custody deposits.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime TransactionIdentificationDate { get; init; } 
     /// <summary>
     /// Contra CUSIP Identification of the option instruction.
     /// </summary>
+    [DataMember]
     public OtherIdentification2? TransactionContraCUSIP { get; init; } 
     /// <summary>
     /// Instructed quantity for reorganisation instructions or the deposit quantity for reorganisation / custody deposits.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity15Choice_ TransactionIdentificationQuantity { get; init; } 
     /// <summary>
     /// Quantity relating only to the oversubscription.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity15Choice_? TransactionIdentificationOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Status of the instruction.
     /// </summary>
+    [DataMember]
     public required DTCInstructionStatus2Code TransactionIdentificationStatus { get; init; } 
     /// <summary>
     /// Date and time of the protect instruction.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? TransactionIdentificationProtectDate { get; init; } 
     /// <summary>
     /// Date and time of the cover protect.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? TransactionIdentificationCoverProtectDate { get; init; } 
     /// <summary>
     /// Conditional quantity on the instruction.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity15Choice_? TransactionConditionalQuantity { get; init; } 
     /// <summary>
     /// Tender bid price of the instruction.
     /// </summary>
+    [DataMember]
     public PriceFormat57Choice_? TransactionTenderBidPrice { get; init; } 
     /// <summary>
     /// Customer identification entered by client upon instruction submission.
     /// </summary>
+    [DataMember]
     public IsoMax30Text? CustomerReferenceIdentification { get; init; } 
     /// <summary>
     /// Client free format instruction narrative information. Will be 80 characters for tender instructions, 150 characters for rights instructions and 20 characters for put instructions.
     /// </summary>
+    [DataMember]
     public IsoMax210Text? InstructionComments { get; init; } 
     
     #nullable disable

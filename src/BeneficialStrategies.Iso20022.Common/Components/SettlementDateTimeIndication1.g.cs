@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information on the occurred settlement time(s) of the payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementDateTimeIndication1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SettlementDateTimeIndication1
     /// <summary>
     /// Date and time at which a payment has been debited at the transaction administrator. In the case of TARGET, the date and time at which the payment has been debited at the central bank, expressed in Central European Time (CET).
     /// </summary>
+    [DataMember]
     public IsoISODateTime? DebitDateTime { get; init; } 
     /// <summary>
     /// Date and time at which a payment has been credited at the transaction administrator. In the case of TARGET, the date and time at which the payment has been credited at the receiving central bank, expressed in Central European Time (CET).
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CreditDateTime { get; init; } 
     
     #nullable disable

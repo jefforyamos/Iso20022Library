@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the query criteria.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BusinessDayQuery2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record BusinessDayQuery2
     /// <summary>
     /// Specifies the type of matching items to be returned in the response to the query.
     /// </summary>
+    [DataMember]
     public QueryType2Code? QueryType { get; init; } 
     /// <summary>
     /// Defines the business day information query criteria.
     /// </summary>
+    [DataMember]
     public BusinessDayCriteria3Choice_? Criteria { get; init; } 
     
     #nullable disable

@@ -14,6 +14,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Contains Document Reference Values provided for this transaction and used for various document processing at the
 /// customer site.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentReference1
 {
     #nullable enable
@@ -21,10 +23,12 @@ public partial record DocumentReference1
     /// <summary>
     /// Describes the type of document.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Reference is a free-form text field containing customer reference information (for example, a document number).
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Reference { get; init; } 
     
     #nullable disable

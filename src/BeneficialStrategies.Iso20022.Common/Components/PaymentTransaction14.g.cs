@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment processes required to transfer cash from the debtor to the creditor.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTransaction14
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PaymentTransaction14
     /// <summary>
     /// Amount of money to be transferred between the debtor and creditor before bank transaction charges.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     /// <summary>
     /// Date on which the first agent expects the cash to be available to the final agent.
     /// </summary>
+    [DataMember]
     public IsoISODate? SettlementDate { get; init; } 
     /// <summary>
     /// Choice between cash-in or cash-out.
     /// </summary>
+    [DataMember]
     public CashInOrOut3Choice_? CashInOrOutChoice { get; init; } 
     
     #nullable disable

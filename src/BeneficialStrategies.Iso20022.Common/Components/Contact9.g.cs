@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details of the contact person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Contact9
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Contact9
     /// <summary>
     /// Name of the party, such as a person or a team, responsible for the report.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Name { get; init; } 
     /// <summary>
     /// Phone number of the person responsible for the report.
     /// </summary>
+    [DataMember]
     public required IsoPhoneNumber PhoneNumber { get; init; } 
     /// <summary>
     /// Electronic mail (e-mail) address of the of the person responsible for the report.
     /// </summary>
+    [DataMember]
     public required IsoMax256Text EmailAddress { get; init; } 
     /// <summary>
     /// Function of the person responsible for the report.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Function { get; init; } 
     
     #nullable disable

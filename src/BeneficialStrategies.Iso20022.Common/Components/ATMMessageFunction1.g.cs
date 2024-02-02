@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the type of process related to an ATM message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMMessageFunction1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ATMMessageFunction1
     /// <summary>
     /// Type of requested function.
     /// </summary>
+    [DataMember]
     public required MessageFunction7Code Function { get; init; } 
     /// <summary>
     /// Codification of the type of service for the ATM.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ATMServiceCode { get; init; } 
     /// <summary>
     /// Codification of the type of service for the ATM manager host.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? HostServiceCode { get; init; } 
     
     #nullable disable

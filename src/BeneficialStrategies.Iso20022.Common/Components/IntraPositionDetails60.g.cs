@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the intra-position movement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraPositionDetails60
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record IntraPositionDetails60
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PoolIdentification { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification127Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
+    [DataMember]
     public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity33Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Number identifying a lot constituting the financial instrument.
     /// </summary>
+    [DataMember]
     public GenericIdentification37? LotNumber { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be moved.
     /// </summary>
+    [DataMember]
     public required DateAndDateTime2Choice_ SettlementDate { get; init; } 
     /// <summary>
     /// Time stamp on when the transaction is acknowledged.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? AcknowledgedStatusTimeStamp { get; init; } 
     /// <summary>
     /// Balance from which the securities are moving.
     /// </summary>
+    [DataMember]
     public SecuritiesBalanceType7Choice_? BalanceFrom { get; init; } 
     /// <summary>
     /// Balance to which the securities are moving.
     /// </summary>
+    [DataMember]
     public SecuritiesBalanceType7Choice_? BalanceTo { get; init; } 
     
     #nullable disable

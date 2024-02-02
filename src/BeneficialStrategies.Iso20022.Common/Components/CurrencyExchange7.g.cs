@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information needed to process a currency exchange or conversion.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyExchange7
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CurrencyExchange7
     /// <summary>
     /// The value of one currency expressed in relation to another currency. ExchangeRate expresses the ratio between UnitCurrency and QuotedCurrency (ExchangeRate = UnitCurrency/QuotedCurrency).
     /// </summary>
+    [DataMember]
     public required IsoBaseOneRate ExchangeRate { get; init; } 
     /// <summary>
     /// Currency into which the base currency is converted, in a currency exchange.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode QuotedCurrency { get; init; } 
     /// <summary>
     /// Date and time at which an exchange rate is quoted.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime QuotationDate { get; init; } 
     
     #nullable disable

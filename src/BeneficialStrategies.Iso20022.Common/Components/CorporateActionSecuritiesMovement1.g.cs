@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the securities movements.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionSecuritiesMovement1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record CorporateActionSecuritiesMovement1
     /// <summary>
     /// Date and time of the posting.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? PostingDateTime { get; init; } 
     /// <summary>
     /// Identification of the financial instrument.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification7 SecurityIdentification { get; init; } 
     /// <summary>
     /// Quantity of securities that is posted.
     /// </summary>
+    [DataMember]
     public required UnitOrFaceAmount1Choice_ PostingQuantity { get; init; } 
     /// <summary>
     /// Provides information about the account which is debited/credited.
     /// </summary>
-    public SecuritiesAccount8[] AccountDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<SecuritiesAccount8> AccountDetails { get; init; } = [];
     
     #nullable disable
 }

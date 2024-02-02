@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(Recipient11Choice.KeyTransport))]
 [KnownType(typeof(Recipient11Choice.KEK))]
 [KnownType(typeof(Recipient11Choice.KeyIdentifier))]
+[DataContract]
 public abstract partial record Recipient11Choice_
 {
 }

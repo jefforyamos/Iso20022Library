@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides account and balance information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountAndBalance40
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AccountAndBalance40
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax35Text SafekeepingAccount { get; init; } 
     /// <summary>
     /// Balance to which the payment applies (less or equal to the total eligible balance).
     /// </summary>
+    [DataMember]
     public required BalanceFormat7Choice_ ConfirmedBalance { get; init; } 
     
     #nullable disable

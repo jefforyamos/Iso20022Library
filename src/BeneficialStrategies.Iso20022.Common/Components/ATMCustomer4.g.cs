@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Customer involved in a withdrawal transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMCustomer4
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record ATMCustomer4
     /// <summary>
     /// Profile of the customer selected to perform the transaction.
     /// </summary>
+    [DataMember]
     public ATMCustomerProfile4? Profile { get; init; } 
     /// <summary>
     /// Language selected by the customer at the ATM for the customer session. Reference ISO 639-1 (alpha-2) et ISO 639-2 (alpha-3).
     /// </summary>
+    [DataMember]
     public LanguageCode? SelectedLanguage { get; init; } 
     /// <summary>
     /// Method and data intended to be used for this transaction to authenticate the customer and its card.
     /// </summary>
-    public CardholderAuthentication8[] Authentication { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardholderAuthentication8> Authentication { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Result of the customer authentication for this transaction.
     /// </summary>
-    public TransactionVerificationResult5[] AuthenticationResult { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionVerificationResult5> AuthenticationResult { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

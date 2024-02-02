@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Acceptor parameters dedicated to the acquirer protocol.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcquirerProtocolParameters5
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record AcquirerProtocolParameters5
     /// <summary>
     /// Mode for the financial capture of the transaction by the acquirer.
     /// </summary>
+    [DataMember]
     public required FinancialCapture1Code FinancialCapture { get; init; } 
     /// <summary>
     /// Configuration of the batch transfers.
     /// </summary>
+    [DataMember]
     public ExchangeConfiguration4? BatchTransfer { get; init; } 
     /// <summary>
     /// Configuration parameters of completion exchanges.
     /// </summary>
+    [DataMember]
     public ExchangeConfiguration5? CompletionExchange { get; init; } 
     /// <summary>
     /// Configuration of the cancellation exchanges.
     /// </summary>
+    [DataMember]
     public CancellationProcess1Code? CancellationExchange { get; init; } 
     
     #nullable disable

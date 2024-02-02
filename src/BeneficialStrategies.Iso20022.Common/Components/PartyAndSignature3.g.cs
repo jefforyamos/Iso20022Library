@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Entity involved in an activity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyAndSignature3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PartyAndSignature3
     /// <summary>
     /// Entity involved in an activity.
     /// </summary>
+    [DataMember]
     public required PartyIdentification135 Party { get; init; } 
     /// <summary>
     /// Signature of a party.
     /// </summary>
+    [DataMember]
     public required SkipPayload Signature { get; init; } 
     
     #nullable disable

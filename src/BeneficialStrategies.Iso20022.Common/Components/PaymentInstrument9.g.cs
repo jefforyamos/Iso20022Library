@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Instrument that has or represents monetary value and is used to process a payment instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentInstrument9
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PaymentInstrument9
     /// <summary>
     /// Currency associated with the payment instrument.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
     /// <summary>
     /// Cash account to credit for the payment of the dividends or of the redeemed investments funds.
     /// </summary>
-    public CashAccount4[] CashAccountDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<CashAccount4> CashAccountDetails { get; init; } = [];
     /// <summary>
     /// Settlement instructions for a payment by cheque.
     /// </summary>
+    [DataMember]
     public required Cheque4 ChequeDetails { get; init; } 
     /// <summary>
     /// Settlement instructions for a payment by draft.
     /// </summary>
+    [DataMember]
     public required Cheque4 BankersDraftDetails { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains amount details for a specific type of charge.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Amount12
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Amount12
     /// <summary>
     /// Type of hours worked. 
     /// </summary>
+    [DataMember]
     public TemporaryServicesCharge1Code? Type { get; init; } 
     /// <summary>
     /// Other type of hours worked. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Contains the rate per hour. 
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? Rate { get; init; } 
     /// <summary>
     /// Contains the number of hours worked. 
     /// </summary>
+    [DataMember]
     public IsoMax6NumericText? Hours { get; init; } 
     
     #nullable disable

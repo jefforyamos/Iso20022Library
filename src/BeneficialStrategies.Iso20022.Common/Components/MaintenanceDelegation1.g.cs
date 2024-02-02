@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information on the delegation of a maintenance action or maintenance function.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MaintenanceDelegation1
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record MaintenanceDelegation1
     /// <summary>
     /// Maintenance service to be delegated.
     /// </summary>
-    public DataSetCategory6Code[] MaintenanceService { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DataSetCategory6Code> MaintenanceService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Flag to indicate that the delegated maintenance must be performed on a subset of the terminal estate.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? PartialDelegation { get; init; } 
     /// <summary>
     /// Subset of the terminal estate for the delegated actions, for instance for pilot or key deactivation). The subset may be expressed as a list of POI or terminal estate subset identifier.
     /// </summary>
-    public IsoMax35Text[] POISubset { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> POISubset { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information for the MTM to build or include delegated actions in the management plan of the POI.
     /// </summary>
+    [DataMember]
     public MaintenanceDelegateAction1? DelegatedAction { get; init; } 
     /// <summary>
     /// Identification of the parameters subset assigned by the MTM.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ParametersSubsetIdentification { get; init; } 
     /// <summary>
     /// Definition of the subset of application parameters, for instance the range of application profiles, the RID (registered application provider identification).
     /// </summary>
+    [DataMember]
     public IsoMax3000Binary? ParametersSubsetDefinition { get; init; } 
     /// <summary>
     /// Certificate path of the terminal manager.
     /// </summary>
-    public IsoMax5000Binary[] Certificate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax5000Binary> Certificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Association of the TM identifier and the MTM identifier of a POI.
     /// </summary>
-    public MaintenanceIdentificationAssociation1[] POIIdentificationAssociation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MaintenanceIdentificationAssociation1> POIIdentificationAssociation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the key to manage or to download.
     /// </summary>
-    public KEKIdentifier2[] SymmetricKey { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<KEKIdentifier2> SymmetricKey { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Configuration parameters of the terminal manager to be sent by the MTM.
     /// </summary>
+    [DataMember]
     public TerminalManagementDataSet14? ParameterDataSet { get; init; } 
     
     #nullable disable

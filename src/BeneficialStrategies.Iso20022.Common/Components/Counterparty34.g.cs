@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to counterparty identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Counterparty34
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Counterparty34
     /// <summary>
     /// Unique code identifying the reporting counterparty of the contract.
     /// </summary>
+    [DataMember]
     public required OrganisationIdentification10Choice_ Identification { get; init; } 
     /// <summary>
     /// Indicates if the reporting counterparty is a central counterparty, a financial, non-financial counterparty or other type of counterparty in accordance with regulation.
     /// </summary>
+    [DataMember]
     public CounterpartyTradeNature9Choice_? Nature { get; init; } 
     /// <summary>
     /// Identifies the trading capacity of the seller.
     /// </summary>
+    [DataMember]
     public TradingCapacity7Code? TradingCapacity { get; init; } 
     /// <summary>
     /// Indicates the direction of the derivative transaction from the perspective of the reporting counterparty.
@@ -35,6 +40,7 @@ public partial record Counterparty34
     /// DirectionOfTheFirstLeg should be used for most swaps and swap-like contracts including interest rate swaps, credit total return swaps, and equity swaps (except for credit default swaps, variance, volatility, and correlation swaps) as well as for the foreign exchange swaps, forwards and non-deliverable forwards.
     /// CounterpartySide should be used for the instruments such as most forwards and forward-like contracts (except for foreign exchange forwards and foreign exchange non-deliverable forwards); most options and option-like contracts including swaptions, caps and floors; credit default swaps; variance, volatility and correlation swaps; contracts for difference and spreadbets.
     /// </summary>
+    [DataMember]
     public Direction2Choice_? Direction { get; init; } 
     
     #nullable disable

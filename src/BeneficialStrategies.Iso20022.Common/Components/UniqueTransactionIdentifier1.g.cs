@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the unique transaction identifier (UTI) that was created at the time a transaction was first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction during its lifetime and optionally, the prior unique transaction identifier (PUTI). These identifiers can also be known as the Unique Swap Identifier (USI) or the Prior Unique Swap Identifier (PUSI).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UniqueTransactionIdentifier1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record UniqueTransactionIdentifier1
     /// <summary>
     /// Unique transaction identifier will be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction during its lifetime. This identifier can also be known as the Unique Swap Identifier (USI).
     /// </summary>
+    [DataMember]
     public required IsoMax105Text UniqueTransactionIdentifier { get; init; } 
     /// <summary>
     /// Prior unique transaction identifier specifies the previous unique transaction identifier (UTI) that was created at the time the transaction was executed. This identifier can also be known as the Prior Unique Swap Identifier (PUSI).
     /// </summary>
+    [DataMember]
     public IsoMax105Text? PriorUniqueTransactionIdentifier { get; init; } 
     
     #nullable disable

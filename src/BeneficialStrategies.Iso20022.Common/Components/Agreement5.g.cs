@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contractual details related to the agreement between parties.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Agreement5
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record Agreement5
     /// <summary>
     /// Full name of the base standard agreement, annexes and amendments in place between the principals and applicable to this deal.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Description { get; init; } 
     /// <summary>
     /// Numeric representation of the day of the month and year.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? Date { get; init; } 
     /// <summary>
     /// Contractual currency forming the basis of a financing agreement and associated transactions. Usually, but not always, the same as the trade currency.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Type of financing closing.
     /// </summary>
+    [DataMember]
     public ClosingType1Code? ClosingType { get; init; } 
     /// <summary>
     /// Start date of a financing deal that is the date the buyer pays the seller cash and takes control of the collateral.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? StartDate { get; init; } 
     /// <summary>
     /// Identifies type of settlement.
     /// </summary>
+    [DataMember]
     public DeliveryType2Code? DeliveryType { get; init; } 
     /// <summary>
     /// Fraction of the cash consideration that must be collateralized, expressed as a percent. A margin ratio of 02% indicates that the value of the collateral (after deducting for "haircut") must exceed the cash consideration by 2%.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? MarginRatio { get; init; } 
     
     #nullable disable

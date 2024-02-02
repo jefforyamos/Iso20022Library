@@ -22,6 +22,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(IdentificationReference8Choice.CommonIdentification))]
 [KnownType(typeof(IdentificationReference8Choice.ComplianceIdentification))]
 [KnownType(typeof(IdentificationReference8Choice.CollateralTransactionIdentification))]
+[DataContract]
 public abstract partial record IdentificationReference8Choice_
 {
 }

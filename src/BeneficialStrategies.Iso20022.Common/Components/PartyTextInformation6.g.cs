@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding the party, for example, the contact unit or person responsible for the transaction identified in the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyTextInformation6
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PartyTextInformation6
     /// <summary>
     /// Provides declaration details narrative relative to the party.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? DeclarationDetails { get; init; } 
     /// <summary>
     /// Provides additional information regarding the party, for example, the contact unit or person responsible for the transaction identified in the message.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? PartyContactDetails { get; init; } 
     /// <summary>
     /// Provides information required for the registration.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? RegistrationDetails { get; init; } 
     /// <summary>
     /// Address of the nominee company that holds the assets at the transfer agent or International Central Securities Depository or Central Securities Depository on behalf of the party.
     /// </summary>
+    [DataMember]
     public PostalAddress1? RegistrationAddress { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(MatchingDenied4Choice.Code))]
 [KnownType(typeof(MatchingDenied4Choice.Proprietary))]
+[DataContract]
 public abstract partial record MatchingDenied4Choice_
 {
 }

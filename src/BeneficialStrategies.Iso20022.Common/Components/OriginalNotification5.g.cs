@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the original notification and to provide the status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalNotification5
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record OriginalNotification5
     /// <summary>
     /// Point to point reference, as assigned by the original sender, to unambiguously identify the original notification to receive message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalMessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the original message was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OriginalCreationDateTime { get; init; } 
     /// <summary>
     /// Identification of the original notification.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalNotificationIdentification { get; init; } 
     /// <summary>
     /// Specifies the status of the notification in a coded form.
     /// </summary>
+    [DataMember]
     public NotificationStatus3Code? NotificationStatus { get; init; } 
     /// <summary>
     /// Further details of the notification status.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? AdditionalStatusInformation { get; init; } 
     /// <summary>
     /// Identifies the original notification item and provides the status.
     /// </summary>
-    public OriginalNotificationReference3[] OriginalNotificationReference { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OriginalNotificationReference3> OriginalNotificationReference { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

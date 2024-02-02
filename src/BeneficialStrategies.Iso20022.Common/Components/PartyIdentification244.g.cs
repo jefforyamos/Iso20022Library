@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the beneficial owner of the securities.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification244
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record PartyIdentification244
     /// <summary>
     /// Party that is the beneficial owner of the specified quantity of securities.
     /// </summary>
+    [DataMember]
     public required PartyIdentification234Choice_ OwnerIdentification { get; init; } 
     /// <summary>
     /// Legal entity identification of the party.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LEIIdentification { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
-    public AlternatePartyIdentification9[] AlternateIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AlternatePartyIdentification9> AlternateIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Country in which a person is permanently domiciled (the place of a person's permanent home).
     /// </summary>
+    [DataMember]
     public CountryCode? DomicileCountry { get; init; } 
     /// <summary>
     /// Holder of the security certifies, in line with the terms of the corporate action, that it is not domiciled in the country indicated.
     /// </summary>
-    public CountryCode[] NonDomicileCountry { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CountryCode> NonDomicileCountry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity of securities belonging to the beneficial owner specified.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity15Choice_ OwnedSecuritiesQuantity { get; init; } 
     /// <summary>
     /// Type of certification which is required.
     /// </summary>
-    public BeneficiaryCertificationType11Choice_[] CertificationType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BeneficiaryCertificationType11Choice_> CertificationType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Requested percentage of a cash distribution that will be withheld by the tax authorities of the jurisdiction of the issuer, for which a relief at source and/or reclaim may be possible.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat46Choice_? WithholdingTaxRate { get; init; } 
     /// <summary>
     /// Provides additional information about the type of certification/breakdown required.
     /// </summary>
-    public IsoRestrictedFINXMax350Text[] CertificationBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoRestrictedFINXMax350Text> CertificationBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

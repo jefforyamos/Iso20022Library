@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the documents referred to in the remittance information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentLineIdentification1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DocumentLineIdentification1
     /// <summary>
     /// Specifies the type of referred document line identification.
     /// </summary>
+    [DataMember]
     public DocumentLineType1? Type { get; init; } 
     /// <summary>
     /// Identification of the type specified for the referred document line.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Number { get; init; } 
     /// <summary>
     /// Date associated with the referred document line.
     /// </summary>
+    [DataMember]
     public IsoISODate? RelatedDate { get; init; } 
     
     #nullable disable

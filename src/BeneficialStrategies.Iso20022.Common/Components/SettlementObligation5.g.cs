@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details about the settlement obligation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementObligation5
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record SettlementObligation5
     /// <summary>
     /// Provides the identification of an existing obligation that is linked to the new obligation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RelatedSettlementObligationIdentification { get; init; } 
     /// <summary>
     /// Indicates the type of the obligation.
     /// </summary>
+    [DataMember]
     public ObligationType1Choice_? ObligationType { get; init; } 
     /// <summary>
     /// Provides additional information related to the linked obligation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Description { get; init; } 
     /// <summary>
     /// Provides the original trade date.
     /// </summary>
+    [DataMember]
     public IsoISODate? TradeDate { get; init; } 
     /// <summary>
     /// Specifies the quantity related to the settlement obligation.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Provides the price applied to that net position.
     /// </summary>
+    [DataMember]
     public Price4? NetPositionPrice { get; init; } 
     /// <summary>
     /// Specifies the ISO code of the trade currency.
     /// </summary>
+    [DataMember]
     public CurrencyCode? TradingCurrency { get; init; } 
     /// <summary>
     /// Provides the total amount to be settled.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection27 SettlementAmount { get; init; } 
     /// <summary>
     /// Provides the contractual settlement date.
     /// </summary>
+    [DataMember]
     public required IsoISODate SettlementDate { get; init; } 
     /// <summary>
     /// Indicates if the obligation will result in a receive or a delivery of securities.
     /// </summary>
+    [DataMember]
     public required ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
     /// <summary>
     /// Specifies how the transaction is to be settled.
     /// </summary>
+    [DataMember]
     public required DeliveryReceiptType2Code Payment { get; init; } 
     /// <summary>
     /// Provides the references of the underlying trade leg(s) and/or the reference to the related net position message.
     /// </summary>
+    [DataMember]
     public Reference19? References { get; init; } 
     
     #nullable disable

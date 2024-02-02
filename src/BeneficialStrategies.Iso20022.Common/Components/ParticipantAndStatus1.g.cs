@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the participant and their operational status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ParticipantAndStatus1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record ParticipantAndStatus1
     /// <summary>
     /// Identification of participant.
     /// </summary>
+    [DataMember]
     public required FinancialInstitutionIdentification13 ParticipantIdentification { get; init; } 
     /// <summary>
     /// Set of elements used to indicate how to contact the participant.
     /// </summary>
+    [DataMember]
     public ContactDetails2? ParticipantContactDetails { get; init; } 
     /// <summary>
     /// Provides details on operational availability of the participant business service.
     /// </summary>
-    public ServiceAvailability1[] ServiceAvailability { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ServiceAvailability1> ServiceAvailability { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

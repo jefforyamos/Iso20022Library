@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information regarding the total amount of taxes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TotalTaxes5
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record TotalTaxes5
     /// <summary>
     /// Specifies whether capital gain is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June), or an income realised upon sale, a refund or redemption of shares and units, etc.
     /// </summary>
+    [DataMember]
     public EUCapitalGain2Code? EUCapitalGain { get; init; } 
     /// <summary>
     /// Percentage of the underlying assets of the funds that represents a debt and is in the scope of the European directive on taxation of savings income in the form of interest payments (Council Directive 2003/48/EC 3 June).
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? PercentageOfDebtClaim { get; init; } 
     /// <summary>
     /// Information related to a specific tax.
     /// </summary>
-    public Tax20[] TaxDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<Tax20> TaxDetails { get; init; } = [];
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Official identification of an organisation (legal entity) in a specific register.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OrganisationIdentification5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record OrganisationIdentification5
     /// <summary>
     /// Name of the register of legal entities.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text RegistrationNumber { get; init; } 
     /// <summary>
     /// Name of the register managed by a registration authority.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RegisterName { get; init; } 
     
     #nullable disable

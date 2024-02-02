@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cash movements from or to a fund as a result of investment funds transactions, eg, subscriptions or redemptions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FundCashForecast7
 {
     #nullable enable
@@ -20,75 +22,93 @@ public partial record FundCashForecast7
     /// <summary>
     /// Unique technical identifier for an instance of a fund cash forecast within a fund cash forecast report as assigned by the issuer of the report.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Date and, if required, the time, at which the price has been applied.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     /// <summary>
     /// Previous date and time at which the price was applied.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? PreviousTradeDateTime { get; init; } 
     /// <summary>
     /// Investment fund class to which a cash flow is related.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument9 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Total value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
     /// </summary>
-    public IsoActiveOrHistoricCurrencyAndAmount[] TotalNAV { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoActiveOrHistoricCurrencyAndAmount> TotalNAV { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Previous value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
     /// </summary>
-    public IsoActiveOrHistoricCurrencyAndAmount[] PreviousTotalNAV { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoActiveOrHistoricCurrencyAndAmount> PreviousTotalNAV { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total number of investment fund class units that have been issued.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? TotalUnitsNumber { get; init; } 
     /// <summary>
     /// Previous total number of investment fund class units that have been issued.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? PreviousTotalUnitsNumber { get; init; } 
     /// <summary>
     /// Rate of change of the net asset value.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? TotalNAVChangeRate { get; init; } 
     /// <summary>
     /// Currency of the investment fund class.
     /// </summary>
-    public ActiveOrHistoricCurrencyCode[] InvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ActiveOrHistoricCurrencyCode> InvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information about the designation of the share class currency, that is, whether it is for onshore or offshore purposes and other information that may be required. This is typically only required for CNY funds.
     /// </summary>
+    [DataMember]
     public CurrencyDesignation1? CurrencyStatus { get; init; } 
     /// <summary>
     /// Indicates whether the net cash flow is exceptional.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ExceptionalNetCashFlowIndicator { get; init; } 
     /// <summary>
     /// Price per unit of the trade date.
     /// </summary>
+    [DataMember]
     public UnitPrice19? Price { get; init; } 
     /// <summary>
     /// Foreign exchange rate.
     /// </summary>
+    [DataMember]
     public ForeignExchangeTerms19? ForeignExchangeRate { get; init; } 
     /// <summary>
     /// Net cash flow expressed as a percentage of the total NAV for the share class.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? PercentageOfShareClassTotalNAV { get; init; } 
     /// <summary>
     /// Cash movements into the fund as a result of transactions in shares in an investment fund, for example, subscriptions or switch-ins.
     /// </summary>
-    public CashInForecast6[] CashInForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashInForecast6> CashInForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash movements out of the fund as a result of transactions in shares in an investment fund, for example, redemptions or switch-outs.
     /// </summary>
-    public CashOutForecast6[] CashOutForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashOutForecast6> CashOutForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net cash as a result of the cash-in and cash-out flows.
     /// </summary>
-    public NetCashForecast4[] NetCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NetCashForecast4> NetCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a previous notification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NotificationUpdate2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NotificationUpdate2
     /// <summary>
     /// Identification of a previously sent meeting notification message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text PreviousNotificationIdentification { get; init; } 
     /// <summary>
     /// Indicates whether a meeting instruction must be resent in case the parameters of the meeting are changed and the meeting instruction has already been sent.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ReconfirmInstructions { get; init; } 
     
     #nullable disable

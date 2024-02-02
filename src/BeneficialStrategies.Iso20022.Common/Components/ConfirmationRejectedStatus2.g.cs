@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Rejection of a confirmation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ConfirmationRejectedStatus2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ConfirmationRejectedStatus2
     /// <summary>
     /// Reason for the rejected status.
     /// </summary>
+    [DataMember]
     public ConfirmationRejectedReason1Choice_? Reason { get; init; } 
     /// <summary>
     /// Additional information about the rejected reason.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(EUCapitalGain3Choice.Code))]
 [KnownType(typeof(EUCapitalGain3Choice.Proprietary))]
+[DataContract]
 public abstract partial record EUCapitalGain3Choice_
 {
 }

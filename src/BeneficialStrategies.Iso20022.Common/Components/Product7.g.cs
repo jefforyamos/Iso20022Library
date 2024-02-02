@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Product related to the transaction
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Product7
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Product7
     /// <summary>
     /// Product code of the item.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? ProductCode { get; init; } 
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     
     #nullable disable

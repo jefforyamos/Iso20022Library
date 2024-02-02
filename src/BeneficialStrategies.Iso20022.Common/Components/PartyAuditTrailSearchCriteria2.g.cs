@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes search criteria for party audit trail query.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyAuditTrailSearchCriteria2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PartyAuditTrailSearchCriteria2
     /// <summary>
     /// Describes party to be queried.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification8? PartyIdentification { get; init; } 
     /// <summary>
     /// Describes date period for querying information.
     /// </summary>
+    [DataMember]
     public DatePeriodSearch1Choice_? DatePeriod { get; init; } 
     
     #nullable disable

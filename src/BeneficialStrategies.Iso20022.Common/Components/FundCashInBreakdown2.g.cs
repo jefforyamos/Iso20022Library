@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Breakdown of cash movements into a fund as a result of investment funds transactions, eg, subscriptions or switch-in.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FundCashInBreakdown2
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record FundCashInBreakdown2
     /// <summary>
     /// Amount of cash flow in, expressed as an amount of money.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Amount of the cash flow in, expressed as a number of units.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? UnitsNumber { get; init; } 
     /// <summary>
     /// Indicates whether the cash flow is an item that did not appear on the previously sent report, eg, because it was received close to cut-off time.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? NewAmountIndicator { get; init; } 
     /// <summary>
     /// Breakdown of the cash movements into a fund by transaction type, eg, subscription, switch-in.
     /// </summary>
+    [DataMember]
     public required InvestmentFundTransactionInType1Code InvestmentFundTransactionInType { get; init; } 
     /// <summary>
     /// Breakdown of the cash movements into a fund by transaction type, eg, subscription, switch-in.
     /// </summary>
+    [DataMember]
     public required IsoExtended350Code ExtendedInvestmentFundTransactionInType { get; init; } 
     /// <summary>
     /// Breakdown of the cash movements into a fund by order type, eg, order by quantity of units or amount of money.
     /// </summary>
+    [DataMember]
     public required OrderQuantityType2Code OriginalOrderQuantityType { get; init; } 
     /// <summary>
     /// Breakdown of the cash movements into a fund by transaction type, eg, subscription, switch-in.
     /// </summary>
+    [DataMember]
     public required IsoExtended350Code ExtendedOriginalOrderQuantityType { get; init; } 
     /// <summary>
     /// Charge for the placement of an order.
     /// </summary>
-    public Charge16[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Charge16> ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to the commission applied to an order, eg, back-end or front-end commission.
     /// </summary>
-    public Commission9[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Commission9> CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

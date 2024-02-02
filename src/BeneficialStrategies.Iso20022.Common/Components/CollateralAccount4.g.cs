@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information on the collateral account of the party delivering/receiving the collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralAccount4
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record CollateralAccount4
     /// <summary>
     /// Identification of the collateral account.
     /// </summary>
+    [DataMember]
     public required GenericIdentification165 Identification { get; init; } 
     /// <summary>
     /// Specifies the financial instruments placed as collateral.
     /// </summary>
-    public AssetHolding1[] AssetHolding { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AssetHolding1> AssetHolding { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

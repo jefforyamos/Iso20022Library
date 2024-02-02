@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data to be present in a dispute.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DisputeData1
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record DisputeData1
     /// <summary>
     /// Indicates the cycle of presentment or of the chargeback  (1= first cycle for chargeback, 2= second cycle of presentment or chargeback, etc.).
     /// </summary>
+    [DataMember]
     public IsoExact1NumericText? PresentmentCycle { get; init; } 
     /// <summary>
     /// Condition of the dispute.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DisputeCondition { get; init; } 
     /// <summary>
     /// Status of dispute.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DisputeStatus { get; init; } 
     /// <summary>
     /// Partial dispute indicator.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PartialDispute { get; init; } 
     /// <summary>
     /// Reference for the dispute.
     /// </summary>
-    public DisputeReference1[] DisputeReference { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DisputeReference1> DisputeReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Status of the dispute documentation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DocumentationStatus { get; init; } 
     /// <summary>
     /// Additional information related to the dispute.
     /// </summary>
+    [DataMember]
     public IsoMax1000Text? AdditionalDisputeData { get; init; } 
     /// <summary>
     /// Reason for rejecting a dispute.
     /// </summary>
-    public IsoMax35Text[] DisputeRejectReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> DisputeRejectReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides transaction chargeback eligibility conditions.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ChargebackEligibility { get; init; } 
     
     #nullable disable

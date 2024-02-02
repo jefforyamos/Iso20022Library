@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TaxableIncomePerShareCalculatedType1Choice.TaxableIncomePerShareCalculated))]
 [KnownType(typeof(TaxableIncomePerShareCalculatedType1Choice.Proprietary))]
+[DataContract]
 public abstract partial record TaxableIncomePerShareCalculatedType1Choice_
 {
 }

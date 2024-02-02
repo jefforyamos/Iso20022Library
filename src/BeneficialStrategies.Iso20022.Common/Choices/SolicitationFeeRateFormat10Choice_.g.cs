@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SolicitationFeeRateFormat10Choice.AmountToQuantity))]
 [KnownType(typeof(SolicitationFeeRateFormat10Choice.Amount))]
 [KnownType(typeof(SolicitationFeeRateFormat10Choice.NotSpecifiedRate))]
+[DataContract]
 public abstract partial record SolicitationFeeRateFormat10Choice_
 {
 }

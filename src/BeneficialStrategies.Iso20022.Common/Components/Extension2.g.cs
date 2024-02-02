@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional information that can not be captured in the structured fields and/or any other specific block.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Extension2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Extension2
     /// <summary>
     /// Name qualifying the information provided in the Text field, and place where this information should be inserted.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Technical element wrapping the extension.
     /// </summary>
+    [DataMember]
     public required ExtensionEnvelope1 ExtensionEnvelope { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the status of the transaction by means of a code.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionStatus1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record TransactionStatus1
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
+    [DataMember]
     public required BaselineStatus1Code Status { get; init; } 
     
     #nullable disable

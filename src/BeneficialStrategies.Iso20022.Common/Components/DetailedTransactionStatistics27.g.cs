@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about outstanding derivatives, outstanding derivatives with no valuation and outstanding derivatives with outdated valuation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedTransactionStatistics27
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record DetailedTransactionStatistics27
     /// <summary>
     /// Number of outstanding derivatives. 
     /// </summary>
+    [DataMember]
     public required IsoNumber NumberOfOutstandingDerivatives { get; init; } 
     /// <summary>
     /// Number of outstanding derivatives for which valuation amount was never reported.
     /// </summary>
+    [DataMember]
     public required IsoNumber NumberOfOutstandingDerivativesWithNoValuation { get; init; } 
     /// <summary>
     /// Number of outstanding derivatives with outdated valuation.
     /// </summary>
+    [DataMember]
     public required IsoNumber NumberOfOutstandingDerivativesWithOutdatedValuation { get; init; } 
     /// <summary>
     /// Details of outstanding derivatives for which the valuation was not reported or the valuation reported is more than fourteen calendar days earlier than the date for which the report was generated shall be included in the report of missing valuations at the end of the day.
     /// </summary>
-    public MissingValuationsData2[] Warnings { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MissingValuationsData2> Warnings { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

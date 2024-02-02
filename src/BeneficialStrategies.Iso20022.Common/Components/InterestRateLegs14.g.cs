@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details related to interest rate attributes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InterestRateLegs14
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InterestRateLegs14
     /// <summary>
     /// Details concerning the rate in the first leg of an interest rate contract.
     /// </summary>
+    [DataMember]
     public InterestRate33Choice_? FirstLeg { get; init; } 
     /// <summary>
     /// Details concerning the rate in the second leg of an interest rate contract.
     /// </summary>
+    [DataMember]
     public InterestRate33Choice_? SecondLeg { get; init; } 
     
     #nullable disable

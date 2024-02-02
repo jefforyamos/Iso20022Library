@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the report level status advice.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatusAdviceReport3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record StatusAdviceReport3
     /// <summary>
     /// Provides the status for the full message.
     /// </summary>
+    [DataMember]
     public required ReportingMessageStatus1Code Status { get; init; } 
     /// <summary>
     /// Provides the details of the rule which could not be validated.
     /// </summary>
-    public GenericValidationRuleIdentification1[] ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericValidationRuleIdentification1> ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the report date with the status advice message is related to.
     /// </summary>
+    [DataMember]
     public IsoISODate? MessageDate { get; init; } 
     /// <summary>
     /// Statistical information on the results of the records processing.
     /// </summary>
+    [DataMember]
     public OriginalReportStatistics3? Statistics { get; init; } 
     
     #nullable disable

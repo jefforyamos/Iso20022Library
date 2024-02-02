@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Numeric variables calculated on market exposures.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExposureMetrics4
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record ExposureMetrics4
     /// <summary>
     /// Amount of money to be settled as of the start date and maturity date of the transaction.
     /// </summary>
+    [DataMember]
     public PrincipalAmount3? PrincipalAmount { get; init; } 
     /// <summary>
     /// Specifies the loan value, that is the quantity or nominal amount multiplied by the price.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? LoanValue { get; init; } 
     /// <summary>
     /// Market value of asset or collateral component.
     /// </summary>
+    [DataMember]
     public AmountAndDirection53? MarketValue { get; init; } 
     /// <summary>
     /// Total amount of margin loans in base currency.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? OutstandingMarginLoanAmount { get; init; } 
     /// <summary>
     /// Market value of short position in base currency.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ShortMarketValueAmount { get; init; } 
     /// <summary>
     /// Margin loan in which a counterparty extends credit in connection with the purchase, sale, carrying or trading of securities, but not including other loans that are secured by collateral in the form of securities.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? MarginLoan { get; init; } 
     /// <summary>
     /// Amount of funds provided as collateral for borrowing the securities or commodities.
     /// </summary>
+    [DataMember]
     public AmountAndDirection53? CashCollateralAmount { get; init; } 
     /// <summary>
     /// Market value of asset or collateral component.
     /// </summary>
+    [DataMember]
     public AmountAndDirection53? CollateralMarketValue { get; init; } 
     
     #nullable disable

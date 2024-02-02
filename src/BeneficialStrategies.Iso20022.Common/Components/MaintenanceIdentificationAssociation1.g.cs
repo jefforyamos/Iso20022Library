@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Association of the TM identifier and the MTM identifier of an entity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MaintenanceIdentificationAssociation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record MaintenanceIdentificationAssociation1
     /// <summary>
     /// Identifier for the master terminal manager.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MasterTMIdentification { get; init; } 
     /// <summary>
     /// Identifier for the terminal manager requesting the delegation.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TMIdentification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters related to the security of software application and application protocol.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityParameters3
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record SecurityParameters3
     /// <summary>
     /// Version of the security parameters.
     /// </summary>
+    [DataMember]
     public required IsoMax256Text Version { get; init; } 
     /// <summary>
     /// Point of interaction challenge for cryptographic key injection.
     /// </summary>
+    [DataMember]
     public IsoMax140Binary? POIChallenge { get; init; } 
     /// <summary>
     /// Terminal manager challenge for cryptographic key injection.
     /// </summary>
+    [DataMember]
     public IsoMax140Binary? TMChallenge { get; init; } 
     /// <summary>
     /// Key to inject in the point of interaction, protected by the temporary key previously sent.
     /// </summary>
-    public CryptographicKey5[] SymmetricKey { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CryptographicKey5> SymmetricKey { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

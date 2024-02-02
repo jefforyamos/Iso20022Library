@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains text fields in the local language.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LocalData7
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record LocalData7
     /// <summary>
     /// The language code conforming to ISO 639-1 that identifies the language in which the fields are expressed in this component.
     /// </summary>
+    [DataMember]
     public required ISOMax3ALanguageCode Language { get; init; } 
     /// <summary>
     /// Name of the cardholder in the local language.
     /// </summary>
+    [DataMember]
     public CardholderName2? CardholderName { get; init; } 
     /// <summary>
     /// Structured postal address in the local language.
     /// </summary>
+    [DataMember]
     public Address3? Address { get; init; } 
     /// <summary>
     /// Additional local language data
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

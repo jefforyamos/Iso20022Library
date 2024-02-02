@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Exchange rate and calculated amount to be presented to the customer when the dispense currency or the deposit currency (target currency) is different to account currency (source currency).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyConversion5
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CurrencyConversion5
     /// <summary>
     /// Currency from which the amount is converted (ISO 4217, 3 alphanumeric characters).
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode SourceCurrency { get; init; } 
     /// <summary>
     /// Currency from which the amount is converted (ISO 4217, 3 numeric characters).
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode SourceCurrencyNumeric { get; init; } 
     /// <summary>
     /// Currency into which the amount is converted (ISO 4217, 3 alphanumeric characters).
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode TargetCurrency { get; init; } 
     /// <summary>
     /// Currency into which the amount is converted (ISO 4217, 3 numeric characters).
     /// </summary>
+    [DataMember]
     public required IsoExact3NumericText TargetCurrencyNumeric { get; init; } 
     /// <summary>
     /// Currency exchange rate.
     /// </summary>
+    [DataMember]
     public required IsoBaseOneRate Rate { get; init; } 
     /// <summary>
     /// Resulting calculated amount is in target currency.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount CalculatedAmount { get; init; } 
     
     #nullable disable

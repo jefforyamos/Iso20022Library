@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides references to the submitted data set both for the TSU and for the user.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DataSetSubmissionReferences2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DataSetSubmissionReferences2
     /// <summary>
     /// Unique identification assigned by the TSU to the transaction.|This identification is to be used in any communication between the parties and with the TSU.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Provides reference to the transaction for the financial institution that submits the data set.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text SubmitterTransactionReference { get; init; } 
     
     #nullable disable

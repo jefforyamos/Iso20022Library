@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(PartyIdentification24Choice.BICOrBEI))]
 [KnownType(typeof(PartyIdentification24Choice.MIC))]
+[DataContract]
 public abstract partial record PartyIdentification24Choice_
 {
 }

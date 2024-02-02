@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the software and hardware feature of the Sale Terminal.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SaleTerminalData1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SaleTerminalData1
     /// <summary>
     /// Human attendance at the POI location during the transaction.
     /// </summary>
+    [DataMember]
     public AttendanceContext1Code? TerminalEnvironment { get; init; } 
     /// <summary>
     /// Identifier of the reconciliation between the Sale system and the POI system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleReconciliationIdentification { get; init; } 
     
     #nullable disable

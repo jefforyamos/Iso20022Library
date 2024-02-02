@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Value given to a positive or negative price change.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PriceValueChange1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PriceValueChange1
     /// <summary>
     /// Amount by which the price has changed.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? Amount { get; init; } 
     /// <summary>
     /// Indicates a positive or negative amount change.
     /// </summary>
+    [DataMember]
     public IsoPlusOrMinusIndicator? AmountSign { get; init; } 
     /// <summary>
     /// Rate by which the price has changed.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information that locates and identifies a specific branch of a financial institution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BranchData3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record BranchData3
     /// <summary>
     /// Unique and unambiguous identification of a branch of a financial institution.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Legal entity identification for the branch of the financial institution.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     /// <summary>
     /// Name by which an agent is known and which is usually used to identify that agent.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Name { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
+    [DataMember]
     public PostalAddress24? PostalAddress { get; init; } 
     
     #nullable disable

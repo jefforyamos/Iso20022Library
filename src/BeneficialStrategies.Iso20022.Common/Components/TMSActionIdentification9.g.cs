@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Result of an individual terminal management action by the point of interaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TMSActionIdentification9
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TMSActionIdentification9
     /// <summary>
     /// Types of terminal management action performed by a point of interaction.
     /// </summary>
+    [DataMember]
     public required TerminalManagementAction5Code ActionType { get; init; } 
     /// <summary>
     /// Data set on which the action has been performed.
     /// </summary>
+    [DataMember]
     public DataSetIdentification10? DataSetIdentification { get; init; } 
     
     #nullable disable

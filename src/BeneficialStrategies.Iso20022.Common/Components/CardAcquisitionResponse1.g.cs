@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Card Acquisition Response message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardAcquisitionResponse1
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record CardAcquisitionResponse1
     /// <summary>
     /// Unique identification of a POI transaction.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 POITransactionIdentification { get; init; } 
     /// <summary>
     /// Type of payment card.
     /// </summary>
-    public IsoMax35Text[] PaymentBrand { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> PaymentBrand { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Language used to display messages to the customer.
     /// </summary>
+    [DataMember]
     public LanguageCode? CustomerLanguage { get; init; } 
     /// <summary>
     /// Loyalty account information.
     /// </summary>
-    public LoyaltyAccount1[] LoyaltyAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LoyaltyAccount1> LoyaltyAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Customer order attached to a customer, recorded in the POI system.
     /// </summary>
-    public CustomerOrder1[] CustomerOrder { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CustomerOrder1> CustomerOrder { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

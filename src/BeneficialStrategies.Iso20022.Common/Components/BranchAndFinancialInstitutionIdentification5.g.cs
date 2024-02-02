@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to uniquely and unambiguously identify a financial institution or a branch of a financial institution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BranchAndFinancialInstitutionIdentification5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record BranchAndFinancialInstitutionIdentification5
     /// <summary>
     /// Unique and unambiguous identification of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public required FinancialInstitutionIdentification8 FinancialInstitutionIdentification { get; init; } 
     /// <summary>
     /// Identifies a specific branch of a financial institution.||Usage: This component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
     /// </summary>
+    [DataMember]
     public BranchData2? BranchIdentification { get; init; } 
     
     #nullable disable

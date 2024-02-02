@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details on the charges related to the payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Charges4
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record Charges4
     /// <summary>
     /// Total of all charges and taxes applied to the entry.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalChargesAndTaxAmount { get; init; } 
     /// <summary>
     /// Provides details of the individual charges record.
     /// </summary>
-    public ChargesRecord2[] Record { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ChargesRecord2> Record { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

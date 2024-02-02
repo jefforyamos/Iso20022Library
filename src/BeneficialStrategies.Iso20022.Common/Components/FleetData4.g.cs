@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Fleet data pertaining to the payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FleetData4
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record FleetData4
     /// <summary>
     /// Invoice Summary information.
     /// </summary>
+    [DataMember]
     public FleetSummary2? Summary { get; init; } 
     /// <summary>
     /// Fleet Line Item component is designed to carry detail level fleet data and to enable issuers to supply more transaction information to their consumer and corporate clients pertaining to fleet transactions. 
     /// </summary>
-    public FleetLineItem4[] LineItem { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FleetLineItem4> LineItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

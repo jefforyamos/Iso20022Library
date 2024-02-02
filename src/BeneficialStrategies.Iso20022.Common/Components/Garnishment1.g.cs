@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides remittance information about a payment for garnishment-related purposes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Garnishment1
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record Garnishment1
     /// <summary>
     /// Specifies the type of garnishment.
     /// </summary>
+    [DataMember]
     public required GarnishmentType1 Type { get; init; } 
     /// <summary>
     /// Ultimate party that owes an amount of money to the (ultimate) creditor, in this case, to the garnisher.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? Garnishee { get; init; } 
     /// <summary>
     /// Party on the credit side of the transaction who administers the garnishment on behalf of the ultimate beneficiary.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? GarnishmentAdministrator { get; init; } 
     /// <summary>
     /// Reference information that is specific to the agency receiving the garnishment.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? ReferenceNumber { get; init; } 
     /// <summary>
     /// Date of payment which garnishment was taken from.
     /// </summary>
+    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Amount of money remitted for the referred document.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? RemittedAmount { get; init; } 
     /// <summary>
     /// Indicates if the person to whom the garnishment applies (that is, the ultimate debtor) has family medical insurance coverage available.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? FamilyMedicalInsuranceIndicator { get; init; } 
     /// <summary>
     /// Indicates if the employment of the person to whom the garnishment applies (that is, the ultimate debtor) has been terminated.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? EmployeeTerminationIndicator { get; init; } 
     
     #nullable disable

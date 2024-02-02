@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Resources of a legal entity or other financial construct that are available to meet cash obligations.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LiquidResources1
 {
     #nullable enable
@@ -20,43 +22,53 @@ public partial record LiquidResources1
     /// <summary>
     /// Cash expected to be available to the CCP on each day in order to meet liquid requirements.
     /// </summary>
-    public LiquidResourceInformation1[] CashDue { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LiquidResourceInformation1> CashDue { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Lines of credit with credit institutions that are contractually committed with the liquidity provider.
     /// </summary>
-    public LiquidResourceInformation1[] FacilitiesCommittedLinesOfCredit { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LiquidResourceInformation1> FacilitiesCommittedLinesOfCredit { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Repurchase agreement that are contractually committed with the liquidity provider.
     /// </summary>
-    public LiquidResourceInformation1[] FacilitiesCommittedRepurchaseAgreements { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LiquidResourceInformation1> FacilitiesCommittedRepurchaseAgreements { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// FX swaps that are contractually committed with the liquidity provider.
     /// </summary>
-    public LiquidResourceInformation1[] FacilitiesCommittedFXSwaps { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LiquidResourceInformation1> FacilitiesCommittedFXSwaps { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Other liquidity facilities that are contractually committed with the liquidity provider.
     /// </summary>
-    public LiquidResourceInformation1[] FacilitiesOtherCommitted { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LiquidResourceInformation1> FacilitiesOtherCommitted { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Liquidity facilities that are not contractually committed.
     /// </summary>
-    public LiquidResourceInformation1[] FacilitiesUncommitted { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LiquidResourceInformation1> FacilitiesUncommitted { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// CCPs own non cash resources.
     /// </summary>
-    public LiquidResourceInformation1[] FinancialInstrumentsCCP { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LiquidResourceInformation1> FinancialInstrumentsCCP { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Financial instruments from CCP treasury investments of clearing members cash collateral with any of the CCPs own cash invested included.
     /// </summary>
-    public LiquidResourceInformation1[] FinancialInstrumentsTreasuryInvestments { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LiquidResourceInformation1> FinancialInstrumentsTreasuryInvestments { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Financial instruments due to be delivered to the defaulting member that post-default can be used to meet liquidity needs in the event of their default.
     /// </summary>
-    public LiquidResourceInformation1[] FinancialInstrumentsDefaultersSettlementCollateral { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LiquidResourceInformation1> FinancialInstrumentsDefaultersSettlementCollateral { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Non-cash collateral e.g. margin provided by the defaulting counterparty that can be used to meet liquidity needs in the event of their default.
     /// </summary>
-    public LiquidResourceInformation1[] FinancialInstrumentsDefaultersNonCashCollateral { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LiquidResourceInformation1> FinancialInstrumentsDefaultersNonCashCollateral { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

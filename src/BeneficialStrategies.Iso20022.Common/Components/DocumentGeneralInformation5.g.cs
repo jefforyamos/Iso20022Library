@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// General information that unambiguously identifies a document, such as identification number and issue date time.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentGeneralInformation5
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record DocumentGeneralInformation5
     /// <summary>
     /// Specifies the type of the document, for example commercial invoice.
     /// </summary>
+    [DataMember]
     public required ExternalDocumentType1Code DocumentType { get; init; } 
     /// <summary>
     /// Unique identifier of the document.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text DocumentNumber { get; init; } 
     /// <summary>
     /// Name of the document
     /// </summary>
+    [DataMember]
     public IsoMax140Text? DocumentName { get; init; } 
     /// <summary>
     /// Specifies the identification sequence number for a specific couple sender/receiver.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? SenderReceiverSequenceIdentification { get; init; } 
     /// <summary>
     /// Issue date of the document.
     /// </summary>
+    [DataMember]
     public IsoISODate? IssueDate { get; init; } 
     /// <summary>
     /// URL (Uniform Resource Locator) where the document can be found.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? URL { get; init; } 
     /// <summary>
     /// Full Signature Structure without Signature itself:
     /// Hash + Certificate.
     /// </summary>
+    [DataMember]
     public SignatureEnvelopeReference? LinkFileHash { get; init; } 
     /// <summary>
     /// Attached binary file for this document.
     /// </summary>
+    [DataMember]
     public required BinaryFile1 AttachedBinaryFile { get; init; } 
     
     #nullable disable

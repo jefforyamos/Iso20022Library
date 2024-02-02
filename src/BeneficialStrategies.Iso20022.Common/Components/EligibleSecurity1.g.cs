@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details of the eligible securities as defined in the collateral reference data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EligibleSecurity1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record EligibleSecurity1
     /// <summary>
     /// Identification of a security by an ISIN.
     /// </summary>
+    [DataMember]
     public required IsoISINIdentifier SecurityIdentification { get; init; } 
     /// <summary>
     /// Currency which may be processed by the system. A system may process transactions in a single currency or in multiple currencies.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode CollateralisationCurrency { get; init; } 
     /// <summary>
     /// Identifies the party for which the eligible security is defined.
     /// </summary>
+    [DataMember]
     public required NCBOrPaymentBank1Choice_ PartyIdentification { get; init; } 
     
     #nullable disable

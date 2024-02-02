@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Conditions applicable when the investor is not covered by the "de minimis" exemption.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeMinimusNotApplicable1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record DeMinimusNotApplicable1
     /// <summary>
     /// Reason for the restricted person.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text RestrictedPersonReason { get; init; } 
     
     #nullable disable

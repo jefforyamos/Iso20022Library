@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains the content of a report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportContent1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ReportContent1
     /// <summary>
     /// Sequence number of the report line in the report.
     /// </summary>
+    [DataMember]
     public IsoMax10NumericText? ReportLineSequence { get; init; } 
     /// <summary>
     /// Formatted or unformatted report content.
     /// </summary>
+    [DataMember]
     public required ReportContent1Choice_ FormattedContent { get; init; } 
     
     #nullable disable

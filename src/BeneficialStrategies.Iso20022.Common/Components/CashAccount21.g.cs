@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account to or from which a cash entry is made.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashAccount21
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CashAccount21
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [DataMember]
     public IsoBICIdentifier? Servicer { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required AccountIdentification5Choice_ Identification { get; init; } 
     
     #nullable disable

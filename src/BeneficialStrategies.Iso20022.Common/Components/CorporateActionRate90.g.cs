@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies rate details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionRate90
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record CorporateActionRate90
     /// <summary>
     /// Quantity of additional intermediate securities/new equities awarded for a given quantity of securities derived from subscription.
     /// </summary>
+    [DataMember]
     public RatioFormat20Choice_? AdditionalQuantityForSubscribedResultantSecurities { get; init; } 
     /// <summary>
     /// Quantity of additional securities for a given quantity of underlying securities where underlying securities are not exchanged or debited, for example, 1 for 1: 1 new equity credited for every 1 underlying equity = 2 resulting equities.
     /// </summary>
+    [DataMember]
     public RatioFormat20Choice_? AdditionalQuantityForExistingSecurities { get; init; } 
     /// <summary>
     /// Quantity of new securities for a given quantity of underlying securities, where the underlying securities will be exchanged or debited, for example, 2 for 1: 2 new equities credited for every 1 underlying equity debited = 2 resulting equities.
     /// </summary>
+    [DataMember]
     public RatioFormat19Choice_? NewToOld { get; init; } 
     /// <summary>
     /// Rate used to calculate the amount of the charges/fees that cannot be categorised.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat39Choice_? ChargesFees { get; init; } 
     /// <summary>
     /// Percentage of fiscal tax to apply.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? FiscalStamp { get; init; } 
     /// <summary>
     /// Rate applicable to the event announced, for example, redemption rate for a redemption event.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? ApplicableRate { get; init; } 
     /// <summary>
     /// Amount of money per equity allocated as the result of a tax credit.
     /// </summary>
+    [DataMember]
     public RateFormat22Choice_? TaxCreditRate { get; init; } 
     /// <summary>
     /// Rate of financial transaction tax.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? FinancialTransactionTaxRate { get; init; } 
     
     #nullable disable

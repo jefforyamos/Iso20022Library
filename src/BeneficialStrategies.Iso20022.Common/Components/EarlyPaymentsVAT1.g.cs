@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the payment terms of the underlying transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EarlyPaymentsVAT1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record EarlyPaymentsVAT1
     /// <summary>
     /// Tax rate to be applied for early payment.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate TaxRate { get; init; } 
     /// <summary>
     /// Type of tax applied.
     /// </summary>
+    [DataMember]
     public required IsoMax4Text DiscountTaxType { get; init; } 
     /// <summary>
     /// Early payment discount tax amount calculated using defined tax rate.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount DiscountTaxAmount { get; init; } 
     
     #nullable disable

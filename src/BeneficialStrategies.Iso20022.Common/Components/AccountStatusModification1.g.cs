@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of change to the status of the account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountStatusModification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AccountStatusModification1
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
+    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Status of the account.
     /// </summary>
+    [DataMember]
     public required AccountStatus3Code Status { get; init; } 
     
     #nullable disable

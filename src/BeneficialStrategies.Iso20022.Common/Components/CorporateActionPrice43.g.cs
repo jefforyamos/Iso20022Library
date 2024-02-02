@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies prices related to a corporate action option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionPrice43
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CorporateActionPrice43
     /// <summary>
     /// Indicates whether the price is an indicative price or a market price.
     /// </summary>
+    [DataMember]
     public IndicativeOrMarketPrice5Choice_? IndicativeOrMarketPrice { get; init; } 
     /// <summary>
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
+    [DataMember]
     public PriceFormat19Choice_? CashInLieuOfSharePrice { get; init; } 
     /// <summary>
     /// Cash value of resulting securities proceeds for tax calculation and/or reporting.
     /// </summary>
+    [DataMember]
     public PriceFormat29Choice_? CashValueForTax { get; init; } 
     /// <summary>
     /// Generic cash price paid per product by the underlying security holder either as a percentage or an amount or a number of points above an index, for example, reinvestment price, strike price and exercise price.
     /// </summary>
+    [DataMember]
     public PriceFormat23Choice_? GenericCashPricePaidPerProduct { get; init; } 
     /// <summary>
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, for example, redemption price.
     /// </summary>
+    [DataMember]
     public PriceFormat32Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
     
     #nullable disable

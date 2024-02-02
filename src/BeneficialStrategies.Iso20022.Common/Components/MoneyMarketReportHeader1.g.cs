@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the money market statistical report instrument related header details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MoneyMarketReportHeader1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record MoneyMarketReportHeader1
     /// <summary>
     /// Agent which is subject to reporting requirements.
     /// </summary>
+    [DataMember]
     public required IsoLEIIdentifier ReportingAgent { get; init; } 
     /// <summary>
     /// Beginning and ending date-time to which the transaction data refers (trade date in case of new transactions and date of amendment in case of revisions).
     /// </summary>
+    [DataMember]
     public required DateTimePeriod1 ReferencePeriod { get; init; } 
     
     #nullable disable

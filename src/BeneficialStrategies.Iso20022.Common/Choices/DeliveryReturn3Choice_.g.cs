@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(DeliveryReturn3Choice.Code))]
 [KnownType(typeof(DeliveryReturn3Choice.Proprietary))]
+[DataContract]
 public abstract partial record DeliveryReturn3Choice_
 {
 }

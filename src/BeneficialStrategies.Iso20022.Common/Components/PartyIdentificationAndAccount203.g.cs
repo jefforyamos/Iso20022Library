@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parties involved in the triparty collateral transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentificationAndAccount203
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record PartyIdentificationAndAccount203
     /// <summary>
     /// Identification of the party.
     /// </summary>
+    [DataMember]
     public required PartyIdentification120Choice_ Identification { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a party.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
+    [DataMember]
     public AlternatePartyIdentification7? AlternateIdentification { get; init; } 
     /// <summary>
     /// Account of the party.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
+    [DataMember]
     public BlockChainAddressWallet3? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// Specifies the role of the party in the transaction.
     /// </summary>
+    [DataMember]
     public TradingPartyCapacity5Choice_? PartyCapacity { get; init; } 
     
     #nullable disable

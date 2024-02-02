@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements to identify a proprietary price.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProprietaryPrice1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ProprietaryPrice1
     /// <summary>
     /// Identifies the type of price reported.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Proprietary price specification related to the underlying transaction.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount Price { get; init; } 
     
     #nullable disable

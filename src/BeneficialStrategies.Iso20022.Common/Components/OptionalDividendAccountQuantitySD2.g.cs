@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding optional dividend election details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OptionalDividendAccountQuantitySD2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OptionalDividendAccountQuantitySD2
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Beneficial owner quantity to be paid.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity15Choice_ BeneficialOwnerQuantity { get; init; } 
     /// <summary>
     /// Number of accounts for which the beneficial quantity is elected.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText NumberOfAccounts { get; init; } 
     
     #nullable disable

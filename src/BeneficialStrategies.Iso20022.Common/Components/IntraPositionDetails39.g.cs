@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the intra-position movement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraPositionDetails39
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record IntraPositionDetails39
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PoolIdentification { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification92Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public required SecuritiesAccount19 SafekeepingAccount { get; init; } 
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Number identifying a lot constituting the financial instrument.
     /// </summary>
+    [DataMember]
     public GenericIdentification37? LotNumber { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be moved.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ SettlementDate { get; init; } 
     /// <summary>
     /// Time stamp on when the transaction is acknowledged.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? AcknowledgedStatusTimeStamp { get; init; } 
     /// <summary>
     /// Balance from which the securities are moving.
     /// </summary>
+    [DataMember]
     public SecuritiesBalanceType7Choice_? BalanceFrom { get; init; } 
     /// <summary>
     /// Balance to which the securities are moving.
     /// </summary>
+    [DataMember]
     public SecuritiesBalanceType7Choice_? BalanceTo { get; init; } 
     
     #nullable disable

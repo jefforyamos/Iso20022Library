@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the entity to which the financial instruments are pledged expressed as a code and a BIC.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PledgeeTypeAndAnyBICIdentifier1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PledgeeTypeAndAnyBICIdentifier1
     /// <summary>
     /// Identification of the entity to which the financial instruments are pledged, expressed as a BIC.
     /// </summary>
+    [DataMember]
     public required IsoAnyBICIdentifier Identification { get; init; } 
     /// <summary>
     /// Entity to which the financial instruments are pledged expressed as a code.
     /// </summary>
+    [DataMember]
     public required PledgeeType1Code PledgeeType { get; init; } 
     
     #nullable disable

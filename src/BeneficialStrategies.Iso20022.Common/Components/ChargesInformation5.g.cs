@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide information on the charges related to the payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ChargesInformation5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ChargesInformation5
     /// <summary>
     /// Transaction charges to be paid by the charge bearer.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Party that takes the transaction charges or to which the transaction charges are due.
     /// </summary>
+    [DataMember]
     public required BranchAndFinancialInstitutionIdentification4 Party { get; init; } 
     
     #nullable disable

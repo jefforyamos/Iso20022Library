@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.ExternalSchema;
 /// <summary>
 /// Technical component that contains the validated supplementary data information. This technical envelope allows to segregate the supplementary data information from any other information.
 /// </summary>
+[DataContract]
 public partial record SupplementaryDataEnvelope1
 {
     #nullable enable

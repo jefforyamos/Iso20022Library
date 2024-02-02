@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ModificationScope40
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ModificationScope40
     /// <summary>
     /// Type of modification to be applied.
     /// </summary>
+    [DataMember]
     public required DataModification1Code ModificationScopeIndication { get; init; } 
     /// <summary>
     /// Intermediary or other party related to the management of the account.
     /// </summary>
+    [DataMember]
     public required Intermediary46 Intermediary { get; init; } 
     
     #nullable disable

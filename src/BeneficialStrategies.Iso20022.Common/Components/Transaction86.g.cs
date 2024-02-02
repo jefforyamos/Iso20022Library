@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains transaction details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transaction86
 {
     #nullable enable
@@ -21,62 +23,76 @@ public partial record Transaction86
     /// Type of transaction associated with the main service.
     /// ISO 8583:87/93/2003 bit 3
     /// </summary>
+    [DataMember]
     public required IsoExact2AlphaNumericText TransactionType { get; init; } 
     /// <summary>
     /// Provides further granularity of purpose of TransactionType
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TransactionSubType { get; init; } 
     /// <summary>
     /// Attribute of the transaction.
     /// ISO 8583:87 bit 25
     /// ISO 8583:2003 bit 22-3 & bit 24
     /// </summary>
+    [DataMember]
     public TransactionAttribute1Code? TransactionAttribute { get; init; } 
     /// <summary>
     /// Other transaction attribute defined at national or private level.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherTransactionAttribute { get; init; } 
     /// <summary>
     /// Data to qualify for incentive or other related programmes.
     /// </summary>
-    public SpecialProgrammeQualification1[] SpecialProgrammeQualification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SpecialProgrammeQualification1> SpecialProgrammeQualification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
+    [DataMember]
     public required TransactionIdentification8 TransactionIdentification { get; init; } 
     /// <summary>
     /// Amounts of the card transaction.
     /// </summary>
+    [DataMember]
     public required TransactionAmounts1 TransactionAmounts { get; init; } 
     /// <summary>
     /// Amounts that are not part of the transaction amount and not included in reconciliation.
     /// ISO 8583 bit 54
     /// </summary>
-    public AdditionalAmounts1[] AdditionalAmounts { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalAmounts1> AdditionalAmounts { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fees not included in the transaction amount.
     /// </summary>
-    public AdditionalFee1[] AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalFee1> AdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fees not included in the original transaction amount.
     /// </summary>
-    public AdditionalFee1[] OriginalAdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalFee1> OriginalAdditionalFees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies a customer account or a relationship to its account affected for debit, inquiries and the source of funding for transfers.
     /// </summary>
+    [DataMember]
     public AccountDetails2? AccountFrom { get; init; } 
     /// <summary>
     /// Identifies a customer account or a relationship to its account affected for credits, inquiries and the destination account for funds transfers.
     /// </summary>
+    [DataMember]
     public AccountDetails2? AccountTo { get; init; } 
     /// <summary>
     /// Transaction data related to programmes and services, content and format based on bilateral agreements.
     /// </summary>
+    [DataMember]
     public IsoMax1000Text? TransactionDescription { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

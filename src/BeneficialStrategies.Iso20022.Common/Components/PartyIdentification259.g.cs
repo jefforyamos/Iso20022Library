@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification259
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record PartyIdentification259
     /// <summary>
     /// Name of the customer.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Identification of the customer.
     /// </summary>
+    [DataMember]
     public PartyIdentification258? Identification { get; init; } 
     /// <summary>
     /// Address of the customer.
     /// </summary>
+    [DataMember]
     public Address2? Address { get; init; } 
     /// <summary>
     /// Contact information related to the customer.
     /// </summary>
+    [DataMember]
     public Contact3? Contact { get; init; } 
     /// <summary>
     /// Identification of the customer recognized by the taxation authority.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? TaxRegistrationIdentification { get; init; } 
     /// <summary>
     /// Additional information about the seller. 
     /// </summary>
+    [DataMember]
     public IsoMax1000Text? AdditionalInformation { get; init; } 
     
     #nullable disable

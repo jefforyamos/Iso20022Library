@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data to qualify for incentive or other related programmes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SpecialProgrammeQualification1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record SpecialProgrammeQualification1
     /// <summary>
     /// Name of special programme.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Programme { get; init; } 
     /// <summary>
     /// Name and value associated with a special programme.
     /// </summary>
-    public SpecialProgrammeDetails1[] Detail { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SpecialProgrammeDetails1> Detail { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

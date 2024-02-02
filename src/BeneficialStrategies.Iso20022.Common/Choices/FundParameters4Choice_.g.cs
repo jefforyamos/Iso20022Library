@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(FundParameters4Choice.NoCriteria))]
 [KnownType(typeof(FundParameters4Choice.Parameters))]
+[DataContract]
 public abstract partial record FundParameters4Choice_
 {
 }

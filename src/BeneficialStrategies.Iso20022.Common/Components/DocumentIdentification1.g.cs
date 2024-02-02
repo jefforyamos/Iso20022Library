@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies a document by a unique identification and a version together with the identification of the submitter of the document.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentIdentification1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DocumentIdentification1
     /// <summary>
     /// Identification of a set of data.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the version of a set of data. Example: Version 1.
     /// </summary>
+    [DataMember]
     public required IsoNumber Version { get; init; } 
     /// <summary>
     /// Uniquely identifies the financial institution which has submitted the set of data by using a BIC.
     /// </summary>
+    [DataMember]
     public required BICIdentification1 Submitter { get; init; } 
     
     #nullable disable

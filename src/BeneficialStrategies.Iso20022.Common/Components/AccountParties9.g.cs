@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Party related to an investment account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountParties9
 {
     #nullable enable
@@ -20,43 +22,53 @@ public partial record AccountParties9
     /// <summary>
     /// Main party associated with the account.
     /// </summary>
+    [DataMember]
     public required AccountParties4Choice_ PrincipalAccountParty { get; init; } 
     /// <summary>
     /// Entity that is not the primary owner when the ownership of the investment account is split among several owners.
     /// </summary>
-    public InvestmentAccountOwnershipInformation9[] SecondaryOwner { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation9> SecondaryOwner { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Ultimate party that is entitled to either receive the benefits of the ownership of a financial instrument, or to be paid/credited as a result of a transfer.
     /// </summary>
-    public InvestmentAccountOwnershipInformation9[] Beneficiary { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation9> Beneficiary { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Entity that was given the authority by another entity to act on its behalf.
     /// </summary>
-    public InvestmentAccountOwnershipInformation9[] PowerOfAttorney { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation9> PowerOfAttorney { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Entity that has been appointed by a legal authority to act on behalf of a person judged to be incapacitated.
     /// </summary>
-    public InvestmentAccountOwnershipInformation9[] LegalGuardian { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation9> LegalGuardian { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Deceased's estate, or successor, to whom the respective percentage of ownership will be transferred upon the death of one of the owners.
     /// </summary>
-    public InvestmentAccountOwnershipInformation9[] SuccessorOnDeath { get; init; } = [];
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation9> SuccessorOnDeath { get; init; } = [];
     /// <summary>
     /// Entity that has been appointed by a legal authorithy to act on behalf of a person or organisation that has gone bankrupt.
     /// </summary>
-    public InvestmentAccountOwnershipInformation9[] Administrator { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation9> Administrator { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Other type of party.
     /// </summary>
-    public ExtendedParty6[] OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ExtendedParty6> OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Granter role in the hedge funds industry.
     /// </summary>
-    public InvestmentAccountOwnershipInformation9[] Granter { get; init; } = [];
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation9> Granter { get; init; } = [];
     /// <summary>
     /// Settler role in the hedge funds industry.
     /// </summary>
-    public InvestmentAccountOwnershipInformation9[] Settler { get; init; } = [];
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation9> Settler { get; init; } = [];
     
     #nullable disable
 }

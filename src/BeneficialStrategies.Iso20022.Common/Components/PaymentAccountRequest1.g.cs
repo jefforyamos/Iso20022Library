@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related to the account pointed by the payment card.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentAccountRequest1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PaymentAccountRequest1
     /// <summary>
     /// Type of cardholder account used for the transaction. By Default the code Default is taken into account.
     /// </summary>
+    [DataMember]
     public CardAccountType3Code? AccountType { get; init; } 
     /// <summary>
     /// To retrieve Card Acquisition Data.
     /// </summary>
+    [DataMember]
     public CustomerOrder1? CustomerOrder { get; init; } 
     /// <summary>
     /// Reference of an account (all types).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountReference { get; init; } 
     
     #nullable disable

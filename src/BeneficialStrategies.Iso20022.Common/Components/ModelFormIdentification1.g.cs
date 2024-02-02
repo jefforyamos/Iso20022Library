@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a model form.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ModelFormIdentification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ModelFormIdentification1
     /// <summary>
     /// Identification of the model form.
     /// </summary>
+    [DataMember]
     public required ModelFormIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Version of the model form.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Version { get; init; } 
     
     #nullable disable

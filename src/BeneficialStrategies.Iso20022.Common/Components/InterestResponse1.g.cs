@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details about the reponse to the interest payment request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InterestResponse1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record InterestResponse1
     /// <summary>
     /// Provides the type of the response, either accepted or rejected.
     /// </summary>
+    [DataMember]
     public required Status4Code ResponseType { get; init; } 
     /// <summary>
     /// Provides a reason for rejection identified using a code or a proprietary format.
     /// </summary>
+    [DataMember]
     public RejectionReason21FormatChoice_? RejectionReason { get; init; } 
     /// <summary>
     /// Provides additional information on the rejection reason.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? RejectionReasonInformation { get; init; } 
     /// <summary>
     /// Provides the reference to the interest payment request.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text InterestPaymentRequestIdentification { get; init; } 
     
     #nullable disable

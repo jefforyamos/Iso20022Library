@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reports either on the risk management limit or on a business error.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CalendarReport1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CalendarReport1
     /// <summary>
     /// Identification of the service or system for which the calendar information is provided.
     /// </summary>
+    [DataMember]
     public SystemAndCurrency1? Service { get; init; } 
     /// <summary>
     /// Requested information on the calendar or business error report when information has not been found.
     /// </summary>
+    [DataMember]
     public required CalendarOrBusinessError1Choice_ CalendarOrError { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Margin required to cover the risk because of the price fluctuations occurred on the unsettled exposures towards the central counterparty.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TotalVariationMargin1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TotalVariationMargin1
     /// <summary>
     /// Specifies whether the variation margin position is short or long, that is, wether the balance is a negative or positive balance.
     /// </summary>
+    [DataMember]
     public ShortLong1Code? ShortLongIndicator { get; init; } 
     /// <summary>
     /// Provides the variation margin amount in the reporting currency and optionally in the original currency.
     /// </summary>
+    [DataMember]
     public required Amount2 AmountDetails { get; init; } 
     
     #nullable disable

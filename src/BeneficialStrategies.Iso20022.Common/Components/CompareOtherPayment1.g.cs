@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare related to payment data attributes not reported in dedicated fields.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareOtherPayment1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CompareOtherPayment1
     /// <summary>
     /// Specifies whether the information on the other payment types are matching or not.
     /// </summary>
+    [DataMember]
     public CompareOtherPaymentType1? OtherPaymentType { get; init; } 
     /// <summary>
     /// Specifies whether the information on the other payment amounts are matching or not.
     /// </summary>
+    [DataMember]
     public CompareAmountAndDirection3? OtherPaymentAmount { get; init; } 
     /// <summary>
     /// Specifies whether the information on the other payment dates are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDate3? OtherPaymentDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the other payment payers are matching or not.
     /// </summary>
+    [DataMember]
     public CompareOrganisationIdentification7? OtherPaymentPayer { get; init; } 
     /// <summary>
     /// Specifies whether the information on the other payment receivers are matching or not.
     /// </summary>
+    [DataMember]
     public CompareOrganisationIdentification7? OtherPaymentReceiver { get; init; } 
     
     #nullable disable

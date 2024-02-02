@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of price and information about the price.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherPrices5
 {
     #nullable enable
@@ -20,62 +22,77 @@ public partial record OtherPrices5
     /// <summary>
     /// Specifies the maximum price.
     /// </summary>
+    [DataMember]
     public Price14? Maximum { get; init; } 
     /// <summary>
     /// Specifies the transaction price.
     /// </summary>
+    [DataMember]
     public Price14? Transaction { get; init; } 
     /// <summary>
     /// Market price including or excluding the broker's commission.
     /// </summary>
+    [DataMember]
     public Price14? MarketBrokerCommission { get; init; } 
     /// <summary>
     /// In case of an order to buy, the price that the broker paid on the market plus the broker's commission.
     /// </summary>
+    [DataMember]
     public Price14? MarkedUp { get; init; } 
     /// <summary>
     /// In case of an order to sell, the price the broker receives in the market minus the broker's commission.
     /// </summary>
+    [DataMember]
     public Price14? MarkedDown { get; init; } 
     /// <summary>
     /// Price is net to the disclosed client.
     /// </summary>
+    [DataMember]
     public Price14? NetDisclosed { get; init; } 
     /// <summary>
     /// Price is net to the client undisclosed (used in the UK market).
     /// </summary>
+    [DataMember]
     public Price14? NetUndisclosed { get; init; } 
     /// <summary>
     /// Price is notional gross (used in the UK market).
     /// </summary>
+    [DataMember]
     public Price14? NotionalGross { get; init; } 
     /// <summary>
     /// Price is weighted average price of the benchmark prices at the time of each partial fill.
     /// </summary>
+    [DataMember]
     public Price14? BenchmarkWeightedAverage { get; init; } 
     /// <summary>
     /// Price is weighted average price of all market executions during the completion of the order.
     /// </summary>
+    [DataMember]
     public Price14? AllMarketsWeightedAverage { get; init; } 
     /// <summary>
     /// Price is a benchmark price relating to the current partial fills (eg, last trade tick from market).
     /// </summary>
+    [DataMember]
     public Price14? Benchmark { get; init; } 
     /// <summary>
     /// Type of price that is not defined explicitly.
     /// </summary>
+    [DataMember]
     public Price14? OtherPrice { get; init; } 
     /// <summary>
     /// Price of securities representing a particular market or a portion of it.
     /// </summary>
+    [DataMember]
     public Price14? IndexPrice { get; init; } 
     /// <summary>
     /// Price used to differentiate from price on a confirmation of a marked up or marked down principal trade.
     /// </summary>
+    [DataMember]
     public Price14? ReportedPrice { get; init; } 
     /// <summary>
     /// Price of reference of the concerned financial instrument.
     /// </summary>
+    [DataMember]
     public PriceInformation28? ReferencePrice { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information regarding the billing for services rendered on a temporary or contract basis. The component provides information such as the employee job performed, timekeeping, and billing rates.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TemporaryServices1
 {
     #nullable enable
@@ -20,47 +22,58 @@ public partial record TemporaryServices1
     /// <summary>
     /// Contains the details of the contracting company that has requested temporary services. 
     /// </summary>
+    [DataMember]
     public TemporaryServicesCompany1? ContractingCompany { get; init; } 
     /// <summary>
     /// Contains information about the individual working in a temporary capacity.
     /// </summary>
+    [DataMember]
     public PartyIdentification210? TemporaryEmployee { get; init; } 
     /// <summary>
     /// Contains the details of the job or task of the individual working in a temporary capacity.
     /// </summary>
+    [DataMember]
     public TemporaryServicesJob1? Job { get; init; } 
     /// <summary>
     /// Indicates whether or not the fee for the individual working in a temporary capacity is a flat
     /// rate.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? FlatRateIndicator { get; init; } 
     /// <summary>
     /// Contains the discount amount. 
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? DiscountAmount { get; init; } 
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     /// <summary>
     /// Contains the details of the labour performed and associated duration and billing rate. 
     /// </summary>
+    [DataMember]
     public TemporaryServicesLabor1? Labor { get; init; } 
     /// <summary>
     /// Contains miscellaneous expense details.
     /// </summary>
-    public Amount13[] MiscellaneousExpenses { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Amount13> MiscellaneousExpenses { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Subtotal amount exclusive of tax.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? SubtotalAmount { get; init; } 
     /// <summary>
     /// Contains the amount of taxes assessed for temporary services.
     /// </summary>
-    public Tax33[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax33> Tax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional user-defined data pertaining to the temporary services. 
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable

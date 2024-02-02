@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ExposureType23Choice.Code))]
 [KnownType(typeof(ExposureType23Choice.Proprietary))]
+[DataContract]
 public abstract partial record ExposureType23Choice_
 {
 }

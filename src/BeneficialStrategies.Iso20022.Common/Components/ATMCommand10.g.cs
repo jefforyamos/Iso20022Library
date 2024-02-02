@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Maintenance command the ATM must perform.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMCommand10
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record ATMCommand10
     /// <summary>
     /// Type of command to be performed by the ATM.
     /// </summary>
+    [DataMember]
     public required ATMCommand6Code Type { get; init; } 
     /// <summary>
     /// Urgency of the command.
     /// </summary>
+    [DataMember]
     public required TMSContactLevel2Code Urgency { get; init; } 
     /// <summary>
     /// Date time on which the command must be performed.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? DateTime { get; init; } 
     /// <summary>
     /// Identification of the entity issuing the command.
     /// </summary>
+    [DataMember]
     public ATMCommandIdentification1? CommandIdentification { get; init; } 
     /// <summary>
     /// Reason for sending the command.
     /// </summary>
+    [DataMember]
     public ATMCommandReason1Code? Reason { get; init; } 
     /// <summary>
     /// Trace of reasons by the entities in the path from the origin of the command to the ATM.
     /// </summary>
-    public ATMCommandReason1Code[] TraceReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCommandReason1Code> TraceReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the reason to request this command.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AdditionalReasonInformation { get; init; } 
     /// <summary>
     /// Specific parameters attached to the command.
     /// </summary>
+    [DataMember]
     public ATMCommandParameters3Choice_? CommandParameters { get; init; } 
     
     #nullable disable

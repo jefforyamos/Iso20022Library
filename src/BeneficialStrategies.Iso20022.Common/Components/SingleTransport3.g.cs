@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies individually each leg of a transport of goods.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SingleTransport3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SingleTransport3
     /// <summary>
     /// Information related to the transportation of goods by air.
     /// </summary>
+    [DataMember]
     public TransportByAir2? TransportByAir { get; init; } 
     /// <summary>
     /// Information related for the transportation of goods by sea.
     /// </summary>
+    [DataMember]
     public TransportBySea4? TransportBySea { get; init; } 
     /// <summary>
     /// Information related to the transportation of goods by road.
     /// </summary>
+    [DataMember]
     public TransportByRoad2? TransportByRoad { get; init; } 
     /// <summary>
     /// Information related to the transportation of goods by rail.
     /// </summary>
+    [DataMember]
     public TransportByRail2? TransportByRail { get; init; } 
     
     #nullable disable

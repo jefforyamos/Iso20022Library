@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(SecurityIdentification11Choice.ISIN))]
 [KnownType(typeof(SecurityIdentification11Choice.OtherIdentification))]
+[DataContract]
 public abstract partial record SecurityIdentification11Choice_
 {
 }

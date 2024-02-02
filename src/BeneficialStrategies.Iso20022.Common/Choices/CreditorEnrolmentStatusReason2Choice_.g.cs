@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CreditorEnrolmentStatusReason2Choice.Code))]
 [KnownType(typeof(CreditorEnrolmentStatusReason2Choice.Proprietary))]
+[DataContract]
 public abstract partial record CreditorEnrolmentStatusReason2Choice_
 {
 }

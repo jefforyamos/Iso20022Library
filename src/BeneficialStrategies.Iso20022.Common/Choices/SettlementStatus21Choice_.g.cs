@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SettlementStatus21Choice.Pending))]
 [KnownType(typeof(SettlementStatus21Choice.Failing))]
 [KnownType(typeof(SettlementStatus21Choice.Proprietary))]
+[DataContract]
 public abstract partial record SettlementStatus21Choice_
 {
 }

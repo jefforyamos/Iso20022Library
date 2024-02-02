@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Recurrent query criteria.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeRecurrentQuery3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TradeRecurrentQuery3
     /// <summary>
     /// Defines the type of recurrent query which is requested.
     /// </summary>
+    [DataMember]
     public required IsoMax1000Text QueryType { get; init; } 
     /// <summary>
     /// Defines the requested frequency of the recurrent query.
     /// </summary>
+    [DataMember]
     public required TradeQueryExecutionFrequency1Choice_ Frequency { get; init; } 
     /// <summary>
     /// Defines the date until which the query will be executed.
     /// </summary>
+    [DataMember]
     public required IsoISODate ValidUntil { get; init; } 
     
     #nullable disable

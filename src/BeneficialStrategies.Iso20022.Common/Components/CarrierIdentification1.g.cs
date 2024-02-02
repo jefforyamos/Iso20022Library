@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of transportation carrier.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CarrierIdentification1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CarrierIdentification1
     /// <summary>
     /// Name of the transportation carrier.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Identifies the operator (company providing service).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Code { get; init; } 
     /// <summary>
     /// Contains the International Air Transport Association (IATA) code identifying the company that purchased the ticket. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? IATACode { get; init; } 
     
     #nullable disable

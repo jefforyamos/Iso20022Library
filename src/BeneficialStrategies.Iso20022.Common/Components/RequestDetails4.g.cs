@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of one or several keys of the request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RequestDetails4
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record RequestDetails4
     /// <summary>
     /// Key for which the specific data is returned, for example, a BIC.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Key { get; init; } 
     /// <summary>
     /// Data being returned.
     /// </summary>
-    public ReportParameter1[] ReportData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReportParameter1> ReportData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Double volume cap report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VolumeCapReport1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record VolumeCapReport1
     /// <summary>
     /// Date or date range the report relates to.
     /// </summary>
+    [DataMember]
     public Period4Choice_? ReportingPeriod { get; init; } 
     /// <summary>
     /// The venue this report is in relation to specified as {MIC} (segment MIC, where available, otherwise operational MIC).
     /// </summary>
+    [DataMember]
     public IsoMICIdentifier? TradingVenue { get; init; } 
     /// <summary>
     /// Volume cap data specific to a reporting period.
     /// </summary>
-    public VolumeCapReport2[] InstrumentReport { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<VolumeCapReport2> InstrumentReport { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

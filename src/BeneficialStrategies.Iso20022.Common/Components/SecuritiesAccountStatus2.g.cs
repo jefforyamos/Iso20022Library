@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status of the securities account processed in the system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesAccountStatus2
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record SecuritiesAccountStatus2
     /// <summary>
     /// Unique identification of the securities account referenced by a request.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount19? RelatedSecuritiesAccount { get; init; } 
     /// <summary>
     /// Status of the securities account maintenance instruction.
     /// </summary>
+    [DataMember]
     public required Status6Code Status { get; init; } 
     /// <summary>
     /// Reason for the status of a securities account maintenance instruction.
     /// </summary>
-    public StatusReasonInformation10[] StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StatusReasonInformation10> StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

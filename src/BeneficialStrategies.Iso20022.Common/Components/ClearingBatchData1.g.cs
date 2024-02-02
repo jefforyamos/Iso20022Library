@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Clearing data at batch level. Allows clearing in different currencies.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ClearingBatchData1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record ClearingBatchData1
     /// <summary>
     /// Type of clearing method used.
     /// </summary>
+    [DataMember]
     public required ClearingMethod2Code ClearingMethod { get; init; } 
     /// <summary>
     /// Other type of clearing method.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherClearingMethod { get; init; } 
     /// <summary>
     /// Level of priority of clearing.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClearingPriority { get; init; } 
     /// <summary>
     /// Date of clearing.
     /// </summary>
+    [DataMember]
     public IsoISODate? ClearingDate { get; init; } 
     /// <summary>
     /// Clearing totals of the batch file.
     /// </summary>
+    [DataMember]
     public ClearingTotals1? ClearingTotals { get; init; } 
     /// <summary>
     /// Interchange fee.
     /// </summary>
+    [DataMember]
     public Amount14? InterchangeFee { get; init; } 
     /// <summary>
     /// Fee of the agent.
     /// </summary>
+    [DataMember]
     public Amount14? AgentFee { get; init; } 
     
     #nullable disable

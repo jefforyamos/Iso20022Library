@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the authority request type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AuthorityRequestType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AuthorityRequestType1
     /// <summary>
     /// Specifies the requested message name identifier.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageNameIdentification { get; init; } 
     /// <summary>
     /// Specifies the message name.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? MessageName { get; init; } 
     
     #nullable disable

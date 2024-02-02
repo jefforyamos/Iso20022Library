@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Net position of a segregated holding of a single security within the overall position held in the securities account, eg, sub-balance per status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AggregateBalanceInformation5
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record AggregateBalanceInformation5
     /// <summary>
     /// Total quantity of financial instrument for the referenced holding.
     /// </summary>
+    [DataMember]
     public required BalanceQuantity1Choice_ AggregateQuantity { get; init; } 
     /// <summary>
     /// Total value of a balance of the securities account for a specific financial instrument, expressed in one or more currencies.
     /// </summary>
-    public IsoActiveOrHistoricCurrencyAndAmount[] HoldingValue { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoActiveOrHistoricCurrencyAndAmount> HoldingValue { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Previous total value of a balance of the securities account for a specific financial instrument, expressed in one or more currencies.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? PreviousHoldingValue { get; init; } 
     /// <summary>
     /// Value of a security, as booked in an account. Book value is often different from the current market value of the security.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? BookValue { get; init; } 
     /// <summary>
     /// Investment fund class held on the account for which the balance is calculated.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument18 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Net position of a segregated holding of a single security within the overall position held in the securities account, eg, sub-balance per status.
     /// </summary>
-    public AdditionalBalanceInformation3[] BalanceBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalBalanceInformation3> BalanceBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information relating to a sub balance of the investment fund.
     /// </summary>
-    public SubBalanceInformation3[] SubBalanceInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SubBalanceInformation3> SubBalanceInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Price of the financial instrument.
     /// </summary>
-    public PriceInformation3[] PriceDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PriceInformation3> PriceDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Part of an investor's subscription amount that is held by the fund in order to pay incentive / performance fees at the end of the fiscal year.
     /// </summary>
+    [DataMember]
     public Equalisation2? EqualisationBalance { get; init; } 
     /// <summary>
     /// Currency exchange related to a securities order.
     /// </summary>
+    [DataMember]
     public ForeignExchangeTerms6? ForeignExchangeDetails { get; init; } 
     
     #nullable disable

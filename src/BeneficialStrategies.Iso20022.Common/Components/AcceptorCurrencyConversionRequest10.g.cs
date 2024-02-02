@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the currency conversion request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcceptorCurrencyConversionRequest10
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AcceptorCurrencyConversionRequest10
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentEnvironment79 Environment { get; init; } 
     /// <summary>
     /// Card payment transaction for which the currency conversion is requested.
     /// </summary>
+    [DataMember]
     public CardPaymentTransaction127? Transaction { get; init; } 
     
     #nullable disable

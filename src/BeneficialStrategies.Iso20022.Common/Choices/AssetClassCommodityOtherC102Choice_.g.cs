@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(AssetClassCommodityOtherC102Choice.Deliverable))]
 [KnownType(typeof(AssetClassCommodityOtherC102Choice.NonDeliverable))]
+[DataContract]
 public abstract partial record AssetClassCommodityOtherC102Choice_
 {
 }

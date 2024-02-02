@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the cardholder involved in a transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardholderIdentification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CardholderIdentification1
     /// <summary>
     /// Identification value of the cardholder involved in a transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text CardholderIdentificationValue { get; init; } 
     /// <summary>
     /// Type of identification used for identifying the cardholder.
     /// </summary>
+    [DataMember]
     public required PersonIdentificationType4Code CardholderIdentificationType { get; init; } 
     
     #nullable disable

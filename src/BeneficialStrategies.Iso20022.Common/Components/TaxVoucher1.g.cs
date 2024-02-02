@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the tax voucher.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxVoucher1
 {
     #nullable enable
@@ -20,86 +22,107 @@ public partial record TaxVoucher1
     /// <summary>
     /// Distribution rate per share.
     /// </summary>
+    [DataMember]
     public required IsoBaseOneRate TaxVoucherRate { get; init; } 
     /// <summary>
     /// Amount of tax that have been previously paid.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TaxCredit { get; init; } 
     /// <summary>
     /// Amount of tax that have been previously deducted.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TaxDeduction { get; init; } 
     /// <summary>
     /// Cash amount before any deductions and allowances have been made.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount GrossAmount { get; init; } 
     /// <summary>
     /// Cash amount after any deductions and allowances have been made.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount NetAmount { get; init; } 
     /// <summary>
     /// Securities holding on record date.
     /// </summary>
+    [DataMember]
     public required UnitOrFaceAmount1Choice_ RecordDateHolding { get; init; } 
     /// <summary>
     /// Applicable tax rate on the tax credit amount.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? TaxCreditRate { get; init; } 
     /// <summary>
     /// Cash amount that will be withheld by a tax authority.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? WithholdingTaxAmount { get; init; } 
     /// <summary>
     /// Rate of a cash distribution that wil be withheld by a tax authority.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? WithholdingTaxRate { get; init; } 
     /// <summary>
     /// Cost per share of new shares allotted.
     /// </summary>
+    [DataMember]
     public PriceValue1? ScripDividendReinvestmentPricePerShare { get; init; } 
     /// <summary>
     /// Cash amount retained from previous dividend or interest payment.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? CashAmountBroughtForward { get; init; } 
     /// <summary>
     /// Total cash amount required to purchase shares allotted.
     /// </summary>
+    [DataMember]
     public PriceValue1? AllotedSharesCost { get; init; } 
     /// <summary>
     /// Cash amount carried forward to next dividend or interest payment.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? CashAmountCarriedForward { get; init; } 
     /// <summary>
     /// Where new securities are issued in lieu of a cash dividend, the notional tax is the tax on the amount of cash that would have been paid. For scrips only.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? NotionalTax { get; init; } 
     /// <summary>
     /// Amount of cash that would have been payable if the dividend had been taken in the form of cash rather than shares. For scrip only.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? NotionalDividendPayable { get; init; } 
     /// <summary>
     /// Date on which DRIP purchase completed.
     /// </summary>
+    [DataMember]
     public IsoISODate? BargainDate { get; init; } 
     /// <summary>
     /// Settlement date of the DRIP purchase transaction.
     /// </summary>
+    [DataMember]
     public IsoISODate? BargainSettlementDate { get; init; } 
     /// <summary>
     /// Amount of stamp duty.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? StampDutyAmount { get; init; } 
     /// <summary>
     /// Amount of charges/fees charged to the client.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ChargeAmount { get; init; } 
     /// <summary>
     /// Amount due to the paying agent.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? CommissionAmount { get; init; } 
     /// <summary>
     /// Provides information about the foreign exchange transaction.
     /// </summary>
+    [DataMember]
     public ForeignExchangeTerms9? ForeignExchangeDetails { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information related to the collateral position, that is, the identification of the exposed party, the total exposure amount and the total collateral amount held by the taker. It also contains the valuation dates and the requested settlement date of collateral if there is a shortage of collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Summary1
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record Summary1
     /// <summary>
     /// Sum of the exposures of all transactions which are in the favour of party A. That is, all transactions which would have an amount payable by party B to party A if they were being terminated.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ExposedAmountPartyA { get; init; } 
     /// <summary>
     /// Sum of the exposures of all transactions which are in the favour of party B. That is, all transactions which would have an amount payable by party A to party B if they were being terminated.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ExposedAmountPartyB { get; init; } 
     /// <summary>
     /// Specifies the underlying business area/type of trade that triggered the posting of collateral.
     /// </summary>
+    [DataMember]
     public required ExposureType1Code ExposureType { get; init; } 
     /// <summary>
     /// Total value of the collateral (post-haircut) held by the exposed party.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalValueOfCollateral { get; init; } 
     /// <summary>
     /// Specifies the amount of collateral in excess or deficit compared to the exposure.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? NetExcessDeficit { get; init; } 
     /// <summary>
     /// Indicates whether the collateral actually posted is a long or a short position.
     /// </summary>
+    [DataMember]
     public ShortLong1Code? NetExcessDeficitIndicator { get; init; } 
     /// <summary>
     /// Date/time at which the collateral was valued.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime ValuationDateTime { get; init; } 
     /// <summary>
     /// Date on which the instructing party requests settlement of the collateral to take place.
     /// </summary>
+    [DataMember]
     public IsoISODate? RequestedSettlementDate { get; init; } 
     /// <summary>
     /// Provides the more details on the valuation of the collateral that is posted.
     /// </summary>
+    [DataMember]
     public SummaryAmounts1? SummaryDetails { get; init; } 
     
     #nullable disable

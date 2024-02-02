@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates that the claim for non receipt is effectively a missing cover.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MissingCover
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record MissingCover
     /// <summary>
     /// Indicates whether or not the claim is related to a missing cover.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator MissingCoverIndication { get; init; } 
     
     #nullable disable

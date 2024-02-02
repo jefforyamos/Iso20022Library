@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Instruction from an investor to sell investment fund units back to the fund.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RedemptionOrder4
 {
     #nullable enable
@@ -20,82 +22,102 @@ public partial record RedemptionOrder4
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Specifies the category of the investment fund order.
     /// </summary>
-    public FundOrderType1[] OrderType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FundOrderType1> OrderType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Investment fund class related to an order.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument6 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Quantity of investment fund units redeemed.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
     /// <summary>
     /// Amount of money used to derive the quantity of investment fund units to be sold.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount NetAmount { get; init; } 
     /// <summary>
     /// Portion of the investor's holdings, in a specific investment fund/ fund class, that is redeemed.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate HoldingsRedemptionRate { get; init; } 
     /// <summary>
     /// Indicates the rounding direction applied to nearest unit.
     /// </summary>
+    [DataMember]
     public RoundingDirection2Code? Rounding { get; init; } 
     /// <summary>
     /// Amount of money used to derive the quantity of investment fund units to be sold, including all charges, commissions, and tax.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? GrossAmount { get; init; } 
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
     /// </summary>
+    [DataMember]
     public ForeignExchangeTerms5? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
+    [DataMember]
     public IncomePreference1Code? IncomePreference { get; init; } 
     /// <summary>
     /// Tax group to which the purchased investment fund units belong. The investor indicates to the intermediary operating pooled nominees, which type of unit is to be sold.
     /// </summary>
+    [DataMember]
     public UKTaxGroupUnitCode? Group1Or2Units { get; init; } 
     /// <summary>
     /// Charge for the placement of an order.
     /// </summary>
-    public Charge8[] ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Charge8> ChargeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Commission linked to the execution of an investment fund order.
     /// </summary>
-    public Commission6[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Commission6> CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax applicable to an investment fund order.
     /// </summary>
-    public Tax6[] TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax6> TaxDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Parameters used to execute the settlement of an investment fund order.
     /// </summary>
+    [DataMember]
     public FundSettlementParameters3? SettlementAndCustodyDetails { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator PhysicalDeliveryIndicator { get; init; } 
     /// <summary>
     /// Information related to physical delivery of the securities.
     /// </summary>
+    [DataMember]
     public DeliveryParameters3? PhysicalDeliveryDetails { get; init; } 
     /// <summary>
     /// Currency requested for settlement of cash proceeds.
     /// </summary>
+    [DataMember]
     public CurrencyCode? RequestedSettlementCurrency { get; init; } 
     /// <summary>
     /// Currency to be used for pricing the fund. This currency must be among the set of currencies in which the price may be expressed, as stated in the prospectus.
     /// </summary>
+    [DataMember]
     public CurrencyCode? RequestedNAVCurrency { get; init; } 
     /// <summary>
     /// Payment transaction resulting from the investment fund order execution.
     /// </summary>
+    [DataMember]
     public PaymentTransaction15? CashSettlementDetails { get; init; } 
     
     #nullable disable

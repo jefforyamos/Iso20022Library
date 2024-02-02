@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indication that the reports subject of reconciliation do not match.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReconciliationResult7
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ReconciliationResult7
     /// <summary>
     /// First side of the contract that needs to be matched.
     /// </summary>
+    [DataMember]
     public required OrganisationIdentification9Choice_ Counterparty1 { get; init; } 
     /// <summary>
     /// Second side of the contract that needs to be matched.
     /// </summary>
+    [DataMember]
     public required OrganisationIdentification9Choice_ Counterparty2 { get; init; } 
     /// <summary>
     /// Criteria used to match the sides of the contract.
     /// </summary>
+    [DataMember]
     public required MatchingCriteria7 MatchingCriteria { get; init; } 
     
     #nullable disable

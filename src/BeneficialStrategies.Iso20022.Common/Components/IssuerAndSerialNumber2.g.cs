@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Certificate issuer name and serial number (see X.509).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IssuerAndSerialNumber2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record IssuerAndSerialNumber2
     /// <summary>
     /// Certificate issuer name (see X.509).
     /// </summary>
+    [DataMember]
     public required CertificateIssuer1 Issuer { get; init; } 
     /// <summary>
     /// Certificate serial number (see X.509).
     /// </summary>
+    [DataMember]
     public required IsoMax500Binary SerialNumber { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the corporate action option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionOption22
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record CorporateActionOption22
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [DataMember]
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
+    [DataMember]
     public required CorporateActionOption5Choice_ OptionType { get; init; } 
     /// <summary>
     /// Party that owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification41Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Account on which a securities entry is made.
     /// </summary>
+    [DataMember]
     public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
+    [DataMember]
     public SafekeepingPlaceFormat2Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
+    [DataMember]
     public SecurityIdentification14? SecurityIdentification { get; init; } 
     /// <summary>
     /// Total balance of securities eligible for this corporate action event. The entitlement calculation is based on this balance.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat1? TotalEligibleBalance { get; init; } 
     /// <summary>
     /// Balance of instructed position.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat1? InstructedBalance { get; init; } 
     /// <summary>
     /// Balance of uninstructed position.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat1? UninstructedBalance { get; init; } 
     /// <summary>
     /// Specifies whether the quantity of financial instrument is a status quantity or a quantity to receive.
     /// </summary>
+    [DataMember]
     public StatusOrQuantityToReceive1Choice_? StatusQuantityOrQuantityToReceive { get; init; } 
     
     #nullable disable

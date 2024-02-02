@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Outcome of the application of a hypothetical scenario on the valuation of a portfolio of financial instruments.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PortfolioStressTestResult1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record PortfolioStressTestResult1
     /// <summary>
     /// Identification of the portfolio.
     /// </summary>
+    [DataMember]
     public required GenericIdentification165 PortfolioIdentification { get; init; } 
     /// <summary>
     /// Calculated stress loss over the initial margin requirement, as used in the calculation of stress testing losses to size the default fund. Indicates whether the portfolio experienced a stress loss greater than initial margin.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection102 StressLoss { get; init; } 
     /// <summary>
     /// Calculated raw stress loss, as used in the calculation of stress testing losses to size the default fund. Indicates whether the portfolio experienced a stress loss.
     /// </summary>
+    [DataMember]
     public AmountAndDirection102? RawStressLoss { get; init; } 
     /// <summary>
     /// Indicates whether the stress loss over initial margin under this scenario for the clearing member of which the corresponding account is an account, is the largest stress over initial margin used to size the default fund.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator Cover1Flag { get; init; } 
     /// <summary>
     /// Indicates whether the stress loss over initial margin under this scenario for the clearing member of which the corresponding account is an account, is the second largest stress over initial margin used to size the default fund.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator Cover2Flag { get; init; } 
     
     #nullable disable

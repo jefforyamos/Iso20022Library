@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains the requested modifications.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionModification4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TransactionModification4
     /// <summary>
     /// Reference to the instruction related to the payment for which a modification is requested.
     /// </summary>
+    [DataMember]
     public required PaymentIdentification5Choice_ PaymentIdentification { get; init; } 
     /// <summary>
     /// New payment values.
     /// </summary>
+    [DataMember]
     public required PaymentInstruction27 NewPaymentValueSet { get; init; } 
     
     #nullable disable

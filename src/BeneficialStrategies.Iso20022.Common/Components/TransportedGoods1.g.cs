@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Goods or services that are part of a commercial trade agreement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransportedGoods1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record TransportedGoods1
     /// <summary>
     /// Reference to the purchase order of the underlying transaction.
     /// </summary>
+    [DataMember]
     public required DocumentIdentification7 PurchaseOrderReference { get; init; } 
     /// <summary>
     /// Information about the goods and/or services of a trade transaction.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? GoodsDescription { get; init; } 
     /// <summary>
     /// Information important for the users of the message/service, which cannot be captured in any other message component/element. For example: Warehouse number.
     /// </summary>
-    public UserDefinedInformation1[] BuyerDefinedInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<UserDefinedInformation1> BuyerDefinedInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information important for the users of the message/service, which cannot be captured in any other message component/element. For example: Warehouse number.
     /// </summary>
-    public UserDefinedInformation1[] SellerDefinedInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<UserDefinedInformation1> SellerDefinedInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

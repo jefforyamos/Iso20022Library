@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Preparation/bringing to market of a security (also known as primary market or Initial Public Offering (IPO) issuance).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Issuance3
 {
     #nullable enable
@@ -20,51 +22,63 @@ public partial record Issuance3
     /// <summary>
     /// Indicates where the financial instrument was issued.
     /// </summary>
+    [DataMember]
     public IsoMICIdentifier? IssuePlace { get; init; } 
     /// <summary>
     /// Country where a security is issued by the issuer or its agent.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryOfIssue { get; init; } 
     /// <summary>
     /// Date/time at which the security was made available.
     /// </summary>
+    [DataMember]
     public IsoISODate? IssueDate { get; init; } 
     /// <summary>
     /// Date/time, as announced by the issuer, at which the securities will be issued.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? AnnouncementDate { get; init; } 
     /// <summary>
     /// Defines the date from which the instrument code is valid. This date can be before the actual issue date of an instrument for 'when-issued' securities, but may not be a date in the future for a new security.
     /// </summary>
+    [DataMember]
     public IsoISODate? ISINValidFrom { get; init; } 
     /// <summary>
     /// Legal entity that has the right to issue securities.
     /// </summary>
+    [DataMember]
     public Organisation27? IssuerOrganisation { get; init; } 
     /// <summary>
     /// Total original amount or quantity published.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? IssueNominalAmount { get; init; } 
     /// <summary>
     /// Figure used as a control to verify whether the information provided is correct. It represents the issue size multiplied by the issue price.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? FullIssuedAmount { get; init; } 
     /// <summary>
     /// Represents the total amount/quantity of the proceeds from the sale of all securities in the initial offering. This amount/quantity is known after the new issue is priced.
     /// </summary>
+    [DataMember]
     public IsoNumber? IssueSize { get; init; } 
     /// <summary>
     /// Initial issue price of the asset.
     /// </summary>
+    [DataMember]
     public PriceValue1? IssuePrice { get; init; } 
     /// <summary>
     /// Way in which the issue will be marketed to the primary market, via individual dealers (so called non syndicated distribution) or via a syndicate of managers, underwriters and selling group members (so called syndicated distribution).
     /// </summary>
+    [DataMember]
     public SecuritiesTransactionType31Choice_? IssuanceDistribution { get; init; } 
     /// <summary>
     /// Jurisdiction (country, county, state, province, city) of the issue.
     /// </summary>
-    public Jurisdiction1[] GoverningLaw { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Jurisdiction1> GoverningLaw { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

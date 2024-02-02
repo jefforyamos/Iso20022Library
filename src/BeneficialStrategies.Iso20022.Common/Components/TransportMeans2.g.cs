@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the multimodal or the individual transport of goods.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransportMeans2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TransportMeans2
     /// <summary>
     /// Moving of goods or people from one place to another by vehicle.
     /// </summary>
+    [DataMember]
     public required SingleTransport5 IndividualTransport { get; init; } 
     /// <summary>
     /// Specifies the different movements and places and their role in a multimodal conveyance of goods.
     /// </summary>
+    [DataMember]
     public MultimodalTransport3? MultimodalTransport { get; init; } 
     
     #nullable disable

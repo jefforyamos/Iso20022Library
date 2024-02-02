@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details on the reporting request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportingRequest2
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record ReportingRequest2
     /// <summary>
     /// Unique identification, as assigned by the account owner, to unambiguously identify the account reporting request.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Specifies the type of the requested reporting message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text RequestedMessageNameIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account to which the reporting request refers.
     /// </summary>
+    [DataMember]
     public CashAccount16? Account { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public required Party12Choice_ AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? AccountServicer { get; init; } 
     /// <summary>
     /// Specifies the requested reporting period.
     /// </summary>
+    [DataMember]
     public ReportingPeriod1? ReportingPeriod { get; init; } 
     /// <summary>
     /// Identifies the transactions to be reported.
     /// </summary>
+    [DataMember]
     public TransactionType1? RequestedTransactionType { get; init; } 
     /// <summary>
     /// Provides details on the requested balance reporting.
     /// </summary>
-    public BalanceType12[] RequestedBalanceType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BalanceType12> RequestedBalanceType { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

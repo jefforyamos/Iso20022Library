@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Breakdown of the cash movements into a fund by order type, eg, order by quantity of units or amount of money.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalOrderQuantityType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record OriginalOrderQuantityType1
     /// <summary>
     /// Order type, expressed as a code.
     /// </summary>
+    [DataMember]
     public required OrderQuantityType1Code Structured { get; init; } 
     /// <summary>
     /// Additional information about the order type.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

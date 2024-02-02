@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(RemittanceInformation3Choice.Unstructured))]
 [KnownType(typeof(RemittanceInformation3Choice.Structured))]
+[DataContract]
 public abstract partial record RemittanceInformation3Choice_
 {
 }

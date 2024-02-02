@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(AssetClassCommodityFreight4Choice.Wet))]
 [KnownType(typeof(AssetClassCommodityFreight4Choice.ContainerShip))]
 [KnownType(typeof(AssetClassCommodityFreight4Choice.Other))]
+[DataContract]
 public abstract partial record AssetClassCommodityFreight4Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Certificate in which all currency control transactions are registered.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionCertificate5
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record TransactionCertificate5
     /// <summary>
     /// Reference of the transaction, that is the underlying payment instruction or statement entry.
     /// </summary>
+    [DataMember]
     public required CertificateReference2 ReferredDocument { get; init; } 
     /// <summary>
     /// Date of the underlying transaction.
     /// </summary>
+    [DataMember]
     public required IsoISODate TransactionDate { get; init; } 
     /// <summary>
     /// Type of the transaction.
     /// </summary>
+    [DataMember]
     public IsoExact1NumericText? TransactionType { get; init; } 
     /// <summary>
     /// User community specific instrument.
     /// Usage: This element is used to specify a local transaction type to further qualify the transaction type.
     /// </summary>
+    [DataMember]
     public required IsoExact5NumericText LocalInstrument { get; init; } 
     /// <summary>
     /// Amount as provided in the transaction to be recorded under the contract.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details of the collateral used in the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralData33
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record CollateralData33
     /// <summary>
     /// Indicates whether the collateral has been provided for a net exposure, rather than for a single transaction.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? NetExposureCollateralisationIndicator { get; init; } 
     /// <summary>
     /// Indication of the type of collateral component.
     /// </summary>
+    [DataMember]
     public CollateralType6Code? ComponentType { get; init; } 
     /// <summary>
     /// Currency of unit of cash collateral component.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? CashCollateralCurrency { get; init; } 
     /// <summary>
     /// Currency of price of unit of collateral component.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? PriceCurrency { get; init; } 
     /// <summary>
     /// Code that classifies the risk of the security.
     /// </summary>
+    [DataMember]
     public CollateralQualityType1Code? Quality { get; init; } 
     /// <summary>
     /// Maturity of the security.
     /// </summary>
+    [DataMember]
     public ContractTerm6Choice_? Maturity { get; init; } 
     /// <summary>
     /// Jurisdiction of the issuer of the security used as collateral. 
     /// </summary>
+    [DataMember]
     public IssuerJurisdiction1Choice_? IssuerJurisdiction { get; init; } 
     /// <summary>
     /// Classification of the type of the security.
     /// </summary>
+    [DataMember]
     public SecuritiesLendingType3Choice_? Type { get; init; } 
     /// <summary>
     /// Trade Repository to which the other counterparty reported.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification15Choice_? TradeRepository { get; init; } 
     /// <summary>
     /// List of possible values for TRs reconciliation purposes.
     /// </summary>
+    [DataMember]
     public ReconciliationFlag2? ReconciliationFlag { get; init; } 
     /// <summary>
     /// Provides details on the type and amount of the cash reinvestment in a given currency.
     /// </summary>
+    [DataMember]
     public ReinvestedCashTypeAndAmount2? ReinvestedCash { get; init; } 
     
     #nullable disable

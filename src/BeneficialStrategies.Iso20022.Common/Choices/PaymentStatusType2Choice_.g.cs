@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(PaymentStatusType2Choice.RawStatus))]
 [KnownType(typeof(PaymentStatusType2Choice.DetailedStatus))]
+[DataContract]
 public abstract partial record PaymentStatusType2Choice_
 {
 }

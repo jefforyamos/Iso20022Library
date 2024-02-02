@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the elements used to calculate the collateral margin call for the variation margin and optionally the segregated independent amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Margin1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Margin1
     /// <summary>
     /// Elements used to calculate the collateral margin call for the variation margin.
     /// </summary>
+    [DataMember]
     public required VariationMargin1 VariationMargin { get; init; } 
     /// <summary>
     /// Elements used to calculate the collateral margin call for the segregated independent amount.
     /// </summary>
+    [DataMember]
     public SegregatedIndependentAmountMargin1? SegregatedIndependentAmountMargin { get; init; } 
     
     #nullable disable

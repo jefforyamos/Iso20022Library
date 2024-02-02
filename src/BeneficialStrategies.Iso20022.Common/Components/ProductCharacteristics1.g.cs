@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the characteristic of a product.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProductCharacteristics1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ProductCharacteristics1
     /// <summary>
     /// Specifies the type of product characteristic by means of a code.
     /// </summary>
+    [DataMember]
     public required ProductCharacteristics1Code Type { get; init; } 
     /// <summary>
     /// Specifies the characteristic of a product.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Characteristics { get; init; } 
     
     #nullable disable

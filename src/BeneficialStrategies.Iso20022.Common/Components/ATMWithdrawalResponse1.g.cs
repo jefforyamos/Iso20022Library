@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the response of an ATM withdrawal from an ATM manager.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMWithdrawalResponse1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ATMWithdrawalResponse1
     /// <summary>
     /// Environment of the withdrawal transaction.
     /// </summary>
+    [DataMember]
     public required ATMEnvironment2 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed.
     /// </summary>
+    [DataMember]
     public required ATMContext2 Context { get; init; } 
     /// <summary>
     /// Response to the withdrawal transaction request.
     /// </summary>
+    [DataMember]
     public required ATMTransaction2 Transaction { get; init; } 
     
     #nullable disable

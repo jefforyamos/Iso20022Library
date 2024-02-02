@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the securities account position query criteria.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PositionSearchCriteria2
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record PositionSearchCriteria2
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification100? AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification100? AccountServicer { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount2Choice_? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-à-vis the issuer.
     /// </summary>
+    [DataMember]
     public SecurityIdentification19? FinancialInstrument { get; init; } 
     /// <summary>
     /// Country where the security is issued.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryOfIssue { get; init; } 
     /// <summary>
     /// Defines specific restriction characteristics for a securities position.
     /// </summary>
+    [DataMember]
     public SecuritiesBalanceType7Choice_? SubBalanceType { get; init; } 
     /// <summary>
     /// Option to provide output zero position in the results.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator ReturnZeroPosition { get; init; } 
     
     #nullable disable

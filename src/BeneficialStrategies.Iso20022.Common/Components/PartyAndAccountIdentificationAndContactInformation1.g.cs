@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Entity involved in an activity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyAndAccountIdentificationAndContactInformation1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PartyAndAccountIdentificationAndContactInformation1
     /// <summary>
     /// Identification of the party that legally owns the account.
     /// </summary>
+    [DataMember]
     public required PartyIdentification8 PartyIdentification { get; init; } 
     /// <summary>
     /// Identification of the account owned by the party.
     /// </summary>
+    [DataMember]
     public CashAccount7? AccountIdentification { get; init; } 
     /// <summary>
     /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
     /// </summary>
+    [DataMember]
     public ContactIdentification1? ContactInformation { get; init; } 
     
     #nullable disable

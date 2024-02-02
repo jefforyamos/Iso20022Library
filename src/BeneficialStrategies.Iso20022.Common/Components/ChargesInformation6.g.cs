@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide information on the charges related to the payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ChargesInformation6
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record ChargesInformation6
     /// <summary>
     /// Total of all charges and taxes applied to the entry.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalChargesAndTaxAmount { get; init; } 
     /// <summary>
     /// Transaction charges to be paid by the charge bearer.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether the charges amount is a credit or a debit amount. |Usage: A zero amount is considered to be a credit.
     /// </summary>
+    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Specifies the type of charge.
     /// </summary>
+    [DataMember]
     public ChargeType2Choice_? Type { get; init; } 
     /// <summary>
     /// Rate used to calculate the amount of the charge or fee.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Specifies which party/parties will bear the charges associated with the processing of the payment transaction.
     /// </summary>
+    [DataMember]
     public ChargeBearerType1Code? Bearer { get; init; } 
     /// <summary>
     /// Party that takes the transaction charges or to which the transaction charges are due.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? Party { get; init; } 
     /// <summary>
     /// Set of elements used to provide details on the tax applied to charges.
     /// </summary>
+    [DataMember]
     public TaxCharges2? Tax { get; init; } 
     
     #nullable disable

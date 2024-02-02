@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Location on the Earth specified by two numbers representing vertical and horizontal position.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GeolocationGeographicCoordinates1
 {
     #nullable enable
@@ -21,11 +23,13 @@ public partial record GeolocationGeographicCoordinates1
     /// Angular distance of a location on the earth south or north of the equator.
     /// The latitude is measured in degrees, minutes and seconds, following by "N" for the north and "S" for the south of the equator. For example: 48°51'29" N the Eiffel Tower latitude.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Latitude { get; init; } 
     /// <summary>
     /// Angular measurement of the distance of a location on the earth east or west of the Greenwich observatory.
     /// The longitude is measured in degrees, minutes and seconds, following by "E" for the east and "W" for the west. For example: 23°27'30" E.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Longitude { get; init; } 
     
     #nullable disable

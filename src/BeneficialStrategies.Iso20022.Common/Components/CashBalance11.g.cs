@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Balance details for a cash account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashBalance11
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CashBalance11
     /// <summary>
     /// Currency and amount of money of the cash balance.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether the balance is a credit or a debit balance. A zero balance is considered to be a credit balance.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Specifies the nature of a balance.
     /// </summary>
+    [DataMember]
     public BalanceType9Choice_? Type { get; init; } 
     /// <summary>
     /// Current status of a cash balance.
     /// </summary>
+    [DataMember]
     public BalanceStatus1Code? Status { get; init; } 
     /// <summary>
     /// Date and time at which the balance is or will be available.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? ValueDate { get; init; } 
     /// <summary>
     /// Number of payments taken into account for the calculation of the cash balance value.
     /// </summary>
+    [DataMember]
     public IsoNumber? NumberOfPayments { get; init; } 
     
     #nullable disable

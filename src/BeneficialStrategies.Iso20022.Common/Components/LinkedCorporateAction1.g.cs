@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies linkage information of a corporate action message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LinkedCorporateAction1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record LinkedCorporateAction1
     /// <summary>
     /// The function of the notification e.g. new notification.
     /// </summary>
+    [DataMember]
     public required CorporateActionNotificationType1Code NotificationType { get; init; } 
     /// <summary>
     /// The identification of the linked notification advice.
     /// </summary>
+    [DataMember]
     public DocumentIdentification8? LinkedAgentCANotificationAdviceIdentification { get; init; } 
     /// <summary>
     /// Specifies when the instruction is to be executed relative to a linked instruction.
     /// </summary>
+    [DataMember]
     public ProcessingPosition2FormatChoice_? LinkageType { get; init; } 
     /// <summary>
     /// Reference given to the linked event by the CA event issuer (agent).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LinkedIssuerCorporateActionIdentification { get; init; } 
     /// <summary>
     /// Reference assigned by the CSD to the linked coporate avent.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LinkedCorporateActionProcessingIdentification { get; init; } 
     
     #nullable disable

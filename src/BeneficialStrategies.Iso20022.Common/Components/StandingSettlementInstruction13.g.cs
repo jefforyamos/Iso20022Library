@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the standing settlement instruction to be applied.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StandingSettlementInstruction13
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record StandingSettlementInstruction13
     /// <summary>
     /// Specifies what settlement standing instruction database is to be used to derive the settlement parties involved in the transaction.
     /// </summary>
+    [DataMember]
     public required SettlementStandingInstructionDatabase4Choice_ SettlementStandingInstructionDatabase { get; init; } 
     /// <summary>
     /// Vendor of the Settlement Standing Instruction database requested to be consulted.
     /// </summary>
+    [DataMember]
     public PartyIdentification117Choice_? Vendor { get; init; } 
     /// <summary>
     /// Delivering parties, other than the seller, needed for deriving the standing settlement instruction (for example, depository) or provided for information purposes (for example, instructing party settlement chain).
     /// </summary>
+    [DataMember]
     public SettlementParties59? OtherDeliveringSettlementParties { get; init; } 
     /// <summary>
     /// Receiving parties, other than the buyer, needed for deriving the standing settlement instruction (for example, depository) or provided for information purposes (for example, instructing party settlement chain).
     /// </summary>
+    [DataMember]
     public SettlementParties59? OtherReceivingSettlementParties { get; init; } 
     
     #nullable disable

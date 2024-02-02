@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Securities financing transaction identification information, type (repurchase agreement, reverse repurchase agreement, securities lending or securities borrowing) and other parameters.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionTypeAndAdditionalParameters13
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record TransactionTypeAndAdditionalParameters13
     /// <summary>
     /// Specifies the type of securities financing transaction, that is, repurchase agreement, reverse repurchase agreement, securities lending or securities borrowing.
     /// </summary>
+    [DataMember]
     public required SecuritiesFinancingTransactionType1Code SecuritiesFinancingTransactionType { get; init; } 
     /// <summary>
     /// Specifies how the transaction is to be settled, for example, against payment.
     /// </summary>
+    [DataMember]
     public required DeliveryReceiptType2Code Payment { get; init; } 
     /// <summary>
     /// Unique reference agreed upon by the two trade counterparties to identify the trade.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? CommonIdentification { get; init; } 
     /// <summary>
     /// Settlement transaction has already been sent on the market. It is sent by an account owner to an account servicer for reconciliation purposes.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ReconciliationIndicator { get; init; } 
     
     #nullable disable

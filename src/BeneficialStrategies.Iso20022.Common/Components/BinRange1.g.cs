@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a set of cards which shares the same functionalities.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BinRange1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record BinRange1
     /// <summary>
     /// Lower value of BIN in the range.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText LowerBin { get; init; } 
     /// <summary>
     /// Higher value of BIN in the range.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText HigherBin { get; init; } 
     
     #nullable disable

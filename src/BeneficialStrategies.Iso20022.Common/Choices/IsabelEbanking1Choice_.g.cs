@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(IsabelEbanking1Choice.UserIdentification))]
 [KnownType(typeof(IsabelEbanking1Choice.ContractIdentification))]
+[DataContract]
 public abstract partial record IsabelEbanking1Choice_
 {
 }

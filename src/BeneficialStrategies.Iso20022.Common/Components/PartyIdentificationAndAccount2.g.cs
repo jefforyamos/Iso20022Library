@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Party involved in the settlement chain.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentificationAndAccount2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PartyIdentificationAndAccount2
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public required PartyIdentification1Choice_ PartyIdentification { get; init; } 
     /// <summary>
     /// Identification of the account owned by the party.
     /// </summary>
+    [DataMember]
     public AccountIdentification1? AccountIdentification { get; init; } 
     /// <summary>
     /// Specifies the reference of the transaction at the party identified in the sequence.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProcessingReference { get; init; } 
     /// <summary>
     /// Date and optionally the time, at which this transaction was processed by the party identified in this sequence.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? ProcessingDate { get; init; } 
     
     #nullable disable

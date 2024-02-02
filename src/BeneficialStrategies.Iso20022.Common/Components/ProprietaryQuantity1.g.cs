@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements to identify a proprietary quantity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProprietaryQuantity1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ProprietaryQuantity1
     /// <summary>
     /// Identifies the type of proprietary quantity reported.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Provides the proprietary quantity in free format.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Quantity { get; init; } 
     
     #nullable disable

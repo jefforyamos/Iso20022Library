@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party. The party can be identified by providing the party's name and optionally, the BIC, account number, address, clearing system identification or LEI can also be provided.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification266
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record PartyIdentification266
     /// <summary>
     /// Identification of the party expressed as the party's name.
     /// </summary>
+    [DataMember]
     public IsoMax34Text? PartyName { get; init; } 
     /// <summary>
     /// Identification of the party expressed as a BIC and an optional alternative identifier.
     /// </summary>
+    [DataMember]
     public PartyIdentification265? AnyBIC { get; init; } 
     /// <summary>
     /// Provides the party's account number.
     /// </summary>
+    [DataMember]
     public IsoMax34Text? AccountNumber { get; init; } 
     /// <summary>
     /// Provides the party's address.
     /// </summary>
+    [DataMember]
     public IsoMax105Text? Address { get; init; } 
     /// <summary>
     /// Choice of a clearing system identifier.
     /// </summary>
+    [DataMember]
     public ClearingSystemIdentification2Choice_? ClearingSystemIdentification { get; init; } 
     /// <summary>
     /// Provides the Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
     
     #nullable disable

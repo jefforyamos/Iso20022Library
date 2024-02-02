@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Single terminal management action to be performed by the point of interaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TMSAction1
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record TMSAction1
     /// <summary>
     /// Types of action to be performed by a point of interaction (POI).
     /// </summary>
+    [DataMember]
     public required TerminalManagementAction1Code Type { get; init; } 
     /// <summary>
     /// Communication parameters of the terminal management system to contact.
     /// </summary>
+    [DataMember]
     public NetworkParameters1? Address { get; init; } 
     /// <summary>
     /// Data set on which the action has to be performed.
     /// </summary>
+    [DataMember]
     public DataSetIdentification2? DataSetIdentification { get; init; } 
     /// <summary>
     /// Event on which the action has to be activated by the point of interaction (POI).
     /// </summary>
+    [DataMember]
     public required TerminalManagementActionTrigger1Code Trigger { get; init; } 
     /// <summary>
     /// Additional process to perform before starting or after completing the action by the point of interaction (POI).
     /// </summary>
+    [DataMember]
     public TerminalManagementAdditionalProcess1Code? AdditionalProcess { get; init; } 
     /// <summary>
     /// Date and time the action has to be performed.
     /// </summary>
+    [DataMember]
     public ProcessTiming1? TimeCondition { get; init; } 
     /// <summary>
     /// Action to perform in case of error on the related action in progress.
     /// </summary>
-    public ErrorAction1[] ErrorAction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ErrorAction1> ErrorAction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

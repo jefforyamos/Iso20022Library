@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes account taxing parameters.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountTax1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AccountTax1
     /// <summary>
     /// Defines the calculation method on how the taxes are applied on the account.
     /// </summary>
+    [DataMember]
     public required BillingTaxCalculationMethod1Code CalculationMethod { get; init; } 
     /// <summary>
     /// Identifies the tax region in which the account resides.
     /// </summary>
+    [DataMember]
     public IsoMax40Text? Region { get; init; } 
     /// <summary>
     /// Specifies the country of residence, when the account owner does not reside in the account's tax region.||Usage: If present, the account owner does not reside in the account's tax region.
     /// </summary>
+    [DataMember]
     public ResidenceLocation1Choice_? NonResidenceCountry { get; init; } 
     
     #nullable disable

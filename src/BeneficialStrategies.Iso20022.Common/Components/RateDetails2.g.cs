@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the rates related to securities movement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RateDetails2
 {
     #nullable enable
@@ -20,86 +22,107 @@ public partial record RateDetails2
     /// <summary>
     /// Rate used for additional tax that cannot be categorised.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat5Choice_? AdditionalTax { get; init; } 
     /// <summary>
     /// Rate used to calculate the amount of the charges/fees that cannot be categorised.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat5Choice_? ChargesFees { get; init; } 
     /// <summary>
     /// Dividend is final.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? FinalDividendRate { get; init; } 
     /// <summary>
     /// Percentage of fiscal tax to apply.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? FiscalStamp { get; init; } 
     /// <summary>
     /// Rate resulting from a fully franked dividend paid by a company; rate includes tax credit for companies that have made sufficient tax payments during fiscal period.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat5Choice_? FullyFrankedRate { get; init; } 
     /// <summary>
     /// Cash dividend amount per equity before deductions or allowances have been made.
     /// </summary>
-    public GrossDividendRateFormat2Choice_[] GrossDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GrossDividendRateFormat2Choice_> GrossDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rate of the cash premium made available if the securities holder consents or participates to an event, for example, consent fees.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? CashIncentiveRate { get; init; } 
     /// <summary>
     /// Actual interest rate used for the payment of the interest for the specified interest period.
     /// </summary>
-    public InterestRateUsedForPaymentFormat2Choice_[] InterestRateUsedForPayment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InterestRateUsedForPaymentFormat2Choice_> InterestRateUsedForPayment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash dividend amount per equity after deductions or allowances have been made.
     /// </summary>
-    public NetDividendRateFormat2Choice_[] NetDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NetDividendRateFormat2Choice_> NetDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rate per share to which a non-resident is entitled.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat5Choice_? NonResidentRate { get; init; } 
     /// <summary>
     /// Dividend is provisional.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? ProvisionalDividendRate { get; init; } 
     /// <summary>
     /// Rate applicable to the event announced, for example, redemption rate for a redemption event.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? ApplicableRate { get; init; } 
     /// <summary>
     /// Cash rate made available in an offer in order to encourage participation in the offer.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? SolicitationFeeRate { get; init; } 
     /// <summary>
     /// Amount of money per equity allocated as the result of a tax credit.
     /// </summary>
-    public TaxCreditRateFormat2Choice_[] TaxCreditRate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TaxCreditRateFormat2Choice_> TaxCreditRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Percentage of the gross dividend rate on which tax must be paid.
     /// </summary>
-    public RateTypeAndAmountAndStatus6[] TaxRelatedRate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RateTypeAndAmountAndStatus6> TaxRelatedRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Percentage of a cash distribution that will be withheld by a tax authority.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? WithholdingTaxRate { get; init; } 
     /// <summary>
     /// Taxation applied on an amount clearly identified as an income.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? TaxOnIncome { get; init; } 
     /// <summary>
     /// Taxation applied on an amount clearly identified as capital profits, capital gains.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? TaxOnProfits { get; init; } 
     /// <summary>
     /// Percentage of cash that was paid in excess of actual tax obligation and was reclaimed.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? TaxReclaimRate { get; init; } 
     /// <summary>
     /// Rate at which the income will be withheld by the jurisdiction in which the income was originally paid, for which relief at source and/or reclaim may be possible.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat5Choice_? WithholdingOfForeignTax { get; init; } 
     /// <summary>
     /// Rate at which the income will be withheld by the jurisdiction in which the account owner is located, for which relief at source and/or reclaim may be possible.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat5Choice_? WithholdingOfLocalTax { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the request of a key download from an ATM.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMKeyDownloadRequest1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record ATMKeyDownloadRequest1
     /// <summary>
     /// Environment of the key download.
     /// </summary>
+    [DataMember]
     public required ATMEnvironment8 Environment { get; init; } 
     /// <summary>
     /// Result of a maintenance command performed by the ATM.
     /// </summary>
-    public ATMCommand2[] CommandResult { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCommand2> CommandResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Security command in progress inside which the key download is requested.
     /// </summary>
+    [DataMember]
     public ATMCommand3? CommandContext { get; init; } 
     /// <summary>
     /// Context of the ATM for the key download.
     /// </summary>
+    [DataMember]
     public required ATMSecurityContext2 ATMSecurityContext { get; init; } 
     /// <summary>
     /// Security parameters of the ATM for the initiated key download.
     /// </summary>
+    [DataMember]
     public required SecurityParameters4 ATMSecurityParameters { get; init; } 
     /// <summary>
     /// Random value from the host provided during a previous exchange.
     /// </summary>
+    [DataMember]
     public IsoMax140Binary? HostChallenge { get; init; } 
     
     #nullable disable

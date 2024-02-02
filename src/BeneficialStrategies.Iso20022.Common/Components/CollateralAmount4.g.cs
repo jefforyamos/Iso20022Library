@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Securities collateral position valuation amounts.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralAmount4
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record CollateralAmount4
     /// <summary>
     /// Actual market value post valuation factor expressed in the collateral currency (denomination currency of the security). For cash, it is the value post haircut. 
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount ActualMarketValuePostValuationFactor { get; init; } 
     /// <summary>
     /// Actual market value before valuation factor expressed in the collateral currency (denomination currency of the security). For cash, it is the value before haircut.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ActualMarketValueBeforeValuationFactor { get; init; } 
     /// <summary>
     /// Amount of the exposure/collateral in the exposure/collateral currency.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ExposureCollateralInTransactionCurrency { get; init; } 
     /// <summary>
     /// Amount of the exposure/collateral in the reporting currency.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ExposureCollateralInReportingCurrency { get; init; } 
     /// <summary>
     /// Market  value post valuation factor expressed in the transaction currency. For cash, it is the value post haircut. 
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? MarketValueAmountPostValuationFactor { get; init; } 
     /// <summary>
     /// Market value before valuation factor expressed in the transaction currency. For cash, it is the value before haircut.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? MarketValueAmountBeforeValuationFactor { get; init; } 
     /// <summary>
     /// Total value of own collateral in the reporting currency.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalValueOfOwnCollateral { get; init; } 
     /// <summary>
     /// Total value of reused/rehypotheticated collateral in the reporting currency.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalValueOfReusedCollateral { get; init; } 
     
     #nullable disable

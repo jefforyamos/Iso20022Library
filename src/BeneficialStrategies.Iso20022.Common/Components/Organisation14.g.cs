@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information which describes the organisation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Organisation14
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Organisation14
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? FullLegalName { get; init; } 
     /// <summary>
     /// Unique and unambiguous way of identifying an organisation.
     /// </summary>
+    [DataMember]
     public required OrganisationIdentification8 OrganisationIdentification { get; init; } 
     
     #nullable disable

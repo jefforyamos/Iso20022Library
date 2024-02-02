@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Balance details of a registered contract.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContractBalance1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ContractBalance1
     /// <summary>
     /// Specifies the type of the contract balance.
     /// </summary>
+    [DataMember]
     public required ContractBalanceType1Choice_ Type { get; init; } 
     /// <summary>
     /// Currency and amount of money of the contract balance.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether the balance is a credit or a debit balance. A zero balance is considered to be a credit balance.
     /// </summary>
+    [DataMember]
     public required CreditDebit3Code CreditDebitIndicator { get; init; } 
     
     #nullable disable

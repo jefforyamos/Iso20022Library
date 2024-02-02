@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status advising on the processing of the instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InstructionProcessingStatus5
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record InstructionProcessingStatus5
     /// <summary>
     /// Status code.
     /// </summary>
+    [DataMember]
     public required Status9Code Status { get; init; } 
     /// <summary>
     /// Number of the admission ticket that has been granted by the custodian or the issuer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AttendanceCardNumber { get; init; } 
     /// <summary>
     /// Additional information about the status.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

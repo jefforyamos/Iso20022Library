@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the loan data details in case of a securities lending transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoanData137
 {
     #nullable enable
@@ -20,66 +22,82 @@ public partial record LoanData137
     /// <summary>
     /// Unique trade Identifier (UTI) as agreed with the other counterparty.
     /// </summary>
+    [DataMember]
     public required IsoMax52Text UniqueTradeIdentifier { get; init; } 
     /// <summary>
     /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
     /// </summary>
+    [DataMember]
     public required IsoISODate EventDate { get; init; } 
     /// <summary>
     /// Indicates the date and time when the contract was executed.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime ExecutionDateTime { get; init; } 
     /// <summary>
     /// Indicates whether clearing of contract has taken place.
     /// </summary>
+    [DataMember]
     public Cleared16Choice_? ClearingStatus { get; init; } 
     /// <summary>
     /// Identification of the trading venue where the transaction was executed.
     /// </summary>
+    [DataMember]
     public IsoMICIdentifier? TradingVenue { get; init; } 
     /// <summary>
     /// Reference to master agreement under which the counterparties concluded a documented transaction.
     /// </summary>
+    [DataMember]
     public MasterAgreement7? MasterAgreement { get; init; } 
     /// <summary>
     /// Date on which the counterparties contractually agree the exchange of securities or commodities versus collateral for the opening leg (spot leg) of the secured financing transaction. In the case of rollover of open term transactions, this is the date on which the rollover settles, even if no exchange of cash takes place.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValueDate { get; init; } 
     /// <summary>
     /// Indication whether the secured financing transaction is subject to a general collateral arrangement.
     /// </summary>
+    [DataMember]
     public SpecialCollateral1Code? GeneralCollateral { get; init; } 
     /// <summary>
     /// This field specifies whether the transaction was settled using the Delivery-by-Value (DBV) mechanism.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? DeliveryByValue { get; init; } 
     /// <summary>
     /// Specifies whether the collateral is subject to a title transfer collateral arrangement, a securities interest collateral arrangement, or a securities interest with the right of use.
     /// </summary>
+    [DataMember]
     public CollateralDeliveryMethod1Code? CollateralDeliveryMethod { get; init; } 
     /// <summary>
     /// Indication whether the transaction is open term or, for example, has no fixed maturity date, or fixed term with a contractually agreed maturity date.
     /// </summary>
-    public ContractTerm7Choice_[] Term { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ContractTerm7Choice_> Term { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indication of the type of assets subject of the transaction.
     /// </summary>
+    [DataMember]
     public SecurityCommodity9? AssetType { get; init; } 
     /// <summary>
     /// Specifies the loan value, that is the quantity or nominal amount multiplied by the price.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? LoanValue { get; init; } 
     /// <summary>
     /// Rate agreed to be paid by the lender for the reinvestment of the cash collateral minus lending fee.
     /// </summary>
+    [DataMember]
     public InterestRate27Choice_? RebateRate { get; init; } 
     /// <summary>
     /// Fee that the borrower of the security or commodity pays to the lender.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? LendingFee { get; init; } 
     /// <summary>
     /// Termination date in the case of a full early termination of the Securities Financing Transaction (SFT).
     /// </summary>
+    [DataMember]
     public IsoISODate? TerminationDate { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action details rates and amounts details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionRateSD1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CorporateActionRateSD1
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Applicable to structured securities where there is a set schedule of principal and interest payments for the life of the issue. A portion of the scheduled interest payment will not be paid at the time of distribution.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? DeferredInterestRate { get; init; } 
     /// <summary>
     /// Applicable for structured security issues where there is a set schedule of principal and interest payments for the life of the issue. An interest shortfall occurs when scheduled interest is not paid to the investor as scheduled.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? InterestShortfallRate { get; init; } 
     /// <summary>
     /// Applicable to structured securities where there is a set schedule of principal and interest payments for the life of the issue. This term refers specifically to the principal payment of a mortgage. One or more mortgages within the pool are in default.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? RealisedLossRate { get; init; } 
     /// <summary>
     /// American or Global Depository Receipt(s) per ordinary share(s) ratio.
     /// </summary>
+    [DataMember]
     public CorporateActionRateSD2? AmericanOrGlobalDepositReceiptRatio { get; init; } 
     
     #nullable disable

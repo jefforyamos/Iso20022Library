@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(QuantityRange1Choice.FromToQuantity))]
 [KnownType(typeof(QuantityRange1Choice.EqualQuantity))]
 [KnownType(typeof(QuantityRange1Choice.NotEqualQuantity))]
+[DataContract]
 public abstract partial record QuantityRange1Choice_
 {
 }

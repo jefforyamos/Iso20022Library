@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to report on a member.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MemberReturnCriteria1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record MemberReturnCriteria1
     /// <summary>
     /// Indicates whether the member name is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? NameIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the member return address is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? MemberReturnAddressIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the member account is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? AccountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the member type is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? TypeIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the member status is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? StatusIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the contact references are requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? ContactReferenceIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the communication addresses are requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? CommunicationAddressIndicator { get; init; } 
     
     #nullable disable

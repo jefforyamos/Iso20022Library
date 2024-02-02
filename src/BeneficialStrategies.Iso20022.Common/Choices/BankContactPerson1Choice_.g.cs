@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(BankContactPerson1Choice.BuyerBankContactPerson))]
 [KnownType(typeof(BankContactPerson1Choice.SellerBankContactPerson))]
+[DataContract]
 public abstract partial record BankContactPerson1Choice_
 {
 }

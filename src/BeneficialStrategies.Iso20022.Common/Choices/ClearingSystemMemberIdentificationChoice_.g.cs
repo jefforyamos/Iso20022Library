@@ -28,6 +28,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ClearingSystemMemberIdentificationChoice.HongKongBankCode))]
 [KnownType(typeof(ClearingSystemMemberIdentificationChoice.AustralianExtensiveBranchNetworkIdentification))]
 [KnownType(typeof(ClearingSystemMemberIdentificationChoice.AustralianSmallNetworkIdentification))]
+[DataContract]
 public abstract partial record ClearingSystemMemberIdentificationChoice_
 {
 }

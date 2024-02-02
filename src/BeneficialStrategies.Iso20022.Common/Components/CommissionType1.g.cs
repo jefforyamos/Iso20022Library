@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specification of the commission type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CommissionType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CommissionType1
     /// <summary>
     /// Structured format.
     /// </summary>
+    [DataMember]
     public required CommissionType5Code Structured { get; init; } 
     /// <summary>
     /// Additional information about the type of commission.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(DetailedTransactionStatistics2Choice.DataSetAction))]
 [KnownType(typeof(DetailedTransactionStatistics2Choice.DetailedStatistics))]
+[DataContract]
 public abstract partial record DetailedTransactionStatistics2Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information of the certificate to create.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CertificationRequest2
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record CertificationRequest2
     /// <summary>
     /// Version of the certificate request information data structure.
     /// </summary>
+    [DataMember]
     public IsoNumber? Version { get; init; } 
     /// <summary>
     /// Distinguished name of the certificate subject, the entity whose public key is to be certified.
     /// </summary>
+    [DataMember]
     public CertificateIssuer1? SubjectName { get; init; } 
     /// <summary>
     /// Information about the public key being certified.
     /// </summary>
+    [DataMember]
     public required PublicRSAKey2 SubjectPublicKeyInformation { get; init; } 
     /// <summary>
     /// Attribute of the certificate service to be put in the certificate extensions, or to be used for the request.
     /// </summary>
-    public RelativeDistinguishedName2[] Attribute { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RelativeDistinguishedName2> Attribute { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

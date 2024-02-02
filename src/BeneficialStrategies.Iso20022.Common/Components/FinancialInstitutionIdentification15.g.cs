@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a financial institution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstitutionIdentification15
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FinancialInstitutionIdentification15
     /// <summary>
     /// Unique identification of the party.
     /// </summary>
+    [DataMember]
     public required FinancialInstitutionIdentification9Choice_ Party { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for the party.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     
     #nullable disable

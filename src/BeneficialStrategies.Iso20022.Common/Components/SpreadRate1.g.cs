@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Margin over or under an index that determines the repurchase rate expressed as a rate or an amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SpreadRate1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SpreadRate1
     /// <summary>
     /// Specifies the sign of the rate.
     /// </summary>
+    [DataMember]
     public required IsoPlusOrMinusIndicator Sign { get; init; } 
     /// <summary>
     /// Specifies if the spreadf is expressed as an amount or a rate.
     /// </summary>
+    [DataMember]
     public required AmountOrRate1Choice_ RateOrAmount { get; init; } 
     
     #nullable disable

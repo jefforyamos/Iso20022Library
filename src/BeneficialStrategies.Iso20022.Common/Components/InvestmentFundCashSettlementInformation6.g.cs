@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Settlement instructions to be used to transfer cash from the Debtor to the Creditor.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentFundCashSettlementInformation6
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record InvestmentFundCashSettlementInformation6
     /// <summary>
     /// Specifies the type of modification to be applied on a set of information.
     /// </summary>
+    [DataMember]
     public required DataModification2Code ModificationScopeIndication { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a subscription payment.
     /// </summary>
+    [DataMember]
     public PaymentInstrument11? SubscriptionPaymentInstrument { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a redemption payment.
     /// </summary>
+    [DataMember]
     public PaymentInstrument10? RedemptionPaymentInstrument { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a dividend payment.
     /// </summary>
+    [DataMember]
     public PaymentInstrument10? DividendPaymentInstrument { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for a savings plan payment.
     /// </summary>
+    [DataMember]
     public PaymentInstrument11? SavingsPlanPaymentInstrument { get; init; } 
     /// <summary>
     /// Instrument that has or represents monetary value and is used to process a payment instruction for an interest payment.
     /// </summary>
+    [DataMember]
     public PaymentInstrument10? InterestPaymentInstrument { get; init; } 
     
     #nullable disable

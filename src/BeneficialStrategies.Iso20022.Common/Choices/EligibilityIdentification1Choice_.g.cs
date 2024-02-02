@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(EligibilityIdentification1Choice.Country))]
 [KnownType(typeof(EligibilityIdentification1Choice.FinancialInstrumentIdentification))]
 [KnownType(typeof(EligibilityIdentification1Choice.IssuerCSDIdentification))]
+[DataContract]
 public abstract partial record EligibilityIdentification1Choice_
 {
 }

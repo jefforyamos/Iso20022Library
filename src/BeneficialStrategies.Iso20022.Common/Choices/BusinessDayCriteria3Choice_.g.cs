@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(BusinessDayCriteria3Choice.QueryName))]
 [KnownType(typeof(BusinessDayCriteria3Choice.NewCriteria))]
+[DataContract]
 public abstract partial record BusinessDayCriteria3Choice_
 {
 }

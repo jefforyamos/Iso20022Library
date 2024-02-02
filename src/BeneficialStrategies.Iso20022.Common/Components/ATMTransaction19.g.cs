@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Response to the deposit request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransaction19
 {
     #nullable enable
@@ -20,82 +22,102 @@ public partial record ATMTransaction19
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Outcome of the financial transaction for the customer.
     /// </summary>
+    [DataMember]
     public required ATMTransactionStatus1Code TransactionStatus { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period assigned by the ATM.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Incident occurring during the processing of the transaction.
     /// </summary>
-    public FailureReason7Code[] Incident { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FailureReason7Code> Incident { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Explanation of the incident.
     /// </summary>
-    public IsoMax70Text[] IncidentDetail { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax70Text> IncidentDetail { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unprotected account information.
     /// </summary>
+    [DataMember]
     public CardAccount8? AccountData { get; init; } 
     /// <summary>
     /// Encryption of account information.
     /// </summary>
+    [DataMember]
     public ContentInformationType10? ProtectedAccountData { get; init; } 
     /// <summary>
     /// Total amount deposed by the customer.
     /// </summary>
+    [DataMember]
     public required AmountAndCurrency1 TotalDepositedAmount { get; init; } 
     /// <summary>
     /// Total authorised amount of the deposit transaction.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount TotalAuthorisedAmount { get; init; } 
     /// <summary>
     /// Total requested amount.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalRequestedAmount { get; init; } 
     /// <summary>
     /// Amounts of the deposit transaction.
     /// </summary>
+    [DataMember]
     public DetailedAmount16? DetailedRequestedAmount { get; init; } 
     /// <summary>
     /// Additional charge (for instance tax or fee).
     /// </summary>
-    public DetailedAmount13[] AdditionalCharge { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedAmount13> AdditionalCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// True if the customer has requested a receipt.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? RequestedReceipt { get; init; } 
     /// <summary>
     /// True if a receipt has been printed and presented to the customer.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ReceiptPrinted { get; init; } 
     /// <summary>
     /// Outcome of the deposit authorisation.
     /// </summary>
+    [DataMember]
     public AuthorisationResult13? AuthorisationResult { get; init; } 
     /// <summary>
     /// Deposited media put in the safe.
     /// </summary>
-    public ATMDepositedMedia1[] DepositedMedia { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMDepositedMedia1> DepositedMedia { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Media unit not put in the safe. These deposits have to be reconciliated.
     /// </summary>
-    public ATMDepositedMedia3[] ToBeReconciledMediaCounters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMDepositedMedia3> ToBeReconciledMediaCounters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Current totals of the ATM.
     /// </summary>
-    public ATMTotals1[] ATMTotals { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMTotals1> ATMTotals { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information on the cassettes of the ATM.
     /// </summary>
-    public ATMCassette2[] Cassette { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCassette2> Cassette { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
+    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     
     #nullable disable

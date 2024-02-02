@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the derogation related data of settlement fails instructions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementFailsDerogation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SettlementFailsDerogation1
     /// <summary>
     /// Defines whether the item is eligible for derogation or not.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator EligibilityIndicator { get; init; } 
     /// <summary>
     /// Justification for the derogation.
     /// </summary>
+    [DataMember]
     public SettlementFailsJustification1? Justification { get; init; } 
     
     #nullable disable

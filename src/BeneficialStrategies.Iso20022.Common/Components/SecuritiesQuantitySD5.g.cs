@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about securities quantity linked to a corporate action option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesQuantitySD5
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SecuritiesQuantitySD5
     /// <summary>
     /// Instruction quantity for a given transaction sequence number.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity31Choice_? InstructionQuantity { get; init; } 
     /// <summary>
     /// For rights subscription events with an oversubscription feature, the quantity of the oversubscription for the given instruction.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity4? OversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Total oversubscription quantity of all transaction sequence instructions.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity4? TotalOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Quantity covered but transactions not in "MADE" status.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity31Choice_? InterimCoveredQuantity { get; init; } 
     
     #nullable disable

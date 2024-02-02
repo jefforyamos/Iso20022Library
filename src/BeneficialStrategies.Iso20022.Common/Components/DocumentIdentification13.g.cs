@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a document as well as the document number and type of link.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentIdentification13
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DocumentIdentification13
     /// <summary>
     /// Unique identifier of the document (message) assigned either by the account servicer or the account owner.
     /// </summary>
+    [DataMember]
     public required DocumentIdentification1Choice_ Identification { get; init; } 
     /// <summary>
     /// Identification of the type of document.
     /// </summary>
+    [DataMember]
     public DocumentNumber1Choice_? DocumentNumber { get; init; } 
     /// <summary>
     /// Specifies when this document is to be processed relative to an other referred document.
     /// </summary>
+    [DataMember]
     public ProcessingPosition1Choice_? LinkageType { get; init; } 
     
     #nullable disable

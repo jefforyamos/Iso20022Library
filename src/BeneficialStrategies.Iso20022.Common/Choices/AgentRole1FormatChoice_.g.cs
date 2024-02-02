@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(AgentRole1FormatChoice.Code))]
 [KnownType(typeof(AgentRole1FormatChoice.Proprietary))]
+[DataContract]
 public abstract partial record AgentRole1FormatChoice_
 {
 }

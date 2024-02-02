@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CurrentOrDefaultReservation1Choice.Current))]
 [KnownType(typeof(CurrentOrDefaultReservation1Choice.Default))]
+[DataContract]
 public abstract partial record CurrentOrDefaultReservation1Choice_
 {
 }

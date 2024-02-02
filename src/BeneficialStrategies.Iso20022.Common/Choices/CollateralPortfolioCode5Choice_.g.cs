@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CollateralPortfolioCode5Choice.Portfolio))]
 [KnownType(typeof(CollateralPortfolioCode5Choice.MarginPortfolioCode))]
+[DataContract]
 public abstract partial record CollateralPortfolioCode5Choice_
 {
 }

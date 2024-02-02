@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for a rejected cancellation status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RejectedStatusReason28
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RejectedStatusReason28
     /// <summary>
     /// Reason for the rejected status.
     /// </summary>
+    [DataMember]
     public required RejectedReason29Choice_ ReasonCode { get; init; } 
     /// <summary>
     /// Additional information about the rejection status.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

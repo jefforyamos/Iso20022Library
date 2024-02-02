@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of change to purpose.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PurposeModification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PurposeModification1
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
+    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Purpose.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Purpose { get; init; } 
     
     #nullable disable

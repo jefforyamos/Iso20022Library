@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a cash asset.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashAsset1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CashAsset1
     /// <summary>
     /// Type of cash asset.
     /// </summary>
+    [DataMember]
     public required CashAssetType1Choice_ CashAssetType { get; init; } 
     /// <summary>
     /// Additional information about the cash asset.
     /// </summary>
+    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable

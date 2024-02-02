@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Elements characterising a financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentAttributes89
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record FinancialInstrumentAttributes89
     /// <summary>
     /// Quantity of product defined in the contract.
     /// </summary>
+    [DataMember]
     public required ContractSize1 ContractSize { get; init; } 
     /// <summary>
     /// Indicates whether the contract is cash/physical/optional settled.
     /// </summary>
+    [DataMember]
     public required PhysicalTransferType4Code DeliveryType { get; init; } 
     /// <summary>
     /// Unique identifier for underlying or deliverable financial product on which final settlement price or equivalent is calculated.
     /// </summary>
+    [DataMember]
     public required GenericIdentification165 UnderlyingIdentification { get; init; } 
     /// <summary>
     /// Specifies the currency of price of underlying.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode PriceCurrency { get; init; } 
     
     #nullable disable

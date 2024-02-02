@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the applicable Incoterm and associated location.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Incoterms3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Incoterms3
     /// <summary>
     /// Specifies the Incoterms.
     /// </summary>
+    [DataMember]
     public required Incoterms4Choice_ IncotermsCode { get; init; } 
     /// <summary>
     /// Location where the Incoterms are actioned. Reference UN/ECE Recommendation 16 - LOCODE - Code for Trade and Transport Locations (www.unece.org/cefact/recommendations).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Location { get; init; } 
     
     #nullable disable

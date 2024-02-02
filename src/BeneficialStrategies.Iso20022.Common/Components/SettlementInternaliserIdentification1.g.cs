@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the identification of the settlement internaliser.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementInternaliserIdentification1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SettlementInternaliserIdentification1
     /// <summary>
     /// Identification code of the settlement internaliser; Legal Entity Identifier (LEI) is a code allocated to a party as described in ISO 17442 'Financial Services - Legal Entity Identifier (LEI)'.
     /// </summary>
+    [DataMember]
     public required IsoLEIIdentifier LEI { get; init; } 
     /// <summary>
     /// Identification of the liaison at the Settlement Internaliser.
     /// </summary>
+    [DataMember]
     public required ContactDetails4 ResponsiblePerson { get; init; } 
     /// <summary>
     /// Identifies the country code of the place of establishment of the Settlement Internaliser (i.e. head-office), relating to the data that the report concerns, using ISO 3166 2-character code.
     /// </summary>
+    [DataMember]
     public required CountryCode Country { get; init; } 
     /// <summary>
     /// Identifies the code of the place of operation of the settlement internaliser (that is the branch), relating to the data that the report concerns.
     /// </summary>
+    [DataMember]
     public IsoExact2UpperCaseAlphaText? BranchIdentification { get; init; } 
     
     #nullable disable

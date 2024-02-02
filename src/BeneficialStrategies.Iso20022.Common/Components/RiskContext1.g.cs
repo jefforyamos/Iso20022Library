@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Context of the risk associated with the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RiskContext1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record RiskContext1
     /// <summary>
     /// Input data to be considered in a risk assessment.
     /// </summary>
-    public RiskInputData1[] RiskInputData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RiskInputData1> RiskInputData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates to the card issuer the level of risk associated with the transaction.
     /// </summary>
-    public RiskAssessment1[] RiskAssessment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RiskAssessment1> RiskAssessment { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

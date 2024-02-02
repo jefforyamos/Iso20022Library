@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provide information on the status reason of the record.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ValidationStatusReason1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record ValidationStatusReason1
     /// <summary>
     /// Party that issues the status.
     /// </summary>
+    [DataMember]
     public PartyIdentification77? Originator { get; init; } 
     /// <summary>
     /// Specifies the reason for the status.
     /// </summary>
+    [DataMember]
     public StatusReason6Choice_? Reason { get; init; } 
     /// <summary>
     /// Provides details about the rule which could not be validated.
     /// </summary>
-    public GenericValidationRuleIdentification1[] ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericValidationRuleIdentification1> ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further details on the status reason.||Usage: Additional information can be used for several purposes such as the reporting of repaired information.
     /// </summary>
-    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax105Text> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(IntraBalanceOrOperationalError9Choice.Cancellations))]
 [KnownType(typeof(IntraBalanceOrOperationalError9Choice.OperationalError))]
+[DataContract]
 public abstract partial record IntraBalanceOrOperationalError9Choice_
 {
 }

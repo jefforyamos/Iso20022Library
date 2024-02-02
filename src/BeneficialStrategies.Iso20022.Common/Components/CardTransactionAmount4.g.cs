@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amounts of the transaction expressed within the terminal currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardTransactionAmount4
 {
     #nullable enable
@@ -21,19 +23,23 @@ public partial record CardTransactionAmount4
     /// Total amount of the transaction.
     /// It corresponds to ISO 8583, field number 4, completed by the field number 49 for the versions 87 and 93.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount TotalAmount { get; init; } 
     /// <summary>
     /// Present when cardholder billing currency differs from transaction currency expressed in TransactionAmount. It may be populated by the scheme or intermediary processor as normally Acceptor does not know cardholder billing currency.
     /// </summary>
+    [DataMember]
     public DetailedAmount8? CardholderBillingTransactionAmount { get; init; } 
     /// <summary>
     /// Only present within financial transactions when reconciliation currency differs from transaction currency. It may be populated by acquirers in the request or by the schemes in the responses, depending where the reconciliation point is located.
     /// </summary>
+    [DataMember]
     public DetailedAmount8? ReconciliationTransactionAmount { get; init; } 
     /// <summary>
     /// Details of the TransactionAmount, for informational purposes only, except for cash back which is mandatory for a payment transaction with cashback. The transaction amount is not necessarly the sum of all the detailed amount values.
     /// </summary>
-    public DetailedAmount9[] DetailedAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedAmount9> DetailedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

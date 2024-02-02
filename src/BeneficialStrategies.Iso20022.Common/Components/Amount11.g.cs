@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains amount details for a specific type of charge.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Amount11
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Amount11
     /// <summary>
     /// Type of telephone charge.
     /// </summary>
+    [DataMember]
     public TypeOfAmount19Code? TypeOfCharge { get; init; } 
     /// <summary>
     /// Description of other type of charge.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherTypeOfCharge { get; init; } 
     /// <summary>
     /// Contains the amount.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether or not the amount is a credit or debit. 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CreditIndicator { get; init; } 
     
     #nullable disable

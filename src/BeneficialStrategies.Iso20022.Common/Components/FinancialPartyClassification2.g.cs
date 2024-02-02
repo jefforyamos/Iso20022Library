@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the classification of a financial institution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialPartyClassification2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FinancialPartyClassification2
     /// <summary>
     /// Classification of the business activities of the reporting counterparty.
     /// </summary>
-    public IsoNACEDomainIdentifier[] Classification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoNACEDomainIdentifier> Classification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Nature business activities of the reporting counterparty as an investment fund.
     /// </summary>
+    [DataMember]
     public FundType2Code? InvestmentFundClassification { get; init; } 
     
     #nullable disable

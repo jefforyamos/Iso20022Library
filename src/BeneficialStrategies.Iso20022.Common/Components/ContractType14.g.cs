@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to contract attributes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContractType14
 {
     #nullable enable
@@ -20,40 +22,49 @@ public partial record ContractType14
     /// <summary>
     /// Classification of information according to contract type.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentContractType2Code? ContractType { get; init; } 
     /// <summary>
     /// Specifies the classification according to the asset class of the contract.
     /// </summary>
+    [DataMember]
     public ProductType4Code? AssetClass { get; init; } 
     /// <summary>
     /// Specifies the classification of the derivative product.
     /// </summary>
+    [DataMember]
     public IsoCFIOct2015Identifier? ProductClassification { get; init; } 
     /// <summary>
     /// Specifies the identification of the derivative product.
     /// </summary>
+    [DataMember]
     public SecurityIdentification46? ProductIdentification { get; init; } 
     /// <summary>
     /// Unique identification to identify the direct underlying instrument based on its type.
     /// </summary>
+    [DataMember]
     public SecurityIdentification41Choice_? UnderlyingInstrument { get; init; } 
     /// <summary>
     /// Specifies the currency to be used for cash settlement of the transaction. 
     /// Usage: For multicurrency transactions that do not net, SettlementCurrency is to be considered as the first leg.
     /// </summary>
+    [DataMember]
     public CurrencyExchange23? SettlementCurrency { get; init; } 
     /// <summary>
     /// Specifies the currency second leg to be used for cash settlement of the transaction. 
     /// </summary>
+    [DataMember]
     public CurrencyExchange23? SettlementCurrencySecondLeg { get; init; } 
     /// <summary>
     /// Specifies the place where settlement of the transaction occurs as stipulated in the contract.
     /// </summary>
+    [DataMember]
     public CountryCode? PlaceOfSettlement { get; init; } 
     /// <summary>
     /// Indicator whether the derivative is based on crypto-asset.
     /// Usage: If the element is not present, the DerivativeBasedOnCryptoAsset is False.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? DerivativeBasedOnCryptoAsset { get; init; } 
     
     #nullable disable

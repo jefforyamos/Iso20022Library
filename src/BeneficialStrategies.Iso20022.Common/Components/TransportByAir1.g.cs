@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the transportation of goods by air.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransportByAir1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record TransportByAir1
     /// <summary>
     /// Place from where the goods must leave.
     /// </summary>
-    public AirportName1Choice_[] DepartureAirport { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AirportName1Choice_> DepartureAirport { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Place where the goods must arrive.
     /// </summary>
-    public AirportName1Choice_[] DestinationAirport { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AirportName1Choice_> DestinationAirport { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

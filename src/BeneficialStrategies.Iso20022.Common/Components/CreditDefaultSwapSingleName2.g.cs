@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Credit default swap derivative specific for reporting on a single name credit default swap.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditDefaultSwapSingleName2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CreditDefaultSwapSingleName2
     /// <summary>
     /// Reference entity of a single name credit default swap (CDS) or a derivative on single name CDS.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator SovereignIssuer { get; init; } 
     /// <summary>
     /// Reference entity of a single name credit default swap (CDS) or a derivative on single name credit default swap (CDS).
     /// </summary>
+    [DataMember]
     public DerivativePartyIdentification1Choice_? ReferenceParty { get; init; } 
     /// <summary>
     /// Currency in which the notional is denominated.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode NotionalCurrency { get; init; } 
     
     #nullable disable

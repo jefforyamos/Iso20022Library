@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the payment terms of the underlying transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTerms1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PaymentTerms1
     /// <summary>
     /// Specifies payment terms not present in a code list.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text OtherPaymentTerms { get; init; } 
     /// <summary>
     /// Specifies the payment period in coded form and a number of days.
     /// </summary>
+    [DataMember]
     public required PaymentPeriod1 PaymentCode { get; init; } 
     /// <summary>
     /// Specifies that the payment conditions apply to a percentage of the amount due.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate Percentage { get; init; } 
     /// <summary>
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

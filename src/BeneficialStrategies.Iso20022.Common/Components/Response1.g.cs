@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the margin call, that is a description and a response type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Response1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Response1
     /// <summary>
     /// Provides details about the response type.
     /// </summary>
-    public ResponseType1Choice_[] ResponseTypeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ResponseType1Choice_> ResponseTypeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional details related to the margin call response.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     
     #nullable disable

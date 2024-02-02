@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reference of the message previously received and for which the delivery status is notified.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RelatedReference1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RelatedReference1
     /// <summary>
     /// Unique transaction identifier assigned by the local application.
     /// </summary>
+    [DataMember]
     public IsoMax105Text? TransactionUniqueIdentifier { get; init; } 
     /// <summary>
     /// Message reference assigned by the original message sender.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MessageReference { get; init; } 
     
     #nullable disable

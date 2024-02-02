@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data of a Chip Card related to the reset of the chip.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ICCResetData1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ICCResetData1
     /// <summary>
     /// Value of the Answer To Reset of a chip card.
     /// </summary>
+    [DataMember]
     public IsoMax140Binary? ATRValue { get; init; } 
     /// <summary>
     /// Status of a smartcard response to a command (SW1-SW2).
     /// </summary>
+    [DataMember]
     public IsoMax35Binary? CardStatus { get; init; } 
     
     #nullable disable

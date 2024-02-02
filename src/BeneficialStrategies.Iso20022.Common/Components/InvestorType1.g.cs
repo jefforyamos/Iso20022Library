@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Investor for which a financial instrument is targeted.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestorType1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record InvestorType1
     /// <summary>
     /// Specifies whether the product is aimed at the retail investor. If neutral, the manufacturer estimates that there is neither a negative nor a positive target market. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 01010.
     /// </summary>
+    [DataMember]
     public TargetMarket1Code? InvestorTypeRetail { get; init; } 
     /// <summary>
     /// Specifies how the product is aimed at the professional investor. If neutral, the manufacturer estimates that there is neither a negative nor a positive target market. Professional per se or elective professional should only be used if the distinction is done in the prospectus. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 01020.
     /// </summary>
+    [DataMember]
     public TargetMarket4Choice_? InvestorTypeProfessional { get; init; } 
     /// <summary>
     /// Specifies whether the product is aimed at the eligible counterparty. If neutral, the manufacturer estimates that there is neither a negative nor a positive target market. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 01030.
     /// </summary>
+    [DataMember]
     public TargetMarket1Code? InvestorTypeEligibleCounterparty { get; init; } 
     /// <summary>
     /// Specifies another investor type.
     /// </summary>
-    public OtherTargetMarketInvestor1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OtherTargetMarketInvestor1> Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

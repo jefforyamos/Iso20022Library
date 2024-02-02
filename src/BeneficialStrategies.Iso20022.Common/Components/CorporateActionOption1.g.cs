@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the CA option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionOption1
 {
     #nullable enable
@@ -20,94 +22,117 @@ public partial record CorporateActionOption1
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [DataMember]
     public required IsoExact3NumericText OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
+    [DataMember]
     public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     /// <summary>
     /// Specifies the status of the option.
     /// </summary>
+    [DataMember]
     public required CorporateActionEventStatus2FormatChoice_ OptionAvailabilityStatus { get; init; } 
     /// <summary>
     /// Whether or not certification is required from the account owner. |Yes: certification required |No: no certification required.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CertificationIndicator { get; init; } 
     /// <summary>
     /// Type of certification which is required.
     /// </summary>
+    [DataMember]
     public BeneficiaryCertificationType1FormatChoice_? CertificationType { get; init; } 
     /// <summary>
     /// Identification of a temporary security used for processing reasons, eg, contra security used in the US.
     /// </summary>
+    [DataMember]
     public SecurityIdentification7? AssentedLineSecurityIdentification { get; init; } 
     /// <summary>
     /// Identification of the safekeeping account held by an agent at the CSD.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AgentSecuritiesAccountIdentification { get; init; } 
     /// <summary>
     /// Identification of the cash account held by an agent at the CSD.
     /// </summary>
+    [DataMember]
     public AccountIdentification2Choice_? AgentCashAccountIdentification { get; init; } 
     /// <summary>
     /// Specifies the conditions that apply to the offer.
     /// </summary>
-    public OfferType1FormatChoice_[] OfferType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OfferType1FormatChoice_> OfferType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of intermediates securities distribution, eg, stock dividend, reverse right.
     /// </summary>
+    [DataMember]
     public IntermediateSecurityDistributionType1FormatChoice_? IntermediateSecuritiesDistributionType { get; init; } 
     /// <summary>
     /// Indicates whether withdrawal of instruction is allowed.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator WithdrawalAllowedIndicator { get; init; } 
     /// <summary>
     /// Indicates whether change of instruction is allowed.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ChangeAllowedIndicator { get; init; } 
     /// <summary>
     /// Provides information about the dates related to a CA option.
     /// </summary>
+    [DataMember]
     public CorporateActionDate4? DateDetails { get; init; } 
     /// <summary>
     /// Provides information about rates and amounts related to a CA option.
     /// </summary>
+    [DataMember]
     public CorporateActionRate2? RateAndAmountDetails { get; init; } 
     /// <summary>
     /// Provides information about the prices related to a CA option.
     /// </summary>
+    [DataMember]
     public CorporateActionPrice1? PriceDetails { get; init; } 
     /// <summary>
     /// Provides information about the periods related to a CA option.
     /// </summary>
+    [DataMember]
     public CorporateActionPeriod2? PeriodDetails { get; init; } 
     /// <summary>
     /// Provides information about the securities movement linked to the CA option.
     /// </summary>
-    public SecurityOption1[] SecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecurityOption1> SecuritiesMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the cash movement linked to the CA option.
     /// </summary>
-    public CashOption1[] CashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashOption1> CashMovementDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the agents linked to the CA option.
     /// </summary>
-    public CorporateActionAgent1[] CorporateActionOtherAgentDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CorporateActionAgent1> CorporateActionOtherAgentDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.
     /// </summary>
+    [DataMember]
     public FractionDispositionType1FormatChoice_? FractionDisposition { get; init; } 
     /// <summary>
     /// ndicates whether redemption charges apply.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? RedemptionChargesAppliedIndicator { get; init; } 
     /// <summary>
     /// Specifies the features that may apply to a corporate action option.
     /// </summary>
-    public OptionFeatures1FormatChoice_[] OptionFeatures { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OptionFeatures1FormatChoice_> OptionFeatures { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional information.
     /// </summary>
+    [DataMember]
     public CorporateActionNarrative1? CorporateActionAdditionalInformation { get; init; } 
     
     #nullable disable

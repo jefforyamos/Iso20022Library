@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Further details on the shipment conditions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ShipmentAttribute2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ShipmentAttribute2
     /// <summary>
     /// Shipment conditions.
     /// </summary>
+    [DataMember]
     public ShipmentCondition1Choice_? Conditions { get; init; } 
     /// <summary>
     /// Expected shipment date.
     /// </summary>
+    [DataMember]
     public IsoISODate? ExpectedDate { get; init; } 
     /// <summary>
     /// Country in which the counter party is located.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryOfCounterParty { get; init; } 
     
     #nullable disable

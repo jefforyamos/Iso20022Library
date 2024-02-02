@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SequenceRange1Choice.FromToSequence))]
 [KnownType(typeof(SequenceRange1Choice.EqualSequence))]
 [KnownType(typeof(SequenceRange1Choice.NotEqualSequence))]
+[DataContract]
 public abstract partial record SequenceRange1Choice_
 {
 }

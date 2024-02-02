@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a person or an organisation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification220
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PartyIdentification220
     /// <summary>
     /// Identification of the organisation.
     /// </summary>
+    [DataMember]
     public PartyIdentification182Choice_? Identification { get; init; } 
     /// <summary>
     /// Identification of the organisation with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
     
     #nullable disable

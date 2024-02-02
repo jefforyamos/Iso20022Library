@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the quantity of a product in a trade transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Quantity10
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Quantity10
     /// <summary>
     /// Specifies a unit of measure with a code or free text.
     /// </summary>
+    [DataMember]
     public required UnitOfMeasure3Choice_ UnitOfMeasure { get; init; } 
     /// <summary>
     /// Quantity of a product on a line specified by a number. For example, 100 (kgs), 50 (pieces).
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber Value { get; init; } 
     
     #nullable disable

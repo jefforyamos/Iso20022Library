@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Summary information about the sale
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvoiceSummary1
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record InvoiceSummary1
     /// <summary>
     /// Contains the invoice number.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? InvoiceNumber { get; init; } 
     /// <summary>
     /// Supplier or the provider of the goods or services.
     /// </summary>
+    [DataMember]
     public PartyIdentification206? Seller { get; init; } 
     /// <summary>
     /// Buyer or company buying the goods or services.
     /// </summary>
+    [DataMember]
     public PartyIdentification206? Buyer { get; init; } 
     /// <summary>
     /// Effective billing date.
     /// </summary>
+    [DataMember]
     public IsoISODate? InvoiceDate { get; init; } 
     /// <summary>
     /// Contains the date and time the electronic invoice was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? InvoiceCreationDateTime { get; init; } 
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     /// <summary>
     /// Contains the freight charges for the entire purchase. 
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? FreightAmount { get; init; } 
     /// <summary>
     /// Contains the total tax amount for the entire purchase. 
     /// </summary>
-    public Tax33[] TaxTotal { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax33> TaxTotal { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Code that identifies the disposition of the tax reclaim invoice.
     /// </summary>
+    [DataMember]
     public TaxReclaimMethod1Code? TaxReclaimMethod { get; init; } 
     /// <summary>
     /// Contains additional details.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Quantity expressed as a number and its details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Unit4
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record Unit4
     /// <summary>
     /// Quantity expressed as a number, for example, a number of shares.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1 TotalUnitsNumber { get; init; } 
     /// <summary>
     /// Information about the units to be transferred.
     /// </summary>
-    public Unit5[] UnitDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<Unit5> UnitDetails { get; init; } = [];
     
     #nullable disable
 }

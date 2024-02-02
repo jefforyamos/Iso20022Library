@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(Timeframe2Choice.TradePlus))]
 [KnownType(typeof(Timeframe2Choice.RenunciationPlus))]
 [KnownType(typeof(Timeframe2Choice.Prepayment))]
+[DataContract]
 public abstract partial record Timeframe2Choice_
 {
 }

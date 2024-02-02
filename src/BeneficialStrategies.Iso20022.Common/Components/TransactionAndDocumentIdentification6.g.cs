@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transaction and document identification details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionAndDocumentIdentification6
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record TransactionAndDocumentIdentification6
     /// <summary>
     /// Unambiguous identification of the transaction as known by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identifier of the document (message) assigned by the sender of the document.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DocumentIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the transaction was created by the instructing party in its business application.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? CreationDateTime { get; init; } 
     /// <summary>
     /// Specifies if this document is a copy, a duplicate, or a duplicate of a copy.
     /// </summary>
+    [DataMember]
     public CopyDuplicate1Code? CopyDuplicate { get; init; } 
     /// <summary>
     /// Party that originated the message, if other than the sender.
     /// </summary>
+    [DataMember]
     public PartyIdentification136? MessageOriginator { get; init; } 
     /// <summary>
     /// Party that is the final destination of the message, if other than the receiver.
     /// </summary>
+    [DataMember]
     public PartyIdentification136? MessageRecipient { get; init; } 
     
     #nullable disable

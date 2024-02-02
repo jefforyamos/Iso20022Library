@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(NettingEligibility3Choice.Indicator))]
 [KnownType(typeof(NettingEligibility3Choice.Proprietary))]
+[DataContract]
 public abstract partial record NettingEligibility3Choice_
 {
 }

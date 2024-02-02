@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the frequency of the trade query execution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeQueryExecutionFrequency3
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record TradeQueryExecutionFrequency3
     /// <summary>
     /// Specifies the frequency type of the trade query execution.
     /// </summary>
+    [DataMember]
     public required Frequency14Code FrequencyType { get; init; } 
     /// <summary>
     /// Specifies the day of the expected delivery of the query response.
     /// </summary>
-    public WeekDay3Code[] DeliveryDay { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<WeekDay3Code> DeliveryDay { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Day of the month of the monthly query execution.
     /// </summary>
-    public IsoDayOfMonthNumber[] DayOfMonth { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoDayOfMonthNumber> DayOfMonth { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

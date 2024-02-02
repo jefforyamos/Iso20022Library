@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment parties for the transfer of cash from the debtor to the creditor.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentInstrument18
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PaymentInstrument18
     /// <summary>
     /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts' receivable system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Reference { get; init; } 
     /// <summary>
     /// Amount of the payment.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     /// <summary>
     /// Date of the payment.
     /// </summary>
+    [DataMember]
     public IsoISODate? PaymentDate { get; init; } 
     /// <summary>
     /// Payment process for the transfer of cash from the debtor to the creditor.
     /// </summary>
+    [DataMember]
     public PaymentInstrument25Choice_? CashSettlementDetails { get; init; } 
     
     #nullable disable

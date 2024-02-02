@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Quantity of a security.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SidePocketQuantityAndAmount1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SidePocketQuantityAndAmount1
     /// <summary>
     /// Total of quantity of units subscribed or redeemed in the lot or side pocket.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? UnitsNumber { get; init; } 
     /// <summary>
     /// Amount of money invested or redeemed into the lot or side pocket.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? OrderedAmount { get; init; } 
     /// <summary>
     /// Percentage of the financial instrument quantity invested or redeemed in the lot or side pocket.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? HoldingsRate { get; init; } 
     
     #nullable disable

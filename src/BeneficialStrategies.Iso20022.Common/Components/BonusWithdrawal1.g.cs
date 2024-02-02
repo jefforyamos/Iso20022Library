@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a bonus paid out or a withdrawal.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BonusWithdrawal1
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record BonusWithdrawal1
     /// <summary>
     /// Specifies whether the amount is the result of a bonus paid, a withdrawal or other kind of amount.
     /// </summary>
+    [DataMember]
     public required TypeOfAmount1Choice_ TypeOfAmount { get; init; } 
     /// <summary>
     /// Amount of the bonus paid or the claimed amount. For example, a claimed amount for a lifetime ISA (LISA) or a government bonus paid out.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? Amount { get; init; } 
     /// <summary>
     /// Reason for the bonus amount paid to or an amount withdrawn from the investment product.
     /// </summary>
+    [DataMember]
     public WithdrawalReason1Choice_? Reason { get; init; } 
     /// <summary>
     /// Amount of an unclaimed bonus or an unclaimed withdrawal.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? UnclaimedAmount { get; init; } 
     /// <summary>
     /// Indicates whether there is an outstanding bonus or withdrawal amount.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Outstanding { get; init; } 
     /// <summary>
     /// Additional information about the monies paid out or withdrawn.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

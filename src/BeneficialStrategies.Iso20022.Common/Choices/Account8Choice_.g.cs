@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(Account8Choice.CashAccount))]
 [KnownType(typeof(Account8Choice.ChargesAccount))]
 [KnownType(typeof(Account8Choice.TaxAccount))]
+[DataContract]
 public abstract partial record Account8Choice_
 {
 }

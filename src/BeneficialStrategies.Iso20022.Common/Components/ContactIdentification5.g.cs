@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information needed to contact a physical person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContactIdentification5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ContactIdentification5
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Name { get; init; } 
     /// <summary>
     /// Collection of information that identifies a phone number, as defined by telecom services.
     /// </summary>
+    [DataMember]
     public required IsoPhoneNumber PhoneNumber { get; init; } 
     
     #nullable disable

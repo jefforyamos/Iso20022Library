@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the reason why the instruction or request has a failing settlement status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FailingReason9
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FailingReason9
     /// <summary>
     /// Specifies the reason why the instruction has a failing status.
     /// </summary>
+    [DataMember]
     public required FailingReason10Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details on the limits.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Limit7
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record Limit7
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
+    [DataMember]
     public required Amount2Choice_ Amount { get; init; } 
     /// <summary>
     /// Specifies if a limit is a debit limit or a credit limit.
     /// </summary>
+    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Status of the limit, such as enabled or disabled.
     /// </summary>
+    [DataMember]
     public LimitStatus1Code? Status { get; init; } 
     /// <summary>
     /// Date and time at which the limit becomes effective.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? StartDateTime { get; init; } 
     /// <summary>
     /// Actual usage of the limit expressed as an amount.
     /// </summary>
+    [DataMember]
     public Amount2Choice_? UsedAmount { get; init; } 
     /// <summary>
     /// Specifies if the used amount of the limit is a debit amount or a credit amount.
     /// </summary>
+    [DataMember]
     public CreditDebitCode? UsedAmountCreditDebitIndicator { get; init; } 
     /// <summary>
     /// Actual usage of the limit expressed as a percentage.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? UsedPercentage { get; init; } 
     /// <summary>
     /// Actual usage of the limit expressed as an amount.
     /// </summary>
+    [DataMember]
     public Amount2Choice_? RemainingAmount { get; init; } 
     
     #nullable disable

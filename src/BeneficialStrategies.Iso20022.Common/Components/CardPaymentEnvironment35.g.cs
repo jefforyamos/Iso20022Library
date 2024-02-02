@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of the cancellation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentEnvironment35
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record CardPaymentEnvironment35
     /// <summary>
     /// Acquirer involved in the card payment.
     /// </summary>
+    [DataMember]
     public Acquirer4? Acquirer { get; init; } 
     /// <summary>
     /// Merchant performing the card payment cancellation.
     /// Usage: In some cases, merchant and acceptor may be regarded as the same entity.
     /// </summary>
+    [DataMember]
     public Organisation8? Merchant { get; init; } 
     /// <summary>
     /// Point of interaction (POI) performing the transaction.
     /// </summary>
+    [DataMember]
     public required PointOfInteraction4 POI { get; init; } 
     /// <summary>
     /// Payment card performing the transaction.
     /// </summary>
+    [DataMember]
     public required PaymentCard11 Card { get; init; } 
     /// <summary>
     /// Device used by the customer to perform the payment.
     /// </summary>
+    [DataMember]
     public CustomerDevice1? CustomerDevice { get; init; } 
     /// <summary>
     /// Container of tenders used by the customer to perform the payment.
     /// </summary>
+    [DataMember]
     public CustomerDevice1? Wallet { get; init; } 
     /// <summary>
     /// Payment token information.
     /// </summary>
+    [DataMember]
     public CardPaymentToken3? PaymentToken { get; init; } 
     
     #nullable disable

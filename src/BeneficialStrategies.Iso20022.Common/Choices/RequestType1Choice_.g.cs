@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(RequestType1Choice.PaymentControl))]
 [KnownType(typeof(RequestType1Choice.Enquiry))]
+[DataContract]
 public abstract partial record RequestType1Choice_
 {
 }

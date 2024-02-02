@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional information about a request (e.g. financing request).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalInformation2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AdditionalInformation2
     /// <summary>
     /// Reason for the waiver.
     /// </summary>
-    public OrderWaiverReason1Choice_[] OrderWaiverReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OrderWaiverReason1Choice_> OrderWaiverReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contents of the additional information.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? InformationValue { get; init; } 
     
     #nullable disable

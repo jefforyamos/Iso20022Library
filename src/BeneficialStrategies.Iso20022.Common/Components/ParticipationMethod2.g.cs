@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Method of voting participation to a general meeting.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ParticipationMethod2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ParticipationMethod2
     /// <summary>
     /// Method of voting participation to the general meeting.
     /// </summary>
+    [DataMember]
     public required ParticipationMethod3Choice_ ParticipationMethod { get; init; } 
     /// <summary>
     /// Deadline for voting on agenda resolutions at the general meeting.
     /// </summary>
+    [DataMember]
     public required DateFormat58Choice_ IssuerDeadlineForVoting { get; init; } 
     /// <summary>
     /// Indicates whether the specific participation method proposed by the issuer is supported by the account servicer.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? SupportedByAccountServicer { get; init; } 
     /// <summary>
     /// Account servicer deadline for voting on agenda resolutions at the general meeting.
     /// </summary>
+    [DataMember]
     public DateFormat58Choice_? ResponseDeadlineForVoting { get; init; } 
     
     #nullable disable

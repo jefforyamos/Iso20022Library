@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashAccountAndEntry3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CashAccountAndEntry3
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
+    [DataMember]
     public required CashAccount39 Account { get; init; } 
     /// <summary>
     /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
     /// </summary>
+    [DataMember]
     public CashEntry2? Entry { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the currency control group status details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyControlGroupStatus1
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record CurrencyControlGroupStatus1
     /// <summary>
     /// Original underlying message references for which the status advice is provided.
     /// </summary>
+    [DataMember]
     public required OriginalMessage3 OriginalReferences { get; init; } 
     /// <summary>
     /// Party registering the currency control contract.
     /// </summary>
+    [DataMember]
     public required TradeParty2 ReportingParty { get; init; } 
     /// <summary>
     /// Agent which registers the currency control contract.
     /// </summary>
+    [DataMember]
     public required BranchAndFinancialInstitutionIdentification5 RegistrationAgent { get; init; } 
     /// <summary>
     /// For daily reporting this is the day to which the transaction data in the status message refers to.
     /// For periodic reporting this is the first and the last day to which the transaction data in the status message refers.
     /// </summary>
+    [DataMember]
     public Period4Choice_? ReportingPeriod { get; init; } 
     /// <summary>
     /// Provides the status for the full report.
     /// </summary>
+    [DataMember]
     public StatisticalReportingStatus1Code? Status { get; init; } 
     /// <summary>
     /// Provides detailed information on the status reason.
     /// </summary>
-    public ValidationStatusReason1[] StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ValidationStatusReason1> StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the date and time when the status was issued.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? StatusDateTime { get; init; } 
     
     #nullable disable

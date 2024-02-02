@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Voting participation method at a general meeting.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SpecificInstructionRequest3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SpecificInstructionRequest3
     /// <summary>
     /// Method of voting participation to the general meeting.
     /// </summary>
+    [DataMember]
     public ParticipationMethod1Choice_? ParticipationMethod { get; init; } 
     /// <summary>
     /// Indicates a request to register the securities for the meeting.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? SecuritiesRegistration { get; init; } 
     
     #nullable disable

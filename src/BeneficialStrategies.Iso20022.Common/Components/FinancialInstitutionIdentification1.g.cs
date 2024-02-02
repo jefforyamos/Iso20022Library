@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstitutionIdentification1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record FinancialInstitutionIdentification1
     /// <summary>
     /// Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
     /// </summary>
+    [DataMember]
     public IsoBICIdentifier? BIC { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of a clearing system member, as assigned by the system or system administrator.
     /// </summary>
+    [DataMember]
     public ClearingSystemMemberIdentificationChoice_? ClearingSystemMemberIdentification { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
+    [DataMember]
     public PostalAddress1? PostalAddress { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier, as assigned to a financial institution using a proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public GenericIdentification3? ProprietaryIdentification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Acknowledgement of the exception advice.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransaction28
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record ATMTransaction28
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
+    [DataMember]
     public TransactionIdentifier1? TransactionIdentification { get; init; } 
     /// <summary>
     /// Response to the advice.
     /// </summary>
+    [DataMember]
     public required Response2Code Response { get; init; } 
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    public ATMCommand7[] Command { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCommand7> Command { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

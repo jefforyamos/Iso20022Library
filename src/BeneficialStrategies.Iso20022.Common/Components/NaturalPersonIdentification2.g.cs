@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies a natural person through identification number, name and domicile.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NaturalPersonIdentification2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record NaturalPersonIdentification2
     /// <summary>
     /// Unique and unambiguous identification of the natural person.
     /// </summary>
+    [DataMember]
     public required GenericIdentification175 Identification { get; init; } 
     /// <summary>
     /// Indicates the name of the natural person.
     /// </summary>
+    [DataMember]
     public IsoMax105Text? Name { get; init; } 
     /// <summary>
     /// Indicates the domicile of the natural person.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? Domicile { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(AcknowledgementDetails1Choice.PayInScheduleReference))]
 [KnownType(typeof(AcknowledgementDetails1Choice.PayInCallReference))]
+[DataContract]
 public abstract partial record AcknowledgementDetails1Choice_
 {
 }

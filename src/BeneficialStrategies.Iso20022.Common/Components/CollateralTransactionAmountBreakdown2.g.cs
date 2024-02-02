@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of breakdown of a market value.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralTransactionAmountBreakdown2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CollateralTransactionAmountBreakdown2
     /// <summary>
     /// Identification of the underlying transaction (exposure split).
     /// </summary>
+    [DataMember]
     public required GenericIdentification178 LotNumber { get; init; } 
     /// <summary>
     /// Split amount of the aggregate transaction amount (exposure).
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TransactionAmount { get; init; } 
     /// <summary>
     /// Period that applies to the aggregate transation amount (exposure).
     /// </summary>
+    [DataMember]
     public Period4Choice_? Period { get; init; } 
     
     #nullable disable

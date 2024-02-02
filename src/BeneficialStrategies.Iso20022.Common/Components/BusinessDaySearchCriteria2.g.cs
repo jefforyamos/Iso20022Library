@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to search for system business day information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BusinessDaySearchCriteria2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record BusinessDaySearchCriteria2
     /// <summary>
     /// Date for which the availability information is provided.
     /// </summary>
+    [DataMember]
     public IsoISODate? SystemDate { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the system, as assigned by the system administrator.
     /// </summary>
-    public SystemIdentification2Choice_[] SystemIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SystemIdentification2Choice_> SystemIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency which may be processed by the system. A system may process transactions in a single currency or in multiple currencies.
     /// </summary>
-    public ActiveCurrencyCode[] SystemCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ActiveCurrencyCode> SystemCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Nature of the event that has occurred.
     /// </summary>
+    [DataMember]
     public SystemEventType2Choice_? EventType { get; init; } 
     /// <summary>
     /// Period of time when the system is closed/not operating.
     /// </summary>
+    [DataMember]
     public DateTimePeriod1Choice_? ClosurePeriod { get; init; } 
     
     #nullable disable

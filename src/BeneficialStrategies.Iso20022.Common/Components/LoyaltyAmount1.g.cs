@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Loyalty amount to apply to an Loyalty account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoyaltyAmount1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record LoyaltyAmount1
     /// <summary>
     /// Unit type for the amount.
     /// </summary>
+    [DataMember]
     public AmountUnit1Code? Unit { get; init; } 
     /// <summary>
     /// Currency of the amount is Unit is Monetary.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Amount value.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

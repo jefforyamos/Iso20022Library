@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains the meta data for a netting cut off update request: message identification, request servicer and a request type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RequestData1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record RequestData1
     /// <summary>
     /// Unique identification of the message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Description of the type of request.
     /// </summary>
+    [DataMember]
     public required IsoMax4Text RequestType { get; init; } 
     /// <summary>
     /// Specifies the business date on which the new netting cut off(s) is (are) to be activated.
     /// </summary>
+    [DataMember]
     public required IsoISODate RequestedActivationDate { get; init; } 
     /// <summary>
     /// Describes the central system servicing the request.
     /// </summary>
+    [DataMember]
     public PartyIdentification73Choice_? RequestServicer { get; init; } 
     /// <summary>
     /// Describes the participant issuing the request.
     /// </summary>
+    [DataMember]
     public required PartyIdentification73Choice_ NetServiceParticipantIdentification { get; init; } 
     /// <summary>
     /// Describes the type of netting service supporting the net report.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NetServiceType { get; init; } 
     
     #nullable disable

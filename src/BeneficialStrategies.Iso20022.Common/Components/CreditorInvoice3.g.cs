@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the identification attribtues of an invoice which are required by the creditor for the activation of the debtor.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditorInvoice3
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CreditorInvoice3
     /// <summary>
     /// Indicates whether the creditor allows limited presentment of the e-invoice, that is, only the e-invoice data needed for payment initiation.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator LimitedPresentmentIndicator { get; init; } 
     /// <summary>
     /// Unique and unambiguous type of the identification of the debtor required by the creditor, for example  the reference number or customer number. Unique identification provided by the web bank or web payment services user, with which the creditor may identify the debtor in its system.
     /// </summary>
+    [DataMember]
     public CustomerTypeRequest2? CustomerIdentificationType { get; init; } 
     /// <summary>
     /// Document format type supported to exchange the contracts.
     /// </summary>
-    public DocumentFormat2Choice_[] ContractFormatType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DocumentFormat2Choice_> ContractFormatType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of the contract reference for which the enrolment is defined.Type of the contract reference requested by the creditor which the debtor must provide in the debtor activation request  to identify the contract(s) for which the RTP is requested.
     /// </summary>
-    public DocumentType1Choice_[] ContractReferenceType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DocumentType1Choice_> ContractReferenceType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Instructions provided by the seller (that is creditor or ultimate creditor) for the Request-To-Pay (RTP) recipient (that is the debtor). The instructions may include for example the time required by the creditor to take into account the activation request. The debtor agent may display the information in the customer’s own service language.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? CreditorInstruction { get; init; } 
     /// <summary>
     /// Creditor's service provider address to which the debtor activation has to be delivered.
     /// </summary>
+    [DataMember]
     public required RTPPartyIdentification1 ActivationRequestDeliveryParty { get; init; } 
     
     #nullable disable

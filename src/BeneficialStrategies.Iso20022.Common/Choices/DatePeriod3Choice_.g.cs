@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(DatePeriod3Choice.ToDate))]
 [KnownType(typeof(DatePeriod3Choice.FromToDate))]
 [KnownType(typeof(DatePeriod3Choice.Date))]
+[DataContract]
 public abstract partial record DatePeriod3Choice_
 {
 }

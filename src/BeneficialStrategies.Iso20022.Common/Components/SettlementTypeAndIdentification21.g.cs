@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Overall process covering the trade and settlement transactions of financial instruments.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementTypeAndIdentification21
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SettlementTypeAndIdentification21
     /// <summary>
     /// Specifies how the transaction is to be settled.
     /// </summary>
+    [DataMember]
     public required DeliveryReceiptType2Code Payment { get; init; } 
     /// <summary>
     /// Reference of the transaction.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax16Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Identifies the intended settlement date.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? SettlementDate { get; init; } 
     
     #nullable disable

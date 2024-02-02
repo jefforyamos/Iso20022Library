@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details about the letter of credit or bank guarantee, or other collateral, posted as collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherCollateral8
 {
     #nullable enable
@@ -20,74 +22,92 @@ public partial record OtherCollateral8
     /// <summary>
     /// Register number of the collateral deposit assigned by the central counterparty.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AssetNumber { get; init; } 
     /// <summary>
     /// Unique identification of the letter of credit.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LetterOfCreditIdentification { get; init; } 
     /// <summary>
     /// Amount of the letter/documentary credit.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? LetterOfCreditAmount { get; init; } 
     /// <summary>
     /// Amount of the bank guarantee.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? GuaranteeAmount { get; init; } 
     /// <summary>
     /// Description of the collateral and the amount.
     /// </summary>
+    [DataMember]
     public OtherTypeOfCollateral2? OtherTypeOfCollateral { get; init; } 
     /// <summary>
     /// Indicates whether the collateral is proprietarily owned or client owned.
     /// </summary>
+    [DataMember]
     public CollateralOwnership3? CollateralOwnership { get; init; } 
     /// <summary>
     /// Date on which the collateral was issued.
     /// </summary>
+    [DataMember]
     public DateFormat14Choice_? IssueDate { get; init; } 
     /// <summary>
     /// Date on which the collateral expires.
     /// </summary>
+    [DataMember]
     public DateFormat14Choice_? ExpiryDate { get; init; } 
     /// <summary>
     /// Indicates that the collateral posted in the clearing house covers the margin until a specific timeframe.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? LimitedCoverageIndicator { get; init; } 
     /// <summary>
     /// Party that issues the bank guarantee or letter of / documentary credit.
     /// </summary>
+    [DataMember]
     public PartyIdentification178Choice_? Issuer { get; init; } 
     /// <summary>
     /// Quantity blocked by the central counterparty for any reasonable reason (for example for judicial reasons). In this case, the investor can not withdraw or distribute this collateral.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? BlockedQuantity { get; init; } 
     /// <summary>
     /// Valuation date of the collateral when it was taken as collateral.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValueDate { get; init; } 
     /// <summary>
     /// Exchange rate.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? ExchangeRate { get; init; } 
     /// <summary>
     /// Value of the collateral based on current market prices.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? MarketValue { get; init; } 
     /// <summary>
     /// Haircut or valuation factor on the collateral expressed as a percentage.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Haircut { get; init; } 
     /// <summary>
     /// Value of the collateral after taking into account the haircut, if any.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount CollateralValue { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [DataMember]
     public SafekeepingPlaceFormat29Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount19? SafekeepingAccount { get; init; } 
     
     #nullable disable

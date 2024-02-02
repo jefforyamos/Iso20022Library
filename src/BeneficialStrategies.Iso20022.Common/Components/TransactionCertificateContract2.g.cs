@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Certificate and contract reference of a transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionCertificateContract2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record TransactionCertificateContract2
     /// <summary>
     /// Reference of the contract provided as through the date and identification of the contract or through the registered contract identification.
     /// </summary>
+    [DataMember]
     public ContractRegistrationReference2Choice_? ContractReference { get; init; } 
     /// <summary>
     /// Provides the amount of the transaction in the currency of the registered contract.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TransactionAmountInContractCurrency { get; init; } 
     /// <summary>
     /// Expected shipment date as per registered contract.
     /// </summary>
+    [DataMember]
     public IsoISODate? ExpectedShipmentDate { get; init; } 
     /// <summary>
     /// Expected advance payment (or prepayment) return date in case counterparty will not deliver the goods/services.
     /// </summary>
+    [DataMember]
     public IsoISODate? ExpectedAdvancePaymentReturnDate { get; init; } 
     /// <summary>
     /// Further details on the transaction certificate contract.
     /// </summary>
+    [DataMember]
     public IsoMax1025Text? AdditionalInformation { get; init; } 
     
     #nullable disable

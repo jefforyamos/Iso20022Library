@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cryptographic key involved in the security command.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record KEKIdentifier4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record KEKIdentifier4
     /// <summary>
     /// Name or label of the key.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Name { get; init; } 
     /// <summary>
     /// Identification of the cryptographic key.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? KeyIdentification { get; init; } 
     /// <summary>
     /// Version of the cryptographic key.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? KeyVersion { get; init; } 
     
     #nullable disable

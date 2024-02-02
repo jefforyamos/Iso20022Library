@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies other amounts pertaining to the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherAmounts34
 {
     #nullable enable
@@ -20,98 +22,122 @@ public partial record OtherAmounts34
     /// <summary>
     /// Interest amount that has accrued in between coupon payment periods.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? AccruedInterestAmount { get; init; } 
     /// <summary>
     /// Amount of money paid for the provision of financial services that cannot be categorised by another qualifier.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? ChargesFees { get; init; } 
     /// <summary>
     /// Amount of country, national or federal tax charged by the jurisdiction in which the account servicer is located.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? CountryNationalFederalTax { get; init; } 
     /// <summary>
     /// Principal amount of a trade (price multiplied by quantity).
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? TradeAmount { get; init; } 
     /// <summary>
     /// Amount of money paid to an executing broker as a commission.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? ExecutingBrokerAmount { get; init; } 
     /// <summary>
     /// Amount of money defined as a discount on a new issue or on a tranche of an existing issue.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? IssueDiscountAllowance { get; init; } 
     /// <summary>
     /// Amount of payment levy tax.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? PaymentLevyTax { get; init; } 
     /// <summary>
     /// Tax charged by the jurisdiction in which the financial instrument settles.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? LocalTax { get; init; } 
     /// <summary>
     /// Amount of commission paid to a local broker.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? LocalBrokerCommission { get; init; } 
     /// <summary>
     /// Amount of money deposited by the trading party in a margin account.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? Margin { get; init; } 
     /// <summary>
     /// An amount that is not indicated by a known business denomination.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? Other { get; init; } 
     /// <summary>
     /// Amount of money charged by a regulatory authority, for example, Securities and Exchange fees.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? RegulatoryAmount { get; init; } 
     /// <summary>
     /// All costs related to the physical delivery of documents such as stamps, postage, carrier fees, insurances or messenger services.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? ShippingAmount { get; init; } 
     /// <summary>
     /// Amount of drawdown or other reduction from or in addition to the deal price.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? SpecialConcession { get; init; } 
     /// <summary>
     /// Amount of stamp duty.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? StampDuty { get; init; } 
     /// <summary>
     /// Amount of stock exchange tax.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? StockExchangeTax { get; init; } 
     /// <summary>
     /// Amount of tax levied on a transfer of ownership of financial instrument.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? TransferTax { get; init; } 
     /// <summary>
     /// Amount of transaction tax.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? TransactionTax { get; init; } 
     /// <summary>
     /// Amount of value-added tax.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? ValueAddedTax { get; init; } 
     /// <summary>
     /// Amount of money that will be withheld by a tax authority.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? WithholdingTax { get; init; } 
     /// <summary>
     /// Amount representing the difference between the cost and the current price of a security. In the context of securities settlement, it is the amount paid or received when the instructions are netted or paired off.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? NetGainLoss { get; init; } 
     /// <summary>
     /// Amount of consumption tax.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? ConsumptionTax { get; init; } 
     /// <summary>
     /// Amount of unpaid interest (on bonds which have defaulted and have subsequently |restructured), which is capitalized and added to the original principal amount of the bond.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? AccruedCapitalisationAmount { get; init; } 
     /// <summary>
     /// Cost of the securities. May be requested in some countries for tax purposes.
     /// </summary>
+    [DataMember]
     public AmountAndDirection58? BookValue { get; init; } 
     
     #nullable disable

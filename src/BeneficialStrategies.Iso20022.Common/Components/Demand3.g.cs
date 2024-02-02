@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details related to the demand.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Demand3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Demand3
     /// <summary>
     /// Unique and unambiguous identifier assigned by the presenting party to the demand.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Date and time of demand submission.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime SubmissionDateTime { get; init; } 
     /// <summary>
     /// Amount and currency of the demand.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

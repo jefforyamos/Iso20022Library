@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the request providing the changes and references of the instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RequestDetails17
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record RequestDetails17
     /// <summary>
     /// References of the transaction for which the intra-balance modification is requested.
     /// </summary>
+    [DataMember]
     public required References14 Reference { get; init; } 
     /// <summary>
     /// Specifies the type of linkage requested.
     /// </summary>
+    [DataMember]
     public LinkageType3Choice_? Linkage { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
+    [DataMember]
     public PriorityNumeric4Choice_? Priority { get; init; } 
     /// <summary>
     /// Specifies another type of processing change request.
     /// </summary>
-    public GenericIdentification30[] OtherProcessing { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericIdentification30> OtherProcessing { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether partial settlement is allowed.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PartialSettlementIndicator { get; init; } 
     /// <summary>
     /// Specifies the clearing channel to be used to process the payment instruction.
     /// </summary>
+    [DataMember]
     public ClearingChannel2Code? ClearingChannel { get; init; } 
     /// <summary>
     /// Information regarding the linkage requested.
     /// </summary>
-    public Linkages51[] Linkages { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Linkages51> Linkages { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

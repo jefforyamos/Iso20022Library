@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the related report identification and its status. If the status is rejected, a reason for this status must be given.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportStatusAndReason1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record ReportStatusAndReason1
     /// <summary>
     /// Provides the identification of the RegulatoryTransactionReport document that was previously sent by the reporting institution.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text RelatedReference { get; init; } 
     /// <summary>
     /// Indicates the status of a report message.
     /// </summary>
+    [DataMember]
     public required Status2Code Status { get; init; } 
     /// <summary>
     /// Indicates that the report is rejected and provides a reason why.
     /// </summary>
-    public RejectedStatusReason9Choice_[] Rejected { get; init; } = [];
+    [DataMember]
+    public ValueList<RejectedStatusReason9Choice_> Rejected { get; init; } = [];
     
     #nullable disable
 }

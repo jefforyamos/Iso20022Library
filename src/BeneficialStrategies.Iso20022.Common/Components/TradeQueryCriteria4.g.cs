@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Query criteria on a trade transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeQueryCriteria4
 {
     #nullable enable
@@ -21,26 +23,32 @@ public partial record TradeQueryCriteria4
     /// Field to define whether the query response file will include all reports submitted for a trade [true]or only the current state of the trade [false].
     /// If false is selected, the reporting timestamp field cannot be used.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator TradeLifeCycleHistory { get; init; } 
     /// <summary>
     /// Field to define whether if the query response file will include all trades or only the outstanding trades.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator OutstandingTradeIndicator { get; init; } 
     /// <summary>
     /// Query criteria related to counterparties.
     /// </summary>
+    [DataMember]
     public TradePartyQueryCriteria3? TradePartyCriteria { get; init; } 
     /// <summary>
     /// Indicates the query criteria related to financial instruments.
     /// </summary>
+    [DataMember]
     public TradeSecurityIdentificationQueryCriteria2? FinancialInstrumentCriteria { get; init; } 
     /// <summary>
     /// Query criteria related to time values.
     /// </summary>
+    [DataMember]
     public TradeDateTimeQueryCriteria2? TimeCriteria { get; init; } 
     /// <summary>
     /// Query criteria related to other fields.
     /// </summary>
+    [DataMember]
     public TradeAdditionalQueryCriteria3? OtherCriteria { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Underlying financial instrument to which an trade confirmation is related.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UnderlyingFinancialInstrument7
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record UnderlyingFinancialInstrument7
     /// <summary>
     /// Identification of the underlying security by an ISIN.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification19 Identification { get; init; } 
     /// <summary>
     /// Underlying financial instrument attributes to which an trade confirmation is related.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentAttributes124? Attributes { get; init; } 
     
     #nullable disable

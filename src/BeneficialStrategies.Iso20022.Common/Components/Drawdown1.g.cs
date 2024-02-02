@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of a drawdown tranche.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Drawdown1
 {
     #nullable enable
@@ -20,63 +22,78 @@ public partial record Drawdown1
     /// <summary>
     /// Type of drawdown tranche.
     /// </summary>
+    [DataMember]
     public required DrawdownType1Choice_ TrancheType { get; init; } 
     /// <summary>
     /// Specifies the rules that are applicable to the drawdown. For example, in the UK market, the pre-A-day rule that was introduced on 6 April 2006.)
     /// </summary>
+    [DataMember]
     public ApplicableRules1Choice_? ApplicableRules { get; init; } 
     /// <summary>
     /// Percentage of the total transfer value covered by the drawdown.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? PercentageOfTotalTransferValue { get; init; } 
     /// <summary>
     /// Amount that was originally designated for drawdown.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? TotalAmountNetDrawdown { get; init; } 
     /// <summary>
     /// Indicates whether any additional funds have been designated since the original arrangement.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AdditionalFundsDesignated { get; init; } 
     /// <summary>
     /// Drawdown allowance check. For pensions that have a lifetime allowance, a check is made of the maximum value of benefits that may be taken from the pension without incurring a special tax. (This check or 'event' is known as the benefit crystallisation event in the UK market.)
     /// </summary>
+    [DataMember]
     public DrawdownAllowanceCheck1? DrawdownAllowanceCheck { get; init; } 
     /// <summary>
     /// Amount of the pension commencement lump sum (PCLS) remaining.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? PensionCommencementLumpSumRemaining { get; init; } 
     /// <summary>
     /// Date by which the pension commencement lump sum (PCLS) must be used.
     /// </summary>
+    [DataMember]
     public IsoISODate? PensionCommencementLumpSumDate { get; init; } 
     /// <summary>
     /// Indicates there have been multiple pension commencement lump sum (PCLS) payments. 
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? MultiplePensionCommencementLumpSums { get; init; } 
     /// <summary>
     /// Percentage of the lifetime allowance (LTA) used.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? LifetimeAllowance { get; init; } 
     /// <summary>
     /// Indicates a person other than the original pension holder is the receiver of the drawdown payment.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? RecipientOfDrawdownIndicator { get; init; } 
     /// <summary>
     /// Information about the recipient of the drawdown, when not the original pension holder.
     /// </summary>
+    [DataMember]
     public BeneficiaryDrawdown1? BeneficiaryDetails { get; init; } 
     /// <summary>
     /// Limits of the capped drawdown.
     /// </summary>
+    [DataMember]
     public Capped1? CappedLimits { get; init; } 
     /// <summary>
     /// Date on which the drawdown was triggered when the drawdown type is flexible.
     /// </summary>
+    [DataMember]
     public IsoISODate? FlexibleDrawdownTriggeredDate { get; init; } 
     /// <summary>
     /// Additional information about the drawdown.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

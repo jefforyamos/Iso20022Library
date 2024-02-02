@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Chain of parties involved in the settlement of a transaction, including receipts and deliveries, book transfers, treasury deals, or other activities, resulting in the movement of a security or amount of money from one account to another.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementParties39
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SettlementParties39
     /// <summary>
     /// Party that, in a settlement chain interacts with the party 1.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount106? Party2 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain interacts with the party 2.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount106? Party3 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain interacts with the party 3.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount106? Party4 { get; init; } 
     /// <summary>
     /// Party that, in a settlement chain interacts with the party 4.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount106? Party5 { get; init; } 
     
     #nullable disable

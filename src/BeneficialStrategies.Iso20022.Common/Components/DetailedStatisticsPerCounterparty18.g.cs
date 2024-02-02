@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed information on statistics per combination of counterparties.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedStatisticsPerCounterparty18
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record DetailedStatisticsPerCounterparty18
     /// <summary>
     /// Reference date for statistics collection.
     /// </summary>
+    [DataMember]
     public required IsoISODate ReferenceDate { get; init; } 
     /// <summary>
     /// Total number of reports sent or received.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText TotalNumberOfReports { get; init; } 
     /// <summary>
     /// Total number of reports accepted.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText TotalNumberOfReportsAccepted { get; init; } 
     /// <summary>
     /// Total number of reports rejected.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText TotalNumberOfReportsRejected { get; init; } 
     /// <summary>
     /// Total number of reports sent or received.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText TotalNumberOfTransactions { get; init; } 
     /// <summary>
     /// Total number of transactions accepted.
     /// </summary>
+    [DataMember]
     public required StatisticsPerActionType1 TotalNumberOfTransactionsAccepted { get; init; } 
     /// <summary>
     /// Total number of transactions rejected.
     /// </summary>
+    [DataMember]
     public required StatisticsPerActionType1 TotalNumberOfTransactionsRejected { get; init; } 
     /// <summary>
     /// Total number of rejected derivatives submitted by the report submitting entity for the reporting counterparty which were then corrected within ten business days.
     /// </summary>
+    [DataMember]
     public StatisticsPerActionType1? TotalCorrectedRejections { get; init; } 
     /// <summary>
     /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass validations.
     /// </summary>
-    public RejectionStatistics8[] RejectionStatistics { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RejectionStatistics8> RejectionStatistics { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

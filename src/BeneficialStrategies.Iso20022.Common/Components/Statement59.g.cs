@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// General characteristics related to a statement which reports information for a precise date.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Statement59
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record Statement59
     /// <summary>
     /// Specifies the business role of the message sender and, therefore, the business relationship between the sender and the receiver (or the interests represented by them, in those cases where another entity is acting on behalf of the sender or receiver). The message is exchanged between two entities, one being the account servicer and the other the account owner, and the message can be used with either one as the sender.
     /// </summary>
+    [DataMember]
     public required SenderBusinessRole1Code SenderBusinessRole { get; init; } 
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
+    [DataMember]
     public Number3Choice_? StatementNumber { get; init; } 
     /// <summary>
     /// Identification of the query message sent to request this statement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? QueryReference { get; init; } 
     /// <summary>
     /// Reference common to all pages of the statement.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text StatementIdentification { get; init; } 
     /// <summary>
     /// Date and time when the statement was created.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ StatementDateTime { get; init; } 
     /// <summary>
     /// Date period for which the statement was created.
     /// </summary>
+    [DataMember]
     public required DatePeriod1Choice_ StatementPeriod { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
+    [DataMember]
     public Frequency22Choice_? Frequency { get; init; } 
     /// <summary>
     /// Granularity of the frequency used for the reporting.
     /// </summary>
+    [DataMember]
     public FrequencyGranularityType1Code? FrequencyGranularity { get; init; } 
     /// <summary>
     /// Specifies whether the statement is complete or contains changes only.
     /// </summary>
+    [DataMember]
     public UpdateType4Choice_? UpdateType { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or updated information reported in the statement.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     
     #nullable disable

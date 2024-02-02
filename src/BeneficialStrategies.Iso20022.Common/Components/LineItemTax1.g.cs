@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LineItemTax1
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record LineItemTax1
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
-    public IsoCurrencyAndAmount[] CalculatedAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> CalculatedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of tax applied.
     /// </summary>
+    [DataMember]
     public TaxTypeFormat1Choice_? TypeCode { get; init; } 
     /// <summary>
     /// Date of the tax point date when this tax, levy or duty becomes applicable.
     /// </summary>
+    [DataMember]
     public IsoISODate? TaxPointDate { get; init; } 
     /// <summary>
     /// Rate used to calculate the amount of this tax, levy or duty.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? CalculatedRate { get; init; } 
     /// <summary>
     /// Code specifying the category to which this tax, levy or duty applies, such as codes for 'exempt from tax', 'standard rate', "free export item - tax not charged'.
     /// </summary>
+    [DataMember]
     public IsoMax4Text? CategoryCode { get; init; } 
     /// <summary>
     /// Category name, expressed as text, of the tax, levy or duty.
     /// </summary>
-    public IsoMax35Text[] CategoryName { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> CategoryName { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Attributes of non-financial instrument of type foreign exchange as underlying.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DerivativeForeignExchange2
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record DerivativeForeignExchange2
     /// <summary>
     /// Underlying currency 2 of the currency pair (the currency 1 will be populated in the notional currency).
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode OtherNotionalCurrency { get; init; } 
     
     #nullable disable

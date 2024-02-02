@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ClearingExceptionOrExemption3Choice.Reason))]
 [KnownType(typeof(ClearingExceptionOrExemption3Choice.Counterparties))]
+[DataContract]
 public abstract partial record ClearingExceptionOrExemption3Choice_
 {
 }

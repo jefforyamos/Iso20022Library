@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Summary information about the sale
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SaleSummary1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record SaleSummary1
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     /// <summary>
     /// Contains loyalty programme information. 
     /// </summary>
+    [DataMember]
     public LoyaltyProgramme2? LoyaltyProgramme { get; init; } 
     /// <summary>
     /// Contains adjustment details of the transaction (for example, percentage, adjustment amount, etc.).
     /// </summary>
-    public Adjustment9[] Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Adjustment9> Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

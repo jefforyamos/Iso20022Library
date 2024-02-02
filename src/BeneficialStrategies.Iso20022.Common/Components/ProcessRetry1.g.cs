@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Definition of retry process if activation of an action fails.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProcessRetry1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ProcessRetry1
     /// <summary>
     /// Time period to wait for a retry in months, days, hours and minutes, leading zeros could be omitted.
     /// </summary>
+    [DataMember]
     public required IsoMax9NumericText Delay { get; init; } 
     /// <summary>
     /// Maximum number of retries.
     /// </summary>
+    [DataMember]
     public IsoNumber? MaximumNumber { get; init; } 
     /// <summary>
     /// Time of the last retry.
     /// </summary>
+    [DataMember]
     public IsoISOTime? LastReTryTime { get; init; } 
     
     #nullable disable

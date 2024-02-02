@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of instruction requested by the submitter by means of a code.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InstructionType1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record InstructionType1
     /// <summary>
     /// Specifies whether the baseline has to be pushed to the other party or simply lodged.
     /// </summary>
+    [DataMember]
     public required InstructionType1Code Type { get; init; } 
     
     #nullable disable

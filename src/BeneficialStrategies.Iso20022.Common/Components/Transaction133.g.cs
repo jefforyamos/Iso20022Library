@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Key exchange activity transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transaction133
 {
     #nullable enable
@@ -20,45 +22,55 @@ public partial record Transaction133
     /// <summary>
     /// Type of key exchange function being performed.
     /// </summary>
+    [DataMember]
     public required CardServiceType5Code KeyExchangeFunction { get; init; } 
     /// <summary>
     /// Other key exchange function being performed.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherKeyExchangeFunction { get; init; } 
     /// <summary>
     /// Reason or purpose to send the message.
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    public ISO8583MessageReasonCode[] MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ISO8583MessageReasonCode> MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Alternate reason to send a message.
     /// </summary>
-    public IsoMax256Text[] AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax256Text> AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
+    [DataMember]
     public required TransactionIdentification12 TransactionIdentification { get; init; } 
     /// <summary>
     /// Defines the type of key being exchanged.
     /// </summary>
+    [DataMember]
     public KeyType1Code? KeyExchangeType { get; init; } 
     /// <summary>
     /// Other type of key being exchanged.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherKeyExchangeType { get; init; } 
     /// <summary>
     /// Contains information pertaining to a key exchange. 
     /// ISO 8583 bit 96
     /// </summary>
+    [DataMember]
     public KeyExchangeData1? KeyExchangeData { get; init; } 
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    public AdditionalFee2[] AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalFee2> AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

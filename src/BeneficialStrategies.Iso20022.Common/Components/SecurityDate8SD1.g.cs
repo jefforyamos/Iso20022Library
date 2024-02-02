@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Extension to provide information about the dates related to securities movement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityDate8SD1
 {
     #nullable enable
@@ -21,15 +23,18 @@ public partial record SecurityDate8SD1
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Settlement date for the transaction where the new security is issued. 
     /// 発行日決済日程情報/決済日.
     /// </summary>
+    [DataMember]
     public DateFormat22Choice_? SettlementDateOfNewSecurity { get; init; } 
     /// <summary>
     /// Date/time at which trading of a security is suspended as the result of an event.
     /// </summary>
+    [DataMember]
     public DateFormat22Choice_? TradingSuspendedDate { get; init; } 
     
     #nullable disable

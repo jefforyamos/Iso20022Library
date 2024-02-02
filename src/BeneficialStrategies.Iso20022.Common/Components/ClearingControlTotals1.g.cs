@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Gross clearing control totals.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ClearingControlTotals1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ClearingControlTotals1
     /// <summary>
     /// Number of clearing transactions. To be used for control purpose.
     /// </summary>
+    [DataMember]
     public required IsoNumber ClearingControlCount { get; init; } 
     /// <summary>
     /// Gross accumulated amount of clearing. To be used for control purpose.
     /// </summary>
+    [DataMember]
     public required Amount14 ClearingControlAmount { get; init; } 
     
     #nullable disable

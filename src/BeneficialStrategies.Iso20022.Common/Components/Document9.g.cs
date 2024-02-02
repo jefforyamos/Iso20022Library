@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a document.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Document9
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Document9
     /// <summary>
     /// Type of document or template.
     /// </summary>
+    [DataMember]
     public required UndertakingDocumentType1Choice_ Type { get; init; } 
     /// <summary>
     /// Identification of the document or template.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Format of the document or template, such as PDF, XML, XSLT.
     /// </summary>
+    [DataMember]
     public DocumentFormat1Choice_? Format { get; init; } 
     /// <summary>
     /// Binary file representing the enclosed document or template, such as a PDF file, image file, XML file, MT message.
     /// </summary>
+    [DataMember]
     public required IsoMax2MBBinary Enclosure { get; init; } 
     /// <summary>
     /// Digital signature of the enclosed binary file.
     /// </summary>
+    [DataMember]
     public PartyAndSignature2? DigitalSignature { get; init; } 
     
     #nullable disable

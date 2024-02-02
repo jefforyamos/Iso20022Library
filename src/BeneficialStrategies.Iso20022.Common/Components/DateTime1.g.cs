@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Date and time restricted format.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DateTime1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record DateTime1
     /// <summary>
     /// Specified date and time.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime DateTime { get; init; } 
     
     #nullable disable

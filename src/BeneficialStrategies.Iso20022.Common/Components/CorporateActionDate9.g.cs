@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies corporate action dates.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionDate9
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CorporateActionDate9
     /// <summary>
     /// Date on which the movement is due to take place (cash and/or securities).
     /// </summary>
+    [DataMember]
     public required DateFormat6Choice_ PaymentDate { get; init; } 
     /// <summary>
     /// Date at which assets become available to the account owner (in a credit entry), or cease to be available to the account owner (in a debit entry).
     /// </summary>
+    [DataMember]
     public DateFormat11Choice_? ValueDate { get; init; } 
     /// <summary>
     /// Date/time at which a foreign exchange rate will be determined.
     /// </summary>
+    [DataMember]
     public DateFormat6Choice_? ForeignExchangeRateFixingDate { get; init; } 
     /// <summary>
     /// Date on which a payment can be made, for example, if payment date is a non-business day or to indicate the first payment date of an offer.
     /// </summary>
+    [DataMember]
     public DateFormat6Choice_? EarliestPaymentDate { get; init; } 
     
     #nullable disable

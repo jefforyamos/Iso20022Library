@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the balance adjustments for a specific service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BalanceAdjustment1
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record BalanceAdjustment1
     /// <summary>
     /// Identifies the type of adjustment.
     /// </summary>
+    [DataMember]
     public required BalanceAdjustmentType1Code Type { get; init; } 
     /// <summary>
     /// Free-form description and clarification of the adjustment.
     /// </summary>
+    [DataMember]
     public required IsoMax105Text Description { get; init; } 
     /// <summary>
     /// Amount of the adjustment. If the amount would reduce the underlying balance then the amount should be negatively signed. Expressed in the Account currency.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection34 BalanceAmount { get; init; } 
     /// <summary>
     /// Day-weighted net amount of the adjustment to the average collected balance over the statement period.
     /// </summary>
+    [DataMember]
     public AmountAndDirection34? AverageAmount { get; init; } 
     /// <summary>
     /// Date on which the error occurred in the underlying cash account.
     /// </summary>
+    [DataMember]
     public IsoISODate? ErrorDate { get; init; } 
     /// <summary>
     /// Date on which the error was corrected in the cash account. If the date is not know then use the last day of the month in which the error was corrected.
     /// </summary>
+    [DataMember]
     public required IsoISODate PostingDate { get; init; } 
     /// <summary>
     /// Number of days within the period to which the adjustment applies.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? Days { get; init; } 
     /// <summary>
     /// Earnings credit adjustment, debit or credit, resulting from this adjustment’s effect on the average collected balance. If the amount would reduce the credit due then the amount should be negatively signed.
     /// </summary>
+    [DataMember]
     public AmountAndDirection34? EarningsAdjustmentAmount { get; init; } 
     
     #nullable disable

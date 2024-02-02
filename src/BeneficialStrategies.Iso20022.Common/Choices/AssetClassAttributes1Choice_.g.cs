@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(AssetClassAttributes1Choice.Interest))]
 [KnownType(typeof(AssetClassAttributes1Choice.ForeignExchange))]
 [KnownType(typeof(AssetClassAttributes1Choice.Both))]
+[DataContract]
 public abstract partial record AssetClassAttributes1Choice_
 {
 }

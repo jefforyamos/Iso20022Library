@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details of an early termination report on a trade transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeTransactionEarlyTermination5
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record TradeTransactionEarlyTermination5
     /// <summary>
     /// Counterparty data details.
     /// </summary>
-    public CounterpartySpecificData22[] CounterpartySpecificData { get; init; } = [];
+    [DataMember]
+    public ValueList<CounterpartySpecificData22> CounterpartySpecificData { get; init; } = [];
     /// <summary>
     /// Trade transaction data details.
     /// </summary>
+    [DataMember]
     public required CommonTradeDataReport35 CommonTradeData { get; init; } 
     /// <summary>
     /// Specifies technical attributes of the message.
     /// </summary>
+    [DataMember]
     public TechnicalAttributes1? TechnicalAttributes { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

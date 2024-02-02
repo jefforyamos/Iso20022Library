@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies a customer identification as the search criteria for the financial institution to do the investigation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CustomerIdentification1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record CustomerIdentification1
     /// <summary>
     /// Identifies the customer for the investigation.
     /// </summary>
+    [DataMember]
     public required PartyIdentification43 Party { get; init; } 
     /// <summary>
     /// Specifies the authority request related to the identified investigation party.
     /// </summary>
-    public AuthorityInvestigation2[] AuthorityRequest { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AuthorityInvestigation2> AuthorityRequest { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters related to the net position.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportParameters1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record ReportParameters1
     /// <summary>
     /// After netting, reference that is common to a net transaction to settle and all its underlying trades.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text NetPositionIdentification { get; init; } 
     /// <summary>
     /// Date and time of the net position report.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ ReportDateAndTime { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
+    [DataMember]
     public required StatementUpdateType1Code UpdateType { get; init; } 
     /// <summary>
     /// Frequency of the report.
     /// </summary>
+    [DataMember]
     public required EventFrequency6Code Frequency { get; init; } 
     /// <summary>
     /// Sequential number of the report.
     /// </summary>
+    [DataMember]
     public IsoExact5NumericText? ReportNumber { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     
     #nullable disable

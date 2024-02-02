@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates that the report is correcting the erroneous data fields of a previously submitted position.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReuseDataReportCorrection9
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record ReuseDataReportCorrection9
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
+    [DataMember]
     public required CounterpartyData46 CounterpartyData { get; init; } 
     /// <summary>
     /// Provides the details of the security or cash pledged as collateral.
     /// </summary>
+    [DataMember]
     public required CollateralType12 CollateralComponent { get; init; } 
     /// <summary>
     /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
     /// </summary>
+    [DataMember]
     public required IsoISODate EventDay { get; init; } 
     /// <summary>
     /// Date and time of submission of the report to the entitled receiver.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime ReportingDateTime { get; init; } 
     /// <summary>
     /// Information on funding sources used to finance margin loans.
     /// </summary>
-    public FundingSource1[] FundingSource { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FundingSource1> FundingSource { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// List of possible values for TRs reconciliation purposes.
     /// </summary>
+    [DataMember]
     public ReconciliationFlag1? ReconciliationFlag { get; init; } 
     /// <summary>
     /// Contract modification details expressed as an action type and a reporting level type.
     /// </summary>
+    [DataMember]
     public required ContractModification3 ContractModification { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

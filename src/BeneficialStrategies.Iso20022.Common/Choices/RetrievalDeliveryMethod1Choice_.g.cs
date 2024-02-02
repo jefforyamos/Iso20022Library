@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(RetrievalDeliveryMethod1Choice.RequestedMethod))]
 [KnownType(typeof(RetrievalDeliveryMethod1Choice.EstablishedMethod))]
 [KnownType(typeof(RetrievalDeliveryMethod1Choice.ActualDeliveryMethod))]
+[DataContract]
 public abstract partial record RetrievalDeliveryMethod1Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Foreign Exchange Derivative which is either deliverable or non-deliverable.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ForeignExchangeDerivative2
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record ForeignExchangeDerivative2
     /// <summary>
     /// Type of deliverable and non-deliverable forwards, options and swaps contract.	.
     /// </summary>
+    [DataMember]
     public required AssetClassSubProductType19Code ContractSubType { get; init; } 
     
     #nullable disable

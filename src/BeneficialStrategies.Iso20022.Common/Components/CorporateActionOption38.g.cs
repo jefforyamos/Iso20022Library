@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the corporate action option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionOption38
 {
     #nullable enable
@@ -20,58 +22,72 @@ public partial record CorporateActionOption38
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [DataMember]
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
+    [DataMember]
     public required CorporateActionOption12Choice_ OptionType { get; init; } 
     /// <summary>
     /// Specifies how fractional amount/quantities are treated.
     /// </summary>
+    [DataMember]
     public FractionDispositionType10Choice_? FractionDisposition { get; init; } 
     /// <summary>
     /// Type of changes affecting the security form.
     /// </summary>
-    public CorporateActionChangeTypeFormat2Choice_[] ChangeType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CorporateActionChangeTypeFormat2Choice_> ChangeType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies that the corporate action instruction is to be processed using the Available-for-Collateral pool.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? EligibleForCollateralIndicator { get; init; } 
     /// <summary>
     /// Account servicer is instructed to buy the indicated currency after the receipt of cash proceeds.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? CurrencyToBuy { get; init; } 
     /// <summary>
     /// Account servicer is instructed to sell the indicated currency in order to obtain the necessary currency to fund the transaction within this instruction message.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? CurrencyToSell { get; init; } 
     /// <summary>
     /// Currency in which the cash disbursed from an interest or dividend payment is offered.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? CurrencyOption { get; init; } 
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
+    [DataMember]
     public SecurityIdentification14? SecurityIdentification { get; init; } 
     /// <summary>
     /// Provides information about securities quantity linked to a corporate action option.
     /// </summary>
+    [DataMember]
     public required SecuritiesOption2 SecuritiesQuantity { get; init; } 
     /// <summary>
     /// Date/time at which the instructing party requests the instruction to be executed.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? ExecutionRequestedDateTime { get; init; } 
     /// <summary>
     /// Provides information about rates and amounts related to a corporate action option.
     /// </summary>
+    [DataMember]
     public CorporateActionRate8? RateAndAmountDetails { get; init; } 
     /// <summary>
     /// Provides information about the prices related to a corporate action option.
     /// </summary>
+    [DataMember]
     public CorporateActionPrice29? PriceDetails { get; init; } 
     /// <summary>
     /// Provides additional information.
     /// </summary>
+    [DataMember]
     public CorporateActionNarrative8? AdditionalInformation { get; init; } 
     
     #nullable disable

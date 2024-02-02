@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria which are used to report on the payment status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InstructionStatusReturnCriteria
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record InstructionStatusReturnCriteria
     /// <summary>
     /// Indicates if the instruction status is requested.
     /// </summary>
+    [DataMember]
     public required IsoRequestedIndicator PaymentInstructionStatusIndicator { get; init; } 
     /// <summary>
     /// Indicates if the status date and time are requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? PaymentInstructionStatusDateTimeIndicator { get; init; } 
     /// <summary>
     /// Indicates if the status reason is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? PaymentInstructionStatusReasonIndicator { get; init; } 
     
     #nullable disable

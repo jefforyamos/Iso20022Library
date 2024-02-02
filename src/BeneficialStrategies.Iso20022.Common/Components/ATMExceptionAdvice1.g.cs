@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to exceptions occurring on the ATM.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMExceptionAdvice1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ATMExceptionAdvice1
     /// <summary>
     /// Environment of the exception.
     /// </summary>
+    [DataMember]
     public ATMEnvironment16? Environment { get; init; } 
     /// <summary>
     /// Context of the exception.
     /// </summary>
+    [DataMember]
     public ATMContext20? Context { get; init; } 
     /// <summary>
     /// Transaction for which the exception is sent.
     /// </summary>
+    [DataMember]
     public required ATMTransaction27 Transaction { get; init; } 
     
     #nullable disable

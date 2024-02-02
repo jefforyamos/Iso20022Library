@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Notification status of an event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EventStatus1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record EventStatus1
     /// <summary>
     /// Specifies whether the details provided about an event are complete or incomplete.
     /// </summary>
+    [DataMember]
     public required EventCompletenessStatus1Code EventCompletenessStatus { get; init; } 
     /// <summary>
     /// Specifies the status of the occurrence of an event.
     /// </summary>
+    [DataMember]
     public required EventConfirmationStatus1Code EventConfirmationStatus { get; init; } 
     
     #nullable disable

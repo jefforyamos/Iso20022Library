@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Request a secure input for a PIN.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeviceSecureInputRequest5
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record DeviceSecureInputRequest5
     /// <summary>
     /// Type of PIN Service.
     /// </summary>
+    [DataMember]
     public required PINRequestType1Code PINRequestType { get; init; } 
     /// <summary>
     /// Identify the PIN verification method and keys.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PINVerificationMethod { get; init; } 
     /// <summary>
     /// Maximum time to wait for the request processing in seconds.
     /// </summary>
+    [DataMember]
     public IsoNumber? MaximumWaitingTime { get; init; } 
     /// <summary>
     /// Indicates, when the user press a key, if a beep has to be generated.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? BeepKeyFlag { get; init; } 
     /// <summary>
     /// Enciphered PIN and related information.
     /// </summary>
+    [DataMember]
     public OnLinePIN10? CardholderPIN { get; init; } 
     
     #nullable disable

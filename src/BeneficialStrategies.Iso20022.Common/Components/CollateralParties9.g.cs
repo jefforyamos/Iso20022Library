@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the chain of collateral parties on the instruction side.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralParties9
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CollateralParties9
     /// <summary>
     /// Instructing party sending the collateral instruction.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount202? PartyA { get; init; } 
     /// <summary>
     /// Party that instructs party A to send the message.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount202? ClientPartyA { get; init; } 
     /// <summary>
     /// Party that handles tri-party transactions.
     /// </summary>
+    [DataMember]
     public PartyIdentification136? TripartyAgent { get; init; } 
     
     #nullable disable

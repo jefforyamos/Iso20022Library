@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies rates related to a corporate action option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionRate8
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CorporateActionRate8
     /// <summary>
     /// Rate proposed in a remarketing of variable rate notes.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? ProposedRate { get; init; } 
     /// <summary>
     /// Rate of allowed over-subscription.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat12Choice_? OversubscriptionRate { get; init; } 
     /// <summary>
     /// Requested tax rate in case of breakdown of tax rate, for example, used for adjustment of tax rate. This is the new requested applicable rate.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? RequestedTaxationRate { get; init; } 
     
     #nullable disable

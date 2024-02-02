@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the authority entity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Authority1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record Authority1
     /// <summary>
     /// Country code of the authority.
     /// </summary>
+    [DataMember]
     public ISO3NumericCountryCode? Country { get; init; } 
     /// <summary>
     /// Code that identifies a major subdivision of a country, for instance state, province.
     /// </summary>
+    [DataMember]
     public ISOCountrySubDivisionCode? CountrySubDivisionMajor { get; init; } 
     /// <summary>
     /// Code that identifies a minor subdivision of a country, for instance county, prefecture.
     /// </summary>
+    [DataMember]
     public ISOCountrySubDivisionCode? CountrySubDivisionMinor { get; init; } 
     /// <summary>
     /// Name of a major subdivision of a country, for instance county, prefecture.
     /// </summary>
+    [DataMember]
     public IsoMax50Text? CountrySubDivisionMajorName { get; init; } 
     /// <summary>
     /// Name of a minor subdivision of a country, for instance county, prefecture.
     /// </summary>
+    [DataMember]
     public IsoMax50Text? CountrySubDivisionMinorName { get; init; } 
     /// <summary>
     /// City name
     /// </summary>
+    [DataMember]
     public IsoMax50Text? Name { get; init; } 
     
     #nullable disable

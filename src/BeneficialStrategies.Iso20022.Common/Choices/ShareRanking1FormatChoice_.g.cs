@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ShareRanking1FormatChoice.Code))]
 [KnownType(typeof(ShareRanking1FormatChoice.Proprietary))]
+[DataContract]
 public abstract partial record ShareRanking1FormatChoice_
 {
 }

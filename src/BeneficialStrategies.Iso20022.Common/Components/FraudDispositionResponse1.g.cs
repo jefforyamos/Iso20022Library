@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the  fraud disposition response message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FraudDispositionResponse1
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record FraudDispositionResponse1
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required Environment10 Environment { get; init; } 
     /// <summary>
     /// Contains or describes conditions and characteristics of the transaction.
     /// </summary>
+    [DataMember]
     public Context8? Context { get; init; } 
     /// <summary>
     /// contains transaction details of fraud disposition response.
     /// </summary>
+    [DataMember]
     public required Transaction93 Transaction { get; init; } 
     /// <summary>
     /// Outcome of processing of the fraud reporting.
     /// </summary>
+    [DataMember]
     public required ProcessingResult4 ProcessingResult { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

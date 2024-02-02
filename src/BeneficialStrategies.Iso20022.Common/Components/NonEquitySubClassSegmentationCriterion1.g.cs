@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the sub-class according to one of the segmentation criteria defined as per local regulation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NonEquitySubClassSegmentationCriterion1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NonEquitySubClassSegmentationCriterion1
     /// <summary>
     /// Criteria used to segment classes of derivative instruments into sub classes as per local regulation.
     /// </summary>
+    [DataMember]
     public required NonEquitySubClassSegmentationCriteria1Code CriteriaName { get; init; } 
     /// <summary>
     /// Value identifying the sub class with respect to a segmentation criteria as per local regulation.
     /// </summary>
+    [DataMember]
     public required IsoMax1000Text CriteriaValue { get; init; } 
     
     #nullable disable

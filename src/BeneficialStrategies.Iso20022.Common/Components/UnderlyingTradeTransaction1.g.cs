@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UnderlyingTradeTransaction1
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record UnderlyingTradeTransaction1
     /// <summary>
     /// Type of underlying transaction such as a tender, order, contract.
     /// </summary>
+    [DataMember]
     public required UnderlyingTradeTransactionType1Choice_ Type { get; init; } 
     /// <summary>
     /// Identification of the underlying transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Date the underlying transaction was issued or awarded.
     /// </summary>
+    [DataMember]
     public IsoISODate? TransactionDate { get; init; } 
     /// <summary>
     /// Date the tender closes.
     /// </summary>
+    [DataMember]
     public IsoISODate? TenderClosingDate { get; init; } 
     /// <summary>
     /// Amount of the underlying transaction.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TransactionAmount { get; init; } 
     /// <summary>
     /// Percentage of the underlying contract covered by the undertaking.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? ContractAmountPercentage { get; init; } 
     /// <summary>
     /// Additional information related to the underlying transaction.
     /// </summary>
-    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

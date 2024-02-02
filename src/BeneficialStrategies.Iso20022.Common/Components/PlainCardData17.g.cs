@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Sensitive data associated with a payment card.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PlainCardData17
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record PlainCardData17
     /// <summary>
     /// Primary Account Number (PAN) of the card.
     /// </summary>
+    [DataMember]
     public IsoMin8Max28NumericText? PAN { get; init; } 
     /// <summary>
     /// ISO track 1 issued from the magnetic stripe card or from the ICC if the magnetic stripe was not read. The format is conform to ISO 7813, removing beginning and ending sentinels and longitudinal redundancy check characters.
     /// </summary>
+    [DataMember]
     public IsoMax76Text? Track1 { get; init; } 
     /// <summary>
     /// ISO track 2 issued from the magnetic stripe card or from the ICC if the magnetic stripe was not read. The content is conform to ISO 7813, removing beginning and ending sentinels and longitudinal redundancy check characters.
     /// </summary>
+    [DataMember]
     public IsoMax37Text? Track2 { get; init; } 
     /// <summary>
     /// ISO track 3 issued from the magnetic stripe card or from the ICC if the magnetic stripe was not read. The content is conform to ISO 4909, removing beginning and ending sentinels and longitudinal redundancy check characters.
     /// </summary>
+    [DataMember]
     public IsoMax104Text? Track3 { get; init; } 
     /// <summary>
     /// Additional card issuer specific data.
     /// </summary>
-    public IsoMax35Text[] AdditionalCardData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> AdditionalCardData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Entry mode of the card.
     /// </summary>
+    [DataMember]
     public CardDataReading5Code? EntryMode { get; init; } 
     
     #nullable disable

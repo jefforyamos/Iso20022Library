@@ -12,372 +12,495 @@ namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AllExternalDerivedRegisteredCodeSets1
 {
     #nullable enable
     
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalAcceptedReason1Code ExternalAcceptedReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalAccountIdentification1Code ExternalAccountIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalAgentInstruction1Code ExternalAgentInstruction1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalAgreementType1Code ExternalAgreementType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalAuthenticationChannel1Code ExternalAuthenticationChannel1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalAuthenticationMethod1Code ExternalAuthenticationMethod1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalAuthorityExchangeReason1Code ExternalAuthorityExchangeReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalAuthorityIdentification1Code ExternalAuthorityIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalBalanceSubType1Code ExternalBalanceSubType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalBalanceType1Code ExternalBalanceType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalBankTransactionDomain1Code ExternalBankTransactionDomain1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalBankTransactionFamily1Code ExternalBankTransactionFamily1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalBankTransactionSubFamily1Code ExternalBankTransactionSubFamily1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalBillingBalanceType1Code ExternalBillingBalanceType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalBillingCompensationType1Code ExternalBillingCompensationType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalBillingRateIdentification1Code ExternalBillingRateIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalCancellationReason1Code ExternalCancellationReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalCardTransactionCategory1Code ExternalCardTransactionCategory1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalCashAccountType1Code ExternalCashAccountType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalCashClearingSystem1Code ExternalCashClearingSystem1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalCategoryPurpose1Code ExternalCategoryPurpose1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalChannel1Code ExternalChannel1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalChargeType1Code ExternalChargeType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalChequeAgentInstruction1Code ExternalChequeAgentInstruction1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalChequeCancellationReason1Code ExternalChequeCancellationReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalChequeCancellationStatus1Code ExternalChequeCancellationStatus1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalClaimNonReceiptRejection1Code ExternalClaimNonReceiptRejection1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalClearingSystemIdentification1Code ExternalClearingSystemIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalCommunicationFormat1Code ExternalCommunicationFormat1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalContractBalanceType1Code ExternalContractBalanceType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalContractClosureReason1Code ExternalContractClosureReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalCreditLineType1Code ExternalCreditLineType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalCreditorAgentInstruction1Code ExternalCreditorAgentInstruction1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalCreditorEnrolmentAmendmentReason1Code ExternalCreditorEnrolmentAmendmentReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalCreditorEnrolmentCancellationReason1Code ExternalCreditorEnrolmentCancellationReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalCreditorEnrolmentStatusReason1Code ExternalCreditorEnrolmentStatusReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalDateFrequency1Code ExternalDateFrequency1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalDebtorActivationAmendmentReason1Code ExternalDebtorActivationAmendmentReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalDebtorActivationCancellationReason1Code ExternalDebtorActivationCancellationReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalDebtorActivationStatusReason1Code ExternalDebtorActivationStatusReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalDebtorAgentInstruction1Code ExternalDebtorAgentInstruction1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalDiscountAmountType1Code ExternalDiscountAmountType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalDiscrepancy1Code ExternalDiscrepancy1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalDocumentFormat1Code ExternalDocumentFormat1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalDocumentLineType1Code ExternalDocumentLineType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalDocumentPurpose1Code ExternalDocumentPurpose1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalDocumentType1Code ExternalDocumentType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalEffectiveDateParameter1Code ExternalEffectiveDateParameter1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalEncryptedElementIdentification1Code ExternalEncryptedElementIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalEnquiryRequestType1Code ExternalEnquiryRequestType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalEntryStatus1Code ExternalEntryStatus1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalFinancialInstitutionIdentification1Code ExternalFinancialInstitutionIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalFinancialInstrumentIdentificationType1Code ExternalFinancialInstrumentIdentificationType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalFinancialInstrumentProductType1Code ExternalFinancialInstrumentProductType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalGarnishmentType1Code ExternalGarnishmentType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalIncoterms1Code ExternalIncoterms1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalInformationType1Code ExternalInformationType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalInstructedAgentInstruction1Code ExternalInstructedAgentInstruction1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalInvestigationExecutionConfirmation1Code ExternalInvestigationExecutionConfirmation1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalLetterType1Code ExternalLetterType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalLocalInstrument1Code ExternalLocalInstrument1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalMandateReason1Code ExternalMandateReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalMandateSetupReason1Code ExternalMandateSetupReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalMandateStatus1Code ExternalMandateStatus1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalMandateSuspensionReason1Code ExternalMandateSuspensionReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalMarketArea1Code ExternalMarketArea1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalMarketInfrastructure1Code ExternalMarketInfrastructure1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalModelFormIdentification1Code ExternalModelFormIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalNarrativeType1Code ExternalNarrativeType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalNotificationCancellationReason1Code ExternalNotificationCancellationReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalOrganisationIdentification1Code ExternalOrganisationIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalPackagingType1Code ExternalPackagingType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalPaymentCancellationRejection1Code ExternalPaymentCancellationRejection1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalPaymentCompensationReason1Code ExternalPaymentCompensationReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalPaymentControlRequestType1Code ExternalPaymentControlRequestType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalPaymentGroupStatus1Code ExternalPaymentGroupStatus1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalPaymentModificationRejection1Code ExternalPaymentModificationRejection1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalPaymentRole1Code ExternalPaymentRole1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalPaymentTransactionStatus1Code ExternalPaymentTransactionStatus1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalPendingProcessingReason1Code ExternalPendingProcessingReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalPersonIdentification1Code ExternalPersonIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalProxyAccountType1Code ExternalProxyAccountType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalPurpose1Code ExternalPurpose1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalRatesAndTenors1Code ExternalRatesAndTenors1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalReceivedReason1Code ExternalReceivedReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalRejectedReason1Code ExternalRejectedReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalRelativeTo1Code ExternalRelativeTo1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalReportingSource1Code ExternalReportingSource1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalRePresentmentReason1Code ExternalRePresentmentReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalReservationType1Code ExternalReservationType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalReturnReason1Code ExternalReturnReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalReversalReason1Code ExternalReversalReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalSecuritiesLendingType1Code ExternalSecuritiesLendingType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalSecuritiesPurpose1Code ExternalSecuritiesPurpose1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalSecuritiesUpdateReason1Code ExternalSecuritiesUpdateReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalServiceLevel1Code ExternalServiceLevel1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalShipmentCondition1Code ExternalShipmentCondition1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalStatusReason1Code ExternalStatusReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalSystemBalanceType1Code ExternalSystemBalanceType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalSystemErrorHandling1Code ExternalSystemErrorHandling1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalSystemEventType1Code ExternalSystemEventType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalSystemMemberType1Code ExternalSystemMemberType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalSystemPartyType1Code ExternalSystemPartyType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalTaxAmountType1Code ExternalTaxAmountType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalTechnicalInputChannel1Code ExternalTechnicalInputChannel1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalTradeMarket1Code ExternalTradeMarket1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalTradeTransactionCondition1Code ExternalTradeTransactionCondition1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalTypeOfParty1Code ExternalTypeOfParty1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalUnableToApplyIncorrectData1Code ExternalUnableToApplyIncorrectData1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalUnableToApplyMissingData1Code ExternalUnableToApplyMissingData1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalUnderlyingTradeTransactionType1Code ExternalUnderlyingTradeTransactionType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalUndertakingAmountType1Code ExternalUndertakingAmountType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalUndertakingChargeType1Code ExternalUndertakingChargeType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalUndertakingDocumentType1Code ExternalUndertakingDocumentType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalUndertakingStatusCategory1Code ExternalUndertakingStatusCategory1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalUndertakingType1Code ExternalUndertakingType1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalValidationRuleIdentification1Code ExternalValidationRuleIdentification1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalVerificationReason1Code ExternalVerificationReason1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalBenchmarkCurveName1Code ExternalBenchmarkCurveName1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalUnitOfMeasure1Code ExternalUnitOfMeasure1Code { get; init; } 
     /// <summary>
     /// </summary>
+    [DataMember]
     public required ExternalPartyRelationshipType1Code ExternalPartyRelationshipType1Code { get; init; } 
     
     #nullable disable

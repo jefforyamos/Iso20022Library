@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(UpdateType22Choice.Addition))]
 [KnownType(typeof(UpdateType22Choice.Deletion))]
 [KnownType(typeof(UpdateType22Choice.Modification))]
+[DataContract]
 public abstract partial record UpdateType22Choice_
 {
 }

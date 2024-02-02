@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Other distribution strategy.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherDistributionStrategy1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OtherDistributionStrategy1
     /// <summary>
     /// Type of distribution strategy.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DistributionStrategyType { get; init; } 
     /// <summary>
     /// Choice of formats for the specification of whether the product is aimed at the type of return profile.
     /// </summary>
+    [DataMember]
     public DistributionStrategy1Choice_? Target { get; init; } 
     /// <summary>
     /// Additional information about the target market and the investor's risk tolerance.
     /// </summary>
+    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable

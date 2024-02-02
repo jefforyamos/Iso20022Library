@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Numeric variables consisting in interest rates, lending fees or haircuts, calculated as weighted averages.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PriceMetrics3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PriceMetrics3
     /// <summary>
     /// Interest rate of the loan.
     /// </summary>
+    [DataMember]
     public Rates3? Rates { get; init; } 
     /// <summary>
     /// Fee that the borrower of the security or commodity pays to the lender.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? LendingFee { get; init; } 
     
     #nullable disable

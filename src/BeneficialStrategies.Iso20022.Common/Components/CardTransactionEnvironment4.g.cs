@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardTransactionEnvironment4
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CardTransactionEnvironment4
     /// <summary>
     /// Acquirer identification of the card transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text AcquirerIdentification { get; init; } 
     /// <summary>
     /// Identification of the interconnected card scheme from which the request is coming.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CardSchemeIdentification { get; init; } 
     /// <summary>
     /// Identification of the card acceptor performing the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AcceptorIdentification { get; init; } 
     /// <summary>
     /// Identification of the card terminal performing the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TerminalIdentification { get; init; } 
     /// <summary>
     /// Card performing the transaction.
     /// </summary>
+    [DataMember]
     public required PaymentCard15 Card { get; init; } 
     /// <summary>
     /// Payment token information.
     /// </summary>
+    [DataMember]
     public CardPaymentToken2? PaymentToken { get; init; } 
     
     #nullable disable

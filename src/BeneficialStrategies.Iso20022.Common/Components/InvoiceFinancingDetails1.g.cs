@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed information about single invoice/instalment financing result, such as result of request (financed or not financed), amount, percentage applied.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvoiceFinancingDetails1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record InvoiceFinancingDetails1
     /// <summary>
     /// General information that unambiguously identifies the invoice contained in the original request.
     /// </summary>
+    [DataMember]
     public required OriginalInvoiceInformation1 OriginalInvoiceInformation { get; init; } 
     /// <summary>
     /// Person or organization that represents the creditor for the invoice to be financed.
     /// </summary>
+    [DataMember]
     public PartyIdentification8? Supplier { get; init; } 
     /// <summary>
     /// Information about result of invoice financing request.
     /// </summary>
+    [DataMember]
     public required FinancingResult1 InvoiceFinancingResult { get; init; } 
     /// <summary>
     /// Includes details about a single instalment within an invoice, such as identification and amount.
     /// </summary>
-    public InstalmentFinancingInformation1[] InstalmentFinancingInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InstalmentFinancingInformation1> InstalmentFinancingInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

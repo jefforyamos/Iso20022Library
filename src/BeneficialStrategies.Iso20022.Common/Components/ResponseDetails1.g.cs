@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional details to clarify response codes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ResponseDetails1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ResponseDetails1
     /// <summary>
     /// Code for account servicer warnings, rejections, pay no/pay responses and technical rejections. 
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ResponseCode { get; init; } 
     /// <summary>
     /// Additional information to elaborate upon response codes.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalDetails { get; init; } 
     
     #nullable disable

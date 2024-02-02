@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentEnvironment30
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CardPaymentEnvironment30
     /// <summary>
     /// Acquirer involved in the card payment transaction.
     /// </summary>
+    [DataMember]
     public GenericIdentification32? AcquirerIdentification { get; init; } 
     /// <summary>
     /// Merchant involved in the card payment transaction.
     /// </summary>
+    [DataMember]
     public GenericIdentification32? MerchantIdentification { get; init; } 
     /// <summary>
     /// Point of interaction (POI) performing the transaction.
     /// </summary>
+    [DataMember]
     public required PointOfInteraction3 POI { get; init; } 
     /// <summary>
     /// Payment card performing the transaction.
     /// </summary>
+    [DataMember]
     public required PaymentCard7 Card { get; init; } 
     /// <summary>
     /// Language selected for the cardholder interface during the transaction.
     /// </summary>
+    [DataMember]
     public ISO2ALanguageCode? CardholderLanguage { get; init; } 
     
     #nullable disable

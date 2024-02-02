@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CentralCounterPartyEligibility5Choice.Indicator))]
 [KnownType(typeof(CentralCounterPartyEligibility5Choice.Proprietary))]
+[DataContract]
 public abstract partial record CentralCounterPartyEligibility5Choice_
 {
 }

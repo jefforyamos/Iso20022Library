@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Limits and amounts not part of the transaction amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalAmounts2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record AdditionalAmounts2
     /// <summary>
     /// Type or class of amount.
     /// </summary>
+    [DataMember]
     public required TypeOfAmount17Code Type { get; init; } 
     /// <summary>
     /// Other type of amount.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Amount of one occurrence of the breakdown amount.
     /// </summary>
+    [DataMember]
     public required Amount14 Amount { get; init; } 
     /// <summary>
     /// Short description of the additional amount.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Label { get; init; } 
     
     #nullable disable

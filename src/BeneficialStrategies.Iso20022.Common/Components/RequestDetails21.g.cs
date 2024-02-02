@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the settlement condition modification request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RequestDetails21
 {
     #nullable enable
@@ -20,55 +22,68 @@ public partial record RequestDetails21
     /// <summary>
     /// References of the transaction for which the securities settlement condition modification is requested.
     /// </summary>
+    [DataMember]
     public required References24 Reference { get; init; } 
     /// <summary>
     /// Restriction references applied on the transaction for which the securities settlement condition modification is requested.
     /// </summary>
-    public RestrictionIdentification2[] RestrictionReference { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RestrictionIdentification2> RestrictionReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Condition for automatic borrowing.
     /// </summary>
+    [DataMember]
     public AutomaticBorrowing11Choice_? AutomaticBorrowing { get; init; } 
     /// <summary>
     /// Indicates whether the instruction due to expire is confirmed for settlement.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? RetainIndicator { get; init; } 
     /// <summary>
     /// Specifies the type of linkage requested.
     /// </summary>
+    [DataMember]
     public LinkageType4Choice_? Linkage { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
+    [DataMember]
     public PriorityNumeric5Choice_? Priority { get; init; } 
     /// <summary>
     /// Specifies another type of processing change request.
     /// </summary>
-    public GenericIdentification47[] OtherProcessing { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericIdentification47> OtherProcessing { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether partial settlement is allowed.
     /// </summary>
+    [DataMember]
     public SettlementTransactionCondition5Code? PartialSettlementIndicator { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction is to be settled through an RTGS or a non RTGS system.
     /// </summary>
+    [DataMember]
     public SecuritiesRTGS5Choice_? SecuritiesRTGS { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is on hold/blocked/frozen.
     /// </summary>
+    [DataMember]
     public HoldIndicator7? HoldIndicator { get; init; } 
     /// <summary>
     /// Specifies the matching processing change requested.
     /// </summary>
+    [DataMember]
     public MatchingDenied4Choice_? MatchingDenial { get; init; } 
     /// <summary>
     /// Specifies that the transaction is requested to be unilaterally split.
     /// </summary>
+    [DataMember]
     public UnilateralSplit4Choice_? UnilateralSplit { get; init; } 
     /// <summary>
     /// Information regarding the linkage requested.
     /// </summary>
-    public Linkages56[] Linkages { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Linkages56> Linkages { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

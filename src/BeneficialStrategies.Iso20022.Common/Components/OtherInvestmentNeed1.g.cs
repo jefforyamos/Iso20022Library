@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Other investment need.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherInvestmentNeed1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OtherInvestmentNeed1
     /// <summary>
     /// Type of return profile.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientObjectivesAndNeedsType { get; init; } 
     /// <summary>
     /// Choice of formats for the specification of whether the product is aimed at the type of return profile.
     /// </summary>
+    [DataMember]
     public TargetMarket1Choice_? Target { get; init; } 
     /// <summary>
     /// Additional information about the target market and the Investor’s investment requirements.
     /// </summary>
+    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable

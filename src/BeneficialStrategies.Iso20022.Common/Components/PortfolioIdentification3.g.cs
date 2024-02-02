@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the portfolio if the collateral is reported on a portfolio basis.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PortfolioIdentification3
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record PortfolioIdentification3
     /// <summary>
     /// Unique code determined by the reporting counterparty to identify the portfolio if collateral is reported on a portfolio basis.
     /// </summary>
+    [DataMember]
     public required IsoMax52Text Code { get; init; } 
     /// <summary>
     /// Indicates whether the collateral portfolio includes transactions exempt from reporting.
     /// Usage: If the element is not present, the PortfolioTransactionExemption is False.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? PortfolioTransactionExemption { get; init; } 
     
     #nullable disable

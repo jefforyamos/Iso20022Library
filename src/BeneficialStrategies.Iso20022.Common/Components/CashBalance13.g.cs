@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Balance details for a cash account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashBalance13
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record CashBalance13
     /// <summary>
     /// Currency and amount of money of the cash balance.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether the balance is a credit or a debit balance. A zero balance is considered to be a credit balance.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Specifies the nature of a balance.
     /// </summary>
+    [DataMember]
     public BalanceType11Choice_? Type { get; init; } 
     /// <summary>
     /// Current status of a cash balance.
     /// </summary>
+    [DataMember]
     public BalanceStatus1Code? Status { get; init; } 
     /// <summary>
     /// Date and time at which the balance is or will be available.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? ValueDate { get; init; } 
     /// <summary>
     /// Date or date time when the balance was last updated following an entry posted to the account, in the books of the account servicing institution.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? ProcessingDate { get; init; } 
     /// <summary>
     /// Number of payments taken into account for the calculation of the cash balance value.
     /// </summary>
+    [DataMember]
     public IsoNumber? NumberOfPayments { get; init; } 
     /// <summary>
     /// Type providing further information on balance restrictions.
     /// </summary>
+    [DataMember]
     public BalanceRestrictionType1? RestrictionType { get; init; } 
     
     #nullable disable

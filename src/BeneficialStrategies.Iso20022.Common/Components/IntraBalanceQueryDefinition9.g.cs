@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the information that is searched through specific criteria.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraBalanceQueryDefinition9
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record IntraBalanceQueryDefinition9
     /// <summary>
     /// Defines the type of query.
     /// </summary>
+    [DataMember]
     public required MovementResponseType1Code QueryType { get; init; } 
     /// <summary>
     /// Defines the criteria to extract the intra-balance movement instruction information.
     /// </summary>
+    [DataMember]
     public required IntraBalanceQueryCriteria9 SearchCriteria { get; init; } 
     
     #nullable disable

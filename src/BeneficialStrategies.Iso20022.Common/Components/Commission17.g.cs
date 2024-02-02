@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money due to a party as compensation for a service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Commission17
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record Commission17
     /// <summary>
     /// Service for which the commission is asked or paid.
     /// </summary>
+    [DataMember]
     public required CommissionType3Choice_ Type { get; init; } 
     /// <summary>
     /// Basis upon which a commission is charged, for example, flat fee.
     /// </summary>
+    [DataMember]
     public required CommissionBasis1Choice_ Basis { get; init; } 
     /// <summary>
     /// Commission expressed as an amount of money.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     /// <summary>
     /// Party entitled to the amount of money resulting from a commission.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? RecipientIdentification { get; init; } 
     /// <summary>
     /// Reference to the agreement established between the fund and another party. This element, amongst others, defines the conditions of the commissions.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CommercialAgreementReference { get; init; } 
     /// <summary>
     /// Voluntary non-enforcement of the right to part of a commission.
     /// </summary>
+    [DataMember]
     public CommissionWaiver4? WaivingDetails { get; init; } 
     
     #nullable disable

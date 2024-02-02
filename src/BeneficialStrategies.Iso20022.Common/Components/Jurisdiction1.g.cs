@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the jurisdiction (country, county, state, province, city).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Jurisdiction1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Jurisdiction1
     /// <summary>
     /// Specifies the jurisdiction (county, state, province, city).
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Identification { get; init; } 
     /// <summary>
     /// Specifies the country.
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     
     #nullable disable

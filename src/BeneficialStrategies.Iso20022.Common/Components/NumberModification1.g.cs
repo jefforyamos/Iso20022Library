@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of change to a number.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NumberModification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NumberModification1
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
+    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Number.
     /// </summary>
+    [DataMember]
     public required IsoMax5NumericText Number { get; init; } 
     
     #nullable disable

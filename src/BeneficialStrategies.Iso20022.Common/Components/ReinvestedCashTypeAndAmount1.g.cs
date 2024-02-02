@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the type and amount of the cash reinvestment in a given currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReinvestedCashTypeAndAmount1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ReinvestedCashTypeAndAmount1
     /// <summary>
     /// Provides details on the type of the cash reinvestment in a given currency.
     /// </summary>
+    [DataMember]
     public required ReinvestmentType1Code Type { get; init; } 
     /// <summary>
     /// Provides details on the amount of the cash reinvestment in a given currency.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount ReinvestedCashAmount { get; init; } 
     
     #nullable disable

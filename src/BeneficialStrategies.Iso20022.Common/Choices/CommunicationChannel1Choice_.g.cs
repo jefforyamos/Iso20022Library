@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CommunicationChannel1Choice.ChannelMode))]
 [KnownType(typeof(CommunicationChannel1Choice.TerminalIdentification))]
+[DataContract]
 public abstract partial record CommunicationChannel1Choice_
 {
 }

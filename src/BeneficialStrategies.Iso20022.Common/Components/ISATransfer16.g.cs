@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the type of product and the assets to be transferred.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ISATransfer16
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record ISATransfer16
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Identification assigned to the transfer of asset, typically assigned by the transferee.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferIdentification { get; init; } 
     /// <summary>
     /// Identification of the confirmation assigned by the transferor to the transfer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TransferConfirmationIdentification { get; init; } 
     /// <summary>
     /// Requested date at which the assets should be transferred.
     /// </summary>
+    [DataMember]
     public DateFormat1Choice_? RequestedTransferDate { get; init; } 
     /// <summary>
     /// Specifies portfolio information or government schemes, for example Individual Savings Account (ISA) in the UK.
     /// </summary>
+    [DataMember]
     public ISAPortfolio1Choice_? Portfolio { get; init; } 
     /// <summary>
     /// Indicates whether there is cash in the account that is awaiting investment.
     /// </summary>
+    [DataMember]
     public ResidualCash1Code? ResidualCash { get; init; } 
     /// <summary>
     /// Indicator that all remaining assets in a portfolio not listed for transfer should be liquidated and transferred as cash.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator AllOtherCash { get; init; } 
     /// <summary>
     /// Specifies the underlying assets for the ISA or portfolio.
     /// </summary>
-    public FinancialInstrument34[] FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FinancialInstrument34> FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

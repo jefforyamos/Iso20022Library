@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification using a proprietary scheme.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericIdentification168
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record GenericIdentification168
     /// <summary>
     /// Proprietary code that uniquely identifies the object or subject of interest.
     /// </summary>
+    [DataMember]
     public required IsoMax256Text Identification { get; init; } 
     /// <summary>
     /// Human readable full name of the identifier.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     /// <summary>
     /// Short textual description of the scheme.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SchemeName { get; init; } 
     
     #nullable disable

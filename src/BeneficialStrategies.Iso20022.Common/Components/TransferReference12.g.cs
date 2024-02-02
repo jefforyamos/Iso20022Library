@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reference of a transfer and of a transfer confirmation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferReference12
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record TransferReference12
     /// <summary>
     /// Unique and unambiguous identifier for the transfer instruction for which the confirmation reversal is sent, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public AdditionalReference8? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the transfer execution for which the confirmation reversal is sent, as assigned by the confirming party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TransferConfirmationReference { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transfer allocated by the counterparty.
     /// </summary>
+    [DataMember]
     public AdditionalReference8? CounterpartyReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the reversal as assigned by the confirming party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Reason for the reversal of confirmation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReversalReason { get; init; } 
     
     #nullable disable

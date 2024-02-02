@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Capabilities of the POI (Point Of Interaction) performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PointOfInteractionCapabilities3
 {
     #nullable enable
@@ -20,40 +22,49 @@ public partial record PointOfInteractionCapabilities3
     /// <summary>
     /// Card reading capabilities of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
-    public CardDataReading1Code[] CardReadingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardDataReading1Code> CardReadingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cardholder verification capabilities of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
-    public CardholderVerificationCapability1Code[] CardholderVerificationCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardholderVerificationCapability1Code> CardholderVerificationCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum number of digits the POI is able to accept when the cardholder enters its PIN.
     /// </summary>
+    [DataMember]
     public IsoNumber? PINLengthCapabilities { get; init; } 
     /// <summary>
     /// Maximum number of characters of the approval code the POI is able to manage.
     /// </summary>
+    [DataMember]
     public IsoNumber? ApprovalCodeLength { get; init; } 
     /// <summary>
     /// True if the POI is able to capture card.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CardCaptureCapable { get; init; } 
     /// <summary>
     /// On-line and off-line capabilities of the POI (Point Of Interaction).
     /// </summary>
+    [DataMember]
     public OnLineCapability1Code? OnLineCapabilities { get; init; } 
     /// <summary>
     /// Capabilities of the display components performing the transaction.
     /// </summary>
-    public DisplayCapabilities2[] DisplayCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DisplayCapabilities2> DisplayCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number of columns of the printer component.
     /// </summary>
+    [DataMember]
     public IsoNumber? PrintLineWidth { get; init; } 
     /// <summary>
     /// Available language in the display and printer interface.
     /// Reference ISO 639-1 (alpha-2) et ISO 639-2 (alpha-3).
     /// </summary>
-    public LanguageCode[] AvailableLanguage { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LanguageCode> AvailableLanguage { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

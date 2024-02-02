@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to search for business day information and to report on the business day information. A name may be given to the new query.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BusinessDayCriteria2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record BusinessDayCriteria2
     /// <summary>
     /// Name of the query defined by the search criteria and return criteria.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NewQueryName { get; init; } 
     /// <summary>
     /// Defines the criteria on which the information is extracted.
     /// </summary>
-    public BusinessDaySearchCriteria2[] SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BusinessDaySearchCriteria2> SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines the expected report.
     /// </summary>
+    [DataMember]
     public BusinessDayReturnCriteria2? ReturnCriteria { get; init; } 
     
     #nullable disable

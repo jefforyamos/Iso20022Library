@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of an entity involved in an activity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification78
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PartyIdentification78
     /// <summary>
     /// Indicate the source of the party.
     /// </summary>
+    [DataMember]
     public IdentificationType1Code? PartySource { get; init; } 
     /// <summary>
     /// Identification of the party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TradePartyIdentification { get; init; } 
     
     #nullable disable

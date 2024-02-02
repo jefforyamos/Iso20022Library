@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Legally constituted organization specified for this party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LegalOrganisation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record LegalOrganisation1
     /// <summary>
     /// Unique and unambiguous identifier for an organisation that is allocated by an institution, eg, Dun & Bradstreet Identification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Specifies the short name of the organisation.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Name { get; init; } 
     
     #nullable disable

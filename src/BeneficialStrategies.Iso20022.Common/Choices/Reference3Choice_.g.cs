@@ -25,6 +25,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(Reference3Choice.MarginCallResponseIdentification))]
 [KnownType(typeof(Reference3Choice.TripartyAgentServiceProviderCollateralInstructionIdentification))]
 [KnownType(typeof(Reference3Choice.TripartyAgentServiceProviderCollateralTransactionIdentification))]
+[DataContract]
 public abstract partial record Reference3Choice_
 {
 }

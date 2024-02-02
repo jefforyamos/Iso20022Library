@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Treasury trading profile.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TreasuryProfile1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TreasuryProfile1
     /// <summary>
     /// Execution date of treasury bond trade.
     /// </summary>
+    [DataMember]
     public required IsoISODate Date { get; init; } 
     /// <summary>
     /// Type of party that performs trading operations, for example, investor or custodian.
     /// </summary>
+    [DataMember]
     public required PartyRole5Choice_ TraderType { get; init; } 
     /// <summary>
     /// Tax rate.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate Rate { get; init; } 
     
     #nullable disable

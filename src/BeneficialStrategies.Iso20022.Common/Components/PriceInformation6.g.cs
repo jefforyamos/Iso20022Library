@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PriceInformation6
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record PriceInformation6
     /// <summary>
     /// Specifies the type of price and information about the price.
     /// </summary>
+    [DataMember]
     public required TypeOfPrice6Choice_ Type { get; init; } 
     /// <summary>
     /// Type of value in which the price is expressed.
     /// </summary>
+    [DataMember]
     public required YieldedOrValueType1Choice_ ValueType { get; init; } 
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
+    [DataMember]
     public required PriceRateOrAmountOrUnknownChoice_ Value { get; init; } 
     /// <summary>
     /// Place from which the price was obtained.
     /// </summary>
+    [DataMember]
     public MarketIdentification6? SourceOfPrice { get; init; } 
     /// <summary>
     /// Date on which the price is obtained. With an investment fund, this is as stated in the prospectus.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? QuotationDate { get; init; } 
     
     #nullable disable

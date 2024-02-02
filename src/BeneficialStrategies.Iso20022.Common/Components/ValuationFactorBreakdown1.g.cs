@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Possible valuation factors.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ValuationFactorBreakdown1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ValuationFactorBreakdown1
     /// <summary>
     /// Aggregated adjustment applied on the liability/collateral to calculate the position. It is the sum of the inflation, the haircut/margin and pool factors.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? ValuationFactor { get; init; } 
     /// <summary>
     /// Adjustment related to inflation applied on the liability/collateral to calculate the position. 
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? InflationFactor { get; init; } 
     /// <summary>
     /// Haircut or margin on the security  expressed as a percentage.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? Haircut { get; init; } 
     /// <summary>
     /// Percentage that applies to price of the securities following a redemption.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? PoolFactor { get; init; } 
     
     #nullable disable

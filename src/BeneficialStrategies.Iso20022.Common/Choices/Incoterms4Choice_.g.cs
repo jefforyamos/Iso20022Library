@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(Incoterms4Choice.Code))]
 [KnownType(typeof(Incoterms4Choice.Proprietary))]
+[DataContract]
 public abstract partial record Incoterms4Choice_
 {
 }

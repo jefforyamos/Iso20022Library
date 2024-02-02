@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Entity requiring the regulatory reporting information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RegulatoryAuthority
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RegulatoryAuthority
     /// <summary>
     /// Name of the entity requiring the regulatory reporting information.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AuthorityName { get; init; } 
     /// <summary>
     /// Country of the entity requiring the regulatory reporting information.
     /// </summary>
+    [DataMember]
     public CountryCode? AuthorityCountry { get; init; } 
     
     #nullable disable

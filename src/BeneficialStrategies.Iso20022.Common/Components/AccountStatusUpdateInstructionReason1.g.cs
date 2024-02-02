@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for an update to an account status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountStatusUpdateInstructionReason1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AccountStatusUpdateInstructionReason1
     /// <summary>
     /// Reason for the instruction to change the account status.
     /// </summary>
+    [DataMember]
     public AccountStatusUpdateInstructionReason2Choice_? Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the instruction to change the account status.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

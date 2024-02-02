@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SecuritiesAccountModification2Choice.SystemSecuritiesAccount))]
 [KnownType(typeof(SecuritiesAccountModification2Choice.SystemRestriction))]
 [KnownType(typeof(SecuritiesAccountModification2Choice.MarketSpecificAttribute))]
+[DataContract]
 public abstract partial record SecuritiesAccountModification2Choice_
 {
 }

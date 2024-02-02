@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the reason for the return of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerReturnReason1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record TrackerReturnReason1
     /// <summary>
     /// Reason for the reject or return, as published in an external reason code list.
     /// </summary>
+    [DataMember]
     public required TrackerPaymentRejectReturnReason1Code Code { get; init; } 
     
     #nullable disable

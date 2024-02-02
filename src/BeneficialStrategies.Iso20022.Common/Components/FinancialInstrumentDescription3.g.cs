@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Description of the financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentDescription3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FinancialInstrumentDescription3
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification7 SecurityIdentification { get; init; } 
     /// <summary>
     /// Place where the referenced financial instrument is listed.
     /// </summary>
+    [DataMember]
     public IsoMICIdentifier? PlaceOfListing { get; init; } 
     /// <summary>
     /// Identification of the place of safekeeping.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? SafekeepingPlace { get; init; } 
     
     #nullable disable

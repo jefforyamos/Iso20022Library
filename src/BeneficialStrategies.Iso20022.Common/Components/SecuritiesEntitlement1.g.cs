@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides entitlement information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesEntitlement1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SecuritiesEntitlement1
     /// <summary>
     /// Identification of the financial instrument.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification7 SecurityIdentification { get; init; } 
     /// <summary>
     /// Quantity of securities based on the terms of the corporate action event and balance of underlying securities entitled to the account owner. (This quantity can be positive or negative).
     /// </summary>
+    [DataMember]
     public required UnitOrFaceAmount1Choice_ EntitledSecuritiesQuantity { get; init; } 
     
     #nullable disable

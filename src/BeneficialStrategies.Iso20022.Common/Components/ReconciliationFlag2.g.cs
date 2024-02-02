@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the process type used for the trade repository reconciliation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReconciliationFlag2
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record ReconciliationFlag2
     /// <summary>
     /// Indicates whether both counterparties to the transaction have reported to the same Trade Repository
     /// </summary>
+    [DataMember]
     public TradeRepositoryReportingType1Code? ReportType { get; init; } 
     /// <summary>
     /// Indicates whether both counterparties are obliged to report the transaction data.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? BothCounterpartiesReporting { get; init; } 
     /// <summary>
     /// Indicates whether the transaction is paired.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? PairedStatus { get; init; } 
     /// <summary>
     /// Indicates whether loan data is reconciled.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? LoanReconciliationStatus { get; init; } 
     /// <summary>
     /// Indicates whether collateral data is reconciled.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CollateralReconciliationStatus { get; init; } 
     /// <summary>
     /// Indicates whether the initially submitted report was further modified using action type modification.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ModificationStatus { get; init; } 
     
     #nullable disable

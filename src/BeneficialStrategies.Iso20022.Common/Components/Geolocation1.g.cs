@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Geographic location specified by geographic or UTM coordinates.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Geolocation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Geolocation1
     /// <summary>
     /// Geographic location specified by geographic coordinates.
     /// </summary>
+    [DataMember]
     public GeolocationGeographicCoordinates1? GeographicCoordinates { get; init; } 
     /// <summary>
     /// Geographic location specified by UTM coordinates.
     /// </summary>
+    [DataMember]
     public GeolocationUTMCoordinates1? UTMCoordinates { get; init; } 
     
     #nullable disable

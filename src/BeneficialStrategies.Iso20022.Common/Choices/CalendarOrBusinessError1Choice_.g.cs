@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CalendarOrBusinessError1Choice.CalendarData))]
 [KnownType(typeof(CalendarOrBusinessError1Choice.BusinessError))]
+[DataContract]
 public abstract partial record CalendarOrBusinessError1Choice_
 {
 }

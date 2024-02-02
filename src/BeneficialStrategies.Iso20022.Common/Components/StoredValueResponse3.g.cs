@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Response data to a Stored Value request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StoredValueResponse3
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record StoredValueResponse3
     /// <summary>
     /// Unique identification of a POI transaction.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 POITransactionIdentification { get; init; } 
     /// <summary>
     /// Result of loading/reloading a stored value card.
     /// </summary>
-    public StoredValueData3[] Result { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StoredValueData3> Result { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Customer or Merchant payment receipt.
     /// </summary>
-    public PaymentReceipt2[] Receipt { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentReceipt2> Receipt { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

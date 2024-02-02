@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Switch order confirmation details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SwitchOrderConfirmation1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record SwitchOrderConfirmation1
     /// <summary>
     /// Indicates whether a confirmation amendment message will follow the confirmation cancellation instruction or not.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator AmendmentIndicator { get; init; } 
     /// <summary>
     /// Information related to a switch execution.
     /// </summary>
-    public SwitchExecution4[] SwitchExecutionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SwitchExecution4> SwitchExecutionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Extension1> Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

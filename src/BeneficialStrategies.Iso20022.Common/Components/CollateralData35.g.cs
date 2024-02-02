@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details of the collateral used in the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralData35
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CollateralData35
     /// <summary>
     /// Indication of the type of collateral component.
     /// </summary>
+    [DataMember]
     public CollateralType21? AssetType { get; init; } 
     /// <summary>
     /// Indicates whether the collateral has been provided for a net exposure, rather than for a single transaction.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? NetExposureCollateralisationIndicator { get; init; } 
     /// <summary>
     /// Identification of the collateral basket.
     /// </summary>
+    [DataMember]
     public SecurityIdentification26Choice_? BasketIdentifier { get; init; } 
     
     #nullable disable

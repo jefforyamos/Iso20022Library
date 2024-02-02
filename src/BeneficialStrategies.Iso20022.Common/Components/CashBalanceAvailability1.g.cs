@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to indicate when the booked amount of money will become available, ie can be accessed and start generating interest.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashBalanceAvailability1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CashBalanceAvailability1
     /// <summary>
     /// Indicates when the amount of money will become available.
     /// </summary>
+    [DataMember]
     public required CashBalanceAvailabilityDate1 Date { get; init; } 
     /// <summary>
     /// Identifies the available amount.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates whether the availability balance is a credit or a debit balance. A zero balance is considered to be a credit balance.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     
     #nullable disable

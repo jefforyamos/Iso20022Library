@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the owner type and mandate type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OwnerType1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OwnerType1
     /// <summary>
     /// Type of ownership.
     /// </summary>
+    [DataMember]
     public required AccountOwnerType1Code Type { get; init; } 
     /// <summary>
     /// Type of mandate.
     /// </summary>
+    [DataMember]
     public AccountPermissionType1Code? MandateType { get; init; } 
     /// <summary>
     /// Additional information about owner type or mandate type in proprietary format.
     /// </summary>
+    [DataMember]
     public GenericIdentification1? Proprietary { get; init; } 
     
     #nullable disable

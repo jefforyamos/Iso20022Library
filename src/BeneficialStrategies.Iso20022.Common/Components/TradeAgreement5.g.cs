@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Date and identification of a trade together with references to previous events in its life.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeAgreement5
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record TradeAgreement5
     /// <summary>
     /// Date on which the trading parties agree on the trade.
     /// </summary>
+    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Reference to the identification of the notification for which the status is given, as assigned by the participant that submitted the foreign exchange trade.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text NotificationIdentification { get; init; } 
     /// <summary>
     /// Reference common to both parties of the trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CommonReference { get; init; } 
     /// <summary>
     /// Specifies the reason for the cancellation or the amendment.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AmendOrCancelReason { get; init; } 
     /// <summary>
     /// Reference to the identification of a previous event in the life of a trade which is amended or cancelled.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RelatedReference { get; init; } 
     /// <summary>
     /// Specifies the type of underlying transaction, for example, option.
     /// </summary>
+    [DataMember]
     public IsoMax4Text? OperationType { get; init; } 
     /// <summary>
     /// Specifies the business role between the submitter and the trade party, for example, agent (AGNT).
     /// </summary>
+    [DataMember]
     public IsoMax4Text? OperationScope { get; init; } 
     
     #nullable disable

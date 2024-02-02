@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details about the cash posted as collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashCollateral3
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record CashCollateral3
     /// <summary>
     /// Provides the identification of the proposed collateral.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CollateralIdentification { get; init; } 
     /// <summary>
     /// Provides the identification of the clearing member 's cash account.
     /// </summary>
+    [DataMember]
     public AccountIdentification4Choice_? CashAccountIdentification { get; init; } 
     /// <summary>
     /// Amount of the deposit.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? DepositAmount { get; init; } 
     /// <summary>
     /// Specifies whether the deposit is fixed term or call/notice.
     /// </summary>
+    [DataMember]
     public DepositType1Code? DepositType { get; init; } 
     /// <summary>
     /// Planned final repayment date at the time of issuance.
     /// </summary>
+    [DataMember]
     public IsoISODate? MaturityDate { get; init; } 
     /// <summary>
     /// Valuation date of the cash taken as collateral.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValueDate { get; init; } 
     /// <summary>
     /// Exchange rate.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? ExchangeRate { get; init; } 
     /// <summary>
     /// Value of the collateral after taking into account the haircut.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount CollateralValue { get; init; } 
     /// <summary>
     /// Haircut or valuation factor on the collateral expressed as a percentage.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Haircut { get; init; } 
     
     #nullable disable

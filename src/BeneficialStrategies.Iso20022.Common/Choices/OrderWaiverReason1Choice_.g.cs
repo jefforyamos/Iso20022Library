@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(OrderWaiverReason1Choice.Reason))]
 [KnownType(typeof(OrderWaiverReason1Choice.Proprietary))]
+[DataContract]
 public abstract partial record OrderWaiverReason1Choice_
 {
 }

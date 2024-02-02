@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// U-003-2009 Addition and Modification of choice component. S-009-2009 They are not valid business options in the redemption processing context. S-015-2009 Add new data elements to indicate time zone.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MainFundOrderDeskLocation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record MainFundOrderDeskLocation1
     /// <summary>
     /// Country in which it is authorised to commercialise the fund.
     /// </summary>
+    [DataMember]
     public required CountryCode Country { get; init; } 
     /// <summary>
     /// Offset of the reporting time before or after 00: 00 hour UTC.
     /// </summary>
+    [DataMember]
     public required UTCOffset1 TimeZoneOffSet { get; init; } 
     
     #nullable disable

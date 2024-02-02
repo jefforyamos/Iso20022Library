@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of the key download.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMEnvironment15
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ATMEnvironment15
     /// <summary>
     /// Acquirer of the ATM transactions, in charge of the funds settlement with the issuer.
     /// </summary>
+    [DataMember]
     public Acquirer7? Acquirer { get; init; } 
     /// <summary>
     /// Identification of the ATM manager.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ATMManagerIdentification { get; init; } 
     /// <summary>
     /// Entity hosting the ATM terminal.
     /// </summary>
+    [DataMember]
     public TerminalHosting1? HostingEntity { get; init; } 
     /// <summary>
     /// ATM information.
     /// </summary>
+    [DataMember]
     public required AutomatedTellerMachine6 ATM { get; init; } 
     
     #nullable disable

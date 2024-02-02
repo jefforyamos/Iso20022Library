@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies totals related to the invoice.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ServiceCategoryTotals2
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record ServiceCategoryTotals2
     /// <summary>
     /// Unique identification of an securities account or cash account belonging to billed customer.
     /// </summary>
+    [DataMember]
     public AccountIdentification38Choice_? AccountIdentification { get; init; } 
     /// <summary>
     /// BIC of the party which is invoiced by the CSD/NCB.
     /// </summary>
+    [DataMember]
     public IsoBICFIIdentifier? BilledCustomerIdentification { get; init; } 
     /// <summary>
     /// Total amount subject to tax.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalTaxableAmount { get; init; } 
     /// <summary>
     /// Sum of all tax amounts related to the invoice.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalTaxAmount { get; init; } 
     /// <summary>
     /// Total amount of the invoice, being the sum of total invoice lines amounts, total invoice adjustment amount (discounts, allowances and charges) and total tax amounts.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalInvoiceAmount { get; init; } 
     /// <summary>
     /// Agreement under which or rules under which the transaction should be processed.
     /// </summary>
+    [DataMember]
     public required IsoMax4AlphaNumericText ServiceCategory { get; init; } 
     /// <summary>
     /// Specifies totals related to the invoice.
     /// </summary>
-    public ServiceItemTotals1[] ServiceItemTotals { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ServiceItemTotals1> ServiceItemTotals { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

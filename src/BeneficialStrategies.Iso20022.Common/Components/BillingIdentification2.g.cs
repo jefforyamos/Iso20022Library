@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique identifier of a the related Invoice.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BillingIdentification2
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record BillingIdentification2
     /// <summary>
     /// Unique reference of a the related Invoice.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text BillingIdentification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Restriction References applied on the transaction for which the securities settlement condition modification is requested.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RestrictionIdentification2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RestrictionIdentification2
     /// <summary>
     /// Restriction identification removal or addition applied on the transaction expressed as a code.
     /// </summary>
+    [DataMember]
     public required RestrictionReference1Code Code { get; init; } 
     /// <summary>
     /// Restriction identification applied on the transaction.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax16Text Identification { get; init; } 
     
     #nullable disable

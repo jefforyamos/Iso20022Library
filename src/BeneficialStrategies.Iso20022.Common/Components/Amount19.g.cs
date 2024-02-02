@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains the details of the billing amount
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Amount19
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record Amount19
     /// <summary>
     /// Description of the amount details.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Description { get; init; } 
     /// <summary>
     /// Contains the amount.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// A code to indicate the tax amount is credit or debit
     /// </summary>
+    [DataMember]
     public CreditDebit3Code? CreditDebit { get; init; } 
     /// <summary>
     /// Tax applicable to the billing amount.
     /// </summary>
-    public Tax39[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax39> Tax { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

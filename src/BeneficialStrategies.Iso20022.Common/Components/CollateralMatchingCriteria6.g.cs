@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Compares information related to both sides of a collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralMatchingCriteria6
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CollateralMatchingCriteria6
     /// <summary>
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
+    [DataMember]
     public CompareTrueFalseIndicator3? UncollateralisedFlag { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as true/false indicator are matching or not.
     /// </summary>
+    [DataMember]
     public CompareTrueFalseIndicator3? NetExposureCollateralisationIndicator { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
+    [DataMember]
     public CompareDate3? CollateralValueDate { get; init; } 
     /// <summary>
     /// Specifies whether the information on the component type is matching or not.
     /// </summary>
+    [DataMember]
     public SecurityCommodityCash4? AssetType { get; init; } 
     /// <summary>
     /// Specifies whether the values defined as security identification are matching or not.
     /// </summary>
+    [DataMember]
     public CompareSecurityIdentification4? BasketIdentifier { get; init; } 
     
     #nullable disable

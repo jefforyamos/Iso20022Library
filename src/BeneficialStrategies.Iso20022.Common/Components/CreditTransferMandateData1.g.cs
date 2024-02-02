@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details related to a credit transfer mandate signed between the creditor and the debtor.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditTransferMandateData1
 {
     #nullable enable
@@ -20,40 +22,49 @@ public partial record CreditTransferMandateData1
     /// <summary>
     /// Unique identification, as assigned by the creditor, to unambiguously identify the mandate.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MandateIdentification { get; init; } 
     /// <summary>
     /// Specifies the type of mandate, such as paper, electronic or scheme.
     /// </summary>
+    [DataMember]
     public MandateTypeInformation2? Type { get; init; } 
     /// <summary>
     /// Date on which the credit transfer mandate has been signed by the debtor.
     /// </summary>
+    [DataMember]
     public IsoISODate? DateOfSignature { get; init; } 
     /// <summary>
     /// Date on which the credit transfer mandate has been verified.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? DateOfVerification { get; init; } 
     /// <summary>
     /// Additional security provisions, such as a digital signature, as provided by the debtor.
     /// </summary>
+    [DataMember]
     public IsoMax10KBinary? ElectronicSignature { get; init; } 
     /// <summary>
     /// Date of the first payment of a recurrent credit transfer as per the mandate.
     /// </summary>
+    [DataMember]
     public IsoISODate? FirstPaymentDate { get; init; } 
     /// <summary>
     /// Date of the final payment of a recurrent credit transfer as per the mandate.
     /// </summary>
+    [DataMember]
     public IsoISODate? FinalPaymentDate { get; init; } 
     /// <summary>
     /// Regularity with which credit transfer instructions are to be created and processed.
     /// </summary>
+    [DataMember]
     public Frequency36Choice_? Frequency { get; init; } 
     /// <summary>
     /// Reason for the setup of the credit transfer mandate.
     /// Usage: 
     /// The reason will allow the user to distinguish between different mandates for the same creditor.
     /// </summary>
+    [DataMember]
     public MandateSetupReason1Choice_? Reason { get; init; } 
     
     #nullable disable

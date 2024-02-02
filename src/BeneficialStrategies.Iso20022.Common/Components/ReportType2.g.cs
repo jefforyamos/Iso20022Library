@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportType2
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record ReportType2
     /// <summary>
     /// Specifies whether the report is precalculated or current.
     /// </summary>
+    [DataMember]
     public required ReportType2Code Type { get; init; } 
     
     #nullable disable

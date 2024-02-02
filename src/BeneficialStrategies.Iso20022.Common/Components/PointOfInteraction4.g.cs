@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Point of interaction (POI) performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PointOfInteraction4
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record PointOfInteraction4
     /// <summary>
     /// Identification of the POI (Point Of Interaction) for the acquirer or its agent.
     /// </summary>
+    [DataMember]
     public required GenericIdentification32 Identification { get; init; } 
     /// <summary>
     /// Common name assigned by the acquirer to the POI (Point Of Interaction) system.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? SystemName { get; init; } 
     /// <summary>
     /// Identifier assigned by the merchant identifying a set of POI (Point Of Interaction) terminals performing some categories of transactions.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? GroupIdentification { get; init; } 
     /// <summary>
     /// Capabilities of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
+    [DataMember]
     public PointOfInteractionCapabilities3? Capabilities { get; init; } 
     /// <summary>
     /// Data related to a component of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
-    public PointOfInteractionComponent5[] Component { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PointOfInteractionComponent5> Component { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

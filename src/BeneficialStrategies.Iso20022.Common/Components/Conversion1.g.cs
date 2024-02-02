@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Conversion1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record Conversion1
     /// <summary>
     /// Identification of the target security.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentIdentification1 TargetSecurity { get; init; } 
     /// <summary>
     /// Additional information about the conversion.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

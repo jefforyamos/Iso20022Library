@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of an underlying of a derivative or security that constitutes one lot of such derivative on an exchange.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContractSize1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ContractSize1
     /// <summary>
     /// Specifies the total quantity of financial product to be delivered as per the terms of the contract.
     /// </summary>
+    [DataMember]
     public required IsoPositiveNumber LotSize { get; init; } 
     /// <summary>
     /// Specifies the unit of underlying.
     /// </summary>
+    [DataMember]
     public UnitOfMeasure5Choice_? Unit { get; init; } 
     
     #nullable disable

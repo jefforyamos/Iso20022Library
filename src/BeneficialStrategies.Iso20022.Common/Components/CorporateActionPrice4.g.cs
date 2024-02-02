@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies prices.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionPrice4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionPrice4
     /// <summary>
     /// Estimated price, eg, for valuation purposes.
     /// </summary>
+    [DataMember]
     public PriceFormat2Choice_? IndicativePrice { get; init; } 
     /// <summary>
     /// Last reported/known price of a financial instrument in a market.
     /// </summary>
+    [DataMember]
     public PriceFormat2Choice_? MarketPrice { get; init; } 
     
     #nullable disable

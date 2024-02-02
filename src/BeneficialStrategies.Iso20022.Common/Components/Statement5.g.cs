@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// General characteristics related to a statement which reports information for a defined period.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Statement5
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record Statement5
     /// <summary>
     /// Reference of the statement.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Reference { get; init; } 
     /// <summary>
     /// Period on which the statement is reporting.
     /// </summary>
+    [DataMember]
     public required DatePeriodDetails StatementPeriod { get; init; } 
     /// <summary>
     /// Creation date of the statement.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? CreationDateTime { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
+    [DataMember]
     public Frequency1Code? Frequency { get; init; } 
     /// <summary>
     /// Specifies if the statement is complete or only contains changes.
     /// </summary>
+    [DataMember]
     public required StatementUpdateTypeCode UpdateType { get; init; } 
     /// <summary>
     /// Indicates whether there is activity reported in the statement.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     /// <summary>
     /// Sequential number of the statement.
     /// </summary>
+    [DataMember]
     public IsoMax5NumericText? ReportNumber { get; init; } 
     
     #nullable disable

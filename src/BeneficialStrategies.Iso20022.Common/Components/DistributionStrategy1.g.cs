@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Distribution strategy criteria.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DistributionStrategy1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record DistributionStrategy1
     /// <summary>
     /// Specifies to whom the product can be sold on an execution-only basis. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 06010.
     /// </summary>
+    [DataMember]
     public DistributionStrategy1Choice_? ExecutionOnly { get; init; } 
     /// <summary>
     /// Specifies to whom the product can be sold with an appropriateness test or to a non-advised service. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 06020.
     /// </summary>
+    [DataMember]
     public DistributionStrategy1Choice_? ExecutionWithAppropriatenessTestOrNonAdvisedServices { get; init; } 
     /// <summary>
     /// Specifies to whom the product can be sold if investment advice has been provided. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 06030.
     /// </summary>
+    [DataMember]
     public DistributionStrategy1Choice_? InvestmentAdvice { get; init; } 
     /// <summary>
     /// Specifies to whom the product can be sold if portfolio management has been provided. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 06040.
     /// </summary>
+    [DataMember]
     public DistributionStrategy1Choice_? PortfolioManagement { get; init; } 
     /// <summary>
     /// Other distribution strategy.
     /// </summary>
+    [DataMember]
     public OtherDistributionStrategy1? Other { get; init; } 
     
     #nullable disable

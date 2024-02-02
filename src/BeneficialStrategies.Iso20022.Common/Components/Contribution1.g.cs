@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information such as the contribution account identification or the requirement amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Contribution1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Contribution1
     /// <summary>
     /// Segregation done by the central counterparty based on trading venues/products or other attributes.
     /// </summary>
+    [DataMember]
     public AccountIdentification4Choice_? Account { get; init; } 
     /// <summary>
     /// Total contribution required by the clearing member to participate to the default fund.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount RequiredAmount { get; init; } 
     /// <summary>
     /// Additional amount that the clearing member will have to provide to cover a risk increase. This results from a risk management decision depending on central counterparty specific criteria.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? IncreaseCoverageAmount { get; init; } 
     /// <summary>
     /// Provides the identification for the non-clearing member.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount31? NonClearingMember { get; init; } 
     
     #nullable disable

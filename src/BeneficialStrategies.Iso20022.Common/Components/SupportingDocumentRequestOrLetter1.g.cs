@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Currency control related document or letter supporting the contract registration.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SupportingDocumentRequestOrLetter1
 {
     #nullable enable
@@ -20,52 +22,64 @@ public partial record SupportingDocumentRequestOrLetter1
     /// <summary>
     /// Unique and unambiguous identification of the supporting document request or the letter.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text RequestOrLetterIdentification { get; init; } 
     /// <summary>
     /// Date of the supporting document request or the letter.
     /// </summary>
+    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Sender of the request or letter.
     /// </summary>
+    [DataMember]
     public Party28Choice_? Sender { get; init; } 
     /// <summary>
     /// Receiver of the request or letter.
     /// </summary>
+    [DataMember]
     public Party28Choice_? Receiver { get; init; } 
     /// <summary>
     /// Provides the references of the original underlying message(s) for which supporting documents are requested or for which the letter is sent.
     /// </summary>
-    public OriginalMessage2[] OriginalReferences { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OriginalMessage2> OriginalReferences { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Subject of the letter or supporting document.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Subject { get; init; } 
     /// <summary>
     /// Provides the type of supporting document requested.
     /// </summary>
+    [DataMember]
     public required SupportDocumentType1Code Type { get; init; } 
     /// <summary>
     /// Further free format description of the request.
     /// </summary>
+    [DataMember]
     public IsoMax1025Text? Description { get; init; } 
     /// <summary>
     /// Flag to indicate whether a response is required or not.
     /// Usage: when the request is used to send a letter, there is no response required.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator ResponseRequired { get; init; } 
     /// <summary>
     /// Date by which the response to the request is expected.
     /// </summary>
+    [DataMember]
     public IsoISODate? DueDate { get; init; } 
     /// <summary>
     /// Documents provided as attachments to the supporting document request or letter.
     /// </summary>
-    public DocumentGeneralInformation3[] Attachment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DocumentGeneralInformation3> Attachment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

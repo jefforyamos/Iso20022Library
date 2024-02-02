@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of an entity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericIdentification71
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record GenericIdentification71
     /// <summary>
     /// Identification of the entity.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Type of identified entity.
     /// </summary>
+    [DataMember]
     public PartyType5Code? Type { get; init; } 
     /// <summary>
     /// Entity assigning the identification (for example merchant, acceptor, acquirer, or tax authority).
     /// </summary>
+    [DataMember]
     public PartyType6Code? Issuer { get; init; } 
     /// <summary>
     /// Country of the entity (ISO 3166-1 alpha-2 or alpha-3).
     /// </summary>
+    [DataMember]
     public IsoMin2Max3AlphaText? Country { get; init; } 
     /// <summary>
     /// Name of the entity.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     
     #nullable disable

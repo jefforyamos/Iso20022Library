@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action details periods details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionPeriodSD2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionPeriodSD2
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Period during which the securities can be submitted to reorganisation deposit service at DTC (The Depository Trust Corporation). DTC "first day for reorganisation deposit" (start date) is the day on which security is eligible for reorganisation deposit service at DTC. DTC "last day for reorganisation deposit" is the last day on which securities are eligible to be submitted for reorganisation deposit service at DTC.
     /// </summary>
+    [DataMember]
     public Period3? DTCReorganisationDepositPeriod { get; init; } 
     
     #nullable disable

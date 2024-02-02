@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Extension to specify additional information related to the type of dividend.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DividendTypeFormat4SD1
 {
     #nullable enable
@@ -21,23 +23,27 @@ public partial record DividendTypeFormat4SD1
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Specifies whether the dividend is provisional 予想区分.
     /// If the value is No, then the dividend is actual.
     /// ProvisionalDividendFlag can only be used with corporate action event type code DVCA.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ProvisionalDividendFlag { get; init; } 
     /// <summary>
     /// Specifies whether the dividend includes commemorative dividend. 記念配当区分
     /// CommemorativeDividendFlag can only be used with corporate action event type code DVCA.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator CommemorativeDividendFlag { get; init; } 
     /// <summary>
     /// Specifies whether the dividend includes special dividend.
     /// 特別配当区分
     /// SpecialDividendFlag can only be used with corporate action event type code DVCA.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator SpecialDividendFlag { get; init; } 
     
     #nullable disable

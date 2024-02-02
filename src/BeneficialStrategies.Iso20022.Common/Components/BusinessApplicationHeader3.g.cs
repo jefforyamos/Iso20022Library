@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies specific data from the Business Application Header of the Business Message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BusinessApplicationHeader3
 {
     #nullable enable
@@ -21,32 +23,38 @@ public partial record BusinessApplicationHeader3
     /// The sending MessagingEndpoint that has created this Business Message for the receiving MessagingEndpoint that will process this Business Message.
     /// Note	the sending MessagingEndpoint might be different from the sending address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
+    [DataMember]
     public required Party29Choice_ From { get; init; } 
     /// <summary>
     /// The MessagingEndpoint designated by the sending MessagingEndpoint to be the recipient who will ultimately process this Business Message.
     /// Note the receiving MessagingEndpoint might be different from the receiving address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
+    [DataMember]
     public required Party29Choice_ To { get; init; } 
     /// <summary>
     /// Unambiguously identifies the Business Message to the MessagingEndpoint that has created the Business Message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text BusinessMessageIdentifier { get; init; } 
     /// <summary>
     /// Contains the MessageIdentifier that defines the BusinessMessage.
     /// It must contain a MessageIdentifier published on the ISO 20022 website.
     /// example	camt.001.001.03.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageDefinitionIdentifier { get; init; } 
     /// <summary>
     /// Specifies the business service agreed between the two MessagingEndpoints under which rules this Business Message is exchanged.
     ///  To be used when there is a choice of processing services or processing service levels.
     /// Example: E&I.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? BusinessService { get; init; } 
     /// <summary>
     /// Date and time when this Business Message (header) was created.
     /// Note Times must be normalized, using the "Z" annotation.
     /// </summary>
+    [DataMember]
     public required IsoISONormalisedDateTime CreationDate { get; init; } 
     
     #nullable disable

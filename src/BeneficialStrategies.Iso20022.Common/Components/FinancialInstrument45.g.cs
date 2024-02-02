@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, for example, dividend option or valuation currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrument45
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record FinancialInstrument45
     /// <summary>
     /// Identification of a security by an ISIN.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification23Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Financial Instrument Short Name (FISN) expressed in conformance with the ISO 18774 standard.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     /// <summary>
     /// Additional information about a financial instrument to help identify the instrument.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SupplementaryIdentification { get; init; } 
     /// <summary>
     /// Features of units offered by a fund. For example, a unit may have a specific load structure, for example, front end or back end, an income policy, for example, pay out or accumulate, or a trailer policy, for example, with or without. Fund classes are typically denoted by a single character, for example, 'Class A', 'Class 2'.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClassType { get; init; } 
     /// <summary>
     /// Form, that is, ownership, of the security, for example, registered or bearer.
     /// </summary>
+    [DataMember]
     public FormOfSecurity1Code? SecuritiesForm { get; init; } 
     /// <summary>
     /// Income policy relating to a class type, that is, if income is paid out or retained in the fund.
     /// </summary>
+    [DataMember]
     public DistributionPolicy1Code? DistributionPolicy { get; init; } 
     /// <summary>
     /// Company specific description of a group of funds.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? ProductGroup { get; init; } 
     
     #nullable disable

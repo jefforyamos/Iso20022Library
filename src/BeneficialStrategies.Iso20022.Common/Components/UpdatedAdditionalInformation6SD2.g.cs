@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Extension to provide the local language information of the new company name when the corporate action event type code is CHAN (name change).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UpdatedAdditionalInformation6SD2
 {
     #nullable enable
@@ -21,16 +23,19 @@ public partial record UpdatedAdditionalInformation6SD2
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Full and formal name of underlying securities in the local language.
     /// </summary>
+    [DataMember]
     public IsoMax240Text? FullLocalLanguageSecurityName { get; init; } 
     /// <summary>
     /// Abbreviated name of underlying securities in the local language. 
     /// In case of non-listed securities, it will be a full local language security name.
     /// 銘柄名（銘柄略称.
     /// </summary>
+    [DataMember]
     public required IsoMax240Text AbbreviatedLocalLanguageSecurityName { get; init; } 
     
     #nullable disable

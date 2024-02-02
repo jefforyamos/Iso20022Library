@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates the reference amount from which contractual payments are determined and the schedule applicable to the payments.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NotionalAmount5
 {
     #nullable enable
@@ -21,11 +23,13 @@ public partial record NotionalAmount5
     /// Reference amount from which contractual payments are determined.
     /// Usage: In case of partial terminations, and amortisations and in case of contracts where the notional, due to the characteristics of the contract, varies over time, it shall reflect the remaining notional after the change took place.
     /// </summary>
+    [DataMember]
     public AmountAndDirection106? Amount { get; init; } 
     /// <summary>
     /// Specifies the effective date and end date of the schedule for derivative transactions negotiated in monetary amounts varying throughout the life of the transaction.
     /// </summary>
-    public Schedule11[] SchedulePeriod { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Schedule11> SchedulePeriod { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

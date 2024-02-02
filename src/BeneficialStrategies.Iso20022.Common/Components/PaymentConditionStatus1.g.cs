@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details on the status of the payment conditions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentConditionStatus1
 {
     #nullable enable
@@ -22,14 +24,17 @@ public partial record PaymentConditionStatus1
     /// Usage:
     /// May only be present when AmountModificationAllowed is present in the request.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? AcceptedAmount { get; init; } 
     /// <summary>
     /// Indicates if the DebtorAgent guarantees the payment, assuming a payment guarantee contract exists between the different actors.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator GuaranteedPayment { get; init; } 
     /// <summary>
     /// Indicates if the debtor will pay before the requested execution date.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator EarlyPayment { get; init; } 
     
     #nullable disable

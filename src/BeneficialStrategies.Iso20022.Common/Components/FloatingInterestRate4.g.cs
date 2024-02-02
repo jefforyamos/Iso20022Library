@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the index used to define the rate and optionally the basis point spread.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FloatingInterestRate4
 {
     #nullable enable
@@ -22,15 +24,18 @@ public partial record FloatingInterestRate4
     /// Usage:
     /// Where an identifier exists, the ISIN must be used; otherwise, names will be necessary (such as EURIBOR6M, LIBOR3M) as other identification.
     /// </summary>
+    [DataMember]
     public required BenchmarkCurveName4Choice_ ReferenceRate { get; init; } 
     /// <summary>
     /// Term of the index.
     /// </summary>
+    [DataMember]
     public required InterestRateContractTerm1 Term { get; init; } 
     /// <summary>
     /// Provides the number of basis points added to (if positive) or deducted from (if negative) the underlying reference rate to calculate the actual interest rate applicable for a given period at issuance of the floating rate instrument.
     /// Used to express differences in interest rates, for example, a difference of 0.10% is equivalent to a change of 10 basis points.
     /// </summary>
+    [DataMember]
     public required IsoNumber BasisPointSpread { get; init; } 
     
     #nullable disable

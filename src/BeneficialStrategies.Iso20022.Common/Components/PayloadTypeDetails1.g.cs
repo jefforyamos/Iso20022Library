@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the type of payload.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PayloadTypeDetails1
 {
     #nullable enable
@@ -21,6 +23,7 @@ public partial record PayloadTypeDetails1
     /// Declaration of the payload content. Describes the type of business document being exchanged.
     /// When sending a copy or a duplicate of a previous document set, the document set identification must remain identical.
     /// </summary>
+    [DataMember]
     public required IsoMax256Text Type { get; init; } 
     
     #nullable disable

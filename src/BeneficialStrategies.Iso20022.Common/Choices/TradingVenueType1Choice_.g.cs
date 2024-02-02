@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TradingVenueType1Choice.OnVenue))]
 [KnownType(typeof(TradingVenueType1Choice.OffVenue))]
+[DataContract]
 public abstract partial record TradingVenueType1Choice_
 {
 }

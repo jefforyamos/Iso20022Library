@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of advice to report back for the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdviceType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AdviceType1
     /// <summary>
     /// Type of credit advice requested.
     /// </summary>
+    [DataMember]
     public AdviceType1Choice_? CreditAdvice { get; init; } 
     /// <summary>
     /// Type de debit advice requested.
     /// </summary>
+    [DataMember]
     public AdviceType1Choice_? DebitAdvice { get; init; } 
     
     #nullable disable

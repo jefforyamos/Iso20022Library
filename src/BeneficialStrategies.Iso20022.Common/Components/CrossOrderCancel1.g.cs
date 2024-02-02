@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides original client order identification and order modification time.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CrossOrderCancel1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CrossOrderCancel1
     /// <summary>
     /// Client Order identification of the previous order (NOT the initial order of the day) as assigned by the institution, used to identify the previous order in cancel requests.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalClientOrderIdentification { get; init; } 
     /// <summary>
     /// Indicates the most recent (or current) CreationDateTime reported for the order. The original order modification time is provided as an optional field on Order Cancel Request to identify that the state of the order has not changed since the request was issued.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OriginalOrderModificationTime { get; init; } 
     
     #nullable disable

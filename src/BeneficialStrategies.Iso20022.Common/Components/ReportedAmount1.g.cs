@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount reported.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportedAmount1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ReportedAmount1
     /// <summary>
     /// Identification of the reported amount.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Type of reported amount.
     /// </summary>
+    [DataMember]
     public required ExternalUndertakingAmountType1Code Type { get; init; } 
     /// <summary>
     /// Amount reported.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

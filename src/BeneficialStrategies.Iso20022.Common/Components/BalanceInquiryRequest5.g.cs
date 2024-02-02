@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Balance Inquiry Request message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BalanceInquiryRequest5
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record BalanceInquiryRequest5
     /// <summary>
     /// Sale System identification of the transaction in an unambiguous way.
     /// </summary>
+    [DataMember]
     public TransactionIdentifier1? SaleTransactionIdentification { get; init; } 
     /// <summary>
     /// Data related to the account pointed by the payment card.
     /// </summary>
+    [DataMember]
     public PaymentAccountRequest1? PaymentAccountRequest { get; init; } 
     /// <summary>
     /// Data related to a requested Loyalty program or account.
     /// </summary>
+    [DataMember]
     public LoyaltyAccountRequest3? LoyaltyAccountRequest { get; init; } 
     /// <summary>
     /// Data related to a requested Stored value account.
     /// </summary>
+    [DataMember]
     public StoredValueRequest5? StoredValueAccountRequest { get; init; } 
     
     #nullable disable

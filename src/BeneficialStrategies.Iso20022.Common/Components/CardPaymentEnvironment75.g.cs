@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentEnvironment75
 {
     #nullable enable
@@ -20,55 +22,68 @@ public partial record CardPaymentEnvironment75
     /// <summary>
     /// Acquirer involved in the card payment.
     /// </summary>
+    [DataMember]
     public Acquirer10? Acquirer { get; init; } 
     /// <summary>
     /// Merchant performing the card payment transaction.
     /// Usage: In some cases, merchant and acceptor may be regarded as the same entity.
     /// </summary>
+    [DataMember]
     public Organisation32? Merchant { get; init; } 
     /// <summary>
     /// Point of interaction (POI) performing the transaction.
     /// </summary>
+    [DataMember]
     public PointOfInteraction10? POI { get; init; } 
     /// <summary>
     /// Payment card performing the transaction.
     /// </summary>
+    [DataMember]
     public PaymentCard30? Card { get; init; } 
     /// <summary>
     /// Check Payment instrument.
     /// </summary>
+    [DataMember]
     public Check1? Check { get; init; } 
     /// <summary>
     /// Store value account payment instrument.
     /// </summary>
-    public StoredValueAccount2[] StoredValueAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StoredValueAccount2> StoredValueAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Store value account associated to the payment.
     /// </summary>
-    public LoyaltyAccount2[] LoyaltyAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LoyaltyAccount2> LoyaltyAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Device used by the customer to perform the payment transaction.
     /// </summary>
+    [DataMember]
     public CustomerDevice1? CustomerDevice { get; init; } 
     /// <summary>
     /// Container for tenders used by the customer to perform the payment transaction.
     /// </summary>
+    [DataMember]
     public CustomerDevice1? Wallet { get; init; } 
     /// <summary>
     /// Payment token information.
     /// </summary>
+    [DataMember]
     public CardPaymentToken5? PaymentToken { get; init; } 
     /// <summary>
     /// Cardholder involved in the card payment.
     /// </summary>
+    [DataMember]
     public Cardholder16? Cardholder { get; init; } 
     /// <summary>
     /// Replacement of the message element Cardholder by a digital envelope using a cryptographic key.
     /// </summary>
+    [DataMember]
     public ContentInformationType22? ProtectedCardholderData { get; init; } 
     /// <summary>
     /// Sale Retailer Environment for this message.
     /// </summary>
+    [DataMember]
     public RetailerSaleEnvironment2? SaleEnvironment { get; init; } 
     
     #nullable disable

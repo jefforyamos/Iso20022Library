@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the reservation query criteria.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReservationQuery4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ReservationQuery4
     /// <summary>
     /// Specifies the type of matching items to be returned in the response to the query.
     /// </summary>
+    [DataMember]
     public QueryType2Code? QueryType { get; init; } 
     /// <summary>
     /// Defines the reservation query criteria.
     /// </summary>
+    [DataMember]
     public ReservationCriteria4Choice_? ReservationCriteria { get; init; } 
     
     #nullable disable

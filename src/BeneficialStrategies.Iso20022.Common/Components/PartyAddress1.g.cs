@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides various address types of a party. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyAddress1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PartyAddress1
     /// <summary>
     /// Code allocated to a financial or non-financial institution by the ISO 9362 Registration Authority, as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
     /// </summary>
+    [DataMember]
     public IsoAnyBICDec2014Identifier? AnyBIC { get; init; } 
     /// <summary>
     /// Postal address of the party.
     /// </summary>
+    [DataMember]
     public PostalAddress26? PostalAddress { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
+    [DataMember]
     public IsoMax256Text? EmailAddress { get; init; } 
     /// <summary>
     /// Address for the Universal Resource Locator (URL), for example, used over the www (HTTP) service.
     /// </summary>
+    [DataMember]
     public IsoMax2048Text? URLAddress { get; init; } 
     
     #nullable disable

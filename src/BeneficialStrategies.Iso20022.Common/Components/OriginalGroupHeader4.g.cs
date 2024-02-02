@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the original group, to which the message refers.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalGroupHeader4
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record OriginalGroupHeader4
     /// <summary>
     /// Unique identification, as assigned by the assigner, to unambiguously identify the group cancellation request.||Usage: The group cancellation request identification can be used for reconciliation or to link tasks related to the cancellation request.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? GroupCancellationIdentification { get; init; } 
     /// <summary>
     /// Uniquely and unambiguously identifies an exception or an investigation workflow.
     /// </summary>
+    [DataMember]
     public Case3? Case { get; init; } 
     /// <summary>
     /// Point to point reference, as assigned by the original instructing party, to unambiguously identify the original message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalMessageIdentification { get; init; } 
     /// <summary>
     /// Specifies the original message name identifier to which the message refers.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalMessageNameIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the original message was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OriginalCreationDateTime { get; init; } 
     /// <summary>
     /// Number of individual transactions contained in the original message.
     /// </summary>
+    [DataMember]
     public IsoMax15NumericText? NumberOfTransactions { get; init; } 
     /// <summary>
     /// Total of all individual amounts included in the message, irrespective of currencies.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? ControlSum { get; init; } 
     /// <summary>
     /// Indicates whether the cancellation request applies to a whole group of transactions or to individual transactions within an original group.
     /// </summary>
+    [DataMember]
     public IsoGroupCancellationIndicator? GroupCancellation { get; init; } 
     /// <summary>
     /// Provides detailed information on the cancellation reason.
     /// </summary>
-    public PaymentCancellationReason2[] CancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentCancellationReason2> CancellationReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

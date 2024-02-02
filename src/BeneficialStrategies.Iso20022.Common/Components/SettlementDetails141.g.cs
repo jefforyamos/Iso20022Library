@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of settlement of a transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementDetails141
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record SettlementDetails141
     /// <summary>
     /// Specifies whether the transaction is on hold/blocked/frozen.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? HoldIndicator { get; init; } 
     /// <summary>
     /// Identifies the type of securities transaction.
     /// </summary>
+    [DataMember]
     public required SecuritiesTransactionType38Choice_ SecuritiesTransactionType { get; init; } 
     /// <summary>
     /// Conditions under which the order/trade is to be settled.
     /// </summary>
-    public SettlementTransactionCondition17Choice_[] SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SettlementTransactionCondition17Choice_> SettlementTransactionCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether partial settlement is allowed.
     /// </summary>
+    [DataMember]
     public SettlementTransactionCondition5Code? PartialSettlementIndicator { get; init; } 
     /// <summary>
     /// Specifies whether there is change of beneficial ownership.
     /// </summary>
+    [DataMember]
     public BeneficialOwnership4Choice_? BeneficialOwnership { get; init; } 
     /// <summary>
     /// Specifies the category of cash clearing system, for example, cheque clearing.
     /// </summary>
+    [DataMember]
     public CashSettlementSystem4Choice_? CashClearingSystem { get; init; } 
     /// <summary>
     /// Specifies if an instruction is for a market side or a client side transaction.
     /// </summary>
+    [DataMember]
     public MarketClientSide6Choice_? MarketClientSide { get; init; } 
     /// <summary>
     /// Specifies whether registration should occur upon receipt.
     /// </summary>
+    [DataMember]
     public Registration9Choice_? Registration { get; init; } 
     /// <summary>
     /// Specifies whether the rate is fixed, variable or a forfeit.
     /// </summary>
+    [DataMember]
     public RepurchaseType13Choice_? RepurchaseType { get; init; } 
     /// <summary>
     /// Specifies whether the settlement transaction is to be settled through an RTGS or a non RTGS system.
     /// </summary>
+    [DataMember]
     public SecuritiesRTGS4Choice_? SecuritiesRTGS { get; init; } 
     /// <summary>
     /// Specifies the stamp duty type or exemption reason applicable to the settlement transaction.
     /// </summary>
+    [DataMember]
     public GenericIdentification30? StampDutyTaxBasis { get; init; } 
     
     #nullable disable

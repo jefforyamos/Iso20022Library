@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies periods.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionPeriod2
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record CorporateActionPeriod2
     /// <summary>
     /// Period during which the assented line is available.
     /// </summary>
+    [DataMember]
     public Period1? AssentedLinePeriod { get; init; } 
     /// <summary>
     /// Period during which the specified option, or all options of the event, remains valid, eg, offer period.
     /// </summary>
+    [DataMember]
     public Period1? ActionPeriod { get; init; } 
     /// <summary>
     /// Period during which the privilege is not available, eg, this can happen whenever a meeting takes place or whenever a coupon payment is due.
     /// </summary>
+    [DataMember]
     public Period1? PrivilegeSuspensionPeriod { get; init; } 
     /// <summary>
     /// Period during which both old and new equity may be traded simultaneously, eg, consolidation of equity or splitting of equity.
     /// </summary>
+    [DataMember]
     public Period1? ParallelTradingPeriod { get; init; } 
     /// <summary>
     /// Period (last day included) during which an account owner can surrender or sell securities to the issuer and receive the sale proceeds.
     /// </summary>
+    [DataMember]
     public Period1? SellThruIssuerPeriod { get; init; } 
     /// <summary>
     /// Period during which the shareholder can revoke, change or withdraw its instruction.
     /// </summary>
+    [DataMember]
     public Period1? RevocabilityPeriod { get; init; } 
     /// <summary>
     /// Period during which the price of a security is determined (for outturn securities).
     /// </summary>
+    [DataMember]
     public Period1? PriceCalculationPeriod { get; init; } 
     
     #nullable disable

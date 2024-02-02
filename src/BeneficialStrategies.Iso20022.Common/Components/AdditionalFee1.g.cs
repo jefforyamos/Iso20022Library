@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Fees not included in the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalFee1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record AdditionalFee1
     /// <summary>
     /// Type or class of fee.
     /// </summary>
+    [DataMember]
     public required TypeOfAmount10Code Type { get; init; } 
     /// <summary>
     /// Additional information to specify the type of amount of fee.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Identification of fee program.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? FeeProgram { get; init; } 
     /// <summary>
     /// Identification of specific fee.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? FeeDescriptor { get; init; } 
     /// <summary>
     /// Amount of one occurrence of the fee amount.
     /// </summary>
+    [DataMember]
     public required FeeAmount2 Amount { get; init; } 
     /// <summary>
     /// Short description of the fee amount.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Label { get; init; } 
     
     #nullable disable

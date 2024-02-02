@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(StampDutyType1FormatChoice.Code))]
 [KnownType(typeof(StampDutyType1FormatChoice.Proprietary))]
+[DataContract]
 public abstract partial record StampDutyType1FormatChoice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Acknowledgement information relative to corporate action reorganisation instructions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionAcknowledgementSD1
 {
     #nullable enable
@@ -22,66 +24,77 @@ public partial record CorporateActionAcknowledgementSD1
     /// Yes: the participant agrees.
     /// No: the participant does not agree.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? TermsAcknowledgementIndicator { get; init; } 
     /// <summary>
     /// Indicates whether condition 1 of this tender offer is being accepted.
     /// Yes: accept.
     /// No: decline.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Condition1Indicator { get; init; } 
     /// <summary>
     /// Indicates whether condition 2 of this tender offer is being accepted.
     /// Yes: accept.
     /// No: decline.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Condition2Indicator { get; init; } 
     /// <summary>
     /// Indicates whether condition 3 of this tender offer is being accepted.
     /// Yes: accept.
     /// No: decline.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Condition3Indicator { get; init; } 
     /// <summary>
     /// Indicates whether condition 4 of this tender offer is being accepted.
     /// Yes: accept.
     /// No: decline.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Condition4Indicator { get; init; } 
     /// <summary>
     /// Indicates whether condition 5 of this tender offer is being accepted.
     /// Yes: accept.
     /// No: decline.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Condition5Indicator { get; init; } 
     /// <summary>
     /// Indicates whether condition 6 of this tender offer is being accepted.
     /// Yes: accept.
     /// No: decline.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Condition6Indicator { get; init; } 
     /// <summary>
     /// Indicates whether there is an acknowledgement that the beneficial owner has been deemed incompetent. Acknowledgement is related to CD early redemption instructions.
     /// Yes: acknowledged.
     /// No: not acknowledged.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AdjudicationOfIncompetencyAcknowledgementIndicator { get; init; } 
     /// <summary>
     /// Indicates whether there is an acknowledgement that this CD Early Redemption request is an exempt request, that the identification of the beneficial owner and required legal documentation is correct and that you agree to maintain such documentation for at least 30 months following payment of the request and will make it available to the CD Issuer upon request. 
     /// Yes: acknowledged.
     /// No: not acknowledged.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? LegalDocumentationThirtyMonthsRetentionAcknowledgementIndicator { get; init; } 
     /// <summary>
     /// Indicates whether there is an acknowledgement that this CD Early Redemption instruction will automatically be deleted by the close of the fifth business day subsequent to submission if the appropriate legal documents, for example, death certificate, affidavit of domicile, are not received by DTC at that time. 
     /// Yes: acknowledged.
     /// No: not acknowledged.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? InstructionDeletionAcknowledgementIndicator { get; init; } 
     /// <summary>
     /// Indicates whether there is an acknowledgement that the warrant or conversion instruction being sent could lead to a potential loss due to pricing factors.
     /// Yes: acknowledged.
     /// No: not acknowledged.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PotentialLossAcknowledgementIndicator { get; init; } 
     
     #nullable disable

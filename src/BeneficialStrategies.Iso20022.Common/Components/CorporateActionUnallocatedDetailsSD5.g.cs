@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding the corporate action event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionUnallocatedDetailsSD5
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record CorporateActionUnallocatedDetailsSD5
     /// <summary>
     /// Type of Participants positions distribution balance concerned in unallocated payment.
     /// </summary>
+    [DataMember]
     public CorporateActionUnallocatedBalanceSD2Choice_? UnallocatedDistributionBalance { get; init; } 
     /// <summary>
     /// Type of Participants positions redemption balance concerned in unallocated payment.
     /// </summary>
+    [DataMember]
     public CorporateActionUnallocatedBalanceSD1? UnallocatedRedemptionBalance { get; init; } 
     /// <summary>
     /// Type of participants positions reorganisation balance concerned in unallocated payment.
     /// </summary>
+    [DataMember]
     public CorporateActionUnallocatedBalanceSD2? UnallocatedReorganisationBalance { get; init; } 
     /// <summary>
     /// Details of the securities transactions concerned in unallocated payment.
     /// </summary>
-    public CorporateActionUnallocatedSecuritiesTransactionDetailsSD6[] UnallocatedSecuritiesTransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CorporateActionUnallocatedSecuritiesTransactionDetailsSD6> UnallocatedSecuritiesTransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Details of the cash transactions concerned in unallocated payment.
     /// </summary>
-    public CorporateActionUnallocatedCashTransactionDetailsSD5[] UnallocatedCashTransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CorporateActionUnallocatedCashTransactionDetailsSD5> UnallocatedCashTransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

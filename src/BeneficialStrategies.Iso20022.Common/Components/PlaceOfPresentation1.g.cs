@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Location of a presentation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PlaceOfPresentation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PlaceOfPresentation1
     /// <summary>
     /// Place of the presentation.
     /// </summary>
+    [DataMember]
     public required ExternalTypeOfParty1Code Place { get; init; } 
     /// <summary>
     /// Country where a presentation is to be made.
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     
     #nullable disable

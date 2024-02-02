@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the transport authentication details related to the mandate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MandateAuthentication1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record MandateAuthentication1
     /// <summary>
     /// Specifies a piece of information used to authenticate a message, that is to confirm that the message came from the stated sender (its authenticity) and has not been changed in transit (its integrity).
     /// </summary>
+    [DataMember]
     public IsoMax16Text? MessageAuthenticationCode { get; init; } 
     /// <summary>
     /// Date when the authentication was conducted.
     /// </summary>
+    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Channel used to transmit the authentication information.
     /// </summary>
+    [DataMember]
     public AuthenticationChannel1Choice_? Channel { get; init; } 
     
     #nullable disable

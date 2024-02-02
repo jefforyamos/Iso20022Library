@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies a person via its first name and surname.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PersonName2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PersonName2
     /// <summary>
     /// First name(s) by which a natural person is known.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text Name { get; init; } 
     /// <summary>
     /// Postal address of the party.
     /// </summary>
+    [DataMember]
     public PostalAddress26? Address { get; init; } 
     
     #nullable disable

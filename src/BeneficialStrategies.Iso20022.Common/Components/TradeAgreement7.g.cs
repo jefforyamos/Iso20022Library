@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Date and identification of a trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeAgreement7
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record TradeAgreement7
     /// <summary>
     /// Date on which the trading parties agreed on the trade.
     /// </summary>
+    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Reference of the present instruction assigned by the party issuing the message. This reference must be unique amongst all messages of same type sent by the same party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginatorReference { get; init; } 
     /// <summary>
     /// Reference common to both parties of the trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CommonReference { get; init; } 
     /// <summary>
     /// Specifies the type of underlying transaction, for example cancellation (CANC).
     /// </summary>
+    [DataMember]
     public IsoMax4Text? OperationType { get; init; } 
     /// <summary>
     /// Specifies the business role between the submitter and the trade party, for example Agent (AGNT).
     /// </summary>
+    [DataMember]
     public IsoMax4Text? OperationScope { get; init; } 
     /// <summary>
     /// To indicate the requested CLS Settlement Session that the related trade is part of.
     /// </summary>
+    [DataMember]
     public IsoExact4AlphaNumericText? SettlementSessionIdentifier { get; init; } 
     
     #nullable disable

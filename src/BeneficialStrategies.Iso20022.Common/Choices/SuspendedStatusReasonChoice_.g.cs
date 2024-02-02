@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SuspendedStatusReasonChoice.Reason))]
 [KnownType(typeof(SuspendedStatusReasonChoice.Proprietary))]
 [KnownType(typeof(SuspendedStatusReasonChoice.NoSpecifiedReason))]
+[DataContract]
 public abstract partial record SuspendedStatusReasonChoice_
 {
 }

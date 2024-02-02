@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Rate name specifies the reference rate or basis rate on which a variable rate is based (ex: EONIA, EURIBOR, LIBOR, FEFUND, EURREPO).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RateName2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RateName2
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax8Text? Issuer { get; init; } 
     /// <summary>
     /// Rate Name specifies the reference rate or basis rate on which a variable rate is based (ex: EONIA, EURIBOR, LIBOR, FEFUND, EURREPO).
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax24Text RateName { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reference and status information concerning the original transactions, included in the original instruction, to which the return message applies.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTransactionInformation2
 {
     #nullable enable
@@ -20,70 +22,87 @@ public partial record PaymentTransactionInformation2
     /// <summary>
     /// Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the returned transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReturnIdentification { get; init; } 
     /// <summary>
     /// Information concerning the original group of transactions, to which the message refers.
     /// </summary>
+    [DataMember]
     public OriginalGroupInformation3? OriginalGroupInformation { get; init; } 
     /// <summary>
     /// Original unique instruction identification as assigned by an instructing party for an instructed party to unambiguously identify the original instruction.||Usage: the original instruction identification is the original point to point reference used between the instructing party and the instructed party to refer to the original instruction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalInstructionIdentification { get; init; } 
     /// <summary>
     /// Original unique identification assigned by the initiating party to unambiguously identify the original transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalEndToEndIdentification { get; init; } 
     /// <summary>
     /// Original identification of a transaction, as assigned by the first instructing agent and passed on, unchanged, throughout the entire interbank chain.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalTransactionIdentification { get; init; } 
     /// <summary>
     /// Original amount of money as moved between the instructing agent and the instructed agent in the original transaction.
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Returned amount of money moved between the instructing agent and the instructed agent in the return transaction.
     /// </summary>
+    [DataMember]
     public required IsoCurrencyAndAmount ReturnedInterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.||Usage: the InterbankSettlementDate is the interbank settlement date of the return message, and not of the original instruction.
     /// </summary>
+    [DataMember]
     public IsoISODate? InterbankSettlementDate { get; init; } 
     /// <summary>
     /// Amount of money to be moved between the debtor and the creditor, before deduction of charges, in the returned transaction.
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? ReturnedInstructedAmount { get; init; } 
     /// <summary>
     /// The factor used for conversion of an amount from one currency into another. This reflects the price at which one currency was bought with another currency.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? ExchangeRate { get; init; } 
     /// <summary>
     /// Amount of money asked or paid as compensation for the processing of the instruction.
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? CompensationAmount { get; init; } 
     /// <summary>
     /// Specifies which party/parties will bear the charges associated with the processing of the payment transaction.||Usage: The ChargeBearer applies to the return message, not to the original instruction.
     /// </summary>
+    [DataMember]
     public ChargeBearerType1Code? ChargeBearer { get; init; } 
     /// <summary>
     /// Transaction charges to be paid by the charge bearer for the return transaction.
     /// </summary>
-    public ChargesInformation1[] ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ChargesInformation1> ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Agent that instructs the next party in the chain to carry out the (set of) instruction(s).
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? InstructingAgent { get; init; } 
     /// <summary>
     /// Agent that is instructed by the previous party in the chain to carry out the (set of) instruction(s).
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? InstructedAgent { get; init; } 
     /// <summary>
     /// Detailed information on the return reason.
     /// </summary>
-    public ReturnReasonInformation1[] ReturnReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReturnReasonInformation1> ReturnReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of key elements of the original transaction being referred to.
     /// </summary>
+    [DataMember]
     public OriginalTransactionReference1? OriginalTransactionReference { get; init; } 
     
     #nullable disable

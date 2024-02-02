@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Report of the breakdown of the components for the capital requirement for central counterparty.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CapitalRequirement1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record CapitalRequirement1
     /// <summary>
     /// Indicates the capital necessary to cover the winding down or restructuring of activities.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount WindingDownOrRestructuringRisk { get; init; } 
     /// <summary>
     /// Indicates the capital necessary to cover the overall operational and legal risks.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount OperationalAndLegalRisk { get; init; } 
     /// <summary>
     /// Indicates the capital necessary to cover credit risks not already covered by other financial resources, such as risks stemming from clearing activity.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount CreditRisk { get; init; } 
     /// <summary>
     /// Indicates the capital necessary to cover counterparty credit risks not already covered by other financial resources, such as risks stemming from clearing activity.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount CounterPartyRisk { get; init; } 
     /// <summary>
     /// Indicates the capital necessary to cover counterparty market risks not already covered by other financial resources, such as risks stemming from clearing activity.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount MarketRisk { get; init; } 
     /// <summary>
     /// Indicates the capital necessary to cover business risk.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount BusinessRisk { get; init; } 
     /// <summary>
     /// Indicates the percentage above 100 percent of the CCP’s required capital requiring notification to the CCP’s National Competent Authority threshold.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? NotificationBuffer { get; init; } 
     
     #nullable disable

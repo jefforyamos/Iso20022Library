@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements providing information specific to the individual transaction(s) included in the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionAgents1
 {
     #nullable enable
@@ -20,43 +22,53 @@ public partial record TransactionAgents1
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? DebtorAgent { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? CreditorAgent { get; init; } 
     /// <summary>
     /// Agent between the debtor agent and creditor agent.||Usage: If more than one intermediary agent is present, then IntermediaryAgent1 identifies the agent between the debtor agent and the intermediary agent 2.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? IntermediaryAgent1 { get; init; } 
     /// <summary>
     /// Agent between the debtor agent and creditor agent.||Usage: If more than two intermediary agents are present, then IntermediaryAgent2 identifies the agent between the intermediary agent 1 and the intermediary agent 3.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? IntermediaryAgent2 { get; init; } 
     /// <summary>
     /// Agent between the debtor agent and creditor agent.||Usage: If IntermediaryAgent3 is present, then it identifies the agent between the intermediary agent 2 and the creditor agent.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? IntermediaryAgent3 { get; init; } 
     /// <summary>
     /// Party that receives securities from the delivering agent at the place of settlement, eg, central securities depository.|Can also be used in the context of treasury operations.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? ReceivingAgent { get; init; } 
     /// <summary>
     /// Party that delivers securities to the receiving agent at the place of settlement, eg, central securities depository.|Can also be used in the context of treasury operations.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? DeliveringAgent { get; init; } 
     /// <summary>
     /// Legal entity that has the right to issue securities.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? IssuingAgent { get; init; } 
     /// <summary>
     /// Place where settlement of the securities takes place.||Note: this is typed by a financial institution identification - as this is the standard way of identifying eg securities settlement agent/central system.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? SettlementPlace { get; init; } 
     /// <summary>
     /// Proprietary agent related to the underlying transaction.
     /// </summary>
-    public ProprietaryAgent1[] Proprietary { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProprietaryAgent1> Proprietary { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

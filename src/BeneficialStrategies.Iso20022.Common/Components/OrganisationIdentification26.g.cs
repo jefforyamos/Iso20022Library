@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique and unambiguous way to identify an organisation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OrganisationIdentification26
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record OrganisationIdentification26
     /// <summary>
     /// Code allocated to an institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? AnyBIC { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the reason for rejecting a RequestToCancelPayment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RejectedCancellationJustification
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RejectedCancellationJustification
     /// <summary>
     /// Justification for the rejection of the cancellation.
     /// </summary>
+    [DataMember]
     public required PaymentCancellationRejection1Code ReasonCode { get; init; } 
     /// <summary>
     /// Free text justification for rejecting a cancellation.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Reason { get; init; } 
     
     #nullable disable

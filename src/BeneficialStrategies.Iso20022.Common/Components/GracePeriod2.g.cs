@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Grace period applicable to an instalment plan.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GracePeriod2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record GracePeriod2
     /// <summary>
     /// Grace period time relative to the grace period unit type. 
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? Time { get; init; } 
     /// <summary>
     /// Grace period unit type.
     /// </summary>
+    [DataMember]
     public GracePeriodUnitType1Code? UnitType { get; init; } 
     /// <summary>
     /// Grace period other unit type.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherUnitType { get; init; } 
     /// <summary>
     /// Indicates a customer selected grace period
     /// </summary>
+    [DataMember]
     public Isoboolean? CustomerSelectedGracePeriod { get; init; } 
     
     #nullable disable

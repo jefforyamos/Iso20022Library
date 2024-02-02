@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for a commodity asset class.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareCommodityAssetClass3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareCommodityAssetClass3
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public AssetClassCommodity5Choice_? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public AssetClassCommodity5Choice_? Value2 { get; init; } 
     
     #nullable disable

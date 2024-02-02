@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action option securities movement price details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionPriceSD1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionPriceSD1
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Corresponding cash in lieu price as declared on the market by issuer/ offeror.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? DeclaredCashInLieuPrice { get; init; } 
     
     #nullable disable

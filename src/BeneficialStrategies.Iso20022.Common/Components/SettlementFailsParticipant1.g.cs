@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details on the settlement fails per participant.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementFailsParticipant1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SettlementFailsParticipant1
     /// <summary>
     /// Legal entity identification of the participant in the securities settlement system.
     /// </summary>
+    [DataMember]
     public required IsoLEIIdentifier LEI { get; init; } 
     /// <summary>
     /// Ranking of the top participants with the highest rate of settlement fails.
     /// </summary>
+    [DataMember]
     public required IsoMax2NumericText Rank { get; init; } 
     /// <summary>
     /// Aggregated data of the settlement instructions.
     /// </summary>
+    [DataMember]
     public required SettlementTotalData1 Aggregate { get; init; } 
     
     #nullable disable

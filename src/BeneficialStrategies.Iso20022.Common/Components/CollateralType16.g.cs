@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information for the first side of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralType16
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record CollateralType16
     /// <summary>
     /// Data specific to securities and related fields used as a collateral.
     /// </summary>
-    public Security14[] Security { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Security14> Security { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of funds provided as collateral for borrowing the securities or commodities.
     /// </summary>
-    public AmountHaircutMargin1[] Cash { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AmountHaircutMargin1> Cash { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data specific to commodities and related fields used as a collateral.
     /// </summary>
-    public Commodity20[] Commodity { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Commodity20> Commodity { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

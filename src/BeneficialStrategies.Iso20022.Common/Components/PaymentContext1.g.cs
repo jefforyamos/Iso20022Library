@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment context in which the transaction is performed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentContext1
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record PaymentContext1
     /// <summary>
     /// Indicates whether the transaction has been initiated by a card physically present or not.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CardPresent { get; init; } 
     /// <summary>
     /// Indicates whether the transaction has been initiated in presence of the cardholder or not.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CardholderPresent { get; init; } 
     /// <summary>
     /// On-line or off-line context of the transaction.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? OnLineContext { get; init; } 
     /// <summary>
     /// Human attendance at the POI location during the transaction.
     /// </summary>
+    [DataMember]
     public AttendanceContext1Code? AttendanceContext { get; init; } 
     /// <summary>
     /// Indicates the environment of the transaction.
     /// </summary>
+    [DataMember]
     public TransactionEnvironment1Code? TransactionEnvironment { get; init; } 
     /// <summary>
     /// Identifies the type of the communication channels used by the cardholder to the acceptor system.
     /// </summary>
+    [DataMember]
     public TransactionChannel1Code? TransactionChannel { get; init; } 
     /// <summary>
     /// Indicates whether a message can be sent or not on an attendant display (attendant display present or not).
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? AttendantMessageCapable { get; init; } 
     /// <summary>
     /// Language used to display messages to the attendant.
     /// </summary>
+    [DataMember]
     public ISO2ALanguageCode? AttendantLanguage { get; init; } 
     /// <summary>
     /// Entry mode of the card data.
     /// </summary>
+    [DataMember]
     public required CardDataReading1Code CardDataEntryMode { get; init; } 
     /// <summary>
     /// Indicator of a card entry mode fallback.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? FallbackIndicator { get; init; } 
     
     #nullable disable

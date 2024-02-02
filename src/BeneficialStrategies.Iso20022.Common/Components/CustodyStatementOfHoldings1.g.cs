@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a custody statement of holdings.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CustodyStatementOfHoldings1
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record CustodyStatementOfHoldings1
     /// <summary>
     /// Pagination of the message.
     /// </summary>
+    [DataMember]
     public required Pagination MessagePagination { get; init; } 
     /// <summary>
     /// General information related to the custody statement of holdings that is being cancelled.
     /// </summary>
+    [DataMember]
     public Statement3? StatementGeneralDetails { get; init; } 
     /// <summary>
     /// Safekeeping or investment account of the statement that is being cancelled.
     /// </summary>
+    [DataMember]
     public SafekeepingAccount1? AccountDetails { get; init; } 
     /// <summary>
     /// Net position of a segregated holding, in a single security, within the overall position held in a securities account.
     /// </summary>
-    public AggregateBalanceInformation1[] BalanceForAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AggregateBalanceInformation1> BalanceForAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Sub-account of the safekeeping or investment account.
     /// </summary>
-    public SubAccountIdentification1[] SubAccountDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SubAccountIdentification1> SubAccountDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Value of total holdings reported.
     /// </summary>
+    [DataMember]
     public TotalValueInPageAndStatement? TotalValues { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Extension1> Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details about the margin requirements for the variation margin and optionally the segregated independent amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Requirement1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Requirement1
     /// <summary>
     /// Provides details about the margin requirements for the variation margin.
     /// </summary>
+    [DataMember]
     public required MarginRequirement1 VariationMarginRequirement { get; init; } 
     /// <summary>
     /// Provides details about the margin requirements for the segregated independent amount.
     /// </summary>
+    [DataMember]
     public MarginRequirement1? SegregatedIndependentAmountRequirement { get; init; } 
     
     #nullable disable

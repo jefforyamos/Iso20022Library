@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details of the number of transactions and the control sum of the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ControlData1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ControlData1
     /// <summary>
     /// Number of individual transactions contained in the message.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText NumberOfTransactions { get; init; } 
     /// <summary>
     /// Total of all individual amounts included in the message, irrespective of currencies.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? ControlSum { get; init; } 
     
     #nullable disable

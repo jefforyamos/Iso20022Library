@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(Frequency36Choice.Type))]
 [KnownType(typeof(Frequency36Choice.Period))]
 [KnownType(typeof(Frequency36Choice.PointInTime))]
+[DataContract]
 public abstract partial record Frequency36Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a linked corporate action event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionEventReference4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionEventReference4
     /// <summary>
     /// Identification of the linked corporate action event.
     /// </summary>
+    [DataMember]
     public required CorporateActionEventReference4Choice_ EventIdentification { get; init; } 
     /// <summary>
     /// Specifies when this corporate action event is to be processed relative to a linked corporate action event.
     /// </summary>
+    [DataMember]
     public ProcessingPosition10Choice_? LinkageType { get; init; } 
     
     #nullable disable

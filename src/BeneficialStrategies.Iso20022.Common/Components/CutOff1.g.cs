@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information that describes a netting cut off held at a central system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CutOff1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CutOff1
     /// <summary>
     /// Identification for the updated netting cut off.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text CutOffUpdateIdentification { get; init; } 
     /// <summary>
     /// Currency linked to the netting cut off.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Cut off time value for the netting cut off.
     /// </summary>
+    [DataMember]
     public required IsoISOTime CutOffTime { get; init; } 
     /// <summary>
     /// Specifies the offset in business days from the value date from which the netting cut off is to be applied.
     /// </summary>
+    [DataMember]
     public required IsoDateOffsetText ValueDateOffset { get; init; } 
     
     #nullable disable

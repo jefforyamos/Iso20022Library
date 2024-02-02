@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Price and an indication of whether it is a increase or a decrease.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PriceAndDirection1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PriceAndDirection1
     /// <summary>
     /// Currency and value.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAnd13DecimalAmount Value { get; init; } 
     /// <summary>
     /// Indicates that the value is positive or negative.
     /// </summary>
+    [DataMember]
     public IsoPlusOrMinusIndicator? Sign { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed information about the safekeeping account, its holdings and the sublevel accounts.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SafekeepingAccount11
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record SafekeepingAccount11
     /// <summary>
     /// Account where financial instruments are maintained. Account held by the responding intermediary with its account servicer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text SafekeepingAccount { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is, manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [DataMember]
     public required PartyIdentification195Choice_ AccountServicer { get; init; } 
     /// <summary>
     /// Number of shares held by the responding intermediary on its own account.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity18Choice_ ShareholdingBalanceOnOwnAccount { get; init; } 
     /// <summary>
     /// Number of shares held by the responding intermediary on account of someone else.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity18Choice_ ShareholdingBalanceOnClientAccount { get; init; } 
     /// <summary>
     /// Total number of shares held by the responding intermediary.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity18Choice_ TotalShareholdingBalance { get; init; } 
     /// <summary>
     /// Shareholdings information at account sub level.
     /// </summary>
+    [DataMember]
     public AccountSubLevel22? AccountSubLevel { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status of a transfer cancellation instruction and reason for the status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CancellationStatusAndReason5
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CancellationStatusAndReason5
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the transfer, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public AdditionalReference10? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Status of the transfer cancellation.
     /// </summary>
+    [DataMember]
     public required Status31Choice_ Status { get; init; } 
     /// <summary>
     /// Party that initiates the status.
     /// </summary>
+    [DataMember]
     public PartyIdentification139? StatusInitiator { get; init; } 
     
     #nullable disable

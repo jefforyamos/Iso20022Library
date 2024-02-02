@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides for reporting details of non-equity instruments as part of transparency calculations.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransparencyDataReport10
 {
     #nullable enable
@@ -22,50 +24,62 @@ public partial record TransparencyDataReport10
     /// Usage:
     /// This identification will be used in the status advice report sent back.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
+    [DataMember]
     public required IsoISINOct2015Identifier Identification { get; init; } 
     /// <summary>
     /// Full name or description of the financial instrument.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? FullName { get; init; } 
     /// <summary>
     /// Segment MIC for the trading venue where applicable, otherwise the operational MIC.
     /// </summary>
+    [DataMember]
     public IsoMICIdentifier? TradingVenue { get; init; } 
     /// <summary>
     /// Date this information is reported in relation to.
     /// </summary>
+    [DataMember]
     public IsoISODate? ReportingDate { get; init; } 
     /// <summary>
     /// Maturity date of the financial instrument. Field applicable for the asset classes of bonds, interest rate derivatives, equity derivatives, commodity derivatives, foreign exchange derivatives, credit derivatives, C10 derivatives and derivatives on emission allowances.
     /// </summary>
+    [DataMember]
     public IsoISODate? MaturityDate { get; init; } 
     /// <summary>
     /// Identification of non-equity financial instruments.
     /// </summary>
+    [DataMember]
     public required NonEquityInstrumentReportingClassification1Code FinancialInstrumentClassification { get; init; } 
     /// <summary>
     /// Details on the type of asset class a non-equity financial instrument can be classified as.
     /// </summary>
+    [DataMember]
     public ProductType5Code? UnderlyingInstrumentAssetClass { get; init; } 
     /// <summary>
     /// Details on the contract type a derivative non-equity financial instrument can be classified as.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentContractType1Code? DerivativeContractType { get; init; } 
     /// <summary>
     /// Details specific to a bond / debt instrument.
     /// </summary>
+    [DataMember]
     public DebtInstrument5? Bond { get; init; } 
     /// <summary>
     /// Details the reporting of the emission allowance sub type.
     /// </summary>
+    [DataMember]
     public EmissionAllowanceProductType2Code? EmissionAllowanceType { get; init; } 
     /// <summary>
     /// Derivative specific details.
     /// </summary>
+    [DataMember]
     public Derivative2Choice_? Derivative { get; init; } 
     
     #nullable disable

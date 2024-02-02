@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(SortCriteria1Choice.Predefined))]
 [KnownType(typeof(SortCriteria1Choice.UserDefined))]
+[DataContract]
 public abstract partial record SortCriteria1Choice_
 {
 }

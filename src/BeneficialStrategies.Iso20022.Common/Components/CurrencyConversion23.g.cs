@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Conversion between the currency of a card acceptor and the currency of a card issuer, provided by a dedicated service provider. The currency conversion has to be accepted by the cardholder.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyConversion23
 {
     #nullable enable
@@ -20,51 +22,63 @@ public partial record CurrencyConversion23
     /// <summary>
     /// Identification of the currency conversion operation for the service provider.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CurrencyConversionIdentification { get; init; } 
     /// <summary>
     /// Currency into which the amount is converted (ISO 4217, 3 alphanumeric characters).
     /// </summary>
+    [DataMember]
     public required CurrencyDetails3 TargetCurrency { get; init; } 
     /// <summary>
     /// Amount converted in the target currency, including additional charges.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount ResultingAmount { get; init; } 
     /// <summary>
     /// Exchange rate, expressed as a percentage, applied to convert the original amount into the resulting amount.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate ExchangeRate { get; init; } 
     /// <summary>
     /// Exchange rate, expressed as a percentage, applied to convert the resulting amount into the original amount.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? InvertedExchangeRate { get; init; } 
     /// <summary>
     /// Date and time at which the exchange rate has been quoted.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? QuotationDate { get; init; } 
     /// <summary>
     /// Validity limit of the exchange rate.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ValidUntil { get; init; } 
     /// <summary>
     /// Currency from which the amount is converted (ISO 4217, 3 alphanumeric characters).
     /// </summary>
+    [DataMember]
     public required CurrencyDetails2 SourceCurrency { get; init; } 
     /// <summary>
     /// Original amount in the source currency.
     /// </summary>
+    [DataMember]
     public required OriginalAmountDetails1 OriginalAmount { get; init; } 
     /// <summary>
     /// Commission or additional charges made as part of a currency conversion.
     /// </summary>
-    public Commission19[] CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Commission19> CommissionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Markup made as part of a currency conversion.
     /// </summary>
-    public Commission18[] MarkUpDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Commission18> MarkUpDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Card scheme declaration (disclaimer) to present to the cardholder.
     /// </summary>
-    public ActionMessage9[] DeclarationDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ActionMessage9> DeclarationDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of market in which a trade transaction has been executed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PlaceOfTradeIdentification2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PlaceOfTradeIdentification2
     /// <summary>
     /// Identification and type of the place of trade.
     /// </summary>
+    [DataMember]
     public MarketIdentification90? MarketTypeAndIdentification { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a place of trade.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     
     #nullable disable

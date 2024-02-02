@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the identification of the tax category.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxCategory1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TaxCategory1
     /// <summary>
     /// Tax category identification.
     /// </summary>
+    [DataMember]
     public IsoMax2NumericText? Identification { get; init; } 
     /// <summary>
     /// Description of the tax category.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Description { get; init; } 
     /// <summary>
     /// Identification of the country in which the tax is withheld.
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     
     #nullable disable

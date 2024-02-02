@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(RepurchaseType2Choice.Code))]
 [KnownType(typeof(RepurchaseType2Choice.Proprietary))]
+[DataContract]
 public abstract partial record RepurchaseType2Choice_
 {
 }

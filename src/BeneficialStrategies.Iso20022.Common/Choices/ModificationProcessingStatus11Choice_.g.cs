@@ -16,6 +16,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ModificationProcessingStatus11Choice.Repaired))]
 [KnownType(typeof(ModificationProcessingStatus11Choice.Modified))]
 [KnownType(typeof(ModificationProcessingStatus11Choice.Proprietary))]
+[DataContract]
 public abstract partial record ModificationProcessingStatus11Choice_
 {
 }

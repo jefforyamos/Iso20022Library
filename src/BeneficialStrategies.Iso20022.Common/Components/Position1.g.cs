@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Attributes of a position in a financial instrument or financial product.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Position1
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record Position1
     /// <summary>
     /// CCP’s unique internal identifier for product.
     /// </summary>
+    [DataMember]
     public required IsoMax256Text ProductIdentification { get; init; } 
     /// <summary>
     /// Obligations of a clearing member with respect to a central counterparty based on the position at end of day.
     /// </summary>
+    [DataMember]
     public EndOfDayRequirement1? RiskRequirement { get; init; } 
     /// <summary>
     /// Gross notional of positions of the product without netting of long/short positions, or delta equivalent notional for options.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAnd24Amount GrossNotional { get; init; } 
     /// <summary>
     /// Net notional of positions of the product with netting between long and short positions, or delta equivalent notional for options. Indicates whether net long position is positive.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection102 NetNotional { get; init; } 
     /// <summary>
     /// Change in value of position for a unit change in the index. Usage: for interest rate swaps the PV01 of the gross position, for credit default swaps the DV01 of the gross position, for index products with a fixed value per unit move, the total weighted value of a one unit move in the index for the gross contracts in the position, weighted by the delta of the contracts in the position.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? GrossDeltaEquivalentValue { get; init; } 
     /// <summary>
     /// Change in value of position for a unit change in the index. Usage: for interest rate swaps the PV01 of the net position, for credit default swaps the DV01 of the net position, for index products with a fixed value per unit move, the total weighted value of a one unit move in the index for the net contracts in the position, weighted by the delta of the contracts in the position. Indicates whether net long position is positive.
     /// </summary>
+    [DataMember]
     public AmountAndDirection102? NetDeltaEquivalentValue { get; init; } 
     /// <summary>
     /// Gross weighted quantity of the lots in the position weighted by the delta of the contracts in the position.
     /// </summary>
+    [DataMember]
     public IsoNonNegativeFraction5DecimalNumber? GrossDeltaEquivalentQuantity { get; init; } 
     /// <summary>
     /// Net weighted quantity of the lots in the position weighted by the delta of the contracts in the position.
     /// </summary>
+    [DataMember]
     public IsoFraction5DecimalNumber? NetDeltaEquivalentQuantity { get; init; } 
     /// <summary>
     /// Gross market value of the positions of the product without netting of long/short positions.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount GrossMarketValue { get; init; } 
     
     #nullable disable

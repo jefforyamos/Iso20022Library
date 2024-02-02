@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the business status of a cancellation request message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CancellationStatusInformation1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record CancellationStatusInformation1
     /// <summary>
     /// Information on the business status of the cancellation.
     /// </summary>
+    [DataMember]
     public required CancellationStatus4Code Status { get; init; } 
     /// <summary>
     /// The reason for the cancellation status.
     /// </summary>
+    [DataMember]
     public StatusReason4Choice_? StatusReason { get; init; } 
     /// <summary>
     /// Further details on the cancellation status reason.
     /// </summary>
-    public IsoMax105Text[] AdditionalStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax105Text> AdditionalStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

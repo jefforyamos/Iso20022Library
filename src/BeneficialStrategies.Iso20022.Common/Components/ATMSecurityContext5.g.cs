@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to security commands.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMSecurityContext5
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ATMSecurityContext5
     /// <summary>
     /// Key exchange security scheme in activation on the ATM for the host manager.
     /// </summary>
+    [DataMember]
     public required ATMSecurityScheme3Code CurrentSecurityScheme { get; init; } 
     /// <summary>
     /// Key exchange security schemes implemented in the hardware security module of the ATM.
     /// </summary>
-    public ATMSecurityScheme4Code[] SecuritySchemeCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMSecurityScheme4Code> SecuritySchemeCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Hardware security module of the ATM.
     /// </summary>
+    [DataMember]
     public required ATMSecurityDevice2 SecurityDevice { get; init; } 
     /// <summary>
     /// Cryptographic keys stored in the hardware security module of the ATM.
     /// </summary>
-    public CryptographicKey11[] Key { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CryptographicKey11> Key { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Random value from the host provided during a previous exchange.
     /// </summary>
+    [DataMember]
     public IsoMax140Binary? HostChallenge { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money expressed with a currency code and a debit/credit indicator.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountAndDirection54
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record AmountAndDirection54
     /// <summary>
     /// Amount of money that results in an increase (positively signed) or decrease (negatively signed), with specification of the currency.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAnd20Amount Amount { get; init; } 
     /// <summary>
     /// Indicates that the amount value is positive or negative.
     /// Usage: When absent, the amount is positive.
     /// </summary>
+    [DataMember]
     public IsoPlusOrMinusIndicator? Sign { get; init; } 
     
     #nullable disable

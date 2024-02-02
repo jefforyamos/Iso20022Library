@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Trading venue related fields.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradingVenueIdentification2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TradingVenueIdentification2
     /// <summary>
     /// Identification field of the submitting entity.
     /// </summary>
+    [DataMember]
     public required IsoMax50Text Identification { get; init; } 
     /// <summary>
     /// Code list of venues to populate free form text identification.
     /// </summary>
+    [DataMember]
     public required TradingVenue2Code Type { get; init; } 
     
     #nullable disable

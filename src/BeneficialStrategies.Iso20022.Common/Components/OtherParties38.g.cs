@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Other business parties relevant to the transaction/Instruction
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherParties38
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record OtherParties38
     /// <summary>
     /// Issuer of the financial instrument.
     /// </summary>
+    [DataMember]
     public PartyIdentification136? Issuer { get; init; } 
     /// <summary>
     /// Instructing party, either an individual or organisation, whose assets are being invested.
     /// </summary>
-    public PartyIdentification149[] Investor { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyIdentification149> Investor { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

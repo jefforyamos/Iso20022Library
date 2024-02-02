@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cryptographic algorithm and parameters for the protection of the transported key.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AlgorithmIdentification13
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AlgorithmIdentification13
     /// <summary>
     /// Identification of the algorithm.
     /// </summary>
+    [DataMember]
     public required Algorithm13Code Algorithm { get; init; } 
     /// <summary>
     /// Parameters associated to the encryption algorithm.
     /// </summary>
+    [DataMember]
     public Parameter6? Parameter { get; init; } 
     
     #nullable disable

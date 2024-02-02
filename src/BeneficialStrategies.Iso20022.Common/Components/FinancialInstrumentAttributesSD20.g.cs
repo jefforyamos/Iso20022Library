@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding underlying security details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentAttributesSD20
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FinancialInstrumentAttributesSD20
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Indicates that the underlying security is a money market instrument.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? MoneyMarketInstrumentFlag { get; init; } 
     
     #nullable disable

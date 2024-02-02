@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of search criteria for querying securities account reference data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesAccountSearchCriteria2
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record SecuritiesAccountSearchCriteria2
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountIdentification { get; init; } 
     /// <summary>
     /// Party that services the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification136? AccountServicer { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification8? AccountOwner { get; init; } 
     /// <summary>
     /// Specifies the type of the party for which securities account data have been queried.
     /// </summary>
+    [DataMember]
     public SystemPartyType1Choice_? PartyType { get; init; } 
     /// <summary>
     /// Legal opening date for the securities account.
     /// </summary>
+    [DataMember]
     public DatePeriodSearch1Choice_? OpeningDate { get; init; } 
     /// <summary>
     /// Legal closing date for the securities account.
     /// </summary>
+    [DataMember]
     public DatePeriodSearch1Choice_? ClosingDate { get; init; } 
     /// <summary>
     /// Specifies the type of securities account.
     /// </summary>
+    [DataMember]
     public SystemSecuritiesAccountType1Choice_? AccountType { get; init; } 
     /// <summary>
     /// Specifies information to identify securities accounts where allocation instructions are posted.
     /// </summary>
+    [DataMember]
     public IsoExact4AlphaNumericText? EndInvestorFlag { get; init; } 
     /// <summary>
     /// Defines how the price is applied to the securities account.
     /// </summary>
+    [DataMember]
     public IsoExact4AlphaNumericText? PricingScheme { get; init; } 
     
     #nullable disable

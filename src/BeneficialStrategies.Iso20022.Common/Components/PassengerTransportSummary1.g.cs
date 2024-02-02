@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Passenger ticket summary information for the cardholder. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PassengerTransportSummary1
 {
     #nullable enable
@@ -20,58 +22,72 @@ public partial record PassengerTransportSummary1
     /// <summary>
     /// Unique identification number of the document.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DocumentNumber { get; init; } 
     /// <summary>
     /// Reservation number or identifier. 
     /// </summary>
+    [DataMember]
     public ReservationDetails3? Reservation { get; init; } 
     /// <summary>
     /// Contains a code provided to a travel agent by a company to authorise ticket issuance. 
     /// </summary>
+    [DataMember]
     public IsoMax70Text? TravelAuthorisationCode { get; init; } 
     /// <summary>
     /// Name of the issuing ticket agent. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TicketIssuer { get; init; } 
     /// <summary>
     /// Indicates whether or not the ticket is open or restricted.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? OpenTicketIndicator { get; init; } 
     /// <summary>
     /// Contains Customer Reference Values provided for this transaction and used for various reference processing at the customer site. These values represent information most prevalently provided by travel agencies for transactions booked against a lodged account or central travel account.
     /// </summary>
-    public CustomerReference1[] CustomerReference { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CustomerReference1> CustomerReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains the details of the passenger.
     /// </summary>
-    public Customer5[] Passenger { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Customer5> Passenger { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains departure location, date and time. 
     /// </summary>
+    [DataMember]
     public DepartureOrArrival1? Departure { get; init; } 
     /// <summary>
     /// Duration of the trip in days.
     /// </summary>
+    [DataMember]
     public IsoMax4NumericText? Duration { get; init; } 
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
     /// <summary>
     /// Total amount.
     /// </summary>
+    [DataMember]
     public AmountDetails1? TotalAmount { get; init; } 
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     /// <summary>
     /// Loyalty programme details. 
     /// </summary>
+    [DataMember]
     public LoyaltyProgramme2? LoyaltyProgramme { get; init; } 
     /// <summary>
     /// Additional user-defined data pertaining to the transportation.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable

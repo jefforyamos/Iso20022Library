@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reports to a corporate on the actual set-up of the account, related services and mandates.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountReport23
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record AccountReport23
     /// <summary>
     /// Characteristics of the account.
     /// </summary>
+    [DataMember]
     public required CustomerAccount5 Account { get; init; } 
     /// <summary>
     /// Account contract established between the organisation or the group to which the organisation belongs, and the account servicer. This contract has to be applied for the new account to be opened and maintained.
     /// </summary>
+    [DataMember]
     public ContractDocument1? UnderlyingMasterAgreement { get; init; } 
     /// <summary>
     /// Specifies target and actual dates.
     /// </summary>
+    [DataMember]
     public AccountContract3? ContractDates { get; init; } 
     /// <summary>
     /// Information specifying the account mandate.
     /// </summary>
-    public OperationMandate4[] Mandate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OperationMandate4> Mandate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Definition of a group of parties.
     /// </summary>
-    public Group4[] Group { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Group4> Group { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identification of the account used as a reference for the opening of another account.
     /// </summary>
+    [DataMember]
     public CashAccount38? ReferenceAccount { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the account where to transfer the balance.
     /// </summary>
+    [DataMember]
     public AccountForAction1? BalanceTransferAccount { get; init; } 
     /// <summary>
     /// Identification of the transfer account servicer.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? TransferAccountServicerIdentification { get; init; } 
     
     #nullable disable

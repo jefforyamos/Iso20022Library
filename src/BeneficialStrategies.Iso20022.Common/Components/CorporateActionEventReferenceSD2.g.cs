@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding linkage details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionEventReferenceSD2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CorporateActionEventReferenceSD2
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Indicates the reason why two or more events are related.
     /// </summary>
+    [DataMember]
     public required DTCCLinkType1Code LinkageType { get; init; } 
     /// <summary>
     /// Events can be linked together. This date represents the date on which the link was established.
     /// </summary>
+    [DataMember]
     public required IsoISODate LinkAddedDate { get; init; } 
     /// <summary>
     /// Events can be linked together. This date represents the date on which the link was modified.
     /// </summary>
+    [DataMember]
     public IsoISODate? LinkModifiedDate { get; init; } 
     
     #nullable disable

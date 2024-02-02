@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(AccountParties8Choice.Trustee))]
 [KnownType(typeof(AccountParties8Choice.Nominee))]
 [KnownType(typeof(AccountParties8Choice.JointOwner))]
+[DataContract]
 public abstract partial record AccountParties8Choice_
 {
 }

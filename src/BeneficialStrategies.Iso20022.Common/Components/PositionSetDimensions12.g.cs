@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Variables related to derivatives that are used to group derivatives together into positions for position sets.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PositionSetDimensions12
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PositionSetDimensions12
     /// <summary>
     /// Information describing the reporting counterparty.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification15Choice_? ReportingCounterparty { get; init; } 
     /// <summary>
     /// Provides the details of the collateral used in the transaction.
     /// </summary>
+    [DataMember]
     public CollateralData33? CollateralData { get; init; } 
     /// <summary>
     /// Flag to identify whether the reported Securities Financing Transaction position contains abnormal values.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? OutliersIncluded { get; init; } 
     
     #nullable disable

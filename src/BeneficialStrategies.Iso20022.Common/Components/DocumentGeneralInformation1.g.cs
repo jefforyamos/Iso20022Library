@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// General information that unambiguously identifies a document, such as identification number and issue date time.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentGeneralInformation1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record DocumentGeneralInformation1
     /// <summary>
     /// Specifies the type of the document, for example commercial invoice.
     /// </summary>
+    [DataMember]
     public required DocumentType4Code DocumentType { get; init; } 
     /// <summary>
     /// Unique identifier of the document.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text DocumentNumber { get; init; } 
     /// <summary>
     /// Specifies the identification sequence number for a specific couple sender/receiver.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? SenderReceiverSequenceIdentification { get; init; } 
     /// <summary>
     /// Issue date of the document.
     /// </summary>
+    [DataMember]
     public required IsoISODate IssueDate { get; init; } 
     /// <summary>
     /// URL (Uniform Resource Locator) related to the document.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? URL { get; init; } 
     
     #nullable disable

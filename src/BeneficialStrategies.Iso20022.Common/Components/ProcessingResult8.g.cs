@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Outcome of the processing of the authorisation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProcessingResult8
 {
     #nullable enable
@@ -20,12 +22,14 @@ public partial record ProcessingResult8
     /// <summary>
     /// Result of the processing.
     /// </summary>
+    [DataMember]
     public ResultData1? ResultData { get; init; } 
     /// <summary>
     /// Additional information relevant for the destination.
     /// ISO 8583 bit 44
     /// </summary>
-    public AdditionalInformation20[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation20> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

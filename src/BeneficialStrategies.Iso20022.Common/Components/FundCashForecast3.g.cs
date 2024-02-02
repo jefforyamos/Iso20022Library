@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cash movements from or to a fund as a result of investment funds transactions, eg, subscriptions or redemptions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FundCashForecast3
 {
     #nullable enable
@@ -20,59 +22,73 @@ public partial record FundCashForecast3
     /// <summary>
     /// Unique technical identifier for an instance of a fund cash forecast within a fund cash forecast report as assigned by the issuer of the report.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Date and, if required, the time, at which the price has been applied.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ TradeDateTime { get; init; } 
     /// <summary>
     /// Previous date and time at which a price was applied.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? PreviousTradeDateTime { get; init; } 
     /// <summary>
     /// Investment fund class to which a cash flow is related.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument9 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Total value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalNAV { get; init; } 
     /// <summary>
     /// Previous value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? PreviousTotalNAV { get; init; } 
     /// <summary>
     /// Total number of investment fund class units that have been issued.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? TotalUnitsNumber { get; init; } 
     /// <summary>
     /// Previous total number of investment fund class units that have been issued.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? PreviousTotalUnitsNumber { get; init; } 
     /// <summary>
     /// Rate of change of the net asset value.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? TotalNAVChangeRate { get; init; } 
     /// <summary>
     /// Currency of the investment fund class.
     /// </summary>
-    public ActiveOrHistoricCurrencyCode[] InvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ActiveOrHistoricCurrencyCode> InvestmentCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the net cash flow is exceptional.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ExceptionalNetCashFlowIndicator { get; init; } 
     /// <summary>
     /// Cash movements into the fund as a result of investment funds transactions, eg, subscriptions or switch-in.
     /// </summary>
-    public CashInForecast4[] CashInForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashInForecast4> CashInForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash movements out of the fund as a result of investment funds transactions, eg, redemptions or switch-out.
     /// </summary>
-    public CashOutForecast4[] CashOutForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashOutForecast4> CashOutForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash movements from or to a fund as a result of investment funds transactions.
     /// </summary>
-    public NetCashForecast2[] NetCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NetCashForecast2> NetCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the securities trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesTradeDetails103
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SecuritiesTradeDetails103
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
+    [DataMember]
     public required DateAndDateTime2Choice_ OpeningSettlementDate { get; init; } 
     /// <summary>
     /// Number of days on which the interest rate accrues (daily accrual note).
     /// </summary>
+    [DataMember]
     public IsoMax3Number? NumberOfDaysAccrued { get; init; } 
     /// <summary>
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax350Text? InstructionProcessingAdditionalDetails { get; init; } 
     
     #nullable disable

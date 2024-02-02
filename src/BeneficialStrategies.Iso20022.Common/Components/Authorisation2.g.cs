@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Autorisation of the mandate holder.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Authorisation2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Authorisation2
     /// <summary>
     /// Maximum amount allowed by the mandate for each transaction.
     /// </summary>
+    [DataMember]
     public FixedAmountOrUnlimited1Choice_? MaximumAmountByTransaction { get; init; } 
     /// <summary>
     /// Maximum amount allowed over a specific period of time.
     /// </summary>
-    public MaximumAmountByPeriod1[] MaximumAmountByPeriod { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MaximumAmountByPeriod1> MaximumAmountByPeriod { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the maximum amount for each bulk submission.
     /// </summary>
+    [DataMember]
     public FixedAmountOrUnlimited1Choice_? MaximumAmountByBulkSubmission { get; init; } 
     
     #nullable disable

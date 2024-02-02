@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// General information about the invoice contained in the original request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalInvoiceInformation1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record OriginalInvoiceInformation1
     /// <summary>
     /// Unique identifier of the document.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text DocumentNumber { get; init; } 
     /// <summary>
     /// Total amount of the invoice, being the sum of total invoice lines amounts, total invoice additional amounts (allowances and charges) and total tax amounts.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalInvoiceAmount { get; init; } 
     /// <summary>
     /// Issue date of the document.
     /// </summary>
+    [DataMember]
     public required IsoISODate IssueDate { get; init; } 
     /// <summary>
     /// Due date for the payment of the invoice.
     /// </summary>
+    [DataMember]
     public required IsoISODate PaymentDueDate { get; init; } 
     
     #nullable disable

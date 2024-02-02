@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(LimitCriteria5Choice.QueryName))]
 [KnownType(typeof(LimitCriteria5Choice.NewCriteria))]
+[DataContract]
 public abstract partial record LimitCriteria5Choice_
 {
 }

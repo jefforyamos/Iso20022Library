@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(PendingSettlementStatusChoice.Reason))]
 [KnownType(typeof(PendingSettlementStatusChoice.DataSourceScheme))]
 [KnownType(typeof(PendingSettlementStatusChoice.NoReason))]
+[DataContract]
 public abstract partial record PendingSettlementStatusChoice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies how the supply chain shipping arrangements and the delivery of products and/or services as well as related documentation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeDelivery3
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record TradeDelivery3
     /// <summary>
     /// Actual delivery period of the products and/or services.
     /// </summary>
+    [DataMember]
     public Period14? DeliveryPeriod { get; init; } 
     /// <summary>
     /// Actual delivery date/time of the products and/or services.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? DeliveryDateTime { get; init; } 
     /// <summary>
     /// Party from whom the goods are dispatched.
     /// </summary>
+    [DataMember]
     public TradeParty4? ShipFrom { get; init; } 
     /// <summary>
     /// Party to whom the goods are dispatched.
     /// </summary>
+    [DataMember]
     public TradeParty4? ShipTo { get; init; } 
     /// <summary>
     /// Final party to whom the goods are dispatched.
     /// </summary>
+    [DataMember]
     public TradeParty4? UltimateShipTo { get; init; } 
     /// <summary>
     /// Delivery note related to the delivery of the products and/or services.
     /// </summary>
+    [DataMember]
     public DocumentIdentification22? DeliveryNote { get; init; } 
     /// <summary>
     /// Physical consolidation of goods for transport.
     /// </summary>
-    public Consignment5[] Consignment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Consignment5> Consignment { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

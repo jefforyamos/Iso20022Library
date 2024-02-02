@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about units to transfer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Unit12
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record Unit12
     /// <summary>
     /// Quantity of units.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber UnitsNumber { get; init; } 
     /// <summary>
     /// Date the investor or its agent placed the original order.
     /// </summary>
+    [DataMember]
     public IsoISODate? OrderDate { get; init; } 
     /// <summary>
     /// Date the investor purchased the financial instrument.
     /// </summary>
+    [DataMember]
     public IsoISODate? AcquisitionDate { get; init; } 
     /// <summary>
     /// Certificate representing the security that is delivered.
     /// </summary>
-    public IsoMax35Text[] CertificateNumber { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> CertificateNumber { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Tax group to which the purchased investment fund units belong. The investor indicates to the intermediary operating pooled nominees, which type of unit is to be sold.
     /// </summary>
+    [DataMember]
     public UKTaxGroupUnit1Code? Group1Or2Units { get; init; } 
     /// <summary>
     /// Reference to the units number. This may be the order reference of the original acquisition, the identification of a lot, a client reference, a sub-position reference or other related reference.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Reference { get; init; } 
     /// <summary>
     /// Information related to the price. This may specify the price of original order confirmation.
     /// </summary>
+    [DataMember]
     public UnitPrice23? PriceDetails { get; init; } 
     /// <summary>
     /// Fees and taxes. This may specify the fees and taxes related to the original order confirmation.
     /// </summary>
+    [DataMember]
     public TotalFeesAndTaxes42? TransactionOverhead { get; init; } 
     /// <summary>
     /// Amounts not covered in price, fee or tax.
     /// </summary>
-    public OtherAmount1[] OtherAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OtherAmount1> OtherAmount { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

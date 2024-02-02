@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies an earliest shipment date and a latest shipment date.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ShipmentDateRange1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ShipmentDateRange1
     /// <summary>
     /// Earliest date whereby the goods must be shipped.
     /// </summary>
+    [DataMember]
     public IsoISODate? EarliestShipmentDate { get; init; } 
     /// <summary>
     /// Latest date whereby the goods must be shipped.
     /// </summary>
+    [DataMember]
     public IsoISODate? LatestShipmentDate { get; init; } 
     
     #nullable disable

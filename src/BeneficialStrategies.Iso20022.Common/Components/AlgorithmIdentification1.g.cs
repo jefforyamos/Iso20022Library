@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a cryptographic algorithm.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AlgorithmIdentification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AlgorithmIdentification1
     /// <summary>
     /// Identification of the algorithm.
     /// </summary>
+    [DataMember]
     public required Algorithm1Code Algorithm { get; init; } 
     /// <summary>
     /// Parameters associated to the algorithm.
     /// </summary>
+    [DataMember]
     public Parameter1? Parameter { get; init; } 
     
     #nullable disable

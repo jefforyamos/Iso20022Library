@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information on the baskets identification and the Eligibility Set Profile.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BasketIdentificationAndEligibilitySetProfile1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record BasketIdentificationAndEligibilitySetProfile1
     /// <summary>
     /// Number identifying the preferred collateral basket.
     /// </summary>
+    [DataMember]
     public GenericIdentification1? PreferentialBasketIdentificationNumber { get; init; } 
     /// <summary>
     /// Number identifying the fallback starting collateral basket.
     /// </summary>
+    [DataMember]
     public GenericIdentification1? FallbackStartingBasketIdentification { get; init; } 
     /// <summary>
     /// Number identifying the collateral basket to be excluded.
     /// </summary>
+    [DataMember]
     public GenericIdentification1? ExclusionBasketIdentification { get; init; } 
     /// <summary>
     /// Number identifying the collateral eligibility set profile of the counterparty.
     /// </summary>
+    [DataMember]
     public GenericIdentification1? EligibilitySetProfile { get; init; } 
     
     #nullable disable

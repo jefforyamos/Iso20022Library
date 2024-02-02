@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the transfer transaction amounts.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedAmount17
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record DetailedAmount17
     /// <summary>
     /// Amount to be transferred from the source account to the destination account.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount AmountToTransfer { get; init; } 
     /// <summary>
     /// Currency of the amount to be transferred.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Transfer fees, accepted by the customer.
     /// </summary>
-    public DetailedAmount18[] Fees { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedAmount18> Fees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of the donation.
     /// </summary>
-    public DetailedAmount18[] Donation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedAmount18> Donation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

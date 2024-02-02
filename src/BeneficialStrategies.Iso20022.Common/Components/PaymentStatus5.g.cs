@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates the payment transaction status and optionally the reason for that status. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentStatus5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PaymentStatus5
     /// <summary>
     /// Provides more details on the status in process.
     /// </summary>
+    [DataMember]
     public required TransactionIndividualStatus4Code Status { get; init; } 
     /// <summary>
     /// Contains optionally the reason for the status of a payment transaction.
     /// </summary>
+    [DataMember]
     public PaymentStatusReason2Code? Reason { get; init; } 
     
     #nullable disable

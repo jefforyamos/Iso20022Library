@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(FinancialInstitutionIdentification4Choice.BIC))]
 [KnownType(typeof(FinancialInstitutionIdentification4Choice.NameAndAddress))]
+[DataContract]
 public abstract partial record FinancialInstitutionIdentification4Choice_
 {
 }

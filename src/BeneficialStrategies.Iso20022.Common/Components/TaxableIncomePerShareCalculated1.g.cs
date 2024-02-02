@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specification of the taxable income per share.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxableIncomePerShareCalculated1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TaxableIncomePerShareCalculated1
     /// <summary>
     /// Structured format.
     /// </summary>
+    [DataMember]
     public required TaxableIncomePerShareCalculated1Code Structured { get; init; } 
     /// <summary>
     /// Additional information about the type of tax.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

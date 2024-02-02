@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SafeKeepingPlace1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SafeKeepingPlace1
     /// <summary>
     /// Unique identification of the party.
     /// </summary>
+    [DataMember]
     public SafekeepingPlaceFormat10Choice_? SafekeepingPlaceFormat { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a place of safekeeping.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     
     #nullable disable

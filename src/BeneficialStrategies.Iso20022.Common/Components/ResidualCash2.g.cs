@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies how the cash in the account that is awaiting investment is to be dealt with.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ResidualCash2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ResidualCash2
     /// <summary>
     /// Indicates whether the cash in the account awaiting investment is to be transferred.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Indicator { get; init; } 
     /// <summary>
     /// Currency of the cash.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     
     #nullable disable

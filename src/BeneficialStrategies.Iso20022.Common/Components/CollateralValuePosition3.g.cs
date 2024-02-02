@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the collateral value position/balance.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralValuePosition3
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record CollateralValuePosition3
     /// <summary>
     /// Date and time when the data was last accessed.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime DataAccessTime { get; init; } 
     /// <summary>
     /// Total value of the collateral valuation.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalCollateralValuation { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the account servicer, to unambiguously identify the securities account.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount19? SecuritiesAccount { get; init; } 
     /// <summary>
     /// Unique identification, as known by the account owner, to unambiguously identify the securities on which the collateral value position is requested.
     /// </summary>
-    public SecurityCharacteristics3[] Securities { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecurityCharacteristics3> Securities { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

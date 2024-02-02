@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status information of the report item.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportItemStatus1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record ReportItemStatus1
     /// <summary>
     /// Reason for the exception status.
     /// </summary>
+    [DataMember]
     public required ReportItemRejectionReason1Choice_ Exception { get; init; } 
     /// <summary>
     /// Additional information about the reason for the status that cannot be provided in a structured field.
     /// </summary>
+    [DataMember]
     public IsoMax210Text? AdditionalReasonInformation { get; init; } 
     /// <summary>
     /// Details of the report item.
     /// </summary>
-    public ReportItem1[] ReportItem { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReportItem1> ReportItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

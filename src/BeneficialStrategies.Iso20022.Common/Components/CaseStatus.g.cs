@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the status of an investigation case.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CaseStatus
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CaseStatus
     /// <summary>
     /// Date and time of the status.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime DateTime { get; init; } 
     /// <summary>
     /// Status of the case.
     /// </summary>
+    [DataMember]
     public required CaseStatus1Code CaseStatusValue { get; init; } 
     /// <summary>
     /// Status of the investigation.
     /// </summary>
+    [DataMember]
     public InvestigationExecutionConfirmation1Code? InvestigationStatus { get; init; } 
     /// <summary>
     /// Free text justification of the status.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Reason { get; init; } 
     
     #nullable disable

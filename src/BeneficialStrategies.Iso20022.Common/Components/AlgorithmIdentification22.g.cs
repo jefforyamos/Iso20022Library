@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a cryptographic algorithm and parameters for the MAC computation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AlgorithmIdentification22
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AlgorithmIdentification22
     /// <summary>
     /// Identification of the MAC algorithm.
     /// </summary>
+    [DataMember]
     public required Algorithm17Code Algorithm { get; init; } 
     /// <summary>
     /// Parameters associated to the MAC algorithm.
     /// </summary>
+    [DataMember]
     public Parameter7? Parameter { get; init; } 
     
     #nullable disable

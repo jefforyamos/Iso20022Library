@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(OpeningBalance5Choice.First))]
 [KnownType(typeof(OpeningBalance5Choice.Intermediary))]
+[DataContract]
 public abstract partial record OpeningBalance5Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies additional information about the processed instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcknowledgementReason18
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AcknowledgementReason18
     /// <summary>
     /// Choice of format for the acknowledgement reason.
     /// </summary>
+    [DataMember]
     public required AcknowledgementReason21Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

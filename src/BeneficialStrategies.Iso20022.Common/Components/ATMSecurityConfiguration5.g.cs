@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Configuration of the PIN online verification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMSecurityConfiguration5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ATMSecurityConfiguration5
     /// <summary>
     /// PIN block format the security module is able to manage for online verification of the PIN.
     /// </summary>
-    public PINFormat4Code[] PINFormat { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PINFormat4Code> PINFormat { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum number of digits the security module is able to accept when the cardholder enters its PIN.
     /// </summary>
+    [DataMember]
     public IsoNumber? PINLengthCapabilities { get; init; } 
     
     #nullable disable

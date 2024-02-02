@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique and unambiguous identifier of the group of transactions as assigned by the original instructing party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalGroupInformation1
 {
     #nullable enable
@@ -20,43 +22,53 @@ public partial record OriginalGroupInformation1
     /// <summary>
     /// Point to point reference assigned by the original instructing party to unambiguously identify the original group of individual transactions.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalMessageIdentification { get; init; } 
     /// <summary>
     /// Name assigned by the sending party to unambiguously identify the file transmitted on the network.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text NetworkFileName { get; init; } 
     /// <summary>
     /// Specifies the original message name identifier to which the message refers, eg, pacs.003.001.01 or MT103.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalMessageNameIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the original message was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OriginalCreationDateTime { get; init; } 
     /// <summary>
     /// Party that sent the file for which the status has been generated.||Usage: this field will only be used when the content of the message could not be decoded at the receiving side.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? FileOriginator { get; init; } 
     /// <summary>
     /// Number of individual transactions contained in the original message.
     /// </summary>
+    [DataMember]
     public IsoMax15NumericText? OriginalNumberOfTransactions { get; init; } 
     /// <summary>
     /// Total of all individual amounts included in the original message, irrespective of currencies.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? OriginalControlSum { get; init; } 
     /// <summary>
     /// Specifies the status of a group of transactions.
     /// </summary>
+    [DataMember]
     public TransactionGroupStatus1Code? GroupStatus { get; init; } 
     /// <summary>
     /// Detailed information on the status reason.
     /// </summary>
-    public StatusReasonInformation1[] StatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StatusReasonInformation1> StatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Detailed information on the number of transactions for each identical individual transaction status.
     /// </summary>
-    public NumberOfTransactionsPerStatus1[] NumberOfTransactionsPerStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NumberOfTransactionsPerStatus1> NumberOfTransactionsPerStatus { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CardTransaction1Choice.Aggregated))]
 [KnownType(typeof(CardTransaction1Choice.Individual))]
+[DataContract]
 public abstract partial record CardTransaction1Choice_
 {
 }

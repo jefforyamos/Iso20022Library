@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides detailed information concerning non financial counterparties.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NonFinancialInstitutionSector1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record NonFinancialInstitutionSector1
     /// <summary>
     /// Taxonomy for non-financial counterparties. The categories correspond to the main sections of NACE classification as defined in the regulation.
     /// </summary>
-    public IsoNACEDomainIdentifier[] Sector { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoNACEDomainIdentifier> Sector { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information whether the reporting counterparty is above the clearing threshold referred to the regulation.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator ClearingThreshold { get; init; } 
     /// <summary>
     /// Directly linked to commercial activity or treasury financing: Information on whether the contract is objectively measurable as directly linked to the reporting counterparty's commercial or treasury financing activity.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator DirectlyLinkedActivity { get; init; } 
     
     #nullable disable

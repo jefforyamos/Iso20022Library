@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Vote instruction applying to resolutions added during the meeting.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VoteInstructionForMeetingResolution1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record VoteInstructionForMeetingResolution1
     /// <summary>
     /// Specifies the vote recommendation for resolutions added during the meeting.
     /// </summary>
+    [DataMember]
     public required VoteInstructionAtMeeting1Code VoteIndication { get; init; } 
     /// <summary>
     /// Specifies the name and address of the shareholder to whom the rights to vote are transferred for resolutions added during the meeting.
     /// </summary>
+    [DataMember]
     public required NameAndAddress9 Shareholder { get; init; } 
     
     #nullable disable

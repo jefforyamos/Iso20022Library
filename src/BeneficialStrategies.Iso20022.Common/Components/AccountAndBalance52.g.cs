@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides account and balance information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountAndBalance52
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record AccountAndBalance52
     /// <summary>
     /// Account where financial instruments are maintained.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax35Text? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax140Text? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification136Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Location where the financial instruments are/will be safekept.
     /// </summary>
+    [DataMember]
     public SafekeepingPlaceFormat32Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Provides information about balance related to a corporate action.
     /// </summary>
+    [DataMember]
     public required CorporateActionBalanceDetails45 Balance { get; init; } 
     
     #nullable disable

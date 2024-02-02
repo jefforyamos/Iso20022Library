@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contact person at the party organising the meeting, at the issuer or at an intermediary.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MeetingContactPerson1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record MeetingContactPerson1
     /// <summary>
     /// Identifies a contact person by a name, a given name and an address.
     /// </summary>
+    [DataMember]
     public ContactIdentification1? ContactPerson { get; init; } 
     /// <summary>
     /// Identifies the organisation which is represented by a person or for which a person works.
     /// </summary>
+    [DataMember]
     public PartyIdentification9Choice_? EmployingParty { get; init; } 
     /// <summary>
     /// The identification of a financial market, as stipulated in the norm ISO 10383 'Codes for exchanges and market identifications'.
     /// </summary>
+    [DataMember]
     public IsoMICIdentifier? PlaceOfListing { get; init; } 
     
     #nullable disable

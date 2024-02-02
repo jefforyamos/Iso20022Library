@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the reason for the status of the tracker alert.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerAlertStatusReason1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record TrackerAlertStatusReason1
     /// <summary>
     /// Reason for the status, in a proprietary form.
     /// </summary>
+    [DataMember]
     public required IsoExact4AlphaNumericText Proprietary { get; init; } 
     
     #nullable disable

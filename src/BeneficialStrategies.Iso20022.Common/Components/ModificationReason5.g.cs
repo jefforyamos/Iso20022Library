@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Modification reasons.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ModificationReason5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ModificationReason5
     /// <summary>
     /// Specifies the reason why the transaction is modified.
     /// </summary>
+    [DataMember]
     public required ModificationReason5Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

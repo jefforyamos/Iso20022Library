@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Variables used to quantify the different calculations for position sets and currency position sets reports.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PositionSetPostedAndReceived1
 {
     #nullable enable
@@ -21,11 +23,13 @@ public partial record PositionSetPostedAndReceived1
     /// Value posted by the reporting counterparty. 
     /// Usage: This field should include the overall value posted for the portfolio.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd20Amount? Posted { get; init; } 
     /// <summary>
     /// Value received by the reporting counterparty. 
     /// Usage: This field should include the overall value received for the portfolio.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd20Amount? Received { get; init; } 
     
     #nullable disable

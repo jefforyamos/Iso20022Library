@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the customer device.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CustomerDevice4
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record CustomerDevice4
     /// <summary>
     /// Information about the customer device.
     /// </summary>
+    [DataMember]
     public Device2? Device { get; init; } 
     /// <summary>
     /// Identification of the device.
     /// </summary>
+    [DataMember]
     public DeviceIdentification1? DeviceIdentification { get; init; } 
     /// <summary>
     /// Device operating system information.
     /// </summary>
+    [DataMember]
     public DeviceOperatingSystem1? OperatingSystem { get; init; } 
     /// <summary>
     /// Provider of the customer device.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Provider { get; init; } 
     /// <summary>
     /// Additional customer device data.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

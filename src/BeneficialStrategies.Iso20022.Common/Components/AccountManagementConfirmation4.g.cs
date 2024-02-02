@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the type of request or instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountManagementConfirmation4
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record AccountManagementConfirmation4
     /// <summary>
     /// Specifies the confirmation type.
     /// </summary>
+    [DataMember]
     public required ConfirmationType1Choice_ ConfirmationType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the account opening or modification instruction at application level.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of a transaction, for example, a transfer, as assigned by the investor or account owner.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction, for example, a transfer, as allocated by the counterparty.
     /// </summary>
+    [DataMember]
     public AdditionalReference6? CounterpartyReference { get; init; } 
     /// <summary>
     /// Account to which the account opening is related.
     /// </summary>
-    public Account23[] ExistingAccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Account23> ExistingAccountIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

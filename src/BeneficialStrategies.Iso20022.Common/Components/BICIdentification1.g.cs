@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique and unambiguous identifier of a financial institution, as assigned under an internationally recognised or proprietary identification scheme.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BICIdentification1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record BICIdentification1
     /// <summary>
     /// Code allocated to a financial institution by the ISO 9362 Registration Authority as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
     /// </summary>
+    [DataMember]
     public required IsoBICIdentifier BIC { get; init; } 
     
     #nullable disable

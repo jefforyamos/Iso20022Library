@@ -32,6 +32,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ClearingSystemMemberIdentification2Choice.HellenicBankIdentificationCode))]
 [KnownType(typeof(ClearingSystemMemberIdentification2Choice.PolishNationalClearingCode))]
 [KnownType(typeof(ClearingSystemMemberIdentification2Choice.OtherClearingCodeIdentification))]
+[DataContract]
 public abstract partial record ClearingSystemMemberIdentification2Choice_
 {
 }

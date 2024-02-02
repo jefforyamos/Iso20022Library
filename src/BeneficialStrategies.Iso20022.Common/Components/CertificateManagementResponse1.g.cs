@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the result of the certificate management request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CertificateManagementResponse1
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record CertificateManagementResponse1
     /// <summary>
     /// Identification of the terminal or system using the certificate management service.
     /// </summary>
+    [DataMember]
     public required GenericIdentification72 POIIdentification { get; init; } 
     /// <summary>
     /// Identification of the TM or the MTM providing the Certificate Authority service.
     /// </summary>
+    [DataMember]
     public GenericIdentification72? TMIdentification { get; init; } 
     /// <summary>
     /// Requested certificate management service.
     /// </summary>
+    [DataMember]
     public required CardPaymentServiceType10Code CertificateService { get; init; } 
     /// <summary>
     /// Outcome of the certificate service processing.
     /// </summary>
+    [DataMember]
     public required ResponseType6 Result { get; init; } 
     /// <summary>
     /// Identification of the security profile, for creation, renewal or revocation of certificate.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SecurityProfile { get; init; } 
     /// <summary>
     /// Created or renewed certificate. The certificate is ASN.1/DER encoded.
     /// </summary>
+    [DataMember]
     public IsoMax3000Binary? ClientCertificate { get; init; } 
     /// <summary>
     /// Certificate of the client certificate path, from the CA (Certificate Authority) certificate, to the root certificate, for renewal or revocation of certificate.
     /// </summary>
-    public IsoMax10KBinary[] ClientCertificatePath { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax10KBinary> ClientCertificatePath { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Certificate of the server certificate path, from the CA (Certificate Authority) certificate, to the root certificate, for renewal or revocation of certificate.
     /// </summary>
-    public IsoMax10KBinary[] ServerCertificatePath { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax10KBinary> ServerCertificatePath { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ReferredDocumentAmount1Choice.RemittedAmount))]
 [KnownType(typeof(ReferredDocumentAmount1Choice.CreditNoteAmount))]
 [KnownType(typeof(ReferredDocumentAmount1Choice.TaxAmount))]
+[DataContract]
 public abstract partial record ReferredDocumentAmount1Choice_
 {
 }

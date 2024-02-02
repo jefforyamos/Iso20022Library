@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(InvestigationStatus2Choice.RejectedModification))]
 [KnownType(typeof(InvestigationStatus2Choice.DuplicateOf))]
 [KnownType(typeof(InvestigationStatus2Choice.AssignmentCancellationConfirmation))]
+[DataContract]
 public abstract partial record InvestigationStatus2Choice_
 {
 }

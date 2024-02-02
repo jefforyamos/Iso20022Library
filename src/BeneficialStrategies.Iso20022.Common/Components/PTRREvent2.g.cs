@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information if contract results from a post trade risk reduction operation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PTRREvent2
 {
     #nullable enable
@@ -24,10 +26,12 @@ public partial record PTRREvent2
     /// Portfolio Rebalancing/Margin management: A PTRR service provided by a service provider to reduce risk in an existing portfolio of trades by adding new non-price forming trades and where no existing trades in the portfolio are terminated or replaced and the notional is increased rather than decreased.
     /// Other Portfolio post trade risk reduction services: A post trade risk reduction service provided by a service provider to reduce risk in existing portfolios of trades using non-price forming trades and where such service does not qualify as Portfolio Compression or Portfolio Rebalancing.
     /// </summary>
+    [DataMember]
     public required RiskReductionService1Code Technique { get; init; } 
     /// <summary>
     /// Identification of the post trade risk reduction service provider.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification15Choice_? ServiceProvider { get; init; } 
     
     #nullable disable

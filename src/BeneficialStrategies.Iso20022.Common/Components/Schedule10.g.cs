@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates the unadjusted effective and end date of the schedule.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Schedule10
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Schedule10
     /// <summary>
     /// Number of units of the financial instrument, that is, the nominal value.
     /// </summary>
+    [DataMember]
     public required IsoLongFraction19DecimalNumber Quantity { get; init; } 
     /// <summary>
     /// Indicates the unit of measure in which the total notional quantity and notional quantity schedules are expressed.
     /// </summary>
+    [DataMember]
     public UnitOfMeasure8Choice_? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Indicates the unadjusted date at which obligations under the  derivative transaction come into effect, as included in the confirmation.
     /// </summary>
+    [DataMember]
     public required IsoISODate UnadjustedEffectiveDate { get; init; } 
     /// <summary>
     /// Indicates the end date agreed in the derivative transaction without adjustment.
     /// </summary>
+    [DataMember]
     public IsoISODate? UnadjustedEndDate { get; init; } 
     
     #nullable disable

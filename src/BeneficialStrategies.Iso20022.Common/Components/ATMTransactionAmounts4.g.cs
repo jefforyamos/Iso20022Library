@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Withdrawal limits for the account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransactionAmounts4
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ATMTransactionAmounts4
     /// <summary>
     /// True if limits may be displayed on the ATM to the customer.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? DisplayFlag { get; init; } 
     /// <summary>
     /// Amount available for withdrawal on the account.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? AvailableAmount { get; init; } 
     /// <summary>
     /// Remaining daily amount of the customer totals for withdrawals on the account.
     /// </summary>
+    [DataMember]
     public DetailedAmount4? DailyBalance { get; init; } 
     /// <summary>
     /// Remaining weekly amount of the customer totals for withdrawals on the account.
     /// </summary>
+    [DataMember]
     public DetailedAmount4? WeeklyBalance { get; init; } 
     /// <summary>
     /// Remaining monthly amount of the customer totals for withdrawals on the account.
     /// </summary>
+    [DataMember]
     public DetailedAmount4? MonthlyBalance { get; init; } 
     
     #nullable disable

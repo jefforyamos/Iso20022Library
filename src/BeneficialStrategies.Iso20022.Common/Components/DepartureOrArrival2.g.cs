@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains departure or arrival information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DepartureOrArrival2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record DepartureOrArrival2
     /// <summary>
     /// Code indicating the name of the passenger transport carrier (for example, United Airlines, Lufthansa, JetBlue, etc.) 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CarrierCode { get; init; } 
     /// <summary>
     /// Route number (for example, flight number, bus number, train route or number, etc.)
     /// </summary>
+    [DataMember]
     public IsoMax35NumericText? RouteNumber { get; init; } 
     /// <summary>
     /// Departure or arrival date.
     /// </summary>
+    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Departure or arrival time. 
     /// </summary>
+    [DataMember]
     public IsoISOTime? Time { get; init; } 
     
     #nullable disable

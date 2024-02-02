@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cash posting where the currency is implied by the context.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountAndDirection86
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AmountAndDirection86
     /// <summary>
     /// Amount of money in the cash entry.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Indicates that the amount value is positive or negative.
     /// </summary>
+    [DataMember]
     public required IsoPlusOrMinusIndicator Sign { get; init; } 
     
     #nullable disable

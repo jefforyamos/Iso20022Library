@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details of a new trade transaction report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeData23
 {
     #nullable enable
@@ -20,24 +22,29 @@ public partial record TradeData23
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
-    public CounterpartySpecificData29[] CounterpartySpecificData { get; init; } = [];
+    [DataMember]
+    public ValueList<CounterpartySpecificData29> CounterpartySpecificData { get; init; } = [];
     /// <summary>
     /// Data specifically related to transaction.
     /// </summary>
+    [DataMember]
     public required CommonTradeDataReport49 CommonTradeData { get; init; } 
     /// <summary>
     /// Information concerning the reported transaction level type.
     /// Usage: The absence of the code will imply the default value Transaction (TCTN).
     /// </summary>
+    [DataMember]
     public ModificationLevel1Code? Level { get; init; } 
     /// <summary>
     /// Specifies technical attributes of the message.
     /// </summary>
+    [DataMember]
     public TechnicalAttributes4? TechnicalAttributes { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

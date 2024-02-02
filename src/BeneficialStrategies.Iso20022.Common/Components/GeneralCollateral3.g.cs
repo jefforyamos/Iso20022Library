@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Repurchase agreement where the agreement allows for the sale and repurchase of any of a selection of assets from a pool of eligible assets.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GeneralCollateral3
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record GeneralCollateral3
     /// <summary>
     /// ISINs of allocated securities of general collateral where known.
     /// </summary>
-    public FinancialInstrument59[] FinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FinancialInstrument59> FinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// List of eligible securities to be allocated where known.
     /// </summary>
-    public IsoISINOct2015Identifier[] EligibleFinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoISINOct2015Identifier> EligibleFinancialInstrumentIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

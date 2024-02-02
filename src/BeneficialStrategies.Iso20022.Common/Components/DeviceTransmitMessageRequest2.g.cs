@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Request message to transmit.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeviceTransmitMessageRequest2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record DeviceTransmitMessageRequest2
     /// <summary>
     /// Transport address.
     /// </summary>
+    [DataMember]
     public required NetworkParameters7 DestinationAddress { get; init; } 
     /// <summary>
     /// Maximum time in seconds of transmission.
     /// </summary>
+    [DataMember]
     public required IsoNumber MaximumTransmissionTime { get; init; } 
     /// <summary>
     /// Defines the timeout to receive an answer.
     /// </summary>
+    [DataMember]
     public IsoNumber? MaximumWaitingTime { get; init; } 
     /// <summary>
     /// Content of the message to be transmitted.
     /// </summary>
+    [DataMember]
     public required IsoMax100KBinary MessageToSend { get; init; } 
     
     #nullable disable

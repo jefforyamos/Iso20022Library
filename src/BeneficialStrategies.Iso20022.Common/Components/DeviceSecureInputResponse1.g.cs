@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Response to a secure input request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeviceSecureInputResponse1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record DeviceSecureInputResponse1
     /// <summary>
     /// Cardholder PIN data when needed.
     /// </summary>
+    [DataMember]
     public OnLinePIN6? CardholderPIN { get; init; } 
     
     #nullable disable

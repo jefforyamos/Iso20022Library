@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the message that is associated with the activity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Activity1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Activity1
     /// <summary>
     /// Name of the message associated with the activity.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text MessageName { get; init; } 
     /// <summary>
     /// Further information on a message associated with the activity.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     
     #nullable disable

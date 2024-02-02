@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides a settlement party by a choice between a BIC or a name and address or a party identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementParties120
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SettlementParties120
     /// <summary>
     /// Financial institution from which cash will be transferred.
     /// </summary>
+    [DataMember]
     public PartyIdentification242Choice_? DeliveryAgent { get; init; } 
     /// <summary>
     /// Party, within the settlement chain, between the delivery and receiving agents.
     /// </summary>
+    [DataMember]
     public PartyIdentification242Choice_? Intermediary { get; init; } 
     /// <summary>
     /// Financial institution where the payee will receive the funds.
     /// </summary>
+    [DataMember]
     public required PartyIdentification242Choice_ ReceivingAgent { get; init; } 
     /// <summary>
     /// Ultimate institution that will receive the funds when different from the trading or counterparty side.
     /// </summary>
+    [DataMember]
     public PartyIdentification242Choice_? BeneficiaryInstitution { get; init; } 
     
     #nullable disable

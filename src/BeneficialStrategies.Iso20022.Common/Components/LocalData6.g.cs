@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains text fields in the local language.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LocalData6
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record LocalData6
     /// <summary>
     /// The language code conforming to ISO 639-1 that identifies the language in which the fields are expressed in this component.
     /// </summary>
+    [DataMember]
     public required ISOMax3ALanguageCode Language { get; init; } 
     /// <summary>
     /// For cases where the card was not received, contains the local language equivalent of where the card was mailed to.
     /// </summary>
+    [DataMember]
     public Address3? MailingAddress { get; init; } 
     /// <summary>
     /// For cases where the card was not received, contains the local language equivalent of the Unstructured mailing address where the card was mailed to.
     /// </summary>
+    [DataMember]
     public IsoMax512Text? MailingAddressUnstructured { get; init; } 
     /// <summary>
     /// For cases where the card was not received, contains the local language equivalent of the postal code where the card was mailed from.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MailedFromPostalCode { get; init; } 
     /// <summary>
     /// Local language equivalent of the Cardholder name.
     /// </summary>
+    [DataMember]
     public CardholderName2? CardholderName { get; init; } 
     /// <summary>
     /// Additional information relevant for the settlement report.
     /// </summary>
-    public AdditionalInformation22[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation22> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional local language data
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

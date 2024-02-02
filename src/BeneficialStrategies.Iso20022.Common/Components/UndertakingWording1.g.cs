@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the wording for a demand guarantee, standby letter of credit or other undertaking.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UndertakingWording1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record UndertakingWording1
     /// <summary>
     /// Wording template for the undertaking content made available for use with certain governance rules or made available by particular institutions.
     /// </summary>
+    [DataMember]
     public ModelFormIdentification1? ModelForm { get; init; } 
     /// <summary>
     /// Language of the standard wording provided by the issuer.
     /// </summary>
+    [DataMember]
     public ISO2ALanguageCode? RequestedWordingLanguage { get; init; } 
     /// <summary>
     /// Terms and conditions of the undertaking.
     /// </summary>
-    public Narrative1[] UndertakingTermsAndConditions { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Narrative1> UndertakingTermsAndConditions { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

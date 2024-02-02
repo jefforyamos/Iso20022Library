@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the detailed parameters a service to be billed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BillingServiceParameters2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record BillingServiceParameters2
     /// <summary>
     /// Specifies the details to fully identify the bank service.
     /// </summary>
+    [DataMember]
     public required BillingServiceIdentification2 BankService { get; init; } 
     /// <summary>
     /// Count or number of items (volume) involved in the charge.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? Volume { get; init; } 
     /// <summary>
     /// Price per item or unit used to calculate the charge expressed in the pricing currency.
     /// </summary>
+    [DataMember]
     public AmountAndDirection34? UnitPrice { get; init; } 
     /// <summary>
     /// Amount of the calculated charge expressed in the pricing currency, exclusive of any tax.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection34 ServiceChargeAmount { get; init; } 
     
     #nullable disable

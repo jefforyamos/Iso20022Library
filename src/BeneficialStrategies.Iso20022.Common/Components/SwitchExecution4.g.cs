@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Execution of a switch order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SwitchExecution4
 {
     #nullable enable
@@ -20,94 +22,117 @@ public partial record SwitchExecution4
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual orders, as assigned by the instructing party. This identifier links the individual orders together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Date and time at which the order was placed by the investor.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OrderDateTime { get; init; } 
     /// <summary>
     /// Account between an investor(s) and a fund manager or a fund. The account can contain holdings in any investment fund or investment fund class managed (or distributed) by the fund manager, within the same fund family.
     /// </summary>
+    [DataMember]
     public InvestmentAccount21? InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order execution, as assigned by a confirming party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text DealReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of an order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Amount of money used to determine the quantity of investment fund units to be redeemed.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalRedemptionAmount { get; init; } 
     /// <summary>
     /// Amount of money used to determine the quantity of investment fund units to be subscribed.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalSubscriptionAmount { get; init; } 
     /// <summary>
     /// Confirmation of the information about parties related to the transaction.
     /// </summary>
-    public Intermediary9[] RelatedPartyDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<Intermediary9> RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Future date at which the investor requests the order to be executed.|The specification of a requested future trade date is not allowed in some markets. The date must be a date in the future.
     /// </summary>
+    [DataMember]
     public IsoISODate? RequestedFutureTradeDate { get; init; } 
     /// <summary>
     /// Additional amount of money paid by the investor in addition to the switch redemption amount.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? AdditionalCashIn { get; init; } 
     /// <summary>
     /// Amount of money that results from a switch-out, that is not reinvested in another investment fund, and is repaid to the investor.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ResultingCashOut { get; init; } 
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     /// <summary>
     /// Date on which cash is available.
     /// </summary>
+    [DataMember]
     public IsoISODate? CashSettlementDate { get; init; } 
     /// <summary>
     /// Method by which the transaction is settled.
     /// </summary>
+    [DataMember]
     public DeliveryReceiptType2Code? SettlementMethod { get; init; } 
     /// <summary>
     /// Specifies that the execution was subject to best execution rules as defined by MiFID.
     /// </summary>
+    [DataMember]
     public BestExecution1Code? BestExecution { get; init; } 
     /// <summary>
     /// Redemption leg of a switch order execution.
     /// </summary>
-    public SwitchRedemptionLegExecution3[] RedemptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SwitchRedemptionLegExecution3> RedemptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Subscription leg of a switch order execution.
     /// </summary>
-    public SwitchSubscriptionLegExecution3[] SubscriptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SwitchSubscriptionLegExecution3> SubscriptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment transaction resulting from the investment fund order execution.
     /// </summary>
+    [DataMember]
     public PaymentTransaction26? CashSettlementDetails { get; init; } 
     /// <summary>
     /// Currency exchange related to the execution of an investment fund order.
     /// </summary>
-    public ForeignExchangeTerms7[] ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ForeignExchangeTerms7> ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies if advice has been received from an independent financial advisor.
     /// </summary>
+    [DataMember]
     public FinancialAdvice1Code? FinancialAdvice { get; init; } 
     /// <summary>
     /// Specifies whether the trade is negotiated.
     /// </summary>
+    [DataMember]
     public NegotiatedTrade1Code? NegotiatedTrade { get; init; } 
     /// <summary>
     /// Specifies whether the order execution confirmation is late.
     /// </summary>
+    [DataMember]
     public LateReport1Code? LateReport { get; init; } 
     
     #nullable disable

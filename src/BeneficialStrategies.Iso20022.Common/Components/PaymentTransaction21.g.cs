@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment processes required to transfer cash from the debtor to the creditor.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTransaction21
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record PaymentTransaction21
     /// <summary>
     /// Choice between types of payment instrument, ie, cheque, credit transfer or investment account.
     /// </summary>
+    [DataMember]
     public PaymentInstrument11Choice_? PaymentInstrument { get; init; } 
     
     #nullable disable

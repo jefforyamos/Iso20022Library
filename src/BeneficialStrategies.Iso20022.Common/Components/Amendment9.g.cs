@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the amendment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Amendment9
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record Amendment9
     /// <summary>
     /// Contents of the related UndertakingAmendmentResponse message.
     /// </summary>
+    [DataMember]
     public required UndertakingAmendmentResponseMessage1 UndertakingAmendmentResponseMessage { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of collateral calculated pre-haircut and/or post-haircut.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PrePostHaircut1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PrePostHaircut1
     /// <summary>
     /// Indicates the amount of collateral calculated pre-haircut.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? PreHaircut { get; init; } 
     /// <summary>
     /// Indicates the amount of collateral calculated post-haircut.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? PostHaircut { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(EUDividendStatusType1Choice.EUDividendStatus))]
 [KnownType(typeof(EUDividendStatusType1Choice.Proprietary))]
+[DataContract]
 public abstract partial record EUDividendStatusType1Choice_
 {
 }

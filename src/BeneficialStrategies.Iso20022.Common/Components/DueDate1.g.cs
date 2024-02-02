@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the date by when the financial institutiion needs to provide a response.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DueDate1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DueDate1
     /// <summary>
     /// Specifies the date when the authority needs the response in situations where the response or part of it will not be given electronically but on paper in manual process.
     /// </summary>
+    [DataMember]
     public IsoISODate? DueDate { get; init; } 
     /// <summary>
     /// Specifies the reason why the authority needs the information on due date.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? AdditionalInformation { get; init; } 
     
     #nullable disable

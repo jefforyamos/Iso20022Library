@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding account balance. Contains transaction details of the stock loans, repurchase agreements (REPOs) and undelivered trades (FAILs).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountBalanceExtensionSD1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record AccountBalanceExtensionSD1
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Position that is concerned in transaction.
     /// </summary>
+    [DataMember]
     public AdjustedBalanceTypeSD1Choice_? TransactionPosition { get; init; } 
     /// <summary>
     /// Effective date of the transaction. Applicable to Fail transactions.
     /// </summary>
+    [DataMember]
     public IsoISODate? AsOfDate { get; init; } 
     /// <summary>
     /// Date of the delivery. Applicable to Fail transactions.
     /// </summary>
+    [DataMember]
     public IsoISODate? DeliveryDate { get; init; } 
     /// <summary>
     /// Transaction contra participant identification for stock loans, repurchase agreements (REPOs), securities undelivered (FAILs).
     /// </summary>
+    [DataMember]
     public IsoMax8Text? ContraParticipantNumber { get; init; } 
     /// <summary>
     /// Account number at receiver’s side. Applicable to Fail transactions.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax35Text? ReceiverAccountNumber { get; init; } 
     /// <summary>
     /// Account number at deliverer’s side. Applicable to Fail transactions.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax35Text? DelivererAccountNumber { get; init; } 
     
     #nullable disable

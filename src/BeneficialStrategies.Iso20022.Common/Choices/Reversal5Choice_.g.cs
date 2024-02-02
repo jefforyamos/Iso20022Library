@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(Reversal5Choice.References))]
 [KnownType(typeof(Reversal5Choice.TransferOutConfirmationDetails))]
+[DataContract]
 public abstract partial record Reversal5Choice_
 {
 }

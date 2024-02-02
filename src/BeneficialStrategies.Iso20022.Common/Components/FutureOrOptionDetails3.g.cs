@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters for contracts which obligate the buyer to receive and the seller to deliver in the future the assets specified at an agreed price or contracts which grant to the holder either the privilege to purchase or the privilege to sell the assets specified at a predetermined price or formula at or within a time in the future.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FutureOrOptionDetails3
 {
     #nullable enable
@@ -20,82 +22,102 @@ public partial record FutureOrOptionDetails3
     /// <summary>
     /// Specifies the type of the contract for futures and options.
     /// </summary>
+    [DataMember]
     public FutureAndOptionContractType1Code? FutureAndOptionContractType { get; init; } 
     /// <summary>
     /// Last date/time by which the option for physical delivery may still be exercised.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? LastDeliveryDate { get; init; } 
     /// <summary>
     /// Used to indicate the size of the underlying commodity on which the contract is based (e.g., 2500 lbs of lean cattle, 1000 barrels of crude oil, 1000 bushels of corn, etc.).
     /// </summary>
+    [DataMember]
     public UnitOfMeasure1Code? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Date on which future contracts settle.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? FutureDate { get; init; } 
     /// <summary>
     /// Specifies the minimum ratio or multiply factor used to convert from contracts to shares.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumSize { get; init; } 
     /// <summary>
     /// Date/time, as announced by the issuer, at which the securities will be issued.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? AnnouncementDate { get; init; } 
     /// <summary>
     /// Specifies the deliverability of a security.
     /// </summary>
+    [DataMember]
     public Appearance1Code? Appearance { get; init; } 
     /// <summary>
     /// Indicates whether the interest is separable from the principal.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? StrippableIndicator { get; init; } 
     /// <summary>
     /// Indicates the maximum number of listed option contracts on a single security which can be held by an investor or group of investors acting jointly.
     /// </summary>
+    [DataMember]
     public IsoNumber? PositionLimit { get; init; } 
     /// <summary>
     /// Position limit in the near-term contract for a given exchange-traded product.
     /// </summary>
+    [DataMember]
     public IsoNumber? NearTermPositionLimit { get; init; } 
     /// <summary>
     /// Minimum price increase for a given exchange-traded Instrument.
     /// </summary>
+    [DataMember]
     public IsoNumber? MinimumTradingPricingIncrement { get; init; } 
     /// <summary>
     /// Reason for which money is raised through the issuance of a security.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Purpose { get; init; } 
     /// <summary>
     /// Specifies when the contract (i.e. MBS/TBA) will settle.
     /// </summary>
+    [DataMember]
     public IsoISOYearMonth? ContractSettlementMonth { get; init; } 
     /// <summary>
     /// Date on which new securities begin trading.
     /// </summary>
+    [DataMember]
     public DateAndDateTime1Choice_? FirstDealingDate { get; init; } 
     /// <summary>
     /// Ratio applied to convert the related security.
     /// </summary>
-    public UnderlyingRatio2[] Ratio { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<UnderlyingRatio2> Ratio { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rating(s) of the security.
     /// </summary>
-    public Rating1[] Rating { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Rating1> Rating { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Initial issue price of a financial instrument.
     /// </summary>
+    [DataMember]
     public Price14? IssuePrice { get; init; } 
     /// <summary>
     /// Rights to exercise the privilege to purchase or to sell the assets specified at a predetermined price or formula at or within a time in the future.
     /// </summary>
+    [DataMember]
     public OptionRight2Choice_? OptionRights { get; init; } 
     /// <summary>
     /// Indicates whether or not this is the last transaction.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? LastTransaction { get; init; } 
     /// <summary>
     /// Specifies that there will be one price and one transaction when two contracts are carried out simultaneously, one to buy and the other one to sell with two different expiration dates.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? SpreadTransaction { get; init; } 
     
     #nullable disable

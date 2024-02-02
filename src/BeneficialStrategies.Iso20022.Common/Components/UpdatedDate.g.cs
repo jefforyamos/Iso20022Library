@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Date of last revision.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UpdatedDate
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record UpdatedDate
     /// <summary>
     /// Date of last revision.
     /// </summary>
+    [DataMember]
     public required IsoISODate Date { get; init; } 
     
     #nullable disable

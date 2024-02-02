@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification expressed as a proprietary type and narrative description.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericIdentification179
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record GenericIdentification179
     /// <summary>
     /// Identification of the lot, according to a data source scheme. Used to indicate which processing to apply to the corresponding market value amount.
     /// </summary>
+    [DataMember]
     public required IsoMax52Text Identification { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     
     #nullable disable

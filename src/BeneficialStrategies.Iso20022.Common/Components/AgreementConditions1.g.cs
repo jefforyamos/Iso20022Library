@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type, date and version of the agreement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AgreementConditions1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AgreementConditions1
     /// <summary>
     /// Specifies the type of agreement.
     /// </summary>
+    [DataMember]
     public required IsoMax6AlphaText AgreementCode { get; init; } 
     /// <summary>
     /// Specifies the date of the agreement.
     /// </summary>
+    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Specifies the version of the agreement.
     /// </summary>
+    [DataMember]
     public IsoExact4NumericText? Version { get; init; } 
     
     #nullable disable

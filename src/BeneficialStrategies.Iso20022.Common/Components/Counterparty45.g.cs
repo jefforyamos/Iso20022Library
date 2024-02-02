@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to counterparty identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Counterparty45
 {
     #nullable enable
@@ -20,32 +22,39 @@ public partial record Counterparty45
     /// <summary>
     /// Unique code identifying the reporting counterparty of the contract.
     /// </summary>
+    [DataMember]
     public required PartyIdentification248Choice_ Identification { get; init; } 
     /// <summary>
     /// Indicates if the reporting counterparty is a central counterparty, a financial, non-financial counterparty or other type of counterparty in accordance with regulation.
     /// </summary>
+    [DataMember]
     public CounterpartyTradeNature15Choice_? Nature { get; init; } 
     /// <summary>
     /// Identifies the trading capacity of the seller.
     /// </summary>
+    [DataMember]
     public TradingCapacity7Code? TradingCapacity { get; init; } 
     /// <summary>
     /// Indicates the direction or side of the derivative transaction from the perspective of the reporting counterparty. 
     /// Usage:
     /// CounterpartySide should be used for the instruments such as most forwards and forward-like contracts (except for foreign exchange forwards and foreign exchange non-deliverable forwards); most options and option-like contracts including swaptions, caps and floors; credit default swaps; variance, volatility and correlation swaps; contracts for difference and spreadbets.
     /// </summary>
+    [DataMember]
     public Direction4Choice_? DirectionOrSide { get; init; } 
     /// <summary>
     /// Location of the trading desk or trader responsible for the decision of entering into or execution of the transaction.
     /// </summary>
+    [DataMember]
     public CountryCode? TraderLocation { get; init; } 
     /// <summary>
     /// Location of the trade party or the branch/office of the trade party to which the transaction is booked.
     /// </summary>
+    [DataMember]
     public CountryCode? BookingLocation { get; init; } 
     /// <summary>
     /// Provides details on the reporting exemption of a counterparty.
     /// </summary>
+    [DataMember]
     public ReportingExemption1? ReportingExemption { get; init; } 
     
     #nullable disable

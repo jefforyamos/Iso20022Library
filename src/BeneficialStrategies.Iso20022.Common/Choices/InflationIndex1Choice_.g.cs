@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(InflationIndex1Choice.ISIN))]
 [KnownType(typeof(InflationIndex1Choice.Name))]
+[DataContract]
 public abstract partial record InflationIndex1Choice_
 {
 }

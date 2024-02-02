@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account between an investor(s) and a fund manager or a fund. The account can contain holdings in any investment fund or investment fund class managed (or distributed) by the fund manager, within the same fund family.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Account31
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Account31
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountName { get; init; } 
     /// <summary>
     /// Supplementary registration information applying to a specific block of units for dealing and reporting purposes. The supplementary registration information may be used when all the units are registered, for example, to a funds supermarket, but holdings for each investor have to be reconciled individually.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Designation { get; init; } 
     /// <summary>
     /// Institution that maintains the records where the account is held.
     /// </summary>
+    [DataMember]
     public PartyIdentification139? Servicer { get; init; } 
     /// <summary>
     /// Sub-accounts that are grouped in a master or omnibus account.
     /// </summary>
+    [DataMember]
     public SubAccount5? SubAccountDetails { get; init; } 
     
     #nullable disable

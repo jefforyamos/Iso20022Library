@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money associated with a service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Fee1
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record Fee1
     /// <summary>
     /// Type of fee (charge/commission).
     /// </summary>
+    [DataMember]
     public required ChargeType5Choice_ Type { get; init; } 
     /// <summary>
     /// Method used to calculate the fee (charge/commission).
     /// </summary>
+    [DataMember]
     public ChargeBasis2Choice_? Basis { get; init; } 
     /// <summary>
     /// Standard fee (charge/commission) amount as specified in the fund prospectus or agreed for the account.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? StandardAmount { get; init; } 
     /// <summary>
     /// Standard fee (charge/commission) rate used to calculate the amount of the charge or fee, as specified in the fund prospectus or agreed for the account.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? StandardRate { get; init; } 
     /// <summary>
     /// Discount or waiver applied to the fee (charge/commission).
     /// </summary>
+    [DataMember]
     public ChargeOrCommissionDiscount1? DiscountDetails { get; init; } 
     /// <summary>
     /// Requested fee (charge/commission) amount as agreed for the account.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? RequestedAmount { get; init; } 
     /// <summary>
     /// Requested rate used to calculate the amount of the fee (charge/commission), as agreed for the account.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? RequestedRate { get; init; } 
     /// <summary>
     /// Reference to a sales agreement that overrides normal processing or the Service Level Agreement (SLA), such as a fee (charge/commission).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NonStandardSLAReference { get; init; } 
     /// <summary>
     /// Party entitled to the amount of money resulting from a fee (charge/commission).
     /// </summary>
+    [DataMember]
     public PartyIdentification113? RecipientIdentification { get; init; } 
     
     #nullable disable

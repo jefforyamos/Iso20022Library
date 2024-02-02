@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// The OriginalAmountDetails contains all amount information in the acceptor currency code necessary to manage currency conversion in the cardholder currency code.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalAmountDetails1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OriginalAmountDetails1
     /// <summary>
     /// Actual amount to be converted.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? ActualAmount { get; init; } 
     /// <summary>
     /// Minimum amount for conversion (in case of range of amounts).
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? MinimumAmount { get; init; } 
     /// <summary>
     /// Maximum amount for conversion (in case of range of amounts).
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? MaximumAmount { get; init; } 
     
     #nullable disable

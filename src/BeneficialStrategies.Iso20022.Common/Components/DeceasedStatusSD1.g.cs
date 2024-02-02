@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Deceased beneficial owner information details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeceasedStatusSD1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record DeceasedStatusSD1
     /// <summary>
     /// Name by which the beneficial owner is known.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text BeneficialOwnerName { get; init; } 
     /// <summary>
     /// Date of death of the beneficial owner.
     /// </summary>
+    [DataMember]
     public IsoISODate? DeathDate { get; init; } 
     /// <summary>
     /// Death certificate number of the beneficial owner.
     /// </summary>
+    [DataMember]
     public IsoMax30Text? DeathCertificateSerialNumber { get; init; } 
     /// <summary>
     /// Jurisdiction by which the certificate of deposit was issued.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? IssuingJurisdiction { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Encrypted data with encryption key.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EnvelopedData9
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record EnvelopedData9
     /// <summary>
     /// Version of the data structure.
     /// </summary>
+    [DataMember]
     public IsoNumber? Version { get; init; } 
     /// <summary>
     /// Provides certificates of the originator.
     /// </summary>
+    [DataMember]
     public OriginatorInformation1? OriginatorInformation { get; init; } 
     /// <summary>
     /// Session key or identification of the protection key used by the recipient.
     /// </summary>
-    public Recipient11Choice_[] Recipient { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Recipient11Choice_> Recipient { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data protection by encryption (digital envelope), with an encryption key.
     /// </summary>
+    [DataMember]
     public EncryptedContent6? EncryptedContent { get; init; } 
     
     #nullable disable

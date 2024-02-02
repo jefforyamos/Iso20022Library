@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Capabilities of the terminal.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Capabilities1
 {
     #nullable enable
@@ -21,40 +23,48 @@ public partial record Capabilities1
     /// Card reading capabilities of the terminal performing the transaction.
     /// ISO 8583:93 bit 22-2; ISO 8583:2003 bit 27-1
     /// </summary>
-    public CardDataReading7Code[] CardReadingCapability { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardDataReading7Code> CardReadingCapability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Other types of card reading capabilities.
     /// </summary>
-    public IsoMax35Text[] OtherCardReadingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> OtherCardReadingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Card writing or output capabilities of the terminal performing the transaction.
     /// ISO 8583:93 bit 22-10, ISO 8583:2003 bit 27-8_9.
     /// </summary>
-    public CardDataWriting1Code[] CardWritingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardDataWriting1Code> CardWritingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Other card writing or output capabilities of the terminal performing the transaction.
     /// </summary>
-    public IsoMax35Text[] OtherCardWritingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> OtherCardWritingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum number of digits that the Point of Interaction is able to accept when the cardholder enters its PIN.
     /// ISO 8583:87 bit 26, ISO 8583:93 bit 22-12, ISO 8583:2003 bit 27-11.
     /// </summary>
+    [DataMember]
     public IsoNumber? PINLengthCapabilities { get; init; } 
     /// <summary>
     /// Maximum number of characters of the approval code that the acquirer is able to manage.
     /// ISO 8583:87 & 93 bit 27,  ISO 8583:2003-1 bit 27-3
     /// </summary>
+    [DataMember]
     public IsoNumber? ApprovalCodeLength { get; init; } 
     /// <summary>
     /// Maximum data length in bytes that a card issuer can return to the ICC at the terminal.
     /// ISO 8583:2003 bit 27-8
     /// </summary>
+    [DataMember]
     public IsoNumber? MaxScriptLength { get; init; } 
     /// <summary>
     /// PIN pad is inoperative.
     /// Default: False - PIN pad is operative or not applicable.
     /// True: PIN pas is inoperative.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? PINPadInoperative { get; init; } 
     /// <summary>
     /// Indicates whether the terminal can capture cards or not.
@@ -62,21 +72,25 @@ public partial record Capabilities1
     /// False: The terminal is not able to capture cards.
     /// ISO 8583:87 bit 25, ISO 8583:93 bit 22-3, ISO 8583:2003 bit 27-10.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CardCaptureCapable { get; init; } 
     /// <summary>
     /// Capability of the terminal to go online.
     /// </summary>
+    [DataMember]
     public OnLineCapability2Code? OnLineCapabilities { get; init; } 
     /// <summary>
     /// Capability of the terminal to display or print messages to the cardholder or the merchant.
     /// ISO 8583:93 bit 22-11, ISO 8583:2003-1 bit 27-4,5, 6, 7
     /// </summary>
-    public DisplayCapabilities6[] MessageCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DisplayCapabilities6> MessageCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cardholder verification capabilities performing the transaction at the point of service.
     /// ISO 8583:93 bit 22-2, ISO 8583:2003 bit 27-2
     /// </summary>
-    public CardholderVerificationCapabilities1[] CardholderVerificationCapability { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardholderVerificationCapabilities1> CardholderVerificationCapability { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

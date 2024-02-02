@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Communication device number or electronic address used for communication.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CommunicationAddress4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CommunicationAddress4
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
+    [DataMember]
     public IsoMax256Text? EmailAddress { get; init; } 
     /// <summary>
     /// Address for the Universal Resource Locator (URL), eg, used over the www (HTTP) service.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? URLAddress { get; init; } 
     
     #nullable disable

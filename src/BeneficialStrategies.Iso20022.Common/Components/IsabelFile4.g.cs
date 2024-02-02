@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the parameters for an Isabel reporting file.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IsabelFile4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record IsabelFile4
     /// <summary>
     /// Format of the file.
     /// </summary>
+    [DataMember]
     public required IsoMax16Text Format { get; init; } 
     /// <summary>
     /// Name of the mime file.
     /// </summary>
+    [DataMember]
     public IsoMax100AlphaNumericUnderscoreText? Name { get; init; } 
     /// <summary>
     /// Type of the mime file.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? MIMEType { get; init; } 
     
     #nullable disable

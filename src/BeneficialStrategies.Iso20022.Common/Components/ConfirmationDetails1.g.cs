@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reference of the PayInSchedule being confirmed. This is the Message Identification element from the Report Data sequence of the Pay In Schedule message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ConfirmationDetails1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record ConfirmationDetails1
     /// <summary>
     /// Reference to the pay in schedule confirmed.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text PayInScheduleReference { get; init; } 
     
     #nullable disable

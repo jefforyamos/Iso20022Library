@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Deletion of the current element.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Deletion2
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record Deletion2
     /// <summary>
     /// Content of the deleted element.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? DeletedValue { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains the details on the payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTransaction97
 {
     #nullable enable
@@ -20,85 +22,103 @@ public partial record PaymentTransaction97
     /// <summary>
     /// Contains the unique end to end transaction reference of a payment.
     /// </summary>
+    [DataMember]
     public required IsoUUIDv4Identifier UETR { get; init; } 
     /// <summary>
     /// Specifies which payment scenario is returned by the search.
     /// </summary>
+    [DataMember]
     public required PaymentScenario3Code PaymentScenarioReturned { get; init; } 
     /// <summary>
     /// Identifies an institution that is owned by the sender, for which the sender can ask payment transaction details.
     /// </summary>
+    [DataMember]
     public required IsoAnyBICIdentifier MyInstitution { get; init; } 
     /// <summary>
     /// Specifies the role of the party in the payment chain.
     /// </summary>
+    [DataMember]
     public required PaymentsPartyType2Code Role { get; init; } 
     /// <summary>
     /// Specifies the time determined by the Role that the entity defined in MyInstitution is playing in this transaction.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime EventTime { get; init; } 
     /// <summary>
     /// Specifies the status of a transaction, in a coded form.
     /// </summary>
+    [DataMember]
     public required PaymentStatus5 TransactionStatus { get; init; } 
     /// <summary>
     /// Provides details on the status of the cancellation of a payment transaction.
     /// </summary>
+    [DataMember]
     public PaymentTransactionCancellationStatus3? CancellationStatus { get; init; } 
     /// <summary>
     /// Identifies the financial institution servicing an account for the debtor. 
     /// Usage:
     /// Debtor Agent in this case only refers to FI to FI Customer Credit Transfers.
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? DebtorAgent { get; init; } 
     /// <summary>
     /// Identifies the party that owes an amount of money to the (ultimate) creditor.
     /// Usage:
     /// Debtor in this case only refers to Financial Institution Credit Transfer with cover.
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? Debtor { get; init; } 
     /// <summary>
     /// Identifies the agent(s) currently participating in a transaction.
     /// </summary>
-    public PaymentEvent2[] Agent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentEvent2> Agent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the financial institution servicing an account for the creditor.
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? CreditorAgent { get; init; } 
     /// <summary>
     /// Identifies the party to which an amount of money is due.
     /// Usage:
     /// This role is only to be used in Financial Institution Credit Transfer with cover
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? Creditor { get; init; } 
     /// <summary>
     /// Indicates the date and time at which the message enters the Gpi system.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime InitiationTime { get; init; } 
     /// <summary>
     /// Contains the time at which the instructed bank reports that the transaction has been completed. 
     /// Usage:
     /// Date and time based on the creation date of the status confirmation containing a final status ACSC.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CompletionTime { get; init; } 
     /// <summary>
     /// Specifies the amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// Usage:
     /// This amount has to be transported unchanged through the transaction chain.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; init; } 
     /// <summary>
     /// Specifies the actual amount that has been paid to the ultimate beneficiary, after all charges etc... have been deducted.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ConfirmedAmount { get; init; } 
     /// <summary>
     /// Specifies the last date and time at which the status of this transaction was updated.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime LastUpdateTime { get; init; } 
     /// <summary>
     /// Specifies the payment events related to the underlying cover payment.
     /// </summary>
-    public CoverPaymentEvent1[] CoverPaymentEvent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CoverPaymentEvent1> CoverPaymentEvent { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

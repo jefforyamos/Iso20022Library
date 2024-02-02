@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Configuration parameters for physical interface.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PhysicalInterfaceParameter1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record PhysicalInterfaceParameter1
     /// <summary>
     /// Identification of the interface.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text InterfaceName { get; init; } 
     /// <summary>
     /// Identification of the physical link layer.
     /// </summary>
+    [DataMember]
     public POICommunicationType2Code? InterfaceType { get; init; } 
     /// <summary>
     /// Optional user name to provide to use this interface.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? UserName { get; init; } 
     /// <summary>
     /// Optional access code to provide to use this interface.
     /// </summary>
+    [DataMember]
     public IsoMax35Binary? AccessCode { get; init; } 
     /// <summary>
     /// Identification of the optional security profile to use with this interface.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SecurityProfile { get; init; } 
     /// <summary>
     /// Any other parameters relevant for this interface.
     /// </summary>
+    [DataMember]
     public IsoMax2KBinary? AdditionalParameters { get; init; } 
     
     #nullable disable

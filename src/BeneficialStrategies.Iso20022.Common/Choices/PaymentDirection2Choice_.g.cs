@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(PaymentDirection2Choice.Indicator))]
 [KnownType(typeof(PaymentDirection2Choice.Proprietary))]
+[DataContract]
 public abstract partial record PaymentDirection2Choice_
 {
 }

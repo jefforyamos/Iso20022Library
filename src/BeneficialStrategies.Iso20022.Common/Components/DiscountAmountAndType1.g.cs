@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the amount with a specific type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DiscountAmountAndType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DiscountAmountAndType1
     /// <summary>
     /// Specifies the type of the amount.
     /// </summary>
+    [DataMember]
     public DiscountAmountType1Choice_? Type { get; init; } 
     /// <summary>
     /// Amount of money, which has been typed.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

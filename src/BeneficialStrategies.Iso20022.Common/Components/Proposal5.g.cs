@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates the type of proposal and if the proposal is for the variation margin and the segregated independent amount, or the segregated independent amount only.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Proposal5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Proposal5
     /// <summary>
     /// Indicates whether this is an initial or counter proposal.
     /// </summary>
+    [DataMember]
     public required ProposalType1Code CollateralProposalType { get; init; } 
     /// <summary>
     /// Provides details about the proposal for the variation margin and the segregated independent amount, or the segregated independent amount only.
     /// </summary>
+    [DataMember]
     public required CollateralProposal5Choice_ CollateralProposal { get; init; } 
     
     #nullable disable

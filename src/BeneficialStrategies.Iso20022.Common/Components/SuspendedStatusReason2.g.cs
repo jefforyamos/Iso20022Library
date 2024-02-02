@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the reason for the suspended status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SuspendedStatusReason2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SuspendedStatusReason2
     /// <summary>
     /// Reason for the suspended status.
     /// </summary>
+    [DataMember]
     public required SuspendedStatusReason3Code Reason { get; init; } 
     /// <summary>
     /// Reason for the suspended status.
     /// </summary>
+    [DataMember]
     public required IsoExtended350Code ExtendedReason { get; init; } 
     /// <summary>
     /// Proprietary identification of the reason for the suspended status.
     /// </summary>
+    [DataMember]
     public required GenericIdentification1 DataSourceScheme { get; init; } 
     /// <summary>
     /// Additional information about the suspended status reason.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the account expressed with a data source scheme.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountIdentification30
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AccountIdentification30
     /// <summary>
     /// Specifies the type of account.
     /// </summary>
+    [DataMember]
     public required AccountInformationType1Code AccountType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required AccountIdentification26 Identification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Card account balance.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Balance15
 {
     #nullable enable
@@ -20,32 +22,39 @@ public partial record Balance15
     /// <summary>
     /// Type of card account balance.
     /// </summary>
+    [DataMember]
     public required BalanceType14Code Type { get; init; } 
     /// <summary>
     /// Other card account balance type.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Amount value.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Currency of the account
     /// </summary>
+    [DataMember]
     public ISO3NumericCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Indicates whether the value of the balance id positive or negative.
     /// </summary>
+    [DataMember]
     public IsoPlusOrMinusIndicator? Sign { get; init; } 
     /// <summary>
     /// Indicates whether the value of balance is expressed in the currency of the cardholder or not.
     /// True: Balance is expressed in the currency of the cardholder
     /// False: Balance is expressed in a different currency.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CardholderCurrencyIndicator { get; init; } 
     /// <summary>
     /// Date of the balance.
     /// </summary>
+    [DataMember]
     public IsoISODate? BalanceDate { get; init; } 
     
     #nullable disable

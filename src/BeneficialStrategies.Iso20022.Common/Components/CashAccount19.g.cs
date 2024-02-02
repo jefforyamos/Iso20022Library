@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the cash account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashAccount19
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CashAccount19
     /// <summary>
     /// Specifies whether the value is a debit or credit.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Identification of the cash account or the securities account from which the cash account is derived.
     /// </summary>
+    [DataMember]
     public required AccountIdentification2Choice_ AccountIdentification { get; init; } 
     
     #nullable disable

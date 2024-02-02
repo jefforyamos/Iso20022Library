@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional amount that may be displayed to the customer, for instance the daily limit or the daily balance for the service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransactionAmounts7
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ATMTransactionAmounts7
     /// <summary>
     /// Type of amount.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Amount value.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Currency of the amount.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Description of the amount that may be provided to the customer.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Label { get; init; } 
     
     #nullable disable

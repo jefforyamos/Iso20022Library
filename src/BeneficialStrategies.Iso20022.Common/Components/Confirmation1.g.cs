@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of confirmation in the CMU.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Confirmation1
 {
     #nullable enable
@@ -20,58 +22,72 @@ public partial record Confirmation1
     /// <summary>
     /// Identifies the status of the confirmation.
     /// </summary>
+    [DataMember]
     public required TradeConfirmationStatus1Code ConfirmationStatus { get; init; } 
     /// <summary>
     /// Time that both of parties confirm the trade.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ConfirmationTime { get; init; } 
     /// <summary>
     /// Time that the trade party confirms the trade.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? TradePartyConfirmationTime { get; init; } 
     /// <summary>
     /// Time that the initiating party confirms the trade.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? InitiatingPartyConfirmationTime { get; init; } 
     /// <summary>
     /// Identifies the type of confirmation message being sent.
     /// </summary>
+    [DataMember]
     public required ConfirmationRequest1Code ConfirmationType { get; init; } 
     /// <summary>
     /// Identifies the confirm request messge.
     /// </summary>
+    [DataMember]
     public required MessageIdentification1 RequestIdentification { get; init; } 
     /// <summary>
     /// Start number in request result.
     /// </summary>
+    [DataMember]
     public required IsoMax35NumericText QueryStartNumber { get; init; } 
     /// <summary>
     /// Total number of reports returned in response to a request.
     /// </summary>
+    [DataMember]
     public required IsoNumber TotalNumberOfReports { get; init; } 
     /// <summary>
     /// Query results will be grouped with fixed number. The field indicates that the total number of groups.
     /// </summary>
+    [DataMember]
     public required IsoMax35NumericText PageNumber { get; init; } 
     /// <summary>
     /// Page number in request result.
     /// </summary>
+    [DataMember]
     public required IsoMax35NumericText QueryPageNumber { get; init; } 
     /// <summary>
     /// Number of messages in current page.
     /// </summary>
+    [DataMember]
     public required IsoNumber MessageNumberOfCurrentPage { get; init; } 
     /// <summary>
     /// Number of reports at current page.
     /// </summary>
+    [DataMember]
     public required IsoNumber ListOrderNumber { get; init; } 
     /// <summary>
     /// Indicate whether the current message is the last one of the current page or not.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator LastPageIndicator { get; init; } 
     /// <summary>
     /// Indicates whether this message is that last report message in response to a request.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator LastReportRequested { get; init; } 
     
     #nullable disable

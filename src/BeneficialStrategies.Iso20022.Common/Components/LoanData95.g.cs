@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the loan data details in case of a repurchase trade transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoanData95
 {
     #nullable enable
@@ -20,63 +22,78 @@ public partial record LoanData95
     /// <summary>
     /// Unique trade Identifier (UTI) as agreed with the other counterparty.
     /// </summary>
+    [DataMember]
     public required IsoMax52Text UniqueTradeIdentifier { get; init; } 
     /// <summary>
     /// Date on which the reportable event pertaining to the transaction and captured by the report took place. In the case of action types valuation update, collateral update, reuse update, margin update, the date for which the information contained in the report is provided.
     /// </summary>
+    [DataMember]
     public required IsoISODate EventDate { get; init; } 
     /// <summary>
     /// Indicates the date and time when the contract was executed.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime ExecutionDateTime { get; init; } 
     /// <summary>
     /// Indicates whether clearing of contract has taken place.
     /// </summary>
+    [DataMember]
     public required Cleared10Choice_ ClearingStatus { get; init; } 
     /// <summary>
     /// Venue of execution shall be identified by a unique code for this venue.
     /// </summary>
+    [DataMember]
     public required IsoMICIdentifier TradingVenue { get; init; } 
     /// <summary>
     /// Reference to master agreement under which the counterparties concluded a documented transaction.
     /// </summary>
+    [DataMember]
     public MasterAgreement6? MasterAgreement { get; init; } 
     /// <summary>
     /// Date on which the counterparties contractually agree the exchange of securities or commodities versus collateral for the opening leg (spot leg) of the secured financing transaction. In the case of rollover of open term repurchase transactions, this is the date on which the rollover settles, even if no exchange of cash takes place.
     /// </summary>
+    [DataMember]
     public required IsoISODate ValueDate { get; init; } 
     /// <summary>
     /// Indication whether the transaction is subject to a general collateral arrangement. -‘true’ shall be populated for general collateral. General collateral specifies a collateral arrangement for a repurchase transaction in which the security lender may choose the security to provide as collateral with the cash provider amongst a relatively wide range of securities meeting predefined criteria.
     /// -‘false’ shall be populated for specific collateral. Specific collateral specifies a collateral arrangement for a repurchase transaction in which the buyer requests a specific security or commodity (individual ISIN) to be provided by the seller.
     /// </summary>
+    [DataMember]
     public SpecialCollateral1Code? GeneralCollateral { get; init; } 
     /// <summary>
     /// Indicates whether the transaction was settled using the Delivery-by-Value (DBV) mechanism.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator DeliveryByValue { get; init; } 
     /// <summary>
     /// Delivery method of the collateral.
     /// </summary>
+    [DataMember]
     public required CollateralDeliveryMethod1Code CollateralDeliveryMethod { get; init; } 
     /// <summary>
     /// Period before or at the end of which the loan should be repaid or renegotiated for another term. 
     /// </summary>
-    public ContractTerm3Choice_[] Term { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ContractTerm3Choice_> Term { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Interest rate of the loan.
     /// </summary>
+    [DataMember]
     public InterestRate20Choice_? InterestRate { get; init; } 
     /// <summary>
     /// Amount of money to be settled as of the start date and maturity date of the transaction.
     /// </summary>
+    [DataMember]
     public PrincipalAmount2? PrincipalAmount { get; init; } 
     /// <summary>
     /// Termination date in the case of a full early termination of the reported transaction.
     /// </summary>
+    [DataMember]
     public IsoISODate? TerminationDate { get; init; } 
     /// <summary>
     /// Price of unit of collateral component, including accrued interest for interest-bearing securities.
     /// </summary>
+    [DataMember]
     public SecuritiesTransactionPrice11Choice_? UnitPrice { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information and conditions provided for the physical attendance to the meeting.  
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Attendance2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Attendance2
     /// <summary>
     /// Conditions for physical admittance to the general meeting.
     /// </summary>
-    public AttendanceAdmissionConditions2[] AdmissionConditions { get; init; } = [];
+    [DataMember]
+    public ValueList<AttendanceAdmissionConditions2> AdmissionConditions { get; init; } = [];
     /// <summary>
     /// Specifies how to order the attendance card or to give notice of attendance.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? ConfirmationInformation { get; init; } 
     /// <summary>
     /// Date and time by which the beneficial owner or agent must provide notification of its intention to participate in the meeting. This deadline is set by an intermediary.
     /// </summary>
+    [DataMember]
     public DateFormat58Choice_? ConfirmationDeadline { get; init; } 
     /// <summary>
     /// Date and time by which the attendance to the meeting should be confirmed. This deadline is set by the issuer.
     /// </summary>
+    [DataMember]
     public DateFormat58Choice_? ConfirmationMarketDeadline { get; init; } 
     
     #nullable disable

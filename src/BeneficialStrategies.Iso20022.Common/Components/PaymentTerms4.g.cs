@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the payment terms of the underlying transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTerms4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PaymentTerms4
     /// <summary>
     /// Specifies the payment terms using a code or other means.
     /// </summary>
+    [DataMember]
     public required PaymentCodeOrOther1Choice_ PaymentTerms { get; init; } 
     /// <summary>
     /// Specifies if it is a fixed amount or a percentage.
     /// </summary>
+    [DataMember]
     public required AmountOrPercentage2Choice_ AmountOrPercentage { get; init; } 
     
     #nullable disable

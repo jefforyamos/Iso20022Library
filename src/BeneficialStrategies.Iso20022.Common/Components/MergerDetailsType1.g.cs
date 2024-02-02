@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information about mergers.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MergerDetailsType1
 {
     #nullable enable
@@ -21,25 +23,30 @@ public partial record MergerDetailsType1
     /// Differentiation of different types of merger.
     /// 合併/株式交換/株式移転の区分.
     /// </summary>
+    [DataMember]
     public MergerTypeCode? MergerType { get; init; } 
     /// <summary>
     /// Information about the counterparty in case of [sankaku] gappei: the scenario where a third party is involved as one of the counterparties in the merger but there is no security movement from the third party.
     /// </summary>
-    public CounterpartyDetailsType1[] CounterpartyDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CounterpartyDetailsType1> CounterpartyDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Classification of the simplified merger regulatory condition of the parent company.
     /// 簡易区分.
     /// </summary>
+    [DataMember]
     public MergerCode? SimplifiedMergerClassification { get; init; } 
     /// <summary>
     /// Classification of the short form merger regulatory condition of the subsidiary company.
     /// 略式区分.
     /// </summary>
+    [DataMember]
     public MergerCode? ShortFormMergerClassification { get; init; } 
     /// <summary>
     /// Share unit quantity of the shares of the new company.
     /// 新設会社の単元株数.
     /// </summary>
+    [DataMember]
     public IsoNumber? ShareUnitQuantityOfNewCompany { get; init; } 
     
     #nullable disable

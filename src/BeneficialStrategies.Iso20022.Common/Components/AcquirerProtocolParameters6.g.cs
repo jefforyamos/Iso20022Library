@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Acceptor parameters dedicated to the acquirer protocol.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcquirerProtocolParameters6
 {
     #nullable enable
@@ -20,58 +22,72 @@ public partial record AcquirerProtocolParameters6
     /// <summary>
     /// Identification of the acquirer using this protocol.
     /// </summary>
-    public GenericIdentification32[] AcquirerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericIdentification32> AcquirerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the payment application, user of the acquirer protocol.
     /// </summary>
-    public IsoMax35Text[] ApplicationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> ApplicationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acquirer host configuration.
     /// </summary>
-    public AcquirerHostConfiguration2[] Host { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AcquirerHostConfiguration2> Host { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acquirer protocol parameters of transactions performing an online authorisation.
     /// </summary>
+    [DataMember]
     public AcquirerProtocolParameters5? OnLineTransaction { get; init; } 
     /// <summary>
     /// Acquirer protocol parameters of transactions performing an offline authorisation.
     /// </summary>
+    [DataMember]
     public AcquirerProtocolParameters5? OffLineTransaction { get; init; } 
     /// <summary>
     /// Configuration parameters of reconciliation exchanges.
     /// </summary>
+    [DataMember]
     public ExchangeConfiguration4? ReconciliationExchange { get; init; } 
     /// <summary>
     /// Indicates the reconciliation period is assigned by the acquirer instead of the acceptor.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ReconciliationByAcquirer { get; init; } 
     /// <summary>
     /// Indicates the reconciliation total amounts are computed per currency.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? TotalsPerCurrency { get; init; } 
     /// <summary>
     /// Indicates that totals in reconciliation or batch must be split per group of points of interaction and card product profiles when these informations are present in the transactions.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? SplitTotals { get; init; } 
     /// <summary>
     /// Indicates that response messages and an AcceptorCompletionAdvice message following an authorisation exchange must contain protected or plain card data.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CardDataVerification { get; init; } 
     /// <summary>
     /// Send a cancellation advice for offline transactions not yet captured.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? NotifyOffLineCancellation { get; init; } 
     /// <summary>
     /// Types of transaction to include in the batch.
     /// </summary>
-    public BatchTransactionType1Code[] BatchTransferContent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BatchTransactionType1Code> BatchTransferContent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Configuration of a message item.
     /// </summary>
-    public MessageItemCondition1[] MessageItem { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MessageItemCondition1> MessageItem { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicator to require protection of sensitive card data in messages.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator ProtectCardData { get; init; } 
     
     #nullable disable

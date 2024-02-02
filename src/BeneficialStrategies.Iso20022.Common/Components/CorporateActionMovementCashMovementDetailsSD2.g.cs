@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action movement details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionMovementCashMovementDetailsSD2
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record CorporateActionMovementCashMovementDetailsSD2
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Indicates whether the value is a debit or a credit.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Resulting cash amount concerned in this transaction.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINActiveCurrencyAndAmount? TransactionAmount { get; init; } 
     /// <summary>
     /// Transaction reason.
     /// </summary>
+    [DataMember]
     public DTCAdjustmentPaymentType2Code? ReasonCode { get; init; } 
     /// <summary>
     /// Transaction sub reason.
     /// </summary>
+    [DataMember]
     public DTCAdjustmentPaymentSubReason1Code? SubReasonCode { get; init; } 
     /// <summary>
     /// Transaction contra participant identification when shares are distributed / delivered to / from another participant.
     /// </summary>
+    [DataMember]
     public IsoMax8Text? ContraParticipantNumber { get; init; } 
     /// <summary>
     /// Date/Time on which the posting / draft of cash is scheduled to take place for a transaction.
     /// </summary>
+    [DataMember]
     public DateFormat28Choice_? EarliestPaymentDate { get; init; } 
     /// <summary>
     /// Set of the DTC legacy sub reason codes representing tax rate. Used with reason codes ‘TJXD’ ‘TJXF’ ‘TJXI’ ‘TJXL’ ‘TJXR’ ‘TJXT’ ‘TJXU’ to identify the correct tax rate.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? TaxAdjustmentRate { get; init; } 
     
     #nullable disable

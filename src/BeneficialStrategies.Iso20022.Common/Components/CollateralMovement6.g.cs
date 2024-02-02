@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the collateral movement direction that is a delivery and optionaly a return.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralMovement6
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CollateralMovement6
     /// <summary>
     /// Provides the collateral movement direction that is a delivery only.
     /// </summary>
+    [DataMember]
     public required Collateral8 Deliver { get; init; } 
     /// <summary>
     /// Provides the collateral movement direction that is a return only.
     /// </summary>
+    [DataMember]
     public Collateral7? Return { get; init; } 
     
     #nullable disable

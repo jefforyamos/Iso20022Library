@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details of the account report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountReport16
 {
     #nullable enable
@@ -20,63 +22,78 @@ public partial record AccountReport16
     /// <summary>
     /// Unique identification, as assigned by the account servicer, to unambiguously identify the account report.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Provides details on the page number of the report.
     /// Usage: The pagination of the report is only allowed when agreed between the parties.
     /// </summary>
+    [DataMember]
     public Pagination? ReportPagination { get; init; } 
     /// <summary>
     /// Sequential number of the report, as assigned by the account servicer. |Usage: The sequential number is increased incrementally for each report sent electronically.
     /// </summary>
+    [DataMember]
     public IsoNumber? ElectronicSequenceNumber { get; init; } 
     /// <summary>
     /// Legal sequential number of the report, as assigned by the account servicer. It is increased incrementally for each report sent.
     /// </summary>
+    [DataMember]
     public IsoNumber? LegalSequenceNumber { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Range of time between a start date and an end date for which the account report is issued.
     /// </summary>
+    [DataMember]
     public DateTimePeriodDetails? FromToDate { get; init; } 
     /// <summary>
     /// Indicates whether the document is a copy, a duplicate, or a duplicate of a copy.
     /// </summary>
+    [DataMember]
     public CopyDuplicate1Code? CopyDuplicateIndicator { get; init; } 
     /// <summary>
     /// Specifies the application used to generate the reporting.
     /// </summary>
+    [DataMember]
     public ReportingSource1Choice_? ReportingSource { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account to which credit and debit entries are made.
     /// </summary>
+    [DataMember]
     public required CashAccount25 Account { get; init; } 
     /// <summary>
     /// Identifies the parent account of the account for which the report has been issued.
     /// </summary>
+    [DataMember]
     public CashAccount24? RelatedAccount { get; init; } 
     /// <summary>
     /// Provides general interest information that applies to the account at a particular moment in time.
     /// </summary>
-    public AccountInterest3[] Interest { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AccountInterest3> Interest { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of elements used to define the balance as a numerical representation of the net increases and decreases in an account at a specific point in time.
     /// </summary>
-    public CashBalance3[] Balance { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashBalance3> Balance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides summary information on entries.
     /// </summary>
+    [DataMember]
     public TotalTransactions4? TransactionsSummary { get; init; } 
     /// <summary>
     /// Set of elements used to specify an entry in the report.|Usage: At least one reference must be provided to identify the entry and its underlying transaction(s).
     /// </summary>
-    public ReportEntry4[] Entry { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReportEntry4> Entry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further details of the account report.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? AdditionalReportInformation { get; init; } 
     
     #nullable disable

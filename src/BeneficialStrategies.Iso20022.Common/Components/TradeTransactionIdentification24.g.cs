@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on transaction and conducting counterparty.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeTransactionIdentification24
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record TradeTransactionIdentification24
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Indication of the action type of the transaction.
     /// </summary>
+    [DataMember]
     public TransactionOperationType10Code? ActionType { get; init; } 
     /// <summary>
     /// Indicates the date and time of the submission of the report to the trade repository.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ReportingTimeStamp { get; init; } 
     /// <summary>
     /// Classification of derivative event type.
     /// </summary>
+    [DataMember]
     public DerivativeEventType3Code? DerivativeEventType { get; init; } 
     /// <summary>
     /// Indicates the time stamp of a derivative event.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? DerivativeEventTimeStamp { get; init; } 
     /// <summary>
     /// Unique code identifying the entity with which the reporting counterparty concluded the transaction.
     /// </summary>
+    [DataMember]
     public PartyIdentification248Choice_? OtherCounterparty { get; init; } 
     /// <summary>
     /// Choice between a Unique Transaction Identifier (UTI) or a proprietary identifier as agreed with the counterparty.
     /// </summary>
+    [DataMember]
     public UniqueTransactionIdentifier2Choice_? UniqueIdentifier { get; init; } 
     /// <summary>
     /// Details related to the master agreement.
     /// </summary>
+    [DataMember]
     public MasterAgreement8? MasterAgreement { get; init; } 
     /// <summary>
     /// Unique codes identifying the portfolio.
     /// </summary>
+    [DataMember]
     public CollateralPortfolioCode5Choice_? CollateralPortfolioCode { get; init; } 
     
     #nullable disable

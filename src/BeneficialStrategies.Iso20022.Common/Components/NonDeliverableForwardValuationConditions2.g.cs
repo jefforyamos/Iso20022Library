@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of parameters used to calculate the fixing rate to be applied to a non-deliverable agreement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NonDeliverableForwardValuationConditions2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record NonDeliverableForwardValuationConditions2
     /// <summary>
     /// Specifies the currency in which the non deliverable trade has to be settled ie the deliverable currency.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode SettlementCurrency { get; init; } 
     /// <summary>
     /// Date at which the rate used for calculating the net amount to be settled is observed.
     /// </summary>
+    [DataMember]
     public required IsoISODate ValuationDate { get; init; } 
     /// <summary>
     /// Free format text that may contain valuation information such as the place, the time or the source of the rate.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? AdditionalValuationInformation { get; init; } 
     /// <summary>
     /// Party through which the settlement will take place. It may contain the BIC of a central settlement system eg CLSBUS33.
     /// </summary>
+    [DataMember]
     public PartyIdentification8Choice_? SettlementParty { get; init; } 
     
     #nullable disable

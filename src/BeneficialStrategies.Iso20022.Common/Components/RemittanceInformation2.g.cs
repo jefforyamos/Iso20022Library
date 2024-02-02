@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RemittanceInformation2
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record RemittanceInformation2
     /// <summary>
     /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, for example, commercial invoices in an accounts' receivable system in an unstructured form.
     /// </summary>
-    public IsoMax140Text[] Unstructured { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax140Text> Unstructured { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

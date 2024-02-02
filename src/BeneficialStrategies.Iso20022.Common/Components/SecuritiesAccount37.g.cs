@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account to or from which a securities entry is made.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesAccount37
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SecuritiesAccount37
     /// <summary>
     /// Unambiguous identification for the account between the account owner and the account servicer.”.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax35Text Identification { get; init; } 
     /// <summary>
     /// Type of securities account.
     /// </summary>
+    [DataMember]
     public GenericIdentification47? Type { get; init; } 
     /// <summary>
     /// Description of the account.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     
     #nullable disable

@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(MemberIdentification2Choice.BICFI))]
 [KnownType(typeof(MemberIdentification2Choice.ClearingSystemMemberIdentification))]
 [KnownType(typeof(MemberIdentification2Choice.Other))]
+[DataContract]
 public abstract partial record MemberIdentification2Choice_
 {
 }

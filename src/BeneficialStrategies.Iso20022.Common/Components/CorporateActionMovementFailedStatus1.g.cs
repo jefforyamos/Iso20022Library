@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the failure of the settlement of a movement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionMovementFailedStatus1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record CorporateActionMovementFailedStatus1
     /// <summary>
     /// Identification of the agent account.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text AgentAccountIdentification { get; init; } 
     /// <summary>
     /// Identification of the client account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientAccountIdentification { get; init; } 
     /// <summary>
     /// Identification of the party that owns the client account.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Provides information about the resource movement that failed and the reason of the failure.
     /// </summary>
-    public FailedMovement1[] ResourceDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FailedMovement1> ResourceDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details about the collateral held by party A and/or B.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralBalance1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CollateralBalance1
     /// <summary>
     /// Collateral currently held by party A.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount HeldByPartyA { get; init; } 
     /// <summary>
     /// Collateral currently held by party B.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount HeldByPartyB { get; init; } 
     
     #nullable disable

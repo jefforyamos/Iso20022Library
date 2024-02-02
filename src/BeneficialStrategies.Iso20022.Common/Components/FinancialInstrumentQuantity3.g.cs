@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Quantity of the financial instrument subscribed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentQuantity3
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record FinancialInstrumentQuantity3
     /// <summary>
     /// Quantity of investment fund units redeemed.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
     /// <summary>
     /// Amount of money to be invested.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? OrderedAmount { get; init; } 
     /// <summary>
     /// Amount of money as a result of the redemption after deduction of charges, commissions and taxes.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? NetAmount { get; init; } 
     /// <summary>
     /// Amount of money as a result of the redemption before deduction of charges, commissions and taxes.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? GrossAmount { get; init; } 
     /// <summary>
     /// Amount of money as a result of the redemption.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ExecutedAmount { get; init; } 
     /// <summary>
     /// Portion of the investor's holdings, in a specific investment fund/ fund class, that is redeemed.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? HoldingsRedemptionRate { get; init; } 
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Regulatory transaction reporting information from the Trading Side party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradingSideTransactionReporting2
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record TradingSideTransactionReporting2
     /// <summary>
     /// Specifies the supervisory party to which the trade needs to be reported.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReportingJurisdiction { get; init; } 
     /// <summary>
     /// Identifies the party that is responsible for reporting the trade to the trade repository.
     /// </summary>
+    [DataMember]
     public PartyIdentification242Choice_? ReportingParty { get; init; } 
     /// <summary>
     /// Specifies the unique transaction identifier (UTI) to be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction over its life. This identifier can also be known as the Unique Swap Identifier (USI). This is the UTI from the Trading Side party.
     /// </summary>
-    public UniqueTransactionIdentifier2[] TradingSideUniqueTransactionIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<UniqueTransactionIdentifier2> TradingSideUniqueTransactionIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

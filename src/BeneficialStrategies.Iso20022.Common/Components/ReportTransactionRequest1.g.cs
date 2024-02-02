@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Transaction Report Request message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportTransactionRequest1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ReportTransactionRequest1
     /// <summary>
     /// Eligibility parameters for a transaction to be part of transaction report.
     /// </summary>
-    public SearchCriteria1[] SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SearchCriteria1> SearchCriteria { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the ordering in which the resulting transaction reports should be returned.
     /// </summary>
+    [DataMember]
     public SearchOutputOrder1? SearchOutputOrder { get; init; } 
     /// <summary>
     /// Indicates the order used for the criteria.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? DescendingOrder { get; init; } 
     /// <summary>
     /// Index of the first transaction matching the search criteria.
     /// </summary>
+    [DataMember]
     public IsoPositiveNumber? BlockStart { get; init; } 
     /// <summary>
     /// Index of the last transaction matching the search criteria.
     /// </summary>
+    [DataMember]
     public IsoPositiveNumber? BlockStop { get; init; } 
     
     #nullable disable

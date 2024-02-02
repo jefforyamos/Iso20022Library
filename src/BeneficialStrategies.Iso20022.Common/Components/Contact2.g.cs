@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of a contact person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Contact2
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record Contact2
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     /// <summary>
     /// Home phone number of contact.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? HomePhoneNumber { get; init; } 
     /// <summary>
     /// Business phone number of contact.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? BusinessPhoneNumber { get; init; } 
     /// <summary>
     /// Mobile phone number of contact.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? MobilePhoneNumber { get; init; } 
     /// <summary>
     /// Other phone number of contact.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? OtherPhoneNumber { get; init; } 
     /// <summary>
     /// Personal email address of contact.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? PersonalEmailAddress { get; init; } 
     /// <summary>
     /// Business email address of contact.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? BusinessEmailAddress { get; init; } 
     /// <summary>
     /// Other email address of contact.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? OtherEmailAddress { get; init; } 
     /// <summary>
     /// Collection of information that identifies a home FAX number, as defined by telecom services.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? HomeFaxNumber { get; init; } 
     /// <summary>
     /// Collection of information that identifies a home FAX number, as defined by telecom services.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? BusinessFaxNumber { get; init; } 
     /// <summary>
     /// Universal Resource Locator (URL) address.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? URLAddress { get; init; } 
     /// <summary>
     /// Language of the contact.
     /// </summary>
+    [DataMember]
     public ISO2ALanguageCode? Language { get; init; } 
     
     #nullable disable

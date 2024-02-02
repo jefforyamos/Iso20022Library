@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Key elements used to identify the original transaction(s) that is being referred to.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerPaymentTransaction3
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record TrackerPaymentTransaction3
     /// <summary>
     /// Provides information on the original tracked message that contained the transaction.
     /// </summary>
+    [DataMember]
     public OriginalBusinessInstruction2? TrackedMessageIdentification { get; init; } 
     /// <summary>
     /// Party that provides information on the status and related details of a transaction.
     /// </summary>
+    [DataMember]
     public required TrackerPartyIdentification1 TrackerInformingParty { get; init; } 
     /// <summary>
     /// Set of elements used to reference a payment instruction.
     /// </summary>
+    [DataMember]
     public required PaymentIdentification11 PaymentIdentification { get; init; } 
     /// <summary>
     /// Specifies the details on how the settlement of the transaction(s) between the instructing agent and the instructed agent is completed.
     /// </summary>
+    [DataMember]
     public SettlementInstruction10? SettlementInformation { get; init; } 
     /// <summary>
     /// Agent that is instructed by the previous party in the chain to carry out the (set of) instruction(s).
     /// </summary>
+    [DataMember]
     public TrackerFinancialInstitutionIdentification1? InstructedAgent { get; init; } 
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINActiveCurrencyAndAmount? InterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Provides details of the rate and the currencies used in the foreign exchange.
     /// </summary>
+    [DataMember]
     public CurrencyExchange16? ExchangeRateData { get; init; } 
     /// <summary>
     /// Specifies which party/parties will bear the charges associated with the processing of the payment transaction.
     /// </summary>
+    [DataMember]
     public ChargeBearerType4Code? ChargeBearer { get; init; } 
     /// <summary>
     /// Provides information on the charges to be paid by the charge bearer(s) related to the payment transaction.
     /// </summary>
-    public TrackerCharges1[] ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TrackerCharges1> ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information on the tracking of the interbank transaction related to the payment.
     /// </summary>
+    [DataMember]
     public TrackerData3? TrackerData { get; init; } 
     
     #nullable disable

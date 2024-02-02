@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Number assigned by a government agency to identify foreign nationals.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesAccount3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SecuritiesAccount3
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Choice between a code and a data source scheme to identify the type of account.
     /// </summary>
+    [DataMember]
     public PurposeCode5Choice_? Type { get; init; } 
     /// <summary>
     /// .
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Name { get; init; } 
     
     #nullable disable

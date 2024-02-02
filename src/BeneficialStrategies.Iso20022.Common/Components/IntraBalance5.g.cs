@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the intra-balance movement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraBalance5
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record IntraBalance5
     /// <summary>
     /// Total amount of money to be settled.
     /// </summary>
+    [DataMember]
     public required Amount2Choice_ SettlementAmount { get; init; } 
     /// <summary>
     /// Date and time at which the amount of money is to be moved.
     /// </summary>
+    [DataMember]
     public required DateAndDateTime2Choice_ SettlementDate { get; init; } 
     /// <summary>
     /// Balance from which the amount of money is moved.
     /// </summary>
+    [DataMember]
     public required CashSubBalanceTypeAndQuantityBreakdown3 BalanceFrom { get; init; } 
     /// <summary>
     /// Balance to which the amount of money is moved.
     /// </summary>
+    [DataMember]
     public required CashSubBalanceTypeAndQuantityBreakdown3 BalanceTo { get; init; } 
     /// <summary>
     /// Number identifying a lot constituting the sub-balance.
     /// </summary>
+    [DataMember]
     public GenericIdentification37? CashSubBalanceIdentification { get; init; } 
     /// <summary>
     /// Specifies whether the transaction is to be executed with a high priority.
     /// </summary>
+    [DataMember]
     public PriorityNumeric4Choice_? Priority { get; init; } 
     /// <summary>
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? InstructionProcessingAdditionalDetails { get; init; } 
     
     #nullable disable

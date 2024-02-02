@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// List of account owner and identifiers.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountOwnerAndIdentificationList1
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record AccountOwnerAndIdentificationList1
     /// <summary>
     /// List of the identifier pairs.
     /// </summary>
-    public AccountOwnerAndIdentification1[] List { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AccountOwnerAndIdentification1> List { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

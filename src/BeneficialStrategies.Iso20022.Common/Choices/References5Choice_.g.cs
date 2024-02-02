@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(References5Choice.AccountServicerTransactionIdentification))]
 [KnownType(typeof(References5Choice.PoolIdentification))]
 [KnownType(typeof(References5Choice.MarketInfrastructureTransactionIdentification))]
+[DataContract]
 public abstract partial record References5Choice_
 {
 }

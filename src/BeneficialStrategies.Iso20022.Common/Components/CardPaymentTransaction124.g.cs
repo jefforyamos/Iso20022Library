@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data associated with the transaction during the authorisation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentTransaction124
 {
     #nullable enable
@@ -20,87 +22,108 @@ public partial record CardPaymentTransaction124
     /// <summary>
     /// Flag indicating whether the transaction data must be captured or not in addition to the message process.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator TransactionCapture { get; init; } 
     /// <summary>
     /// Type of transaction being undertaken for the main service.
     /// </summary>
+    [DataMember]
     public CardPaymentServiceType12Code? TransactionType { get; init; } 
     /// <summary>
     /// Service in addition to the main service.
     /// </summary>
-    public CardPaymentServiceType9Code[] AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardPaymentServiceType9Code> AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional attribute of the service type.
     /// </summary>
+    [DataMember]
     public CardPaymentServiceType14Code? ServiceAttribute { get; init; } 
     /// <summary>
     /// Flag indicating processing of the last transaction.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? LastTransactionFlag { get; init; } 
     /// <summary>
     /// Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction.
     /// </summary>
+    [DataMember]
     public IsoMin3Max4Text? MerchantCategoryCode { get; init; } 
     /// <summary>
     /// This enables retailers, if they so wish, to clearly indicate whether the consent of the customer was explicitly obtained for a given service instead of being implicitly derived.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CustomerConsent { get; init; } 
     /// <summary>
     /// Specifies the card program proposed by a retailer to a cardholder among a series of payment programmes offered by the retailer.
     /// </summary>
-    public IsoMax35Text[] CardProgrammeProposed { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> CardProgrammeProposed { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the card program actually selected by the cardholder among the ones supported by the retailer and/or the one actually proposed to him.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CardProgrammeApplied { get; init; } 
     /// <summary>
     /// Global reference of the sale transaction for the sale system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleReferenceIdentification { get; init; } 
     /// <summary>
     /// Identification of the transaction assigned by the POI (Point Of Interaction).
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the original transaction.
     /// </summary>
+    [DataMember]
     public CardPaymentTransaction122? OriginalTransaction { get; init; } 
     /// <summary>
     /// Identification of the transaction assigned by the initiating party for the recipient party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? InitiatorTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the reconciliation period between the acceptor and the acquirer. This identification might be linked to the identification of the settlement for further verification by the merchant.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Identification, given by the Issuer, of the transaction processed with the cardholder that legitimates this merchant initiated transaction.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? IssuerCITIdentification { get; init; } 
     /// <summary>
     /// Identification, given by the merchant, of the transaction processed with the cardholder that legitimates this merchant initiated transaction.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? MerchantCITIdentification { get; init; } 
     /// <summary>
     /// Details of the transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentTransactionDetails52 TransactionDetails { get; init; } 
     /// <summary>
     /// Merchant information that must be returned unchanged in the response.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? MerchantReferenceData { get; init; } 
     /// <summary>
     /// Information relevant to the account where the money is taken from.
     /// </summary>
+    [DataMember]
     public CardAccount16? AccountFrom { get; init; } 
     /// <summary>
     /// Information relevant to the account where the money is put.
     /// </summary>
+    [DataMember]
     public CardAccount16? AccountTo { get; init; } 
     /// <summary>
     /// Additional information related to the transaction.
     /// </summary>
-    public IsoMax70Text[] AdditionalTransactionData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax70Text> AdditionalTransactionData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

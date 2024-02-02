@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains transaction details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transaction144
 {
     #nullable enable
@@ -20,62 +22,76 @@ public partial record Transaction144
     /// <summary>
     /// Code that identifies an administrative type.
     /// </summary>
+    [DataMember]
     public required AdministrativeType1Code AdministrativeType { get; init; } 
     /// <summary>
     /// Other administrative type defined at private or national level.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherAdministrativeType { get; init; } 
     /// <summary>
     /// Reason or purpose to send the message.
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    public ISO8583MessageReasonCode[] MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ISO8583MessageReasonCode> MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Supports message reason codes that are not defined in external code list. 
     /// </summary>
-    public IsoMax256Text[] AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax256Text> AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional functions or services to be performed in conjunction with the transaction.
     /// </summary>
-    public AdditionalService2[] AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalService2> AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates that additional data will be provided in a separate addendum message.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? AssociatedDataIndicator { get; init; } 
     /// <summary>
     /// Reference to additional transaction details to be conveyed separately from this message.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AssociatedDataReference { get; init; } 
     /// <summary>
     /// Destination value to be used in the subsequent addendum message.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AssociatedDataDestination { get; init; } 
     /// <summary>
     /// Data to qualify for incentive or other related programmes.
     /// </summary>
-    public SpecialProgrammeQualification1[] SpecialProgrammeQualification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SpecialProgrammeQualification1> SpecialProgrammeQualification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
+    [DataMember]
     public required TransactionIdentification12 TransactionIdentification { get; init; } 
     /// <summary>
     /// Contains generic text message.
     /// </summary>
+    [DataMember]
     public IsoMax20KText? TextMessage { get; init; } 
     /// <summary>
     /// Additional Information in local language.
     /// </summary>
-    public LocalData9[] LocalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LocalData9> LocalData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Transaction data related to programmes and services, content and format based on bilateral agreements.
     /// ISO 8583:87/93 bit 104
     /// ISO 8583:2003 bit 104-71
     /// </summary>
+    [DataMember]
     public IsoMax1000Text? TransactionDescription { get; init; } 
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData2[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData2> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates the reason for which the contract has not been cleared.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NonClearingReason2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NonClearingReason2
     /// <summary>
     /// Specifies the reason for a clearing exemption or exception.
     /// </summary>
-    public ClearingExemptionException1Code[] ClearingExemptionException { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ClearingExemptionException1Code> ClearingExemptionException { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the reason for which the contract has not been cleared.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? NonClearingReasonInformation { get; init; } 
     
     #nullable disable

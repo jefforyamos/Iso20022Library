@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the mandate to be cancelled.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MandateCancellation1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record MandateCancellation1
     /// <summary>
     /// Set of elements used to provide information on the original messsage.
     /// </summary>
+    [DataMember]
     public OriginalMessageInformation1? OriginalMessageInformation { get; init; } 
     /// <summary>
     /// Set of elements used to provide detailed information on the cancellation reason.
     /// </summary>
+    [DataMember]
     public required CancellationReasonInformation2 CancellationReason { get; init; } 
     /// <summary>
     /// Set of elements used to provide the original mandate data.
     /// </summary>
+    [DataMember]
     public required OriginalMandate1Choice_ OriginalMandate { get; init; } 
     
     #nullable disable

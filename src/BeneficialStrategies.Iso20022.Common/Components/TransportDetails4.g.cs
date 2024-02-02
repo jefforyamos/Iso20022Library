@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information on the shipment date, the charges, the routing and the goods described in the transport document.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransportDetails4
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record TransportDetails4
     /// <summary>
     /// Reference to the identification of the underlying transport document.
     /// </summary>
-    public DocumentIdentification7[] TransportDocumentReference { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DocumentIdentification7> TransportDocumentReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Goods that are transported.
     /// </summary>
-    public TransportedGoods1[] TransportedGoods { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransportedGoods1> TransportedGoods { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Physical packaging of goods for transport.
     /// </summary>
+    [DataMember]
     public Consignment3? Consignment { get; init; } 
     /// <summary>
     /// Information related to the conveyance of goods.
     /// </summary>
+    [DataMember]
     public required TransportMeans6 RoutingSummary { get; init; } 
     /// <summary>
     /// Shipment date, actual or proposed.
     /// </summary>
+    [DataMember]
     public required ShipmentDate1Choice_ ShipmentDate { get; init; } 
     /// <summary>
     /// Charges related to the conveyance of goods.
     /// </summary>
+    [DataMember]
     public Charge25? FreightCharges { get; init; } 
     /// <summary>
     /// Specifies the applicable Incoterm and associated location.
     /// </summary>
+    [DataMember]
     public Incoterms4? Incoterms { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ATMSignature2Choice.DigitalSignature))]
 [KnownType(typeof(ATMSignature2Choice.TRRelatedData))]
+[DataContract]
 public abstract partial record ATMSignature2Choice_
 {
 }

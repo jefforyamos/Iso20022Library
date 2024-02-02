@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Conversion2
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record Conversion2
     /// <summary>
     /// Identification of the source security.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentIdentification1 SourceSecurity { get; init; } 
     /// <summary>
     /// Number of units of the source security.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? TotalUnitsNumber { get; init; } 
     /// <summary>
     /// Breakdown of units of the source security.
     /// </summary>
-    public Unit13[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Unit13> UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the conversion.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

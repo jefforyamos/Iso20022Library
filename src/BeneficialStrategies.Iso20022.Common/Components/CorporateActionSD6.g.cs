@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details about the lottery.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionSD6
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record CorporateActionSD6
     /// <summary>
     /// Status of the fields of lottery record.
     /// </summary>
+    [DataMember]
     public required WorkflowStatus1Code LotteryRecordStatus { get; init; } 
     
     #nullable disable

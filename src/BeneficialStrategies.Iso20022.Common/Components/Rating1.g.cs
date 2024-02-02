@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Assessment of securities credit and investment risk.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Rating1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Rating1
     /// <summary>
     /// Information regarding the entity that assigns the rating.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text RatingScheme { get; init; } 
     /// <summary>
     /// Date/time as from which the rating is valid.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime ValueDate { get; init; } 
     /// <summary>
     /// Specifies the rating, which has been assigned to a security by a rating agency.
     /// </summary>
+    [DataMember]
     public required IsoRatingValueIdentifier ValueIdentification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money characterics used to specify a limit.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LimitAmount1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record LimitAmount1
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
+    [DataMember]
     public required CreditDebitAmount1 Amount { get; init; } 
     /// <summary>
     /// Utilised amount of money of the limit expressed in an eligible currency.
     /// </summary>
+    [DataMember]
     public required CreditDebitAmount1 UtilisationAmount { get; init; } 
     /// <summary>
     /// Remaining amount of money of the limit expressed in an eligible currency.
     /// </summary>
+    [DataMember]
     public required CreditDebitAmount1 AvailableAmount { get; init; } 
     
     #nullable disable

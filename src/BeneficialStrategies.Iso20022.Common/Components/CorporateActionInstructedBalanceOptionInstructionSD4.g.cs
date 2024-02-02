@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action instructed balance details at option level.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionInstructedBalanceOptionInstructionSD4
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CorporateActionInstructedBalanceOptionInstructionSD4
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [DataMember]
     public required OptionNumber1Choice_ OptionNumber { get; init; } 
     /// <summary>
     /// Instruction reference number assigned by DTC to the uncovered protect instruction.
     /// </summary>
+    [DataMember]
     public IsoMax15Text? ProtectIdentification { get; init; } 
     /// <summary>
     /// Contra CUSIP Identification of the option instruction.
     /// </summary>
+    [DataMember]
     public OtherIdentification2? TransactionContraCUSIP { get; init; } 
     /// <summary>
     /// Quantity relating only to the oversubscription.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity15Choice_? TransactionIdentificationOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Status of the instruction.
     /// </summary>
+    [DataMember]
     public required DTCInstructionStatus2Code TransactionIdentificationStatus { get; init; } 
     
     #nullable disable

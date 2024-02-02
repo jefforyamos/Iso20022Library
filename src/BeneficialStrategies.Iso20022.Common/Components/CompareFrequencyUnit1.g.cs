@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies whether the information on the frequency units are matching or not.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareFrequencyUnit1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareFrequencyUnit1
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public Frequency13Code? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public Frequency13Code? Value2 { get; init; } 
     
     #nullable disable

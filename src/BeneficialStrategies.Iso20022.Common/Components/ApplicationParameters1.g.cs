@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Acceptor parameters dedicated to a payment application of the point of interaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ApplicationParameters1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ApplicationParameters1
     /// <summary>
     /// Identification of the payment application.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ApplicationIdentification { get; init; } 
     /// <summary>
     /// Version of the payment application configuration parameters.
     /// </summary>
+    [DataMember]
     public required IsoMax16Text Version { get; init; } 
     /// <summary>
     /// Configuration parameters used by the related payment application.
     /// </summary>
-    public IsoMax10000Binary[] Parameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax10000Binary> Parameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Sensitive parameters (sequence of Parameters including the enveloppes) encrypted with a cryptographic key.
     /// </summary>
+    [DataMember]
     public ContentInformationType2? EncryptedParameters { get; init; } 
     
     #nullable disable

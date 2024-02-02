@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SecuritiesTransactionPrice3Choice.Percentage))]
 [KnownType(typeof(SecuritiesTransactionPrice3Choice.Yield))]
 [KnownType(typeof(SecuritiesTransactionPrice3Choice.PendingPrice))]
+[DataContract]
 public abstract partial record SecuritiesTransactionPrice3Choice_
 {
 }

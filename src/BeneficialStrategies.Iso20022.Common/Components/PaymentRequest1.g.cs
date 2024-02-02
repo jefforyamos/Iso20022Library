@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data required to request a Payment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentRequest1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record PaymentRequest1
     /// <summary>
     /// Data associated with the Transaction.
     /// </summary>
+    [DataMember]
     public CardPaymentTransaction91? PaymentTransaction { get; init; } 
     /// <summary>
     /// Data linked to card loyalty during payment.
     /// </summary>
-    public LoyaltyRequestData1[] LoyaltyData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LoyaltyRequestData1> LoyaltyData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

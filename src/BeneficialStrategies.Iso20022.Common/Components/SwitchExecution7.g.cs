@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Execution of a switch order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SwitchExecution7
 {
     #nullable enable
@@ -20,82 +22,102 @@ public partial record SwitchExecution7
     /// <summary>
     /// Indicates whether the confirmation is an amendment of a previous confirmation.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AmendmentIndicator { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual orders, as assigned by the instructing party. This identifier links the individual orders together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Market in which the advised trade transaction was executed.
     /// </summary>
+    [DataMember]
     public PlaceOfTradeIdentification1Choice_? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Date and time at which the order was placed by the investor or its agent.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OrderDateTime { get; init; } 
     /// <summary>
     /// Date and time the order was received by the executing party, for example, the transfer agent.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ReceivedDateTime { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the order execution, as assigned by the confirming party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text DealReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the order, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Account impacted by the investment fund order execution.
     /// </summary>
+    [DataMember]
     public InvestmentAccount58? InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Party related to the transaction.
     /// </summary>
-    public Intermediary39[] RelatedPartyDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<Intermediary39> RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Cancellation right of the investor with respect to the investment fund order.
     /// </summary>
+    [DataMember]
     public CancellationRight1Choice_? CancellationRight { get; init; } 
     /// <summary>
     /// Future date at which the investor requests the order to be executed.|The specification of a requested future trade date is not allowed in some markets. The date must be a date in the future.
     /// </summary>
+    [DataMember]
     public IsoISODate? RequestedFutureTradeDate { get; init; } 
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     /// <summary>
     /// Date on which cash is available.
     /// </summary>
+    [DataMember]
     public IsoISODate? CashSettlementDate { get; init; } 
     /// <summary>
     /// Method by which the transaction is settled.
     /// </summary>
+    [DataMember]
     public DeliveryReceiptType2Code? SettlementMethod { get; init; } 
     /// <summary>
     /// Choice between additional cash in or resulting cash out.
     /// </summary>
+    [DataMember]
     public AdditionalAmount1Choice_? AdditionalAmount { get; init; } 
     /// <summary>
     /// Specifies that the execution was subject to best execution rules as defined by MiFID.
     /// </summary>
+    [DataMember]
     public BestExecution1Code? BestExecution { get; init; } 
     /// <summary>
     /// Redemption leg of a switch order execution.
     /// </summary>
-    public SwitchRedemptionLegExecution4[] RedemptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SwitchRedemptionLegExecution4> RedemptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Subscription leg of a switch order execution.
     /// </summary>
-    public SwitchSubscriptionLegExecution4[] SubscriptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SwitchSubscriptionLegExecution4> SubscriptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment process for the transfer of cash from the debtor to the creditor.
     /// </summary>
+    [DataMember]
     public PaymentTransaction71? CashSettlementDetails { get; init; } 
     /// <summary>
     /// Information needed to process a currency exchange or conversion.
@@ -110,34 +132,42 @@ public partial record SwitchExecution7
     /// QuotedCurrency EUR
     /// ExchangeRate 0.769.
     /// </summary>
-    public ForeignExchangeTerms33[] ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ForeignExchangeTerms33> ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies if advice has been received from an independent financial advisor.
     /// </summary>
+    [DataMember]
     public FinancialAdvice1Code? FinancialAdvice { get; init; } 
     /// <summary>
     /// Specifies whether the trade is negotiated.
     /// </summary>
+    [DataMember]
     public NegotiatedTrade1Code? NegotiatedTrade { get; init; } 
     /// <summary>
     /// Specifies whether the order execution confirmation is late.
     /// </summary>
+    [DataMember]
     public LateReport1Code? LateReport { get; init; } 
     /// <summary>
     /// Assessment of the customer’s behaviour at the time of the account opening application.
     /// </summary>
+    [DataMember]
     public CustomerConductClassification1Choice_? CustomerConductClassification { get; init; } 
     /// <summary>
     /// Means by which the investor or account owner submits the open account form.
     /// </summary>
+    [DataMember]
     public TransactionChannelType1Choice_? TransactionChannelType { get; init; } 
     /// <summary>
     /// Type of signature.
     /// </summary>
+    [DataMember]
     public SignatureType1Choice_? SignatureType { get; init; } 
     /// <summary>
     /// Information about a non-standard order.
     /// </summary>
+    [DataMember]
     public OrderWaiver1? OrderWaiverDetails { get; init; } 
     
     #nullable disable

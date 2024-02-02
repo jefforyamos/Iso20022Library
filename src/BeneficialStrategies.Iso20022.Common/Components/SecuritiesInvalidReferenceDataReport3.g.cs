@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reference data instruments that are no longer valid either through an instrument update or that have passed their termination date.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesInvalidReferenceDataReport3
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record SecuritiesInvalidReferenceDataReport3
     /// <summary>
     /// Instrument details at the time this specific details on the financial instrument was invalidated.
     /// </summary>
+    [DataMember]
     public required SecuritiesReferenceDataReport5 FinancialInstrument { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionDetails161
 {
     #nullable enable
@@ -20,130 +22,162 @@ public partial record TransactionDetails161
     /// <summary>
     /// Reference assigned to the trade by the investor or the trading party. This reference will be used throughout the trade life cycle to access/update the trade details.
     /// </summary>
-    public IsoRestrictedFINXMax52Text[] TradeIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoRestrictedFINXMax52Text> TradeIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Collective reference identifying a set of messages.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? PoolIdentification { get; init; } 
     /// <summary>
     /// Identification assigned by the account servicer to unambiguously identify a corporate action event.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? CorporateActionEventIdentification { get; init; } 
     /// <summary>
     /// Unique identification identifying the triparty collateral management transaction from the triparty-agent's/service-provider's point of view.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? TripartyAgentServiceProviderCollateralTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique reference identifying the triparty collateral management transaction from the client's point of view.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? ClientTripartyCollateralTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification assigned to the instruction by the client.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? ClientCollateralInstructionIdentification { get; init; } 
     /// <summary>
     /// Unique identification assigned to the instruction by the triparty-agent/service-provider.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? TripartyAgentServiceProviderCollateralInstructionIdentification { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification156? AccountOwner { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount30? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
+    [DataMember]
     public BlockChainAddressWallet7? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// Place where the securities are safe-kept, physically or notionally. This place can be, for example, a local custodian, a Central Securities Depository (CSD) or an International Central Securities Depository (ICSD).
     /// </summary>
+    [DataMember]
     public SafeKeepingPlace4? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Market in which a trade transaction has been executed.
     /// </summary>
+    [DataMember]
     public PlaceOfTradeIdentification2? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Infrastructure which may be a component of a clearing house and which facilitates clearing and settlement for its members by standing between the buyer and the seller. It may net transactions and it substitutes itself as settlement counterparty for each position.
     /// </summary>
+    [DataMember]
     public PlaceOfClearingIdentification2? PlaceOfClearing { get; init; } 
     /// <summary>
     /// Financial instrument representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification20 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Total quantity of securities to be settled.
     /// </summary>
+    [DataMember]
     public required Quantity54Choice_ SettlementQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument to be released.
     /// </summary>
+    [DataMember]
     public Quantity54Choice_? PartiallyReleasedQuantity { get; init; } 
     /// <summary>
     /// Total amount of money to be paid or received in exchange for the securities.
     /// </summary>
+    [DataMember]
     public AmountAndDirection67? SettlementAmount { get; init; } 
     /// <summary>
     /// Date and time after the settlement date specified in the trade, used for pool trades resulting from the original To Be Assigned (TBA) securities.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? LateDeliveryDate { get; init; } 
     /// <summary>
     /// Date/time at which the sender expects settlement.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? ExpectedSettlementDate { get; init; } 
     /// <summary>
     /// For against payment transactions, the value date/time at which the sender expects the settlement amount to be credited or debited.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? ExpectedValueDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be delivered or received.
     /// </summary>
+    [DataMember]
     public required SettlementDate32Choice_ SettlementDate { get; init; } 
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
+    [DataMember]
     public TradeDate9Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Time stamp on when the transaction is acknowledged.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? AcknowledgedStatusTimeStamp { get; init; } 
     /// <summary>
     /// Time stamp on when the transaction is matched.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? MatchedStatusTimeStamp { get; init; } 
     /// <summary>
     /// Specifies if the movement on a securities account results from a deliver or a receive instruction.
     /// </summary>
+    [DataMember]
     public required ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
     /// <summary>
     /// Specifies how the transaction is to be settled, for example, against payment.
     /// </summary>
+    [DataMember]
     public required DeliveryReceiptType2Code Payment { get; init; } 
     /// <summary>
     /// Parameters applied to the settlement of a security transfer.
     /// </summary>
+    [DataMember]
     public required SettlementDetails210 SettlementParameters { get; init; } 
     /// <summary>
     /// Identifies the chain of receiving settlement parties.
     /// </summary>
+    [DataMember]
     public SettlementParties109? ReceivingSettlementParties { get; init; } 
     /// <summary>
     /// Identifies the chain of delivering settlement parties.
     /// </summary>
+    [DataMember]
     public SettlementParties109? DeliveringSettlementParties { get; init; } 
     /// <summary>
     /// Party, either an individual or organisation, whose assets are being invested.
     /// </summary>
+    [DataMember]
     public PartyIdentification170? Investor { get; init; } 
     /// <summary>
     /// Foreign financial institution which has been authorised by local authorities to act as account management institution in the country.
     /// </summary>
+    [DataMember]
     public PartyIdentification157? QualifiedForeignIntermediary { get; init; } 
     /// <summary>
     /// Provides additional settlement processing information which can not be included within the structured fields of the message.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax350Text? SettlementInstructionProcessingAdditionalDetails { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a redemption bulk order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RedemptionBulkOrderInstruction1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record RedemptionBulkOrderInstruction1
     /// <summary>
     /// Common information related to all the orders.
     /// </summary>
+    [DataMember]
     public required RedemptionBulkOrder2 BulkOrderDetails { get; init; } 
     /// <summary>
     /// Information related to an intermediary.
     /// </summary>
-    public Intermediary4[] IntermediaryDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<Intermediary4> IntermediaryDetails { get; init; } = [];
     /// <summary>
     /// Message is a copy.
     /// </summary>
+    [DataMember]
     public CopyInformation1? CopyDetails { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Extension1> Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

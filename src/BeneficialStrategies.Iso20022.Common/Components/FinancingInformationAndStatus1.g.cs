@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Financing information and status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancingInformationAndStatus1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record FinancingInformationAndStatus1
     /// <summary>
     /// Specifies summary information about invoices/instalments financed, such as total amount financed, number of single requests accepted.
     /// </summary>
+    [DataMember]
     public required FinancingAllowedSummary1 FinancingAllowedSummary { get; init; } 
     /// <summary>
     /// Specifies detailed information about single invoice/instalment financing result, such as result of request (financed or not financed), amount, percentage applied.
     /// </summary>
-    public InvoiceFinancingDetails1[] InvoiceFinancingDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvoiceFinancingDetails1> InvoiceFinancingDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

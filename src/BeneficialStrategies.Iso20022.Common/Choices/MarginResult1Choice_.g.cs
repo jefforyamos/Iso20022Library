@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(MarginResult1Choice.ExcessAmount))]
 [KnownType(typeof(MarginResult1Choice.DeficitAmount))]
+[DataContract]
 public abstract partial record MarginResult1Choice_
 {
 }

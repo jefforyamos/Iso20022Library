@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the individual record of the file signature.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IsabelSignatureRecord1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record IsabelSignatureRecord1
     /// <summary>
     /// Type of the signature.
     /// </summary>
+    [DataMember]
     public required SignatureOriginType1Code SignatureType { get; init; } 
     /// <summary>
     /// Serial number of the certificate.
     /// </summary>
+    [DataMember]
     public required IsoMax20AlphaNumericText SerialNumber { get; init; } 
     /// <summary>
     /// Electronic document which uses a digital signature to bind together a public key with an identity.
     /// </summary>
+    [DataMember]
     public required IsoMax4kBinary Certificate { get; init; } 
     /// <summary>
     /// Mathematical scheme for demonstrating the authenticity of a digital message or document.
     /// </summary>
+    [DataMember]
     public required IsoMax1kBinary Signature { get; init; } 
     /// <summary>
     /// Effective method for calculating the signature using a finite sequence of instructions.
     /// </summary>
+    [DataMember]
     public required IsoMax105Text Algorithm { get; init; } 
     /// <summary>
     /// Unique identification of the signer that issued the signature.
     /// </summary>
+    [DataMember]
     public required IsoMax13AlphaNumericText SignerIdentification { get; init; } 
     
     #nullable disable

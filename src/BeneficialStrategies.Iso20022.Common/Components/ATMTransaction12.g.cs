@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the reconciliation response.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransaction12
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record ATMTransaction12
     /// <summary>
     /// Type of logical or physical operation on the ATM for which the counters are computed.
     /// </summary>
+    [DataMember]
     public ATMOperation1Code? TypeOfOperation { get; init; } 
     /// <summary>
     /// Identification of the reconciliation transaction.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period assigned by the ATM.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Result of the reconciliation.
     /// </summary>
+    [DataMember]
     public required ResponseType3 TransactionResponse { get; init; } 
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    public ATMCommand1[] Command { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCommand1> Command { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

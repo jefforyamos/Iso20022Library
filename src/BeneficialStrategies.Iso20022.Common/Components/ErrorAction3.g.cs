@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Action to perform in case of error on the related action in progress.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ErrorAction3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ErrorAction3
     /// <summary>
     /// List of error action result codes.
     /// </summary>
-    public TerminalManagementActionResult3Code[] ActionResult { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TerminalManagementActionResult3Code> ActionResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Action to be processed for the related errors.
     /// </summary>
+    [DataMember]
     public required TerminalManagementErrorAction2Code ActionToProcess { get; init; } 
     
     #nullable disable

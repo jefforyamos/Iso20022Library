@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Limit of amounts for the customer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransactionAmounts3
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ATMTransactionAmounts3
     /// <summary>
     /// Type of limit.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Label of the limit to display or print.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Label { get; init; } 
     /// <summary>
     /// Currency of the limit amount.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode Currency { get; init; } 
     /// <summary>
     /// Minimum amount value in the currency of the limit.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? MinimumAmount { get; init; } 
     /// <summary>
     /// Maximum amount value in the currency of the limit.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? MaximumAmount { get; init; } 
     
     #nullable disable

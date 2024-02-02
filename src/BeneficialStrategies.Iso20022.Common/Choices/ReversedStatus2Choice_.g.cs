@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ReversedStatus2Choice.Reason))]
 [KnownType(typeof(ReversedStatus2Choice.DataSourceScheme))]
 [KnownType(typeof(ReversedStatus2Choice.NoSpecifiedReason))]
+[DataContract]
 public abstract partial record ReversedStatus2Choice_
 {
 }

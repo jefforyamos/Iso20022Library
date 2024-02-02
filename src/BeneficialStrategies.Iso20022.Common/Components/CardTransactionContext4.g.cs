@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Context of the card transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardTransactionContext4
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record CardTransactionContext4
     /// <summary>
     /// Data used to assign specific condition such as liability shift or preferential interchange fees.
     /// </summary>
-    public CardTransactionCondition1[] SpecialConditions { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardTransactionCondition1> SpecialConditions { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

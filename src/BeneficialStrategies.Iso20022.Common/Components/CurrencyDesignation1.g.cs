@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the designation of a currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyDesignation1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CurrencyDesignation1
     /// <summary>
     /// Specifies whether the currency is settled offshore or onshore.
     /// </summary>
+    [DataMember]
     public CurrencyDesignation1Code? CurrencyDesignation { get; init; } 
     /// <summary>
     /// Offshore location of the currency.
     /// </summary>
+    [DataMember]
     public CountryCode? Location { get; init; } 
     /// <summary>
     /// Additional information about the off-shore currency.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

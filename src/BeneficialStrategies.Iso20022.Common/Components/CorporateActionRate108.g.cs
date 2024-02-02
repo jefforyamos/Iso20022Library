@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies rates.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionRate108
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record CorporateActionRate108
     /// <summary>
     /// Cash dividend amount per equity before deductions or allowances have been made.
     /// </summary>
-    public GrossDividendRateFormat39Choice_[] GrossDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GrossDividendRateFormat39Choice_> GrossDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cash dividend amount per equity after deductions or allowances have been made.
     /// </summary>
-    public NetDividendRateFormat41Choice_[] NetDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NetDividendRateFormat41Choice_> NetDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Actual interest rate used for the payment of the interest for the specified interest period.
     /// </summary>
-    public InterestRateUsedForPaymentFormat9Choice_[] InterestRateUsedForPayment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InterestRateUsedForPaymentFormat9Choice_> InterestRateUsedForPayment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// A maximum percentage of shares available through the over subscription privilege, usually a percentage of the basic subscription shares, for example, an account owner subscribing to 100 shares may over subscribe to a maximum of 50 additional shares when the over subscription maximum is 50 percent.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? MaximumAllowedOversubscriptionRate { get; init; } 
     /// <summary>
     /// Percentage of securities accepted by the offeror/issuer.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? ProrationRate { get; init; } 
     /// <summary>
     /// Percentage of a cash distribution that will be withheld by the tax authorities of the jurisdiction of the issuer, for which a relief at source and/or reclaim may be possible.
     /// </summary>
-    public RateAndAmountFormat45Choice_[] WithholdingTaxRate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RateAndAmountFormat45Choice_> WithholdingTaxRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rate at which the income will be withheld by a jurisdiction other than the jurisdiction of the issuer’s country of tax incorporation, for which a relief at source and/or reclaim may be possible. It is levied in complement or offset of the withholding tax rate (TAXR) levied by the jurisdiction of the issuer’s tax domicile.
     /// </summary>
-    public RateAndAmountFormat45Choice_[] SecondLevelTax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RateAndAmountFormat45Choice_> SecondLevelTax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rate used for additional tax that cannot be categorised.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat43Choice_? AdditionalTax { get; init; } 
     /// <summary>
     /// Amount included in the dividend/NAV that is identified as gains directly or indirectly derived from interest payments, for example, in the context of the EU Savings directive.
     /// </summary>
-    public RateTypeAndAmountAndStatus33[] TaxableIncomePerDividendShare { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RateTypeAndAmountAndStatus33> TaxableIncomePerDividendShare { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

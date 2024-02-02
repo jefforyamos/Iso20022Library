@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information provided to claim funds
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ClaimInformation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ClaimInformation1
     /// <summary>
     /// Code presented by the customer to claim funds.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? ClaimCredentials { get; init; } 
     /// <summary>
     /// Entity issuing the claim credential.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Assigner { get; init; } 
     
     #nullable disable

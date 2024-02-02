@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the response to the network management.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcquirerNetworkManagementResponse1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AcquirerNetworkManagementResponse1
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardTransactionEnvironment6 Environment { get; init; } 
     /// <summary>
     /// Network management transaction.
     /// </summary>
+    [DataMember]
     public required CardTransaction12 Transaction { get; init; } 
     
     #nullable disable

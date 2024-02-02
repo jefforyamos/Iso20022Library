@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes a transaction and its status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatusReportItems2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record StatusReportItems2
     /// <summary>
     /// Unique identification assigned by the matching application to the transaction.|This identification is to be used in any communication between the parties.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Entity for which the matching application has generated a report.
     /// </summary>
-    public BICIdentification1[] ReportedEntity { get; init; } = [];
+    [DataMember]
+    public ValueList<BICIdentification1> ReportedEntity { get; init; } = [];
     /// <summary>
     /// Identifies the status of the transaction by means of a code.
     /// </summary>
+    [DataMember]
     public required BaselineStatus3Code Status { get; init; } 
     /// <summary>
     /// Further description of the transaction status.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? SubStatus { get; init; } 
     
     #nullable disable

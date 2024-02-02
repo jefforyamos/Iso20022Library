@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Financial loan (instalment) or a recurring transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RecurringTransaction3
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record RecurringTransaction3
     /// <summary>
     /// Date of first transfer.
     /// </summary>
+    [DataMember]
     public required IsoISODate StartDate { get; init; } 
     /// <summary>
     /// Number of transfers to perform.
     /// </summary>
+    [DataMember]
     public IsoNumber? NumberOfOccurrences { get; init; } 
     /// <summary>
     /// Date of last transfer.
     /// </summary>
+    [DataMember]
     public required IsoISODate EndDate { get; init; } 
     /// <summary>
     /// Period of the recurring transfer.
     /// </summary>
+    [DataMember]
     public Frequency3Code? PeriodUnit { get; init; } 
     /// <summary>
     /// Day of the period when the transfer will be performed.
     /// </summary>
+    [DataMember]
     public IsoNumber? IntervalDay { get; init; } 
     
     #nullable disable

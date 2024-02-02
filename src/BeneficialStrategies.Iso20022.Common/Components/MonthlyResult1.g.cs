@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Results of backtesting analysis used to test the performance of a risk model.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MonthlyResult1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record MonthlyResult1
     /// <summary>
     /// Total number of accounts subject to backtesting in the month.
     /// </summary>
+    [DataMember]
     public required IsoPositiveNumber NumberOfObservations { get; init; } 
     /// <summary>
     /// Number of times that margin coverage held against any account fell below the marked‐to‐market exposure of that member account, based on the backtesting results.
     /// </summary>
+    [DataMember]
     public required IsoNonNegativeNumber NumberOfExceptions { get; init; } 
     /// <summary>
     /// Achieved coverage level.
     /// </summary>
+    [DataMember]
     public required IsoBaseOneRate Coverage { get; init; } 
     /// <summary>
     /// Largest marked-to-market exposure on any account that exceeds the margin coverage held against that account. The difference between the size of the exposure and the margin held.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount LargestException { get; init; } 
     /// <summary>
     /// Average marked‐to‐market exposure on accounts that exceeds the margin coverage held against those accounts.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount AverageException { get; init; } 
     /// <summary>
     /// Unique internal identifier for the backtested account experiencing the largest exception.
     /// </summary>
+    [DataMember]
     public GenericIdentification165? LargestExceptionIdentification { get; init; } 
     
     #nullable disable

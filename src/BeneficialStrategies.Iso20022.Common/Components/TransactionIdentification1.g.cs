@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides transaction identification information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionIdentification1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record TransactionIdentification1
     /// <summary>
     /// Identification of a transaction assigned by a market infrastructure other than a central securities depository, for example, Target2-Securities.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINMax35Text MarketInfrastructureTransactionIdentification { get; init; } 
     
     #nullable disable

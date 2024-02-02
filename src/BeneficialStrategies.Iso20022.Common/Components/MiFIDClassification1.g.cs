@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details about the MIFID classification of the account owner.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MiFIDClassification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record MiFIDClassification1
     /// <summary>
     /// MiFID classification of the account owner.
     /// </summary>
+    [DataMember]
     public required OrderOriginatorEligibility1Code Classification { get; init; } 
     /// <summary>
     /// Additional information about the source of classification.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Narrative { get; init; } 
     
     #nullable disable

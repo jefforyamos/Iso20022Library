@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the identification of the issuer of a security.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityIssuer4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SecurityIssuer4
     /// <summary>
     /// Legal entity identification of the issuer of the security.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification15Choice_? Identification { get; init; } 
     /// <summary>
     /// Jurisdiction of the issuer of the security used as collateral. In case of securities issued by a foreign subsidiary, the jurisdiction of the ultimate parent company shall be reported or, if not known, jurisdiction of the subsidiary.
     /// </summary>
+    [DataMember]
     public required CountryCode JurisdictionCountry { get; init; } 
     
     #nullable disable

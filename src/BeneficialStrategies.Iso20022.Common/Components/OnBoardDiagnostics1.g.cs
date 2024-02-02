@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data captured from on board diagnostic systems
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OnBoardDiagnostics1
 {
     #nullable enable
@@ -21,80 +23,99 @@ public partial record OnBoardDiagnostics1
     /// Current amount of time the vehicle engine has run idle (under no load) as determined by the vehicle monitoring system. 
     /// Expressed in hours
     /// </summary>
+    [DataMember]
     public IsoMax10NumberFraction2? EngineIdleTime { get; init; } 
     /// <summary>
     /// Total amount of time the vehicle engine has run idle (under no load) since the last reset, as determined by the vehicle monitoring system.
     /// Expressed in hours
     /// </summary>
+    [DataMember]
     public IsoMax10NumberFraction2? EngineTotalIdleTime { get; init; } 
     /// <summary>
     /// Number of hours the engine has been running (including idle time) as determined by the vehicle monitoring system.
     /// </summary>
+    [DataMember]
     public IsoMax10NumberFraction2? EngineHours { get; init; } 
     /// <summary>
     /// Amount of time elapsed since the previous reset as determined by the vehicle monitoring system.
     /// Expressed in hours
     /// </summary>
+    [DataMember]
     public IsoMax6NumberFraction2? EngineTotalTime { get; init; } 
     /// <summary>
     /// Engine load measured as determined by the vehicle monitoring system.
     /// </summary>
+    [DataMember]
     public IsoMax12NumericText? EngineLoad { get; init; } 
     /// <summary>
     /// Maximum revolutions per minute experienced by the crankshaft of the vehicle engine as determined by the vehicle monitoring system.
     /// </summary>
+    [DataMember]
     public IsoMax5NumericText? EngineRPM { get; init; } 
     /// <summary>
     /// Temperature of the engine oil as determined by the vehicle monitoring system.
     /// </summary>
+    [DataMember]
     public IsoMax6NumberFraction2? EngineOilTemperature { get; init; } 
     /// <summary>
     /// Pressure of the engine oil as determined by the vehicle monitoring system.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? EngineOilPressure { get; init; } 
     /// <summary>
     /// Time remaining before next oil change expressed as a percentage, as determined by the vehicle monitoring system.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? EngineOilLifeRemaining { get; init; } 
     /// <summary>
     /// Check engine status as determined by the vehicle monitoring system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CheckEngineWarningStatus { get; init; } 
     /// <summary>
     /// Fuel tank start level reading as determined by the vehicle monitoring system.
     /// </summary>
+    [DataMember]
     public IsoMax4NumericText? FuelTankLevelStart { get; init; } 
     /// <summary>
     /// Current fuel tank gauge level reading as determined by the vehicle monitoring system.
     /// </summary>
+    [DataMember]
     public IsoMax4NumericText? FuelGaugeLevel { get; init; } 
     /// <summary>
     /// Fuel economy expressed in terms of the amount of fuel consumed per unit of travel as determined by the vehicle monitoring system.
     /// </summary>
+    [DataMember]
     public IsoMax6NumberFraction2? FuelEconomy { get; init; } 
     /// <summary>
     /// Number of hours the refrigeration unit has been in operation.
     /// </summary>
+    [DataMember]
     public IsoMax10NumberFraction2? RefrigerationHours { get; init; } 
     /// <summary>
     /// Temperature of the refrigeration unit/trailer as determined by the vehicle monitoring system.
     /// </summary>
+    [DataMember]
     public IsoMax6NumberFraction2? RefrigerationTemperature { get; init; } 
     /// <summary>
     /// Temperature of the coolant as determined by the vehicle monitoring system.
     /// </summary>
+    [DataMember]
     public IsoMax6NumberFraction2? CoolantTemperature { get; init; } 
     /// <summary>
     /// Voltage of the vehicle battery as determined by the vehicle monitoring system.
     /// </summary>
+    [DataMember]
     public IsoMax4NumericText? BatteryVoltage { get; init; } 
     /// <summary>
     /// Number of occurrences of hard breaking as determined by the vehicle monitoring system.
     /// </summary>
+    [DataMember]
     public IsoMax4NumericText? HardBraking { get; init; } 
     /// <summary>
     /// Number of occurrences of hard acceleration as determined by the vehicle monitoring system.
     /// </summary>
+    [DataMember]
     public IsoMax4NumericText? HardAcceleration { get; init; } 
     
     #nullable disable

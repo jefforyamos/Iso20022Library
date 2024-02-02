@@ -23,6 +23,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(Status22Choice.CancellationProcessingStatus))]
 [KnownType(typeof(Status22Choice.SettlementStatus))]
 [KnownType(typeof(Status22Choice.SettlementConditionModificationStatus))]
+[DataContract]
 public abstract partial record Status22Choice_
 {
 }

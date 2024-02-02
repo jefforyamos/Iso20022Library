@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment Data Results.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RetailerPaymentResult5
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record RetailerPaymentResult5
     /// <summary>
     /// Type of payment transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentServiceType12Code TransactionType { get; init; } 
     /// <summary>
     /// Service provided by the card payment transaction, in addition to the main service.
     /// </summary>
-    public CardPaymentServiceType9Code[] AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardPaymentServiceType9Code> AdditionalService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional attribute of the service type.
     /// </summary>
+    [DataMember]
     public CardPaymentServiceType14Code? ServiceAttribute { get; init; } 
     /// <summary>
     /// Data associated with the Transaction.
     /// </summary>
+    [DataMember]
     public CardPaymentTransaction127? RequestedTransaction { get; init; } 
     /// <summary>
     /// Result of the transaction processing.
     /// </summary>
+    [DataMember]
     public CardPaymentTransaction128? TransactionResponse { get; init; } 
     /// <summary>
     /// Customer order attached to a customer, recorded in the POI system.
     /// </summary>
-    public CustomerOrder1[] CustomerOrder { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CustomerOrder1> CustomerOrder { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Numeric value of a handwritten signature.
     /// </summary>
+    [DataMember]
     public CapturedSignature1? ImageCapturedSignature { get; init; } 
     /// <summary>
     /// Protected value of a handwritten signature.
     /// </summary>
+    [DataMember]
     public ContentInformationType35? ProtectedCapturedSignature { get; init; } 
     /// <summary>
     /// Indicate that the Merchant forced the result of the payment to successful.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? MerchantOverrideFlag { get; init; } 
     /// <summary>
     /// Language used to display messages to the customer.
     /// </summary>
+    [DataMember]
     public LanguageCode? CustomerLanguage { get; init; } 
     /// <summary>
     /// Indicate that the payment transaction processing has required the approval of an acquirer.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? OnlineFlag { get; init; } 
     
     #nullable disable

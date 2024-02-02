@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the file action to be performed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FileActionDetails1
 {
     #nullable enable
@@ -21,21 +23,25 @@ public partial record FileActionDetails1
     /// Identification of the file.
     /// ISO 8583 bit 101
     /// </summary>
+    [DataMember]
     public required IsoMax140Text FileName { get; init; } 
     /// <summary>
     /// Content of record to be added, updated, deleted or replaced.
     /// ISO 8583:93/2003 bit 72
     /// </summary>
+    [DataMember]
     public required IsoMax100KBinary DataRecord { get; init; } 
     /// <summary>
     /// Date when the file action should be performed.
     /// ISO 8583 bit 73.
     /// </summary>
+    [DataMember]
     public IsoISODate? ActionDate { get; init; } 
     /// <summary>
     /// Indicates that the originator of the message is authorised to update the file.
     /// ISO 8583:87 bit 92
     /// </summary>
+    [DataMember]
     public IsoMax35Text? FileSecurityCode { get; init; } 
     
     #nullable disable

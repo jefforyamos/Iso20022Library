@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information to identify funds order(s).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MessageAndBusinessReference10
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record MessageAndBusinessReference10
     /// <summary>
     /// Reference to a linked message that was previously sent.
     /// </summary>
+    [DataMember]
     public References62Choice_? Reference { get; init; } 
     /// <summary>
     /// Reference to a linked message that was previously received.
     /// </summary>
+    [DataMember]
     public AdditionalReference8? RelatedReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifiers of one or more individual order instructions or individual order cancellation requests.
     /// </summary>
-    public InvestmentFundOrder8[] OrderReference { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentFundOrder8> OrderReference { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the placement agent identification for a hedge fund if the investor was referred by one.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReferredAgent3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ReferredAgent3
     /// <summary>
     /// Indicates if the investor was referred by a placement agent.
     /// </summary>
+    [DataMember]
     public required Referred1Code Referred { get; init; } 
     /// <summary>
     /// Placement agent that referred the investor.
     /// </summary>
+    [DataMember]
     public PartyIdentification125Choice_? ReferredPlacementAgent { get; init; } 
     
     #nullable disable

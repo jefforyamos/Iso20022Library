@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Pension scheme tax reference.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxReference1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TaxReference1
     /// <summary>
     /// Type of tax reference.
     /// </summary>
+    [DataMember]
     public TaxReferenceType1Choice_? TaxType { get; init; } 
     /// <summary>
     /// Tax reference.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Reference { get; init; } 
     /// <summary>
     /// Type of reference holder. For example, the transferee's tax reference. The transferee may also be known as the acquiring party.
     /// </summary>
+    [DataMember]
     public TaxReferenceParty1Choice_? HolderType { get; init; } 
     
     #nullable disable

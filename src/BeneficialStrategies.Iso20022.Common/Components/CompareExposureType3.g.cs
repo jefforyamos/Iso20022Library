@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for an exposure type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareExposureType3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareExposureType3
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public ExposureType10Code? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public ExposureType10Code? Value2 { get; init; } 
     
     #nullable disable

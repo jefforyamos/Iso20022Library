@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(CancellationPendingStatus7Choice.Reason))]
 [KnownType(typeof(CancellationPendingStatus7Choice.DataSourceScheme))]
 [KnownType(typeof(CancellationPendingStatus7Choice.NoSpecifiedReason))]
+[DataContract]
 public abstract partial record CancellationPendingStatus7Choice_
 {
 }

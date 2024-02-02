@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Event notification type and status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NotificationGeneralInformation4
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record NotificationGeneralInformation4
     /// <summary>
     /// Unique identification of the group of meeting notification messages when the notification is split in multiple (paginated) messages.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NotificationIdentification { get; init; } 
     /// <summary>
     /// Type of notification.
     /// </summary>
+    [DataMember]
     public required NotificationType3Code NotificationType { get; init; } 
     /// <summary>
     /// Status of the details of the event.
     /// </summary>
+    [DataMember]
     public required EventStatus1 NotificationStatus { get; init; } 
     /// <summary>
     /// Indicates whether the announcement was initiated by the first intermediary in the custody chain in accordance with SRD II.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ShareholderRightsDirectiveIndicator { get; init; } 
     /// <summary>
     /// Indicates whether a specific confirmation of holding together with a participation and/or vote instruction is required by the issuer (for instance as required in the German Stock Corporation Act paragraph 67c section 3).
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ConfirmationOfHoldingRequired { get; init; } 
     
     #nullable disable

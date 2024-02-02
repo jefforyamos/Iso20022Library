@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding account balance. Contains transaction details of the stock loans, repurchase agreements (REPOs) and undelivered trades (FAILs).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountBalanceExtensionSD2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record AccountBalanceExtensionSD2
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Position that is concerned in transaction.
     /// </summary>
+    [DataMember]
     public AdjustedBalanceTypeSD2Choice_? TransactionPosition { get; init; } 
     /// <summary>
     /// Effective date of the transaction.
     /// </summary>
+    [DataMember]
     public IsoISODate? AsOfDate { get; init; } 
     /// <summary>
     /// Transaction contra participant identification for stock loans, repurchase agreements (REPOs).
     /// </summary>
+    [DataMember]
     public IsoMax8Text? ContraParticipantNumber { get; init; } 
     
     #nullable disable

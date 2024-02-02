@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(RejectionAndRepairReason24Choice.Code))]
 [KnownType(typeof(RejectionAndRepairReason24Choice.Proprietary))]
+[DataContract]
 public abstract partial record RejectionAndRepairReason24Choice_
 {
 }

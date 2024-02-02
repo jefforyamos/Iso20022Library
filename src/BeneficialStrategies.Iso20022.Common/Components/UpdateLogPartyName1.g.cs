@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the old and new values for the name of a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UpdateLogPartyName1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record UpdateLogPartyName1
     /// <summary>
     /// Old value before the update.
     /// </summary>
+    [DataMember]
     public required PartyName4 Old { get; init; } 
     /// <summary>
     /// New value after the update.
     /// </summary>
+    [DataMember]
     public required PartyName4 New { get; init; } 
     
     #nullable disable

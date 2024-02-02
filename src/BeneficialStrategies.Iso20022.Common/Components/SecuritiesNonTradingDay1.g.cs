@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details the date and reason for a non working day.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesNonTradingDay1
 {
     #nullable enable
@@ -22,14 +24,17 @@ public partial record SecuritiesNonTradingDay1
     /// Usage:
     /// This identification will be used in the status advice report sent back.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Non-working date.
     /// </summary>
+    [DataMember]
     public required IsoISODate Date { get; init; } 
     /// <summary>
     /// Reason code for the non-working day.
     /// </summary>
+    [DataMember]
     public NonTradingDayReason1Code? Reason { get; init; } 
     
     #nullable disable

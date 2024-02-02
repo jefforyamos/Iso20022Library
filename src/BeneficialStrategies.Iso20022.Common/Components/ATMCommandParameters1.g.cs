@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters to be used to update the configuration or the status security device.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMCommandParameters1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ATMCommandParameters1
     /// <summary>
     /// Serial number of the device.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SerialNumber { get; init; } 
     /// <summary>
     /// Update of the security configuration to apply on the security module of the ATM.
     /// </summary>
+    [DataMember]
     public ATMSecurityConfiguration1? RequiredConfiguration { get; init; } 
     /// <summary>
     /// New status to apply on the security module of the ATM.
     /// </summary>
+    [DataMember]
     public ATMStatus2Code? RequiredStatus { get; init; } 
     
     #nullable disable

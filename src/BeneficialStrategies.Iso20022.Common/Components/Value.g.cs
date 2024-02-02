@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Value
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record Value
     /// <summary>
     /// Specifies the amount in the base currency of the receiver.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount BaseCurrencyItem { get; init; } 
     /// <summary>
     /// Specifies the amount in another currency.
     /// </summary>
-    public IsoActiveOrHistoricCurrencyAndAmount[] AlternateCurrencyItem { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoActiveOrHistoricCurrencyAndAmount> AlternateCurrencyItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

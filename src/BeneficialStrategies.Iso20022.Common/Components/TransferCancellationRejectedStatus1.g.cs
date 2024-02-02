@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status of the transfer cancellation is rejected.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferCancellationRejectedStatus1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record TransferCancellationRejectedStatus1
     /// <summary>
     /// Reason for the rejected status.
     /// </summary>
+    [DataMember]
     public required CancellationRejectedReason1Code Reason { get; init; } 
     /// <summary>
     /// Reason for the rejected status.
     /// </summary>
+    [DataMember]
     public required IsoExtended350Code ExtendedReason { get; init; } 
     /// <summary>
     /// Proprietary identification of the reason for the rejected status.
     /// </summary>
-    public GenericIdentification1[] DataSourceScheme { get; init; } = [];
+    [DataMember]
+    public ValueList<GenericIdentification1> DataSourceScheme { get; init; } = [];
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status and reason of an instructed order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatusAndReason16
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record StatusAndReason16
     /// <summary>
     /// Status and reason for the transaction.
     /// </summary>
+    [DataMember]
     public required Status9Choice_ StatusAndReason { get; init; } 
     /// <summary>
     /// Details of the transactions reported.
     /// </summary>
-    public Transaction28[] Transaction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Transaction28> Transaction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

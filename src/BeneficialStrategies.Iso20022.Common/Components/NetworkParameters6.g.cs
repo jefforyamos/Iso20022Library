@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters to communicate with a host.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NetworkParameters6
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NetworkParameters6
     /// <summary>
     /// Type of proxy.
     /// </summary>
+    [DataMember]
     public required NetworkType2Code Type { get; init; } 
     /// <summary>
     /// Access information to the proxy.
     /// </summary>
+    [DataMember]
     public required NetworkParameters5 Access { get; init; } 
     
     #nullable disable

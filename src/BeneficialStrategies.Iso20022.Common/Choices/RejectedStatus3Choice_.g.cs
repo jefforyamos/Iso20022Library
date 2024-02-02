@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(RejectedStatus3Choice.Reason))]
 [KnownType(typeof(RejectedStatus3Choice.DataSourceScheme))]
+[DataContract]
 public abstract partial record RejectedStatus3Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason to reject the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RejectionReason3
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record RejectionReason3
     /// <summary>
     /// Reason to reject the message.
     /// </summary>
+    [DataMember]
     public required MessageRejectedReason1Code Reason { get; init; } 
     /// <summary>
     /// Additional information about the rejection reason.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Linked previous reference that is invalid or unrecognised, of the message being rejected.
     /// </summary>
+    [DataMember]
     public AdditionalReference3? LinkedMessagePreviousReference { get; init; } 
     /// <summary>
     /// Linked other reference that is invalid or unrecognised, of the message being rejected.
     /// </summary>
+    [DataMember]
     public AdditionalReference3? LinkedMessageOtherReference { get; init; } 
     /// <summary>
     /// Linked related reference that is invalid or unrecognised, of the message being rejected.
     /// </summary>
+    [DataMember]
     public AdditionalReference3? LinkedMessageRelatedReference { get; init; } 
     
     #nullable disable

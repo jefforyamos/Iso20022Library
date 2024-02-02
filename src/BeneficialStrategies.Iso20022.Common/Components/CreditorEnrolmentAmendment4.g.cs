@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information that serves as a basis to debit an account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditorEnrolmentAmendment4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CreditorEnrolmentAmendment4
     /// <summary>
     /// Specific attributes of the creditor and service enrolment provided by the creditor for its enrolment.
     /// </summary>
+    [DataMember]
     public CreditorEnrolment4? CreditorEnrolment { get; init; } 
     /// <summary>
     /// Specific attributes requested from the debtor for its activation as specified by the creditor in the creditor enrolment request.
     /// </summary>
+    [DataMember]
     public CreditorInvoice4? ActivationData { get; init; } 
     
     #nullable disable

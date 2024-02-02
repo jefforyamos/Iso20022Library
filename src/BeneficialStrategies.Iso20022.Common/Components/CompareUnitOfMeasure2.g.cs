@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for a unit of measure.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareUnitOfMeasure2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareUnitOfMeasure2
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public UnitOfMeasure11Code? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public UnitOfMeasure11Code? Value2 { get; init; } 
     
     #nullable disable

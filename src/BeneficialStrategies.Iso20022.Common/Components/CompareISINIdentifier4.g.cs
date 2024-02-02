@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for an ISIN (International Securities Identification Number-ISO 6166) Identifier.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareISINIdentifier4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareISINIdentifier4
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public IsoISINOct2015Identifier? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public IsoISINOct2015Identifier? Value2 { get; init; } 
     
     #nullable disable

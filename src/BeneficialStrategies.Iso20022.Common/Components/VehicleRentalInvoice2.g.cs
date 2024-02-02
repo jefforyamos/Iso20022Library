@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Invoice related to a vehicle rental service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VehicleRentalInvoice2
 {
     #nullable enable
@@ -20,67 +22,83 @@ public partial record VehicleRentalInvoice2
     /// <summary>
     /// Indicates that the cardholder failed to pick up the vehicle and was therefore charged a no-show fee; vehicle was not actually rented. 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? NoShowIndicator { get; init; } 
     /// <summary>
     /// Indicates that an adjustment was made to a vehicle rental charge (for example, additional charges added). 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? AdjustedIndicator { get; init; } 
     /// <summary>
     /// Location to which vehicle was returned.
     /// </summary>
+    [DataMember]
     public Address2? ReturnLocation { get; init; } 
     /// <summary>
     /// Date the vehicle was picked-up by the customer.  In the case of a no-show transaction or a prepaid transaction, this contains the scheduled pickup date.
     /// </summary>
+    [DataMember]
     public IsoISODate? CheckOutDate { get; init; } 
     /// <summary>
     /// Time the vehicle was picked-up by the customer.  In the case of a no-show transaction or a prepaid transaction, this contains the scheduled pickup time.
     /// </summary>
+    [DataMember]
     public IsoISOTime? CheckOutTime { get; init; } 
     /// <summary>
     /// Date when the vehicle was returned to the rental agency.
     /// </summary>
+    [DataMember]
     public IsoISODate? CheckInDate { get; init; } 
     /// <summary>
     /// Time when the vehicle was returned to the rental agency.
     /// </summary>
+    [DataMember]
     public IsoISOTime? CheckInTime { get; init; } 
     /// <summary>
     /// Duration of rental in days.
     /// </summary>
+    [DataMember]
     public IsoMax4NumericText? Duration { get; init; } 
     /// <summary>
     /// Contains the details of the vehicle class invoiced to the renter regardless of the class of vehicle actually provided. 
     /// </summary>
+    [DataMember]
     public Vehicle4? VehicleClassInvoiced { get; init; } 
     /// <summary>
     /// Contains the details of the vehicle class of the vehicle actually provided to the renter at the time of vehicle pick-up. This may be an upgrade class of vehicle, above that invoiced to the renter. 
     /// </summary>
+    [DataMember]
     public Vehicle4? VehicleClassProvided { get; init; } 
     /// <summary>
     /// Distance travelled during vehicle rental.
     /// </summary>
+    [DataMember]
     public Distance1? TravelDistance { get; init; } 
     /// <summary>
     /// Vehicle rental charge.
     /// </summary>
-    public RentalRate1[] RentalCharge { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RentalRate1> RentalCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
     /// <summary>
     /// Contains the details of additional amount for a specific vehicle rental service type. 
     /// </summary>
-    public Amount18[] AdditionalAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Amount18> AdditionalAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Taxes related to the products or services. 
     /// </summary>
-    public Tax39[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax39> Tax { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the members of a system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Member6
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Member6
     /// <summary>
     /// Physical/logical address belonging to a member, segregated from its main address that is used for normal operations. The fund return address is used to route messages that require specific attention/exception handling, for example, returns or rejects.
     /// </summary>
-    public MemberIdentification3Choice_[] MemberReturnAddress { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MemberIdentification3Choice_> MemberReturnAddress { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Person to be contacted in a given organisation.
     /// </summary>
-    public ContactIdentificationAndAddress1[] ContactReference { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ContactIdentificationAndAddress1> ContactReference { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number, or virtual address, used for communication.
     /// </summary>
+    [DataMember]
     public CommunicationAddress8? CommunicationAddress { get; init; } 
     
     #nullable disable

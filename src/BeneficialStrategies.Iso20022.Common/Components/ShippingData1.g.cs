@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Shipping or Courier Service delivery. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ShippingData1
 {
     #nullable enable
@@ -20,54 +22,67 @@ public partial record ShippingData1
     /// <summary>
     /// Contains the invoice number.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? InvoiceNumber { get; init; } 
     /// <summary>
     /// Contains the date and time the electronic invoice was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? InvoiceCreationDateTime { get; init; } 
     /// <summary>
     /// Contains a card acceptor designated code for the shipping service provided.
     /// </summary>
+    [DataMember]
     public IsoMax40Text? ServiceDescriptorCode { get; init; } 
     /// <summary>
     /// Contains the amount of any incentives applied to the transaction. 
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? IncentiveAmount { get; init; } 
     /// <summary>
     /// Contains the amount of any miscellaneous expenses applicable to the transaction. 
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? MiscellaneousExpenses { get; init; } 
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
     /// <summary>
     /// Amount of insurance.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? InsuranceAmount { get; init; } 
     /// <summary>
     /// Contains the net amount of shipping expenses.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? NetAmount { get; init; } 
     /// <summary>
     /// Contains the total tax amount for the entire purchase. 
     /// </summary>
-    public Tax33[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax33> Tax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     /// <summary>
     /// Contains the total number of packages being shipped or sent by the service provider.
     /// </summary>
+    [DataMember]
     public IsoMax6NumericText? NumberOfPackages { get; init; } 
     /// <summary>
     /// Contains the details of the package being shipped. 
     /// </summary>
-    public ShippingPackage1[] Package { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ShippingPackage1> Package { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional shipping data.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable

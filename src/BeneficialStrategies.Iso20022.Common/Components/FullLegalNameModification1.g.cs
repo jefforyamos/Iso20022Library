@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of change to the full legal name.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FullLegalNameModification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FullLegalNameModification1
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
+    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text FullLegalName { get; init; } 
     
     #nullable disable

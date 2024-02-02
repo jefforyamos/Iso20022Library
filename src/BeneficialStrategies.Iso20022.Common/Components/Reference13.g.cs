@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional references linked to the cross order cancel request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Reference13
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Reference13
     /// <summary>
     /// Cross Identifier of the previous cross order (not the initial cross order of the day) as assigned by the institution, used to identify the previous cross order in CrossOrdercancelRequest.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalCrossOrderIdentification { get; init; } 
     /// <summary>
     /// Host assigned entity identification that can be used to reference all components of a cross; sides + strategy + legs. Used as the primary key with which to refer to the Cross Order for cancellation. The HostCrossId will also be used to link together components of the cross order. For example, each individual Notice of Execution associated with the order will carry HostCrossID in order to tie back to the original cross order.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text HostCrossIdentification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to identify the underlying (group of) transaction(s) to which the investigation applies.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UnderlyingTransaction1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record UnderlyingTransaction1
     /// <summary>
     /// Set of elements used to provide information on the original messsage, to which the cancellation refers.
     /// </summary>
+    [DataMember]
     public OriginalGroupInformation23? OriginalGroupInformationAndCancellation { get; init; } 
     /// <summary>
     /// Set of elements used to provide information on the original (group of) transactions, to which the cancellation request refers.
     /// </summary>
-    public OriginalPaymentInformation4[] OriginalPaymentInformationAndCancellation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<OriginalPaymentInformation4> OriginalPaymentInformationAndCancellation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

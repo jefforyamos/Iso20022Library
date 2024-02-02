@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of a contact person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Contact6
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record Contact6
     /// <summary>
     /// Home phone number of contact.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? HomePhoneNumber { get; init; } 
     /// <summary>
     /// Business phone number of contact.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? BusinessPhoneNumber { get; init; } 
     /// <summary>
     /// Mobile phone number of contact.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? MobilePhoneNumber { get; init; } 
     /// <summary>
     /// Other phone number of contact.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? OtherPhoneNumber { get; init; } 
     /// <summary>
     /// Personal email address of contact.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? PersonalEmailAddress { get; init; } 
     /// <summary>
     /// Business email address of contact.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? BusinessEmailAddress { get; init; } 
     /// <summary>
     /// Other email address of contact.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? OtherEmailAddress { get; init; } 
     /// <summary>
     /// Home fax number, as defined by telecom services.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? HomeFaxNumber { get; init; } 
     /// <summary>
     /// Business fax number, as defined by telecom services.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? BusinessFaxNumber { get; init; } 
     /// <summary>
     /// Universal Resource Locator (URL) address.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? URLAddress { get; init; } 
     /// <summary>
     /// Language of the contact.
     /// </summary>
+    [DataMember]
     public LanguageCode? Language { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalInformation15
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AdditionalInformation15
     /// <summary>
     /// Type of additional information.
     /// </summary>
+    [DataMember]
     public required GenericIdentification36 InformationType { get; init; } 
     /// <summary>
     /// Value of the additional information.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text InformationValue { get; init; } 
     
     #nullable disable

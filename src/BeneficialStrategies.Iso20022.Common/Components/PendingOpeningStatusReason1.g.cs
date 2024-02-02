@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for a pending account opening status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PendingOpeningStatusReason1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PendingOpeningStatusReason1
     /// <summary>
     /// Reason for the pending account opening status.
     /// </summary>
+    [DataMember]
     public required PendingOpeningStatusReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the pending account opening status.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

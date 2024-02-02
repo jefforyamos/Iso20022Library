@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide detailed information about the security.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityCharacteristics3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SecurityCharacteristics3
     /// <summary>
     /// Unique identification, as known by the account owner, to unambiguously identify the security.
     /// </summary>
-    public SecurityIdentification19[] Identification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecurityIdentification19> Identification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the position for the security.
     /// </summary>
-    public SecuritiesPosition1[] Position { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecuritiesPosition1> Position { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the price of the security for valuation purposes.
     /// </summary>
+    [DataMember]
     public required AmountPricePerFinancialInstrumentQuantity9 ValuationPrice { get; init; } 
     /// <summary>
     /// Specifies the value of the security for collateral purposes.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount CollateralValue { get; init; } 
     
     #nullable disable

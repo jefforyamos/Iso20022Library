@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action option securities movement security details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentAttributesSD5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FinancialInstrumentAttributesSD5
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Matching security identifier for the disbursed security that is used to match the customer's SOI (Security of Interest) to the GCA VS Security Cross Reference.
     /// </summary>
+    [DataMember]
     public SecurityIdentification15? SecurityOfInterestMatchingSecurity { get; init; } 
     
     #nullable disable

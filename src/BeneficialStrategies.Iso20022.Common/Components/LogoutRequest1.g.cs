@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Logout Request message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LogoutRequest1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record LogoutRequest1
     /// <summary>
     /// Indicates that the POI terminal is able to go(or have to go) to maintenance.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? MaintenanceAllowed { get; init; } 
     
     #nullable disable

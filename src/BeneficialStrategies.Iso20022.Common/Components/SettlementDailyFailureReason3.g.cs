@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the settlement failure reason as defined in the relevant regulation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementDailyFailureReason3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SettlementDailyFailureReason3
     /// <summary>
     /// Fails due to lack of securities.
     /// </summary>
+    [DataMember]
     public required SettlementTotalData1Choice_ FailedSecurities { get; init; } 
     /// <summary>
     /// Fails due to lack of cash.
     /// </summary>
+    [DataMember]
     public required SettlementTotalData1Choice_ FailedCash { get; init; } 
     
     #nullable disable

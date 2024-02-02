@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Fleet data pertaining to the payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FleetData5
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record FleetData5
     /// <summary>
     /// It is designed to carry detail level fleet data and to enable issuers to supply more transaction information to their consumer and corporate clients pertaining to fleet transactions. 
     /// </summary>
-    public FleetLineItem3[] LineItem { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FleetLineItem3> LineItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

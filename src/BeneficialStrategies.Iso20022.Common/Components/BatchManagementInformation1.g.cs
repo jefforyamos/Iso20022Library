@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Elements of identification of a batch management transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BatchManagementInformation1
 {
     #nullable enable
@@ -21,21 +23,25 @@ public partial record BatchManagementInformation1
     /// Identification of the collection to which the batch belongs.
     /// ISO 8583:2003 bit 69-2
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CollectionIdentification { get; init; } 
     /// <summary>
     /// Identification of the batch to which the message belongs.
     /// ISO 8583:2003 bit 69-2
     /// </summary>
+    [DataMember]
     public required IsoMax35Text BatchIdentification { get; init; } 
     /// <summary>
     /// Sequence number of the message inside the batch.
     /// ISO 8583:87/93 bit 71
     /// ISO 8583:2003 bit 68-2
     /// </summary>
+    [DataMember]
     public IsoMax15NumericText? MessageSequenceNumber { get; init; } 
     /// <summary>
     /// Value of the message to use for the computation of the checksum of the batch or collection of messages.
     /// </summary>
+    [DataMember]
     public IsoMax140Binary? MessageChecksumInputValue { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a record holding the LRCI required data related to a payment file.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IsabelLRCIPaymentInformation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record IsabelLRCIPaymentInformation1
     /// <summary>
     /// Arbitrary block of data defined as a fixed-size bit string, the (cryptographic) hash value, which allows the detection of an accidental or intentional change to the visual representation of a particular payment file.
     /// </summary>
+    [DataMember]
     public required IsoMax50Binary ImageHash { get; init; } 
     /// <summary>
     /// Arbitrary block of data defined as a fixed-size bit string, the (cryptographic) hash value, which allows the detection of an accidental or intentional change to a particular payment file.
     /// </summary>
+    [DataMember]
     public required IsoMax50Binary PaymentHash { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(NDFOpeningFixing1Choice.OpeningConditions))]
 [KnownType(typeof(NDFOpeningFixing1Choice.OpeningConfirmationReference))]
+[DataContract]
 public abstract partial record NDFOpeningFixing1Choice_
 {
 }

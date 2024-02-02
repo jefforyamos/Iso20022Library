@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass validations.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RejectionStatistics8
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record RejectionStatistics8
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
+    [DataMember]
     public required CounterpartyData92 CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Information about accepted and rejected reports and the reasons of rejection.
     /// </summary>
+    [DataMember]
     public required DetailedReportStatistics6 ReportStatistics { get; init; } 
     /// <summary>
     /// Detailed information on rejections for derivatives submitted to trade repositories and failed to pass data validations.
     /// </summary>
+    [DataMember]
     public required DetailedTransactionStatistics6Choice_ DerivativeStatistics { get; init; } 
     
     #nullable disable

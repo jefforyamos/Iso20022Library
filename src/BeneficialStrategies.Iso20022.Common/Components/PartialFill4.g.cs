@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Intention to transfer an ownership of a financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartialFill4
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record PartialFill4
     /// <summary>
     /// Quantity of financial instrument to be ordered.
     /// </summary>
+    [DataMember]
     public required Quantity6Choice_ ConfirmationQuantity { get; init; } 
     /// <summary>
     /// Amount of money for which goods or services are offered, sold, or bought.
     /// </summary>
+    [DataMember]
     public required Price14 DealPrice { get; init; } 
     /// <summary>
     /// Specifies the date/time on which the trade was executed.
     /// </summary>
+    [DataMember]
     public TradeDate7Choice_? TradeDate { get; init; } 
     /// <summary>
     /// Market in which a trade transaction is to be or has been executed.
     /// </summary>
+    [DataMember]
     public MarketIdentification97? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Quantity of financial instrument ordered.
     /// </summary>
+    [DataMember]
     public required QuantityOrAmount2Choice_ OriginalOrderedQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument that has been previously executed.
     /// </summary>
+    [DataMember]
     public required QuantityOrAmount2Choice_ PreviouslyExecutedQuantity { get; init; } 
     /// <summary>
     /// Quantity of financial instrument that is remaining in order.
     /// </summary>
+    [DataMember]
     public required QuantityOrAmount2Choice_ RemainingQuantity { get; init; } 
     /// <summary>
     /// Minimum quantity that applies to every execution. The order may still fill against smaller orders, but the cumulative quantity of the execution must be in multiples of the Match Increment.
     /// </summary>
+    [DataMember]
     public QuantityOrAmount2Choice_? MatchIncrementQuantity { get; init; } 
     
     #nullable disable

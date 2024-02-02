@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Clearing totals of the batch file.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ClearingTotals2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ClearingTotals2
     /// <summary>
     /// Number of transactions to clear.
     /// </summary>
+    [DataMember]
     public required IsoNumber Count { get; init; } 
     /// <summary>
     /// Gross clearing accumulated amount.
     /// </summary>
+    [DataMember]
     public required Amount17 AccumulatedAmount { get; init; } 
     
     #nullable disable

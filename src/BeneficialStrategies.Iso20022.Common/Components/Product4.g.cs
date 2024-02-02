@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Product to purchase.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Product4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Product4
     /// <summary>
     /// Product code.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text ProductCode { get; init; } 
     /// <summary>
     /// Additional product code related to the product.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AdditionalProductCode { get; init; } 
     
     #nullable disable

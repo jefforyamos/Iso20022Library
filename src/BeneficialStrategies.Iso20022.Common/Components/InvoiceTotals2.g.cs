@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies totals related to the invoice.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvoiceTotals2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record InvoiceTotals2
     /// <summary>
     /// Total amount subject to tax.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalTaxableAmount { get; init; } 
     /// <summary>
     /// Sum of all tax amounts related to the invoice.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalTaxAmount { get; init; } 
     /// <summary>
     /// Variance on invoice amount taking into account discounts, allowances and charges.
     /// </summary>
+    [DataMember]
     public Adjustment5? Adjustment { get; init; } 
     /// <summary>
     /// Total amount of the invoice, being the sum of total invoice lines amounts, total invoice adjustment amount (discounts, allowances and charges) and total tax amounts.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalInvoiceAmount { get; init; } 
     /// <summary>
     /// Due date for the payment of the invoice.
     /// </summary>
+    [DataMember]
     public required IsoISODate PaymentDueDate { get; init; } 
     
     #nullable disable

@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(AssetClassCommodityEnvironmental2Choice.Weather))]
 [KnownType(typeof(AssetClassCommodityEnvironmental2Choice.CarbonRelated))]
 [KnownType(typeof(AssetClassCommodityEnvironmental2Choice.Other))]
+[DataContract]
 public abstract partial record AssetClassCommodityEnvironmental2Choice_
 {
 }

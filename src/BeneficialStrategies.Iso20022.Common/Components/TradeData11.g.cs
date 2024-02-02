@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information and details on the status of a trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeData11
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record TradeData11
     /// <summary>
     /// Represents the original reference of the instruction for which the status is given, as assigned by the participant that submitted the foreign exchange trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginatorReference { get; init; } 
     /// <summary>
     /// Reference to the unique system identification assigned to the trade by the central matching system.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MatchingSystemUniqueReference { get; init; } 
     /// <summary>
     /// Reference to the unique matching identification assigned to the trade and to the matching trade from the counterparty by the central matching system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MatchingSystemMatchingReference { get; init; } 
     /// <summary>
     /// Unique reference from the central settlement system that allows the removal of alleged trades once the matched status notification for the matching side has been received.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MatchingSystemMatchedSideReference { get; init; } 
     /// <summary>
     /// The current settlement date of the notification.
     /// </summary>
+    [DataMember]
     public IsoISODate? CurrentSettlementDate { get; init; } 
     /// <summary>
     /// Settlement date has been amended.
     /// </summary>
+    [DataMember]
     public IsoISODate? NewSettlementDate { get; init; } 
     /// <summary>
     /// Specifies the date and time at which the current status was assigned to the individual trade.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CurrentStatusDateTime { get; init; } 
     /// <summary>
     /// Product type of the individual trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProductType { get; init; } 
     /// <summary>
     /// To indicate the requested CLS settlement session that the related trade is part of.
     /// </summary>
+    [DataMember]
     public IsoExact4AlphaNumericText? SettlementSessionIdentifier { get; init; } 
     /// <summary>
     /// Information that is to be provided to trade repositories in the context of the regulatory standards around over-the-counter (OTC) derivatives, central counterparties and trade repositories.
     /// </summary>
+    [DataMember]
     public RegulatoryReporting4? RegulatoryReporting { get; init; } 
     
     #nullable disable

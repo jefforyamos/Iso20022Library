@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ExemptionReasonType1Choice.ExemptionReason))]
 [KnownType(typeof(ExemptionReasonType1Choice.Proprietary))]
+[DataContract]
 public abstract partial record ExemptionReasonType1Choice_
 {
 }

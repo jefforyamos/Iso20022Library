@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(CharacterSearch1Choice.NotEqual))]
 [KnownType(typeof(CharacterSearch1Choice.Contain))]
 [KnownType(typeof(CharacterSearch1Choice.NotContain))]
+[DataContract]
 public abstract partial record CharacterSearch1Choice_
 {
 }

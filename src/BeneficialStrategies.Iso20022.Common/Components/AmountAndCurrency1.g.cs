@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount to be authorised by the issuer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountAndCurrency1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AmountAndCurrency1
     /// <summary>
     /// Amount value.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Currency of the amount.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     
     #nullable disable

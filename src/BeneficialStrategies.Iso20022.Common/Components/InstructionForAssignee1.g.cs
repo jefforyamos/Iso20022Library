@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Further information related to the processing of the investigation that may need to be acted upon by the assignee.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InstructionForAssignee1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InstructionForAssignee1
     /// <summary>
     /// Coded information related to the processing of the investigation instruction, provided by the assigner, and intended for the assignee.
     /// </summary>
+    [DataMember]
     public ExternalAgentInstruction1Code? Code { get; init; } 
     /// <summary>
     /// Further information complementing the coded instruction or instruction to the assignee.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? InstructionInformation { get; init; } 
     
     #nullable disable

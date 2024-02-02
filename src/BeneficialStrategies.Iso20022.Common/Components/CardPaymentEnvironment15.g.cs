@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of the reconciliation exchange.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentEnvironment15
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CardPaymentEnvironment15
     /// <summary>
     /// Acquirer involved in the card payment reconciliation.
     /// </summary>
+    [DataMember]
     public required Acquirer2 Acquirer { get; init; } 
     /// <summary>
     /// Identification of the merchant requesting the reconciliation.
     /// </summary>
+    [DataMember]
     public GenericIdentification32? MerchantIdentification { get; init; } 
     /// <summary>
     /// Identification of the POI requesting the reconciliation.
     /// </summary>
+    [DataMember]
     public GenericIdentification32? POIIdentification { get; init; } 
     
     #nullable disable

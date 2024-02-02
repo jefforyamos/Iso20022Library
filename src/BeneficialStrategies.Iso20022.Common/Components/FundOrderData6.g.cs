@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Extract of trade data for an investment fund switch order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FundOrderData6
 {
     #nullable enable
@@ -20,24 +22,29 @@ public partial record FundOrderData6
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     /// <summary>
     /// Method by which the transaction is settled.
     /// </summary>
+    [DataMember]
     public DeliveryReceiptType2Code? SettlementMethod { get; init; } 
     /// <summary>
     /// Choice between additional cash in or resulting cash out.
     /// </summary>
+    [DataMember]
     public AdditionalAmount1Choice_? AdditionalAmount { get; init; } 
     /// <summary>
     /// Currency from which the quoted currency is converted in an exchange rate calculation.
     /// 1 x <UnitCcy> = <XchgRate> x <QtdCcy>.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? UnitCurrency { get; init; } 
     /// <summary>
     /// Currency into which the unit currency is converted in an exchange rate calculation.
     /// 1 x <UnitCcy> = <XchgRate> x <QtdCcy>.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? QuotedCurrency { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains the details of an invalid payment event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentEvent3
 {
     #nullable enable
@@ -20,44 +22,53 @@ public partial record PaymentEvent3
     /// <summary>
     /// Contains the unique end to end transaction reference of a payment.
     /// </summary>
+    [DataMember]
     public required IsoUUIDv4Identifier UETR { get; init; } 
     /// <summary>
     /// Specifies the business service agreed between the two MessagingEndpoints under which rules this business message is exchanged.
     /// Usage:
     /// To be used when there is a choice of processing services or processing service levels.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? BusinessService { get; init; } 
     /// <summary>
     /// Indicates whether the requestor institution participates in the payment transaction identified by the unique end to end transaction reference identification  (UETR).
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Participant { get; init; } 
     /// <summary>
     /// Reference assigned by the network when sending the payment.
     /// </summary>
+    [DataMember]
     public required IsoMax50Text NetworkReference { get; init; } 
     /// <summary>
     /// Identifies the original message name identifier to which the message refers.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageNameIdentification { get; init; } 
     /// <summary>
     /// Contains a unique identification, as assigned by an instructing party for an instructed party, to unambiguously identify the instruction.
     /// Usage: The instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text InstructionIdentification { get; init; } 
     /// <summary>
     /// Identifies the the sending MessagingEndpoint that has created this business message for the receiving MessagingEndpoint that will process this business message.
     /// Usage:
     /// The sending MessagingEndpoint might be different from the sending address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
+    [DataMember]
     public required IsoAnyBICIdentifier From { get; init; } 
     /// <summary>
     /// Identifies the MessagingEndpoint designated by the sending MessagingEndpoint to be the recipient who will ultimately process this business message.
     /// Note the receiving MessagingEndpoint might be different from the receiving address potentially contained in the transport header (as defined in the transport layer).
     /// </summary>
+    [DataMember]
     public IsoAnyBICIdentifier? To { get; init; } 
     /// <summary>
     /// Specifies the reason why the event is invalid.
     /// </summary>
+    [DataMember]
     public required ExternalInvalidEventReason1Code InvalidityReason { get; init; } 
     
     #nullable disable

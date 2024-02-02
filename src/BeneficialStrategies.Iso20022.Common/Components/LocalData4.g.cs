@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains text fields in the local language.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LocalData4
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record LocalData4
     /// <summary>
     /// The language code conforming to ISO 639-1 that identifies the language in which the fields are expressed in this component.
     /// </summary>
+    [DataMember]
     public required ISOMax3ALanguageCode Language { get; init; } 
     /// <summary>
     /// Short name of the party in the local language.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? ShortName { get; init; } 
     /// <summary>
     /// Legal Corporate Name of the party in the local language
     /// </summary>
+    [DataMember]
     public IsoMax210Text? LegalCorporateName { get; init; } 
     /// <summary>
     /// Name and location of acceptor in the local language.  May only contain name when the location is specified elsewhere.
     /// </summary>
+    [DataMember]
     public IsoMax200Text? NameAndLocation { get; init; } 
     /// <summary>
     /// Structured postal address in the local language.
     /// </summary>
+    [DataMember]
     public Address3? Address { get; init; } 
     /// <summary>
     /// Additional information used when card acceptor street address is insufficient.
     /// </summary>
+    [DataMember]
     public IsoMax512Text? AdditionalAddressInformation { get; init; } 
     /// <summary>
     /// Additional information used to facilitate contact with the card acceptor, for instance sales agent name, dispute manager name.
     /// </summary>
+    [DataMember]
     public IsoMax512Text? AdditionalContactInformation { get; init; } 
     /// <summary>
     /// Additional local language data
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

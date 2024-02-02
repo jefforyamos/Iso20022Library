@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details of the participants with the highest volume and value ranking for settlement fails.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementFailsParticipantRange1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record SettlementFailsParticipantRange1
     /// <summary>
     /// Participant with the highest volume of settlement fails.
     /// </summary>
-    public SettlementFailsParticipant1[] HighestInVolume { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SettlementFailsParticipant1> HighestInVolume { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Participant with the highest value of settlement fails.
     /// </summary>
-    public SettlementFailsParticipant1[] HighestInValue { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SettlementFailsParticipant1> HighestInValue { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

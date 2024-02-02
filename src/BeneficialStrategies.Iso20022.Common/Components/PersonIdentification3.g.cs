@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique and unambiguous way to identify a person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PersonIdentification3
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record PersonIdentification3
     /// <summary>
     /// Number assigned by a license authority to a driver's license.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text DriversLicenseNumber { get; init; } 
     /// <summary>
     /// Number assigned by an agent to identify its customer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text CustomerNumber { get; init; } 
     /// <summary>
     /// Number assigned by a social security agency.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text SocialSecurityNumber { get; init; } 
     /// <summary>
     /// Number assigned by a government agency to identify foreign nationals.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text AlienRegistrationNumber { get; init; } 
     /// <summary>
     /// Number assigned by a passport authority to a passport.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text PassportNumber { get; init; } 
     /// <summary>
     /// Number assigned by a tax authority to an entity.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TaxIdentificationNumber { get; init; } 
     /// <summary>
     /// Number assigned by a national authority to an identity card.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text IdentityCardNumber { get; init; } 
     /// <summary>
     /// Number assigned to an employer by a registration authority.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text EmployerIdentificationNumber { get; init; } 
     /// <summary>
     /// Date and place of birth of a person.
     /// </summary>
+    [DataMember]
     public required DateAndPlaceOfBirth DateAndPlaceOfBirth { get; init; } 
     /// <summary>
     /// Identifier issued to a person for which no specific identifier has been defined.
     /// </summary>
+    [DataMember]
     public required GenericIdentification4 OtherIdentification { get; init; } 
     /// <summary>
     /// Entity that assigns the identifier.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     
     #nullable disable

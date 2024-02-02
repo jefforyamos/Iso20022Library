@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies prices.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionPrice1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record CorporateActionPrice1
     /// <summary>
     /// 1. Price at which security will be purchased/sold if warrant is exercised, either as an actual amount or a percentage.|2. Price at which a bond is converted to underlying security either as an actual amount or a percentage.|3. Strike price of an option, represented either as an actual amount, a percentage or or a number of points above an index.
     /// </summary>
+    [DataMember]
     public PriceFormat4Choice_? ExercisePrice { get; init; } 
     /// <summary>
     /// Initial issue price of a financial instrument.
     /// </summary>
+    [DataMember]
     public PriceFormat2Choice_? IssuePrice { get; init; } 
     /// <summary>
     /// Cash disbursement in lieu of equities; usually in lieu of fractional quantity.
     /// </summary>
+    [DataMember]
     public PriceFormat2Choice_? CashInLieuOfSharePrice { get; init; } 
     /// <summary>
     /// Amount included in the dividend/NAV that is identified as gains directly or indirectly derived from interest payments within the scope of the EU Savings directive.
     /// </summary>
+    [DataMember]
     public AmountPrice1? TaxableIncomePerDividendShare { get; init; } 
     /// <summary>
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, eg, redemption price.
     /// </summary>
+    [DataMember]
     public PriceFormat1Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
     /// <summary>
     /// Generic cash price paid per product by the underlying security holder either as a percentage or an amount, eg, reinvestment price.
     /// </summary>
+    [DataMember]
     public PriceFormat2Choice_? GenericCashPricePaidPerProduct { get; init; } 
     /// <summary>
     /// Amount of money required per over-subscribed equity as defined by the issuer.
     /// </summary>
+    [DataMember]
     public PriceFormat2Choice_? OverSubscriptionDepositPrice { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Characteristics of the report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MovementReport1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record MovementReport1
     /// <summary>
     /// Identification of the Query message sent to request this statement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? QueryReference { get; init; } 
     /// <summary>
     /// Reference common to all pages of a report.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReportIdentification { get; init; } 
     /// <summary>
     /// Defines the type of query.
     /// </summary>
+    [DataMember]
     public required MovementResponseType1Code QueryType { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     
     #nullable disable

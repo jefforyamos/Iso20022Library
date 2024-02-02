@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment transaction invoiced to customer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTransaction117
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record PaymentTransaction117
     /// <summary>
     /// List of codes representing type of fleet purchases.
     /// </summary>
+    [DataMember]
     public FleetPurchaseType1Code? PurchaseType { get; init; } 
     /// <summary>
     /// Provides the identifier assigned by the card acceptor that best categorizes the items being purchased in a standardized commodity group.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SummaryCommodityIdentification { get; init; } 
     /// <summary>
     /// Discount applied to the transaction.
     /// </summary>
+    [DataMember]
     public FleetDiscountTotals1? DiscountTotal { get; init; } 
     /// <summary>
     /// Total taxes related to the products or services. 
     /// </summary>
-    public Tax33[] TaxTotal { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax33> TaxTotal { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total amount of the transaction, inclusive of all applicable taxes and fees. 
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     
     #nullable disable

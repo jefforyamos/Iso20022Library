@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Presence condition of a message item.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MessageItemCondition2
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record MessageItemCondition2
     /// <summary>
     /// Unique identification of the message and the message item.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text ItemIdentification { get; init; } 
     /// <summary>
     /// Condition of presence of the message item.
     /// </summary>
+    [DataMember]
     public required MessageItemCondition2Code Condition { get; init; } 
     /// <summary>
     /// Value to be used for the message item.
     /// </summary>
-    public IsoMax140Text[] Value { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax140Text> Value { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

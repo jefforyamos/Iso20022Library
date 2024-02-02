@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment card performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentCard10
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record PaymentCard10
     /// <summary>
     /// Sensitive data of the card (PlainCardData1 including the envelope), encrypted with a cryptographic key.
     /// </summary>
+    [DataMember]
     public ContentInformationType10? ProtectedCardData { get; init; } 
     /// <summary>
     /// Sensitive data associated with the card performing the transaction.
     /// </summary>
+    [DataMember]
     public PlainCardData8? PlainCardData { get; init; } 
     /// <summary>
     /// Masked PAN to be printed on payment receipts or displayed to the cardholder. Masked digits may be absent or replaced by another character as '*'.
     /// </summary>
+    [DataMember]
     public IsoMax30Text? MaskedPAN { get; init; } 
     /// <summary>
     /// Brand name of the card.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CardBrand { get; init; } 
     /// <summary>
     /// Type of card product.
     /// </summary>
+    [DataMember]
     public CardProductType1Code? CardProductType { get; init; } 
     
     #nullable disable

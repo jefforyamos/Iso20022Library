@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the line item number and the purchase order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LineItemAndPOIdentification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record LineItemAndPOIdentification1
     /// <summary>
     /// Identification assigned to a line item.
     /// </summary>
-    public IsoMax70Text[] LineItemIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax70Text> LineItemIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Reference to the purchase order containing the line item.
     /// </summary>
+    [DataMember]
     public required DocumentIdentification7 PurchaseOrderReference { get; init; } 
     
     #nullable disable

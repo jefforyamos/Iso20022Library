@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies a payment instrument type as the search criteria for the financial institution to do the investigation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentInstrumentType1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PaymentInstrumentType1
     /// <summary>
     /// Provides the card number.
     /// </summary>
+    [DataMember]
     public required IsoMin8Max28NumericText CardNumber { get; init; } 
     /// <summary>
     /// Identifies the authority request type as a code.
     /// </summary>
-    public AuthorityRequestType1[] AuthorityRequestType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AuthorityRequestType1> AuthorityRequestType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information, in free text form, to complement the requested information.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? AdditionalInformation { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Tax3
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record Tax3
     /// <summary>
     /// Type of tax applied.
     /// </summary>
+    [DataMember]
     public required TaxTypeFormat2Choice_ Type { get; init; } 
     /// <summary>
     /// Amount of money resulting from the calculation of the tax.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAnd13DecimalAmount Amount { get; init; } 
     /// <summary>
     /// Basis used to determine the capital gain or loss, eg, the purchase price.
     /// </summary>
+    [DataMember]
     public TaxationBasis2Code? Basis { get; init; } 
     /// <summary>
     /// Party that receives the tax. The recipient of, and the party entitled to, the tax may be two different parties.
     /// </summary>
+    [DataMember]
     public PartyIdentification1Choice_? RecipientIdentification { get; init; } 
     /// <summary>
     /// Indicates whether a tax exemption applies.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ExemptionIndicator { get; init; } 
     /// <summary>
     /// Reason for a tax exemption.
     /// </summary>
+    [DataMember]
     public TaxExemptionReasonFormatChoice_? ExemptionReason { get; init; } 
     
     #nullable disable

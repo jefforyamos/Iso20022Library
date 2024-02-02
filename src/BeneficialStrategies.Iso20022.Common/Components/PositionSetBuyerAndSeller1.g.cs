@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Variables used to quantify the different calculations for position sets and currency position sets reports.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PositionSetBuyerAndSeller1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PositionSetBuyerAndSeller1
     /// <summary>
     /// Refers to the aggregated data for the buyer counterparty.
     /// </summary>
+    [DataMember]
     public PositionSetTotal1? Buyer { get; init; } 
     /// <summary>
     /// Refers to the aggregated data for the seller counterparty.
     /// </summary>
+    [DataMember]
     public PositionSetTotal1? Seller { get; init; } 
     
     #nullable disable

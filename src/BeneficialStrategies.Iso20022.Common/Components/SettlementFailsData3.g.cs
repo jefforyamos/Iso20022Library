@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the aggregated data of settlement fails instructions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementFailsData3
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record SettlementFailsData3
     /// <summary>
     /// Total of all types of settlement transactions.
     /// </summary>
+    [DataMember]
     public required SettlementTotalData1 Total { get; init; } 
     /// <summary>
     /// Further details on the central securities depositories participants with the highest rates of settlement fails.
     /// </summary>
+    [DataMember]
     public SettlementFailsParticipantRange1? ParticipantInFail { get; init; } 
     /// <summary>
     /// Further details on the settlement fails per currency.
     /// </summary>
-    public SettlementFailsCurrency2[] FailsPerCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SettlementFailsCurrency2> FailsPerCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further details on the settlement fails per financial instrument type.
     /// </summary>
+    [DataMember]
     public SettlementFailsInstrument2? FailsPerFinancialInstrumentType { get; init; } 
     /// <summary>
     /// Further details on the securities with the highest rates of settlement fails.
     /// </summary>
+    [DataMember]
     public SettlementFailsSecuritiesRange1? SecuritiesInFail { get; init; } 
     /// <summary>
     /// Further details on the settlement fails per transaction type.
     /// </summary>
+    [DataMember]
     public SettlementFailsTransactionType2? FailsPerTransactionType { get; init; } 
     /// <summary>
     /// Total of all types of settlement penalties (such as total of late matching and settlement fails).
     /// </summary>
+    [DataMember]
     public SettlementDataVolume2? TotalSettlementPenalties { get; init; } 
     /// <summary>
     /// Further details on the reason for the settlement fails.
     /// </summary>
+    [DataMember]
     public required SettlementFailureReason3 FailureReason { get; init; } 
     
     #nullable disable

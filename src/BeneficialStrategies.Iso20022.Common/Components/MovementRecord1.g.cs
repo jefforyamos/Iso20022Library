@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of a movement record requested in a single settlement instruction. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MovementRecord1
 {
     #nullable enable
@@ -21,34 +23,42 @@ public partial record MovementRecord1
     /// Unique identification, as assigned by the instructing agent, and sent to the market infrastructure to unambiguously identify the specific movement record (transaction) within a settlement request.
     /// Usage: The movement identification is a point to point reference that can be used between the instructing agent and the market infrastructure to refer to the individual movement record within a settlement request. It can be included in several messages related to the movement.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// An index to identify the individual movement record entry.
     /// </summary>
+    [DataMember]
     public IsoNumber? SequenceNumber { get; init; } 
     /// <summary>
     /// Amount of money requested by the instructing agent for settlement at the market infrastructure in a single movement record entry.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection5 Amount { get; init; } 
     /// <summary>
     /// Agent in whose account the funds settle on behalf of the participant.
     /// </summary>
+    [DataMember]
     public PartyIdentification135? SettlementAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the settlement agent.
     /// </summary>
+    [DataMember]
     public CashAccount40? SettlementAgentAccount { get; init; } 
     /// <summary>
     /// Identification of a participant on behalf of which the settlement agent instructs the market infrastructure to settle the obligations using accounts held in the settlement service.
     /// </summary>
+    [DataMember]
     public PartyIdentification135? Participant { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the participant held in the settlement service.
     /// </summary>
+    [DataMember]
     public CashAccount40? ParticipantAccount { get; init; } 
     /// <summary>
     /// Reference information to complement a movement record.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Reference { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide the total sum of entries per bank transaction code.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TotalsPerBankTransactionCode2
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record TotalsPerBankTransactionCode2
     /// <summary>
     /// Number of individual entries for the bank transaction code.
     /// </summary>
+    [DataMember]
     public IsoMax15NumericText? NumberOfEntries { get; init; } 
     /// <summary>
     /// Total of all individual entries included in the report.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? Sum { get; init; } 
     /// <summary>
     /// Total amount that is the result of the netted amounts for all debit and credit entries per bank transaction code.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? TotalNetEntryAmount { get; init; } 
     /// <summary>
     /// Indicates whether the total net entry amount is a credit or a debit amount.
     /// </summary>
+    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the bank transaction code is related to booked or forecast items.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ForecastIndicator { get; init; } 
     /// <summary>
     /// Set of elements used to fully identify the type of underlying transaction resulting in an entry.
     /// </summary>
+    [DataMember]
     public required BankTransactionCodeStructure4 BankTransactionCode { get; init; } 
     /// <summary>
     /// Set of elements used to indicate when the booked amount of money will become available, that is can be accessed and starts generating interest.
     /// </summary>
-    public CashBalanceAvailability2[] Availability { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashBalanceAvailability2> Availability { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

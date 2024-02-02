@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Regroups identification parameters for trade items.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialItemParameters1
 {
     #nullable enable
@@ -20,70 +22,87 @@ public partial record FinancialItemParameters1
     /// <summary>
     /// Unique identification of this item relative to the issuing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identifier { get; init; } 
     /// <summary>
     /// Date of creation of the item.
     /// </summary>
+    [DataMember]
     public required IsoISODate IssueDate { get; init; } 
     /// <summary>
     /// Identifier of related items, for example an assignment or an advice.
     /// </summary>
-    public QualifiedDocumentInformation1[] RelatedItem { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedDocumentInformation1> RelatedItem { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the function of the document related to the item.
     /// </summary>
+    [DataMember]
     public ExternalDocumentPurpose1Code? DocumentPurpose { get; init; } 
     /// <summary>
     /// Language used for textual information in item.
     /// </summary>
+    [DataMember]
     public LanguageCode? LanguageCode { get; init; } 
     /// <summary>
     /// Party that issued this list of items.
     /// </summary>
+    [DataMember]
     public QualifiedPartyIdentification1? Issuer { get; init; } 
     /// <summary>
     /// Receiving party of this list of items.
     /// </summary>
+    [DataMember]
     public QualifiedPartyIdentification1? Recipient { get; init; } 
     /// <summary>
     /// Party that acts as buyer of the goods or services referred to by the financial item.
     /// </summary>
+    [DataMember]
     public QualifiedPartyIdentification1? Buyer { get; init; } 
     /// <summary>
     /// Party that acts as seller of the goods or services referred to by the financial item.
     /// </summary>
+    [DataMember]
     public QualifiedPartyIdentification1? Seller { get; init; } 
     /// <summary>
     /// Financial agent for the seller.
     /// </summary>
+    [DataMember]
     public QualifiedPartyIdentification1? SellerFinancialAgent { get; init; } 
     /// <summary>
     /// Financial agent for the buyer.
     /// </summary>
+    [DataMember]
     public QualifiedPartyIdentification1? BuyerFinancialAgent { get; init; } 
     /// <summary>
     /// Reference to contract that governs the exchange of the message.
     /// </summary>
-    public QualifiedDocumentInformation1[] GoverningContract { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedDocumentInformation1> GoverningContract { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rules and laws governing the item.
     /// </summary>
+    [DataMember]
     public GovernanceRules2? LegalContext { get; init; } 
     /// <summary>
     /// Currency of the item.
     /// </summary>
+    [DataMember]
     public CurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Defines the account debited for charges (or credited for reimbursement).
     /// </summary>
+    [DataMember]
     public AccountIdentification4Choice_? DebitAccount { get; init; } 
     /// <summary>
     /// Defines the account credited for charges (or debited for reimbursement).
     /// </summary>
+    [DataMember]
     public AccountIdentification4Choice_? CreditAccount { get; init; } 
     /// <summary>
     /// Identification of the geographical environment of the trade market.
     /// </summary>
+    [DataMember]
     public TradeMarket1Choice_? TradeMarket { get; init; } 
     
     #nullable disable

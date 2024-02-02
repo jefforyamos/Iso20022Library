@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides for reporting calculation results of non equity instruments as part of transparency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransparencyDataReport20
 {
     #nullable enable
@@ -22,48 +24,59 @@ public partial record TransparencyDataReport20
     /// Usage:
     /// This identification will be used in the status advice report sent back.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Identifies the financial instrument or the class of financial instruments to which the result relates.
     /// </summary>
+    [DataMember]
     public required InstrumentOrSubClassIdentification2Choice_ Identification { get; init; } 
     /// <summary>
     /// Full name of the reporting entity.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? FullName { get; init; } 
     /// <summary>
     /// Segment MIC for the trading venue where applicable, otherwise the operational MIC.
     /// </summary>
+    [DataMember]
     public IsoMICIdentifier? TradingVenue { get; init; } 
     /// <summary>
     /// Period to which the quantitative data fields relate.
     /// </summary>
+    [DataMember]
     public Period4Choice_? ReportingPeriod { get; init; } 
     /// <summary>
     /// Flag to say if this ISIN is liquid or not post calculations.
     /// Usage:
     /// When not present, this field should be treated as not applicable.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? Liquidity { get; init; } 
     /// <summary>
     /// The pre-trade Large in Scale threshold.
     /// </summary>
+    [DataMember]
     public TonsOrCurrency2Choice_? PreTradeLargeInScaleThreshold { get; init; } 
     /// <summary>
     /// The post-trade Large in Scale threshold.
     /// </summary>
+    [DataMember]
     public TonsOrCurrency2Choice_? PostTradeLargeInScaleThreshold { get; init; } 
     /// <summary>
     /// The pre-trade Size Specific to an Instrument threshold.
     /// </summary>
+    [DataMember]
     public TonsOrCurrency2Choice_? PreTradeInstrumentSizeSpecificThreshold { get; init; } 
     /// <summary>
     /// The post-trade Size Specific to an Instrument threshold.
     /// </summary>
+    [DataMember]
     public TonsOrCurrency2Choice_? PostTradeInstrumentSizeSpecificThreshold { get; init; } 
     /// <summary>
     /// Statistics for a financial instrument generated as part of transparency calculations.
     /// </summary>
+    [DataMember]
     public StatisticsTransparency2? Statistics { get; init; } 
     
     #nullable disable

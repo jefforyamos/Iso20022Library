@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reinvestment information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Reinvestment1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Reinvestment1
     /// <summary>
     /// Investment fund for the reinvestment.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument29 FundDetails { get; init; } 
     /// <summary>
     /// Currency to be used for pricing the fund. This currency must be among the set of currencies in which the price may be expressed, as stated in the prospectus.
     /// </summary>
+    [DataMember]
     public CurrencyCode? RequestedNAVCurrency { get; init; } 
     /// <summary>
     /// Percentage of the reinvestment.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate ReinvestmentPercentage { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CSDOrNCB1Choice.CSDIdentification))]
 [KnownType(typeof(CSDOrNCB1Choice.NCBIdentification))]
+[DataContract]
 public abstract partial record CSDOrNCB1Choice_
 {
 }

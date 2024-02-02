@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies an amount of money as a debit or credit amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditDebitAmount1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CreditDebitAmount1
     /// <summary>
     /// Amount of money expressed in an eligible currency.
     /// </summary>
+    [DataMember]
     public required Amount2Choice_ Amount { get; init; } 
     /// <summary>
     /// Specifies whether the amount of money is a debit or a credit.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     
     #nullable disable

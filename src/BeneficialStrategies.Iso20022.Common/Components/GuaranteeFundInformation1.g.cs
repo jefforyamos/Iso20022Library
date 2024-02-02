@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Owner and account number of the guarantee fund.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GuaranteeFundInformation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record GuaranteeFundInformation1
     /// <summary>
     /// Guarantee fund account identifier.
     /// </summary>
+    [DataMember]
     public required CashAccount24 GuaranteeFundAccount { get; init; } 
     /// <summary>
     /// Owner identification of the guarantee fund.
     /// </summary>
+    [DataMember]
     public required FinancialInstitutionIdentification9 GuaranteeFundAccountOwner { get; init; } 
     
     #nullable disable

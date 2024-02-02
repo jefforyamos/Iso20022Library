@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Aggregated values and volumes of internalised settlements instructions for a specific type of financial instruments, type of transaction, type of clients, and cash transfers.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InternalisationDataVolume1
 {
     #nullable enable
@@ -23,6 +25,7 @@ public partial record InternalisationDataVolume1
     /// •	Settled transactions,
     /// •	Total  transactions.
     /// </summary>
+    [DataMember]
     public required IsoMax20PositiveNumber Volume { get; init; } 
     /// <summary>
     /// Specifies the aggregated value of internalised settlement instructions, in terms of:
@@ -31,6 +34,7 @@ public partial record InternalisationDataVolume1
     /// •	Total  transactions,
     /// •	Percentage rate.
     /// </summary>
+    [DataMember]
     public required IsoMax20PositiveDecimalNumber Value { get; init; } 
     
     #nullable disable

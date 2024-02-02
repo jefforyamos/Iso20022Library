@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the justification for the derogation justification on the reporting of settlement fails instructions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementFailsJustification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SettlementFailsJustification1
     /// <summary>
     /// Specifies the value of settlement fails, which does not exceed the limit value as specified in the local regulation.
     /// </summary>
+    [DataMember]
     public required IsoMax20PositiveDecimalNumber Value { get; init; } 
     /// <summary>
     /// Specifies the rate of settlement fails, which does not exceed the limits rate as specified in the local regulation.
     /// </summary>
+    [DataMember]
     public required SettlementDataRate1Choice_ Rate { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification and creation date of a document.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentIdentification11
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DocumentIdentification11
     /// <summary>
     /// Unique identifier of the document (message) assigned by the sender of the document.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Date and time at which the document (message) was created by the sender.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? CreationDateTime { get; init; } 
     /// <summary>
     /// Specifies if this document is a copy, a duplicate, or a duplicate of a copy.
     /// </summary>
+    [DataMember]
     public CopyDuplicate1Code? CopyDuplicate { get; init; } 
     
     #nullable disable

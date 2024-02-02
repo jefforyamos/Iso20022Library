@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transaction Report information for one transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PointOfInteractionTransactionReport4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PointOfInteractionTransactionReport4
     /// <summary>
     /// Response for this specific transaction.
     /// </summary>
+    [DataMember]
     public required ResponseType11 Response { get; init; } 
     /// <summary>
     /// Data responded to a Payment request.
     /// </summary>
+    [DataMember]
     public PaymentResponse4? PaymentResponse { get; init; } 
     
     #nullable disable

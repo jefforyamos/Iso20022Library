@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the cash option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashOption50
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record CashOption50
     /// <summary>
     /// Indicates whether the value is a debit or a credit.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Specifies information regarding outturn resources that cannot be processed by the Central Securities Depository (CSD). Special delivery instruction is required from the account owner for the corporate action outcome to be credited.
     /// </summary>
+    [DataMember]
     public NonEligibleProceedsIndicator3Choice_? NonEligibleProceedsIndicator { get; init; } 
     /// <summary>
     /// Proceeds are taxable according to the information provided by the issuer / offeror.
     /// </summary>
+    [DataMember]
     public IssuerOfferorTaxabilityIndicator1Choice_? IssuerOfferorTaxabilityIndicator { get; init; } 
     /// <summary>
     /// Specifies the type of income.|The lists of income type codes to be used, are available on the SMPG website at www.smpg.info.
     /// </summary>
+    [DataMember]
     public GenericIdentification30? IncomeType { get; init; } 
     /// <summary>
     /// Specifies the basis for the reduced rate of withholding.
     /// </summary>
-    public GenericIdentification30[] ExemptionType { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericIdentification30> ExemptionType { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the country from which the income originates.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryOfIncomeSource { get; init; } 
     /// <summary>
     /// Identification of the account in which cash is maintained.
     /// </summary>
+    [DataMember]
     public CashAccountIdentification5Choice_? CashAccountIdentification { get; init; } 
     /// <summary>
     /// Provides information about the amounts related to a cash movement.
     /// </summary>
+    [DataMember]
     public CorporateActionAmounts36? AmountDetails { get; init; } 
     /// <summary>
     /// Provides information about the dates related to a cash movement.
     /// </summary>
+    [DataMember]
     public required CorporateActionDate47 DateDetails { get; init; } 
     /// <summary>
     /// Exchange rate between the amount and the resulting amount.
     /// </summary>
+    [DataMember]
     public ForeignExchangeTerms24? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Provides information about the corporate action option.
     /// </summary>
+    [DataMember]
     public RateDetails26? RateAndAmountDetails { get; init; } 
     /// <summary>
     /// Provides information about the prices related to a corporate action option.
     /// </summary>
+    [DataMember]
     public PriceDetails22? PriceDetails { get; init; } 
     
     #nullable disable

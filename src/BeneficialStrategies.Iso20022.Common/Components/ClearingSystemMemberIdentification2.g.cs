@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique identification, as assigned by a clearing system, to unambiguously identify a member of the clearing system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ClearingSystemMemberIdentification2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ClearingSystemMemberIdentification2
     /// <summary>
     /// Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is processed.
     /// </summary>
+    [DataMember]
     public ClearingSystemIdentification2Choice_? ClearingSystemIdentification { get; init; } 
     /// <summary>
     /// Identification of a member of a clearing system.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MemberIdentification { get; init; } 
     
     #nullable disable

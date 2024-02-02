@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Location on the Earth specified by the Universal Transverse Mercator coordinate system, using the WGS84 geodesic system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UTMCoordinates1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record UTMCoordinates1
     /// <summary>
     /// UTM grid zone combination of the longitude zone (1 to 60) and the latitude band, C to X, excluding I and O (for example Eiffel tower UTM zone is 31U).
     /// </summary>
+    [DataMember]
     public required IsoMax16Text UTMZone { get; init; } 
     /// <summary>
     /// X-coordinate of the Universal Transverse Mercator coordinate system in meters (for example 448 265m for Eiffel Tower X-coordinate).
     /// </summary>
+    [DataMember]
     public required IsoNumber UTMEastward { get; init; } 
     /// <summary>
     /// Y-coordinate of the Universal Transverse Mercator coordinate system (for example 5 411 920m for Eiffel Tower Y-coordinate).
     /// </summary>
+    [DataMember]
     public required IsoNumber UTMNorthward { get; init; } 
     
     #nullable disable

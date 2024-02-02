@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Eligibility parameters for a transaction to be part of transaction report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SearchCriteria1
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record SearchCriteria1
     /// <summary>
     /// List of criteria following the OR logic.
     /// </summary>
-    public SearchOr1[] SearchOr { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SearchOr1> SearchOr { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

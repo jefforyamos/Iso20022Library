@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Merchant using the payment services of the card acceptor. The sponsored merchant is not acting as the card acceptor; the latter remaining the only party liable for the transaction vis-à-vis the acquirer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SponsoredMerchant1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SponsoredMerchant1
     /// <summary>
     /// Identification of the sponsored merchant.
     /// </summary>
+    [DataMember]
     public required PartyIdentification197 Identification { get; init; } 
     /// <summary>
     /// Additional identification information pertaining to the sponsored merchant.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AdditionalIdentification { get; init; } 
     /// <summary>
     /// Contains the full name of the sponsored merchant.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? CommonName { get; init; } 
     /// <summary>
     /// Address of the sponsored merchant. 
     /// </summary>
+    [DataMember]
     public Address1? Address { get; init; } 
     
     #nullable disable

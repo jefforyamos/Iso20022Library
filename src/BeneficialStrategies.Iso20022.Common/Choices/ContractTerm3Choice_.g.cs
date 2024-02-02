@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ContractTerm3Choice.Open))]
 [KnownType(typeof(ContractTerm3Choice.Fixed))]
+[DataContract]
 public abstract partial record ContractTerm3Choice_
 {
 }

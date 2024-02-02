@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(MandateRelatedData1Choice.DirectDebitMandate))]
 [KnownType(typeof(MandateRelatedData1Choice.CreditTransferMandate))]
+[DataContract]
 public abstract partial record MandateRelatedData1Choice_
 {
 }

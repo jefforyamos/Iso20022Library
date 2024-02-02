@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details of the modification requests.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraBalanceModification6
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record IntraBalanceModification6
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
+    [DataMember]
     public CashAccount38? CashAccount { get; init; } 
     /// <summary>
     /// Party that owns the account.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification8? CashAccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the cash account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? CashAccountServicer { get; init; } 
     /// <summary>
     /// Status and status reason of the transaction.
     /// </summary>
+    [DataMember]
     public ProcessingStatus71Choice_? ProcessingStatus { get; init; } 
     /// <summary>
     /// Unambiguous identification of the modification request.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text RequestReference { get; init; } 
     /// <summary>
     /// Date and time at which the status was assigned.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? StatusDate { get; init; } 
     /// <summary>
     /// Details of the request providing the changes and references of the instruction for which the modification is requested.
     /// </summary>
+    [DataMember]
     public RequestDetails22? RequestDetails { get; init; } 
     /// <summary>
     /// Identifies additional details of the transaction.
     /// </summary>
+    [DataMember]
     public IntraBalance5? UnderlyingIntraBalance { get; init; } 
     
     #nullable disable

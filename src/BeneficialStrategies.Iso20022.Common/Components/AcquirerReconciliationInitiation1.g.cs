@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the reconciliation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcquirerReconciliationInitiation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AcquirerReconciliationInitiation1
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardTransactionEnvironment5 Environment { get; init; } 
     /// <summary>
     /// Reconciliation transaction.
     /// </summary>
+    [DataMember]
     public required CardTransaction9 Transaction { get; init; } 
     
     #nullable disable

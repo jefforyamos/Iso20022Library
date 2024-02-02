@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements providing further details on the account statement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountStatement1
 {
     #nullable enable
@@ -20,54 +22,67 @@ public partial record AccountStatement1
     /// <summary>
     /// Unique and unambiguous identification of the account report, assigned by the account servicer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Sequential number of the report, assigned by the account servicer. It is increased incrementally for each report sent electronically.
     /// </summary>
+    [DataMember]
     public IsoNumber? ElectronicSequenceNumber { get; init; } 
     /// <summary>
     /// Legal sequential number of the report, assigned by the account servicer. It is increased incrementally for each report sent.||Usage: in those scenarios where eg a paper statement is a legal requirement, the paper statement may have a different numbering than the electronic sequential number. Paper statements can for instance only be sent if movement on the account has taken place, whereas electronic statements can be sent eg each day, regardless of whether movements have taken place or not.
     /// </summary>
+    [DataMember]
     public IsoNumber? LegalSequenceNumber { get; init; } 
     /// <summary>
     /// Date and time at which the report was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Range of time between the start date and the end date for which the account statement is issued.
     /// </summary>
+    [DataMember]
     public DateTimePeriodDetails? FromToDate { get; init; } 
     /// <summary>
     /// Specifies if this document is a copy, a duplicate, or a duplicate of a copy.
     /// </summary>
+    [DataMember]
     public CopyDuplicate1Code? CopyDuplicateIndicator { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>
+    [DataMember]
     public required CashAccount13 Account { get; init; } 
     /// <summary>
     /// Identifies the parent account of the reported account.
     /// </summary>
+    [DataMember]
     public CashAccount7? RelatedAccount { get; init; } 
     /// <summary>
     /// Provides general interest information that applies to the account at a particular moment in time.
     /// </summary>
-    public AccountInterest1[] Interest { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AccountInterest1> Interest { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of elements defining the balance(s).
     /// </summary>
-    public CashBalance2[] Balance { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashBalance2> Balance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of element providing summary information on entries.
     /// </summary>
+    [DataMember]
     public TotalTransactions1? TransactionsSummary { get; init; } 
     /// <summary>
     /// Specifies the elements of an entry in the statement.||Usage: At least one reference must be provided to identify the entry and its underlying transaction(s).
     /// </summary>
-    public StatementEntry1[] Entry { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StatementEntry1> Entry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further details on the account statement.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? AdditionalStatementInformation { get; init; } 
     
     #nullable disable

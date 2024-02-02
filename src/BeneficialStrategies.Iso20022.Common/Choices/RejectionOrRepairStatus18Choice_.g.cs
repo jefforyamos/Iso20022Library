@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(RejectionOrRepairStatus18Choice.NoSpecifiedReason))]
 [KnownType(typeof(RejectionOrRepairStatus18Choice.Reason))]
+[DataContract]
 public abstract partial record RejectionOrRepairStatus18Choice_
 {
 }

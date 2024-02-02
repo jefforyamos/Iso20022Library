@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide summary information on entries.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TotalTransactions3
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record TotalTransactions3
     /// <summary>
     /// Specifies the total number and sum of debit and credit entries.
     /// </summary>
+    [DataMember]
     public NumberAndSumOfTransactions3? TotalEntries { get; init; } 
     /// <summary>
     /// Specifies the total number and sum of credit entries.
     /// </summary>
+    [DataMember]
     public NumberAndSumOfTransactions1? TotalCreditEntries { get; init; } 
     /// <summary>
     /// Specifies the total number and sum of debit entries.
     /// </summary>
+    [DataMember]
     public NumberAndSumOfTransactions1? TotalDebitEntries { get; init; } 
     /// <summary>
     /// Specifies the total number and sum of entries per bank transaction code.
     /// </summary>
-    public TotalsPerBankTransactionCode2[] TotalEntriesPerBankTransactionCode { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TotalsPerBankTransactionCode2> TotalEntriesPerBankTransactionCode { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

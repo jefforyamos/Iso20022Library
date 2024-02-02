@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains departure or arrival information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DepartureOrArrival1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record DepartureOrArrival1
     /// <summary>
     /// Departure or arrival location (for example, city, airport code, station id, etc). 
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Location { get; init; } 
     /// <summary>
     /// Specific explanation of the location or directions. 
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Description { get; init; } 
     /// <summary>
     /// Departure or arrival date.
     /// </summary>
+    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Departure or arrival time. 
     /// </summary>
+    [DataMember]
     public IsoISOTime? Time { get; init; } 
     
     #nullable disable

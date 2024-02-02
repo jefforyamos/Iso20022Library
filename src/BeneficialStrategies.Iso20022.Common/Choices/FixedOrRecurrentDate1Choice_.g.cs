@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(FixedOrRecurrentDate1Choice.FixedDate))]
 [KnownType(typeof(FixedOrRecurrentDate1Choice.RecurrentDate))]
+[DataContract]
 public abstract partial record FixedOrRecurrentDate1Choice_
 {
 }

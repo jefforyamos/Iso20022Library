@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the relationship record between two parties.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeCounterpartyRelationshipRecord1
 {
     #nullable enable
@@ -20,20 +22,24 @@ public partial record TradeCounterpartyRelationshipRecord1
     /// <summary>
     /// Specifies type of counterparty at the start of a directional relationship.
     /// </summary>
+    [DataMember]
     public required TradeCounterpartyType1Code StartRelationshipParty { get; init; } 
     /// <summary>
     /// Specifies type of counterparty at the end of a directional relationship.
     /// </summary>
+    [DataMember]
     public required TradeCounterpartyType1Code EndRelationshipParty { get; init; } 
     /// <summary>
     /// Type of relationship between two parties.
     /// Usage: RelationshipType is always in the direction of the StartRelationshipParty to EndRelationshipParty.
     /// </summary>
+    [DataMember]
     public required TradeCounterpartyRelationship1Choice_ RelationshipType { get; init; } 
     /// <summary>
     /// Provides description of other type of relationship between two parties.
     /// Usage: Description is to be used only when RelationshipType is not precisely indicating the type of relationship between parties to the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax1000Text? Description { get; init; } 
     
     #nullable disable

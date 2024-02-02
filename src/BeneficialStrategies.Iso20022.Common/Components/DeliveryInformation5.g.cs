@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Delivery information for the purpose of a retrieval fulfilment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeliveryInformation5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DeliveryInformation5
     /// <summary>
     /// Contact for delivery.
     /// </summary>
+    [DataMember]
     public Contact7? Contact { get; init; } 
     /// <summary>
     /// Postal address related to a retrieval fulfilment.
     /// </summary>
+    [DataMember]
     public Address2? PostalAddress { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Date and identification of a trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeAgreement1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TradeAgreement1
     /// <summary>
     /// Date at which the trading parties agree on a treasury trade.
     /// </summary>
+    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Identification of a notification.This identification must be unique amongst all notifications of same type confirmed by the same party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text NotificationIdentification { get; init; } 
     /// <summary>
     /// Reference common to the parties of a trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CommonReference { get; init; } 
     
     #nullable disable

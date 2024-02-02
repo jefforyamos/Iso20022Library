@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Context in which the card payment transaction is performed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Context12
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Context12
     /// <summary>
     /// Context of the card payment transaction at the point of service.
     /// </summary>
+    [DataMember]
     public PointOfServiceContext3? PointOfServiceContext { get; init; } 
     /// <summary>
     /// Context of the card payment transaction.
     /// </summary>
+    [DataMember]
     public required TransactionContext7 TransactionContext { get; init; } 
     /// <summary>
     /// Method and data intended to be used for this transaction in order to authenticate or verify  the cardholder or his card.
     /// </summary>
-    public Verification4[] Verification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Verification4> Verification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Context of risk associated with the transaction.
     /// </summary>
+    [DataMember]
     public RiskContext2? RiskContext { get; init; } 
     /// <summary>
     /// Context of the sale associated with the card payment transaction.
     /// </summary>
+    [DataMember]
     public SaleContext8? SaleContext { get; init; } 
     
     #nullable disable

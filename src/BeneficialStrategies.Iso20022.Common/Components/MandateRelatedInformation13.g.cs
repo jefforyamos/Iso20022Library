@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details related to a direct debit mandate signed between the creditor and the debtor.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MandateRelatedInformation13
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record MandateRelatedInformation13
     /// <summary>
     /// Unique identification, as assigned by the creditor, to unambiguously identify the mandate.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MandateIdentification { get; init; } 
     /// <summary>
     /// Date on which the direct debit mandate has been signed by the debtor.
     /// </summary>
+    [DataMember]
     public IsoISODate? DateOfSignature { get; init; } 
     /// <summary>
     /// Image of scanned signed mandate.
     /// </summary>
+    [DataMember]
     public IsoMax2MBBinary? MandateImage { get; init; } 
     
     #nullable disable

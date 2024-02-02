@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Maintenance command to perform on an ATM.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMCommand1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ATMCommand1
     /// <summary>
     /// Type of command to be performed by the ATM.
     /// </summary>
+    [DataMember]
     public required ATMCommand1Code Type { get; init; } 
     /// <summary>
     /// Urgency of the command.
     /// </summary>
+    [DataMember]
     public required TMSContactLevel2Code Urgency { get; init; } 
     /// <summary>
     /// Date time on which the command must be performed.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? DateTime { get; init; } 
     /// <summary>
     /// Identification of the entity issuing the command.
     /// </summary>
+    [DataMember]
     public ATMCommandIdentification1? CommandIdentification { get; init; } 
     /// <summary>
     /// Specific parameters attached to the command.
     /// </summary>
+    [DataMember]
     public ATMCommandParameters1Choice_? CommandParameters { get; init; } 
     
     #nullable disable

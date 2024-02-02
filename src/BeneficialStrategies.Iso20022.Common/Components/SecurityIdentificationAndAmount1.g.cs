@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the current valuation of a security.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityIdentificationAndAmount1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SecurityIdentificationAndAmount1
     /// <summary>
     /// ISIN of the outright investment.
     /// </summary>
+    [DataMember]
     public required IsoISINOct2015Identifier Identification { get; init; } 
     /// <summary>
     /// Value of the outright investment according to the CCP’s system of record.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAnd24Amount MarketValue { get; init; } 
     /// <summary>
     /// Type of a financial instrument: an equity, bond or other.
     /// </summary>
+    [DataMember]
     public required ProductType7Code FinancialInstrumentType { get; init; } 
     
     #nullable disable

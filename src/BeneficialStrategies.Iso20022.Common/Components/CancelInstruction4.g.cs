@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Instruction to be cancelled.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CancelInstruction4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CancelInstruction4
     /// <summary>
     /// Identification of the individual instruction previously sent.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text SingleInstructionIdentification { get; init; } 
     /// <summary>
     /// Account and instructed positions to which the meeting instruction cancellation request applies.
     /// </summary>
+    [DataMember]
     public SafekeepingAccount16? InstructedPosition { get; init; } 
     
     #nullable disable

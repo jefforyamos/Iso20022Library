@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the control of an ATM device.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMDeviceControl1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record ATMDeviceControl1
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required ATMEnvironment7 Environment { get; init; } 
     /// <summary>
     /// Maintenance command the ATM must perform.
     /// </summary>
-    public ATMCommand4[] Command { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCommand4> Command { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

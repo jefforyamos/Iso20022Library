@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Configuration parameters of the TMS protocol between a POI and a terminal manager.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TMSProtocolParameters3
 {
     #nullable enable
@@ -20,47 +22,58 @@ public partial record TMSProtocolParameters3
     /// <summary>
     /// Type of action for the configuration parameters.
     /// </summary>
+    [DataMember]
     public required TerminalManagementAction3Code ActionType { get; init; } 
     /// <summary>
     /// Identification of the master terminal manager or the terminal manager.
     /// </summary>
+    [DataMember]
     public required GenericIdentification71 TerminalManagerIdentification { get; init; } 
     /// <summary>
     /// Maintenance services provided by the terminal manager.
     /// </summary>
-    public DataSetCategory10Code[] MaintenanceService { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DataSetCategory10Code> MaintenanceService { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Version of the TMS protocol parameters.
     /// </summary>
+    [DataMember]
     public required IsoMax256Text Version { get; init; } 
     /// <summary>
     /// Identification of applications which may be managed by the TM, partially or globally.
     /// </summary>
-    public IsoMax35Text[] ApplicationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> ApplicationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the terminal manager host.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text HostIdentification { get; init; } 
     /// <summary>
     /// New identification of the POI for the terminal manager.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? POIIdentification { get; init; } 
     /// <summary>
     /// New identification of the initiating party to set in TMS messages with this terminal manager.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? InitiatingPartyIdentification { get; init; } 
     /// <summary>
     /// New identification of the recipient party to set in TMS messages with this terminal manager.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RecipientPartyIdentification { get; init; } 
     /// <summary>
     /// Configuration parameters are exchanged per file transfer protocol rather than per message.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? FileTransfer { get; init; } 
     /// <summary>
     /// Configuration of a message item.
     /// </summary>
-    public MessageItemCondition1[] MessageItem { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MessageItemCondition1> MessageItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

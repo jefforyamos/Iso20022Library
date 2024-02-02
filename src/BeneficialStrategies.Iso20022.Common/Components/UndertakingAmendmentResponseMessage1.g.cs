@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contents of an UndertakingAmendmentResponse message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UndertakingAmendmentResponseMessage1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record UndertakingAmendmentResponseMessage1
     /// <summary>
     /// Details of the proposed amendment response.
     /// </summary>
+    [DataMember]
     public required Amendment7 UndertakingAmendmentResponseDetails { get; init; } 
     /// <summary>
     /// Digital signature of the response.
     /// </summary>
+    [DataMember]
     public PartyAndSignature2? DigitalSignature { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the entity to which the financial instruments are pledged.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Pledgee2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Pledgee2
     /// <summary>
     /// Unique identification of the party.
     /// </summary>
+    [DataMember]
     public PledgeeFormat4Choice_? PledgeeTypeAndIdentification { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a party.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     
     #nullable disable

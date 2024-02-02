@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Entity involved in an activity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentificationAndAccount220
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record PartyIdentificationAndAccount220
     /// <summary>
     /// Information related to an identification, eg, party identification or account identification.
     /// </summary>
+    [DataMember]
     public PartyIdentification240Choice_? Identification { get; init; } 
     /// <summary>
     /// Account to or from which a securities entry is made.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SafekeepingAccount { get; init; } 
     /// <summary>
     /// Account to or from which a cash entry is made.
     /// </summary>
+    [DataMember]
     public CashAccountIdentification5Choice_? CashAccount { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transaction for the party identified.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProcessingIdentification { get; init; } 
     /// <summary>
     /// Country in which a person resides (the place of a person's home). In the case of a company, it is the country from which the affairs of that company are directed.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryOfResidence { get; init; } 
     /// <summary>
     /// Provides additional information regarding the party.
     /// </summary>
+    [DataMember]
     public PartyTextInformation1? AdditionalInformation { get; init; } 
     /// <summary>
     /// Alternate identification for a party.
     /// </summary>
+    [DataMember]
     public AlternatePartyIdentification8? AlternateIdentification { get; init; } 
     
     #nullable disable

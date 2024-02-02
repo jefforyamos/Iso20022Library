@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(InstrumentIdentification1Choice.AlternativeInstrumentIdentification))]
 [KnownType(typeof(InstrumentIdentification1Choice.UniqueProductIdentifier))]
 [KnownType(typeof(InstrumentIdentification1Choice.OtherIdentification))]
+[DataContract]
 public abstract partial record InstrumentIdentification1Choice_
 {
 }

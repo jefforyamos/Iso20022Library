@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Transaction Report Response message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportTransactionResponse2
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record ReportTransactionResponse2
     /// <summary>
     /// The total number of transactions matching the search criteria.
     /// </summary>
+    [DataMember]
     public required IsoPositiveNumber ReportFullSize { get; init; } 
     /// <summary>
     /// Index of the first transaction reported in this message within the list of transactions matching the search criteria.
     /// </summary>
+    [DataMember]
     public required IsoPositiveNumber BlockStart { get; init; } 
     /// <summary>
     /// Index of the last transaction reported in this message.
     /// </summary>
+    [DataMember]
     public required IsoPositiveNumber BlockStop { get; init; } 
     /// <summary>
     /// List of Transaction Report containing one Transaction Report for each transaction matching the Search criteria. This list may be partial according to requested block.
     /// </summary>
-    public PointOfInteractionTransactionReport2[] TransactionReport { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PointOfInteractionTransactionReport2> TransactionReport { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

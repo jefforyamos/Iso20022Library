@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for an unmatched status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferUnmatchedStatusReason1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TransferUnmatchedStatusReason1
     /// <summary>
     /// Reason for a rejected status in structured form.
     /// </summary>
+    [DataMember]
     public required TransferUnmatchedReason1Code Structured { get; init; } 
     /// <summary>
     /// Additional information about the reason for the unmatched status in textual form.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

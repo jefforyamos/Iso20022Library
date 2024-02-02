@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional references linked to the quote status request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Reference6
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record Reference6
     /// <summary>
     /// Unique identifier for quote.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? QuoteIdentification { get; init; } 
     
     #nullable disable

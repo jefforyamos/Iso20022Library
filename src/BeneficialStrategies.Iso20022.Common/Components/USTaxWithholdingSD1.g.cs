@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// US tax withholding election details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record USTaxWithholdingSD1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record USTaxWithholdingSD1
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Non resident alien (NRA) tax code. Each U.S. tax withholding eligible distribution must have a determination of the tax liability. This code is relevant to tax withholding and U.S. IRS reporting. Foreign securities also have an applicable tax code, but all foreign issues have one standard code.
     /// </summary>
+    [DataMember]
     public required NRATax1Code NRATaxCode { get; init; } 
     /// <summary>
     /// Percentage of a cash distribution that will be withheld by a tax authority.
     /// </summary>
+    [DataMember]
     public RateFormat6Choice_? WithholdingTaxRate { get; init; } 
     /// <summary>
     /// Elected quantity per NRA tax code.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
     
     #nullable disable

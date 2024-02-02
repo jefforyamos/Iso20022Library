@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(FinancialInstitutionIdentification7Choice.BICFI))]
 [KnownType(typeof(FinancialInstitutionIdentification7Choice.ClearingSystemMemberIdentification))]
 [KnownType(typeof(FinancialInstitutionIdentification7Choice.ProprietaryIdentification))]
+[DataContract]
 public abstract partial record FinancialInstitutionIdentification7Choice_
 {
 }

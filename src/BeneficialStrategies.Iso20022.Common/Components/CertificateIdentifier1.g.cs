@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transport key or key encryption key (KEK) identification for the recipient.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CertificateIdentifier1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record CertificateIdentifier1
     /// <summary>
     /// Certificate issuer name and serial number (see X.509).
     /// </summary>
+    [DataMember]
     public required IssuerAndSerialNumber1 IssuerAndSerialNumber { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Authorisation response from the acquirer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentTransaction9
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record CardPaymentTransaction9
     /// <summary>
     /// Outcome of the authorisation, and actions to perform.
     /// </summary>
+    [DataMember]
     public required AuthorisationResult1 AuthorisationResult { get; init; } 
     /// <summary>
     /// Result of the verifications performed by the issuer to deliver or decline the authorisation.
     /// </summary>
+    [DataMember]
     public TransactionVerificationResult1? TransactionVerificationResult { get; init; } 
     /// <summary>
     /// Balance of the account, related to the payment.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? Balance { get; init; } 
     /// <summary>
     /// Currency associated with the transaction.
     /// </summary>
+    [DataMember]
     public CurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Set of actions to be performed by the POI (Point Of Interaction) system.
     /// </summary>
-    public Action1[] Action { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Action1> Action { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

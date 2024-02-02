@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details on the reason of the cheque presentment cancellation request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ChequeCancellationReason1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ChequeCancellationReason1
     /// <summary>
     /// Party that issues the cancellation request.
     /// </summary>
+    [DataMember]
     public ChequePartyRole1Code? Originator { get; init; } 
     /// <summary>
     /// Specifies the reason for the cancellation request.
     /// </summary>
+    [DataMember]
     public required ChequeCancellationReason1Choice_ Reason { get; init; } 
     /// <summary>
     /// Further details on the cancellation request reason.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? AdditionalInformation { get; init; } 
     
     #nullable disable

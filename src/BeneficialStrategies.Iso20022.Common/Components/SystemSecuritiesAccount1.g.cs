@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Definition of the entity includes the default setting for holding of settlement instructions involving positions related to the account.
 /// Set of MarketSpecificAttributes define specific properties for the account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemSecuritiesAccount1
 {
     #nullable enable
@@ -26,47 +28,58 @@ public partial record SystemSecuritiesAccount1
     /// Definition of the entity includes the default setting for holding of settlement instructions involving positions related to the account.
     /// Set of MarketSpecificAttributes define specific properties for the account.
     /// </summary>
+    [DataMember]
     public required SystemPartyIdentification3 AccountOwner { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Specifies the type of the securities account.
     /// </summary>
+    [DataMember]
     public required SystemSecuritiesAccountType1Code Type { get; init; } 
     /// <summary>
     /// Legal opening date for the securities account.
     /// </summary>
+    [DataMember]
     public required IsoISODate OpeningDate { get; init; } 
     /// <summary>
     /// Legal closing date for the securities account.
     /// </summary>
+    [DataMember]
     public IsoISODate? ClosingDate { get; init; } 
     /// <summary>
     /// Meaning when true: Account is in Hold status.
     /// Meaning when false: Account is in Release status.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator HoldIndicator { get; init; } 
     /// <summary>
     /// Specifies whether the securities account can hold a negative position in a security.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator NegativePosition { get; init; } 
     /// <summary>
     /// Additional attributes defined by a central security depositary for a party.
     /// </summary>
-    public MarketSpecificAttribute1[] MarketSpecificAttribute { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MarketSpecificAttribute1> MarketSpecificAttribute { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines the specific processing characteristics for a securities account to ensure configurability of specific requirements, as prescribed by national legal and regulatory requirements and practices.
     /// </summary>
-    public SystemRestriction1[] Restriction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SystemRestriction1> Restriction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies information to identify securities accounts where allocation instructions are posted.
     /// </summary>
+    [DataMember]
     public required IsoExact4AlphaNumericText EndInvestorFlag { get; init; } 
     /// <summary>
     /// Defines how the price is applied to the securities account.
     /// </summary>
+    [DataMember]
     public required IsoExact4AlphaNumericText PricingScheme { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the status of the cancellation of the underlying payments event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UnderlyingCancellationDetails2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record UnderlyingCancellationDetails2
     /// <summary>
     /// Provides information from the cancellation request.
     /// </summary>
+    [DataMember]
     public CancellationRequest1? CancellationRequestDetails { get; init; } 
     /// <summary>
     /// Provides information from the cancellation response.
     /// </summary>
+    [DataMember]
     public CancellationResponse1? CancellationResponseDetails { get; init; } 
     /// <summary>
     /// Specifies the status of the cancellation request.
     /// </summary>
+    [DataMember]
     public PaymentCancellationStatusReason2Code? CancellationRequestTrackingStatus { get; init; } 
     
     #nullable disable

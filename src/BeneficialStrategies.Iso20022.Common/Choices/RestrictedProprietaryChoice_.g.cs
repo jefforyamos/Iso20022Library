@@ -10,6 +10,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// Specifies a service level restricted to the proprietary element.
 /// </summary>
 [KnownType(typeof(RestrictedProprietaryChoice.Proprietary))]
+[DataContract]
 public abstract partial record RestrictedProprietaryChoice_
 {
 }

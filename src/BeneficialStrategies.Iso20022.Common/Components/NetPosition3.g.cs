@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the net positions details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NetPosition3
 {
     #nullable enable
@@ -20,67 +22,83 @@ public partial record NetPosition3
     /// <summary>
     /// Identifies the clearing member account at the Central counterparty through which the trade must be cleared (sometimes called position account).
     /// </summary>
+    [DataMember]
     public required SecuritiesAccount18 ClearingAccount { get; init; } 
     /// <summary>
     /// Provides the identification for the non-clearing member.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount31? NonClearingMember { get; init; } 
     /// <summary>
     /// An account opened by the central counterparty in the name of the clearing member or its settlement agent within the account structure, for settlement purposes (gives information about the clearing member/its settlement agent account at the central securities depository).
     /// </summary>
+    [DataMember]
     public SecuritiesAccount19? DeliveryAccount { get; init; } 
     /// <summary>
     /// Provides details about the security identification.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification14 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Provides the initial position amount.
     /// </summary>
+    [DataMember]
     public AmountAndDirection21? InitialPositionAmount { get; init; } 
     /// <summary>
     /// Provides the net position amount.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection21 NetPositionAmount { get; init; } 
     /// <summary>
     /// Interest that has accumulated on a bond since the last interest payment up to, but not including, the settlement date.
     /// </summary>
+    [DataMember]
     public AmountAndDirection21? AccruedInterestAmount { get; init; } 
     /// <summary>
     /// This is the price of the trade.
     /// </summary>
+    [DataMember]
     public Price4? AverageDealPrice { get; init; } 
     /// <summary>
     /// Identifies the quantity of the trade leg.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ NetQuantity { get; init; } 
     /// <summary>
     /// Indicates the securities movement direction, that is, whether this is a delivery or return.
     /// </summary>
+    [DataMember]
     public required ReceiveDelivery1Code SecuritiesMovementType { get; init; } 
     /// <summary>
     /// Place at which a trade settles.
     /// </summary>
+    [DataMember]
     public required PartyIdentification34Choice_ Depository { get; init; } 
     /// <summary>
     /// Identifies the trading capacity of the seller.
     /// </summary>
+    [DataMember]
     public TradingCapacity5Code? TradingCapacity { get; init; } 
     /// <summary>
     /// Place at which the security is traded.
     /// </summary>
+    [DataMember]
     public MarketIdentification20? PlaceOfTrade { get; init; } 
     /// <summary>
     /// Provides the date of the trade.
     /// </summary>
+    [DataMember]
     public IsoISODate? TradeDate { get; init; } 
     /// <summary>
     /// Provides the contractual settlement date.
     /// </summary>
+    [DataMember]
     public DateFormat15Choice_? SettlementDate { get; init; } 
     /// <summary>
     /// Provides the trade leg details such as trade leg identification and trade type.
     /// </summary>
-    public TradeLeg10[] TradeLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TradeLeg10> TradeLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

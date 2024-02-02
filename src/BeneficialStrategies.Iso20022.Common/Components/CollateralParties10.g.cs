@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Choice of format for the trading capacity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralParties10
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CollateralParties10
     /// <summary>
     /// Instructing party sending the collateral instruction.
     /// </summary>
+    [DataMember]
     public required PartyIdentificationAndAccount202 PartyA { get; init; } 
     /// <summary>
     /// Party that instructs party A to send the message.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount202? ClientPartyA { get; init; } 
     /// <summary>
     /// Counterparty of party A. 
     /// </summary>
+    [DataMember]
     public required PartyIdentificationAndAccount203 PartyB { get; init; } 
     /// <summary>
     /// Party that instructs party B to settle the instruction on its behalf.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount203? ClientPartyB { get; init; } 
     /// <summary>
     /// Party that handles tri-party transactions.
     /// </summary>
+    [DataMember]
     public PartyIdentification136? TripartyAgent { get; init; } 
     /// <summary>
     /// Account where the collateral is held during the lifecycle  of the transaction.
     /// </summary>
+    [DataMember]
     public SecuritiesAccount19? CollateralAccount { get; init; } 
     
     #nullable disable

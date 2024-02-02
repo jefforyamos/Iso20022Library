@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details relative to the submission of the insurance data set.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RequiredSubmission3
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record RequiredSubmission3
     /// <summary>
     /// Specifies with party(ies) is authorised to submit the data set as part of the transaction.
     /// </summary>
-    public BICIdentification1[] Submitter { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BICIdentification1> Submitter { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies if the issuer must be matched as part of the validation of the data set.
     /// </summary>
+    [DataMember]
     public PartyIdentification27? MatchIssuer { get; init; } 
     /// <summary>
     /// Specifies if the issue date must be matched as part of the validation of the data set.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator MatchIssueDate { get; init; } 
     /// <summary>
     /// Specifies if the transport information must be matched as part of the validation of the data set.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator MatchTransport { get; init; } 
     /// <summary>
     /// Specifies if the insured amount must be matched as part of the validation of the data set.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator MatchAmount { get; init; } 
     /// <summary>
     /// Specifies which clauses are required in the insurance data set.
     /// </summary>
-    public InsuranceClauses1Code[] ClausesRequired { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InsuranceClauses1Code> ClausesRequired { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies if the assured (insured) party must be matched as part of the validation of the data set.
     /// </summary>
+    [DataMember]
     public AssuredType1Code? MatchAssuredParty { get; init; } 
     
     #nullable disable

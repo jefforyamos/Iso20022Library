@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Magnetic track or equivalent payment card data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackData2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TrackData2
     /// <summary>
     /// Track number of the card.
     /// </summary>
+    [DataMember]
     public IsoNumber? TrackNumber { get; init; } 
     /// <summary>
     /// Card or check track format.
     /// </summary>
+    [DataMember]
     public TrackFormat1Code? TrackFormat { get; init; } 
     /// <summary>
     /// Card track content or equivalent.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text TrackValue { get; init; } 
     
     #nullable disable

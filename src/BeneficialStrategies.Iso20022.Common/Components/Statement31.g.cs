@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides statement details such as the account owner identification (ie, the clearing member identification) and optionaly the non clearing member identification, the clearing account or the list of trade legs.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Statement31
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record Statement31
     /// <summary>
     /// Identification that is common to all pages of a statement.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text StatementIdentification { get; init; } 
     /// <summary>
     /// Date of the statement.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ StatementDateAndTime { get; init; } 
     /// <summary>
     /// Indicates whether the statement is complete or contains changes only.
     /// </summary>
+    [DataMember]
     public required StatementUpdateType1Code UpdateType { get; init; } 
     /// <summary>
     /// Frequency of the statement.
     /// </summary>
+    [DataMember]
     public required EventFrequency6Code Frequency { get; init; } 
     /// <summary>
     /// Sequential number of the statement.
     /// </summary>
+    [DataMember]
     public IsoExact5NumericText? ReportNumber { get; init; } 
     /// <summary>
     /// Indicates whether there is activity or information update reported in the statement.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ActivityIndicator { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Ordering criteria for the transaction report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CriteriaOrder1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record CriteriaOrder1
     /// <summary>
     /// Identifier of target element.
     /// </summary>
+    [DataMember]
     public required IsoMax500Text Target { get; init; } 
     
     #nullable disable

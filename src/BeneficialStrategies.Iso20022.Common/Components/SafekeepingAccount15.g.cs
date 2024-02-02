@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification and information about a securities account and balance.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SafekeepingAccount15
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record SafekeepingAccount15
     /// <summary>
     /// Unique and unambiguous identification of the securities account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountIdentification { get; init; } 
     /// <summary>
     /// Blockchain address or wallet where digital assets are maintained. This is the equivalent of safekeeping account for digital assets.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? BlockChainAddressOrWallet { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification231Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Identification of a subaccount within the safekeeping account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SubAccountIdentification { get; init; } 
     /// <summary>
     /// Quantity of securities to which this instruction applies.
     /// </summary>
-    public HoldingBalance12[] InstructedBalance { get; init; } = [];
+    [DataMember]
+    public ValueList<HoldingBalance12> InstructedBalance { get; init; } = [];
     /// <summary>
     /// Owner of the voting rights.
     /// </summary>
-    public PartyIdentification246Choice_[] RightsHolder { get; init; } = [];
+    [DataMember]
+    public ValueList<PartyIdentification246Choice_> RightsHolder { get; init; } = [];
     /// <summary>
     /// Detailed information about the pledge.
     /// </summary>
+    [DataMember]
     public PledgeInformation1? PledgeDetails { get; init; } 
     
     #nullable disable

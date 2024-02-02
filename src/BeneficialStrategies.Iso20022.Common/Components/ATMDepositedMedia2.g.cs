@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Media item that are deposited.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMDepositedMedia2
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record ATMDepositedMedia2
     /// <summary>
     /// Number of deposit media.
     /// </summary>
+    [DataMember]
     public IsoNumber? Count { get; init; } 
     /// <summary>
     /// Amount or denomination of one media item, if the media type is valued or entered by the customer.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? UnitValue { get; init; } 
     /// <summary>
     /// Currency of media items, if valued and different from base currency.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Format of the check code line.
     /// </summary>
+    [DataMember]
     public CheckCodeLine1Code? CodeLineFormat { get; init; } 
     /// <summary>
     /// Check code line.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? CodeLine { get; init; } 
     /// <summary>
     /// Check amount scanned by the check reader.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? ScannedValue { get; init; } 
     /// <summary>
     /// Percentage of the confidence in the check amount.
     /// </summary>
+    [DataMember]
     public IsoPercentage? ConfidenceLevel { get; init; } 
     
     #nullable disable

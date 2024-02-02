@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Risk tolerance target market.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherTargetMarketRiskTolerance1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OtherTargetMarketRiskTolerance1
     /// <summary>
     /// Type of risk tolerance.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RiskToleranceType { get; init; } 
     /// <summary>
     /// Choice of formats for the specification of whether the product is aimed at the type of risk tolerance.
     /// </summary>
+    [DataMember]
     public TargetMarket1Choice_? Target { get; init; } 
     /// <summary>
     /// Additional information about the target market and the investor's risk tolerance.
     /// </summary>
+    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable

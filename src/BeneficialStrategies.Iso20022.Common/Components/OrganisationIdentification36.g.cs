@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies an organisation through client identification, a name and a domicile.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OrganisationIdentification36
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OrganisationIdentification36
     /// <summary>
     /// Unique and unambiguous identification of the organisation.
     /// </summary>
+    [DataMember]
     public required GenericIdentification175 Identification { get; init; } 
     /// <summary>
     /// Indicates the name of the reporting counterparty.
     /// </summary>
+    [DataMember]
     public IsoMax105Text? Name { get; init; } 
     /// <summary>
     /// Indicates the domicile of counterparty.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? Domicile { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification15
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PartyIdentification15
     /// <summary>
     /// Country in which the organisation is registered.
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Description of an organisation.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     
     #nullable disable

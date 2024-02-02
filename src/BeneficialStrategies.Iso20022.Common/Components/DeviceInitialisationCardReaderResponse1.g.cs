@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Device Initialisation Card Reader Response message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeviceInitialisationCardReaderResponse1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DeviceInitialisationCardReaderResponse1
     /// <summary>
     /// Payment instrument entry mode requested by the Sale System.
     /// </summary>
+    [DataMember]
     public CardDataReading6Code? CardEntryMode { get; init; } 
     /// <summary>
     /// Data of a Chip Card related to the reset of the chip.
     /// </summary>
+    [DataMember]
     public ICCResetData1? ICCResetData { get; init; } 
     /// <summary>
     /// Additional information about the Device Initialisation Card Reader Response.
     /// </summary>
+    [DataMember]
     public IsoMax10000Binary? AdditionalInformation { get; init; } 
     
     #nullable disable

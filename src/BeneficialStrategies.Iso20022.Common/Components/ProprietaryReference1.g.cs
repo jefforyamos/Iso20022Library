@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements to identify a proprietary reference.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProprietaryReference1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ProprietaryReference1
     /// <summary>
     /// Identifies the type of reference reported.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Proprietary reference specification related to the underlying transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Reference { get; init; } 
     
     #nullable disable

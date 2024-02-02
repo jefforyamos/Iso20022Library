@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cash movements into or out of a fund as a result of investment funds transactions, for example, subscriptions, redemptions or switches.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashInOutForecast7
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CashInOutForecast7
     /// <summary>
     /// Date on which cash is available.
     /// </summary>
+    [DataMember]
     public IsoISODate? CashSettlementDate { get; init; } 
     /// <summary>
     /// Amount of the cash flow.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

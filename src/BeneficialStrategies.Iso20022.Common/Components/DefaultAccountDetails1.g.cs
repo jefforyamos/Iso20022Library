@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details about successor account for automated default funds transfer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DefaultAccountDetails1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DefaultAccountDetails1
     /// <summary>
     /// Account owner identification.
     /// </summary>
+    [DataMember]
     public required FinancialInstitutionIdentification9 AccountOwner { get; init; } 
     /// <summary>
     /// Account identification.
     /// </summary>
+    [DataMember]
     public required CashAccount24 Account { get; init; } 
     /// <summary>
     /// Information about time and event fund transfer.
     /// </summary>
+    [DataMember]
     public DailyFundTransfer1Choice_? DailyFundTransfer { get; init; } 
     
     #nullable disable

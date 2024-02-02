@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements providing information specific to the individual transaction(s) included in the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionParty1
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record TransactionParty1
     /// <summary>
     /// Party initiating the payment to an agent. In the payment context, this can either be the debtor (in a credit transfer), the creditor (in a direct debit), or a party that initiates the payment on behalf of the debtor or creditor. In the context of treasury, the party that instructs the trading party to execute a treasury deal on its behalf.
     /// </summary>
+    [DataMember]
     public PartyIdentification8? InitiatingParty { get; init; } 
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [DataMember]
     public PartyIdentification8? Debtor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the debtor.
     /// </summary>
+    [DataMember]
     public CashAccount7? DebtorAccount { get; init; } 
     /// <summary>
     /// Ultimate party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [DataMember]
     public PartyIdentification8? UltimateDebtor { get; init; } 
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
+    [DataMember]
     public PartyIdentification8? Creditor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor of the payment transaction.
     /// </summary>
+    [DataMember]
     public CashAccount7? CreditorAccount { get; init; } 
     /// <summary>
     /// Ultimate party to which an amount of money is due.
     /// </summary>
+    [DataMember]
     public PartyIdentification8? UltimateCreditor { get; init; } 
     /// <summary>
     /// Party that plays an active role in planning and executing the transactions that create or liquidate investments of the investors assets, or that move the investor's assets from one investment to another. A trading party is a trade instructor, an investment decision-maker, a post trade administrator, or a trader. In the context of treasury, it is the party that negotiates and executes the treasury transaction.
     /// </summary>
+    [DataMember]
     public PartyIdentification8? TradingParty { get; init; } 
     /// <summary>
     /// Provides proprietary party information.
     /// </summary>
-    public ProprietaryParty1[] Proprietary { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProprietaryParty1> Proprietary { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

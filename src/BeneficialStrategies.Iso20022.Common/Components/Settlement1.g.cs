@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the settlement details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Settlement1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Settlement1
     /// <summary>
     /// Total amount to be settled.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection27 SettlementAmount { get; init; } 
     /// <summary>
     /// Place where settlement of the securities takes place.
     /// </summary>
+    [DataMember]
     public PartyIdentification34Choice_? Depository { get; init; } 
     
     #nullable disable

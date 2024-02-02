@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a ratio: amount price and price fixing date per financial instrument quantity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountPricePerFinancialInstrumentQuantity9
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record AmountPricePerFinancialInstrumentQuantity9
     /// <summary>
     /// Type of amount price.
     /// </summary>
+    [DataMember]
     public required YieldedOrValueType1Choice_ AmountPriceType { get; init; } 
     /// <summary>
     /// Value given to a price.
     /// </summary>
+    [DataMember]
     public required PriceRateOrAmount3Choice_ PriceValue { get; init; } 
     /// <summary>
     /// Quantity of financial instrument.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ FinancialInstrumentQuantity { get; init; } 
     /// <summary>
     /// Date at which the actual price for a financial instrument is fixed.
     /// </summary>
+    [DataMember]
     public required IsoISODate PriceFixingDate { get; init; } 
     
     #nullable disable

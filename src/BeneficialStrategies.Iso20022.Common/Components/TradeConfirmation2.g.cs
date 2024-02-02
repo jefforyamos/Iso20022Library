@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies time and type of contract confirmation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeConfirmation2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TradeConfirmation2
     /// <summary>
     /// Specifies whether the contract was confirmed electronically or non-electronically.
     /// </summary>
+    [DataMember]
     public required TradeConfirmationType1Code Type { get; init; } 
     /// <summary>
     /// Date and time of the trade confirmation, indicating time zone in which the confirmation has taken place.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime TimeStamp { get; init; } 
     
     #nullable disable

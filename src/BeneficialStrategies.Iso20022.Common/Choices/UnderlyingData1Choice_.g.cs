@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(UnderlyingData1Choice.StatementEntry))]
 [KnownType(typeof(UnderlyingData1Choice.Account))]
 [KnownType(typeof(UnderlyingData1Choice.Other))]
+[DataContract]
 public abstract partial record UnderlyingData1Choice_
 {
 }

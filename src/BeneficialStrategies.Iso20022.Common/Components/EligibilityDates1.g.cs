@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Dates determining the entitlement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EligibilityDates1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record EligibilityDates1
     /// <summary>
     /// Date at which the positions are struck to note which parties will receive the entitlement, e.g. record date, book close date.
     /// </summary>
+    [DataMember]
     public required IsoISODate EntitlementFixingDate { get; init; } 
     
     #nullable disable

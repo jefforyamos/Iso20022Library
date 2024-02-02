@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the service level of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionServiceLevel1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record TransactionServiceLevel1
     /// <summary>
     /// Specifies a pre-agreed service or level of service between the parties, as published in an external service level code list.
     /// </summary>
+    [DataMember]
     public required ExternalServiceLevel1Code Code { get; init; } 
     
     #nullable disable

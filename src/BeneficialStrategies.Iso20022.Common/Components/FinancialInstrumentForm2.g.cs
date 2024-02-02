@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates the form of the financial Instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentForm2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FinancialInstrumentForm2
     /// <summary>
     /// Indicates the booking appearance of the financial Instrument.
     /// </summary>
+    [DataMember]
     public Appearance3Choice_? BookingAppearance { get; init; } 
     /// <summary>
     /// Specifies the form, ie, ownership, of the security.
     /// </summary>
+    [DataMember]
     public FormOfSecurity8Choice_? LegalForm { get; init; } 
     
     #nullable disable

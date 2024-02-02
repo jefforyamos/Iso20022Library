@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information to log.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ActionMessage3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ActionMessage3
     /// <summary>
     /// Destination of the information.
     /// </summary>
+    [DataMember]
     public required UserInterface3Code Destination { get; init; } 
     /// <summary>
     /// Format of the content.
     /// </summary>
+    [DataMember]
     public OutputFormat1Code? Format { get; init; } 
     /// <summary>
     /// Content of the information.
     /// </summary>
+    [DataMember]
     public required IsoMax20000Text Content { get; init; } 
     
     #nullable disable

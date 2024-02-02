@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates the unadjusted effective and end date of the schedule.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Schedule4
 {
     #nullable enable
@@ -20,16 +22,19 @@ public partial record Schedule4
     /// <summary>
     /// Indicates the unadjusted date at which obligations under the  derivative transaction come into effect, as included in the confirmation.
     /// </summary>
+    [DataMember]
     public required IsoISODate UnadjustedEffectiveDate { get; init; } 
     /// <summary>
     /// Indicates the end date agreed in the derivative transaction without adjustment.
     /// </summary>
+    [DataMember]
     public IsoISODate? UnadjustedEndDate { get; init; } 
     /// <summary>
     /// Specifies the predetermined price at which the owner of the option can buy or sell the underlying instrument.
     /// Usage: For foreign exchange options, specifies the exchange rate at which the option can be exercised as the rate of exchange from converting the unit currency into the quoted currency.
     /// For volatility and variance swaps, specify the volatility strike price.
     /// </summary>
+    [DataMember]
     public required SecuritiesTransactionPrice17Choice_ Price { get; init; } 
     
     #nullable disable

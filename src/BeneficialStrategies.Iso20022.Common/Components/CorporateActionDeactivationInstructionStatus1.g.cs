@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides status of the deactivation instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionDeactivationInstructionStatus1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CorporateActionDeactivationInstructionStatus1
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
+    [DataMember]
     public CorporateActionOption1FormatChoice_? OptionType { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [DataMember]
     public IsoExact3NumericText? OptionNumber { get; init; } 
     /// <summary>
     /// Provides information about the processing status of the instruction.
     /// </summary>
+    [DataMember]
     public required CorporateActionDeactivationInstructionProcessingStatus1 ProcessedStatus { get; init; } 
     /// <summary>
     /// Provides information about the rejection status.
     /// </summary>
+    [DataMember]
     public required CorporateActionDeactivationInstructionRejectionStatus1 RejectedStatus { get; init; } 
     
     #nullable disable

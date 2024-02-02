@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(Recipient12Choice.IssuerAndSerialNumber))]
 [KnownType(typeof(Recipient12Choice.KeyIdentifier))]
+[DataContract]
 public abstract partial record Recipient12Choice_
 {
 }

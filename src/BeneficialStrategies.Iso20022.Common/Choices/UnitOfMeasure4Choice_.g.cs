@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(UnitOfMeasure4Choice.Code))]
 [KnownType(typeof(UnitOfMeasure4Choice.Proprietary))]
+[DataContract]
 public abstract partial record UnitOfMeasure4Choice_
 {
 }

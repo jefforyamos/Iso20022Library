@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details on the reason of the creditor enrolment cancellation request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditorEnrolmentCancellationReason2
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record CreditorEnrolmentCancellationReason2
     /// <summary>
     /// Party that issues the cancellation request.
     /// </summary>
+    [DataMember]
     public RTPPartyIdentification1? Originator { get; init; } 
     /// <summary>
     /// Specifies the reason for the cancellation request.
     /// </summary>
+    [DataMember]
     public required CreditorEnrolmentCancellationReason1Choice_ Reason { get; init; } 
     /// <summary>
     /// Further details on the cancellation request reason.
     /// </summary>
-    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax105Text> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

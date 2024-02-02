@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about short positions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ShortPositionsReportDetails1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ShortPositionsReportDetails1
     /// <summary>
     /// Identification of participant account.
     /// </summary>
+    [DataMember]
     public required BranchAndFinancialInstitutionIdentification5 ParticipantIdentification { get; init; } 
     /// <summary>
     /// Information about participant account number.
     /// </summary>
+    [DataMember]
     public required CashAccount24 ParticipantAccount { get; init; } 
     /// <summary>
     /// Information about participant account balance.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount ShortPositionAmount { get; init; } 
     
     #nullable disable

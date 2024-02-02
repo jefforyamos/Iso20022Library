@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Deposited media put in the safe.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMDepositedMedia3
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record ATMDepositedMedia3
     /// <summary>
     /// Type of deposited media.
     /// </summary>
+    [DataMember]
     public required ATMMediaType2Code MediaType { get; init; } 
     /// <summary>
     /// Category of deposited media items.
     /// </summary>
+    [DataMember]
     public ATMMediaType3Code? MediaCategory { get; init; } 
     /// <summary>
     /// Media item that are deposited.
     /// </summary>
-    public ATMDepositedMedia2[] MediaItems { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMDepositedMedia2> MediaItems { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

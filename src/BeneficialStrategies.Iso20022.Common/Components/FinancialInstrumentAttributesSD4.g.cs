@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding security that will being distributed as part of entitlement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentAttributesSD4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FinancialInstrumentAttributesSD4
     /// <summary>
     /// Security identification that a CSD (for example in the US - DTC, The Depository Trust Corporation) will distribute as part of the entitlement. This can be the DTC contra CUSIP in cases where the payout security is a contra CUSIP.
     /// </summary>
+    [DataMember]
     public SecurityIdentification15? CSDDisbursedSecurityIdentification { get; init; } 
     /// <summary>
     /// DTC (The Depository Trust Corporation) disbursed security description.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? CSDDisbursedSecurityDescription { get; init; } 
     /// <summary>
     /// Security identification of the security that will be distributed in fractions by the CSD (for example in the US - DTC, The Depository Trust Corporation) DTC (The Depository Trust Corporation) as a result of a corporate action.
     /// </summary>
+    [DataMember]
     public SecurityIdentification15? CSDDisbursedFractionalSecurityIdentification { get; init; } 
     
     #nullable disable

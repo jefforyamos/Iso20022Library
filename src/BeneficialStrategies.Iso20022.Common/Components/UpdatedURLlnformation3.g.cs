@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional information with update description and date.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UpdatedURLlnformation3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record UpdatedURLlnformation3
     /// <summary>
     /// Specifies the amendments made to the narrative since the last message.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax140Text? UpdateDescription { get; init; } 
     /// <summary>
     /// Specifies the date at which the narrative has been updated.
     /// </summary>
+    [DataMember]
     public IsoISODate? UpdateDate { get; init; } 
     /// <summary>
     /// Provides the web address, that is, the address for the Universal Resource Locator (URL), to use over the www (HTTP) service where additional information may be found.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINZMax256Text URLAddress { get; init; } 
     
     #nullable disable

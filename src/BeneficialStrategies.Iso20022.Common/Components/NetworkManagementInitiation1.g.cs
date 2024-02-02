@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to network management services.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NetworkManagementInitiation1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record NetworkManagementInitiation1
     /// <summary>
     /// Contains or describes conditions and characteristics of the transaction.
     /// </summary>
+    [DataMember]
     public Context8? Context { get; init; } 
     /// <summary>
     /// Details of an exchange or interaction between parties to perform a specific function.
     /// </summary>
+    [DataMember]
     public required Transaction99 Transaction { get; init; } 
     /// <summary>
     /// Outcome of the processing of the authorisation
     /// </summary>
+    [DataMember]
     public ProcessingResult1? ProcessingResult { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(PaymentCodeOrOther1Choice.PaymentCode))]
 [KnownType(typeof(PaymentCodeOrOther1Choice.PaymentDueDate))]
 [KnownType(typeof(PaymentCodeOrOther1Choice.OtherPaymentTerms))]
+[DataContract]
 public abstract partial record PaymentCodeOrOther1Choice_
 {
 }

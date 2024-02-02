@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amendment information details providing the list of direct debit mandate elements that have been modified when the amendment indicator has been set.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmendmentInformationDetails1
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record AmendmentInformationDetails1
     /// <summary>
     /// Original mandate identification that has been modified.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalMandateIdentification { get; init; } 
     /// <summary>
     /// Original creditor scheme identification that has been modified.
     /// </summary>
+    [DataMember]
     public PartyIdentification8? OriginalCreditorSchemeIdentification { get; init; } 
     /// <summary>
     /// Original creditor agent that has been modified.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? OriginalCreditorAgent { get; init; } 
     /// <summary>
     /// Original creditor agent acount that has been modified.
     /// </summary>
+    [DataMember]
     public CashAccount7? OriginalCreditorAgentAccount { get; init; } 
     /// <summary>
     /// Original debtor that has been modified.
     /// </summary>
+    [DataMember]
     public PartyIdentification8? OriginalDebtor { get; init; } 
     /// <summary>
     /// Original debtor account that has been modified.
     /// </summary>
+    [DataMember]
     public CashAccount7? OriginalDebtorAccount { get; init; } 
     /// <summary>
     /// Original debtor's agent that has been modified.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? OriginalDebtorAgent { get; init; } 
     /// <summary>
     /// Original debtor agent account that has been modified.
     /// </summary>
+    [DataMember]
     public CashAccount7? OriginalDebtorAgentAccount { get; init; } 
     /// <summary>
     /// Original final collection date that has been modified.
     /// </summary>
+    [DataMember]
     public IsoISODate? OriginalFinalCollectionDate { get; init; } 
     /// <summary>
     /// Original frequency that has been modified.
     /// </summary>
+    [DataMember]
     public Frequency1Code? OriginalFrequency { get; init; } 
     
     #nullable disable

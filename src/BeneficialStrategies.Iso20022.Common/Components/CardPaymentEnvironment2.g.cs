@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentEnvironment2
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record CardPaymentEnvironment2
     /// <summary>
     /// Acquirer involved in the card payment.
     /// </summary>
+    [DataMember]
     public Acquirer1? Acquirer { get; init; } 
     /// <summary>
     /// Merchant performing the card payment.
     /// Usage: In some cases, merchant and acceptor may be regarded as the same entity.
     /// </summary>
+    [DataMember]
     public Organisation5? Merchant { get; init; } 
     /// <summary>
     /// Point of interaction (POI) performing the transaction.
     /// </summary>
+    [DataMember]
     public required PointOfInteraction1 POI { get; init; } 
     /// <summary>
     /// Payment card performing the transaction.
     /// </summary>
+    [DataMember]
     public required PaymentCard3 Card { get; init; } 
     /// <summary>
     /// Cardholder involved in the card payment.
     /// </summary>
+    [DataMember]
     public Cardholder2? Cardholder { get; init; } 
     
     #nullable disable

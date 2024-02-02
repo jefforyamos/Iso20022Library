@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the old and new values for a restriction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UpdateLogRestriction1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record UpdateLogRestriction1
     /// <summary>
     /// Old value before the update.
     /// </summary>
+    [DataMember]
     public required Restriction1 Old { get; init; } 
     /// <summary>
     /// New value after the update.
     /// </summary>
+    [DataMember]
     public required Restriction1 New { get; init; } 
     
     #nullable disable

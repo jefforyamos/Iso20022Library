@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amounts of the deposit transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedAmount16
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record DetailedAmount16
     /// <summary>
     /// Link to the account for multi-account deposit.
     /// </summary>
+    [DataMember]
     public IsoNumber? AccountSequenceNumber { get; init; } 
     /// <summary>
     /// Amount of the deposit to be made on the ATM after the approval of the deposit transaction.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? AmountToDeposit { get; init; } 
     /// <summary>
     /// Currency of the amount to deposit when different from the base currency of the ATM.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Cashback amount value.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? CashBackAmount { get; init; } 
     /// <summary>
     /// Deposit fees, accepted by the customer.
     /// </summary>
-    public DetailedAmount13[] Fees { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedAmount13> Fees { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of the donation.
     /// </summary>
-    public DetailedAmount13[] Donation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedAmount13> Donation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Net position of a segregated holding, in a single security, within the overall position held in a securities account. A securities balance is calculated from the sum of securities' receipts minus the sum of securities' deliveries.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Balance13
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Balance13
     /// <summary>
     /// Indication that the position is short or long.
     /// </summary>
+    [DataMember]
     public ShortLong1Code? ShortLongIndicator { get; init; } 
     /// <summary>
     /// Total quantity of financial instruments of the balance.
     /// </summary>
+    [DataMember]
     public required SubBalanceQuantity7Choice_ Quantity { get; init; } 
     
     #nullable disable

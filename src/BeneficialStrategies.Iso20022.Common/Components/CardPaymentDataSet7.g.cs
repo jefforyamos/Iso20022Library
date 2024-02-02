@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of transactions to capture, sharing common characteristics.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentDataSet7
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record CardPaymentDataSet7
     /// <summary>
     /// Identification of the data set.
     /// </summary>
+    [DataMember]
     public required DataSetIdentification1 DataSetIdentification { get; init; } 
     /// <summary>
     /// Identification of partners involved in the data set building.
     /// </summary>
-    public Traceability1[] Traceability { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Traceability1> Traceability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Initiator of the data set.
     /// </summary>
+    [DataMember]
     public GenericIdentification32? DataSetInitiator { get; init; } 
     /// <summary>
     /// Transaction totals of the data set.
     /// </summary>
-    public TransactionTotals2[] TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionTotals2> TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data common to all transactions of the data set.
     /// </summary>
+    [DataMember]
     public CommonData3? CommonData { get; init; } 
     /// <summary>
     /// Set of transaction to Process.
     /// </summary>
-    public CardPaymentDataSetTransaction2Choice_[] Transaction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardPaymentDataSetTransaction2Choice_> Transaction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

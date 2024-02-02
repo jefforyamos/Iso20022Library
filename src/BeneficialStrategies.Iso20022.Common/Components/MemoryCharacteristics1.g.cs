@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Characteristics of a hardware memory module.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MemoryCharacteristics1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record MemoryCharacteristics1
     /// <summary>
     /// Identification or name of the memory.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Total size of the memory unit.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber TotalSize { get; init; } 
     /// <summary>
     /// Total size of the available memory.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber FreeSize { get; init; } 
     /// <summary>
     /// Memory unit of the sizes.
     /// </summary>
+    [DataMember]
     public required MemoryUnit1Code Unit { get; init; } 
     
     #nullable disable

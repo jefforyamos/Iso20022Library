@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details on the reason of the amendment of the mandate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MandateAmendmentReason2
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record MandateAmendmentReason2
     /// <summary>
     /// Party that issues the amendment request.
     /// </summary>
+    [DataMember]
     public PartyIdentification135? Originator { get; init; } 
     /// <summary>
     /// Specifies the reason for the amendment request.
     /// </summary>
+    [DataMember]
     public required MandateReason1Choice_ Reason { get; init; } 
     /// <summary>
     /// Further details on the amendment request reason.
     /// </summary>
-    public IsoMax105Text[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax105Text> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

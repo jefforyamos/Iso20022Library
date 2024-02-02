@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details of the status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatusDetail1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record StatusDetail1
     /// <summary>
     /// Country of the institution relevant for the decision.
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Details of the institution which is relevant for the decision.
     /// </summary>
+    [DataMember]
     public required SupervisingAuthorityIdentification1 CompetentAuthority { get; init; } 
     /// <summary>
     /// Code indicating the status following the decision.
     /// </summary>
+    [DataMember]
     public IsoMax10Text? Status { get; init; } 
     /// <summary>
     /// Code indicating the reason of the decision.
     /// </summary>
+    [DataMember]
     public required IsoMax10Text StatusReason { get; init; } 
     /// <summary>
     /// Period of time when the decision is effective.
     /// </summary>
+    [DataMember]
     public Period4Choice_? ActivityPeriod { get; init; } 
     /// <summary>
     /// Any other additional information about the decision.
     /// </summary>
+    [DataMember]
     public IsoMax20000Text? Comment { get; init; } 
     
     #nullable disable

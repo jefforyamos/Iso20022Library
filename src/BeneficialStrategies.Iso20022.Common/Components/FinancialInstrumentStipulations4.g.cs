@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional restrictions on the financial instrument, related to the stipulation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentStipulations4
 {
     #nullable enable
@@ -20,166 +22,207 @@ public partial record FinancialInstrumentStipulations4
     /// <summary>
     /// Type of stipulation expressing geographical constraints on a fixed income instrument. It is expressed with a state or country abbreviation and a minimum or maximum percentage. Example: CA 0-80 (minimum of 80 percent in Californian assests).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Geographics { get; init; } 
     /// <summary>
     /// Range of allowed yield.
     /// </summary>
+    [DataMember]
     public AmountOrPercentageRange1? YieldRange { get; init; } 
     /// <summary>
     /// Range of assessment of securities credit and investment risk.
     /// </summary>
+    [DataMember]
     public Rating1? Rating { get; init; } 
     /// <summary>
     /// Identification of a range of coupon numbers attached to its related financial instrument.
     /// </summary>
+    [DataMember]
     public AmountOrPercentageRange1? CouponRange { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument repays the principal amount in parts during the life cycle of the security.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AmortisableIndicator { get; init; } 
     /// <summary>
     /// Reason for which money is raised through the issuance of a security.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Purpose { get; init; } 
     /// <summary>
     /// Identifies whether the issue is subject to alternative minimum taxation (used for municipal bonds).
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AlternativeMinimumTaxIndicator { get; init; } 
     /// <summary>
     /// Indicates an instruction to reinvest dividends in the underlying security (or proceeds at maturity in a similar instrument) if the current rate is <rate> or better.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? AutoReinvestment { get; init; } 
     /// <summary>
     /// Indicates the conditions under which the order/trade is to be/was executed.
     /// </summary>
+    [DataMember]
     public TradeTransactionCondition2Code? TransactionConditions { get; init; } 
     /// <summary>
     /// Currency in which a security is issued or redenominated.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Indicates an instruction to override an investment's default start and/or end date with a custom date.
     /// </summary>
+    [DataMember]
     public DateTimePeriod2? CustomDate { get; init; } 
     /// <summary>
     /// Haircut or valuation factor on the security expressed as a percentage.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Haircut { get; init; } 
     /// <summary>
     /// Identifies whether the lender is assured partial or full payment by a third party if the borrower defaults.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? InsuredIndicator { get; init; } 
     /// <summary>
     /// Indicates an instruction or attribute giving the number of days to be included in the look-back period for the investment. E.g. some options allow exercise based on the underlying asset's optimal value over the look-back period.
     /// </summary>
+    [DataMember]
     public IsoNumber? LookBack { get; init; } 
     /// <summary>
     /// Indicates the maturity date.
     /// </summary>
+    [DataMember]
     public IsoISOYearMonth? MaturityDate { get; init; } 
     /// <summary>
     /// Indicates the issue date.
     /// </summary>
+    [DataMember]
     public IsoISOYearMonth? IssueDate { get; init; } 
     /// <summary>
     /// Identification of the issuer.
     /// </summary>
+    [DataMember]
     public IsoBICNonFIDec2014Identifier? IssuerIdentification { get; init; } 
     /// <summary>
     /// Identifies the issue size range.
     /// </summary>
+    [DataMember]
     public IsoNumber? IssueSize { get; init; } 
     /// <summary>
     /// Indicates the minimum denomination of a security.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? MinimumDenomination { get; init; } 
     /// <summary>
     /// Maximum number of time the collateral can be substitute.
     /// </summary>
+    [DataMember]
     public IsoNumber? MaximumSubstitution { get; init; } 
     /// <summary>
     /// Indicates the minimum tradable increments of a security.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? MinimumIncrement { get; init; } 
     /// <summary>
     /// Indicates the periodic or regular cycle of interest payments.
     /// </summary>
+    [DataMember]
     public Frequency1Code? PaymentFrequency { get; init; } 
     /// <summary>
     /// Indicates the minimum tradable quantity of a security.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1Choice_? MinimumQuantity { get; init; } 
     /// <summary>
     /// Indicates a search criterion used when looking to buy a bond, particularly an MBS, issued in a particular year.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Production { get; init; } 
     /// <summary>
     /// Identifies if the securities is restricted or not (as per Rule 144).
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? RestrictedIndicator { get; init; } 
     /// <summary>
     /// Indicates the frequency at which the bond is re-rated and therefore re-priced (bond attribute, particularly of floating rate and index linked instruments).
     /// </summary>
+    [DataMember]
     public Frequency1Code? PriceFrequency { get; init; } 
     /// <summary>
     /// Indicates the market sector the security is classified as. E.g. pharmacuticals, automobile, housing, etc.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Sector { get; init; } 
     /// <summary>
     /// Indicates the maximum number of times collateral can be substituted.
     /// </summary>
+    [DataMember]
     public Frequency1Code? SubstitutionFrequency { get; init; } 
     /// <summary>
     /// Number of remaining times the collateral can be substitute.
     /// </summary>
+    [DataMember]
     public IsoNumber? SubstitutionLeft { get; init; } 
     /// <summary>
     /// Indicates a search criterion when looking to buy an MBS that either is [yes] or is not [no] an entire pool.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? WholePoolIndicator { get; init; } 
     /// <summary>
     /// Identifies the Benchmark source price (eg. BB Generic, BB Fairvalue, Brokertec.).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PriceSource { get; init; } 
     /// <summary>
     /// Date/time at which an interest bearing security becomes due and assets are to be repaid.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ExpirationDate { get; init; } 
     /// <summary>
     /// Amount for which a security can be overalloted (as in greenshoe option).
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? OverAllotmentAmount { get; init; } 
     /// <summary>
     /// Percentage for which a security can be overalloted (as in greenshoe option).
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? OverAllotmentRate { get; init; } 
     /// <summary>
     /// Indicates a search criterion used when looking to buy a bond within a particular price range.
     /// </summary>
+    [DataMember]
     public AmountOrPercentageRange1? PriceRange { get; init; } 
     /// <summary>
     /// Indicates whether the issuer has the right to pay the security prior to maturity. Also called RetractableIndicator.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CallableIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the interest bearing security is convertible into another type of security.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ConvertibleIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the holder has the right to ask for redemption of the security prior to final maturity. Also called RedeemableIndicator.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PutableIndicator { get; init; } 
     /// <summary>
     /// Indicates whether an interest bearing instrument is deposited in a fund that will be used to pay debt service on refunded securities.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PreFundedIndicator { get; init; } 
     /// <summary>
     /// Indicates whether an interest bearing instrument is being escrowed or collateralized either by direct obligations guaranteed by the US government, or by other types of securities. The maturity schedules of the securities in the escrow fund are determined in such a way to pay the maturity value, coupon, and premium payments (if any) of the refunded bonds.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? EscrowedIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the security has no maturity date.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PerpetualIndicator { get; init; } 
     
     #nullable disable

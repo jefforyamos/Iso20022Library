@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoanData86
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record LoanData86
     /// <summary>
     /// Unique reference assigned to the transaction to identify the trade.
     /// </summary>
+    [DataMember]
     public required IsoMax52Text UniqueTradeIdentifier { get; init; } 
     /// <summary>
     /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
     /// </summary>
+    [DataMember]
     public IsoISODate? EventDate { get; init; } 
     /// <summary>
     /// Termination date in the case of a full early termination of the SFT.
     /// </summary>
+    [DataMember]
     public IsoISODate? TerminationDate { get; init; } 
     
     #nullable disable

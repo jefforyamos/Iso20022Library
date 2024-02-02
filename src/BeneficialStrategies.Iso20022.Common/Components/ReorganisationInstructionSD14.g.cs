@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action reorganisation instruction details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReorganisationInstructionSD14
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record ReorganisationInstructionSD14
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Identifies the reorganisation withdrawal transaction type.
     /// </summary>
+    [DataMember]
     public ReorganisationWithdrawalTransactionType2Code? WithdrawalTransactionType { get; init; } 
     /// <summary>
     /// Unique number assigned by the depository. Transaction identification will be either the DTC instruction reference number for reorganisation instructions (VOI) or the DAM reference number for custody / reorganisation deposits.
     /// </summary>
+    [DataMember]
     public IsoMax15Text? TransactionIdentification { get; init; } 
     /// <summary>
     /// Number which further identifies DTC instruction reference number. Not applicable to reorganisation / custody deposits.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? TransactionSequenceNumber { get; init; } 
     /// <summary>
     /// Status of the instruction.
     /// </summary>
+    [DataMember]
     public DTCInstructionStatus2Code? TransactionIdentificationStatus { get; init; } 
     /// <summary>
     /// Provides information about securities quantity linked to a corporate action option.
     /// </summary>
+    [DataMember]
     public SecuritiesQuantitySD6? SecuritiesQuantityDetails { get; init; } 
     /// <summary>
     /// Reason for which an inbound instruction message or a cancellation instruction message is rejected.
     /// </summary>
-    public InstructionRejectionReason3Code[] RejectionReason { get; init; } = [];
+    [DataMember]
+    public ValueList<InstructionRejectionReason3Code> RejectionReason { get; init; } = [];
     /// <summary>
     /// Customer identification entered by client upon instruction submission.
     /// </summary>
+    [DataMember]
     public IsoMax30Text? CustomerReferenceIdentification { get; init; } 
     /// <summary>
     /// Party contact information for the given instruction.
     /// </summary>
+    [DataMember]
     public ContactIdentification5? ContactPerson { get; init; } 
     /// <summary>
     /// Unique identification of the transaction used by the transmitting party.
     /// </summary>
+    [DataMember]
     public IsoMax6Text? UserReferenceNumber { get; init; } 
     /// <summary>
     /// For cover protect instructions whereby one safekeeping account is covering on behalf of another safekeeping account. The protect safekeeping account will be the account which submitted the original protect instruction.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINMax35Text? ProtectSafekeepingAccount { get; init; } 
     /// <summary>
     /// Status of the protect instruction.
     /// </summary>
+    [DataMember]
     public DTCProtectInstructionStatus1Code? ProtectTransactionStatus { get; init; } 
     
     #nullable disable

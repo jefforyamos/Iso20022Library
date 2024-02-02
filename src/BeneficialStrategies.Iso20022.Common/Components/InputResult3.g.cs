@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the result the input.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InputResult3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record InputResult3
     /// <summary>
     /// Type of Input device.
     /// </summary>
+    [DataMember]
     public required SaleCapabilities2Code DeviceType { get; init; } 
     /// <summary>
     /// Qualifies the type of given information.
     /// </summary>
+    [DataMember]
     public required InformationQualify1Code InformationQualifier { get; init; } 
     /// <summary>
     /// Data resulting of input after POI or Sale processing.
     /// </summary>
+    [DataMember]
     public required InputResultData3 InputResultData { get; init; } 
     
     #nullable disable

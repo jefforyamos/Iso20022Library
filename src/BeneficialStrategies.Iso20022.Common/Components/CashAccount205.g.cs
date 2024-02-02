@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account to or from which a cash entry is made.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashAccount205
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CashAccount205
     /// <summary>
     /// Currency of the settlement.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Cash account for settlement.
     /// </summary>
+    [DataMember]
     public CashAccount206? PrimaryAccount { get; init; } 
     /// <summary>
     /// Sub-division of a master or omnibus cash account.
     /// </summary>
+    [DataMember]
     public CashAccount206? SecondaryAccount { get; init; } 
     
     #nullable disable

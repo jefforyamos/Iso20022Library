@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action distribution instruction details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DistributionInstructionSD1
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record DistributionInstructionSD1
     /// <summary>
     /// Tax category number assigned on the announcement to provide a breakdown at a category level on the inbound instruction to determine tax treatment as required by issuers, their agents, or tax authorities.
     /// </summary>
-    public TaxCategory2[] TaxCategory { get; init; } = [];
+    [DataMember]
+    public ValueList<TaxCategory2> TaxCategory { get; init; } = [];
     
     #nullable disable
 }

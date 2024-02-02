@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Operational construct used to record a position in a set of financial instruments, often linked by a common set of characteristics, ownership or trading strategy.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PositionAccount1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record PositionAccount1
     /// <summary>
     /// Unique identifier of the position account.
     /// </summary>
+    [DataMember]
     public required PartyIdentification118Choice_ Identification { get; init; } 
     
     #nullable disable

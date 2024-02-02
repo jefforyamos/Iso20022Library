@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment processes required to transfer cash from the debtor to the creditor.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTransaction26
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record PaymentTransaction26
     /// <summary>
     /// Choice between cash-in or cash-out.
     /// </summary>
+    [DataMember]
     public CashInOrOut6Choice_? CashInOrOut { get; init; } 
     
     #nullable disable

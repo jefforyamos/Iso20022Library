@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PriceInformation10
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PriceInformation10
     /// <summary>
     /// Current value of the price, eg, as a currency and value.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAnd13DecimalAmount CurrentPrice { get; init; } 
     /// <summary>
     /// Specifies the type of price and information about the price.
     /// </summary>
+    [DataMember]
     public required TypeOfPrice27Choice_ Type { get; init; } 
     /// <summary>
     /// Previous value of the price, eg, as a currency and value.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? PreviousPrice { get; init; } 
     /// <summary>
     /// Difference or change between the previous price value and the current price value.
     /// </summary>
+    [DataMember]
     public PriceValueAndRate4? AmountOfChange { get; init; } 
     
     #nullable disable

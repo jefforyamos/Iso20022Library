@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the transactions in the report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraBalancePosting5
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record IntraBalancePosting5
     /// <summary>
     /// Balance from which the amount of money is moved.
     /// </summary>
+    [DataMember]
     public required CashSubBalanceTypeAndQuantityBreakdown3 BalanceFrom { get; init; } 
     /// <summary>
     /// Further details on the individual intrabalance movement transaction.
     /// </summary>
-    public IntraBalancePosting6[] Movement { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IntraBalancePosting6> Movement { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

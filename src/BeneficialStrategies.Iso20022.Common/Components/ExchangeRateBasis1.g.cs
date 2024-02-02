@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the terms of the foreign exchange transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExchangeRateBasis1
 {
     #nullable enable
@@ -21,10 +23,12 @@ public partial record ExchangeRateBasis1
     /// Currency in which the rate of exchange is expressed in a currency exchange.
     /// Usage: In the example one GBP equals xxxUSD, the unit currency is GBP.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode BaseCurrency { get; init; } 
     /// <summary>
     /// Currency into which the base currency is converted, in a currency exchange.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode QuotedCurrency { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides header details on the report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportHeader6
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record ReportHeader6
     /// <summary>
     /// Identification of a report billing statement.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ReportIdentification { get; init; } 
     /// <summary>
     /// Provides details on the page number of the message.
     /// Usage: The pagination of the message is only allowed when agreed between the parties.
     /// </summary>
+    [DataMember]
     public Pagination1? MessagePagination { get; init; } 
     
     #nullable disable

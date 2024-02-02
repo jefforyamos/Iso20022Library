@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides account identification information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountIdentification10
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record AccountIdentification10
     /// <summary>
     /// Standard code to specify that announcement applies to all safekeeping accounts that own underlying financial instrument.
     /// </summary>
+    [DataMember]
     public required SafekeepingAccountIdentification1Code IdentificationCode { get; init; } 
     
     #nullable disable

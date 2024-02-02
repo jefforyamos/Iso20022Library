@@ -17,6 +17,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(AccountIdentification30Choice.UPIC))]
 [KnownType(typeof(AccountIdentification30Choice.Domestic))]
 [KnownType(typeof(AccountIdentification30Choice.Other))]
+[DataContract]
 public abstract partial record AccountIdentification30Choice_
 {
 }

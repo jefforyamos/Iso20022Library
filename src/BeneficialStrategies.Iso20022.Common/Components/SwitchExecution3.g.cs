@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Execution of a switch order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SwitchExecution3
 {
     #nullable enable
@@ -20,51 +22,63 @@ public partial record SwitchExecution3
     /// <summary>
     /// Date and time at which the order was placed by the investor.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OrderDateTime { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order execution, as assigned by a confirming party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text DealReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Account between an investor(s) and a fund manager or a fund. The account can contain holdings in any investment fund or investment fund class managed (or distributed) by the fund manager, within the same fund family.
     /// </summary>
+    [DataMember]
     public required InvestmentAccount13 InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Amount of money used to determine the quantity of investment fund units to be redeemed.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalRedemptionAmount { get; init; } 
     /// <summary>
     /// Amount of money used to determine the quantity of investment fund units to be subscribed.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalSubscriptionAmount { get; init; } 
     /// <summary>
     /// Additional amount of money paid by the investor in addition to the switch redemption amount.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? AdditionalCashIn { get; init; } 
     /// <summary>
     /// Amount of money that results from a switch-out, that is not reinvested in another investment fund, and is repaid to the investor.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ResultingCashOut { get; init; } 
     /// <summary>
     /// Redemption leg of a switch order execution.
     /// </summary>
-    public SwitchRedemptionLegExecution2[] RedemptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SwitchRedemptionLegExecution2> RedemptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Subscription leg of a switch order execution.
     /// </summary>
-    public SwitchSubscriptionLegExecution2[] SubscriptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SwitchSubscriptionLegExecution2> SubscriptionLegDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment transaction resulting from the investment fund order execution.
     /// </summary>
+    [DataMember]
     public PaymentTransaction14? CashSettlementDetails { get; init; } 
     /// <summary>
     /// Currency exchange related to the execution of an investment fund order.
     /// </summary>
-    public ForeignExchangeTerms4[] ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ForeignExchangeTerms4> ForeignExchangeDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

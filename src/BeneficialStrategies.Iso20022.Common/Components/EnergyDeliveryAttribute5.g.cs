@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to energy derivatives attributes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EnergyDeliveryAttribute5
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record EnergyDeliveryAttribute5
     /// <summary>
     /// Time interval for each block or shape.
     /// </summary>
+    [DataMember]
     public IsoISOTime? DeliveryInterval { get; init; } 
     /// <summary>
     /// Definition of delivery start datetime and end datetime.
     /// </summary>
+    [DataMember]
     public DateTimePeriod1? DeliveryPeriod { get; init; } 
     /// <summary>
     /// Start time and end time for each block or shape.
     /// </summary>
-    public TimePeriodDetails1[] DeliveryTime { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TimePeriodDetails1> DeliveryTime { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Duration of the delivery period.
     /// </summary>
+    [DataMember]
     public DurationType1Code? Duration { get; init; } 
     /// <summary>
     /// Days of the week of the delivery.
     /// </summary>
-    public WeekDay3Code[] WeekDay { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<WeekDay3Code> WeekDay { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Delivery capacity for each delivery interval specified.
     /// </summary>
+    [DataMember]
     public Quantity47Choice_? DeliveryCapacity { get; init; } 
     /// <summary>
     /// Daily or hourly quantity in MWh or kWh/d which corresponds to the underlying commodity.
     /// </summary>
+    [DataMember]
     public EnergyQuantityUnit2Choice_? QuantityUnit { get; init; } 
     /// <summary>
     /// Indicates if applicable the price per quantity per delivery time interval.
     /// </summary>
+    [DataMember]
     public IsoLongFraction19DecimalNumber? PriceTimeIntervalQuantity { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(BPOApplicableRules1Choice.URBPOVersion))]
 [KnownType(typeof(BPOApplicableRules1Choice.OtherRulesAndVersion))]
+[DataContract]
 public abstract partial record BPOApplicableRules1Choice_
 {
 }

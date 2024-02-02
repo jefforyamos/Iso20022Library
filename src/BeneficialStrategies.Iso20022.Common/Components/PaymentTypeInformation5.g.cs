@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements that further details the information related to the type of payment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTypeInformation5
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PaymentTypeInformation5
     /// <summary>
     /// Indicator of the urgency or order of importance that the instructing party would like the instructed party to apply to the processing of the instruction.
     /// </summary>
+    [DataMember]
     public Priority2Code? InstructionPriority { get; init; } 
     /// <summary>
     /// Agreement under which or rules under which the transaction should be processed.
     /// </summary>
+    [DataMember]
     public RestrictedProprietaryChoice_? ServiceLevel { get; init; } 
     /// <summary>
     /// Specifies the clearing channel to be used for the instruction.
     /// </summary>
+    [DataMember]
     public ClearingChannel2Code? ClearingChannel { get; init; } 
     /// <summary>
     /// User community specific instrument required for use within that user community.||Usage: When available, codes provided by local authorities should be used.
     /// </summary>
+    [DataMember]
     public RestrictedProprietaryChoice_? LocalInstrument { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Value of total holdings reported.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TotalValueInPageAndStatement
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TotalValueInPageAndStatement
     /// <summary>
     /// Total value of positions reported in this message.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalHoldingsValueOfPage { get; init; } 
     /// <summary>
     /// Total value of positions reported in this statement (a statement may comprise one or more messages).
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TotalHoldingsValueOfStatement { get; init; } 
     
     #nullable disable

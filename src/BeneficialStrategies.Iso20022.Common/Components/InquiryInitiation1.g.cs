@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the inquiry initiation message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InquiryInitiation1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record InquiryInitiation1
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required Environment12 Environment { get; init; } 
     /// <summary>
     /// Context in which the card transaction is performed.
     /// </summary>
+    [DataMember]
     public required Context5 Context { get; init; } 
     /// <summary>
     /// Card transaction for which an authorisation is requested.
     /// </summary>
+    [DataMember]
     public required Transaction105 Transaction { get; init; } 
     /// <summary>
     /// Result of the inquiry processing.
@@ -35,20 +40,24 @@ public partial record InquiryInitiation1
     /// ISO 8583:93 bit 111
     /// ISO 8583:2003 bit 50
     /// </summary>
+    [DataMember]
     public ProcessingResult5? ProcessingResult { get; init; } 
     /// <summary>
     /// Data related to an integrated circuit card application embedded in the payment card of the cardholder.
     /// ISO 8583 bit 55
     /// </summary>
+    [DataMember]
     public IsoMax10KHexBinaryText? ICCRelatedData { get; init; } 
     /// <summary>
     /// Contains protected data and the attributes used to protect the data.
     /// </summary>
-    public ProtectedData1[] ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProtectedData1> ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

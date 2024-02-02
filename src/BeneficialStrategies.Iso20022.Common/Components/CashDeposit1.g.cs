@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Deposit of an amount of money defined in cash notes and/or coins.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashDeposit1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CashDeposit1
     /// <summary>
     /// Specifies the note or coin denomination, including the currency, such as a 50 euro note.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount NoteDenomination { get; init; } 
     /// <summary>
     /// Specifies the number of notes of the same denomination in the deposit.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText NumberOfNotes { get; init; } 
     /// <summary>
     /// Specifies the total amount of money in the cash deposit, that is the note denomination times the number of notes.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

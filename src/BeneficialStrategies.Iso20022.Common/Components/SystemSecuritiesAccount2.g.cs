@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account to or from which a securities entry is made.|It holds information such as opening and closing date and whether it can hold negative positions.|Definition of the entity includes the default setting for holding of settlement instructions involving positions related to the account.|Set of MarketSpecificAttributes define specific properties for the account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemSecuritiesAccount2
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record SystemSecuritiesAccount2
     /// <summary>
     /// Legal closing date for the securities account.
     /// </summary>
+    [DataMember]
     public IsoISODate? ClosingDate { get; init; } 
     /// <summary>
     /// Meaning when true: Account is in Hold status.
     /// Meaning when false: Account is in Release status.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? HoldIndicator { get; init; } 
     /// <summary>
     /// Specifies whether the securities account can hold a negative position in a security.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? NegativePosition { get; init; } 
     /// <summary>
     /// Specifies information to identify securities accounts where allocation instructions are posted.
     /// </summary>
+    [DataMember]
     public IsoExact4AlphaNumericText? EndInvestorFlag { get; init; } 
     /// <summary>
     /// Defines how the price is applied to the securities account.
     /// </summary>
+    [DataMember]
     public IsoExact4AlphaNumericText? PricingScheme { get; init; } 
     
     #nullable disable

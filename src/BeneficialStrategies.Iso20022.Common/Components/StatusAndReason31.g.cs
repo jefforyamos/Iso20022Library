@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Choice of status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatusAndReason31
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record StatusAndReason31
     /// <summary>
     /// Provides the matching status of an instruction as known by the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).
     /// </summary>
+    [DataMember]
     public MatchingStatus24Choice_? InferredMatchingStatus { get; init; } 
     /// <summary>
     /// Provides the matching status of the instruction.
     /// </summary>
+    [DataMember]
     public MatchingStatus24Choice_? MatchingStatus { get; init; } 
     /// <summary>
     /// Provides the status of settlement of a transaction.
     /// </summary>
+    [DataMember]
     public SettlementStatus17Choice_? SettlementStatus { get; init; } 
     /// <summary>
     /// Provides the status of an instruction.
     /// </summary>
+    [DataMember]
     public InstructionProcessingStatus22Choice_? InstructionProcessingStatus { get; init; } 
     /// <summary>
     /// Specifies the state or the condition.
     /// </summary>
+    [DataMember]
     public ProprietaryReason4? Settled { get; init; } 
     /// <summary>
     /// Proprietary status.
     /// </summary>
+    [DataMember]
     public ProprietaryStatusAndReason6? Proprietary { get; init; } 
     
     #nullable disable

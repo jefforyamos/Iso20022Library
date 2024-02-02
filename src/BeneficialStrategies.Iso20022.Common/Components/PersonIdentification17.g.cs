@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique and unambiguous way to identify a person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PersonIdentification17
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record PersonIdentification17
     /// <summary>
     /// Date and place of birth of a person.
     /// </summary>
+    [DataMember]
     public DateAndPlaceOfBirth1? DateAndPlaceOfBirth { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
+    [DataMember]
     public IsoMax256Text? EmailAddress { get; init; } 
     /// <summary>
     /// Unique identification of a person, as assigned by an institution, using an identification scheme.
     /// </summary>
-    public GenericPersonIdentification1[] Other { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericPersonIdentification1> Other { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

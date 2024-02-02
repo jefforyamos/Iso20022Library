@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Response data to a loyalty service request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoyaltyResponse1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record LoyaltyResponse1
     /// <summary>
     /// Sale System identification of the transaction in an unambiguous way.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 SaleTransactionIdentification { get; init; } 
     /// <summary>
     /// POI identification of the transaction in an unambiguous way.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 POITransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the reconciliation period between the acceptor and the acquirer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? POIReconciliationIdentification { get; init; } 
     /// <summary>
     /// Data related to the result of a processed loyalty transaction.
     /// </summary>
-    public LoyaltyResult1[] Result { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LoyaltyResult1> Result { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the token data on which the signature is calculated by the LRCI client.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IsabelEpaymentTokenResponse1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record IsabelEpaymentTokenResponse1
     /// <summary>
     /// Unique and unambiguous transaction identification of the group of signed payment files.
     /// </summary>
+    [DataMember]
     public required IsoMax50Binary LRCITransactionIdentification { get; init; } 
     /// <summary>
     /// Individual record holding all data related to a payment file that is being used during the signature process.
     /// </summary>
-    public IsabelLRCIPaymentInformation1[] PaymentInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsabelLRCIPaymentInformation1> PaymentInformation { get; init; } = [];
     /// <summary>
     /// Mathematical scheme for demonstrating the authenticity of the original server challenge exchanged by the LRCI protocol during the signature process.
     /// </summary>
+    [DataMember]
     public required IsoMax1kBinary ServerSignature { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reject of an exchange.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcceptorRejection2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AcceptorRejection2
     /// <summary>
     /// Reject reason of the request or the advice.
     /// </summary>
+    [DataMember]
     public required RejectReason1Code RejectReason { get; init; } 
     /// <summary>
     /// Additional information related to the reject of the exchange.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Original request that caused the recipient party to reject it.
     /// </summary>
+    [DataMember]
     public IsoMax100KBinary? MessageInError { get; init; } 
     
     #nullable disable

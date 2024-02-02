@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Account25
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Account25
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Institution that maintains the records where the account is held.
     /// </summary>
+    [DataMember]
     public required PartyIdentification113 AccountServicer { get; init; } 
     
     #nullable disable

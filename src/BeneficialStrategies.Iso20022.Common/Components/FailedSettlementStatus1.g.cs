@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for the failed settlement status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FailedSettlementStatus1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FailedSettlementStatus1
     /// <summary>
     /// Reason for the failed settlement status.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text Reason { get; init; } 
     /// <summary>
     /// Proprietary identification of the reason for the failed settlement status.
     /// </summary>
+    [DataMember]
     public required GenericIdentification1 DataSourceScheme { get; init; } 
     /// <summary>
     /// Indicates that there is no reason available or to report.
     /// </summary>
+    [DataMember]
     public required NoReasonCode NoSpecifiedReason { get; init; } 
     
     #nullable disable

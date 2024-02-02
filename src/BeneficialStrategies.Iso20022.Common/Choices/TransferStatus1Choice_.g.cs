@@ -18,6 +18,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(TransferStatus1Choice.Cancelled))]
 [KnownType(typeof(TransferStatus1Choice.Reversed))]
 [KnownType(typeof(TransferStatus1Choice.CancellationPending))]
+[DataContract]
 public abstract partial record TransferStatus1Choice_
 {
 }

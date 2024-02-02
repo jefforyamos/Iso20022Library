@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the request of a diagnostic from an ATM.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMDiagnosticRequest2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ATMDiagnosticRequest2
     /// <summary>
     /// Environment of the ATM.
     /// </summary>
+    [DataMember]
     public required ATMEnvironment9 Environment { get; init; } 
     /// <summary>
     /// Global status of the ATM.
     /// </summary>
+    [DataMember]
     public required ATMStatus1 ATMGlobalStatus { get; init; } 
     
     #nullable disable

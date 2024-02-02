@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies periods.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionPeriod1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CorporateActionPeriod1
     /// <summary>
     /// Period during which the specified option, or all options of the event, remains valid, eg, offer period.
     /// </summary>
+    [DataMember]
     public Period1? ActionPeriod { get; init; } 
     /// <summary>
     /// Period during a take-over where any outstanding equity must be purchased by the take-over company.
     /// </summary>
+    [DataMember]
     public Period1? CompulsoryPurchasePeriod { get; init; } 
     /// <summary>
     /// Period during which the interest rate has been applied.
     /// </summary>
+    [DataMember]
     public Period1? InterestPeriod { get; init; } 
     /// <summary>
     /// Period during which the security is blocked.
     /// </summary>
+    [DataMember]
     public Period1? BlockingPeriod { get; init; } 
     /// <summary>
     /// Period during which the price of a security is determined.
     /// </summary>
+    [DataMember]
     public Period1? PriceCalculationPeriod { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Limit for an amount range.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountRangeBoundary1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AmountRangeBoundary1
     /// <summary>
     /// Amount value of the range limit.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount BoundaryAmount { get; init; } 
     /// <summary>
     /// Indicates whether the boundary amount is included in the range of amount values.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Included { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CashAvailabilityDate1Choice.NumberOfDays))]
 [KnownType(typeof(CashAvailabilityDate1Choice.ActualDate))]
+[DataContract]
 public abstract partial record CashAvailabilityDate1Choice_
 {
 }

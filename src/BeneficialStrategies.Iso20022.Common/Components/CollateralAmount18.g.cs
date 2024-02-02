@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Deal amount details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralAmount18
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record CollateralAmount18
     /// <summary>
     /// Amount of the principal. 
     /// </summary>
+    [DataMember]
     public AmountAndDirection49? Transaction { get; init; } 
     /// <summary>
     /// Amount of principal plus interests at termination.
     /// </summary>
+    [DataMember]
     public AmountAndDirection49? Termination { get; init; } 
     /// <summary>
     /// Specifies the accrued interest on the value of the principal trade, in the currency of the principal trade.
     /// </summary>
+    [DataMember]
     public AmountAndDirection49? Accrued { get; init; } 
     /// <summary>
     /// Specifies whether the interest calculation method is simple or compounding.
     /// </summary>
+    [DataMember]
     public CalculationMethod1Code? CompoundSimpleAccrualCalculation { get; init; } 
     /// <summary>
     /// Specifies when the accrued interest is paid.
     /// </summary>
+    [DataMember]
     public Frequency38Choice_? PaymentFrequency { get; init; } 
     /// <summary>
     /// Number of days after the accrual payment is due.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? InterestPaymentDelay { get; init; } 
     /// <summary>
     /// Breakdown of transaction amount (required value for the exposure)  into market value lots based on the underlying trades.
     /// </summary>
-    public CollateralTransactionAmountBreakdown2[] TransactionAmountBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CollateralTransactionAmountBreakdown2> TransactionAmountBreakdown { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Value of collateral offered or sought. 
     /// </summary>
+    [DataMember]
     public AmountAndDirection49? ValueSought { get; init; } 
     
     #nullable disable

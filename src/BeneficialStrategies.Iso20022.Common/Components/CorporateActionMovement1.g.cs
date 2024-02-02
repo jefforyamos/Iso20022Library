@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the movement instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionMovement1
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record CorporateActionMovement1
     /// <summary>
     /// Type of movement instruction.
     /// </summary>
+    [DataMember]
     public required DistributionInstructionType1Code OrderType { get; init; } 
     /// <summary>
     /// Indicates whether the movement is a high priority or not.|Meaning when true: High priority|Meaning when false: Standard.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator HighPriorityIndicator { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [DataMember]
     public IsoExact3NumericText? OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
+    [DataMember]
     public CorporateActionOption1FormatChoice_? OptionType { get; init; } 
     /// <summary>
     /// Date at which the distribution movement must be executed.
     /// </summary>
+    [DataMember]
     public required IsoISODate RequestedExecutionDate { get; init; } 
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Identification of the account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountIdentification { get; init; } 
     /// <summary>
     /// Quantity of securities in the confirmed balance, ie, the balance to which the credit of the outturned resources applies.
     /// </summary>
+    [DataMember]
     public UnitOrFaceAmount1Choice_? ConfirmedBalanceSecuritiesQuantity { get; init; } 
     
     #nullable disable

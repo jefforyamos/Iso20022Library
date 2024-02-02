@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party and references.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentificationAndAccount157
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PartyIdentificationAndAccount157
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public required PartyIdentification113 PartyIdentification { get; init; } 
     /// <summary>
     /// Identification of the account owned by the party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountIdentification { get; init; } 
     /// <summary>
     /// Specifies the reference of the transaction at the party identified in the sequence.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProcessingReference { get; init; } 
     /// <summary>
     /// Date and optionally the time, at which this transaction was processed by the party identified in this sequence.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? ProcessingDate { get; init; } 
     
     #nullable disable

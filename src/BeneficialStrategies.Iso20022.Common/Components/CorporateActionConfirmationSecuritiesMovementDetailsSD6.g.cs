@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action confirmation securities movement details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionConfirmationSecuritiesMovementDetailsSD6
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record CorporateActionConfirmationSecuritiesMovementDetailsSD6
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Indicates whether the value is a debit or a credit.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Specifies the type of payout associated with the event (for example: principal, long term capital gain).
     /// </summary>
+    [DataMember]
     public required DTCCPayoutType4Code PayoutType { get; init; } 
     /// <summary>
     /// Resulting quantity of securities concerned in this transaction.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity15Choice_? TransactionQuantity { get; init; } 
     /// <summary>
     /// Transaction reason.
     /// </summary>
+    [DataMember]
     public DTCAdjustmentPaymentType4Code? ReasonCode { get; init; } 
     /// <summary>
     /// Transaction sub reason.
     /// </summary>
+    [DataMember]
     public DTCAdjustmentPaymentSubReason2Code? SubReasonCode { get; init; } 
     /// <summary>
     /// Transaction contra participant identification when shares are distributed / delivered to / from another participant.
     /// </summary>
+    [DataMember]
     public IsoMax8Text? ContraParticipantNumber { get; init; } 
     /// <summary>
     /// Date on which a financial instrument becomes due and assets are to be repaid.
     /// </summary>
+    [DataMember]
     public IsoISODate? MaturityDate { get; init; } 
     /// <summary>
     /// Date/Time on which the posting /draft of the securities took place.
     /// </summary>
+    [DataMember]
     public DateFormat48Choice_? PostingDate { get; init; } 
     /// <summary>
     /// Set of the DTC legacy sub reason codes representing tax rate. Used with reason codes ‘TJXD’ ‘TJXF’ ‘TJXI’ ‘TJXL’ ‘TJXR’ ‘TJXT’ ‘TJXU’ to identify the correct tax rate.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? TaxAdjustmentRate { get; init; } 
     /// <summary>
     /// Unique DTCC legacy reference used for matching and reconciling legacy CCF records. The element will be populated to all levels of the message (event details, options, movements) where applicable to indicate how values are sourced from CCF legacy files. For example: event has 2 related activity types 74, and 54. If event details and cash option are sourced from the activity type 74, then activity type 74 will be in RDP reference number in event details, and also on the cash option. The activity type 54 will be "on" the security option. Also, usage rules will specify the different layouts of the RDP reference number based on DTCC event group (reorganization, distribution, or redemption).
     /// </summary>
+    [DataMember]
     public IsoExact32AlphaNumericText? RDPReferenceNumber { get; init; } 
     /// <summary>
     /// Decimal above which numbers are rounded. For an example if rounding factor is 0.6 this means that fractional units greater than or equal to 6 will be rounded up and less than 6 will be rounded down.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? RoundingFactor { get; init; } 
     
     #nullable disable

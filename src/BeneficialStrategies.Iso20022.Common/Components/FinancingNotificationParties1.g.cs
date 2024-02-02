@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies a party that notifies a financial document, the party to be notified, and whether notified party must send an acknowledgement and to whom.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancingNotificationParties1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record FinancingNotificationParties1
     /// <summary>
     /// Party that notifies a third party.
     /// </summary>
+    [DataMember]
     public required QualifiedPartyIdentification1 NotifyingParty { get; init; } 
     /// <summary>
     /// Party (to be) notified.
     /// </summary>
+    [DataMember]
     public required QualifiedPartyIdentification1 NotificationReceiver { get; init; } 
     /// <summary>
     /// Party to whom a notification acknowledgement has to be sent by the notification receiver.
     /// </summary>
-    public QualifiedPartyIdentification1[] AcknowledgementReceiver { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedPartyIdentification1> AcknowledgementReceiver { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

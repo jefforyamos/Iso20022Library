@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains the details of a discount applied to the transaction. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Discount3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Discount3
     /// <summary>
     /// Describes the type of discount applied to the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Monetary value of the discount applied to the transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Value { get; init; } 
     
     #nullable disable

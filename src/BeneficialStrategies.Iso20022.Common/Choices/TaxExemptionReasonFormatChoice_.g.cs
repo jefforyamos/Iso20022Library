@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TaxExemptionReasonFormatChoice.Unstructured))]
 [KnownType(typeof(TaxExemptionReasonFormatChoice.Structured))]
+[DataContract]
 public abstract partial record TaxExemptionReasonFormatChoice_
 {
 }

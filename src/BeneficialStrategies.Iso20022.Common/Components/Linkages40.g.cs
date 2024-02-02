@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to a linked transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Linkages40
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record Linkages40
     /// <summary>
     /// Reference to the linked transaction.
     /// </summary>
+    [DataMember]
     public required References47Choice_ Reference { get; init; } 
     
     #nullable disable

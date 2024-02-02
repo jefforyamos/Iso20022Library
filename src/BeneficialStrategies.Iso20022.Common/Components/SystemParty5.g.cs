@@ -15,6 +15,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// A party shall denote any legal or organisational entity required in the system. 
 /// This entity shall store the parties from the first three levels: the system operator, the central securities depositaries, the participants of the central securities depositaries, the national central banks and payment banks.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemParty5
 {
     #nullable enable
@@ -22,51 +24,63 @@ public partial record SystemParty5
     /// <summary>
     /// Unique identification of the party within the system.
     /// </summary>
+    [DataMember]
     public SystemPartyIdentification9? PartyIdentification { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address.
     /// </summary>
+    [DataMember]
     public PostalAddress25? Address { get; init; } 
     /// <summary>
     /// Specifies the options on how to contact the party.
     /// </summary>
-    public Contact5[] ContactDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Contact5> ContactDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the opening date of the party.
     /// </summary>
+    [DataMember]
     public IsoISODate? OpeningDate { get; init; } 
     /// <summary>
     /// Specifies the closing date of the party.
     /// </summary>
+    [DataMember]
     public IsoISODate? ClosingDate { get; init; } 
     /// <summary>
     /// Specifies the type classification of the party.
     /// </summary>
+    [DataMember]
     public SystemPartyType1Choice_? Type { get; init; } 
     /// <summary>
     /// Unique technical address to unambiguously identify a party for receiving messages from the executing system.
     /// </summary>
-    public TechnicalIdentification2Choice_[] TechnicalAddress { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TechnicalIdentification2Choice_> TechnicalAddress { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional attributes defined by a central security depositary for a party.
     /// </summary>
-    public MarketSpecificAttribute1[] MarketSpecificAttribute { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MarketSpecificAttribute1> MarketSpecificAttribute { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public PartyName4? Name { get; init; } 
     /// <summary>
     /// Specifies the type of residence where the party has its permanent home or principal establishment.
     /// </summary>
+    [DataMember]
     public ResidenceType1Code? ResidenceType { get; init; } 
     /// <summary>
     /// Specifies whether the party is locked or not, and the reason for this status, when required.
     /// </summary>
+    [DataMember]
     public PartyLockStatus1? LockStatus { get; init; } 
     /// <summary>
     /// Defines the specific processing characteristics for a party to ensure configurability of specific requirements, as prescribed by national legal and regulatory requirements and practices.
     /// </summary>
-    public SystemRestriction1[] Restriction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SystemRestriction1> Restriction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

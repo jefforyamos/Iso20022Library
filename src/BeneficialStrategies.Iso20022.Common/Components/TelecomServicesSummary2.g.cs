@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Telecom services summary component carries summary level telephony billing data. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TelecomServicesSummary2
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record TelecomServicesSummary2
     /// <summary>
     /// Contains the details of the customer. Also known as the user of the service.
     /// </summary>
+    [DataMember]
     public Customer6? Customer { get; init; } 
     /// <summary>
     /// Contains the billing period start date for telecommunication or related services.
     /// </summary>
+    [DataMember]
     public IsoISODate? BillingStatementPeriodStart { get; init; } 
     /// <summary>
     /// Contains the billing period end date for telecommunication or related services.
     /// </summary>
+    [DataMember]
     public IsoISODate? BillingStatementPeriodEnd { get; init; } 
     /// <summary>
     /// Summary of the charges associated with the billing event. 
     /// </summary>
-    public Amount19[] BillingEvent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Amount19> BillingEvent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total of taxes applicable to the billing amount.
     /// </summary>
-    public Tax39[] TotalTax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax39> TotalTax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional user-defined data pertaining to the shipment.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable

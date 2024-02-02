@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Formal document used to record a fact and used as proof of the fact, in the context of a commercial trade transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherCertificateDataSet1
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record OtherCertificateDataSet1
     /// <summary>
     /// Identifies the certificate data set.
     /// </summary>
+    [DataMember]
     public required DocumentIdentification1 DataSetIdentification { get; init; } 
     /// <summary>
     /// Unique identifier of the document.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text CertificateIdentification { get; init; } 
     /// <summary>
     /// Specifies the type of the certificate.
     /// </summary>
+    [DataMember]
     public required TradeCertificateType2Code CertificateType { get; init; } 
     /// <summary>
     /// Issue date of the document.
     /// </summary>
+    [DataMember]
     public required IsoISODate IssueDate { get; init; } 
     /// <summary>
     /// Issuer of the certificate, typically the inspection company or its agent.
     /// </summary>
+    [DataMember]
     public required PartyIdentification26 Issuer { get; init; } 
     /// <summary>
     /// Additional and important information that could not be captured by structured fields.
     /// </summary>
-    public IsoMax350Text[] CertificateInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax350Text> CertificateInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

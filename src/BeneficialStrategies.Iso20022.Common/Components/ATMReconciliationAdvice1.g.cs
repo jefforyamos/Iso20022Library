@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the reconciliation of an ATM.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMReconciliationAdvice1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ATMReconciliationAdvice1
     /// <summary>
     /// Environment of the ATM.
     /// </summary>
+    [DataMember]
     public required ATMEnvironment10 Environment { get; init; } 
     /// <summary>
     /// Command result for reinitialisation of the transaction counters.
     /// </summary>
-    public ATMCommand5[] CommandResult { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCommand5> CommandResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party which has requested the reconciliation.
     /// </summary>
+    [DataMember]
     public ATMCommand6? CommandContext { get; init; } 
     /// <summary>
     /// Information about the reconciliation request.
     /// </summary>
+    [DataMember]
     public required ATMTransaction11 Transaction { get; init; } 
     
     #nullable disable

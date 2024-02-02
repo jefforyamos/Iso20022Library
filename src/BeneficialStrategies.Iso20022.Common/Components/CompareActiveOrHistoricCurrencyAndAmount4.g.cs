@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for an active or historic currency and decimal amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareActiveOrHistoricCurrencyAndAmount4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareActiveOrHistoricCurrencyAndAmount4
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? Value2 { get; init; } 
     
     #nullable disable

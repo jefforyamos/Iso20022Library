@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information that locates and identifies a specific address, as defined by postal services.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PostalAddress21
 {
     #nullable enable
@@ -20,74 +22,92 @@ public partial record PostalAddress21
     /// <summary>
     /// Type of address.
     /// </summary>
+    [DataMember]
     public AddressType2Choice_? AddressType { get; init; } 
     /// <summary>
     /// Indicates whether mail should be sent to the address.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? MailingIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the address is the official address of the party.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? RegistrationAddressIndicator { get; init; } 
     /// <summary>
     /// When the individual resides at another person’s address, the name of the other person.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? CareOf { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services, that is presented in free format text.
     /// </summary>
-    public IsoMax70Text[] AddressLine { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax70Text> AddressLine { get; init; } = [];
     /// <summary>
     /// Name of the street or thoroughfare.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? StreetName { get; init; } 
     /// <summary>
     /// Number that identifies the position of the building on a street.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? BuildingNumber { get; init; } 
     /// <summary>
     /// Name of the building or house.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? BuildingName { get; init; } 
     /// <summary>
     /// Post box number of the addressee within the residential or company building.
     /// </summary>
+    [DataMember]
     public IsoMax10Text? PostBox { get; init; } 
     /// <summary>
     /// Side or wing of the building, for example, ‘wing A’.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SideInBuilding { get; init; } 
     /// <summary>
     /// Floor or storey within the building.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Floor { get; init; } 
     /// <summary>
     /// Identification of the suite or apartment.
     /// </summary>
+    [DataMember]
     public IsoMax10Text? SuiteIdentification { get; init; } 
     /// <summary>
     /// Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail.
     /// </summary>
+    [DataMember]
     public IsoMax16Text? PostCode { get; init; } 
     /// <summary>
     /// Name of a district, that is, a part of the town or region.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DistrictName { get; init; } 
     /// <summary>
     /// Name of the village.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Village { get; init; } 
     /// <summary>
     /// Name of the town or city.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TownName { get; init; } 
     /// <summary>
     /// Name of the state, county or country sub-division.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? State { get; init; } 
     /// <summary>
     /// Country of the address.
     /// </summary>
+    [DataMember]
     public required CountryCode Country { get; init; } 
     
     #nullable disable

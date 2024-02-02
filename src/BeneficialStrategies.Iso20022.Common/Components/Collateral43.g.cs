@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides for each collateral account the report summary and the valuation of each piece of collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Collateral43
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record Collateral43
     /// <summary>
     /// Provides information about the collateral account, that is the identification, the type and optionally the name.
     /// </summary>
+    [DataMember]
     public required CollateralAccount3 AccountIdentification { get; init; } 
     /// <summary>
     /// Summary of the collateral valuation.
     /// </summary>
+    [DataMember]
     public required Summary2 ReportSummary { get; init; } 
     /// <summary>
     /// Additional information about the collateral valuation that has been posted.
     /// </summary>
-    public CollateralValuation12[] CollateralValuation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CollateralValuation12> CollateralValuation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

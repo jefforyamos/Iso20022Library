@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// The status of an instruction, advice or request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UnmatchedReason5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record UnmatchedReason5
     /// <summary>
     /// Specifies the reason why the instruction has an unmatched status.
     /// </summary>
+    [DataMember]
     public required UnmatchedReason7Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional information about the reason in narrative form.
     /// </summary>
+    [DataMember]
     public IsoMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Physical packaging of goods for transport.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Consignment1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Consignment1
     /// <summary>
     /// Total quantity of packaging units, eg number of boxes, containers, pallets, etc.
     /// </summary>
+    [DataMember]
     public Quantity3? TotalQuantity { get; init; } 
     /// <summary>
     /// Total volume of goods shipped, eg number of cubic meters.
     /// </summary>
+    [DataMember]
     public Quantity3? TotalVolume { get; init; } 
     /// <summary>
     /// Total weight of goods shipped, eg number of kg, tons.
     /// </summary>
+    [DataMember]
     public Quantity3? TotalWeight { get; init; } 
     
     #nullable disable

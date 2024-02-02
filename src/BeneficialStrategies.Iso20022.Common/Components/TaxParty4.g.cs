@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details about the entity involved in the tax paid or to be paid.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxParty4
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record TaxParty4
     /// <summary>
     /// Number assigned by a tax authority to an entity.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TaxIdentification { get; init; } 
     /// <summary>
     /// Type of tax payer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TaxType { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by an organisation, to unambiguously identify a party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RegistrationIdentification { get; init; } 
     /// <summary>
     /// Specification of the tax exemption reason.
     /// </summary>
-    public TaxExemptionReasonFormat1Choice_[] TaxExemptionReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TaxExemptionReasonFormat1Choice_> TaxExemptionReason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

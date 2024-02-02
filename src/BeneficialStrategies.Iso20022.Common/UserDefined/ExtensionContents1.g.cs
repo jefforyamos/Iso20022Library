@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.UserDefined;
 /// Technical extension structure that allows to specify any valid XML Structure (e.g. through an XML Schema). The property namespace is set to 'any'. 
 /// The content of the extension MUST NOT be validated by the receiver (processContent=lax).
 /// </summary>
+[DataContract]
 public partial record ExtensionContents1
 {
     #nullable enable

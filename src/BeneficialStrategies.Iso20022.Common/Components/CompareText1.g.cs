@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for a text field of 52 characters.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareText1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareText1
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax52Text? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax52Text? Value2 { get; init; } 
     
     #nullable disable

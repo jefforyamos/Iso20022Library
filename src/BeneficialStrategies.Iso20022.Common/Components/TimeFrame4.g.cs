@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Time frame elements that define a period as number of days before or after a activity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TimeFrame4
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record TimeFrame4
     /// <summary>
     /// Description of the timeframe.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? OtherTimeFrameDescription { get; init; } 
     /// <summary>
     /// Number of days before the trade date (T) used for the standard timeframe for the dealing cut-off.
     /// </summary>
+    [DataMember]
     public IsoNumber? TradeMinus { get; init; } 
     /// <summary>
     /// Convention used for adjusting a date when it is not a business day.
     /// </summary>
+    [DataMember]
     public BusinessDayConvention1Code? NonWorkingDayAdjustment { get; init; } 
     /// <summary>
     /// For the dealing cut-off time, the order desk must be contacted.
     /// </summary>
+    [DataMember]
     public ReferToFundOrderDesk1Code? ReferToOrderDesk { get; init; } 
     
     #nullable disable

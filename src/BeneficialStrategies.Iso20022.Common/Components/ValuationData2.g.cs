@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of data which contains the link to the opening of the non deliverable trade and supplementary information on its valuation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ValuationData2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ValuationData2
     /// <summary>
     /// Reference to the latest trade identification of the NDF opening trade.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ValuationReference { get; init; } 
     /// <summary>
     /// Specifies the currency in which the non deliverable trade has to be settled ie the deliverable currency.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? SettlementCurrency { get; init; } 
     /// <summary>
     /// Free format text that may contain information on the valuation such as the currency, the place, the time or the source of the rate.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? AdditionalValuationInformation { get; init; } 
     /// <summary>
     /// Party through which the settlement will take place. It may contain the BIC of a central settlement system eg CLSBUS33.
     /// </summary>
+    [DataMember]
     public PartyIdentification8Choice_? SettlementParty { get; init; } 
     
     #nullable disable

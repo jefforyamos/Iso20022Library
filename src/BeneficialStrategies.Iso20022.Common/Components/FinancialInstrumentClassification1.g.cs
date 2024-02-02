@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// The classification type of the financial instrument, eg, common share with voting right, fully paid and registered etc.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentClassification1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record FinancialInstrumentClassification1
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, eg, common share with voting rights, fully paid, or registered.
     /// </summary>
+    [DataMember]
     public required SecurityClassificationType1Choice_ ClassificationType { get; init; } 
     
     #nullable disable

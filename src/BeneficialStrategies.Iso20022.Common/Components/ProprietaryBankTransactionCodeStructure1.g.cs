@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements to fully identify a proprietary bank transaction code.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProprietaryBankTransactionCodeStructure1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ProprietaryBankTransactionCodeStructure1
     /// <summary>
     /// Proprietary bank transaction code to identify the underlying transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Code { get; init; } 
     /// <summary>
     /// Identification of the issuer of the proprietary bank transaction code.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provide information about the type of opening instruction and identification of the application request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentAccountOpeningDetails
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InvestmentAccountOpeningDetails
     /// <summary>
     /// Specifies if the account opening instruction is about a newly created account or a supplementary account.
     /// </summary>
+    [DataMember]
     public required AccountOpeningType1Code OpeningType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the account opening request at application level.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
     
     #nullable disable

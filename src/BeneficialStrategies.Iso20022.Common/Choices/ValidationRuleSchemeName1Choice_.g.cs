@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ValidationRuleSchemeName1Choice.Code))]
 [KnownType(typeof(ValidationRuleSchemeName1Choice.Proprietary))]
+[DataContract]
 public abstract partial record ValidationRuleSchemeName1Choice_
 {
 }

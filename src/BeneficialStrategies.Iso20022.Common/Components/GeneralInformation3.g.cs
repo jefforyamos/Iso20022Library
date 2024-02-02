@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// General Information, indicating the function of the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GeneralInformation3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record GeneralInformation3
     /// <summary>
     /// Unique and unambiguous identifier for the message, as assigned by the sender.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Indicates whether the message is sent as a request or as a response.
     /// </summary>
+    [DataMember]
     public required MessageFunction2Code MessageFunction { get; init; } 
     /// <summary>
     /// Reference to the request message for which the notification is sent.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RequestReference { get; init; } 
     
     #nullable disable

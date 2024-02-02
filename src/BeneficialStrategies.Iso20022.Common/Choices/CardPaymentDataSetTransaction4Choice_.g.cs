@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(CardPaymentDataSetTransaction4Choice.Cancellation))]
 [KnownType(typeof(CardPaymentDataSetTransaction4Choice.AuthorisationRequest))]
 [KnownType(typeof(CardPaymentDataSetTransaction4Choice.AuthorisationResponse))]
+[DataContract]
 public abstract partial record CardPaymentDataSetTransaction4Choice_
 {
 }

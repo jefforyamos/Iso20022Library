@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Quantity of a security.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentQuantity4
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record FinancialInstrumentQuantity4
     /// <summary>
     /// Quantity expressed as a number, for example, a number of shares.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINDecimalNumber Unit { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the account expressed with an account number and a code.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountIdentificationAndPurpose
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AccountIdentificationAndPurpose
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required AccountIdentification1 Identification { get; init; } 
     /// <summary>
     /// Specifies the purpose of the account.
     /// </summary>
+    [DataMember]
     public required SecuritiesAccountPurposeType1Code Purpose { get; init; } 
     
     #nullable disable

@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(DatePeriodSearch1Choice.FromToDate))]
 [KnownType(typeof(DatePeriodSearch1Choice.EqualDate))]
 [KnownType(typeof(DatePeriodSearch1Choice.NotEqualDate))]
+[DataContract]
 public abstract partial record DatePeriodSearch1Choice_
 {
 }

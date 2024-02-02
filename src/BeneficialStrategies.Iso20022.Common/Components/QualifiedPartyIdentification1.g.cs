@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Multiple references can be given to identify the same party.
 /// A short identification can be used for display purposes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record QualifiedPartyIdentification1
 {
     #nullable enable
@@ -23,22 +25,27 @@ public partial record QualifiedPartyIdentification1
     /// <summary>
     /// Schema ID to be used in IDREF values.
     /// </summary>
+    [DataMember]
     public required IsoID Identification { get; init; } 
     /// <summary>
     /// List of identifications for the same party.
     /// </summary>
-    public SingleQualifiedPartyIdentification1[] Party { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SingleQualifiedPartyIdentification1> Party { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Short identification of the resulting party as a control mechanism for humans.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? ShortIdentification { get; init; } 
     /// <summary>
     /// Formally defined role qualifying the party.
     /// </summary>
+    [DataMember]
     public GenericIdentification1? Role { get; init; } 
     /// <summary>
     /// Free form description of the party's role.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? RoleDescription { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(GlobalNote2Choice.Code))]
 [KnownType(typeof(GlobalNote2Choice.Proprietary))]
+[DataContract]
 public abstract partial record GlobalNote2Choice_
 {
 }

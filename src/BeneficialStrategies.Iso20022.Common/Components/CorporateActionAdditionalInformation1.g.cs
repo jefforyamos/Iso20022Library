@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information about the delivery details, beneficial owner details, etc.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionAdditionalInformation1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record CorporateActionAdditionalInformation1
     /// <summary>
     /// Provides information about the beneficial owner of the securities.
     /// </summary>
-    public BeneficialOwner1[] BeneficialOwnerDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BeneficialOwner1> BeneficialOwnerDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information required for the registration.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? RegistrationDetails { get; init; } 
     /// <summary>
     /// Identification of the receiver of outturned resources (cash/securities) in case the resources need to be delivered outside the CSD.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? ReceiverIdentification { get; init; } 
     /// <summary>
     /// Whether or not certification is required from the account owner. |Y: certification required |N: no certification required.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CertificationIndicator { get; init; } 
     /// <summary>
     /// Type of certification which is required.
     /// </summary>
+    [DataMember]
     public BeneficiaryCertificationType1FormatChoice_? CertificationType { get; init; } 
     /// <summary>
     /// Provides information about the delivery details of proceeds.
     /// </summary>
-    public ProceedsDelivery1[] DeliveryDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProceedsDelivery1> DeliveryDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional details pertaining to the corporate action instruction.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInstruction { get; init; } 
     
     #nullable disable

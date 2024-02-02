@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies two values to compare for a collateral code.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CompareSpecialCollateral3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CompareSpecialCollateral3
     /// <summary>
     /// Information for the first side of the transaction.
     /// </summary>
+    [DataMember]
     public SpecialCollateral1Code? Value1 { get; init; } 
     /// <summary>
     /// Information for the second side of the transaction.
     /// </summary>
+    [DataMember]
     public SpecialCollateral1Code? Value2 { get; init; } 
     
     #nullable disable

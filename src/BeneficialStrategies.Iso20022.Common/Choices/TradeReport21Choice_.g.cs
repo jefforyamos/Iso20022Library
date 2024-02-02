@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(TradeReport21Choice.Error))]
 [KnownType(typeof(TradeReport21Choice.Correction))]
 [KnownType(typeof(TradeReport21Choice.TradeUpdate))]
+[DataContract]
 public abstract partial record TradeReport21Choice_
 {
 }

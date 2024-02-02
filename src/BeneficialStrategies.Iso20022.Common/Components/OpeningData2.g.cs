@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// List of elements which specify the opening of a non deliverable trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OpeningData2
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record OpeningData2
     /// <summary>
     /// Date at which the trading parties execute a treasury trade.
     /// </summary>
+    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Refers to the identification of a notification assigned by the trading side.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text NotificationIdentification { get; init; } 
     /// <summary>
     /// Reference common to the parties of a trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CommonReference { get; init; } 
     /// <summary>
     /// Refers to the identification of a previous event in the life of a non deliverable forward trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RelatedReference { get; init; } 
     /// <summary>
     /// Describes the reason for the cancellation or the amendment.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AmendOrCancelReason { get; init; } 
     /// <summary>
     /// Specifies the amounts of the non deliverable trade which is reported.
     /// </summary>
+    [DataMember]
     public required AmountsAndValueDate1 TradeAmounts { get; init; } 
     /// <summary>
     /// Exchange rate between two currencies. The rate is agreed by the trading parties during the negotiation process.
     /// </summary>
+    [DataMember]
     public required AgreedRate1 AgreedRate { get; init; } 
     /// <summary>
     /// Set of parameters used to calculate the valuation rate to be applied to a non-deliverable agreement.
     /// </summary>
+    [DataMember]
     public required NonDeliverableForwardValuationConditions2 ValuationConditions { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Conversion between the currency of a card acceptor and the currency of a card issuer, provided by a dedicated service provider.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyConversion13
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CurrencyConversion13
     /// <summary>
     /// True if the cardholder has accepted the currency conversion that the acquirer has proposed.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? AcceptedByCardholder { get; init; } 
     /// <summary>
     /// Conversion between the currency of a card acceptor and the currency of a cardholder, provided by a dedicated service provider.
     /// </summary>
+    [DataMember]
     public CurrencyConversion12? Conversion { get; init; } 
     
     #nullable disable

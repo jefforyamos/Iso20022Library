@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies one or more agents involved in a transaction, with their role.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AgentType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AgentType1
     /// <summary>
     /// Code allocated to a financial or non-financial institution by the ISO 9362 Registration Authority, as described in ISO 9362 "Banking - Banking telecommunication messages - Business identifier code (BIC)".
     /// </summary>
-    public IsoAnyBICIdentifier[] AnyBIC { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoAnyBICIdentifier> AnyBIC { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the role of the party in the payment chain.
     /// </summary>
+    [DataMember]
     public required PaymentsPartyType1Code Role { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the response of a batch transfer initiation message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BatchTransferResponse1
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record BatchTransferResponse1
     /// <summary>
     /// Environment of the message.
     /// </summary>
+    [DataMember]
     public required Environment4 Environment { get; init; } 
     /// <summary>
     /// Contains or describes conditions and characteristics of the transaction.
     /// </summary>
+    [DataMember]
     public Context8? Context { get; init; } 
     /// <summary>
     /// Batch transfer transaction.
     /// </summary>
+    [DataMember]
     public required Transaction96 Transaction { get; init; } 
     /// <summary>
     /// Outcome of processing.
     /// </summary>
+    [DataMember]
     public required ProcessingResult3 ProcessingResult { get; init; } 
     /// <summary>
     /// Contains protected data and the attributes used to protect the data.
     /// </summary>
-    public ProtectedData1[] ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProtectedData1> ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Elements indicating the direction of the derivative transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Direction2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Direction2
     /// <summary>
     /// Identifies whether the reporting counterparty is the payer (Taker) or the receiver (Maker) of the first leg as determined at the time of transaction.
     /// </summary>
+    [DataMember]
     public required OptionParty3Code DirectionOfTheFirstLeg { get; init; } 
     /// <summary>
     /// Identifies whether the reporting counterparty is the payer (Taker) or the receiver (Maker) of the second leg as determined at the time of transaction.
     /// </summary>
+    [DataMember]
     public OptionParty3Code? DirectionOfTheSecondLeg { get; init; } 
     
     #nullable disable

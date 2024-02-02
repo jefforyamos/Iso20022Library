@@ -16,6 +16,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(PaymentStatusReason1Choice.PendingSettlement))]
 [KnownType(typeof(PaymentStatusReason1Choice.ProprietaryRejection))]
 [KnownType(typeof(PaymentStatusReason1Choice.Proprietary))]
+[DataContract]
 public abstract partial record PaymentStatusReason1Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Period of time details related to the tax payment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxPeriod2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TaxPeriod2
     /// <summary>
     /// Year related to the tax payment.
     /// </summary>
+    [DataMember]
     public IsoISODate? Year { get; init; } 
     /// <summary>
     /// Identification of the period related to the tax payment.
     /// </summary>
+    [DataMember]
     public TaxRecordPeriod1Code? Type { get; init; } 
     /// <summary>
     /// Range of time between a start date and an end date for which the tax report is provided.
     /// </summary>
+    [DataMember]
     public DatePeriod2? FromToDate { get; init; } 
     
     #nullable disable

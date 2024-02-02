@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defined variation amount and balance.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UndertakingAmount4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record UndertakingAmount4
     /// <summary>
     /// Variation amount and currency.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount VariationAmount { get; init; } 
     /// <summary>
     /// Calculated undertaking available balance amount resulting from the application of the variation amount.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? BalanceAmount { get; init; } 
     
     #nullable disable

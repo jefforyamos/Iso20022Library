@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the underlying reason for the status of an object.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ConsentReason2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ConsentReason2
     /// <summary>
     /// Reason provided for the status.
     /// </summary>
+    [DataMember]
     public required ConsentOrRejectionReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>
+    [DataMember]
     public IsoMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

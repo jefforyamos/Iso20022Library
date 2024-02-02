@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the identification of the system and its currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemAndCurrency1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SystemAndCurrency1
     /// <summary>
     /// Unique and unambiguous identification of the system, as assigned by the system administrator.
     /// </summary>
+    [DataMember]
     public required SystemIdentification2Choice_ SystemIdentification { get; init; } 
     /// <summary>
     /// Currency which may be processed by the system. A system may process transactions in a single currency or in multiple currencies.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? SystemCurrency { get; init; } 
     
     #nullable disable

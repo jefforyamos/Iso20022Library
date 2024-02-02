@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the reason why the transaction was generated.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GeneratedReason5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record GeneratedReason5
     /// <summary>
     /// Specifies the reason why the transaction was generated.
     /// </summary>
+    [DataMember]
     public required GeneratedReasons5Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>
+    [DataMember]
     public IsoMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

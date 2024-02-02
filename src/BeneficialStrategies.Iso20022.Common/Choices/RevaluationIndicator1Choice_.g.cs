@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(RevaluationIndicator1Choice.Indicator))]
 [KnownType(typeof(RevaluationIndicator1Choice.Proprietary))]
+[DataContract]
 public abstract partial record RevaluationIndicator1Choice_
 {
 }

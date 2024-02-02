@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reports either on the risk management limit or on a business error.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LimitReport6
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record LimitReport6
     /// <summary>
     /// Identification of the limit on which information is requested.
     /// </summary>
+    [DataMember]
     public required LimitIdentification1 LimitIdentification { get; init; } 
     /// <summary>
     /// Requested information on the limit or business error report when information has not been found.
     /// </summary>
+    [DataMember]
     public required LimitOrError3Choice_ LimitOrError { get; init; } 
     
     #nullable disable

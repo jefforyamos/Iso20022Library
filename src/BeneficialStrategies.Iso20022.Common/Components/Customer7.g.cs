@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the customer in a transfer of money.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Customer7
 {
     #nullable enable
@@ -20,47 +22,58 @@ public partial record Customer7
     /// <summary>
     /// Identification of the customer assigned by a party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CustomerIdentification { get; init; } 
     /// <summary>
     /// Identifies the specific customer when multiple customers are associated with the same account.
     /// </summary>
+    [DataMember]
     public IsoMax2NumericText? CustomerDesignation { get; init; } 
     /// <summary>
     /// Name of the financial customer.
     /// </summary>
+    [DataMember]
     public CardholderName3? Name { get; init; } 
     /// <summary>
     /// Address of the financial customer.
     /// </summary>
+    [DataMember]
     public Address2? Address { get; init; } 
     /// <summary>
     /// Detail contact information of the customer.
     /// </summary>
+    [DataMember]
     public Contact6? ContactInformation { get; init; } 
     /// <summary>
     /// Credentials of the financial customer.
     /// </summary>
-    public Credentials2[] Credentials { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Credentials2> Credentials { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Nationality information (ISO 3166-1 alpha-2 or alpha-3)
     /// </summary>
+    [DataMember]
     public ISOMax3ACountryCode? Nationality { get; init; } 
     /// <summary>
     /// Country of Birth information (ISO 3166-1 alpha-2 or alpha-3)
     /// </summary>
+    [DataMember]
     public ISOMax3ACountryCode? CountryOfBirth { get; init; } 
     /// <summary>
     /// Date of birth of the party.
     /// </summary>
+    [DataMember]
     public IsoISODate? DateOfBirth { get; init; } 
     /// <summary>
     /// Contains text fields in the local language.
     /// </summary>
+    [DataMember]
     public LocalData3? LocalData { get; init; } 
     /// <summary>
     /// Additional information related to the customer.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

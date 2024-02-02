@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the reason of the rejection status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RejectionReason55
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RejectionReason55
     /// <summary>
     /// Specifies the reason why the instruction/request has a repair or rejection status.
     /// </summary>
+    [DataMember]
     public required RejectionReason40Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>
+    [DataMember]
     public IsoMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

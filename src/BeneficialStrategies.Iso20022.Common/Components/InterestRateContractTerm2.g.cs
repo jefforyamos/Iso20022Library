@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes how interest rates are reported.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InterestRateContractTerm2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InterestRateContractTerm2
     /// <summary>
     /// Unit for the rate basis.
     /// </summary>
+    [DataMember]
     public required RateBasis1Code Unit { get; init; } 
     /// <summary>
     /// Value of the contract term in number of units.
     /// </summary>
+    [DataMember]
     public required IsoMax3Number Value { get; init; } 
     
     #nullable disable

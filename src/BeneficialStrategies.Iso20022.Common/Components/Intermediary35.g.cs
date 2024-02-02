@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Party that provides services to investors relating to financial products.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Intermediary35
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Intermediary35
     /// <summary>
     /// Unique and unambiguous identifier of the intermediary.
     /// </summary>
+    [DataMember]
     public required PartyIdentification70Choice_ Identification { get; init; } 
     /// <summary>
     /// Business relationship between two entities; one entity is the account owner, the other entity is the account servicer.
     /// </summary>
+    [DataMember]
     public Account20? Account { get; init; } 
     /// <summary>
     /// Function performed by the intermediary.
     /// </summary>
+    [DataMember]
     public Role4Choice_? Role { get; init; } 
     
     #nullable disable

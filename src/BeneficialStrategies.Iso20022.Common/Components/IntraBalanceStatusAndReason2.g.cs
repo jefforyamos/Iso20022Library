@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Choice of the intra-balance movement status type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraBalanceStatusAndReason2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record IntraBalanceStatusAndReason2
     /// <summary>
     /// Provides details on the processing status of the transaction.
     /// </summary>
-    public ProcessingStatus67Choice_[] ProcessingStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProcessingStatus67Choice_> ProcessingStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the settlement status of a transaction.
     /// </summary>
-    public SettlementStatus16Choice_[] SettlementStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SettlementStatus16Choice_> SettlementStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the state or the condition.
     /// </summary>
+    [DataMember]
     public ProprietaryReason4? Settled { get; init; } 
     
     #nullable disable

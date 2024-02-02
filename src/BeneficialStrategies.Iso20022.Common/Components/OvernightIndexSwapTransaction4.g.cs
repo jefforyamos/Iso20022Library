@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details of each individual overnight index swap transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OvernightIndexSwapTransaction4
 {
     #nullable enable
@@ -20,36 +22,44 @@ public partial record OvernightIndexSwapTransaction4
     /// <summary>
     /// Defines the status of the reported transaction, that is details on whether the transaction is a new transaction, an amendment of a previously reported transaction, a cancellation of a previously reported transaction or a correction to a previously reported and rejected transaction.
     /// </summary>
+    [DataMember]
     public required TransactionOperationType1Code ReportedTransactionStatus { get; init; } 
     /// <summary>
     /// Provides the novation status for the transaction.
     /// </summary>
+    [DataMember]
     public NovationStatus1Code? NovationStatus { get; init; } 
     /// <summary>
     /// Unique and unambiguous legal entity identification of the branch of the reporting agent in which the transaction has been booked.
     /// Usage: This field must only be provided if the transaction has been conducted and booked by a branch of the reporting agent and only if this branch has its own LEI that the reporting agent can clearly identify. 
     /// Where the transaction has been booked by the head office or the reporting agent cannot be identified by a unique branch-specific LEI, the reporting agent must provide the LEI of the head office.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? BranchIdentification { get; init; } 
     /// <summary>
     /// Unique transaction identifier will be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction during its lifetime.
     /// </summary>
+    [DataMember]
     public IsoMax105Text? UniqueTransactionIdentifier { get; init; } 
     /// <summary>
     /// Internal unique transaction identifier used by the reporting agent for each transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax105Text ProprietaryTransactionIdentification { get; init; } 
     /// <summary>
     /// Original proprietary transaction identifier used by the reporting agent to indicate the proprietary transaction identification of the transaction which is novated.
     /// </summary>
+    [DataMember]
     public IsoMax105Text? RelatedProprietaryTransactionIdentification { get; init; } 
     /// <summary>
     /// Internal unique proprietary transaction identifier as assigned by the counterparty of the reporting agent for each transaction.
     /// </summary>
+    [DataMember]
     public IsoMax105Text? CounterpartyProprietaryTransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the counterparty of the reporting agent for the reported transaction.
     /// </summary>
+    [DataMember]
     public required CounterpartyIdentification3Choice_ CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Date and time on which the parties entered into the reported transaction.
@@ -57,31 +67,38 @@ public partial record OvernightIndexSwapTransaction4
     /// It is to be reported with only the date when the time of the transaction is not available. 
     /// The reported time is the execution time when available or otherwise the time at which the transaction entered the trading system of the reporting agent.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ TradeDate { get; init; } 
     /// <summary>
     /// Represents the date as of which the overnight rate of the floating leg is computed.
     /// </summary>
+    [DataMember]
     public required IsoISODate StartDate { get; init; } 
     /// <summary>
     /// Last date of the term over which the compounded overnight rate is calculated.
     /// </summary>
+    [DataMember]
     public required IsoISODate MaturityDate { get; init; } 
     /// <summary>
     /// Fixed rate used for the calculation of the overnight index swap pay out.
     /// </summary>
+    [DataMember]
     public required IsoPercentageRate FixedInterestRate { get; init; } 
     /// <summary>
     /// Defines whether the fixed interest rate is paid or received by the reporting agent.
     /// </summary>
+    [DataMember]
     public required OvernightIndexSwapType1Code TransactionType { get; init; } 
     /// <summary>
     /// Notional amount of the overnight index swap.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount TransactionNominalAmount { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

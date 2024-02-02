@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains additional fee reconciliation data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalFeeReconciliation1
 {
     #nullable enable
@@ -20,24 +22,29 @@ public partial record AdditionalFeeReconciliation1
     /// <summary>
     /// Reconciliation credit or debit indicator.
     /// </summary>
+    [DataMember]
     public required ReconciliationImpact1Code ReconciliationImpact { get; init; } 
     /// <summary>
     /// contains the list of additional fee types.
     /// </summary>
+    [DataMember]
     public required TypeOfAmount10Code Type { get; init; } 
     /// <summary>
     /// Other amount type defined at national or private level.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Cumulative amount of all financial transactions.
     /// ISO 8583:87 bit 82, 83, 84 & 85
     /// ISO 8583:93/2003 bit 109 & 110
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Number of transactions.
     /// </summary>
+    [DataMember]
     public required IsoNumber Count { get; init; } 
     
     #nullable disable

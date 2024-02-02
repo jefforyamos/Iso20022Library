@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed information about the outstanding derivatives for which no valuation or outdated valuation has been reported.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MissingValuationsTransactionData2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record MissingValuationsTransactionData2
     /// <summary>
     /// Identification of a transaction.
     /// </summary>
+    [DataMember]
     public required TradeTransactionIdentification24 TransactionIdentification { get; init; } 
     /// <summary>
     /// Mark-to-market valuation of the contract, or mark-to-model valuation
     /// </summary>
+    [DataMember]
     public AmountAndDirection106? ValuationAmount { get; init; } 
     /// <summary>
     /// Date and time of the valuation.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? ValuationTimeStamp { get; init; } 
     
     #nullable disable

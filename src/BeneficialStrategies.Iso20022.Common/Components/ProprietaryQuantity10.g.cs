@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Proprietary quantity format.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProprietaryQuantity10
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ProprietaryQuantity10
     /// <summary>
     /// Sign of the quantity of security.
     /// </summary>
+    [DataMember]
     public ShortLong1Code? ShortLongPosition { get; init; } 
     /// <summary>
     /// Provides the proprietary quantity with a decimal number.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINDecimalNumber Quantity { get; init; } 
     /// <summary>
     /// Identifies the type of proprietary quantity reported.
     /// </summary>
+    [DataMember]
     public required IsoExact4AlphaNumericText QuantityType { get; init; } 
     /// <summary>
     /// Provides information related to issuer in free format.
     /// </summary>
+    [DataMember]
     public required IsoMax4AlphaNumericText Issuer { get; init; } 
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
+    [DataMember]
     public IsoMax4AlphaNumericText? SchemeName { get; init; } 
     
     #nullable disable

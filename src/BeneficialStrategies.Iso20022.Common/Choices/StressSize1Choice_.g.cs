@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(StressSize1Choice.Relative))]
 [KnownType(typeof(StressSize1Choice.Absolute))]
+[DataContract]
 public abstract partial record StressSize1Choice_
 {
 }

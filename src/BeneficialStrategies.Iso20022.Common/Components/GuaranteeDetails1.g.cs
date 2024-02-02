@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates the details of a guarantee.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GuaranteeDetails1
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record GuaranteeDetails1
     /// <summary>
     /// Party issuing the guarantee.
     /// </summary>
+    [DataMember]
     public QualifiedPartyIdentification1? Issuer { get; init; } 
     /// <summary>
     /// Rank of the guarantee provider. A value of 1 means highest rank. Providers may have the same position.
     /// </summary>
+    [DataMember]
     public IsopositiveInteger? Position { get; init; } 
     /// <summary>
     /// Textual description of guarantee details.
     /// </summary>
+    [DataMember]
     public IsoMax2000Text? Description { get; init; } 
     /// <summary>
     /// Amount by time periods, maximum value applies at any given date.
     /// </summary>
-    public AmountAndPeriod1[] GuaranteedAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AmountAndPeriod1> GuaranteedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount not covered by the guarantee. Maximum value applies at any given date.
     /// </summary>
-    public AmountAndPeriod1[] Excess { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AmountAndPeriod1> Excess { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Covered percentage, the maximum value applies at any given date.
     /// </summary>
-    public PercentageAndPeriod1[] CoveredPercentage { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PercentageAndPeriod1> CoveredPercentage { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Associated free form document.
     /// </summary>
-    public QualifiedDocumentInformation1[] AssociatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedDocumentInformation1> AssociatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the demand.
     /// </summary>
-    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

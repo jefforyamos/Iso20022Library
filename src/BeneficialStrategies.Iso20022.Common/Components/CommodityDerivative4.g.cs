@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transparency calculation specific details for an commodity derivatives.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CommodityDerivative4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CommodityDerivative4
     /// <summary>
     /// Provides specific information related to commodity derivatives.
     /// </summary>
+    [DataMember]
     public CommodityDerivative2Choice_? ClassSpecific { get; init; } 
     /// <summary>
     /// Currency in which the notional is denominated.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode NotionalCurrency { get; init; } 
     
     #nullable disable

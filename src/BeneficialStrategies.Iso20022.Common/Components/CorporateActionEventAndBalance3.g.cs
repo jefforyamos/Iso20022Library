@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed account holdings information report for a corporate action event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionEventAndBalance3
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record CorporateActionEventAndBalance3
     /// <summary>
     /// Provides general information related to a corporate action event.
     /// </summary>
+    [DataMember]
     public required EventInformation1 GeneralInformation { get; init; } 
     /// <summary>
     /// Security concerned by the corporate action.
     /// </summary>
+    [DataMember]
     public required UnderlyingSecurity3 UnderlyingSecurity { get; init; } 
     /// <summary>
     /// Provides information about the balance related to a corporate action.
     /// </summary>
+    [DataMember]
     public CorporateActionBalanceDetails4? Balance { get; init; } 
     /// <summary>
     /// Provides additional information related to the event and the balance of the corporate action.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

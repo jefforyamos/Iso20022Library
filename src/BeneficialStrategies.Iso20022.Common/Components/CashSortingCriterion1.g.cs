@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Criterion by which the cash movements are broken down.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashSortingCriterion1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record CashSortingCriterion1
     /// <summary>
     /// Type of criterion by which the estimated cash flow is being broken down, ie, country, institution, currency code or a user defined type, such as a region or distribution channel.
     /// </summary>
+    [DataMember]
     public required SortCriteria1Choice_ SortingCriterionType { get; init; } 
     /// <summary>
     /// Parameter for which the cash movements are reported.
     /// </summary>
-    public ForecastParameter1[] ForecastBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ForecastParameter1> ForecastBreakdownDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

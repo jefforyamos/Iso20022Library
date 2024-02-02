@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding security that will be distributed as part of entitlement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentAttributesSD2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FinancialInstrumentAttributesSD2
     /// <summary>
     /// Security identification of the security that is being distributed as a result of a corporate action as declared by the issuer or offeror on the market.
     /// </summary>
+    [DataMember]
     public SecurityIdentification15? DeclaredDisbursedSecurityIdentification { get; init; } 
     /// <summary>
     /// Declared disbursed security description.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? DeclaredDisbursedSecurityDescription { get; init; } 
     
     #nullable disable

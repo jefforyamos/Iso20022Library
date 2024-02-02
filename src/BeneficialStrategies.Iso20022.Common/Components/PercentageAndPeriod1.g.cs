@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a percentage together with a period of time. For overlapping periods, the maximum of all applicable elements at a given date is the result.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PercentageAndPeriod1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PercentageAndPeriod1
     /// <summary>
     /// Covered percentage (max 100%).
     /// </summary>
+    [DataMember]
     public required IsoPercentageBoundedRate Percentage { get; init; } 
     /// <summary>
     /// Start of period or immediate if not specified.
     /// </summary>
+    [DataMember]
     public IsoISODate? StartDate { get; init; } 
     /// <summary>
     /// End of period or indefinite if not specified.
     /// </summary>
+    [DataMember]
     public IsoISODate? EndDate { get; init; } 
     
     #nullable disable

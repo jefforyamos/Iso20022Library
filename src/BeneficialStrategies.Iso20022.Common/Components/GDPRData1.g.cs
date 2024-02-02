@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about an individual's consent to use personal data under the General Protection Regulation (GDPR) 2016/679 regulation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GDPRData1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record GDPRData1
     /// <summary>
     /// Type of consent.
     /// </summary>
+    [DataMember]
     public required GDPRDataConsent1Choice_ ConsentType { get; init; } 
     /// <summary>
     /// Indicates whether consent has been given.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ConsentIndicator { get; init; } 
     /// <summary>
     /// Date of the consent.
     /// </summary>
+    [DataMember]
     public required IsoISODate ConsentDate { get; init; } 
     
     #nullable disable

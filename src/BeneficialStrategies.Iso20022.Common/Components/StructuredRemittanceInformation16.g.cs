@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in a structured form.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StructuredRemittanceInformation16
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record StructuredRemittanceInformation16
     /// <summary>
     /// Provides the identification and the content of the referred document.
     /// </summary>
-    public ReferredDocumentInformation7[] ReferredDocumentInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReferredDocumentInformation7> ReferredDocumentInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides details on the amounts of the referred document.
     /// </summary>
+    [DataMember]
     public RemittanceAmount2? ReferredDocumentAmount { get; init; } 
     /// <summary>
     /// Reference information provided by the creditor to allow the identification of the underlying documents.
     /// </summary>
+    [DataMember]
     public CreditorReferenceInformation2? CreditorReferenceInformation { get; init; } 
     /// <summary>
     /// Identification of the organisation issuing the invoice, when it is different from the creditor or ultimate creditor.
     /// </summary>
+    [DataMember]
     public PartyIdentification135? Invoicer { get; init; } 
     /// <summary>
     /// Identification of the party to whom an invoice is issued, when it is different from the debtor or ultimate debtor.
     /// </summary>
+    [DataMember]
     public PartyIdentification135? Invoicee { get; init; } 
     /// <summary>
     /// Provides remittance information about a payment made for tax-related purposes.
     /// </summary>
+    [DataMember]
     public TaxInformation7? TaxRemittance { get; init; } 
     /// <summary>
     /// Provides remittance information about a payment for garnishment-related purposes.
     /// </summary>
+    [DataMember]
     public Garnishment3? GarnishmentRemittance { get; init; } 
     /// <summary>
     /// Additional information, in free text form, to complement the structured remittance information.
     /// </summary>
-    public IsoMax140Text[] AdditionalRemittanceInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax140Text> AdditionalRemittanceInformation { get; init; } = [];
     
     #nullable disable
 }

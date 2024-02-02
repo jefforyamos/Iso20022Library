@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(SecurityClassificationType1Choice.CFI))]
 [KnownType(typeof(SecurityClassificationType1Choice.AlternateClassification))]
+[DataContract]
 public abstract partial record SecurityClassificationType1Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a blocked holding.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BlockedHoldingDetails2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record BlockedHoldingDetails2
     /// <summary>
     /// Specifies how the blocked account holding is defined.
     /// </summary>
+    [DataMember]
     public required Holding1Code BlockedHolding { get; init; } 
     /// <summary>
     /// When an account is blocked at the level of fund or security, partially, this is the number of units blocked.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? PartialHoldingUnits { get; init; } 
     /// <summary>
     /// When an account is blocked at the level of fund or security, this specifies the certificate number of the blocked units.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? HoldingCertificateNumber { get; init; } 
     
     #nullable disable

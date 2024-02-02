@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(FinancialInstrumentQuantity26Choice.PercentageOfTotalRedemptionAmount))]
 [KnownType(typeof(FinancialInstrumentQuantity26Choice.NetAmount))]
 [KnownType(typeof(FinancialInstrumentQuantity26Choice.GrossAmount))]
+[DataContract]
 public abstract partial record FinancialInstrumentQuantity26Choice_
 {
 }

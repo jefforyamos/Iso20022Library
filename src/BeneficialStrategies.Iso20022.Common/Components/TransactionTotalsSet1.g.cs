@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Result of the Sale to POI Reconciliation processing.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionTotalsSet1
 {
     #nullable enable
@@ -20,51 +22,63 @@ public partial record TransactionTotalsSet1
     /// <summary>
     /// Type of payment instrument.
     /// </summary>
+    [DataMember]
     public required PaymentInstrumentType1Code PaymentInstrumentType { get; init; } 
     /// <summary>
     /// Identification of an Acquirer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AcquirerIdentification { get; init; } 
     /// <summary>
     /// Identifier of a host reconciliation period: acquirer for a payment or server for loyalty.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Identifier of a reconciliation period on the sale system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleReconciliationIdentification { get; init; } 
     /// <summary>
     /// Brand of payment card or loyalty system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Brand { get; init; } 
     /// <summary>
     /// Identifier of the POI system performing a reconciliation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? POIIdentification { get; init; } 
     /// <summary>
     /// Identification of the sale terminal (electronic cash register or point of sale terminal) or the sale system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleIdentification { get; init; } 
     /// <summary>
     /// Identification of the cashier who carried out the transactions.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CashierIdentification { get; init; } 
     /// <summary>
     /// Identifies the shift of the cashier.
     /// </summary>
+    [DataMember]
     public IsoMax2NumericText? ShiftNumber { get; init; } 
     /// <summary>
     /// Merchant using the payment services of a payment facilitator, acting as a card acceptor.
     /// </summary>
-    public Organisation26[] SponsoredMerchant { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Organisation26> SponsoredMerchant { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Payment Transaction totals during the reconciliation period, for a certain type of transaction.
     /// </summary>
+    [DataMember]
     public required TransactionTotals8 TransactionTotal { get; init; } 
     /// <summary>
     /// Loyalty Transaction totals during the reconciliation period, for a certain type of transaction.
     /// </summary>
-    public LoyaltyTransactionTotals1[] LoyaltyTransactionTotal { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LoyaltyTransactionTotals1> LoyaltyTransactionTotal { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

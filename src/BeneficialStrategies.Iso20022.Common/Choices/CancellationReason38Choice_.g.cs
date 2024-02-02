@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CancellationReason38Choice.Code))]
 [KnownType(typeof(CancellationReason38Choice.Proprietary))]
+[DataContract]
 public abstract partial record CancellationReason38Choice_
 {
 }

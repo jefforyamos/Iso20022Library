@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(DailyFundTransfer1Choice.TransferTime))]
 [KnownType(typeof(DailyFundTransfer1Choice.TransferEvent))]
+[DataContract]
 public abstract partial record DailyFundTransfer1Choice_
 {
 }

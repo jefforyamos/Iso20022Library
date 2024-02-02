@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, for example, dividend option or valuation currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrument60
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record FinancialInstrument60
     /// <summary>
     /// Unique and unambiguous identifier of a security, assigned under a formal or proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification25Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Financial Instrument Short Name (FISN) expressed in conformance with the ISO 18774 standard.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     /// <summary>
     /// Specifies whether the financial instrument is transferred as an asset or as cash.
     /// </summary>
+    [DataMember]
     public required TransferType1Code TransferType { get; init; } 
     /// <summary>
     /// Specifies the quantity of assets to be transferred in units or in a percentage rate.
     /// </summary>
+    [DataMember]
     public Quantity12Choice_? Quantity { get; init; } 
     /// <summary>
     /// Average cost per share of the security, including all fees.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? AverageAcquisitionPrice { get; init; } 
     /// <summary>
     /// Currency to be used to transfer the holdings. Some transfer agents register holdings grouped by currency in addition to using the ISIN for multi-currency fund shares.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? TransferCurrency { get; init; } 
     /// <summary>
     /// Net asset on the balance sheet, the total portfolio value minus or plus the unrealised gain or loss.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalBookValue { get; init; } 
     /// <summary>
     /// Account held in the name of the party that is not the name of the beneficial owner of the shares.
     /// </summary>
+    [DataMember]
     public Account24? TransfereeAccount { get; init; } 
     /// <summary>
     /// Sub-account of the master or omnibus account.
     /// </summary>
+    [DataMember]
     public SubAccount5? SubAccountDetails { get; init; } 
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction.
     /// </summary>
+    [DataMember]
     public ReceivingPartiesAndAccount18? SettlementPartiesReceivingSideDetails { get; init; } 
     /// <summary>
     /// Party that delivers securities to the receiving agent at the place of settlement, for example, a central securities depository.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount156? DeliveringAgentDetails { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentTransactionDetails40
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CardPaymentTransactionDetails40
     /// <summary>
     /// Currency associated with the transaction.
     /// </summary>
+    [DataMember]
     public required CurrencyCode Currency { get; init; } 
     /// <summary>
     /// Total amount of the transaction.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount TotalAmount { get; init; } 
     /// <summary>
     /// Qualifies the amount associated with the transaction.
     /// </summary>
+    [DataMember]
     public TypeOfAmount8Code? AmountQualifier { get; init; } 
     /// <summary>
     /// Detailed amounts associated with the total amount of transaction.
     /// </summary>
+    [DataMember]
     public DetailedAmount15? DetailedAmount { get; init; } 
     /// <summary>
     /// Data related to an integrated circuit card application.
     /// </summary>
+    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     
     #nullable disable

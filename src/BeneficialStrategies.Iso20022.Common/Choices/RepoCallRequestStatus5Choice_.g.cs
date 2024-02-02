@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(RepoCallRequestStatus5Choice.AcknowledgedAccepted))]
 [KnownType(typeof(RepoCallRequestStatus5Choice.Denied))]
 [KnownType(typeof(RepoCallRequestStatus5Choice.Proprietary))]
+[DataContract]
 public abstract partial record RepoCallRequestStatus5Choice_
 {
 }

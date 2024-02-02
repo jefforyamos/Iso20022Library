@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action general information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionGeneralInformationSD3
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record CorporateActionGeneralInformationSD3
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification15 SecurityIdentification { get; init; } 
     /// <summary>
     /// Date at which positions are stuck at the end of the day to note which parties will receive the relevant amount of entitlement, due to be distributed on payment date. DTC (The Depository Trust Corporation) and its Participants may use this as a reference.
     /// </summary>
+    [DataMember]
     public IsoISODate? RecordDate { get; init; } 
     /// <summary>
     /// Date/time at which the movement was due to take place (cash and/or securities).
     /// </summary>
+    [DataMember]
     public DateFormat22Choice_? PaymentDate { get; init; } 
     /// <summary>
     /// Additional information about the corporate action event.
     /// </summary>
-    public CorporateActionUnallocatedDetailsSD1[] UnallocatedDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CorporateActionUnallocatedDetailsSD1> UnallocatedDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

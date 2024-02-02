@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unless bilaterally agreed between the Sender and the Receiver, additional information must not contain information that can be provided in a structured field.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalInformation24
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AdditionalInformation24
     /// <summary>
     /// Provides additional information on the collateral instruction.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? CollateralInstruction { get; init; } 
     /// <summary>
     /// Narrative information visible to other parties.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Note { get; init; } 
     
     #nullable disable

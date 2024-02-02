@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for a pending settlement status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PendingSettlementStatusReason1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PendingSettlementStatusReason1
     /// <summary>
     /// Reason for a settlement pending status in structured form.
     /// </summary>
+    [DataMember]
     public required PendingSettlementStatusReason1Code Structured { get; init; } 
     /// <summary>
     /// Additional information about the reason for the settlement pending status in textual form.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

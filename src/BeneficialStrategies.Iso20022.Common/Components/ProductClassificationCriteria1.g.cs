@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Criteria regarding product classification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProductClassificationCriteria1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record ProductClassificationCriteria1
     /// <summary>
     /// Identifier is an ISO 10962 Classification of Financial Instrument (CFI).
     /// </summary>
-    public IsoCFIOct2015Identifier[] ClassificationFinancialInstrument { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCFIOct2015Identifier> ClassificationFinancialInstrument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification through a unique product identifier.
     /// </summary>
-    public IsoMax52Text[] UniqueProductIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax52Text> UniqueProductIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

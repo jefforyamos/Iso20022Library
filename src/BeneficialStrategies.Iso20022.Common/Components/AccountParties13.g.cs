@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a party's account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountParties13
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record AccountParties13
     /// <summary>
     /// Main party associated with the account.
     /// </summary>
+    [DataMember]
     public required AccountParties8Choice_ PrincipalAccountParty { get; init; } 
     /// <summary>
     /// Entity that is not the primary owner when the ownership of the investment account is split among several owners.
     /// </summary>
-    public InvestmentAccountOwnershipInformation12[] SecondaryOwner { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation12> SecondaryOwner { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Ultimate party that is entitled to either receive the benefits of the ownership of a financial instrument, or to be paid/credited as a result of a transfer.
     /// </summary>
-    public InvestmentAccountOwnershipInformation12[] Beneficiary { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation12> Beneficiary { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Entity that was given the authority by another entity to act on its behalf.
     /// </summary>
-    public InvestmentAccountOwnershipInformation12[] PowerOfAttorney { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation12> PowerOfAttorney { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Entity that has been appointed by a legal authority to act on behalf of a person judged to be incapacitated.
     /// </summary>
-    public InvestmentAccountOwnershipInformation12[] LegalGuardian { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation12> LegalGuardian { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Entity that holds shares/units on behalf of a legal minor. Although the account is registered under the name of the minor, the custodian retains control of the account.
     /// </summary>
+    [DataMember]
     public InvestmentAccountOwnershipInformation12? CustodianForMinor { get; init; } 
     /// <summary>
     /// Deceased's estate, or successor, to whom the respective percentage of ownership will be transferred upon the death of one of the owners.
     /// </summary>
-    public InvestmentAccountOwnershipInformation12[] SuccessorOnDeath { get; init; } = [];
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation12> SuccessorOnDeath { get; init; } = [];
     /// <summary>
     /// Entity that has been appointed by a legal authority to act on behalf of a person or organisation that has gone bankrupt.
     /// </summary>
-    public InvestmentAccountOwnershipInformation12[] Administrator { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation12> Administrator { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Other type of party.
     /// </summary>
-    public ExtendedParty9[] OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ExtendedParty9> OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Granter role in the hedge funds industry.
     /// </summary>
-    public InvestmentAccountOwnershipInformation12[] Granter { get; init; } = [];
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation12> Granter { get; init; } = [];
     /// <summary>
     /// Entity that creates a trust or contributes assets to the trust.
     /// </summary>
-    public InvestmentAccountOwnershipInformation12[] Settlor { get; init; } = [];
+    [DataMember]
+    public ValueList<InvestmentAccountOwnershipInformation12> Settlor { get; init; } = [];
     /// <summary>
     /// Party that registers its name with the issuer and the name used for the registration.
     /// </summary>
+    [DataMember]
     public RegisteredShareholderName1Choice_? RegisteredShareholderName { get; init; } 
     
     #nullable disable

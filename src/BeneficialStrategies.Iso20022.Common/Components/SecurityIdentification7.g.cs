@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Choice between ISIN and an alternative format for the identification of a security. ISIN is the preferred format.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityIdentification7
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SecurityIdentification7
     /// <summary>
     /// International Securities Identification Number (ISIN). A numbering system designed by the United Nation's International Organisation for Standardisation (ISO). The ISIN is composed of a 2-character prefix representing the country of issue, followed by the national security number (if one exists), and a check digit. Each country has a national numbering agency that assigns ISIN numbers for securities in that country.
     /// </summary>
+    [DataMember]
     public required IsoISINIdentifier ISIN { get; init; } 
     /// <summary>
     /// Proprietary identification of a security assigned by an institution or organisation.
     /// </summary>
+    [DataMember]
     public required AlternateSecurityIdentification3 OtherIdentification { get; init; } 
     /// <summary>
     /// Textual description of a security instrument.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     
     #nullable disable

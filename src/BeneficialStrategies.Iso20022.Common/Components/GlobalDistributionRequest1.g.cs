@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the global distribution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GlobalDistributionRequest1
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record GlobalDistributionRequest1
     /// <summary>
     /// Indicates wether is message is an advice or pre-advice.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator PreadviceIndicator { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [DataMember]
     public required IsoExact3NumericText OptionNumber { get; init; } 
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
+    [DataMember]
     public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     /// <summary>
     /// Date on which the holders of securities are/will be recorded for the income being paid or for entitlement to the rights or offer/privilege.
     /// </summary>
+    [DataMember]
     public required DateFormat4Choice_ RecordDate { get; init; } 
     /// <summary>
     /// Date on which securities/cash will be paid.
     /// </summary>
+    [DataMember]
     public required DateFormat4Choice_ PaymentDate { get; init; } 
     /// <summary>
     /// Provides information about the securities movement.
     /// </summary>
-    public SecurityMovement1[] SecuritiesMovement { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecurityMovement1> SecuritiesMovement { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the cash movement.
     /// </summary>
-    public CashMovement1[] CashMovement { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashMovement1> CashMovement { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

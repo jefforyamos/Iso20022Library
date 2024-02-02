@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates the ordering in which the resulting transaction reports should be returned.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SearchOutputOrder1
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record SearchOutputOrder1
     /// <summary>
     /// Ordering criteria for the transaction report.
     /// </summary>
-    public CriteriaOrder1[] CriteriaOrder { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CriteriaOrder1> CriteriaOrder { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

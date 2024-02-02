@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(DefaultProcessingOrStandingInstruction1Choice.DefaultOptionIndicator))]
 [KnownType(typeof(DefaultProcessingOrStandingInstruction1Choice.StandingInstructionIndicator))]
+[DataContract]
 public abstract partial record DefaultProcessingOrStandingInstruction1Choice_
 {
 }

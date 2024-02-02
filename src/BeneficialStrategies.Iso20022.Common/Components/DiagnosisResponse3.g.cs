@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Diagnosis Response message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DiagnosisResponse3
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record DiagnosisResponse3
     /// <summary>
     /// Sale Terminal logged to.
     /// </summary>
-    public IsoMax35Text[] LoggedSaleIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> LoggedSaleIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Status of the POI.
     /// </summary>
+    [DataMember]
     public StatusReportContent10? POIStatus { get; init; } 
     /// <summary>
     /// State of a Host.
     /// </summary>
-    public HostStatus1[] HostStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<HostStatus1> HostStatus { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

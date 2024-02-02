@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides reference and status information on the original transactions, included in the original instruction, to which the cancellation request message applies.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTransaction78
 {
     #nullable enable
@@ -20,43 +22,53 @@ public partial record PaymentTransaction78
     /// <summary>
     /// Unique and unambiguous identifier of a cancellation request status, as assigned by the assigner.||Usage: The cancellation status identification can be used for reconciliation or to link tasks relating to the cancellation request.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CancellationStatusIdentification { get; init; } 
     /// <summary>
     /// Identifies the resolved case.
     /// </summary>
+    [DataMember]
     public Case3? ResolvedCase { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original instructing party for the original instructed party to unambiguously identify the original instruction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalInstructionIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original initiating party, to unambiguously identify the original transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalEndToEndIdentification { get; init; } 
     /// <summary>
     /// Specifies the status of the transaction cancellation request.
     /// </summary>
+    [DataMember]
     public CancellationIndividualStatus1Code? TransactionCancellationStatus { get; init; } 
     /// <summary>
     /// Provides detailed information on the cancellation status reason.
     /// </summary>
-    public CancellationStatusReason2[] CancellationStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CancellationStatusReason2> CancellationStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount of money, as provided in the original transaction, to be moved between the debtor and the creditor, before deduction of charges, expressed in the currency, as ordered by the original initiating party.
     /// Usage: This amount has to be transported unchanged through the transaction chain.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? OriginalInstructedAmount { get; init; } 
     /// <summary>
     /// Date at which the initiating party originally requested the clearing agent to process the payment.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? OriginalRequestedExecutionDate { get; init; } 
     /// <summary>
     /// Date at which the creditor originally requested the collection of the amount of money from the debtor.
     /// </summary>
+    [DataMember]
     public IsoISODate? OriginalRequestedCollectionDate { get; init; } 
     /// <summary>
     /// Key elements used to identify the original transaction that is being referred to.
     /// </summary>
+    [DataMember]
     public OriginalTransactionReference24? OriginalTransactionReference { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Card security code (CSC) associated with the card performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardSecurityInformation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CardSecurityInformation1
     /// <summary>
     /// Card security code (CSC) management associated with the transaction.
     /// </summary>
+    [DataMember]
     public required CSCManagement1Code CSCManagement { get; init; } 
     /// <summary>
     /// Card security code (CSC).
     /// </summary>
+    [DataMember]
     public IsoMin3Max4NumericText? CSCValue { get; init; } 
     
     #nullable disable

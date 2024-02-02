@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Inquiry information for the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransaction7
 {
     #nullable enable
@@ -20,43 +22,53 @@ public partial record ATMTransaction7
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Result of the inquiry service.
     /// </summary>
+    [DataMember]
     public required ResponseType3 TransactionResponse { get; init; } 
     /// <summary>
     /// Sequence of actions to be performed by the ATM to complete the transaction.
     /// </summary>
-    public Action5[] Action { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Action5> Action { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Profile of the customer with the allowed services and restrictions.
     /// </summary>
+    [DataMember]
     public ATMCustomerProfile3? CustomerServiceProfile { get; init; } 
     /// <summary>
     /// Dynamic currency conversion result.
     /// </summary>
+    [DataMember]
     public CurrencyConversion3? CurrencyConversion { get; init; } 
     /// <summary>
     /// Account information associated to the customer.
     /// </summary>
-    public CardAccount6[] AccountInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardAccount6> AccountInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Statement information of an account.
     /// </summary>
-    public ATMAccountStatement1[] AccountStatementData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMAccountStatement1> AccountStatementData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Exchange rate and calculated amount to be presented to the customer when the dispense currency or the deposit currency (target currency) is different to account currency (source currency).
     /// </summary>
+    [DataMember]
     public CurrencyConversion5? CurrencyExchange { get; init; } 
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
+    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    public ATMCommand1[] Command { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCommand1> Command { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

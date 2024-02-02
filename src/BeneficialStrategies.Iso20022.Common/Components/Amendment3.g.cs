@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the amendent request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Amendment3
 {
     #nullable enable
@@ -20,51 +22,63 @@ public partial record Amendment3
     /// <summary>
     /// Unique and unambiguous identifier assigned by the applicant to the undertaking amendment request.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ApplicantRequestNumber { get; init; } 
     /// <summary>
     /// Identification of the undertaking.
     /// </summary>
+    [DataMember]
     public required Undertaking9 UndertakingIdentification { get; init; } 
     /// <summary>
     /// Party requesting the issuance of the amendment.
     /// </summary>
+    [DataMember]
     public required PartyIdentification43 Applicant { get; init; } 
     /// <summary>
     /// Details concerning the requested termination of the undertaking.
     /// </summary>
+    [DataMember]
     public UndertakingTermination3? TerminationDetails { get; init; } 
     /// <summary>
     /// Indication of the amount of increase or decrease to the undertaking amount.
     /// </summary>
+    [DataMember]
     public UndertakingAmount2? IncreaseDecreaseAmount { get; init; } 
     /// <summary>
     /// Requested new expiry terms for the undertaking.
     /// </summary>
+    [DataMember]
     public ExpiryDetails2? NewExpiryDetails { get; init; } 
     /// <summary>
     /// Requested new beneficiary of the undertaking.
     /// </summary>
+    [DataMember]
     public Beneficiary1? NewBeneficiary { get; init; } 
     /// <summary>
     /// Requested new terms and conditions of the undertaking.
     /// </summary>
-    public Narrative1[] NewUndertakingTermsAndConditions { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Narrative1> NewUndertakingTermsAndConditions { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amendment details related to the counter-undertaking.
     /// </summary>
+    [DataMember]
     public Undertaking10? CounterUndertaking { get; init; } 
     /// <summary>
     /// Communication channel for delivery of the amendment.
     /// </summary>
+    [DataMember]
     public CommunicationChannel1? DeliveryChannel { get; init; } 
     /// <summary>
     /// Document or template enclosed in the request.
     /// </summary>
-    public Document9[] EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Document9> EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the request.
     /// </summary>
-    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

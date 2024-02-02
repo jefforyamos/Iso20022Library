@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CollateralValueCriteriaDefinition1Choice.QueryName))]
 [KnownType(typeof(CollateralValueCriteriaDefinition1Choice.NewCriteria))]
+[DataContract]
 public abstract partial record CollateralValueCriteriaDefinition1Choice_
 {
 }

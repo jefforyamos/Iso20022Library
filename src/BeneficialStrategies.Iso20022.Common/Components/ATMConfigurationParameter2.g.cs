@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters to be used by the various cryptographic key commands.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMConfigurationParameter2
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record ATMConfigurationParameter2
     /// <summary>
     /// Category of the cryptographic key.
     /// </summary>
+    [DataMember]
     public CryptographicKeyType4Code? KeyCategory { get; init; } 
     /// <summary>
     /// Random value from the host provided during a previous exchange.
     /// </summary>
+    [DataMember]
     public IsoMax140Binary? HostChallenge { get; init; } 
     /// <summary>
     /// Ordered certificate chain of the asymmetric key encryption key, starting with the host certificate.
     /// </summary>
-    public IsoMax5000Binary[] Certificate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax5000Binary> Certificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cryptographic key involved in the security command.
     /// </summary>
-    public KEKIdentifier4[] KeyProperties { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<KEKIdentifier4> KeyProperties { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

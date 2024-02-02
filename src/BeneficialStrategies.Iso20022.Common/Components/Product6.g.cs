@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Purchased item.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Product6
 {
     #nullable enable
@@ -20,66 +22,82 @@ public partial record Product6
     /// <summary>
     /// Identification of the item inside the purchase transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ItemIdentification { get; init; } 
     /// <summary>
     /// Product code of the item.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text ProductCode { get; init; } 
     /// <summary>
     /// Additional product code related to the product.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AdditionalProductCode { get; init; } 
     /// <summary>
     /// Unit of measure of the item purchased.
     /// </summary>
+    [DataMember]
     public UnitOfMeasure6Code? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Product quantity.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? ProductQuantity { get; init; } 
     /// <summary>
     /// Price per unit of product.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? UnitPrice { get; init; } 
     /// <summary>
     /// Sign of the unit price.
     /// </summary>
+    [DataMember]
     public IsoPlusOrMinusIndicator? UnitPriceSign { get; init; } 
     /// <summary>
     /// Monetary value of purchased product.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount ProductAmount { get; init; } 
     /// <summary>
     /// Sign of the product amount.
     /// </summary>
+    [DataMember]
     public IsoPlusOrMinusIndicator? ProductAmountSign { get; init; } 
     /// <summary>
     /// Value added tax amount of the item included in the product amount.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? ValueAddedTax { get; init; } 
     /// <summary>
     /// Information on tax paid on the product.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TaxType { get; init; } 
     /// <summary>
     /// Description of the product or item.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? ProductDescription { get; init; } 
     /// <summary>
     /// Location of the delivery of the item, for instance pump number or parking bay.
     /// </summary>
+    [DataMember]
     public IsoMax10Text? DeliveryLocation { get; init; } 
     /// <summary>
     /// Identify the method of delivery or distribution of the item.
     /// </summary>
+    [DataMember]
     public AttendanceContext2Code? DeliveryService { get; init; } 
     /// <summary>
     /// Commercial or distribution channel associated to the line item.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? SaleChannel { get; init; } 
     /// <summary>
     /// Additional information related to the line item.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? AdditionalProductDescription { get; init; } 
     
     #nullable disable

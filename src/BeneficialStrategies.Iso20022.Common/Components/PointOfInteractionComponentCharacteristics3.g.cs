@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Physical and logical characteristics of a POI component (Point of Interaction).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PointOfInteractionComponentCharacteristics3
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record PointOfInteractionComponentCharacteristics3
     /// <summary>
     /// Memory characteristics of the component.
     /// </summary>
-    public MemoryCharacteristics1[] Memory { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MemoryCharacteristics1> Memory { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Low level communication of the hardware or software component toward another component or an external entity.
     /// </summary>
-    public CommunicationCharacteristics3[] Communication { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CommunicationCharacteristics3> Communication { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Number of security access modules (SAM).
     /// </summary>
+    [DataMember]
     public IsoNumber? SecurityAccessModules { get; init; } 
     /// <summary>
     /// Number of subscriber identity modules (SIM).
     /// </summary>
+    [DataMember]
     public IsoNumber? SubscriberIdentityModules { get; init; } 
     /// <summary>
     /// Value for checking a cryptographic key security parameter.
     /// </summary>
+    [DataMember]
     public IsoMax35Binary? KeyCheckValue { get; init; } 
     /// <summary>
     /// Sufficient characteristic information to identify the Key Encryption Key.
     /// </summary>
+    [DataMember]
     public KEKIdentifier5? KeyCharacteristic { get; init; } 
     /// <summary>
     /// Use in DUKPT Key to carry last 5 bytes of derivation value.
     /// </summary>
+    [DataMember]
     public IsoMax5000Binary? EncryptedKey { get; init; } 
     
     #nullable disable

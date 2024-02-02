@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(IdentificationSource5Choice.DomesticIdentificationSource))]
 [KnownType(typeof(IdentificationSource5Choice.ProprietaryIdentificationSource))]
+[DataContract]
 public abstract partial record IdentificationSource5Choice_
 {
 }

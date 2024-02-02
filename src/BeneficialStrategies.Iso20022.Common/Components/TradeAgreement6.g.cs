@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contractual details related to the agreement between parties.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeAgreement6
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record TradeAgreement6
     /// <summary>
     /// Party that is specified as the buyer for this trade agreement.
     /// </summary>
+    [DataMember]
     public required TradeParty1 Buyer { get; init; } 
     /// <summary>
     /// Party that is specified as the seller for this trade agreement.
     /// </summary>
+    [DataMember]
     public required TradeParty1 Seller { get; init; } 
     /// <summary>
     /// Quotation document referenced from this trade agreement.
     /// </summary>
+    [DataMember]
     public DocumentIdentification22? QuotationDocumentIdentification { get; init; } 
     /// <summary>
     /// Contract document referenced from this trade agreement.
     /// </summary>
+    [DataMember]
     public DocumentIdentification22? ContractDocumentIdentification { get; init; } 
     /// <summary>
     /// Buyer order document referenced from this trade agreement.
     /// </summary>
+    [DataMember]
     public DocumentIdentification22? BuyerOrderIdentificationDocument { get; init; } 
     /// <summary>
     /// Additional document referenced from this trade agreement.
     /// </summary>
-    public DocumentGeneralInformation2[] AdditionalReferenceDocument { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DocumentGeneralInformation2> AdditionalReferenceDocument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the applicable Incoterm and associated location.
     /// </summary>
+    [DataMember]
     public Incoterms3? Incoterms { get; init; } 
     
     #nullable disable

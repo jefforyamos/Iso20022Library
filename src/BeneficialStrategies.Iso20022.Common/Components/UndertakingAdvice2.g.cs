@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the advice for the issuance of an undertaking.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UndertakingAdvice2
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record UndertakingAdvice2
     /// <summary>
     /// Unique and unambiguous identifier assigned by the applicant to the undertaking.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ApplicantReferenceNumber { get; init; } 
     /// <summary>
     /// Party obligated to reimburse the issuer.
     /// </summary>
+    [DataMember]
     public PartyIdentification43? Obligor { get; init; } 
     /// <summary>
     /// Contents of the related UndertakingIssuance message.
     /// </summary>
+    [DataMember]
     public required UndertakingIssuanceMessage UndertakingIssuanceMessage { get; init; } 
     /// <summary>
     /// Medium used to issue the original undertaking.
     /// </summary>
+    [DataMember]
     public PresentationMedium1Code? OriginalIssuedMedium { get; init; } 
     /// <summary>
     /// Document or template enclosed in the notification.
     /// </summary>
-    public Document9[] EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Document9> EnclosedFile { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the undertaking notification.
     /// </summary>
-    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

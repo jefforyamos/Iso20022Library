@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(FrequencyCodeAndDSSCode1Choice.FrequencyAsCode))]
 [KnownType(typeof(FrequencyCodeAndDSSCode1Choice.FrequencyAsDSS))]
+[DataContract]
 public abstract partial record FrequencyCodeAndDSSCode1Choice_
 {
 }

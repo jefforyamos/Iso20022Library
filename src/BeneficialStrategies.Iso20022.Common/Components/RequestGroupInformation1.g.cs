@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of characteristics that unambiguously identify the global invoice financing request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RequestGroupInformation1
 {
     #nullable enable
@@ -20,51 +22,63 @@ public partial record RequestGroupInformation1
     /// <summary>
     /// Point to point reference assigned by the financing requestor to unambiguously identify the invoice financing request message.||Usage: The financing requestor has to make sure that 'GroupIdentification' is unique for a pre-agreed period.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text GroupIdentification { get; init; } 
     /// <summary>
     /// Date and time on which the invoice financing request was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// User identification or any user key that allows to check if the financing requestor is allowed to ask for invoice financing.||Usage: the content is not of a technical nature, but reflects the organisational structure at the requesting side.|The authorisation element can typically be used in case the financing requestor acts on behalf of one or more suppliers.
     /// </summary>
-    public IsoMax128Text[] Authorisation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax128Text> Authorisation { get; init; } = [];
     /// <summary>
     /// Specifies the number of single invoice financing requests included in the bulk request message.
     /// </summary>
+    [DataMember]
     public IsoMax15NumericText? NumberOfInvoiceRequests { get; init; } 
     /// <summary>
     /// Total amount of the bulk invoice financing request. It is composed by the sum of the total amounts of all invoices included in the financing request.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalBulkInvoiceAmount { get; init; } 
     /// <summary>
     /// Reference currency of the invoice financing request.
     /// </summary>
+    [DataMember]
     public required CurrencyCode Currency { get; init; } 
     /// <summary>
     /// Specifies the financing method related to invoice financing (eg collection mandate).
     /// </summary>
+    [DataMember]
     public IsoMax350Text? FinancingAgreement { get; init; } 
     /// <summary>
     /// Party that requests the invoice financing, on behalf of a creditor.
     /// </summary>
+    [DataMember]
     public required PartyIdentificationAndAccount6 FinancingRequestor { get; init; } 
     /// <summary>
     /// Financial institution that receives the request from the financing requestor and forwards it to the first agent for execution.
     /// </summary>
+    [DataMember]
     public FinancialInstitutionIdentification6? IntermediaryAgent { get; init; } 
     /// <summary>
     /// Financial institution of financing requestor to which an invoice financing request is addressed.
     /// </summary>
+    [DataMember]
     public required FinancialInstitutionIdentification6 FirstAgent { get; init; } 
     /// <summary>
     /// Agreements between financing requestor and his bank concerning conditions about the service of invoice financing, based on specific contractual schemes.
     /// </summary>
-    public AgreementClauses1[] AgreementClauses { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AgreementClauses1> AgreementClauses { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the financing request.
     /// </summary>
-    public AdditionalInformation1[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation1> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

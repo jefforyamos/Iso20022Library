@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(InstructionCancellationRequestStatus7Choice.Rejected))]
 [KnownType(typeof(InstructionCancellationRequestStatus7Choice.PendingCancellation))]
 [KnownType(typeof(InstructionCancellationRequestStatus7Choice.ProprietaryStatus))]
+[DataContract]
 public abstract partial record InstructionCancellationRequestStatus7Choice_
 {
 }

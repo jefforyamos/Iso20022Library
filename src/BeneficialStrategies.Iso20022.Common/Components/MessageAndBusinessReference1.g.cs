@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the message reference of the message for which the status is requested and the business reference of the transfer instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MessageAndBusinessReference1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record MessageAndBusinessReference1
     /// <summary>
     /// Reference to a linked message that was previously sent.
     /// </summary>
+    [DataMember]
     public required AdditionalReference2 PreviousReference { get; init; } 
     /// <summary>
     /// Reference to a linked message sent in a proprietary way or the reference of a system.
     /// </summary>
+    [DataMember]
     public required AdditionalReference2 OtherReference { get; init; } 
     /// <summary>
     /// Investment account information of the transfer message for which the status is requested.
     /// </summary>
+    [DataMember]
     public InvestmentAccount10? InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Business reference of the transfer instruction message.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TransferReference { get; init; } 
     
     #nullable disable

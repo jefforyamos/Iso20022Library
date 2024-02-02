@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information on the status of a trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeData1
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record TradeData1
     /// <summary>
     /// Refers to the identification of a notification.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text NotificationIdentification { get; init; } 
     /// <summary>
     /// Reference to the unique identification assigned to a trade by a central matching system.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MatchingSystemUniqueReference { get; init; } 
     /// <summary>
     /// Identifies the party which assigned a status to a treasury trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? StatusOriginator { get; init; } 
     /// <summary>
     /// Specifies the new status of a trade.
     /// </summary>
+    [DataMember]
     public required TradeStatus1Code CurrentStatus { get; init; } 
     /// <summary>
     /// Description of the status of a trade when no coded form is available.
     /// </summary>
+    [DataMember]
     public required IsoExtended350Code ExtendedCurrentStatus { get; init; } 
     /// <summary>
     /// Additional information on the current status of a trade in a central system.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? CurrentStatusSubType { get; init; } 
     /// <summary>
     /// Specifies the time at which the current status was assigned.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? CurrentStatusTime { get; init; } 
     /// <summary>
     /// Specifies the previous status of a trade.
     /// </summary>
+    [DataMember]
     public TradeStatus1Code? PreviousStatus { get; init; } 
     /// <summary>
     /// Description of the status of a trade when no coded form is available.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedPreviousStatus { get; init; } 
     /// <summary>
     /// Additional information on the previous status of a trade in a central system.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? PreviousStatusSubType { get; init; } 
     /// <summary>
     /// Specifies the time at which the previous status was assigned.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? PreviousStatusTime { get; init; } 
     /// <summary>
     /// Specifies the product for which the status of the confirmation is reported.
     /// </summary>
+    [DataMember]
     public IsoMax4AlphaNumericText? ProductType { get; init; } 
     
     #nullable disable

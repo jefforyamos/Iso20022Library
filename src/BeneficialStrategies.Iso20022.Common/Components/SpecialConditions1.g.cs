@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data used to assign specific conditions such as liability shift or preferential interchange fees.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SpecialConditions1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SpecialConditions1
     /// <summary>
     /// Identification of the special condition.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Level of the condition.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Value { get; init; } 
     
     #nullable disable

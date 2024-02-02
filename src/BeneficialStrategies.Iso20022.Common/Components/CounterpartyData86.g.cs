@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data specific to counterparties.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CounterpartyData86
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CounterpartyData86
     /// <summary>
     /// Set of information identifying the reporting counterparty.
     /// </summary>
+    [DataMember]
     public CounterpartyIdentification10? ReportingCounterparty { get; init; } 
     /// <summary>
     /// Data specific to other counterparties and related information.
     /// </summary>
+    [DataMember]
     public OrganisationIdentification15Choice_? OtherCounterparty { get; init; } 
     /// <summary>
     /// Specifies if a triparty agent is involved in the transaction.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? TripartyAgent { get; init; } 
     /// <summary>
     /// Specifies if the agent lender is involved in the securities lending transaction.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? AgentLender { get; init; } 
     
     #nullable disable

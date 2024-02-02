@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the status report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatusReportContent4
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record StatusReportContent4
     /// <summary>
     /// Capabilities of the POI (Point Of Interaction) performing the status report.
     /// </summary>
+    [DataMember]
     public PointOfInteractionCapabilities3? POICapabilities { get; init; } 
     /// <summary>
     /// Data related to a component of the POI (Point Of Interaction) performing the status report.
     /// </summary>
-    public PointOfInteractionComponent5[] POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PointOfInteractionComponent5> POIComponent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Human attendance at the POI (Point Of Interaction) location during transactions.
     /// </summary>
+    [DataMember]
     public AttendanceContext1Code? AttendanceContext { get; init; } 
     /// <summary>
     /// System date time of the point of interaction (POI) sending the status report.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime POIDateTime { get; init; } 
     /// <summary>
     /// Request the terminal management system to answer with the identified data set.
     /// </summary>
+    [DataMember]
     public TerminalManagementDataSet12? DataSetRequired { get; init; } 
     /// <summary>
     /// Result of an individual terminal management action by the point of interaction.
     /// </summary>
-    public TMSEvent3[] Event { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TMSEvent3> Event { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Error log of the point of interaction since the last status report.
     /// </summary>
-    public IsoMax140Text[] Errors { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax140Text> Errors { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains the set of elements used to provide details of the currency exchange.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyExchange12
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record CurrencyExchange12
     /// <summary>
     /// Specifies the currency from which an amount is to be converted in a currency conversion.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode SourceCurrency { get; init; } 
     /// <summary>
     /// Specifies the currency into which an amount is to be converted in a currency conversion.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode TargetCurrency { get; init; } 
     /// <summary>
     /// Specifies the factor used to convert an amount from one currency into another. This reflects the price at which one currency was bought with another currency.
     /// Usage: ExchangeRate expresses the ratio between UnitCurrency and QuotedCurrency (ExchangeRate = UnitCurrency/QuotedCurrency).
     /// </summary>
+    [DataMember]
     public required IsoBaseOneRate ExchangeRate { get; init; } 
     
     #nullable disable

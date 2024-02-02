@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the legs of swap transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SwapLegIdentification3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SwapLegIdentification3
     /// <summary>
     /// Instrument received by the buyer.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentIdentification8Choice_? SwapIn { get; init; } 
     /// <summary>
     /// Instrument paid by the buyer.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentIdentification8Choice_? SwapOut { get; init; } 
     
     #nullable disable

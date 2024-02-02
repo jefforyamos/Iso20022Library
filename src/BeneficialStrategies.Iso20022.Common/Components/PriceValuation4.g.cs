@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Calculation of the net asset value for an investment fund/fund class.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PriceValuation4
 {
     #nullable enable
@@ -20,66 +22,82 @@ public partial record PriceValuation4
     /// <summary>
     /// Unique technical identifier for an instance of a price valuation within a price report, as assigned by the issuer of the report.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     /// <summary>
     /// Date and time of the price valuation for the investment fund/fund class.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? ValuationDateTime { get; init; } 
     /// <summary>
     /// Date and time at which a price is applied, according to the terms stated in the prospectus. The NAV date is also known as the trade date. The NAV date becomes the trade date in an order.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ NAVDateTime { get; init; } 
     /// <summary>
     /// Investment fund class for which the net asset value is calculated.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument8 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Issuer of the fund.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? FundManagementCompany { get; init; } 
     /// <summary>
     /// Value of all the holdings, less the fund's liabilities, attributable to a specific investment fund class.
     /// </summary>
-    public IsoActiveOrHistoricCurrencyAndAmount[] TotalNAV { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoActiveOrHistoricCurrencyAndAmount> TotalNAV { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total number of investment fund class units that have been issued.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? TotalUnitsNumber { get; init; } 
     /// <summary>
     /// Date and time of the next price valuation for the investment fund/fund class.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? NextValuationDateTime { get; init; } 
     /// <summary>
     /// Date and time of the previous price valuation for the investment fund/fund class.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? PreviousValuationDateTime { get; init; } 
     /// <summary>
     /// Specifies how the valuation is done, based on the schedule stated in the prospectus.
     /// </summary>
+    [DataMember]
     public required ValuationTiming1Code ValuationType { get; init; } 
     /// <summary>
     /// Frequency of the valuation.
     /// </summary>
+    [DataMember]
     public EventFrequency1Code? ValuationFrequency { get; init; } 
     /// <summary>
     /// Indicates whether the valuation is an official valuation.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator OfficialValuationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the valuation of the investment fund class is suspended.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator SuspendedIndicator { get; init; } 
     /// <summary>
     /// Amount of money for which goods or services are offered, sold, or bought.
     /// </summary>
-    public UnitPrice15[] PriceDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<UnitPrice15> PriceDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to the price variations of an investment fund class.
     /// </summary>
-    public ValuationStatistics3[] ValuationStatistics { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ValuationStatistics3> ValuationStatistics { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Factors that give indications about the performance of a fund.
     /// </summary>
+    [DataMember]
     public PerformanceFactors1? PerformanceDetails { get; init; } 
     
     #nullable disable

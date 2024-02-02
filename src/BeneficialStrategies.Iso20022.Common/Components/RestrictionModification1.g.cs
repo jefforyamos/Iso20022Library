@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of change to a restriction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RestrictionModification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RestrictionModification1
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
+    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Restriction.
     /// </summary>
+    [DataMember]
     public required Restriction1 Restriction { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Card payment completion advice response from the acquirer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentTransactionAdviceResponse1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CardPaymentTransactionAdviceResponse1
     /// <summary>
     /// Unique identification of the transaction by the POI.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Result of a requested service.
     /// </summary>
+    [DataMember]
     public required Response1Code Response { get; init; } 
     
     #nullable disable

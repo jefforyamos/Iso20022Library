@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Extension to cater for specific corporate action dates.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionDate21SD1
 {
     #nullable enable
@@ -21,65 +23,78 @@ public partial record CorporateActionDate21SD1
     /// Unambiguous reference to the location where the supplementary data must be inserted in the message instance. 
     /// In the case of XML, this is expressed by a valid XPath.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Date and time of notification via web service as reference information.
     /// 通知日時 Notification date and time.
     /// </summary>
+    [DataMember]
     public DateFormat22Choice_? WebServiceNotificationDate { get; init; } 
     /// <summary>
     /// Date and time of previous notification via web service as a reference information (in case of replacement). 
     /// 訂正（削除）前通知日時.
     /// </summary>
+    [DataMember]
     public DateFormat22Choice_? PreviousWebServiceNotificationDate { get; init; } 
     /// <summary>
     /// Actual record date - the previous business day of the record date if the record date falls to Saturday, Sunday or national holiday.
     /// 権利確定日.
     /// </summary>
+    [DataMember]
     public DateFormat22Choice_? ActualRecordDate { get; init; } 
     /// <summary>
     /// Date of the board meeting.
     /// 取締役会決議日.
     /// </summary>
+    [DataMember]
     public DateFormat22Choice_? BoardMeetingDate { get; init; } 
     /// <summary>
     /// Date on which the new company will be registered.
     /// 新設会社登記日.
     /// </summary>
+    [DataMember]
     public DateFormat22Choice_? CorporateRegistrationDate { get; init; } 
     /// <summary>
     /// Earliest planned date on which the issue price will be set.
     /// 発行価格決定予定日（最短）.
     /// </summary>
+    [DataMember]
     public DateFormat22Choice_? EarliestPlannedDateOfIssuePrice { get; init; } 
     /// <summary>
     /// Latest planned date on which the issue price will be set.
     /// 発行価格決定予定日（最長）.
     /// </summary>
+    [DataMember]
     public DateFormat22Choice_? LatestPlannedDateOfIssuePrice { get; init; } 
     /// <summary>
     /// Date on which the issue price will be set.
     /// 発行価格決定日.
     /// </summary>
+    [DataMember]
     public DateFormat22Choice_? DateOfIssuePrice { get; init; } 
     /// <summary>
     /// Earliest planned date on which the cash payment (for the subscription cost) will be made.
     /// 払込期日予定日（最短）.
     /// </summary>
+    [DataMember]
     public DateFormat22Choice_? EarliestPlannedSubscriptionCostPaymentDate { get; init; } 
     /// <summary>
     /// Latest planned date on which the cash payment (for the subscription cost) will be made.
     /// 払込期日予定日（最長）.
     /// </summary>
+    [DataMember]
     public DateFormat22Choice_? LatestPlannedSubscriptionCostPaymentDate { get; init; } 
     /// <summary>
     /// Listing date of the new shares announced by Stock Exchange.
     /// 変更上場日.
     /// </summary>
+    [DataMember]
     public DateFormat22Choice_? SubsequentListingDate { get; init; } 
     /// <summary>
     /// Date at which the new share unit quantity becomes effective.
     /// </summary>
+    [DataMember]
     public DateFormat22Choice_? NewShareUnitQuantityEffectiveDate { get; init; } 
     
     #nullable disable

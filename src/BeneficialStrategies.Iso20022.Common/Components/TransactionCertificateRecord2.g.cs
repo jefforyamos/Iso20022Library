@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Certificate record in which all currency control transactions are registered.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionCertificateRecord2
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record TransactionCertificateRecord2
     /// <summary>
     /// Unique and unambiguous identification of the certificate record.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text CertificateRecordIdentification { get; init; } 
     /// <summary>
     /// Indication of procedure for submitting documents.
     /// </summary>
+    [DataMember]
     public IsoExact1NumericText? DocumentSubmittingProcedure { get; init; } 
     /// <summary>
     /// Details of the transaction for which the record has been generated.
     /// </summary>
+    [DataMember]
     public required TransactionCertificate5 Transaction { get; init; } 
     /// <summary>
     /// Contract registration details related to the certificate record.
     /// </summary>
+    [DataMember]
     public TransactionCertificateContract2? Contract { get; init; } 
     /// <summary>
     /// Documents provided as attachments to the registered contract.
     /// </summary>
-    public DocumentGeneralInformation5[] Attachment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DocumentGeneralInformation5> Attachment { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

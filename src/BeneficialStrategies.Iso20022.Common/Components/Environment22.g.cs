@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment related to the reconciliation of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Environment22
 {
     #nullable enable
@@ -20,62 +22,77 @@ public partial record Environment22
     /// <summary>
     /// Identification of the Acquirer.
     /// </summary>
+    [DataMember]
     public PartyIdentification263? Acquirer { get; init; } 
     /// <summary>
     /// Initiator of the process.
     /// </summary>
+    [DataMember]
     public PartyIdentification263? Originator { get; init; } 
     /// <summary>
     /// Party sending the message to another intermediary agent or to the destination.
     /// </summary>
+    [DataMember]
     public PartyIdentification263? Sender { get; init; } 
     /// <summary>
     /// Party receiving the message from the originator or another intermediary agent.
     /// </summary>
+    [DataMember]
     public PartyIdentification263? Receiver { get; init; } 
     /// <summary>
     /// Acceptor of the payment instrument.
     /// </summary>
+    [DataMember]
     public PartyIdentification254? Acceptor { get; init; } 
     /// <summary>
     /// The party providing source of funds.
     /// </summary>
+    [DataMember]
     public PartyIdentification257? Payer { get; init; } 
     /// <summary>
     /// The party receiving funds.
     /// </summary>
+    [DataMember]
     public PartyIdentification257? Payee { get; init; } 
     /// <summary>
     /// Payment terminal or ATM performing the transaction.
     /// </summary>
+    [DataMember]
     public Terminal4? Terminal { get; init; } 
     /// <summary>
     /// Information related to the issuer.
     /// </summary>
+    [DataMember]
     public PartyIdentification263? Issuer { get; init; } 
     /// <summary>
     /// Card or payment token performing the transaction.
     /// </summary>
+    [DataMember]
     public CardData8? Card { get; init; } 
     /// <summary>
     /// Destination of the message.
     /// </summary>
+    [DataMember]
     public PartyIdentification263? Destination { get; init; } 
     /// <summary>
     /// Details of the customer device.
     /// </summary>
+    [DataMember]
     public CustomerDevice4? CustomerDevice { get; init; } 
     /// <summary>
     /// Container for tenders used by the customer to perform the payment transaction.
     /// </summary>
+    [DataMember]
     public Wallet2? Wallet { get; init; } 
     /// <summary>
     /// Details of payment token.
     /// </summary>
+    [DataMember]
     public Token3? Token { get; init; } 
     /// <summary>
     /// Cardholder performing the card payment transaction.
     /// </summary>
+    [DataMember]
     public Cardholder19? Cardholder { get; init; } 
     
     #nullable disable

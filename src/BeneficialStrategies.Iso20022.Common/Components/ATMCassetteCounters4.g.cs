@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Counters of media inside an ATM cassette.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMCassetteCounters4
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record ATMCassetteCounters4
     /// <summary>
     /// Type of counters.
     /// </summary>
+    [DataMember]
     public required ATMCounterType1Code Type { get; init; } 
     /// <summary>
     /// Number of added media during servicing operations.
     /// </summary>
+    [DataMember]
     public IsoNumber? AddedNumber { get; init; } 
     /// <summary>
     /// Number of removed media during servicing operations.
     /// </summary>
+    [DataMember]
     public IsoNumber? RemovedNumber { get; init; } 
     /// <summary>
     /// Total number of media out of the cassette.
     /// </summary>
+    [DataMember]
     public IsoNumber? DispensedNumber { get; init; } 
     /// <summary>
     /// Total number of media deposited in the cassette.
     /// </summary>
+    [DataMember]
     public IsoNumber? DepositedNumber { get; init; } 
     /// <summary>
     /// Total number of recycled media from the cassette.
     /// </summary>
+    [DataMember]
     public IsoNumber? RecycledNumber { get; init; } 
     /// <summary>
     /// Total number of retracted media originating from the cassette.
     /// </summary>
+    [DataMember]
     public IsoNumber? RetractedNumber { get; init; } 
     /// <summary>
     /// Total number of media from this cassette which are on the reject bin.
     /// </summary>
+    [DataMember]
     public IsoNumber? RejectedNumber { get; init; } 
     /// <summary>
     /// Total number of media presented to the customer.
     /// </summary>
+    [DataMember]
     public IsoNumber? PresentedNumber { get; init; } 
     
     #nullable disable

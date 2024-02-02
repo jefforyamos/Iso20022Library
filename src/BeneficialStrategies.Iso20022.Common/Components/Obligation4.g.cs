@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information like the identification of the party or parties associated with the collateral agreement, the exposure type and the valuation date.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Obligation4
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record Obligation4
     /// <summary>
     /// Defines one of the entities associated with the collateral agreement.
     /// </summary>
+    [DataMember]
     public required PartyIdentification100Choice_ PartyA { get; init; } 
     /// <summary>
     /// Specifies the party that is acting on behalf of party A and that offers collateral management services.
     /// </summary>
+    [DataMember]
     public PartyIdentification100Choice_? ServicingPartyA { get; init; } 
     /// <summary>
     /// Defines the other entity associated with the collateral agreement.
     /// </summary>
+    [DataMember]
     public required PartyIdentification100Choice_ PartyB { get; init; } 
     /// <summary>
     /// Specifies the party that is acting on behalf of party B and that offers collateral management services.
     /// </summary>
+    [DataMember]
     public PartyIdentification100Choice_? ServicingPartyB { get; init; } 
     /// <summary>
     /// Provides additional information on the collateral account of the party delivering/receiving the collateral.
     /// </summary>
+    [DataMember]
     public CollateralAccount2? CollateralAccountIdentification { get; init; } 
     /// <summary>
     /// Specifies the underlying business area or type of trade causing the collateral movement.
     /// </summary>
+    [DataMember]
     public ExposureType5Code? ExposureType { get; init; } 
     /// <summary>
     /// Indicates the close of business date on which the initiating party is valuing the margin call.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ ValuationDate { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// GenericInformation exchanged with a name and value.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericInformation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record GenericInformation1
     /// <summary>
     /// Name of the generic information to exchange.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text Name { get; init; } 
     /// <summary>
     /// Value of the generic information to exchange.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Value { get; init; } 
     
     #nullable disable

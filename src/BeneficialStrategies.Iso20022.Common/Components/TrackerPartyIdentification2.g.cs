@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the identification of a person or an organisation or a financial institution in the tracker.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerPartyIdentification2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TrackerPartyIdentification2
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Name { get; init; } 
     /// <summary>
     /// Information that locates and identifies a specific address, as defined by postal services.
     /// </summary>
+    [DataMember]
     public PostalAddress24? PostalAddress { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of a party.
     /// </summary>
+    [DataMember]
     public TrackerParty2Choice_? Identification { get; init; } 
     
     #nullable disable

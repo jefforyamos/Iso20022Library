@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ClearingPartyAndTime21Choice.Reason))]
 [KnownType(typeof(ClearingPartyAndTime21Choice.Details))]
+[DataContract]
 public abstract partial record ClearingPartyAndTime21Choice_
 {
 }

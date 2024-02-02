@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about securities quantity linked to a corporate action option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesQuantitySD7
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SecuritiesQuantitySD7
     /// <summary>
     /// Total oversubscription quantity of all transaction sequence instructions.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity4? TotalOversubscriptionQuantity { get; init; } 
     /// <summary>
     /// Quantity covered but transactions not in "MADE" status.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity31Choice_? InterimCoveredQuantity { get; init; } 
     /// <summary>
     /// Minimum quantity of securities to be accepted (used in the framework of conditional privilege on election). In case of proration, if this minimum quantity is not reached then the instruction is void.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity15Choice_? ConditionalQuantity { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies a proprietary party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProprietaryParty3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ProprietaryParty3
     /// <summary>
     /// Specifies the type of proprietary party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Proprietary party.
     /// </summary>
+    [DataMember]
     public required PartyIdentification43 Party { get; init; } 
     
     #nullable disable

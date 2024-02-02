@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the closing of the securities financing transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesFinancingTransactionDetails30
 {
     #nullable enable
@@ -20,114 +22,142 @@ public partial record SecuritiesFinancingTransactionDetails30
     /// <summary>
     /// Unambiguous identification of the underlying securities financing trade as assigned by the instructing party. The identification is common to all collateral pieces (one or many).
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? SecuritiesFinancingTradeIdentification { get; init; } 
     /// <summary>
     /// Unambiguous identification of the second leg of the transaction as known by the account owner (or the instructing party acting on its behalf).
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax16Text? ClosingLegIdentification { get; init; } 
     /// <summary>
     /// Closing date/time or maturity date/time of the transaction.
     /// </summary>
+    [DataMember]
     public TerminationDate5Choice_? TerminationDate { get; init; } 
     /// <summary>
     /// Date/Time at which rate change has taken place.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? RateChangeDate { get; init; } 
     /// <summary>
     /// Earliest date/time at which the call back can take place.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? EarliestCallBackDate { get; init; } 
     /// <summary>
     /// Date/time at which the commission is calculated.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? CommissionCalculationDate { get; init; } 
     /// <summary>
     /// Specifies whether the rate is fixed or variable.
     /// </summary>
+    [DataMember]
     public RateType67Choice_? RateType { get; init; } 
     /// <summary>
     /// Specifies whether the collateral position should be subject to automatic revaluation by the account servicer.
     /// </summary>
+    [DataMember]
     public RevaluationIndicator4Choice_? Revaluation { get; init; } 
     /// <summary>
     /// Legal framework of the transaction.
     /// </summary>
+    [DataMember]
     public LegalFramework4Choice_? LegalFramework { get; init; } 
     /// <summary>
     /// Identifies the computation method of accrued interest of the related financial instrument.
     /// </summary>
+    [DataMember]
     public InterestComputationMethodFormat5Choice_? InterestComputationMethod { get; init; } 
     /// <summary>
     /// Specifies whether the maturity date of the securities financing transaction may be modified.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? MaturityDateModification { get; init; } 
     /// <summary>
     /// Specifies whether the interest is to be paid to the collateral taker. If set to no, the interest is paid to the collateral giver.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? InterestPayment { get; init; } 
     /// <summary>
     /// Index or support rate used together with the spread to calculate the|repurchase rate.
     /// </summary>
+    [DataMember]
     public RateName2? VariableRateSupport { get; init; } 
     /// <summary>
     /// Rate to be used to recalculate the repurchase amount.
     /// </summary>
+    [DataMember]
     public Rate2? RepurchaseRate { get; init; } 
     /// <summary>
     /// Percentage mark-up on a loan consideration used to reflect the lender's risk.
     /// </summary>
+    [DataMember]
     public Rate2? StockLoanMargin { get; init; } 
     /// <summary>
     /// Haircut or valuation factor on the security expressed as a percentage.
     /// </summary>
+    [DataMember]
     public Rate2? SecuritiesHaircut { get; init; } 
     /// <summary>
     /// Interest rate paid in the context of a securities financing transaction.
     /// </summary>
+    [DataMember]
     public Rate2? ChargesRate { get; init; } 
     /// <summary>
     /// Interest rate to be paid on the transaction amount, as agreed between the counterparties.
     /// </summary>
+    [DataMember]
     public RateOrName2Choice_? PricingRate { get; init; } 
     /// <summary>
     /// Repurchase spread expressed as a rate; margin over or under an index that determines the repurchase rate.
     /// </summary>
+    [DataMember]
     public Rate2? Spread { get; init; } 
     /// <summary>
     /// Minimum number of days' notice a counterparty needs for terminating the transaction.
     /// </summary>
+    [DataMember]
     public IsoExact3NumericText? TransactionCallDelay { get; init; } 
     /// <summary>
     /// Total number of collateral instructions involved in the transaction.
     /// </summary>
+    [DataMember]
     public IsoExact3NumericText? TotalNumberOfCollateralInstructions { get; init; } 
     /// <summary>
     /// Principal amount of a trade (for second leg).
     /// </summary>
+    [DataMember]
     public AmountAndDirection59? DealAmount { get; init; } 
     /// <summary>
     /// Interest amount that has accrued in between coupon payment periods.
     /// </summary>
+    [DataMember]
     public AmountAndDirection59? AccruedInterestAmount { get; init; } 
     /// <summary>
     /// Fixed amount of money that has to be paid (instead of interest) in the case of a recall or at the closing date.
     /// </summary>
+    [DataMember]
     public AmountAndDirection59? ForfeitAmount { get; init; } 
     /// <summary>
     /// Difference between the amount of money of the first leg and the amount of the second leg of the transaction.
     /// </summary>
+    [DataMember]
     public AmountAndDirection59? PremiumAmount { get; init; } 
     /// <summary>
     /// Amount of money to be settled per piece of collateral to terminate the transaction.
     /// </summary>
+    [DataMember]
     public AmountAndDirection59? TerminationAmountPerPieceOfCollateral { get; init; } 
     /// <summary>
     /// Total amount of money to be settled to terminate the transaction.
     /// </summary>
+    [DataMember]
     public AmountAndDirection59? TerminationTransactionAmount { get; init; } 
     /// <summary>
     /// Provides additional information about the second leg in narrative form.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax140Text? SecondLegNarrative { get; init; } 
     
     #nullable disable

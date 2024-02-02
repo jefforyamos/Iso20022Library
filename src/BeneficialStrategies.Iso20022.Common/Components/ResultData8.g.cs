@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Result of the processing.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ResultData8
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record ResultData8
     /// <summary>
     /// Generic result of the processing.
     /// </summary>
+    [DataMember]
     public Response6Code? Result { get; init; } 
     /// <summary>
     /// Other type of result of the processing.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherResult { get; init; } 
     /// <summary>
     /// Detailed results of the processing, conforming to ISO 8583 Response codes list.  This code list is maintained by the ISO 8583/MA (maintenance agency).
     /// </summary>
+    [DataMember]
     public required ISO8583ResponseCode ResultDetails { get; init; } 
     /// <summary>
     /// Other result details of the processing.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherResultDetails { get; init; } 
     /// <summary>
     /// Additional result information to be conveyed.
     /// </summary>
-    public AdditionalData1[] AdditionalResultInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalResultInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

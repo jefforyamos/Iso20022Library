@@ -14,6 +14,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Cardholder verification capabilities performing the transaction at the point of service.
 /// ISO 8583:87 bit 22-3, ISO 8583;93 bit 22-2, ISO 8583:2003 bit 27-2
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardholderVerificationCapabilities1
 {
     #nullable enable
@@ -22,10 +24,12 @@ public partial record CardholderVerificationCapabilities1
     /// Cardholder verification capabilities performing the transaction at the point of service.
     /// ISO 8583:93 bit 22-2, ISO 8583:2003-1 bit 27-2
     /// </summary>
+    [DataMember]
     public required CardholderVerificationCapability5Code Capability { get; init; } 
     /// <summary>
     /// Other types of cardholder verification capabilities.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherCapability { get; init; } 
     
     #nullable disable

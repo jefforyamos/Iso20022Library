@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains financial reconciliation data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialReconciliation2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FinancialReconciliation2
     /// <summary>
     /// Reconciliation credit or debit indicator.
     /// </summary>
+    [DataMember]
     public required ReconciliationImpact1Code ReconciliationImpact { get; init; } 
     /// <summary>
     /// Contains the reconciliation category.
     /// </summary>
+    [DataMember]
     public required ReconciliationCategory1Code Type { get; init; } 
     /// <summary>
     /// Other reconciliation category defined at national or private level.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Cumulative amount of all financial transactions.
@@ -35,6 +40,7 @@ public partial record FinancialReconciliation2
     /// ISO 8583:93 bit 86,87,88 ,89,105 & 106
     /// ISO 8583:2003 bit 74-1,74-3,74-5,74-7,74-9 & 74-11
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Number of transactions.
@@ -42,6 +48,7 @@ public partial record FinancialReconciliation2
     /// ISO 8583:93 bit 74, 75, 76, 77, 78, 79, 80, 81, 83, 84, 85, 90, 107 & 108
     /// ISO 8583:2003 bit 74-2, 74-4, 74-6, 74-8, 74-10, 74-12, 75-1, 75-2, 75-4, 75-5, 75-6, 76-7, 75-8 & 75-9
     /// </summary>
+    [DataMember]
     public required IsoNumber Count { get; init; } 
     
     #nullable disable

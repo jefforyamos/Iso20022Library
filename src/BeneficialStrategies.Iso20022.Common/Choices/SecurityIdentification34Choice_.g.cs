@@ -15,6 +15,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SecurityIdentification34Choice.BasketConstituents))]
 [KnownType(typeof(SecurityIdentification34Choice.Index))]
 [KnownType(typeof(SecurityIdentification34Choice.IdentificationNotAvailable))]
+[DataContract]
 public abstract partial record SecurityIdentification34Choice_
 {
 }

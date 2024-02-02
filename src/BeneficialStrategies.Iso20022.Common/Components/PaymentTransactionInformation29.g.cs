@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide reference and status information on the original transactions, included in the original instruction, to which the reversal message applies.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTransactionInformation29
 {
     #nullable enable
@@ -20,70 +22,87 @@ public partial record PaymentTransactionInformation29
     /// <summary>
     /// Unique identification, as assigned by an instructing party for an instructed party, to unambiguously identify the reversed transaction.|Usage: The instructing party is the party sending the reversal message and not the party that sent the original instruction that is being reversed.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReversalIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original instructing party for the original instructed party, to unambiguously identify the original instruction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalInstructionIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original initiating party, to unambiguously identify the original transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalEndToEndIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original first instructing agent, to umambiguously identify the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique reference, as assigned by the original clearing system, to unambiguously identify the original instruction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalClearingSystemReference { get; init; } 
     /// <summary>
     /// Amount of money, as provided in the original transaction, to be moved between the instructing agent and the instructed agent.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent in the reversed transaction.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount ReversedInterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.||Usage: The InterbankSettlementDate is the interbank settlement date of the reversal message, and not of the original instruction.
     /// </summary>
+    [DataMember]
     public IsoISODate? InterbankSettlementDate { get; init; } 
     /// <summary>
     /// Amount of money to be moved between the debtor and the creditor, before deduction of charges, in the reversed transaction.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ReversedInstructedAmount { get; init; } 
     /// <summary>
     /// Factor used to convert an amount from one currency into another. This reflects the price at which one currency was bought with another currency.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? ExchangeRate { get; init; } 
     /// <summary>
     /// Amount of money asked or paid as compensation for the processing of the instruction.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? CompensationAmount { get; init; } 
     /// <summary>
     /// Specifies if the creditor and/or debtor will bear the charges associated with the processing of the payment transaction.||Usage: The ChargeBearer applies to the reversal message, not to the original instruction.
     /// </summary>
+    [DataMember]
     public ChargeBearerType1Code? ChargeBearer { get; init; } 
     /// <summary>
     /// Provides information on the charges to be paid by the charge bearer(s) related to the processing of the reversal transaction.
     /// </summary>
-    public ChargesInformation5[] ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ChargesInformation5> ChargesInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Agent that instructs the next party in the chain to carry out the (set of) instruction(s).||Usage: The instructing agent is the party sending the reversal message and not the party that sent the original instruction that is being reversed.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? InstructingAgent { get; init; } 
     /// <summary>
     /// Agent that is instructed by the previous party in the chain to carry out the (set of) instruction(s).||Usage: The instructed agent is the party receiving the reversal message and not the party that received the original instruction that is being reversed.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? InstructedAgent { get; init; } 
     /// <summary>
     /// Set of elements used to provide detailed information on the reversal reason.
     /// </summary>
-    public ReversalReasonInformation6[] ReversalReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReversalReasonInformation6> ReversalReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Set of key elements used to identify the original transaction that is being referred to.
     /// </summary>
+    [DataMember]
     public OriginalTransactionReference13? OriginalTransactionReference { get; init; } 
     
     #nullable disable

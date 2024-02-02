@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Acquirer of the card transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Acquirer6
 {
     #nullable enable
@@ -21,15 +23,18 @@ public partial record Acquirer6
     /// Identification of the acquirer. 
     /// It correspond to the ISO 8583 field number 32.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Identification of the entity assigning the acquirer identification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     /// <summary>
     /// Country of the acquirer. 
     /// It correspond to the ISO 8583 field number 19.
     /// </summary>
+    [DataMember]
     public ISO3NumericCountryCode? CountryCode { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ShipmentSchedule2Choice.ShipmentDateRange))]
 [KnownType(typeof(ShipmentSchedule2Choice.ShipmentSubSchedule))]
+[DataContract]
 public abstract partial record ShipmentSchedule2Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cryptographic algorithm and parameters for encryptions with a symmetric cryptographic key.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AlgorithmIdentification6
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AlgorithmIdentification6
     /// <summary>
     /// Identification of the algorithm.
     /// </summary>
+    [DataMember]
     public required Algorithm6Code Algorithm { get; init; } 
     /// <summary>
     /// Parameters associated with the algorithm.
     /// </summary>
+    [DataMember]
     public Parameter1? Parameter { get; init; } 
     
     #nullable disable

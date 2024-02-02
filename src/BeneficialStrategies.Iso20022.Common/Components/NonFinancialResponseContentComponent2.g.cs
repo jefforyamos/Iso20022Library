@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Aim of the non financial response.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NonFinancialResponseContentComponent2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record NonFinancialResponseContentComponent2
     /// <summary>
     /// Type of non financial request that the Acquirer processed.
     /// </summary>
+    [DataMember]
     public required NonFinancialRequestType1Code NonFinancialRequestType { get; init; } 
     /// <summary>
     /// Identification of the most relevant Acquirer to process the transaction.
     /// </summary>
+    [DataMember]
     public Acquirer10? AcquirerSelected { get; init; } 
     /// <summary>
     /// Advice from the Acquirer (or its Agent) to the POI to manage risk. 
     /// </summary>
+    [DataMember]
     public NonFinancialResponseRisk1Code? RiskManagementResult { get; init; } 
     /// <summary>
     /// Set of actions to be performed by the POI (Point Of Interaction) system.
     /// </summary>
-    public Action12[] Action { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Action12> Action { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Result of the processing of the request.
     /// </summary>
+    [DataMember]
     public required ResponseType11 Response { get; init; } 
     
     #nullable disable

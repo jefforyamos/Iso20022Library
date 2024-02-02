@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the transaction in the cancellation response.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentTransactionDetails6
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CardPaymentTransactionDetails6
     /// <summary>
     /// Currency associated with the transaction.
     /// </summary>
+    [DataMember]
     public required CurrencyCode Currency { get; init; } 
     /// <summary>
     /// Total amount of the transaction.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount TotalAmount { get; init; } 
     
     #nullable disable

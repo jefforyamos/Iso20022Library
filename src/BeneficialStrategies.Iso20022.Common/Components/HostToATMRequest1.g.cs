@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the request to an ATM to contact the ATM manager.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record HostToATMRequest1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record HostToATMRequest1
     /// <summary>
     /// Environment of the ATM.
     /// </summary>
+    [DataMember]
     public required ATMEnvironment9 Environment { get; init; } 
     /// <summary>
     /// Identification of the entity issuing the command.
     /// </summary>
+    [DataMember]
     public ATMCommandIdentification1? CommandIdentification { get; init; } 
     /// <summary>
     /// Message that have to be sent by the ATM.
     /// </summary>
+    [DataMember]
     public required MessageFunction8Code ExpectedMessageFunction { get; init; } 
     
     #nullable disable

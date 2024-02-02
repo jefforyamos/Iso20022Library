@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Message authentication code (MAC), computed on the data to protect with an encryption key.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AuthenticatedData4
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record AuthenticatedData4
     /// <summary>
     /// Version of the data structure.
     /// </summary>
+    [DataMember]
     public IsoNumber? Version { get; init; } 
     /// <summary>
     /// Session key or protection key identification used by the recipient.
     /// </summary>
-    public Recipient4Choice_[] Recipient { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Recipient4Choice_> Recipient { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Algorithm to compute message authentication code (MAC).
     /// </summary>
+    [DataMember]
     public required AlgorithmIdentification15 MACAlgorithm { get; init; } 
     /// <summary>
     /// Data to authenticate.
     /// </summary>
+    [DataMember]
     public required EncapsulatedContent3 EncapsulatedContent { get; init; } 
     /// <summary>
     /// Message authentication code value.
     /// </summary>
+    [DataMember]
     public required IsoMax140Binary MAC { get; init; } 
     
     #nullable disable

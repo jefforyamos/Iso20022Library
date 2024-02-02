@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of Retailer for this message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RetailerSaleEnvironment2
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record RetailerSaleEnvironment2
     /// <summary>
     /// Capabilities of the Sale system.
     /// </summary>
-    public SaleCapabilities1Code[] SaleCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SaleCapabilities1Code> SaleCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Default currency associated with the sale system.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Minimum amount the Sale System is allowed to deliver for this payment.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? MinimumAmountToDeliver { get; init; } 
     /// <summary>
     /// Maximum amount which could be requested for cash-back.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? MaximumCashBackAmount { get; init; } 
     /// <summary>
     /// Minimum amount to split a sale transaction.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? MinimumSplitAmount { get; init; } 
     /// <summary>
     /// Flag if preferred type of payment is a debit transaction.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? DebitPreferredFlag { get; init; } 
     /// <summary>
     /// Way of Loyalty handling.
     /// </summary>
+    [DataMember]
     public LoyaltyHandling1Code? LoyaltyHandling { get; init; } 
     
     #nullable disable

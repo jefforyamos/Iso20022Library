@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a security.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentIdentification3
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record FinancialInstrumentIdentification3
     /// <summary>
     /// Unique and unambiguous identifier of a security, assigned under a formal or proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification25Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Financial Instrument Short Name (FISN) expressed in conformance with the ISO 18774 standard.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     /// <summary>
     /// Type of security.
     /// </summary>
+    [DataMember]
     public ClassificationType32Choice_? ClassificationType { get; init; } 
     /// <summary>
     /// Indicates whether the security is a restricted security.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? RestrictedIndicator { get; init; } 
     /// <summary>
     /// Alternative security offered in place of a restricted security.
     /// </summary>
-    public FinancialInstrumentIdentification4[] AlternateSecurity { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FinancialInstrumentIdentification4> AlternateSecurity { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

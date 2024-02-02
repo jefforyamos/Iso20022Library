@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Obligations of a clearing member with respect to a central counterparty that are calculated based on end of day positions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EndOfDayRequirement2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record EndOfDayRequirement2
     /// <summary>
     /// Liability and assets that arise for a clearing member with respect to a central counterparty.
     /// </summary>
+    [DataMember]
     public required InitialMarginRequirement1 InitialMarginRequirements { get; init; } 
     /// <summary>
     /// Total change in the mark-to-market value of the margin account from the previous day, net of changes in mark-to-market relating to the entry or exit of derivative positions not entered into at zero mark-to-market (such as option premiums and upsettled upfront fees). Indicates whether the variation margin is paid to clearing members.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection102 VariationMarginRequirements { get; init; } 
     /// <summary>
     /// Identification of account used to calculate margin requirements. Usage: In the context of a central counterparty, if reported at the client level (expected for gross omnibus and individual segregated accounts), will report the Client ID in the Internal ID field and choose 'ClientID' for the CCP Participant ID Type. If reported at the clearing member account level will report the account ID in the Internal ID field and choose 'AccountID' for the CCP Participant ID Type.
     /// </summary>
+    [DataMember]
     public required GenericIdentification165 MarginAccountIdentification { get; init; } 
     
     #nullable disable

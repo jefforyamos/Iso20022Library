@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the report from an ATM device.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMDeviceReport1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ATMDeviceReport1
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required ATMEnvironment6 Environment { get; init; } 
     /// <summary>
     /// Global status of the ATM.
     /// </summary>
+    [DataMember]
     public required ATMStatus1 ATMGlobalStatus { get; init; } 
     /// <summary>
     /// Result of a maintenance command performed by the ATM.
     /// </summary>
-    public ATMCommand2[] CommandResult { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCommand2> CommandResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maintenance command which has requested the device report.
     /// </summary>
+    [DataMember]
     public ATMCommand3? CommandContext { get; init; } 
     /// <summary>
     /// Information related to security commands.
     /// </summary>
+    [DataMember]
     public ATMSecurityContext1? ATMSecurityContext { get; init; } 
     
     #nullable disable

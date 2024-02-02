@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters of the asymmetric encryption algorithm.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Parameter13
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Parameter13
     /// <summary>
     /// Identification of the digest algorithm.
     /// </summary>
+    [DataMember]
     public Algorithm20Code? DigestAlgorithm { get; init; } 
     /// <summary>
     /// Mask generator function cryptographic algorithm and parameters.
     /// </summary>
+    [DataMember]
     public AlgorithmIdentification26? MaskGeneratorAlgorithm { get; init; } 
     
     #nullable disable

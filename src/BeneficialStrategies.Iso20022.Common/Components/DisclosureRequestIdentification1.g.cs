@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information identifying the disclosure request for shareholders identification published by the issuer or third party nominated by the issuer in order to receive the disclosure responses from intermediaries in the custody chain.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DisclosureRequestIdentification1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DisclosureRequestIdentification1
     /// <summary>
     /// Official and unique reference assigned to a shareholders identification disclosure request process by the issuer or third party nominated by him.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text IssuerDisclosureRequestIdentification { get; init; } 
     /// <summary>
     /// Identifies the financial instrument.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Date set by the issuer on which shareholders identity is determined based on the settled positions struck in the books of the Issuer CSD or any other first intermediary at the close of business day. 
     /// </summary>
+    [DataMember]
     public required DateFormat46Choice_ ShareholdersDisclosureRecordDate { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status of the transactions sent in a previous batch of card payment transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentBatchTransferResponse4
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record CardPaymentBatchTransferResponse4
     /// <summary>
     /// Totals of transactions of all the data sets.
     /// </summary>
-    public TransactionTotals7[] TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionTotals7> TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information related to the previously sent set of transaction.
     /// </summary>
-    public CardPaymentDataSet14[] DataSet { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardPaymentDataSet14> DataSet { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

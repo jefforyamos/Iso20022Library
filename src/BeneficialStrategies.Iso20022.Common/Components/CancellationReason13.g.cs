@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the reason why the instruction or request is cancelled.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CancellationReason13
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CancellationReason13
     /// <summary>
     /// Specifies the reason why the instruction is cancelled.
     /// </summary>
+    [DataMember]
     public required CancellationReason19Choice_ Code { get; init; } 
     /// <summary>
     /// Provides the corporate action event identification of the event that triggered the cancellation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CorporateActionEventIdentification { get; init; } 
     
     #nullable disable

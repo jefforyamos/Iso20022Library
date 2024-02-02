@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the index used to define the rate and optionaly the basis point spread.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record VariableInterest1Rate
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record VariableInterest1Rate
     /// <summary>
     /// Specifies the index taken into account to calculate the variable interest rate.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Index { get; init; } 
     /// <summary>
     /// Used to express differences in interest rates, for example, a difference of 0.10% is equivalent to a change of 10 basis points.
     /// </summary>
+    [DataMember]
     public IsoNumber? BasisPointSpread { get; init; } 
     
     #nullable disable

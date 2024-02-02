@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Represents the assignment of a case to a party. Assignment is a step in the overall process of managing a case.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CaseAssignment
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CaseAssignment
     /// <summary>
     /// Identification of an assignment within a case.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Party that assigns the case to another party. This is also the sender of the message.
     /// </summary>
+    [DataMember]
     public required IsoAnyBICIdentifier Assigner { get; init; } 
     /// <summary>
     /// Party that the case is assigned to. This is also the receiver of the message.
     /// </summary>
+    [DataMember]
     public required IsoAnyBICIdentifier Assignee { get; init; } 
     /// <summary>
     /// Date and time at which the assignment was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     
     #nullable disable

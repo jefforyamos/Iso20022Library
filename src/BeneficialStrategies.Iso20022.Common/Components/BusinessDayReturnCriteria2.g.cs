@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to report on business day information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BusinessDayReturnCriteria2
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record BusinessDayReturnCriteria2
     /// <summary>
     /// Indicates whether the system date is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? SystemDateIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the system status is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? SystemStatusIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the system currency is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? SystemCurrencyIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the closure information is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? ClosurePeriodIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the events are requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? EventIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the session period is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? SessionPeriodIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the system event type is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? EventTypeIndicator { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Ratio expressed as a quotient of amounts.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AmountToAmountRatio2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AmountToAmountRatio2
     /// <summary>
     /// Numerator of the quotient of amounts.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAnd13DecimalAmount Amount1 { get; init; } 
     /// <summary>
     /// Denominator of the quotient of amounts.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAnd13DecimalAmount Amount2 { get; init; } 
     
     #nullable disable

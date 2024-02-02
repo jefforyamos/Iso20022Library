@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(EncryptedData1Choice.BinaryData))]
 [KnownType(typeof(EncryptedData1Choice.HexadecimalBinaryValue))]
+[DataContract]
 public abstract partial record EncryptedData1Choice_
 {
 }

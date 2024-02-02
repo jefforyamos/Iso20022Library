@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies rate details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionRate6
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CorporateActionRate6
     /// <summary>
     /// Quantity of additional intermediate securities/new equities awarded for a given quantity of securities derived from subscription.
     /// </summary>
+    [DataMember]
     public RatioFormat3Choice_? AdditionalQuantityForSubscribedResultantSecurities { get; init; } 
     /// <summary>
     /// Quantity of additional securities for a given quantity of underlying securities where underlying securities are not exchanged or debited, for example, 1 for 1: 1 new equity credited for every 1 underlying equity = 2 resulting equities.
     /// </summary>
+    [DataMember]
     public RatioFormat3Choice_? AdditionalQuantityForExistingSecurities { get; init; } 
     /// <summary>
     /// Quantity of new securities for a given quantity of underlying securities, where the underlying securities will be exchanged or debited, for example, 2 for 1: 2 new equities credited for every 1 underlying equity debited = 2 resulting equities.
     /// </summary>
+    [DataMember]
     public RatioFormat4Choice_? NewToOld { get; init; } 
     /// <summary>
     /// Quantity of new equities that will be derived by the exercise of a given quantity of intermediate securities.
     /// </summary>
+    [DataMember]
     public RatioFormat4Choice_? NewSecuritiesToUnderlyingSecurities { get; init; } 
     
     #nullable disable

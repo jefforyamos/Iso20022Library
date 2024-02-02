@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provide further details on transaction specific interest information that applies to the underlying transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionInterest4
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record TransactionInterest4
     /// <summary>
     /// Total amount of interests and taxes included in the entry amount.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? TotalInterestAndTaxAmount { get; init; } 
     /// <summary>
     /// Individual interest record.
     /// </summary>
-    public InterestRecord2[] Record { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InterestRecord2> Record { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the mandate to be amended and gives details of the new mandate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MandateAmendment2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record MandateAmendment2
     /// <summary>
     /// Provides information on the original message.
     /// </summary>
+    [DataMember]
     public OriginalMessageInformation1? OriginalMessageInformation { get; init; } 
     /// <summary>
     /// Provides detailed information on the amendment reason.
     /// </summary>
+    [DataMember]
     public required MandateAmendmentReason1 AmendmentReason { get; init; } 
     /// <summary>
     /// Provides the amended mandate data.
     /// </summary>
+    [DataMember]
     public required Mandate3 Mandate { get; init; } 
     /// <summary>
     /// Provides the original mandate data.
     /// </summary>
+    [DataMember]
     public required OriginalMandate2Choice_ OriginalMandate { get; init; } 
     
     #nullable disable

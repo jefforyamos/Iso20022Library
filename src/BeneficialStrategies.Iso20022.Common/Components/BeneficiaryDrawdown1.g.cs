@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the beneficiary of a drawdown.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BeneficiaryDrawdown1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record BeneficiaryDrawdown1
     /// <summary>
     /// Type of beneficiary.
     /// </summary>
+    [DataMember]
     public BeneficiaryType1Choice_? BeneficiaryType { get; init; } 
     /// <summary>
     /// Indicates whether the original pension holder was under the age limit when deceased. Typically, in the UK this limit is seventy-five.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? DeathUnderLimit { get; init; } 
     /// <summary>
     /// Additional information about the recipient of the drawdown.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

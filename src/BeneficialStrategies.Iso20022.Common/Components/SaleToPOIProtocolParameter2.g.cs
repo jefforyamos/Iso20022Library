@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Configuration parameters to communicate with a sale system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SaleToPOIProtocolParameter2
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record SaleToPOIProtocolParameter2
     /// <summary>
     /// Type of action for the configuration parameters.
     /// </summary>
+    [DataMember]
     public required TerminalManagementAction3Code ActionType { get; init; } 
     /// <summary>
     /// Identification of the merchant.
     /// </summary>
+    [DataMember]
     public Organisation26? MerchantIdentification { get; init; } 
     /// <summary>
     /// Version of the parameters.
     /// </summary>
+    [DataMember]
     public required IsoMax256Text Version { get; init; } 
     /// <summary>
     /// Identification used to retrieve HostCommunicationParameters.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text HostIdentification { get; init; } 
     /// <summary>
     /// Identification of the POI during communication with sale system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MerchantPOIIdentification { get; init; } 
     /// <summary>
     /// Identification of the SaleSystem connected to the POI.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleIdentification { get; init; } 
     /// <summary>
     /// List of types that the receiver supports and that the sender could use as type of an ExternallyDefinedData message component.
     /// </summary>
-    public IsoMax1025Text[] ExternallyTypeSupported { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax1025Text> ExternallyTypeSupported { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Limit details of one particular limit set by the member and managed by the transaction administrator.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LimitStructure2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record LimitStructure2
     /// <summary>
     /// Identification of the default limit.
     /// </summary>
+    [DataMember]
     public required LimitIdentification1Choice_ LimitIdentification { get; init; } 
     /// <summary>
     /// New limit values.
     /// </summary>
+    [DataMember]
     public required Limit8 NewLimitValueSet { get; init; } 
     
     #nullable disable

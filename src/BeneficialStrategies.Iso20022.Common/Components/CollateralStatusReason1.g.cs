@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Business status of the collateral data management request for processing in the system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralStatusReason1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record CollateralStatusReason1
     /// <summary>
     /// Status of the collateral data maintenance instruction.
     /// </summary>
+    [DataMember]
     public required Status6Code Status { get; init; } 
     /// <summary>
     /// Reason for the status of a collateral data maintenance instruction.
     /// </summary>
-    public StatusReasonInformation10[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StatusReasonInformation10> Reason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

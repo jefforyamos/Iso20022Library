@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Physical packaging of goods for transport.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Packaging1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Packaging1
     /// <summary>
     /// Specifies the type of packaging as a code.
     /// </summary>
+    [DataMember]
     public ExternalPackagingType1Code? Type { get; init; } 
     /// <summary>
     /// Specifies the type of packaging as text. For instance, halogenated resin (PVC).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     
     #nullable disable

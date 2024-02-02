@@ -14,6 +14,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// Limits and amounts not part of the transaction amount. Not included in reconciliation totals. 
 /// ISO 8583 bit 54
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalAmounts3
 {
     #nullable enable
@@ -21,23 +23,28 @@ public partial record AdditionalAmounts3
     /// <summary>
     /// Type or class of amount.
     /// </summary>
+    [DataMember]
     public required ISO8583AmountTypeCode Type { get; init; } 
     /// <summary>
     /// Other type of amount.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Amount of one occurrence of the breakdown amount.
     /// </summary>
+    [DataMember]
     public required Amount17 Amount { get; init; } 
     /// <summary>
     /// Short description of the additional amount.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Description { get; init; } 
     /// <summary>
     /// Additional data for the additional amount.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Further detailed information on the exchange rate that has been used in or is related to the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExchangeRateInformation2
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record ExchangeRateInformation2
     /// <summary>
     /// Identifies the source of the rate information.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Provider { get; init; } 
     /// <summary>
     /// Identification of the specific rate, table or file that contains the rate information.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Identification { get; init; } 
     /// <summary>
     /// The date the exchange rate data is effective.
     /// </summary>
+    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// The time the exchange rate data is effective.
     /// </summary>
+    [DataMember]
     public IsoISOTime? Time { get; init; } 
     /// <summary>
     /// Details of a specific exchange rate
     /// </summary>
+    [DataMember]
     public ExchangeRateDetail1? ExchangeRateDetail { get; init; } 
     /// <summary>
     /// Rate lock details.
     /// </summary>
+    [DataMember]
     public RateLock1? RateLock { get; init; } 
     
     #nullable disable

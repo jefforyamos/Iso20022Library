@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Response data to a reversal request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReversalResponse7
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record ReversalResponse7
     /// <summary>
     /// Sale System identification of the transaction in an unambiguous way.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 SaleTransactionIdentification { get; init; } 
     /// <summary>
     /// Global reference of the sale transaction for the sale system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleReferenceIdentification { get; init; } 
     /// <summary>
     /// POI identification of the transaction in an unambiguous way.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 POITransactionIdentification { get; init; } 
     /// <summary>
     /// Unique identification of the reconciliation period between the acceptor and the acquirer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? POIReconciliationIdentification { get; init; } 
     /// <summary>
     /// Identification of the transaction given by the Issuer.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? IssuerReferenceData { get; init; } 
     /// <summary>
     /// Result of reversal transaction.
     /// </summary>
+    [DataMember]
     public required RetailerReversalResult5 ReversalTransactionResult { get; init; } 
     /// <summary>
     /// Amount that have been reverse.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? ReversedAmount { get; init; } 
     /// <summary>
     /// Various receipts linked to the reversal.
     /// </summary>
-    public PaymentReceipt5[] Receipt { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentReceipt5> Receipt { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

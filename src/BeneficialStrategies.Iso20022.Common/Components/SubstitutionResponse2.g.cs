@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details about the collateral substitution response.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SubstitutionResponse2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record SubstitutionResponse2
     /// <summary>
     /// Indicates if the substitution request was accepted or rejected.
     /// </summary>
+    [DataMember]
     public required Status4Code ResponseType { get; init; } 
     /// <summary>
     /// Provides details about the accepted collateral substitution.
     /// </summary>
+    [DataMember]
     public CollateralSubstitutionResponse1? CollateralSubstitutionAcceptanceDetails { get; init; } 
     /// <summary>
     /// Provides details about the rejected collateral substitution.
     /// </summary>
+    [DataMember]
     public CollateralSubstitutionResponse3? CollateralSubstitutionRejectionDetails { get; init; } 
     
     #nullable disable

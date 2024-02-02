@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Configuration of the cryptographic keys.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMSecurityConfiguration2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ATMSecurityConfiguration2
     /// <summary>
     /// Maximum number of symmetric keys the security module is able to manage.
     /// </summary>
+    [DataMember]
     public IsoNumber? MaximumSymmetricKey { get; init; } 
     /// <summary>
     /// Maximum number of asymmetric keys the security module is able to manage.
     /// </summary>
+    [DataMember]
     public IsoNumber? MaximumAsymmetricKey { get; init; } 
     /// <summary>
     /// Maximum RSA key length (in number of bytes), the security module is able to manage.
     /// </summary>
+    [DataMember]
     public IsoNumber? MaximumRSAKeyLength { get; init; } 
     /// <summary>
     /// Maximum RSA root key length (in number of bytes), the security module is able to manage, if different from the maximum RSA key length.
     /// </summary>
+    [DataMember]
     public IsoNumber? MaximumRootKeyLength { get; init; } 
     
     #nullable disable

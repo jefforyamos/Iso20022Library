@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the settlement fails and the ranking for a specific financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementFailsSecurities1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SettlementFailsSecurities1
     /// <summary>
     /// Financial instruments representing a sum of rights of the investor vis-a-vis the issuer.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification19 FinancialInstrumentIdentification { get; init; } 
     /// <summary>
     /// Ranking of the top financial instruments with the highest rate of settlement fails.
     /// </summary>
+    [DataMember]
     public required IsoMax2NumericText Rank { get; init; } 
     
     #nullable disable

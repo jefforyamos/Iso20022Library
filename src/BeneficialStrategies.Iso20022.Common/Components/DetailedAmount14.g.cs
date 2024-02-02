@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed amounts associated with the total amount of transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedAmount14
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record DetailedAmount14
     /// <summary>
     /// Amount value.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Date and time of the payment.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime DateTime { get; init; } 
     /// <summary>
     /// Card data entry mode for the related payment.
     /// </summary>
+    [DataMember]
     public CardDataReading5Code? CardDataEntryMode { get; init; } 
     /// <summary>
     /// Data of an integrated circuit card application for the related payment.
     /// </summary>
+    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     /// <summary>
     /// Short description of the amount to display or print.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Label { get; init; } 
     
     #nullable disable

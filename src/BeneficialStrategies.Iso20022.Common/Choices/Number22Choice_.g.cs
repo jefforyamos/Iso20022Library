@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(Number22Choice.Short))]
 [KnownType(typeof(Number22Choice.Long))]
+[DataContract]
 public abstract partial record Number22Choice_
 {
 }

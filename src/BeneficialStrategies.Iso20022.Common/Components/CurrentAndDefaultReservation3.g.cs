@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reports on reservations.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrentAndDefaultReservation3
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record CurrentAndDefaultReservation3
     /// <summary>
     /// Report is given for a current reservation.
     /// </summary>
-    public ReservationReport5[] CurrentReservation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReservationReport5> CurrentReservation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Report is given for a default reservation.
     /// </summary>
-    public ReservationReport5[] DefaultReservation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReservationReport5> DefaultReservation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of actions to be performed by the POI (Point Of Interaction) system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Action14
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Action14
     /// <summary>
     /// Type of action to be performed by the POI (Point Of Interaction) system.
     /// </summary>
+    [DataMember]
     public required ActionType13Code ActionType { get; init; } 
     /// <summary>
     /// Message to be displayed to the cardholder or the cashier.
     /// </summary>
+    [DataMember]
     public ActionMessage10? MessageToPresent { get; init; } 
     /// <summary>
     /// Access information to reach the target host.
     /// </summary>
+    [DataMember]
     public NetworkParameters7? RemoteAccess { get; init; } 
     /// <summary>
     /// Definition of retry process if activation of an action fails.
     /// </summary>
+    [DataMember]
     public ProcessRetry3? Retry { get; init; } 
     /// <summary>
     /// Timing condition for periodic exchanges.
     /// </summary>
+    [DataMember]
     public ProcessTiming6? TimeCondition { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to a fee collection initiation message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FeeCollectionInitiation1
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record FeeCollectionInitiation1
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required Environment5 Environment { get; init; } 
     /// <summary>
     /// Contains or describes conditions and characteristics of the transaction.
     /// </summary>
+    [DataMember]
     public Context9? Context { get; init; } 
     /// <summary>
     /// Card transaction for which an authorisation is requested.
     /// </summary>
+    [DataMember]
     public required Transaction103 Transaction { get; init; } 
     /// <summary>
     /// Outcome of the processing of the authorisation.
     /// </summary>
+    [DataMember]
     public ProcessingResult4? ProcessingResult { get; init; } 
     /// <summary>
     /// Contains protected data and the attributes used to protect the data.
     /// </summary>
-    public ProtectedData1[] ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProtectedData1> ProtectedData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

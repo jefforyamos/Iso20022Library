@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details for the tax calculation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxCalculation1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record TaxCalculation1
     /// <summary>
     /// Currency that all totals for taxable services must be converted to for calculating taxes owed for this tax region. This also is the currency in which the payment of tax obligations is usually submitted to the taxing authority.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode HostCurrency { get; init; } 
     /// <summary>
     /// Taxable service charge amount conversions to host currency. ||Usage: One occurrence must be present for each different service pricing currency in the statement.
     /// </summary>
-    public BillingServicesAmount3[] TaxableServiceChargeConversion { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BillingServicesAmount3> TaxableServiceChargeConversion { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total of all services subject to tax for a specific tax region. ||Usage: |This field will equal the sum of all the separate host tax charge for service equivalent totals for each individual currency. It is expressed in the tax region’s Host currency. This total is used to determine the tax due by calculating using each tax identifications rate.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection34 TotalTaxableServiceChargeHostAmount { get; init; } 
     /// <summary>
     /// Provides for the specific tax identification within the same tax region. ||Usage: A maximum of three specific tax identifications may be provided. These elements use the total host currency taxable amount as the basis of the calculation. |This element is only valid for method C.
     /// </summary>
-    public BillingServicesTax3[] TaxIdentification { get; init; } = [];
+    [DataMember]
+    public ValueList<BillingServicesTax3> TaxIdentification { get; init; } = [];
     /// <summary>
     /// Total amount of all taxes for a specific customer within the tax region. This is a sum of all individual total tax amounts for tax identification ’s expressed in the tax region’s host currency.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection34 TotalTax { get; init; } 
     
     #nullable disable

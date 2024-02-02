@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment system operational information, such as opening, closure, session period or events, given per currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BusinessDay9
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record BusinessDay9
     /// <summary>
     /// Date for which the availability information is provided.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? SystemDate { get; init; } 
     /// <summary>
     /// Status of a system and the period of time during which the status is valid.
     /// </summary>
+    [DataMember]
     public SystemStatus3? SystemStatus { get; init; } 
     /// <summary>
     /// Information relating to system operations and foreseen events relating to the operation of the system.
     /// </summary>
-    public SystemAvailabilityAndEvents3[] SystemInformationPerCurrency { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SystemAvailabilityAndEvents3> SystemInformationPerCurrency { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

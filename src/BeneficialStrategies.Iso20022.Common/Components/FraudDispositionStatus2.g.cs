@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Disposition of previously submitted fraud report message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FraudDispositionStatus2
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record FraudDispositionStatus2
     /// <summary>
     /// Indicates the action taken as a disposition of the previously fraud report message.
     /// </summary>
+    [DataMember]
     public required ActionTaken1Code ActionTaken { get; init; } 
     /// <summary>
     /// Other action taken as defined at national or private level.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherActionTaken { get; init; } 
     /// <summary>
     /// Contains errors found in the submitted fraud report message.
     /// </summary>
-    public IsoMax256Text[] ErrorData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax256Text> ErrorData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains warnings found in the submitted fraud report message.
     /// </summary>
-    public IsoMax256Text[] WarningData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax256Text> WarningData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information
     /// </summary>
-    public AdditionalInformation30[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation30> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

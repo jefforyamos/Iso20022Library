@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of the documents referred by the creditor.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditorReferenceType1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CreditorReferenceType1
     /// <summary>
     /// Coded creditor reference type.
     /// </summary>
+    [DataMember]
     public required DocumentType3Code Code { get; init; } 
     /// <summary>
     /// Creditor reference type not avilable in a coded format.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Proprietary { get; init; } 
     /// <summary>
     /// Identification of the issuer of the credit reference type.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     
     #nullable disable

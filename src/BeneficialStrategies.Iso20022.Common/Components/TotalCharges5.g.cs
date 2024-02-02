@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Total amount of charges.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TotalCharges5
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record TotalCharges5
     /// <summary>
     /// Information related to a specific charge.
     /// </summary>
-    public Charge23[] ChargeDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<Charge23> ChargeDetails { get; init; } = [];
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains the discount information pertaining to the fleet transaction. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FleetDiscountTotals1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FleetDiscountTotals1
     /// <summary>
     /// Total amount.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     /// <summary>
     /// Fuel amount.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? FuelAmount { get; init; } 
     /// <summary>
     /// Non-fuel amount.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? NonFuelAmount { get; init; } 
     
     #nullable disable

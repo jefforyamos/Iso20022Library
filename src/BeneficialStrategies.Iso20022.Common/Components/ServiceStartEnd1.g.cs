@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Start or end of service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ServiceStartEnd1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record ServiceStartEnd1
     /// <summary>
     /// Location of service (for example, Paris CDG, Paris Gare du Nord, etc.). 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Location { get; init; } 
     /// <summary>
     /// Location code assigned to an airport or to a service location (for example, CDG, YUL, etc.).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LocationCode { get; init; } 
     /// <summary>
     /// Address of service.
     /// </summary>
+    [DataMember]
     public Address1? Address { get; init; } 
     /// <summary>
     /// Contact details at location.
     /// </summary>
+    [DataMember]
     public Contact2? Contact { get; init; } 
     /// <summary>
     /// Date and time of service.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? DateAndTime { get; init; } 
     /// <summary>
     /// Period of day pertaining to the service location.
     /// </summary>
+    [DataMember]
     public TimeSegment1Code? TimeSegment { get; init; } 
     /// <summary>
     /// Journey information related to the vehicle rental.
     /// </summary>
+    [DataMember]
     public JourneyInformation1? JourneyInformation { get; init; } 
     
     #nullable disable

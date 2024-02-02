@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Asset class specific details of a derivative.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AssetClassAttributes1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AssetClassAttributes1
     /// <summary>
     /// Asset class is a non-financial instrument of type interest rate.
     /// </summary>
+    [DataMember]
     public required DerivativeInterest2 Interest { get; init; } 
     /// <summary>
     /// Asset class is a non-financial instrument of type foreign exchange.
     /// </summary>
+    [DataMember]
     public required DerivativeForeignExchange2 ForeignExchange { get; init; } 
     
     #nullable disable

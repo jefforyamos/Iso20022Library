@@ -18,6 +18,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// (2) - all elements defining qualified documents or references to them,
 /// (3) - the LegalContext element.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BusinessLetter1
 {
     #nullable enable
@@ -25,87 +27,108 @@ public partial record BusinessLetter1
     /// <summary>
     /// Application context defined by users. This is typically the name of a product.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ApplicationContext { get; init; } 
     /// <summary>
     /// Unambiguous identifier for this letter.
     /// </summary>
+    [DataMember]
     public required QualifiedDocumentInformation1 LetterIdentifier { get; init; } 
     /// <summary>
     /// Purported creation date of the document.
     /// </summary>
+    [DataMember]
     public required IsoISODate Date { get; init; } 
     /// <summary>
     /// Identifier of a related letter.
     /// </summary>
-    public QualifiedDocumentInformation1[] RelatedLetter { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedDocumentInformation1> RelatedLetter { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifier of a related message.
     /// </summary>
-    public QualifiedDocumentInformation1[] RelatedMessage { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedDocumentInformation1> RelatedMessage { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cross references the lists that are associated to this letter inside a message. The identifiers are relative to the Originator.
     /// </summary>
-    public IsoMax35Text[] ContentIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> ContentIdentifier { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Urgency or order of importance that the originator would like the recipient of the business letter to apply to the processing of the letter.
     /// </summary>
+    [DataMember]
     public Priority3Code? InstructionPriority { get; init; } 
     /// <summary>
     /// Identification of the originating party of this letter.
     /// </summary>
+    [DataMember]
     public required QualifiedPartyIdentification1 Originator { get; init; } 
     /// <summary>
     /// Primary recipient of the business letter. The exact meaning is given by the users.
     /// </summary>
-    public QualifiedPartyIdentification1[] PrimaryRecipient { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedPartyIdentification1> PrimaryRecipient { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Sender of the business letter. The exact meaning is given by the users.
     /// </summary>
-    public QualifiedPartyIdentification1[] Sender { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedPartyIdentification1> Sender { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// User who, either individually or in concert with others, authorises the origination of a message.
     /// </summary>
-    public QualifiedPartyIdentification1[] AuthorisationUser { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedPartyIdentification1> AuthorisationUser { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party to receive a reply to this letter.
     /// </summary>
-    public QualifiedPartyIdentification1[] ResponseRecipient { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedPartyIdentification1> ResponseRecipient { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party to receive a copy of the message.
     /// </summary>
-    public QualifiedPartyIdentification1[] CopyRecipient { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedPartyIdentification1> CopyRecipient { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Other party involved. This element is usable as a target for IDREFs.
     /// </summary>
-    public QualifiedPartyIdentification1[] OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedPartyIdentification1> OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Associated free form document.
     /// </summary>
-    public QualifiedDocumentInformation1[] AssociatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedDocumentInformation1> AssociatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Governing contract.
     /// </summary>
-    public QualifiedDocumentInformation1[] GoverningContract { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedDocumentInformation1> GoverningContract { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rules and laws governing the letter.
     /// </summary>
-    public GovernanceRules2[] LegalContext { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GovernanceRules2> LegalContext { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Free form information about this message.
     /// </summary>
+    [DataMember]
     public IsoMax2000Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Free form information unrelated to the message for example advertising or a service notice.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Notice { get; init; } 
     /// <summary>
     /// Status of referenced messages or letters.
     /// </summary>
+    [DataMember]
     public ValidationStatusInformation1? ValidationStatusInformation { get; init; } 
     /// <summary>
     /// Digital signatures and signing parties of this letter or parts of it.
     /// </summary>
-    public QualifiedPartyAndXMLSignature1[] DigitalSignature { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedPartyAndXMLSignature1> DigitalSignature { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

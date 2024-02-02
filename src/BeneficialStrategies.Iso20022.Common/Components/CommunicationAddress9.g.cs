@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Communication information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CommunicationAddress9
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record CommunicationAddress9
     /// <summary>
     /// Postal address of the entity.
     /// </summary>
+    [DataMember]
     public PostalAddress22? PostalAddress { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Email { get; init; } 
     /// <summary>
     /// Address for the Universal Resource Locator (URL), for example used over the www (HTTP) service.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? URLAddress { get; init; } 
     /// <summary>
     /// Collection of information that identifies a phone number, as defined by telecom services.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? Phone { get; init; } 
     /// <summary>
     /// Phone number of the customer service.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? CustomerService { get; init; } 
     /// <summary>
     /// Additional information used to facilitate contact with the card acceptor, for instance sales agent name, dispute manager name.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? AdditionalContactInformation { get; init; } 
     
     #nullable disable

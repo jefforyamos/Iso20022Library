@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Price8
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Price8
     /// <summary>
     /// Type of value in which the price is expressed.
     /// </summary>
+    [DataMember]
     public PriceValueType3Code? ValueType { get; init; } 
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
+    [DataMember]
     public required PriceRateOrAmount3Choice_ Value { get; init; } 
     /// <summary>
     /// Type and information about a price.
     /// </summary>
+    [DataMember]
     public TypeOfPrice1Code? PriceType { get; init; } 
     
     #nullable disable

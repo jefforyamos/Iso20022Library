@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details on the reference and status on the original transactions, included in the original instruction, to which the cancellation request message applies.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTransaction147
 {
     #nullable enable
@@ -21,66 +23,82 @@ public partial record PaymentTransaction147
     /// Unique and unambiguous identifier of a modification request status, as assigned by the assigner.
     /// Usage: The modification status identification can be used for reconciliation or to link tasks relating to the modification request.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ModificationStatusIdentification { get; init; } 
     /// <summary>
     /// Identifies the resolved case.
     /// </summary>
+    [DataMember]
     public Case5? ResolvedCase { get; init; } 
     /// <summary>
     /// Provides information on the original message.
     /// </summary>
+    [DataMember]
     public required OriginalGroupInformation29 OriginalGroupInformation { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original sending party, to unambiguously identify the original payment information group.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalPaymentInformationIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original instructing party for the original instructed party, to unambiguously identify the original instruction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalInstructionIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original initiating party, to unambiguously identify the original transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalEndToEndIdentification { get; init; } 
     /// <summary>
     /// Unique identification, as assigned by the original first instructing agent, to unambiguously identify the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalTransactionIdentification { get; init; } 
     /// <summary>
     /// Unique reference, as assigned by the original clearing system, to unambiguously identify the original instruction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalClearingSystemReference { get; init; } 
     /// <summary>
     /// Universally unique identifier to provide the original end-to-end reference of a payment transaction.
     /// </summary>
+    [DataMember]
     public IsoUUIDv4Identifier? OriginalUETR { get; init; } 
     /// <summary>
     /// Provides detailed information on the modification status reason.
     /// </summary>
-    public ModificationStatusReason2[] ModificationStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ModificationStatusReason2> ModificationStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Reference of a return or a reversal transaction that is initiated to fix the case under investigation as part of the resolution.
     /// </summary>
+    [DataMember]
     public ResolutionData4? ResolutionRelatedInformation { get; init; } 
     /// <summary>
     /// Amount of money moved between the instructing agent and the instructed agent, as provided in the original instruction.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Date, as provided in the original transaction, on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
+    [DataMember]
     public IsoISODate? OriginalInterbankSettlementDate { get; init; } 
     /// <summary>
     /// Party who assigns the case.|Usage: This is also the agent that instructs the next party in the chain to carry out the (set of) cancellation request(s).
     /// </summary>
+    [DataMember]
     public Party40Choice_? Assigner { get; init; } 
     /// <summary>
     /// Party to which the case is assigned.|Usage: This is also the agent that is instructed by the previous party in the chain to carry out the (set of) cancellation request(s).
     /// </summary>
+    [DataMember]
     public Party40Choice_? Assignee { get; init; } 
     /// <summary>
     /// Key elements used to identify the original transaction that is being referred to.
     /// </summary>
+    [DataMember]
     public OriginalTransactionReference35? OriginalTransactionReference { get; init; } 
     
     #nullable disable

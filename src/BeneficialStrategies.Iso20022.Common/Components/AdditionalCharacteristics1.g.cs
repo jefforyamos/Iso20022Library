@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains additional characteristics of addendum data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalCharacteristics1
 {
     #nullable enable
@@ -20,20 +22,24 @@ public partial record AdditionalCharacteristics1
     /// <summary>
     /// Identifies the specific classification or type of business.
     /// </summary>
+    [DataMember]
     public AdditionalCharacteristicDetails1? BusinessType { get; init; } 
     /// <summary>
     /// Identifies specific characteristics about the
     /// business owner.
     /// </summary>
+    [DataMember]
     public AdditionalCharacteristicDetails1? Owner { get; init; } 
     /// <summary>
     /// Identifies specific characteristics about the business certification type, such as small business, disadvantaged, or other certification type.
     /// </summary>
+    [DataMember]
     public AdditionalCharacteristicDetails1? Certification { get; init; } 
     /// <summary>
     /// Identifies the racial or ethnic type of
     /// the majority owner of the business.
     /// </summary>
+    [DataMember]
     public AdditionalCharacteristicDetails1? OwnerEthnicity { get; init; } 
     
     #nullable disable

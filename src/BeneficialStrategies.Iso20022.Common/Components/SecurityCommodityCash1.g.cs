@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indication of the type of assets subject of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityCommodityCash1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record SecurityCommodityCash1
     /// <summary>
     /// Data specific to securities being subject to the transaction.
     /// </summary>
-    public Security17[] Security { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Security17> Security { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data specific to commodities being subject to the transaction.
     /// </summary>
-    public Commodity21[] Commodity { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Commodity21> Commodity { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies whether the values defined as active or historic currency and amount are matching or not.
     /// </summary>
-    public CashCompare1[] Cash { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashCompare1> Cash { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

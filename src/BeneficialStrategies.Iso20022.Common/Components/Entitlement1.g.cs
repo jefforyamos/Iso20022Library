@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the entitlement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Entitlement1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record Entitlement1
     /// <summary>
     /// Identification of the party that owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? AccountOwnerIdentification { get; init; } 
     /// <summary>
     /// Idenfitication of the account.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text AccountIdentification { get; init; } 
     /// <summary>
     /// Provides information about the securities distribution.
     /// </summary>
-    public SecuritiesEntitlement1[] SecuritiesDistributionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecuritiesEntitlement1> SecuritiesDistributionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides information about the cash distribution.
     /// </summary>
-    public CashEntitlement1[] CashDistributionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashEntitlement1> CashDistributionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

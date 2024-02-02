@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action general information details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionGeneralInformationSD14
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionGeneralInformationSD14
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Unique number systemically assigned to all Lottery and Non-Lottery events announced in DTC Redemptions (REDS) Participant Terminal System (PTS)/ Particinant Browser System(PBS) function.
     /// </summary>
+    [DataMember]
     public IsoMax10NumericText? RedemptionIdentification { get; init; } 
     
     #nullable disable

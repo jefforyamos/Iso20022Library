@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ActiveOrHistoricAmountRange2Choice.ImpliedCurrencyAndAmountRange))]
 [KnownType(typeof(ActiveOrHistoricAmountRange2Choice.CurrencyAndAmountRange))]
+[DataContract]
 public abstract partial record ActiveOrHistoricAmountRange2Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Body of the Abort Request message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AbortData3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record AbortData3
     /// <summary>
     /// Message identifier.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ExchangeIdentification { get; init; } 
     /// <summary>
     /// Reason of aborting a transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text AbortReason { get; init; } 
     /// <summary>
     /// To display an abort message to the Customer.
     /// </summary>
+    [DataMember]
     public ActionMessage8? DisplayOutput { get; init; } 
     /// <summary>
     /// Outcome of the transaction at the acceptor.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? TransactionSuccess { get; init; } 
     
     #nullable disable

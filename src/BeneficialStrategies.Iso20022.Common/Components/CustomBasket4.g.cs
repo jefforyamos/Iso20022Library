@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of constituents for a basket of indexes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CustomBasket4
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record CustomBasket4
     /// <summary>
     /// Identification of the structurer of the customer basket.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? Structurer { get; init; } 
     /// <summary>
     /// Identifier of the custom basket assigned by the structurer allowing to link the constituents of the basket of indexes.
     /// </summary>
+    [DataMember]
     public IsoMax52Text? Identification { get; init; } 
     /// <summary>
     /// Identifier of the underliers that represent the constituents of a custom basket.
     /// </summary>
-    public BasketConstituents3[] Constituents { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BasketConstituents3> Constituents { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

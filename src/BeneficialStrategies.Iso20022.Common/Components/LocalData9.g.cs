@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains text fields in the local language.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LocalData9
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record LocalData9
     /// <summary>
     /// The language code conforming to ISO 639-1 that identifies the language in which the fields are expressed in this component.
     /// </summary>
+    [DataMember]
     public required ISOMax3ALanguageCode Language { get; init; } 
     /// <summary>
     /// Contains generic text message in local language.
     /// </summary>
+    [DataMember]
     public required IsoMax40KText TextMessage { get; init; } 
     
     #nullable disable

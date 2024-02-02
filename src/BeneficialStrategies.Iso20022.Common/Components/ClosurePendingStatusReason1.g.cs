@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for a closure pending status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ClosurePendingStatusReason1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ClosurePendingStatusReason1
     /// <summary>
     /// Reason for the closure pending status.
     /// </summary>
+    [DataMember]
     public required ClosurePendingStatusReason2Choice_ Code { get; init; } 
     /// <summary>
     /// Additional information about the reason for the closure pending status.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

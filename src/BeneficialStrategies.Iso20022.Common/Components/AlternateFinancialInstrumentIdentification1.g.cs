@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// A proprietary or domestic identification scheme that uniquely identifies a financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AlternateFinancialInstrumentIdentification1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AlternateFinancialInstrumentIdentification1
     /// <summary>
     /// Country of the proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public required CountryCode DomesticIdentificationSource { get; init; } 
     /// <summary>
     /// Entity that issues the proprietary identification.
     /// </summary>
+    [DataMember]
     public required IsoMax16Text ProprietaryIdentificationSource { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of a security.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     
     #nullable disable

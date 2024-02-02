@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Percentage of ownership or of beneficial ownership of the shares/units in the account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OwnershipBeneficiaryRate1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record OwnershipBeneficiaryRate1
     /// <summary>
     /// Ownership or beneficial ownership expressed as a percentage.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Ownership or beneficial ownership expressed as a fraction or another form.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Fraction { get; init; } 
     
     #nullable disable

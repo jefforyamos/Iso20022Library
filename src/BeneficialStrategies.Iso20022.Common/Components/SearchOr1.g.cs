@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// List of criteria following the OR logic.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SearchOr1
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record SearchOr1
     /// <summary>
     /// List of criteria following the AND logic.
     /// </summary>
-    public SearchAnd1[] SearchAnd { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SearchAnd1> SearchAnd { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

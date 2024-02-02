@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Further qualifies the information provided in terms of its importance and its format.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InformationQualifierType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InformationQualifierType1
     /// <summary>
     /// Indicates whether the information is formatted.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? IsFormatted { get; init; } 
     /// <summary>
     /// Priority of the information.
     /// </summary>
+    [DataMember]
     public Priority1Code? Priority { get; init; } 
     
     #nullable disable

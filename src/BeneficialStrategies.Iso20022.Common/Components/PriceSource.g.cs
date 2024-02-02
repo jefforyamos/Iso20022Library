@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Source of a price quotation when it is not the local market.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PriceSource
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PriceSource
     /// <summary>
     /// Source of the price.
     /// </summary>
+    [DataMember]
     public required PriceSource1Code PriceSourceValue { get; init; } 
     /// <summary>
     /// Additional information about the source of a price.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Narrative { get; init; } 
     
     #nullable disable

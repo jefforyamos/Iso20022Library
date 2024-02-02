@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide detailed information on the number of transactions that are reported with a specific cancellation status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NumberOfCancellationsPerStatus1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record NumberOfCancellationsPerStatus1
     /// <summary>
     /// Number of individual cancellation requests contained in the message, detailed per status.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText DetailedNumberOfTransactions { get; init; } 
     /// <summary>
     /// Common cancellation request status for all individual cancellation requests reported.
     /// </summary>
+    [DataMember]
     public required CancellationIndividualStatus1Code DetailedStatus { get; init; } 
     /// <summary>
     /// Total of all individual amounts included in the message, irrespective of currencies, detailed per status.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? DetailedControlSum { get; init; } 
     
     #nullable disable

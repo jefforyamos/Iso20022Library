@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the realisation of benefits taken from a pension.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BenefitCrystallisationEvent2
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record BenefitCrystallisationEvent2
     /// <summary>
     /// Number of the crystallisation event. In the UK market this could be, for example, BCE5, BE5A or BCE5B.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? EventTypeNumber { get; init; } 
     /// <summary>
     /// Name of the crystallisation event. In the UK market this could be, for example, ‘entitlement to scheme pension’.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? EventTypeName { get; init; } 
     /// <summary>
     /// Date on which the crystallisation event was triggered. 
     /// </summary>
+    [DataMember]
     public IsoISODate? EventDate { get; init; } 
     /// <summary>
     /// Amount of the crystallisation event.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? CrystallisationAmount { get; init; } 
     /// <summary>
     /// Percentage of allowance used for the benefit crystallisation event.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? PercentageOfAllowance { get; init; } 
     /// <summary>
     /// Indicates whether lifetime allowance protection impacts the benefit crystallisation event.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? LifetimeAllowanceProtection { get; init; } 
     /// <summary>
     /// Additional information about the benefit crystallisation event.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

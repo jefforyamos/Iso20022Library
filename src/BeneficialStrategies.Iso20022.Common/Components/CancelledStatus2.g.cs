@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status is cancelled.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CancelledStatus2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CancelledStatus2
     /// <summary>
     /// Reason for the cancelled status.
     /// </summary>
+    [DataMember]
     public required CancelledStatusReason2Code Reason { get; init; } 
     /// <summary>
     /// Reason for the cancelled status.
     /// </summary>
+    [DataMember]
     public required IsoExtended350Code ExtendedReason { get; init; } 
     /// <summary>
     /// Proprietary identification of the reason for the cancelled status.
     /// </summary>
+    [DataMember]
     public required GenericIdentification1 DataSourceScheme { get; init; } 
     /// <summary>
     /// Indicates that there is no reason available or to report.
     /// </summary>
+    [DataMember]
     public required NoReasonCode NoSpecifiedReason { get; init; } 
     
     #nullable disable

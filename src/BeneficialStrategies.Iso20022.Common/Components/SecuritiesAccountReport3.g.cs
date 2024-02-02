@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to report information about securities account reference data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesAccountReport3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SecuritiesAccountReport3
     /// <summary>
     /// Unique and unambiguous identification for the system security account.
     /// </summary>
+    [DataMember]
     public required SecuritiesAccount19 SecuritiesAccountIdentification { get; init; } 
     /// <summary>
     /// Specifies the returned securities account reference data or error information.
     /// </summary>
+    [DataMember]
     public required SecuritiesAccountOrBusinessError3Choice_ SecuritiesAccountOrError { get; init; } 
     
     #nullable disable

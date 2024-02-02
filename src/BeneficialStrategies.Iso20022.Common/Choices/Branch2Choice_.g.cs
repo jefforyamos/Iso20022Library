@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(Branch2Choice.Identification))]
 [KnownType(typeof(Branch2Choice.Country))]
+[DataContract]
 public abstract partial record Branch2Choice_
 {
 }

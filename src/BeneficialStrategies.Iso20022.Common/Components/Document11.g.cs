@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a document.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Document11
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record Document11
     /// <summary>
     /// Type of document.
     /// </summary>
+    [DataMember]
     public PresentationDocumentFormat1Choice_? Type { get; init; } 
     /// <summary>
     /// Wording for document.
     /// </summary>
+    [DataMember]
     public IsoMax20000Text? Wording { get; init; } 
     /// <summary>
     /// Details related to an electronic presentation.
     /// </summary>
-    public Presentation3[] ElectronicDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Presentation3> ElectronicDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

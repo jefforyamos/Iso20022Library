@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the conditions for the NDF opening.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OpeningConditions1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record OpeningConditions1
     /// <summary>
     /// Specifies the settlement currency of the non deliverable trade.
     /// </summary>
+    [DataMember]
     public required ActiveCurrencyCode SettlementCurrency { get; init; } 
     /// <summary>
     /// Specifies the valuation date for a non deliverable trade.
     /// </summary>
+    [DataMember]
     public required IsoISODate ValuationDate { get; init; } 
     /// <summary>
     /// Specifies the rate source associated with the non deliverable trade.
     /// </summary>
-    public SettlementRateSource1[] SettlementRateSource { get; init; } = [];
+    [DataMember]
+    public ValueList<SettlementRateSource1> SettlementRateSource { get; init; } = [];
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the notification of the termination of an undertaking.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UndertakingTermination3
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record UndertakingTermination3
     /// <summary>
     /// Date on which the termination is effective.
     /// </summary>
+    [DataMember]
     public required IsoISODate EffectiveDate { get; init; } 
     /// <summary>
     /// Reason for the termination.
     /// </summary>
+    [DataMember]
     public TerminationReason1Choice_? Reason { get; init; } 
     /// <summary>
     /// Additional information related to the termination.
     /// </summary>
-    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

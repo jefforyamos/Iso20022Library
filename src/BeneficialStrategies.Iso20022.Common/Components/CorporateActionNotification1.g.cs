@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the notification advice.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionNotification1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CorporateActionNotification1
     /// <summary>
     /// Date/time at which the issuer announced that a corporate action event will occur.
     /// </summary>
+    [DataMember]
     public DateFormat4Choice_? AnnouncementDate { get; init; } 
     /// <summary>
     /// Date/time at which additional information on the event will be announced, eg, exchange ratio announcement date.
     /// </summary>
+    [DataMember]
     public DateFormat4Choice_? FurtherDetailedAnnouncementDate { get; init; } 
     /// <summary>
     /// Date/time at which the corporate action is legally announced by an official body, eg, publication by a governmental administration.
     /// </summary>
+    [DataMember]
     public DateFormat4Choice_? OfficialAnnouncementPublicationDate { get; init; } 
     /// <summary>
     /// Specifies the status of the details of the event.
     /// </summary>
+    [DataMember]
     public required ProcessingStatus1FormatChoice_ ProcessingStatus { get; init; } 
     
     #nullable disable

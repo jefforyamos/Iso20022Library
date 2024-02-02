@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the status (that is accept or reject) of the CollateralManagementCancellationRequest message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralCancellationStatus2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CollateralCancellationStatus2
     /// <summary>
     /// Allows to provide a cancellation status using a code or a proprietary status.
     /// </summary>
+    [DataMember]
     public required Status4Code CollateralStatusCode { get; init; } 
     /// <summary>
     /// Provides additional information on the status of the CollateralManagementCancellationRequest message.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Provides rejection reason and optionaly additional information.
     /// </summary>
+    [DataMember]
     public RejectionStatus3? RejectionDetails { get; init; } 
     
     #nullable disable

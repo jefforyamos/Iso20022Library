@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Configuration parameters of data exchanges.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ExchangeConfiguration2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ExchangeConfiguration2
     /// <summary>
     /// Exchange policy between parties.
     /// </summary>
-    public ExchangePolicy1Code[] ExchangePolicy { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ExchangePolicy1Code> ExchangePolicy { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum number of transactions without exchange.
     /// </summary>
+    [DataMember]
     public IsoNumber? MaximumNumber { get; init; } 
     /// <summary>
     /// Maximum cumulative amount of the transactions without exchange.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? MaximumAmount { get; init; } 
     /// <summary>
     /// Timing condition for periodic exchanges.
     /// </summary>
+    [DataMember]
     public ProcessTiming2? TimeCondition { get; init; } 
     
     #nullable disable

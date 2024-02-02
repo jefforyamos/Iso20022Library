@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Destination of the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Destination1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record Destination1
     /// <summary>
     /// Identification of the destination of the transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Identification of the entity assigning the destination identification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Assigner { get; init; } 
     /// <summary>
     /// Country of the destination.
     /// </summary>
+    [DataMember]
     public ISO3NumericCountryCode? Country { get; init; } 
     /// <summary>
     /// Short name of the destination.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     
     #nullable disable

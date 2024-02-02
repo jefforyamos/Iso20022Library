@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about total instructed balance.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InstructedBalance17
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record InstructedBalance17
     /// <summary>
     /// Provides information about the total instructed balance.
     /// </summary>
+    [DataMember]
     public required BalanceFormat14Choice_ TotalInstructedBalance { get; init; } 
     /// <summary>
     /// Daily total of all accepted instructions for given day.  Cover protect instructions will be included in this total balance.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat13? TotalAcceptedInstructionBalance { get; init; } 
     /// <summary>
     /// Daily total of cancelled instructions for a given day.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat13? TotalCancelledInstructionBalance { get; init; } 
     /// <summary>
     /// Daily total of pending instructions in pending status.  It includes cancel pending instructions.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat13? TotalPendingInstructionBalance { get; init; } 
     /// <summary>
     /// Daily total of rejected instructions.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat13? TotalRejectedInstructionBalance { get; init; } 
     /// <summary>
     /// Daily total of all protect instructions sent in a given day.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat13? TotalProtectInstructionBalance { get; init; } 
     /// <summary>
     /// Provide instructed balance breakdown information per option.
     /// </summary>
-    public InstructedCorporateActionOption18[] OptionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InstructedCorporateActionOption18> OptionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

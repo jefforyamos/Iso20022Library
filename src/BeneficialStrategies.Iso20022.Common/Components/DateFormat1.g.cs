@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Format to express a date and a date mode.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DateFormat1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DateFormat1
     /// <summary>
     /// Date at which the event occurs.
     /// </summary>
+    [DataMember]
     public required DateFormat3Choice_ Date { get; init; } 
     /// <summary>
     /// Specifies whether an event for which a date is provided occurs typically at the "beginning of day" or at the "end of day".
     /// </summary>
+    [DataMember]
     public DateMode1Code? DateMode { get; init; } 
     
     #nullable disable

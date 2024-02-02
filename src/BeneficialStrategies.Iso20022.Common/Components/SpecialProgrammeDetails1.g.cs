@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of values assigned to a special programme.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SpecialProgrammeDetails1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SpecialProgrammeDetails1
     /// <summary>
     /// Name of the special programme detail.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Name { get; init; } 
     /// <summary>
     /// Special programme detail value.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Value { get; init; } 
     
     #nullable disable

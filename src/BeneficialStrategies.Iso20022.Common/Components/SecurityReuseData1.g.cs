@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details of the security pledged as collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityReuseData1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SecurityReuseData1
     /// <summary>
     /// Identifier of the security used as collateral.
     /// </summary>
+    [DataMember]
     public required IsoISINOct2015Identifier ISIN { get; init; } 
     /// <summary>
     /// Indication whether reused value is actual or estimated.
     /// </summary>
+    [DataMember]
     public required ReuseValue1Choice_ ReuseValue { get; init; } 
     
     #nullable disable

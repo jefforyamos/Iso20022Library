@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information on the individual tax amount(s) per period of the tax record.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxRecordDetails1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TaxRecordDetails1
     /// <summary>
     /// Set of elements used to provide details on the period of time related to the tax payment.
     /// </summary>
+    [DataMember]
     public TaxPeriod1? Period { get; init; } 
     /// <summary>
     /// Underlying tax amount related to the specified period.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     
     #nullable disable

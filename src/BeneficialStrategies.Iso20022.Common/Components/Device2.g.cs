@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the customer device.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Device2
 {
     #nullable enable
@@ -20,50 +22,62 @@ public partial record Device2
     /// <summary>
     /// Manufacturer of the device.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? Manufacturer { get; init; } 
     /// <summary>
     /// Manufacturer's identification of the model.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? ManufacturerModelIdentification { get; init; } 
     /// <summary>
     /// Type of customer device.
     /// </summary>
+    [DataMember]
     public CustomerDeviceType2Code? Type { get; init; } 
     /// <summary>
     /// Other type of customer device in free text.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherType { get; init; } 
     /// <summary>
     /// Preferred language set on the device
     /// </summary>
+    [DataMember]
     public LanguageCode? Language { get; init; } 
     /// <summary>
     /// Phone number associated with the device.
     /// </summary>
+    [DataMember]
     public IsoPhoneNumber? PhoneNumber { get; init; } 
     /// <summary>
     /// Geographical location of the device.
     /// </summary>
+    [DataMember]
     public IsoGeographicPointInDecimalDegrees? GeographicLocation { get; init; } 
     /// <summary>
     /// Country of the location.
     /// </summary>
+    [DataMember]
     public ISO3NumericCountryCode? LocationCountryCode { get; init; } 
     /// <summary>
     /// Internet Protocol address associated with the device.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? IPAddress { get; init; } 
     /// <summary>
     /// Electronic mail address associated with the device.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Email { get; init; } 
     /// <summary>
     /// Customer's name of the device.
     /// </summary>
+    [DataMember]
     public IsoMax100Text? DeviceName { get; init; } 
     /// <summary>
     /// Customer assigned device name, normalized.
     /// </summary>
+    [DataMember]
     public IsoMax100Text? DeviceNameNormalized { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Acceptor parameters dedicated to a payment application of the point of interaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ApplicationParameters11
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record ApplicationParameters11
     /// <summary>
     /// Type of action for the configuration parameters.
     /// </summary>
+    [DataMember]
     public required TerminalManagementAction3Code ActionType { get; init; } 
     /// <summary>
     /// Identification of the payment application.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ApplicationIdentification { get; init; } 
     /// <summary>
     /// Version of the payment application configuration parameters.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Version { get; init; } 
     /// <summary>
     /// Version of the parameters' format.
     /// </summary>
+    [DataMember]
     public IsoMax8Text? ParameterFormatIdentifier { get; init; } 
     /// <summary>
     /// Full length of parameters.
     /// </summary>
+    [DataMember]
     public IsoPositiveNumber? ParametersLength { get; init; } 
     /// <summary>
     /// Place of this  Block, beginning with 0, in the full parameters.
     /// </summary>
+    [DataMember]
     public IsoPositiveNumber? OffsetStart { get; init; } 
     /// <summary>
     /// Following place of this Block in the full parameters.
     /// </summary>
+    [DataMember]
     public IsoPositiveNumber? OffsetEnd { get; init; } 
     /// <summary>
     /// Configuration parameters used by the related payment application.
     /// </summary>
-    public IsoMax100KBinary[] Parameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax100KBinary> Parameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Sensitive parameters (sequence of parameters including the envelope) encrypted with a cryptographic key.
     /// </summary>
+    [DataMember]
     public ContentInformationType32? EncryptedParameters { get; init; } 
     
     #nullable disable

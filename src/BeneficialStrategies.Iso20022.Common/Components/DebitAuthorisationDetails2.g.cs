@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the reason for requesting a debit authorisation as well as the amount of the requested debit.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DebitAuthorisationDetails2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DebitAuthorisationDetails2
     /// <summary>
     /// Indicates the reason for cancellation.
     /// </summary>
+    [DataMember]
     public required CancellationReason3Code CancellationReason { get; init; } 
     /// <summary>
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? AmountToDebit { get; init; } 
     /// <summary>
     /// Value date for debiting the amount.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValueDateToDebit { get; init; } 
     
     #nullable disable

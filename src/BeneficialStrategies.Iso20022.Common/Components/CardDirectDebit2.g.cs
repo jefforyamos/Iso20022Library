@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Element containing all information needed for a card initiating direct debit.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardDirectDebit2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CardDirectDebit2
     /// <summary>
     /// Information related to the debtor.
     /// </summary>
+    [DataMember]
     public Debtor4? DebtorIdentification { get; init; } 
     /// <summary>
     /// Information related to the creditor.
     /// </summary>
+    [DataMember]
     public required Creditor4 CreditorIdentification { get; init; } 
     /// <summary>
     /// Provides further details of the mandate signed between the creditor and the debtor.
     /// </summary>
+    [DataMember]
     public required MandateRelatedInformation13 MandateRelatedInformation { get; init; } 
     
     #nullable disable

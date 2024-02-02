@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(IdentificationFormat1Choice.ShortIdentification))]
 [KnownType(typeof(IdentificationFormat1Choice.LongIdentification))]
 [KnownType(typeof(IdentificationFormat1Choice.ProprietaryIdentification))]
+[DataContract]
 public abstract partial record IdentificationFormat1Choice_
 {
 }

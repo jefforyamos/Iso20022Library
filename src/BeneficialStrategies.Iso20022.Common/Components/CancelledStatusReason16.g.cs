@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for a cancelled status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CancelledStatusReason16
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CancelledStatusReason16
     /// <summary>
     /// Reason for the cancelled status.
     /// </summary>
+    [DataMember]
     public CancelledReason12Choice_? Reason { get; init; } 
     /// <summary>
     /// Additional information about the cancelled status.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

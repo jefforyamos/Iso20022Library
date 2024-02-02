@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies generic information about an investigation report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportHeader
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ReportHeader
     /// <summary>
     /// Identification of the report.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Party reporting the status of the case.
     /// </summary>
+    [DataMember]
     public required IsoAnyBICIdentifier From { get; init; } 
     /// <summary>
     /// Party to which the status of the case is reported.
     /// </summary>
+    [DataMember]
     public required IsoAnyBICIdentifier To { get; init; } 
     /// <summary>
     /// Creation date and time of the report generation.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     
     #nullable disable

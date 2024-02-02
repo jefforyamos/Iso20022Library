@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(MarketClaimCancellationRequestStatus1Choice.Rejected))]
 [KnownType(typeof(MarketClaimCancellationRequestStatus1Choice.PendingCancellation))]
 [KnownType(typeof(MarketClaimCancellationRequestStatus1Choice.ProprietaryStatus))]
+[DataContract]
 public abstract partial record MarketClaimCancellationRequestStatus1Choice_
 {
 }

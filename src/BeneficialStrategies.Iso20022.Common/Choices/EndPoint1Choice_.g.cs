@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(EndPoint1Choice.NumberOfPayments))]
 [KnownType(typeof(EndPoint1Choice.LastPaymentDate))]
+[DataContract]
 public abstract partial record EndPoint1Choice_
 {
 }

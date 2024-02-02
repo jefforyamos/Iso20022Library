@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details on the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GroupHeader76
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record GroupHeader76
     /// <summary>
     /// Point to point reference, as assigned by the account owner or the party authorised to send the message, and sent to the account servicing institution, to unambiguously identify the message.|Usage: The sender has to make sure that 'MessageIdentification' is unique per account servicing institution for a pre-agreed period.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Identification of the party that is sending the message, when different from the account owner.
     /// </summary>
+    [DataMember]
     public Party35Choice_? MessageSender { get; init; } 
     
     #nullable disable

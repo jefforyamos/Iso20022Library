@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Funding sources used to finance margin loans.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FundingSource1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FundingSource1
     /// <summary>
     /// Type of a funding used.
     /// </summary>
+    [DataMember]
     public required FundingSourceType1Code Type { get; init; } 
     /// <summary>
     /// Market value of funding sources in base currency.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount MarketValue { get; init; } 
     
     #nullable disable

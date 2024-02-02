@@ -18,6 +18,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(TradeReport15Choice.Compression))]
 [KnownType(typeof(TradeReport15Choice.Error))]
 [KnownType(typeof(TradeReport15Choice.Other))]
+[DataContract]
 public abstract partial record TradeReport15Choice_
 {
 }

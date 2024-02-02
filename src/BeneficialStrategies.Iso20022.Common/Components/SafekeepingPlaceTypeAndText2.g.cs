@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the place of safekeeping expressed as a code and a narrative description.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SafekeepingPlaceTypeAndText2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SafekeepingPlaceTypeAndText2
     /// <summary>
     /// Place of safekeeping as a code.
     /// </summary>
+    [DataMember]
     public required SafekeepingPlace2Code SafekeepingPlaceType { get; init; } 
     /// <summary>
     /// Additional information about the place of safekeeping.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Identification { get; init; } 
     
     #nullable disable

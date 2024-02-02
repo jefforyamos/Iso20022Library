@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements providing information specific to the individual direct debit(s).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FIToFIDirectDebitTransactionInformationDetails1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record FIToFIDirectDebitTransactionInformationDetails1
     /// <summary>
     /// Common characteristics for all individual transactions included in the message.
     /// </summary>
+    [DataMember]
     public required GroupHeader63 GroupHeader { get; init; } 
     /// <summary>
     /// Characteristics that apply to the credit side of the payment transaction(s) included in the message.
     /// </summary>
-    public CreditTransferTransaction9[] CreditInstruction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CreditTransferTransaction9> CreditInstruction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

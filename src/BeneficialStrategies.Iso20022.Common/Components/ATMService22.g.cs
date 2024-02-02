@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Inquiry service provided by the ATM inside the session.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMService22
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record ATMService22
     /// <summary>
     /// Unique identification of the customer session in which the transfer is performed.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ServiceReference { get; init; } 
     /// <summary>
     /// Codification of the type of service for the ATM.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ATMServiceCode { get; init; } 
     /// <summary>
     /// Describes the type of fund transfer selected by the customer or the ATM.
     /// </summary>
+    [DataMember]
     public required ATMServiceType9Code ServiceType { get; init; } 
     /// <summary>
     /// Identification of the variant of the service.
     /// </summary>
-    public IsoMax35Text[] ServiceVariantIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> ServiceVariantIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

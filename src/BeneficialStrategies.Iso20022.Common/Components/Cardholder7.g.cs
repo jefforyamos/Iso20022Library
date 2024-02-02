@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related to the cardholder.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Cardholder7
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record Cardholder7
     /// <summary>
     /// Identification of the cardholder involved in a transaction.
     /// </summary>
+    [DataMember]
     public PersonIdentification7? Identification { get; init; } 
     /// <summary>
     /// Cardholder name associated with the card.
     /// </summary>
+    [DataMember]
     public IsoMax45Text? Name { get; init; } 
     /// <summary>
     /// Language selected for the cardholder interface during the transaction.
     /// Reference ISO 639-1 (alpha-2) et ISO 639-2 (alpha-3).
     /// </summary>
+    [DataMember]
     public LanguageCode? Language { get; init; } 
     /// <summary>
     /// Postal address of the owner of the payment card.
     /// </summary>
+    [DataMember]
     public PostalAddress13? BillingAddress { get; init; } 
     /// <summary>
     /// Postal address for delivery of goods or services.
     /// </summary>
+    [DataMember]
     public PostalAddress13? ShippingAddress { get; init; } 
     /// <summary>
     /// Method and data intended to be used for this transaction to authenticate the cardholder.
     /// </summary>
-    public CardholderAuthentication6[] Authentication { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardholderAuthentication6> Authentication { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Result of performed verifications for the transaction.
     /// </summary>
-    public TransactionVerificationResult3[] TransactionVerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionVerificationResult3> TransactionVerificationResult { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies personal data related to the cardholder.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? PersonalData { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Characteristics and values set for account limits.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountLimits1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record AccountLimits1
     /// <summary>
     /// Defines type of funds limits.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text LimitType { get; init; } 
     /// <summary>
     /// Amount of money of the limit.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount LimitAmount { get; init; } 
     /// <summary>
     /// Amount of used funds out of defined limit.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? LimitUtilisationAmount { get; init; } 
     /// <summary>
     /// Identification of the system member for which the limit is established.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? BilateralLimitCounterpartyIdentification { get; init; } 
     /// <summary>
     /// Clearing scheme related to Registry of the Clearing Positions (RCP).
     /// </summary>
+    [DataMember]
     public ClearingScheme1Choice_? ClearingCircuitScheme { get; init; } 
     
     #nullable disable

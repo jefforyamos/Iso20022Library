@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters defining the timing conditions to process an action.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProcessTiming6
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ProcessTiming6
     /// <summary>
     /// Date and time to start the action.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? StartTime { get; init; } 
     /// <summary>
     /// Date and time after which the action cannot be processed.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? EndTime { get; init; } 
     /// <summary>
     /// Period delay between cyclic action activation in months, days, hours and minutes, leading zeros could be omitted.
     /// </summary>
+    [DataMember]
     public IsoMax9NumericText? Period { get; init; } 
     /// <summary>
     /// Identification of the minimum unit of time used by time configuration parameters.
     /// </summary>
+    [DataMember]
     public TimeUnit1Code? UnitOfTime { get; init; } 
     
     #nullable disable

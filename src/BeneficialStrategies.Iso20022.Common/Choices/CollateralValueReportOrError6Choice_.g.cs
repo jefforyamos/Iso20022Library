@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CollateralValueReportOrError6Choice.BusinessError))]
 [KnownType(typeof(CollateralValueReportOrError6Choice.CollateralValue))]
+[DataContract]
 public abstract partial record CollateralValueReportOrError6Choice_
 {
 }

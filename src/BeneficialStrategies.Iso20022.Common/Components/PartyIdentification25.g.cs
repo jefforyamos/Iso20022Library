@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a person, or a non-financial institution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification25
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PartyIdentification25
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text Name { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier, as assigned to a party using a proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public GenericIdentification4? ProprietaryIdentification { get; init; } 
     /// <summary>
     /// Identification of a non-financial institution.
     /// </summary>
+    [DataMember]
     public IsoBEIIdentifier? BEI { get; init; } 
     
     #nullable disable

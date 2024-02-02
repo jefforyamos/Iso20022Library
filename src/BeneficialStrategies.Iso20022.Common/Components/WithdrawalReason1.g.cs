@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the withdrawal reason code and optionally a withdrawal reason sub code.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record WithdrawalReason1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record WithdrawalReason1
     /// <summary>
     /// Withdrawal reason expressed as a code.
     /// </summary>
+    [DataMember]
     public required WithdrawalReason1Code WithdrawalReasonCode { get; init; } 
     /// <summary>
     /// Further withdrawal reason information expressed as a code.
     /// </summary>
+    [DataMember]
     public IsoMax4Text? WithdrawalReasonSubCode { get; init; } 
     
     #nullable disable

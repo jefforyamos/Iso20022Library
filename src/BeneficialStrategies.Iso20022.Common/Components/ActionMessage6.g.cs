@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information to display, print or store.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ActionMessage6
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record ActionMessage6
     /// <summary>
     /// Destination of the message.
     /// </summary>
+    [DataMember]
     public required UserInterface4Code MessageDestination { get; init; } 
     /// <summary>
     /// Qualification of the information to sent to an output logical device.
     /// </summary>
+    [DataMember]
     public InformationQualify1Code? InformationQualifier { get; init; } 
     /// <summary>
     /// Message format.
     /// </summary>
+    [DataMember]
     public OutputFormat3Code? Format { get; init; } 
     /// <summary>
     /// Content or reference of the message.
     /// </summary>
+    [DataMember]
     public required IsoMax20000Text MessageContent { get; init; } 
     /// <summary>
     /// Digital signature of the message.
     /// </summary>
+    [DataMember]
     public ContentInformationType18? MessageContentSignature { get; init; } 
     /// <summary>
     /// Content of message displayed or printed as Barcode.
     /// </summary>
+    [DataMember]
     public OutputBarcode1? OutputBarcode { get; init; } 
     /// <summary>
     /// Flag to request a message response.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ResponseRequiredFlag { get; init; } 
     /// <summary>
     /// Number of seconds the message has to be displayed.
     /// </summary>
+    [DataMember]
     public IsoNumber? MinimumDisplayTime { get; init; } 
     
     #nullable disable

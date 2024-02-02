@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters to synchronise a real time clock.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ClockSynchronisation3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ClockSynchronisation3
     /// <summary>
     /// Name of the time zone where is located the POI (Point Of Interaction), as definined by the IANA (Internet Assigned Number Authority) time zone data base.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text POITimeZone { get; init; } 
     /// <summary>
     /// Parameters to contact a time server.
     /// </summary>
-    public NetworkParameters7[] SynchronisationServer { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NetworkParameters7> SynchronisationServer { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Delay between two contacts of the server.
     /// </summary>
+    [DataMember]
     public IsoISOTime? Delay { get; init; } 
     
     #nullable disable

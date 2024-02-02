@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(StatementUpdateTypeCodeAndDSSCodeChoice.StatementUpdateTypeAsCode))]
 [KnownType(typeof(StatementUpdateTypeCodeAndDSSCodeChoice.StatementUpdateTypeAsDSS))]
+[DataContract]
 public abstract partial record StatementUpdateTypeCodeAndDSSCodeChoice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Trace of response by the entities in the path from the issuer to the ATM.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ResponseType4
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record ResponseType4
     /// <summary>
     /// Identification of the responder.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ResponderIdentification { get; init; } 
     /// <summary>
     /// Codification of the response (for instance ISO 8583, IFX).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Codification { get; init; } 
     /// <summary>
     /// Result of the request withdrawal message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Response { get; init; } 
     /// <summary>
     /// Detail of the response.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ResponseReason { get; init; } 
     /// <summary>
     /// Additional information to be logged for further examination.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AdditionalResponseInformation { get; init; } 
     
     #nullable disable

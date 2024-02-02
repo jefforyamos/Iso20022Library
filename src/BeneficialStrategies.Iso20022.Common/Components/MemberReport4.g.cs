@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reports either on a member or a business error.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MemberReport4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record MemberReport4
     /// <summary>
     /// Unique and unambiguous identification of a member within a system, assigned using the member identification scheme of the system.
     /// </summary>
+    [DataMember]
     public required MemberIdentification2Choice_ MemberIdentification { get; init; } 
     /// <summary>
     /// Reports either on a member or a business error.
     /// </summary>
+    [DataMember]
     public required MemberReportOrError4Choice_ MemberOrError { get; init; } 
     
     #nullable disable

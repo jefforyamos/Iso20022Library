@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to a party identification. For example, party identification or account identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification90
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PartyIdentification90
     /// <summary>
     /// Specifies a type of party identification.
     /// </summary>
+    [DataMember]
     public required PartyIdentificationType1Code IdentificationType { get; init; } 
     /// <summary>
     /// Identification of a party related information.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     
     #nullable disable

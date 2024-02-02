@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the reason an instruction or request is cancelled.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CancellationReason24
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CancellationReason24
     /// <summary>
     /// Specifies the reason why the instruction is cancelled.
     /// </summary>
+    [DataMember]
     public required CancellationReason37Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

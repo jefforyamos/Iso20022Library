@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information for the presentation of documents.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Presentation4
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record Presentation4
     /// <summary>
     /// Medium through which the presentation can be submitted such as paper, electronic or both.
     /// </summary>
+    [DataMember]
     public PresentationMedium1Choice_? Medium { get; init; } 
     /// <summary>
     /// Document required to be presented.
     /// </summary>
-    public Document11[] Document { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Document11> Document { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information related to the presentation.
     /// </summary>
-    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

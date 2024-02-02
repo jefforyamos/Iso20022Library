@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Proprietary identification of the reason related to a status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProprietaryReason5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ProprietaryReason5
     /// <summary>
     /// Proprietary identification of the reason related to a status.
     /// </summary>
+    [DataMember]
     public GenericIdentification47? Reason { get; init; } 
     /// <summary>
     /// Provides additional information about the processed instruction.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

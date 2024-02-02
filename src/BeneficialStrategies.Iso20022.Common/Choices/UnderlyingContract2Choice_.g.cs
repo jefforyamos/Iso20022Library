@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(UnderlyingContract2Choice.Loan))]
 [KnownType(typeof(UnderlyingContract2Choice.Trade))]
+[DataContract]
 public abstract partial record UnderlyingContract2Choice_
 {
 }

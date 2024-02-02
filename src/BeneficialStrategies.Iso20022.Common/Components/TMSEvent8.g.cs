@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Result of an individual terminal management action performed by the point of interaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TMSEvent8
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record TMSEvent8
     /// <summary>
     /// Date time of the terminal management action performed by the point of interaction.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime TimeStamp { get; init; } 
     /// <summary>
     /// Final result of the processed terminal management action.
     /// </summary>
+    [DataMember]
     public required TerminalManagementActionResult4Code Result { get; init; } 
     /// <summary>
     /// Identification of the terminal management action performed by the point of interaction.
     /// </summary>
+    [DataMember]
     public required TMSActionIdentification7 ActionIdentification { get; init; } 
     /// <summary>
     /// Additional information related to a failure.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AdditionalErrorInformation { get; init; } 
     /// <summary>
     /// Identification of the terminal management system (TMS) used with the action.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TerminalManagerIdentification { get; init; } 
     /// <summary>
     /// Response  of a device request done previously. 
     /// </summary>
+    [DataMember]
     public DeviceResponse4? DeviceResponse { get; init; } 
     
     #nullable disable

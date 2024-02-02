@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Services allowed for the customer's profile.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMService7
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ATMService7
     /// <summary>
     /// Describes the type of inquiry selected by the customer or the ATM.
     /// </summary>
+    [DataMember]
     public required ATMServiceType4Code ServiceType { get; init; } 
     /// <summary>
     /// Limits of amounts.
     /// </summary>
-    public ATMTransactionAmounts3[] Limits { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMTransactionAmounts3> Limits { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Preferred withdrawal transaction chosen by the customer.
     /// </summary>
+    [DataMember]
     public ATMTransaction8? PreferredWithdrawal { get; init; } 
     
     #nullable disable

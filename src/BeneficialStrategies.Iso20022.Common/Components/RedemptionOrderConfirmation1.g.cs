@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Order confirmation details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RedemptionOrderConfirmation1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record RedemptionOrderConfirmation1
     /// <summary>
     /// Indicates whether a confirmation amendment message will follow the confirmation cancellation instruction or not.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator AmendmentIndicator { get; init; } 
     /// <summary>
     /// General information related to the execution of investment fund orders.
     /// </summary>
+    [DataMember]
     public required RedemptionMultipleExecution3 MultipleExecutionDetails { get; init; } 
     /// <summary>
     /// Information about parties related to the transaction.
     /// </summary>
-    public Intermediary9[] RelatedPartyDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<Intermediary9> RelatedPartyDetails { get; init; } = [];
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Extension1> Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

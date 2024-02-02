@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Overall holding position, in a single financial instrument, held in a securities account at a specified place of safekeeping.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AggregateHoldingBalance3
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record AggregateHoldingBalance3
     /// <summary>
     /// Report on the net position of a financial instrument on the sub-account, for a certain date.
     /// </summary>
-    public AggregateHoldingBalance1[] BalanceForAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AggregateHoldingBalance1> BalanceForAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Agent of the financial instrument, for example, a trade intermediary.
     /// </summary>
-    public Intermediary29[] Agent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Intermediary29> Agent { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

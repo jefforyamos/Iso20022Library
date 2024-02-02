@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Name and value of a parameter being returned.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReportParameter1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ReportParameter1
     /// <summary>
     /// Name or type of the parameter being returned.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text Name { get; init; } 
     /// <summary>
     /// Value of the parameter being returned.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text Value { get; init; } 
     
     #nullable disable

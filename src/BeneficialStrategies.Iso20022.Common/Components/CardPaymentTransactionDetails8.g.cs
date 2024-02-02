@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the transaction in the authorisation request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentTransactionDetails8
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record CardPaymentTransactionDetails8
     /// <summary>
     /// Amounts associated with the total amount of transaction.
     /// </summary>
-    public CardAmountAndCurrencyExchange1[] Amount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardAmountAndCurrencyExchange1> Amount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Data related to an integrated circuit card application.
     /// </summary>
+    [DataMember]
     public IsoMax1025Text? ICCRelatedData { get; init; } 
     /// <summary>
     /// Context of the card payment transaction.
     /// </summary>
+    [DataMember]
     public PaymentContext3? PaymentContext { get; init; } 
     /// <summary>
     /// Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction.
     /// </summary>
+    [DataMember]
     public IsoMin3Max4Text? MerchantCategoryCode { get; init; } 
     /// <summary>
     /// Local date and time of the transaction assigned by the POI (Point Of Interaction).
     /// </summary>
+    [DataMember]
     public IsoISODateTime? TransactionDateTime { get; init; } 
     /// <summary>
     /// Identification of a sale transaction assigned by the sale system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleReferenceNumber { get; init; } 
     /// <summary>
     /// Reason for representment of a card transaction.
     /// </summary>
+    [DataMember]
     public ExternalRePresentmentReason1Code? RePresentmentReason { get; init; } 
     /// <summary>
     /// Service in addition to the main service.
     /// </summary>
+    [DataMember]
     public CardPaymentServiceType2Code? AdditionalService { get; init; } 
     /// <summary>
     /// Identification of the transaction that has to be unique for a time period.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TransactionReference { get; init; } 
     
     #nullable disable

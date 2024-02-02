@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indication of the cash values to be settled as of the start and maturity date of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PrincipalAmount2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PrincipalAmount2
     /// <summary>
     /// Cash value to be settled as of the start date of the transaction.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ValueDateAmount { get; init; } 
     /// <summary>
     /// Cash value to be settled as of the maturity date of the transaction.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? MaturityDateAmount { get; init; } 
     
     #nullable disable

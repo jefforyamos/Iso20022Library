@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the type of collateral that will be delivered and the date to be reported.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralMovement9
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CollateralMovement9
     /// <summary>
     /// Specifies the type of collateral.
     /// </summary>
+    [DataMember]
     public required CollateralType1Code CollateralType { get; init; } 
     /// <summary>
     /// Date by which the collateral movement must be executed.
     /// </summary>
+    [DataMember]
     public IsoISODate? Date { get; init; } 
     
     #nullable disable

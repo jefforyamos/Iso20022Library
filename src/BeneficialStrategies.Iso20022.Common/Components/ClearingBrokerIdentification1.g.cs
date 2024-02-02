@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the reference number assigned by the clearing broker. A distinction can be made between the reference for the Central Counterparty (CCP) leg and the reference for the client leg of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ClearingBrokerIdentification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ClearingBrokerIdentification1
     /// <summary>
     /// Distinguishes the client leg from the central counterparty (CCP) leg in the clearing broker identification.
     /// </summary>
+    [DataMember]
     public required SideIndicator1Code SideIndicator { get; init; } 
     /// <summary>
     /// Specifies the identification assigned to the clearing broker.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ClearingBrokerIdentification { get; init; } 
     
     #nullable disable

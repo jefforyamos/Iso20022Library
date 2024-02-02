@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to a vehicle used during a transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Vehicle1
 {
     #nullable enable
@@ -20,55 +22,68 @@ public partial record Vehicle1
     /// <summary>
     /// Number assigned to the vehicle for identification.
     /// </summary>
+    [DataMember]
     public IsoMax35NumericText? VehicleNumber { get; init; } 
     /// <summary>
     /// Number assigned to the vehicle trailer for identification.
     /// </summary>
+    [DataMember]
     public IsoMax35NumericText? TrailerNumber { get; init; } 
     /// <summary>
     /// Registration tag of the vehicle.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? VehicleTag { get; init; } 
     /// <summary>
     /// Entry mode of the registration tag.
     /// </summary>
+    [DataMember]
     public CardDataReading5Code? VehicleTagEntryMode { get; init; } 
     /// <summary>
     /// Identification of the vehicle in the fleet.
     /// </summary>
+    [DataMember]
     public IsoMax35NumericText? UnitNumber { get; init; } 
     /// <summary>
     /// True if the car is a replacement car.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ReplacementCar { get; init; } 
     /// <summary>
     /// Odometer reading value indicating the distance travelled by the vehicle.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? Odometer { get; init; } 
     /// <summary>
     /// Hubometer reading value indicating the distance travelled by the trailer.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? Hubometer { get; init; } 
     /// <summary>
     /// Number of hours the trailer has been in operation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TrailerHours { get; init; } 
     /// <summary>
     /// Number of hours the refer unit has been in operation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReferHours { get; init; } 
     /// <summary>
     /// Identification assigned to the vehicle related to maintenance.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MaintenanceIdentification { get; init; } 
     /// <summary>
     /// Second card presented for the payment transaction.
     /// </summary>
+    [DataMember]
     public PlainCardData17? DriverOrVehicleCard { get; init; } 
     /// <summary>
     /// Additional information related to the vehicle.
     /// </summary>
-    public Vehicle2[] AdditionalVehicleData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Vehicle2> AdditionalVehicleData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

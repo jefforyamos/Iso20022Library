@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the subtotal calculated tax applicable for this settlement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementSubTotalCalculatedTax2
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record SettlementSubTotalCalculatedTax2
     /// <summary>
     /// Type of tax applied.
     /// </summary>
+    [DataMember]
     public IsoMax4Text? TypeCode { get; init; } 
     /// <summary>
     /// Rate used to calculate the amount of this tax, levy or duty.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? CalculatedRate { get; init; } 
     /// <summary>
     /// Monetary value used as the basis on which this tax, levy or duty is calculated.
     /// </summary>
-    public IsoCurrencyAndAmount[] BasisAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> BasisAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Monetary value resulting from the calculation of this tax, levy or duty.
     /// </summary>
-    public IsoCurrencyAndAmount[] CalculatedAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> CalculatedAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Reason for tax exemption expressed as a code, if invoice or card transaction is out of tax processing.
     /// </summary>
+    [DataMember]
     public IsoMax4Text? ExemptionReasonCode { get; init; } 
     /// <summary>
     /// Reason for a tax exemption, if invoice or card transaction is out of tax processing.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? ExemptionReasonText { get; init; } 
     /// <summary>
     /// If tax currency in tax calculation is different from invoice currency, then applied exchange rate is given in this message structure.
     /// </summary>
+    [DataMember]
     public CurrencyReference3? TaxCurrencyExchange { get; init; } 
     
     #nullable disable

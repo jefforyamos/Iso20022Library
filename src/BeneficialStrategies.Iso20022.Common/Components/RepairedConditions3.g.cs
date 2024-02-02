@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Charge or commission of the original individual order details that have been repaired so that the order can be accepted.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RepairedConditions3
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record RepairedConditions3
     /// <summary>
     /// Modified value of the charge applied on the order (the charge in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
-    public Charge19[] RepairedCharge { get; init; } = [];
+    [DataMember]
+    public ValueList<Charge19> RepairedCharge { get; init; } = [];
     /// <summary>
     /// Modified value of the commission applied on the order (the commission in the original individual order that has been repaired so that the order can be accepted).
     /// </summary>
-    public Commission11[] RepairedCommission { get; init; } = [];
+    [DataMember]
+    public ValueList<Commission11> RepairedCommission { get; init; } = [];
     
     #nullable disable
 }

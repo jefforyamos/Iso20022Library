@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Funds related service such as a payment or a transfer related to the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FundingService2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FundingService2
     /// <summary>
     /// Funding service details.
     /// </summary>
+    [DataMember]
     public TransferService2? FundingService { get; init; } 
     /// <summary>
     /// Source of funding.
     /// </summary>
-    public FundingSource2[] FundingSource { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FundingSource2> FundingSource { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information for claiming funds.
     /// </summary>
+    [DataMember]
     public ClaimInformation1? ClaimInformation { get; init; } 
     
     #nullable disable

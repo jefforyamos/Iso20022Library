@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides detailed information concerning non financial counterparties.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NonFinancialInstitutionSector10
 {
     #nullable enable
@@ -20,21 +22,25 @@ public partial record NonFinancialInstitutionSector10
     /// <summary>
     /// Taxonomy for non-financial counterparties. The categories correspond to the main sections of NACE classification as defined in the regulation.
     /// </summary>
-    public GenericIdentification175[] Sector { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericIdentification175> Sector { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information whether the counterparty is above the clearing threshold.
     /// Usage: If the element is not present, the ClearingThreshold is False.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ClearingThreshold { get; init; } 
     /// <summary>
     /// Directly linked to commercial activity or treasury financing: Information on whether the contract is objectively measurable as directly linked to the counterparty's commercial or treasury financing activity.
     /// Usage: If the element is not present, the DirectlyLinkedActivity is False.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? DirectlyLinkedActivity { get; init; } 
     /// <summary>
     /// Indicates whether the counterparty is an entity established pursuant to federal law like for example a federal authority or a government corporation.
     /// Usage: If the element is not present, the FederalInstitution is False.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? FederalInstitution { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(LongPostalAddress1Choice.Unstructured))]
 [KnownType(typeof(LongPostalAddress1Choice.Structured))]
+[DataContract]
 public abstract partial record LongPostalAddress1Choice_
 {
 }

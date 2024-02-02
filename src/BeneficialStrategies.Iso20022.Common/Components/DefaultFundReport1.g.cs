@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the calculation of the default fund and the collateral that has been posted by the clearing member.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DefaultFundReport1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DefaultFundReport1
     /// <summary>
     /// Provides details about the calculation of the clearing member contribution to the default fund.
     /// </summary>
-    public DefaultFund1[] DefaultFundCalculation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DefaultFund1> DefaultFundCalculation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides details about the collateral held.
     /// </summary>
-    public Collateral3[] CollateralDescription { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Collateral3> CollateralDescription { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Excess amount that the central counterparty will restitute to the clearing member or deficit to be provided by the member for the guarantee fund.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection21 NetExcessOrDeficit { get; init; } 
     
     #nullable disable

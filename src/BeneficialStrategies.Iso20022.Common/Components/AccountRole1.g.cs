@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the party and owner type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountRole1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record AccountRole1
     /// <summary>
     /// Account owner/user identification and contact information.
     /// </summary>
+    [DataMember]
     public required PartyIdentification41 Party { get; init; } 
     /// <summary>
     /// Defines account owners/users relation to the account.
     /// </summary>
+    [DataMember]
     public required OwnerType1 OwnerType { get; init; } 
     /// <summary>
     /// Start date related to the role.
     /// </summary>
+    [DataMember]
     public IsoISODate? StartDate { get; init; } 
     /// <summary>
     /// End date related to the role.
     /// </summary>
+    [DataMember]
     public IsoISODate? EndDate { get; init; } 
     
     #nullable disable

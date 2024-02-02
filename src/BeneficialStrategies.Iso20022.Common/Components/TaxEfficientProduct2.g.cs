@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Characteristics of a tax efficient product.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxEfficientProduct2
 {
     #nullable enable
@@ -20,63 +22,78 @@ public partial record TaxEfficientProduct2
     /// <summary>
     /// Type of tax efficient product, for example, an individual savings account (ISA) in the UK.
     /// </summary>
+    [DataMember]
     public required TaxEfficientProductType1Choice_ TaxEfficientProductType { get; init; } 
     /// <summary>
     /// Indicates whether, for the current year, the product contains a cash asset for transfer.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? CashComponentIndicator { get; init; } 
     /// <summary>
     /// Investment plans issued during previous years.
     /// </summary>
+    [DataMember]
     public PreviousYear4? PreviousYears { get; init; } 
     /// <summary>
     /// Date the investment plan started.
     /// </summary>
+    [DataMember]
     public IsoISODate? DateOfFirstSubscription { get; init; } 
     /// <summary>
     /// Amounts already subscribed for the current year.
     /// </summary>
+    [DataMember]
     public SubscriptionInformation2? CurrentYearSubscriptionDetails { get; init; } 
     /// <summary>
     /// Bonus paid out or withdrawn.
     /// </summary>
-    public BonusWithdrawal1[] BonusOrWithdrawal { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BonusWithdrawal1> BonusOrWithdrawal { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the investor as assigned by a tax authority. 
     /// </summary>
+    [DataMember]
     public TaxReference2? InvestorTaxReference { get; init; } 
     /// <summary>
     /// Value of the investments to follow.
     /// </summary>
-    public DateAndAmount2[] InvestmentsToFollowValue { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DateAndAmount2> InvestmentsToFollowValue { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information about an innovative finance product.
     /// </summary>
-    public InnovativeFinance1[] InnovativeFinance { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InnovativeFinance1> InnovativeFinance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Lowest investment amount in the current year, used to calculate a tax deduction amount.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? LowestInvestedAmountCurrentYear { get; init; } 
     /// <summary>
     /// Amount of money from which the tax deduction is calculated. 
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? TaxCalculationBase { get; init; } 
     /// <summary>
     /// Unused tax deduction amount.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? UnusedTaxDeduction { get; init; } 
     /// <summary>
     /// Amount of money invested.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? CurrentInvestmentAmount { get; init; } 
     /// <summary>
     /// Estimated value of the assets of the tax efficient product to be transferred.
     /// </summary>
+    [DataMember]
     public DateAndAmount2? EstimatedValue { get; init; } 
     /// <summary>
     /// Additional information about the tax efficient product.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

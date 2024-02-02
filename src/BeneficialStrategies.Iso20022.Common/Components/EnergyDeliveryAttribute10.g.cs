@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to energy derivatives attributes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EnergyDeliveryAttribute10
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record EnergyDeliveryAttribute10
     /// <summary>
     /// Time interval for each block or shape.
     /// </summary>
-    public TimePeriodDetails1[] DeliveryInterval { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TimePeriodDetails1> DeliveryInterval { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Definition of delivery start date and end date.
     /// </summary>
+    [DataMember]
     public DatePeriod1? DeliveryDate { get; init; } 
     /// <summary>
     /// Duration of the delivery period.
     /// </summary>
+    [DataMember]
     public DurationType1Code? Duration { get; init; } 
     /// <summary>
     /// Days of the week of the delivery.
     /// </summary>
-    public WeekDay3Code[] WeekDay { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<WeekDay3Code> WeekDay { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Delivery capacity for each delivery interval specified.
     /// </summary>
+    [DataMember]
     public Quantity47Choice_? DeliveryCapacity { get; init; } 
     /// <summary>
     /// Daily or hourly quantity in MWh or kWh/d which corresponds to the underlying commodity.
     /// </summary>
+    [DataMember]
     public EnergyQuantityUnit2Choice_? QuantityUnit { get; init; } 
     /// <summary>
     /// Indicates if applicable the price per quantity per delivery time interval.
     /// </summary>
+    [DataMember]
     public AmountAndDirection106? PriceTimeIntervalQuantity { get; init; } 
     
     #nullable disable

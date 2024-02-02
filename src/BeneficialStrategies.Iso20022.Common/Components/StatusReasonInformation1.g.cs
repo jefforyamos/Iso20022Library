@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Further information on the status reason of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StatusReasonInformation1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record StatusReasonInformation1
     /// <summary>
     /// Party issuing the status.
     /// </summary>
+    [DataMember]
     public PartyIdentification8? StatusOriginator { get; init; } 
     /// <summary>
     /// Specifies the reason for the status report.
     /// </summary>
+    [DataMember]
     public StatusReason1Choice_? StatusReason { get; init; } 
     /// <summary>
     /// Further details on the status reason.||Usage: Additional information can be used for several purposes, e.g. to report repaired information, or to further detail the status reason.
     /// </summary>
-    public IsoMax105Text[] AdditionalStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax105Text> AdditionalStatusReasonInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

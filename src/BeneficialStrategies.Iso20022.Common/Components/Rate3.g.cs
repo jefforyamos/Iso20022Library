@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to qualify the interest rate.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Rate3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Rate3
     /// <summary>
     /// Specifies the type of interest rate.
     /// </summary>
+    [DataMember]
     public required RateType4Choice_ Type { get; init; } 
     /// <summary>
     /// An amount range where the interest rate is applicable.
     /// </summary>
+    [DataMember]
     public CurrencyAndAmountRange2? ValidityRange { get; init; } 
     
     #nullable disable

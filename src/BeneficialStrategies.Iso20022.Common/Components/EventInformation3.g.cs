@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about event of a corporate action.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EventInformation3
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record EventInformation3
     /// <summary>
     /// Reference assigned by the account servicer to unambiguously identify a corporate action event.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text CorporateActionEventIdentification { get; init; } 
     /// <summary>
     /// Provides the reference of the linked official corporate action event.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OfficialCorporateActionEventIdentification { get; init; } 
     /// <summary>
     /// Type of corporate action event.
     /// </summary>
+    [DataMember]
     public required CorporateActionEventType7Choice_ EventType { get; init; } 
     /// <summary>
     /// Specifies whether the event is mandatory, mandatory with options or voluntary.
     /// </summary>
+    [DataMember]
     public required CorporateActionMandatoryVoluntary1Choice_ MandatoryVoluntaryEventType { get; init; } 
     /// <summary>
     /// Provides information about the identification of the last notification.
     /// </summary>
+    [DataMember]
     public NotificationIdentification1? LastNotificationIdentification { get; init; } 
     
     #nullable disable

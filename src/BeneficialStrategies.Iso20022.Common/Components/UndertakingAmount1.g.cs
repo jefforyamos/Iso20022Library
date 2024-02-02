@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about an amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UndertakingAmount1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record UndertakingAmount1
     /// <summary>
     /// Amount and currency of the undertaking.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Percentage by which the amount claimed under the undertaking may be more than the undertaking amount.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? PlusTolerance { get; init; } 
     /// <summary>
     /// Additional information concerning the undertaking amount.
     /// </summary>
-    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

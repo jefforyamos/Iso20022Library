@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionSD20
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CorporateActionSD20
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// DTC generated number to distinguish between the series of lotteries run against a particular redemption.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? LotterySequenceNumber { get; init; } 
     /// <summary>
     /// Date/time on which the lottery is run and applied to the holder's positions. This is also applicable to partial calls.
     /// </summary>
+    [DataMember]
     public IsoISODate? LotteryDate { get; init; } 
     /// <summary>
     /// For Reorganization events, date at which instructions will be accepted by agent for payment.
     /// </summary>
+    [DataMember]
     public IsoISODate? ProcessToDate { get; init; } 
     
     #nullable disable

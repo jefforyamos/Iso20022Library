@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Agreement between two parties to sell a financial instrument or set of financial instruments and repurchase at an agreed later date.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RepurchaseAgreement2
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record RepurchaseAgreement2
     /// <summary>
     /// Date on which the repurchase agreement matures.
     /// </summary>
+    [DataMember]
     public required IsoISODate MaturityDate { get; init; } 
     /// <summary>
     /// Specifies the repurchase price at maturity of the repo.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount SecondLegPrice { get; init; } 
     /// <summary>
     /// Specifies the dirty price of the underlying security or securities in repo.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount CollateralMarketValue { get; init; } 
     /// <summary>
     /// Identifies the counterparty to the repurchase agreement.
     /// </summary>
+    [DataMember]
     public required IsoLEIIdentifier Counterparty { get; init; } 
     /// <summary>
     /// Specifies the type of repurchase agreement.
     /// </summary>
+    [DataMember]
     public required RepurchaseAgreementType3Choice_ RepurchaseAgreementType { get; init; } 
     /// <summary>
     /// Identifies the triparty repurchase agent.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? TripartyAgentIdentification { get; init; } 
     
     #nullable disable

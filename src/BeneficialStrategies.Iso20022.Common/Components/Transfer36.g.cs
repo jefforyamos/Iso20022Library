@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transfer36
 {
     #nullable enable
@@ -20,78 +22,97 @@ public partial record Transfer36
     /// <summary>
     /// Unique and unambiguous identifier for the transfer instruction, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public AdditionalReference10? ClientReference { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transfer allocated by the counterparty.
     /// </summary>
+    [DataMember]
     public AdditionalReference10? CounterpartyReference { get; init; } 
     /// <summary>
     /// Identifies the business process in which the actors are involved. This is important to trigger the right business process, according to the market business model, which may require matching instructions in a CSD environment (double leg process) or not (single leg process).
     /// </summary>
+    [DataMember]
     public BusinessFlowType1Code? BusinessFlowType { get; init; } 
     /// <summary>
     /// Date for which the instructing party requests the transfer.
     /// </summary>
+    [DataMember]
     public DateFormat1Choice_? RequestedTransferDate { get; init; } 
     /// <summary>
     /// Date and time at which the securities are to be exchanged at the International Central Securities Depository (ICSD) or Central Securities Depository (CSD).
     /// </summary>
+    [DataMember]
     public IsoISODate? RequestedSettlementDate { get; init; } 
     /// <summary>
     /// Date on which the investor signed the transfer order form.
     /// </summary>
+    [DataMember]
     public IsoISODate? TransferOrderDateForm { get; init; } 
     /// <summary>
     /// Reason for the transfer.
     /// </summary>
+    [DataMember]
     public TransferReason1Choice_? TransferReason { get; init; } 
     /// <summary>
     /// Specifies information about investment plans included in the holding.
     /// </summary>
-    public HoldingsPlanType1Code[] HoldingsPlanType { get; init; } = [];
+    [DataMember]
+    public ValueList<HoldingsPlanType1Code> HoldingsPlanType { get; init; } = [];
     /// <summary>
     /// Information related to the financial instrument to be transferred.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument88 FinancialInstrumentDetails { get; init; } 
     /// <summary>
     /// Total quantity of securities to be transferred, expressed as a number of units or a percentage rate.
     /// </summary>
+    [DataMember]
     public required Quantity42Choice_ Quantity { get; init; } 
     /// <summary>
     /// Breakdown of units to be transferred.
     /// </summary>
-    public Unit12[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Unit12> UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rounding direction applied to nearest unit.
     /// </summary>
+    [DataMember]
     public RoundingDirection2Code? Rounding { get; init; } 
     /// <summary>
     /// Original amount paid for the asset at the point of purchase. May also be known as the book cost.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? OriginalCost { get; init; } 
     /// <summary>
     /// Value of the security, as booked in the account. Book value is often different from the current market value of the security.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; init; } 
     /// <summary>
     /// Currency to be used to transfer the holdings. Some transfer agents register holdings grouped by currency in addition to using the ISIN for multi-currency fund shares.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? TransferCurrency { get; init; } 
     /// <summary>
     /// Indicates whether the transfer results in a change of beneficial owner.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? OwnAccountTransferIndicator { get; init; } 
     /// <summary>
     /// Additional specific settlement information for the fund.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? NonStandardSettlementInformation { get; init; } 
     /// <summary>
     /// Specifies how the payment of fees and taxes as a result of the transfer is covered, that is, whether by cash or the redemption of units.
     /// </summary>
+    [DataMember]
     public ChargePaymentMethod1Choice_? TransferExpensesPaymentType { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Telecom services carries telephony billing data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TelecomServices1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record TelecomServices1
     /// <summary>
     /// Telecom Services Summary component is designed to carry summary level telephony billing data and to enable issuers to supply more transaction information to their consumer and corporate clients pertaining to telecommunications services and related billing information. 
     /// </summary>
+    [DataMember]
     public TelecomServicesSummary1? Summary { get; init; } 
     /// <summary>
     /// Telecom Services Line Item component is designed to carry detail level telephony billing data and to enable issuers to supply more transaction information to their consumer and corporate clients pertaining to telecommunications services and related billing information. 
     /// </summary>
-    public TelecomServicesLineItem1[] LineItem { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TelecomServicesLineItem1> LineItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

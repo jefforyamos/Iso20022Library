@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, for example, dividend option or valuation currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityIdentification36
 {
     #nullable enable
@@ -20,54 +22,67 @@ public partial record SecurityIdentification36
     /// <summary>
     /// Identification of the security, typically by an ISIN.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification19 Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text Name { get; init; } 
     /// <summary>
     /// Financial Instrument Short Name (FISN) expressed in conformance with the ISO 18774 standard.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     /// <summary>
     /// Features of units offered by a fund. For example, a unit may have a specific load structure, for example, front end or back end, an income policy, for example, pay out or accumulate, or a trailer policy, for example, with or without. Fund classes are typically denoted by a single character, for example, 'Class A', 'Class 2'.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClassType { get; init; } 
     /// <summary>
     /// Name of the umbrella fund in which the financial instrument is contained.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? UmbrellaName { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is part of a new umbrella.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? NewUmbrella { get; init; } 
     /// <summary>
     /// Classification type of the financial instrument, as per the ISO Classification of Financial Instrument (CFI) codification, for example, common share with voting rights, fully paid, or registered.
     /// </summary>
+    [DataMember]
     public SecurityClassificationType2Choice_? ClassificationType { get; init; } 
     /// <summary>
     /// Currency of the investment fund class.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? BaseCurrency { get; init; } 
     /// <summary>
     /// Country where the fund has legal domicile.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryOfDomicile { get; init; } 
     /// <summary>
     /// Country where the fund is registered for distribution.
     /// </summary>
-    public CountryCode[] RegisteredDistributionCountry { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CountryCode> RegisteredDistributionCountry { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Legal structure of the financial instrument. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00060.
     /// </summary>
+    [DataMember]
     public LegalStructure1Choice_? LegalStructure { get; init; } 
     /// <summary>
     /// Issuer of the financial instrument. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00070.
     /// </summary>
+    [DataMember]
     public ContactAttributes5? Issuer { get; init; } 
     /// <summary>
     /// Governance procedure that must be followed. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00075.
     /// </summary>
+    [DataMember]
     public GovernanceProcess1Choice_? IssuerProductGovernanceProcess { get; init; } 
     /// <summary>
     /// Designation of the product category or nature, for example, Pacific Equity, Equity Fund, Money Market Fund. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00090. If the product is a structured security product, the European Structured Investment Products Association (EUSIPA) code should be used as defined in the scope of European MiFID Template (EMT) reference 00095. 
@@ -75,20 +90,24 @@ public partial record SecurityIdentification36
     /// In EMT v2, this is 'Designation of the respective product category or nature for Germany’.
     /// If the financial instrument is distributed in the German market, then the German classification of financial instruments code should be used.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? ProductCategory { get; init; } 
     /// <summary>
     /// When the financial instrument is a structured security, specifies if the ex-ante and ex-post costs and charges are specified as an absolute figure, that is, a currency and amount, or as a percentage rate, related to the specific reference value. 
     /// When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT v2) reference 00096 or the European MiFID Template (EMT v1) reference 07010.
     /// </summary>
+    [DataMember]
     public QuotationType1Choice_? QuotationType { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is leveraged or has contingent liability. This enables reporting on the depreciation of leveraged financial instruments or contingent liability transactions in accordance with Art. 62 of the MiFID II's Delegated Regulation as defined in the scope of European MiFID Template (EMT) reference 00100.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? LeveragedOrContigentLiability { get; init; } 
     /// <summary>
     /// Additional information about the security.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

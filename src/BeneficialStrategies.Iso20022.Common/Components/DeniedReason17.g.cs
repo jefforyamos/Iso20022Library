@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// The status of an instruction, advice or request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeniedReason17
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DeniedReason17
     /// <summary>
     /// Specifies the reason why the request has a denied status.
     /// </summary>
+    [DataMember]
     public required DeniedReason24Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

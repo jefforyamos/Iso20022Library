@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(UnderlyingTransaction3Choice.Initiation))]
 [KnownType(typeof(UnderlyingTransaction3Choice.Interbank))]
 [KnownType(typeof(UnderlyingTransaction3Choice.StatementEntry))]
+[DataContract]
 public abstract partial record UnderlyingTransaction3Choice_
 {
 }

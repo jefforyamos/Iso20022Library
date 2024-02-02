@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the securities index request operations for national competent authorities.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesIndexReport1
 {
     #nullable enable
@@ -22,18 +24,22 @@ public partial record SecuritiesIndexReport1
     /// Usage:
     /// This identification will be used in the status advice sent back.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Country code of the entity that wishes to express an interest in receiving transaction reports for the requested indexes.
     /// </summary>
+    [DataMember]
     public CountryCode? RequestingEntity { get; init; } 
     /// <summary>
     /// Details the index that is being requested.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument46Choice_ Index { get; init; } 
     /// <summary>
     /// Date when the national competent authority last expressed its interest in this index.
     /// </summary>
+    [DataMember]
     public Period4Choice_? ValidityPeriod { get; init; } 
     
     #nullable disable

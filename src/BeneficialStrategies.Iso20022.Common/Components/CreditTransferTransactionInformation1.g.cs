@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements providing information specific to the individual transaction(s) included in the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditTransferTransactionInformation1
 {
     #nullable enable
@@ -20,102 +22,127 @@ public partial record CreditTransferTransactionInformation1
     /// <summary>
     /// Set of elements to reference a payment instruction.
     /// </summary>
+    [DataMember]
     public required PaymentIdentification1 PaymentIdentification { get; init; } 
     /// <summary>
     /// Set of elements used to further specify the type of transaction.
     /// </summary>
+    [DataMember]
     public PaymentTypeInformation1? PaymentTypeInformation { get; init; } 
     /// <summary>
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// </summary>
+    [DataMember]
     public required AmountType2Choice_ Amount { get; init; } 
     /// <summary>
     /// Further detailed information on the exchange rate specified in the payment transaction.
     /// </summary>
+    [DataMember]
     public ExchangeRateInformation1? ExchangeRateInformation { get; init; } 
     /// <summary>
     /// Specifies which party/parties will bear the charges associated with the processing of the payment transaction.
     /// </summary>
+    [DataMember]
     public ChargeBearerType1Code? ChargeBearer { get; init; } 
     /// <summary>
     /// Information related to the issuance of a cheque.
     /// </summary>
+    [DataMember]
     public Cheque5? ChequeInstruction { get; init; } 
     /// <summary>
     /// Ultimate party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [DataMember]
     public PartyIdentification8? UltimateDebtor { get; init; } 
     /// <summary>
     /// Agent between the debtor agent and creditor agent.||Usage: If more than one intermediary agent is present, then IntermediaryAgent1 identifies the agent between the debtor agent and the intermediary agent 2.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? IntermediaryAgent1 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the intermediary agent 1 at its servicing agent in the payment chain.
     /// </summary>
+    [DataMember]
     public CashAccount7? IntermediaryAgent1Account { get; init; } 
     /// <summary>
     /// Agent between the debtor agent and creditor agent.||Usage: If more than two intermediary agents are present, then IntermediaryAgent2 identifies the agent between the intermediary agent 1 and the intermediary agent 3.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? IntermediaryAgent2 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the intermediary agent 2 at its servicing agent in the payment chain.
     /// </summary>
+    [DataMember]
     public CashAccount7? IntermediaryAgent2Account { get; init; } 
     /// <summary>
     /// Agent between the debtor agent and creditor agent.||Usage: If IntermediaryAgent3 is present, then it identifies the agent between the intermediary agent 2 and the creditor agent.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? IntermediaryAgent3 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the intermediary agent 3 at its servicing agent in the payment chain.
     /// </summary>
+    [DataMember]
     public CashAccount7? IntermediaryAgent3Account { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification3? CreditorAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor agent at its servicing agent to which a credit entry will be made as a result of the payment transaction.
     /// </summary>
+    [DataMember]
     public CashAccount7? CreditorAgentAccount { get; init; } 
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
+    [DataMember]
     public PartyIdentification8? Creditor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor to which a credit entry will be posted as a result of the payment transaction.
     /// </summary>
+    [DataMember]
     public CashAccount7? CreditorAccount { get; init; } 
     /// <summary>
     /// Ultimate party to which an amount of money is due.
     /// </summary>
+    [DataMember]
     public PartyIdentification8? UltimateCreditor { get; init; } 
     /// <summary>
     /// Further information related to the processing of the payment instruction, provided by the initiating party, and intended for the creditor agent.
     /// </summary>
-    public InstructionForCreditorAgent1[] InstructionForCreditorAgent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InstructionForCreditorAgent1> InstructionForCreditorAgent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further information related to the processing of the payment instruction that may need to be acted upon by the debtor agent, depending on agreement between debtor and the debtor agent. ||Usage: The instruction can relate to a level of service, can be an instruction to be executed by the debtor's agent, or can be information required by the debtor's agent to process the instruction.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? InstructionForDebtorAgent { get; init; } 
     /// <summary>
     /// Underlying reason for the payment transaction, eg, a charity payment, or a commercial agreement between the creditor and the debtor. ||Usage: purpose is used by the end-customers, ie originating party, initiating party, debtor, creditor, final party, to provide information concerning the nature of the payment transaction. Purpose is a content element, which is not used for processing by any of the agents involved in the payment chain.
     /// </summary>
+    [DataMember]
     public Purpose1Choice_? Purpose { get; init; } 
     /// <summary>
     /// Information needed due to regulatory and statutory requirements.
     /// </summary>
-    public RegulatoryReporting2[] RegulatoryReporting { get; init; } = [];
+    [DataMember]
+    public ValueList<RegulatoryReporting2> RegulatoryReporting { get; init; } = [];
     /// <summary>
     /// Amount of money due to the government or tax authority, according to various pre-defined parameters such as thresholds or income.
     /// </summary>
+    [DataMember]
     public TaxInformation2? Tax { get; init; } 
     /// <summary>
     /// Information related to the handling of the remittance information by any of the agents in the transaction processing chain.
     /// </summary>
-    public RemittanceLocation1[] RelatedRemittanceInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<RemittanceLocation1> RelatedRemittanceInformation { get; init; } = [];
     /// <summary>
     /// Information that enables the matching, ie, reconciliation, of a payment with the items that the payment is intended to settle, eg, commercial invoices in an account receivable system.
     /// </summary>
+    [DataMember]
     public RemittanceInformation1? RemittanceInformation { get; init; } 
     
     #nullable disable

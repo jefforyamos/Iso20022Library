@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(DateOrDateTimePeriod2Choice.Date))]
 [KnownType(typeof(DateOrDateTimePeriod2Choice.DateTime))]
+[DataContract]
 public abstract partial record DateOrDateTimePeriod2Choice_
 {
 }

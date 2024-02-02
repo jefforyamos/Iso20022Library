@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional information required for distribution in the French market.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalProductInformation2
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record AdditionalProductInformation2
     /// <summary>
     /// Approach of the Autorite des Marches Financiers (AMF) recommendation 2020-03 to which the fund complies. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT V3.1) reference 01020.
     /// </summary>
+    [DataMember]
     public AMFDoctrine1Code? AMFDoctrine { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Totals of the reconciliation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionTotals11
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record TransactionTotals11
     /// <summary>
     /// Date and identification of reconciliation.
     /// </summary>
+    [DataMember]
     public Reconciliation3? Reconciliation { get; init; } 
     /// <summary>
     /// Total of credit transactions.
     /// </summary>
-    public FinancialReconcillation1[] FinancialReconciliation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FinancialReconcillation1> FinancialReconciliation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains total message count.
     /// </summary>
-    public MessageReconcillation1[] MessageReconciliation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MessageReconcillation1> MessageReconciliation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional fee reconciliation data.
     /// </summary>
-    public AdditionalFeeReconciliation1[] AdditionalFeeReconciliation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalFeeReconciliation1> AdditionalFeeReconciliation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Currency of the transaction.
     /// </summary>
+    [DataMember]
     public required IsoMin2Max3NumericText Currency { get; init; } 
     /// <summary>
     /// Net amount of reconciliation.
     /// ISO 8583:87/93 bit 97
     /// </summary>
+    [DataMember]
     public Amount5? NetAmountReconciliation { get; init; } 
     
     #nullable disable

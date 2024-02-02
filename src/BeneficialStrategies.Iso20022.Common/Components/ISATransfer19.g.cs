@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes the type of product and the assets to be transferred.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ISATransfer19
 {
     #nullable enable
@@ -20,51 +22,63 @@ public partial record ISATransfer19
     /// <summary>
     /// Information identifying the primary individual investor, for example, name, address, social security number and date of birth.
     /// </summary>
+    [DataMember]
     public IndividualPerson8? PrimaryIndividualInvestor { get; init; } 
     /// <summary>
     /// Information identifying the secondary individual investor, for example, name, address, social security number and date of birth.
     /// </summary>
+    [DataMember]
     public IndividualPerson8? SecondaryIndividualInvestor { get; init; } 
     /// <summary>
     /// Information identifying the other individual investors, for example, name, address, social security number and date of birth.
     /// </summary>
-    public IndividualPerson8[] OtherIndividualInvestor { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IndividualPerson8> OtherIndividualInvestor { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information identifying the primary corporate investor, for example, name and address.
     /// </summary>
+    [DataMember]
     public Organisation4? PrimaryCorporateInvestor { get; init; } 
     /// <summary>
     /// Information identifying the secondary corporate investor, for example, name and address.
     /// </summary>
+    [DataMember]
     public Organisation4? SecondaryCorporateInvestor { get; init; } 
     /// <summary>
     /// Information identifying the other corporate investors, for example, name and address.
     /// </summary>
-    public Organisation4[] OtherCorporateInvestor { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Organisation4> OtherCorporateInvestor { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of an account owned by the investor at the old plan manager (account servicer).
     /// </summary>
+    [DataMember]
     public required Account15 TransferorAccount { get; init; } 
     /// <summary>
     /// Account held in the name of a party that is not the name of the beneficial owner of the shares.
     /// </summary>
+    [DataMember]
     public Account16? NomineeAccount { get; init; } 
     /// <summary>
     /// Information related to the institution to which the financial instrument is to be transferred.
     /// </summary>
+    [DataMember]
     public required PartyIdentification2Choice_ Transferee { get; init; } 
     /// <summary>
     /// Identification of an account owned by the investor to which a cash entry is made based on the transfer of asset(s).
     /// </summary>
+    [DataMember]
     public CashAccount29? CashAccount { get; init; } 
     /// <summary>
     /// Details of the transfer to be cancelled.
     /// </summary>
+    [DataMember]
     public required ISATransfer20 ProductTransferAndReference { get; init; } 
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public Extension1[] Extension { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Extension1> Extension { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

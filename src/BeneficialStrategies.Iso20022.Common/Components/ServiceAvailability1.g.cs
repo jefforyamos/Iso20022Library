@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the availability of a service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ServiceAvailability1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ServiceAvailability1
     /// <summary>
     /// Specifies the applicable business service.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? BusinessService { get; init; } 
     /// <summary>
     /// Status of service availability.
     /// </summary>
+    [DataMember]
     public required SystemEventType3Choice_ AvailabilityStatus { get; init; } 
     
     #nullable disable

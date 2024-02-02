@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to report on a system or a member of the system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemReturnCriteria2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SystemReturnCriteria2
     /// <summary>
     /// Indicates whether the system identification is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? SystemIdentificationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the member identification is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? MemberIdentificationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the country identification is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? CountryIdentificationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the account identification is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? AccountIdentificationIndicator { get; init; } 
     
     #nullable disable

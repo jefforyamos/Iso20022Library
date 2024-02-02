@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes how interest rates are reported.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InterestRateContractTerm4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InterestRateContractTerm4
     /// <summary>
     /// Unit for the rate basis.
     /// </summary>
+    [DataMember]
     public Frequency13Code? Unit { get; init; } 
     /// <summary>
     /// Specifies the number of time units (as expressed by the payment frequency period) that detemines the frequency at which periodic payment dates occur.
     /// </summary>
+    [DataMember]
     public IsoMax3Number? Value { get; init; } 
     
     #nullable disable

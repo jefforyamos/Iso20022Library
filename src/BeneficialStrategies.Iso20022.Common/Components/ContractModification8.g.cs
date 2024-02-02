@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the action type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContractModification8
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record ContractModification8
     /// <summary>
     /// Indication of the action type of the transaction.
     /// </summary>
+    [DataMember]
     public required TransactionOperationType11Code ActionType { get; init; } 
     
     #nullable disable

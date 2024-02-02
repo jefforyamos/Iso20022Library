@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Variables used to quantify the different calculations for position sets.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PositionSetMetrics7
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record PositionSetMetrics7
     /// <summary>
     /// Numeric variables calculated on the number of transactions or on market exposures.
     /// </summary>
+    [DataMember]
     public required VolumeMetrics5 VolumeMetrics { get; init; } 
     
     #nullable disable

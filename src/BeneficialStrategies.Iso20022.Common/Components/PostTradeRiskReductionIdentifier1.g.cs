@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about an post trade risk reduction identifier.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PostTradeRiskReductionIdentifier1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PostTradeRiskReductionIdentifier1
     /// <summary>
     /// Identification of the structurer of the post trade risk reduction identifier.
     /// </summary>
+    [DataMember]
     public required IsoLEIIdentifier Structurer { get; init; } 
     /// <summary>
     /// Post trade risk reduction identifier assigned by the structurer allowing to link the constituents.
     /// </summary>
+    [DataMember]
     public required IsoMax52Text Identification { get; init; } 
     
     #nullable disable

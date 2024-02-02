@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// This component define the type of admin service to be used with this message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SessionManagementResponse5
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record SessionManagementResponse5
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public required CardPaymentEnvironment78 Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
+    [DataMember]
     public required CardPaymentContext29 Context { get; init; } 
     /// <summary>
     /// Define the type of service answered.
     /// </summary>
+    [DataMember]
     public required RetailerService5Code ServiceContent { get; init; } 
     /// <summary>
     /// Content of the Login Response message.
     /// </summary>
+    [DataMember]
     public LoginResponse4? LoginResponse { get; init; } 
     /// <summary>
     /// Content of the Diagnosis Response message.
     /// </summary>
+    [DataMember]
     public DiagnosisResponse4? DiagnosisResponse { get; init; } 
     /// <summary>
     /// Result of the processing of the request.
     /// </summary>
+    [DataMember]
     public required ResponseType11 Response { get; init; } 
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

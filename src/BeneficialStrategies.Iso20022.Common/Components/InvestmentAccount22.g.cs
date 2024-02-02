@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account between an investor(s) and a fund manager or a fund. The account can contain holdings in any investment fund or investment fund class managed (or distributed) by the fund manager, within the same fund family.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentAccount22
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record InvestmentAccount22
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
-    public PartyIdentification2Choice_[] OwnerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyIdentification2Choice_> OwnerIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required AccountIdentification1 AccountIdentification { get; init; } 
     /// <summary>
     /// Name of the account. It provides an additional means of identification, and is designated by the account servicer in agreement with the account owner.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountName { get; init; } 
     /// <summary>
     /// Supplementary registration information applying to a specific block of units for dealing and reporting purposes. The supplementary registration information may be used when all the units are registered, for example, to a funds supermarket, but holdings for each investor have to reconciled individually.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountDesignation { get; init; } 
     /// <summary>
     /// Party that provides services relating to financial products to investors, eg, advice on products and placement of orders for the investment fund.
     /// </summary>
-    public Intermediary11[] IntermediaryInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Intermediary11> IntermediaryInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Form, ie, ownership, of the security, eg, registered or bearer.
     /// </summary>
+    [DataMember]
     public FormOfSecurity1Code? SecuritiesForm { get; init; } 
     /// <summary>
     /// Indicates whether a security exists only as an electronic record, ie, there is no physical document representing the security.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? DematerialisedIndicator { get; init; } 
     /// <summary>
     /// Dividend option chosen by the account owner based on the options offered in the prospectus.
     /// </summary>
+    [DataMember]
     public IncomePreference1Code? IncomePreference { get; init; } 
     /// <summary>
     /// Beneficial owner or its designated agent certifies that it complies with any holding or investment restrictions or requirements of the fund.
     /// </summary>
+    [DataMember]
     public BeneficiaryCertificationCompletion1Code? BeneficiaryCertificationCompletion { get; init; } 
     /// <summary>
     /// Place requested as the place of safekeeping.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? SafekeepingPlace { get; init; } 
     /// <summary>
     /// Party related to an account that is not the legal account owner, eg, the power of attorney.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? AccountServicer { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Communication details related to the registered currency control contract.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RegisteredContractCommunication1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RegisteredContractCommunication1
     /// <summary>
     /// Method by which the registered contract document is exchanged.
     /// </summary>
+    [DataMember]
     public required CommunicationMethod4Code Method { get; init; } 
     /// <summary>
     /// Date of the exchange.
     /// </summary>
+    [DataMember]
     public required IsoISODate Date { get; init; } 
     
     #nullable disable

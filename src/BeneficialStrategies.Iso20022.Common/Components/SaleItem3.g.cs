@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Item purchased with the transaction
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SaleItem3
 {
     #nullable enable
@@ -20,74 +22,92 @@ public partial record SaleItem3
     /// <summary>
     /// Contains the product type of the sale line item.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProductType { get; init; } 
     /// <summary>
     /// Product code of the item.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? ProductCode { get; init; } 
     /// <summary>
     /// Contains a list of codes used to identify a product.
     /// </summary>
+    [DataMember]
     public ProductCodeType1Code? ProductCodeType { get; init; } 
     /// <summary>
     /// Additional code related to the product.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? AdditionalProductCode { get; init; } 
     /// <summary>
     /// Additional type of codification  used to identify a product.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AdditionalProductCodeType { get; init; } 
     /// <summary>
     /// Code discriminator between a product code and its format to uniquely identify a specific product (for example, Item or pack of same items).
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? ProductCodeModifier { get; init; } 
     /// <summary>
     /// Description of the product or item.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? ProductDescription { get; init; } 
     /// <summary>
     /// Unit of measure of the item purchased.
     /// </summary>
+    [DataMember]
     public UnitOfMeasure1Code? UnitOfMeasure { get; init; } 
     /// <summary>
     /// Other unit of measure.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherUnitOfMeasure { get; init; } 
     /// <summary>
     /// Quantity of product or item.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? ProductQuantity { get; init; } 
     /// <summary>
     /// Original, non-adjusted cost of one unit of the product or service before discounts and taxes.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? NonAdjustedUnitPrice { get; init; } 
     /// <summary>
     /// Original, non-adjusted total cost of a product or service before discounts and taxes.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? NonAdjustedTotalAmount { get; init; } 
     /// <summary>
     /// Adjustment made to the original price.
     /// </summary>
-    public Adjustment10[] Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Adjustment10> Adjustment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total cost of the line item amount, inclusive adjustments and exclusive of taxes.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? AdjustedAmount { get; init; } 
     /// <summary>
     /// Indicates whether or not insurance was purchased. 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? InsuranceIndicator { get; init; } 
     /// <summary>
     /// Cost of the insurance purchased.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? InsuranceAmount { get; init; } 
     /// <summary>
     /// Taxes applying to the good or item.
     /// </summary>
-    public Tax39[] Tax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Tax39> Tax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total cost of the line item, inclusive of all applicable adjustments and taxes.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Environment of the ATM.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMEnvironment9
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ATMEnvironment9
     /// <summary>
     /// Acquirer of the ATM transaction, in charge of the funds settlement with the issuer.
     /// </summary>
+    [DataMember]
     public Acquirer7? Acquirer { get; init; } 
     /// <summary>
     /// Identification of the ATM manager.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ATMManagerIdentification { get; init; } 
     /// <summary>
     /// ATM information.
     /// </summary>
+    [DataMember]
     public required AutomatedTellerMachine7 ATM { get; init; } 
     
     #nullable disable

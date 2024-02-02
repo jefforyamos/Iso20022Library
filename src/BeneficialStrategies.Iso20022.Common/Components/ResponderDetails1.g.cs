@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the Financial Institution responding to the request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ResponderDetails1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ResponderDetails1
     /// <summary>
     /// Date and time at which the response was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime DateTimeStamp { get; init; } 
     /// <summary>
     /// Identification of the responder.
     /// </summary>
+    [DataMember]
     public required IsoAnyBICIdentifier Responder { get; init; } 
     
     #nullable disable

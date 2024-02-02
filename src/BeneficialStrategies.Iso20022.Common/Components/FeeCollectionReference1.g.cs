@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains fee collection reference details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FeeCollectionReference1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record FeeCollectionReference1
     /// <summary>
     /// Name of the entity assigning the fee collection reference.
     /// </summary>
+    [DataMember]
     public PartyType32Code? AssignerEntity { get; init; } 
     /// <summary>
     /// Other assigner entity.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherAssignerEntity { get; init; } 
     /// <summary>
     /// Identification of the fee collection.
     /// </summary>
-    public FeeCollectionIdentification1[] FeeCollectionIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FeeCollectionIdentification1> FeeCollectionIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

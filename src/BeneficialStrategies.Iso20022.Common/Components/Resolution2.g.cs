@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies an item in the agenda of the meeting. Some resolutions are submitted to the vote of the security holders, some are presented for information only.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Resolution2
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record Resolution2
     /// <summary>
     /// Numbering of the resolution as specified by the issuer or its agent.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text IssuerLabel { get; init; } 
     /// <summary>
     /// Free text description of the resolution.
     /// </summary>
+    [DataMember]
     public IsoMax1025Text? Description { get; init; } 
     /// <summary>
     /// Abbreviated description of the resolution.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Title { get; init; } 
     /// <summary>
     /// Indicates whether a resolution is ordinary, extraordinary or special.
     /// </summary>
+    [DataMember]
     public required ResolutionType1Code Type { get; init; } 
     /// <summary>
     /// Indicates whether the resolution is listed for information or for voting.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ForInformationOnly { get; init; } 
     /// <summary>
     /// Indicates whether the resolution is active or withdrawn.
     /// </summary>
+    [DataMember]
     public required ResolutionStatus1Code Status { get; init; } 
     /// <summary>
     /// Indicates whether the resolution has been submitted by the security holder.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator SubmittedBySecurityHolder { get; init; } 
     /// <summary>
     /// Vote options allowed at the resolution level. When specified, it supersedes the vote options given for the meeting.
     /// </summary>
-    public VoteInstruction2Code[] VoteInstructionType { get; init; } = [];
+    [DataMember]
+    public ValueList<VoteInstruction2Code> VoteInstructionType { get; init; } = [];
     /// <summary>
     /// Indicates how the management of the issuing company wishes the security holders to vote.
     /// </summary>
+    [DataMember]
     public VoteInstruction1Code? ManagementRecommendation { get; init; } 
     /// <summary>
     /// Indicates how the notifying party recommends that the security holders vote.
     /// </summary>
+    [DataMember]
     public VoteInstruction1Code? NotifyingPartyRecommendation { get; init; } 
     
     #nullable disable

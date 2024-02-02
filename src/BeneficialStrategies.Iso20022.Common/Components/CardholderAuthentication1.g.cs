@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related to the authentication of the cardholder.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardholderAuthentication1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CardholderAuthentication1
     /// <summary>
     /// Method used to authenticate a cardholder.
     /// </summary>
+    [DataMember]
     public required AuthenticationMethod1Code AuthenticationMethod { get; init; } 
     /// <summary>
     /// Entity or object in charge of verifying the cardholder authenticity.
     /// </summary>
+    [DataMember]
     public required AuthenticationEntity1Code AuthenticationEntity { get; init; } 
     /// <summary>
     /// Value used to authenticate the cardholder.
     /// </summary>
+    [DataMember]
     public IsoMax40Text? AuthenticationValue { get; init; } 
     /// <summary>
     /// Encrypted personal identification number (PIN) and related information.
     /// </summary>
+    [DataMember]
     public OnLinePIN1? CardholderOnLinePIN { get; init; } 
     /// <summary>
     /// Identifies in electronic commerce transactions whether customer authentication is supported and data is available.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AuthenticationCollectionIndicator { get; init; } 
     
     #nullable disable

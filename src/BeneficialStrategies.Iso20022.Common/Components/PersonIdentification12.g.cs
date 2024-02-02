@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the identification of a person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PersonIdentification12
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PersonIdentification12
     /// <summary>
     /// Branch where the trader is located.
     /// </summary>
+    [DataMember]
     public required CountryCode CountryOfBranch { get; init; } 
     /// <summary>
     /// Unique identification of a person, as assigned by an institution, using an identification scheme.
     /// </summary>
+    [DataMember]
     public required GenericPersonIdentification1 Other { get; init; } 
     
     #nullable disable

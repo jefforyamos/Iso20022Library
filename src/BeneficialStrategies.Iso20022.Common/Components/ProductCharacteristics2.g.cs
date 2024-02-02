@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Product characteristic applicable to this trade product.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProductCharacteristics2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ProductCharacteristics2
     /// <summary>
     /// Characteristics of the product.
     /// </summary>
+    [DataMember]
     public ProductCharacteristics1Choice_? Characteristic { get; init; } 
     /// <summary>
     /// Measurement value for this product characteristic.
     /// </summary>
+    [DataMember]
     public Quantity3? ValueMeasure { get; init; } 
     
     #nullable disable

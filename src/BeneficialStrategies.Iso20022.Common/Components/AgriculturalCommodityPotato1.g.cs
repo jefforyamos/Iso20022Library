@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines commodity sub-product attributes of an agricultural derivative of type potato.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AgriculturalCommodityPotato1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AgriculturalCommodityPotato1
     /// <summary>
     /// Base product for the underlying asset class as specified in the classification of commodities derivatives table.
     /// </summary>
+    [DataMember]
     public required AssetClassProductType1Code BaseProduct { get; init; } 
     /// <summary>
     /// Sub-product for the underlying asset class.
     /// </summary>
+    [DataMember]
     public required AssetClassSubProductType45Code SubProduct { get; init; } 
     
     #nullable disable

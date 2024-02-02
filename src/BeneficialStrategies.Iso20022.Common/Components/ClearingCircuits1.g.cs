@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Clearing circuits information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ClearingCircuits1
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record ClearingCircuits1
     /// <summary>
     /// Clearing scheme used.
     /// </summary>
+    [DataMember]
     public required ClearingScheme1Choice_ ClearingCircuit { get; init; } 
     /// <summary>
     /// Indicates whether the limits can be set for the external payment system.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator ClaimLimitIndicator { get; init; } 
     /// <summary>
     /// Short name of the clearing scheme.
     /// </summary>
+    [DataMember]
     public required IsoMax40Text ClearingSchemeShortName { get; init; } 
     /// <summary>
     /// Long name of the clearing scheme.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text ClearingSchemeLongName { get; init; } 
     /// <summary>
     /// Indicates whether all or nothing rule is in effect.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator AllOrNothingIndicator { get; init; } 
     /// <summary>
     /// Guarantee funds details.
     /// </summary>
+    [DataMember]
     public required GuaranteeFunds1 GuaranteeFunds { get; init; } 
     /// <summary>
     /// Clearing account identifier.
     /// </summary>
+    [DataMember]
     public required CashAccount24 ClearingAccount { get; init; } 
     /// <summary>
     /// Identification of the clearing account owner.
     /// </summary>
+    [DataMember]
     public required FinancialInstitutionIdentification9 ClearingAccountOwner { get; init; } 
     
     #nullable disable

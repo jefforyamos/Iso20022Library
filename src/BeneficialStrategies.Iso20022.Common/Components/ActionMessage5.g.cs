@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Message to be displayed to the cardholder or the cashier.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ActionMessage5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ActionMessage5
     /// <summary>
     /// Format of the content.
     /// </summary>
+    [DataMember]
     public OutputFormat1Code? Format { get; init; } 
     /// <summary>
     /// Text or graphic data to be display or printed to the cardholder or the cashier.
     /// </summary>
+    [DataMember]
     public required IsoMax20000Text MessageContent { get; init; } 
     
     #nullable disable

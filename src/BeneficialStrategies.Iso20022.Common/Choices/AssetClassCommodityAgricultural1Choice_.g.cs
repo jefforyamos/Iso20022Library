@@ -18,6 +18,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(AssetClassCommodityAgricultural1Choice.Seafood))]
 [KnownType(typeof(AssetClassCommodityAgricultural1Choice.LiveStock))]
 [KnownType(typeof(AssetClassCommodityAgricultural1Choice.Grain))]
+[DataContract]
 public abstract partial record AssetClassCommodityAgricultural1Choice_
 {
 }

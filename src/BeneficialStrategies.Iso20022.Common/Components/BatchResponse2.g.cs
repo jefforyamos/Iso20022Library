@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Batch Response message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BatchResponse2
 {
     #nullable enable
@@ -20,7 +22,8 @@ public partial record BatchResponse2
     /// <summary>
     /// Performed transaction content.
     /// </summary>
-    public PerformedTransaction2[] PerformedTransaction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PerformedTransaction2> PerformedTransaction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

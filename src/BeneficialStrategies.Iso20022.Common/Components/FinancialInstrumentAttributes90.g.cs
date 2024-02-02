@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Elements characterising a financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentAttributes90
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record FinancialInstrumentAttributes90
     /// <summary>
     /// Reference notional amount of the contract.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? Notional { get; init; } 
     /// <summary>
     /// Value of unit move in index if fixed in contract terms, and currency of payments relating to changes in the amount of the underlying.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount UnitValue { get; init; } 
     /// <summary>
     /// Unique identifier for underlying index on which final settlement price or periodic payments are calculated.
     /// </summary>
+    [DataMember]
     public required GenericIdentification168 IndexIdentification { get; init; } 
     /// <summary>
     /// Unit index, typically ‘Points’, or for interest rate and CDS products, ‘Bps’.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text IndexUnit { get; init; } 
     /// <summary>
     /// Day count convention for interest payments. Interest rate products only.
     /// </summary>
+    [DataMember]
     public InterestComputationMethod2Code? InterestRateTerms { get; init; } 
     
     #nullable disable

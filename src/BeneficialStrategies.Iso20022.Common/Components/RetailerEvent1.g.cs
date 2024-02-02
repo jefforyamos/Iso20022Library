@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Retailer Event message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RetailerEvent1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record RetailerEvent1
     /// <summary>
     /// Date and time of the event.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime EventTimeStamp { get; init; } 
     /// <summary>
     /// Event the POI notifies to the Sale System.
     /// </summary>
+    [DataMember]
     public required EventToNotify1Code EventToNotify { get; init; } 
     /// <summary>
     /// Context of the Event message.
     /// </summary>
+    [DataMember]
     public EventContext1? EventContext { get; init; } 
     /// <summary>
     /// Additional Information according to the event type.
     /// </summary>
+    [DataMember]
     public IsoMax1025Text? AdditionalEventInformation { get; init; } 
     
     #nullable disable

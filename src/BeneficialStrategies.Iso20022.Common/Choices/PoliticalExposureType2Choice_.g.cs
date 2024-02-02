@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(PoliticalExposureType2Choice.Code))]
 [KnownType(typeof(PoliticalExposureType2Choice.Proprietary))]
+[DataContract]
 public abstract partial record PoliticalExposureType2Choice_
 {
 }

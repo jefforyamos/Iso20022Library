@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ReconciliationStatus8Choice.NoReconciliationRequired))]
 [KnownType(typeof(ReconciliationStatus8Choice.ReportingData))]
+[DataContract]
 public abstract partial record ReconciliationStatus8Choice_
 {
 }

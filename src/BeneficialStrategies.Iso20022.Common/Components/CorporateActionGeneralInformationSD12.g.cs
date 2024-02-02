@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action general information details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionGeneralInformationSD12
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record CorporateActionGeneralInformationSD12
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// DTC processing domain/ category for event types.
     /// </summary>
+    [DataMember]
     public EventGroup1Code? EventGroup { get; init; } 
     /// <summary>
     /// DTCC (The Depository Trust and Clearing Corporation) native corporate action event type name. Used in place for the events that cannot be classified by ISO code and mapped to OTHR or when two or more distinct events (in DTCC model) use same ISO code and there are no additional data elements that distinguish those two or more events.
     /// </summary>
+    [DataMember]
     public ExtendedEventType2Code? EventType { get; init; } 
     /// <summary>
     /// DTCC (The Depository Trust and Clearing Corporation) native corporate action sub event type name further defines the event type.
     /// </summary>
+    [DataMember]
     public DTCCSubEventType3Code? SubEventType { get; init; } 
     /// <summary>
     /// Indicates whether the event is eligible for EDS (Elective Dividend Services) ISO20022 messaging.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? EDSMessagingEligibilityFlag { get; init; } 
     /// <summary>
     /// Unique number systemically assigned to all Lottery and Non-Lottery events announced in DTC Redemptions (REDS) Participant Terminal System (PTS)/ Particinant Browser System(PBS) function.
     /// </summary>
+    [DataMember]
     public IsoMax10NumericText? RedemptionIdentification { get; init; } 
     /// <summary>
     /// Identifies events that offer instruction processing specific to foreign currency payment (FCP) elections.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? DTCFCPElectionFlag { get; init; } 
     /// <summary>
     /// Indicates whether the event is being processed by DTC.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AssetServicerProcessingFlag { get; init; } 
     
     #nullable disable

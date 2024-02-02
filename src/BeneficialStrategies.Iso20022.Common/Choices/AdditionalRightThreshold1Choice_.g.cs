@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(AdditionalRightThreshold1Choice.AdditionalRightThreshold))]
 [KnownType(typeof(AdditionalRightThreshold1Choice.AdditionalRightThresholdPercentage))]
+[DataContract]
 public abstract partial record AdditionalRightThreshold1Choice_
 {
 }

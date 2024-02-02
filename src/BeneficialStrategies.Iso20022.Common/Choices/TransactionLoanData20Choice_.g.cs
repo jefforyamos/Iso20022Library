@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(TransactionLoanData20Choice.BuySellBack))]
 [KnownType(typeof(TransactionLoanData20Choice.SecuritiesLending))]
 [KnownType(typeof(TransactionLoanData20Choice.MarginLending))]
+[DataContract]
 public abstract partial record TransactionLoanData20Choice_
 {
 }

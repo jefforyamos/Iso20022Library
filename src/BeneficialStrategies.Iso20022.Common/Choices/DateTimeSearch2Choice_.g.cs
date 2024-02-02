@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(DateTimeSearch2Choice.FromToDateTime))]
 [KnownType(typeof(DateTimeSearch2Choice.EqualDateTime))]
 [KnownType(typeof(DateTimeSearch2Choice.NotEqualDateTime))]
+[DataContract]
 public abstract partial record DateTimeSearch2Choice_
 {
 }

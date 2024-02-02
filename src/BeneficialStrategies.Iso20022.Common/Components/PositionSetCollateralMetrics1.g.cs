@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Variables used to quantify the different calculations for collateral position sets and currency collateral position sets reports.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PositionSetCollateralMetrics1
 {
     #nullable enable
@@ -21,11 +23,13 @@ public partial record PositionSetCollateralMetrics1
     /// Total values by the reporting counterparty to the other counterparty. 
     /// Usage: Where the value is on a portfolio basis, this field should include the overall value  posted for the portfolio.
     /// </summary>
+    [DataMember]
     public PositionSetCollateralTotal1? Total { get; init; } 
     /// <summary>
     /// Clean values by the reporting counterparty to the other counterparty with outliers removed. 
     /// Usage: Where the value is on a portfolio basis, this field should include the overall value posted for the portfolio.
     /// </summary>
+    [DataMember]
     public PositionSetCollateralTotal1? Clean { get; init; } 
     
     #nullable disable

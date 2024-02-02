@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the role of the issuer agent.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IssuerAgent2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record IssuerAgent2
     /// <summary>
     /// Identifies issuer agent.
     /// </summary>
+    [DataMember]
     public required PartyIdentification40Choice_ Identification { get; init; } 
     /// <summary>
     /// Specifies the role of the issuer agent.
     /// </summary>
+    [DataMember]
     public AgentRole1Code? Role { get; init; } 
     
     #nullable disable

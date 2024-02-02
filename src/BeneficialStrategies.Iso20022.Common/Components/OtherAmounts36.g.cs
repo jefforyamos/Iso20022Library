@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies other amounts pertaining to the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherAmounts36
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record OtherAmounts36
     /// <summary>
     /// Interest amount that has accrued in between coupon payment periods.
     /// </summary>
+    [DataMember]
     public AmountAndDirection72? AccruedInterestAmount { get; init; } 
     /// <summary>
     /// Amount of money paid for the provision of financial services that cannot be categorised by another qualifier.
     /// </summary>
+    [DataMember]
     public AmountAndDirection72? ChargesFees { get; init; } 
     /// <summary>
     /// Principal amount of a trade (price multiplied by quantity).
     /// </summary>
+    [DataMember]
     public AmountAndDirection72? TradeAmount { get; init; } 
     /// <summary>
     /// Amount of money paid to an executing broker as a commission.
     /// </summary>
+    [DataMember]
     public AmountAndDirection72? ExecutingBrokerAmount { get; init; } 
     /// <summary>
     /// Tax charged by the jurisdiction in which the financial instrument settles.
     /// </summary>
+    [DataMember]
     public AmountAndDirection72? LocalTax { get; init; } 
     /// <summary>
     /// Amount of commission paid to a local broker.
     /// </summary>
+    [DataMember]
     public AmountAndDirection72? LocalBrokerCommission { get; init; } 
     /// <summary>
     /// An amount that is not indicated by a known business denomination.
     /// </summary>
+    [DataMember]
     public AmountAndDirection72? Other { get; init; } 
     /// <summary>
     /// Amount of stamp duty.
     /// </summary>
+    [DataMember]
     public AmountAndDirection72? StampDuty { get; init; } 
     /// <summary>
     /// Amount of transaction tax.
     /// </summary>
+    [DataMember]
     public AmountAndDirection72? TransactionTax { get; init; } 
     /// <summary>
     /// Amount of money that will be withheld by a tax authority.
     /// </summary>
+    [DataMember]
     public AmountAndDirection72? WithholdingTax { get; init; } 
     /// <summary>
     /// Amount of consumption tax.
     /// </summary>
+    [DataMember]
     public AmountAndDirection72? ConsumptionTax { get; init; } 
     
     #nullable disable

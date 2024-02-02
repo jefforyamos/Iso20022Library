@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the reported trade transactions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeData29
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record TradeData29
     /// <summary>
     /// Information about accepted and rejected reports and the reasons of rejection.
     /// </summary>
-    public DetailedReportStatistics5[] ReportStatistics { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedReportStatistics5> ReportStatistics { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information about accepted and rejected transactions and the reasons of rejection.
     /// </summary>
-    public DetailedTransactionStatistics2Choice_[] TransactionStatistics { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DetailedTransactionStatistics2Choice_> TransactionStatistics { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

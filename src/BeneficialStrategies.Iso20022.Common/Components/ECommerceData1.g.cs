@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains electronic commerce data. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ECommerceData1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ECommerceData1
     /// <summary>
     /// Type of the ecommerce data (for example ,ECI level, downgrade reason, etc).
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Value related to a specific ecommerce type.
     /// </summary>
+    [DataMember]
     public required IsoMax2048Text Value { get; init; } 
     
     #nullable disable

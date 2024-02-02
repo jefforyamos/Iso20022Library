@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Context of the card payment transaction
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionContext10
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record TransactionContext10
     /// <summary>
     /// Card programme or brand related to the transaction.
     /// </summary>
+    [DataMember]
     public CardProgrammeMode3? CardProgrammeApplied { get; init; } 
     /// <summary>
     /// Contains information that identifies or is specific to a transaction jurisdiction.
     /// </summary>
+    [DataMember]
     public Jurisdiction2? Jurisdiction { get; init; } 
     /// <summary>
     /// Type of settlement service for specific services requiring settlement.
     /// </summary>
+    [DataMember]
     public SettlementService4? SettlementService { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period between the acquirer and the issuer or their respective agents.
     /// </summary>
+    [DataMember]
     public Reconciliation3? Reconciliation { get; init; } 
     /// <summary>
     /// Additional transaction context data.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

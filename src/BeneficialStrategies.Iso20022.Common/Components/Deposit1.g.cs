@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money placed at a deposit taking institution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Deposit1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Deposit1
     /// <summary>
     /// Date on which the deposit matures.
     /// </summary>
+    [DataMember]
     public required IsoISODate MaturityDate { get; init; } 
     /// <summary>
     /// Specifies the value of the deposit.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Value { get; init; } 
     /// <summary>
     /// Identifies the legal entity that takes the deposit.
     /// </summary>
+    [DataMember]
     public required IsoLEIIdentifier CounterpartyIdentification { get; init; } 
     
     #nullable disable

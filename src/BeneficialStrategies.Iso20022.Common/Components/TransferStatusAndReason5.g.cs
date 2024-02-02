@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the status of a transfer instruction and its reason.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferStatusAndReason5
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record TransferStatusAndReason5
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of the transfer, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public AdditionalReference7? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Status of the transfer instruction.
     /// </summary>
+    [DataMember]
     public required TransferStatus2Choice_ TransferStatus { get; init; } 
     /// <summary>
     /// Date and time at which the transfer was executed.
     /// </summary>
+    [DataMember]
     public IsoISODate? TradeDate { get; init; } 
     /// <summary>
     /// Date on which the document, for example, the application form, was sent.
     /// </summary>
+    [DataMember]
     public IsoISODate? SendOutDate { get; init; } 
     /// <summary>
     /// Number of units to be transferred.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? TotalUnitsNumber { get; init; } 
     /// <summary>
     /// Weighted average price of the units in the account. The AveragePrice may also be known as the average acquisition price.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; init; } 
     /// <summary>
     /// Breakdown of units to be transferred.
     /// </summary>
-    public Unit8[] UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Unit8> UnitsDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Party that initiates the status.
     /// </summary>
+    [DataMember]
     public PartyIdentification113? StatusInitiator { get; init; } 
     
     #nullable disable

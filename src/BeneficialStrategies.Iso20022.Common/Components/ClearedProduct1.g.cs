@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Financial instrument cleared by a central counterparty.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ClearedProduct1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record ClearedProduct1
     /// <summary>
     /// Exchange or trading venue where product is traded.
     /// </summary>
-    public IsoMICIdentifier[] TradingVenue { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMICIdentifier> TradingVenue { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// CCP's unique identification for product cleared.
     /// </summary>
+    [DataMember]
     public required GenericIdentification168 CCPProductIdentification { get; init; } 
     /// <summary>
     /// Standard unique identification of product cleared.
     /// </summary>
+    [DataMember]
     public GenericIdentification168? UniversalProductIdentification { get; init; } 
     /// <summary>
     /// Choice between the major categories of financial instruments.
     /// </summary>
+    [DataMember]
     public required Product1Choice_ Product { get; init; } 
     /// <summary>
     /// Measure of the current stock of a financial instrument that has been traded on an exchange or cleared via a central counterparty.
     /// </summary>
+    [DataMember]
     public required OpenInterest1 OpenInterest { get; init; } 
     /// <summary>
     /// Number of trades cleared over the reporting period.
     /// </summary>
+    [DataMember]
     public IsoNonNegativeNumber? TradesCleared { get; init; } 
     
     #nullable disable

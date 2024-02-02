@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details on the returns expected by the debtor side after cancellation or modification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReturnInformation1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ReturnInformation1
     /// <summary>
     /// Returned amount of money moved between the instructing agent and the instructed agent in the return transaction.
     /// </summary>
+    [DataMember]
     public IsoCurrencyAndAmount? ReturnedInterbankSettlementAmount { get; init; } 
     /// <summary>
     /// Date on which the amount of money ceases to be available to the agent that owes it and when the amount of money becomes available to the agent to which it is due.
     /// </summary>
+    [DataMember]
     public IsoISODate? InterbankSettlementDate { get; init; } 
     /// <summary>
     /// Specifies the clearing channel to be used to process the payment instruction.
     /// </summary>
+    [DataMember]
     public ClearingChannel2Code? ClearingChannel { get; init; } 
     
     #nullable disable

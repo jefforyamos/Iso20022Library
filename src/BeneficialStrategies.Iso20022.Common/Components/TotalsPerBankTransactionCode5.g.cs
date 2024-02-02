@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide the total sum of entries per bank transaction code.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TotalsPerBankTransactionCode5
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record TotalsPerBankTransactionCode5
     /// <summary>
     /// Number of individual entries for the bank transaction code.
     /// </summary>
+    [DataMember]
     public IsoMax15NumericText? NumberOfEntries { get; init; } 
     /// <summary>
     /// Total of all individual entries included in the report.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? Sum { get; init; } 
     /// <summary>
     /// Total debit or credit amount that is the result of the netted amounts for all debit and credit entries per bank transaction code.
     /// </summary>
+    [DataMember]
     public AmountAndDirection35? TotalNetEntry { get; init; } 
     /// <summary>
     /// Number of individual credit entries for the bank transaction code.
     /// </summary>
+    [DataMember]
     public NumberAndSumOfTransactions1? CreditEntries { get; init; } 
     /// <summary>
     /// Number of individual debit entries for the bank transaction code.
     /// </summary>
+    [DataMember]
     public NumberAndSumOfTransactions1? DebitEntries { get; init; } 
     /// <summary>
     /// Indicates whether the bank transaction code is related to booked or forecast items.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ForecastIndicator { get; init; } 
     /// <summary>
     /// Set of elements used to fully identify the type of underlying transaction resulting in an entry.
     /// </summary>
+    [DataMember]
     public required BankTransactionCodeStructure4 BankTransactionCode { get; init; } 
     /// <summary>
     /// Set of elements used to indicate when the booked amount of money will become available, that is can be accessed and starts generating interest.
     /// </summary>
-    public CashAvailability1[] Availability { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashAvailability1> Availability { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates the date (and time) of the transaction summary.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? Date { get; init; } 
     
     #nullable disable

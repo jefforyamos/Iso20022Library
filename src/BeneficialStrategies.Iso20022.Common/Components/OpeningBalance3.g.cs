@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Opening balance for the statement period (first opening balance) or of this page (intermediary opening balance).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OpeningBalance3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record OpeningBalance3
     /// <summary>
     /// Indication that the position is short or long.
     /// </summary>
+    [DataMember]
     public required ShortLong1Code ShortLongIndicator { get; init; } 
     /// <summary>
     /// Opening balance for the statement period (first opening balance) or of this page (intermediary opening balance).
     /// </summary>
+    [DataMember]
     public required OpeningBalance4Choice_ OpeningBalance { get; init; } 
     
     #nullable disable

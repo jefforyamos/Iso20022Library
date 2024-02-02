@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Name of the cardholder in the local language.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardholderName2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CardholderName2
     /// <summary>
     /// Local language equivalent of the name of the cardholder.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Name { get; init; } 
     /// <summary>
     /// Local language equivalent of the first name of the cardholder.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? GivenName { get; init; } 
     /// <summary>
     /// Local language equivalent of the middle name or initials present in the name of a person.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? MiddleName { get; init; } 
     /// <summary>
     /// Local language equivalent of the last name or surname of the cardholder.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? LastName { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique identifier of an account, as assigned by the account servicer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountIdentification4
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record AccountIdentification4
     /// <summary>
     /// Unique identifier for an account. It is assigned by the account servicer using a proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public required SimpleIdentificationInformation1 Proprietary { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Operational construct of a central counterparty that defines the relationship between collateral, margin and position accounts and upon default of a clearing member defines the segregation of losses on positions and assets held in such accounts.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ClearingAccount1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record ClearingAccount1
     /// <summary>
     /// Indicates the type of clearing account.
     /// </summary>
+    [DataMember]
     public required ClearingAccountType3Code AccountType { get; init; } 
     /// <summary>
     /// Operational construct used by a central counterparty to record ownership of assets posted as collateral by clearing members to meet their obligations at the central counterparty.
     /// </summary>
-    public CollateralAccount5[] CollateralAccountOwner { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CollateralAccount5> CollateralAccountOwner { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

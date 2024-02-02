@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Communication device number or electronic address used for communication.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContactDetails4
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ContactDetails4
     /// <summary>
     /// Name of the liaison at the Settlement Internaliser.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Name { get; init; } 
     /// <summary>
     /// Phone number of the liaison at the Settlement Internaliser.
     /// </summary>
+    [DataMember]
     public required IsoPhoneNumber PhoneNumber { get; init; } 
     /// <summary>
     /// Electronic mail (e-mail) address of the liaison at the Settlement Internaliser.
     /// </summary>
+    [DataMember]
     public required IsoMax2048Text EmailAddress { get; init; } 
     /// <summary>
     /// Function of the liaison at the Settlement Internaliser.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Function { get; init; } 
     
     #nullable disable

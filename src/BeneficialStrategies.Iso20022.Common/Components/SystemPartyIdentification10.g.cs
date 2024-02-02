@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique identification to unambiguously identify the party within the system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SystemPartyIdentification10
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SystemPartyIdentification10
     /// <summary>
     /// Starting date from which the identification is valid.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValidFrom { get; init; } 
     /// <summary>
     /// Unique and unambiguous way to identify a system party.
     /// </summary>
+    [DataMember]
     public PartyIdentification136? Identification { get; init; } 
     
     #nullable disable

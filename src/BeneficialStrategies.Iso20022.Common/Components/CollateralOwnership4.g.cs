@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates whether the collateral is proprietarily owned or client owned.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralOwnership4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CollateralOwnership4
     /// <summary>
     /// Indicates that the collateral is owned by the clearing member or not.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Proprietary { get; init; } 
     /// <summary>
     /// Indicates that the client owns the collateral.
     /// </summary>
+    [DataMember]
     public PartyIdentification178Choice_? ClientName { get; init; } 
     
     #nullable disable

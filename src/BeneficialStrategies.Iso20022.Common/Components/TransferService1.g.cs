@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Funds transfer service
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferService1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record TransferService1
     /// <summary>
     /// Identification of the funding service provider.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ServiceProvider { get; init; } 
     /// <summary>
     /// Name of the funding service (for example, MoneyGram, Western Union, etc.).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ServiceName { get; init; } 
     /// <summary>
     /// Reference to the funding service.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Reference { get; init; } 
     /// <summary>
     /// Purpose of the transfer. For example: person to person, business-to-business and mobile top-up.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? BusinessPurpose { get; init; } 
     /// <summary>
     /// Free text that can be used between the sender and the receiver to describe the details of the transfer.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Description { get; init; } 
     
     #nullable disable

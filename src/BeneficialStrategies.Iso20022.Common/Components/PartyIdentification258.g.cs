@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification258
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record PartyIdentification258
     /// <summary>
     /// Identification of the party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Entity in charge of assigning an identification to a party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Assigner { get; init; } 
     /// <summary>
     /// Country of the party.
     /// </summary>
+    [DataMember]
     public ISO3NumericCountryCode? Country { get; init; } 
     /// <summary>
     /// Short name of the party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     /// <summary>
     /// Legal Corporate Name of the party
     /// </summary>
+    [DataMember]
     public IsoMax99Text? LegalCorporateName { get; init; } 
     /// <summary>
     /// Additional identification of the party.
     /// </summary>
+    [DataMember]
     public AdditionalData1? AdditionalIdentification { get; init; } 
     /// <summary>
     /// Contains local language equivalent(s) of data in the current component.
     /// </summary>
+    [DataMember]
     public LocalData1? LocalData { get; init; } 
     
     #nullable disable

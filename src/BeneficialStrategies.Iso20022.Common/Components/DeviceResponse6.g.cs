@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the response of a previous device request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeviceResponse6
 {
     #nullable enable
@@ -20,51 +22,63 @@ public partial record DeviceResponse6
     /// <summary>
     /// Environment of the transaction.
     /// </summary>
+    [DataMember]
     public CardPaymentEnvironment79? Environment { get; init; } 
     /// <summary>
     /// Context in which the transaction is performed (payment and sale).
     /// </summary>
+    [DataMember]
     public CardPaymentContext30? Context { get; init; } 
     /// <summary>
     /// Define the type of service answered.
     /// </summary>
+    [DataMember]
     public required RetailerService9Code ServiceContent { get; init; } 
     /// <summary>
     /// Content of the Display Response message.
     /// </summary>
+    [DataMember]
     public DeviceDisplayResponse2? DisplayResponse { get; init; } 
     /// <summary>
     /// Content of the Input Response message.
     /// </summary>
+    [DataMember]
     public DeviceInputResponse5? InputResponse { get; init; } 
     /// <summary>
     /// Content of the Print Response message.
     /// </summary>
+    [DataMember]
     public DevicePrintResponse1? PrintResponse { get; init; } 
     /// <summary>
     /// Response to a secure input request.
     /// </summary>
+    [DataMember]
     public DeviceSecureInputResponse5? SecureInputResponse { get; init; } 
     /// <summary>
     /// Content received after a card initialisation.
     /// </summary>
+    [DataMember]
     public DeviceInitialisationCardReaderResponse2? InitialisationCardReaderResponse { get; init; } 
     /// <summary>
     /// Content of the Card Reader APDU (Application Protocol Data Unit) response message.
     /// </summary>
+    [DataMember]
     public DeviceSendApplicationProtocolDataUnitCardReaderResponse1? CardReaderApplicationProtocolDataUnitResponse { get; init; } 
     /// <summary>
     /// Content of the Transmit Response message.
     /// </summary>
+    [DataMember]
     public DeviceTransmitMessageResponse1? TransmissionResponse { get; init; } 
     /// <summary>
     /// Result of the processing of the request.
     /// </summary>
+    [DataMember]
     public required ResponseType11 Response { get; init; } 
     /// <summary>
     /// Additional information incorporated as an extension to the message.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

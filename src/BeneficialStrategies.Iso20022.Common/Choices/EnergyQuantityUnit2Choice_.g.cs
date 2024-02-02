@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(EnergyQuantityUnit2Choice.Code))]
 [KnownType(typeof(EnergyQuantityUnit2Choice.Proprietary))]
+[DataContract]
 public abstract partial record EnergyQuantityUnit2Choice_
 {
 }

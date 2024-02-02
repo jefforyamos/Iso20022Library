@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the corporate action event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionInformation2
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record CorporateActionInformation2
     /// <summary>
     /// Identification of the issuer's agent or the issuer.
     /// </summary>
+    [DataMember]
     public required PartyIdentification2Choice_ AgentIdentification { get; init; } 
     /// <summary>
     /// Reference given to the event by the CA event issuer (agent).
     /// </summary>
+    [DataMember]
     public required IsoMax35Text IssuerCorporateActionIdentification { get; init; } 
     /// <summary>
     /// Reference assigned by the (I)CSD to unambiguously identify a corporate avent.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CorporateActionProcessingIdentification { get; init; } 
     /// <summary>
     /// Speficies the type of corporate event.
     /// </summary>
+    [DataMember]
     public required CorporateActionEventType2FormatChoice_ EventType { get; init; } 
     /// <summary>
     /// Type of processing involved by a Corporate Action.
     /// </summary>
+    [DataMember]
     public CorporateActionEventProcessingType1FormatChoice_? EventProcessingType { get; init; } 
     /// <summary>
     /// Specifies whether the event is mandatory, mandatory with options or voluntary.
     /// </summary>
+    [DataMember]
     public required CorporateActionMandatoryVoluntary1FormatChoice_ MandatoryVoluntaryEventType { get; init; } 
     /// <summary>
     /// Identification of the underlying financial instrument, ie, the financial instrument affected by the corporate action event.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentDescription3 UnderlyingSecurity { get; init; } 
     /// <summary>
     /// Identification of the secondary underlying financial instrument, ie, the non-principal financial instrument affected by the corporate action event.
     /// </summary>
-    public FinancialInstrumentDescription3[] OtherUnderlyingSecurity { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FinancialInstrumentDescription3> OtherUnderlyingSecurity { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money associated with a service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Charge9
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Charge9
     /// <summary>
     /// Type of service for which a charge is asked or paid.
     /// </summary>
+    [DataMember]
     public required ChargeType2 Type { get; init; } 
     /// <summary>
     /// Amount of money asked or paid for the charge.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     /// <summary>
     /// Calculation basis for the charge or fee.
     /// </summary>
+    [DataMember]
     public CalculationBasis1? CalculationBasis { get; init; } 
     
     #nullable disable

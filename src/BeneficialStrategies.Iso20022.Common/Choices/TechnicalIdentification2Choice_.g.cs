@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(TechnicalIdentification2Choice.BICFI))]
 [KnownType(typeof(TechnicalIdentification2Choice.TechnicalAddress))]
+[DataContract]
 public abstract partial record TechnicalIdentification2Choice_
 {
 }

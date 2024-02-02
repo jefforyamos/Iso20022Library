@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(InstrumentOrSubClassIdentification2Choice.ISINAndSubClass))]
 [KnownType(typeof(InstrumentOrSubClassIdentification2Choice.AssetClassAndSubClass))]
+[DataContract]
 public abstract partial record InstrumentOrSubClassIdentification2Choice_
 {
 }

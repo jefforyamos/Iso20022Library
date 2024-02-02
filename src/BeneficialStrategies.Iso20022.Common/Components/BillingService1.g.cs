@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the values used for every line item service in the statement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BillingService1
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record BillingService1
     /// <summary>
     /// Specifies further detailed values for this service.
     /// </summary>
+    [DataMember]
     public required BillingServiceParameters1 ServiceDetail { get; init; } 
     /// <summary>
     /// Price applied to the service, expressed in the pricing currency.
     /// </summary>
+    [DataMember]
     public BillingPrice1? Price { get; init; } 
     /// <summary>
     /// Code identifying the disposition of the calculated charge.
     /// </summary>
+    [DataMember]
     public required ServicePaymentMethod1Code PaymentMethod { get; init; } 
     /// <summary>
     /// Amount of the calculated charge, expressed in the pricing currency. This value does not include any tax on the service.
     /// </summary>
+    [DataMember]
     public required AmountAndDirection34 OriginalChargePrice { get; init; } 
     /// <summary>
     /// Amount of the calculated charge, expressed in the settlement currency.
     /// </summary>
+    [DataMember]
     public AmountAndDirection34? OriginalChargeSettlementAmount { get; init; } 
     /// <summary>
     /// Average daily collected balance required to offset a balance compensable service charge, exclusive of taxes, expressed in the account currency.
     /// </summary>
+    [DataMember]
     public AmountAndDirection34? BalanceRequiredAccountAmount { get; init; } 
     /// <summary>
     /// Provides the details of the taxable status of a service.
     /// </summary>
+    [DataMember]
     public required ServiceTaxDesignation1 TaxDesignation { get; init; } 
     /// <summary>
     /// Provides tax related values for tax calculation methods A, B or D.
     /// </summary>
+    [DataMember]
     public BillingMethod1Choice_? TaxCalculation { get; init; } 
     
     #nullable disable

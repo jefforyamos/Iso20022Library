@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Key that must be created and sent in the response, or that must be verified.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record KEKIdentifier3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record KEKIdentifier3
     /// <summary>
     /// Name or label of the key.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Name { get; init; } 
     /// <summary>
     /// Identification of the cryptographic key.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Identification { get; init; } 
     /// <summary>
     /// Version of the cryptographic key.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Version { get; init; } 
     /// <summary>
     /// Value to check the key, for instance, result of the encryption of the null binary string.
     /// </summary>
+    [DataMember]
     public IsoMax35Binary? KeyCheckValue { get; init; } 
     
     #nullable disable

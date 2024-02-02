@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(IsabelSenderTrigger1Choice.Code))]
 [KnownType(typeof(IsabelSenderTrigger1Choice.Proprietary))]
+[DataContract]
 public abstract partial record IsabelSenderTrigger1Choice_
 {
 }

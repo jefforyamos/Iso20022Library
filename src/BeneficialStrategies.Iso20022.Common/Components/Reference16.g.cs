@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the identification of the collateral message cancellation request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Reference16
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record Reference16
     /// <summary>
     /// Identification of the collateral message cancellation request.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text CollateralMessageCancellationRequestIdentification { get; init; } 
     
     #nullable disable

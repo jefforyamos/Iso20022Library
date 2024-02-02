@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the dispute
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DisputeIdentification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DisputeIdentification1
     /// <summary>
     /// Type of dispute.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Identification of dispute.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text Identification { get; init; } 
     
     #nullable disable

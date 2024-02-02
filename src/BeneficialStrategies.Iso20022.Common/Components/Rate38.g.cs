@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the rates related to securities movement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Rate38
 {
     #nullable enable
@@ -20,75 +22,93 @@ public partial record Rate38
     /// <summary>
     /// Rate used for additional tax that cannot be categorised.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat46Choice_? AdditionalTax { get; init; } 
     /// <summary>
     /// Cash dividend amount per equity before deductions or allowances have been made.
     /// </summary>
-    public GrossDividendRateFormat42Choice_[] GrossDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GrossDividendRateFormat42Choice_> GrossDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// The actual interest rate used for the payment of the interest for the specified interest period. |Usage guideline: It is used to provide the applicable rate for the current payment, after all calculations have been performed, that is, application of period and method of interest computation.
     /// </summary>
-    public InterestRateUsedForPaymentFormat10Choice_[] InterestRateUsedForPayment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InterestRateUsedForPaymentFormat10Choice_> InterestRateUsedForPayment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Percentage of a cash distribution that will be withheld by the tax authorities of the jurisdiction of the issuer, for which a relief at source and/or reclaim may be possible.
     /// </summary>
-    public RateAndAmountFormat47Choice_[] WithholdingTaxRate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RateAndAmountFormat47Choice_> WithholdingTaxRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rate at which the income will be withheld by a jurisdiction other than the jurisdiction of the issuer’s country of tax incorporation, for which a relief at source and/or reclaim may be possible. It is levied in complement or offset of the withholding tax rate (TAXR) levied by the jurisdiction of the issuer’s tax domicile.
     /// </summary>
-    public RateAndAmountFormat47Choice_[] SecondLevelTax { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RateAndAmountFormat47Choice_> SecondLevelTax { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rate used to calculate the amount of the charges/fees that cannot be categorised.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat46Choice_? ChargesFees { get; init; } 
     /// <summary>
     /// Cash rate made available, as an incentive, in addition to the solicitation fee, in order to encourage early participation in an offer.
     /// </summary>
+    [DataMember]
     public SolicitationFeeRateFormat10Choice_? EarlySolicitationFeeRate { get; init; } 
     /// <summary>
     /// Percentage of fiscal tax to apply.
     /// </summary>
+    [DataMember]
     public RateFormat3Choice_? FiscalStamp { get; init; } 
     /// <summary>
     /// Cash rate made available in an event in order to encourage participation in the offer. As information, payment is made to a third party who has solicited an entity to take part in the offer.
     /// </summary>
+    [DataMember]
     public RateFormat21Choice_? ThirdPartyIncentiveRate { get; init; } 
     /// <summary>
     /// Cash dividend amount per equity after deductions or allowances have been made.
     /// </summary>
-    public NetDividendRateFormat44Choice_[] NetDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NetDividendRateFormat44Choice_> NetDividendRate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rate applicable to the event announced, for example, redemption rate for a redemption event.
     /// </summary>
+    [DataMember]
     public RateFormat3Choice_? ApplicableRate { get; init; } 
     /// <summary>
     /// Rate of the cash premium made available if the securities holder consents or participates to an event, for example consent fees or solicitation fee.
     /// </summary>
+    [DataMember]
     public SolicitationFeeRateFormat10Choice_? SolicitationFeeRate { get; init; } 
     /// <summary>
     /// Amount of money per equity allocated as the result of a tax credit.
     /// </summary>
+    [DataMember]
     public RateFormat21Choice_? TaxCreditRate { get; init; } 
     /// <summary>
     /// Overall tax withheld at source by fund managers prior to considering the tax obligation of each unit holder.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat46Choice_? TaxOnIncome { get; init; } 
     /// <summary>
     /// Taxation applied on an amount clearly identified as capital profits, capital gains.
     /// </summary>
+    [DataMember]
     public RateFormat3Choice_? TaxOnProfits { get; init; } 
     /// <summary>
     /// Percentage of cash that was paid in excess of actual tax obligation and was reclaimed.
     /// </summary>
+    [DataMember]
     public RateFormat3Choice_? TaxReclaimRate { get; init; } 
     /// <summary>
     /// Portion of the fund distribution which represents the average accrued income included in the purchase price for units bought during the account period.
     /// </summary>
+    [DataMember]
     public RateAndAmountFormat48Choice_? EqualisationRate { get; init; } 
     /// <summary>
     /// Rate applied for the calculation of deemed proceeds which are not paid to security holders but on which withholding tax is applicable.
     /// </summary>
-    public RateAndAmountFormat53Choice_[] DeemedRate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RateAndAmountFormat53Choice_> DeemedRate { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

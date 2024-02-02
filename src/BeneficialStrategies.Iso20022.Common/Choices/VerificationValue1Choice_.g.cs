@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(VerificationValue1Choice.BinaryValue))]
 [KnownType(typeof(VerificationValue1Choice.HexadecimalBinaryValue))]
 [KnownType(typeof(VerificationValue1Choice.PINData))]
+[DataContract]
 public abstract partial record VerificationValue1Choice_
 {
 }

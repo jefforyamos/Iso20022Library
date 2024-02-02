@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Regulatory information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RegulatoryInformation1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record RegulatoryInformation1
     /// <summary>
     /// Sector of economic activity, for example, SAE in the Italian market.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Sector { get; init; } 
     /// <summary>
     /// Branch of economic activity, for example, RAE in the Italian market.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Branch { get; init; } 
     /// <summary>
     /// Group of economic activity, for example, a code issued by a regulator.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Group { get; init; } 
     /// <summary>
     /// Other regulatory information.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Other { get; init; } 
     
     #nullable disable

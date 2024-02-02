@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Pricing component, such as a service, promotion, allowance or charge, for this line item.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LineItemAllowanceCharge1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record LineItemAllowanceCharge1
     /// <summary>
     /// Indication of whether or not this allowance charge is a charge.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ChargeIndicator { get; init; } 
     /// <summary>
     /// Actual monetary value of this allowance charge.
     /// </summary>
-    public IsoCurrencyAndAmount[] ActualAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoCurrencyAndAmount> ActualAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Quantity on which this allowance charge is based.
     /// </summary>
+    [DataMember]
     public Quantity3? BasisQuantity { get; init; } 
     /// <summary>
     /// Percentage applied to calculate this allowance charge.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? CalculationPercent { get; init; } 
     /// <summary>
     /// Specifies the order in which the allowance or charge is applied.
     /// </summary>
+    [DataMember]
     public IsoNumber? SequenceNumber { get; init; } 
     /// <summary>
     /// Reason, expressed as text, for this allowance charge.
     /// </summary>
+    [DataMember]
     public DiscountOrChargeType1Choice_? Reason { get; init; } 
     
     #nullable disable

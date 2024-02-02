@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money to be moved between the debtor and creditor, expressed in the currency of the debtor's account, and the currency in which the amount is to be moved.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EquivalentAmount2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record EquivalentAmount2
     /// <summary>
     /// Amount of money to be moved between debtor and creditor, before deduction of charges, expressed in the currency of the debtor's account, and to be moved in a different currency.|Usage: The first agent will convert the equivalent amount into the amount to be moved.
     /// </summary>
+    [DataMember]
     public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Specifies the currency of the to be transferred amount, which is different from the currency of the debtor's account.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode CurrencyOfTransfer { get; init; } 
     
     #nullable disable

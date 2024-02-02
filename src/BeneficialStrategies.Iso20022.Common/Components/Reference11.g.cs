@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional references linked to the cross order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Reference11
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Reference11
     /// <summary>
     /// Unique identifier of indication of interest message. Required for previously indicated orders.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? IOIIdentification { get; init; } 
     /// <summary>
     /// Unique identifier for quote. Required for previously quoted orders.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? QuoteIdentification { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the reason for the settlement fails as defined in the relevant regulation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementFailureReason3
 {
     #nullable enable
@@ -22,11 +24,13 @@ public partial record SettlementFailureReason3
     /// Usage: 
     /// Duration of fails is value based.
     /// </summary>
+    [DataMember]
     public IsoMax2Fraction1NonNegativeNumber? AverageDuration { get; init; } 
     /// <summary>
     /// Detailed description of the failure reasons.
     /// </summary>
-    public SettlementFailureReason2[] Description { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SettlementFailureReason2> Description { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

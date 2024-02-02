@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Nature or use of the account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashAccountType2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CashAccountType2
     /// <summary>
     /// Account type, in a coded form.
     /// </summary>
+    [DataMember]
     public required CashAccountType4Code Code { get; init; } 
     /// <summary>
     /// Nature or use of the account in a proprietary form.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Proprietary { get; init; } 
     
     #nullable disable

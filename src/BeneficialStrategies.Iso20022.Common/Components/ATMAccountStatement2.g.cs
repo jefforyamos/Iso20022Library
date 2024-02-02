@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Statement information of an account.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMAccountStatement2
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record ATMAccountStatement2
     /// <summary>
     /// Date of the transaction.
     /// </summary>
+    [DataMember]
     public IsoISODate? TransactionDate { get; init; } 
     /// <summary>
     /// Value date of the transaction.
     /// </summary>
+    [DataMember]
     public IsoISODate? ValueDate { get; init; } 
     /// <summary>
     /// Short text to display or print for the statement.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? ShortText { get; init; } 
     /// <summary>
     /// True if credit transaction.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CreditTransaction { get; init; } 
     /// <summary>
     /// Amount of the transaction.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Currency of the amount.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Alternative text of the statement to print or display.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? LongText { get; init; } 
     
     #nullable disable

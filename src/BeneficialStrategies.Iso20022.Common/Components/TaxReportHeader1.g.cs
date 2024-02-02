@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines message level identification, number of individual tax reports and tax authority.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxReportHeader1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record TaxReportHeader1
     /// <summary>
     /// Unique message identification.
     /// </summary>
+    [DataMember]
     public required MessageIdentification1 MessageIdentification { get; init; } 
     /// <summary>
     /// Number of TaxReports in this message. Seller can send all TaxReports in the same file.
     /// </summary>
+    [DataMember]
     public IsoNumber? NumberOfTaxReports { get; init; } 
     /// <summary>
     /// Party to which the TaxReport is delivered. This message block contains party details for a specific tax authority.
     /// </summary>
-    public TaxOrganisationIdentification1[] TaxAuthority { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TaxOrganisationIdentification1> TaxAuthority { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a document.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Document12
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record Document12
     /// <summary>
     /// Type of document or template.
     /// </summary>
+    [DataMember]
     public required DocumentType1Choice_ Type { get; init; } 
     /// <summary>
     /// Identification of the document or template.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Issue date or date time of the document.
     /// </summary>
+    [DataMember]
     public required DateAndDateTime2Choice_ IssueDate { get; init; } 
     /// <summary>
     /// Name of document or transaction, for example, tax invoice.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Name { get; init; } 
     /// <summary>
     /// Unique identifier for a language used in the document.
     /// </summary>
+    [DataMember]
     public LanguageCode? LanguageCode { get; init; } 
     /// <summary>
     /// Format of the document or template, such as PDF, XML, XSLT.
     /// </summary>
+    [DataMember]
     public required DocumentFormat1Choice_ Format { get; init; } 
     /// <summary>
     /// Technical name of the file.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? FileName { get; init; } 
     /// <summary>
     /// Digital signature of the enclosed binary file.
     /// </summary>
+    [DataMember]
     public PartyAndSignature3? DigitalSignature { get; init; } 
     /// <summary>
     /// Binary file representing the enclosed document or template, such as a PDF file, image file, XML file, MT message.
     /// </summary>
+    [DataMember]
     public required IsoMax10MbBinary Enclosure { get; init; } 
     
     #nullable disable

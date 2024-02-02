@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the original transaction number.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RequestType1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record RequestType1
     /// <summary>
     /// Idetifies the transaction number.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Number { get; init; } 
     /// <summary>
     /// Identifies the type of information request related to an original transaction number as a code.
     /// </summary>
-    public TransactionRequestType1Code[] Type { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionRequestType1Code> Type { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information, in free text form, to complement the requested information.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? AdditionalInformation { get; init; } 
     
     #nullable disable

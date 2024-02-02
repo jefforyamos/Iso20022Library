@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information needed due to regulatory and/or statutory requirements.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RegulatoryReporting3
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record RegulatoryReporting3
     /// <summary>
     /// Identifies whether the regulatory reporting information applies to the debit side, to the credit side or to both debit and credit sides of the transaction.
     /// </summary>
+    [DataMember]
     public RegulatoryReportingType1Code? DebitCreditReportingIndicator { get; init; } 
     /// <summary>
     /// Entity requiring the regulatory reporting information.
     /// </summary>
+    [DataMember]
     public RegulatoryAuthority2? Authority { get; init; } 
     /// <summary>
     /// Set of elements used to provide details on the regulatory reporting information.
     /// </summary>
-    public StructuredRegulatoryReporting3[] Details { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StructuredRegulatoryReporting3> Details { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

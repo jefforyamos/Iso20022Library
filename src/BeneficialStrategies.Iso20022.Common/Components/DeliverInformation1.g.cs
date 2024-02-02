@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters applied to the settlement of a security transfer.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeliverInformation1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DeliverInformation1
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction.
     /// </summary>
+    [DataMember]
     public required DeliveringPartiesAndAccount1 SettlementPartiesDetails { get; init; } 
     /// <summary>
     /// Indicates whether the financial instrument is to be physically delivered.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator PhysicalTransferIndicator { get; init; } 
     /// <summary>
     /// Parameters of a physical delivery.
     /// </summary>
+    [DataMember]
     public DeliveryParameters2? PhysicalTransferDetails { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the specification of the valuation of a collateral, based on the sector and the asset classification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralValuation7
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CollateralValuation7
     /// <summary>
     /// Specifies whether the collateral is a pool collateral or not.
     /// </summary>
+    [DataMember]
     public required CollateralPool1Code PoolStatus { get; init; } 
     /// <summary>
     /// Identifies the asset class pledged as collateral, expressed as an ISO 10962 Classification of Financial Instrument (CFI).
     /// </summary>
+    [DataMember]
     public required IsoCFIOct2015Identifier Type { get; init; } 
     /// <summary>
     /// Provides the institutional sector, such as central government, central bank, etc. of the issuer of collateral.
     /// </summary>
+    [DataMember]
     public required IsoSNA2008SectorIdentifier Sector { get; init; } 
     /// <summary>
     /// Nominal amount of money of the security pledged as collateral, when the collateral cannot be identified through an individual or basket ISIN.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? NominalAmount { get; init; } 
     
     #nullable disable

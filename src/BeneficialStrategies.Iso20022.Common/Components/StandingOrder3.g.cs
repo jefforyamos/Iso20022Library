@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the detailed attributes of a standing order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StandingOrder3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record StandingOrder3
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required StandingOrderIdentification2 StandingOrderIdentification { get; init; } 
     /// <summary>
     /// Requested information on the standing order or business error when information has not been found.
     /// </summary>
+    [DataMember]
     public required StandingOrderOrError2Choice_ StandingOrderOrError { get; init; } 
     
     #nullable disable

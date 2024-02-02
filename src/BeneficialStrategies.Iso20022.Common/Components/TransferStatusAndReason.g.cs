@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the status of a transfer instruction and its reason.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferStatusAndReason
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record TransferStatusAndReason
     /// <summary>
     /// Business reference of the transfer instruction.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Instruction status and the reason for the status.
     /// </summary>
+    [DataMember]
     public required TransferInstructionStatus Status { get; init; } 
     /// <summary>
     /// Status of the transfer instruction is pending settlement.
     /// </summary>
+    [DataMember]
     public required PendingSettlementStatusChoice_ PendingSettlement { get; init; } 
     /// <summary>
     /// Status of the transfer instruction is unmatched.
     /// </summary>
+    [DataMember]
     public required TransferUnmatchedStatus Unmatched { get; init; } 
     /// <summary>
     /// Status is in repair.
     /// </summary>
+    [DataMember]
     public required InRepairStatus2Choice_ InRepair { get; init; } 
     /// <summary>
     /// Status of the transfer instructed is rejected.
     /// </summary>
+    [DataMember]
     public required RejectedStatus3Choice_ Rejected { get; init; } 
     /// <summary>
     /// Party that initiates the status.
     /// </summary>
+    [DataMember]
     public PartyIdentification1Choice_? StatusInitiator { get; init; } 
     
     #nullable disable

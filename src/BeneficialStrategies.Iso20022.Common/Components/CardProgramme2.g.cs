@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Card programme or brand related to the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardProgramme2
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record CardProgramme2
     /// <summary>
     /// Card programme or brand proposed for the transaction.
     /// </summary>
-    public CardProgrammeMode2[] CardProgrammeProposed { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardProgrammeMode2> CardProgrammeProposed { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Card programme or brand actually applied to the transaction.
     /// ISO 8583:87 bit 24
     /// </summary>
+    [DataMember]
     public CardProgrammeMode3? CardProgrammeApplied { get; init; } 
     
     #nullable disable

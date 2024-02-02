@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Fulfilment instructions for the retrieval
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RetrievalFulfilmentInstructions2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record RetrievalFulfilmentInstructions2
     /// <summary>
     /// Contains information describing the fulfilment information delivery methods.
     /// </summary>
+    [DataMember]
     public RetrievalDeliveryMethod1Choice_? Method { get; init; } 
     /// <summary>
     /// Information related to a retrieval fulfilment.
     /// </summary>
+    [DataMember]
     public DeliveryInformation5? DeliveryInformation { get; init; } 
     /// <summary>
     /// Additional information relevant for the retrieval.
     /// </summary>
+    [DataMember]
     public AdditionalInformation22? AdditionalInformation { get; init; } 
     
     #nullable disable

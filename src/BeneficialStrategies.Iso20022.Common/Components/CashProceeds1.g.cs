@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the cash proceeds.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashProceeds1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record CashProceeds1
     /// <summary>
     /// Cash amount which is posted.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount PostingAmount { get; init; } 
     /// <summary>
     /// Reconciliation information.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? ReconciliationDetails { get; init; } 
     /// <summary>
     /// Provides information about the debited securities account.
     /// </summary>
-    public CashAccount19[] AccountDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<CashAccount19> AccountDetails { get; init; } = [];
     
     #nullable disable
 }

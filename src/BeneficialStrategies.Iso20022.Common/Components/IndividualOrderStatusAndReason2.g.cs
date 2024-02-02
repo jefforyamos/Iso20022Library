@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status report of the individual orders of a bulk or multiple order that was previously received.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IndividualOrderStatusAndReason2
 {
     #nullable enable
@@ -20,66 +22,82 @@ public partial record IndividualOrderStatusAndReason2
     /// <summary>
     /// Reference assigned to a set of orders or trades in order to link them together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of an order. This reference can typically be used in a hub scenario to give the reference of the order as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order execution, as assigned by a confirming party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DealReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for an order cancellation, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Status of the individual order is accepted or already executed or sent to next party or received. There is no reason attached.
     /// </summary>
+    [DataMember]
     public required OrderStatus4Code Status { get; init; } 
     /// <summary>
     /// Status of the individual order is cancelled. This status is used for an order that has been accepted or that has been entered in an order book but that can not be executed.
     /// </summary>
+    [DataMember]
     public required CancelledStatus2 Cancelled { get; init; } 
     /// <summary>
     /// Status of the individual order is conditionally accepted.
     /// </summary>
+    [DataMember]
     public required ConditionallyAcceptedStatus2 ConditionallyAccepted { get; init; } 
     /// <summary>
     /// Status of the individual order is rejected. This status is used for an order that has not been accepted or entered in an order book.
     /// </summary>
-    public RejectedStatus6[] Rejected { get; init; } = [];
+    [DataMember]
+    public ValueList<RejectedStatus6> Rejected { get; init; } = [];
     /// <summary>
     /// Status of the individual order is suspended.
     /// </summary>
+    [DataMember]
     public required SuspendedStatus2 Suspended { get; init; } 
     /// <summary>
     /// Status of the individual order is in repair.
     /// </summary>
+    [DataMember]
     public required InRepairStatus2 InRepair { get; init; } 
     /// <summary>
     /// Status of the individual order is partially settled.
     /// </summary>
+    [DataMember]
     public required PartiallySettledStatus1 PartiallySettled { get; init; } 
     /// <summary>
     /// Elements from the original individual order that have been repaired so that the order can be accepted.
     /// </summary>
+    [DataMember]
     public RepairedConditions3? RepairedConditions { get; init; } 
     /// <summary>
     /// Party that initiates the status of the order cancellation.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     /// <summary>
     /// Order data.
     /// </summary>
+    [DataMember]
     public FundOrderData1? OrderData { get; init; } 
     /// <summary>
     /// Information that has been added to the original order.
     /// </summary>
+    [DataMember]
     public ExpectedExecutionDetails2? NewDetails { get; init; } 
     
     #nullable disable

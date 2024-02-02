@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Acknowledgement of a completion advice.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransaction4
 {
     #nullable enable
@@ -20,23 +22,28 @@ public partial record ATMTransaction4
     /// <summary>
     /// Identification of the transaction assigned by the ATM.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Response to the withdrawal advice.
     /// </summary>
+    [DataMember]
     public required Response4Code Response { get; init; } 
     /// <summary>
     /// Detail of the response.
     /// </summary>
+    [DataMember]
     public ResultDetail2Code? ResponseReason { get; init; } 
     /// <summary>
     /// Sequence of one or more TLV data elements from the ATM application, in accordance with ISO 7816-6, not in a specific order. Present if the transaction is performed with an EMV chip card application.
     /// </summary>
+    [DataMember]
     public IsoMax10000Binary? ICCRelatedData { get; init; } 
     /// <summary>
     /// Maintenance command to perform on the ATM.
     /// </summary>
-    public ATMCommand1[] Command { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCommand1> Command { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

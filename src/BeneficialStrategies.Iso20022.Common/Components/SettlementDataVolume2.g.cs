@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Aggregated values and volumes of settlements instructions for a specific type of financial instruments, type of transaction, type of clients, and cash transfers.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementDataVolume2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SettlementDataVolume2
     /// <summary>
     /// Specifies the aggregated volume of settlement instructions, in terms of failed, settled transactions and total transactions.
     /// </summary>
+    [DataMember]
     public required IsoMax20PositiveNumber Volume { get; init; } 
     /// <summary>
     /// Specifies the aggregated value of settlement instructions, in terms of failed, settled transactions and total transactions.
     /// </summary>
+    [DataMember]
     public required IsoMax20PositiveDecimalNumber Value { get; init; } 
     
     #nullable disable

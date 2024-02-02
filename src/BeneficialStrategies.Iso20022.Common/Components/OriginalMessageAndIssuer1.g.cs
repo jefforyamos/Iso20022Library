@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Business reference(s) to one or more relevant messages previously sent by other parties, or by the same party issuing this message.||.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalMessageAndIssuer1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record OriginalMessageAndIssuer1
     /// <summary>
     /// Unambiguous identification of the original message to which the message refers.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Specifies the original message name identifier to which the message refers.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MessageNameIdentification { get; init; } 
     /// <summary>
     /// Name of the original party that assigned the original message identification.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? OriginatorName { get; init; } 
     
     #nullable disable

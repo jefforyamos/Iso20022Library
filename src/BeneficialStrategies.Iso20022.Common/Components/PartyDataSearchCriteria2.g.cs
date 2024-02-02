@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of search criteria for querying party reference data.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyDataSearchCriteria2
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record PartyDataSearchCriteria2
     /// <summary>
     /// Specifies the opening date of the party.
     /// </summary>
+    [DataMember]
     public DatePeriodSearch1Choice_? OpeningDate { get; init; } 
     /// <summary>
     /// Specifies the closing date of the party.
     /// </summary>
+    [DataMember]
     public DatePeriodSearch1Choice_? ClosingDate { get; init; } 
     /// <summary>
     /// Specifies the type classification of the party.
     /// </summary>
+    [DataMember]
     public SystemPartyType1Choice_? Type { get; init; } 
     /// <summary>
     /// Unique identification of the party responsible for the maintenance of the party reference data.
     /// </summary>
+    [DataMember]
     public PartyIdentification136? ResponsiblePartyIdentification { get; init; } 
     /// <summary>
     /// Unique identification to unambiguously identify the party within the system.
     /// </summary>
+    [DataMember]
     public PartyIdentification136? PartyIdentification { get; init; } 
     /// <summary>
     /// Specifies the identification of a restriction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RestrictionIdentification { get; init; } 
     /// <summary>
     /// Specifies the date when the restriction for the party has been issued.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeSearch4Choice_? RestrictionIssueDate { get; init; } 
     /// <summary>
     /// Specifies the type of residence where the party has its permanent home or principal establishment.
     /// </summary>
+    [DataMember]
     public ResidenceType1Code? ResidenceType { get; init; } 
     /// <summary>
     /// Specifies whether the party is locked or not, and the reason for this status, when required.
     /// </summary>
+    [DataMember]
     public PartyLockStatus1? LockStatus { get; init; } 
     
     #nullable disable

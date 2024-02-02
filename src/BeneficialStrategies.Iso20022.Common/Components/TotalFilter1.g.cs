@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Filter to compute the totals.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TotalFilter1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record TotalFilter1
     /// <summary>
     /// Identifier of the POI system performing a reconciliation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? POIIdentification { get; init; } 
     /// <summary>
     /// Identification of the sale terminal (electronic cash register or point of sale terminal) or the sale system.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SaleIdentification { get; init; } 
     /// <summary>
     /// Identification of the cashier who carried out the transaction.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CashierIdentification { get; init; } 
     /// <summary>
     /// Identifies the shift of the cashier.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShiftNumber { get; init; } 
     /// <summary>
     /// Identification of a group of transaction on a POI Terminal, having the same Sale features.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TotalsGroupIdentification { get; init; } 
     
     #nullable disable

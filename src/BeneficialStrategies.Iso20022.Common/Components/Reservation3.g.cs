@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Liquidity set aside by the account owner for specific purposes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Reservation3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Reservation3
     /// <summary>
     /// Amount of money of the limit, expressed in an eligible currency.
     /// </summary>
+    [DataMember]
     public required Amount2Choice_ Amount { get; init; } 
     /// <summary>
     /// Status of the limit, such as enabled or disabled.
     /// </summary>
+    [DataMember]
     public ReservationStatus1Choice_? Status { get; init; } 
     /// <summary>
     /// Date and time at which the reservation becomes effective.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? StartDateTime { get; init; } 
     
     #nullable disable

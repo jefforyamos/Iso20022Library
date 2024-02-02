@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(PendingProcessingReason15Choice.Code))]
 [KnownType(typeof(PendingProcessingReason15Choice.Proprietary))]
+[DataContract]
 public abstract partial record PendingProcessingReason15Choice_
 {
 }

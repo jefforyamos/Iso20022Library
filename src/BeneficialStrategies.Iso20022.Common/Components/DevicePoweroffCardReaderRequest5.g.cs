@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies what to do during shutdown.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DevicePoweroffCardReaderRequest5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DevicePoweroffCardReaderRequest5
     /// <summary>
     /// Maximum time to wait for the request processing in seconds.
     /// </summary>
+    [DataMember]
     public IsoNumber? PowerOffMaximumWaitingTime { get; init; } 
     /// <summary>
     /// Optional message before Power-Off.
     /// </summary>
+    [DataMember]
     public ActionMessage10? DisplayOutput { get; init; } 
     
     #nullable disable

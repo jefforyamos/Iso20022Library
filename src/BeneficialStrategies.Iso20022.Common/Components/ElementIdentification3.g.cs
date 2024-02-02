@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Description of the elements that violated a rule.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ElementIdentification3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ElementIdentification3
     /// <summary>
     /// Specifies from the root of the message the complete path of the element that violated a rule.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text ElementPath { get; init; } 
     /// <summary>
     /// Name of the element.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ElementName { get; init; } 
     /// <summary>
     /// Contents of the element.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? ElementValue { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information important for the users of the message/service, which cannot be captured in any other message component/element. For example: Warehouse number.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UserDefinedInformation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record UserDefinedInformation1
     /// <summary>
     /// Identifies the nature of the user information.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Label { get; init; } 
     /// <summary>
     /// Specifies the content of the user information.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Information { get; init; } 
     
     #nullable disable

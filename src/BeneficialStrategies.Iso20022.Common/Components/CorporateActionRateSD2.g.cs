@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Ratio of the American or Global Depository Receipt(s) per ordinary share(s).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionRateSD2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionRateSD2
     /// <summary>
     /// Receipts quantity (base) of the American or Global Depository Receipt(s) per ordinary share(s) ratio.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? ReceiptBaseQuantity { get; init; } 
     /// <summary>
     ///  Ordinary shares quantity of the American or Global Depository Receipt(s) per ordinary share(s) ratio.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? OrdinaryShare { get; init; } 
     
     #nullable disable

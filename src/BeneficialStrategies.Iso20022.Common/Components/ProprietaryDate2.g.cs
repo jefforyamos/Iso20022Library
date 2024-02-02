@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to identify a proprietary date.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProprietaryDate2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ProprietaryDate2
     /// <summary>
     /// Specifies the type of date.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Date in ISO format.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ Date { get; init; } 
     
     #nullable disable

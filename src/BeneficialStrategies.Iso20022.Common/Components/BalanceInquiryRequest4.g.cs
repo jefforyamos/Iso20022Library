@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Balance Inquiry Request message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BalanceInquiryRequest4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record BalanceInquiryRequest4
     /// <summary>
     /// Data related to the account pointed by the payment card.
     /// </summary>
+    [DataMember]
     public PaymentAccountRequest1? PaymentAccountRequest { get; init; } 
     /// <summary>
     /// Data related to a requested Loyalty program or account.
     /// </summary>
+    [DataMember]
     public LoyaltyAccountRequest2? LoyaltyAccountRequest { get; init; } 
     /// <summary>
     /// Data related to a requested Stored value account.
     /// </summary>
+    [DataMember]
     public StoredValueRequest4? StoredValueAccountRequest { get; init; } 
     
     #nullable disable

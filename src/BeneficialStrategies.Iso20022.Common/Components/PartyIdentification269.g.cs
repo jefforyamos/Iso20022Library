@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyIdentification269
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record PartyIdentification269
     /// <summary>
     /// Name and address of the party.
     /// </summary>
+    [DataMember]
     public required PersonName2 NameAndAddress { get; init; } 
     /// <summary>
     /// Address for electronic mail (e-mail).
     /// </summary>
+    [DataMember]
     public IsoMax256Text? EmailAddress { get; init; } 
     /// <summary>
     /// Identification of the party.
     /// </summary>
+    [DataMember]
     public PartyIdentification198Choice_? Identification { get; init; } 
     /// <summary>
     /// Identification of the shareholder in the company share register.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CompanyRegisterShareholderIdentification { get; init; } 
     /// <summary>
     /// Country in which the company is incorporated or legally registered.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryOfIncorporation { get; init; } 
     
     #nullable disable

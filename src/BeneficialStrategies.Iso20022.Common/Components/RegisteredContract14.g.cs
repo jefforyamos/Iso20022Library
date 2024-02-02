@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Document that a user must file with an authorised servicer for each contract that involves foreign currency transactions with non residents.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RegisteredContract14
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record RegisteredContract14
     /// <summary>
     /// Unique and unambiguous identification of the registered contract amendment request.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text RegisteredContractAmendmentIdentification { get; init; } 
     /// <summary>
     /// Identification of the original contract registration, as registered with the registration agent.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalRegisteredContractIdentification { get; init; } 
     /// <summary>
     /// Priority requested for the amendment of the registered contract.
     /// </summary>
+    [DataMember]
     public required Priority2Code Priority { get; init; } 
     /// <summary>
     /// Amendment details of the registered contract for the registered contract.
     /// </summary>
+    [DataMember]
     public required UnderlyingContract3Choice_ Contract { get; init; } 
     /// <summary>
     /// Contract balance on date of contract registration.
     /// </summary>
-    public ContractBalance1[] ContractBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ContractBalance1> ContractBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of the payment schedule provided in the contract.
     /// </summary>
+    [DataMember]
     public PaymentScheduleType2Choice_? PaymentScheduleType { get; init; } 
     /// <summary>
     /// Further additional information on the amendment.
     /// </summary>
+    [DataMember]
     public IsoMax1025Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Documents provided as attachments to the contract registration amendment request.
     /// </summary>
-    public DocumentGeneralInformation5[] Attachment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DocumentGeneralInformation5> Attachment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

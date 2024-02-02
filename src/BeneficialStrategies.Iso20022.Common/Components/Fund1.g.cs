@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about an investment fund.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Fund1
 {
     #nullable enable
@@ -20,59 +22,73 @@ public partial record Fund1
     /// <summary>
     /// Name of the fund/sub fund.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Identification of the fund/sub fund with a Legal Entity Identifier. This is a code allocated to a party as described in ISO 17442 "Financial Services - Legal Entity Identifier (LEI)".
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LegalEntityIdentifier { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the fund/sub fund, assigned under a formal or proprietary identification scheme.
     /// </summary>
+    [DataMember]
     public OtherIdentification4? Identification { get; init; } 
     /// <summary>
     /// Currency of the fund/sub fund.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Date and, if required, the time, at which the price will be applied.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? TradeDateTime { get; init; } 
     /// <summary>
     /// Previous date and time at which a price was applied.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? PreviousTradeDateTime { get; init; } 
     /// <summary>
     /// Estimated total value of all the holdings, less the fund's liabilities, of the fund/sub fund.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? EstimatedTotalNAV { get; init; } 
     /// <summary>
     /// Previous total value of all the holdings, less the fund's liabilities, of the fund/sub fund.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? PreviousTotalNAV { get; init; } 
     /// <summary>
     /// Estimated total number of units of the fund/sub fund.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? EstimatedTotalUnitsNumber { get; init; } 
     /// <summary>
     /// Previous total number of units of the fund/sub fund.
     /// </summary>
+    [DataMember]
     public FinancialInstrumentQuantity1? PreviousTotalUnitsNumber { get; init; } 
     /// <summary>
     /// Estimated consolidated net cash flow expressed as a percentage of the previous total NAV for the fund/sub fund.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? EstimatedPercentageOfFundTotalNAV { get; init; } 
     /// <summary>
     /// Estimated cash movement into the fund/sub fund.
     /// </summary>
-    public CashInOutForecast7[] EstimatedCashInForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashInOutForecast7> EstimatedCashInForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Estimated cash movement out of the fund/sub fund.
     /// </summary>
-    public CashInOutForecast7[] EstimatedCashOutForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CashInOutForecast7> EstimatedCashOutForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Net cash as a result of the cash-in and cash-out flows.
     /// </summary>
-    public NetCashForecast5[] EstimatedNetCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<NetCashForecast5> EstimatedNetCashForecastDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

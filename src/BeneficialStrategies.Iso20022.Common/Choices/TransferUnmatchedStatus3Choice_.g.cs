@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(TransferUnmatchedStatus3Choice.Reason))]
 [KnownType(typeof(TransferUnmatchedStatus3Choice.ExtendedReason))]
 [KnownType(typeof(TransferUnmatchedStatus3Choice.DataSourceScheme))]
+[DataContract]
 public abstract partial record TransferUnmatchedStatus3Choice_
 {
 }

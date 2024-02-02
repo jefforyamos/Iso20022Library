@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Source of funding
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FundingSource2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record FundingSource2
     /// <summary>
     /// Type of source funding used to perform the transfer of funds.
     /// </summary>
+    [DataMember]
     public FundingSourceType2Code? SourceType { get; init; } 
     /// <summary>
     /// Any other type of funding source used to perform the transfer of funds.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherSourceType { get; init; } 
     /// <summary>
     /// Reference to the funding source.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Reference { get; init; } 
     
     #nullable disable

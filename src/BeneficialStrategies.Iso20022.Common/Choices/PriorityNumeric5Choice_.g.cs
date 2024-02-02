@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(PriorityNumeric5Choice.Numeric))]
 [KnownType(typeof(PriorityNumeric5Choice.Proprietary))]
+[DataContract]
 public abstract partial record PriorityNumeric5Choice_
 {
 }

@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(RejectedStatus8Choice.Reason))]
 [KnownType(typeof(RejectedStatus8Choice.ExtendedReason))]
 [KnownType(typeof(RejectedStatus8Choice.DataSourceScheme))]
+[DataContract]
 public abstract partial record RejectedStatus8Choice_
 {
 }

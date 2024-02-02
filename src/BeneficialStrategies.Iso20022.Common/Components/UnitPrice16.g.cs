@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amount of money for which goods or services are offered, sold, or bought.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UnitPrice16
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record UnitPrice16
     /// <summary>
     /// Type of price.
     /// </summary>
+    [DataMember]
     public required UnitPriceType1Choice_ UnitPriceType { get; init; } 
     /// <summary>
     /// Value of the price, eg, as a currency and value.
     /// </summary>
+    [DataMember]
     public required PriceValue1 Value { get; init; } 
     /// <summary>
     /// Amount included in the NAV that corresponds to gains directly or indirectly derived from interest payment in the scope of the European Directive on taxation of savings income in the form of interest payments.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? TaxableIncomePerShare { get; init; } 
     /// <summary>
     /// Taxable income per share calculated.
     /// </summary>
+    [DataMember]
     public TaxableIncomePerShareCalculatedType1Choice_? TaxableIncomePerShareCalculated { get; init; } 
     
     #nullable disable

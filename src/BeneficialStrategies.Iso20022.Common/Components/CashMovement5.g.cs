@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Movements of cash.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashMovement5
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CashMovement5
     /// <summary>
     /// Specifies whether the cash amount is to be delivered or received.
     /// </summary>
+    [DataMember]
     public required CollateralEntryType1Code CashMovement { get; init; } 
     /// <summary>
     /// Amount of the cash movement
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount CashAmount { get; init; } 
     /// <summary>
     /// Specifies whether the amount is delivered/received as part of collateral or not.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator CollateralMovement { get; init; } 
     /// <summary>
     /// Reference assigned by party A to the cash movement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClientCashMovementIdentification { get; init; } 
     /// <summary>
     /// Reference assigned by the triparty agent to the cash movement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TripartyAgentServiceProviderCashMovementIdentification { get; init; } 
     
     #nullable disable

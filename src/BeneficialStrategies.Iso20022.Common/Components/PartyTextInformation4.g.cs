@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding the party, for example, the contact unit or person responsible for the transaction identified in the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyTextInformation4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PartyTextInformation4
     /// <summary>
     /// Provides declaration details narrative relative to the party.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax350Text? DeclarationDetails { get; init; } 
     /// <summary>
     /// Provides additional information regarding the party, for example, the contact unit or person responsible for the transaction identified in the message.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax140Text? PartyContactDetails { get; init; } 
     
     #nullable disable

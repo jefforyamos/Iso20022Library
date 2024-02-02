@@ -16,6 +16,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// ISO 8583:93 bit 53 or 111
 /// ISO 8583:2003 bit 53 or 50
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MACData1
 {
     #nullable enable
@@ -25,50 +27,59 @@ public partial record MACData1
     /// ISO 13492
     /// Binary, length of 1
     /// </summary>
+    [DataMember]
     public required IsoExact1HexBinaryText Control { get; init; } 
     /// <summary>
     /// key-set identifier is a number that uniquely identifies a group of related keys that are all different but have certain characteristics in common.
     /// ISO 13492
     /// lengths of 6 or 8
     /// </summary>
+    [DataMember]
     public required IsoMax8NumericText KeySetIdentifier { get; init; } 
     /// <summary>
     /// Random number or counter in order to have a unique key per transaction. for example, UKPT PIN encryption or the transaction counter.
     /// ISO 13492
     /// Binary, lengths of 5, 8, 16 or 32 
     /// </summary>
+    [DataMember]
     public IsoMax32HexBinaryText? DerivedInformation { get; init; } 
     /// <summary>
     /// Selects the encryption algorithm used to encipher the keys contained in the associated key management data element.
     /// ISO 13492
     /// </summary>
+    [DataMember]
     public required IsoMax2NumericText Algorithm { get; init; } 
     /// <summary>
     /// Specifies the length of the keys being transported, not the encrypting key.
     /// ISO 13492
     /// </summary>
+    [DataMember]
     public IsoMax4NumericText? KeyLength { get; init; } 
     /// <summary>
     /// Mechanism used to provide key confidentiality and integrity. 
     /// ISO 13492
     /// </summary>
+    [DataMember]
     public IsoMax2NumericText? KeyProtection { get; init; } 
     /// <summary>
     /// Identifies a unique key set when multiple keys with the same key set identifier are used. for example, key rotation.
     /// ISO 13492
     /// Length of 2 or 5
     /// </summary>
+    [DataMember]
     public IsoMax5NumericText? KeyIndex { get; init; } 
     /// <summary>
     /// Identifies the padding method used for MAC.
     /// ISO 13492
     /// </summary>
+    [DataMember]
     public IsoMax2NumericText? PaddingMethod { get; init; } 
     /// <summary>
     /// Initialisation vector for CBC.
     /// ISO 13492
     /// Binary, lengths of  8, 16 or 32 
     /// </summary>
+    [DataMember]
     public IsoMax32HexBinaryText? InitialisationVector { get; init; } 
     
     #nullable disable

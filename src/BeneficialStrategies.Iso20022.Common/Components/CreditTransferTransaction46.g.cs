@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further details specific to the individual transaction(s) included in the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditTransferTransaction46
 {
     #nullable enable
@@ -20,115 +22,143 @@ public partial record CreditTransferTransaction46
     /// <summary>
     /// Ultimate party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [DataMember]
     public PartyIdentification135? UltimateDebtor { get; init; } 
     /// <summary>
     /// Party that initiates the payment.|Usage: This can be either the debtor or a party that initiates the credit transfer on behalf of the debtor.
     /// </summary>
+    [DataMember]
     public PartyIdentification135? InitiatingParty { get; init; } 
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [DataMember]
     public PartyIdentification135? Debtor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the debtor to which a debit entry will be made as a result of the transaction.
     /// </summary>
+    [DataMember]
     public CashAccount38? DebtorAccount { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? DebtorAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the debtor agent at its servicing agent in the payment chain.
     /// </summary>
+    [DataMember]
     public CashAccount38? DebtorAgentAccount { get; init; } 
     /// <summary>
     /// Agent immediately prior to the instructing agent.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? PreviousInstructingAgent1 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the previous instructing agent at its servicing agent in the payment chain.
     /// </summary>
+    [DataMember]
     public CashAccount38? PreviousInstructingAgent1Account { get; init; } 
     /// <summary>
     /// Agent immediately prior to the instructing agent.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? PreviousInstructingAgent2 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the previous instructing agent at its servicing agent in the payment chain.
     /// </summary>
+    [DataMember]
     public CashAccount38? PreviousInstructingAgent2Account { get; init; } 
     /// <summary>
     /// Agent immediately prior to the instructing agent.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? PreviousInstructingAgent3 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the previous instructing agent at its servicing agent in the payment chain.
     /// </summary>
+    [DataMember]
     public CashAccount38? PreviousInstructingAgent3Account { get; init; } 
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If more than one intermediary agent is present, then IntermediaryAgent1 identifies the agent between the DebtorAgent and the IntermediaryAgent2.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? IntermediaryAgent1 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the intermediary agent 1 at its servicing agent in the payment chain.
     /// </summary>
+    [DataMember]
     public CashAccount38? IntermediaryAgent1Account { get; init; } 
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If more than two intermediary agents are present, then IntermediaryAgent2 identifies the agent between the IntermediaryAgent1 and the IntermediaryAgent3.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? IntermediaryAgent2 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the intermediary agent 2 at its servicing agent in the payment chain.
     /// </summary>
+    [DataMember]
     public CashAccount38? IntermediaryAgent2Account { get; init; } 
     /// <summary>
     /// Agent between the debtor's agent and the creditor's agent.||Usage: If IntermediaryAgent3 is present, then it identifies the agent between the IntermediaryAgent 2 and the CreditorAgent.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? IntermediaryAgent3 { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the intermediary agent 3 at its servicing agent in the payment chain.
     /// </summary>
+    [DataMember]
     public CashAccount38? IntermediaryAgent3Account { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification6? CreditorAgent { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor agent at its servicing agent to which a credit entry will be made as a result of the payment transaction.
     /// </summary>
+    [DataMember]
     public CashAccount38? CreditorAgentAccount { get; init; } 
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
+    [DataMember]
     public PartyIdentification135? Creditor { get; init; } 
     /// <summary>
     /// Unambiguous identification of the account of the creditor to which a credit entry will be posted as a result of the payment transaction.
     /// </summary>
+    [DataMember]
     public CashAccount38? CreditorAccount { get; init; } 
     /// <summary>
     /// Ultimate party to which an amount of money is due.
     /// </summary>
+    [DataMember]
     public PartyIdentification135? UltimateCreditor { get; init; } 
     /// <summary>
     /// Further information related to the processing of the payment instruction, provided by the initiating party, and intended for the creditor agent.
     /// </summary>
-    public InstructionForCreditorAgent3[] InstructionForCreditorAgent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InstructionForCreditorAgent3> InstructionForCreditorAgent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further information related to the processing of the payment instruction that may need to be acted upon by the next agent.
     /// </summary>
-    public InstructionForNextAgent1[] InstructionForNextAgent { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InstructionForNextAgent1> InstructionForNextAgent { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides details on the tax.
     /// </summary>
+    [DataMember]
     public TaxInformation8? Tax { get; init; } 
     /// <summary>
     /// Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts' receivable system.
     /// </summary>
+    [DataMember]
     public RemittanceInformation16? RemittanceInformation { get; init; } 
     /// <summary>
     /// Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party.
     /// Usage: This amount has to be transported unchanged through the transaction chain.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; init; } 
     
     #nullable disable

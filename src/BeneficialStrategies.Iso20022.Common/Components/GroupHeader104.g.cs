@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of characteristics shared by all individual instructions included in the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GroupHeader104
 {
     #nullable enable
@@ -21,22 +23,27 @@ public partial record GroupHeader104
     /// Point to point reference, as assigned by the instructing agent, and sent to the market infrastructure to unambiguously identify the message.
     /// Usage: The instructing agent has to make sure that MessageIdentification is unique per market infrastructure for a pre-agreed period.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Number of individual settlement requests contained in the message.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText NumberOfSettlementRequests { get; init; } 
     /// <summary>
     /// Total of all individual amounts included in the message, irrespective of currencies.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? ControlSum { get; init; } 
     /// <summary>
     /// Specifies the details on how the settlement of the transaction(s) between the instructing agent and the market infrastructure is completed.
     /// </summary>
+    [DataMember]
     public SettlementInstruction14? SettlementInformation { get; init; } 
     
     #nullable disable

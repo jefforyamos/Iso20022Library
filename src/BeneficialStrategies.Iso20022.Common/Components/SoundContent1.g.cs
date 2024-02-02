@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the Sound to play.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SoundContent1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SoundContent1
     /// <summary>
     /// Type of sound to play, as a reference to a sound, a reference to a Message, or a Text to read.
     /// </summary>
+    [DataMember]
     public required SoundFormat1Code SoundFormat { get; init; } 
     /// <summary>
     /// Language of the text to play if Text-To-Speech is used.
     /// </summary>
+    [DataMember]
     public LanguageCode? Language { get; init; } 
     /// <summary>
     /// Reference of a predefined message to play (Sound or text file name, URL, etc.).
     /// </summary>
+    [DataMember]
     public IsoMax500Text? SoundReference { get; init; } 
     /// <summary>
     /// Content of text message to play (Text-to-Speech).
     /// </summary>
+    [DataMember]
     public IsoMax1025Text? Text { get; init; } 
     
     #nullable disable

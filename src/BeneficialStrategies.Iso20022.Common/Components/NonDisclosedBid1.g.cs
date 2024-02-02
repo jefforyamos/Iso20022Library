@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// List trading by which the buy-side provides details to the sell-side information about the sector, country, index and potential market impact of the financial instrument to be bought or sold. Using this information, the sell-side firms bid for the trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NonDisclosedBid1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record NonDisclosedBid1
     /// <summary>
     /// Identifies a type of bid based on a common characteristic (the currency) of all securities of a list.
     /// </summary>
+    [DataMember]
     public CountryCode? BidByCurrency { get; init; } 
     /// <summary>
     /// Identifies a type of bid based on a common characteristic (the sector) of all securities of a list.
     /// </summary>
+    [DataMember]
     public IsoMax128Text? BidBySector { get; init; } 
     /// <summary>
     /// Identifies a type of bid based on a common characteristic (the index) of all securities of a list.
     /// </summary>
+    [DataMember]
     public IsoMax128Text? BidByIndex { get; init; } 
     /// <summary>
     /// Indicates the side of the bid in the case of a non disclosed bidding process. Used instead of buy and sell side.|True = Side 1|False = Side 2.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? SideIndicator { get; init; } 
     /// <summary>
     /// Provides additionnal details about the liquidity of a financial instrument.
     /// </summary>
+    [DataMember]
     public Liquidity1? Liquidity { get; init; } 
     /// <summary>
     /// Details about the exchange for physical trade parameters.
     /// </summary>
+    [DataMember]
     public ExchangeForPhysicalTradeParameters1? ExchangeForPhysicalTrade { get; init; } 
     
     #nullable disable

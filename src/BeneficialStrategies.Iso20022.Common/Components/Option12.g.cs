@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details for a call/put option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Option12
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Option12
     /// <summary>
     /// Identifies whether the instrument has a call option or a put option. If the instrument contains both options, i.e. a call and a put, both the call option and the put option have to be reported.
     /// </summary>
+    [DataMember]
     public required OptionType1Code Type { get; init; } 
     /// <summary>
     /// Provides the exercise date or notice period for a call/put option.
     /// </summary>
+    [DataMember]
     public required OptionDateOrPeriod1Choice_ DateOrPeriod { get; init; } 
     
     #nullable disable

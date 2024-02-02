@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates the independent amount and how it was applied in the calculation. It also provides a description of the amount type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IndependentAmount2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record IndependentAmount2
     /// <summary>
     /// Description of the other amount used in the calculation of the independent amount.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Description { get; init; } 
     /// <summary>
     /// Provides the independant amount.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Determines how the independent amount was applied in the calculation. 
@@ -32,6 +36,7 @@ public partial record IndependentAmount2
     /// - after threshold where the amount is an add on to the credit support amount and forms part of the variation margin requirement,
     /// - segregated where it is treated independently of variation margin for segregation purposes.
     /// </summary>
+    [DataMember]
     public required IndependentAmountConventionType1Code Convention { get; init; } 
     
     #nullable disable

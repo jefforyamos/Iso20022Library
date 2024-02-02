@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Organised structure that is set up for a particular purpose, for example, a business, government body, department, charity, or financial institution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Organisation31
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record Organisation31
     /// <summary>
     /// Name by which the party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Name { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for the organisation.
     /// </summary>
+    [DataMember]
     public PartyIdentification124? Identification { get; init; } 
     /// <summary>
     /// Purpose of the organisation, for example, charity.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Purpose { get; init; } 
     /// <summary>
     /// Country of taxation of the organisation.
     /// </summary>
+    [DataMember]
     public CountryCode? TaxationCountry { get; init; } 
     /// <summary>
     /// Country in which the organisation is registered.
     /// </summary>
+    [DataMember]
     public CountryCode? RegistrationCountry { get; init; } 
     /// <summary>
     /// Date and time at which a given organisation was officially registered.
     /// </summary>
+    [DataMember]
     public IsoISODate? RegistrationDate { get; init; } 
     /// <summary>
     /// Number assigned by a tax authority to the organisation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TaxIdentificationNumber { get; init; } 
     /// <summary>
     /// Number assigned by a national registration authority to the organisation.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NationalRegistrationNumber { get; init; } 
     /// <summary>
     /// Postal address of the organisation.
     /// </summary>
+    [DataMember]
     public required PostalAddress1 CorporateInvestorAddress { get; init; } 
     
     #nullable disable

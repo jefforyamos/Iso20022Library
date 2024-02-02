@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Document that a user must file with an authorized servicer for each contract that involves foreign currency transactions with non residents.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ContractRegistration4
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record ContractRegistration4
     /// <summary>
     /// Unique and unambiguous identification of the registered contract opening.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ContractRegistrationOpeningIdentification { get; init; } 
     /// <summary>
     /// Priority requested for the opening of the registered contract.
     /// </summary>
+    [DataMember]
     public required Priority2Code Priority { get; init; } 
     /// <summary>
     /// Details of the contract being registered.
     /// </summary>
+    [DataMember]
     public required UnderlyingContract2Choice_ Contract { get; init; } 
     /// <summary>
     /// Contract balance on date of contract registration.
     /// </summary>
-    public ContractBalance1[] ContractBalance { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ContractBalance1> ContractBalance { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Type of the payment schedule provided in the contract.
     /// </summary>
+    [DataMember]
     public PaymentScheduleType1Choice_? PaymentScheduleType { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification of a previous contract registration.
     /// </summary>
-    public DocumentIdentification22[] PreviousRegistrationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DocumentIdentification22> PreviousRegistrationIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Further details on the registered contract opening.
     /// </summary>
+    [DataMember]
     public IsoMax1025Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Documents provided as attachments to the contract registration request.
     /// </summary>
-    public DocumentGeneralInformation3[] Attachment { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DocumentGeneralInformation3> Attachment { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

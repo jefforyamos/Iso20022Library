@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(SearchCriteria1Choice.CustomerIdentification))]
 [KnownType(typeof(SearchCriteria1Choice.PaymentInstrument))]
 [KnownType(typeof(SearchCriteria1Choice.OriginalTransactionNumber))]
+[DataContract]
 public abstract partial record SearchCriteria1Choice_
 {
 }

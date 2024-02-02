@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides further information on the reason for the unable to apply investigation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MissingOrIncorrectData1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record MissingOrIncorrectData1
     /// <summary>
     /// Indicates whether the request is related to an AML (Anti Money Laundering) investigation or not.
     /// </summary>
+    [DataMember]
     public IsoAMLIndicator? AntiMoneyLaunderingRequest { get; init; } 
     /// <summary>
     /// Indicates the missing information.
     /// </summary>
-    public UnableToApplyMissing2[] MissingInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<UnableToApplyMissing2> MissingInformation { get; init; } = [];
     /// <summary>
     /// Indicates, in a coded form, the incorrect information.
     /// </summary>
-    public UnableToApplyIncorrect2[] IncorrectInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<UnableToApplyIncorrect2> IncorrectInformation { get; init; } = [];
     
     #nullable disable
 }

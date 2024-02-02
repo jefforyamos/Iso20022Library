@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Attribute of the certificate service to be put in the certificate extensions, or to be used for the request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RelativeDistinguishedName2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RelativeDistinguishedName2
     /// <summary>
     /// Type of attribute of a distinguished name (see X.500).
     /// </summary>
+    [DataMember]
     public required AttributeType2Code AttributeType { get; init; } 
     /// <summary>
     /// Value of the attribute of a distinguished name (see X.500).
     /// </summary>
+    [DataMember]
     public required IsoMax140Text AttributeValue { get; init; } 
     
     #nullable disable

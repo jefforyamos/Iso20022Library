@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed statistics on reconciliation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DetailedReconciliationStatistics2
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record DetailedReconciliationStatistics2
     /// <summary>
     /// Detailed statistics on derivatives accepted by trade repository since the beginning of reporting.
     /// </summary>
+    [DataMember]
     public required IsoMax20PositiveNumber TotalAccepted { get; init; } 
     /// <summary>
     /// Detailed statistics on derivatives that are not single-sided non-EEA and are not included in to the inter trade repository reconciliation process due to lack of compliance with LEI or the UTI specifications.
     /// </summary>
+    [DataMember]
     public required IsoMax20PositiveNumber TotalNotSubmittedToReconciliation { get; init; } 
     /// <summary>
     /// Detailed statistics on single-sided EEA unpaired derivatives.
     /// </summary>
+    [DataMember]
     public required IsoMax20PositiveNumber TotalSingleSidedEEAUnpaired { get; init; } 
     /// <summary>
     /// Detailed statistics on single-sided EEA paired derivatives.
     /// </summary>
+    [DataMember]
     public required IsoMax20PositiveNumber TotalSingleSidedEEAPaired { get; init; } 
     /// <summary>
     /// Detailed statistics on single-sided EEA matched derivatives.
     /// </summary>
+    [DataMember]
     public required IsoMax20PositiveNumber TotalSingleSidedEEAMatched { get; init; } 
     /// <summary>
     /// Detailed statistics on dual-sided non-matched derivatives.
     /// </summary>
+    [DataMember]
     public required IsoMax20PositiveNumber TotalDualSidedNonMatched { get; init; } 
     /// <summary>
     /// Detailed statistics on dual-sided matched derivatives.
     /// </summary>
+    [DataMember]
     public required IsoMax20PositiveNumber TotalDualSidedMatched { get; init; } 
     /// <summary>
     /// Detailed statistics on single-sided non-EEA derivatives.
     /// </summary>
+    [DataMember]
     public required IsoMax20PositiveNumber TotalSingleSidedNonEEA { get; init; } 
     /// <summary>
     /// Identification of the most common data field considered as reason for paired non-matched derivatives.
     /// </summary>
-    public IsoMax35Text[] TopReasonsForPairedNonMatched { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> TopReasonsForPairedNonMatched { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

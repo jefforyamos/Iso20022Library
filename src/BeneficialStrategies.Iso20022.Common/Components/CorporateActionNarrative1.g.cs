@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides addtional information such as the taxation conditions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionNarrative1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record CorporateActionNarrative1
     /// <summary>
     /// Provides conditional information related to the event, eg, an offer is subject to 50% acceptance, the offeror allows the securities holder to set some conditions.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? InformationConditions { get; init; } 
     /// <summary>
     /// Provides information conditions to the account owner that are to be complied with, eg, not open to US/Canadian residents, QIB or SIL to be provided.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? InformationToComplyWith { get; init; } 
     /// <summary>
     /// Provides taxation conditions that cannot be included within the structured fields of this message.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? TaxationConditions { get; init; } 
     /// <summary>
     /// Provide the new name of a company following a name change.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? NewCompanyName { get; init; } 
     /// <summary>
     /// Provides the entity making the offer and is different from the issuing company.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? Offeror { get; init; } 
     /// <summary>
     /// Provides the web address published for the event, ie the address for the Universal Resource Locator (URL), eg, used over the www (HTTP) service.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? URLAddress { get; init; } 
     /// <summary>
     /// Provides additional information or specifies in more detail the content of a|message.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalText { get; init; } 
     
     #nullable disable

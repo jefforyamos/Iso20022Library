@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the loan data details in case of a margin lending transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoanData75
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record LoanData75
     /// <summary>
     /// Unique trade Identifier (UTI) as agreed with the other counterparty.
     /// </summary>
+    [DataMember]
     public IsoMax52Text? UniqueTradeIdentifier { get; init; } 
     /// <summary>
     /// Date on which the reportable event pertaining to the transaction and captured by the report took place.
     /// </summary>
+    [DataMember]
     public required IsoISODate EventDate { get; init; } 
     /// <summary>
     /// Indicates the date and time when the contract was executed.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ExecutionDateTime { get; init; } 
     /// <summary>
     /// Identification of the trading venue where the transaction was executed.
     /// </summary>
+    [DataMember]
     public IsoMICIdentifier? TradingVenue { get; init; } 
     /// <summary>
     /// Specifies whether the collateral is subject to a title transfer collateral arrangement, a securities interest collateral arrangement, or a securities interest with the right of use.
     /// </summary>
+    [DataMember]
     public CollateralDeliveryMethod1Code? CollateralDeliveryMethod { get; init; } 
     /// <summary>
     /// Total amount of margin loans in base currency.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? OutstandingMarginLoanAmount { get; init; } 
     /// <summary>
     /// Market value of short position in base currency.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? ShortMarketValueAmount { get; init; } 
     /// <summary>
     /// Data on amount and interest rates of the transaction.
     /// </summary>
-    public InterestRate3[] MarginLoanAttribute { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InterestRate3> MarginLoanAttribute { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Termination date in the case of a full early termination of the SFT.
     /// </summary>
+    [DataMember]
     public IsoISODate? TerminationDate { get; init; } 
     
     #nullable disable

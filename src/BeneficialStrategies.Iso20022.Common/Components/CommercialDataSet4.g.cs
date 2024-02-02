@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Goods or services that are part of a commercial trade agreement.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CommercialDataSet4
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record CommercialDataSet4
     /// <summary>
     /// Identifies the commercial data set.
     /// </summary>
+    [DataMember]
     public required DocumentIdentification1 DataSetIdentification { get; init; } 
     /// <summary>
     /// Reference to the identification of the underlying commercial document.
     /// </summary>
+    [DataMember]
     public required InvoiceIdentification1 CommercialDocumentReference { get; init; } 
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
+    [DataMember]
     public required PartyIdentification26 Buyer { get; init; } 
     /// <summary>
     /// Party that sells goods or services, or a financial instrument.
     /// </summary>
+    [DataMember]
     public required PartyIdentification26 Seller { get; init; } 
     /// <summary>
     /// Party to be invoiced for the purchase.
     /// </summary>
+    [DataMember]
     public PartyIdentification26? BillTo { get; init; } 
     /// <summary>
     /// Information about the goods and/or services of the underlying transaction.
     /// </summary>
-    public LineItem12[] Goods { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<LineItem12> Goods { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the payment terms by means of a code and a limit in time.
     /// </summary>
-    public PaymentTerms4[] PaymentTerms { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentTerms4> PaymentTerms { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies how the transaction should be settled.
     /// </summary>
+    [DataMember]
     public required SettlementTerms3 SettlementTerms { get; init; } 
     
     #nullable disable

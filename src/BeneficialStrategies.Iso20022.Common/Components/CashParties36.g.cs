@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment processes required to transfer cash from the debtor to the creditor.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashParties36
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record CashParties36
     /// <summary>
     /// Party that owes an amount of money to the (ultimate) creditor.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount164? Debtor { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the debtor.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount171? DebtorAgent { get; init; } 
     /// <summary>
     /// Party to which an amount of money is due.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount164? Creditor { get; init; } 
     /// <summary>
     /// Financial institution servicing an account for the creditor.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount171? CreditorAgent { get; init; } 
     /// <summary>
     /// Financial institution through which the transaction must pass to reach the account with institution.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount171? Intermediary { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Chain of parties involved in the settlement of a transaction, including receipts and deliveries, book transfers, treasury deals, or other activities, resulting in the movement of a security or amount of money from one account to another.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReceivingPartiesAndAccount8
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record ReceivingPartiesAndAccount8
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
+    [DataMember]
     public InvestmentAccount24? ReceiverDetails { get; init; } 
     /// <summary>
     /// Party that acts on behalf of the buyer of securities when the buyer does not have a direct relationship with the receiving agent.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount5? ReceiversCustodianDetails { get; init; } 
     /// <summary>
     /// Party that the Receiver's custodian uses to effect the receipt of a security, when the Receiver's custodian does not have a direct relationship with the Receiver agent.
     /// </summary>
+    [DataMember]
     public PartyIdentificationAndAccount5? ReceiversIntermediaryDetails { get; init; } 
     /// <summary>
     /// Party that receives securities from the delivering agent via the place of settlement, eg, securities central depository.
     /// </summary>
+    [DataMember]
     public required PartyIdentificationAndAccount4 ReceivingAgentDetails { get; init; } 
     /// <summary>
     /// Identifies the securities settlement system to be used.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SecuritiesSettlementSystem { get; init; } 
     /// <summary>
     /// Place where settlement of the securities takes place.
     /// </summary>
+    [DataMember]
     public PartyIdentification21? PlaceOfSettlementDetails { get; init; } 
     
     #nullable disable

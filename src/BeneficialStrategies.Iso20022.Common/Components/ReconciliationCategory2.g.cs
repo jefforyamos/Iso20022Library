@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies categories of statuses of a derivative when there is no reporting requirement for both counterparties.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReconciliationCategory2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ReconciliationCategory2
     /// <summary>
     /// Indicator of derivative reopening, terminated or cancelled by mistake.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator Revived { get; init; } 
     /// <summary>
     /// Indicator of modification to the terms or details of a previously reported derivative, at a trade or position level, but not a correction of a report.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator FurtherModification { get; init; } 
     
     #nullable disable

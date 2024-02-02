@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Profile of the customer selected by an ATM.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMCustomerProfile2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ATMCustomerProfile2
     /// <summary>
     /// Reference of the customer profile.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProfileReference { get; init; } 
     /// <summary>
     /// Identification of the customer for the bank.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CustomerIdentification { get; init; } 
     
     #nullable disable

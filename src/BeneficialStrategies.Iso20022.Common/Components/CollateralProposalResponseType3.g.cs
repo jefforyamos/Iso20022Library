@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the response for a collateral proposal.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralProposalResponseType3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CollateralProposalResponseType3
     /// <summary>
     /// Unique identifier for a collateral proposal.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text CollateralProposalIdentification { get; init; } 
     /// <summary>
     /// Indicates whether the collateral proposal is an initial or a counter proposal.
     /// </summary>
+    [DataMember]
     public required CollateralProposalResponse1Code Type { get; init; } 
     /// <summary>
     /// Provides response details for each of the proposed collateral pieces.
     /// </summary>
+    [DataMember]
     public required CollateralResponse2 Response { get; init; } 
     
     #nullable disable

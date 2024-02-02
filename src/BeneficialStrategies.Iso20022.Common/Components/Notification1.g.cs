@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Structured information to be communicated to other parties in the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Notification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Notification1
     /// <summary>
     /// Type of the notification.
     /// </summary>
+    [DataMember]
     public required NotificationType1Code Type { get; init; } 
     /// <summary>
     /// Additional and important information to qualify and describe the notification.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text AdditionalInformation { get; init; } 
     
     #nullable disable

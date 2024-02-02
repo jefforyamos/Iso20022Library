@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(PreviousYear2Choice.AllPreviousYears))]
 [KnownType(typeof(PreviousYear2Choice.SpecificPreviousYears))]
+[DataContract]
 public abstract partial record PreviousYear2Choice_
 {
 }

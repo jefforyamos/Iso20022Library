@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of transaction for a file action.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transaction157
 {
     #nullable enable
@@ -21,47 +23,58 @@ public partial record Transaction157
     /// Reason or purpose to send the message.
     /// The ISO 8583 maintenance agency (MA) manages this code list.
     /// </summary>
-    public ISO8583MessageReasonCode[] MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ISO8583MessageReasonCode> MessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Supports message reason codes that are not defined in external code list. 
     /// </summary>
-    public IsoMax256Text[] AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax256Text> AlternateMessageReason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identification of the transaction.
     /// </summary>
+    [DataMember]
     public TransactionIdentification12? TransactionIdentification { get; init; } 
     /// <summary>
     /// Scope of file action.
     /// </summary>
+    [DataMember]
     public FileActionScope1Code? FileActionScope { get; init; } 
     /// <summary>
     /// Type of file action.
     /// ISO 8583:87 bit 91
     /// </summary>
+    [DataMember]
     public FileActionType2Code? FileActionType { get; init; } 
     /// <summary>
     /// Other file action type in free text.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherFileActionType { get; init; } 
     /// <summary>
     /// Details pertaining to the file action.
     /// </summary>
+    [DataMember]
     public required FileActionDetails2 FileActionDetails { get; init; } 
     /// <summary>
     /// Fees not included in the transaction amount but included in the settlement.
     /// </summary>
-    public AdditionalFee2[] AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalFee2> AdditionalFee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies that this batch or collection is a corrected version of a batch or collection that was previously sent.
     /// </summary>
+    [DataMember]
     public CorrectionIdentification1? Correction { get; init; } 
     /// <summary>
     /// Indicates that batch or collection is not complete.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ContinuationIndicator { get; init; } 
     
     #nullable disable

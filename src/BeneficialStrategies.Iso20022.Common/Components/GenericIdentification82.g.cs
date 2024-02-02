@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the identification of a party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericIdentification82
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record GenericIdentification82
     /// <summary>
     /// Name or number assigned by an entity to enable recognition of that entity.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Type of identification.
     /// </summary>
+    [DataMember]
     public required OtherIdentification3Choice_ Type { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     /// <summary>
     /// Date at which the identification was issued.
     /// </summary>
+    [DataMember]
     public IsoISODate? IssueDate { get; init; } 
     /// <summary>
     /// Date at which the identification expires.
     /// </summary>
+    [DataMember]
     public IsoISODate? ExpiryDate { get; init; } 
     /// <summary>
     /// Name of the state, county or country sub-division that issued the identification document.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? State { get; init; } 
     /// <summary>
     /// Country that issued the identification document.
     /// </summary>
+    [DataMember]
     public CountryCode? IssuerCountry { get; init; } 
     
     #nullable disable

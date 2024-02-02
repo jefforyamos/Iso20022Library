@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details about the schedule change.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ScheduleChangeEntry1
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record ScheduleChangeEntry1
     /// <summary>
     /// Type of the scheduled event.
     /// </summary>
+    [DataMember]
     public required SystemEventType2Choice_ ScheduleEventType { get; init; } 
     /// <summary>
     /// Identificaiton of the scheduled event.
     /// </summary>
+    [DataMember]
     public IsoExact1NumericText? ScheduleEventIdentification { get; init; } 
     /// <summary>
     /// New frequency of the scheduled event.
     /// </summary>
+    [DataMember]
     public IsoMax4Text? EventFrequency { get; init; } 
     /// <summary>
     /// Frequency of the scheduled event before change.
     /// </summary>
+    [DataMember]
     public IsoMax4Text? EventPreviousFrequency { get; init; } 
     /// <summary>
     /// New scheduled time of the event.
     /// </summary>
+    [DataMember]
     public IsoISOTime? EventTime { get; init; } 
     /// <summary>
     /// Scheduled time of the event before change.
     /// </summary>
+    [DataMember]
     public IsoISOTime? EventPreviousTime { get; init; } 
     /// <summary>
     /// Minimum duration of event.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? EventDuration { get; init; } 
     /// <summary>
     /// Set earlier duration of event.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? EventPreviousDuration { get; init; } 
     /// <summary>
     /// Type of schedule modification (i.e. event cancelled, new event).
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ChangeType { get; init; } 
     
     #nullable disable

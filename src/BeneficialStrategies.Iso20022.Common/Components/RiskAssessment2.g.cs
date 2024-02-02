@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates to the card issuer the level of risk associated with the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RiskAssessment2
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record RiskAssessment2
     /// <summary>
     /// Entity providing an intermediate result of a risk assessment process.
     /// </summary>
+    [DataMember]
     public PartyIdentification200? RiskAssessmentEntity { get; init; } 
     /// <summary>
     /// Type of risk assessment.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RiskAssessmentType { get; init; } 
     /// <summary>
     /// Transaction is identified as high risk.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? HighRiskTransaction { get; init; } 
     /// <summary>
     /// Reason for indicating a certain level of risk for the transaction.
     /// </summary>
-    public IsoMax35Text[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> Reason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Risk assessment result.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Result { get; init; } 
     /// <summary>
     /// Conditions noted for the risk assessment.
     /// </summary>
-    public AdditionalData1[] RiskCondition { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> RiskCondition { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional risk data associated with the transaction.
     /// </summary>
-    public AdditionalRiskData1[] AdditionalRiskData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalRiskData1> AdditionalRiskData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Recommended action based on risk assessment.
     /// </summary>
-    public ActionType8Code[] RecommendedAction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ActionType8Code> RecommendedAction { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Other recommended action based on risk assessment defined at national or private level.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherRecommendedAction { get; init; } 
     /// <summary>
     /// Additional details of recommended action or other recommended action. 
     /// </summary>
+    [DataMember]
     public IsoMax256Text? RecommendedActionDetails { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the account expressed with a data source scheme.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountIdentification3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AccountIdentification3
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required AccountIdentification1 Identification { get; init; } 
     /// <summary>
     /// Entity that assigns the information.
     /// </summary>
+    [DataMember]
     public required IsoMax8Text Issuer { get; init; } 
     /// <summary>
     /// Proprietary information, often a code, issued by the data source scheme issuer.
     /// </summary>
+    [DataMember]
     public required IsoExact4AlphaNumericText Information { get; init; } 
     
     #nullable disable

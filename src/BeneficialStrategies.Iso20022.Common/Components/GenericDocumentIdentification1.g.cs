@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Generic identification scheme for a document.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericDocumentIdentification1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record GenericDocumentIdentification1
     /// <summary>
     /// Message type number/message identifier of the message referenced in the linkage sequence.
     /// </summary>
+    [DataMember]
     public DocumentNumber1Choice_? MessageNumber { get; init; } 
     /// <summary>
     /// Identification of the document.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     
     #nullable disable

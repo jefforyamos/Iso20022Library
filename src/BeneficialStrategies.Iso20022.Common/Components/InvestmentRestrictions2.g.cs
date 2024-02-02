@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Investment restrictions linked to the instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvestmentRestrictions2
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record InvestmentRestrictions2
     /// <summary>
     /// Minimum initial quantity of securities, expressed as an amount that must be purchased at subscription.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumInitialSubscriptionAmount { get; init; } 
     /// <summary>
     /// Minimum initial number of units/shares that must be purchased.
     /// </summary>
+    [DataMember]
     public IsoNumber? MinimumInitialSubscriptionUnits { get; init; } 
     /// <summary>
     /// Minimum quantity of securities, expressed as an amount that must be purchased.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumSubsequentSubscriptionAmount { get; init; } 
     /// <summary>
     /// Minimum quantity of securities, expressed as number of units/shares that must be purchased.
     /// </summary>
+    [DataMember]
     public IsoNumber? MinimumSubsequentSubscriptionUnits { get; init; } 
     /// <summary>
     /// Maximum quantity of securities, expressed as an amount that can be sold.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? MaximumRedemptionAmount { get; init; } 
     /// <summary>
     /// Maximum number of shares/units that may be redeemed on a single dealing day.
     /// </summary>
+    [DataMember]
     public IsoNumber? MaximumRedemptionUnits { get; init; } 
     /// <summary>
     /// Specifies any other restrictions that may limit an investor's ability to redeem.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? OtherRedemptionRestrictions { get; init; } 
     /// <summary>
     /// Minimum value of units that must be maintained to avoid automatic redemption.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumHoldingAmount { get; init; } 
     /// <summary>
     /// Minimum number of units that must be maintained to avoid automatic redemption.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? MinimumHoldingUnits { get; init; } 
     /// <summary>
     /// Description of a period, that may be a number of days, weeks or descriptive period during which the units/shares must be held following their issue before redemption will be permitted.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? MinimumHoldingPeriod { get; init; } 
     /// <summary>
     /// Indicates whether registered investors are able to transfer some or all of their holdings to third parties.
     /// </summary>
+    [DataMember]
     public required HoldingTransferable1Code HoldingTransferable { get; init; } 
     
     #nullable disable

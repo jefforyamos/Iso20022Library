@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Container for proprietary information. Business content of this element is not specified.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProprietaryData6
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record ProprietaryData6
     /// <summary>
     /// Proprietary content.
     /// </summary>
+    [DataMember]
     public required SkipPayload Any { get; init; } 
     
     #nullable disable

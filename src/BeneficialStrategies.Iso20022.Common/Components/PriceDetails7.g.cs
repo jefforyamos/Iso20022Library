@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the prices related to a corporate action option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PriceDetails7
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PriceDetails7
     /// <summary>
     /// Generic cash price paid per product by the underlying security holder either as a percentage or an amount, for example, reinvestment price.
     /// </summary>
+    [DataMember]
     public PriceFormat6Choice_? GenericCashPricePaidPerProduct { get; init; } 
     /// <summary>
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, for example, redemption price.
     /// </summary>
+    [DataMember]
     public PriceFormat7Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
     
     #nullable disable

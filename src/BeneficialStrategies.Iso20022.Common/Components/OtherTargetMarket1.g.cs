@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Other target market parameter.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OtherTargetMarket1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record OtherTargetMarket1
     /// <summary>
     /// Type of target market parameter.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text TargetMarketType { get; init; } 
     /// <summary>
     /// Additional information about the target market.
     /// </summary>
+    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Actual amount of the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionAmount1
 {
     #nullable enable
@@ -21,12 +23,14 @@ public partial record TransactionAmount1
     /// Amount of the transaction expressed in the currency of the terminal or as a reversed amount of a previous authorisation.
     /// ISO 8583 bit 4.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Currency code associated with the transaction amount.  ISO 4217 "Codes for the representation of currencies and funds"
     /// ISO 8583:87/93 bit 49
     /// ISO 8583:2003 bit 4
     /// </summary>
+    [DataMember]
     public required ISO3NumericCurrencyCode Currency { get; init; } 
     
     #nullable disable

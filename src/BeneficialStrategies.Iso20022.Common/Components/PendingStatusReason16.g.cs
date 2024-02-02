@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reasons for a pending instruction status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PendingStatusReason16
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PendingStatusReason16
     /// <summary>
     /// Reason for the pending status.
     /// </summary>
+    [DataMember]
     public required PendingReason51Choice_ ReasonCode { get; init; } 
     /// <summary>
     /// Additional information about the pending status.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

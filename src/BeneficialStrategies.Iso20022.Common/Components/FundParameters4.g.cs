@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters required to request a Fund Processing Passport (FPP).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FundParameters4
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record FundParameters4
     /// <summary>
     /// Financial instrument for which the fund processing passport report report is requested.
     /// </summary>
-    public FinancialInstrument17[] FinancialInstrumentDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FinancialInstrument17> FinancialInstrumentDetails { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Fund management company for which the report is requested.
     /// </summary>
-    public PartyIdentification2Choice_[] FundManagementCompany { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PartyIdentification2Choice_> FundManagementCompany { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the date on or after which the information required will have been last updated. Only the most recent versions of the data is required.
     /// </summary>
+    [DataMember]
     public IsoISODate? DateFrom { get; init; } 
     /// <summary>
     /// Country where the fund has legal domicile as reflected in the ISIN classification.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryOfDomicile { get; init; } 
     /// <summary>
     /// Countries where the fund is registered for distribution.
     /// </summary>
+    [DataMember]
     public CountryCode? RegisteredDistributionCountry { get; init; } 
     
     #nullable disable

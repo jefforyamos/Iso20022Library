@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Payment wire instruction details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record WireInstructionSD1
 {
     #nullable enable
@@ -20,46 +22,57 @@ public partial record WireInstructionSD1
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Quantity of securities concerned in this wire.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity15Choice_ WireQuantity { get; init; } 
     /// <summary>
     /// Name of the recipient bank for the wire.
     /// </summary>
+    [DataMember]
     public required IsoMax105Text BankName { get; init; } 
     /// <summary>
     /// Street address of the recipient bank for the wire.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text BankAddress { get; init; } 
     /// <summary>
     /// City of the recipient bank for the wire.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text BankCity { get; init; } 
     /// <summary>
     /// Country of the recipient bank for the wire.
     /// </summary>
+    [DataMember]
     public required CountryCode BankCountry { get; init; } 
     /// <summary>
     /// Responsible person in the recipient back for the wire.
     /// </summary>
+    [DataMember]
     public required IsoMax105Text BankAttentionTo { get; init; } 
     /// <summary>
     /// Notes or comments for the recipient bank for the wire.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text BankComments { get; init; } 
     /// <summary>
     /// Account type at the recipient bank for the wire.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text BeneficiaryAccount { get; init; } 
     /// <summary>
     /// Account identification at the recipient bank for the wire.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINMax35Text BeneficiaryAccountIdentification { get; init; } 
     /// <summary>
     /// Notes or comments for the beneficiary account at the recipient bank for the wire.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text BeneficiaryAccountComments { get; init; } 
     
     #nullable disable

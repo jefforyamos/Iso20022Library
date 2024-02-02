@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the details of each individual invoice tax report transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvoiceTaxReportTransactionStatus1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record InvoiceTaxReportTransactionStatus1
     /// <summary>
     /// Report identification, for example invoice number or report number from point of sales system.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TaxReportIdentification { get; init; } 
     /// <summary>
     /// Defines status of the reported transaction.
     /// </summary>
+    [DataMember]
     public required TaxReportingStatus2Code Status { get; init; } 
     /// <summary>
     /// Provides the details of the rule which could not be validated.
     /// </summary>
-    public GenericValidationRuleIdentification1[] ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericValidationRuleIdentification1> ValidationRule { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

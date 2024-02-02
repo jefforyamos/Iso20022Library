@@ -18,6 +18,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(ProcessingStatus51Choice.Proprietary))]
 [KnownType(typeof(ProcessingStatus51Choice.CancellationRequested))]
 [KnownType(typeof(ProcessingStatus51Choice.ModificationRequested))]
+[DataContract]
 public abstract partial record ProcessingStatus51Choice_
 {
 }

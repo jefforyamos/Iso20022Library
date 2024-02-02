@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action date details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionDateSD6
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionDateSD6
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Date on which called positions are moved into either a segregated account or a DTC Contra CUSIP(s).
     /// </summary>
+    [DataMember]
     public IsoISODate? LotteryDate { get; init; } 
     
     #nullable disable

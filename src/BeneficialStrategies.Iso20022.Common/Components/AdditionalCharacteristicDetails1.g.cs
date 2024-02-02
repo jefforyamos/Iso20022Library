@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identifies the specific classification or details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalCharacteristicDetails1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AdditionalCharacteristicDetails1
     /// <summary>
     /// Specific type of business.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Type { get; init; } 
     /// <summary>
     /// Party that provided the type information.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ProvidedBy { get; init; } 
     
     #nullable disable

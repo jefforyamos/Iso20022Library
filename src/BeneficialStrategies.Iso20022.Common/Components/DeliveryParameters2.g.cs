@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parameters of a physical delivery.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DeliveryParameters2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DeliveryParameters2
     /// <summary>
     /// Indicates whether the address for the physical delivery is the registered address.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator RegisteredAddressIndicator { get; init; } 
     /// <summary>
     /// Name and address to/from which the physical delivery/receipt of the financial instrument must take place.
     /// </summary>
+    [DataMember]
     public NameAndAddress1? NameAndAddress { get; init; } 
     
     #nullable disable

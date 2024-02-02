@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transparency calculation specific details for an energy commodity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CommodityDerivative6
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record CommodityDerivative6
     /// <summary>
     /// Place where the delivery and the cash settlement of the base product occurs. 
     /// </summary>
+    [DataMember]
     public required IsoMax25Text SettlementLocation { get; init; } 
     
     #nullable disable

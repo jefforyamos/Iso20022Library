@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Travel agency component provides details of travel agency, airline, or railway transactions. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TravelAgency3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TravelAgency3
     /// <summary>
     /// Information describing the travel agency or party providing travel-related services. 
     /// </summary>
+    [DataMember]
     public PartyIdentification261? Company { get; init; } 
     /// <summary>
     /// Provides detailed information about the travel package, excluding specific itinerary data. 
     /// </summary>
-    public TravelAgencyPackage1[] TravelPackage { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TravelAgencyPackage1> TravelPackage { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides additional travel details.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalData { get; init; } 
     
     #nullable disable

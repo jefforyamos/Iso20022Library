@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Scope of the modification to be applied on an identified set of information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ModificationScope26
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ModificationScope26
     /// <summary>
     /// Specifies the type of modification to be applied.
     /// </summary>
+    [DataMember]
     public required DataModification1Code ModificationScopeIndication { get; init; } 
     /// <summary>
     /// Intermediary or other party related to the management of the account. In some markets, when this intermediary is a party acting on behalf of the investor for which it has opened an account at, for example, a central securities depository or international central securities depository, this party is known by the investor as the 'account controller'.
     /// </summary>
+    [DataMember]
     public required Intermediary36 Intermediary { get; init; } 
     
     #nullable disable

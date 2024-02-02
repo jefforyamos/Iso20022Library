@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Batch management transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transaction96
 {
     #nullable enable
@@ -20,16 +22,19 @@ public partial record Transaction96
     /// <summary>
     /// Identification of the batch management transaction.
     /// </summary>
+    [DataMember]
     public TransactionIdentification10? TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of a batch.
     /// All the messages included within the batch will have the same batch identification value.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? BatchIdentification { get; init; } 
     /// <summary>
     /// Identification of the original batch to answer.
     /// Mandatory when the batch response has not the same identification as the batch initiation.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? OriginalBatchIdentification { get; init; } 
     /// <summary>
     /// Number of messages.
@@ -41,37 +46,45 @@ public partial record Transaction96
     /// For an end of batch this is the last message sequence number sent in the closing batch, equal to the number of messages sent in the batch.
     /// For an end of batch acknowledgement, this is the last sequence number received in the sequence.
     /// </summary>
+    [DataMember]
     public IsoNumber? NumberOfMessages { get; init; } 
     /// <summary>
     /// Checksum of the series of messages received in the batch or until a checkpoint.
     /// </summary>
+    [DataMember]
     public IsoMax35Binary? BatchChecksum { get; init; } 
     /// <summary>
     /// Indicator to request acknowlegement.
     /// True: Acknowledgement requested
     /// False: Acknowledgement not requested.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? RequestAcknowledgement { get; init; } 
     /// <summary>
     /// Clearing data at batch level allowing clearing in different currencies.
     /// </summary>
-    public ClearingBatchData1[] ClearingBatchData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ClearingBatchData1> ClearingBatchData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Gross amount clearing totals.
     /// </summary>
+    [DataMember]
     public ClearingControlTotals1? ClearingControlTotals { get; init; } 
     /// <summary>
     /// Information or instructions relevant for the agent in charge of the clearing.
     /// </summary>
-    public AdditionalInformation21[] AgentData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation21> AgentData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Record in batch.
     /// </summary>
-    public Record1[] Record { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Record1> Record { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Contains additional data.
     /// </summary>
-    public AdditionalData1[] AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalData1> AdditionalData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

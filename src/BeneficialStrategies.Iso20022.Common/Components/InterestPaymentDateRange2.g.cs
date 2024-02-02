@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies an interest payment schedule, that is an amount that must be paid no sooner than the expected payment date and no later than the due date.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InterestPaymentDateRange2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record InterestPaymentDateRange2
     /// <summary>
     /// Unique and unambiguous identification of the interest payment schedule.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? InterestScheduleIdentification { get; init; } 
     /// <summary>
     /// Interest amount that must be paid at due date.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Latest date whereby the interest must be paid.
     /// </summary>
+    [DataMember]
     public required IsoISODate DueDate { get; init; } 
     /// <summary>
     /// Further details on the interest payments.
     /// </summary>
+    [DataMember]
     public IsoMax1025Text? AdditionalInformation { get; init; } 
     
     #nullable disable

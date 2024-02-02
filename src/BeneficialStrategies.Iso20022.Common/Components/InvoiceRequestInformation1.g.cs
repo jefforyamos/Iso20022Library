@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of characteristics that unambiguously identify the single invoice financing request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InvoiceRequestInformation1
 {
     #nullable enable
@@ -20,39 +22,48 @@ public partial record InvoiceRequestInformation1
     /// <summary>
     /// General information that unambiguously identify the invoice to be financed, such as invoice type, invoice number and issue date.
     /// </summary>
+    [DataMember]
     public required DocumentGeneralInformation1 InvoiceGeneralInformation { get; init; } 
     /// <summary>
     /// Specifies totals related to the invoice, such as total invoice amount and total tax amount.
     /// </summary>
+    [DataMember]
     public required InvoiceTotals1 InvoiceTotalsInformation { get; init; } 
     /// <summary>
     /// Amount of credit/debit note related to the invoice to be financed.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? CreditDebitNoteAmount { get; init; } 
     /// <summary>
     /// Details of a single instalment to be financed, related to an invoice settlement (amount, payment due date).
     /// </summary>
-    public Instalment1[] InstalmentInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Instalment1> InstalmentInformation { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Amount requested by the requestor party, related to a single invoice to be financed.
     /// </summary>
+    [DataMember]
     public FinancingRateOrAmountChoice_? RequestedAmount { get; init; } 
     /// <summary>
     /// Person or organization that represents the creditor for the invoice to be financed.
     /// </summary>
+    [DataMember]
     public required PartyAndAccountIdentificationAndContactInformation1 Supplier { get; init; } 
     /// <summary>
     /// Person or organization that represents the debtor for the invoice to be financed.
     /// </summary>
+    [DataMember]
     public required PartyIdentificationAndContactInformation1 Buyer { get; init; } 
     /// <summary>
     /// Specifies payment terms and conditions related to a single invoice to be financed, including identifier of possible account used for payment.
     /// </summary>
+    [DataMember]
     public required PaymentInformation15 InvoicePaymentInformation { get; init; } 
     /// <summary>
     /// Information about a document related to the invoice to be financed, in structured form.
     /// </summary>
-    public ReferredDocumentInformation2[] ReferredDocument { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ReferredDocumentInformation2> ReferredDocument { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

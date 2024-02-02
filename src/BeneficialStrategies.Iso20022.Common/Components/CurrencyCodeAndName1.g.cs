@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a currency by its code or its name.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CurrencyCodeAndName1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CurrencyCodeAndName1
     /// <summary>
     /// Currency is specified by its code.
     /// </summary>
+    [DataMember]
     public required ActiveOrHistoricCurrencyCode Code { get; init; } 
     /// <summary>
     /// Currency is specified by its name.
     /// </summary>
+    [DataMember]
     public required IsoMax70Text Name { get; init; } 
     
     #nullable disable

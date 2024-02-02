@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status is suspended.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SuspendedStatus2
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record SuspendedStatus2
     /// <summary>
     /// Indicates that there is no reason available or to report.
     /// </summary>
+    [DataMember]
     public required NoReasonCode NoSpecifiedReason { get; init; } 
     /// <summary>
     /// Reason for the suspended status.
     /// </summary>
-    public SuspendedStatusReason2[] ReasonDetails { get; init; } = [];
+    [DataMember]
+    public ValueList<SuspendedStatusReason2> ReasonDetails { get; init; } = [];
     
     #nullable disable
 }

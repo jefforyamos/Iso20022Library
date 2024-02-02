@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information used to calculate the tax.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxCalculationInformation6
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TaxCalculationInformation6
     /// <summary>
     /// Basis used to determine the capital gain or loss, eg, the purchase price.
     /// </summary>
+    [DataMember]
     public TaxationBasis2Code? Basis { get; init; } 
     /// <summary>
     /// Basis used to determine the capital gain or loss, eg, the purchase price.
     /// </summary>
+    [DataMember]
     public IsoExtended350Code? ExtendedBasis { get; init; } 
     /// <summary>
     /// Amount of money that it is to be taxed.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? TaxableAmount { get; init; } 
     
     #nullable disable

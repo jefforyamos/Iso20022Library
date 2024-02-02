@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of data which contains the link to a previously notified option trade.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OptionData2
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record OptionData2
     /// <summary>
     /// Date at which the trading parties have agreed on an option trade.
     /// </summary>
+    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Refers to the identification of a trade assigned by the trading side of a foreign exchange option trade.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text NotificationIdentification { get; init; } 
     /// <summary>
     /// Reference common to the parties of a trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CommonReference { get; init; } 
     /// <summary>
     /// Refers to the identification of a previous event in the life of a foreign exchange option trade.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? RelatedReference { get; init; } 
     /// <summary>
     /// Describes the reason for the cancellation or the amendment.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AmendOrCancelReason { get; init; } 
     /// <summary>
     /// Set of data defining a foreign exchange option sold.
     /// </summary>
+    [DataMember]
     public required Option3 Option { get; init; } 
     
     #nullable disable

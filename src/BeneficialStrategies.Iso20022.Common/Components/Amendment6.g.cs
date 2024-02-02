@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the amendment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Amendment6
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record Amendment6
     /// <summary>
     /// Contents of the related proposed Undertaking Amendment message.
     /// </summary>
+    [DataMember]
     public required UndertakingAmendmentMessage1 UndertakingAmendmentMessage { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the applicant to the undertaking.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ApplicantReferenceNumber { get; init; } 
     /// <summary>
     /// Additional information related to the notification.
     /// </summary>
-    public IsoMax2000Text[] AdditionalInformation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> AdditionalInformation { get; init; } = [];
     
     #nullable disable
 }

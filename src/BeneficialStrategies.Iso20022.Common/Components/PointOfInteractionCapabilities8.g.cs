@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Capabilities of the POI (Point Of Interaction) performing the transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PointOfInteractionCapabilities8
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record PointOfInteractionCapabilities8
     /// <summary>
     /// Card reading capabilities of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
-    public CardDataReading6Code[] CardReadingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardDataReading6Code> CardReadingCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cardholder verification capabilities of the POI (Point Of Interaction) performing the transaction.
     /// </summary>
-    public CardholderVerificationCapability4Code[] CardholderVerificationCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardholderVerificationCapability4Code> CardholderVerificationCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Maximum number of digits the POI is able to accept when the cardholder enters its PIN.
     /// </summary>
+    [DataMember]
     public IsoPositiveNumber? PINLengthCapabilities { get; init; } 
     /// <summary>
     /// Maximum number of characters of the approval code the POI is able to manage.
     /// </summary>
+    [DataMember]
     public IsoPositiveNumber? ApprovalCodeLength { get; init; } 
     /// <summary>
     /// Maximum data length in bytes that a card issuer can return to the ICC at the terminal.
     /// </summary>
+    [DataMember]
     public IsoPositiveNumber? MaxScriptLength { get; init; } 
     /// <summary>
     /// True if the POI is able to capture card.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CardCaptureCapable { get; init; } 
     /// <summary>
     /// On-line and off-line capabilities of the POI (Point Of Interaction).
     /// </summary>
+    [DataMember]
     public OnLineCapability1Code? OnLineCapabilities { get; init; } 
     /// <summary>
     /// Capabilities of the terminal to display or print message to the cardholder and the merchant.
     /// </summary>
-    public DisplayCapabilities4[] MessageCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<DisplayCapabilities4> MessageCapabilities { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related to the Loyalty Transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LoyaltyTransaction4
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record LoyaltyTransaction4
     /// <summary>
     /// Sale System identification of the transaction in an unambiguous way.
     /// </summary>
+    [DataMember]
     public TransactionIdentifier1? SaleTransactionIdentification { get; init; } 
     /// <summary>
     /// Data related to the loyalty transaction.
     /// </summary>
+    [DataMember]
     public required LoyaltyTransactionType1Code LoyaltyTransactionType { get; init; } 
     /// <summary>
     /// Currency of the loyalty transaction.
     /// </summary>
+    [DataMember]
     public ActiveCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Amount of the payment transaction related to the Loyalty.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     /// <summary>
     /// Data of a previous POI payment transaction.
     /// </summary>
+    [DataMember]
     public CardPaymentTransaction120? OriginalPOITransaction { get; init; } 
     /// <summary>
     /// Item purchased with the transaction.
     /// </summary>
-    public Product6[] SaleItem { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Product6> SaleItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

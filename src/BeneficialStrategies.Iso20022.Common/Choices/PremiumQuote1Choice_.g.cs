@@ -13,6 +13,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(PremiumQuote1Choice.PercentageOfPutAmount))]
 [KnownType(typeof(PremiumQuote1Choice.PointsOfCallAmount))]
 [KnownType(typeof(PremiumQuote1Choice.PointsOfPutAmount))]
+[DataContract]
 public abstract partial record PremiumQuote1Choice_
 {
 }

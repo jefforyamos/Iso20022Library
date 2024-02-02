@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a shipment schedule, that is the quantity that must be shipped no sooner than the earliest shipment date and no later than the latest shipment date.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ShipmentDateRange2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ShipmentDateRange2
     /// <summary>
     /// Sub quantity that must be shipped no sooner than the earliest shipment date and no later than the latest shipment date.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber SubQuantityValue { get; init; } 
     /// <summary>
     /// Earliest date whereby the goods must be shipped.
     /// </summary>
+    [DataMember]
     public IsoISODate? EarliestShipmentDate { get; init; } 
     /// <summary>
     /// Latest date whereby the goods must be shipped.
     /// </summary>
+    [DataMember]
     public IsoISODate? LatestShipmentDate { get; init; } 
     
     #nullable disable

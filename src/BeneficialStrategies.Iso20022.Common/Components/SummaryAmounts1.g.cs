@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides amounts taken in to account to calculate the collateral position.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SummaryAmounts1
 {
     #nullable enable
@@ -20,54 +22,67 @@ public partial record SummaryAmounts1
     /// <summary>
     /// Amount of unsecured exposure a counterparty will accept before issuing a margin call in the base currency.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ThresholdAmount { get; init; } 
     /// <summary>
     /// Specifies if the threshold amount is secured or unsecured.
     /// </summary>
+    [DataMember]
     public ThresholdType1Code? ThresholdType { get; init; } 
     /// <summary>
     /// Total value of posted collateral (pre-haircut) held by the taker.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? PreHaircutCollateralValue { get; init; } 
     /// <summary>
     /// Total amount of collateral required (unrounded).
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? AdjustedExposure { get; init; } 
     /// <summary>
     /// Total amount of collateral required (rounded).
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? CollateralRequired { get; init; } 
     /// <summary>
     /// Minimum amount to pay/receive as specified in the agreement in the base currency (to avoid the need to transfer an inconveniently small amount of collateral).
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? MinimumTransferAmount { get; init; } 
     /// <summary>
     /// Amount specified to avoid the need to transfer uneven amounts of collateral.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? RoundingAmount { get; init; } 
     /// <summary>
     /// Exposure value at previous valuation.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? PreviousExposureValue { get; init; } 
     /// <summary>
     /// Value of collateral at previous valuation.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? PreviousCollateralValue { get; init; } 
     /// <summary>
     /// Value of incoming collateral, to be settled.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalPendingIncomingCollateral { get; init; } 
     /// <summary>
     /// Value of outgoing collateral, to be settled.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalPendingOutgoingCollateral { get; init; } 
     /// <summary>
     /// Sum of accrued interest.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalAccruedInterestAmount { get; init; } 
     /// <summary>
     /// Sum of fees/commissions.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? TotalFees { get; init; } 
     
     #nullable disable

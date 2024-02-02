@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// First name of a person.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IndividualPersonNameLong2
 {
     #nullable enable
@@ -20,38 +22,47 @@ public partial record IndividualPersonNameLong2
     /// <summary>
     /// Prefix, as a title before a person's name.
     /// </summary>
+    [DataMember]
     public NamePrefix2Code? NamePrefix { get; init; } 
     /// <summary>
     /// Surname is a name added to a given name and is part of a personal name. In many cases, a surname is a family name.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Surname { get; init; } 
     /// <summary>
     /// Name given at birth.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? GivenName { get; init; } 
     /// <summary>
     /// Second name of a person.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MiddleName { get; init; } 
     /// <summary>
     /// Initial prefix for name.
     /// </summary>
+    [DataMember]
     public IsoMax6Text? Initials { get; init; } 
     /// <summary>
     /// Suffix for name.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? NameSuffix { get; init; } 
     /// <summary>
     /// Full legal name.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Date that the name was assigned.
     /// </summary>
+    [DataMember]
     public IsoISODate? StartDate { get; init; } 
     /// <summary>
     /// Date that name changed.
     /// </summary>
+    [DataMember]
     public IsoISODate? EndDate { get; init; } 
     
     #nullable disable

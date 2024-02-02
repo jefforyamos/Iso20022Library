@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the rejection of a movement cancellation request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionMovementRejectionStatus2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CorporateActionMovementRejectionStatus2
     /// <summary>
     /// The rejection reason.
     /// </summary>
-    public RejectionReason14FormatChoice_[] Reason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<RejectionReason14FormatChoice_> Reason { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information about the status.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

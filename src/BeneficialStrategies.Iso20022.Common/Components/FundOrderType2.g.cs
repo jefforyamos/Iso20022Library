@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the category of the investment fund order.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FundOrderType2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FundOrderType2
     /// <summary>
     /// Specifies the category of the investment fund order.
     /// </summary>
+    [DataMember]
     public required FundOrderType3Code OrderType { get; init; } 
     /// <summary>
     /// Specifies the category of the investment fund order.
     /// </summary>
+    [DataMember]
     public required IsoExtended350Code ExtendedOrderType { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Facilitates the redemption of one or more lots.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LotDetails1
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record LotDetails1
     /// <summary>
     /// Description of the lot.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? LotDescription { get; init; } 
     /// <summary>
     /// Date the units were created.
     /// </summary>
+    [DataMember]
     public required IsoISODate TradeDate { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the original order that resulted in the lot.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OrderReference { get; init; } 
     /// <summary>
     /// Deal reference of the original subscription execution that resulted in the lot.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DealReference { get; init; } 
     /// <summary>
     /// Quantity of the lot.
     /// </summary>
+    [DataMember]
     public SidePocketQuantityAndAmount1? LotQuantityAndAmount { get; init; } 
     
     #nullable disable

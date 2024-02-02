@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Number of reports per status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NumberOfReportsPerStatus4
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NumberOfReportsPerStatus4
     /// <summary>
     /// Number of individual reports sent / received, detailed per status.
     /// </summary>
+    [DataMember]
     public required IsoMax15NumericText DetailedNumberOfReports { get; init; } 
     /// <summary>
     /// Common report status for all individual reports sent / received.
     /// </summary>
+    [DataMember]
     public required PairedReconciled3Code DetailedStatus { get; init; } 
     
     #nullable disable

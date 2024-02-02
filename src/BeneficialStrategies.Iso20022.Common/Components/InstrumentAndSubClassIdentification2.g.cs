@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a financial instrument and of the non-equity sub-class of the financial instrument.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InstrumentAndSubClassIdentification2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record InstrumentAndSubClassIdentification2
     /// <summary>
     /// Identifies the financial instrument using an ISIN.
     /// </summary>
+    [DataMember]
     public required IsoISINOct2015Identifier ISIN { get; init; } 
     /// <summary>
     /// Sub class of non-equity instruments to which the instrument belongs.
     /// </summary>
+    [DataMember]
     public NonEquitySubClass1? DerivativeSubClass { get; init; } 
     /// <summary>
     /// Identification of non-equity financial instruments.
     /// </summary>
+    [DataMember]
     public NonEquityInstrumentReportingClassification1Code? FinancialInstrumentClassification { get; init; } 
     
     #nullable disable

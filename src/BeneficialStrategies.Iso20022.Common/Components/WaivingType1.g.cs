@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specification of the waiving type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record WaivingType1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record WaivingType1
     /// <summary>
     /// Structured format.
     /// </summary>
+    [DataMember]
     public required WaivingInstruction2Code Structured { get; init; } 
     /// <summary>
     /// Additional information about the type of waiving.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? AdditionalInformation { get; init; } 
     
     #nullable disable

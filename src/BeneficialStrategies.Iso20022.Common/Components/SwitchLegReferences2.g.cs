@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a switch leg that is rejected or repaired.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SwitchLegReferences2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record SwitchLegReferences2
     /// <summary>
     /// Identification of a switch leg.
     /// </summary>
+    [DataMember]
     public required LegIdentification1Choice_ LegIdentification { get; init; } 
     /// <summary>
     /// Additional information about the reason for the rejection of the leg.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? LegRejectionReason { get; init; } 
     /// <summary>
     /// Elements from the original individual order that have been repaired so that the order can be accepted.
     /// </summary>
-    public Fee3[] RepairedFee { get; init; } = [];
+    [DataMember]
+    public ValueList<Fee3> RepairedFee { get; init; } = [];
     /// <summary>
     /// Account identification of the switch leg that is rejected or repaired.
     /// </summary>
+    [DataMember]
     public InvestmentAccount58? InvestmentAccountDetails { get; init; } 
     /// <summary>
     /// Financial instrument identification of the switch leg that is rejected or repaired.
     /// </summary>
+    [DataMember]
     public FinancialInstrument57? FinancialInstrumentDetails { get; init; } 
     
     #nullable disable

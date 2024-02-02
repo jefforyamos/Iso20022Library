@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(OffMarket1Choice.OffMarketIndicator))]
 [KnownType(typeof(OffMarket1Choice.SystematicInternaliser))]
+[DataContract]
 public abstract partial record OffMarket1Choice_
 {
 }

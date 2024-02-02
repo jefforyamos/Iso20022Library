@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action option securities quantity details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesOptionSD1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SecuritiesOptionSD1
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Maximum oversubscription amount for the option.
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? MaximumOversubscriptionQuantity { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// References linked to the trade leg notification cancellation message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Reference18
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Reference18
     /// <summary>
     /// Allocated by the central counterparty - central counterparty trade leg reference identification that uniquely identifies the trade.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TradeLegIdentification { get; init; } 
     /// <summary>
     /// Identification of the message previously sent by the central counterparty.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? PreviousMessageIdentification { get; init; } 
     
     #nullable disable

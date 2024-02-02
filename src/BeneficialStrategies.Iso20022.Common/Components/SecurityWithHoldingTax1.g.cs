@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements of a cash distribution that will be withheld by a tax authority.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityWithHoldingTax1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record SecurityWithHoldingTax1
     /// <summary>
     /// Value of the withholding tax as rate, amount or not specified.
     /// </summary>
+    [DataMember]
     public required RateAndAmountFormat1Choice_ WithholdingTaxValue { get; init; } 
     /// <summary>
     /// Represents the tax authority.
     /// </summary>
+    [DataMember]
     public required CountryCode Country { get; init; } 
     
     #nullable disable

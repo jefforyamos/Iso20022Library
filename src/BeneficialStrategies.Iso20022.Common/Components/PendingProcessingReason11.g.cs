@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the reason why the instruction or request has a pending processing status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PendingProcessingReason11
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record PendingProcessingReason11
     /// <summary>
     /// Specifies the reason why the instruction has a pending processing status.
     /// </summary>
+    [DataMember]
     public required PendingProcessingReason13Choice_ Code { get; init; } 
     /// <summary>
     /// Provides additional reason information that cannot be provided in a structured field.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax210Text? AdditionalReasonInformation { get; init; } 
     
     #nullable disable

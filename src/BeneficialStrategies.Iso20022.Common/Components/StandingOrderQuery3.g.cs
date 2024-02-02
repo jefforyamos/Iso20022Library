@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specification of the query criteria.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record StandingOrderQuery3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record StandingOrderQuery3
     /// <summary>
     /// Specifies the type of matching items to be returned in the response to the query.
     /// </summary>
+    [DataMember]
     public QueryType2Code? QueryType { get; init; } 
     /// <summary>
     /// Definition of the standing order query criteria.
     /// </summary>
+    [DataMember]
     public StandingOrderCriteria3Choice_? StandingOrderCriteria { get; init; } 
     
     #nullable disable

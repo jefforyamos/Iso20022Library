@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Indicates derivative contract was tranched.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Tranche3
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Tranche3
     /// <summary>
     /// Indicates the lower point at which the level of losses in the underlying portfolio reduces the notional of the tranche.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? AttachmentPoint { get; init; } 
     /// <summary>
     /// Indicates the point beyond which the losses in the underlying portfolio no longer reduce the notional of the tranche.
     /// </summary>
+    [DataMember]
     public IsoBaseOneRate? DetachmentPoint { get; init; } 
     
     #nullable disable

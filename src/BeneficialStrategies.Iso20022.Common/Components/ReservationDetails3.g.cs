@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains the reservation details
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReservationDetails3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record ReservationDetails3
     /// <summary>
     /// Computerised reservation system used to make the reservation and purchase the ticket.
     /// </summary>
+    [DataMember]
     public IsoMax4Text? System { get; init; } 
     /// <summary>
     /// Value that uniquely identifies the reservation. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ReservationNumber { get; init; } 
     /// <summary>
     /// System code that identifies the original reservation system used to make the reservation and purchase the ticket. 
     /// </summary>
+    [DataMember]
     public IsoMax4Text? OriginalSystem { get; init; } 
     /// <summary>
     /// Value that identifies the original reservation generated during the original reservation and purchase of the ticket. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalReservationNumber { get; init; } 
     
     #nullable disable

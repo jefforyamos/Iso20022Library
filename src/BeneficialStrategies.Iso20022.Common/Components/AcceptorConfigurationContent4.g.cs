@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the acceptor configuration.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AcceptorConfigurationContent4
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record AcceptorConfigurationContent4
     /// <summary>
     /// Configuration parameters of the TMS protocol between a POI and a terminal manager.
     /// </summary>
-    public TMSProtocolParameters1[] TMSProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TMSProtocolParameters1> TMSProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to an acquirer protocol.
     /// </summary>
-    public AcquirerProtocolParameters7[] AcquirerProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AcquirerProtocolParameters7> AcquirerProtocolParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to the merchant.
     /// </summary>
-    public MerchantConfigurationParameters1[] MerchantParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MerchantConfigurationParameters1> MerchantParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Manufacturer configuration parameters of the point of interaction.
     /// </summary>
-    public PaymentTerminalParameters2[] TerminalParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentTerminalParameters2> TerminalParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to a payment application of the point of interaction.
     /// </summary>
-    public ApplicationParameters4[] ApplicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ApplicationParameters4> ApplicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Acceptor parameters dedicated to the communication with an acquirer host or a terminal manager host.
     /// </summary>
-    public HostCommunicationParameter3[] HostCommunicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<HostCommunicationParameter3> HostCommunicationParameters { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Point of interaction parameters related to the security of software application and application protocol.
     /// </summary>
-    public SecurityParameters3[] SecurityParameters { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecurityParameters3> SecurityParameters { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

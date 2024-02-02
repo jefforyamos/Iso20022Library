@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(FinancialInstrumentIdentification8Choice.Single))]
 [KnownType(typeof(FinancialInstrumentIdentification8Choice.Basket))]
+[DataContract]
 public abstract partial record FinancialInstrumentIdentification8Choice_
 {
 }

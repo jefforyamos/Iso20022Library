@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the criteria used to report on collateral.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralValueReturnCriteria1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record CollateralValueReturnCriteria1
     /// <summary>
     /// Indicates whether the cash account owner information is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? CashAccountOwnerIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the cash account servicer information is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? CashAccountServicerIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the securities account owner information is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? SecuritiesAccountOwnerIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the securities account servicer information is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? SecuritiesAccountServicerIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the total value of the collateral valuation information is requested..
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? TotalCollateralValuationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the securities account information is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? SecuritiesAccountIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the securities account information is requested.
     /// </summary>
+    [DataMember]
     public IsoRequestedIndicator? Securities { get; init; } 
     
     #nullable disable

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(SettlementMethod1Choice.Credit))]
 [KnownType(typeof(SettlementMethod1Choice.Debit))]
+[DataContract]
 public abstract partial record SettlementMethod1Choice_
 {
 }

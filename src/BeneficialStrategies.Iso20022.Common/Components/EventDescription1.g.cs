@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Describes an event not covered by other formal messages, for example a trace after a telephone call.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EventDescription1
 {
     #nullable enable
@@ -20,54 +22,67 @@ public partial record EventDescription1
     /// <summary>
     /// Identification of the event.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identifier { get; init; } 
     /// <summary>
     /// Date when event occurred.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? Date { get; init; } 
     /// <summary>
     /// Party to be advised.
     /// </summary>
+    [DataMember]
     public required QualifiedPartyIdentification1 Recipient { get; init; } 
     /// <summary>
     /// Advising party.
     /// </summary>
+    [DataMember]
     public required QualifiedPartyIdentification1 Advisor { get; init; } 
     /// <summary>
     /// Parties involved in the event.
     /// </summary>
-    public QualifiedPartyIdentification1[] OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedPartyIdentification1> OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifier for a language used for the description.
     /// </summary>
+    [DataMember]
     public required LanguageCode LanguageCode { get; init; } 
     /// <summary>
     /// Free form description of event.
     /// </summary>
+    [DataMember]
     public required IsoMax2000Text Description { get; init; } 
     /// <summary>
     /// Reference to related document.
     /// </summary>
-    public QualifiedDocumentInformation1[] RelatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedDocumentInformation1> RelatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifier of related letter.
     /// </summary>
-    public QualifiedDocumentInformation1[] RelatedLetter { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedDocumentInformation1> RelatedLetter { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifier of related message.
     /// </summary>
-    public QualifiedDocumentInformation1[] RelatedMessage { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedDocumentInformation1> RelatedMessage { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Associated free form document.
     /// </summary>
-    public QualifiedDocumentInformation1[] AssociatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedDocumentInformation1> AssociatedDocument { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Reference to the contractual context.
     /// </summary>
-    public QualifiedDocumentInformation1[] GoverningContract { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<QualifiedDocumentInformation1> GoverningContract { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Rules and laws governing the event.
     /// </summary>
+    [DataMember]
     public GovernanceRules2? LegalContext { get; init; } 
     
     #nullable disable

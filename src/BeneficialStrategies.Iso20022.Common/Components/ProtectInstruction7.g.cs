@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides detailed information on protect and cover protect instructions.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ProtectInstruction7
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ProtectInstruction7
     /// <summary>
     /// Indicates whether the instruction is a protect or a cover protect instruction.
     /// </summary>
+    [DataMember]
     public required ProtectTransactionType3Code TransactionType { get; init; } 
     /// <summary>
     /// Unique reference of the protect transaction assigned by the depository and used for cover protect validation.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINMax15Text? TransactionIdentification { get; init; } 
     /// <summary>
     /// Date at which the protect instruction was created and used for cover protect validation.
     /// </summary>
+    [DataMember]
     public IsoISODate? ProtectDate { get; init; } 
     
     #nullable disable

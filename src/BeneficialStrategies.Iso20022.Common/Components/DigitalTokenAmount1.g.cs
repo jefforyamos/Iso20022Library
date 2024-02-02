@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the amount for a digital token identifier.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DigitalTokenAmount1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record DigitalTokenAmount1
     /// <summary>
     /// Specifies the digital token identifier (DTI).
     /// </summary>
+    [DataMember]
     public IsoDTI2021Identifier? Identifier { get; init; } 
     /// <summary>
     /// Quantity of digital tokens expressed as a number, for example, a number of blockchain tokens.
     /// </summary>
+    [DataMember]
     public required IsoMax30DecimalNumber Unit { get; init; } 
     /// <summary>
     /// Provides a description of the digital token identifier.
     /// </summary>
+    [DataMember]
     public IsoMax30Text? Description { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Cryptographic Key.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CryptographicKey6
 {
     #nullable enable
@@ -20,42 +22,52 @@ public partial record CryptographicKey6
     /// <summary>
     /// Name or label of the key.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Name { get; init; } 
     /// <summary>
     /// Name of the cryptographic key.
     /// </summary>
+    [DataMember]
     public required IsoMax140Text Identification { get; init; } 
     /// <summary>
     /// Version of the cryptographic key.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Version { get; init; } 
     /// <summary>
     /// Type of algorithm used by the cryptographic key.
     /// </summary>
+    [DataMember]
     public required CryptographicKeyType3Code Type { get; init; } 
     /// <summary>
     /// Allowed usage of the key.
     /// </summary>
-    public KeyUsage1Code[] Function { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<KeyUsage1Code> Function { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Date and time on which the key must be activated.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? ActivationDate { get; init; } 
     /// <summary>
     /// Date and time on which the key must be deactivated.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? DeactivationDate { get; init; } 
     /// <summary>
     /// Encrypted value of the key present as CMS structure EnvelopedData.
     /// </summary>
+    [DataMember]
     public ContentInformationType10? EncryptedKeyValue { get; init; } 
     /// <summary>
     /// Certificate to protect the key.
     /// </summary>
-    public IsoMax5000Binary[] Certificate { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax5000Binary> Certificate { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Chip card protection of the key.
     /// </summary>
+    [DataMember]
     public IsoMax5000Binary? ICCRelatedData { get; init; } 
     
     #nullable disable

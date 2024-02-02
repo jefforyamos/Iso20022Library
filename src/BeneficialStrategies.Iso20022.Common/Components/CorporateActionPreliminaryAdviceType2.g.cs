@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Type of movement preliminary advice document.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionPreliminaryAdviceType2
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record CorporateActionPreliminaryAdviceType2
     /// <summary>
     /// Type of movement preliminary advice, for example. new or replacement.
     /// </summary>
+    [DataMember]
     public required CorporateActionPreliminaryAdviceType1Code Type { get; init; } 
     /// <summary>
     /// Indicates whether the movement preliminary advice is sent after entitlement date.
     /// Value is Yes (true) if sent after entitlement date and No (false) if sent before entitlement date.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? EligibilityIndicator { get; init; } 
     
     #nullable disable

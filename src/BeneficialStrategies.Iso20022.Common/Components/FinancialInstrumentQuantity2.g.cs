@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Quantity of the financial instrument subscribed.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrumentQuantity2
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record FinancialInstrumentQuantity2
     /// <summary>
     /// Quantity of investment fund units to be subscribed.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1 UnitsNumber { get; init; } 
     /// <summary>
     /// Amount of money to be invested.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? OrderedAmount { get; init; } 
     /// <summary>
     /// Amount of money invested after deduction of charges, commissions and taxes.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? NetAmount { get; init; } 
     /// <summary>
     /// Amount of money invested before deduction of charges, commissions and taxes.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? GrossAmount { get; init; } 
     /// <summary>
     /// Amount of money invested.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? ExecutedAmount { get; init; } 
     /// <summary>
     /// Total amount of money paid /to be paid or received in exchange for the financial instrument in the individual order.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     
     #nullable disable

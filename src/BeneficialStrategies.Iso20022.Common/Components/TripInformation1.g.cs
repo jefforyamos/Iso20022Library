@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Contains the details related to an individual trip. 
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TripInformation1
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record TripInformation1
     /// <summary>
     /// Identification number of the trip.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TripNumber { get; init; } 
     /// <summary>
     /// Contains an indicator identifying the job or task identifier of the individual. 
     /// </summary>
+    [DataMember]
     public IsoMax10Text? JobNumber { get; init; } 
     /// <summary>
     /// Contains the work order or purchase order number. 
     /// </summary>
+    [DataMember]
     public IsoMax70Text? WorkOrder { get; init; } 
     /// <summary>
     /// Contains the invoice number. 
     /// </summary>
+    [DataMember]
     public IsoMax70Text? InvoiceNumber { get; init; } 
     /// <summary>
     /// Contains the billing identification number. 
     /// </summary>
+    [DataMember]
     public IsoMax70Text? BillingIdentification { get; init; } 
     /// <summary>
     /// Identification number assigned by an agent. 
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ControlNumber { get; init; } 
     /// <summary>
     /// Delivery Ticket Number for the trip information.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? DeliveryTicketNumber { get; init; } 
     
     #nullable disable

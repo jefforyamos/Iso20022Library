@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Container for tenders used by the customer to perform the payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Wallet1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Wallet1
     /// <summary>
     /// Identification of the provider of the wallet.
     /// </summary>
+    [DataMember]
     public PartyIdentification197? Provider { get; init; } 
     /// <summary>
     /// Additional data associated with wallet.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? AdditionalWalletData { get; init; } 
     
     #nullable disable

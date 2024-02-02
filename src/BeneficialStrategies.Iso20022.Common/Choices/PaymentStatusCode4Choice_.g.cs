@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(PaymentStatusCode4Choice.PendingStatus))]
 [KnownType(typeof(PaymentStatusCode4Choice.FinalStatus))]
 [KnownType(typeof(PaymentStatusCode4Choice.ProprietaryStatus))]
+[DataContract]
 public abstract partial record PaymentStatusCode4Choice_
 {
 }

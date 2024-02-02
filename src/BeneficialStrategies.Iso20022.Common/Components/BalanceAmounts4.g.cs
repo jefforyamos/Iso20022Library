@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Amounts linked to a securities balance, for example, holding value.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BalanceAmounts4
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record BalanceAmounts4
     /// <summary>
     /// Value of an individual financial instrument holding within a safekeeping account.
     /// </summary>
+    [DataMember]
     public AmountAndDirection14? HoldingValue { get; init; } 
     /// <summary>
     /// Previous value of an individual financial instrument holding within a safekeeping account.
     /// </summary>
+    [DataMember]
     public AmountAndDirection14? PreviousHoldingValue { get; init; } 
     /// <summary>
     /// Value of a financial instrument, as booked/acquired in an account. It may be used to establish capital gain tax liability.
     /// </summary>
+    [DataMember]
     public AmountAndDirection14? BookValue { get; init; } 
     /// <summary>
     /// Value of the position eligible for collateral purposes.
     /// </summary>
+    [DataMember]
     public AmountAndDirection14? EligibleCollateralValue { get; init; } 
     /// <summary>
     /// Interest amount that has accrued in between coupon payment periods.
     /// </summary>
+    [DataMember]
     public AmountAndDirection14? AccruedInterestAmount { get; init; } 
     
     #nullable disable

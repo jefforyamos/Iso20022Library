@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Manufacturer configuration parameters of the point of interaction (POI).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentTerminalParameters1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record PaymentTerminalParameters1
     /// <summary>
     /// Parameters to synchronise the real time clock of the POI (Point Of Interaction).
     /// </summary>
+    [DataMember]
     public ClockSynchronisation1? ClockSynchronisation { get; init; } 
     /// <summary>
     /// Time zone line to update in the time zone data base subset stored in the POI (Point Of Interaction). The format of the line is conform to the IANA (Internet Assigned Number Authority) time zone data base.
     /// </summary>
-    public IsoMax70Text[] TimeZoneLine { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax70Text> TimeZoneLine { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Others manufacturer configuration parameters of the point of interaction.
     /// </summary>
+    [DataMember]
     public IsoMax10000Binary? OtherParameters { get; init; } 
     
     #nullable disable

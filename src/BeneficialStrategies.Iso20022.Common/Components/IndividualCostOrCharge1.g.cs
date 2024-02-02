@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Individual cost or charge associated with the distribution or selling of a financial instrument. It may be one-off or recurring charge. It may be intended (ex ante) or actual (ex post).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IndividualCostOrCharge1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record IndividualCostOrCharge1
     /// <summary>
     /// Type of cost or charge.
     /// </summary>
+    [DataMember]
     public required ChargeType7Choice_ CostType { get; init; } 
     /// <summary>
     /// Specifies if the cost or charge is ex ante (intended) or post ante (actual).
     /// </summary>
+    [DataMember]
     public required IntendedOrActual2Code ExAnteOrExPost { get; init; } 
     /// <summary>
     /// Amount of the cost or charge.
     /// </summary>
+    [DataMember]
     public IsoActiveCurrencyAnd13DecimalAmount? Amount { get; init; } 
     /// <summary>
     /// Rate of the cost or charge.
     /// </summary>
+    [DataMember]
     public IsoPercentageRate? Rate { get; init; } 
     /// <summary>
     /// Start date and end date of the calculation period for the ex post cost or charge. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 08090 and 08100.
     /// </summary>
+    [DataMember]
     public Period15? CalculationPeriod { get; init; } 
     /// <summary>
     /// Additional information about the individual cost or charge.
     /// </summary>
+    [DataMember]
     public AdditionalInformation15? AdditionalInformation { get; init; } 
     
     #nullable disable

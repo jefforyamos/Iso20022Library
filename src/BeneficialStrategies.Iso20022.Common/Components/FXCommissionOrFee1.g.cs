@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the foreign exchange commissions and fees amounts.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FXCommissionOrFee1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record FXCommissionOrFee1
     /// <summary>
     /// Type of the commission or fee.
     /// </summary>
+    [DataMember]
     public required FXAmountType1Choice_ Type { get; init; } 
     /// <summary>
     /// Amount or rate of the commissions and fees.
     /// </summary>
+    [DataMember]
     public required AmountOrRate4Choice_ AmountOrRate { get; init; } 
     /// <summary>
     /// Indicates that the amount or rate value is positive or negative.
     /// Usage: when absent, it means that amount value is 0 or positive.
     /// </summary>
+    [DataMember]
     public IsoPlusOrMinusIndicator? Sign { get; init; } 
     
     #nullable disable

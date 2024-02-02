@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reason for a status in repair.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InRepairStatusReason1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record InRepairStatusReason1
     /// <summary>
     /// Reason for an in repair status in free format text.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text AdditionalInformation { get; init; } 
     
     #nullable disable

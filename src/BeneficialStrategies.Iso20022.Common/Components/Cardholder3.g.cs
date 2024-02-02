@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related to the cardholder.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Cardholder3
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record Cardholder3
     /// <summary>
     /// Identification of the cardholder involved in a transaction.
     /// </summary>
-    public CardholderIdentification1[] Identification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardholderIdentification1> Identification { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Cardholder name associated with the card.
     /// </summary>
+    [DataMember]
     public IsoMax45Text? Name { get; init; } 
     /// <summary>
     /// Language selected for the cardholder interface during the transaction.
     /// </summary>
+    [DataMember]
     public ISO2ALanguageCode? Language { get; init; } 
     /// <summary>
     /// Data related to the authentication of the cardholder.
     /// </summary>
-    public CardholderAuthentication3[] Authentication { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CardholderAuthentication3> Authentication { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Numeric characters of the cardholder's address for verification.
     /// </summary>
+    [DataMember]
     public AddressVerification1? AddressVerification { get; init; } 
     /// <summary>
     /// Identifies personal data related to the cardholder.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? PersonalData { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies a generic identification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericIdentification16
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record GenericIdentification16
     /// <summary>
     /// The identifier.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Specifies the nature of the identifier.
     /// </summary>
+    [DataMember]
     public required PersonIdentificationType3Choice_ IdentificationType { get; init; } 
     /// <summary>
     /// Party that assigns the identification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     
     #nullable disable

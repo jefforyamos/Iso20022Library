@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Choice of the securities settlement instruction status type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementTransactionStatusType2
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record SettlementTransactionStatusType2
     /// <summary>
     /// Provides details on the processing status of the transaction.
     /// </summary>
-    public ProcessingStatus70Choice_[] ProcessingStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ProcessingStatus70Choice_> ProcessingStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the matching status of an instruction as known by the account servicer based on an allegement. At this time no matching took place on the market (at the CSD/ICSD).
     /// </summary>
-    public MatchingStatus27Choice_[] InferredMatchingStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MatchingStatus27Choice_> InferredMatchingStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the matching status of the instruction.
     /// </summary>
-    public MatchingStatus27Choice_[] MatchingStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<MatchingStatus27Choice_> MatchingStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Provides the settlement status of a transaction.
     /// </summary>
-    public SettlementStatus26Choice_[] SettlementStatus { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SettlementStatus26Choice_> SettlementStatus { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Defines that the transaction has been settled.
     /// </summary>
+    [DataMember]
     public ProprietaryReason4? Settled { get; init; } 
     
     #nullable disable

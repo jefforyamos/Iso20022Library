@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Intra-position type used to specify pairs of from/to balances.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IntraPositionType2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record IntraPositionType2
     /// <summary>
     /// Balance from which the securities are moving.
     /// </summary>
+    [DataMember]
     public SecuritiesSubBalanceTypeAndQuantityBreakdown3? BalanceFrom { get; init; } 
     /// <summary>
     /// Balance to which the securities are moving.
     /// </summary>
+    [DataMember]
     public SecuritiesSubBalanceTypeAndQuantityBreakdown3? BalanceTo { get; init; } 
     
     #nullable disable

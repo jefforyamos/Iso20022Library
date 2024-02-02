@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of characteristics shared by all individual transactions included in the message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TrackerHeader4
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record TrackerHeader4
     /// <summary>
     /// Point to point reference, as assigned by the tracker informing party and sent by the tracker to unambiguously identify the message.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedFINXMax35Text MessageIdentification { get; init; } 
     /// <summary>
     /// Date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public required IsoISODateTime CreationDateTime { get; init; } 
     /// <summary>
     /// Original reference, as assigned by the informer and sent to the tracker to unambiguously identify the tracker update message.
     /// Usage: this element may only be present when the alert notification is related to a payment status tracker update.
     /// </summary>
+    [DataMember]
     public OriginalBusinessInstruction3? OriginalTrackerUpdate { get; init; } 
     /// <summary>
     /// Agreement under which or rules under which the tracker update must be processed.
     /// </summary>
+    [DataMember]
     public TransactionServiceLevel1? ServiceLevel { get; init; } 
     
     #nullable disable

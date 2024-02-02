@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Sort criteria.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AdditionalParameters1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AdditionalParameters1
     /// <summary>
     /// Specifies the country.
     /// </summary>
+    [DataMember]
     public CountryCode? Country { get; init; } 
     /// <summary>
     /// Specifies the currency.
     /// </summary>
+    [DataMember]
     public ActiveOrHistoricCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Specifies the geographical area, eg, Asia-Pacific, Europe, Middle-East.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? GeographicalArea { get; init; } 
     
     #nullable disable

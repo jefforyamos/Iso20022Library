@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status report of a bulk or multiple or switch order that was previously received.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OrderStatusAndReason3
 {
     #nullable enable
@@ -20,30 +22,37 @@ public partial record OrderStatusAndReason3
     /// <summary>
     /// Status of the order is accepted or already executed or sent to next party or received. There is no reason attached.
     /// </summary>
+    [DataMember]
     public required OrderStatus2Code Status { get; init; } 
     /// <summary>
     /// Status of the order details is cancelled. This status is used for orders that have been accepted or that have been entered in an order book but that can not be executed.
     /// </summary>
+    [DataMember]
     public required CancelledStatus1 Cancelled { get; init; } 
     /// <summary>
     /// Status of the order details is conditionally accepted.
     /// </summary>
+    [DataMember]
     public required ConditionallyAcceptedStatus1 ConditionallyAccepted { get; init; } 
     /// <summary>
     /// Status of the order details is rejected. This status is used for orders that have not been accepted or entered in an order book.
     /// </summary>
+    [DataMember]
     public required RejectedStatus3 Rejected { get; init; } 
     /// <summary>
     /// Status of the order details is suspended.
     /// </summary>
+    [DataMember]
     public required SuspendedStatus1 Suspended { get; init; } 
     /// <summary>
     /// Party that initiates the status of the order.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? StatusInitiator { get; init; } 
     /// <summary>
     /// Unique and unambiguous technical identification of an instance of a leg within a switch.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SwitchOrderLegIdentification { get; init; } 
     
     #nullable disable

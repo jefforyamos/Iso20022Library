@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Business status of the party for processing in the system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountLinkStatus1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record AccountLinkStatus1
     /// <summary>
     /// Status of the account link instruction.
     /// </summary>
+    [DataMember]
     public required Status6Code Status { get; init; } 
     /// <summary>
     /// Underlying reason related to the creation of a transaction.
     /// </summary>
-    public StatusReasonInformation10[] StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StatusReasonInformation10> StatusReason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Designates the tax calculation to be applied on a service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ServiceTaxDesignation1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record ServiceTaxDesignation1
     /// <summary>
     /// Identifies the taxable status of the service.
     /// </summary>
+    [DataMember]
     public required ServiceTaxDesignation1Code Code { get; init; } 
     /// <summary>
     /// Defines the tax region associated with the service. This element must be present if taxes are involved with any portion of the statement.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Region { get; init; } 
     /// <summary>
     /// Provides free form explanations of the various tax codes used within the statement.
     /// </summary>
-    public TaxReason1[] TaxReason { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TaxReason1> TaxReason { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

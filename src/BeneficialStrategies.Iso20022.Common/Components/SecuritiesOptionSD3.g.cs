@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides additional information regarding corporate action option securities movement details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesOptionSD3
 {
     #nullable enable
@@ -20,54 +22,67 @@ public partial record SecuritiesOptionSD3
     /// <summary>
     /// xPath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text PlaceAndName { get; init; } 
     /// <summary>
     /// Indicates the type of payment. Used in stock dividends processing at DTC(The Depository Trust Corporation). Valid values list will be maintained separately from the schema.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? DTCPayMethod { get; init; } 
     /// <summary>
     /// Indicates the payment order. Used in stock dividends processing at DTC (The Depository Trust Corporation). Valid values list will be maintained separately from the schema.
     /// </summary>
+    [DataMember]
     public IsoMax3NumericText? DTCPayOrder { get; init; } 
     /// <summary>
     /// Income classification of the cash proceeds for dividend reinvestment.
     /// </summary>
+    [DataMember]
     public ReinvestmentIncomeClassification1Code? ReinvestmentIncomeClassification { get; init; } 
     /// <summary>
     /// Indicates how the entitlements were calculated optional dividends.
     /// </summary>
+    [DataMember]
     public DTCEntitlementCalculationMethod1Code? EntitlementCalculationMethod { get; init; } 
     /// <summary>
     /// For stock distributions, the fair market value represents the value of the security per share at the time of distribution. The value is used to calculate the cash value of the distribution and the necessary tax withholding on the distribution at DTC (The Depository Trust Corporation).
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? FairMarketValue { get; init; } 
     /// <summary>
     /// Price is based on either base or disbursed security.
     /// </summary>
+    [DataMember]
     public DTCBaseDisbursed1Code? PriceBasis { get; init; } 
     /// <summary>
     /// Specifies the reason for DTC (The Depository Trust Corporation) to exit the shares.
     /// </summary>
+    [DataMember]
     public SecuritiesExitReason1Code? DTCExitExplanationIndicator { get; init; } 
     /// <summary>
     /// Indicates whether a DTC (The Depository Trust Corporation) participant, using one or more payment bonds in connection with a warrant exercise, will be charged (through settlement on exercise date) the value of the upcoming interest payment on the bond(s).
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ChargeFlag { get; init; } 
     /// <summary>
     /// Indicates whether a charge is levied on the protect instructions at the time when the protect is submitted or at the time of the cover. Applies to warrants or rights exercise scenario where the holder must put up money with rights or warrants execution. When this flag is set to yes - charges are due at the time of the protect, when it is set to "no" changes are due when protect is covered.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ProtectChargeFlag { get; init; } 
     /// <summary>
     /// Indicates whether the price from the offeror is estimated or final.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? EstimatedPriceFlag { get; init; } 
     /// <summary>
     /// Time period during which instructions regarding the disposition of fractional entitlements will be accepted at DTC (The Depository Trust Corporation).
     /// </summary>
+    [DataMember]
     public Period3? DTCFractionalShareInstructionPeriod { get; init; } 
     /// <summary>
     /// Indicates the period during which the instructions for US Tax service will be accepted at DTC (The Depository Trust Corporation).
     /// </summary>
+    [DataMember]
     public Period3? DTCUSTaxInstructionPeriod { get; init; } 
     
     #nullable disable

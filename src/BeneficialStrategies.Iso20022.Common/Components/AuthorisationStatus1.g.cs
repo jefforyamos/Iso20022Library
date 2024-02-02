@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Authorisation status about the fraudulent transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AuthorisationStatus1
 {
     #nullable enable
@@ -22,14 +24,17 @@ public partial record AuthorisationStatus1
     /// False: transaction was not authorised
     /// True: transaction was authorised
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? AuthorisationIndicator { get; init; } 
     /// <summary>
     /// Indicates the entity which authorised the transaction (if relevant).
     /// </summary>
+    [DataMember]
     public PartyType26Code? AuthorisationEntity { get; init; } 
     /// <summary>
     /// Other type of authorisation entity.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherAuthorisationEntity { get; init; } 
     
     #nullable disable

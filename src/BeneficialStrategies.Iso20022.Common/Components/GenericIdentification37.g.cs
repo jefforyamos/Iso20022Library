@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification expressed as a proprietary type and narrative description.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericIdentification37
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record GenericIdentification37
     /// <summary>
     /// Proprietary information, often a code, issued by the data source scheme issuer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     
     #nullable disable

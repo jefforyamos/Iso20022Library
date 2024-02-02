@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification and information about a securities account and balance.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SafekeepingAccount12
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record SafekeepingAccount12
     /// <summary>
     /// Unique and unambiguous identification of the securities account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text AccountIdentification { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification231Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Identification of a subaccount within the safekeeping account.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SubAccountIdentification { get; init; } 
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
-    public HoldingBalance10[] InstructedBalance { get; init; } = [];
+    [DataMember]
+    public ValueList<HoldingBalance10> InstructedBalance { get; init; } = [];
     /// <summary>
     /// Owner of the voting rights.
     /// </summary>
-    public PartyIdentification233Choice_[] RightsHolder { get; init; } = [];
+    [DataMember]
+    public ValueList<PartyIdentification233Choice_> RightsHolder { get; init; } = [];
     /// <summary>
     /// Detailed information about the pledge.
     /// </summary>
+    [DataMember]
     public PledgeInformation1? PledgeDetails { get; init; } 
     
     #nullable disable

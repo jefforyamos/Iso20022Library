@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the balance inquiry response message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BalanceInquiryResponse5
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record BalanceInquiryResponse5
     /// <summary>
     /// Sale System identification of the transaction in an unambiguous way.
     /// </summary>
+    [DataMember]
     public TransactionIdentifier1? SaleTransactionIdentification { get; init; } 
     /// <summary>
     /// POI identification of the transaction in an unambiguous way.
     /// </summary>
+    [DataMember]
     public TransactionIdentifier1? POITransactionIdentification { get; init; } 
     /// <summary>
     /// Payment account information.
     /// </summary>
+    [DataMember]
     public PaymentAccount3? PaymentAccount { get; init; } 
     /// <summary>
     /// Loyalty account information.
     /// </summary>
+    [DataMember]
     public LoyaltyAccount3? LoyaltyAccount { get; init; } 
     /// <summary>
     /// Stored value account information.
     /// </summary>
-    public StoredValueAccount2[] StoredValueAccount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<StoredValueAccount2> StoredValueAccount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Receipt to print after a balance inquiry.
     /// </summary>
-    public PaymentReceipt5[] Receipt { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PaymentReceipt5> Receipt { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

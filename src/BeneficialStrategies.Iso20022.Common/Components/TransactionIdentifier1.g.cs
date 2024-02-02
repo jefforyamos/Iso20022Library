@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of the transaction in an unambiguous way.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionIdentifier1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record TransactionIdentifier1
     /// <summary>
     /// Local date and time of the transaction assigned by the POI (Point Of Interaction).
     /// </summary>
+    [DataMember]
     public required IsoISODateTime TransactionDateTime { get; init; } 
     /// <summary>
     /// Identification of the transaction that has to be unique for a time period.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransactionReference { get; init; } 
     
     #nullable disable

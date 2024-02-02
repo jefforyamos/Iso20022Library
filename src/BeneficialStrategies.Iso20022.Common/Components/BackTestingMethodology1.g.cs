@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the characteristics of a backtesting methodology used to test the performance of a risk model.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BackTestingMethodology1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record BackTestingMethodology1
     /// <summary>
     /// Specifies the core model type, excluding any modifications for pro-cyclicality.
     /// </summary>
+    [DataMember]
     public required ModelType1Choice_ RiskModelType { get; init; } 
     /// <summary>
     /// Specifies the confidence interval used on a daily basis to assess the performance of the model.
     /// </summary>
+    [DataMember]
     public required IsoBaseOneRate ModelConfidenceLevel { get; init; } 
     /// <summary>
     /// Indicates whether the CCP model calculates mark-to-market changes on fixed portfolios when backtesting.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator VariationMarginCleanIndicator { get; init; } 
     /// <summary>
     /// Description of backtesting methodology.
     /// </summary>
+    [DataMember]
     public IsoMax2000Text? Description { get; init; } 
     
     #nullable disable

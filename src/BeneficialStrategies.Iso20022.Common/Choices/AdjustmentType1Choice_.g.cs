@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(AdjustmentType1Choice.Type))]
 [KnownType(typeof(AdjustmentType1Choice.OtherAdjustmentType))]
+[DataContract]
 public abstract partial record AdjustmentType1Choice_
 {
 }

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details on the request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ReceiptDetails1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ReceiptDetails1
     /// <summary>
     /// Reference of the request.
     /// </summary>
+    [DataMember]
     public required AdditionalReferences RelatedReference { get; init; } 
     /// <summary>
     /// Gives the status of the request.
     /// </summary>
+    [DataMember]
     public RequestHandling? RequestHandling { get; init; } 
     
     #nullable disable

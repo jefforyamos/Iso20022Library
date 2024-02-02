@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Context of the card payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionContext1
 {
     #nullable enable
@@ -22,16 +24,19 @@ public partial record TransactionContext1
     /// ISO 8583:87 bit 18, ISO 8583:93 bit 18 & 26, ISO 8583:2003 bit 26
     /// ISO 18245
     /// </summary>
+    [DataMember]
     public required IsoExact4NumericText MerchantCategoryCode { get; init; } 
     /// <summary>
     /// Further details about the merchant that is used in with the merchant category code (MCC) for the particular purchase.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MerchantCategorySpecificData { get; init; } 
     /// <summary>
     /// Notifies the express consent of the customer for a given service (used in DCC, funds transfers, money lending, etc.).
     /// True: Explicit customer consent obtained
     /// False: Implicit customer consent obtained
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CustomerConsent { get; init; } 
     /// <summary>
     /// Indicates a chip data fallback.
@@ -39,6 +44,7 @@ public partial record TransactionContext1
     /// False: No fallback
     /// Default: False
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ICCFallbackIndicator { get; init; } 
     /// <summary>
     /// Indicates a magnetic stripe fallback.
@@ -46,6 +52,7 @@ public partial record TransactionContext1
     /// False: No fallback
     /// Default: False
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? MagneticStripeFallbackIndicator { get; init; } 
     /// <summary>
     /// Indicates a late presentment as defined by each specific implementation.
@@ -53,10 +60,12 @@ public partial record TransactionContext1
     /// False: Transaction was not presented late
     /// Default: False
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? LatePresentmentIndicator { get; init; } 
     /// <summary>
     /// Identifies final authorisation messages for the purpose of managing open-to buy or available balance. 
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? FinalAuthorisationIndicator { get; init; } 
     /// <summary>
     /// Indicates a deferred delivery as defined by each specific implementation.
@@ -64,27 +73,33 @@ public partial record TransactionContext1
     /// False: Delivery is not identified as deffered.
     /// Default: False.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? DeferredDeliveryIndicator { get; init; } 
     /// <summary>
     /// Identifies the transaction initiator.
     /// </summary>
+    [DataMember]
     public TransactionInitiator1Code? TransactionInitiator { get; init; } 
     /// <summary>
     /// Card programme or brand related to the transaction.
     /// </summary>
+    [DataMember]
     public CardProgramme1? CardProgramme { get; init; } 
     /// <summary>
     /// Type of settlement service for specific services requiring settlement.
     /// </summary>
+    [DataMember]
     public SettlementService1? SettlementService { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period between the acquirer and the issuer or their respective agents.
     /// </summary>
+    [DataMember]
     public Reconciliation3? Reconciliation { get; init; } 
     /// <summary>
     /// Date the transaction was completed and captured.
     /// ISO 8583 bit 17
     /// </summary>
+    [DataMember]
     public IsoISODate? CaptureDate { get; init; } 
     
     #nullable disable

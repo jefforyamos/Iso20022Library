@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, for example, dividend option or valuation currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrument87
 {
     #nullable enable
@@ -20,62 +22,77 @@ public partial record FinancialInstrument87
     /// <summary>
     /// Identification of the security by an ISIN.
     /// </summary>
+    [DataMember]
     public required SecurityIdentification25Choice_ Identification { get; init; } 
     /// <summary>
     /// Name of the financial instrument in free format text.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Name { get; init; } 
     /// <summary>
     /// Financial Instrument Short Name (FISN) expressed in conformance with the ISO 18774 standard.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ShortName { get; init; } 
     /// <summary>
     /// Additional information about the financial instrument to help identify the instrument.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SupplementaryIdentification { get; init; } 
     /// <summary>
     /// Features of units offered by the fund. For example, a unit may have a specific load structure, for example, front end or back end, an income policy, for example, pay out or accumulate, or a trailer policy, for example, with or without. Fund classes are typically denoted by a single character, for example, 'Class A', 'Class 2'.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ClassType { get; init; } 
     /// <summary>
     /// Form, that is, ownership, of the security, that is, registered or bearer.
     /// </summary>
+    [DataMember]
     public FormOfSecurity1Code? SecuritiesForm { get; init; } 
     /// <summary>
     /// Income policy relating to the class type, that is, if income is paid out or retained in the fund.
     /// </summary>
+    [DataMember]
     public DistributionPolicy1Code? DistributionPolicy { get; init; } 
     /// <summary>
     /// Company specific description of a group of funds.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? ProductGroup { get; init; } 
     /// <summary>
     /// When an account at fund or security level is blocked, this specifies details on how the holding is blocked.
     /// </summary>
+    [DataMember]
     public BlockedHoldingDetails2? BlockedHoldingDetails { get; init; } 
     /// <summary>
     /// Specifies whether the holdings in the account are eligible for pledging.
     /// </summary>
+    [DataMember]
     public Eligible1Code? Pledging { get; init; } 
     /// <summary>
     /// Specifies whether the holdings in the account are used as collateral.
     /// </summary>
+    [DataMember]
     public Collateral1Code? Collateral { get; init; } 
     /// <summary>
     /// Details of third party rights.
     /// </summary>
+    [DataMember]
     public ThirdPartyRights2? ThirdPartyRights { get; init; } 
     /// <summary>
     /// Specifies if all the shares are owned exclusively by the fund company.
     /// </summary>
+    [DataMember]
     public FundOwnership1Code? FundOwnership { get; init; } 
     /// <summary>
     /// Specifies if the fund is intended for qualified investors.
     /// </summary>
+    [DataMember]
     public FundIntention1Code? FundIntention { get; init; } 
     /// <summary>
     /// Operational status of the fund.
     /// </summary>
+    [DataMember]
     public OperationalStatus1Code? OperationalStatus { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Context in which the transaction is performed (payment and sale).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CardPaymentContext28
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CardPaymentContext28
     /// <summary>
     /// Context of the card payment transaction.
     /// </summary>
+    [DataMember]
     public PaymentContext27? PaymentContext { get; init; } 
     /// <summary>
     /// Context of the sale involving the card payment transaction.
     /// </summary>
+    [DataMember]
     public SaleContext4? SaleContext { get; init; } 
     /// <summary>
     /// Context of the direct debit transaction.
     /// </summary>
+    [DataMember]
     public CardDirectDebit2? DirectDebitContext { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to provide details of the credit line.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CreditLine3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CreditLine3
     /// <summary>
     /// Indicates whether or not the credit line is included in the balance.
     /// </summary>
+    [DataMember]
     public required IsoTrueFalseIndicator Included { get; init; } 
     /// <summary>
     /// Type of the credit line provided when multiple credit lines may be provided.
     /// </summary>
+    [DataMember]
     public CreditLineType1Choice_? Type { get; init; } 
     /// <summary>
     /// Amount of money of the credit line.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAndAmount? Amount { get; init; } 
     /// <summary>
     /// Date of the credit line provided when multiple credit lines may be provided.
     /// </summary>
+    [DataMember]
     public DateAndDateTime2Choice_? Date { get; init; } 
     
     #nullable disable

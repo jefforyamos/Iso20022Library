@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details about the agreed amount for the variation margin and optionaly the segregated independent amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AgreedAmount1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AgreedAmount1
     /// <summary>
     /// Provides details about the agreed amount for the variation margin.
     /// </summary>
+    [DataMember]
     public required Amount1 VariationMarginAmount { get; init; } 
     /// <summary>
     /// Provides details about the agreed amount for the segregated independent amount.
     /// </summary>
+    [DataMember]
     public Amount1? SegregatedIndependentAmount { get; init; } 
     
     #nullable disable

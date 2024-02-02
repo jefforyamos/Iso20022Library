@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(FXStandingInstruction1Choice.Indicator))]
 [KnownType(typeof(FXStandingInstruction1Choice.Proprietary))]
+[DataContract]
 public abstract partial record FXStandingInstruction1Choice_
 {
 }

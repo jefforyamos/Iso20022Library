@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines a frequency in terms on counts per period for a specific period type.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FrequencyPeriod1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record FrequencyPeriod1
     /// <summary>
     /// Period for which the number of instructions are to be created and processed.
     /// </summary>
+    [DataMember]
     public required Frequency6Code Type { get; init; } 
     /// <summary>
     /// Number of instructions to be created and processed during the specified period.
     /// </summary>
+    [DataMember]
     public required IsoDecimalNumber CountPerPeriod { get; init; } 
     
     #nullable disable

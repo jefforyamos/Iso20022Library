@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies security date details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecurityDate5
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record SecurityDate5
     /// <summary>
     /// Date/time at which the movement is due to take place (cash and/or securities).
     /// </summary>
+    [DataMember]
     public required DateFormat19Choice_ PaymentDate { get; init; } 
     /// <summary>
     /// Date/time at which securities become available for trading, for example first dealing date.
     /// </summary>
+    [DataMember]
     public DateFormat19Choice_? AvailableDate { get; init; } 
     /// <summary>
     /// Date/time at which a security will be entitled to a dividend.
     /// </summary>
+    [DataMember]
     public DateFormat19Choice_? DividendRankingDate { get; init; } 
     /// <summary>
     /// Date/time at which a payment can be made, for example, if payment date is a non-business day or to indicate the first payment date of an offer.
     /// </summary>
+    [DataMember]
     public DateFormat19Choice_? EarliestPaymentDate { get; init; } 
     /// <summary>
     /// Date/time at which security will assimilate, become fungible, or have the same rights to dividends as the parent issue.
     /// </summary>
+    [DataMember]
     public DateFormat19Choice_? PariPassuDate { get; init; } 
     
     #nullable disable

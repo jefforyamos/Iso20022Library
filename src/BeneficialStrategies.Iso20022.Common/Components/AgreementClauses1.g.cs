@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies possible agreement clauses related to invoice financing.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AgreementClauses1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record AgreementClauses1
     /// <summary>
     /// Description of agreement clauses, given in a textual form.
     /// </summary>
+    [DataMember]
     public IsoMax256Text? Description { get; init; } 
     /// <summary>
     /// External reference to the document, containing agreement clauses, where it is stored.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? DocumentURL { get; init; } 
     
     #nullable disable

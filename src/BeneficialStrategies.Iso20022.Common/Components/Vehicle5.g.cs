@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Attributes of a fleet vehicle.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Vehicle5
 {
     #nullable enable
@@ -20,59 +22,73 @@ public partial record Vehicle5
     /// <summary>
     /// Identification number assigned to the vehicle by the fleet operator. This may not be a legal registration.
     /// </summary>
+    [DataMember]
     public IsoMax35NumericText? VehicleNumber { get; init; } 
     /// <summary>
     /// Number that uniquely identifies the vehicle as assigned by the vehicle manufacturer.
     /// </summary>
+    [DataMember]
     public IsoMax35NumericText? VehicleIdentificationNumber { get; init; } 
     /// <summary>
     /// Fleet number.
     /// </summary>
+    [DataMember]
     public IsoMax10Text? FleetNumber { get; init; } 
     /// <summary>
     /// Sub fleet number.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SubFleetNumber { get; init; } 
     /// <summary>
     /// Identification of the unit number of the vehicle in the fleet.
     /// </summary>
+    [DataMember]
     public IsoMax35NumericText? UnitNumber { get; init; } 
     /// <summary>
     /// Identification number assigned to the trailer.
     /// </summary>
+    [DataMember]
     public IsoMax35NumericText? TrailerNumber { get; init; } 
     /// <summary>
     /// Registration tag of the vehicle.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? VehicleTag { get; init; } 
     /// <summary>
     /// Entry mode of the registration tag.
     /// </summary>
+    [DataMember]
     public CardDataReading5Code? VehicleTagEntryMode { get; init; } 
     /// <summary>
     /// True indicates a replacement vehicle.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ReplacementVehicleIndicator { get; init; } 
     /// <summary>
     /// Odometer reading value indicating the distance travelled by the vehicle (for example, car, van, pickup truck, semi-truck portion of a tractor trailer unit).
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? Odometer { get; init; } 
     /// <summary>
     /// Hubometer reading value indicating the distance travelled by the trailer (for example,  the semi-trailer portion of a tractor trailer unit).
     /// </summary>
+    [DataMember]
     public IsoDecimalNumber? Hubometer { get; init; } 
     /// <summary>
     /// Identification assigned to the vehicle related to maintenance.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MaintenanceIdentification { get; init; } 
     /// <summary>
     /// Data captured from on board diagnostic systems. 
     /// </summary>
+    [DataMember]
     public OnBoardDiagnostics1? OnBoardDiagnostics { get; init; } 
     /// <summary>
     /// Additional information related to the vehicle.
     /// </summary>
-    public Vehicle2[] AdditionalVehicleData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Vehicle2> AdditionalVehicleData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

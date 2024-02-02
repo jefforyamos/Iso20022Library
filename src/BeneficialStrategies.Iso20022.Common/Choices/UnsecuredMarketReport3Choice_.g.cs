@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(UnsecuredMarketReport3Choice.DataSetAction))]
 [KnownType(typeof(UnsecuredMarketReport3Choice.Transaction))]
+[DataContract]
 public abstract partial record UnsecuredMarketReport3Choice_
 {
 }

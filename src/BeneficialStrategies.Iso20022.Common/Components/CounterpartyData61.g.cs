@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data related specifically to counterparty.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CounterpartyData61
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CounterpartyData61
     /// <summary>
     /// Information describing the reporting counterparty.
     /// </summary>
+    [DataMember]
     public required CounterpartyIdentification4 ReportingCounterparty { get; init; } 
     /// <summary>
     /// Data specific to other counterparties and related fields.
     /// </summary>
+    [DataMember]
     public required CounterpartyIdentification2 OtherCounterparty { get; init; } 
     
     #nullable disable

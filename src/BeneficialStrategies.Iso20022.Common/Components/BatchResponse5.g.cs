@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Content of the batch response message.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BatchResponse5
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record BatchResponse5
     /// <summary>
     /// Sale System identification of the bacth in an unambiguous way.
     /// </summary>
+    [DataMember]
     public TransactionIdentifier1? SaleBatchIdentification { get; init; } 
     /// <summary>
     /// POI identification of the batch in an unambiguous way.
     /// </summary>
+    [DataMember]
     public TransactionIdentifier1? POIBatchIdentification { get; init; } 
     /// <summary>
     /// Performed transaction content.
     /// </summary>
-    public PerformedTransaction5[] PerformedTransaction { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PerformedTransaction5> PerformedTransaction { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

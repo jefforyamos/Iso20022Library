@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Reference of a transfer and of a transfer cancellation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransferReference8
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TransferReference8
     /// <summary>
     /// Unique and unambiguous identifier for a transfer instruction, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a transfer cancellation, as assigned by the instructing party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CancellationReference { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier for a transfer execution, as assigned by a confirming party.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TransferConfirmationReference { get; init; } 
     
     #nullable disable

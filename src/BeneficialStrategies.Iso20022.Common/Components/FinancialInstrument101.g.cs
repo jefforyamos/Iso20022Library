@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a security or other asset.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrument101
 {
     #nullable enable
@@ -20,44 +22,54 @@ public partial record FinancialInstrument101
     /// <summary>
     /// Identification of the line of holding in the portfolio.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? LineIdentification { get; init; } 
     /// <summary>
     /// Identification of the asset.
     /// </summary>
+    [DataMember]
     public required FinancialInstrument61Choice_ Instrument { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public AdditionalReference10? ClientReference { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transfer allocated by the counterparty.
     /// </summary>
+    [DataMember]
     public AdditionalReference10? CounterpartyReference { get; init; } 
     /// <summary>
     /// Account held in the name of the party that is not the name of the beneficial owner of the shares.
     /// (Party and account into which the transferee receives the financial instrument from the transferor.)
     /// </summary>
+    [DataMember]
     public Account28? TransfereeAccount { get; init; } 
     /// <summary>
     /// Party and account from which the transferor delivers the financial instrument to the transferee.
     /// </summary>
+    [DataMember]
     public Account28? Transferor { get; init; } 
     /// <summary>
     /// Chain of parties involved in the settlement of a transaction.
     /// </summary>
+    [DataMember]
     public FundSettlementParameters18? SettlementPartiesDetails { get; init; } 
     /// <summary>
     /// Indicates whether the assets are held in an individual’s own name.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AssetsHeldInOwnName { get; init; } 
     /// <summary>
     /// Indicates whether the transfer results in a change of beneficial owner.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? TransferResultsInChangeOfBeneficialOwner { get; init; } 
     /// <summary>
     /// Additional information about the financial instrument.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

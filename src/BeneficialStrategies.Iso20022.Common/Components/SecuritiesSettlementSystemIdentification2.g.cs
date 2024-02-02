@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the securities settlement system used in a settlement process.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SecuritiesSettlementSystemIdentification2
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record SecuritiesSettlementSystemIdentification2
     /// <summary>
     /// Identification of the securities settlement system.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text SystemIdentification { get; init; } 
     /// <summary>
     /// Name of the securities settlement system.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? SystemName { get; init; } 
     /// <summary>
     /// Country code for the jurisdiction in which the CSD is established.
     /// </summary>
+    [DataMember]
     public CountryCode? CountryOfJurisdiction { get; init; } 
     /// <summary>
     /// Corporate name of the CSD.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? CSDLegalName { get; init; } 
     /// <summary>
     /// Legal entity identification of the CSD operating the securities settlement system.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     /// <summary>
     /// Party (such as a person or a team) responsible for the report sent by the CSD.
     /// </summary>
-    public Contact9[] ResponsibleParty { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<Contact9> ResponsibleParty { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(NumberOrPercentage1Choice.ThresholdPercentage))]
 [KnownType(typeof(NumberOrPercentage1Choice.ThresholdNumber))]
+[DataContract]
 public abstract partial record NumberOrPercentage1Choice_
 {
 }

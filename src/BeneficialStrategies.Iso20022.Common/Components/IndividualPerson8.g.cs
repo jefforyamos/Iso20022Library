@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person').
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record IndividualPerson8
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record IndividualPerson8
     /// <summary>
     /// Name by which a party is known and which is usually used to identify that party.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Name { get; init; } 
     /// <summary>
     /// First name of a person.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text GivenName { get; init; } 
     /// <summary>
     /// Specifies the terms used to formally address a person.
     /// </summary>
+    [DataMember]
     public NamePrefix1Code? NamePrefix { get; init; } 
     /// <summary>
     /// Additional information about a person that follows a person's name, for example, qualification such as Doctor of Philosophy (PhD).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? NameSuffix { get; init; } 
     /// <summary>
     /// Specifies the gender of the person.
     /// </summary>
+    [DataMember]
     public GenderCode? Gender { get; init; } 
     /// <summary>
     /// Date on which a person is born.
     /// </summary>
+    [DataMember]
     public IsoISODate? BirthDate { get; init; } 
     /// <summary>
     /// Number assigned by a social security agency.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? SocialSecurityNumber { get; init; } 
     /// <summary>
     /// Postal address of a party.
     /// </summary>
+    [DataMember]
     public required PostalAddress1 IndividualInvestorAddress { get; init; } 
     
     #nullable disable

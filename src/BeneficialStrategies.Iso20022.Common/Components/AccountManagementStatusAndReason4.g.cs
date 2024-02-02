@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Status information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AccountManagementStatusAndReason4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record AccountManagementStatusAndReason4
     /// <summary>
     /// Status of the account opening instruction or account modification instruction.
     /// </summary>
+    [DataMember]
     public required Status20Choice_ Status { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier of the account opening or modification instruction at application level.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? AccountApplicationIdentification { get; init; } 
     /// <summary>
     /// Account to which the account opening is related.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ExistingAccountIdentification { get; init; } 
     
     #nullable disable

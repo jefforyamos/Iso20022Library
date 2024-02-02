@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements used to identify the underlying transaction(s) and/or batched entries.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EntryDetails1
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record EntryDetails1
     /// <summary>
     /// Set of elements used to provide details on batched transactions.
     /// </summary>
+    [DataMember]
     public BatchInformation2? Batch { get; init; } 
     /// <summary>
     /// Set of elements used to provide information on the underlying transaction(s).
     /// </summary>
-    public EntryTransaction2[] TransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<EntryTransaction2> TransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

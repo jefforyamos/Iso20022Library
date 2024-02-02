@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Institution in charge of managing the ATM.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Acquirer8
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Acquirer8
     /// <summary>
     /// Identification of the ATM manager.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Software version of the application.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? ApplicationVersion { get; init; } 
     
     #nullable disable

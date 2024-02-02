@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Net position of a segregated holding of a single security within the overall position held in the securities account, for example, sub-balance per status.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record QuantityAndAvailability1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record QuantityAndAvailability1
     /// <summary>
     /// Quantity of securities in the sub-balance.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ Quantity { get; init; } 
     /// <summary>
     /// Indicates whether the quantity of securities on the sub-balance is available.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator AvailabilityIndicator { get; init; } 
     
     #nullable disable

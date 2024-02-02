@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Context of the ATM for the key download.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMSecurityContext3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ATMSecurityContext3
     /// <summary>
     /// Key exchange security scheme in activation on the ATM for the host manager.
     /// </summary>
+    [DataMember]
     public required ATMSecurityScheme3Code CurrentSecurityScheme { get; init; } 
     /// <summary>
     /// Hardware security module information, so called EPP for Encrypted PIN Pad.
     /// </summary>
+    [DataMember]
     public ATMEquipment3? DeviceProperty { get; init; } 
     /// <summary>
     /// Configuration parameters in use by the security device.
     /// </summary>
+    [DataMember]
     public ATMSecurityConfiguration1? CurrentConfiguration { get; init; } 
     
     #nullable disable

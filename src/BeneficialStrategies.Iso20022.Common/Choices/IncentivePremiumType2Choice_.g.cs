@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(IncentivePremiumType2Choice.PerSecurity))]
 [KnownType(typeof(IncentivePremiumType2Choice.PerVote))]
 [KnownType(typeof(IncentivePremiumType2Choice.PerAttendee))]
+[DataContract]
 public abstract partial record IncentivePremiumType2Choice_
 {
 }

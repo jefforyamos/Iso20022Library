@@ -12,6 +12,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(RateAndAmountFormat45Choice.Rate))]
 [KnownType(typeof(RateAndAmountFormat45Choice.Amount))]
 [KnownType(typeof(RateAndAmountFormat45Choice.RateTypeAndRate))]
+[DataContract]
 public abstract partial record RateAndAmountFormat45Choice_
 {
 }

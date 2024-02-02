@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data on collateralised securities.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollaterisedData8
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CollaterisedData8
     /// <summary>
     /// Date on which the counterparties contractually agree the exchange of cash, securities, or commodities versus collateral for the opening leg (spot leg) of the securities financing transaction.
     /// </summary>
+    [DataMember]
     public IsoISODate? CollateralValueDate { get; init; } 
     /// <summary>
     /// Specification on the type of asset used as collateral.
     /// </summary>
+    [DataMember]
     public CollateralType14? AssetType { get; init; } 
     /// <summary>
     /// Indicates whether the collateral has been provided for a net exposure, rather than for a single transaction.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? NetExposureCollateralisationIndicator { get; init; } 
     /// <summary>
     /// Identification of the collateral basket.
     /// </summary>
+    [DataMember]
     public SecurityIdentification26Choice_? BasketIdentifier { get; init; } 
     
     #nullable disable

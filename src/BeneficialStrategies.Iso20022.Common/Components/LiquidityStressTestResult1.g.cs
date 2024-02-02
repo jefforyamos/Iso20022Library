@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Results of a scenario used to test whether a legal entity or other financial construct has sufficient liquid resources to meet its obligations as they arise.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LiquidityStressTestResult1
 {
     #nullable enable
@@ -20,15 +22,18 @@ public partial record LiquidityStressTestResult1
     /// <summary>
     /// CCP’s internal unique identifier of the stress scenario that generates the reported liquidity need.
     /// </summary>
+    [DataMember]
     public required IsoMax256Text Identification { get; init; } 
     /// <summary>
     /// Identification of assumed defaulters under the stress scenario.
     /// </summary>
+    [DataMember]
     public required CoverTwoDefaulters1 ScenarioDefaulters { get; init; } 
     /// <summary>
     /// Indicates the stressed resources and liquidity requirements under the liquidity stress test. The balance of resources are reported as of day ‘T‐1’. The requirements and any flows of resources are reported on their respective day from day ’ T’ to ‘T+5'.
     /// </summary>
-    public LiquidityRequiredAndAvailable1[] LiquidityRequiredAndAvailable { get; init; } = [];
+    [DataMember]
+    public ValueList<LiquidityRequiredAndAvailable1> LiquidityRequiredAndAvailable { get; init; } = [];
     
     #nullable disable
 }

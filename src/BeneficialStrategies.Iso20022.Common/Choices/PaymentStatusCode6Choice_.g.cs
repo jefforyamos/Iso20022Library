@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(PaymentStatusCode6Choice.RTGS))]
 [KnownType(typeof(PaymentStatusCode6Choice.Settlement))]
 [KnownType(typeof(PaymentStatusCode6Choice.Proprietary))]
+[DataContract]
 public abstract partial record PaymentStatusCode6Choice_
 {
 }

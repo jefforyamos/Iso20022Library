@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Signed amount in a given currency
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Amount17
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Amount17
     /// <summary>
     /// Amount value.
     /// </summary>
+    [DataMember]
     public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
     /// <summary>
     /// Currency code associated with the applicable type of amount.  ISO 4217 "Codes for the representation of currencies and funds".
     /// </summary>
+    [DataMember]
     public ISO3NumericCurrencyCode? Currency { get; init; } 
     /// <summary>
     /// Sign of the Amount.
     /// </summary>
+    [DataMember]
     public CreditDebit3Code? CreditDebit { get; init; } 
     
     #nullable disable

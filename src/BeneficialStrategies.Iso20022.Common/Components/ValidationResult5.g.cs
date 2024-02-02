@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed description of the differences.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ValidationResult5
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record ValidationResult5
     /// <summary>
     /// Sequential number assigned to the mismatch.
     /// </summary>
+    [DataMember]
     public required IsoNumber SequenceNumber { get; init; } 
     /// <summary>
     /// Coded identification of the matching rule that is violated.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text RuleIdentification { get; init; } 
     /// <summary>
     /// Detailed description of the rule.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text RuleDescription { get; init; } 
     /// <summary>
     /// Description of the element that creates the mismatch.
     /// </summary>
-    public ElementIdentification1[] MisMatchedElement { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ElementIdentification1> MisMatchedElement { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

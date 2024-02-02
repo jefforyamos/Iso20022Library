@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to multimodal transportation of goods.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MultimodalTransport1
 {
     #nullable enable
@@ -20,35 +22,43 @@ public partial record MultimodalTransport1
     /// <summary>
     /// Place from where the goods must leave.
     /// </summary>
-    public AirportName1Choice_[] DepartureAirport { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AirportName1Choice_> DepartureAirport { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Place where the goods must arrive.
     /// </summary>
-    public AirportName1Choice_[] DestinationAirport { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AirportName1Choice_> DestinationAirport { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the port where the goods are loaded on board the ship.
     /// </summary>
-    public IsoMax35Text[] PortOfLoading { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> PortOfLoading { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the port where the goods are discharged.
     /// </summary>
-    public IsoMax35Text[] PortOfDischarge { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> PortOfDischarge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the location where the goods are received for transportation.
     /// </summary>
-    public IsoMax35Text[] PlaceOfReceipt { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> PlaceOfReceipt { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the location of delivery of the goods.
     /// </summary>
-    public IsoMax35Text[] PlaceOfDelivery { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> PlaceOfDelivery { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the location where the goods are take in charge for transportation.
     /// </summary>
-    public IsoMax35Text[] TakingInCharge { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> TakingInCharge { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Identifies the location of the final destination of the goods.
     /// </summary>
-    public IsoMax35Text[] PlaceOfFinalDestination { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IsoMax35Text> PlaceOfFinalDestination { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

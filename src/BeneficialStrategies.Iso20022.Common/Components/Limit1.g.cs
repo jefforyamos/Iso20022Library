@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the number of occurrences of a particular event and the maximum number of times this event may occur.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Limit1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record Limit1
     /// <summary>
     /// Number of occurrences of a particular event.
     /// </summary>
+    [DataMember]
     public required IsoMax3NumericText Current { get; init; } 
     /// <summary>
     /// Specifies the maximum number of times an event may occur.
     /// </summary>
+    [DataMember]
     public required IsoMax3NumericText Limit { get; init; } 
     
     #nullable disable

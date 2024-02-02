@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Invoice data pertaining to the payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Invoice2
 {
     #nullable enable
@@ -20,11 +22,13 @@ public partial record Invoice2
     /// <summary>
     /// Invoice summary information.
     /// </summary>
+    [DataMember]
     public InvoiceSummary2? Summary { get; init; } 
     /// <summary>
     /// Line item information.
     /// </summary>
-    public InvoiceLineItem2[] LineItem { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<InvoiceLineItem2> LineItem { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

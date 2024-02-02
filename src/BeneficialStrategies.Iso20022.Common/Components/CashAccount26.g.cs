@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Account to or from which a cash entry is made.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashAccount26
 {
     #nullable enable
@@ -20,27 +22,33 @@ public partial record CashAccount26
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public required AccountIdentificationAndName3 Identification { get; init; } 
     /// <summary>
     /// Party that legally owns the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? AccountOwner { get; init; } 
     /// <summary>
     /// Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
     /// </summary>
+    [DataMember]
     public PartyIdentification2Choice_? AccountServicer { get; init; } 
     /// <summary>
     /// Information identifying a specific branch of a financial institution.||Usage: this component should be used in case the identification information in the financial institution component does not provide identification up to branch level.
     /// </summary>
+    [DataMember]
     public BranchData? AccountServicerBranch { get; init; } 
     /// <summary>
     /// Purpose of the account/source fund type. This is typically linked to an investment product, eg, wrapper, ISA.
     /// </summary>
+    [DataMember]
     public InvestmentAccountType1Choice_? InvestmentAccountType { get; init; } 
     /// <summary>
     /// Other identification such as national registration identification number, passport number.
     /// </summary>
-    public GenericIdentification46[] AccountOwnerOtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<GenericIdentification46> AccountOwnerOtherIdentification { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

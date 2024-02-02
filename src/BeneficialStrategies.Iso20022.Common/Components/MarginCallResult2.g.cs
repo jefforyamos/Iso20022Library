@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the summation of the call amounts for the variation margin and optionaly the segregated independent amount.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record MarginCallResult2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record MarginCallResult2
     /// <summary>
     /// Provides the summation of the call amounts for the variation margin amount only.
     /// </summary>
+    [DataMember]
     public required Result1 VariationMarginResult { get; init; } 
     /// <summary>
     /// Provides the summation of the call amounts for the segregated independent amount.
     /// </summary>
+    [DataMember]
     public Result1? SegregatedIndependentAmount { get; init; } 
     
     #nullable disable

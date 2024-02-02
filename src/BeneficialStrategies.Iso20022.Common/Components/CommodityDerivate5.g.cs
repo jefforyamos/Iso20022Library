@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Transparency calculation specific details for a freight commodity.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CommodityDerivate5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record CommodityDerivate5
     /// <summary>
     /// Specification of the size related to the freight sub type. Field to be populated when the base product field is equal to freight.
     /// </summary>
+    [DataMember]
     public required IsoMax25Text Size { get; init; } 
     /// <summary>
     /// Details the specific route or time charter average. Field to be populated when the base product field is equal to freight.
     /// </summary>
+    [DataMember]
     public required IsoMax25Text AverageTimeCharter { get; init; } 
     
     #nullable disable

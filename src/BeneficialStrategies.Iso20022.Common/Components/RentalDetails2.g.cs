@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of car rental service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RentalDetails2
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record RentalDetails2
     /// <summary>
     /// Identification of the car rental service.
     /// </summary>
+    [DataMember]
     public IsoMax70Text? RentalIdentification { get; init; } 
     /// <summary>
     /// Date and time of registration of car rental service as  per folio.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? RentalDateTime { get; init; } 
     /// <summary>
     /// Details of the vehicle at the start of the rental period.
     /// </summary>
+    [DataMember]
     public ServiceStartEnd2? RentalStart { get; init; } 
     /// <summary>
     /// Details of the vehicle at the end of the rental period.
     /// </summary>
+    [DataMember]
     public ServiceStartEnd2? RentalReturn { get; init; } 
     /// <summary>
     /// Time period for the whole duration of rental.
     /// </summary>
-    public PeriodUnit2Code[] RentalTimePeriod { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<PeriodUnit2Code> RentalTimePeriod { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Time period expressed in a number of units (for example, 1 week, 3 days, etc.).
     /// </summary>
+    [DataMember]
     public IsoMax4NumericText? TimePeriodUnit { get; init; } 
     /// <summary>
     /// Rate for the time period.
     /// </summary>
+    [DataMember]
     public IsoImpliedCurrencyAndAmount? TimePeriodRate { get; init; } 
     /// <summary>
     /// Currency code applied for the rental.
     /// </summary>
+    [DataMember]
     public ISO3NumericCurrencyCode? Currency { get; init; } 
     
     #nullable disable

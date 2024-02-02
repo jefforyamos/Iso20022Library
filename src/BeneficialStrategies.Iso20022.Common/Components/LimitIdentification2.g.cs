@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Defines the elements used to uniquely identify a risk management limit defined in the system.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LimitIdentification2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record LimitIdentification2
     /// <summary>
     /// Identification of a particular cash clearing system.
     /// </summary>
+    [DataMember]
     public SystemIdentification2Choice_? SystemIdentification { get; init; } 
     /// <summary>
     /// Nature of the risk management limit.
     /// </summary>
+    [DataMember]
     public required LimitType1Choice_ Type { get; init; } 
     /// <summary>
     /// Owner of the account which is being queried.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification5? AccountOwner { get; init; } 
     /// <summary>
     /// Unique and unambiguous identification for the account between the account owner and the account servicer.
     /// </summary>
+    [DataMember]
     public AccountIdentification4Choice_? AccountIdentification { get; init; } 
     
     #nullable disable

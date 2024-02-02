@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(SystemIdentification2Choice.MarketInfrastructureIdentification))]
 [KnownType(typeof(SystemIdentification2Choice.Country))]
+[DataContract]
 public abstract partial record SystemIdentification2Choice_
 {
 }

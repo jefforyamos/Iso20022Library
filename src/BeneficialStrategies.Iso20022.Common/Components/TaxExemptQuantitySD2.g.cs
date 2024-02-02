@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Tax exempt election details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxExemptQuantitySD2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TaxExemptQuantitySD2
     /// <summary>
     /// Xpath to the element that is being extended.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? PlaceAndName { get; init; } 
     /// <summary>
     /// Tax control identification.
     /// </summary>
+    [DataMember]
     public required IsoMax6Text ControlIdentification { get; init; } 
     /// <summary>
     /// Elected quantity.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity15Choice_ Quantity { get; init; } 
     
     #nullable disable

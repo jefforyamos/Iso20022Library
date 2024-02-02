@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a database.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DataBaseCheck1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DataBaseCheck1
     /// <summary>
     /// Indicates whether the individual or organisation is listed in an on-line global Know Your Customer (KYC) database.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator DatabaseCheck { get; init; } 
     /// <summary>
     /// Identification of the database.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     
     #nullable disable

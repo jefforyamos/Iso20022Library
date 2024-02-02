@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Total eligible balance for the corporate action and full and part way period units.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TotalEligibleBalanceFormat10
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TotalEligibleBalanceFormat10
     /// <summary>
     /// Provides information about balance related to a corporate action.
     /// </summary>
+    [DataMember]
     public Quantity49Choice_? Balance { get; init; } 
     /// <summary>
     /// Number of units of a fund that were purchased in a previous distribution period and/or held at the beginning of a distribution period, for example Group I Units in the UK.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat10? FullPeriodUnits { get; init; } 
     /// <summary>
     /// Number of units of a fund that were purchased part way throughout a distribution period, for example Group II Units in the U.K.
     /// </summary>
+    [DataMember]
     public SignedQuantityFormat10? PartWayPeriodUnits { get; init; } 
     
     #nullable disable

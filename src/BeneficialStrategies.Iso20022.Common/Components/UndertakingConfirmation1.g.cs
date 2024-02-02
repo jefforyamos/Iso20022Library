@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Confirmation information for the issued undertaking.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UndertakingConfirmation1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record UndertakingConfirmation1
     /// <summary>
     /// Party that adds its undertaking to honour the undertaking or amendment of the undertaking.
     /// </summary>
+    [DataMember]
     public required PartyIdentification43 Confirmer { get; init; } 
     /// <summary>
     /// Unique and unambiguous identifier assigned by the confirmer to the undertaking.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ReferenceNumber { get; init; } 
     /// <summary>
     /// Date and time when the undertaking or amendment of the undertaking was confirmed.
     /// </summary>
+    [DataMember]
     public required DateAndDateTimeChoice_ Date { get; init; } 
     /// <summary>
     /// Confirmation of the undertaking or amendment of the confirmed undertaking.
     /// </summary>
-    public IsoMax2000Text[] Confirmation { get; init; } = [];
+    [DataMember]
+    public ValueList<IsoMax2000Text> Confirmation { get; init; } = [];
     
     #nullable disable
 }

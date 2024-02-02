@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies elements related to the response sent by the clearing member to the central counterparty in the context of the buy in process.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BuyIn3
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record BuyIn3
     /// <summary>
     /// Indicates the reference of the BuyInNotification message.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text BuyInNotificationIdentification { get; init; } 
     /// <summary>
     /// Specific continuous net settlement case where the central counterparty can call for buy-in at a date anterior to "theoretical" buy-in date, the clearing member may request a delay.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator RequestForDelayIndicator { get; init; } 
     /// <summary>
     /// Number of days associated to the request for delay.
     /// </summary>
+    [DataMember]
     public required IsoNumber NumberOfDays { get; init; } 
     /// <summary>
     /// Buy in quantity called initially by the central counterparty.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ InitialQuantity { get; init; } 
     /// <summary>
     /// Quantity amount covered by the clearing member after notification.
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ CoveredQuantity { get; init; } 
     /// <summary>
     /// Quantity amount non covered by the clearing member after notification (this is, new buy in amount to be executed).
     /// </summary>
+    [DataMember]
     public required FinancialInstrumentQuantity1Choice_ UncoveredQuantity { get; init; } 
     
     #nullable disable

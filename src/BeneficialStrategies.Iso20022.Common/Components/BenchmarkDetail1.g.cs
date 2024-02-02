@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies further details of the benchmark.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record BenchmarkDetail1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record BenchmarkDetail1
     /// <summary>
     /// Full name of the benchmark.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text FullName { get; init; } 
     /// <summary>
     /// Index name of the benchmark.
     /// </summary>
+    [DataMember]
     public BenchmarkCurveName2Code? Index { get; init; } 
     /// <summary>
     /// Any other additional information about the benchmark.
     /// </summary>
+    [DataMember]
     public IsoMax20000Text? Comment { get; init; } 
     
     #nullable disable

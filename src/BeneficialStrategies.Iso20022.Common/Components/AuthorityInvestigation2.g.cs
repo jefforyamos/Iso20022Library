@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the requested authority investigation information details.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AuthorityInvestigation2
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record AuthorityInvestigation2
     /// <summary>
     /// Identifies the type requested information as a code.
     /// </summary>
+    [DataMember]
     public required AuthorityRequestType1 Type { get; init; } 
     /// <summary>
     /// Identifies the roles the customer plays in the requested information.
     /// </summary>
+    [DataMember]
     public required InvestigatedParties1Choice_ InvestigatedRoles { get; init; } 
     /// <summary>
     /// Specifies the additional investigated parties.
     /// </summary>
+    [DataMember]
     public InvestigatedParties1Choice_? AdditionalInvestigatedParties { get; init; } 
     /// <summary>
     /// Additional information, in free text form, to complement the requested information.
     /// </summary>
+    [DataMember]
     public IsoMax500Text? AdditionalInformation { get; init; } 
     
     #nullable disable

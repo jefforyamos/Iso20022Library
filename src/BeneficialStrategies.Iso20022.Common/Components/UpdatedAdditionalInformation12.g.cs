@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional information with update description and date.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record UpdatedAdditionalInformation12
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record UpdatedAdditionalInformation12
     /// <summary>
     /// Language used to provide additional information and using the ISO 639-1 language code standard.
     /// </summary>
+    [DataMember]
     public required ISO2ALanguageCode Language { get; init; } 
     /// <summary>
     /// Specifies the amendments made to the narrative since the last message.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? UpdateDescription { get; init; } 
     /// <summary>
     /// Specifies the date at which the narrative has been updated.
     /// </summary>
+    [DataMember]
     public IsoISODate? UpdateDate { get; init; } 
     /// <summary>
     /// Provides additional textual information.
     /// </summary>
+    [DataMember]
     public required IsoMax350Text AdditionalInformation { get; init; } 
     
     #nullable disable

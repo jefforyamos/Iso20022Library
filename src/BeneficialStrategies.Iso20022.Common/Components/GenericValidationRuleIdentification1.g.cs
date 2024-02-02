@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information for the identification of a validation rule.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericValidationRuleIdentification1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record GenericValidationRuleIdentification1
     /// <summary>
     /// Unique and unambiguous identification of a validation rule.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Further information on the validation rule as identified in the Identification.
     /// </summary>
+    [DataMember]
     public IsoMax350Text? Description { get; init; } 
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
+    [DataMember]
     public ValidationRuleSchemeName1Choice_? SchemeName { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Corporate action event cancellation status and reason.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionCancellation4
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CorporateActionCancellation4
     /// <summary>
     /// Specifies reasons for cancellation of a corporate action event.
     /// </summary>
+    [DataMember]
     public required CorporateActionCancellationReason1Code CancellationReasonCode { get; init; } 
     /// <summary>
     /// Additional information about cancellation of a corporate action event.
     /// </summary>
+    [DataMember]
     public IsoRestrictedFINXMax140Text? CancellationReason { get; init; } 
     /// <summary>
     /// Specifies the status of the details of the event.
     /// </summary>
+    [DataMember]
     public required CorporateActionEventStatus1 ProcessingStatus { get; init; } 
     
     #nullable disable

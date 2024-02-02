@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides details for a trade state report.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeStateReport9
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record TradeStateReport9
     /// <summary>
     /// Unique identifier of a record in a message used as part of error management and status advice message.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? TechnicalRecordIdentification { get; init; } 
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
+    [DataMember]
     public required CounterpartyData76 CounterpartyData { get; init; } 
     /// <summary>
     /// Details of the loan used for financing the transaction.
     /// </summary>
+    [DataMember]
     public TransactionLoanData20Choice_? LoanData { get; init; } 
     /// <summary>
     /// Information on collateral used in the transaction.
     /// </summary>
+    [DataMember]
     public TransactionCollateralData15Choice_? CollateralData { get; init; } 
     /// <summary>
     /// List of possible values for TRs reconciliation purposes.
     /// </summary>
+    [DataMember]
     public ReconciliationFlag1? ReconciliationFlag { get; init; } 
     /// <summary>
     /// Contract modification details expressed as an action type and a reporting level type.
     /// </summary>
+    [DataMember]
     public required ContractModification2 ContractModification { get; init; } 
     /// <summary>
     /// Additional information that can not be captured in the structured fields and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

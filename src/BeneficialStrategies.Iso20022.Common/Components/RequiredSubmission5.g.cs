@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the details relative to the submission of the certificate data set.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record RequiredSubmission5
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record RequiredSubmission5
     /// <summary>
     /// Specifies with party(ies) is authorised to submit the data set as part of the transaction.
     /// </summary>
-    public BICIdentification1[] Submitter { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<BICIdentification1> Submitter { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Specifies the type of the certificate.
     /// </summary>
+    [DataMember]
     public required TradeCertificateType2Code CertificateType { get; init; } 
     
     #nullable disable

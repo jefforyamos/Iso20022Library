@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Type of product and assets to be transferred.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ISATransfer29
 {
     #nullable enable
@@ -20,47 +22,58 @@ public partial record ISATransfer29
     /// <summary>
     /// Unique and unambiguous identifier for a group of individual transfers as assigned by the instructing party. This identifier links the individual transfers together.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? MasterReference { get; init; } 
     /// <summary>
     /// Identification assigned to the transfer of assets.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransferIdentification { get; init; } 
     /// <summary>
     /// Identification of the confirmation assigned by the transferor to the transfer.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? TransferConfirmationIdentification { get; init; } 
     /// <summary>
     /// Unique and unambiguous investor's identification of the transfer. This reference can typically be used in a hub scenario to give the reference of the transfer as assigned by the underlying client.
     /// </summary>
+    [DataMember]
     public AdditionalReference8? ClientReference { get; init; } 
     /// <summary>
     /// Unambiguous identification of the transfer allocated by the counterparty.
     /// </summary>
+    [DataMember]
     public AdditionalReference8? CounterpartyReference { get; init; } 
     /// <summary>
     /// Identifies the business process in which the actors are involved. This is important to trigger the right business process, according to the market business model, which may require matching instructions in a CSD environment (double leg process) or not (single leg process).
     /// </summary>
+    [DataMember]
     public BusinessFlowType1Code? BusinessFlowType { get; init; } 
     /// <summary>
     /// Date for which the instructing party requests the transfer.
     /// </summary>
+    [DataMember]
     public DateFormat1Choice_? RequestedTransferDate { get; init; } 
     /// <summary>
     /// Specifies portfolio information or government schemes, for example Individual Savings Account (ISA) in the UK.
     /// </summary>
+    [DataMember]
     public ISAPortfolio1Choice_? Portfolio { get; init; } 
     /// <summary>
     /// Specifies what must be done with cash in the account that is awaiting investment.
     /// </summary>
+    [DataMember]
     public ResidualCash1Code? ResidualCash { get; init; } 
     /// <summary>
     /// Specifies whether all remaining assets in a portfolio not listed for transfer should be liquidated and transferred as cash.
     /// </summary>
+    [DataMember]
     public AllOtherCash1Code? AllOtherCash { get; init; } 
     /// <summary>
     /// Specifies the underlying assets for the ISA or portfolio.
     /// </summary>
-    public FinancialInstrument60[] FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<FinancialInstrument60> FinancialInstrumentAssetForTransfer { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

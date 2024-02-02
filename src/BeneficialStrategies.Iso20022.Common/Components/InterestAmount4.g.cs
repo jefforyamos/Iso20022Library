@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the elements related to the interest amount calculation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InterestAmount4
 {
     #nullable enable
@@ -20,66 +22,82 @@ public partial record InterestAmount4
     /// <summary>
     /// Indicates whether the interest request is new or updated.
     /// </summary>
+    [DataMember]
     public required InterestRequestSequence1Code InterestRequestSequence { get; init; } 
     /// <summary>
     /// Period for which the calculation has been performed.
     /// </summary>
+    [DataMember]
     public required DatePeriod2 InterestPeriod { get; init; } 
     /// <summary>
     /// Amount of money representing an interest payment.
     /// </summary>
+    [DataMember]
     public required IsoActiveCurrencyAndAmount AccruedInterestAmount { get; init; } 
     /// <summary>
     /// Agreed date for the interest payment.
     /// </summary>
+    [DataMember]
     public required IsoISODate ValueDate { get; init; } 
     /// <summary>
     /// Indicates whether the interest will be settled in cash or rolled in the existing collateral balance.
     /// </summary>
+    [DataMember]
     public required InterestMethod1Code InterestMethod { get; init; } 
     /// <summary>
     /// Percentage charged for the use of an amount of money, usually expressed at an annual rate. The interest rate is the ratio of the amount of interest paid during a certain period of time compared to the principal amount of the interest bearing financial instrument.
     /// </summary>
+    [DataMember]
     public InterestRate1Choice_? InterestRate { get; init; } 
     /// <summary>
     /// Specifies the computation method of (accrued) interest of the security.
     /// </summary>
+    [DataMember]
     public InterestComputationMethod2Code? DayCountBasis { get; init; } 
     /// <summary>
     /// Amount or percentage of a cash distribution that will be withheld by a tax authority.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? AppliedWithholdingTax { get; init; } 
     /// <summary>
     /// Specifies whether the interest is simple or compounded.
     /// </summary>
+    [DataMember]
     public CalculationMethod1Code? CalculationMethod { get; init; } 
     /// <summary>
     /// Specifies the periodicity of the calculation of the interest.
     /// </summary>
+    [DataMember]
     public Frequency1Code? CalculationFrequency { get; init; } 
     /// <summary>
     /// Specifies whether the collateral has been posted against the variation margin, the segregated independent amount or to cover any other risk defined with a proprietary code.
     /// </summary>
+    [DataMember]
     public required CollateralPurpose1Choice_ CollateralPurpose { get; init; } 
     /// <summary>
     /// Provides details about the opening collateral balance.
     /// </summary>
+    [DataMember]
     public CollateralBalance1? OpeningCollateralBalance { get; init; } 
     /// <summary>
     /// Provides details about the closing collateral balance.
     /// </summary>
+    [DataMember]
     public required CollateralBalance1 ClosingCollateralBalance { get; init; } 
     /// <summary>
     /// Identifies the standard settlement instructions.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? StandardSettlementInstructions { get; init; } 
     /// <summary>
     /// Additionnal information related to interest request.
     /// </summary>
+    [DataMember]
     public IsoMax210Text? AdditionalInformation { get; init; } 
     /// <summary>
     /// Additional references linked to the updated interest payement request.
     /// </summary>
+    [DataMember]
     public Reference20? ReferenceDetails { get; init; } 
     
     #nullable disable

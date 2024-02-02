@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Set of elements that further identifies the type of local instruments being requested by the initiating party.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LocalInstrument1
 {
     #nullable enable
@@ -20,6 +22,7 @@ public partial record LocalInstrument1
     /// <summary>
     /// Specifies the local instrument published in an external local instrument code list - restricted to B2B or CORE within SEPA.
     /// </summary>
+    [DataMember]
     public required IsoRestrictedB2BCORECodeText Code { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Party and related authorisation.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PartyAndAuthorisation3
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record PartyAndAuthorisation3
     /// <summary>
     /// Specifies the type of change.
     /// </summary>
+    [DataMember]
     public Modification1Code? ModificationCode { get; init; } 
     /// <summary>
     /// Specifies a party or a group of parties.
     /// </summary>
+    [DataMember]
     public required PartyOrGroup1Choice_ PartyOrGroup { get; init; } 
     /// <summary>
     /// Order in which the mandate holder has to sign.
     /// </summary>
+    [DataMember]
     public IsoMax15PlusSignedNumericText? SignatureOrder { get; init; } 
     /// <summary>
     /// Authorisation granted to a mandate holder.
     /// </summary>
+    [DataMember]
     public required Authorisation2 Authorisation { get; init; } 
     
     #nullable disable

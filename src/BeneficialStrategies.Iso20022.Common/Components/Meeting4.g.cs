@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies the physical parameters of a shareholders meeting. Several dates and places can be defined for a meeting.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Meeting4
 {
     #nullable enable
@@ -20,22 +22,27 @@ public partial record Meeting4
     /// <summary>
     /// Date and time at which the meeting will take place.
     /// </summary>
+    [DataMember]
     public required DateFormat29Choice_ DateAndTime { get; init; } 
     /// <summary>
     /// Indicates the status of the meeting date.
     /// </summary>
+    [DataMember]
     public MeetingDateStatus1Code? DateStatus { get; init; } 
     /// <summary>
     /// Specifies whether a minimum number of security representation is required to hold a meeting.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator QuorumRequired { get; init; } 
     /// <summary>
     /// Specifies the location where meeting will take place.
     /// </summary>
-    public LocationFormat1Choice_[] Location { get; init; } = [];
+    [DataMember]
+    public ValueList<LocationFormat1Choice_> Location { get; init; } = [];
     /// <summary>
     /// Minimum quantity of securities required to hold a meeting.
     /// </summary>
+    [DataMember]
     public QuorumQuantity1Choice_? QuorumQuantity { get; init; } 
     
     #nullable disable

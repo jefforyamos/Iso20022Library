@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Means by which a payment will be or has been made for settlement purposes.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PaymentMeans1
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record PaymentMeans1
     /// <summary>
     /// Type, or nature, of the payment, eg, express payment.
     /// </summary>
+    [DataMember]
     public required PaymentTypeInformation19 PaymentType { get; init; } 
     /// <summary>
     /// Transfer method to be used for the transfer.
     /// </summary>
+    [DataMember]
     public required PaymentMethod4Code PaymentMethodCode { get; init; } 
     /// <summary>
     /// Creditor financial account of the payee party for this payment means.
     /// </summary>
+    [DataMember]
     public required CashAccount16 PayeeCreditorAccount { get; init; } 
     /// <summary>
     /// Creditor financial institution of the payee party specified for this payment means.
     /// </summary>
+    [DataMember]
     public required BranchAndFinancialInstitutionIdentification4 PayeeFinancialInstitution { get; init; } 
     /// <summary>
     /// Debtor financial account of the payer party for this payment means.
     /// </summary>
+    [DataMember]
     public CashAccount16? PayerDebtorAccount { get; init; } 
     /// <summary>
     /// Debtor financial institution of the payer party specified for this payment means.
     /// </summary>
+    [DataMember]
     public BranchAndFinancialInstitutionIdentification4? PayerFinancialInstitution { get; init; } 
     
     #nullable disable

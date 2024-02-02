@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the status details about the collateral substitution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CollateralConfirmation1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CollateralConfirmation1
     /// <summary>
     /// Reference to the collateral substitution request identification.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text CollateralSubstitutionRequestIdentification { get; init; } 
     /// <summary>
     /// Reference to the collateral substitution response identification.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? CollateralSubstitutionResponseIdentification { get; init; } 
     /// <summary>
     /// Provides details about the status of the collateral substitution, either released or returned.
     /// </summary>
+    [DataMember]
     public required CollateralSubstitutionConfirmation1Code ConfirmationType { get; init; } 
     /// <summary>
     /// Allows to provides additional comments on the collateral substitution status.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? Comment { get; init; } 
     
     #nullable disable

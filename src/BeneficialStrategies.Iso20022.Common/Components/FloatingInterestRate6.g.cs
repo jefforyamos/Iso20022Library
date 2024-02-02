@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides the index used to define the rate and the basis point spread.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FloatingInterestRate6
 {
     #nullable enable
@@ -20,16 +22,19 @@ public partial record FloatingInterestRate6
     /// <summary>
     /// Identifies the reference index for the debt instrument.
     /// </summary>
+    [DataMember]
     public required BenchmarkCurveName6Choice_ ReferenceRate { get; init; } 
     /// <summary>
     /// Term of the index/benchmark of a floating rate bond. The term shall be expressed in days, weeks, months or years.
     /// </summary>
+    [DataMember]
     public required InterestRateContractTerm2 Term { get; init; } 
     /// <summary>
     /// Number of basis points above (if positive) or below (if negative) the underlying reference rate to calculate the actual interest rate applicable for a given period at issuance of the floating rate instrument.
     /// Usage:
     /// Used to express differences in interest rates, for example, a difference of 0.10% is equivalent to a change of 10 basis points.
     /// </summary>
+    [DataMember]
     public required IsoMax5Number BasisPointSpread { get; init; } 
     
     #nullable disable

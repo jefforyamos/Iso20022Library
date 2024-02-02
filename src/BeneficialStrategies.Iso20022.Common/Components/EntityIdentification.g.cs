@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of a business entity, eg, corporate or financial institution.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record EntityIdentification
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record EntityIdentification
     /// <summary>
     /// Type of identification, eg, BIC or URI.
     /// </summary>
+    [DataMember]
     public required IsoMax4Text Type { get; init; } 
     /// <summary>
     /// Actual identification of the entity.
     /// </summary>
+    [DataMember]
     public required IsoMax30Text EntityIdentifier { get; init; } 
     
     #nullable disable

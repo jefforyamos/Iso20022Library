@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of collateral agreement between counterparties.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TradeCollateralReport5
 {
     #nullable enable
@@ -22,10 +24,12 @@ public partial record TradeCollateralReport5
     /// Usage:
     /// NoCode is reported if the collateralisation was performed on a transaction level basis, or if there is no collateral agreement or if no collateral is posted or received.
     /// </summary>
+    [DataMember]
     public required PortfolioCode1Choice_ PortfolioCode { get; init; } 
     /// <summary>
     /// Indicates the type of collateral agreement existing between the counterparties.
     /// </summary>
+    [DataMember]
     public CollateralisationType2Code? Collateralisation { get; init; } 
     /// <summary>
     /// Specifies the pre-haircut or post-haircut monetary value of the initial margin posted by the reporting counterparty.
@@ -34,18 +38,21 @@ public partial record TradeCollateralReport5
     /// If the initial margin posted is denominated in more than one currency, those amounts are converted into a single currency chosen by the reporting counterparty and reported as one total value.|
     /// ||
     /// </summary>
+    [DataMember]
     public PrePostHaircut1? InitialMarginPosted { get; init; } 
     /// <summary>
     /// Specifies the pre-haircut or post-haircut monetary value of the initial margin collected by the reporting counterparty.
     /// ||Usage: |Where initial margin is collected on a portfolio basis, this field should include the total value of initial margin collected for the portfolio.
     /// If the initial margin collected is denominated in more than one currency, those amounts are converted into a single currency chosen by the reporting counterparty and reported as one total value.
     /// </summary>
+    [DataMember]
     public PrePostHaircut1? InitialMarginReceived { get; init; } 
     /// <summary>
     /// Specifies the pre-haircut or post-haircut monetary value of the variation margin posted, including cash settled, by the reporting counterparty. 
     /// Usage: Where variation margin is posted on a portfolio basis, this field should include the overall value of variation margin posted for the portfolio.
     /// If the variation margin posted is denominated in more than one currency, those amounts are converted into a single currency chosen by the reporting counterparty and reported as one total value.
     /// </summary>
+    [DataMember]
     public PrePostHaircut1? VariationMarginPosted { get; init; } 
     /// <summary>
     /// Specifies the pre-haircut or post-haircut monetary value of the variation margin collected, including cash-settled, by the reporting counterparty.
@@ -53,27 +60,32 @@ public partial record TradeCollateralReport5
     /// Where variation margin is received on a portfolio basis, this field should include the overall value of variation margin received for the portfolio.
     /// If the variation margin collected is denominated in more than one currency, those amounts are converted into a single currency chosen by the reporting counterparty and reported as one total value.
     /// </summary>
+    [DataMember]
     public PrePostHaircut1? VariationMarginReceived { get; init; } 
     /// <summary>
     /// Specifies the monetary value of additional collateral posted by the reporting counterparty in excess of the required collateral.
     /// |
     /// Usage: Where excess collateral is posted on a portfolio basis, this field should include the overall value of excess collateral posted for the portfolio.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? ExcessCollateralPosted { get; init; } 
     /// <summary>
     /// Specifies the monetary value of additional collateral received by the reporting counterparty in excess of the required collateral.
     /// Usage: Where excess collateral is received on a portfolio basis, this field should include the overall value of excess collateral collected for the portfolio.
     /// </summary>
+    [DataMember]
     public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? ExcessCollateralReceived { get; init; } 
     /// <summary>
     /// Indicates if a counterparty rating trigger is agreed by the counterparties for the collateral posted by the reporting counterparty.
     /// Usage: If the element is not present, the CounterpartyRatingTrigger is False.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CounterpartyRatingTriggerIndicator { get; init; } 
     /// <summary>
     /// Indicates if a counterparty rating trigger includes a threshold that increases collateral requirements when the counterparty falls below the single-A rating or equivalent.
     /// Usage: If the CounterpartyRatingTrigger indicator is false, this element is omitted.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CounterpartyRatingThresholdIndicator { get; init; } 
     
     #nullable disable

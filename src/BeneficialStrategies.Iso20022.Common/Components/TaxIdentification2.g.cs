@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Tax identification information.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TaxIdentification2
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record TaxIdentification2
     /// <summary>
     /// Tax identification number or identifier.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Type of tax identification number or identifier.
     /// </summary>
+    [DataMember]
     public required TaxIdentificationType1Choice_ TaxIdentificationType { get; init; } 
     /// <summary>
     /// Entity that assigns the identifier.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
     /// <summary>
     /// Date at which the identification was issued.
     /// </summary>
+    [DataMember]
     public IsoISODate? IssueDate { get; init; } 
     /// <summary>
     /// Date at which the identification expires.
     /// </summary>
+    [DataMember]
     public IsoISODate? ExpiryDate { get; init; } 
     /// <summary>
     /// Country that issued the tax identification.
     /// </summary>
+    [DataMember]
     public required CountryCode IssuerCountry { get; init; } 
     
     #nullable disable

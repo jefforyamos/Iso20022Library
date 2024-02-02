@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the cancellation of a notification advice or the withdrawal of a CA event.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record NotificationCancellation1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record NotificationCancellation1
     /// <summary>
     /// The function of the notification e.g. new notification.
     /// </summary>
+    [DataMember]
     public required CorporateActionNotificationType2Code NotificationCancellationType { get; init; } 
     /// <summary>
     /// The identification of the linked notification advice.
     /// </summary>
+    [DataMember]
     public required DocumentIdentification8 LinkedAgentCANotificationAdviceIdentification { get; init; } 
     
     #nullable disable

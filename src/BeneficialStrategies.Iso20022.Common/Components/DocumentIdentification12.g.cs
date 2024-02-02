@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about identification of the document.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentIdentification12
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record DocumentIdentification12
     /// <summary>
     /// Unique identifier of the document (message) assigned by the sender of the document.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Identification { get; init; } 
     /// <summary>
     /// Date and time at which the document (message) was created by the sender.
     /// </summary>
+    [DataMember]
     public DateAndDateTimeChoice_? CreationDateTime { get; init; } 
     /// <summary>
     /// Specifies if this document is a copy, a duplicate, or a duplicate of a copy.
     /// </summary>
+    [DataMember]
     public CopyDuplicate1Code? CopyDuplicate { get; init; } 
     /// <summary>
     /// When used in a corporate action instruction, indicates that the current instruction is replacing a previous one that was cancelled earlier. When used in a corporate action instruction cancellation request, indicates that cancelled instruction will be replaced by a new corporate action instruction to be sent later.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ChangeInstructionIndicator { get; init; } 
     
     #nullable disable

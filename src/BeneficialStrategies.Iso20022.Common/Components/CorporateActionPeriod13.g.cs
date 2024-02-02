@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Specifies periods.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionPeriod13
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record CorporateActionPeriod13
     /// <summary>
     /// Period during which the price of a security is determined.
     /// </summary>
+    [DataMember]
     public Period11? PriceCalculationPeriod { get; init; } 
     /// <summary>
     /// Period during which the specified option, or all options of the event, remains valid, for example, offer period.
     /// </summary>
+    [DataMember]
     public Period11? ActionPeriod { get; init; } 
     /// <summary>
     /// Period during which both old and new equity may be traded simultaneously, for example, consolidation of equity or splitting of equity.
     /// </summary>
+    [DataMember]
     public Period11? ParallelTradingPeriod { get; init; } 
     
     #nullable disable

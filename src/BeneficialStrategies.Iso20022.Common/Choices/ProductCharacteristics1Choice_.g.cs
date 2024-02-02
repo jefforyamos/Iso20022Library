@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ProductCharacteristics1Choice.StructuredProductCharacteristics))]
 [KnownType(typeof(ProductCharacteristics1Choice.OtherProductCharacteristics))]
+[DataContract]
 public abstract partial record ProductCharacteristics1Choice_
 {
 }

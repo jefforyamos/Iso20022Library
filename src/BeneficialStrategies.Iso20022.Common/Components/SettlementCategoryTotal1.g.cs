@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Settlement totals
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record SettlementCategoryTotal1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record SettlementCategoryTotal1
     /// <summary>
     /// Number of transactions.
     /// </summary>
+    [DataMember]
     public IsoNumber? Count { get; init; } 
     /// <summary>
     /// Gross amount.
     /// </summary>
+    [DataMember]
     public required Amount14 Amount { get; init; } 
     /// <summary>
     /// Interchange fee amount.
     /// </summary>
+    [DataMember]
     public Amount14? InterchangeFee { get; init; } 
     /// <summary>
     /// Processing fee.
     /// </summary>
+    [DataMember]
     public Amount14? ProcessingFee { get; init; } 
     
     #nullable disable

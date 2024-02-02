@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information related to the payment transaction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Transaction66
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record Transaction66
     /// <summary>
     /// Destination of the payment (be it a member or a system or both).
     /// </summary>
+    [DataMember]
     public System2? PaymentTo { get; init; } 
     /// <summary>
     /// Origin of the payment (be it a member or a system or both).
     /// </summary>
+    [DataMember]
     public System2? PaymentFrom { get; init; } 
     /// <summary>
     /// Indicates whether the payment transaction is a debit or credit transaction. |.
     /// </summary>
+    [DataMember]
     public CreditDebitCode? CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Instruction to pay an amount of money to an ultimate beneficiary, on behalf of an originator. This instruction may have to be forwarded several times to complete the settlement chain.|.
     /// </summary>
+    [DataMember]
     public PaymentInstruction32? Payment { get; init; } 
     /// <summary>
     /// Posting of an item to a cash account, in the context of a cash transaction, that results in an increase or decrease to the balance of the account.
     /// </summary>
+    [DataMember]
     public CashAccountAndEntry3? AccountEntry { get; init; } 
     /// <summary>
     /// Provides the references of the underlying securities transaction.
     /// </summary>
+    [DataMember]
     public SecuritiesTransactionReferences1? SecuritiesTransactionReferences { get; init; } 
     
     #nullable disable

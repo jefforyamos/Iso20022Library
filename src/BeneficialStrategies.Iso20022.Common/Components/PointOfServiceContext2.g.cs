@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Context of the transaction at the point of service.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record PointOfServiceContext2
 {
     #nullable enable
@@ -23,6 +25,7 @@ public partial record PointOfServiceContext2
     /// False: Card physically absent during the transaction.
     /// ISO 8583:87 bit 25, ISO 8583:93 bit 22-6.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CardPresent { get; init; } 
     /// <summary>
     /// Indicates whether the transaction has been initiated in presence of the cardholder or not.
@@ -30,6 +33,7 @@ public partial record PointOfServiceContext2
     /// False: Cardholder absent during the transaction.
     /// ISO 8583:87 bit 25, ISO 8583:93 bit 22-5
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CardholderPresent { get; init; } 
     /// <summary>
     /// Indicates whether the automated device was operated solely by the cardholder or not (for example, vending machine, automated fuel dispenser, ATM, kiosk, etc.).
@@ -37,12 +41,14 @@ public partial record PointOfServiceContext2
     /// False: Device not operated solely by the cardholder.
     /// ISO 8583:2003 bit 22-3
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? CardholderActivated { get; init; } 
     /// <summary>
     /// Transaction initiated through a transponder or not.
     /// True: Transaction initiated through a transponder.
     /// False: Transaction not initiated through a transponder.
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? TransponderInitiated { get; init; } 
     /// <summary>
     /// Card acceptor representative in attendance at the point of service during the transaction. When an acceptor’s terminal is semi-attended (for example, multiple terminals supervised by a single clerk), it will be identified as ‘attended’.
@@ -50,10 +56,12 @@ public partial record PointOfServiceContext2
     /// False: Non-attended transaction at the terminal
     /// ISO 8583:87 bit 25, ISO 8583:93 bit 22-4
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? AttendedIndicator { get; init; } 
     /// <summary>
     /// Transaction category level on an unattended terminal.
     /// </summary>
+    [DataMember]
     public IsoMax35NumericText? UnattendedLevelCategory { get; init; } 
     /// <summary>
     /// Indicates whether the point of service is an e-commerce one or not.
@@ -62,11 +70,13 @@ public partial record PointOfServiceContext2
     /// Default: False
     /// ISO 8583:2003 bit 22-3
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? ECommerceIndicator { get; init; } 
     /// <summary>
     /// Contains electronic commerce data. 
     /// </summary>
-    public ECommerceData1[] ECommerceData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ECommerceData1> ECommerceData { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Indicates whether the context of the point of service is a MOTO one or not.
     /// True: MOTO 
@@ -76,45 +86,54 @@ public partial record PointOfServiceContext2
     /// ISO 8583:2003 bit 22-5
     /// ISO 8583:2003 bit 22-3
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? MOTOIndicator { get; init; } 
     /// <summary>
     /// Indicates whether the point of service supports partial approval or not.
     /// True: partial approval is supported
     /// False: partial approval is not supported
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? PartialApprovalSupported { get; init; } 
     /// <summary>
     /// Indicates whether the authorisation was delayed due to an on-board initiated transaction.
     /// True: The authorisation was delayed
     /// False: The authorisation was not delayed
     /// </summary>
+    [DataMember]
     public IsoTrueFalseIndicator? DelayedAuthorisationIndicator { get; init; } 
     /// <summary>
     /// Security characteristics of the communication link in the card acceptance process.
     /// ISO 8583:2003 bit 22-4
     /// </summary>
-    public SecurityCharacteristics1Code[] SecurityCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SecurityCharacteristics1Code> SecurityCharacteristics { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Other security characteristics.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherSecurityCharacteristics { get; init; } 
     /// <summary>
     /// Entry mode of the card data for the transaction.
     /// ISO 8583:87 bit 22 (1-2), ISO 8583:93 bit 22-7, ISO 8583:2003 bit 22-1
     /// </summary>
+    [DataMember]
     public CardDataReading7Code? CardDataEntryMode { get; init; } 
     /// <summary>
     /// Other type of card data entry mode.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OtherCardDataEntryMode { get; init; } 
     /// <summary>
     /// Storage location of payment credential (for example, Acceptor or third party wallet).
     /// </summary>
+    [DataMember]
     public IsoMax35Text? StorageLocation { get; init; } 
     /// <summary>
     /// Data used to assign specific conditions at the card acceptor location and decided by bilateral agreements.
     /// </summary>
-    public SpecialConditions1[] SpecialConditions { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SpecialConditions1> SpecialConditions { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

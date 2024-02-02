@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Valuation details for the cash position.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ValuationsDetails2
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record ValuationsDetails2
     /// <summary>
     /// Securities collateral position valuation amounts.
     /// </summary>
-    public CollateralAmount9[] ValuationDetailsAmount { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<CollateralAmount9> ValuationDetailsAmount { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Haircut or margin on the security  expressed as a percentage.
     /// </summary>
+    [DataMember]
     public required IsoBaseOneRate Haircut { get; init; } 
     
     #nullable disable

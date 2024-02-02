@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(PaymentIdentification6Choice.LongBusinessIdentification))]
 [KnownType(typeof(PaymentIdentification6Choice.ShortBusinessIdentification))]
 [KnownType(typeof(PaymentIdentification6Choice.ProprietaryIdentification))]
+[DataContract]
 public abstract partial record PaymentIdentification6Choice_
 {
 }

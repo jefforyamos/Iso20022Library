@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides narrative information about an event and the language in which it is specified.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record LanguageSpecifiedNarrative1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record LanguageSpecifiedNarrative1
     /// <summary>
     /// Language used to provide additional information and using the ISO 639-1 language code standard.
     /// </summary>
+    [DataMember]
     public required ISO2ALanguageCode Language { get; init; } 
     /// <summary>
     /// Provides additional textual information in the specified language.
     /// </summary>
+    [DataMember]
     public required IsoMax8000Text AdditionalInformation { get; init; } 
     
     #nullable disable

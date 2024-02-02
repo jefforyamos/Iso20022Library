@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parties related to an investment fund.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FundParties1
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record FundParties1
     /// <summary>
     /// Guarantor of the financial instrument. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00080.
     /// </summary>
+    [DataMember]
     public ContactAttributes5? Guarantor { get; init; } 
     /// <summary>
     /// Party that regularly monitors compliance with the legal regulations.
     /// </summary>
+    [DataMember]
     public ContactAttributes5? Auditor { get; init; } 
     /// <summary>
     /// Legal owner of the financial instrument. However, the beneficiary has the equitable or beneficial ownership.
     /// </summary>
+    [DataMember]
     public ContactAttributes5? Trustee { get; init; } 
     /// <summary>
     /// Other type of party.
     /// </summary>
-    public ExtendedParty13[] OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ExtendedParty13> OtherParty { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

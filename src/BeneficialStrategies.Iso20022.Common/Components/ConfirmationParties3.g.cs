@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Parties used for acting parties that apply either to the whole message or to individual sides.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ConfirmationParties3
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record ConfirmationParties3
     /// <summary>
     /// Party (buyer or seller) that positively affirms the details of a previously agreed security trade confirmation.
     /// </summary>
+    [DataMember]
     public required ConfirmationPartyDetails4 AffirmingParty { get; init; } 
     /// <summary>
     /// Party that buys goods or services, or a financial instrument.
     /// </summary>
+    [DataMember]
     public ConfirmationPartyDetails2? Buyer { get; init; } 
     /// <summary>
     /// Party that has applied, met specific requirements, and received a monetary or securities loan from a lender. The party initiating the request signs a promissory note agreeing to pay the lien holder back during a specified timeframe for the entire loan amount plus any additional fees. The borrower is legally responsible for repayment of the loan and is subject to any penalties for not repaying the loan back based on the lending terms agreed upon.
     /// </summary>
+    [DataMember]
     public ConfirmationPartyDetails2? Borrower { get; init; } 
     /// <summary>
     /// Party that sells goods or services, or a financial instrument.
     /// </summary>
+    [DataMember]
     public ConfirmationPartyDetails2? Seller { get; init; } 
     /// <summary>
     /// A private, public or institutional entity which makes funds available to others to borrow.
     /// </summary>
+    [DataMember]
     public ConfirmationPartyDetails2? Lender { get; init; } 
     /// <summary>
     /// Party involved in a legal proceeding, agreement, or other transaction.
     /// </summary>
+    [DataMember]
     public ConfirmationPartyDetails3? TradeBeneficiaryParty { get; init; } 
     
     #nullable disable

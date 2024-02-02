@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Balance expressed with a data source scheme.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record GenericIdentification6
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record GenericIdentification6
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
+    [DataMember]
     public required IsoMax8Text Issuer { get; init; } 
     /// <summary>
     /// Proprietary information, often a code, issued by the data source scheme issuer.
     /// </summary>
+    [DataMember]
     public required IsoExact4AlphaNumericText Information { get; init; } 
     /// <summary>
     /// Value of the balance.
     /// </summary>
+    [DataMember]
     public required IsoNumber Balance { get; init; } 
     
     #nullable disable

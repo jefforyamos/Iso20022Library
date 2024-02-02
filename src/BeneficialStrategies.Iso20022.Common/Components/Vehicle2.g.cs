@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Additional information related to a vehicle.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Vehicle2
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record Vehicle2
     /// <summary>
     /// Type of information related to the vehicle.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? Type { get; init; } 
     /// <summary>
     /// Entry mode of the information.
     /// </summary>
+    [DataMember]
     public CardDataReading5Code? EntryMode { get; init; } 
     /// <summary>
     /// Information related to the vehicle.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text Data { get; init; } 
     
     #nullable disable

@@ -14,6 +14,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 [KnownType(typeof(PartyIdentification182Choice.NameAndAddress))]
 [KnownType(typeof(PartyIdentification182Choice.TaxIdentificationNumber))]
 [KnownType(typeof(PartyIdentification182Choice.NationalRegistrationNumber))]
+[DataContract]
 public abstract partial record PartyIdentification182Choice_
 {
 }

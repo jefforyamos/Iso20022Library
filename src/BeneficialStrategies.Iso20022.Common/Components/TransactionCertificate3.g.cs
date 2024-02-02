@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Certificate against which all currency control transactions are registered.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TransactionCertificate3
 {
     #nullable enable
@@ -20,31 +22,38 @@ public partial record TransactionCertificate3
     /// <summary>
     /// Unique and unambiguous identification of the transaction.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text TransactionIdentification { get; init; } 
     /// <summary>
     /// Reference of the transaction certificate.
     /// </summary>
+    [DataMember]
     public required DocumentIdentification28 Certificate { get; init; } 
     /// <summary>
     /// Cash account, linked to the registered contract, on which the cash entry is made.
     /// </summary>
+    [DataMember]
     public CashAccount38? Account { get; init; } 
     /// <summary>
     /// Country in which the bank account is located, when the bank which services the account is located in another country.
     /// </summary>
+    [DataMember]
     public CountryCode? BankAccountDomiciliationCountry { get; init; } 
     /// <summary>
     /// Amendment indicator details.
     /// </summary>
+    [DataMember]
     public DocumentAmendment1? Amendment { get; init; } 
     /// <summary>
     /// Record of the transaction certificate.
     /// </summary>
-    public TransactionCertificateRecord1[] CertificateRecord { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<TransactionCertificateRecord1> CertificateRecord { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Additional information that cannot be captured in the structured elements and/or any other specific block.
     /// </summary>
-    public SupplementaryData1[] SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<SupplementaryData1> SupplementaryData { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

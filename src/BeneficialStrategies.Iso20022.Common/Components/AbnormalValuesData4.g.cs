@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Detailed information about derivatives that were received on the day of generation of the report with action type ‘New’, ‘Position component’, ‘Modification’ or ‘Correction’ whose notional amount is greater than a threshold for that class of derivatives.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record AbnormalValuesData4
 {
     #nullable enable
@@ -20,19 +22,23 @@ public partial record AbnormalValuesData4
     /// <summary>
     /// Data specific to counterparties and related fields.
     /// </summary>
+    [DataMember]
     public required CounterpartyData92 CounterpartyIdentification { get; init; } 
     /// <summary>
     /// Number of reported derivatives.
     /// </summary>
+    [DataMember]
     public required IsoNumber NumberOfDerivativesReported { get; init; } 
     /// <summary>
     /// Number of reported derivatives with outliers.
     /// </summary>
+    [DataMember]
     public required IsoNumber NumberOfDerivativesReportedWithOutliers { get; init; } 
     /// <summary>
     /// Details on abnormal values per transaction.
     /// </summary>
-    public AbnormalValuesTransactionData2[] TransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AbnormalValuesTransactionData2> TransactionDetails { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

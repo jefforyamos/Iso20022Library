@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Details of the document entry amendment.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record DocumentEntryAmendment1
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record DocumentEntryAmendment1
     /// <summary>
     /// Number of correcting entry.
     /// </summary>
+    [DataMember]
     public required IsoNumber CorrectingEntryNumber { get; init; } 
     /// <summary>
     /// Data related to an original document.
     /// </summary>
+    [DataMember]
     public required DocumentIdentification28 OriginalDocument { get; init; } 
     
     #nullable disable

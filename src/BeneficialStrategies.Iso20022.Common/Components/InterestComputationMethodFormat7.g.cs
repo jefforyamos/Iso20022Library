@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Choice between a standard code or proprietary code to specify the type of interest computation method.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record InterestComputationMethodFormat7
 {
     #nullable enable
@@ -20,10 +22,12 @@ public partial record InterestComputationMethodFormat7
     /// <summary>
     /// Standard code to specify the method used to compute accruing interest of a financial instrument.
     /// </summary>
+    [DataMember]
     public required InterestComputationMethod4Code Code { get; init; } 
     /// <summary>
     /// The computation method can not be represented in the predefined fields.
     /// </summary>
+    [DataMember]
     public IsoMax1000Text? Narrative { get; init; } 
     
     #nullable disable

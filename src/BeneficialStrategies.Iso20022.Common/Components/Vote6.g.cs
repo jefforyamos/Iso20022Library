@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Decision of the voting party for one resolution. Several types of decisions can be indicated to allow for split vote specification.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Vote6
 {
     #nullable enable
@@ -20,54 +22,67 @@ public partial record Vote6
     /// <summary>
     /// Numbering of the resolution as specified by the issuer or its agent.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text IssuerLabel { get; init; } 
     /// <summary>
     /// Number of votes in favour of one resolution.
     /// </summary>
+    [DataMember]
     public IsoNumber? For { get; init; } 
     /// <summary>
     /// Number of votes against one resolution.
     /// </summary>
+    [DataMember]
     public IsoNumber? Against { get; init; } 
     /// <summary>
     /// Number of votes expressed as abstain for one resolution.
     /// </summary>
+    [DataMember]
     public IsoNumber? Abstain { get; init; } 
     /// <summary>
     /// Number of votes withheld for one resolution.
     /// </summary>
+    [DataMember]
     public IsoNumber? Withhold { get; init; } 
     /// <summary>
     /// Number of votes in line with the votes of the management.
     /// </summary>
+    [DataMember]
     public IsoNumber? WithManagement { get; init; } 
     /// <summary>
     /// Number of votes against the voting recommendation of the management.
     /// </summary>
+    [DataMember]
     public IsoNumber? AgainstManagement { get; init; } 
     /// <summary>
     /// Number of votes for which decision is left to the party that will exercise the voting right.
     /// </summary>
+    [DataMember]
     public IsoNumber? Discretionary { get; init; } 
     /// <summary>
     /// Number of votes in favour for one year for "say on pay" type of resolution.
     /// </summary>
+    [DataMember]
     public IsoNumber? OneYear { get; init; } 
     /// <summary>
     /// Number of votes in favour of two years for "say on pay" type of resolution.
     /// </summary>
+    [DataMember]
     public IsoNumber? TwoYears { get; init; } 
     /// <summary>
     /// Number of votes in favour of three years for "say on pay" type of resolution.
     /// </summary>
+    [DataMember]
     public IsoNumber? ThreeYears { get; init; } 
     /// <summary>
     /// Number of votes for which no action has been taken.
     /// </summary>
+    [DataMember]
     public IsoNumber? NoAction { get; init; } 
     /// <summary>
     /// Resolution withdrawn at the meeting.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Withdrawn { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Unique and unambiguous identification of the original message references.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record OriginalMessage4
 {
     #nullable enable
@@ -20,26 +22,32 @@ public partial record OriginalMessage4
     /// <summary>
     /// Original message sender used to identify the message.
     /// </summary>
+    [DataMember]
     public Party40Choice_? OriginalSender { get; init; } 
     /// <summary>
     /// Point to point reference assigned by the original instructing party to unambiguously identify the original group of individual transactions.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalMessageIdentification { get; init; } 
     /// <summary>
     /// Specifies the original message name identifier to which the message refers, such as pacs.003.001.01 or MT103.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalMessageNameIdentification { get; init; } 
     /// <summary>
     /// Original date and time at which the message was created.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? OriginalCreationDateTime { get; init; } 
     /// <summary>
     /// Specifies the identification of original package of instructions, entries or records.
     /// </summary>
+    [DataMember]
     public IsoMax35Text? OriginalPackageIdentification { get; init; } 
     /// <summary>
     /// Specifies the identification of original entry, instruction or record within the package.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text OriginalRecordIdentification { get; init; } 
     
     #nullable disable

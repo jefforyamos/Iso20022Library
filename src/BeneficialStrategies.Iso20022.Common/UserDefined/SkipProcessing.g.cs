@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.UserDefined;
 /// <summary>
 /// The Any element without further validation processing.
 /// </summary>
+[DataContract]
 public partial record SkipProcessing
 {
     #nullable enable

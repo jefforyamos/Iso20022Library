@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about the cash option.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CashOption4
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record CashOption4
     /// <summary>
     /// Indicates whether the value is a debit or a credit.
     /// </summary>
+    [DataMember]
     public required CreditDebitCode CreditDebitIndicator { get; init; } 
     /// <summary>
     /// Specifies information regarding outturn resources that cannot be processed by the Central Securities Depository (CSD). Special delivery instruction is required from the account owner for the corporate action outcome to be credited.
     /// </summary>
+    [DataMember]
     public NonEligibleProceedsIndicator1Choice_? NonEligibleProceedsIndicator { get; init; } 
     /// <summary>
     /// Specifies the type of income.|The lists of income type codes to be used, are available on the SMPG website at www.smpg.info.
     /// </summary>
+    [DataMember]
     public GenericIdentification20? IncomeType { get; init; } 
     /// <summary>
     /// Identification of the account in which cash is maintained.
     /// </summary>
+    [DataMember]
     public CashAccountIdentification5Choice_? CashAccountIdentification { get; init; } 
     /// <summary>
     /// Provides information about the amounts related to a cash movement.
     /// </summary>
+    [DataMember]
     public CorporateActionAmounts4? AmountDetails { get; init; } 
     /// <summary>
     /// Provides information about the dates related to a cash movement.
     /// </summary>
+    [DataMember]
     public required CorporateActionDate9 DateDetails { get; init; } 
     /// <summary>
     /// Exchange rate between the amount and the resulting amount.
     /// </summary>
+    [DataMember]
     public ForeignExchangeTerms11? ForeignExchangeDetails { get; init; } 
     /// <summary>
     /// Generic cash price received per product by the underlying security holder either as a percentage or an amount, for example, redemption price.
     /// </summary>
+    [DataMember]
     public PriceFormat10Choice_? GenericCashPriceReceivedPerProduct { get; init; } 
     
     #nullable disable

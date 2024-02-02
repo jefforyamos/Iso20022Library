@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information on the instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record Instruction1
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record Instruction1
     /// <summary>
     /// Identifies the detailed instruction.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text InstructionIdentification { get; init; } 
     /// <summary>
     /// Date at which the instruction must be executed.
     /// </summary>
+    [DataMember]
     public IsoISODateTime? RequestedExecutionDate { get; init; } 
     /// <summary>
     /// Indicates that a Vote execution confirmation is requested.
     /// </summary>
+    [DataMember]
     public required IsoYesNoIndicator VoteExecutionConfirmation { get; init; } 
     /// <summary>
     /// Identification of the securities account.
     /// </summary>
+    [DataMember]
     public required SafekeepingAccount3 AccountDetails { get; init; } 
     /// <summary>
     /// Identification of the person appointed by the security holder as proxy.
     /// </summary>
+    [DataMember]
     public Proxy2? Proxy { get; init; } 
     /// <summary>
     /// Specifies detailed voting instructions.
     /// </summary>
+    [DataMember]
     public VoteDetails1? VoteDetails { get; init; } 
     /// <summary>
     /// Identification of the security holder who will attend and vote at the meeting in person and/or a person assigned by the security holder to attend the meeting without having any voting rights or taking any action.
     /// </summary>
-    public IndividualPerson13[] MeetingAttendee { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<IndividualPerson13> MeetingAttendee { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Request to execute specific instructions, such as participation registration, securities registration or blocking of securities.
     /// </summary>
+    [DataMember]
     public SpecificInstructionRequest1? SpecificInstructionRequest { get; init; } 
     
     #nullable disable

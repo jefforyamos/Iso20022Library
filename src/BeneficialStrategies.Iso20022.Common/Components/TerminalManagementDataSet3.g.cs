@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Data set containing the acceptor parameters of a point of interaction (POI).
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TerminalManagementDataSet3
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record TerminalManagementDataSet3
     /// <summary>
     /// Identification of the data set transferred.
     /// </summary>
+    [DataMember]
     public required DataSetIdentification2 Identification { get; init; } 
     /// <summary>
     /// Counter to identify a single data set within the whole transfer.
     /// </summary>
+    [DataMember]
     public IsoMax9NumericText? SequenceCounter { get; init; } 
     /// <summary>
     /// Content of the acceptor parameters.
     /// </summary>
+    [DataMember]
     public required AcceptorConfigurationContent1 Content { get; init; } 
     
     #nullable disable

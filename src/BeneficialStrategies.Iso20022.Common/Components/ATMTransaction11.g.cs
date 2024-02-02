@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about the reconciliation request.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ATMTransaction11
 {
     #nullable enable
@@ -20,34 +22,42 @@ public partial record ATMTransaction11
     /// <summary>
     /// Type of logical or physical operation on the ATM for which the counters are computed.
     /// </summary>
+    [DataMember]
     public ATMOperation1Code? TypeOfOperation { get; init; } 
     /// <summary>
     /// Identification of the reconciliation transaction.
     /// </summary>
+    [DataMember]
     public required TransactionIdentifier1 TransactionIdentification { get; init; } 
     /// <summary>
     /// Identification of the reconciliation period.
     /// </summary>
+    [DataMember]
     public required IsoMax35Text ReconciliationIdentification { get; init; } 
     /// <summary>
     /// Current totals of the ATM.
     /// </summary>
-    public ATMTotals1[] ATMTotals { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMTotals1> ATMTotals { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Information on the cassette of the ATM.
     /// </summary>
-    public ATMCassette1[] Cassette { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMCassette1> Cassette { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Transaction counters that are set to zero after a reconciliation with counter reinitialisation command.
     /// </summary>
-    public ATMTotals3[] TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<ATMTotals3> TransactionTotals { get; init; } = []; // Warning: Don't know multiplicity.
     /// <summary>
     /// Total number of retained cards.
     /// </summary>
+    [DataMember]
     public IsoNumber? RetainedCard { get; init; } 
     /// <summary>
     /// Additional information about reconciliation.
     /// </summary>
+    [DataMember]
     public IsoMax140Text? AdditionalTransactionInformation { get; init; } 
     
     #nullable disable

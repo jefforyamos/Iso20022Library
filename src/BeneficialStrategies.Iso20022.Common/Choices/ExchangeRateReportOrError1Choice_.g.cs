@@ -11,6 +11,7 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(ExchangeRateReportOrError1Choice.CurrencyExchangeReport))]
 [KnownType(typeof(ExchangeRateReportOrError1Choice.OperationalError))]
+[DataContract]
 public abstract partial record ExchangeRateReportOrError1Choice_
 {
 }

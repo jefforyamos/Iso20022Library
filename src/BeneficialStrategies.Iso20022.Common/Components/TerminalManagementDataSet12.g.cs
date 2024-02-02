@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Identification of requested data set.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record TerminalManagementDataSet12
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record TerminalManagementDataSet12
     /// <summary>
     /// Identification of the required data set.
     /// </summary>
+    [DataMember]
     public required DataSetIdentification4 Identification { get; init; } 
     /// <summary>
     /// Point of interaction challenge for cryptographic key injection.
     /// </summary>
+    [DataMember]
     public IsoMax140Binary? POIChallenge { get; init; } 
     /// <summary>
     /// Terminal manager challenge for cryptographic key injection.
     /// </summary>
+    [DataMember]
     public IsoMax140Binary? TMChallenge { get; init; } 
     /// <summary>
     /// Temporary encryption key that the host will use for protecting keys to download.
     /// </summary>
+    [DataMember]
     public CryptographicKey5? SessionKey { get; init; } 
     
     #nullable disable

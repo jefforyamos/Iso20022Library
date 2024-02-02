@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Security that is a sub-set of an investment fund, and is governed by the same investment fund policy, for example, dividend option or valuation currency.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record FinancialInstrument96
 {
     #nullable enable
@@ -20,115 +22,143 @@ public partial record FinancialInstrument96
     /// <summary>
     /// Indicates whether it is possible to hold bearer units/shares in this class in certified form.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PhysicalBearerSecurities { get; init; } 
     /// <summary>
     /// Indicates whether it is possible to hold bearer units/shares in paperless form.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? DematerialisedBearerSecurities { get; init; } 
     /// <summary>
     /// Indicates whether it is possible to hold registered units/shares in this class in paperless form.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PhysicalRegisteredSecurities { get; init; } 
     /// <summary>
     /// Indicates whether it is possible to hold registered units/shares in this class in paperless form.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? DematerialisedRegisteredSecurities { get; init; } 
     /// <summary>
     /// Income policy relating to the class type, that is, if income is paid out or retained in the fund.
     /// </summary>
+    [DataMember]
     public DistributionPolicy1Code? DistributionPolicy { get; init; } 
     /// <summary>
     /// Dividend policy of the fund, for example, cash, units.
     /// </summary>
+    [DataMember]
     public DividendPolicy1Code? DividendPolicy { get; init; } 
     /// <summary>
     /// Frequency with which the income is allocated to investors.
     /// </summary>
+    [DataMember]
     public EventFrequency5Code? DividendFrequency { get; init; } 
     /// <summary>
     /// Frequency with which the reinvestment takes place, this is the same or less than the dividend frequency.
     /// </summary>
+    [DataMember]
     public EventFrequency5Code? ReinvestmentFrequency { get; init; } 
     /// <summary>
     /// Indicates whether a front end charge on subscription orders for this class can be applied.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? FrontEndLoad { get; init; } 
     /// <summary>
     /// Indicates whether an exit charge (for example, CDSC) on redemption orders for this class can be applied.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? BackEndLoad { get; init; } 
     /// <summary>
     /// Indicates whether a separate fee for switching between sub-funds of the same umbrella can be applied.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? SwitchFee { get; init; } 
     /// <summary>
     /// Indicates whether the investment fund class is subject to the European Union Saving Directive.
     /// </summary>
+    [DataMember]
     public EUSavingsDirective1Code? EUSavingsDirective { get; init; } 
     /// <summary>
     /// Date on which the fund is open for investment.
     /// </summary>
+    [DataMember]
     public IsoISODate? LaunchDate { get; init; } 
     /// <summary>
     /// Date on which the fund is closed to investment.
     /// </summary>
+    [DataMember]
     public IsoISODate? FundEndDate { get; init; } 
     /// <summary>
     /// Date the fund closes.
     /// </summary>
+    [DataMember]
     public IsoISODate? TerminationDate { get; init; } 
     /// <summary>
     /// Date on which the discount period of the newly launched investment fund ends.
     /// </summary>
+    [DataMember]
     public IsoISODate? InitialOfferEndDate { get; init; } 
     /// <summary>
     /// Date on which valuation of the investment fund class is suspended.
     /// </summary>
+    [DataMember]
     public IsoISODate? SuspensionStartDate { get; init; } 
     /// <summary>
     /// Date on which valuation of the investment fund class is unsuspended.
     /// </summary>
+    [DataMember]
     public IsoISODate? SuspensionEndDate { get; init; } 
     /// <summary>
     /// Maturity date of the product. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00065.
     /// </summary>
+    [DataMember]
     public IsoISODate? MaturityDate { get; init; } 
     /// <summary>
     /// Specifies whether the product may be terminated early. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00067.
     /// </summary>
+    [DataMember]
     public TargetMarket1Code? MayBeTerminatedEarly { get; init; } 
     /// <summary>
     /// Indicates whether the fund is close-ended.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? ClosedEndFund { get; init; } 
     /// <summary>
     /// Indicates whether equalisation is applied.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Equalisation { get; init; } 
     /// <summary>
     /// Indicates whether the fund is eligible for a tax efficient product.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? TaxEfficientProductEligible { get; init; } 
     /// <summary>
     /// Indicates whether the fund is authorised by the regulatory compliance authority.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? Authorised { get; init; } 
     /// <summary>
     /// Indicates whether the fund is compliant with the Retail Distribution Review (RDR).
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? RDRCompliant { get; init; } 
     /// <summary>
     /// Specifies from where the management fee is taken.
     /// </summary>
+    [DataMember]
     public AnnualChargePaymentType1Code? ManagementFeeSource { get; init; } 
     /// <summary>
     /// Indicates whether there is a performance fee feature or carried interest. When used in reference to MiFID, this is in the scope of the European MiFID Template (EMT) reference 00045.
     /// </summary>
+    [DataMember]
     public IsoYesNoIndicator? PerformanceFee { get; init; } 
     /// <summary>
     /// Additional information about the fund.
     /// </summary>
-    public AdditionalInformation15[] AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
+    [DataMember]
+    public ValueList<AdditionalInformation15> AdditionalInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
 }

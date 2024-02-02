@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Information about a high frequency trading profile.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record HighFrequencyTradingProfile1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record HighFrequencyTradingProfile1
     /// <summary>
     /// Date on which the investor starts high frequency trading.
     /// </summary>
+    [DataMember]
     public IsoISODate? Date { get; init; } 
     /// <summary>
     /// Frequency of settlement.
     /// </summary>
+    [DataMember]
     public SettlementFrequency1Choice_? SettlementFrequency { get; init; } 
     /// <summary>
     /// Specifies whether consolidation is done generally or at the level of segregated account.
     /// </summary>
+    [DataMember]
     public ConsolidationType1Choice_? ConsolidationType { get; init; } 
     
     #nullable disable

@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Provides information about an amended election instruction.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record CorporateActionElection1
 {
     #nullable enable
@@ -20,18 +22,22 @@ public partial record CorporateActionElection1
     /// <summary>
     /// Specifies the corporate action options available to the account owner.
     /// </summary>
+    [DataMember]
     public required CorporateActionOption1FormatChoice_ OptionType { get; init; } 
     /// <summary>
     /// Number identifying the available corporate action options.
     /// </summary>
+    [DataMember]
     public required IsoExact3NumericText OptionNumber { get; init; } 
     /// <summary>
     /// Quantity of the securities that was instructed in the original election advice.
     /// </summary>
+    [DataMember]
     public required UnitOrFaceAmount1Choice_ OriginalInstructedQuantity { get; init; } 
     /// <summary>
     /// Remaining instructed securities quantity after the amendment of the election.
     /// </summary>
+    [DataMember]
     public required UnitOrFaceAmount1Choice_ RemainingQuantity { get; init; } 
     
     #nullable disable

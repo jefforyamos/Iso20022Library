@@ -13,6 +13,8 @@ namespace BeneficialStrategies.Iso20022.Components;
 /// <summary>
 /// Application specific information defined by the service provider.
 /// </summary>
+[DataContract]
+[XmlType]
 public partial record ApplicationSpecifics1
 {
     #nullable enable
@@ -20,14 +22,17 @@ public partial record ApplicationSpecifics1
     /// <summary>
     /// A system user is a user account defined in the static data. It represents an individual or an application that interacts with the system administrator (e. g. T2S), triggering the available functions. The set of functions available to each system user stems from the set of privileges for which the system user is grantee. System administrator does not provide any attribute for distinguishing between individuals and applications. 
     /// </summary>
+    [DataMember]
     public IsoMax140Text? SystemUser { get; init; } 
     /// <summary>
     /// Contains the digital signature of the Business Entity authorised to sign this Business File.
     /// </summary>
+    [DataMember]
     public SignatureEnvelope? Signature { get; init; } 
     /// <summary>
     /// Gives the total number of instances (messages) within the file.
     /// </summary>
+    [DataMember]
     public required IsoNumber TotalNumberOfDocuments { get; init; } 
     
     #nullable disable
