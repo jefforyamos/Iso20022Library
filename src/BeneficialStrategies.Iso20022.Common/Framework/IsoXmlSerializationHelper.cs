@@ -44,7 +44,7 @@ public static class IsoXmlSerializationHelper<TTypeToSerialize>
     /// <returns></returns>
     /// <exception cref="IsoDeserializationMissingElementException"></exception>
     public static TMemberType GetChildMember<TMemberType>(XElement rootElement)
-        where TMemberType : IIsoXmlSerilizable<TMemberType>
+        where TMemberType : IIsoXmlSerilizable<TMemberType>, ISerializeInsideARootElement
     {
         XElement elementToDeserialize = rootElement.Element(TMemberType.RootElement)
             ?? throw new IsoDeserializationMissingElementException(typeof(TTypeToSerialize), TMemberType.RootElement.LocalName);

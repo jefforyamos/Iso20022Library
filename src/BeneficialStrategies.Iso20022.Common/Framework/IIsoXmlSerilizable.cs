@@ -8,7 +8,7 @@ namespace BeneficialStrategies.Iso20022.Framework;
 /// Denotes the container as being self-serializable in a ISO20022-compliant syntax.
 /// </summary>
 /// <typeparam name="TSelf">The type we are decorating with this interface.</typeparam>
-public interface IIsoXmlSerilizable<TSelf> : Iso20022Certified<TSelf>, ISerializeInsideARootElement
+public interface IIsoXmlSerilizable<TSelf> : Iso20022Certified<TSelf>
 {
     /// <summary>
     /// Serialize this instance to the xml writer in ISO20022 format.
