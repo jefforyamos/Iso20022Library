@@ -13,7 +13,7 @@ namespace BeneficialStrategies.Iso20022.PocRecords;
 
 [DataContract(Name = "CtctDtls", Namespace ="")]
 [XmlRoot(ElementName ="CtctDtls", Namespace ="")]
-public record ContactDetailsRec : IIsoXmlSerilizable<ContactDetailsRec>
+public record ContactDetailsRec : IIsoXmlSerilizable<ContactDetailsRec>, IOuterRecord
 {
     [DataMember(Name = "Nm", Order = 0)]
     [XmlElement(ElementName ="Nm", Order = 0)]
@@ -24,6 +24,8 @@ public record ContactDetailsRec : IIsoXmlSerilizable<ContactDetailsRec>
     public required string Email { get; init; }
 
     public static XName RootElement => Helper.CreateXName("CtctDtls");
+
+    public static string IsoXmlNamspace => throw new NotImplementedException();
 
     public static class MemberNames
     {
@@ -51,6 +53,11 @@ public record ContactDetailsRec : IIsoXmlSerilizable<ContactDetailsRec>
             Name = Helper.GetStringValue(element, MemberNames.Name),
             Email = Helper.GetStringValue(element, MemberNames.Email)
         };
+    }
+
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        throw new NotImplementedException();
     }
 }
 

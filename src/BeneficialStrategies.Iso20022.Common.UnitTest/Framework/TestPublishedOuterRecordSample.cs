@@ -14,7 +14,7 @@ namespace BeneficialStrategies.Iso20022;
 /// <typeparam name="TMessageType"></typeparam>
 /// <typeparam name="TMessageDocType"></typeparam>
 public abstract class TestPublishedOuterRecordSample<TMessageType, TMessageDocType> : TestPublishedSample<TMessageType>
-    where TMessageType : IOuterRecord<TMessageType, TMessageDocType>
+    where TMessageType : IOuterRecord<TMessageType, TMessageDocType>, IOuterRecord, ISerializeInsideARootElement
     where TMessageDocType : IOuterDocument<TMessageType>
 {
     protected Iso20022SchemaSet iso20022SchemaSet = new();

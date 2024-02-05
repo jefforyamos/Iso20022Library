@@ -8,7 +8,7 @@ namespace BeneficialStrategies.Iso20022.Framework;
 /// Denotes the container as being self-serializable in a ISO20022-compliant syntax.
 /// </summary>
 /// <typeparam name="TSelf">The type we are decorating with this interface.</typeparam>
-public interface IIsoXmlSerilizable<TSelf> : Iso20022Certified<TSelf>
+public interface IIsoXmlSerilizable<TSelf> : Iso20022Certified<TSelf>, ISerializeInsideARootElement
 {
     /// <summary>
     /// Serialize this instance to the xml writer in ISO20022 format.
@@ -16,6 +16,8 @@ public interface IIsoXmlSerilizable<TSelf> : Iso20022Certified<TSelf>
     /// <param name="xmlWriter"></param>
     /// <returns></returns>
     Task SerializeAsync(XmlWriter xmlWriter);
+
+    void Serialize(XmlWriter writer, string xmlNamespace);
 
     /// <summary>
     /// Deserializes the specified element into an instance of this record.
@@ -30,10 +32,5 @@ public interface IIsoXmlSerilizable<TSelf> : Iso20022Certified<TSelf>
     /// <param name="reader"></param>
     /// <returns></returns>
     static abstract Task<TSelf> DeserializeAsync(XmlReader reader);
-
-    /// <summary>
-    /// Returns the normal root element for this record type.
-    /// </summary>
-    static abstract XName RootElement { get; }
 }
 
