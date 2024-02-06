@@ -14,20 +14,28 @@ namespace BeneficialStrategies.Iso20022.Choices.ProxyAccountType1Choice;
 /// <summary>
 /// Name of the identification scheme, in a free text form.
 /// </summary>
-[DataContract(Namespace = "")]
 public partial record Proprietary : ProxyAccountType1Choice_
      , IIsoXmlSerilizable<Proprietary>
 {
-    [DataMember]
-    public required IsoMax35Text Value { get; init; }
+    #nullable enable
     
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 35 characters.
+    /// </summary>
+    public required IsoMax35Text Value { get; init; } 
+    
+    #nullable disable
+    
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
     public override void Serialize(XmlWriter writer, string xmlNamespace)
     {
+        writer.WriteStartElement(null, "Prtry", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Value)); // data type Max35Text System.String
+        writer.WriteEndElement();
     }
-    
     public static new Proprietary Deserialize(XElement element)
     {
         throw new NotImplementedException();
     }
-    
 }

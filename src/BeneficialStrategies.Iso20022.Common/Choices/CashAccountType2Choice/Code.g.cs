@@ -14,20 +14,30 @@ namespace BeneficialStrategies.Iso20022.Choices.CashAccountType2Choice;
 /// <summary>
 /// Account type, in a coded form.
 /// </summary>
-[DataContract(Namespace = "")]
 public partial record Code : CashAccountType2Choice_
      , IIsoXmlSerilizable<Code>
 {
-    [DataMember]
-    public required ExternalCashAccountType1Code Value { get; init; }
+    #nullable enable
     
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the nature, or use, of the cash account in the format of character string with a maximum length of 4 characters.
+    /// The list of valid codes is an external code list published separately.
+    /// External code sets can be downloaded from www.iso20022.org.
+    /// </summary>
+    public required ExternalCashAccountType1Code Value { get; init; } 
+    
+    #nullable disable
+    
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
     public override void Serialize(XmlWriter writer, string xmlNamespace)
     {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
     }
-    
     public static new Code Deserialize(XElement element)
     {
         throw new NotImplementedException();
     }
-    
 }

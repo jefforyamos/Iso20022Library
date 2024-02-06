@@ -14,27 +14,26 @@ namespace BeneficialStrategies.Iso20022.Choices.AddressType3Choice;
 /// <summary>
 /// Type of address expressed as a proprietary code.
 /// </summary>
-[DataContract(Namespace = "")]
 public partial record Proprietary : AddressType3Choice_
      , IIsoXmlSerilizable<Proprietary>
 {
     #nullable enable
+    
     /// <summary>
     /// Proprietary information, often a code, issued by the data source scheme issuer.
     /// </summary>
-    [DataMember]
     public required IsoExact4AlphaNumericText Identification { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
-    [DataMember]
     public required IsoMax35Text Issuer { get; init; } 
     /// <summary>
     /// Short textual description of the scheme.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? SchemeName { get; init; } 
+    
     #nullable disable
+    
     public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
     public override void Serialize(XmlWriter writer, string xmlNamespace)
     {

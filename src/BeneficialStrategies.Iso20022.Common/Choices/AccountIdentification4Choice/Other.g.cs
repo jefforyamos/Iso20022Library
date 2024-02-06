@@ -14,27 +14,26 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification4Choice;
 /// <summary>
 /// Unique identification of an account, as assigned by the account servicer, using an identification scheme.
 /// </summary>
-[DataContract(Namespace = "")]
 public partial record Other : AccountIdentification4Choice_
      , IIsoXmlSerilizable<Other>
 {
     #nullable enable
+    
     /// <summary>
     /// Identification assigned by an institution.
     /// </summary>
-    [DataMember]
     public required IsoMax34Text Identification { get; init; } 
     /// <summary>
     /// Name of the identification scheme.
     /// </summary>
-    [DataMember]
     public AccountSchemeName1Choice_? SchemeName { get; init; } 
     /// <summary>
     /// Entity that assigns the identification.
     /// </summary>
-    [DataMember]
     public IsoMax35Text? Issuer { get; init; } 
+    
     #nullable disable
+    
     public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
     public override void Serialize(XmlWriter writer, string xmlNamespace)
     {

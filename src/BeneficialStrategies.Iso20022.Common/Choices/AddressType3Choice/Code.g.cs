@@ -14,20 +14,28 @@ namespace BeneficialStrategies.Iso20022.Choices.AddressType3Choice;
 /// <summary>
 /// Type of address expressed as a code.
 /// </summary>
-[DataContract(Namespace = "")]
 public partial record Code : AddressType3Choice_
      , IIsoXmlSerilizable<Code>
 {
-    [DataMember]
-    public required AddressType2Code Value { get; init; }
+    #nullable enable
     
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the type of address.
+    /// </summary>
+    public required AddressType2Code Value { get; init; } 
+    
+    #nullable disable
+    
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
     public override void Serialize(XmlWriter writer, string xmlNamespace)
     {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
     }
-    
     public static new Code Deserialize(XElement element)
     {
         throw new NotImplementedException();
     }
-    
 }

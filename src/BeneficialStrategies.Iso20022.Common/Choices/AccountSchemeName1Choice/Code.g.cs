@@ -14,20 +14,30 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountSchemeName1Choice;
 /// <summary>
 /// Name of the identification scheme, in a coded form as published in an external list.
 /// </summary>
-[DataContract(Namespace = "")]
 public partial record Code : AccountSchemeName1Choice_
      , IIsoXmlSerilizable<Code>
 {
-    [DataMember]
-    public required ExternalAccountIdentification1Code Value { get; init; }
+    #nullable enable
     
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the external account identification scheme name code in the format of character string with a maximum length of 4 characters.
+    /// The list of valid codes is an external code list published separately.
+    /// External code sets can be downloaded from www.iso20022.org.
+    /// </summary>
+    public required ExternalAccountIdentification1Code Value { get; init; } 
+    
+    #nullable disable
+    
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
     public override void Serialize(XmlWriter writer, string xmlNamespace)
     {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
     }
-    
     public static new Code Deserialize(XElement element)
     {
         throw new NotImplementedException();
     }
-    
 }

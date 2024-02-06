@@ -14,20 +14,29 @@ namespace BeneficialStrategies.Iso20022.Choices.CategoryPurpose1Choice;
 /// <summary>
 /// Category purpose, as published in an external category purpose code list.
 /// </summary>
-[DataContract(Namespace = "")]
 public partial record Code : CategoryPurpose1Choice_
      , IIsoXmlSerilizable<Code>
 {
-    [DataMember]
-    public required ExternalCategoryPurpose1Code Value { get; init; }
+    #nullable enable
     
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the category purpose, as published in an external category purpose code list.
+    /// External code sets can be downloaded from www.iso20022.org.
+    /// </summary>
+    public required ExternalCategoryPurpose1Code Value { get; init; } 
+    
+    #nullable disable
+    
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
     public override void Serialize(XmlWriter writer, string xmlNamespace)
     {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
     }
-    
     public static new Code Deserialize(XElement element)
     {
         throw new NotImplementedException();
     }
-    
 }

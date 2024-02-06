@@ -14,20 +14,28 @@ namespace BeneficialStrategies.Iso20022.Choices.AdviceType1Choice;
 /// <summary>
 /// Advice type, in a coded form.
 /// </summary>
-[DataContract(Namespace = "")]
 public partial record Code : AdviceType1Choice_
      , IIsoXmlSerilizable<Code>
 {
-    [DataMember]
-    public required AdviceType1Code Value { get; init; }
+    #nullable enable
     
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the type of advice to provide back in the report.
+    /// </summary>
+    public required AdviceType1Code Value { get; init; } 
+    
+    #nullable disable
+    
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
     public override void Serialize(XmlWriter writer, string xmlNamespace)
     {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
     }
-    
     public static new Code Deserialize(XElement element)
     {
         throw new NotImplementedException();
     }
-    
 }

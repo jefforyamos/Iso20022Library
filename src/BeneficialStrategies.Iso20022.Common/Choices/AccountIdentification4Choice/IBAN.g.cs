@@ -14,20 +14,28 @@ namespace BeneficialStrategies.Iso20022.Choices.AccountIdentification4Choice;
 /// <summary>
 /// International Bank Account Number (IBAN) - identifier used internationally by financial institutions to uniquely identify the account of a customer. Further specifications of the format and content of the IBAN can be found in the standard ISO 13616 "Banking and related financial services - International Bank Account Number (IBAN)" version 1997-10-01, or later revisions.
 /// </summary>
-[DataContract(Namespace = "")]
 public partial record IBAN : AccountIdentification4Choice_
      , IIsoXmlSerilizable<IBAN>
 {
-    [DataMember]
-    public required IsoIBAN2007Identifier Value { get; init; }
+    #nullable enable
     
+    /// <summary>
+    /// Contains the main value for the container.
+    /// The International Bank Account Number is a code used internationally by financial institutions to uniquely identify the account of a customer at a financial institution as described in the 2007 edition of the ISO 13616 standard "Banking and related financial services - International Bank Account Number (IBAN)" and replaced by the more recent edition of the standard.
+    /// </summary>
+    public required IsoIBAN2007Identifier Value { get; init; } 
+    
+    #nullable disable
+    
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
     public override void Serialize(XmlWriter writer, string xmlNamespace)
     {
+        writer.WriteStartElement(null, "IBAN", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoIBAN2007Identifier(Value)); // data type IBAN2007Identifier System.String
+        writer.WriteEndElement();
     }
-    
     public static new IBAN Deserialize(XElement element)
     {
         throw new NotImplementedException();
     }
-    
 }

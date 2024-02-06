@@ -14,20 +14,28 @@ namespace BeneficialStrategies.Iso20022.Choices.CashAccountType2Choice;
 /// <summary>
 /// Nature or use of the account in a proprietary form.
 /// </summary>
-[DataContract(Namespace = "")]
 public partial record Proprietary : CashAccountType2Choice_
      , IIsoXmlSerilizable<Proprietary>
 {
-    [DataMember]
-    public required IsoMax35Text Value { get; init; }
+    #nullable enable
     
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies a character string with a maximum length of 35 characters.
+    /// </summary>
+    public required IsoMax35Text Value { get; init; } 
+    
+    #nullable disable
+    
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
     public override void Serialize(XmlWriter writer, string xmlNamespace)
     {
+        writer.WriteStartElement(null, "Prtry", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(Value)); // data type Max35Text System.String
+        writer.WriteEndElement();
     }
-    
     public static new Proprietary Deserialize(XElement element)
     {
         throw new NotImplementedException();
     }
-    
 }

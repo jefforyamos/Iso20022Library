@@ -14,20 +14,30 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialIdentificationSchemeNam
 /// <summary>
 /// Name of the identification scheme, in a coded form as published in an external list.
 /// </summary>
-[DataContract(Namespace = "")]
 public partial record Code : FinancialIdentificationSchemeName1Choice_
      , IIsoXmlSerilizable<Code>
 {
-    [DataMember]
-    public required ExternalFinancialInstitutionIdentification1Code Value { get; init; }
+    #nullable enable
     
+    /// <summary>
+    /// Contains the main value for the container.
+    /// Specifies the external financial institution identification scheme name code in the format of character string with a maximum length of 4 characters.
+    /// The list of valid codes is an external code list published separately.
+    /// External code sets can be downloaded from www.iso20022.org.
+    /// </summary>
+    public required ExternalFinancialInstitutionIdentification1Code Value { get; init; } 
+    
+    #nullable disable
+    
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
     public override void Serialize(XmlWriter writer, string xmlNamespace)
     {
+        writer.WriteStartElement(null, "Cd", xmlNamespace );
+        writer.WriteValue(Value.ToString()); // Enum value
+        writer.WriteEndElement();
     }
-    
     public static new Code Deserialize(XElement element)
     {
         throw new NotImplementedException();
     }
-    
 }

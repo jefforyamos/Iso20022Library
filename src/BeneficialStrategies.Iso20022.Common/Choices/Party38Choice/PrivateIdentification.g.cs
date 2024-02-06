@@ -14,22 +14,22 @@ namespace BeneficialStrategies.Iso20022.Choices.Party38Choice;
 /// <summary>
 /// Unique and unambiguous identification of a person, for example a passport.
 /// </summary>
-[DataContract(Namespace = "")]
 public partial record PrivateIdentification : Party38Choice_
      , IIsoXmlSerilizable<PrivateIdentification>
 {
     #nullable enable
+    
     /// <summary>
     /// Date and place of birth of a person.
     /// </summary>
-    [DataMember]
     public DateAndPlaceOfBirth1? DateAndPlaceOfBirth { get; init; } 
     /// <summary>
     /// Unique identification of a person, as assigned by an institution, using an identification scheme.
     /// </summary>
-    [DataMember]
     public GenericPersonIdentification1? Other { get; init;  } // Warning: Don't know multiplicity.
+    
     #nullable disable
+    
     public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
     public override void Serialize(XmlWriter writer, string xmlNamespace)
     {
