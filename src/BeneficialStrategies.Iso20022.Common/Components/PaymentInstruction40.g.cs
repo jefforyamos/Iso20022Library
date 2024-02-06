@@ -7,15 +7,19 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Components.PaymentInstruction40>;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Characteristics that apply to the debit side of the payment transactions included in the credit transfer initiation.
 /// </summary>
-[DataContract]
+[DataContract(Namespace = "")]
 [XmlType]
 public partial record PaymentInstruction40
+     : IIsoXmlSerilizable<PaymentInstruction40>
 {
     #nullable enable
     
@@ -117,4 +121,103 @@ public partial record PaymentInstruction40
     public ValueList<CreditTransferTransaction54> CreditTransferTransactionInformation { get; init; } = []; // Warning: Don't know multiplicity.
     
     #nullable disable
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "PmtInfId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(PaymentInformationIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "PmtMtd", xmlNamespace );
+        writer.WriteValue(PaymentMethod.ToString()); // Enum value
+        writer.WriteEndElement();
+        if (RequestedAdviceType is AdviceType1 RequestedAdviceTypeValue)
+        {
+            writer.WriteStartElement(null, "ReqdAdvcTp", xmlNamespace );
+            RequestedAdviceTypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (BatchBooking is IsoBatchBookingIndicator BatchBookingValue)
+        {
+            writer.WriteStartElement(null, "BtchBookg", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoBatchBookingIndicator(BatchBookingValue)); // data type BatchBookingIndicator System.String
+            writer.WriteEndElement();
+        }
+        if (NumberOfTransactions is IsoMax15NumericText NumberOfTransactionsValue)
+        {
+            writer.WriteStartElement(null, "NbOfTxs", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax15NumericText(NumberOfTransactionsValue)); // data type Max15NumericText System.String
+            writer.WriteEndElement();
+        }
+        if (ControlSum is IsoDecimalNumber ControlSumValue)
+        {
+            writer.WriteStartElement(null, "CtrlSum", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoDecimalNumber(ControlSumValue)); // data type DecimalNumber System.UInt64
+            writer.WriteEndElement();
+        }
+        if (PaymentTypeInformation is PaymentTypeInformation26 PaymentTypeInformationValue)
+        {
+            writer.WriteStartElement(null, "PmtTpInf", xmlNamespace );
+            PaymentTypeInformationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "ReqdExctnDt", xmlNamespace );
+        RequestedExecutionDate.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (PoolingAdjustmentDate is IsoISODate PoolingAdjustmentDateValue)
+        {
+            writer.WriteStartElement(null, "PoolgAdjstmntDt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoISODate(PoolingAdjustmentDateValue)); // data type ISODate System.DateOnly
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Dbtr", xmlNamespace );
+        Debtor.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DbtrAcct", xmlNamespace );
+        DebtorAccount.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "DbtrAgt", xmlNamespace );
+        DebtorAgent.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (DebtorAgentAccount is CashAccount40 DebtorAgentAccountValue)
+        {
+            writer.WriteStartElement(null, "DbtrAgtAcct", xmlNamespace );
+            DebtorAgentAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (InstructionForDebtorAgent is IsoMax140Text InstructionForDebtorAgentValue)
+        {
+            writer.WriteStartElement(null, "InstrForDbtrAgt", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(InstructionForDebtorAgentValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (UltimateDebtor is PartyIdentification135 UltimateDebtorValue)
+        {
+            writer.WriteStartElement(null, "UltmtDbtr", xmlNamespace );
+            UltimateDebtorValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ChargeBearer is ChargeBearerType1Code ChargeBearerValue)
+        {
+            writer.WriteStartElement(null, "ChrgBr", xmlNamespace );
+            writer.WriteValue(ChargeBearerValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (ChargesAccount is CashAccount40 ChargesAccountValue)
+        {
+            writer.WriteStartElement(null, "ChrgsAcct", xmlNamespace );
+            ChargesAccountValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (ChargesAccountAgent is BranchAndFinancialInstitutionIdentification6 ChargesAccountAgentValue)
+        {
+            writer.WriteStartElement(null, "ChrgsAcctAgt", xmlNamespace );
+            ChargesAccountAgentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize CreditTransferTransactionInformation, multiplicity Unknown
+    }
+    public static PaymentInstruction40 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -6,13 +6,28 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AddressType3Choice;
 
 /// <summary>
 /// Type of address expressed as a code.
 /// </summary>
+[DataContract(Namespace = "")]
 public partial record Code : AddressType3Choice_
+     , IIsoXmlSerilizable<Code>
 {
+    [DataMember]
     public required AddressType2Code Value { get; init; }
+    
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    
+    public static new Code Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
+    
 }

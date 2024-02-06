@@ -3,11 +3,13 @@ using System.Xml.Linq;
 using Xunit.Abstractions;
 using BeneficialStrategies.Iso20022.Framework;
 using System.Runtime.Serialization;
+using Xunit.Sdk;
 
 namespace BeneficialStrategies.Iso20022;
 
 
 public abstract class TestPublishedSample<TMessageType>
+ //   where TMessageType : IIsoXmlSerilizable<TMessageType> add this back in later
 {
     protected readonly ITestOutputHelper output;
     protected string? locatatedResourceFile;
@@ -149,6 +151,19 @@ public abstract class TestPublishedSample<TMessageType>
         this.output.WriteLine($"{p.PropertyName} GetHashCode Orig={expected?.GetHashCode()}, Copy={actual?.GetHashCode()}");
         Assert.Equal(expected, actual);
     }
+
+    // [Fact]
+    // public void Aaaaa()
+    // {
+    //     var original = Sample;
+    //     var serializeDoc = new XDocument();
+    //     using ( var writer = serializeDoc.CreateWriter()) original.Serialize(writer, "uri:Testing");
+    //     var currentDirectory = new DirectoryInfo(Environment.CurrentDirectory);
+    //     var testOutputDirectory = currentDirectory.CreateSubdirectory( $@"{original.GetType().Name}");
+    //     var outputPath = Path.Combine(testOutputDirectory.FullName, "Actual.xml");
+    //     serializeDoc.Save(outputPath);
+    //     this.output.WriteLine( $"Serialized data saved to {outputPath}. ");
+    // }
 
     public class MemberTestCase : IXunitSerializable
     {

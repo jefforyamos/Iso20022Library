@@ -6,26 +6,54 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.Party38Choice;
 
 /// <summary>
 /// Unique and unambiguous way to identify an organisation.
 /// </summary>
+[DataContract(Namespace = "")]
 public partial record OrganisationIdentification : Party38Choice_
+     , IIsoXmlSerilizable<OrganisationIdentification>
 {
     #nullable enable
     /// <summary>
     /// Business identification code of the organisation.
     /// </summary>
+    [DataMember]
     public IsoAnyBICDec2014Identifier? AnyBIC { get; init; } 
     /// <summary>
     /// Legal entity identification as an alternate identification for a party.
     /// </summary>
+    [DataMember]
     public IsoLEIIdentifier? LEI { get; init; } 
     /// <summary>
     /// Unique identification of an organisation, as assigned by an institution, using an identification scheme.
     /// </summary>
+    [DataMember]
     public GenericOrganisationIdentification1? Other { get; init;  } // Warning: Don't know multiplicity.
     #nullable disable
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (AnyBIC is IsoAnyBICDec2014Identifier AnyBICValue)
+        {
+            writer.WriteStartElement(null, "AnyBIC", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoAnyBICDec2014Identifier(AnyBICValue)); // data type AnyBICDec2014Identifier System.String
+            writer.WriteEndElement();
+        }
+        if (LEI is IsoLEIIdentifier LEIValue)
+        {
+            writer.WriteStartElement(null, "LEI", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoLEIIdentifier(LEIValue)); // data type LEIIdentifier System.String
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize Other, multiplicity Unknown
+    }
+    public static new OrganisationIdentification Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

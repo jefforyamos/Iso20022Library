@@ -6,13 +6,28 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.LocalInstrument2Choice;
 
 /// <summary>
 /// Specifies the local instrument, as published in an external local instrument code list.
 /// </summary>
+[DataContract(Namespace = "")]
 public partial record Code : LocalInstrument2Choice_
+     , IIsoXmlSerilizable<Code>
 {
+    [DataMember]
     public required ExternalLocalInstrument1Code Value { get; init; }
+    
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    
+    public static new Code Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
+    
 }

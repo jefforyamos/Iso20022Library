@@ -7,15 +7,19 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Components.CashAccount40>;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides the details to identify an account.
 /// </summary>
-[DataContract]
+[DataContract(Namespace = "")]
 [XmlType]
 public partial record CashAccount40
+     : IIsoXmlSerilizable<CashAccount40>
 {
     #nullable enable
     
@@ -46,4 +50,42 @@ public partial record CashAccount40
     public ProxyAccountIdentification1? Proxy { get; init; } 
     
     #nullable disable
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Identification is AccountIdentification4Choice_ IdentificationValue)
+        {
+            writer.WriteStartElement(null, "Id", xmlNamespace );
+            IdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Type is CashAccountType2Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (Currency is ActiveOrHistoricCurrencyCode CurrencyValue)
+        {
+            writer.WriteStartElement(null, "Ccy", xmlNamespace );
+            writer.WriteValue(CurrencyValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax70Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(NameValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        if (Proxy is ProxyAccountIdentification1 ProxyValue)
+        {
+            writer.WriteStartElement(null, "Prxy", xmlNamespace );
+            ProxyValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static CashAccount40 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

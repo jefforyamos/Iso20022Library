@@ -6,13 +6,28 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.FinancialIdentificationSchemeName1Choice;
 
 /// <summary>
 /// Name of the identification scheme, in a coded form as published in an external list.
 /// </summary>
+[DataContract(Namespace = "")]
 public partial record Code : FinancialIdentificationSchemeName1Choice_
+     , IIsoXmlSerilizable<Code>
 {
+    [DataMember]
     public required ExternalFinancialInstitutionIdentification1Code Value { get; init; }
+    
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    
+    public static new Code Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
+    
 }

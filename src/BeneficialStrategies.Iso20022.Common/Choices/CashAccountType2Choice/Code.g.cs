@@ -6,13 +6,28 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CashAccountType2Choice;
 
 /// <summary>
 /// Account type, in a coded form.
 /// </summary>
+[DataContract(Namespace = "")]
 public partial record Code : CashAccountType2Choice_
+     , IIsoXmlSerilizable<Code>
 {
+    [DataMember]
     public required ExternalCashAccountType1Code Value { get; init; }
+    
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    
+    public static new Code Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
+    
 }

@@ -7,15 +7,19 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Components.ClearingSystemMemberIdentification2>;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique identification, as assigned by a clearing system, to unambiguously identify a member of the clearing system.
 /// </summary>
-[DataContract]
+[DataContract(Namespace = "")]
 [XmlType]
 public partial record ClearingSystemMemberIdentification2
+     : IIsoXmlSerilizable<ClearingSystemMemberIdentification2>
 {
     #nullable enable
     
@@ -31,4 +35,21 @@ public partial record ClearingSystemMemberIdentification2
     public required IsoMax35Text MemberIdentification { get; init; } 
     
     #nullable disable
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (ClearingSystemIdentification is ClearingSystemIdentification2Choice_ ClearingSystemIdentificationValue)
+        {
+            writer.WriteStartElement(null, "ClrSysId", xmlNamespace );
+            ClearingSystemIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "MmbId", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(MemberIdentification)); // data type Max35Text System.String
+        writer.WriteEndElement();
+    }
+    public static ClearingSystemMemberIdentification2 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,15 +7,19 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Components.ProxyAccountIdentification1>;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Information related to a proxy  identification of the account.
 /// </summary>
-[DataContract]
+[DataContract(Namespace = "")]
 [XmlType]
 public partial record ProxyAccountIdentification1
+     : IIsoXmlSerilizable<ProxyAccountIdentification1>
 {
     #nullable enable
     
@@ -31,4 +35,21 @@ public partial record ProxyAccountIdentification1
     public required IsoMax2048Text Identification { get; init; } 
     
     #nullable disable
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (Type is ProxyAccountType1Choice_ TypeValue)
+        {
+            writer.WriteStartElement(null, "Tp", xmlNamespace );
+            TypeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "Id", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax2048Text(Identification)); // data type Max2048Text System.String
+        writer.WriteEndElement();
+    }
+    public static ProxyAccountIdentification1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

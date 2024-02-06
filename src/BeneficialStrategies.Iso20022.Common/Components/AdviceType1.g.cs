@@ -7,15 +7,19 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Components.AdviceType1>;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the type of advice to report back for the transaction.
 /// </summary>
-[DataContract]
+[DataContract(Namespace = "")]
 [XmlType]
 public partial record AdviceType1
+     : IIsoXmlSerilizable<AdviceType1>
 {
     #nullable enable
     
@@ -31,4 +35,24 @@ public partial record AdviceType1
     public AdviceType1Choice_? DebitAdvice { get; init; } 
     
     #nullable disable
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (CreditAdvice is AdviceType1Choice_ CreditAdviceValue)
+        {
+            writer.WriteStartElement(null, "CdtAdvc", xmlNamespace );
+            CreditAdviceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (DebitAdvice is AdviceType1Choice_ DebitAdviceValue)
+        {
+            writer.WriteStartElement(null, "DbtAdvc", xmlNamespace );
+            DebitAdviceValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static AdviceType1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

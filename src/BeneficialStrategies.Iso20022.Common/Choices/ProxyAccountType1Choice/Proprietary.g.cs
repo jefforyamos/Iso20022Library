@@ -6,13 +6,28 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.ProxyAccountType1Choice;
 
 /// <summary>
 /// Name of the identification scheme, in a free text form.
 /// </summary>
+[DataContract(Namespace = "")]
 public partial record Proprietary : ProxyAccountType1Choice_
+     , IIsoXmlSerilizable<Proprietary>
 {
+    [DataMember]
     public required IsoMax35Text Value { get; init; }
+    
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    
+    public static new Proprietary Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
+    
 }

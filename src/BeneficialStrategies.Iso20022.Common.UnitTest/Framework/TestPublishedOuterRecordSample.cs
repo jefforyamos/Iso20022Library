@@ -2,6 +2,7 @@ using System.Runtime.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Schema;
+using System.Xml.Serialization;
 using BeneficialStrategies.Iso20022.Choices.SupervisingAuthorityIdentification1Choice;
 using BeneficialStrategies.Iso20022.SchemaValidation;
 using Xunit.Abstractions;
@@ -14,8 +15,8 @@ namespace BeneficialStrategies.Iso20022;
 /// <typeparam name="TMessageType"></typeparam>
 /// <typeparam name="TMessageDocType"></typeparam>
 public abstract class TestPublishedOuterRecordSample<TMessageType, TMessageDocType> : TestPublishedSample<TMessageType>
-    where TMessageType : IOuterRecord<TMessageType, TMessageDocType>, IOuterRecord, ISerializeInsideARootElement
-    where TMessageDocType : IOuterDocument<TMessageType>
+    where TMessageType : IOuterRecord<TMessageType, TMessageDocType>, IOuterRecord, ISerializeInsideARootElement, IIsoXmlSerilizable<TMessageType>
+    where TMessageDocType : IOuterDocument<TMessageType>, IXmlSerializable
 {
     protected Iso20022SchemaSet iso20022SchemaSet = new();
     protected TestPublishedOuterRecordSample(ITestOutputHelper output) : base(output)
@@ -48,7 +49,7 @@ public abstract class TestPublishedOuterRecordSample<TMessageType, TMessageDocTy
 
             
         };
-        var serializer = new DataContractSerializer(doc.GetType(), settings );
+        var serializer = new DataContractSerializer(doc.GetType());
         var memoryStream = new MemoryStream();
         serializer.WriteObject(memoryStream, doc);
         memoryStream.Position = 0;
@@ -63,6 +64,28 @@ public abstract class TestPublishedOuterRecordSample<TMessageType, TMessageDocTy
         var currentDirectory = new DirectoryInfo(System.Environment.CurrentDirectory);
         var outputDirectory = currentDirectory.CreateSubdirectory(typeof(TMessageType).Name);
         var actualFilePath = Path.Combine(outputDirectory.FullName, "Actual.xml");
+        xdoc.Save(actualFilePath);
+        this.output.WriteLine($@"Output has been place in {actualFilePath}");
+        Assert.True(errorCount == 0, $"There were {errorCount} errors, see output.");
+    }
+
+    [Fact]
+    public void NativeSerializedOutputValidatesWithIsoSchema()
+    {
+        var doc = Sample.ToDocument();
+        var xdoc = new XDocument();
+        // Get it in an XDocument
+        using( var writer = xdoc.CreateWriter() ) doc.WriteXml(writer);
+
+        var errorCount = 0;
+        xdoc.Validate(this.iso20022SchemaSet, (o, e) =>
+        {
+            errorCount++;
+            this.output.WriteLine($@"{o?.GetType().Name} {e.Severity} {e.Message}");
+        });
+        var currentDirectory = new DirectoryInfo(System.Environment.CurrentDirectory);
+        var outputDirectory = currentDirectory.CreateSubdirectory(typeof(TMessageType).Name);
+        var actualFilePath = Path.Combine(outputDirectory.FullName, "Actual.Native.xml");
         xdoc.Save(actualFilePath);
         this.output.WriteLine($@"Output has been place in {actualFilePath}");
         Assert.True(errorCount == 0, $"There were {errorCount} errors, see output.");

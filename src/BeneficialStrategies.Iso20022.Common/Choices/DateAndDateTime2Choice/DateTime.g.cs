@@ -6,13 +6,28 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.DateAndDateTime2Choice;
 
 /// <summary>
 /// Specified date and time.
 /// </summary>
+[DataContract(Namespace = "")]
 public partial record DateTime : DateAndDateTime2Choice_
+     , IIsoXmlSerilizable<DateTime>
 {
+    [DataMember]
     public required IsoISODateTime Value { get; init; }
+    
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    
+    public static new DateTime Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
+    
 }

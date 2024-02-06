@@ -7,15 +7,19 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Components.BranchAndFinancialInstitutionIdentification6>;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Unique and unambiguous identification of a financial institution or a branch of a financial institution.
 /// </summary>
-[DataContract]
+[DataContract(Namespace = "")]
 [XmlType]
 public partial record BranchAndFinancialInstitutionIdentification6
+     : IIsoXmlSerilizable<BranchAndFinancialInstitutionIdentification6>
 {
     #nullable enable
     
@@ -31,4 +35,21 @@ public partial record BranchAndFinancialInstitutionIdentification6
     public BranchData3? BranchIdentification { get; init; } 
     
     #nullable disable
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "FinInstnId", xmlNamespace );
+        FinancialInstitutionIdentification.Serialize(writer, xmlNamespace);
+        writer.WriteEndElement();
+        if (BranchIdentification is BranchData3 BranchIdentificationValue)
+        {
+            writer.WriteStartElement(null, "BrnchId", xmlNamespace );
+            BranchIdentificationValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static BranchAndFinancialInstitutionIdentification6 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -7,15 +7,19 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Components.DateAndPlaceOfBirth1>;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Date and place of birth of a person.
 /// </summary>
-[DataContract]
+[DataContract(Namespace = "")]
 [XmlType]
 public partial record DateAndPlaceOfBirth1
+     : IIsoXmlSerilizable<DateAndPlaceOfBirth1>
 {
     #nullable enable
     
@@ -41,4 +45,27 @@ public partial record DateAndPlaceOfBirth1
     public required CountryCode CountryOfBirth { get; init; } 
     
     #nullable disable
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        writer.WriteStartElement(null, "BirthDt", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoISODate(BirthDate)); // data type ISODate System.DateOnly
+        writer.WriteEndElement();
+        if (ProvinceOfBirth is IsoMax35Text ProvinceOfBirthValue)
+        {
+            writer.WriteStartElement(null, "PrvcOfBirth", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ProvinceOfBirthValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        writer.WriteStartElement(null, "CityOfBirth", xmlNamespace );
+        writer.WriteValue(SerializationFormatter.IsoMax35Text(CityOfBirth)); // data type Max35Text System.String
+        writer.WriteEndElement();
+        writer.WriteStartElement(null, "CtryOfBirth", xmlNamespace );
+        writer.WriteValue(CountryOfBirth.ToString()); // Enum value
+        writer.WriteEndElement();
+    }
+    public static DateAndPlaceOfBirth1 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

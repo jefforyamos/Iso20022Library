@@ -6,13 +6,28 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.AdviceType1Choice;
 
 /// <summary>
 /// Advice type, in a coded form.
 /// </summary>
+[DataContract(Namespace = "")]
 public partial record Code : AdviceType1Choice_
+     , IIsoXmlSerilizable<Code>
 {
+    [DataMember]
     public required AdviceType1Code Value { get; init; }
+    
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    
+    public static new Code Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
+    
 }

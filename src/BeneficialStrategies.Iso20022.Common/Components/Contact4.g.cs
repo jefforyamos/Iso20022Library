@@ -7,15 +7,19 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Components.Contact4>;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Specifies the details of the contact person.
 /// </summary>
-[DataContract]
+[DataContract(Namespace = "")]
 [XmlType]
 public partial record Contact4
+     : IIsoXmlSerilizable<Contact4>
 {
     #nullable enable
     
@@ -81,4 +85,79 @@ public partial record Contact4
     public PreferredContactMethod1Code? PreferredMethod { get; init; } 
     
     #nullable disable
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (NamePrefix is NamePrefix2Code NamePrefixValue)
+        {
+            writer.WriteStartElement(null, "NmPrfx", xmlNamespace );
+            writer.WriteValue(NamePrefixValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        if (Name is IsoMax140Text NameValue)
+        {
+            writer.WriteStartElement(null, "Nm", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax140Text(NameValue)); // data type Max140Text System.String
+            writer.WriteEndElement();
+        }
+        if (PhoneNumber is IsoPhoneNumber PhoneNumberValue)
+        {
+            writer.WriteStartElement(null, "PhneNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(PhoneNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (MobileNumber is IsoPhoneNumber MobileNumberValue)
+        {
+            writer.WriteStartElement(null, "MobNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(MobileNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (FaxNumber is IsoPhoneNumber FaxNumberValue)
+        {
+            writer.WriteStartElement(null, "FaxNb", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoPhoneNumber(FaxNumberValue)); // data type PhoneNumber System.String
+            writer.WriteEndElement();
+        }
+        if (EmailAddress is IsoMax2048Text EmailAddressValue)
+        {
+            writer.WriteStartElement(null, "EmailAdr", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax2048Text(EmailAddressValue)); // data type Max2048Text System.String
+            writer.WriteEndElement();
+        }
+        if (EmailPurpose is IsoMax35Text EmailPurposeValue)
+        {
+            writer.WriteStartElement(null, "EmailPurp", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(EmailPurposeValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (JobTitle is IsoMax35Text JobTitleValue)
+        {
+            writer.WriteStartElement(null, "JobTitl", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(JobTitleValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Responsibility is IsoMax35Text ResponsibilityValue)
+        {
+            writer.WriteStartElement(null, "Rspnsblty", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax35Text(ResponsibilityValue)); // data type Max35Text System.String
+            writer.WriteEndElement();
+        }
+        if (Department is IsoMax70Text DepartmentValue)
+        {
+            writer.WriteStartElement(null, "Dept", xmlNamespace );
+            writer.WriteValue(SerializationFormatter.IsoMax70Text(DepartmentValue)); // data type Max70Text System.String
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize Other, multiplicity Unknown
+        if (PreferredMethod is PreferredContactMethod1Code PreferredMethodValue)
+        {
+            writer.WriteStartElement(null, "PrefrdMtd", xmlNamespace );
+            writer.WriteValue(PreferredMethodValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+    }
+    public static Contact4 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

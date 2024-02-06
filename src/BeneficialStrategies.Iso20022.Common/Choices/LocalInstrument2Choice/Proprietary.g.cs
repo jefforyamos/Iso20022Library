@@ -6,13 +6,28 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.LocalInstrument2Choice;
 
 /// <summary>
 /// Specifies the local instrument, as a proprietary code.
 /// </summary>
+[DataContract(Namespace = "")]
 public partial record Proprietary : LocalInstrument2Choice_
+     , IIsoXmlSerilizable<Proprietary>
 {
+    [DataMember]
     public required IsoMax35Text Value { get; init; }
+    
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    
+    public static new Proprietary Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
+    
 }

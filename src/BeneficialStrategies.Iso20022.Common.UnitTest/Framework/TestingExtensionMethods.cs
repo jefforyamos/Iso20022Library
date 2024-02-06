@@ -30,7 +30,7 @@ public static class TestingExtensionMethods
     /// <param name="ouputForXmlSerialization">Optional value if output of the intermediate value is desired.</param>
     /// <returns></returns>
     public static async Task<T> AssertSerializationRoundTripWorks<T>(this T dataObjectToSerialize, ITestOutputHelper? ouputForXmlSerialization = null)
-        where T : IIsoXmlSerilizable<T>
+        where T : IIsoXmlAsyncSerilizable<T>
     {
         // Serialize to the stringbuilder
         var sb = new StringBuilder();
@@ -58,7 +58,7 @@ public static class TestingExtensionMethods
     /// <param name="ouputForXmlSerialization">Optional, shows intermediate results if output is provided.</param>
     /// <returns></returns>
     public static async Task AssertSerializationMatchesArtifact<T>(this T dataObjectToSerialize, string knownValidXml, ITestOutputHelper? ouputForXmlSerialization = null)
-       where T : IIsoXmlSerilizable<T>
+       where T : IIsoXmlAsyncSerilizable<T>
     {
         var xDoc = new XmlDocument();
         xDoc.LoadXml(knownValidXml);

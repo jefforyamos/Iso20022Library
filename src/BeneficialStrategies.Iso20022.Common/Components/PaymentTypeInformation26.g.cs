@@ -7,15 +7,19 @@
 using BeneficialStrategies.Iso20022.Choices;
 using BeneficialStrategies.Iso20022.ExternalSchema;
 using BeneficialStrategies.Iso20022.UserDefined;
+using System.Xml;
+using System.Xml.Linq;
+using Helper = BeneficialStrategies.Iso20022.Framework.IsoXmlSerializationHelper<BeneficialStrategies.Iso20022.Components.PaymentTypeInformation26>;
 
 namespace BeneficialStrategies.Iso20022.Components;
 
 /// <summary>
 /// Provides further details of the type of payment.
 /// </summary>
-[DataContract]
+[DataContract(Namespace = "")]
 [XmlType]
 public partial record PaymentTypeInformation26
+     : IIsoXmlSerilizable<PaymentTypeInformation26>
 {
     #nullable enable
     
@@ -41,4 +45,31 @@ public partial record PaymentTypeInformation26
     public CategoryPurpose1Choice_? CategoryPurpose { get; init; } 
     
     #nullable disable
+    public static SerializationFormatter SerializationFormatter { get; set; } = SerializationFormatter.GlobalInstance;
+    public void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+        if (InstructionPriority is Priority2Code InstructionPriorityValue)
+        {
+            writer.WriteStartElement(null, "InstrPrty", xmlNamespace );
+            writer.WriteValue(InstructionPriorityValue.ToString()); // Enum value
+            writer.WriteEndElement();
+        }
+        // Not sure how to serialize ServiceLevel, multiplicity Unknown
+        if (LocalInstrument is LocalInstrument2Choice_ LocalInstrumentValue)
+        {
+            writer.WriteStartElement(null, "LclInstrm", xmlNamespace );
+            LocalInstrumentValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+        if (CategoryPurpose is CategoryPurpose1Choice_ CategoryPurposeValue)
+        {
+            writer.WriteStartElement(null, "CtgyPurp", xmlNamespace );
+            CategoryPurposeValue.Serialize(writer, xmlNamespace);
+            writer.WriteEndElement();
+        }
+    }
+    public static PaymentTypeInformation26 Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
 }

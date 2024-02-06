@@ -6,13 +6,28 @@
 
 using BeneficialStrategies.Iso20022.Components;
 using BeneficialStrategies.Iso20022.ExternalSchema;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace BeneficialStrategies.Iso20022.Choices.CategoryPurpose1Choice;
 
 /// <summary>
 /// Category purpose, as published in an external category purpose code list.
 /// </summary>
+[DataContract(Namespace = "")]
 public partial record Code : CategoryPurpose1Choice_
+     , IIsoXmlSerilizable<Code>
 {
+    [DataMember]
     public required ExternalCategoryPurpose1Code Value { get; init; }
+    
+    public override void Serialize(XmlWriter writer, string xmlNamespace)
+    {
+    }
+    
+    public static new Code Deserialize(XElement element)
+    {
+        throw new NotImplementedException();
+    }
+    
 }

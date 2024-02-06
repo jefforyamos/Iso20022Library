@@ -8,7 +8,7 @@ using Iso = BeneficialStrategies.Iso20022;
 
 namespace BeneficialStrategies.Iso20022.pain;
 
-public class CustomerCreditTransferInitiation : TestPublishedSample<Iso.pain.CustomerCreditTransferInitiationV11>
+public class CustomerCreditTransferInitiation : TestPublishedOuterRecordSample<Iso.pain.CustomerCreditTransferInitiationV11, Iso.pain.CustomerCreditTransferInitiationV11Document>
 {
     // https://www.iso20022.org/sites/default/files/2020-12/ISO20022_MDRPart1_PaymentsInitiation_2020_2021_v1_ForSEGReview.docx&ved=2ahUKEwjR39GZiomEAxX0TjABHSDID0oQFnoECB0QAQ&usg=AOvVaw0eSycRPoG1iFrAN0py8ziP&sxs=sb
     // https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.iso20022.org/sites/default/files/2020-12/ISO20022_MDRPart1_PaymentsInitiation_2020_2021_v1_ForSEGReview.docx&ved=2ahUKEwjR39GZiomEAxX0TjABHSDID0oQFnoECB0QAQ&usg=AOvVaw0eSycRPoG1iFrAN0py8ziP&sxs=sb
