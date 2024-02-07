@@ -6,6 +6,7 @@
 
 using System.Xml;
 using System.Xml.Linq;
+
 namespace BeneficialStrategies.Iso20022.Choices;
 
 /// <summary>
@@ -13,10 +14,25 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(CashAccountType2Choice.Code))]
 [KnownType(typeof(CashAccountType2Choice.Proprietary))]
-[DataContract(Namespace = "")]
 public abstract partial record CashAccountType2Choice_ : IIsoXmlSerilizable<CashAccountType2Choice_>
 {
+    /// <summary>
+    /// Serialize the state of this record per ISO 20022 specifications.
+    /// Abstract here, overridden in each of the concrete choices.
+    /// </summary>
     public abstract void Serialize(XmlWriter writer, string xmlNamespace);
     
-    public static CashAccountType2Choice_ Deserialize(XElement element) { throw new NotImplementedException(); }
+    /// <summary>
+    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
+    /// </summary>
+    public static CashAccountType2Choice_ Deserialize(XElement element)
+    {
+        var elementWithPayload = element;
+        return elementWithPayload.Name.LocalName switch
+        {
+             "Cd" => CashAccountType2Choice.Code.Deserialize(elementWithPayload),
+             "Prtry" => CashAccountType2Choice.Proprietary.Deserialize(elementWithPayload),
+            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid CashAccountType2Choice choice.")
+        };
+    }
 }

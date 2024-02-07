@@ -6,6 +6,7 @@
 
 using System.Xml;
 using System.Xml.Linq;
+
 namespace BeneficialStrategies.Iso20022.Choices;
 
 /// <summary>
@@ -13,10 +14,25 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(AddressType3Choice.Code))]
 [KnownType(typeof(AddressType3Choice.Proprietary))]
-[DataContract(Namespace = "")]
 public abstract partial record AddressType3Choice_ : IIsoXmlSerilizable<AddressType3Choice_>
 {
+    /// <summary>
+    /// Serialize the state of this record per ISO 20022 specifications.
+    /// Abstract here, overridden in each of the concrete choices.
+    /// </summary>
     public abstract void Serialize(XmlWriter writer, string xmlNamespace);
     
-    public static AddressType3Choice_ Deserialize(XElement element) { throw new NotImplementedException(); }
+    /// <summary>
+    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
+    /// </summary>
+    public static AddressType3Choice_ Deserialize(XElement element)
+    {
+        var elementWithPayload = element;
+        return elementWithPayload.Name.LocalName switch
+        {
+             "Cd" => AddressType3Choice.Code.Deserialize(elementWithPayload),
+             "Prtry" => AddressType3Choice.Proprietary.Deserialize(elementWithPayload),
+            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid AddressType3Choice choice.")
+        };
+    }
 }

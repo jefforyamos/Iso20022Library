@@ -6,6 +6,7 @@
 
 using System.Xml;
 using System.Xml.Linq;
+
 namespace BeneficialStrategies.Iso20022.Choices;
 
 /// <summary>
@@ -13,10 +14,25 @@ namespace BeneficialStrategies.Iso20022.Choices;
 /// </summary>
 [KnownType(typeof(Party38Choice.OrganisationIdentification))]
 [KnownType(typeof(Party38Choice.PrivateIdentification))]
-[DataContract(Namespace = "")]
 public abstract partial record Party38Choice_ : IIsoXmlSerilizable<Party38Choice_>
 {
+    /// <summary>
+    /// Serialize the state of this record per ISO 20022 specifications.
+    /// Abstract here, overridden in each of the concrete choices.
+    /// </summary>
     public abstract void Serialize(XmlWriter writer, string xmlNamespace);
     
-    public static Party38Choice_ Deserialize(XElement element) { throw new NotImplementedException(); }
+    /// <summary>
+    /// After detecting the choice being deserialized, defers the serialization of the element to the appropriate concrete choice record.
+    /// </summary>
+    public static Party38Choice_ Deserialize(XElement element)
+    {
+        var elementWithPayload = element;
+        return elementWithPayload.Name.LocalName switch
+        {
+             "OrgId" => Party38Choice.OrganisationIdentification.Deserialize(elementWithPayload),
+             "PrvtId" => Party38Choice.PrivateIdentification.Deserialize(elementWithPayload),
+            _ => throw new InvalidOperationException($@"Xml tag '{elementWithPayload.Name.LocalName}' does not correspond to a valid Party38Choice choice.")
+        };
+    }
 }
